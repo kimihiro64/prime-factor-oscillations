@@ -1,0 +1,131 @@
+version: "v0.4"
+project:
+  name: "Prime Factor Oscillations"
+  description: >-
+    Sharp reversal spectra for reciprocal-smooth prime-factor densities and
+    actual products of affine prime sums. Every fixed rank has a finite maximal
+    reversal count. The unconditional canonical double-exponential theorem is
+    retained; complete generic odd unimodality classification remains open.
+  authors: ["Jonas Whidden"]
+  license: "Apache-2.0"
+  responsible_maintainers: ["Jonas Whidden"]
+classification:
+  arxiv: ["math.NT"]
+  msc2020: ["11N05", "11N25"]
+sources:
+  - title: "A Complete Answer to Erdos Problem 690"
+    authors: ["Shouqiao Wang", "Davide Crapis"]
+    id: "arXiv:2605.08542v1"
+    type: "article"
+    location: "https://arxiv.org/html/2605.08542v1"
+    relationship: "adapts"
+    note: "The ordinary density and structural lemmas are reused; the quantitative extension is a separate theorem."
+    author_endorsement: "not-contacted"
+  - title: "Dense clusters of primes in subsets"
+    authors: ["James Maynard"]
+    id: "arXiv:1405.2593v2"
+    type: "article"
+    location: "https://arxiv.org/html/1405.2593"
+    relationship: "background"
+    note: "Background for quantitative clusters; the implementation extracts a concrete count from the separately pinned analytic development."
+    author_endorsement: "not-contacted"
+related_formalizations:
+  - id: "https://github.com/kimihiro64/erdos-690-prime-factor-unimodality/tree/ef3c9311d42b61db59f81d99741b5819d1986436"
+    relationship: "builds-on"
+    note: "Pinned released oleans; narrow unconditional leaves only. The dependency's conditional classification is not promoted."
+status:
+  scope: >-
+    Maintained unconditional canonical reversal bounds and exact positive
+    spectra for actual affine prime-pair factorization densities, including
+    all-rank finite maxima and the finite prime-gap phase profile. Local builds,
+    statement and axiom audits run in the pinned cached Windows environment.
+    The initial public source publication has no CI. Complete fresh-machine
+    analytic artifact setup, official Comparator/NanoDa and independent review
+    remain separate work.
+  sorry_count: 2
+  sorry_in_definitions: 0
+  axioms: []
+automation:
+  methods:
+    - method: "agent"
+      models: ["GPT-6"]
+      framework: "Codex"
+      tool_setup: "Lean 4.34.0, narrow Mathlib imports, cached dependency oleans, direct project-only compilation"
+      cost:
+        wall_time: "not tracked"
+        spend_usd: "not tracked"
+        hardware: "local Windows machine"
+      prompting_notes: "Remove generic fixtures and develop actual headline targets without assuming them."
+  spend_usd: "not tracked"
+  notes: "AI-assisted research; no independent human mathematical review claimed."
+fidelity:
+  divergences: >-
+    Exact reversal-count spectra and affine prime-pair products extend beyond
+    the ordinary classification question. The general law assumes
+    1/eta_p = p/nu + b + o(1). The arithmetic application proves its local laws
+    from fixed-modulus prime-pair counts. Input size tends to infinity first,
+    with family, rank and prime fixed. No moving-tail law or new gap bound
+    is claimed. Novelty remains subject to broader comparison and expert review.
+review:
+  status: "self-assessed research"
+  reviewers: []
+  notes: "Focused Lean compilation and axiom inspection; no independent expert review or release verification."
+alignment:
+  namespace: "PrimeFactorOscillations"
+  statements:
+    - source: "Generalized local-law first difference"
+      lean: "PrimeFactorOscillations.localStep_difference"
+      module: "PrimeFactorOscillations.Helpers.LocalFirstDifference"
+      status: "proved"
+      note: "Exact finite identity with explicit nonzero denominators."
+    - source: "Generic odd density gap criterion"
+      lean: "PrimeFactorOscillations.genericOdd_step_gt_iff"
+      module: "PrimeFactorOscillations.Helpers.LocalFirstDifference"
+      status: "proved"
+      note: "Exact finite-list criterion; canonical consecutive-prime consumers are maintained."
+    - source: "Finite maximal reversal count"
+      lean: "PrimeFactorOscillations.exists_reversalNumber_of_tail"
+      module: "PrimeFactorOscillations.Proof.Upper.FiniteMaximum"
+      status: "proved"
+      note: "The tail hypothesis is explicit here and is discharged for both canonical families by the maintained upper theorem."
+    - source: "Unconditional double-exponential reversal theorem"
+      lean: "PrimeFactorOscillations.doubleExponentialReversalBounds"
+      module: "PrimeFactorOscillations.Assembly.Headline"
+      status: "proved"
+      note: "The fixed positive constant is 1/602. Deliberate placeholders occur only in Challenge; Solution contains real proofs."
+    - source: "All-rank reciprocal-smooth sharp reversal spectrum"
+      lean: "PrimeFactorOscillations.ReciprocalSmoothLaw.exists_sharp_reversal_rate_all_ranks"
+      module: "PrimeFactorOscillations.Assembly.ReciprocalSmoothSpectrum"
+      status: "proved"
+      note: "Actual finite maxima at every rank; the exact rate is the supremum of gamma_H/(H+nu)."
+    - source: "Actual affine prime-pair arithmetic spectrum"
+      lean: "PrimeFactorOscillations.publicAffinePrimePairSpectrum"
+      module: "Solution"
+      status: "proved"
+      note: "Mathlib-only public statement of actual ordered prime-pair limits and the positive sharp reversal rate for every fixed family of distinct positive-coefficient affine factors."
+    - source: "Least full-frequency prime-gap class recovery"
+      lean: "PrimeFactorOscillations.exists_affine_arithmetic_rate_recovers_full_gap_class"
+      module: "PrimeFactorOscillations.Assembly.AffineSpectrum"
+      status: "proved"
+      note: "Large fixed degrees recover the least full-frequency gap class from the reciprocal rate; no numerical class is asserted."
+    - source: "Recurring-gap and late-ascent equivalence"
+      lean: "PrimeFactorOscillations.recurrent_short_gaps_iff_late_ascents"
+      module: "PrimeFactorOscillations.Assembly.GapRecurrence"
+      status: "proved"
+      note: "H>=1 and 1/(H+2)<b<1/(H+1); both rank and lower prime are unbounded."
+    - source: "Exact critical late-ascent scale"
+      lean: "PrimeFactorOscillations.late_ascent_critical_scale"
+      module: "PrimeFactorOscillations.Assembly.GapRecurrence"
+      status: "proved"
+      note: "Given recurrence and an eventual lower gap bound h, the threshold is 1/(h+1); equality is not asserted."
+    - source: "Conditional inverse twin-prime transfer"
+      lean: "PrimeFactorOscillations.infinitely_many_twins_of_late_ascent_supply"
+      module: "PrimeFactorOscillations.Proof.Upper.GapScaleCutoff"
+      status: "proved"
+      note: "The unbounded late-ascent supply at a fixed b>1/5 is an explicit hypothesis, not an established input."
+    - source: "Generic odd all-rank classification"
+      lean: "PrimeFactorOscillations.GenericOddCompleteClassification"
+      module: "PrimeFactorOscillations.Definitions.Targets"
+      status: "open proposition"
+      note: "A definition of the exact claim, neither a proof nor an assumption."
+acknowledgements: "Lean, Mathlib, the Erdos 690 dependency, and the cited mathematical sources."

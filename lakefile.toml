@@ -1,0 +1,32 @@
+name = "PrimeFactorOscillations"
+version = "0.1.0"
+defaultTargets = ["PrimeFactorOscillations", "Challenge", "Solution"]
+lintDriver = "batteries/runLinter"
+
+[leanOptions]
+autoImplicit = false
+relaxedAutoImplicit = false
+weak.linter.flexible = true
+weak.linter.mathlibStandardSet = true
+weak.linter.style.header = false
+
+[[require]]
+name = "mathlib"
+git = "https://github.com/leanprover-community/mathlib4.git"
+rev = "v4.34.0"
+
+[[require]]
+name = "PrimeFactorUnimodality"
+git = "https://github.com/kimihiro64/erdos-690-prime-factor-unimodality.git"
+rev = "ef3c9311d42b61db59f81d99741b5819d1986436"
+
+[[lean_lib]]
+name = "PrimeFactorOscillations"
+
+[[lean_lib]]
+name = "Challenge"
+roots = ["Challenge"]
+
+[[lean_lib]]
+name = "Solution"
+roots = ["Solution"]

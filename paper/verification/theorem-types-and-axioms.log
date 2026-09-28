@@ -1,0 +1,200 @@
+PrimeGaps.eventually_many_prime_windows_600 :
+  ∀ᶠ (N : ℕ) in Filter.atTop,
+    ↑N ^ (1 / 3) ≤ ↑{n ∈ Finset.Ioc N (2 * N) | 2 ≤ (Finset.filter Nat.Prime (Finset.Icc n (n + 600))).card}.card
+'PrimeGaps.eventually_many_prime_windows_600' depends on axioms: [propext, Classical.choice, Quot.sound]
+PrimeFactorOscillations.both_reversal_bounds_of_quantitative_prime_windows (H : ℕ) (delta a : ℝ) (hd : 0 < delta)
+  (ha : 0 < a) (haH : a < 1 / (↑H + 1))
+  (hsupply :
+    ∀ᶠ (N : ℕ) in Filter.atTop,
+      ↑N ^ delta ≤ ↑{n ∈ Finset.Ioc N (2 * N) | 2 ≤ (Finset.filter Nat.Prime (Finset.Icc n (n + H))).card}.card)
+  (epsilon : ℝ) :
+  0 < epsilon →
+    ∃ K,
+      1 ≤ K ∧
+        ∀ (k : ℕ),
+          K ≤ k →
+            PrimeFactorOscillations.ReversalBoundsAt (PrimeFactorOscillations.ordinaryDensity k) k a epsilon ∧
+              PrimeFactorOscillations.ReversalBoundsAt (PrimeFactorOscillations.genericOddDensity k) k a epsilon
+'PrimeFactorOscillations.both_reversal_bounds_of_quantitative_prime_windows' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PrimeFactorOscillations.doubleExponentialReversalBounds : PrimeFactorOscillations.DoubleExponentialReversalBounds
+'PrimeFactorOscillations.doubleExponentialReversalBounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+PrimeFactorOscillations.publicDoubleExponentialReversalBounds :
+  have density := fun eta k i =>
+    have p := Nat.nth Nat.Prime i;
+    eta p *
+      List.foldr (fun ell f t => Nat.rec ((1 - eta ell) * f 0) (fun j x => (1 - eta ell) * f (j + 1) + eta ell * f j) t)
+        (fun t => Nat.rec 1 (fun x x_1 => 0) t) ((Finset.filter Nat.Prime (Finset.range p)).sort fun a b => a ≤ b)
+        (k - 1);
+  have ordinary := density fun p => 1 / ↑p;
+  have odd := density fun p => if p = 2 then 0 else (↑p - 2) / (↑p - 1) ^ 2;
+  have witnesses := fun f m =>
+    ∃ descent ascent,
+      (∀ (j : Fin m), descent j < ascent j ∧ f (descent j + 1) < f (descent j) ∧ f (ascent j) < f (ascent j + 1)) ∧
+        ∀ (i j : Fin m), i < j → ascent i + 1 < descent j;
+  have maximum := fun f N => witnesses f N ∧ ∀ (m : ℕ), witnesses f m → m ≤ N;
+  have bounds := fun f k a epsilon =>
+    ∃ N, maximum f N ∧ Real.exp (Real.exp (a * ↑k)) ≤ ↑N ∧ ↑N ≤ Real.exp (Real.exp ((1 / 3 + epsilon) * ↑k));
+  ∃ a,
+    0 < a ∧
+      ∀ (epsilon : ℝ),
+        0 < epsilon → ∃ K, 1 ≤ K ∧ ∀ (k : ℕ), K ≤ k → bounds (ordinary k) k a epsilon ∧ bounds (odd k) k a epsilon
+'PrimeFactorOscillations.publicDoubleExponentialReversalBounds' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PrimeFactorOscillations.ReciprocalSmoothLaw.exists_sharp_reversal_rate_all_ranks
+  (law : PrimeFactorOscillations.ReciprocalSmoothLaw) :
+  ∃ n,
+    (∀ (k : ℕ), PrimeFactorOscillations.HasReversalNumber (law.rankDensity k) (n k)) ∧
+      Filter.limsup (fun k => Real.log (Real.log (3 + ↑(n k))) / ↑k) Filter.atTop =
+        PrimeFactorOscillations.primeGapSpectrum law.nu
+'PrimeFactorOscillations.ReciprocalSmoothLaw.exists_sharp_reversal_rate_all_ranks' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PrimeFactorOscillations.AffineSumFamily.exists_sharp_arithmetic_reversal_rate_all_ranks
+  (F : PrimeFactorOscillations.AffineSumFamily) :
+  ∃ d n,
+    (∀ (k i : ℕ),
+        Filter.Tendsto
+          (fun N =>
+            PrimeFactorOscillations.primePairProbability N fun ab =>
+              PrimeFactorUnimodality.IsKthDistinctPrimeFactor (F.value ab.1 ab.2).natAbs k
+                (PrimeFactorUnimodality.primeAt i))
+          Filter.atTop (nhds (d k i))) ∧
+      (∀ (k : ℕ), PrimeFactorOscillations.HasReversalNumber (d k) (n k)) ∧
+        Filter.limsup (fun k => Real.log (Real.log (3 + ↑(n k))) / ↑k) Filter.atTop =
+            PrimeFactorOscillations.primeGapSpectrum ↑F.arity ∧
+          0 < PrimeFactorOscillations.primeGapSpectrum ↑F.arity
+'PrimeFactorOscillations.AffineSumFamily.exists_sharp_arithmetic_reversal_rate_all_ranks' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PrimeFactorOscillations.exists_affine_arithmetic_rate_recovers_full_gap_class :
+  ∃ J V,
+    2 ≤ J ∧
+      PrimeFactorOscillations.primeGapFrequencyExponent J = 1 ∧
+        ∀ (F : PrimeFactorOscillations.AffineSumFamily),
+          V ≤ F.arity →
+            ∃ d n,
+              (∀ (k i : ℕ),
+                  Filter.Tendsto
+                    (fun N =>
+                      PrimeFactorOscillations.primePairProbability N fun ab =>
+                        PrimeFactorUnimodality.IsKthDistinctPrimeFactor (F.value ab.1 ab.2).natAbs k
+                          (PrimeFactorUnimodality.primeAt i))
+                    Filter.atTop (nhds (d k i))) ∧
+                (∃ K, ∀ (k : ℕ), K ≤ k → PrimeFactorOscillations.HasReversalNumber (d k) (n k)) ∧
+                  1 / Filter.limsup (fun k => Real.log (Real.log (3 + ↑(n k))) / ↑k) Filter.atTop - ↑F.arity = ↑J
+'PrimeFactorOscillations.exists_affine_arithmetic_rate_recovers_full_gap_class' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PrimeFactorOscillations.publicAffinePrimePairSpectrum :
+  have prime := fun i => Nat.nth Nat.Prime i;
+  have gapCount := fun H X => {i ∈ Finset.range X | prime i ≤ X ∧ prime (i + 1) - prime i ≤ H}.card;
+  have gamma := fun H =>
+    Filter.limsup (fun X => Real.log (Real.log (3 + ↑(gapCount H X))) / Real.log (Real.log ↑X)) Filter.atTop;
+  have witnesses := fun f j =>
+    ∃ descent ascent,
+      (∀ (t : Fin j), descent t < ascent t ∧ f (descent t + 1) < f (descent t) ∧ f (ascent t) < f (ascent t + 1)) ∧
+        ∀ (s t : Fin j), s < t → ascent s + 1 < descent t;
+  have maximum := fun f j => witnesses f j ∧ ∀ (h : ℕ), witnesses f h → h ≤ j;
+  ∀ (m : ℕ),
+    0 < m →
+      ∀ (c shift : Fin m → ℤ),
+        (∀ (j : Fin m), 0 < c j) →
+          (∀ (i j : Fin m), ¬i = j → ¬c i * shift j = c j * shift i) →
+            have value := fun a b => ∏ j, (c j * (↑a + ↑b) + shift j);
+            ∃ density counts,
+              (∀ (k : ℕ),
+                  1 ≤ k →
+                    ∀ (i : ℕ),
+                      Filter.Tendsto
+                        (fun X =>
+                          ↑{ab ∈ X.primesLE ×ˢ X.primesLE |
+                                  Nat.Prime (prime i) ∧
+                                    prime i ∣ (value ab.1 ab.2).natAbs ∧
+                                      ¬(value ab.1 ab.2).natAbs = 0 ∧
+                                        {ell ∈ (value ab.1 ab.2).natAbs.primeFactors | ell < prime i}.card =
+                                          k - 1}.card /
+                            ↑X.primeCounting ^ 2)
+                        Filter.atTop (nhds (density k i))) ∧
+                (∀ (k : ℕ), 1 ≤ k → maximum (density k) (counts k)) ∧
+                  Filter.limsup (fun k => Real.log (Real.log (3 + ↑(counts k))) / ↑k) Filter.atTop =
+                      sSup (Set.range fun j => gamma (j + 2) / (↑j + 2 + ↑m)) ∧
+                    0 < sSup (Set.range fun j => gamma (j + 2) / (↑j + 2 + ↑m))
+'PrimeFactorOscillations.publicAffinePrimePairSpectrum' depends on axioms: [propext, Classical.choice, Quot.sound]
+PrimeFactorOscillations.recurrent_short_gaps_iff_late_ascents (H : ℕ) (hH : 1 ≤ H) (b : ℝ) (hb : 1 / (↑H + 2) < b)
+  (hupper : b < 1 / (↑H + 1)) :
+  (∀ (Q : ℕ),
+      ∃ i,
+        Q ≤ PrimeFactorUnimodality.primeAt i ∧
+          PrimeFactorUnimodality.primeAt (i + 1) ≤ PrimeFactorUnimodality.primeAt i + H) ↔
+    ∀ (K Q : ℕ),
+      ∃ k i,
+        K ≤ k ∧
+          Q ≤ PrimeFactorUnimodality.primeAt i ∧
+            b * ↑k ≤ Real.log (Real.log ↑(PrimeFactorUnimodality.primeAt i - 1)) ∧
+              PrimeFactorOscillations.genericOddDensity k i < PrimeFactorOscillations.genericOddDensity k (i + 1) ∧
+                PrimeFactorOscillations.ordinaryDensity k i < PrimeFactorOscillations.ordinaryDensity k (i + 1)
+'PrimeFactorOscillations.recurrent_short_gaps_iff_late_ascents' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PrimeFactorOscillations.late_ascent_critical_scale (h : ℕ) (hh : 1 ≤ h)
+  (hrec :
+    ∀ (Q : ℕ),
+      ∃ i,
+        Q ≤ PrimeFactorUnimodality.primeAt i ∧
+          PrimeFactorUnimodality.primeAt (i + 1) ≤ PrimeFactorUnimodality.primeAt i + h)
+  (hmin :
+    ∃ Q,
+      ∀ (i : ℕ),
+        Q ≤ PrimeFactorUnimodality.primeAt i →
+          PrimeFactorUnimodality.primeAt i + h ≤ PrimeFactorUnimodality.primeAt (i + 1)) :
+  (∀ (b : ℝ),
+      0 < b →
+        b < 1 / (↑h + 1) →
+          ∀ (K Q : ℕ),
+            ∃ k i,
+              K ≤ k ∧
+                Q ≤ PrimeFactorUnimodality.primeAt i ∧
+                  b * ↑k ≤ Real.log (Real.log ↑(PrimeFactorUnimodality.primeAt i - 1)) ∧
+                    PrimeFactorOscillations.genericOddDensity k i <
+                        PrimeFactorOscillations.genericOddDensity k (i + 1) ∧
+                      PrimeFactorOscillations.ordinaryDensity k i < PrimeFactorOscillations.ordinaryDensity k (i + 1)) ∧
+    ∀ (b : ℝ),
+      1 / (↑h + 1) < b →
+        ∃ K Q,
+          ∀ (k i : ℕ),
+            K ≤ k →
+              Q ≤ PrimeFactorUnimodality.primeAt i →
+                b * ↑k ≤ Real.log (Real.log ↑(PrimeFactorUnimodality.primeAt i - 1)) →
+                  PrimeFactorOscillations.genericOddDensity k (i + 1) < PrimeFactorOscillations.genericOddDensity k i ∧
+                    PrimeFactorOscillations.ordinaryDensity k (i + 1) < PrimeFactorOscillations.ordinaryDensity k i
+'PrimeFactorOscillations.late_ascent_critical_scale' depends on axioms: [propext, Classical.choice, Quot.sound]
+PrimeFactorOscillations.ascent_above_one_fifth_forces_twins (b : ℝ) (hb : 1 / 5 < b) :
+  ∃ K Q,
+    2 ≤ K ∧
+      3 ≤ Q ∧
+        ∀ (k : ℕ),
+          K ≤ k →
+            ∀ (i : ℕ),
+              Q ≤ PrimeFactorUnimodality.primeAt i →
+                b * ↑k ≤ Real.log (Real.log ↑(PrimeFactorUnimodality.primeAt i - 1)) →
+                  PrimeFactorOscillations.ordinaryDensity k i < PrimeFactorOscillations.ordinaryDensity k (i + 1) ∨
+                      PrimeFactorOscillations.genericOddDensity k i <
+                        PrimeFactorOscillations.genericOddDensity k (i + 1) →
+                    PrimeFactorUnimodality.primeAt (i + 1) = PrimeFactorUnimodality.primeAt i + 2
+'PrimeFactorOscillations.ascent_above_one_fifth_forces_twins' depends on axioms: [propext, Classical.choice, Quot.sound]
+PrimeFactorOscillations.infinitely_many_twins_of_late_ascent_supply (b : ℝ) (hb : 1 / 5 < b)
+  (hsupply :
+    ∀ (K Q : ℕ),
+      ∃ k i,
+        K ≤ k ∧
+          Q ≤ PrimeFactorUnimodality.primeAt i ∧
+            b * ↑k ≤ Real.log (Real.log ↑(PrimeFactorUnimodality.primeAt i - 1)) ∧
+              (PrimeFactorOscillations.ordinaryDensity k i < PrimeFactorOscillations.ordinaryDensity k (i + 1) ∨
+                PrimeFactorOscillations.genericOddDensity k i < PrimeFactorOscillations.genericOddDensity k (i + 1)))
+  (X : ℕ) : ∃ p, X ≤ p ∧ Nat.Prime p ∧ Nat.Prime (p + 2)
+'PrimeFactorOscillations.infinitely_many_twins_of_late_ascent_supply' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

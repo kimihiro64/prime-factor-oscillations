@@ -1,0 +1,314 @@
+% SPDX-License-Identifier: Apache-2.0 OR CC-BY-4.0
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm,hyperref}
+\newtheorem{theorem}{Theorem}
+\setlength{\emergencystretch}{2em}
+\title{Sharp reversal spectra for affine prime-pair factorization}
+\author{Jonas Whidden}
+\date{Research draft, 28 September 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We identify the exact double-logarithmic upper growth rate of maximal
+separated descent--ascent counts for reciprocal-smooth prime-factor laws.
+Every fixed rank has an attained finite maximum. We prove the arithmetic
+application to products of distinct affine forms in the sum of two primes,
+including all finite local exceptions. The rate is a spectrum of actual
+bounded-prime-gap frequencies and has a finite phase profile. We also prove
+an exact threshold equivalence between recurring short gaps and late
+ascents in the two canonical laws. The maintained Lean proofs use only
+standard foundational axioms. This AI-assisted research draft records
+statements and proof structure; independent review and novelty assessment
+remain separate work.
+\end{abstract}
+
+The source and theorem ledger are available in the
+\href{https://github.com/kimihiro64/prime-factor-oscillations}{public repository}.
+The first-difference and symmetric-polynomial method builds on
+Wang--Crapis~\cite{WC}; quantitative prime clusters provide an established
+analytic input~\cite{Maynard}. The spectrum and affine-product application
+are separate developments whose novelty remains subject to review.
+
+\section{Objects and theorem}
+Index the primes by $p_i$, starting at $i=0$. For fixed local probabilities
+$\eta_p$, define
+\[
+ D_k(p)=\eta_p[z^{k-1}]\prod_{q<p}(1-\eta_q+\eta_q z).
+\]
+We consider the ordinary law $\eta_p=1/p$ and the generic odd law
+$\eta_2=0$, $\eta_p=(p-2)/(p-1)^2$ for odd primes.
+The defining input-size density limit precedes the limit in rank $k$.
+
+A witness consists of $d<a$ with $D_k(p_{d+1})<D_k(p_d)$ and
+$D_k(p_a)<D_k(p_{a+1})$. Witnesses are strictly separated:
+$a_i+1<d_j$ for $i<j$. Let $N(k)$ be the attained maximum number.
+
+\begin{theorem}
+For both canonical laws, there is a common $a>0$ such that for every
+$\epsilon>0$ and all sufficiently large $k$,
+\[
+ \exp(\exp(ak))\le N(k)\le
+ \exp\!\left(\exp\!\left((1/3+\epsilon)k\right)\right).
+\]
+The implementation takes $a=1/602$.
+\end{theorem}
+Each fixed-rank sequence eventually strictly decreases. This theorem
+concerns growing ranks, not infinitely many reversals at one fixed rank.
+
+\section{Proof structure}
+Put $w_q=\eta_q/(1-\eta_q)$ and let $E_r$ be the elementary symmetric
+polynomial in the weights below $p$. With supported degree and positive
+denominators, the sign of the step from $p$ to the next prime $p'$ is the
+sign of
+\[
+ \frac{E_{r-1}}{E_r}
+ -\left(\frac1{\eta_{p'}}-\frac1{\eta_p}+1\right).
+\]
+The threshold is $p'-p+1$ ordinarily, and for generic odd primes is
+\[
+ p'-p+1-\frac{p'-p}{(p-2)(p'-2)}.
+\]
+Exceptional small primes are handled before using these formulas.
+
+Writing $S=\sum_{q<p}w_q$ and $W_{r-1}$ for the largest $r-1$ weights,
+the bounds
+\[
+ \frac rS\le\frac{E_{r-1}}{E_r}\le\frac r{S-W_{r-1}}
+\]
+combine with $S=\log\log p+O(1)$ and a uniform bound for $W_{r-1}$.
+Above $\log\log p=(1/3+\epsilon)k$, they force strict descent.
+An eventual nonincreasing tail bounds every separated witness family;
+a finite maximum is attained.
+
+For the lower bound, the quantitative prime-window input supplies at least
+$X^{1/3}$ starts in $[X,2X]$ whose width-600 windows contain two primes,
+for all sufficiently large $X$. The source extraction and its external
+analytic artifacts are pinned and audited. Bare infinitude of bounded
+prime gaps is insufficient here.
+
+Factorial cells provide a preceding long gap. A bounded-fiber argument
+and ordered thinning give genuine consecutive-prime indices with the required
+strict disjointness. The uniform sign criteria turn each selected pair
+of long and short gaps into a reversal. More generally, an eventual
+$X^\delta$ supply of fixed width $H$, with $\delta>0$, gives the lower
+bound for every $0<a<1/(H+1)$. All loss constants are fixed before $k$
+grows; they are absorbed on the double-exponential scale.
+Taking $H=600$, $\delta=1/3$ and $a=1/602$ closes the displayed theorem.
+The chosen width is a conservative formally closed input, not a literature
+claim about the smallest available gap.
+
+\section{Late ascents and recurring prime gaps}
+A late ascent at coefficient $b>0$ means consecutive primes $p<q$ and a
+rank $k$ satisfying
+\[
+ \log\log(p-1)\ge bk,\qquad D_k(q)>D_k(p).
+\]
+Unbounded supply means that such a pair exists for every prescribed lower
+bound on \emph{both} $k$ and $p$.
+
+\begin{theorem}
+Let $H\ge1$ be an integer and
+$1/(H+2)<b<1/(H+1)$. Infinitely many consecutive prime gaps are at most $H$
+if and only if for every $K,Q$ there exist $k\ge K$ and consecutive primes
+$p<q$ with $p\ge Q$ and $\log\log(p-1)\ge bk$, at which both the ordinary
+and generic odd rank densities strictly ascend.
+
+More precisely, suppose gaps at most $h\ge1$ recur arbitrarily far out,
+and every sufficiently late gap is at least $h$. Then $1/(h+1)$ is the
+critical coefficient: every smaller positive coefficient has unbounded
+simultaneous ascent supply; above every larger coefficient, both densities
+strictly descend for all sufficiently large ranks and lower primes.
+No assertion at the boundary coefficient is included.
+\end{theorem}
+
+Here is the mechanism behind the converse. For any fixed integer $H\ge0$
+and $b>1/(H+1)$, choose
+\[
+ \frac1{H+1}<a<b.
+\]
+The uniform symmetric-ratio estimates give $E_{k-2}/E_{k-1}\le1/a$
+at sufficiently large $k,p$ with $\log\log(p-1)\ge bk$.
+Since $1/a<H+1$, the ordinary threshold $q-p+1$ forbids an ascent
+whenever $q-p\ge H$. In the odd law its correction is bounded by
+$1/(p-2)$, which is absorbed by the same fixed strict margin.
+Thus unbounded ascent supply forces recurring gaps strictly below $H$.
+Apply this with $H+1$ to obtain gaps at most $H$ in the equivalence.
+
+For the forward direction choose a scale $a>b$ with $(H+1)a<1$,
+and assign ranks to arbitrarily late short gaps so that
+$\log\log(p-1)/k$ tends to $a$. The lower symmetric-ratio bound tends to
+$1/a>H+1$, forcing both ascents. The rank-rounding and finite starting
+exceptions disappear inside the fixed strict margins. For the upper
+critical statement, use the eventual lower bound $q-p\ge h$; for its
+lower statement, use recurrence at most $h$.
+
+In particular, for every fixed $b>1/5$, a sufficiently late ascent in
+either canonical law must cross a twin-prime gap. Indeed, the converse
+with $H=4$ excludes every gap at least four, and odd-prime gaps are
+positive even integers. An independently proved unbounded supply would
+therefore imply infinitely many twin primes. This conditional implication
+is proved; its supply hypothesis is open. It yields no unconditional new
+gap bound, and one finite example cannot certify the supply.
+
+\section{Exact spectrum and every fixed rank}
+Let $G_H(X)$ count consecutive prime gaps at most $H$ whose lower prime is
+at most $X$, and put
+\[
+ \gamma_H=\limsup_{X\to\infty}
+ \frac{\log\log(3+G_H(X))}{\log\log X},\qquad
+ \Lambda(\nu)=\sup_{H\ge2}\frac{\gamma_H}{H+\nu}.
+\]
+The cutoffs $X$ may be taken over the natural numbers.
+
+\begin{theorem}
+Fix $\nu>0$ and a prime probability law $0\le\eta_p\le1$ such that
+\[
+ \eta_p^{-1}=p/\nu+b+o(1)
+\]
+along the primes. Every fixed-rank density sequence is eventually
+nonincreasing and has an attained finite maximal reversal count $N_\eta(k)$.
+Moreover,
+\[
+ \limsup_{k\to\infty}\frac{\log\log(3+N_\eta(k))}{k}
+   =\Lambda(\nu)>0.
+\]
+\end{theorem}
+All parameters of the law are fixed before $k$ grows. This is a limsup
+statement; the weaker assumption $\eta_p=\nu/p+O(p^{-2})$ alone is not its
+hypothesis.
+
+Finite forced coordinates give exact rank shifts, and excluded coordinates
+can be erased. On prime prefixes, the interior odds sum is
+$\nu\log\log p+O(1)$ and the largest $r$ odds have total $O(1+\log r)$.
+These estimates yield uniform growing-rank ratios even at arbitrarily
+large prime cutoffs.
+
+For the lower spectrum, choose a rate below $\gamma_H/(H+\nu)$. Infinitely
+late actual gap counts supply short gaps in a suitable double-exponential
+band. Preceding factorial-cell descents, bounded fibers and ordered thinning
+retain the rate and give strictly separated witnesses. The deleted initial
+segment and fixed multiplicity losses are kept before taking limits.
+For the upper spectrum, retain each short gap's individual cutoff. The
+finite envelope has the form
+\[
+ N_\eta(k)\le T_k+\sum_{2\le g\le J}G_g(U_g(k)),
+ \qquad
+ \log\log U_g(k)\le \left(\frac1{g+\nu}+\epsilon\right)k.
+\]
+The initial term and the fixed finite sum are absorbed before letting
+$\epsilon$ tend to zero. This yields the matching upper rate.
+
+For a fixed degree $r\ge1$, write $M_r(p)$ for its Bernoulli prefix mass.
+The same finite bounds, with the exact forced-coordinate cases, give
+$M_{r-1}(p)\le M_r(p)/2$ eventually. At consecutive sufficiently large
+primes $p<q$, the exact signed identity is
+\[
+ D_{r+1}(q)-D_{r+1}(p)=
+ \eta_p\eta_q\left[
+ M_{r-1}(p)-(\eta_q^{-1}-\eta_p^{-1}+1)M_r(p)\right].
+\]
+Reciprocal control makes the threshold at least $1/2$ eventually.
+The degree-zero recurrence handles rank one. Hence all fixed ranks,
+including eventual zero tails, are eventually nonincreasing.
+
+The quantitative window input gives a class with $\gamma_H=1$. Let $H_*$
+be the least such class. The spectrum is attained among $2\le H\le H_*$
+for every fixed $\nu>0$. Since there are only finitely many smaller classes
+and each has exponent less than one, for all sufficiently large fixed $\nu$,
+\[
+ \Lambda(\nu)=\frac1{\nu+H_*},\qquad
+ \frac1{\Lambda(\nu)}-\nu=H_*.
+\]
+No numerical value of $H_*$ is asserted. The condition $\gamma_H=1$
+is a double-logarithmic limsup condition; it does not assert positive
+density, nor a fixed positive-power lower bound at every large cutoff.
+
+\section{Actual affine prime-pair densities}
+Fix a nonempty family
+\[
+ F(p,q)=\prod_{j=1}^{m}\bigl(c_j(p+q)+d_j\bigr),
+\]
+where $c_j$ are positive integers, $d_j$ are integers, and
+$c_i d_j\ne c_j d_i$ for $i\ne j$. Sample all ordered prime pairs
+$p,q\le X$, including the diagonal, with denominator $\pi(X)^2$.
+\begin{theorem}
+For every fixed positive rank $k$ and prime $\ell$, the density of $\ell$
+as the $k$th smallest distinct prime factor of $|F(p,q)|$ exists.
+Its sequence over $\ell$ has finite maximal reversal counts at every
+rank, and its exact upper growth rate is $\Lambda(m)$.
+\end{theorem}
+For each fixed modulus, normalized prime input counts become uniform over
+the units, while nonunit input classes vanish. Exact unit-pair CRT counting
+therefore proves joint divisibility independence for every fixed finite
+set of primes. Summing its atoms by cardinality gives the finite Bernoulli
+rank formula. Zero outputs satisfy $p+q\le\sum_j|d_j|$ and contribute a
+vanishing finite correction.
+
+At every prime, the local probability is the exact count of unit pairs
+annihilating $F$, divided by $(\ell-1)^2$. Outside the finite coefficient,
+shift and determinant exceptions,
+\[
+ \eta_\ell=\frac{m(\ell-2)+z}{(\ell-1)^2},\qquad
+ \eta_\ell^{-1}=\frac{\ell}{m}-\frac{z}{m^2}+o(1),
+\]
+where $z=1$ if one shift is zero, and $z=0$ otherwise. Thus the general
+theorem applies with $\nu=m$ without discarding any exceptional prime.
+The input-size limit is taken first at each fixed family, rank and prime;
+the rank limsup follows separately for that fixed family. This concerns
+representation-weighted outputs, not uniform integers.
+
+\section{Formal statement and remaining research}
+The maintained general and arithmetic assemblies prove the reciprocal-smooth
+spectrum and the affine prime-pair application. Challenge states the canonical
+bound and arithmetic spectrum directly over Mathlib primitives; Solution
+contains their real proofs. The theorem ledger below identifies their exact
+declaration names and source owners. The local audit compares both compiled types
+in separate environments and checks twelve theorem closures, including the
+late-ascent equivalence and the conditional inverse twin-prime transfer. The deliberate
+Challenge placeholders do not enter the Solution proof closures.
+
+The pinned Erdos 690 dependency supplies narrow ordinary-density leaves;
+its conditional classification is not promoted. The dependency is never
+rebuilt or redistributed here: its published cache is reused directly.
+Shared Windows Lean 4.34.0 artifacts are used by probes and maintained
+builds. Additional analytic ports are hash-pinned, but their upstream
+compatibility publication remains pending; the Erdos cache alone does not
+provide a complete fresh-machine setup. Official Comparator/NanoDa
+verification is separate from the local compiled-type check.
+
+The repository provides
+\href{https://github.com/kimihiro64/prime-factor-oscillations/blob/main/Challenge.lean}{Challenge},
+\href{https://github.com/kimihiro64/prime-factor-oscillations/blob/main/Solution.lean}{Solution},
+the \href{https://github.com/kimihiro64/prime-factor-oscillations/blob/main/PrimeFactorOscillations/Assembly/AffineSpectrum.lean}{affine assembly},
+the \href{https://github.com/kimihiro64/prime-factor-oscillations/blob/main/PrimeFactorOscillations/Assembly/GapRecurrence.lean}{recurrence equivalence},
+a \href{https://github.com/kimihiro64/prime-factor-oscillations/blob/main/paper/THEOREM_STATUS.md}{theorem and provenance ledger},
+and \href{https://github.com/kimihiro64/prime-factor-oscillations/blob/main/BUILD.md}{build instructions}.
+These branch links are mutable navigation links. The verification record
+identifies the source and artifact hashes used for the initial publication.
+This work used AI assistance for research, proof development and exposition;
+no independent expert mathematical review is claimed.
+
+Independent late-ascent supply beyond inherited prime-gap inputs, the
+numerical spectrum, complete generic odd unimodality classification,
+and minimal regularity needed for finite fixed-rank reversal counts remain
+research questions. Exact ownership cancellation is a separate direction.
+No new prime-gap bound, twin-prime theorem, moving-tail Dickman law,
+Goldbach representation lower bound or RH energy contraction is claimed.
+The spectrum and arithmetic application are potentially new results;
+negative literature searches and successful formal builds do not establish
+publication significance.
+
+\begin{thebibliography}{9}
+\bibitem{WC}
+S. Wang and D. Crapis,
+\emph{A Complete Answer to Erdos Problem 690},
+arXiv:2605.08542v1 (2026).
+\bibitem{Maynard}
+J. Maynard, \emph{Dense clusters of primes in subsets},
+Compositio Mathematica 152 (2016),
+doi:10.1112/S0010437X16007296; arXiv:1405.2593v2.
+\end{thebibliography}
+\bigskip
+\noindent Copyright 2026 Jonas Whidden. Original text: Apache License 2.0 or CC BY 4.0,
+at the recipient's option.
+\end{document}
