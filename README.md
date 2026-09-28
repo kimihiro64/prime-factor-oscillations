@@ -30,7 +30,8 @@ Sample all ordered prime pairs $p,q\le X$, including the diagonal, with
 normalization $\pi(X)^2$. The theorem proves:
 
 - **Existence:** for each fixed rank $k\ge1$ and prime $\ell$, the density of
-  $\ell$ as the $k$th smallest distinct prime factor of $|F(p,q)|$ exists.
+  $\ell$ as the prime factor of rank $k$ in $|F(p,q)|$ exists, counting distinct
+  prime factors in increasing order.
 - **Finiteness:** at every fixed rank, the density is eventually nonincreasing.
   Its maximum number $N_F(k)$ of separated descent-then-ascent occurrences is
   finite and attained.
@@ -74,8 +75,8 @@ Their common exact limsup rate is $\Lambda(1)$. Each fixed-rank sequence is
 eventually strictly decreasing.
 
 The numerical constant uses a conservative, formally closed prime-window
-input. The general transfer works for every $0<a<1/(H+1)$ when width-$H$
-windows have an eventual positive-power counting lower bound. Bare
+input. The general transfer works for every $0<a<1/(H+1)$ when windows of
+width $H$ have an eventual positive-power counting lower bound. Bare
 infinitude of bounded gaps is not enough for that counting statement.
 
 ## Why late ascents matter
