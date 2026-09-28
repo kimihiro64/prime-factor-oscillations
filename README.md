@@ -71,14 +71,14 @@ $$
 along sufficiently large primes. Finite forced and excluded coordinates are
 allowed. The weaker estimate $\eta_p=\nu/p+O(p^{-2})$ alone is not its hypothesis.
 
-The spectrum is a maximum over finitely many gap classes. If $H_*$ is the
-least class with $\gamma_{H_*}=1$, then for sufficiently large fixed $\nu$,
+The spectrum is a maximum over finitely many gap classes. If $H_{\ast}$ is the
+least class with $\gamma_{H_{\ast}}=1$, then for sufficiently large fixed $\nu$,
 
 $$
-\Lambda(\nu)=\frac1{H_*+\nu}.
+\Lambda(\nu)=\frac1{H_{\ast}+\nu}.
 $$
 
-This recovers $H_*$ from the rate. Its numerical value is not determined here.
+This recovers $H_{\ast}$ from the rate. Its numerical value is not determined here.
 The condition $\gamma_H=1$ is a double-logarithmic limsup condition, not a
 positive-density claim.
 
@@ -107,7 +107,7 @@ $$
 
 The lower constant uses a conservative, formally closed width-600 prime-window
 count. The general transfer allows every coefficient below $1/(H+1)$ when
-width-$H$ windows have an eventual positive-power counting lower bound.
+windows of width $H$ have an eventual positive-power counting lower bound.
 Bare infinitude of bounded gaps does not supply that count.
 
 ## Late ascents and prime gaps
