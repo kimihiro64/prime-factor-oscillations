@@ -39,7 +39,7 @@ normalization $\pi(X)^2$. The theorem proves:
 
 $$
 \limsup_{k\to\infty}\frac{\log\log\bigl(3+N_F(k)\bigr)}{k}
-=\Lambda(m)>0.
+=\Lambda(m)\gt 0.
 $$
 
 The rate $\Lambda$ is determined by how frequently bounded prime gaps occur.
@@ -62,7 +62,7 @@ fixed rank.
 
 For the ordinary integer density and the generic odd local law, the
 [canonical theorem](PrimeFactorOscillations/Assembly/Headline.lean) gives,
-for every $\varepsilon>0$ and all sufficiently large $k$,
+for every $\varepsilon\gt 0$ and all sufficiently large $k$,
 
 $$
 \exp\bigl(\exp(ak)\bigr)
@@ -75,7 +75,7 @@ Their common exact limsup rate is $\Lambda(1)$. Each fixed-rank sequence is
 eventually strictly decreasing.
 
 The numerical constant uses a conservative, formally closed prime-window
-input. The general transfer works for every $0<a<1/(H+1)$ when windows of
+input. The general transfer works for every $0\lt a\lt 1/(H+1)$ when windows of
 width $H$ have an eventual positive-power counting lower bound. Bare
 infinitude of bounded gaps is not enough for that counting statement.
 
@@ -85,7 +85,7 @@ The [recurrence theorem](PrimeFactorOscillations/Assembly/GapRecurrence.lean)
 proves a two-way connection. For an integer $H\ge1$ and
 
 $$
-\frac1{H+2}<b<\frac1{H+1},
+\frac1{H+2}\lt b\lt \frac1{H+1},
 $$
 
 recurring consecutive prime gaps at most $H$ are equivalent to simultaneous
@@ -105,7 +105,7 @@ coefficient is not covered.
 
 The [inverse transfer](PrimeFactorOscillations/Proof/Upper/GapScaleCutoff.lean)
 also proves that sufficiently late ascents beyond any fixed coefficient
-$b>1/5$ must cross twin primes. **An independent unbounded supply of such
+$b\gt 1/5$ must cross twin primes. **An independent unbounded supply of such
 ascents remains open.** The implication is proved; no new prime-gap bound
 or twin-prime theorem is claimed.
 
@@ -122,7 +122,7 @@ $$
 $$
 
 The [general theorem](PrimeFactorOscillations/Assembly/ReciprocalSmoothSpectrum.lean)
-applies to each fixed local probability law with $\nu>0$, $0\le\eta_p\le1$,
+applies to each fixed local probability law with $\nu\gt 0$, $0\le\eta_p\le1$,
 and
 
 $$
