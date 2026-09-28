@@ -38,7 +38,7 @@ normalization $\pi(X)^2$. The theorem proves:
 - **Exact growth:** the double-logarithmic upper growth rate is
 
 $$
-\limsup_{k\to\infty}\frac{\log\log\!\bigl(3+N_F(k)\bigr)}{k}
+\limsup_{k\to\infty}\frac{\log\log\bigl(3+N_F(k)\bigr)}{k}
 =\Lambda(m)>0.
 $$
 
@@ -65,9 +65,9 @@ For the ordinary integer density and the generic odd local law, the
 for every $\varepsilon>0$ and all sufficiently large $k$,
 
 $$
-\exp\!\bigl(\exp(ak)\bigr)
+\exp\bigl(\exp(ak)\bigr)
 \le N(k)\le
-\exp\!\bigl(\exp((1/3+\varepsilon)k)\bigr),
+\exp\bigl(\exp((1/3+\varepsilon)k)\bigr),
 \qquad a=\frac1{602}.
 $$
 
@@ -116,7 +116,7 @@ at most $X$. Then
 
 $$
 \gamma_H=\limsup_{X\to\infty}
-\frac{\log\log\!\bigl(3+G_H(X)\bigr)}{\log\log X},
+\frac{\log\log\bigl(3+G_H(X)\bigr)}{\log\log X},
 \qquad
 \Lambda(\nu)=\sup_{H\ge2}\frac{\gamma_H}{H+\nu}.
 $$
