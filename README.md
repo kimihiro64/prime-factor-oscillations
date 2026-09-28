@@ -1,173 +1,159 @@
 # Prime Factor Oscillations
 
-**Prime-factor densities, double-exponential reversals, and recurring prime gaps.**
+**How often can a prime-factor density fall and rise again—and what do those reversals reveal about prime gaps?**
 
-Formalized in Lean 4.34.0.
+[Read the paper](paper/research-paper.pdf) · [TeX source](paper/research-paper.tex) · [Theorem ledger](paper/THEOREM_STATUS.md) · [Verification](paper/VERIFICATION.md)
 
-[Read the paper](paper/research-paper.pdf) · [Theorems](paper/THEOREM_STATUS.md) · [Verification](paper/VERIFICATION.md) · [Build](BUILD.md)
+**Paper:** *Prime-factor density reversals and the spectrum of bounded prime gaps*.
 
-Fix a rank and ask how often each prime is the first, second, third, or later
-distinct prime factor of an arithmetic output. As the prime increases, this
-density can fall and then rise again. Each fixed rank eventually stops rising,
-yet the number of these reversals can grow double-exponentially with the rank.
+Fix a position in the ordered list of distinct prime factors. For each prime,
+ask how often it occupies that position. The resulting density can drop and
+later rise again. Every fixed rank eventually stops rising, yet the maximum
+number of separated reversals grows double-exponentially with the rank.
 
-This project determines the exact upper growth rate for products of affine
-prime sums and proves a precise connection between late ascents and recurring
-short prime gaps.
+This project proves the exact double-logarithmic upper growth rate for a class
+of local laws, realizes it for products of affine prime sums, and connects late
+ascents to recurring short prime gaps. The maintained results are formalized
+in **Lean 4.34.0**.
 
-## Main result
+## The arithmetic result
 
-Consider a fixed, nonempty family
+Fix a nonempty family
 
 $$
 F(p,q)=\prod_{j=1}^{m}\bigl(c_j(p+q)+d_j\bigr),
+\qquad c_j\in\mathbb Z_{\gt0},\quad d_j\in\mathbb Z,
 $$
 
-where the $c_j$ are positive integers, the $d_j$ are integers, and the factors
-have distinct rational roots: $c_i d_j\ne c_j d_i$ when $i\ne j$.
+with distinct rational roots: $c_i d_j\ne c_j d_i$ for $i\ne j$.
+Sample all ordered prime pairs $p,q\le X$, including the diagonal.
 
-Sample all ordered prime pairs $p,q\le X$, including the diagonal, with
-normalization $\pi(X)^2$. The theorem proves:
-
-- **Existence:** for each fixed rank $k\ge1$ and prime $\ell$, the density of
-  $\ell$ as the prime factor of rank $k$ in $|F(p,q)|$ exists, counting distinct
-  prime factors in increasing order.
-- **Finiteness:** at every fixed rank, the density is eventually nonincreasing.
-  Its maximum number $N_F(k)$ of separated descent-then-ascent occurrences is
-  finite and attained.
-- **Exact growth:** the double-logarithmic upper growth rate is
+For every fixed rank and prime, the limiting density of that prime as the
+specified distinct prime factor of $|F(p,q)|$ exists. At every fixed rank,
+the maximum number $N_F(k)$ of separated descent-then-ascent witnesses is
+finite and attained. Its exact rate is
 
 $$
-\limsup_{k\to\infty}\frac{\log\log\bigl(3+N_F(k)\bigr)}{k}
+\limsup_{k\to\infty}\frac{\log\log(3+N_F(k))}{k}
 =\Lambda(m)\gt 0.
 $$
 
-The rate $\Lambda$ is determined by how frequently bounded prime gaps occur.
-Its definition and the general local-law theorem are given below.
+The input-size limit comes **first**, with family, rank and prime fixed.
+Outputs are weighted by their prime-pair representations. Exceptional
+primes—including forced common factors—are retained.
 
-This includes $p+q$, $p+q+1$, $2(p+q)-1$, every fixed $c(p+q)+d$ with
-$c\ge1$, and products of distinct such factors. Finite coefficient, common-factor
-and root exceptions are retained.
+Examples include $p+q$, $p+q+1$, $2(p+q)-1$, every fixed $c(p+q)+d$
+with positive $c$, and products of distinct such factors. Each one-factor
+example has rate $\Lambda(1)$, although their finite-rank densities differ.
 
-The input-size limit is taken **first**, with family, rank and prime fixed.
-Outputs are weighted by their prime-pair representations. The growth formula
-is a limsup statement; it does not assert infinitely many reversals at one
-fixed rank.
+[Arithmetic proof](PrimeFactorOscillations/Assembly/AffineSpectrum.lean) ·
+[Density limits](PrimeFactorOscillations/Proof/AffinePairs/RankDensity.lean)
 
-**Proof:** [affine spectrum](PrimeFactorOscillations/Assembly/AffineSpectrum.lean) ·
-[arithmetic density limits](PrimeFactorOscillations/Proof/AffinePairs/RankDensity.lean)
-
-
-## Canonical double-exponential bounds
-
-For the ordinary integer density and the generic odd local law, the
-[canonical theorem](PrimeFactorOscillations/Assembly/Headline.lean) gives,
-for every $\varepsilon\gt 0$ and all sufficiently large $k$,
-
-$$
-\exp\bigl(\exp(ak)\bigr)
-\le N(k)\le
-\exp\bigl(\exp((1/3+\varepsilon)k)\bigr),
-\qquad a=\frac1{602}.
-$$
-
-Their common exact limsup rate is $\Lambda(1)$. Each fixed-rank sequence is
-eventually strictly decreasing.
-
-The numerical constant uses a conservative, formally closed prime-window
-input. The general transfer works for every $0\lt a\lt 1/(H+1)$ when windows of
-width $H$ have an eventual positive-power counting lower bound. Bare
-infinitude of bounded gaps is not enough for that counting statement.
-
-## Why late ascents matter
-
-The [recurrence theorem](PrimeFactorOscillations/Assembly/GapRecurrence.lean)
-proves a two-way connection. For an integer $H\ge1$ and
-
-$$
-\frac1{H+2}\lt b\lt \frac1{H+1},
-$$
-
-recurring consecutive prime gaps at most $H$ are equivalent to simultaneous
-ascents in both canonical densities with
-
-$$
-\log\log(p-1)\ge bk,
-$$
-
-at arbitrarily large ranks $k$ and lower primes $p$. Explicitly, for every
-$K,Q$ there must be such an ascent with $k\ge K$ and $p\ge Q$.
-
-If $h$ is the least recurring gap, the critical late-ascent coefficient is
-$1/(h+1)$. Smaller positive coefficients admit unbounded simultaneous ascent
-supply; larger coefficients force eventual strict descent. The boundary
-coefficient is not covered.
-
-The [inverse transfer](PrimeFactorOscillations/Proof/Upper/GapScaleCutoff.lean)
-also proves that sufficiently late ascents beyond any fixed coefficient
-$b\gt 1/5$ must cross twin primes. **An independent unbounded supply of such
-ascents remains open.** The implication is proved; no new prime-gap bound
-or twin-prime theorem is claimed.
-
-## The spectrum behind the rate
+## What determines the rate?
 
 Let $G_H(X)$ count consecutive prime gaps at most $H$ whose lower prime is
-at most $X$. Then
+at most $X$. Define
 
 $$
 \gamma_H=\limsup_{X\to\infty}
-\frac{\log\log\bigl(3+G_H(X)\bigr)}{\log\log X},
+\frac{\log\log(3+G_H(X))}{\log\log X},
 \qquad
 \Lambda(\nu)=\sup_{H\ge2}\frac{\gamma_H}{H+\nu}.
 $$
 
 The [general theorem](PrimeFactorOscillations/Assembly/ReciprocalSmoothSpectrum.lean)
-applies to each fixed local probability law with $\nu\gt 0$, $0\le\eta_p\le1$,
-and
+applies to each fixed law with $0\le\eta_p\le1$, $\nu\gt0$, and
 
 $$
-\frac1{\eta_p}=\frac p\nu+b+o(1)
+\eta_p^{-1}=\frac p\nu+\beta+o(1)
 $$
 
-along the primes. Forced and excluded primes are included. The weaker estimate
-$\eta_p=\nu/p+O(p^{-2})$ alone is not the hypothesis of this theorem.
+along sufficiently large primes. Finite forced and excluded coordinates are
+allowed. The weaker estimate $\eta_p=\nu/p+O(p^{-2})$ alone is not its hypothesis.
 
-The [finite phase theorem](PrimeFactorOscillations/Assembly/GapSpectrumPhase.lean)
-proves that the least $H_{\ast}$ with $\gamma_{H_{\ast}}=1$ exists, and that the supremum
-is attained among $2\le H\le H_{\ast}$. For sufficiently large fixed $\nu$,
+The spectrum is a maximum over finitely many gap classes. If $H_*$ is the
+least class with $\gamma_{H_*}=1$, then for sufficiently large fixed $\nu$,
 
 $$
-\Lambda(\nu)=\frac1{\nu+H_{\ast}},
-\qquad
-\frac1{\Lambda(\nu)}-\nu=H_{\ast}.
+\Lambda(\nu)=\frac1{H_*+\nu}.
 $$
 
-Here $\gamma_H=1$ is a double-logarithmic limsup condition. It does not assert
-positive density or a power lower bound at every large cutoff. The theorem
-does not determine $H_{\ast}$ numerically, and it makes no uniformity assertion
-when the family, degree or exceptional primes grow with the rank.
+This recovers $H_*$ from the rate. Its numerical value is not determined here.
+The condition $\gamma_H=1$ is a double-logarithmic limsup condition, not a
+positive-density claim.
 
-## Formal verification
+## Why the proof works
 
-[Challenge](Challenge.lean) states the two public theorems using only Mathlib
-primitives. [Solution](Solution.lean) contains their proofs. The two deliberate
-Challenge placeholders do not enter the Solution proof dependencies.
+The paper explains the mechanism in plain English before introducing notation:
 
-| Initial-publication check | Result |
-|---|---|
-| Owned Lean modules | 167 verified in the pinned Windows environment |
-| Public statements | 2 compiled Challenge/Solution type identities checked |
-| Theorem axiom closures | 12 checked; standard Lean foundations only |
-| Python tests | 51 passed |
-| Dependency builds | 0 |
+1. **Compare one step exactly.** A symmetric-polynomial ratio competes with
+   the next prime gap. Short gaps favor ascents; long gaps favor descents.
+2. **Control the ratio as rank grows.** The natural location scale is the
+   logarithm of the logarithm of the prime.
+3. **Keep witnesses distinct.** Periodic composite blocks provide preceding
+   long gaps. Selecting alternate occupied blocks loses only a fixed
+   counting factor and yields strictly separated reversals.
+4. **Match the rates.** Actual gap frequencies supply the lower bound; each
+   ascent's individual gap imposes its upper location cutoff.
 
-The allowed foundations are `propext`, `Classical.choice` and `Quot.sound`.
-See the [verification record and logs](paper/VERIFICATION.md) for exact scope
-and source hashes. Official Comparator/NanoDa replay has not been run.
+For the ordinary integer law and generic odd law, the
+[canonical theorem](PrimeFactorOscillations/Assembly/Headline.lean) also gives,
+for every $\varepsilon\gt0$ and every sufficiently large $k$,
 
-## Build
+$$
+\exp(\exp(k/602))\le N(k)\le
+\exp\bigl(\exp((1/3+\varepsilon)k)\bigr).
+$$
 
-Use the existing Windows Lean 4.34.0 environment and matching pinned artifacts:
+The lower constant uses a conservative, formally closed width-600 prime-window
+count. The general transfer allows every coefficient below $1/(H+1)$ when
+width-$H$ windows have an eventual positive-power counting lower bound.
+Bare infinitude of bounded gaps does not supply that count.
+
+## Late ascents and prime gaps
+
+The [recurrence equivalence](PrimeFactorOscillations/Assembly/GapRecurrence.lean)
+says: for $H\ge1$ and
+
+$$
+\frac1{H+2}\lt b\lt\frac1{H+1},
+$$
+
+recurring gaps at most $H$ are equivalent to simultaneous ascents in both
+canonical densities with $\log\log(p-1)\ge bk$, at arbitrarily large ranks
+and lower primes. Both parameters must be unbounded.
+
+If $h$ is the least recurring gap, the critical location coefficient is
+$1/(h+1)$; no claim at equality is made. Sufficiently late ascents beyond
+a fixed coefficient $b\gt1/5$ must cross twin primes.
+**An independent unbounded supply of those ascents remains open.**
+The implication is proved; no new prime-gap bound is claimed.
+
+## Historical position and limits
+
+Erdős posed the unimodality question in 1979. Cambie proved ranks 1–3
+unimodal and checked counterexamples for ranks 4–20. Wang–Crapis proved
+non-unimodality for every rank at least four. This work concerns quantitative
+reversal counts, their exact spectrum, and affine arithmetic realizations.
+
+The paper distinguishes this from Cambie's divisor-interval density in
+Erdős 692 and discusses the Erdős–Tenenbaum correction to the density's mode.
+See the [primary-source review](paper/SOURCE_REVIEW.md). This is AI-assisted
+research; independent expert review and novelty assessment remain outstanding.
+
+The results do not prove a Goldbach representation lower bound, a moving-tail
+distribution law, or an RH/Robin statement. Current exploratory work toward
+independent late-ascent supply is excluded from the paper.
+
+## Verification and build
+
+[Challenge](Challenge.lean) gives the public statements over Mathlib primitives;
+[Solution](Solution.lean) contains real proofs. The deliberate Challenge
+placeholders do not enter the Solution proof closures. The recorded audit
+checks two compiled public statement identities and twelve theorem closures,
+using only the standard foundations propext, Classical.choice and Quot.sound.
+
+Start with [BUILD.md](BUILD.md). In the pinned Windows environment:
 
 ~~~powershell
 python scripts/build_project.py
@@ -175,35 +161,21 @@ python scripts/proof_audit.py
 python scripts/check.py --profile research
 ~~~
 
-**Start with [BUILD.md](BUILD.md) for prerequisites.** Erdos 690 supplies its
-own [published cache](https://github.com/kimihiro64/erdos-690-prime-factor-unimodality/releases/tag/v0.1.0-conditional.ef3c9311d42b);
-this repository does not repackage or rebuild it. The full build also needs
-the matching analytic port artifacts documented in
-[dependency reuse](DEPENDENCY_REUSE.md). Their upstream compatibility
-publication remains pending, so the Erdos cache alone is not a complete
-fresh-machine setup.
+Erdos 690 supplies its own
+[published cache](https://github.com/kimihiro64/erdos-690-prime-factor-unimodality/releases/tag/v0.1.0-conditional.ef3c9311d42b);
+this repository neither repackages nor rebuilds it. The full build also needs
+the matching analytic artifacts in [DEPENDENCY_REUSE.md](DEPENDENCY_REUSE.md).
+Their compatibility publication is pending, so a complete fresh-machine
+bootstrap is not yet supplied. Missing artifacts cause an error, never a
+dependency build. Do not substitute lake build or lake lint.
 
-Missing artifacts cause an error, never a dependency build. Do not substitute
-`lake build` or `lake lint`. This repository currently has no CI or automated
-dependency updates.
+[Verification records](paper/VERIFICATION.md) separate proof checks from the
+paper revision. Official Comparator/NanoDa replay has not been run.
+There is no CI or automated dependency-update workflow.
 
-## Sources and open questions
-
-The first-difference and symmetric-polynomial framework builds on
-[Wang–Crapis](https://arxiv.org/html/2605.08542v1). The exact frequency spectrum
-and affine-product application are separate developments. This is AI-assisted
-research; novelty assessment and independent expert review remain outstanding.
-
-The [research plan](RESEARCH_PLAN.md) records the next target: an independent
-late-ascent supply argument that does not assume the stronger prime gaps it
-aims to prove. Complete generic odd unimodality classification also remains
-open. Fixed local density limits do not establish moving-tail Dickman laws,
-Goldbach representation lower bounds, generated-state reachability, or an
-RH/Robin result.
-
-[Contributing](CONTRIBUTING.md) · [Mathlib candidates](MATHLIB_PORTING.md) ·
-[Source alignment](formalization.yaml) ·
+[Contributing](CONTRIBUTING.md) · [Research plan](RESEARCH_PLAN.md) ·
+[Source alignment](formalization.yaml) · [Mathlib candidates](MATHLIB_PORTING.md) ·
 [Optional Palomar submission](https://submit.palomar-registry.org/)
 
-Original material is licensed under [Apache-2.0](LICENSE). The paper also
-offers CC-BY-4.0; see [licensing](LICENSING.md).
+Original material: [Apache-2.0](LICENSE). The paper also offers CC-BY-4.0;
+see [LICENSING.md](LICENSING.md).

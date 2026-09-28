@@ -1,4 +1,35 @@
-# Initial-publication verification
+# Paper verification
+
+## Expanded research-paper revision — 28 September 2026
+
+The tracked PDF now contains the 15-page paper **Prime-factor density reversals
+and the spectrum of bounded prime gaps**. It includes a plain-English argument
+guide, detailed proofs with consistent notation, primary-source history, and
+the precise implications for bounded prime gaps and affine prime sums.
+Unfinished exploratory work is excluded.
+
+The same existing TeX file was edited in place. Two native Windows MiKTeX
+passes completed with package installation disabled and a fixed source date.
+There are no undefined references or citations, overfull boxes, or underfull
+boxes. All 15 rendered pages were inspected. After the title change, page 1
+was inspected again; extracted pages 2–15 were unchanged. The built PDF is
+included in the commit, without adding CI.
+
+- [Editorial report and final source/PDF hashes](verification/editorial-revision.json).
+- [Final paper compiler output](verification/paper-revision-build.log).
+- [Primary-source review](SOURCE_REVIEW.md).
+- [Expanded theorem/proof crosswalk](THEOREM_STATUS.md).
+
+This is a documentation revision. It changes no proof source, dependency pin,
+or public theorem statement. Pre-existing staged research proofs are excluded
+from its commit. The proof checks below remain an explicitly historical record,
+not a claim of fresh recompilation for the editorial revision.
+
+The built-in editor remains open on the same source. Its compiler still reports
+that standard platform directories cannot be initialized. The included PDF was
+successfully compiled with the existing Windows installation instead.
+
+## Initial-publication verification
 
 Validation date: 28 September 2026. The checks used native Windows and the
 project's pinned Lean 4.34.0 environment. No dependency was rebuilt, and no

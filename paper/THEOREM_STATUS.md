@@ -33,3 +33,26 @@ See [formalization.yaml](../formalization.yaml) for source alignment and
 [DEPENDENCY_REUSE.md](../DEPENDENCY_REUSE.md) for exact source revisions and
 artifact provenance. No claim of an unconditional new prime-gap theorem,
 Goldbach lower bound, moving-tail law, or RH/Robin inequality is included.
+
+## Expanded proof crosswalk
+
+The revised manuscript uses TeX labels to keep this mapping stable under
+renumbering. These are exposition of existing proofs, not new proof claims
+created by the editorial revision.
+
+| Paper label / argument | Maintained evidence | Exact scope |
+|---|---|---|
+| eq:diff | localStep_difference; [LocalFirstDifference](../PrimeFactorOscillations/Helpers/LocalFirstDifference.lean) | Finite Bernoulli recurrence with nonzero denominators; supported degree is checked before division. |
+| lem:symmetric | Existing ordinary symmetric bounds plus the displayed finite subset expansion | The prose gives an elementary weighted proof; its generalized formulation is an ordinary mathematical argument, not advertised as a newly compiled declaration. |
+| eq:mertens; lem:bands | odds_sum_mertens_bound; odds_global_majorant; rank_density_gap_signs_on_broad_band; rank_density_descent_beyond_gap_scale in Helpers/ReciprocalSmooth* | Fixed law and exceptional coordinates; uniform growing-rank bounds and strict sign margins. |
+| Fixed-rank tails | eventually_rank_density_nonincreasing; exists_reversal_number_all_ranks in [ReciprocalSmoothAllRanks](../PrimeFactorOscillations/Proof/Upper/ReciprocalSmoothAllRanks.lean) | Forced-rank zero tails and degree zero retained; every rank has an attained maximum. |
+| lem:cells | [prime_windows_separated_gap_pairs](../PrimeFactorOscillations/Helpers/PrimeWindowTransfer.lean), using factorial_cells_separated_gap_pairs | Exact factor 2(D!+H), endpoint containment and strict separation. |
+| eq:bandcount | reversal_counts_of_gap_frequency_band in [ReciprocalSmoothWindows](../PrimeFactorOscillations/Proof/Lower/ReciprocalSmoothWindows.lean) | Initial deletion at most X; final endpoint Y+H. |
+| cor:power | Ordinary consequence of the preceding two compiled inputs and scale comparison; canonical specialization both_reversal_supply_of_positive_power_windows | The general-nu corollary is presented with its proof, not as a separately compiled corollary. |
+| Lower spectrum | frequently_reversal_supply_below_gap_exponent in [ReciprocalSmoothRate](../PrimeFactorOscillations/Proof/Lower/ReciprocalSmoothRate.lean) | Actual limsup subsequences, rank rounding, initial deletion and fixed counting losses. |
+| Upper spectrum | reversal_count_le_sharp_gap_envelope; reversal_counts_eventually_le_spectrum in [ReciprocalSmoothSpectrumRate](../PrimeFactorOscillations/Proof/Upper/ReciprocalSmoothSpectrumRate.lean) | Individual gap cutoffs before taking a finite sum. |
+| eq:rootcount; eq:genericlocal | Affine unit-pair counting and localProbability_reciprocal_control in [AffineReciprocalSmooth](../PrimeFactorOscillations/Helpers/AffineReciprocalSmooth.lean) | The root-set display is the ordinary finite counting explanation; finite exceptions use exact probabilities. |
+
+Historical claims and current source versions are recorded separately in
+[SOURCE_REVIEW.md](SOURCE_REVIEW.md). The expanded paper does not incorporate
+the unfinished independent-ascent-supply work.
