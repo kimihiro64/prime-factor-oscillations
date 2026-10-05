@@ -1,5 +1,43 @@
 # Paper verification
 
+## RH and spectrum revision — 4 October 2026
+
+The existing paper and README now describe **Prime-factor densities:
+bounded-gap spectra and a Riemann hypothesis criterion**. The 30-page paper
+distinguishes classical Nicolas and mod-Poisson inputs from the potentially
+new spectrum and moving-coefficient transfer. It adds the proved RH
+criteria and their quantitative consequences, and compares these with
+the earlier conditional Hardy–Littlewood location result. Exploratory RH
+attacks and the unfinished LCM-power extension are excluded.
+
+The same TeX source was edited in place and the tracked PDF was refreshed.
+Two final native Windows MiKTeX passes completed with package installation
+disabled and a fixed source date. There are no undefined references or
+citations and no overfull or underfull boxes. All pages were rendered and
+visually checked; text extraction, label uniqueness and reference closure
+also passed.
+
+- [Revision report and hashes](verification/rh-editorial-revision.json).
+- [Final compiler output](verification/rh-paper-revision-build.log).
+- [Primary sources and novelty boundaries](SOURCE_REVIEW.md).
+- [Theorem/proof crosswalk](THEOREM_STATUS.md).
+
+No Lean source or dependency was changed by this editorial revision.
+The immediately preceding proof audit checked two public statement
+identities and 218 theorem closures with only propext, Classical.choice
+and Quot.sound, reusing 58,065 verified external artifacts and rebuilding
+no dependency. That audit is separate from this documentation check.
+The normalized coefficient wave is an ordinary consequence of compiled
+inputs; the relative Hardy–Littlewood location theorem is compiled in a
+private probe, with maintained public export still pending.
+
+The built-in editor remains on the existing source. Its compiler reports
+that standard platform directories cannot be initialized. The tracked PDF
+was successfully produced by the existing native Windows compiler instead.
+No new CI, OS switch or dependency-cache redistribution was introduced.
+Official Comparator/NanoDa replay and independent novelty certification
+remain unperformed.
+
 ## Expanded research-paper revision — 28 September 2026
 
 The tracked PDF now contains the 15-page paper **Prime-factor density reversals

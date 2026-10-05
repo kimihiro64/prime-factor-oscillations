@@ -90,4 +90,23 @@ theorem sum_moebius_divisors_mul_self_le_eq_zero (n : Nat) (hn : 1 < n)
   rw [hfilter]
   exact sum_moebius_divisors_le_div_eq_zero n hn hmu
 
+universe u
+
+/-- A weighted Mobius tail retains the unit term at one. -/
+theorem sum_moebius_mul_one_sub_eq {R : Type u} [CommRing R]
+    (n : Nat) (weight : Nat -> R) :
+    Finset.sum n.divisors (fun d => (moebius d : R) * (1 - weight d)) =
+      (if n = 1 then 1 else 0) -
+        Finset.sum n.divisors (fun d => (moebius d : R) * weight d) := by
+  have htotal : Finset.sum n.divisors (fun d => moebius d) =
+      (if n = 1 then 1 else 0) := by
+    rw [<- coe_mul_zeta_apply, moebius_mul_coe_zeta]
+    rfl
+  have hcast : Finset.sum n.divisors (fun d => (moebius d : R)) =
+      (if n = 1 then 1 else 0) := by
+    rw [<- Int.cast_sum, htotal]
+    split_ifs <;> simp
+  simp only [mul_sub, mul_one, Finset.sum_sub_distrib, hcast]
+
+
 end ArithmeticFunction

@@ -28,3 +28,32 @@ or a moving-cutoff distribution theorem.
 The analytic inputs to the new exposition remain the existing proof inputs.
 The editorial expansion adds no mathematical assumption and incorporates no
 current exploratory correlation estimate.
+
+
+## RH and coefficient-transfer review - 4 October 2026
+
+The revised paper distinguishes two potentially new contributions: the exact
+gap-frequency spectrum and the uniform transfer of the Nicolas error to the
+actual moving-rank coefficient ratio. Failure to find a prior identical
+statement is not a certificate of novelty.
+
+| Source and version inspected | Exact role and attribution |
+|---|---|
+| Jean-Louis Nicolas, *Petites valeurs de la fonction d'Euler*, J. Number Theory 17 (1983), 375-388, [publisher](https://doi.org/10.1016/0022-314X(83)90055-0) | The primorial RH criterion and false-RH oscillations are prior work. The detailed oscillation statement is also recorded in the accessible 2012 source below; the author's 1983 PDF was inaccessible during this review. |
+| Nicolas, *Small values of the Euler function and the Riemann hypothesis*, [arXiv:1202.0729v2](https://arxiv.org/pdf/1202.0729v2), Acta Arith. 155 (2012), 311-321 | Definitions (1.9), (1.15)-(1.19), Lemma 2.5 and Proposition 2.1. The zero wave, prime-square constant two, eventual negative sign under RH and logarithmic error scale are classical. The clock displacement is a change of variables in that estimate. |
+| Emmanuel Kowalski and Ashkan Nikeghbali, *Mod-Poisson convergence in probability and number theory*, [arXiv:0905.0318v2](https://arxiv.org/abs/0905.0318v2), [author PDF](https://people.math.ethz.ch/~kowalski/mod-poisson.pdf), section 4 | The normalized Euler product and independent prime-divisibility model are established. Their arithmetic and independent models must not be confused: the global-integer model has an additional Gamma factor. |
+| Valentin Féray, Pierre-Loïc Méliot and Ashkan Nikeghbali, *Mod-phi convergence, I: Normality zones and precise deviations*, [arXiv:1304.2934v4](https://arxiv.org/pdf/1304.2934v4), sections 3 and 7 | General precise deviation and coefficient-asymptotic background. The potentially new comparison here retains the full reference and an error smaller than the RH signal; generic saddle-point or mod-Poisson asymptotics are not claimed as new. |
+| Jeffrey P. S. Lay, *Sign changes in Mertens' first and second theorems*, [arXiv:1505.03589v1](https://arxiv.org/pdf/1505.03589), Theorems 1 and 3 | Classical Landau singularity principle and the distinction between ordinary Mertens errors and the theta-centered Nicolas error. Replacing theta by x does not preserve the RH sign criterion. |
+| Jeffrey C. Lagarias, *An elementary problem equivalent to the Riemann hypothesis*, [arXiv:math/0008177v2](https://arxiv.org/pdf/math/0008177v2), Theorem 1.1 and equation (1.2) | Established Lagarias and Robin equivalences. Their combination with the coefficient criterion is a logical consequence, not a new CA optimization estimate. |
+| P. X. Gallagher, *On the distribution of primes in short intervals*, Mathematika 23 (1976), 4-9, [primary PDF](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/DCE557AC8750333E68426FCEEC11858C/S0025579300016442a.pdf/on_the_distribution_of_primes_in_short_intervals.pdf) | Formula (1), specialized to twins, is the conditional global count used here. Theorem 1's stronger uniform all-tuple assumption is not used to infer proximity to the deterministic cutoff. |
+
+The current arXiv records still list Wang-Crapis v1 (8 May 2026) and
+Cambie v1 (17 January 2025). Their actual theorem statements were inspected,
+not inferred from the abstracts. Cambie's journal full text returned an access
+error, so no assertion is made that its text was compared line-by-line.
+
+The same-date search found no identical reversal-spectrum identity or
+theta-centered moving-rank RH criterion in the inspected primary sources.
+A broader expert priority review remains necessary. The paper's RH spectral
+input is credited to Nicolas; the coefficient transfer and its stated
+applications are identified as potentially new.

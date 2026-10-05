@@ -114,4 +114,33 @@ theorem genericOdd_step_lt_iff (ps : List Nat) (r p q : Nat)
   rw [localStep_lt_iff genericOddEta ps r p q
     (genericOddEta_pos p hp) (genericOddEta_pos q hq) hF, genericOdd_gapThreshold p q hp hq]
 
+/-- Normalizing by local intensity removes jumps in endpoint root counts. -/
+theorem localStep_normalized_difference (eta : Nat -> Rat) (ps : List Nat)
+    (r p q : Nat) (hp : Not ((p : Rat) = 0)) (hq : Not ((q : Rat) = 0))
+    (hep : Not (eta p = 0)) (heq : Not (eta q = 0))
+    (hF : Not (finiteLocalMass eta ps (r + 1) = 0)) :
+    eta q * finiteLocalMass eta (p :: ps) (r + 1) / ((q : Rat) * eta q) -
+        eta p * finiteLocalMass eta ps (r + 1) / ((p : Rat) * eta p) =
+      finiteLocalMass eta ps (r + 1) / ((p : Rat) * (q : Rat)) *
+        (((p : Rat) * eta p) *
+            (finiteLocalMass eta ps r / finiteLocalMass eta ps (r + 1) - 1) -
+          ((q : Rat) - (p : Rat))) := by
+  simp only [finiteLocalMass]
+  field_simp
+  ring
+
+/-- Exact gap criterion for the density divided by `p * eta p`. -/
+theorem localStep_normalized_gt_iff (eta : Nat -> Rat) (ps : List Nat)
+    (r p q : Nat) (hp : 0 < (p : Rat)) (hq : 0 < (q : Rat))
+    (hep : 0 < eta p) (heq : 0 < eta q)
+    (hF : 0 < finiteLocalMass eta ps (r + 1)) :
+    eta p * finiteLocalMass eta ps (r + 1) / ((p : Rat) * eta p) <
+        eta q * finiteLocalMass eta (p :: ps) (r + 1) / ((q : Rat) * eta q) <->
+      (q : Rat) - (p : Rat) <
+        ((p : Rat) * eta p) *
+          (finiteLocalMass eta ps r / finiteLocalMass eta ps (r + 1) - 1) := by
+  rw [<- sub_pos, localStep_normalized_difference eta ps r p q
+    (ne_of_gt hp) (ne_of_gt hq) (ne_of_gt hep) (ne_of_gt heq) (ne_of_gt hF)]
+  rw [mul_pos_iff_of_pos_left (div_pos hF (mul_pos hp hq)), sub_pos]
+
 end PrimeFactorOscillations

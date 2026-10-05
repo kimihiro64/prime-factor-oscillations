@@ -15,8 +15,12 @@ ROOT = Path(__file__).resolve().parents[1]
 if __package__ in {None, ""}:
     sys.path.insert(0, str(ROOT))
 
-from scripts.analytic_dependency import MANIFEST_SHA256, source_digest  # noqa: E402
-from scripts.analytic_dependency import verify as verify_analytic  # noqa: E402
+from scripts.analytic_dependency import (  # noqa: E402
+    MANIFEST_SHA256,
+    source_digest,
+    verify_environment,
+)
+from scripts.artifact_extensions import validate_cache_transition  # noqa: E402
 from scripts.import_graph import library_namespace, owned_graph  # noqa: E402
 from scripts.prebuilt_dependency import COMMIT, TOOLCHAIN  # noqa: E402
 
@@ -105,7 +109,10 @@ def main() -> int:
             raise ValueError(f"unexpected compiler: {version}")
         # The pinned shared view includes the released Erdos artifacts actually imported.
         # Do not rehash a second, unused copy of the same release cache.
-        analytic_root = verify_analytic()
+        analytic = verify_environment()
+        if version != analytic.compiler:
+            raise ValueError("compiler differs from the exact analytic artifact pin")
+        analytic_root = analytic.root
         destination = ROOT / ".lake/build/lib/lean"
         destination.mkdir(parents=True, exist_ok=True)
         environment["LEAN_PATH"] = os.pathsep.join([str(destination), str(analytic_root)])
@@ -118,6 +125,31 @@ def main() -> int:
             else {"modules": {}}
         )
         rows = cast(dict[str, Any], cache["modules"])
+        current_environment = analytic.snapshot(destination, lean)
+        report_path = ROOT / ".lake/build/project-build.json"
+        installation_path = ROOT / ".lake/analytic-extension-installation.json"
+        previous_environment = cast(dict[str, Any] | None, cache.get("analytic_environment"))
+        legacy_report = (
+            cast(dict[str, Any], json.loads(report_path.read_text(encoding="utf-8")))
+            if previous_environment is None and report_path.is_file()
+            else None
+        )
+        installation = (
+            cast(dict[str, Any], json.loads(installation_path.read_text(encoding="utf-8")))
+            if installation_path.is_file()
+            else None
+        )
+        validate_cache_transition(
+            previous_environment,
+            current_environment,
+            has_cached_modules=bool(rows),
+            legacy_report=legacy_report,
+            legacy_report_sha256=source_digest(report_path) if report_path.is_file() else None,
+            installation=installation,
+        )
+        # Record the new environment before any newly compiled row, even on failure.
+        cache["analytic_environment"] = current_environment
+        cache_path.write_text(json.dumps(cache, indent=2) + "\n", encoding="utf-8")
         compiled: list[str] = []
         reused: list[str] = []
         fingerprints: dict[str, str] = {}
@@ -136,7 +168,7 @@ def main() -> int:
                 digest,
                 {dep: fingerprints[dep] for dep in sorted(graph[name])},
                 version,
-                MANIFEST_SHA256,
+                analytic.base_sha256,
             )
             fingerprints[name] = fingerprint
             if (
@@ -170,6 +202,7 @@ def main() -> int:
             "compiler_executable": lean,
             "dependency_commit": COMMIT,
             "analytic_manifest_sha256": MANIFEST_SHA256,
+            "analytic_environment": current_environment,
             "dependency_builds": 0,
             "compiler_threads": 1,
             "compiled_owned_modules": compiled,
@@ -178,9 +211,7 @@ def main() -> int:
             "lean_path": environment["LEAN_PATH"],
             "headline_audit": "run scripts/proof_audit.py after this successful build",
         }
-        (ROOT / ".lake/build/project-build.json").write_text(
-            json.dumps(report, indent=2) + "\n", encoding="utf-8"
-        )
+        report_path.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
         print(
             f"Checked {len(order)} owned modules ({len(reused)} unchanged reused); "
             "dependency builds: 0"

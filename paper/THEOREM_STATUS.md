@@ -1,5 +1,38 @@
 # Paper theorem and provenance ledger
 
+
+## Completed RH development and conditional location - 4 October 2026
+
+The revised paper keeps classical analytic inputs separate from new consumers.
+The latest completed maintained audit covers 218 selected theorem closures
+and two original Challenge/Solution statement pairs. Conditional hypotheses
+are part of theorem types, not discharged by this audit.
+
+| Paper result | Maintained consumer / owner | Mathematical and formal scope |
+|---|---|---|
+| Full-profile coefficient transfer, Theorem thm:linearization | publicDensityRatioLinearization in Solution; PrimeProfileCanonicalLinearization | Maintained, audited. The paper restricts the stronger formal statement to positive compact rank bands and provides the ordinary proof. |
+| Moving-rank RH equivalence, Theorem thm:rh-ratio | publicMovingRankRHCriterion in Solution | Maintained, audited; each fixed alpha>0; actual ratio and theta-centered full reference. |
+| Normalized actual-ratio wave, equation eq:ratio-wave | Consequence of publicDensityRatioLinearization and publicRHLogSpectralExpansion | Fully justified ordinary corollary; its separate normalized-wave declaration has not been compiled. Do not describe that combined declaration as audited. |
+| Zero-dependent integral excursions | publicZeroDependentIntegralExcursions | Maintained, audited; actual zero rho, 1-Re(rho)<b<=1/2; both signs and arbitrarily large amplitudes. |
+| Corrected logarithm excursions | publicZeroDependentLogarithmExcursions; publicFalseRHLogarithmExcursions; NicolasPowerPeak | Maintained, audited; nonlinear correction retained without an RH estimate. |
+| Actual moving-rank power excursions | publicFalseRHMovingRankPowerExcursions; PrimeProfilePowerExcursions | Maintained, audited; one b in (0,1/2), every fixed positive alpha, endpoints may differ. |
+| Integral and clock RH criteria | publicThetaTailRHCriterion; publicPrimeProductClockRHCriterion | Maintained, audited; classical analytic reformulations transported through exact identities. |
+| Nicolas spectral formula and clock displacement | publicRHLogSpectralExpansion; publicRHSpatialClockExpansion | Maintained, audited; explicit RH premise. Zero wave is defined by real projection; separate reality-before-projection proof is not claimed. |
+| Positive tilts and kernels | publicTiltedPrimeProductCriterion; publicAllPositiveTiltedPrimeProductCriterion; publicTiltedIntegralCriterion; publicTiltedIntegralSpectralExpansion | Maintained, audited, with fixed positive tilt or the explicitly stated common-cutoff quantifier. These transport the same leading error. |
+| Classical pointwise and endpoint correction bounds | publicRHPointwiseLogarithmicBound; publicRHLogarithmicCorrection | Maintained, audited; sqrt(x) log(x)^2 and log(x)^3/x under RH, credited as classical estimates/application. |
+| Sharp reference-root shift | publicSharpReferenceCrossing | Maintained, audited; each fixed positive reference level; uniqueness only in its stated local window. |
+| Local spatial sign tests | publicLocalDensityRatioThreshold | Maintained, audited; compact clock window, comparison constant and positivity hypotheses retained; uncertainty K log N. |
+| RH last-ascent and count capacity | publicRHLastAscentSharpReference; publicRHReversalCountLogBound; publicRHGapFilteredCounts | Maintained, audited; upper envelopes with actual attained maxima; no new small-gap supply. |
+| Hardy-Littlewood relative last-ascent limit | both_last_ascent_ratio_tendsto_one_of_twinCountAsymptotic, compiled research consumer | Conditional proof completed; maintained public export pending. Paper includes the full ordinary proof. Its extra log-log and reversal-count limits are ordinary consequences of the stated transfers. |
+| Robin/Lagarias implications | Known equivalences combined with publicMovingRankRHCriterion | Ordinary logical consequences, not a newly compiled direct Robin consumer and not a new CA optimization theorem. |
+
+The proof evidence for the maintained RH additions is the successful
+rh-ratio-power-public-audit334b-20261004 log, together with its owned build.
+The earlier twelve-closure figures below describe the September publication
+and are historical. No current research estimate is inserted as a hypothesis
+of an advertised unconditional theorem.
+
+
 This ledger distinguishes mathematical hypotheses from implementation
 dependencies. All names below have the namespace `PrimeFactorOscillations`
 unless otherwise specified. The paper is a research exposition of maintained
