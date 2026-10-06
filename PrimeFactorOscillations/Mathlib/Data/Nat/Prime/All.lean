@@ -9,6 +9,7 @@ import PrimeFactorOscillations.Mathlib.Data.Nat.Prime.FactorialCellSelection
 import PrimeFactorOscillations.Mathlib.Data.Nat.Prime.ResidueCofactor
 import PrimeFactorOscillations.Mathlib.Data.Nat.Prime.RoughCofactor
 import PrimeFactorOscillations.Mathlib.Data.Nat.Prime.SmallDivisor
+import PrimeFactorOscillations.Mathlib.Data.Nat.Prime.ThreeWindowCells
 
 /-!
 # Natural-prime candidate exports

@@ -1,5 +1,32 @@
 # Primary-source review for the revised paper
 
+## Localized-count input — 5 October 2026
+
+Ryan Alweiss and Sammy Luo, *Bounded gaps between primes in short intervals*,
+[arXiv:1707.05437v1](https://arxiv.org/html/1707.05437v1), 18 July 2017,
+Corollary 1.2, was rechecked against the primary text.
+For each fixed delta in [0.525,1], it supplies some fixed width H and
+a quantitative count in every sufficiently late interval [Y-h,Y] with
+Y^delta<=h<=Y. Both formal sampling consumers use delta=3/5.
+The ascent-only construction applies that input inside a longer window
+of length 2X^(7/10), retaining the endpoint conversion explicitly.
+No numerical globally recurring gap width is substituted for its H.
+
+The new exposition combines that source with the maintained coefficient
+transfer and peak persistence. The short-interval theorem itself has no
+installed Lean proof in this repository and is not introduced as an axiom.
+The exact formal sampling boundary is recorded in [THEOREM_STATUS.md](THEOREM_STATUS.md).
+Positive-area and localized-count applications are potentially new;
+their novelty has not been independently certified. The underlying
+Nicolas criterion, Landau method, PNT and short-interval prime input
+remain credited prior work.
+
+The completed local-coverage consumer introduces no further analytic source:
+it uses the exact coefficient criterion, prime-prefix jumps, quantitative
+PNT precision and the already cited Nicolas wave. Its local exact-gap
+coverage remains an explicit arithmetic hypothesis. The sufficient global
+error estimate is centered on c Li2(X), not merely cX/log(X)^2.
+
 Checked 28 September 2026. This is a source-alignment record for the historical
 and analytic attributions in the paper, not an independent reproof of every
 cited article.

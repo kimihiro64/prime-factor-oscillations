@@ -1,10 +1,92 @@
 # Paper theorem and provenance ledger
 
+## General family RH transfer — 5 October 2026
+
+The new transfer assumes a fixed law of nonnegative odds satisfying
+|w_p - nu/(p-1)| <= D/(p-1)^2 for fixed nu>0 and D>=0. This is
+discharged for every probability law in [0,1] with
+eta_p = nu/p + O(p^-2), allowing an arbitrary finite exceptional head.
+No RH, prime-gap recurrence or short-interval supply is part of qualification.
+
+| Result | Maintained declaration / owner | Exact scope |
+|---|---|---|
+| Probability-tail constructor | quadraticPrimeLawOfEventualProbability, QuadraticProbabilityRH | Explicit tail constant and cutoff; exact finite head absorbed. |
+| General product RH equivalence | QuadraticPrimeLaw.riemannHypothesis_iff_eventually_product | Each fixed positive tilt; exact family Euler-product constant. |
+| Broader product qualification | riemannHypothesis_iff_eventually_localProduct_of_log_reference | An inverse-cutoff normalized logarithmic tail suffices; no claim of necessity. |
+| Uniform coefficient linearization | QuadraticPrimeLaw.exists_eventually_densityRatio_linearization | Actual prefix coefficients; positive denominators and uniform fixed rank band. |
+| Moving-rank RH equivalences | QuadraticPrimeLaw.riemannHypothesis_iff_eventually_densityRatio_lt_reference and its non-strict variant | Each fixed alpha>0; floor rank at the family theta clock. |
+| Actual probability masses | riemannHypothesis_iff_eventually_quadraticProbabilityMass_ratio | Exact count of forced probabilities added to the free rank. |
+| Actual affine prime-pair families | AffineSumFamily.riemannHypothesis_iff_eventually_prefixMass_ratio and its non-strict variant | Exact residue laws; nu equals the number of distinct affine factors. Input-size limit remains first. |
+| Generalized reference constant | QuadraticPrimeLaw.exists_reference_scale_with_sharp_constant | Leading rank/(g+nu), correction gamma + H'(1+g/nu)/(nu H(1+g/nu)); reference crossing, not an unconditional last-ascent location. |
+| Finite family combinations | family_log_combination_bound; riemannHypothesis_iff_eventually_family_log_combination_neg | Fixed finite collection and coefficients; positive common-signal coefficient gives RH equivalence. Zero coefficient leaves O(1/N). |
+
+The public facade is Assembly/FamilyRHResults. Solution directly consumes the
+product and actual probability-law criteria. The added audit inventory has
+98 targets, preserving all 441 earlier targets. The new proof package contains
+no research-target axiom. The general family extension does not automatically
+extend the ordinary positive-area, localized reversal-count, or growing-tilt
+theorems: those require their own uniformity and sampling arguments.
+The qualification conditions are explicit sufficient conditions, not a
+necessary-and-sufficient classification of every conceivable arithmetic family.
+
+
+## Post-paper results — 5 October 2026
+
+The manuscript now includes the complete ordinary localized-count argument.
+The exact status below takes precedence over older descriptions of unfinished
+components. A theorem conditional on arithmetic sampling is not an
+unconditional Lean proof of the published short-interval input.
+
+| Paper result | Declaration / maintained owner | Proof and implementation status |
+|---|---|---|
+| Controlled positive peaks | NicolasPowerPeakSupply: exists_nicolasK_power_peak_of_zero; exists_nicolasK_power_peak_exponent_of_not_RH | Maintained, built and axiom-audited. Zero/RH-failure hypotheses remain explicit. |
+| Finite interval loss and power persistence, lem:persistence | NicolasIntervalPersistence; NicolasPowerPersistence; NicolasCriticalPersistence: exists_nicolasLog_critical_intervals_of_not_RH | Maintained, built and audited, including the exact critical length sqrt(A)/100 times x^(1-b/2)/sqrt(log x), its finite loss and false-RH corollary. |
+| Nicolas positive-area RH criterion, thm:area | NicolasPositiveArea: riemannHypothesis_iff_nicolasPositiveArea_bound | Maintained and audited; actual nonnegative integral on [X,2X], quarter-power upper bound with fixed logarithmic factor. |
+| Moving-rank positive-area criterion, thm:area | PrimeProfilePositiveArea: riemannHypothesis_iff_primeProfilePositiveArea_bound | Maintained and audited, each fixed alpha>0. The coefficient/area comparisons retain absolute error and initial cutoffs. |
+| Conditional zero restrictions | NicolasPositiveArea: zeta_re_le_of_nicolasPositiveArea_bound; zeta_re_le_of_nicolasPositiveArea_subpower_bound | Maintained and audited for the Nicolas area. The moving-rank version follows by the proved area comparison; no unconditional strip is claimed. |
+| Growing high-moment sufficient estimate, eq:moment-target | NicolasMomentConsumer: riemannHypothesis_of_growing_nicolas_moments; MomentSecondArea: eventually_nicolasPositiveArea_of_second_moment | Maintained and audited. The moment estimate remains unproved. The fixed-second-moment input gives the proved 8C sqrt(X)/log X area envelope; failure of this envelope to imply RH does not refute a sharper joint estimate. |
+| Square-root growing-tilt criteria and sharp correction | NicolasGrowingTilt; NicolasGrowingTiltAsymptotic: tendsto_nicolasGrowingTilt_correction | Maintained, built and audited. Both RH criteria and the unconditional normalized -c/2 correction hold for every fixed c>0. The proof retains real x and floor x, the PNT prime-square tail, and a remainder uniform for every nonnegative tilt. |
+| Actual tilted density signs | TiltedDensity: oddsTilt_rank_ascent_iff; oddsTilt_rank_descent_iff; TiltedReversalCount index versions | Maintained and audited; actual local-law densities, positive supported coefficients, exact strict endpoints. |
+| Finite grid counts, eq:grid-rounding | TiltedAscentCount: tiltAscentSet_card_eq_ceil; tiltAscentSet_signed_error_lt_one | Maintained and audited; both thresholds in the stated interval and positive mesh denominator. |
+| Actual prescribed reversals and signed excess | TiltedReversalCount: prescribedTiltReversalCount_signed_lower; prescribedTilt_cells_have_reversals | Maintained and audited; explicit descents, support, separation and actual prime gaps. |
+| Three-window separation | Nat.separated_gap_pairs_of_three_windows, Mathlib/Data/Nat/Prime/ThreeWindowCells | Maintained, built and audited; finite arithmetic theorem with occupied windows and factorial spacing explicit. |
+| Fixed-window ratio bands | PrimeProfileWindowBands: eventually_primeProfile_fixed_window_bands | Maintained, built and audited; one fixed rank throughout each [X,2X], actual support and both half-unit bands. |
+| False-RH mesh margin | TiltedCountExcursion: exists_densityRatio_uniform_mesh_excess_of_not_RH | Maintained and audited; arbitrary fixed multiples of n^(-1/2) on full [n,n+n^d] windows, d<=3/4. No prime-gap premise. |
+| RH count upper comparison | TiltedCountRHUpper: eventually_prescribedTiltReversalCount_le_reference_of_RH | Maintained and audited; uniform over grids and selected finite families with endpoints in the window. |
+| Both count equivalences, thm:count-rh | LocalizedReversalCriterion: riemannHypothesis_iff_eventually_localReversalCount_le_reference; riemannHypothesis_iff_eventually_localReversalCount_power_upper | Maintained, built and audited. Explicit arithmetic sampling only; no density-sign premise. |
+| Complete explicit cell construction and source consumer | LocalReversalSampling: localReversalSampling_of_shortIntervalPairInput; allShortIntervalPairs_rh_iff_local_count; allShortIntervalPairs_rh_iff_local_count_power | Maintained, built and audited. AllShortIntervalPairs is precisely the qualitative source premise on every late [Y-h,Y], h>=Y^(3/5), with both prime endpoints retained. Geometry, selectors, rank support, strict separation and the lower cell count are proved. The external Alweiss–Luo theorem itself remains unformalized. |
+| Ascent-only count variants | LocalAscentSampling: quantitativeShortIntervalPairs_rh_iff_local_ascent; quantitativeShortIntervalPairs_rh_iff_local_ascent_power | Maintained, built and audited. Exact all-pair window [X+1,X+1+ceil(2X^(7/10))], strict grid tests and one rounding loss per pair. QuantitativeShortIntervalPairs at exponent 3/5 is explicit; the external analytic source remains unformalized. |
+| Finite twins and coefficient 1/5 | FiniteTwinsSpectrum: finite_twins_and_spectrum_fifth_determine_all_spectra | Maintained, built and audited. Actual eventual finiteness of gap-two indices plus Lambda(1)=1/5 imply gamma_4=1 and Lambda(nu)=1/(4+nu), for every nu>0. No RH contradiction follows. |
+| Generic reversal-count monotonicity counterexample | ReversalCountCounterexample: ascent_inclusion_does_not_preserve_reversal_count | Maintained, built and audited. Explicit real sequences, actual two-witness construction and impossibility for the reference sequence. No prime-density realization is asserted. |
+| General fixed-gap RH capacities, eq:general-gap-capacity | GeneralRHAscentEnvelope; GeneralRHAscentCapacity; GeneralRHSharpCapacity: exists_ordinary_loglog_capacity_of_RH_gap_lower | Maintained and audited for every natural H under RH and an eventual lower bound H on actual consecutive gaps. Attained maxima, finite exceptions, threshold H+1 and sharp reference-root displacement are retained. |
+| Local coverage and square-root tracking, eq:local-tracking | Assembly/ConditionalLocation/FineLocationRH: exists_last_ascent_reference_tracking_and_RH_wave; LastAscentFineTracking: tendsto_last_ascent_div_gap_cutoff | Maintained, built and audited. Local exact-gap coverage and the eventual lower gap bound are explicit. Roots are constructed; the actual last ascent is bracketed, square-root tracking is proved, and the RH wave remains at P-1. No spatial-location premise is added. |
+| Unconditional physical clock precision | NicolasQuantitativeClock: tendsto_nicolasLog_mul_log_zero_unconditionally; tendsto_nicolasPrimeProductClock_div_self | Maintained and audited. Quantitative PNT controls the additive exponent error before proving C(x)/x tends to one. |
+| Global error implies local exact-gap coverage | GapFrequencyCoverage: eventually_exact_gap_coverage_of_liTwo_error | Maintained and audited for all sufficiently large real starting points. Assumes the actual exact-gap count minus c Li2 is o(sqrt(X)/log(X)^4), c>0; gives a consecutive pair of precisely the specified width. |
+| Coarse frequency loses density information | CoarseFrequencyExample: full_coarse_exponent_allows_zero_density | Maintained and audited for an explicit nonnegative real-valued model, not a claimed shape of actual prime-gap counts. |
+| Signed excess/deficit and fixed-tilt cancellation | TiltedSignedExcess: tiltAscentCount_sub_eq_excess_sub_deficit; tiltAscentCount_sum_signed_error_le; FixedTiltCombinations | Maintained and audited. Exact finite support and strict/weak endpoints; aggregate rounding bounded by the pair count. Fixed coefficients cancelling the F signal leave O(1/N). No positive signed-frequency estimate is asserted. |
+
+The ordinary count construction fixes its cells at X+1, so all selected
+prefixes p-1 lie in [X,X+X^(7/10)]. This explicitly resolves the one-unit
+endpoint shift before applying interval persistence. The paper's
+ascent-only variant separately absorbs its rounding with a longer fixed
+power window.
+
+The extra analytic input is Alweiss–Luo, Corollary 1.2,
+arXiv:1707.05437v1, inspected at its actual all-short-interval quantifiers.
+It supplies some fixed H; a numerical global bounded-gap infinitude theorem
+does not supply those quantifiers. No project axiom has been added.
+
+All fifteen groups in the post-paper formalization scope are now maintained
+and exported. The 5 October full audit checks 441 selected theorem closures
+and two compiled public statement identities. Only standard foundational
+axioms occur. Open analytic moment estimates and the independent ascent
+supply remain open; proving their conditional consumers does not prove them.
+
 
 ## Completed RH development and conditional location - 4 October 2026
 
 The revised paper keeps classical analytic inputs separate from new consumers.
-The latest completed maintained audit covers 218 selected theorem closures
+The 4 October maintained audit covered 218 selected theorem closures
 and two original Challenge/Solution statement pairs. Conditional hypotheses
 are part of theorem types, not discharged by this audit.
 
@@ -23,7 +105,7 @@ are part of theorem types, not discharged by this audit.
 | Sharp reference-root shift | publicSharpReferenceCrossing | Maintained, audited; each fixed positive reference level; uniqueness only in its stated local window. |
 | Local spatial sign tests | publicLocalDensityRatioThreshold | Maintained, audited; compact clock window, comparison constant and positivity hypotheses retained; uncertainty K log N. |
 | RH last-ascent and count capacity | publicRHLastAscentSharpReference; publicRHReversalCountLogBound; publicRHGapFilteredCounts | Maintained, audited; upper envelopes with actual attained maxima; no new small-gap supply. |
-| Hardy-Littlewood relative last-ascent limit | both_last_ascent_ratio_tendsto_one_of_twinCountAsymptotic, compiled research consumer | Conditional proof completed; maintained public export pending. Paper includes the full ordinary proof. Its extra log-log and reversal-count limits are ordinary consequences of the stated transfers. |
+| Hardy-Littlewood relative last-ascent limit | Assembly/ConditionalLocation/TwinCountAsymptoticBridge: both_last_ascent_ratio_tendsto_one_of_twinCountAsymptotic | Maintained, full build and public axiom audit passed for both actual canonical families. Positive global twin asymptotic is explicit. The extra log-log and reversal-count limits are ordinary consequences of the stated transfers. |
 | Robin/Lagarias implications | Known equivalences combined with publicMovingRankRHCriterion | Ordinary logical consequences, not a newly compiled direct Robin consumer and not a new CA optimization theorem. |
 
 The proof evidence for the maintained RH additions is the successful
@@ -57,8 +139,9 @@ proofs; novelty and independent expert review remain unsettled.
 No numerical certificate supplies an asymptotic step in these results.
 The canonical constant is the exact rational 1/602, chosen strictly below
 1/(600+1). The full dependency closure, rather than the source name, determines
-the imported assumptions: [proof_audit.py](../scripts/proof_audit.py) checks
-twelve closures against `propext`, `Classical.choice` and `Quot.sound`.
+the imported assumptions. The initial audit checked twelve closures;
+[proof_audit.py](../scripts/proof_audit.py) now checks 441 selected closures
+against `propext`, `Classical.choice` and `Quot.sound`.
 These are standard Lean foundations, not assumptions of prime distribution.
 The conditional inverse theorem retains its supply premise in its type.
 

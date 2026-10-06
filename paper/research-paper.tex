@@ -1,7 +1,7 @@
 % SPDX-License-Identifier: Apache-2.0 OR CC-BY-4.0
 \documentclass[11pt]{article}
 \usepackage{amsmath,amssymb,amsthm,hyperref}
-\hypersetup{hidelinks,pdftitle={Prime-factor densities: bounded-gap spectra and a Riemann hypothesis criterion},pdfauthor={Jonas Whidden}}
+\hypersetup{hidelinks,pdftitle={Prime-factor densities: bounded-gap spectra and Riemann hypothesis criteria},pdfauthor={Jonas Whidden}}
 \setlength{\emergencystretch}{3em}
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
@@ -11,9 +11,9 @@
 \newcommand{\LL}{\mathcal L}
 \newcommand{\EE}{\mathcal E}
 \newcommand{\N}{\mathbb N}
-\title{Prime-factor densities: bounded-gap spectra and a Riemann hypothesis criterion}
+\title{Prime-factor densities: bounded-gap spectra and Riemann hypothesis criteria}
 \author{Jonas Whidden}
-\date{Research draft, 4 October 2026}
+\date{Research draft, 5 October 2026}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -25,14 +25,24 @@ $\limsup_k k^{-1}\log\log(3+N_\eta(k))
 =\sup_{H\ge2}\gamma_H/(H+\nu)$, where $\gamma_H$ records bounded-gap
 frequency. This spectrum has a finite phase profile and is realized
 by products of distinct affine forms in the sum of two primes.
-For the ordinary law, a uniform comparison with a full entire-function
-reference transfers the classical Nicolas prime-product error to the
-actual coefficient ratio. For each fixed positive moving-rank parameter,
-eventual negativity of the centered ratio is equivalent to the Riemann
-hypothesis. We give quantitative excursions under false RH and sharp
-reference-location and reversal-count bounds under RH. A separate
-Hardy--Littlewood-shaped twin-count hypothesis places the last actual
+For every fixed nonnegative local odds law with a quadratic perturbation
+of $\nu/(p-1)$, a uniform comparison with its full entire-function
+reference transfers the classical Nicolas error to the actual coefficient
+ratio. This includes every reciprocal-smooth law and the affine prime-pair
+families. For each fixed positive moving-rank parameter, eventual strict
+or non-strict comparison is equivalent to the Riemann hypothesis, with
+exact forced-prime rank shifts and generalized reference constants.
+For the ordinary law, persistent positive excursions also yield a
+quarter-power positive-area criterion. With a published short-interval prime-pair input,
+we obtain RH equivalences for prescribed localized reversal counts,
+including a one-sided excess bound of order $X^{1/10}$.
+We give quantitative excursions under false RH and sharp
+reference-location and reversal-count bounds under RH, together with
+the sharp prime-square correction for square-root-sized tilts.
+A Hardy--Littlewood-shaped twin-count hypothesis places the last actual
 ascent at relative distance tending to zero from its potential cutoff.
+Stronger local exact-gap coverage yields square-root-scale clock
+tracking and transfers the full RH wave to that actual last ascent.
 We distinguish classical analytic inputs from the potentially new
 spectrum and coefficient transfer. The main maintained results are
 formalized in Lean; no new prime-gap bound or proof of RH is claimed.
@@ -76,7 +86,10 @@ late-ascent interpretation. Quantitative bounded-gap results are
 existing analytic inputs, not new sieve results. The second is a
 uniform transfer of a classical RH-sensitive error into the actual
 moving-rank coefficient ratio, preserving its sign at a scale much
-smaller than any fixed inverse power of $\log\log x$.
+smaller than any fixed inverse power of $\log\log x$. The transfer holds
+throughout an explicit class of local probability laws, rather than only
+for the ordinary integers: each family contributes its full reference
+profile and the same centered arithmetic signal.
 
 Nicolas's primorial criterion and its signed error
 \cite{Nicolas1983,Nicolas2012} supply the analytic source.
@@ -93,7 +106,9 @@ Sections~\ref{sec:ratio}--\ref{sec:affine} prove the unconditional
 spectrum. Section~\ref{sec:late} treats recurrence and the separate
 Hardy--Littlewood conditional location result.
 Sections~\ref{sec:profile}--\ref{sec:capacity} establish the coefficient
-transfer, RH criteria and reference capacities. The
+transfer, pointwise RH criteria and reference capacities.
+Sections~\ref{sec:area}--\ref{sec:local-count} treat persistent positive
+area and the localized signed-count criteria. The
 \href{https://github.com/kimihiro64/prime-factor-oscillations}{public repository}
 contains maintained proofs and a provenance ledger. This is an
 AI-assisted research draft; independent expert review and assessment
@@ -144,12 +159,28 @@ If RH is false it has larger excursions of both signs. The rank
 moves outward with the prime cutoff in this statement; it does not
 contradict eventual decline at each fixed rank.
 
+Changing the sampled family changes its local factor probabilities and
+its reference profile. We prove that a quadratic change in the local
+odds preserves the small RH-sensitive error after this exact reference
+has been subtracted. Forced primes shift the rank and also change the
+reference constant; both effects are retained. Thus one independently
+proved centered inequality in any qualifying family would imply RH.
+
 This determines how the prefix changes the threshold for a possible
 ascent. An actual ascent also needs an actual prime gap below that
 threshold. RH controls the fine reference error, while a
 Hardy--Littlewood twin-count assumption supplies twins near the
 potential endpoint. Their roles and their different precision are
 kept separate throughout.
+
+The finer error can also be detected by counting. We choose actual short
+prime gaps in many separate cells, place a long-gap descent before each,
+and test a finely spaced range of local laws. If RH fails, its positive
+error persists across a whole interval. Every selected cell then adds
+more actual ascents than the full reference predicts. A sufficiently
+accurate upper bound on this signed count would therefore imply RH.
+This uses known short-interval bounded gaps at some fixed width; it
+does not require twin primes, and it does not establish that upper bound.
 
 \section{Definitions and main results}\label{sec:statements}
 All logarithms are natural. Index the primes by $p_0=2,p_1=3,\ldots$,
@@ -654,9 +685,10 @@ behavior. Equations \eqref{eq:rate} and \eqref{eq:recovery}
 also show how sufficiently large fixed numbers of distinct affine
 factors recover $H_*$. There is no uniformity claim when the family
 varies with the rank. The arithmetic realization uses fixed-modulus
-prime progression limits. It does not transfer the ordinary-law RH
-criterion of Section~\ref{sec:rh} automatically to these families;
-that extension would require a separate coefficient theorem.
+prime progression limits. Section~\ref{sec:family-rh} supplies the
+separate full-profile coefficient theorem that transfers the RH
+criterion to every one of these fixed families, with dimension $\nu=m$
+and exact forced-coordinate rank shifts.
 
 \section{Late ascents and bounded prime gaps}\label{sec:late}
 For a canonical law, a \emph{late ascent at coefficient $b$}
@@ -788,8 +820,12 @@ changes the original endpoint by a large multiplicative factor.
 
 
 \section{Prime-product errors and the full coefficient reference}\label{sec:profile}
-The remaining sections concern the ordinary integer law. They keep the
-arithmetic cutoff $x$ and the rank $r$ distinct: $x$ tends to infinity,
+We first develop the finer comparison for the ordinary integer law.
+Section~\ref{sec:family-rh} then extends the product and coefficient
+criteria to qualifying local laws. The later arithmetic capacity,
+area and localized-count results retain their stated ordinary-law
+scope. We keep the arithmetic cutoff $x$ and the rank $r$ distinct:
+$x$ tends to infinity,
 while $r$ is comparable to $\log\log x$. All prime products in these
 sections include $p\le x$. For the prefix before an ascent prime $p$,
 the corresponding cutoff is $x=p-1$.
@@ -1185,6 +1221,256 @@ zero-dependent two-sided integral excursions.
 These tilt criteria transport the same leading error; they do not
 supply independent sign information by themselves.
 
+\section{RH transfer across qualifying local laws}\label{sec:family-rh}
+
+\subsection{Qualification and the exact family constants}
+Fix an independent local law with probabilities $0\le\eta_p\le1$.
+For an arithmetic ensemble, identifying this model with its densities also
+requires independence of its limiting finite-prime divisibility laws.
+Marginal probabilities alone do not establish that identification. Put
+\[
+ w_p=\begin{cases}\eta_p/(1-\eta_p),&\eta_p<1,\\0,&\eta_p=1.\end{cases}
+\]
+A forced coordinate is removed from the odds product and retained in
+the rank shift below. The concrete qualification condition is
+\begin{equation}\label{eq:family-quadratic}
+ \nu>0,\quad D\ge0,\quad w_p\ge0,\qquad
+ \left|w_p-\frac{\nu}{p-1}\right|\le\frac{D}{(p-1)^2}
+ \quad\hbox{for every prime }p.
+\end{equation}
+All parameters and the family are fixed before the cutoff tends to infinity.
+The condition follows from
+$\eta_p=\nu/p+O(p^{-2})$ along the primes, including arbitrary finite
+exceptions. Indeed, eventually $\eta_p\le1/2$, so
+\[
+ \frac{\eta_p}{1-\eta_p}
+ =\eta_p+\frac{\eta_p^2}{1-\eta_p}
+ =\frac{\nu}{p}+O(p^{-2})
+ =\frac{\nu}{p-1}+O(p^{-2}).
+\]
+The finite head is absorbed into $D$. This argument is formalized for
+an explicit prime-tail bound as well as a bound at every prime.
+A limiting reciprocal offset is not required for this RH transfer;
+that stronger hypothesis remains part of the reversal-spectrum theorem.
+
+For integer $N\ge1$, define
+\begin{align*}
+ G_{\eta,N}(z)&=\prod_{p\le N}(1+w_pz),&
+ a_{\eta,r}(N)&=[z^r]G_{\eta,N}(z),\\
+ \mathcal H_\eta(z)&=\prod_p(1+w_pz)(1-1/p)^{\nu z},&
+ C_{\eta,r}(u)&=[z^r]\mathcal H_\eta(z)e^{uz}.
+\end{align*}
+The complex powers use the real logarithm of the positive base $1-1/p$.
+Write
+\[
+ \kappa_\eta(z)=\log\mathcal H_\eta(z),\qquad
+ \Gamma_\eta(z)=e^{\nu z\gamma}\mathcal H_\eta(z)
+ \quad(z\ge0).
+\]
+These are exact convergent constants; exceptional primes remain in the
+products. If $v_p=1/(p-1)$, then $w_p\le(\nu+D)v_p$. The elementary bounds
+$0\le t-\log(1+t)\le t^2/2$ give
+\[
+ \begin{aligned}
+ \left|\log(1+w_pz)-\nu z\log(1+v_p)\right|
+ &\le K_\eta(z)v_p^2,\\
+ K_\eta(z)&=\frac{z^2(\nu+D)^2}{2}+zD+\frac{\nu z}{2}.
+ \end{aligned}
+\]
+Since $\sum_{p>N}v_p^2\le2/N$, we have the explicit bound
+\begin{equation}\label{eq:family-log-tail}
+ \left|\kappa_\eta(z)-
+   \sum_{p\le N}\bigl(\log(1+w_pz)-\nu z\log(1+v_p)\bigr)\right|
+ \le \frac{2K_\eta(z)}N .
+\end{equation}
+
+\begin{theorem}[Family product criteria]\label{thm:family-product}
+Under \eqref{eq:family-quadratic}, fix $z>0$ and set
+\[
+ E_\eta(N,z)=
+ \nu z\bigl(\gamma+\log\log\theta(N)\bigr)+\kappa_\eta(z)
+ -\log G_{\eta,N}(z).
+\]
+For $\theta(N)>1$,
+\[
+ |E_\eta(N,z)-\nu zF(N)|\le 2K_\eta(z)/N.
+\]
+RH is equivalent to each of the following eventual statements:
+\[
+ E_\eta(N,z)<0,\qquad E_\eta(N,z)\le A/N,\qquad
+ \Gamma_\eta(z)(\log\theta(N))^{\nu z}<G_{\eta,N}(z),
+\]
+where $A$ is any fixed real number.
+\end{theorem}
+\begin{proof}
+The finite identity
+$F(N)=\gamma+\log\log\theta(N)-\sum_{p\le N}\log(1+v_p)$
+and \eqref{eq:family-log-tail} give the error bound.
+Under RH, the Nicolas negative margin dominates every fixed multiple
+of $1/N$. If RH fails, its positive integer-cutoff excursions exceed
+every such multiple. Multiplication by the fixed positive number
+$\nu z$ preserves both conclusions. Positivity of all factors turns
+the logarithmic criterion into the displayed product inequality.
+These are applications of Nicolas's criterion and error estimates
+\cite[(1.10), Proposition~2.1]{Nicolas2012}.
+\end{proof}
+
+There is a broader sufficient qualification for the product theorem.
+For fixed nonnegative weights and fixed $\nu,z>0$, it is enough that
+some real $\kappa$ and $C\ge0$ satisfy
+\begin{equation}\label{eq:family-general-tail}
+ \left|\kappa-\sum_{p\le N}
+   \bigl(\log(1+w_pz)-\nu z\log(1+v_p)\bigr)\right|
+ \le C/N
+ \quad\hbox{eventually}.
+\end{equation}
+The same proof gives the product criterion with constant
+$\exp(\nu z\gamma+\kappa)$. This qualification contains neither
+$\theta$ nor an RH sign assumption. It is formalized separately.
+We do not assert that either sufficient condition is a necessary
+classification of every family that might admit an RH criterion.
+
+\subsection{The coefficient ratio and deterministic rank shifts}
+Let
+\[
+ U_\eta(N)=\nu L(N),\qquad
+ R_{\eta,r}(N)=\frac{a_{\eta,r-1}(N)}{a_{\eta,r}(N)},\qquad
+ \overline R_{\eta,r}(u)=\frac{C_{\eta,r-1}(u)}{C_{\eta,r}(u)}.
+\]
+Here $L(N)=\gamma+\log\log\theta(N)$ as before.
+
+\begin{theorem}[Uniform family coefficient transfer]\label{thm:family-ratio}
+Assume \eqref{eq:family-quadratic}. On every fixed positive compact
+band for $r/U_\eta(N)$, both denominators are positive for large
+$N,r$, and for a constant $K$ depending on the law and band,
+\begin{align}
+ &\left|R_{\eta,r}(N)-\overline R_{\eta,r}(U_\eta(N))
+       -\frac{r}{U_\eta(N)^2}\nu F(N)\right|\notag\\
+ &\hspace{1cm}\le
+ K\left(\frac{|\nu F(N)|}{U_\eta(N)^2}+\frac1{rN}\right).
+ \label{eq:family-linearization}
+\end{align}
+For every fixed $\alpha>0$, put $r(N)=\lfloor\alpha U_\eta(N)\rfloor$.
+Each of the eventual inequalities
+\[
+ R_{\eta,r(N)}(N)<\overline R_{\eta,r(N)}(U_\eta(N)),
+ \qquad
+ R_{\eta,r(N)}(N)\le\overline R_{\eta,r(N)}(U_\eta(N))
+\]
+is equivalent to RH.
+\end{theorem}
+
+\begin{proof}
+For $|z|\le R$, the normalized local factor differs from one by at most
+$K_R^{\mathbb C}v_p^2$, where one may take
+\[
+ K_R^{\mathbb C}=
+ \bigl((D+\nu/2)R+\nu^2R^2e^{\nu R}\bigr)e^{\nu R}.
+\]
+The product therefore defines an entire function and its finite
+prefix approximates it uniformly on each closed disk with error
+$O_R(N^{-1})$. The proof uses product differences, so zeros of
+individual factors on a disk cause no division problem. On $0\le t\le b$,
+\[
+ \mathcal H_\eta(t)\ge
+ \exp\left(-K_\eta(b)\sum_p v_p^2\right)>0.
+\]
+Cauchy's estimate therefore bounds the coefficient of degree $j$ in
+the prefix error by $O_R(N^{-1}R^{-j})$.
+
+Apply the factorial-polynomial argument of Section~\ref{sec:profile}
+to this entire profile. If $h_j=[z^j]\mathcal H_\eta(z)$, its normalized
+coefficient polynomial is
+\[
+ P_r(t)=\sum_{j=0}^r h_jt^j\frac{(r)_j}{r^j}.
+\]
+The entire coefficient series and its derivatives give uniform
+approximations to $\mathcal H_\eta$ and $\mathcal H_\eta'$ on a
+compact interval. The displayed positive lower bound controls the
+denominator. The exact identity
+\[
+ \overline R_{\eta,r}(u)
+ =t-\frac{t^2}{r}\frac{P_r'(t)}{P_r(t)},\qquad t=r/u,
+\]
+then gives a paired prefix/reference error $O((rN)^{-1})$ and reference
+slope $-r/u^2+O(u^{-2})$. These are the same general polynomial
+estimates used for Theorem~\ref{thm:linearization}; their hypotheses
+have now been proved for $\mathcal H_\eta$.
+
+The actual finite product is restored at
+$B_\eta(N)=\nu\sum_{p\le N}\log(1+v_p)$, and
+$U_\eta(N)-B_\eta(N)=\nu F(N)$ exactly. Integrating the slope over
+the interval between these two clocks proves
+\eqref{eq:family-linearization}. The floor-rank band has positive
+lower and upper bounds. The negative RH margin and the positive
+false-RH excursions dominate its inverse-cutoff error, giving
+both asserted equivalences.
+\end{proof}
+
+To interpret the ratio arithmetically, put
+\[
+ f_N=\#\{p\le N:\eta_p=1\},\qquad
+ M_{\eta,N}(j)=[z^j]\prod_{p\le N}(1-\eta_p+\eta_pz).
+\]
+For $r\ge1$ the exact identity, with total division at a zero denominator, is
+\begin{equation}\label{eq:family-forced-ratio}
+ \frac{M_{\eta,N}(f_N+r-1)}{M_{\eta,N}(f_N+r)}
+   =R_{\eta,r}(N).
+\end{equation}
+Indeed, replace each forced probability by zero, shift by its exact
+count, and factor out the strictly positive survival product of the
+remaining coordinates. Excluded coordinates contribute zero odds and
+no rank shift. Both the identity and its two RH consumers are
+formalized. At a prime prefix $N=p-1$, the corresponding distinct-factor
+rank is $k=f_N+r+1$.
+
+Every reciprocal-smooth law qualifies by its proved odds estimate.
+Consequently every fixed affine prime-pair family in
+Section~\ref{sec:affine} has these product and mass-ratio RH criteria,
+with $\nu=m$ and its exact residue probabilities.
+No bounded-gap or short-interval hypothesis is needed for these
+equivalences. Arithmetic interpretation still takes the input-size
+limit first, with the finite prime prefix fixed. Sparse support
+families require a separate qualification check; the affine
+constructor makes no assertion about them.
+
+\subsection{Reference-scale constants and combinations of families}
+The same entire-profile estimates give a locally unique positive-level
+reference crossing with
+\[
+ \overline R_{\eta,r}(u_{r,s})=s,\qquad
+ u_{r,s}=\frac r s-\frac{\mathcal H_\eta'(s)}{\mathcal H_\eta(s)}
+          +O_{\eta,s}(r^{-1}).
+\]
+For fixed $g\ge0$, take $s=1+g/\nu$ and
+$T_{\eta,r,g}=\exp(\exp(u_{r,s}/\nu-\gamma))$. Then
+\begin{equation}\label{eq:family-reference-constant}
+ \log\log T_{\eta,r,g}
+ =\frac r{g+\nu}-\gamma
+   -\frac1\nu\frac{\mathcal H_\eta'(1+g/\nu)}
+                    {\mathcal H_\eta(1+g/\nu)}
+   +O_{\eta,g}(r^{-1}).
+\end{equation}
+This generalizes the reference constant, including every finite
+exception in $\mathcal H_\eta$. In a density application, the free
+rank $r$ must still be replaced by $k-f_N-1$.
+The theorem describes the reference crossing. Identifying the actual
+last ascent additionally requires the stated arithmetic supply and
+sufficient precision of the actual local gap threshold.
+
+Finally, for a fixed finite collection of qualifying laws and fixed
+real coefficients $a_i$, let $z_i\ge0$ and $\lambda=\sum_i a_i\nu_i z_i$.
+The exact family bounds imply
+\[
+ \left|\sum_i a_iE_{\eta_i}(N,z_i)-\lambda F(N)\right|
+ \le\frac1N\sum_i |a_i|\,2K_{\eta_i}(z_i).
+\]
+If $\lambda>0$, eventual negativity of this combination is another RH
+criterion. If $\lambda=0$, only the inverse-cutoff remainder remains.
+Thus fixed finite family averaging retains one common arithmetic
+signal. An infinite or cutoff-dependent collection needs a separate
+uniform summability argument; no such transfer is asserted here.
+
 \section{Reference crossings and RH ascent capacities}\label{sec:capacity}
 The preceding centered criterion concerns $R_r-\mathcal R_r(L)$.
 A raw ascent instead concerns $R_r-(g+1)$ for an actual gap $g$.
@@ -1306,6 +1592,338 @@ count correction changes a leading coefficient measured by
 $\log\log X/k$. The rank is fixed in the raw reversal count;
 it moves with $x$ in Theorem~\ref{thm:rh-ratio}.
 
+\section{Persistent excursions and positive-area criteria}\label{sec:area}
+The pointwise criterion also admits a one-sided integral formulation.
+This retains information lost by the leading reversal spectrum.
+Write $v_+=\max(v,0)$ and define
+\begin{align*}
+ Q_F(X)&=\int_X^{2X}F(t)_+\,dt,\\
+ S_\alpha(x)&=\frac{L(x)^2}{\lfloor\alpha L(x)\rfloor}
+                \Delta_{\lfloor\alpha L(x)\rfloor}(x),\\
+ Q_\alpha(X)&=\int_X^{2X}(S_\alpha(t))_+\,dt .
+\end{align*}
+All statements below concern sufficiently large $X$; the rank and
+coefficient denominators are then positive. Arbitrary definitions on
+the bounded initial range do not change an eventual criterion.
+
+\begin{lemma}[Persistence at a controlled peak]\label{lem:persistence}
+If RH is false, there is $0<b<1/2$ such that for every fixed
+$A>0$ and $d<1-b/2$, arbitrarily large integers $n$ satisfy
+\[
+ F(y)>A n^{-b}\qquad(n\le y\le n+n^d).
+\]
+More precisely, controlled positive peaks with $K(n)>A_0n^{-b}$
+give intervals of length
+$c_{A_0}n^{1-b/2}/\sqrt{\log n}$ on which
+$F(y)\ge(A_0/2)n^{-b}$, for some fixed $c_{A_0}>0$.
+\end{lemma}
+\begin{proof}
+The two-sided peak construction in
+Theorem~\ref{thm:power-excursions} supplies arbitrarily late integer
+peaks $x$ with $K(x)>A_0x^{-b}$ and
+$0<\theta(x)-x\le(2A_0+1)x^{1-b}\log x$.
+For $0<h\le x$ and $x\le y\le x+h$, distinct integer prime
+positions give
+\[
+ |\theta(y)-y|\le M:=(2A_0+1)x^{1-b}\log x+3(h+1)\log x
+\]
+eventually. The kernel satisfies
+$\kappa(t)\le2/(x^2\log x)$ on this interval.
+Taylor's integral remainder for $\log\log t$, on arguments at
+least $x/2$, gives
+\[
+ F(y)\ge K(x)-\frac{2Mh+8M^2}{x^2\log x}
+ \quad\hbox{when }M\le x/2.
+\]
+The nonnegative tail $A(y)$ was discarded only in this lower bound.
+Take $h=\eta x^{1-b/2}/\sqrt{\log x}$, with
+$\eta=\sqrt{A_0}/100$. The term $2Mh$, after the displayed
+normalization and division by $x^{-b}$, tends to zero.
+Using
+$M^2\le2(2A_0+1)^2x^{2-2b}\log^2x+
+18(h+1)^2\log^2x$, the remaining loss has limsup at most
+$144\eta^2<A_0/2$. Also $M=o(x)$.
+This proves the more precise assertion. Choose $A_0>2A$;
+every fixed $x^d$ with $d<1-b/2$ is eventually shorter than $h$.
+\end{proof}
+The maintained formal proof establishes every fixed-power version
+and the finite loss envelope. The logarithmic critical-length
+refinement is the ordinary calculation displayed above.
+
+\begin{theorem}[Positive-area RH criteria]\label{thm:area}
+For every fixed $\alpha>0$, each of the following is equivalent to RH:
+\[
+ Q_F(X)=O\bigl(X^{1/4}(\log X)^B\bigr)
+ \quad\hbox{for some fixed }B\ge0,
+\]
+\[
+ Q_\alpha(X)=O\bigl(X^{1/4}(\log X)^B\bigr)
+ \quad\hbox{for some fixed }B\ge0.
+\]
+The bounds are required at every sufficiently large real $X$.
+For $1/4\le a<1$, either bound
+$Q(X)=O_\varepsilon(X^{a+\varepsilon})$ for every
+$\varepsilon>0$ implies that every nontrivial zero satisfies
+$\operatorname{Re}\rho\le(1+2a)/3$.
+These are conditional zero restrictions, not unconditional strips.
+\end{theorem}
+\begin{proof}
+The coefficient transfer gives, with a fixed $C_\alpha$,
+\[
+ |S_\alpha(x)-F(x)|
+ \le \frac{C_\alpha}{L(x)}|F(x)|+\frac{C_\alpha}{x}.
+\]
+Once $C_\alpha/L(x)\le1/2$, taking positive parts and integrating yields
+\[
+ Q_\alpha(X)\le\tfrac32Q_F(X)+C_\alpha\log2,\qquad
+ Q_F(X)\le2Q_\alpha(X)+2C_\alpha\log2.
+\]
+Under RH both positive parts vanish eventually.
+
+Under false RH, Lemma~\ref{lem:persistence} gives
+$Q_F(n)\ge A n^{d-b}$ for every fixed $d<1-b/2$ at arbitrarily
+large $n$. Since $b<1/2$, choose $d$ with $d-b>1/4$.
+This defeats every fixed logarithmic factor at exponent $1/4$.
+The two area comparisons transfer the contradiction.
+For a zero of real part $\sigma>(1+2a)/3$, choose fixed exponents with
+\[
+ 1-\sigma<b<\frac{2(1-a)}3,\qquad a+b<d<1-b/2.
+\]
+A sufficiently small fixed $\varepsilon>0$ gives the same contradiction.
+\end{proof}
+
+For an explicit sufficient estimate, put
+\[
+ Z(x)=\sqrt{x}\log x\,J(x),\qquad
+ q(X)=2\left\lceil\frac{\log X}{8\log2}\right\rceil.
+\]
+The estimate is the following unproved assertion:
+\begin{equation}\label{eq:moment-target}
+ \frac1X\int_X^{2X}|Z(t)|^{q(X)}\,dt\le C\,2^{-q(X)}
+ \quad\hbox{eventually, with fixed }C.
+\end{equation}
+Indeed $P(x)\sim2/(\sqrt{x}\log x)$, $D\ge0$ and $A=O(1/x)$
+give $F(x)\le(Z(x)-1)/(\sqrt{x}\log x)$ eventually.
+For $q\ge1$, $(u-1)_+\le|u|^q$. Thus
+\eqref{eq:moment-target} implies
+$Q_F(X)\le C X^{1/4}/\log X$ and hence RH.
+A fixed second-moment envelope instead gives only
+$O(\sqrt X/\log X)$ by $(v-m)_+\le v^2/(4m)$.
+This identifies the strength needed by that particular estimate;
+it does not prove that every second-moment argument must fail.
+No unconditional bound \eqref{eq:moment-target} is asserted.
+
+\subsection{A growing positive tilt}
+The exact identity \eqref{eq:tilt-tail} also permits a growing
+parameter, provided its tail is estimated directly.
+For fixed $c>0$, set $z=c\sqrt{x}$. PNT and partial summation give
+\[
+ \sum_{p>x}(p-1)^{-2}\sim\frac1{x\log x},\qquad
+ \sum_{p>x}(p-1)^{-3}=O\left(\frac1{x^2\log x}\right).
+\]
+The estimate needed here is uniform in the growing parameter. Put
+$N=\lfloor x\rfloor$ and $S_2(N)=\sum_{p>N}(p-1)^{-2}$. The elementary
+bounds $0\le\log(1+v)-v+v^2/2\le v^3/3$ for $v\ge0$ give
+\[
+ \left|\log\mathcal H(z)-\log\mathcal H_N(z)
+       +\frac{z^2-z}{2}S_2(N)\right|
+ \le\frac{2(z^3+z)}{3N^2}\qquad(N\ge1,\ z\ge0).
+\]
+This weaker cubic bound already suffices: after division by
+$z=c\sqrt{x}$, its error is $O_c(x^{-1})$, which is
+$o_c(1/(\sqrt{x}\log x))$. PNT supplies
+$N\log N\,S_2(N)\to1$, and $N/x\to1$ retains the real cutoff.
+Consequently
+\begin{equation}\label{eq:growing-tilt}
+ \frac{T_{c\sqrt{x}}(x)}{c\sqrt{x}}
+ =F(x)-\frac{c}{2\sqrt{x}\log x}
+       +o_c\left(\frac1{\sqrt{x}\log x}\right).
+\end{equation}
+It follows that RH is equivalent to eventual
+$T_{c\sqrt{x}}(x)<0$ for each fixed $c>0$.
+The RH direction follows from the negative source margin; the converse
+uses the positive $x^{-b}$ excursions with $b<1/2$, which dominate
+every fixed square-root-scale allowance.
+This argument does not apply a fixed-tilt error term uniformly without
+proof. Nor does a larger $c$ establish the resulting product inequality.
+For comparison, a finite fixed combination satisfies
+$\sum_j a_jT_{z_j}=(\sum_j a_jz_j)F+O(1/x)$:
+canceling its leading coefficient cancels this RH signal as well.
+
+\section{RH detected by localized reversal counts}\label{sec:local-count}
+This section uses a specified collection of witnesses and a growing
+finite tilt grid. It does not replace the original maximal count
+$N_\eta(k)$ by a monotone proxy. In fact, ascent inclusion alone does
+not imply monotonicity of maximal separated reversal counts: the step
+signs $(-,+,+,-,+,+)$ allow two separated witnesses, while
+$(-,+,+,+,+,+)$ allow only one.
+
+\subsection{Actual tilted laws and exact rounding}
+For each $t>0$ put $\eta_p(t)=t/(p-1+t)$. Its odds are
+$t/(p-1)$, so its degree-$r$ elementary coefficient is exactly
+$t^r a_r$. At a supported prefix $x=p-1$ and a consecutive
+gap $g=q-p$, the rank-$(r+1)$ density therefore ascends exactly when
+\[
+ g+t<R_r(x);
+\]
+it descends exactly when $R_r(x)<g+t$.
+These are statements about actual local-law densities.
+No unweighted arithmetic realization for every real $t$ is assumed.
+
+For $t_j=1+j/M$, $0\le j\le HM$, let
+$A_M(R,g)=\#\{j:g+t_j<R\}$. If $M\ge1$ and
+$1\le R-g\le H+1$, then
+\[
+ A_M(R,g)=\lceil M(R-g-1)\rceil.
+\]
+Thus, when both $R-g$ and $U-g$ lie in this interval,
+\begin{equation}\label{eq:grid-rounding}
+ |A_M(R,g)-A_M(U,g)-M(R-U)|<1.
+\end{equation}
+The weak lower and strict upper endpoints follow from the strict
+ascent test; a threshold exactly on a grid point is not counted.
+For a nonempty finite set of pairs, summing this identity loses
+less than one unit per pair.
+
+\subsection{The sampling input and the specified cells}
+Alweiss--Luo \cite[Corollary~1.2]{AL} prove that for each fixed
+$\delta\in[0.525,1]$, some fixed width $H$ and constants $c>0,m$
+give at least $ch/(\log Y)^m$ consecutive prime pairs of gap at most
+$H$ in every sufficiently late $[Y-h,Y]$, whenever
+$Y^\delta\le h\le Y$. We use $\delta=3/5$ and enlarge $H$ to at
+least two. This $H$ is not supplied by a theorem about global
+infinitude at a numerical width such as $186$.
+
+For integer $X$ sufficiently large, set
+\[
+ h_X=\lceil3X^{3/5}\rceil,\quad
+ m_X=\left\lfloor\frac{X^{7/10}}{10h_X}\right\rfloor,\quad
+ M_X=\lceil\sqrt X\rceil,\quad
+ r_X=\lfloor(H+2)L(X)\rfloor.
+\]
+The cell indexed by $0\le i<m_X$ starts at
+$z_i=X+1+10h_Xi$. Its three sampling windows are
+\[
+ [z_i,z_i+h_X],\quad
+ [z_i+3h_X,z_i+4h_X],\quad
+ [z_i+6h_X,z_i+7h_X].
+\]
+The explicit $+1$ ensures that every relevant prefix $p-1$ is at
+least $X$. All prefixes used below are at most $X+X^{7/10}$.
+The source theorem applies to all three windows simultaneously,
+since their right endpoints are at most $2X$ and
+$h_X\ge(2X)^{3/5}$ eventually.
+
+Fix $\ell=H+3$. Every multiple of $\ell!$ starts a composite
+block at offsets $2,\ldots,\ell$. Since $h_X\ge\ell!+2$
+eventually, a block can be placed between the left and middle
+windows. Choose the first qualifying consecutive bounded pair in each
+window and use its lower prime in the left and middle windows.
+A consecutive-prime step crossing the intervening block
+has length at least $\ell$. Fix a choice of these crossings once
+and for all, using only their prime geometry.
+Denote its lower-prime index by $d_i$
+and that of the selected right pair by $a_i$.
+These deterministic choices use only primes and the fixed schedule.
+
+The crossing lies between the selected left and middle primes,
+so $d_i<a_i$. The right endpoint in one cell is strictly before
+the next cell's descent lower prime; therefore
+$a_i+1<d_j$ for $i<j$. Finally
+$m_X\sim X^{1/10}/30$. These are genuine separated witnesses,
+not repeatedly counted copies of one reversal.
+
+\subsection{Two finite integer counts}
+Use the same grid $t_j=1+j/M_X$, $0\le j\le HM_X$, in every cell.
+Define
+\begin{align*}
+ C_H(X)&=\sum_{i=0}^{m_X-1}\sum_{j=0}^{HM_X}
+ {\bf1}\{d_i<a_i\text{ and the tilted rank-$(r_X+1)$ density}\\[-2pt]
+ &\hspace{42mm}\text{descends at }d_i\text{ and ascends at }a_i\},\\
+ \overline C_H(X)&=\sum_{i=0}^{m_X-1}\sum_{j=0}^{HM_X}
+ {\bf1}\{g_{a_i}+t_j<\mathcal R_{r_X}(L(p_{a_i}-1))\}.
+\end{align*}
+Use index zero when a specified selection is unavailable on the
+bounded initial range. The finite formulas then define total counts;
+their initial values do not enter either eventual criterion.
+The reference uses the same actual prime pairs and their actual gaps.
+
+Uniformly on the window, both actual and reference ratios are
+$H+2+o(1)$, with positive denominators. This follows from
+$R_r,\mathcal R_r=r/L+O(1/L)$ on compact rank bands and
+$|L(y)-L(X)|\le1$ on $[X,2X]$ eventually.
+Every chosen long step is consequently a strict descent for every
+grid tilt. For the short step, $2\le g_{a_i}\le H$ puts both
+ratio-minus-gap thresholds inside $[1,H+1]$.
+Writing $\Delta_i=\Delta_{r_X}(p_{a_i}-1)$, we obtain
+\begin{equation}\label{eq:count-residual}
+ C_H(X)-\overline C_H(X)
+ =M_X\sum_{i=0}^{m_X-1}\Delta_i+e_X,\qquad |e_X|<m_X
+\end{equation}
+whenever $m_X>0$.
+
+\begin{theorem}[Localized separated-reversal criteria]\label{thm:count-rh}
+For the preceding fixed width and deterministic construction, RH is
+equivalent to each of the following:
+\begin{align}
+ C_H(X)&\le\overline C_H(X)\quad\hbox{eventually},\label{eq:count-rh-sign}\\
+ C_H(X)-\overline C_H(X)&\le C X^{1/10}
+ \quad\hbox{eventually for some fixed }C>0.\label{eq:count-rh-power}
+\end{align}
+Under false RH the signed difference divided by $X^{1/10}$ is
+unbounded above along integer $X$.
+\end{theorem}
+\begin{proof}
+Under RH, the uniform coefficient sign comparison applies to
+$r_X$ at every selected prefix. Actual ascent tests are included
+in reference tests, proving \eqref{eq:count-rh-sign} and hence
+\eqref{eq:count-rh-power}.
+
+If RH is false, Lemma~\ref{lem:persistence}, followed by the
+uniform coefficient transfer, supplies arbitrarily large integer
+$n$ such that
+\[
+ \Delta_r(y)>T n^{-1/2}\qquad
+ (n\le y\le n+n^{7/10})
+\]
+for every prescribed fixed $T>0$ and every rank in a fixed positive
+compact $r/L(y)$ band. Indeed its retained main term is
+$\gg n^{-b}/L(y)$ for some $b<1/2$, and
+$n^{1/2-b}/\log\log n\to\infty$.
+All selected prefixes at $X=n$ lie in this interval, and the single
+rank $r_n$ lies in the required band throughout.
+Since $M_n\ge\sqrt n$, \eqref{eq:count-residual} gives
+\[
+ C_H(n)-\overline C_H(n)>m_n(T-1).
+\]
+Now $m_n\ge c_0n^{1/10}$ eventually, with fixed $c_0>0$.
+Choosing $T>1+C/c_0$ contradicts any proposed eventual bound
+\eqref{eq:count-rh-power}. This proves both converses.
+\end{proof}
+
+For each individual tilt, the selected witnesses are bounded by
+$N_{\eta(t)}(r_X+1)$. The sum in the theorem ranges over a growing
+finite grid, so it is not the maximal count for one fixed law.
+Its reference also retains $\theta$ and the entire profile.
+An independent proof of either eventual count inequality would
+prove RH; the equivalence itself supplies no such estimate.
+
+An ascent-only variant uses every consecutive gap at most the source
+width in $[X+1,X+1+\lceil2X^{7/10}\rceil]$ and the same grid and rank.
+Let its actual and reference counts be $A_H(X),B_H(X)$.
+The source at $\delta=3/5$, applied to this longer window, supplies
+$\gg X^{7/10}/(\log X)^m$ pairs. At the persistent false-RH peaks,
+\eqref{eq:grid-rounding} then gives
+\[
+ A_H(X)-B_H(X)\gg
+ \frac{X^{6/5-b}}{(\log X)^m\log\log X},\qquad b<1/2.
+\]
+Thus RH is also equivalent to eventual $A_H\le B_H$, and to
+an eventual one-sided bound $A_H-B_H=O(X^{7/10})$.
+The persistence interval may be taken with any fixed exponent
+between $7/10$ and $3/4$, which absorbs the shift and rounding
+in this ascent-only window.
+
 \section{Implications and scope}\label{sec:implications}
 The spectrum gives a quantitative dictionary. Bounded-gap counts
 yield reversal counts through the finite selection lemma; the
@@ -1334,7 +1952,11 @@ different quantifiers. At each fixed rank there is a final decreasing
 tail. The RH criterion lets the rank grow with the endpoint and
 compares its ratio with the full reference profile.
 It is the transfer in Theorem~\ref{thm:linearization} that relates
-this second question to Nicolas's error.
+this second question to Nicolas's error. Theorem~\ref{thm:family-ratio}
+extends the centered comparison to the qualifying local laws and the
+actual affine families. An independently proved centered inequality
+in any one such family would therefore imply RH. A coarse reversal
+rate or a numerical prime-gap bound does not itself provide that sign.
 
 The exact raw comparison can be written as
 \[
@@ -1384,6 +2006,126 @@ verification does not establish priority. Speculative RH and
 independent small-gap-supply investigations are excluded from the
 theorem claims of this paper.
 
+\subsection{Finite smaller gaps and the complete spectrum}
+Suppose, for a fixed even $h\ge2$, that all sufficiently late
+consecutive gaps are at least $h$. Every fixed initial prime prefix
+has finite support in the rank variable. Consequently, for all
+sufficiently large ranks, none of its steps can be an ascent.
+The RH argument in Theorem~\ref{thm:rh-capacity} then uses the
+threshold $h+1$ throughout and gives
+\[
+ \theta(P_k-1)<T_{k-1,h}:=\EE(u_{k-1,h+1}-\gamma),\qquad
+ N_k\le(1+\varepsilon)\frac{T_{k-1,h}}{\log T_{k-1,h}}
+\]
+eventually, and hence
+\begin{equation}\label{eq:general-gap-capacity}
+ \log\log N_k\le\frac{k-1}{h+1}-\gamma
+ -\frac{\mathcal H'(h+1)}{\mathcal H(h+1)}+\frac{C_h}{k-1}.
+\end{equation}
+Constants and onsets depend on the fixed $h$. There is no fixed-width
+sign transition: $\mathcal H(s)>0$ at every positive $s$, and the RH
+source multiplier $-(2+W)$ stays negative in every fixed positive
+rank band.
+
+Finite twins give $h=4$ as an eventual lower bound and
+$\gamma_2=\gamma_3=0$. If additionally $\Lambda(1)=1/5$, the spectrum
+forces $\gamma_4=1$: every $H\ge5$ contributes at most $1/6$, while
+the only remaining possible maximizing term is $\gamma_4/5$.
+It follows that
+\[
+ \Lambda(\nu)=\frac1{4+\nu}\qquad(\nu>0).
+\]
+Indeed the full-frequency width-four term dominates every larger
+width, and smaller widths have zero exponent.
+The RH ceiling \eqref{eq:general-gap-capacity} now has the same
+leading coefficient $1/5$. The matching leading values yield no
+opposing signed inequality. Nor does $\gamma_H=1$ specify an actual
+density: both $G_H(X)\sim X^\delta$, with any fixed $\delta>0$,
+and $G_H(X)\sim cX/\log^2X$ have that exponent.
+
+\subsection{When local frequency reveals the RH displacement}
+A stronger frequency hypothesis makes the reference displacement
+visible in actual last-ascent locations.
+Fix even $h\ge2$, assume smaller gaps occur only finitely often, and
+assume every sufficiently late interval
+\[
+ [X,X+\ell(X)],\qquad \ell(X)=\frac{\sqrt X}{(\log X)^2},
+\]
+contains the lower member of a consecutive gap exactly $h$.
+Let $V_k$ be the last supported prime eligible for a hypothetical
+gap-$h$ ascent, and $P_k$ the last actual ascent prime. Then
+\begin{equation}\label{eq:local-tracking}
+ P_k/V_k\longrightarrow1,\qquad
+ T_{k-1,h}-\mathcal C(P_k-1)=o(\sqrt{P_k}).
+\end{equation}
+Under RH this gives
+\[
+ \frac{T_{k-1,h}-\theta(P_k-1)}{\sqrt{P_k}}
+ =2+W(P_k-1)+o(1).
+\]
+
+Here is the precision argument. Monotonicity of the supported
+ordinary coefficient ratio makes eligible primes an initial segment.
+Ordinary prime existence provides a supported seed below $V_k/2$.
+Apply local coverage at $X=V_k-2\ell(V_k)$. For large $V_k$,
+$X\ge V_k/2$ and $\ell(X)\le2\ell(V_k)$, so the supplied gap-$h$
+pair has lower prime in $(V_k-2\ell(V_k),V_k]$. Support propagates
+from the seed, and monotonicity makes that step an actual ascent.
+Beyond $V_k$, the eventual lower gap bound $h$ makes any ascent
+eligible for the hypothetical gap-$h$ test, contradicting the
+definition of $V_k$. Thus all finite exceptions are accounted for and
+$V_k-2\ell(V_k)<P_k\le V_k$.
+
+At $x=V_k-1$ and $y=w-1$, with $w$ the next prime after $V_k$,
+the finite-product comparison gives
+$R_r(x)=\mathcal R_r(B(x))+O_h(1/(rx))$, and likewise at $y$.
+Only the prime $V_k$ is added between these prefixes, so
+$B(y)-B(x)=\log(V_k/(V_k-1))=O(1/V_k)$.
+Ordinary prime existence and the eventual cutoff bound first place
+$r/B(x)$, $r/B(y)$ and $r/u_{r,h+1}$ in a common fixed positive
+compact interval. The uniform signed coefficient comparison then
+applies on both connecting segments. The strict eligible sign at
+$x$, the noneligible sign at $y$, and the displayed one-prime jump give
+$|B(x)-u_{r,h+1}|=O_h(1/V_k)$.
+No prior spatial closeness of the two clocks is assumed.
+
+The quantitative PNT-strengthened Mertens estimate gives
+$e^{-\gamma}G_x(1)-\log x=o(1)$, and hence $\mathcal C(x)/x\to1$.
+The weaker relation $\log\mathcal C(x)\sim\log x$ would not suffice.
+Exponentiating the proved clock difference now gives
+$|\mathcal C(V_k-1)-T_{r,h}|=O_h(\log V_k)$.
+Each prime-clock jump in the remaining interval is $O(\log V_k)$.
+There are at most $2\ell(V_k)+1$ integer sites, so their total change
+is $O(\sqrt{V_k}/\log V_k)=o(\sqrt{V_k})$.
+This proves \eqref{eq:local-tracking}; add \eqref{eq:clock-wave}
+at the same actual endpoint for the RH assertion.
+
+A global pair-count asymptotic alone gives only proportional coverage.
+For the exact-gap count $G_h^{=}(X)$, the maintained sufficient condition is
+\[
+ \begin{gathered}
+ G_h^{=}(X)=c_h\operatorname{Li}_2(X)+E(X),\qquad c_h>0,\\
+ E(X)=o(\sqrt X/\log^4X),\qquad
+ \operatorname{Li}_2(X)=\int_2^X\frac{dt}{(\log t)^2}.
+ \end{gathered}
+\]
+Subtract this estimate at $X$ and $X+\ell(X)$. The main increment is
+of order $\sqrt X/\log^4X$ and dominates both endpoint errors.
+The full integral main term is essential at this precision;
+$c_hX/\log^2X$ cannot replace it. A square-root-plus-epsilon
+global error is insufficient for this subtraction.
+This is a sufficient route to local coverage, not its necessary strength.
+
+Finally, on any of the finite supports in Section~\ref{sec:local-count},
+the signed excess is exactly the number of grid thresholds in
+$[U_i,R_i)$ minus the number in $[R_i,U_i)$, where
+$U_i=\mathcal R_r(L(p_i-1))$.
+A positive excess arbitrarily far out contradicts RH.
+Neither finite twins nor a positive main term for another gap class
+has been shown to force that signed excess. These frequency statements
+therefore identify additional information needed by this route;
+they establish neither RH nor twin-prime infinitude.
+
 \section{Formalization and reproducibility}\label{sec:formal}
 The principal maintained owners are:
 \begin{itemize}\small\raggedright
@@ -1401,6 +2143,10 @@ conditional inverse twin-prime transfer;
 \item \path{Helpers/PrimeProfileCanonicalLinearization.lean} and
 \path{Helpers/PrimeProfileUniformSign.lean}: the full-profile
 coefficient comparison and uniform sign transfer;
+\item \path{Assembly/FamilyRHResults.lean}:
+Theorems~\ref{thm:family-product} and~\ref{thm:family-ratio},
+the general probability-law constructor, exact forced-rank mass criteria,
+actual affine-family consumers, and the generalized reference constant;
 \item \path{Helpers/NicolasPowerPeak.lean} and
 \path{Helpers/PrimeProfilePowerExcursions.lean}: the corrected
 logarithm and actual moving-rank power excursions;
@@ -1408,9 +2154,50 @@ logarithm and actual moving-rank power excursions;
 \path{Helpers/NicolasSpatialClock.lean} and the positive-tilt
 modules: the classical spectral inputs and their clock/integral
 consumers;
-\item \path{Assembly/RHSharpAscentReference.lean} and
-\path{Assembly/RHLogAscentCapacity.lean}: the maintained
-endpoint and count envelopes.
+\item \path{Assembly/GeneralRHSharpCapacity.lean}: attained last
+ascents and sharp count capacities under any eventual lower gap,
+including every finite exception;
+\item \path{Helpers/NicolasPowerPersistence.lean},
+\path{Helpers/NicolasCriticalPersistence.lean},
+\path{Helpers/NicolasPositiveArea.lean} and
+\path{Helpers/PrimeProfilePositiveArea.lean}: power and critical
+logarithmic-length positive intervals and both positive-area RH criteria;
+\item \path{Helpers/NicolasMomentConsumer.lean} and
+\path{Helpers/MomentSecondArea.lean}: the growing-moment sufficient
+condition and the fixed-second-moment area envelope. Their proposed
+moment hypotheses remain unproved;
+\item \path{Helpers/TiltedDensity.lean},
+\path{Helpers/TiltedReversalCount.lean},
+\path{Helpers/TiltedCountRHUpper.lean},
+\path{Helpers/TiltedCountExcursion.lean} and
+\path{Helpers/PrimeProfileWindowBands.lean}: actual tilted densities,
+finite signed counts, RH inclusion, false-RH interval margins and
+uniform fixed-window rank bands;
+\item \path{Helpers/LocalizedReversalCriterion.lean} and
+\path{Helpers/LocalReversalSampling.lean}: both localized
+reversal-count equivalences, explicit cell selection and the
+all-short-interval arithmetic input boundary;
+\item \path{Helpers/LocalizedAscentCriterion.lean} and
+\path{Helpers/LocalAscentSampling.lean}: both ascent-only criteria,
+using all actual pairs and an explicit quantitative sampling premise;
+\item \path{Helpers/TiltedSignedExcess.lean} and
+\path{Helpers/FixedTiltCombinations.lean}: exact signed counts,
+aggregate rounding and fixed-tilt cancellation;
+\item \path{Helpers/GapFrequencyCoverage.lean}: the global
+$\operatorname{Li}_2$ error implication for actual local exact-gap occurrence;
+\item \path{Assembly/ConditionalLocation/FineLocationRH.lean}:
+the actual last-ascent sandwich, relative limit, square-root clock
+tracking, and full RH wave under the stated local coverage hypothesis;
+\item \path{Helpers/NicolasQuantitativeClock.lean}: unconditional
+$F(x)\log x\to0$ and $\mathcal C(x)/x\to1$, with sufficient
+precision before exponentiation;
+\item \path{Helpers/NicolasGrowingTilt.lean},
+\path{Helpers/NicolasGrowingTiltAsymptotic.lean},
+\path{Helpers/FiniteTwinsSpectrum.lean} and
+\path{Helpers/ReversalCountCounterexample.lean}: growing-tilt
+RH criteria and the sharp growing-tilt correction, the conditional
+finite-twins spectrum consequence,
+and the generic count-monotonicity counterexample.
 \end{itemize}
 Paths are relative to \texttt{PrimeFactorOscillations/}. The
 \href{https://github.com/kimihiro64/prime-factor-oscillations/blob/main/paper/THEOREM_STATUS.md}{theorem ledger}
@@ -1426,15 +2213,25 @@ classification is not an input. The width-$600$ count is
 extracted from a separately pinned prime-cluster development.
 The RH part additionally reuses the Robin1984 analytic development
 and the verified explicit-formula and complex-analytic dependencies.
-Classical analytic results are retained as proved dependencies, not
+Section~\ref{sec:local-count} additionally uses the published
+Alweiss--Luo all-short-interval input. This input is not a discharged
+Lean dependency. The complete ordinary proof above must be distinguished
+from formal count theorems conditional on explicit arithmetic sampling
+hypotheses. Those hypotheses concern actual prime positions, gap widths,
+separation and the number of cells, and contain no density sign or RH
+conclusion. No project axiom asserts the source theorem.
+Classical analytic results in the maintained closed development are
+retained as proved dependencies, not
 research-target axioms. The paper provides the coefficient-transfer
 argument and its consumers, while citing the underlying classical
 prime-distribution and Nicolas theorems.
 
 The relative-location implication in
-Theorem~\ref{thm:hl-location} has a compiled conditional research
-consumer; its maintained public export is still pending.
-Its full written proof is included above. The resulting logarithmic
+Theorem~\ref{thm:hl-location} is maintained in
+\path{Assembly/ConditionalLocation/TwinCountAsymptoticBridge.lean}.
+Its cutoff, order and last-ascent dependency closure has passed the
+maintained build and a public foundational-axiom audit. The positive
+twin-count asymptotic is explicit in its theorem type. The resulting logarithmic
 location and count limits are ordinary consequences of that proof
 and the maintained transfers. Likewise \eqref{eq:ratio-wave}
 combines verified estimates, but is not advertised as a separately
@@ -1448,8 +2245,8 @@ states two headline theorems over Mathlib primitives.
 \href{https://github.com/kimihiro64/prime-factor-oscillations/blob/main/Solution.lean}{Solution}
 contains their actual proofs. The two deliberate Challenge
 placeholders are absent from the Solution closures.
-The 4 October proof audit checks the two public compiled statement
-pairs and 218 selected theorem closures, finding only \texttt{propext},
+The 5 October proof audit checks the two public compiled statement
+pairs and 539 selected theorem closures, finding only \texttt{propext},
 \texttt{Classical.choice}, and \texttt{Quot.sound}.
 The RH statements have maintained consumers in Solution with their
 RH, false-RH or zero hypotheses explicit. An axiom audit does not
@@ -1467,8 +2264,8 @@ without rebuilding or redistributing it. Additional analytic
 compatibility artifacts still require an existing matching view;
 a complete fresh-machine bootstrap is not claimed. The
 \href{https://github.com/kimihiro64/prime-factor-oscillations/blob/main/paper/VERIFICATION.md}{verification record}
-separates the initial publication, the completed 4 October analytic
-proof audit, and the present exposition and PDF checks.
+separates the initial publication, the 4 October analytic development,
+the completed 5 October post-paper formalization, and the PDF checks.
 Branch links provide mutable navigation; the records retain
 checked source hashes.
 
@@ -1516,6 +2313,13 @@ J. Maynard, \emph{Dense clusters of primes in subsets},
 Compositio Math. \textbf{152} (2016), 1517--1554.
 \href{https://doi.org/10.1112/S0010437X16007296}{Journal version};
 \href{https://arxiv.org/abs/1405.2593v2}{arXiv:1405.2593v2}.
+
+\bibitem{AL}
+R. Alweiss and S. Luo, \emph{Bounded gaps between primes in short intervals},
+Research in Number Theory \textbf{4} (2018), article 15.
+\href{https://doi.org/10.1007/s40993-018-0109-y}{doi:10.1007/s40993-018-0109-y};
+\href{https://arxiv.org/abs/1707.05437v1}{arXiv:1707.05437v1}
+(18 July 2017), Corollary~1.2.
 
 \bibitem{Nicolas1983}
 J.-L. Nicolas, \emph{Petites valeurs de la fonction d'Euler},

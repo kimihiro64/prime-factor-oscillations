@@ -2,9 +2,8 @@ import PrimeFactorOscillations
 import PrimeFactorOscillations.Helpers.BoundaryDensity
 
 set_option autoImplicit false
-
+set_option Elab.async false
 /-! # Kernel-checked implementation of the public Mathlib-only statement -/
-
 /-- The public statement, with the actual unconditional proof. -/
 theorem PrimeFactorOscillations.publicDoubleExponentialReversalBounds :
     let density := fun (eta : Nat -> Rat) (k i : Nat) =>
@@ -41,7 +40,6 @@ theorem PrimeFactorOscillations.publicDoubleExponentialReversalBounds :
     PrimeFactorOscillations.genericOddEta] using h
 
 open scoped Classical
-
 /-- Actual affine prime-pair density limits and the exact positive reversal spectrum. -/
 theorem PrimeFactorOscillations.publicAffinePrimePairSpectrum :
     let prime := fun i : Nat => Nat.nth Nat.Prime i
@@ -117,7 +115,6 @@ theorem PrimeFactorOscillations.publicAffinePrimePairSpectrum :
   exact hrate.trans hspectrum
   rw [<- hspectrum]
   exact hpos
-
 /-- The actual theta-centered moving-rank criterion, with both directions proved. -/
 theorem PrimeFactorOscillations.publicMovingRankRHCriterion
     (alpha : Real) (ha : 0 < alpha) :
@@ -131,7 +128,6 @@ theorem PrimeFactorOscillations.publicMovingRankRHCriterion
           Nat.factorialConvolution primeProfileRealCoefficient r L) Filter.atTop := by
   exact PrimeFactorOscillations.riemannHypothesis_iff_eventually_densityRatio_thetaClock_lt_reference
     alpha ha
-
 /-- RH characterized by the actual corrected theta-tail integral. -/
 theorem PrimeFactorOscillations.publicThetaTailRHCriterion :
     RiemannHypothesis <-> Filter.Eventually (fun x : Real =>
@@ -139,7 +135,6 @@ theorem PrimeFactorOscillations.publicThetaTailRHCriterion :
         (Chebyshev.theta t - t) *
           ((1 / Real.log t + 1 / (Real.log t) ^ 2) / t ^ 2)) < 0) Filter.atTop := by
   exact PrimeFactorOscillations.riemannHypothesis_iff_eventually_thetaTailIntegral_neg
-
 /-- RH characterized by the clock of the actual finite prime product. -/
 theorem PrimeFactorOscillations.publicPrimeProductClockRHCriterion :
     RiemannHypothesis <-> Filter.Eventually (fun x : Real =>
@@ -150,7 +145,6 @@ theorem PrimeFactorOscillations.publicPrimeProductClockRHCriterion :
   simpa only [PrimeFactorOscillations.nicolasPrimeProductClock,
     Robin1984.nicolasMertensProduct] using
     PrimeFactorOscillations.riemannHypothesis_iff_eventually_theta_lt_primeProductClock
-
 /-- Uniform full-profile linearization for the actual density ratio at real cutoffs. -/
 theorem PrimeFactorOscillations.publicDensityRatioLinearization
     (b : Real) (hb : 0 < b) :
@@ -170,7 +164,6 @@ theorem PrimeFactorOscillations.publicDensityRatioLinearization
             ((r : Real) / L ^ 2) * F) <=
               K * (abs F / L ^ 2 + 1 / ((r : Real) * x))) Filter.atTop := by
   exact PrimeFactorOscillations.exists_eventually_densityRatio_real_thetaClock_linearization b hb
-
 /-- Under RH, every sufficiently late compact-band ascent meets its actual gap threshold. -/
 theorem PrimeFactorOscillations.publicRHAscentReferenceBound
     (hRH : RiemannHypothesis) (a b : Real) (ha : 0 < a) (hab : a <= b) :
@@ -186,7 +179,6 @@ theorem PrimeFactorOscillations.publicRHAscentReferenceBound
           Nat.factorialConvolution primeProfileRealCoefficient (k - 2) L /
             Nat.factorialConvolution primeProfileRealCoefficient (k - 1) L := by
   exact PrimeFactorOscillations.ordinary_ascent_reference_gap_bound_of_RH hRH a b ha hab
-
 /-- Each positive reference level has a unique crossing within a fixed distance of rank/level. -/
 theorem PrimeFactorOscillations.publicReferenceCrossing (s : Real) (hs : 0 < s) :
     exists (A : Real) (r0 : Nat), 0 < A /\ 0 < r0 /\
@@ -203,7 +195,6 @@ theorem PrimeFactorOscillations.publicReferenceCrossing (s : Real) (hs : 0 < s) 
   refine ExistsUnique.intro u (And.intro (And.intro hu.1.le hu.2.le) heq) ?_
   intro v hv
   exact hunique v hv.1 hv.2
-
 /-- Under RH, the reference crossing bounds every ordinary ascent at large rank. -/
 theorem PrimeFactorOscillations.publicRHAllAscentEnvelope (hRH : RiemannHypothesis) :
     exists (A : Real) (K : Nat), 0 < A /\ 2 <= K /\
@@ -216,7 +207,6 @@ theorem PrimeFactorOscillations.publicRHAllAscentEnvelope (hRH : RiemannHypothes
           Chebyshev.theta ((PrimeFactorUnimodality.primeAt i - 1 : Nat) : Real) <
             Real.exp (Real.exp (u - Real.eulerMascheroniConstant)) := by
   exact PrimeFactorOscillations.exists_ordinary_ascent_theta_envelope_of_RH hRH
-
 /-- The actual last ordinary ascent and reversal maximum obey the RH reference capacity. -/
 theorem PrimeFactorOscillations.publicRHLastAscentAndCapacity (hRH : RiemannHypothesis) :
     exists (c A : Real) (K : Nat), 0 < c /\ 0 < A /\ 2 <= K /\
@@ -235,7 +225,6 @@ theorem PrimeFactorOscillations.publicRHLastAscentAndCapacity (hRH : RiemannHypo
         Nat.primeCounting (PrimeFactorUnimodality.primeAt i) <=
           primeThetaEndpointCount (Real.exp (Real.exp (u - Real.eulerMascheroniConstant))) := by
   exact PrimeFactorOscillations.exists_ordinary_last_ascent_and_capacity_of_RH hRH
-
 /-- The actual last-ascent lower location estimate is unconditional. -/
 theorem PrimeFactorOscillations.publicLastAscentLowerLocation :
     exists c : Real, 0 < c /\ forall epsilon : Real, 0 < epsilon ->
@@ -249,7 +238,6 @@ theorem PrimeFactorOscillations.publicLastAscentLowerLocation :
           (1 - epsilon) * (N : Real) * Real.log (N : Real) <=
             Chebyshev.theta ((PrimeFactorUnimodality.primeAt i - 1 : Nat) : Real) := by
   exact PrimeFactorOscillations.ordinary_eventually_last_ascent_lower_location
-
 /-- The actual last ordinary ascent lies between the PNT lower location and the RH reference. -/
 theorem PrimeFactorOscillations.publicRHLastAscentLocationSandwich (hRH : RiemannHypothesis) :
     exists c A : Real, 0 < c /\ 0 < A /\
@@ -271,7 +259,6 @@ theorem PrimeFactorOscillations.publicRHLastAscentLocationSandwich (hRH : Rieman
           Nat.primeCounting (PrimeFactorUnimodality.primeAt i) <=
             primeThetaEndpointCount (Real.exp (Real.exp (u - Real.eulerMascheroniConstant))) := by
   exact PrimeFactorOscillations.exists_ordinary_last_ascent_location_sandwich_of_RH hRH
-
 /-- The actual reversal maximum satisfies the PNT-normalized RH endpoint capacity. -/
 theorem PrimeFactorOscillations.publicRHLastAscentAsymptoticCapacity (hRH : RiemannHypothesis) :
     exists c A : Real, 0 < c /\ 0 < A /\
@@ -296,7 +283,6 @@ theorem PrimeFactorOscillations.publicRHLastAscentAsymptoticCapacity (hRH : Riem
             (Real.exp (Real.exp (u - Real.eulerMascheroniConstant)) /
               Real.log (Real.exp (Real.exp (u - Real.eulerMascheroniConstant)))) := by
   exact PrimeFactorOscillations.exists_ordinary_last_ascent_asymptotic_capacity_of_RH hRH
-
 /-- Each fixed positive reference level has the actual logarithmic-derivative root shift. -/
 theorem PrimeFactorOscillations.publicSharpReferenceCrossing (s : Real) (hs : 0 < s) :
     exists (A C : Real) (r0 : Nat), 0 < A /\ 0 <= C /\ 0 < r0 /\
@@ -311,7 +297,6 @@ theorem PrimeFactorOscillations.publicSharpReferenceCrossing (s : Real) (hs : 0 
           Nat.factorialConvolution primeProfileRealCoefficient (r - 1) v /
             Nat.factorialConvolution primeProfileRealCoefficient r v = s -> v = u := by
   exact PrimeFactorOscillations.exists_primeProfile_reference_sharp_crossing s hs
-
 /-- The same actual last-ascent RH envelope retains the sharp reference-root displacement. -/
 theorem PrimeFactorOscillations.publicRHLastAscentSharpReference (hRH : RiemannHypothesis) :
     exists c A C : Real, 0 < c /\ 0 < A /\ 0 <= C /\
@@ -339,7 +324,6 @@ theorem PrimeFactorOscillations.publicRHLastAscentSharpReference (hRH : RiemannH
             deriv (fun x : Real => (primeProfile (x : Complex)).re) 3 /
               (primeProfile (3 : Complex)).re) <= C / ((k - 1 : Nat) : Real) := by
   exact PrimeFactorOscillations.exists_ordinary_last_ascent_sharp_reference_of_RH hRH
-
 /-- Uniform second-order expansion of the actual prime-profile coefficients. -/
 theorem PrimeFactorOscillations.publicPrimeProfileSecondOrderExpansion (b : Real) (hb : 0 <= b) :
     exists C : Real, 0 <= C /\
@@ -560,7 +544,6 @@ theorem PrimeFactorOscillations.publicRHSpatialClockExpansion (hRH : RiemannHypo
     exact And.intro hlo hhi
   exact Filter.eventually_atTop.mp hBands
 
-
 /-- Spatial sign tests at the unique local reference crossing for width h. -/
 theorem PrimeFactorOscillations.publicLocalDensityRatioThreshold
     (h : Nat) (D : Real) (hD : 1 <= D) :
@@ -595,7 +578,6 @@ theorem PrimeFactorOscillations.publicLocalDensityRatioThreshold
   exact PrimeFactorOscillations.exists_densityRatio_local_spatial_threshold
     ((h : Real) + 1) D (by positivity) hD
 
-
 /-- Every fixed positive theta-centered prime-product tilt has the RH criterion. -/
 theorem PrimeFactorOscillations.publicTiltedPrimeProductCriterion
     (z : Real) (hz : 0 < z) :
@@ -606,7 +588,6 @@ theorem PrimeFactorOscillations.publicTiltedPrimeProductCriterion
             (fun p => 1 + primeProfileWeight (p : Nat) * z) < 1) Filter.atTop := by
   exact PrimeFactorOscillations.riemannHypothesis_iff_eventually_nicolasTiltedProduct_lt_one z hz
 
-
 /-- One eventual cutoff works simultaneously for every positive tilt. -/
 theorem PrimeFactorOscillations.publicAllPositiveTiltedPrimeProductCriterion :
     RiemannHypothesis <-> Filter.Eventually (fun x : Real =>
@@ -616,7 +597,6 @@ theorem PrimeFactorOscillations.publicAllPositiveTiltedPrimeProductCriterion :
             (primeProfilePrefixSet (Nat.floor x)).prod
               (fun p => 1 + primeProfileWeight (p : Nat) * z) < 1) Filter.atTop := by
   exact PrimeFactorOscillations.riemannHypothesis_iff_eventually_all_positive_tiltedProducts_lt_one
-
 
 /-- Exact tilted logarithmic tail and both signs, with the inclusive prime cutoff. -/
 theorem PrimeFactorOscillations.publicTiltedLogTail
@@ -873,3 +853,48 @@ theorem PrimeFactorOscillations.publicFalseRHMovingRankPowerExcursions
   intro alpha ha
   exact densityRatio_thetaClock_two_sided_power_excursions_of_zero
     hZero hHalf hOne hLower hbHalf.le alpha ha
+
+/-- Every quadratic local law has its own exact prime-product RH criterion. -/
+theorem PrimeFactorOscillations.publicFamilyPrimeProductRHCriterion
+    (law : QuadraticPrimeLaw) (z : Real) (hz : 0 < z) :
+    RiemannHypothesis <-> Filter.Eventually (fun N : Nat =>
+      law.referenceConstant z * (Real.log (Chebyshev.theta (N : Real))) ^ (law.nu * z) <
+        law.prefixProduct N z) Filter.atTop := law.riemannHypothesis_iff_eventually_product z hz
+
+/-- A prime-tail quadratic probability estimate suffices, including finite
+forced coordinates and their exact rank shift. -/
+theorem PrimeFactorOscillations.publicProbabilityFamilyRHCriterion
+    (eta : Nat -> Real) (nu E : Real) (hnu : 0 < nu) (hE : 0 <= E)
+    (hProb : forall p : Nat, Nat.Prime p -> 0 <= eta p /\ eta p <= 1)
+    (hError : exists P : Nat, forall p : Nat, P <= p -> Nat.Prime p ->
+      abs (eta p - nu / p) <= E / (p : Real) ^ 2)
+    (alpha : Real) (ha : 0 < alpha) :
+    let law := quadraticPrimeLawOfEventualProbability eta nu E hnu hE hProb hError
+    RiemannHypothesis <-> Filter.Eventually (fun N : Nat =>
+      let r := Nat.floor (alpha * law.referenceClock N)
+      let s := familyPrefixProbabilities eta N
+      List.bernoulliMass s (s.count 1 + r - 1) / List.bernoulliMass s (s.count 1 + r) <
+        law.referenceRatio r (law.referenceClock N)) Filter.atTop := by
+  exact riemannHypothesis_iff_eventually_quadraticProbabilityMass_ratio
+    eta nu E hnu hE hProb hError alpha ha
+/-- The public solution consumes the unconditional growing-family sign. -/
+example (m : Nat) : Filter.Eventually (fun N : Nat => PrimeFactorOscillations.logarithmicRootLogError m N < 0) Filter.atTop := (PrimeFactorOscillations.publicLogarithmicRootSignedBound m).2
+/-- The power-degree sign is an explicit hypothesis in the RH consumer. -/
+example (d : Nat -> Nat) (hd : forall N, 1 <= d N) (C : Real) (hC : 0 < C)
+    (hDegree : Filter.Eventually
+      (fun N : Nat => (d N : Real) <= C * (N : Real) ^ (1 / 2 : Real)) Filter.atTop)
+    (hSign : Filter.Eventually (fun N : Nat =>
+      (PrimeFactorOscillations.consecutiveRootLaw (d N) (hd N)).logError N 1 <= 0) Filter.atTop) :
+    RiemannHypothesis :=
+  PrimeFactorOscillations.riemannHypothesis_of_sqrt_degree_signed_profile d hd C hC hDegree hSign
+example : Filter.Tendsto (fun N : Nat => PrimeFactorOscillations.lcmDefectRemainder (PrimeFactorOscillations.modifiedLcm N) * Real.sqrt (N : Real) * Real.log (N : Real)) Filter.atTop (nhds (0 : Real)) := PrimeFactorOscillations.tendsto_modifiedLcm_remainder_scaled
+example : Filter.Tendsto (fun N : Nat => PrimeFactorOscillations.lcmDefectSum (PrimeFactorOscillations.modifiedLcm N) * Real.sqrt (N : Real) * Real.log (N : Real)) Filter.atTop (nhds (Real.sqrt 2)) := PrimeFactorOscillations.tendsto_modifiedLcm_defect_scaled
+example : Filter.Tendsto (fun N : Nat => PrimeFactorOscillations.modifiedLcmHeightCorrection N * Real.sqrt (N : Real) * Real.log (N : Real)) Filter.atTop (nhds (Real.sqrt 2)) := PrimeFactorOscillations.tendsto_modifiedLcm_heightCorrection_scaled
+example (N m : Nat) (q k : Real) (hN : 0 < N) (hq : 1 <= q) (hk : 1 < k) (hTwo : k <= 2) : (N : Real) ^ (2 - k) * PrimeFactorOscillations.primeReciprocalSquareTail N + (Finset.range m).sum (fun j => (((N : Real) * q ^ (j + 1)) ^ (2 - k) - ((N : Real) * q ^ j) ^ (2 - k)) * PrimeFactorOscillations.lcmRealSquareTail ((N : Real) * q ^ (j + 1))) <= PrimeFactorOscillations.lcmFiniteZetaTail k (PrimeFactorOscillations.primeProfilePrefixSet N) := PrimeFactorOscillations.lcmFiniteZetaTail_staircase_lower N m q k hN hq hk hTwo
+example : (7 / 600 : Real) < PrimeFactorOscillations.lcmFiniteTailCoefficient ((1001 / 1000 : Real) ^ 2) 1000000 * Real.exp (-(2 / 5 : Real)) - 3 * (Real.sqrt 2 - 1) - (3 / 2 : Real) * (Real.eulerMascheroniConstant + 2 - Real.log (4 * Real.pi)) := PrimeFactorOscillations.lcmFiniteTailCoefficient_explicit_margin _ Robin1984.robin_zero_constant_le_one_twentieth
+example (c : Real) : Filter.Tendsto (fun N : Nat => (N : Real) ^ (3 / 2 - PrimeFactorOscillations.lcmMovingExponent c N)) Filter.atTop (nhds (Real.exp (-c))) := PrimeFactorOscillations.tendsto_lcmMovingExponent_power_scale c
+example (s c : Real) (hs : 0 < s) (m : Nat) : Filter.Tendsto (fun N : Nat => PrimeFactorOscillations.lcmFiniteTailLowerSum N m (s ^ 2) (PrimeFactorOscillations.lcmMovingExponent c N) * Real.sqrt (N : Real) * Real.log (N : Real)) Filter.atTop (nhds ((1 + 1 / s - (1 / s) ^ (m + 1)) * Real.exp (-c))) := PrimeFactorOscillations.tendsto_lcmFiniteTailLowerSum_sq_scaled s c hs m
+example (k K q : Real) (hk : 0 < k) (hkOne : 1 < k) (hLe : k <= K) (hTwo : K <= 2) (hq : 1 <= q) (N m : Nat) (hN : 8 <= N) : PrimeFactorOscillations.lcmFiniteTailLowerSum N m q K - K * max (Robin1984.nicolasLogMertensOscillation (N : Real) + PrimeFactorOscillations.modifiedLcmHeightCorrection N + PrimeFactorOscillations.lcmDefectSum (PrimeFactorOscillations.modifiedLcm N)) 0 - PrimeFactorOscillations.lcmDefectRemainder (PrimeFactorOscillations.modifiedLcm N) <= Real.log (PrimeFactorOscillations.lcmRobinRatio k hk (PrimeFactorOscillations.modifiedLcm N)) := PrimeFactorOscillations.modifiedLcm_logRatio_finite_window_lower k K q hk hkOne hLe hTwo hq N m hN
+example (hRH : RiemannHypothesis) : Filter.Eventually (fun N : Nat => forall k : Real, forall hk : 1 < k, k <= PrimeFactorOscillations.lcmMovingExponent (2 / 5) N -> 1 / (100 * Real.sqrt (N : Real) * Real.log (N : Real)) < Real.log (PrimeFactorOscillations.lcmRobinRatio k (zero_lt_one.trans hk) (PrimeFactorOscillations.modifiedLcm N))) Filter.atTop := PrimeFactorOscillations.eventually_modifiedLcm_window_of_RH hRH
+example (X : Nat) : exists N : Nat, X < N /\ 8 <= N /\ forall k : Real, forall hk : 1 < k, k <= PrimeFactorOscillations.lcmMovingExponent (2 / 5) N -> 1 / (100 * Real.sqrt (N : Real) * Real.log (N : Real)) < Real.log (PrimeFactorOscillations.lcmRobinRatio k (zero_lt_one.trans hk) (PrimeFactorOscillations.modifiedLcm N)) := PrimeFactorOscillations.exists_modifiedLcm_window X
+example (k : Real) (hk : 1 < k) (hLe : k <= 3 / 2) (X : Nat) : exists n : Nat, X < n /\ 1 < PrimeFactorOscillations.lcmRobinRatio k (zero_lt_one.trans hk) n := PrimeFactorOscillations.exists_lcmRobinRatio_gt_one k hk hLe X

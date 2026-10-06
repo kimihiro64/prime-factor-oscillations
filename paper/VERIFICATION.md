@@ -1,5 +1,102 @@
 # Paper verification
 
+## General family RH transfer — 5 October 2026
+
+The family extension adds 35 maintained Lean modules and 98 audit targets.
+It proves the quadratic local-law qualification, product and moving-rank RH
+criteria, exact probability-mass interpretation with forced coordinates,
+affine-family consumers, generalized reference constants and finite weighted
+family combinations. The full criteria retain their explicit local-law
+hypotheses and do not assume RH or a prime-gap supply theorem.
+
+| Check | Result |
+|---|---|
+| Windows Lean 4.34.0 build | 456 owned modules; 38 checked afresh, 418 unchanged objects reused |
+| Dependency cache | 58,065 pinned artifacts verified; zero dependency builds |
+| Public statements | Two compiled Challenge/Solution types and universe lists identical |
+| Axiom audit | 539 selected closures, including all 441 earlier targets; only Classical.choice, Quot.sound and propext |
+| Python | 77 tests; Ruff formatting/lint and strict MyPy passed on 20 source files |
+| Metadata | 16 Ruby tests, 83 assertions, no failures |
+| Repository | Source policy, public/private boundary, architecture, documentation and metadata checks passed |
+| Paper | 46 pages; all pages rendered and reviewed, no undefined references/citations or overfull/underfull boxes |
+
+The research profile passed on the final Lean sources and public exports.
+The final staged fast profile checks the completed documentation and evidence
+surface. Full Lake lint and official Comparator/NanoDa were not run; the
+compiled statement comparison and named axiom audit are the checks reported
+here. The two deliberate Challenge placeholders are unchanged.
+
+Two final-check replays without CPU affinity ended in Ruby FrozenError
+exceptions during runtime initialization or test-plugin loading. Their logs
+are retained privately. The unchanged final check passed with the same
+single-CPU setting as the successful research build; the cause of the
+earlier runtime failures is not established.
+
+- [Full family proof audit](verification/family-rh-proof-audit.json).
+- [Research-profile build and check log](verification/family-rh-research-check.log).
+- [Theorem statements and dependency axioms](verification/family-rh-theorem-types-and-axioms.log).
+- [Paper and source hashes](verification/family-rh-editorial-review.json).
+- [Final native paper compilation](verification/family-rh-paper-build.log).
+- [Final staged repository check](verification/family-rh-final-staged-check.log).
+
+The built-in LaTeX compiler could not initialize its platform directories.
+The tracked PDF was compiled from the same source using the existing native
+Windows MiKTeX installation, with package installation disabled. The open
+document and editor were retained. Nothing was committed or pushed.
+
+The qualification theorem is sufficient, not a classification of every
+possible family. An arithmetic ensemble also needs the independent limiting
+finite-prime law. Sparse supports, moving families, and extensions of the
+ordinary area/count criteria require additional arguments. RH and improved
+prime-gap bounds remain unproved.
+
+## Post-paper formalization and expanded paper — 5 October 2026
+
+All fifteen post-paper theorem groups are maintained and publicly exported.
+This includes both localized separated-reversal count equivalences, the
+ascent-only variants, the area criteria, the sharp growing-tilt correction,
+general gap capacities, and local-coverage tracking of the actual last ascent
+with its full conditional RH wave. The paper and README distinguish these
+proved implications from their unproved arithmetic or moment hypotheses.
+
+| Check | Result |
+|---|---|
+| Owned Lean build | 421 modules checked; 16 freshly checked and 405 unchanged objects reused in the completion build |
+| Dependencies | 58,065 pinned artifacts verified; zero dependency builds |
+| Public statement comparison | Two compiled Challenge/Solution types and universe parameter lists identical |
+| Theorem assumptions | 441 selected closures; only Classical.choice, Quot.sound and propext |
+| Python | 77 tests passed; Ruff formatting/lint and strict MyPy passed on 19 source files |
+| Metadata | 16 Ruby tests, 83 assertions; no failures, errors or skips |
+| Repository | Public/private boundary, source policy, import architecture and documentation manifest passed |
+
+The audit preserves the original 218 targets and adds 223 post-paper targets.
+The full theorem types and axiom closures are recorded below. The two intended
+Challenge placeholders remain confined to Challenge; no research-target axiom
+was added. The Alweiss–Luo all-short-interval input remains an explicit formal
+premise. The separate local exact-gap hypothesis and proposed moment estimates
+are not asserted as theorems about primes.
+
+- [Full proof-audit report](verification/post-paper-proof-audit.json).
+- [Full research-profile log](verification/post-paper-formalization-check.log).
+- [Theorem types and axiom closures](verification/post-paper-theorem-types-and-axioms.log).
+- [Paper revision and hashes](verification/post-paper-editorial-revision.json).
+- [Final paper compiler output](verification/post-paper-build.log).
+
+The existing TeX source and editor are retained. The built-in compiler could
+not initialize its standard platform directories; the built PDF uses the
+existing native Windows MiKTeX installation with package installation disabled.
+The editorial report records the final page count, layout checks and hashes.
+No CI, dependency-cache redistribution, new worktree, commit or push is part
+of this completion pass. Official Comparator/NanoDa replay and independent
+expert review remain separate.
+
+The strict Python check excludes only the unused optional NumPy stubs pulled
+in by pytest: the installed research NumPy uses Python 3.12 syntax while the
+project code is checked against Python 3.11. No repository Python source imports
+NumPy, and all project modules and tests retain strict type checking.
+
+The earlier records below describe their own historical snapshots.
+
 ## RH and spectrum revision — 4 October 2026
 
 The existing paper and README now describe **Prime-factor densities:

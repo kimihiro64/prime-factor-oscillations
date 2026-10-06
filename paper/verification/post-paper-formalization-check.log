@@ -1,0 +1,163 @@
+documentation manifest: clean (14 root Git dependencies covered)
+architecture: clean (421 modules, 696 owned edges)
+Mathlib candidate layer: 85 modules
+warning: Solution: 875 Lean lines; split before 900
+warning: PrimeFactorOscillations.Helpers.Robin1984.NicolasLandau.NicolasLandauPositiveStrip: 505 Lean lines; split before 900
+warning: PrimeFactorOscillations.Helpers.Robin1984.NicolasLandau.NicolasLandauPositiveTailDerivative: 523 Lean lines; split before 900
+warning: PrimeFactorOscillations.Helpers.Robin1984.NicolasLandau.NicolasOscillation: 562 Lean lines; split before 900
+warning: PrimeFactorOscillations.Proof.AffinePairs.FixedProgressions: volatile proof module has 14 transitive dependents
+warning: PrimeFactorOscillations.Proof.AffinePairs.NormalizedProgressions: volatile proof module has 13 transitive dependents
+warning: PrimeFactorOscillations.Proof.Lower.AdditiveBandSigns: volatile proof module has 18 transitive dependents
+warning: PrimeFactorOscillations.Proof.Lower.AdditiveRatios: volatile proof module has 35 transitive dependents
+warning: PrimeFactorOscillations.Proof.Lower.AdditiveWindowReversals: volatile proof module has 15 transitive dependents
+warning: PrimeFactorOscillations.Proof.Lower.PositivePowerWindows: volatile proof module has 14 transitive dependents
+warning: PrimeFactorOscillations.Proof.Lower.ScaleRatios: volatile proof module has 40 transitive dependents
+warning: PrimeFactorOscillations.Proof.Lower.ScaleWeights: volatile proof module has 41 transitive dependents
+warning: PrimeFactorOscillations.Proof.PrimeClusters.CountBridge: volatile proof module has 20 transitive dependents
+warning: PrimeFactorOscillations.Proof.PrimeClusters.CuberootCount: volatile proof module has 18 transitive dependents
+warning: PrimeFactorOscillations.Proof.PrimeClusters.ExcessLower: volatile proof module has 20 transitive dependents
+warning: PrimeFactorOscillations.Proof.PrimeClusters.PositiveWitness: volatile proof module has 18 transitive dependents
+warning: PrimeFactorOscillations.Proof.PrimeClusters.PowerLogBound: volatile proof module has 19 transitive dependents
+warning: PrimeFactorOscillations.Proof.PrimeClusters.QuantitativeClosed: volatile proof module has 17 transitive dependents
+warning: PrimeFactorOscillations.Proof.PrimeClusters.ScaleCount: volatile proof module has 19 transitive dependents
+warning: PrimeFactorOscillations.Proof.PrimeClusters.WeightBound: volatile proof module has 21 transitive dependents
+warning: PrimeFactorOscillations.Proof.PrimeClusters.WindowCount: volatile proof module has 16 transitive dependents
+warning: PrimeFactorOscillations.Proof.Upper.CanonicalDescent: volatile proof module has 19 transitive dependents
+warning: PrimeFactorOscillations.Proof.Upper.FiniteMaximum: volatile proof module has 21 transitive dependents
+warning: PrimeFactorOscillations.Proof.Upper.GapScaleCutoff: volatile proof module has 34 transitive dependents
+warning: PrimeFactorOscillations.Proof.Upper.GeneralScaleRatios: volatile proof module has 37 transitive dependents
+warning: PrimeFactorOscillations.Proof.Upper.IndexCutoff: volatile proof module has 19 transitive dependents
+warning: PrimeFactorOscillations.Proof.Upper.RatioBounds: volatile proof module has 20 transitive dependents
+warning: PrimeFactorOscillations.Proof.Upper.ScaleParameters: volatile proof module has 21 transitive dependents
+warning: PrimeFactorOscillations.Proof.Upper.UniformDenominator: volatile proof module has 20 transitive dependents
+warning: PrimeFactorOscillations.Proof.Upper.UniformRatios: volatile proof module has 19 transitive dependents
+warning: PrimeFactorOscillations.Proof.Upper.UniformTail: volatile proof module has 16 transitive dependents
+warning: PrimeFactorOscillations.Proof.Upper.UpperBound: volatile proof module has 15 transitive dependents
+warning: PrimeFactorOscillations.Proof.Upper.WeightDenominator: volatile proof module has 21 transitive dependents
+Run options: --seed 46108
+
+# Running:
+
+................
+
+Finished in 0.028305s, 565.2612 runs/s, 2932.2923 assertions/s.
+
+16 runs, 83 assertions, 0 failures, 0 errors, 0 skips
+formalization.yaml contains no TEMPLATE values
+19 files already formatted
+All checks passed!
+Success: no issues found in 19 source files
+........................................................................ [ 93%]
+.....                                                                    [100%]
+77 passed in 1.23s
+Verified existing analytic view: 58065 artifacts; dependency builds: 0
+Checking PrimeFactorOscillations.Helpers.GapCoverageBefore
+Checking PrimeFactorOscillations.Assembly.ConditionalLocation.ActualGapCutoff
+<REPOSITORY>\PrimeFactorOscillations\Assembly\ConditionalLocation\ActualGapCutoff.lean:110:4: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+Checking PrimeFactorOscillations.Assembly.ConditionalLocation.LastAscentSandwich
+Checking PrimeFactorOscillations.Helpers.IntegerClockWave
+<REPOSITORY>\PrimeFactorOscillations\Helpers\IntegerClockWave.lean:96:2: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+Checking PrimeFactorOscillations.Helpers.PrimePrefixClockStability
+Checking PrimeFactorOscillations.Helpers.PrimePrefixCutoffBracket
+<REPOSITORY>\PrimeFactorOscillations\Helpers\PrimePrefixCutoffBracket.lean:72:17: warning: This simp argument is unused:
+  Subtype.coe_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only at hv
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Checking PrimeFactorOscillations.Assembly.ConditionalLocation.GapCutoffRankBand
+Checking PrimeFactorOscillations.Assembly.ConditionalLocation.LastAscentClockEnvelope
+Checking PrimeFactorOscillations.Assembly.ConditionalLocation.GapCutoffReference
+Checking PrimeFactorOscillations.Assembly.NicolasRefinements
+Checking PrimeFactorOscillations.Assembly.ConditionalLocation.LastAscentFineTracking
+Checking PrimeFactorOscillations.Assembly.ConditionalLocation.FineLocationRH
+Checking PrimeFactorOscillations.Assembly.ConditionalLocationResults
+Checking PrimeFactorOscillations.Assembly.RHResults
+Checking PrimeFactorOscillations
+Checking Solution
+Checked 421 owned modules (405 unchanged reused); dependency builds: 0
+Verified existing analytic view: 58065 artifacts; dependency builds: 0
+Two public compiled types identical; 441 theorem closures use standard foundations only.
+public boundary: clean (496 tracked paths, 10796187 bytes)
+submission link: current
+Lean source policy: clean (421 files)
+Comparator boundary source: clean (2 theorem pairs)
+metadata validator tests: clean
+metadata: project fields valid
+Python quality: clean
+Owned Lean checked using prebuilt dependencies; full Lake lint not run
+research profile passed
+
+
+FINAL STAGED REPLAY
+
+documentation manifest: clean (14 root Git dependencies covered)
+architecture: clean (421 modules, 696 owned edges)
+Mathlib candidate layer: 85 modules
+warning: Solution: 875 Lean lines; split before 900
+warning: PrimeFactorOscillations.Helpers.Robin1984.NicolasLandau.NicolasLandauPositiveStrip: 505 Lean lines; split before 900
+warning: PrimeFactorOscillations.Helpers.Robin1984.NicolasLandau.NicolasLandauPositiveTailDerivative: 523 Lean lines; split before 900
+warning: PrimeFactorOscillations.Helpers.Robin1984.NicolasLandau.NicolasOscillation: 562 Lean lines; split before 900
+warning: PrimeFactorOscillations.Proof.AffinePairs.FixedProgressions: volatile proof module has 14 transitive dependents
+warning: PrimeFactorOscillations.Proof.AffinePairs.NormalizedProgressions: volatile proof module has 13 transitive dependents
+warning: PrimeFactorOscillations.Proof.Lower.AdditiveBandSigns: volatile proof module has 18 transitive dependents
+warning: PrimeFactorOscillations.Proof.Lower.AdditiveRatios: volatile proof module has 35 transitive dependents
+warning: PrimeFactorOscillations.Proof.Lower.AdditiveWindowReversals: volatile proof module has 15 transitive dependents
+warning: PrimeFactorOscillations.Proof.Lower.PositivePowerWindows: volatile proof module has 14 transitive dependents
+warning: PrimeFactorOscillations.Proof.Lower.ScaleRatios: volatile proof module has 40 transitive dependents
+warning: PrimeFactorOscillations.Proof.Lower.ScaleWeights: volatile proof module has 41 transitive dependents
+warning: PrimeFactorOscillations.Proof.PrimeClusters.CountBridge: volatile proof module has 20 transitive dependents
+warning: PrimeFactorOscillations.Proof.PrimeClusters.CuberootCount: volatile proof module has 18 transitive dependents
+warning: PrimeFactorOscillations.Proof.PrimeClusters.ExcessLower: volatile proof module has 20 transitive dependents
+warning: PrimeFactorOscillations.Proof.PrimeClusters.PositiveWitness: volatile proof module has 18 transitive dependents
+warning: PrimeFactorOscillations.Proof.PrimeClusters.PowerLogBound: volatile proof module has 19 transitive dependents
+warning: PrimeFactorOscillations.Proof.PrimeClusters.QuantitativeClosed: volatile proof module has 17 transitive dependents
+warning: PrimeFactorOscillations.Proof.PrimeClusters.ScaleCount: volatile proof module has 19 transitive dependents
+warning: PrimeFactorOscillations.Proof.PrimeClusters.WeightBound: volatile proof module has 21 transitive dependents
+warning: PrimeFactorOscillations.Proof.PrimeClusters.WindowCount: volatile proof module has 16 transitive dependents
+warning: PrimeFactorOscillations.Proof.Upper.CanonicalDescent: volatile proof module has 19 transitive dependents
+warning: PrimeFactorOscillations.Proof.Upper.FiniteMaximum: volatile proof module has 21 transitive dependents
+warning: PrimeFactorOscillations.Proof.Upper.GapScaleCutoff: volatile proof module has 34 transitive dependents
+warning: PrimeFactorOscillations.Proof.Upper.GeneralScaleRatios: volatile proof module has 37 transitive dependents
+warning: PrimeFactorOscillations.Proof.Upper.IndexCutoff: volatile proof module has 19 transitive dependents
+warning: PrimeFactorOscillations.Proof.Upper.RatioBounds: volatile proof module has 20 transitive dependents
+warning: PrimeFactorOscillations.Proof.Upper.ScaleParameters: volatile proof module has 21 transitive dependents
+warning: PrimeFactorOscillations.Proof.Upper.UniformDenominator: volatile proof module has 20 transitive dependents
+warning: PrimeFactorOscillations.Proof.Upper.UniformRatios: volatile proof module has 19 transitive dependents
+warning: PrimeFactorOscillations.Proof.Upper.UniformTail: volatile proof module has 16 transitive dependents
+warning: PrimeFactorOscillations.Proof.Upper.UpperBound: volatile proof module has 15 transitive dependents
+warning: PrimeFactorOscillations.Proof.Upper.WeightDenominator: volatile proof module has 21 transitive dependents
+Run options: --seed 39698
+
+# Running:
+
+................
+
+Finished in 0.130446s, 122.6565 runs/s, 636.2806 assertions/s.
+
+16 runs, 83 assertions, 0 failures, 0 errors, 0 skips
+formalization.yaml contains no TEMPLATE values
+19 files already formatted
+All checks passed!
+Success: no issues found in 19 source files
+........................................................................ [ 93%]
+.....                                                                    [100%]
+77 passed in 0.94s
+Verified existing analytic view: 58065 artifacts; dependency builds: 0
+Checked 421 owned modules (421 unchanged reused); dependency builds: 0
+Verified existing analytic view: 58065 artifacts; dependency builds: 0
+Two public compiled types identical; 441 theorem closures use standard foundations only.
+public boundary: clean (501 tracked paths, 11236915 bytes)
+submission link: current
+Lean source policy: clean (421 files)
+Comparator boundary source: clean (2 theorem pairs)
+metadata validator tests: clean
+metadata: project fields valid
+Python quality: clean
+Owned Lean checked using prebuilt dependencies; full Lake lint not run
+research profile passed

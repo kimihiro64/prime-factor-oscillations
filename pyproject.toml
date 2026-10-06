@@ -37,6 +37,13 @@ strict = true
 files = ["scripts", "test/python"]
 exclude = '(^|/)(\.lake|paper/build)/'
 
+[[tool.mypy.overrides]]
+# Pytest optionally imports NumPy stubs; these tools do not use NumPy.
+# Installed research-only NumPy versions may require newer Python syntax.
+module = ["numpy", "numpy.*"]
+follow_imports = "skip"
+follow_imports_for_stubs = true
+
 [tool.pytest.ini_options]
 testpaths = ["test/python"]
 addopts = "-q"
