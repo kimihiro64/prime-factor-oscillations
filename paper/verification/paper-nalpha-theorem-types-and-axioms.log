@@ -1,0 +1,125 @@
+PrimeFactorOscillations.consecutiveRootProbability_formula (d p : ℕ) (hp : Nat.Prime p) :
+  PrimeFactorOscillations.consecutiveRootProbability d p = (↑p - ↑(min d p)) / (↑p * (↑p - 1))
+'PrimeFactorOscillations.consecutiveRootProbability_formula' depends on axioms: [propext, Classical.choice, Quot.sound]
+PrimeFactorOscillations.consecutiveRootLaw_logError_exact (d : ℕ) (hd : 1 ≤ d) (N : ℕ) (hdN : d ≤ N)
+  (hTheta : 1 < Chebyshev.theta ↑N) :
+  (PrimeFactorOscillations.consecutiveRootLaw d hd).logError N 1 =
+    Robin1984.nicolasLogMertensOscillation ↑N - PrimeFactorOscillations.primeAddedRootTail N (↑d - 1)
+'PrimeFactorOscillations.consecutiveRootLaw_logError_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
+PrimeFactorOscillations.primeAddedRootTail_bounds (N : ℕ) (hN : 1 ≤ N) (b : ℝ) (hb : 0 ≤ b) :
+  (b - b ^ 2 / (2 * ↑N ^ 2)) * PrimeFactorOscillations.primeProfileQuadraticTail N ≤
+      PrimeFactorOscillations.primeAddedRootTail N b ∧
+    PrimeFactorOscillations.primeAddedRootTail N b ≤ b * PrimeFactorOscillations.primeProfileQuadraticTail N
+'PrimeFactorOscillations.primeAddedRootTail_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+PrimeFactorOscillations.publicLogarithmicRootSignedBound (m : ℕ) :
+  Filter.Tendsto (fun N => PrimeFactorOscillations.logarithmicRootLogError m N * Real.log ↑N ^ (m + 2)) Filter.atTop
+      (nhds (-1)) ∧
+    ∀ᶠ (N : ℕ) in Filter.atTop, PrimeFactorOscillations.logarithmicRootLogError m N < 0
+'PrimeFactorOscillations.publicLogarithmicRootSignedBound' depends on axioms: [propext, Classical.choice, Quot.sound]
+PrimeFactorOscillations.FinitePrimeResidueFamily.doublePrimeAddition_logError_bracket
+  (F : PrimeFactorOscillations.FinitePrimeResidueFamily) (N : ℕ) (hN : 2 ≤ N) (z : ℝ) (hz : 0 ≤ z)
+  (hTheta : 1 < Chebyshev.theta ↑N) :
+  (PrimeFactorOscillations.constantPrimeResidueFamily 1).twoPrimeLaw.logError N z ≤ F.twoPrimeLaw.logError N z ∧
+    F.twoPrimeLaw.logError N z ≤ (PrimeFactorOscillations.constantPrimeResidueFamily 0).twoPrimeLaw.logError N z
+'PrimeFactorOscillations.FinitePrimeResidueFamily.doublePrimeAddition_logError_bracket' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PrimeFactorOscillations.riemannHypothesis_iff_eventually_family_interval_le (E lower upper : ℕ → ℝ) (c : ℝ) (hc : 0 < c)
+  (hInterval :
+    ∀ᶠ (N : ℕ) in Filter.atTop,
+      lower N ≤ E N - c * Robin1984.nicolasLogMertensOscillation ↑N ∧
+        E N - c * Robin1984.nicolasLogMertensOscillation ↑N ≤ upper N)
+  (hWidth : ∀ (b : ℝ), 0 < b → b < 1 / 2 → ∃ C, 0 < C ∧ ∀ᶠ (N : ℕ) in Filter.atTop, upper N - lower N ≤ C * ↑N ^ (-b)) :
+  RiemannHypothesis ↔ ∀ᶠ (N : ℕ) in Filter.atTop, E N ≤ upper N
+'PrimeFactorOscillations.riemannHypothesis_iff_eventually_family_interval_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PrimeFactorOscillations.riemannHypothesis_iff_eventually_family_interval_lt (E lower upper : ℕ → ℝ) (c : ℝ) (hc : 0 < c)
+  (hInterval :
+    ∀ᶠ (N : ℕ) in Filter.atTop,
+      lower N ≤ E N - c * Robin1984.nicolasLogMertensOscillation ↑N ∧
+        E N - c * Robin1984.nicolasLogMertensOscillation ↑N ≤ upper N)
+  (hWidth : ∀ (b : ℝ), 0 < b → b < 1 / 2 → ∃ C, 0 < C ∧ ∀ᶠ (N : ℕ) in Filter.atTop, upper N - lower N ≤ C * ↑N ^ (-b)) :
+  RiemannHypothesis ↔ ∀ᶠ (N : ℕ) in Filter.atTop, E N < upper N
+'PrimeFactorOscillations.riemannHypothesis_iff_eventually_family_interval_lt' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PrimeFactorOscillations.eventually_power_bounded_degree_le (d : ℕ → ℕ) (C alpha : ℝ) (hAlpha : alpha < 1)
+  (hDegree : ∀ᶠ (N : ℕ) in Filter.atTop, ↑(d N) ≤ C * ↑N ^ alpha) : ∀ᶠ (N : ℕ) in Filter.atTop, d N ≤ N
+'PrimeFactorOscillations.eventually_power_bounded_degree_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+PrimeFactorOscillations.nicolasLog_le_of_power_degree_signed_profile (d : ℕ → ℕ) (hd : ∀ (N : ℕ), 1 ≤ d N) (C alpha : ℝ)
+  (hAlpha : alpha < 1) (hDegree : ∀ᶠ (N : ℕ) in Filter.atTop, ↑(d N) ≤ C * ↑N ^ alpha)
+  (hSign : ∀ᶠ (N : ℕ) in Filter.atTop, (PrimeFactorOscillations.consecutiveRootLaw (d N) ⋯).logError N 1 ≤ 0) :
+  ∀ᶠ (N : ℕ) in Filter.atTop, Robin1984.nicolasLogMertensOscillation ↑N ≤ 2 * C * ↑N ^ (alpha - 1)
+'PrimeFactorOscillations.nicolasLog_le_of_power_degree_signed_profile' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PrimeFactorOscillations.no_zeta_zero_right_of_power_degree_signed_profile (d : ℕ → ℕ) (hd : ∀ (N : ℕ), 1 ≤ d N)
+  (C alpha : ℝ) (hC : 0 < C) (hHalf : 1 / 2 ≤ alpha) (hAlpha : alpha < 1)
+  (hDegree : ∀ᶠ (N : ℕ) in Filter.atTop, ↑(d N) ≤ C * ↑N ^ alpha)
+  (hSign : ∀ᶠ (N : ℕ) in Filter.atTop, (PrimeFactorOscillations.consecutiveRootLaw (d N) ⋯).logError N 1 ≤ 0) {rho : ℂ}
+  (hRight : alpha < rho.re) (hOne : rho.re < 1) : ¬riemannZeta rho = 0
+'PrimeFactorOscillations.no_zeta_zero_right_of_power_degree_signed_profile' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PrimeFactorOscillations.riemannHypothesis_of_sqrt_degree_signed_profile (d : ℕ → ℕ) (hd : ∀ (N : ℕ), 1 ≤ d N) (C : ℝ)
+  (hC : 0 < C) (hDegree : ∀ᶠ (N : ℕ) in Filter.atTop, ↑(d N) ≤ C * ↑N ^ (1 / 2))
+  (hSign : ∀ᶠ (N : ℕ) in Filter.atTop, (PrimeFactorOscillations.consecutiveRootLaw (d N) ⋯).logError N 1 ≤ 0) :
+  RiemannHypothesis
+'PrimeFactorOscillations.riemannHypothesis_of_sqrt_degree_signed_profile' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PrimeFactorOscillations.lcmRobinRatio_log_identity (k : ℝ) (hk : 0 < k) (hkOne : 1 < k) (n : ℕ) (hn : ¬n = 0)
+  (hLogLog : 0 < Real.log (Real.log ↑n)) :
+  Real.log (PrimeFactorOscillations.lcmRobinRatio k hk n) =
+    Real.log (riemannZeta ↑k).re + Real.log ((PrimeFactorOscillations.lcmDivisorSum k hk) n) -
+      k * (Real.eulerMascheroniConstant + Real.log ↑n + Real.log (Real.log (Real.log ↑n)))
+'PrimeFactorOscillations.lcmRobinRatio_log_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+PrimeFactorOscillations.modifiedLcm_logRatio_finite_window_lower (k K q : ℝ) (hk : 0 < k) (hkOne : 1 < k) (hLe : k ≤ K)
+  (hTwo : K ≤ 2) (hq : 1 ≤ q) (N m : ℕ) (hN : 8 ≤ N) :
+  PrimeFactorOscillations.lcmFiniteTailLowerSum N m q K -
+        K *
+          max
+            (Robin1984.nicolasLogMertensOscillation ↑N + PrimeFactorOscillations.modifiedLcmHeightCorrection N +
+              PrimeFactorOscillations.lcmDefectSum (PrimeFactorOscillations.modifiedLcm N))
+            0 -
+      PrimeFactorOscillations.lcmDefectRemainder (PrimeFactorOscillations.modifiedLcm N) ≤
+    Real.log (PrimeFactorOscillations.lcmRobinRatio k hk (PrimeFactorOscillations.modifiedLcm N))
+'PrimeFactorOscillations.modifiedLcm_logRatio_finite_window_lower' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PrimeFactorOscillations.eventually_modifiedLcm_window_of_RH (hRH : RiemannHypothesis) :
+  ∀ᶠ (N : ℕ) in Filter.atTop,
+    ∀ (k : ℝ) (hk : 1 < k),
+      k ≤ PrimeFactorOscillations.lcmMovingExponent (2 / 5) N →
+        1 / (100 * √↑N * Real.log ↑N) <
+          Real.log (PrimeFactorOscillations.lcmRobinRatio k ⋯ (PrimeFactorOscillations.modifiedLcm N))
+'PrimeFactorOscillations.eventually_modifiedLcm_window_of_RH' depends on axioms: [propext, Classical.choice, Quot.sound]
+PrimeFactorOscillations.nicolasLog_integer_sqrt_negative_supply_of_not_RH (hNotRH : ¬RiemannHypothesis) (N : ℕ) :
+  ∃ n, max N 3 ≤ n ∧ Robin1984.nicolasLogMertensOscillation ↑n * √↑n < -1
+'PrimeFactorOscillations.nicolasLog_integer_sqrt_negative_supply_of_not_RH' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PrimeFactorOscillations.modifiedLcm_negative_signed_supply_of_not_RH (hNotRH : ¬RiemannHypothesis) (N : ℕ) :
+  ∃ n,
+    N ≤ n ∧
+      Robin1984.nicolasLogMertensOscillation ↑n + PrimeFactorOscillations.modifiedLcmHeightCorrection n +
+          PrimeFactorOscillations.lcmDefectSum (PrimeFactorOscillations.modifiedLcm n) <
+        0
+'PrimeFactorOscillations.modifiedLcm_negative_signed_supply_of_not_RH' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PrimeFactorOscillations.exists_modifiedLcm_window (X : ℕ) :
+  ∃ N,
+    X < N ∧
+      8 ≤ N ∧
+        ∀ (k : ℝ) (hk : 1 < k),
+          k ≤ PrimeFactorOscillations.lcmMovingExponent (2 / 5) N →
+            1 / (100 * √↑N * Real.log ↑N) <
+              Real.log (PrimeFactorOscillations.lcmRobinRatio k ⋯ (PrimeFactorOscillations.modifiedLcm N))
+'PrimeFactorOscillations.exists_modifiedLcm_window' depends on axioms: [propext, Classical.choice, Quot.sound]
+PrimeFactorOscillations.exists_lcmRobinRatio_gt_one (k : ℝ) (hk : 1 < k) (hLe : k ≤ 3 / 2) (X : ℕ) :
+  ∃ n, X < n ∧ 1 < PrimeFactorOscillations.lcmRobinRatio k ⋯ n
+'PrimeFactorOscillations.exists_lcmRobinRatio_gt_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+LEAN_EXIT_CODE=0

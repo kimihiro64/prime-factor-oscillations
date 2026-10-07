@@ -1,7 +1,7 @@
 % SPDX-License-Identifier: Apache-2.0 OR CC-BY-4.0
 \documentclass[11pt]{article}
 \usepackage{amsmath,amssymb,amsthm,hyperref}
-\hypersetup{hidelinks,pdftitle={Prime-factor densities: bounded-gap spectra and Riemann hypothesis criteria},pdfauthor={Jonas Whidden}}
+\hypersetup{hidelinks,pdftitle={Prime-factor densities: gap spectra, zeta-zero criteria, and generalized Robin inequalities},pdfauthor={Jonas Whidden}}
 \setlength{\emergencystretch}{3em}
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
@@ -11,9 +11,9 @@
 \newcommand{\LL}{\mathcal L}
 \newcommand{\EE}{\mathcal E}
 \newcommand{\N}{\mathbb N}
-\title{Prime-factor densities: bounded-gap spectra and Riemann hypothesis criteria}
+\title{Prime-factor densities:\\ gap spectra, zeta-zero criteria,\\ and generalized Robin inequalities}
 \author{Jonas Whidden}
-\date{Research draft, 5 October 2026}
+\date{Research draft, 6 October 2026}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -23,29 +23,31 @@ ratio. For fixed local laws with $\eta_p^{-1}=p/\nu+\beta+o(1)$,
 the finite maximal separated reversal count has exact rate
 $\limsup_k k^{-1}\log\log(3+N_\eta(k))
 =\sup_{H\ge2}\gamma_H/(H+\nu)$, where $\gamma_H$ records bounded-gap
-frequency. This spectrum has a finite phase profile and is realized
-by products of distinct affine forms in the sum of two primes.
-For every fixed nonnegative local odds law with a quadratic perturbation
-of $\nu/(p-1)$, a uniform comparison with its full entire-function
-reference transfers the classical Nicolas error to the actual coefficient
-ratio. This includes every reciprocal-smooth law and the affine prime-pair
-families. For each fixed positive moving-rank parameter, eventual strict
-or non-strict comparison is equivalent to the Riemann hypothesis, with
-exact forced-prime rank shifts and generalized reference constants.
-For the ordinary law, persistent positive excursions also yield a
-quarter-power positive-area criterion. With a published short-interval prime-pair input,
-we obtain RH equivalences for prescribed localized reversal counts,
-including a one-sided excess bound of order $X^{1/10}$.
-We give quantitative excursions under false RH and sharp
-reference-location and reversal-count bounds under RH, together with
-the sharp prime-square correction for square-root-sized tilts.
-A Hardy--Littlewood-shaped twin-count hypothesis places the last actual
-ascent at relative distance tending to zero from its potential cutoff.
-Stronger local exact-gap coverage yields square-root-scale clock
-tracking and transfers the full RH wave to that actual last ascent.
-We distinguish classical analytic inputs from the potentially new
-spectrum and coefficient transfer. The main maintained results are
-formalized in Lean; no new prime-gap bound or proof of RH is claimed.
+frequency. This spectrum has a finite phase profile and arithmetic
+realizations by affine prime sums.
+A uniform comparison with a full entire-function reference transfers
+the classical Nicolas error to the actual moving-rank coefficient
+ratio throughout a class of local laws. Its eventual sign gives RH
+criteria with exact forced-prime rank shifts and reference constants.
+Persistent excursions yield positive-area criteria; explicit
+short-interval sampling hypotheses also give localized reversal-count
+criteria. Hardy--Littlewood-shaped gap counts give separate
+conditional results on the last ascent.
+For consecutive-root polynomials plus a prime, we identify the exact
+complete correction and prove an unconditional negative sign when
+the degree is $1+\lfloor N/(\log N)^j\rfloor$, for each fixed $j\ge1$.
+If instead $d(N)\le CN^\alpha$ for fixed $1/2\le\alpha<1$,
+an eventual nonpositive complete profile excludes zeta zeros to
+the right of $\alpha$; the signed premise remains unproved.
+A separate application to generalized divisor sums constructs explicit
+modified least common multiples with a positive normalized logarithm,
+uniformly for $1<\kappa\le3/2+2/(5\log\log M_N)$ at unbounded integer
+cutoffs. Under RH the same window holds eventually at every integer
+cutoff; consequently, every fixed $1<\kappa\le3/2$ has arbitrarily
+large counterexamples to the generalized upper inequality.
+The maintained results are formalized in Lean. Classical inputs,
+potentially new applications, and unproved arithmetic premises are
+distinguished; no new prime-gap bound or proof of RH is claimed.
 \end{abstract}
 \section{Introduction and historical context}\label{sec:intro}
 Let $d_k(p)$ be the natural density of positive integers whose $k$th
@@ -80,7 +82,7 @@ The question here is how the maximal number of witnesses grows with
 $k$. Its exact rate also requires a converse: a sufficiently late
 ascent must come from an appropriately short gap.
 
-There are two main contributions. The first is the exact reversal
+The first contribution is the exact reversal
 frequency spectrum, its arithmetic realization, and its inverse
 late-ascent interpretation. Quantitative bounded-gap results are
 existing analytic inputs, not new sieve results. The second is a
@@ -102,13 +104,31 @@ and the quantitative comparison with a full theta-centered
 coefficient reference, together with their stated applications.
 Priority remains provisional pending independent review.
 
+There is also a separate divisor-sum application.
+Fan--Kobayashi--Molnar~\cite[Theorem~6.1 and \S8]{FKM}
+prove an eventual generalized Robin upper bound under RH for each
+fixed real exponent $\kappa>3/2$ and ask about smaller exponents.
+Section~\ref{sec:lcm-window} gives unconditional unbounded violations
+for every $1<\kappa\le3/2$, and a shrinking window above the endpoint.
+The additional growing-family calculations in
+Section~\ref{sec:growing-families} retain complete arithmetic
+corrections. Their independent signs and their RH-sensitive
+conditional implications have different degree ranges.
+Section~\ref{sec:power-degree} states the exact $N^\alpha$
+zero-free implication and its still-open signed hypothesis.
+The endpoint/window result and these family applications are
+potentially new; independent priority assessment remains outstanding.
+
 Sections~\ref{sec:ratio}--\ref{sec:affine} prove the unconditional
 spectrum. Section~\ref{sec:late} treats recurrence and the separate
 Hardy--Littlewood conditional location result.
 Sections~\ref{sec:profile}--\ref{sec:capacity} establish the coefficient
 transfer, pointwise RH criteria and reference capacities.
 Sections~\ref{sec:area}--\ref{sec:local-count} treat persistent positive
-area and the localized signed-count criteria. The
+area and the localized signed-count criteria. Sections
+\ref{sec:growing-families} and~\ref{sec:lcm-window} give the growing
+arithmetic families and the generalized-divisor-sum application;
+Section~\ref{sec:power-degree} gives the power-degree criterion. The
 \href{https://github.com/kimihiro64/prime-factor-oscillations}{public repository}
 contains maintained proofs and a provenance ledger. This is an
 AI-assisted research draft; independent expert review and assessment
@@ -172,6 +192,22 @@ threshold. RH controls the fine reference error, while a
 Hardy--Littlewood twin-count assumption supplies twins near the
 potential endpoint. Their roles and their different precision are
 kept separate throughout.
+
+Two further calculations test what arithmetic structure can actually
+supply. A polynomial with many prescribed roots makes divisibility
+by small primes less likely. We calculate its entire correction,
+rather than just its leading local probability, and prove a complete
+negative sign when the degree is only logarithmically smaller than
+the prime cutoff. This range must be distinguished from the much
+smaller power-sized degrees relevant to excluding zeta zeros.
+
+For generalized divisor sums, increasing selected prime exponents
+in a least common multiple balances an extra height cost against
+a smaller local-factor loss. The full balance gives explicit
+counterexamples in a shrinking parameter window around $3/2$.
+The proof works whether RH is true or false. It answers a separate
+inequality question; it does not resolve the signed premise needed
+for an independent proof of RH.
 
 The finer error can also be detected by counting. We choose actual short
 prime gaps in many separate cells, place a long-gap descent before each,
@@ -1924,6 +1960,489 @@ The persistence interval may be taken with any fixed exponent
 between $7/10$ and $3/4$, which absorbs the shift and rounding
 in this ascent-only window.
 
+\section{Growing families and signed bounds}\label{sec:growing-families}
+
+A fixed-family RH criterion does not by itself justify varying the family
+with the prime cutoff. We first give a transfer with explicit error
+intervals, then two arithmetic calculations in which the complete
+correction can be retained. Throughout this section, a finite-prime
+limiting law is taken before the cutoff or polynomial degree varies.
+We make no assertion uniform in a finite sampling box.
+
+\subsection{Correction intervals}
+\begin{theorem}[Transfer through a correction interval]\label{thm:correction-interval}
+Let $E,\ell,u:\N\to\mathbb R$ and let $c>0$ be fixed. Suppose that
+\[
+ \ell(N)\le E(N)-cF(N)\le u(N)
+ \quad\hbox{for all sufficiently large }N.
+\]
+Assume that, for every fixed $0<b<1/2$, there is a constant $C_b>0$
+such that $u(N)-\ell(N)\le C_bN^{-b}$ eventually.
+Then RH is equivalent to eventual $E(N)\le u(N)$, and also to
+eventual $E(N)<u(N)$.
+\end{theorem}
+\begin{proof}
+Under RH, $F(N)<0$ eventually, so the upper interval bound gives
+$E(N)<u(N)$. If RH fails, the integer-cutoff Nicolas excursion theorem
+gives a fixed $0<b<1/2$ and arbitrarily large $N$ with
+$cF(N)>(C_b+1)N^{-b}$. At these $N$, the lower interval bound implies
+$E(N)>u(N)$, a contradiction.
+\end{proof}
+The interval center need not be small or positive. What matters is the
+width and its proved arithmetic relation to the same $E$ and $F$.
+Defining an endpoint from the unknown error would not provide an
+independent estimate. The maintained theorem has a fixed coefficient
+$c$; a moving coefficient requires a separate uniform argument.
+
+\subsection{An explicit polynomial-plus-prime family}
+For a positive integer $d$, put
+\[
+ P_d(a)=\prod_{j=1}^d(a-j),\qquad V_d(a,q)=P_d(a)+q,
+\]
+where $a$ ranges over integers and $q$ over primes, with ordered
+representations retained. For each fixed finite set of primes, uniform
+integer residues, prime progression limits and the Chinese remainder
+theorem give independent local divisibility laws. The polynomial has
+exactly $\min(d,p)$ roots modulo $p$. Consequently
+\begin{equation}\label{eq:root-local-law}
+ \eta_d(p)=\frac{p-\min(d,p)}{p(p-1)}.
+\end{equation}
+In particular, every prime $p\le d$ is excluded. Use this exact law,
+including those exclusions, to form $E_d(N)=E_{\eta_d}(N,1)$ as in
+Theorem~\ref{thm:family-product}. Set
+\[
+ Q_2(N)=\sum_{p>N}\frac1{(p-1)^2},\qquad
+ T(N,b)=\sum_{p>N}\log\left(1+\frac b{(p-1)^2}\right)
+ \quad(b\ge0).
+\]
+
+\begin{theorem}[Exact correction and finite bounds]\label{thm:root-exact}
+For $N\ge\max(d,3)$,
+\begin{equation}\label{eq:root-error}
+ E_d(N)=F(N)-T(N,d-1).
+\end{equation}
+For $N\ge1$ and $b\ge0$,
+\begin{equation}\label{eq:root-tail-bounds}
+ \left(b-\frac{b^2}{2N^2}\right)Q_2(N)
+ \le T(N,b)\le bQ_2(N),\qquad 0\le Q_2(N)\le\frac2N.
+\end{equation}
+Moreover $N\log N\,Q_2(N)\to1$.
+\end{theorem}
+\begin{proof}
+For $p>d$, direct substitution into the odds gives
+\[
+ (1+w_d(p))(1-1/p)
+   =\left(1+\frac{d-1}{(p-1)^2}\right)^{-1}.
+\]
+The exact profile identity expresses $E_d-F$ as the sum of these
+logarithms over $p>N$. All excluded primes already lie in the finite
+prefix; their profile factors cancel exactly, proving
+\eqref{eq:root-error}. For $t\ge0$,
+$t-t^2/2\le\log(1+t)\le t$. Since $p>N$ implies $p-1\ge N$,
+summing these inequalities proves \eqref{eq:root-tail-bounds}.
+Comparison with $\sum_{n\ge N}n^{-2}\le2/N$ gives the elementary
+upper bound. Partial summation of the prime number theorem gives
+the stated asymptotic for $Q_2$.
+\end{proof}
+
+\begin{theorem}[Independent signs at logarithmically reduced degree]
+\label{thm:log-root-sign}
+For every fixed integer $j\ge1$, let
+\[
+ d_j(N)=1+\left\lfloor\frac{N}{(\log N)^j}\right\rfloor .
+\]
+Then, unconditionally,
+\[
+ (\log N)^{j+1}E_{d_j(N)}(N)\longrightarrow-1.
+\]
+In particular $E_{d_j(N)}(N)<0$ for every sufficiently large integer
+$N$. The diagonal degree $d=N$ also satisfies
+$E_N(N)\log N\to-1$.
+\end{theorem}
+\begin{proof}
+For large $N$, $d_j(N)\le N$, and
+$b_N=d_j(N)-1=N/(\log N)^j+O(1)$. The two bounds in
+\eqref{eq:root-tail-bounds}, together with $b_N\le N$, imply
+\[
+ (\log N)^{j+1}T(N,b_N)\longrightarrow1.
+\]
+For every fixed positive integer $A$, the quantitative prime number
+theorem gives the unconditional limit
+\[
+ F(N)(\log N)^A\longrightarrow0.
+\]
+Subtracting in \eqref{eq:root-error} proves the result.
+For the diagonal, use $b=N-1$ in the same bounds to obtain
+\[
+ T(N,N-1)\log N\longrightarrow1. \qedhere
+\]
+\end{proof}
+These are complete independent signed estimates, but the family degree
+is $N^{1-o(1)}$. For every fixed $\alpha<1$ and fixed $j$,
+$d_j(N)/N^\alpha\to\infty$. The theorem therefore supplies no
+fixed-power zero-free conclusion. Neither its onset nor its estimates
+are asserted to be uniform when $j$ grows with $N$.
+
+\subsection{The effect of adding two primes}
+Let a base residue family have zero probability $r_p\in[0,1]$ at
+each prime $p$. Add two independent uniform nonzero residues.
+Their exact zero probability is
+\[
+ \eta(p)=\frac{p-2+r_p}{(p-1)^2}.
+\]
+Indeed there are $p-1$ ordered nonzero pairs with sum zero and
+$p-2$ with any prescribed nonzero sum. Thus the laws of $q_1+q_2+1$
+and $q_1+q_2$ attain the two endpoints, independently of the
+complexity of the base family.
+
+\begin{theorem}[Attained two-prime bracket]\label{thm:two-prime-bracket}
+For every such finite residue family, every $N\ge3$, and $z\ge0$,
+\[
+ E_{q_1+q_2+1}(N,z)\le E_{\mathrm{base}+q_1+q_2}(N,z)
+       \le E_{q_1+q_2}(N,z).
+\]
+At $z=1$, define the convergent tails
+\[
+ T_3(N)=\sum_{p>N}\log\left(1+\frac1{(p-1)^3}\right),\qquad
+ U_2(N)=\sum_{p>N}-\log\left(1-\frac1{(p-1)^2}\right).
+\]
+Then the exact bracket is
+\[
+ F(N)-T_3(N)\le E_{\mathrm{base}+q_1+q_2}(N,1)\le F(N)+U_2(N).
+\]
+\end{theorem}
+\begin{proof}
+For tail primes $p>N\ge3$, all three probabilities are less than one.
+Both $\eta/(1-\eta)$ and $\log(1+z\eta/(1-\eta))$ increase with
+$\eta$. Compare the convergent tail corrections to $zF(N)$,
+including their exact normalizations. Substitution of $r_p=0,1$
+gives the two displayed tails at $z=1$.
+\end{proof}
+The favorable endpoint correction is asymptotic to
+$1/(2N^2\log N)$ by partial summation. Thus adding arbitrary base
+complexity cannot enlarge this correction within the stated
+two-prime-addition class. This controls a correction, not the sign
+of the complete expression containing $F(N)$. Additional independent
+prime additions can be included in the base distribution; this
+ordinary specialization does not assert uniform finite-box limits
+or a result for changing nonunit coefficients.
+
+\section{Power-sized degrees and zero-free regions}\label{sec:power-degree}
+The distinction between a logarithmic saving and a fixed power saving
+can be made precise for the actual polynomial family of
+Section~\ref{sec:growing-families}. The result below is a conditional
+implication. It does not assume a zero-free region, but it does assume
+the eventual sign of the complete arithmetic profile.
+
+\begin{theorem}[Power-degree sign criterion]\label{thm:power-degree}
+Let $d:\N\to\N$ satisfy $d(N)\ge1$. Fix real numbers $C>0$ and
+$1/2\le\alpha<1$. Suppose that, for every sufficiently large integer $N$,
+\begin{equation}\label{eq:power-degree-hypotheses}
+ d(N)\le CN^\alpha,\qquad E_{d(N)}(N)\le0,
+\end{equation}
+where $E_d$ is the complete profile of the consecutive-root polynomial
+$P_d(a)+q$, with all small-prime exceptions included.
+Then
+\[
+ \zeta(\rho)\ne0\qquad
+ \hbox{whenever }\alpha<\operatorname{Re}\rho<1.
+\]
+The degree bound and the signed inequality refer to the same chosen
+sequence of families and both hold eventually, not merely along
+possibly different unbounded subsequences.
+\end{theorem}
+\begin{proof}
+Since $\alpha<1$, the degree bound implies $d(N)\le N$ eventually.
+The exact identity \eqref{eq:root-error} and
+\eqref{eq:root-tail-bounds} therefore give
+\begin{equation}\label{eq:power-degree-F}
+ F(N)\le T(N,d(N)-1)
+       \le(d(N)-1)Q_2(N)
+       \le2C N^{\alpha-1}
+ \quad\hbox{eventually}.
+\end{equation}
+Suppose $\zeta(\rho)=0$ with $\beta=\operatorname{Re}\rho>\alpha$
+and $\beta<1$. Choose
+\[
+ b=\frac{(1-\beta)+(1-\alpha)}2.
+\]
+Then $0<1-\beta<b<1-\alpha\le1/2$. The zero-dependent
+integer Nicolas excursion argument from
+Section~\ref{sec:excursions} gives arbitrarily large integers $N$
+with $F(N)>2C N^{-b}$. But $\alpha-1<-b$, so for $N\ge1$,
+\[
+ F(N)\le2C N^{\alpha-1}\le2C N^{-b}
+\]
+by \eqref{eq:power-degree-F}, a contradiction.
+This uses the already established integer excursions, including the
+nonlinear logarithm correction. It neither differentiates an
+asymptotic error nor assumes a new real-to-integer interpolation.
+\end{proof}
+
+\begin{corollary}[Square-root degree]\label{cor:sqrt-degree-RH}
+If $d(N)\ge1$, $C>0$, and eventually
+\[
+ d(N)\le C\sqrt N,\qquad E_{d(N)}(N)\le0,
+\]
+then RH holds.
+\end{corollary}
+\begin{proof}
+Theorem~\ref{thm:power-degree} excludes every nontrivial zero to
+the right of $1/2$. The functional equation then places every
+nontrivial zero on the critical line.
+\end{proof}
+
+The new content here is the exact passage from this arithmetic
+degree budget to the classical zero-dependent Nicolas obstruction;
+the underlying oscillation mechanism is classical
+\cite{Nicolas1983,Nicolas2012}. External priority for this
+polynomial-family formulation is not established.
+
+The complete sign in \eqref{eq:power-degree-hypotheses} remains
+unproved independently for power-sized degrees. In contrast,
+Theorem~\ref{thm:log-root-sign} proves that sign at
+$d(N)=1+\lfloor N/(\log N)^j\rfloor$ for every fixed $j\ge1$.
+Such a degree exceeds $CN^\alpha$ eventually for every fixed
+$C>0$ and $\alpha<1$. Thus that unconditional theorem cannot be
+substituted into \eqref{eq:power-degree-hypotheses}. Increasing
+a fixed logarithmic saving does not reach any fixed power saving.
+
+This criterion concerns the specified polynomial-plus-prime law.
+No degree-only assertion is made for arbitrary changing
+coefficients or sampling rules: those can introduce additional
+excluded primes and a different correction. Nor does an arbitrary
+sequence of individually qualifying fixed laws automatically
+satisfy the uniform estimate used here.
+
+\section{A generalized Robin critical window}
+\label{sec:lcm-window}
+
+The same signed prime-product calculation has a separate application
+to generalized divisor sums. It gives actual counterexamples to a
+proposed extension of a generalized Robin inequality. It does not
+supply an independent RH criterion.
+
+For a real parameter $\kappa>1$, define
+\[
+ S_\kappa(n)=\sum_{d\mid n}\mu(n/d)\sigma(d)^\kappa,\qquad
+ \mathcal G_\kappa(n)=
+ \frac{\zeta(\kappa)S_\kappa(n)}
+ {(e^\gamma n\log\log n)^\kappa}\quad(n\ge3).
+\]
+Here $\kappa$ is a real divisor-sum exponent, not the prime-factor
+rank $k$. These are the LCM-power functions of
+Fan--Kobayashi--Molnar~\cite[Definition~1.2]{FKM}.
+For an integer $N\ge8$, put
+\begin{equation}\label{eq:modified-lcm}
+ M_N=\operatorname{lcm}(1,\ldots,N)
+       \prod_{\substack{p\le N\\N<p^2\le2N}}p,\qquad
+ K_N=\frac32+\frac{2}{5\log\log M_N}.
+\end{equation}
+
+\begin{theorem}[Uniform critical window]\label{thm:lcm-window}
+For every $X\in\N$, there is an integer $N>X$, $N\ge8$, such that
+simultaneously for every real $1<\kappa\le K_N$,
+\begin{equation}\label{eq:lcm-window-margin}
+ \log\mathcal G_\kappa(M_N)>
+       \frac1{100\sqrt N\log N}.
+\end{equation}
+Under RH, this holds for every sufficiently large integer $N$,
+with a common cutoff for the entire parameter window.
+\end{theorem}
+
+\begin{corollary}\label{cor:lcm-counterexamples}
+For every fixed real $1<\kappa\le3/2$, there are arbitrarily large
+integers $n$ for which $\mathcal G_\kappa(n)>1$.
+\end{corollary}
+
+\subsection{Exact arithmetic and the full signed comparison}
+Let $a_p=v_p(M_N)$ for $p\le N$, and define
+\begin{align*}
+ u_p&=p^{-a_p-1},& U_N&=\sum_{p\le N}u_p,\\
+ R_N&=4\sum_{p\le N}\frac{u_p}{p}
+             +32\sum_{p\le N}u_p^2,&
+ D_N&=\log\log\log M_N-\log\log\theta(N).
+\end{align*}
+All finite sums have the same prime support $p\le N$. Write
+\[
+ \mathcal T_\kappa(N)=
+       \sum_{p>N}-\log(1-p^{-\kappa}).
+\]
+For $\kappa>1$ this converges and equals the logarithm of the
+omitted part of the zeta Euler product.
+
+The defining divisor sum is multiplicative, and at a prime power
+\[
+ S_\kappa(p^a)=\sigma(p^a)^\kappa-\sigma(p^{a-1})^\kappa
+ =\left(\frac{p^a}{1-1/p}\right)^\kappa
+       (1-p^{-\kappa})\,C_\kappa(p,a),
+\]
+where
+\[
+ C_\kappa(p,a)=
+ \frac{(1-p^{-a-1})^\kappa-p^{-\kappa}(1-p^{-a})^\kappa}
+      {1-p^{-\kappa}}>0.
+\]
+Therefore the exact normalized identity is
+\begin{equation}\label{eq:lcm-exact-log}
+ \log\mathcal G_\kappa(M_N)=
+ \mathcal T_\kappa(N)-\kappa\bigl(F(N)+D_N\bigr)
+       +\sum_{p\le N}\log C_\kappa(p,a_p).
+\end{equation}
+This retains the actual integer height $\log M_N$.
+
+\begin{lemma}[Uniform finite lower bound]\label{lem:lcm-finite}
+For $N\ge8$ and $1<\kappa\le2$,
+\begin{equation}\label{eq:lcm-signed-bound}
+ \log\mathcal G_\kappa(M_N)\ge
+ \mathcal T_\kappa(N)-\kappa(F(N)+D_N+U_N)-R_N.
+\end{equation}
+If $1<\kappa\le K\le2$, its right side may be replaced by
+\[
+ \mathcal T_K(N)-K\max(F(N)+D_N+U_N,0)-R_N.
+\]
+\end{lemma}
+\begin{proof}
+Put $u=p^{-a-1}$, $v=p^{-\kappa}$ and $t=p^{-a}$.
+For $1\le\kappa\le2$, $u\le1/8$ and $v\le1/2$, Bernoulli's
+inequality gives
+\[
+ C_\kappa(p,a)\ge1-\frac{\kappa u}{1-v}.
+\]
+The number $w=\kappa u/(1-v)$ satisfies $0\le w\le4u\le1/2$
+and $w\le\kappa u+4uv$. The bound
+$\log(1-w)\ge-w-2w^2$ yields
+\[
+ \log C_\kappa(p,a)\ge-\kappa u-4uv-32u^2
+                  \ge-\kappa u-4u/p-32u^2.
+\]
+For the exponents of $M_N$, $p^{a_p+1}>N$; hence $u_p\le1/8$
+when $N\ge8$. Sum the bound in \eqref{eq:lcm-exact-log}.
+Finally $\mathcal T_\kappa\ge\mathcal T_K$, and for every real $A$,
+$-\kappa A\ge-K\max(A,0)$.
+\end{proof}
+
+\subsection{The two arithmetic costs and the positive tail}
+The ordinary prime number theorem gives
+\begin{equation}\label{eq:lcm-cost-limits}
+ \sqrt N\log N\,D_N\longrightarrow\sqrt2,\qquad
+ \sqrt N\log N\,U_N\longrightarrow\sqrt2,\qquad
+ \sqrt N\log N\,R_N\longrightarrow0.
+\end{equation}
+Here is a direct explanation of all three limits. The exact height is
+\[
+ \log M_N=\psi(N)+\theta(\sqrt{2N})-\theta(\sqrt N).
+\]
+Since $\psi(N)-\theta(N)=\theta(\sqrt N)+O(N^{1/3}\log N)$,
+we have $\log M_N-\theta(N)\sim\sqrt{2N}$.
+The derivative of $\log\log t$ is $1/(t\log t)$, giving the first limit.
+
+For $p>\sqrt{2N}$, $a_p=1$, so the upper-band contribution is
+\[
+ \sum_{\sqrt{2N}<p\le N}p^{-2}.
+\]
+Its normalized limit is $\sqrt2$. Below $\sqrt{2N}$, split at
+$N^{1/3}$ to bound the remaining contribution by
+\[
+ N^{-1}\pi(N^{1/3})+\sum_{p>N^{1/3}}p^{-3}.
+\]
+Both terms are negligible on the displayed scale. Finally,
+$u_p<1/N$ gives $R_N=O((1+\log N)/N)$ and proves the third limit.
+
+We need only a finite lower comparison for the moving zeta tail.
+For $q>1$, $m\in\N$, and $1<K\le2$, put
+\begin{align}
+ A_2(x)&=\sum_{p>x}p^{-2},\notag\\
+ L_m(N,q,K)&=N^{2-K}A_2(N)\notag\\
+ &\quad+\sum_{j=0}^{m-1}
+ \bigl((Nq^{j+1})^{2-K}-(Nq^j)^{2-K}\bigr)A_2(Nq^{j+1}).
+ \label{eq:lcm-finite-tail}
+\end{align}
+Then $\mathcal T_K(N)\ge L_m(N,q,K)$. To see this, first use
+$-\log(1-p^{-K})\ge p^{-K}$, and then bound the increasing function
+$p^{2-K}$ from below by its step approximation at the displayed
+thresholds. Every increment is nonnegative, so summation preserves
+the bound.
+
+Fix $s>1$ and $m$ before taking $N\to\infty$, and put $q=s^2$.
+Because $x\log x\,A_2(x)\to1$ and
+$\log\log M_N/\log N\to1$, the finitely many terms give
+\begin{equation}\label{eq:lcm-finite-limit}
+ \begin{aligned}
+ \sqrt N\log N\,L_m\left(N,s^2,\frac32+
+                        \frac c{\log\log M_N}\right)
+     &\longrightarrow C_m(s)e^{-c},\\
+ C_m(s)&=1+\frac1s-\frac1{s^{m+1}}.
+ \end{aligned}
+\end{equation}
+Only fixed-dilation prime-square-tail limits are used. In particular,
+we have not assumed an asymptotic for a prime sum uniform in a
+moving exponent.
+
+Choose $s=1001/1000$ and $m=10^6$. Bernoulli's inequality gives
+$C_m(s)>999/500$. With $\beta_0\le1/20$ from the classical
+Nicolas constant, the limiting complete RH lower bound exceeds
+\begin{equation}\label{eq:lcm-margin}
+ C_m(s)e^{-2/5}-3(\sqrt2-1)-\frac32\beta_0>\frac7{600}.
+\end{equation}
+For example, $\log(3/2)>2/5$ and $\sqrt2<99/70$ show that the
+left side is greater than
+$333/250-87/70-3/40=99/7000>7/600$.
+The finite choice $m=10^6$ is a symbolic parameter choice; no
+million-term numerical verification is used.
+
+\subsection{Proof in the two RH cases}
+\begin{proof}[Proof of Theorem~\ref{thm:lcm-window}]
+Under RH, \eqref{eq:nicolas-wave} gives
+\[
+ \limsup_{N\to\infty}\sqrt N\log N\,F(N)\le\beta_0-2.
+\]
+Insert this and \eqref{eq:lcm-cost-limits}--\eqref{eq:lcm-finite-limit}
+into Lemma~\ref{lem:lcm-finite}, with $K=K_N$.
+For large $N$, $K_N<2$. The limiting lower bound for the common
+scaled comparison is at least the quantity in \eqref{eq:lcm-margin}.
+Since $1/100<7/600$, one cutoff works for every
+$1<\kappa\le K_N$.
+
+If RH fails, negative Nicolas excursions give arbitrarily large
+integer $N$ with
+\begin{equation}\label{eq:lcm-negative-supply}
+ F(N)\sqrt N<-1.
+\end{equation}
+For completeness, take real excursions $F(x)<-2x^{-b}$ with
+$0<b<1/2$ and $x>3$, and let $N=\lfloor x\rfloor$.
+The prime products and $\theta$ are constant on $[N,N+1)$, so
+$F(N)=F(x)$. Also $x<N+1\le4N$. Thus
+$F(N)<-2/\sqrt{x}\le-1/\sqrt N$. Only $F$ is rounded in
+this argument; no floor invariance of $M_N$ or $W$ is used.
+
+By \eqref{eq:lcm-cost-limits}, the positive arithmetic costs satisfy
+$(D_N+U_N)\sqrt N\log N\to2\sqrt2$, whereas
+\eqref{eq:lcm-negative-supply} gives
+$F(N)\sqrt N\log N<-\log N$. Hence $F(N)+D_N+U_N<0$
+at arbitrarily large integer cutoffs. At those cutoffs the maximum
+in Lemma~\ref{lem:lcm-finite} vanishes. Equations
+\eqref{eq:lcm-cost-limits} and \eqref{eq:lcm-finite-limit} then give
+the stronger positive limiting lower bound $C_m(s)e^{-2/5}$.
+Taking cutoffs beyond the common asymptotic thresholds proves
+\eqref{eq:lcm-window-margin}. The same explicit integer family
+therefore works in both logical cases.
+\end{proof}
+\begin{proof}[Proof of Corollary~\ref{cor:lcm-counterexamples}]
+We have $\log M_N\ge\theta(N)\to\infty$, so $M_N\to\infty$.
+Also $K_N>3/2$. Apply Theorem~\ref{thm:lcm-window} beyond any
+prescribed integer-height threshold and use positivity of
+$\mathcal G_\kappa$ to exponentiate its positive logarithm.
+\end{proof}
+
+The theorem concerns integer cutoffs and supplies no effective onset
+or frequency of the exceptional cutoffs without RH. It establishes
+neither optimality of $2/5$ nor that $M_N$ is colossally abundant.
+Every fixed $\kappa>3/2$ eventually lies outside the shrinking window,
+so this result is consistent with the fixed-parameter upper theorem
+of \cite{FKM}. In particular, the counterexamples do not violate
+ordinary Robin's inequality and do not prove or disprove RH.
+
 \section{Implications and scope}\label{sec:implications}
 The spectrum gives a quantitative dictionary. Bounded-gap counts
 yield reversal counts through the finite selection lemma; the
@@ -2147,6 +2666,29 @@ coefficient comparison and uniform sign transfer;
 Theorems~\ref{thm:family-product} and~\ref{thm:family-ratio},
 the general probability-law constructor, exact forced-rank mass criteria,
 actual affine-family consumers, and the generalized reference constant;
+\item \path{Helpers/FamilyIntervalTransfer.lean} and
+\path{Helpers/DoublePrimeAdditionCriterion.lean}:
+Theorems~\ref{thm:correction-interval} and~\ref{thm:two-prime-bracket};
+\item \path{Helpers/ConsecutiveRootProbability.lean},
+\path{Helpers/ConsecutiveRootCriterion.lean},
+\path{Helpers/PrimeAddedRootBudget.lean} and
+\path{Helpers/LogarithmicRootCriterion.lean}:
+the exact root law, finite correction bounds, and
+Theorem~\ref{thm:log-root-sign};
+\item \path{Helpers/ConsecutiveRootZeroFree.lean}:
+Theorem~\ref{thm:power-degree} and Corollary~\ref{cor:sqrt-degree-RH},
+with the degree and complete-sign premises explicit;
+\item \path{Helpers/LcmDivisorArithmetic.lean},
+\path{Helpers/LcmNormalizedComparison.lean} and the modified-LCM
+height, defect and finite-tail modules: the actual divisor sum and
+the complete finite and asymptotic bounds used in
+Section~\ref{sec:lcm-window};
+\item \path{Helpers/ModifiedLcmRHWindow.lean},
+\path{Helpers/ModifiedLcmNegativeSupply.lean} and
+\path{Helpers/ModifiedLcmCriticalWindow.lean}:
+Theorem~\ref{thm:lcm-window} and Corollary~\ref{cor:lcm-counterexamples},
+with separate RH and false-RH intermediate statements and
+unconditional maintained endpoints;
 \item \path{Helpers/NicolasPowerPeak.lean} and
 \path{Helpers/PrimeProfilePowerExcursions.lean}: the corrected
 logarithm and actual moving-rank power excursions;
@@ -2245,9 +2787,18 @@ states two headline theorems over Mathlib primitives.
 \href{https://github.com/kimihiro64/prime-factor-oscillations/blob/main/Solution.lean}{Solution}
 contains their actual proofs. The two deliberate Challenge
 placeholders are absent from the Solution closures.
-The 5 October proof audit checks the two public compiled statement
+The 5 October proof audit checked the two public compiled statement
 pairs and 539 selected theorem closures, finding only \texttt{propext},
 \texttt{Classical.choice}, and \texttt{Quot.sound}.
+A fresh 6 October audit, importing the maintained family owners and
+Solution, checks 18 exact theorem statements and dependency closures
+for the additions in Sections~\ref{sec:growing-families}--
+\ref{sec:lcm-window}. Every axiom set is exactly the same three
+standard foundations. This includes all four power-degree
+declarations and the unconditional modified-LCM endpoints.
+The power-degree proof was already maintained before this editorial
+revision; it was independently rechecked, not replaced by an
+assumption wrapper. Its eventual signed premise remains explicit.
 The RH statements have maintained consumers in Solution with their
 RH, false-RH or zero hypotheses explicit. An axiom audit does not
 remove any of these hypotheses. The two Challenge statements concern
@@ -2355,6 +2906,13 @@ J. C. Lagarias, \emph{An elementary problem equivalent to the
 Riemann hypothesis}, Amer. Math. Monthly \textbf{109} (2002), 534--543.
 \href{https://arxiv.org/abs/math/0008177v2}{arXiv:math/0008177v2},
 Theorem~1.1 and the statement of Robin's criterion.
+
+\bibitem{FKM}
+S. Fan, M. Kobayashi and G. Molnar,
+\emph{A family of analogues to the Robin criterion},
+\href{https://arxiv.org/abs/2511.02106v1}{arXiv:2511.02106v1}
+(3 November 2025), Definition~1.2, Theorem~6.1 and \S8.
+The statements cited here were checked in this preprint version.
 
 \bibitem{Gallagher}
 P. X. Gallagher, \emph{On the distribution of primes in short intervals},

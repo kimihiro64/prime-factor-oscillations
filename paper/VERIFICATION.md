@@ -1,5 +1,46 @@
 # Paper verification
 
+## Paper and power-degree completion — 6 October 2026
+
+The same source document was edited in place and its tracked PDF rebuilt.
+The revision incorporates the complete growing-family calculations, the
+conditional power-degree zero-free implication and square-root RH corollary,
+and the unconditional modified-LCM critical window. The title, abstract,
+introduction, argument guide, detailed proofs, implications, bibliography and
+formalization crosswalk are aligned with that scope.
+
+The power-degree proof was already implemented in
+`Helpers/ConsecutiveRootZeroFree.lean`. Its source is unchanged in this
+revision. A fresh kernel check imports the maintained family owners and
+Solution and audits 18 statements, including all four power-degree
+declarations. The eventual complete-sign hypothesis is still explicit:
+neither the editorial work nor an axiom audit proves it.
+
+| Check | Result |
+|---|---|
+| Compiler | Native Windows Lean 4.34.0, pinned shared artifact environment |
+| Fresh statement/axiom audit | 18 statements; every complete axiom set is exactly Classical.choice, Quot.sound, propext |
+| Cache reuse | Recursive owned-source/dependency fingerprints checked by the focused runner; zero dependency builds |
+| Lean source changes | None; existing proof implementation and public consumers retained |
+| PDF | 56 pages; native Windows MiKTeX, package installation disabled |
+| TeX checks | 117 unique labels, 154 reference occurrences, 14 bibliography keys; no unresolved references/citations or layout warnings |
+| Visual check | All-page contact sheets and enlarged checks of the title and new theorem/proof pages |
+
+Evidence is retained in
+[the revision report](verification/paper-nalpha-revision.json),
+[the exact theorem types and axioms](verification/paper-nalpha-theorem-types-and-axioms.log),
+and [the final compiler log](verification/paper-nalpha-build.log).
+The report contains the focused audit source and target list for replay in
+the documented pinned environment. The full maintained build recorded before
+this documentation-only pass checked 488 owned modules; it is not described
+as a fresh full rebuild here.
+
+The built-in editor remains on the original TeX source. Its compiler could
+not initialize its standard platform directories, so the PDF was built with
+the already installed Windows compiler. No dependency rebuild, new runtime
+installation, OS switch, worktree, commit or push was performed.
+The earlier verification sections below refer to their historical snapshots.
+
 ## General family RH transfer — 5 October 2026
 
 The family extension adds 35 maintained Lean modules and 98 audit targets.

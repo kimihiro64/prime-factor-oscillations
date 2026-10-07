@@ -1,5 +1,19 @@
 # Primary-source review for the revised paper
 
+## Power-degree and modified-LCM additions — 6 October 2026
+
+Checked [Fan--Kobayashi--Molnar, arXiv:2511.02106v1](https://arxiv.org/html/2511.02106v1),
+3 November 2025: Definition 1.2, Theorem 6.1 and Section 8.
+The paper cites this inspected preprint. Full journal-text comparison
+and external priority certification remain outstanding.
+
+For the power-degree implication, the classical source is Nicolas's
+zero-dependent oscillation mechanism, already reviewed below. The
+family-specific step bounds the exact correction by the degree times a
+prime-square tail. Its eventual sign remains a premise. The unconditional
+logarithmically reduced degree theorem does not satisfy any fixed
+power-degree bound below exponent one.
+
 ## Localized-count input — 5 October 2026
 
 Ryan Alweiss and Sammy Luo, *Bounded gaps between primes in short intervals*,

@@ -1,5 +1,37 @@
 # Paper theorem and provenance ledger
 
+## Growing families, power degrees, and divisor sums — 6 October 2026
+
+The paper now integrates the completed family-search results and the
+modified-LCM theorem. The power-degree implication was already maintained;
+this revision rechecks its exact statement and proof closure and supplies
+the missing paper exposition. No new unconditional zero-free region is
+claimed.
+
+| Paper label | Maintained declaration / owner | Exact scope |
+|---|---|---|
+| thm:correction-interval | `riemannHypothesis_iff_eventually_family_interval_le` and its strict variant; FamilyIntervalTransfer | Fixed positive signal coefficient; a proved correction interval whose width decays at every power below one half. |
+| thm:root-exact | `consecutiveRootLaw_logError_exact`, ConsecutiveRootCriterion; `primeAddedRootTail_bounds`, PrimeAddedRootBudget | Actual consecutive-root polynomial plus one prime, all excluded small primes retained, cutoff at least the degree and 3. |
+| thm:log-root-sign | `publicLogarithmicRootSignedBound`, LogarithmicRootCriterion | Unconditional negative complete error for degree `1+floor(N/log(N)^j)`, every fixed integer `j>=1`; no uniform growing-j claim. |
+| thm:two-prime-bracket | `FinitePrimeResidueFamily.doublePrimeAddition_logError_bracket`, DoublePrimeAdditionCriterion | Uniform attained bracket between the two endpoint laws for every nonnegative tilt. The cubic-tail asymptotic and further-prime specialization are ordinary consequences, not separately audited declarations. |
+| thm:power-degree | `no_zeta_zero_right_of_power_degree_signed_profile`, [ConsecutiveRootZeroFree](../PrimeFactorOscillations/Helpers/ConsecutiveRootZeroFree.lean) | Fixed `C>0`, `1/2<=alpha<1`, eventual degree bound `d(N)<=C*N^alpha`, and eventual complete sign for the SAME family sequence exclude zeros with `alpha<Re(rho)<1`. The sign is an explicit, unproved hypothesis. |
+| cor:sqrt-degree-RH | `riemannHypothesis_of_sqrt_degree_signed_profile`, ConsecutiveRootZeroFree | At square-root degree, the same eventual sign implies RH. No independent proof of that sign is supplied. |
+| eq:lcm-exact-log; lem:lcm-finite | `lcmRobinRatio_log_identity`, `modifiedLcm_logRatio_finite_window_lower`; LcmNormalizedComparison and its arithmetic closure | Actual Mobius divisor sum, actual modified-LCM height, finite prime support and every signed correction. |
+| thm:lcm-window, RH part | `eventually_modifiedLcm_window_of_RH`, ModifiedLcmRHWindow | Every sufficiently large NATURAL cutoff, simultaneously throughout the real parameter window. RH is explicit. |
+| thm:lcm-window, false-RH case | `nicolasLog_integer_sqrt_negative_supply_of_not_RH`, `modifiedLcm_negative_signed_supply_of_not_RH`; ModifiedLcmNegativeSupply | Unbounded integer cutoffs with the complete negative correction; the RH upper envelope is not used in this case. |
+| thm:lcm-window; cor:lcm-counterexamples | `exists_modifiedLcm_window`, `exists_lcmRobinRatio_gt_one`; [ModifiedLcmCriticalWindow](../PrimeFactorOscillations/Helpers/ModifiedLcmCriticalWindow.lean) | Unconditional common window `1<kappa<=3/2+2/(5*loglog(M_N))` at unbounded cutoffs; arbitrarily large actual integers for each fixed `1<kappa<=3/2`. Kappa is not factor rank. |
+
+All named project owners in this table are under
+`PrimeFactorOscillations/Helpers/`. Public reachability is through
+Assembly/FamilyRHResults and Solution. The fresh 18-statement audit contains
+all four power-degree declarations, with only the standard foundational
+axioms; see [verification](VERIFICATION.md).
+
+Broader primitive-polynomial optimizers, mixed-grid and coefficient-height
+extensions, Frobenius families, and proposed CA/smooth-number sign estimates
+remain outside the newly advertised maintained theorem package. The private
+register retains their exact ordinary-proof or open status.
+
 ## General family RH transfer — 5 October 2026
 
 The new transfer assumes a fixed law of nonnegative odds satisfying

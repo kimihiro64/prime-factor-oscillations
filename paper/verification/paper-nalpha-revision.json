@@ -1,0 +1,102 @@
+{
+  "revision": "paper-nalpha-20261006",
+  "proof_bearing_commit": "98b956e55411fda3c2375e4beebc242e028cc459",
+  "scope": "Paper integration and fresh audit of already maintained proofs",
+  "lean_source_changes": false,
+  "nalpha_formalization": {
+    "owner": "PrimeFactorOscillations/Helpers/ConsecutiveRootZeroFree.lean",
+    "source_sha256": "df7ed83ac8f164c4e7539be442a725240d5102b72117ad5ea3b404d2cb2da843",
+    "status": "Maintained conditional implication and square-root RH corollary complete; freshly audited",
+    "hypotheses": [
+      "d(N)>=1",
+      "fixed C>0",
+      "fixed 1/2<=alpha<1",
+      "eventually d(N)<=C*N^alpha",
+      "eventually the same family's complete error is nonpositive"
+    ],
+    "conclusion": "No zeta zero with alpha<Re(rho)<1; alpha=1/2 implies RH",
+    "still_open": "An independent proof of the eventual signed premise for power-sized degrees"
+  },
+  "audit": {
+    "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+    "exit_code": 0,
+    "axiom_reports": 18,
+    "each_exact_axiom_set": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "ordinal_comparison": true,
+    "dependency_builds": 0,
+    "source_sha256": "7b7ca67fb9ef5067dc2d14271e1a7e6c0eec90d67d03c52cc26f494f2e3f5dfc",
+    "object_sha256": "0be1dbbcb111f8afe41fb694f91bdcc38333a3c00765972f08f64d2cdcfcb5d9",
+    "targets": [
+      "PrimeFactorOscillations.consecutiveRootProbability_formula",
+      "PrimeFactorOscillations.consecutiveRootLaw_logError_exact",
+      "PrimeFactorOscillations.primeAddedRootTail_bounds",
+      "PrimeFactorOscillations.publicLogarithmicRootSignedBound",
+      "PrimeFactorOscillations.FinitePrimeResidueFamily.doublePrimeAddition_logError_bracket",
+      "PrimeFactorOscillations.riemannHypothesis_iff_eventually_family_interval_le",
+      "PrimeFactorOscillations.riemannHypothesis_iff_eventually_family_interval_lt",
+      "PrimeFactorOscillations.eventually_power_bounded_degree_le",
+      "PrimeFactorOscillations.nicolasLog_le_of_power_degree_signed_profile",
+      "PrimeFactorOscillations.no_zeta_zero_right_of_power_degree_signed_profile",
+      "PrimeFactorOscillations.riemannHypothesis_of_sqrt_degree_signed_profile",
+      "PrimeFactorOscillations.lcmRobinRatio_log_identity",
+      "PrimeFactorOscillations.modifiedLcm_logRatio_finite_window_lower",
+      "PrimeFactorOscillations.eventually_modifiedLcm_window_of_RH",
+      "PrimeFactorOscillations.nicolasLog_integer_sqrt_negative_supply_of_not_RH",
+      "PrimeFactorOscillations.modifiedLcm_negative_signed_supply_of_not_RH",
+      "PrimeFactorOscillations.exists_modifiedLcm_window",
+      "PrimeFactorOscillations.exists_lcmRobinRatio_gt_one"
+    ],
+    "replay_source": "import PrimeFactorOscillations.Assembly.FamilyRHResults\nimport PrimeFactorOscillations.Helpers.ConsecutiveRootZeroFree\nimport PrimeFactorOscillations.Helpers.ModifiedLcmCriticalWindow\nimport Solution\n\nset_option autoImplicit false\nset_option Elab.async false\n\n#check PrimeFactorOscillations.consecutiveRootProbability_formula\n#print axioms PrimeFactorOscillations.consecutiveRootProbability_formula\n#check PrimeFactorOscillations.consecutiveRootLaw_logError_exact\n#print axioms PrimeFactorOscillations.consecutiveRootLaw_logError_exact\n#check PrimeFactorOscillations.primeAddedRootTail_bounds\n#print axioms PrimeFactorOscillations.primeAddedRootTail_bounds\n#check PrimeFactorOscillations.publicLogarithmicRootSignedBound\n#print axioms PrimeFactorOscillations.publicLogarithmicRootSignedBound\n#check PrimeFactorOscillations.FinitePrimeResidueFamily.doublePrimeAddition_logError_bracket\n#print axioms PrimeFactorOscillations.FinitePrimeResidueFamily.doublePrimeAddition_logError_bracket\n#check PrimeFactorOscillations.riemannHypothesis_iff_eventually_family_interval_le\n#print axioms PrimeFactorOscillations.riemannHypothesis_iff_eventually_family_interval_le\n#check PrimeFactorOscillations.riemannHypothesis_iff_eventually_family_interval_lt\n#print axioms PrimeFactorOscillations.riemannHypothesis_iff_eventually_family_interval_lt\n#check PrimeFactorOscillations.eventually_power_bounded_degree_le\n#print axioms PrimeFactorOscillations.eventually_power_bounded_degree_le\n#check PrimeFactorOscillations.nicolasLog_le_of_power_degree_signed_profile\n#print axioms PrimeFactorOscillations.nicolasLog_le_of_power_degree_signed_profile\n#check PrimeFactorOscillations.no_zeta_zero_right_of_power_degree_signed_profile\n#print axioms PrimeFactorOscillations.no_zeta_zero_right_of_power_degree_signed_profile\n#check PrimeFactorOscillations.riemannHypothesis_of_sqrt_degree_signed_profile\n#print axioms PrimeFactorOscillations.riemannHypothesis_of_sqrt_degree_signed_profile\n#check PrimeFactorOscillations.lcmRobinRatio_log_identity\n#print axioms PrimeFactorOscillations.lcmRobinRatio_log_identity\n#check PrimeFactorOscillations.modifiedLcm_logRatio_finite_window_lower\n#print axioms PrimeFactorOscillations.modifiedLcm_logRatio_finite_window_lower\n#check PrimeFactorOscillations.eventually_modifiedLcm_window_of_RH\n#print axioms PrimeFactorOscillations.eventually_modifiedLcm_window_of_RH\n#check PrimeFactorOscillations.nicolasLog_integer_sqrt_negative_supply_of_not_RH\n#print axioms PrimeFactorOscillations.nicolasLog_integer_sqrt_negative_supply_of_not_RH\n#check PrimeFactorOscillations.modifiedLcm_negative_signed_supply_of_not_RH\n#print axioms PrimeFactorOscillations.modifiedLcm_negative_signed_supply_of_not_RH\n#check PrimeFactorOscillations.exists_modifiedLcm_window\n#print axioms PrimeFactorOscillations.exists_modifiedLcm_window\n#check PrimeFactorOscillations.exists_lcmRobinRatio_gt_one\n#print axioms PrimeFactorOscillations.exists_lcmRobinRatio_gt_one\n",
+    "replay_note": "Compile this source after the documented Windows 4.34.0 prebuilt-artifact setup and owned build; it imports the maintained Solution and direct family owners."
+  },
+  "paper": {
+    "pages": 56,
+    "source_sha256": "6b90a45879f71372990d4316bcce411b4ad75b3cd0e5172bd7e437652a7e3497",
+    "pdf_sha256": "50190cb77eb4ba79f5d7bc1a7b7a15a1a99223f70043894ff4412ea840f80860",
+    "unique_labels": 117,
+    "reference_occurrences": 154,
+    "bibliography_keys": 14,
+    "unresolved_references": 0,
+    "unresolved_citations": 0,
+    "rendered_pages": 56,
+    "section_pages": {
+      "Growing families and signed bounds": [
+        38
+      ],
+      "Power-sized degrees and zero-free regions": [
+        42
+      ],
+      "A generalized Robin critical window": [
+        43
+      ],
+      "Formalization and reproducibility": [
+        51
+      ]
+    }
+  },
+  "visual_review": {
+    "all_pages": "Contact-sheet layout review",
+    "enlarged_pages": [
+      1,
+      42,
+      43,
+      44,
+      46
+    ],
+    "result": "No clipping, overlap or malformed mathematical displays observed"
+  },
+  "compiler": {
+    "native": "Existing Windows MiKTeX pdflatex; package installation disabled",
+    "native_exit_code": 0,
+    "warnings": 0,
+    "builtin_editor": "Unable to initialize standard platform directories; existing editor retained"
+  },
+  "publication": {
+    "committed": false,
+    "pushed": false
+  }
+}
