@@ -21,6 +21,13 @@ criteria use positive excursion area and prescribed localized reversal counts.
 The maintained results use **Lean 4.34.0**. RH and Hardy–Littlewood assumptions
 remain explicit in every conditional statement.
 
+**New research note (6 October 2026):** [A refinement of the compensated QRH probe](paper/QRH_REFINEMENT.md)
+derives the boundary $349999/400000 = 0.8749975$ from the analytic estimates
+stated in OpenAI's September 30 manuscript. This is an ordinary paper proof
+conditional on those source estimates, whose full proof has not been independently
+certified here. It is not Lean-formalized. The note includes an exact arithmetic
+checker and keeps this source-dependent result separate from the maintained Lean results.
+
 ## The arithmetic result
 
 Fix a nonempty family
