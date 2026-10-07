@@ -1,6 +1,5 @@
 import PrimeFactorOscillations
 import PrimeFactorOscillations.Helpers.BoundaryDensity
-
 set_option autoImplicit false
 set_option Elab.async false
 /-! # Kernel-checked implementation of the public Mathlib-only statement -/
@@ -895,6 +894,7 @@ example (k K q : Real) (hk : 0 < k) (hkOne : 1 < k) (hLe : k <= K) (hTwo : K <= 
 example (hRH : RiemannHypothesis) : Filter.Eventually (fun N : Nat => forall k : Real, forall hk : 1 < k, k <= PrimeFactorOscillations.lcmMovingExponent (2 / 5) N -> 1 / (100 * Real.sqrt (N : Real) * Real.log (N : Real)) < Real.log (PrimeFactorOscillations.lcmRobinRatio k (zero_lt_one.trans hk) (PrimeFactorOscillations.modifiedLcm N))) Filter.atTop := PrimeFactorOscillations.eventually_modifiedLcm_window_of_RH hRH
 example (X : Nat) : exists N : Nat, X < N /\ 8 <= N /\ forall k : Real, forall hk : 1 < k, k <= PrimeFactorOscillations.lcmMovingExponent (2 / 5) N -> 1 / (100 * Real.sqrt (N : Real) * Real.log (N : Real)) < Real.log (PrimeFactorOscillations.lcmRobinRatio k (zero_lt_one.trans hk) (PrimeFactorOscillations.modifiedLcm N)) := PrimeFactorOscillations.exists_modifiedLcm_window X
 example (k : Real) (hk : 1 < k) (hLe : k <= 3 / 2) (X : Nat) : exists n : Nat, X < n /\ 1 < PrimeFactorOscillations.lcmRobinRatio k (zero_lt_one.trans hk) n := PrimeFactorOscillations.exists_lcmRobinRatio_gt_one k hk hLe X
-
 example (k : Real) (hk : 0 < k) (hkOne : 1 < k) (N : Nat) (hN : 3 <= N) (hRatio : 1 <= PrimeFactorOscillations.lcmRobinRatio k hk (PrimeFactorOscillations.modifiedLcm N)) : Robin1984.nicolasLogMertensOscillation (N : Real) <= PrimeFactorOscillations.lcmFiniteZetaTail k (PrimeFactorOscillations.primeProfilePrefixSet N) / k := PrimeFactorOscillations.nicolasLog_le_of_modifiedLcm_ratio_ge_one k hk hkOne N hN hRatio
-
+example : RiemannHypothesis <-> exists C : Real, 0 < C /\ Filter.Eventually
+    (fun N : Nat => PrimeFactorOscillations.eisensteinNormPowerDiscrepancy N <= C * (N : Real) ^ (1 / 2 : Real)) Filter.atTop :=
+  PrimeFactorOscillations.riemannHypothesis_iff_eisensteinNormPowerDiscrepancy_sqrt_bound
