@@ -2,6 +2,9 @@ import PrimeFactorOscillations.Mathlib.Algebra.All
 import PrimeFactorOscillations.Mathlib.Analysis.All
 import PrimeFactorOscillations.Mathlib.Data.All
 import PrimeFactorOscillations.Mathlib.NumberTheory.All
+import PrimeFactorOscillations.Mathlib.NumberTheory.GaussSum.JointPrimePower
+import PrimeFactorOscillations.Mathlib.NumberTheory.GaussSum.PrimitiveTransform
+import PrimeFactorOscillations.Mathlib.NumberTheory.GaussSum.RootCusp
 import PrimeFactorOscillations.Mathlib.Order.Interval.Finset.NatPeaks
 import PrimeFactorOscillations.Mathlib.Probability.Distributions.FiniteBernoulliAsymptotics
 import PrimeFactorOscillations.Mathlib.Probability.Distributions.FiniteBernoulliPatterns

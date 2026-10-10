@@ -9,6 +9,10 @@ import PrimeFactorOscillations.Mathlib.NumberTheory.Chebyshev.LogTail
 import PrimeFactorOscillations.Mathlib.NumberTheory.Chebyshev.PrimeReciprocal
 import PrimeFactorOscillations.Mathlib.NumberTheory.Chebyshev.PrimeReciprocalSquare
 import PrimeFactorOscillations.Mathlib.NumberTheory.Chebyshev.UnitIntegral
+import PrimeFactorOscillations.Mathlib.NumberTheory.GaussSum.RamifiedPermutation
+import PrimeFactorOscillations.Mathlib.NumberTheory.GaussSum.TorsionCovariance
+import PrimeFactorOscillations.Mathlib.NumberTheory.Metaplectic.QuinticCocycle
+import PrimeFactorOscillations.Mathlib.NumberTheory.Metaplectic.QuinticLocalMass
 import PrimeFactorOscillations.Mathlib.NumberTheory.MulChar.SplitNorm
 import PrimeFactorOscillations.Mathlib.NumberTheory.SumTwoSquares.InertDivisor
 
