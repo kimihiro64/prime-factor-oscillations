@@ -22,6 +22,7 @@ from scripts.analytic_dependency import (  # noqa: E402
 from scripts.artifact_extensions import require_report_environment  # noqa: E402
 from scripts.prebuilt_dependency import TOOLCHAIN  # noqa: E402
 from scripts.proof_targets import THEOREMS as THEOREMS  # noqa: E402
+from scripts.qrh_audit import check_qrh_statements  # noqa: E402
 
 FOUNDATIONS = frozenset(("propext", "Classical.choice", "Quot.sound"))
 BOUNDARY = """
@@ -50,7 +51,7 @@ set_option autoImplicit false
 
 def axiom_sets(log: str) -> dict[str, list[str]]:
     """Require exactly the requested reports and no research or sorry axioms."""
-    pairs = re.findall(r"'([^']+)' depends on axioms:\s*\[([^\]]*)\]", log)
+    pairs = re.findall(r"(?ms)^'(.+?)' depends on axioms:\s*\[([^\]]*)\]", log)
     result = {name: sorted(x.strip() for x in body.split(",") if x.strip()) for name, body in pairs}
     if len(pairs) != len(THEOREMS) or set(result) != set(THEOREMS):
         raise ValueError("missing, duplicate, or unexpected axiom report")
@@ -102,6 +103,7 @@ def main() -> int:
         require_report_environment(report, current_environment)
         directory = ROOT / ".research/audits/public-integration"
         directory.mkdir(parents=True, exist_ok=True)
+        qrh_types = check_qrh_statements(lean, environment, directory)
         challenge_source = ROOT / "Challenge.lean"
         challenge_object = ROOT / ".lake/build/lib/lean/Challenge.olean"
         challenge = subprocess.run(
@@ -166,6 +168,7 @@ def main() -> int:
             "status": "verified",
             "compiled_type_identity": True,
             "compiled_statement_count": 2,
+            "qrh_canonical_types": qrh_types,
             "challenge_source_sha256": source_digest(challenge_source),
             "challenge_object_sha256": source_digest(challenge_object),
             "axioms": axioms,

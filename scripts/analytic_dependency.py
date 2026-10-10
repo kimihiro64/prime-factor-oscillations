@@ -30,6 +30,18 @@ EXTENSION_PINS = (
         "data/analytic-artifacts-rh-mathlib.json",
         "8b8b62c21dd74d9f8d7f4061a82aa94012d71121044418195392871ded9d3684",
     ),
+    (
+        "data/analytic-artifacts-qrh-mathlib.json",
+        "fa3a46a69825af348fd86b3ef67b303946e382ab34a165be83d14ff6129707a9",
+    ),
+    (
+        "data/analytic-artifacts-qrh-source-mathlib.json",
+        "a7ec6aeb882bc149ad762cff09d27e0c2a3433e8b58c6711d2d447bff253e615",
+    ),
+    (
+        "data/analytic-artifacts-qrh-port.json",
+        "ff49ffed2ca3e8e39a9d6888ca36d2805a4e26ef2ce8b9f8153c636aeae9e64a",
+    ),
 )
 
 

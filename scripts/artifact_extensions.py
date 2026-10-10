@@ -7,11 +7,14 @@ import json
 import os
 import re
 from collections.abc import Mapping, Sequence
+from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass
+from itertools import islice
 from pathlib import Path, PurePosixPath
 from typing import Any, cast
 
 from scripts.prebuilt_dependency import digest
+from scripts.qrh_source_extension import validate_source_port
 
 
 def artifact_path(root: Path, relative: str) -> Path:
@@ -43,12 +46,22 @@ def verify_files(root: Path, files: Mapping[str, str]) -> None:
     """Check every supplied companion; never fetch or compile on a miss."""
     if not files:
         raise ValueError("empty analytic artifact inventory")
-    for relative, expected in files.items():
+
+    def check(item: tuple[str, str]) -> None:
+        relative, expected = item
         path = artifact_path(root, relative)
         if not path.is_file() or digest(path) != expected:
             raise ValueError(
                 f"missing or altered artifact: {relative}; dependency rebuild forbidden"
             )
+
+    # Hash every file as before, with bounded I/O concurrency and queue size.
+    # Exhaust each batch so an error cannot be mistaken for completed validation.
+    remaining = iter(files.items())
+    with ThreadPoolExecutor(max_workers=4) as pool:
+        while batch := list(islice(remaining, 64)):
+            for _ in pool.map(check, batch):
+                pass
 
 
 def extension_files(
@@ -63,7 +76,6 @@ def extension_files(
     """Check a complete new-module set, not merely disjoint filenames."""
     expected = {
         "schema_version": 1,
-        "kind": "append_only_artifact_extension",
         "base_manifest_sha256": base_sha256,
         "toolchain": toolchain,
         "compiler": compiler,
@@ -71,6 +83,9 @@ def extension_files(
     }
     if any(extension.get(key) != value for key, value in expected.items()):
         raise ValueError("extension provenance differs from the immutable pins")
+    kind = extension.get("kind")
+    if kind not in {"append_only_artifact_extension", "append_only_verified_source_port"}:
+        raise ValueError("extension provenance has an unknown artifact kind")
     files = cast(dict[str, str], extension["files"])
     modules = cast(dict[str, dict[str, Any]], extension["modules"])
     if not files or not modules:
@@ -87,8 +102,13 @@ def extension_files(
         folded.add(key)
     supplied: set[str] = set()
     for module, row in modules.items():
-        if re.fullmatch(r"Mathlib(?:\.[A-Za-z0-9_']+)+", module) is None:
-            raise ValueError(f"extension is outside the existing Mathlib provider: {module}")
+        namespace = (
+            "Mathlib"
+            if kind == "append_only_artifact_extension"
+            else "(?:OAI|RellichKondrachov|PrimeNumberTheoremAnd)"
+        )
+        if re.fullmatch(namespace + r"(?:\.[A-Za-z0-9_']+)+", module) is None:
+            raise ValueError(f"extension is outside its approved provider: {module}")
         stem = module.replace(".", "/")
         if (stem + ".olean").casefold() in known_folded:
             raise ValueError(f"extension adds companions to an existing module: {module}")
@@ -106,6 +126,8 @@ def extension_files(
         supplied.update(required)
     if supplied != set(files):
         raise ValueError("module companions do not equal the complete extension file map")
+    if kind == "append_only_verified_source_port":
+        validate_source_port(extension, known_files)
     return dict(files)
 
 
@@ -146,9 +168,10 @@ class AnalyticEnvironment:
         }
 
     def snapshot(self, owned_root: Path, compiler_executable: str) -> dict[str, Any]:
-        """Record exact providers; reject an earlier Mathlib namespace shadow."""
-        if (owned_root / "Mathlib").exists() or (owned_root / "Mathlib.olean").exists():
-            raise ValueError("owned artifact root shadows the verified Mathlib provider")
+        """Record exact providers; reject any earlier external namespace shadow."""
+        for name in ("Mathlib", "OAI", "RellichKondrachov", "PrimeNumberTheoremAnd"):
+            if (owned_root / name).exists() or (owned_root / (name + ".olean")).exists():
+                raise ValueError(f"owned artifact root shadows the verified {name} provider")
         if not (self.root / "Mathlib").is_dir():
             raise ValueError("verified Mathlib namespace root is absent")
         pins = self.pin_record()

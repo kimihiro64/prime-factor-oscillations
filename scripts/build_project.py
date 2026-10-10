@@ -131,7 +131,7 @@ def main() -> int:
         previous_environment = cast(dict[str, Any] | None, cache.get("analytic_environment"))
         legacy_report = (
             cast(dict[str, Any], json.loads(report_path.read_text(encoding="utf-8")))
-            if previous_environment is None and report_path.is_file()
+            if report_path.is_file()
             else None
         )
         installation = (

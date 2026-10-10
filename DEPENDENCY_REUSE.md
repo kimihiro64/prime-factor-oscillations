@@ -73,3 +73,48 @@ but clean-machine bootstrap of the complete analytic view is not supplied
 by this initial source publication. See BUILD.md. A missing artifact must
 never trigger a rebuild of the pinned Erdos dependency. The proof audit
 checks assumptions in the actual theorem closures.
+
+## Seven-eighths source port
+
+`data/analytic-artifacts-qrh-port.json` pins the complete source closure of
+`OAI.NumberTheory.DirichletL.Nonvanishing` at OpenAI's
+`fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb`. Its source declares Lean 4.34.1;
+this repository's port was compiled on Windows with Lean 4.34.0 and the
+existing Mathlib pin. The manifest records original and adapted source
+hashes, exact replacements, synchronous-elaboration settings, all imports,
+and compiled artifact hashes. It also pins the required RellichKondrachov
+and PrimeNumberTheoremAnd source revisions.
+
+The complete closure contains 2,945 modules. Four PNT modules reuse the
+existing verified artifacts; 2,941 new modules are appended to the same
+external view. Existing artifacts are never replaced. The supported owned
+build verifies the complete view and does not compile these dependencies.
+
+The source endpoints assert nonvanishing of zeta and Dirichlet L-functions
+for real part strictly greater than 7/8, with the explicit Dirichlet pole
+exclusion retained. They were compared to separately elaborated Mathlib-only
+targets and audited for axioms. The actual endpoint closures use only
+`Classical.choice`, `Quot.sound`, and `propext`; no zero-free-region
+assumption remains. This is an attributed compatibility port and reuse of
+the OAI proof, not an independently discovered proof of that region.
+
+`PrimeFactorOscillations.Helpers.QRHSevenEighths` supplies the maintained
+interface and discharges the strip hypothesis in this project's two
+modified-LCM margin theorems. Their height-log and cutoff-log conventions
+remain distinct. These applications do not establish full RH or an
+improvement in the bounded prime-gap constant.
+
+For source inspection, `scripts/qrh_source_port.py` reconstructs all 2,945
+adapted files from checkouts of the three pinned upstream revisions.
+Pass one `--checkout OWNER/REPO=PATH` for each repository named in the
+manifest and an independent `--output` directory. Every original and
+adapted file must match its published hash; existing different outputs
+are preserved. This command performs no downloads or compilation. The
+complete source reconstruction was checked against the files used for
+the successful port.
+
+After the supported build, `scripts/proof_audit.py` checks the maintained
+7/8 statements against a separately compiled Mathlib-only specification
+and includes the 78 new strip-transfer and application declarations in
+its axiom audit. The exact source port's cache artifacts are required;
+source reconstruction alone is not a compiled cache or proof audit.

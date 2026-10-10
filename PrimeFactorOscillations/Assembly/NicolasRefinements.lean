@@ -7,8 +7,10 @@ import PrimeFactorOscillations.Helpers.EisensteinNormPowerCriterion
 import PrimeFactorOscillations.Helpers.NicolasCriticalPersistence
 import PrimeFactorOscillations.Helpers.NicolasGrowingTiltAsymptotic
 import PrimeFactorOscillations.Helpers.NicolasQuantitativeClock
+import PrimeFactorOscillations.Helpers.NicolasStripAsymptotic
 import PrimeFactorOscillations.Helpers.PrimePrefixClockStability
 import PrimeFactorOscillations.Helpers.PrimePrefixCutoffBracket
+import PrimeFactorOscillations.Helpers.QRHProgressionTransfer
 
 /-!
 # Quantitative Nicolas refinements
