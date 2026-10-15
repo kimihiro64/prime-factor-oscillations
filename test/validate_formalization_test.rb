@@ -139,6 +139,16 @@ class ValidateFormalizationTest < Minitest::Test
                  FormalizationTemplate.placeholder_paths(document)
   end
 
+  def test_nested_paths_do_not_modify_frozen_prefixes
+    prefix = "$.alignment".freeze
+    statements = Array.new(64) { |index| {"note" => "TEMPLATE: #{index}"}.freeze }.freeze
+    document = {"statements" => statements}.freeze
+    expected = Array.new(64) { |index| "$.alignment.statements[#{index}].note" }
+    assert_equal expected, FormalizationTemplate.placeholder_paths(document, prefix)
+    assert_equal "$.alignment", prefix
+    assert_predicate prefix, :frozen?
+  end
+
   def test_requires_a_yaml_mapping
     metadata("- not\n- a\n- mapping\n") do |path|
       error = assert_raises(FormalizationTemplate::ValidationError) do

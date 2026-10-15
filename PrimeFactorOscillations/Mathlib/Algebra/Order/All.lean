@@ -7,6 +7,7 @@ import PrimeFactorOscillations.Mathlib.Algebra.Order.BigOperators.Field.Quadrati
 import PrimeFactorOscillations.Mathlib.Algebra.Order.BigOperators.Group.BalancedProduct
 import PrimeFactorOscillations.Mathlib.Algebra.Order.BigOperators.Group.FiniteCutoff
 import PrimeFactorOscillations.Mathlib.Algebra.Order.BigOperators.Group.InverseSquare
+import PrimeFactorOscillations.Mathlib.Algebra.Order.BigOperators.Ring.FiberCovariance
 import PrimeFactorOscillations.Mathlib.Algebra.Order.BigOperators.Ring.MarkerMoments
 import PrimeFactorOscillations.Mathlib.Algebra.Order.BigOperators.Ring.ProductError
 import PrimeFactorOscillations.Mathlib.Algebra.Order.BigOperators.Ring.WeightedCount
@@ -15,4 +16,3 @@ import PrimeFactorOscillations.Mathlib.Algebra.Order.BigOperators.Ring.WeightedR
 import PrimeFactorOscillations.Mathlib.Algebra.Order.Floor.Interval
 
 /-! # Ordered algebra candidates -/
-

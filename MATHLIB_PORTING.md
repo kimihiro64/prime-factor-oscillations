@@ -5,6 +5,30 @@ Reusable mathematics intended for possible upstreaming lives under
 The child generator replaces `PrimeFactorOscillations` with the configured project
 namespace.
 
+## LPF distribution foundation
+
+| Module | Proposed destination | Readiness | Scope |
+| --- | --- | --- | --- |
+| `PrimeFactorOscillations.Mathlib.NumberTheory.SmoothNumbers.LargestPrimeFactor` | `Mathlib/NumberTheory/SmoothNumbers/LargestPrimeFactor.lean` | project-verified | Largest prime factor from the prime-divisor finset; primality, divisibility, product law and inclusive smoothness. Fresh Mathlib-only proofs. |
+| `PrimeFactorOscillations.Mathlib.NumberTheory.SmoothNumbers.ResidueSupport` | `Mathlib/NumberTheory/SmoothNumbers/ResidueSupport.lean` | project-verified | Largest factors above y are units modulo every positive y-smooth modulus; exact smooth/nonsmooth cardinal partition with inclusive endpoints. |
+| `PrimeFactorOscillations.Mathlib.Algebra.Order.BigOperators.Ring.FiberCovariance` | `Mathlib/Algebra/Order/BigOperators/Ring/FiberCovariance.lean` | project-verified | Exact finite-fiber projection and one joint centered Cauchy-Schwarz loss, preserving the positive projected supply and handling empty fibers explicitly. |
+| `PrimeFactorOscillations.Mathlib.NumberTheory.SmoothNumbers.LargestPrimeFactorFrontier` | `Mathlib/NumberTheory/SmoothNumbers/LargestPrimeFactorFrontier.lean` | project-verified | Exact two-row frontier for arbitrary weights vanishing on even inputs, below 4M with largest factor above M; preserves actual generated-state multiplicities. |
+| `PrimeFactorOscillations.Mathlib.NumberTheory.Chebyshev.All` | `Mathlib/NumberTheory/Chebyshev/All.lean` | project-verified | Import-only grouping retaining all Chebyshev candidate exports and the weighted prime-power correction. |
+| `PrimeFactorOscillations.Mathlib.NumberTheory.DirichletCharacter.All` | `Mathlib/NumberTheory/DirichletCharacter/All.lean` | project-verified | Import-only grouping of complete-period bounds and exact-centered finite residue counts. |
+| `PrimeFactorOscillations.Mathlib.NumberTheory.SmoothNumbers.All` | `Mathlib/NumberTheory/SmoothNumbers/All.lean` | project-verified | Import-only grouping preserving the exact largest-factor partition, complete power transfers and residue support. |
+| `PrimeFactorOscillations.Mathlib.Data.Finset.SumPartners` | `Mathlib/Data/Finset/SumPartners.lean` | project-verified | More than 2E+1 ordered representations survive deletion of E inputs and exclusion of the diagonal; no randomness assumption on the retained set. |
+| `PrimeFactorOscillations.Mathlib.Data.Finset.DeletionCodegree` | `Mathlib/Data/Finset/DeletionCodegree.lean` | project-verified | Joint second-moment deletion bound: target coverage, diagonal mass and common-neighbor bounds imply b <= 8EU/L^2 when 8EK <= L^2; retains all off-diagonal intersections. |
+| `PrimeFactorOscillations.Mathlib.Data.Finset.SumPartnersDeletion` | `Mathlib/Data/Finset/SumPartnersDeletion.lean` | project-verified | Exact deleted-neighbor cover including the single diagonal, and the joint bound on failed sum targets using intersections of full representation sets. |
+| `PrimeFactorOscillations.Mathlib.NumberTheory.SmoothNumbers.LargestPrimeFactorSum` | `Mathlib/NumberTheory/SmoothNumbers/LargestPrimeFactorSum.lean` | project-verified | Exact largest-prime/cofactor bijection, inclusive smooth/nonsmooth partition, and largest-factor weighted sum identity. |
+| `PrimeFactorOscillations.Mathlib.NumberTheory.SmoothNumbers.LargestPrimeFactorBounds` | `Mathlib/NumberTheory/SmoothNumbers/LargestPrimeFactorBounds.lean` | project-verified | Exact multiplicative smooth-sum decomposition and norm transfers retaining complete prime-row errors. |
+| `PrimeFactorOscillations.Mathlib.Analysis.SpecialFunctions.Pow.NatSum` | `Mathlib/Analysis/SpecialFunctions/Pow/NatSum.lean` | project-verified | Complete finite negative-power sums and the exact floor-cutoff cofactor bound X*y^(b-1)/(1-b), for 0<=b<1. |
+| `PrimeFactorOscillations.Mathlib.Analysis.Complex.AbelBound` | `Mathlib/Analysis/Complex/AbelBound.lean` | project-verified | Finite summation-by-parts norm bound for nonnegative decreasing weights, preserving the initial-sum cancellation without a variation loss. |
+| `PrimeFactorOscillations.Mathlib.NumberTheory.SmoothNumbers.LargestPrimeFactorPowerBounds` | `Mathlib/NumberTheory/SmoothNumbers/LargestPrimeFactorPowerBounds.lean` | project-verified | Complete prime-prefix to smooth/LPF power transfer, with explicit factor 2/(1-b), including the conditional 7/8 specialization with factor 16. |
+| `PrimeFactorOscillations.Mathlib.NumberTheory.Chebyshev.WeightedPrimePower` | `Mathlib/NumberTheory/Chebyshev/WeightedPrimePower.lean` | project-verified | Complete character-weighted higher-prime-power correction bounded by 2*sqrt(X)*log(X), retaining arbitrary complex weights of norm at most one. |
+| `PrimeFactorOscillations.Mathlib.NumberTheory.PrimeCounting.WeightedPrefix` | `Mathlib/NumberTheory/PrimeCounting/WeightedPrefix.lean` | project-verified | Removes prime-logarithm weights using every initial sum and the exact factor 1/log(2), including endpoints zero and one. |
+| `PrimeFactorOscillations.Mathlib.NumberTheory.DirichletCharacter.PartialSum` | `Mathlib/NumberTheory/DirichletCharacter/PartialSum.lean` | project-verified | Complete-period cancellation and the exact modulus bound for all nonprincipal character initial sums, with inclusive endpoints. |
+| `PrimeFactorOscillations.Mathlib.NumberTheory.DirichletCharacter.ResidueCount` | `Mathlib/NumberTheory/DirichletCharacter/ResidueCount.lean` | project-verified | Uniform finite-family residue discrepancy from nonprincipal character bounds, retaining repeated outputs and the exact unit-output principal center. |
+
 ## Hard boundary
 
 A Mathlib candidate module may import only:
@@ -155,3 +179,8 @@ Readiness should be one of: `extracting`, `project-verified`, `mathlib-ready`,
 `submitted`, or `upstreamed`. A module is `mathlib-ready` only after it has an
 identified destination, no project dependency, focused tests, and a clean
 standalone build against the project's pinned Mathlib revision.
+
+Inventory gate: when adding any candidate module, including an import-only
+`All.lean` facade, require exactly one inventory row before staging. Do not
+exempt grouping modules from the catalog. Add their rows with their exports,
+then run the architecture audit against the complete staged surface.

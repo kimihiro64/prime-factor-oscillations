@@ -1,0 +1,1557 @@
+# Fresh LPF dynamics: distribution, initialization, and actual-state transfer
+
+This development starts from Mathlib and the repository's audited analytic
+dependencies. It imports no historical LPF proof. All maintained Lean work uses
+the project's Windows Lean 4.34.0 environment and existing dependency artifacts.
+
+## Scope and proof status
+
+The current rule, revised at the user's request, is
+$$
+ L(p,q)=P^+(2(p+q)-1),\qquad S_0(p)=\{2,p\},\qquad
+ S_{j+1}=S_j\cup\{L(a,b):a,b\in S_j\}.
+$$
+Every diagonal is allowed at every generation, and 2 is included in every seed.
+These are **fullSeed**, **fullStep**, and **fullOrbit** in Lean. The earlier
+**step**, **orbit**, **inputSeed**, and **initializedSeed** remain explicitly
+historical, distinct-input objects. Their lower bounds transfer by set
+inclusion; their closure examples must not be attributed to the current rule.
+
+In particular, `{3}` is not closed: its first generation contains 11 because
+`2(3+3)-1 = 11`, and its second contains 43 because `2(11+11)-1 = 43`.
+The state `{3,11}` is closed only for the historical distinct-input operator;
+it grows under the current rule through the diagonal of 11. The maintained
+Lean declarations prove both memberships and, more generally, that no prime
+singleton and no state consisting of a prime and its first diagonal output
+is closed under `fullStep`. These finite growth statements do not establish
+perpetual growth or universal reachability.
+
+The formal convention is $P^+(0)=P^+(1)=1$; analytic sums start at 1, and the
+dynamical affine values exceed 1.
+
+**Lean proved:** the exact largest-factor partition; complete prime-prefix,
+smooth-number and largest-factor character bounds; residue-count consequences;
+the finite representation-surplus generation theorem; prime preservation;
+the exact diagonal-initialization classification; global and localized
+actual-state bounds consuming the audited zero-exclusion and 7/8 input;
+and the joint deletion bound, including target-dependent weights and a
+complete degree-energy consumer; the exact LPF residue-cover obstruction.
+
+**Ordinary mathematical proofs below, not yet Lean infinitude theorems:**
+sufficiently dense finite prime seeds generate a set of relative density one
+among primes. The strongest condition permits a small constant times
+$M/\log M$ missing primes up to a sufficiently large $M$: a fixed small
+fraction of the input primes. The
+[prime-target moment proof](lpf-averaged-deletion.md#prime-target-moments-and-multiple-generations)
+uses the installed 7/8 progression estimate, the cited almost-equal-prime
+representation theorem, and the complete joint deletion energy. Its
+multi-generation recurrence reduces the relative defect. The same document
+retains a matching-order obstruction to a stronger one-step coverage
+statement; that obstruction is not a closed-state or small-seed counterexample.
+
+**Still open here:** a usable explicit dense-seed threshold, perpetual growth
+from the specified small seeds, and a positive surplus in the complete
+actual-state inequality below.
+The density-one result does not imply that every prime is eventually reached.
+Novelty of the dense-seed application has not been established by a full review.
+
+## Uniform distribution over ordinary integers
+
+Put
+$
+ \Psi(X,y)=\#\{1\le n\le X:P^+(n)\le y\},
+ \qquad
+ \Psi_N(X,y)=\#\{1\le n\le X:P^+(n)\le y,\ (n,N)=1\}.
+$
+There is one absolute constant $C>0$, independent of all the integer
+parameters, such that for $X,y,N\ge1$, and a unit $a\bmod N$,
+$
+ \left|\Psi(X,y;a,N)-\frac{\Psi_N(X,y)}{\varphi(N)}\right|
+ \le N+E_C(N,X,y),
+$
+where
+$
+ E_C(N,X,y)=C X y^{-1/8}\bigl(1+\log N+\log(X+2)\bigr)^2.
+$
+If $P^+(N)\le y$, also
+$
+ \left|
+ \#\{1\le n\le X:P^+(n)>y,\ P^+(n)\equiv a\bmod N\}
+ -\frac{X-\Psi(X,y)}{\varphi(N)}
+ \right|\le E_C(N,X,y).
+$
+The modulus condition is that $N$ is $y$-smooth, not necessarily $N\le y$.
+All output multiplicities are retained. These are absolute discrepancy
+estimates; relative equidistribution requires the displayed error to be small
+compared with the corresponding principal mass.
+
+The proof uses the audited $7/8$ Dirichlet zero-free input to bound every
+nonprincipal prime-character initial sum, with one constant:
+$
+ \left|\sum_{p\le t}\chi(p)\right|
+ \le B t^{7/8}\bigl(1+\log N+\log(t+2)\bigr)^2.
+$
+The exact largest-prime/cofactor partition then gives $C=16B$.
+Complete-period cancellation contributes the separate $N$ in the smooth
+estimate. Character orthogonality keeps the exact unit-output principal mass.
+
+Maintained owners:
+
+- [Uniform character bounds](../PrimeFactorOscillations/Helpers/LPFCharacterTransfer.lean)
+- [Uniform residue counts](../PrimeFactorOscillations/Helpers/LPFResidueCounts.lean)
+- [Exact support and cardinal partition](../PrimeFactorOscillations/Mathlib/NumberTheory/SmoothNumbers/ResidueSupport.lean)
+
+No step identifies these integer counts with the weighted values generated by
+an arbitrary set $S_j$.
+
+## The finite transfer to actual states
+
+Let $P$ be any finite set of nonnegative integers and $S$ the retained set.
+Let $R_P(n)$ count ordered representations $n=p+q$, $p,q\in P$, including
+diagonals, and put $E=|P\setminus S|$. Each missing input removes at most two
+ordered representations of a fixed sum. At most one remaining representation
+is diagonal. Consequently
+$
+ R_P(n)>2E+1
+ \quad\Longrightarrow\quad
+ \exists\,p,q\in S,\quad p\ne q,\quad p+q=n.
+$
+This is a deterministic statement, with no distribution assumption on $S$.
+Its complete signed surplus is $R_P(n)-2E-1$.
+
+More generally, if $r$ is prime, $m\ge1$, $P^+(m)\le r$, and
+$2n=mr+1$, this surplus produces $r\in S_{j+1}$ when $S=S_j$.
+For primes $r>3$, both possible odd residue classes are covered:
+$
+ n_r=
+ \begin{cases}
+ (r+1)/2,&r\equiv3\pmod4,\\
+ (3r+1)/2,&r\equiv1\pmod4.
+ \end{cases}
+$
+The corresponding affine values are $r$ and $3r$. Both have largest factor
+$r$. These two lifts and the general cofactor criterion are Lean proved.
+
+- [Deletion bound](../PrimeFactorOscillations/Mathlib/Data/Finset/SumPartners.lean)
+- [Dynamics and generation criterion](../PrimeFactorOscillations/Helpers/LPFDynamics.lean)
+
+This is not a universal expansion theorem. For the **historical distinct-input
+operator** only, if $p$ and $q=2p-1$ are prime, then $\{p,q\}$ is closed:
+the only distinct-input affine value is $3q$, whose largest factor is $q$.
+The old orbit of $\{3,5\}$ is constant. Allowing diagonals changes these
+examples; they are not closed-set obstructions to fullStep.
+
+## Current seeds and the common orbit from two
+
+Write $T_j=\operatorname{fullOrbit}(\{2\},j)$. Monotonicity gives the exact
+finite-generation containment
+$$
+ T_j\subseteq\operatorname{fullOrbit}(\{2,p\},j)
+$$
+for every natural $p$ and every $j$. Thus one finite density certificate for
+$T_j$ transfers to every prime seed simultaneously. No descent in an arbitrary
+starting prime is required for this transfer. Lean proves this containment,
+its full reachability equivalence, and the legal restart property: if a state
+retains 2 and reaches $q$ at generation $j$, it contains the entire orbit
+from $\{2,q\}$ after the corresponding additional generations.
+
+The first common chain is $2\mapsto7\mapsto3$, because $P^+(7)=7$ and
+$P^+(27)=3$. Lean proves that every current seed contains 3 by generation 2.
+Once $q$ appears, its diagonal output $P^+(4q-1)$ is available at the next step;
+there is no one-use restriction.
+
+The dense-seed entry condition now needs to be established only for this
+single common orbit:
+$$
+ \exists j,\ M\ge M_0:\quad
+ |\{r\le M:r\text{ prime}\}\setminus T_j|\le\eta M/\log M.
+$$
+Here $\eta>0$ and $M_0$ are the constants in the ordinary dense-seed argument.
+The finite certificate below has zero defect through 10,000, but no usable
+bound on $M_0$ has yet been supplied. Universal reachability of every prime
+is a stronger target than relative density one and remains unproved.
+
+## Historical one-diagonal initialization (distinct-input operator)
+
+Under the earlier rule, the independent seed was $\{p\}$, with 2 added when needed. Its designated
+diagonal affine value is $2(p+p)-1=4p-1$, and the generated prime is
+$q=P^+(4p-1)$. This $q$ is an output, not another independently chosen input.
+Only that historical initialization uses the diagonal; its later steps use distinct inputs.
+
+**Complete Lean classification:** the post-diagonal pair $\{p,P^+(4p-1)\}$ is
+closed if and only if $p=3$. That exception is $\{3,11\}$, whose only
+distinct-pair value is 27. Adding 2 produces 5 through the pair $(2,11)$.
+
+Consequently the minimal input rule avoiding an immediately closed initialized
+state is
+$$
+ I(p)=
+ \begin{cases}
+ \{2,3\},&p=3,\\
+ \{p\},&p\ne3,
+ \end{cases}
+ \qquad
+ S_0(p)=I(p)\cup\{P^+(4p-1)\}.
+$$
+This rule is implemented by **inputSeed** and **initializedSeed**. The formal
+theorem **initializedSeed_not_closed** guarantees first-step growth for every
+prime $p$. The more generous choice $\{2,p\}$ also works for every prime;
+its post-diagonal state and an explicit new-prime existence theorem are retained.
+
+The maintained owner is
+[LPFDiagonalSeed.lean](../PrimeFactorOscillations/Helpers/LPFDiagonalSeed.lean).
+
+For the classification, write $q=P^+(4p-1)$. Then $q\ne p$, and the
+distinct-pair output cannot equal $q$: divisibility of both $4p-1$ and
+$2(p+q)-1$ by $q$ would force $q\mid1$. If the pair is closed, its output must
+therefore be $p$, so $p\mid2q-1$. Choose positive integers $k,t$ with
+$4p-1=kq$ and $2q-1=tp$. Their exact relation is
+$$
+ p(8-kt)=k+2.
+$$
+It forces $kt\le7$, hence $k\le7$ and $p\le9$. Checking the rigorously reduced
+prime cases $p=2,3,5,7$ leaves exactly $p=3$. This reduction and the finite
+cases are proved in Lean; no unbounded numerical search is used.
+
+These statements classify the historical **initial** states. The current
+inclusive system contains their valid outputs, but the classification itself
+does not rule out later closure for either system. The current finite-density
+bridge is the common-orbit condition above.
+
+## The audited 7/8 input applied to actual states
+
+Let $S\subseteq\{0,\ldots,M\}$, $M\ge3$, and $X=4M-1$. Keep the exact
+ordered, distinct-pair weights
+$$
+ W_S(n)=\#\{(p,q)\in S^2:p\ne q,\ 2(p+q)-1=n\}.
+$$
+The number $F(S,M)$ of these pairs producing a largest factor above $M$
+has the exact decomposition
+$$
+ F(S,M)=
+ \sum_{\substack{M<r\le X\\r\ {\rm prime}}}W_S(r)
+ +\sum_{\substack{M<r\le X/3\\r\ {\rm prime}}}W_S(3r).
+$$
+Only cofactors 1 and 3 survive on the odd affine-value support. All weights,
+endpoints, and multiplicities are retained.
+
+Fix $Q\ge1$ with $P^+(Q)\le M$, and set
+$D=\{1\le n\le X:n\text{ odd}\}$.
+For every residue $a\bmod Q$, let $D_a=\{n\in D:n\equiv a\bmod Q\}$ and
+$$
+ \mu_a=\frac{\sum_{n\in D_a}W_S(n)}{|D_a|},
+ \qquad
+ \beta_a=\frac{\#\{n\in D_a:P^+(n)>M\}}{|D_a|}.
+$$
+Both means are zero for an empty cell. Define the two complete centered energies
+$$
+ V=\sum_{n\in D}(W_S(n)-\mu_{n\bmod Q})^2,\qquad
+ B=\sum_{n\in D}
+       \bigl({\bf1}_{P^+(n)>M}-\beta_{n\bmod Q}\bigr)^2.
+$$
+The same **odd support** is essential in both means and energies.
+
+Write $R_1=\#\{M<r\le X:r\text{ prime}\}$ and
+$R_3=\#\{M<r\le X/3:r\text{ prime}\}$. The projected admissible masses are
+$$
+ A_m=\sum_{u\in(\mathbb Z/Q\mathbb Z)^\times}\mu_{mu\bmod Q},
+ \qquad m\in\{1,3\},
+ \qquad
+ H=\frac{R_1A_1+R_3A_3}{\varphi(Q)}.
+$$
+The sum for $A_3$ is over **unit input classes**, with their multiplicities.
+Its output classes may be nonunits when $3\mid Q$; no inverse of 3 is used.
+
+**Lean proved:** one absolute $C>0$, chosen before $S,M,Q$, gives
+$$
+ F(S,M)\ \ge\
+ H-CX^{7/8}\bigl(1+\log Q+\log(X+2)\bigr)^2(A_1+A_3)-\sqrt{VB}.
+$$
+This uses the already audited exclusion and 7/8 theorem, with no new
+prime-character estimate assumed. Character discrepancy is multiplied by the
+actual nonnegative residue means, then the two rows are combined with a single
+joint centered error. The bound is valid for every indicated modulus, although
+its error need not be smaller than its positive term.
+
+Consequently, the explicit sufficient condition for growth is
+$$
+ H>
+ CX^{7/8}\bigl(1+\log Q+\log(X+2)\bigr)^2(A_1+A_3)+\sqrt{VB}.
+$$
+This condition implies $F(S,M)>0$ and hence $S_{\rm next}\ne S$.
+It has **not** been established for every state generated by the small seeds.
+The remaining work is an independent estimate for their positive projected
+mass and joint energy. Neither an unweighted distribution theorem nor
+Siegel-zero exclusion alone supplies that estimate. Failure of this sufficient
+condition would also not prove closure: new factors below $M$ can enlarge $S$.
+
+Maintained owners:
+
+- [Exact state weights and frontier](../PrimeFactorOscillations/Helpers/LPFStateWeights.lean)
+- [Joint residue energy](../PrimeFactorOscillations/Helpers/LPFStateResidueEnergy.lean)
+- [Weighted analytic row estimate](../PrimeFactorOscillations/Helpers/LPFPrimeRowWeights.lean)
+- [Complete analytic state transfer and growth criterion](../PrimeFactorOscillations/Helpers/LPFAnalyticStateTransfer.lean)
+
+## Localization in the affine value
+
+The transfer is also Lean proved on every band $L<n\le U$, with all other
+hypotheses unchanged. Put $X_B=\min(4M-1,U)$ and restrict the preceding means
+and energies to the odd set $D_B=D\cap(L,U]$. The exact prime rows become
+$$
+ R_{m,B}=
+ \#\{r\text{ prime}:\max(M,\lfloor L/m\rfloor)<r\le\lfloor X_B/m\rfloor\},
+ \qquad m\in\{1,3\}.
+$$
+Define $A_{m,B}$ and $H_B$ using these restricted means and row counts.
+For one absolute $C>0$, the maintained theorem gives
+$$
+ F(S,M)\ge F_B(S,M)\ge
+ H_B-CX_B^{7/8}\bigl(1+\log Q+\log(X_B+2)\bigr)^2
+       (A_{1,B}+A_{3,B})-\sqrt{V_B B_B}.
+$$
+Here $F_B$ retains only pairs whose affine value lies in the band; the same
+band is used throughout the projection and both energies. A positive bound
+in **one** band suffices for growth. Taking $L=0$, $U=4M-1$ recovers the
+previous complete bound exactly; that identity is also Lean proved.
+
+Localization allows the means to follow the broad shape of the pair-sum
+weights instead of charging that shape to the residual energy. It does not
+assert that the remaining fluctuations of generated states are small.
+Every band used in an argument incurs its displayed analytic error.
+
+The maintained owner is
+[LPFLocalizedTransfer.lean](../PrimeFactorOscillations/Helpers/LPFLocalizedTransfer.lean).
+
+## A dense-seed theorem: ordinary proof
+
+**Theorem.** There is $M_0$ such that the closure of any finite prime seed
+containing every prime at most $M_0$ misses at most
+$O(x/(\log x)^4)$ primes at most $x$. In particular its relative density
+among primes is one, and its orbit does not stabilize at a finite state.
+
+This is an application of a published analytic theorem, not a newly proved
+Goldbach estimate and not yet a compiled asymptotic theorem in this repository.
+
+### Analytic input and its required strength
+
+G. Coppola and M. B. S. Laporta,
+[On the representation of even integers as sum of two almost equal primes](https://www.giovannicoppola.name/files/articoli/8_giovanni_coppola_number_theory_seminar_politecnico_torino_245.pdf),
+*Rend. Sem. Mat. Univ. Pol. Torino* **53** (1995), 245–252,
+Theorem 1, prove a mean-square approximation for the von-Mangoldt-weighted
+representation count with both summands within $U$ of half the target.
+For $T^{5/8+\epsilon}<U<T$, its error over targets in $[T,2T]$ is
+$
+ \sum_{T<2n<2T}
+ \left|R(2n,U)-2U\mathfrak S(2n)\right|^2
+ \ll_{\epsilon,A} T U^2(\log T)^{-A}.
+$
+The singular series on even targets has a fixed positive lower bound.
+
+Take $U=\lfloor M/64\rfloor$, and apply this theorem on the bounded number of
+dyadic target intervals covering $[M/2,15M/8+1]$. Its lower-range requirement
+holds for large $M$, for example with $\epsilon=1/8$.
+Every counted summand lies strictly between 0 and $M$: the largest possible
+center is $15M/16+1/2$, leaving room for $U$.
+
+Chebyshev's inequality shows that, outside $O_A(M/(\log M)^A)$ even targets,
+the weighted count is at least a positive constant times $M$.
+Representations with a proper prime-power summand contribute at most
+$O(\sqrt M(\log M)^3)=o(M)$: there are $O(\sqrt M\log M)$ such summands,
+each determines the other summand, and each pair has weight at most
+$(\log M)^2$. Removing them and dividing by $(\log M)^2$ yields constants
+$c,B>0$ such that
+$
+ R_M(n)\ge cM/(\log M)^2
+$
+apart from at most $BM/(\log M)^4$ even targets in that range.
+Here $R_M$ counts ordered **prime** representations with both primes at most
+$M$. A theorem asserting mere existence of unrestricted representations would
+not suffice for this argument.
+
+### One-step propagation and induction
+
+Write $F(M)=M/(\log M)^4$, and $M'=\lfloor5M/4\rfloor$.
+For every target prime $M<r\le M'$, its lift $n_r$ lies in the preceding
+analytic range. The maps for the two residue classes are injective and have
+disjoint image ranges, so at most $BF(M)$ such target primes have an exceptional
+lift.
+
+Suppose the current state omits at most $KF(M)$ primes up to $M$. For every
+nonexceptional target, the complete surviving lower bound is
+$
+ \frac{cM}{(\log M)^2}-\frac{2KM}{(\log M)^4}-1>0
+$
+for all sufficiently large $M$. The compiled finite transfer therefore
+generates that target. Retention of the old state gives
+$
+ E_{\mathrm{next}}(M')\le E(M)+BF(M).
+$
+Since $F(\lfloor5M/4\rfloor)/F(M)\to5/4$, increase the initial threshold until
+this ratio is at least $11/10$. Choose $K\ge10B$. Then
+$
+ E_{\mathrm{next}}(M')\le(K+B)F(M)\le KF(M').
+$
+Starting with a complete prefix gives $E(M_0)=0$. Induction applies to
+$M_{j+1}=\lfloor5M_j/4\rfloor$, which tends to infinity after increasing
+$M_0$ if necessary. The bound at these cutoffs extends to intermediate $x$,
+because successive cutoffs have bounded ratio. The prime number theorem then
+gives relative density one.
+
+This proof uses the classical logarithmic exceptional-set estimate; eliminating
+Siegel zeros is **not necessary** for this dense-seed conclusion. It gives no
+usable numerical value of $M_0$ here. A fixed finite exclusion set can be
+handled by adding its cardinality to the error ledger, but that modification
+has not been installed in the Lean dynamics definition.
+
+## Joint deletion and a more robust dense-seed theorem
+
+The preceding pointwise deletion argument asks for $E\ll M/\log^2 M$.
+Counting overlaps between different targets improves the allowable initial
+defect to
+$$
+ E\le \eta\,\frac{M}{\log M\,(1+\log\log M)^2}
+$$
+for an absolute $\eta>0$ and sufficiently large $M$. This is an ordinary
+mathematical consequence of the inputs verified below. Its finite
+combinatorial estimate is Lean proved; its analytic input and asymptotic
+iteration are not yet Lean theorems. Novelty of this application is not established.
+
+**Theorem.** There are $\eta>0$ and $M_0$ such that, for any $M\ge M_0$,
+every finite prime seed omitting at most the displayed number of primes
+at most $M$ generates a set missing $O(x/\log^4 x)$ primes up to $x$.
+In particular its generated set has relative density one among primes.
+The seed need not contain a complete initial prime interval.
+
+### The joint finite estimate
+
+Let $P$ be the available input set, $S$ the retained set, $D=P\setminus S$,
+and $E=|D|$. For a sum target $t$, set
+$$
+ A_t=\{p\in P:t-p\in P,\ p\le t\},\qquad R(t)=|A_t|.
+$$
+If $t$ has no distinct-input representation from $S$, then
+$$
+ R(t)\le 2|A_t\cap D|+1.
+$$
+The final 1 accounts for the possible diagonal. Let $B$ be a finite set of
+failed targets with $R(t)\ge L+1$, and suppose
+$$
+ |A_t|\le U,\qquad |A_t\cap A_s|\le K\quad(t\ne s,\ t,s\in B).
+$$
+For $d_B(p)=\#\{t\in B:p\in A_t\}$ and $b=|B|$, double counting and
+Cauchy--Schwarz give the complete coupled inequality
+$$
+ b^2L^2\le4E\sum_{p\in P}d_B(p)^2
+       \le4E(bU+b^2K).
+$$
+In particular, for $L>0$ and $U,K\ge0$,
+$$
+ 8EK\le L^2\quad\Longrightarrow\quad
+ b\le\frac{8EU}{L^2}.
+$$
+These finite inequalities, including the actual sum-target consumer, are
+proved in [DeletionCodegree.lean](../PrimeFactorOscillations/Mathlib/Data/Finset/DeletionCodegree.lean)
+and [SumPartnersDeletion.lean](../PrimeFactorOscillations/Mathlib/Data/Finset/SumPartnersDeletion.lean).
+The intersections are estimated jointly; one missing input is not charged
+independently against every failed target.
+
+The direct LPF consumer is also compiled in
+[LPFJointTransfer.lean](../PrimeFactorOscillations/Helpers/LPFJointTransfer.lean).
+For $P_M=\{p\le M:p\text{ prime}\}$, $M'=\lfloor5M/4\rfloor$,
+$E=|P_M\setminus S|$, and an explicit exceptional target set $Z$, it proves
+$$
+ |P_{M'}\setminus\operatorname{step}(S)|
+ \le E+|Z|+\frac{8E|P_M|}{L^2},
+ \qquad 8EK\le L^2.
+$$
+Its remaining analytic premises are $R(n_r)\ge L+1$ for the
+nonexceptional targets and the stated common-neighbor bound $K$.
+The proof verifies the two cofactor lifts, their injectivity on
+$(M,5M/4]$, retention of the old state, and the exception count.
+It applies to the actual finite state $S$; no uniformity of its missing
+inputs is assumed. The cutoff $M$ need not equal the largest prime in $S$:
+a sufficiently dense prime core below a smaller cutoff also qualifies.
+A separate compiled corollary proves nonclosure when the
+target-prime count exceeds the full exceptional and deletion allowance.
+
+### Uniform prime codegree estimate
+
+For distinct integers $t,s\in[M/2,2M]$ and
+$P=\{p\le M:p\text{ prime}\}$, the required estimate is
+$$
+ |A_t\cap A_s|
+ \ll \frac{M(1+\log\log M)^2}{\log^3 M}.
+$$
+The constant is uniform in the moving targets. Here is the uniformity check.
+
+Sieve the three forms $u,t-u,s-u$ for $1\le u\le M$.
+For a prime $\ell$, the forbidden roots are $0,t,s\bmod\ell$;
+their number $\nu(\ell)$ equals 3 unless
+$\ell\mid\Delta=ts(t-s)$. If $\nu(\ell)=\ell$, primality forces one
+form to equal $\ell$, giving at most three candidates. Otherwise the sieve
+dimension inequality has an absolute constant: $\nu(\ell)/\ell\le3/\ell$,
+and the small primes also stay uniformly away from 1.
+
+Use the fundamental lemma with level $D=M^{1/2}$ and sifting range
+$z=D^{1/\sigma}$ for a sufficiently large fixed $\sigma$.
+The Chinese remainder error is at most $3^{\omega(d)}$ for squarefree $d$.
+Its sum is $O(D(1+\log D)^2)$, since $3^{\omega(d)}\le\tau_3(d)$.
+Cases where a prime form is at most $z$ contribute at most $3z$.
+These errors are smaller than $M/\log^3 M$.
+The applicable uniform sieve statement is Corollary 19, with its dimension
+hypothesis (22), in
+[Terence Tao, 254A Notes 4: Some sieve theory, 21 January 2015](https://terrytao.wordpress.com/2015/01/21/254a-notes-4-some-sieve-theory/).
+
+For $\ell\ge5$, collisions among the roots increase the generic Euler factor
+by at most $(\ell-1)/(\ell-3)$. The identity
+$$
+ \frac{\ell-1}{\ell-3}(1-1/\ell)^2
+ =1+\frac{3\ell-1}{\ell^2(\ell-3)}
+$$
+shows that the accumulated correction is at most a constant times
+$\prod_{\ell\mid\Delta}(1-1/\ell)^{-2}$.
+This is $O((1+\log\log M)^2)$ because $0<|\Delta|\le8M^3$:
+split its prime factors at $\log(3+|\Delta|)$, use Mertens below that point,
+and bound the sum of reciprocals above it by
+$O(1/\log\log(3+|\Delta|))$.
+The generic product is $O((\log z)^{-3})$. This proves the displayed
+uniform codegree estimate; a fixed-shift asymptotic alone would not suffice.
+
+### Substitution and propagation
+
+Use the same target-prime lifts $t=n_r$ for $M<r\le\lfloor5M/4\rfloor$.
+They are injective, and their two ranges are disjoint. The earlier
+Coppola--Laporta argument supplies a constant $a>0$ such that, outside
+$O_A(M/\log^A M)$ targets,
+$$
+ R(t)-1\ge L=aM/\log^2 M.
+$$
+The subtraction of 1 includes the diagonal. Chebyshev's bound gives
+$U=|P|\le c_0M/\log M$, and the codegree estimate gives
+$$
+ K\le c_1M(1+\log\log M)^2/\log^3 M.
+$$
+All constants are independent of the retained state and of the target set.
+Choose $\eta\le a^2/(8c_1)$.
+For $E\le\eta M/(\log M(1+\log\log M)^2)$, the finite theorem applies and
+the number of additional failed targets is at most
+$$
+ \frac{8c_0}{a^2}\frac{E\log^3 M}{M}
+ \ll \frac{\log^2 M}{(1+\log\log M)^2}.
+$$
+Taking $A=4$, the next generation therefore misses at most
+$$
+ E_{\rm next}(\lfloor5M/4\rfloor)
+ \le E(M)+C M/\log^4 M
+$$
+primes up to the new cutoff, even for an adversarial pattern of missing inputs.
+
+Put $f(M)=M/(\log M(1+\log\log M)^2)$.
+Since $f(\lfloor5M/4\rfloor)/f(M)\to5/4$ and
+$(M/\log^4 M)/f(M)\to0$, increase $M_0$ until
+$CM/\log^4 M\le\eta(f(\lfloor5M/4\rfloor)-f(M))$.
+The initial defect condition then propagates.
+Summing the errors along the geometrically increasing cutoffs gives
+$E_j\le E_0+O(M_j/\log^4 M_j)$, and the bound extends to intermediate $x$.
+This proves the theorem.
+
+The allowance improves the pointwise scale by the unbounded factor
+$\log M/(1+\log\log M)^2$. Constants and the starting threshold are not
+numerically evaluated. **No argument here proves that a specified small
+diagonal-initialized seed reaches this density.** The existing audited 7/8
+transfer remains available; this complementary estimate controls adversarial
+deletions through a separate, explicitly identified additive-prime input.
+
+## Retaining the local representation factors
+
+The preceding allowance can be improved once more by preserving the local
+factors in the representation lower bound. Define, for positive even $t$,
+$$
+ g(t)=\prod_{\substack{\ell\mid t\\\ell>2,\ \ell\ {\rm prime}}}
+       \frac{\ell-1}{\ell-2}.
+$$
+Thus $g(t)\ge1$, and the Goldbach singular series is $2C_2g(t)$,
+where $C_2=\prod_{\ell>2}(1-(\ell-1)^{-2})>0$.
+This normalization is applied to the entire incidence column, including
+its diagonal and cross terms.
+
+**Stronger theorem, ordinary proof.** There are absolute $\eta>0,M_0$
+such that a finite prime seed missing at most
+$$
+ E\le\eta\,\frac{M}{\log M(1+\log\log M)},\qquad M\ge M_0,
+$$
+primes up to $M$ generates a set missing $O(x/\log^4 x)$ primes up to
+$x$. The finite weighted deletion theorem is compiled; the analytic
+estimates and asymptotic iteration in this application are not yet fully
+formalized. The constants and threshold are not numerically evaluated.
+
+### Exact cancellation of the local factors
+
+For distinct even targets $t,s$, let $\nu_t(\ell)$ be the number of
+roots $\{0,t\}\bmod\ell$, and let $\nu_{t,s}(\ell)$ count
+$\{0,t,s\}\bmod\ell$. Write
+$$
+ {\mathfrak S}_2(t)=\prod_\ell
+ \frac{1-\nu_t(\ell)/\ell}{(1-1/\ell)^2},\qquad
+ {\mathfrak S}_3(t,s)=\prod_\ell
+ \frac{1-\nu_{t,s}(\ell)/\ell}{(1-1/\ell)^3}.
+$$
+At an odd prime, the local factor of
+${\mathfrak S}_3(t,s)/({\mathfrak S}_2(t){\mathfrak S}_2(s))$
+is exactly as follows:
+
+| Residues of $t,s$ modulo $\ell$ | Normalized factor |
+| --- | --- |
+| Both zero | $1$ |
+| Exactly one zero | $1$ |
+| Equal and nonzero | $(\ell-1)/(\ell-2)$ |
+| Distinct and nonzero | $(\ell-3)(\ell-1)/(\ell-2)^2\le1$ |
+
+The factor at 2 is also 1, because both targets are even.
+Consequently
+$$
+ {\mathfrak S}_3(t,s)
+ \le {\mathfrak S}_2(t){\mathfrak S}_2(s)\,g(|t-s|).
+$$
+This comparison includes the obstructed case: the factor at 3 can be zero.
+For $0<|t-s|\le2M$,
+$$
+ g(|t-s|)\ll1+\log\log M.
+$$
+Indeed, multiplying each factor of $g$ by $1-1/\ell$ leaves
+$1+1/(\ell(\ell-2))$, whose product is bounded.
+The remaining product over prime divisors is bounded by Mertens after
+splitting at $\log(3+|t-s|)$; the reciprocals of the larger prime
+divisors have bounded sum. The estimate is uniform in both moving targets.
+
+### Uniform analytic bounds with the factors retained
+
+The same dimension-two and dimension-three upper sieve used above gives,
+uniformly for $t,s\in[M/2,2M]$, with $t\ne s$,
+$$
+ R_M(t)\ll g(t)\frac{M}{\log^2 M},\qquad
+ |A_t\cap A_s|
+ \ll g(t)g(s)g(|t-s|)\frac{M}{\log^3 M}.
+$$
+To check this refined form, retain the local Euler products in the sieve
+main term. With level $D=M^{1/2}$ and $z=D^{1/\sigma}$, for a fixed
+sufficiently large $\sigma$, the CRT error is
+$O(M^{1/2}\log^2 M)$, and small prime-form exceptions contribute $O(z)$.
+Both are absorbed by $M/\log^3 M$. The truncated normalized Euler
+products are at most constant multiples of the full singular series:
+the generic tail converges, and additional root collisions only increase
+the local factors. If a local obstruction occurs, at most three candidates
+remain, which the displayed bound also covers. Thus no fixed-shift
+uniformity or prime-tuple asymptotic has been assumed.
+
+The Coppola--Laporta mean-square theorem also retains its singular-series
+main term. Outside $O_A(M/\log^A M)$ even targets, the error is at most
+a fixed small multiple of $M$. Since $g(t)\ge1$, removing proper
+prime powers as above gives, for an absolute $a>0$ and sufficiently
+large $M$,
+$$
+ \frac{R_M(t)-1}{g(t)}\ge L=\frac{aM}{\log^2 M}.
+$$
+The exceptional-set statement remains uniform on the bounded collection
+of target intervals; dividing by $g(t)$ does not enlarge that set.
+
+### Complete weighted deletion bound and propagation
+
+Use $w(p,t)={\bf1}_{p\in A_t}/g(t)$. A failed target satisfies
+$L\le2\sum_{p\in P\setminus S}w(p,t)$. The preceding estimates give
+$$
+ \sum_{p\in P}w(p,t)^2\le U_*=\frac{c_0M}{\log^2 M},\qquad
+ \sum_{p\in P}w(p,t)w(p,s)
+ \le K_*=\frac{c_1M(1+\log\log M)}{\log^3 M}.
+$$
+Both bounds concern the same normalized columns. In particular the
+self-interaction has improved along with the cross interaction.
+
+For $b$ failed targets, the complete inequality is
+$$
+ b^2L^2\le4E(bU_*+b^2K_*).
+$$
+Choose $\eta\le a^2/(8c_1)$. The stated initial defect then ensures
+$8EK_*\le L^2$, and hence
+$$
+ b\le\frac{8EU_*}{L^2}
+   =\frac{8c_0}{a^2}\frac{E\log^2 M}{M}
+   \ll\frac{\log M}{1+\log\log M}.
+$$
+Adding the explicit exceptional lifts and retaining old primes again gives
+$E_{\rm next}(\lfloor5M/4\rfloor)\le E(M)+CM/\log^4 M$.
+The previous geometric induction applies with
+$f(M)=M/(\log M(1+\log\log M))$, proving the stronger theorem.
+The improvement over the preceding joint allowance is the unbounded
+factor $1+\log\log M$. It is not a claim about reaching this regime
+from every small seed.
+
+The generic finite theorem
+**Finset.weighted_failed_sum_target_card_le** in
+[SumPartnersDeletion.lean](../PrimeFactorOscillations/Mathlib/Data/Finset/SumPartnersDeletion.lean)
+takes an arbitrary nonnegative target weight, the weighted representation
+surplus, and both complete weighted moments as explicit premises.
+No singular-series asymptotic or infinitude statement is encoded as an axiom.
+
+## Finite coverage certificate for the current rule
+
+The maintained Lean theorem
+`PrimeFactorOscillations.LPF.prime_le_10000_mem_fullOrbit_two_9` proves that
+every prime at most 10,000 belongs to `fullOrbit {2} 9`. Its exact prefix
+consumer proves that the defect at this cutoff and generation is zero.
+The implementation is in
+[the finite certificate owner](../PrimeFactorOscillations/Helpers/LPFFiniteEntry/Result.lean).
+
+The certificate contains 1,228 non-seed witnesses. Each witness carries a
+kernel-checked complete prime factorization of $2(p+q)-1$. A balanced lookup
+tree checks both parents at strictly earlier generations. Diagonal parents
+are allowed at every generation. Separate blocks verify that every integer
+below 10,000 either occurs in the certified state or has an explicit
+proper divisor (with 0 and 1 handled separately); 10,000 itself is composite.
+The checked blocks are joined by a proved concatenation theorem. No
+`native_decide` or project-specific research assumption is used.
+
+The original independent arithmetic computation records these earlier
+coverage times. The maintained Lean theorem above certifies the final row;
+the intermediate timing rows remain independently replayed arithmetic data.
+
+| Cutoff | Number of primes | All certified by generation |
+| --- | ---: | ---: |
+| 10 | 4 | 4 |
+| 100 | 25 | 5 |
+| 1,000 | 168 | 7 |
+| 5,000 | 669 | 8 |
+| 10,000 | 1,229 | 9 |
+
+The retained witnesses describe subsets of the actual cumulative generations;
+they omit unnecessary larger outputs. By the compiled monotonicity theorem,
+coverage from every $\{2,p\}$ seed is a mathematical consequence of this result.
+
+Reproduce the maintained proof with `scripts/build_project.py`, then run
+`scripts/proof_audit.py`. The finite source and its complete dependency closure
+are exported through `LPFResults`. The axiom audit distinguishes this exact
+finite proof from the analytic propagation theorems.
+
+This is a Lean certificate for a finite prefix. It does not prove a usable
+analytic entry threshold at most 10,000, relative density one, or reachability
+of every prime. Numerical bounds for the source constant, admissible density
+allowance and complete preservation threshold remain required.
+
+## Historical bounded diagnostic of designated small seeds
+
+A separate exact computation covers all 1,229 prime seeds $p\le10{,}000$.
+It uses the designated diagonal once, adds 2 only at $p=3$, and uses
+distinct pairs thereafter. Every seed generates a prime above 10,000 in
+at most seven generations. Each escape is certified by a parent chain
+with independently checked prime factorizations. No closed seed occurred
+in this finite domain.
+
+This does not prove infinitude, eventual density, or any numerical value
+of the analytic threshold. The reproducible runner is
+`.research/tools/lpf_bounded_closure_probe.py`, with the summary and
+streamed certificates in `.research/logs/lpf_bounded_closure_10000_20261011.*`.
+
+## Formalization boundary and next work
+
+The finite deletion theorems, cofactor lifts, actual normalized upper-sieve
+inputs, complete conditional dense-seed recurrence, and quantitative bounds
+for the actual fullOrbit states are compiled. The Coppola-Laporta positive
+representation estimate and controlled exceptional set are not yet Lean
+formalized. The normalized density-limit statement for actual generated states
+is now compiled; actual small-seed density entry remains open.
+
+The full prime-target moment is compiled as
+**LPF.exists_uniform_primeTarget_moment**: its $M/\log M$ upper bound is uniform
+in the target prime and integer moment orders through $10\log\log M$.
+**LPF.exists_uniform_primeTarget_overlap** bounds the off-diagonal sum over
+every $B\subseteq\mathcal R_M$ with $b\ge M/\log^4M$ by
+$Cb^2\log(3+\log((M/\log M)/b))$, uniformly for large $M$.
+
+**LPF.exists_dense_fullStep_prefix_recurrence** discharges the upper-sieve
+and absorption premises. Positive normalized representations and
+$E\le\eta M/\log M$ give
+$$
+ E_{\rm next}\le(17/16)E+|Z|+M/\log^4M.
+$$
+**LPF.exists_fullOrbit_dense_defect_bounds** then proves bounds for every
+later generated state at the exact cutoffs $M_{j+1}=\lfloor5M_j/4\rfloor$:
+$$
+ E_j\le\eta N_j,\qquad
+ E_j\le(17/16)^jE_0+16(C+1)F_j.
+$$
+Its ordinary representation-source hypothesis and initial density entry are
+explicit. See [the full conditions and proof](lpf-averaged-deletion.md#compiled-bounds-for-the-actual-generated-states).
+**LPF.exists_fullOrbit_dense_density_zero** also proves
+$$
+ \frac{E_j}{M_j/\log M_j}\longrightarrow0.
+$$
+It retains the same representation-source and density-entry hypotheses.
+The limit follows from the faster growth of the cutoff scale and the explicit
+logarithmic error; it concerns the actual generated states. See
+[the compiled limit and its scope](lpf-averaged-deletion.md#compiled-vanishing-defect-for-generated-states).
+These are conditional generated-state results; they are not an unconditional
+infinitude theorem from $\{2\}$ or a proof that every prime is reachable.
+
+The prime-sum interfaces are now compiled with one uniform constant before
+the modulus and endpoints. The full rational-frequency interval estimate in
+[LPFMajorArc.lean](../PrimeFactorOscillations/Helpers/LPFMajorArc.lean)
+has the exact principal coefficient $\mu(q)/\varphi(q)$, proved in
+[LPFRamanujan.lean](../PrimeFactorOscillations/Helpers/LPFRamanujan.lean).
+It retains nonunit prime powers in the error. Frequencies and offsets use
+radians; the interval starts at $s\ge65{,}536$, the offset satisfies
+$|\beta|\le1$, and the underlying prefix exponent is $15/16$.
+
+[LPFCyclicFourier.lean](../PrimeFactorOscillations/Helpers/LPFCyclicFourier.lean)
+proves exact normalized Fourier inversion for arbitrary finite weighted pair
+sums. All ordered pairs, including diagonals, are retained. Its integer
+specialization requires $t<N$ and $p+q<N$ for every input pair, so modular
+wraparound is explicitly excluded. With inverse transform
+$I_NF(t)=N^{-1}\sum_{x\bmod N}F(x)e(-tx/N)$, it proves
+$$
+ \sum_{t\in T}|I_NF(t)|^2\le\frac1N\sum_{x\bmod N}|F(x)|^2.
+$$
+For a major-frequency set $G$, a reference $A$, and
+$|S(x)-A(x)|\le E$ on $G$, the complete square-difference bound is
+$$
+ \sum_{t\in T}\left|I_N\bigl({\bf1}_G(S^2-A^2)\bigr)(t)\right|^2
+ \le\frac1N\left(8E^2\sum_{x\in G}|A(x)|^2+2E^4|G|\right).
+$$
+The proof preserves $S^2-A^2=2A(S-A)+(S-A)^2$ before estimating it.
+The rational-grid separation and reference energy are also compiled. With
+$W=(N/M)P$, $M\mid N$, every denominator $q\le P$ dividing $N$, and
+$2P^3<M$, the reduced centers and signed offsets have disjoint support.
+The normalized reference energy is at most $PM$ for at most $M$ input
+integers below $N$, and the grid cardinality divided by $N$ is at most
+$3P^3/M$. Consequently, assuming a uniform error $E$ on this grid,
+[LPFGridScale.lean](../PrimeFactorOscillations/Helpers/LPFGridScale.lean)
+proves the complete major-packet bound
+$$
+ \sum_{t\in T}\left|I_N\bigl({\bf1}_G(S^2-A^2)\bigr)(t)\right|^2
+ \le 8E^2PM+6E^4P^3/M.
+$$
+Here $M,P>0$ and $N\ne0$, and each input is below $N$. The integer
+pair-sum adapter separately requires every input sum to be below $N$.
+[LPFGridPhase.lean](../PrimeFactorOscillations/Helpers/LPFGridPhase.lean)
+transfers the actual von Mangoldt interval estimate to these grid points
+using the small denominator $q$. Its constant precedes both $q$ and $N$;
+the offset is $2\pi k/N$ in radians. It also proves the exact interval
+cardinality, endpoints, and weighted/unweighted transform identities.
+Thus the large auxiliary grid does not introduce a square-root-$N$ loss.
+
+The uniform arithmetic envelope is now proved in
+[LPFUniformMajor.lean](../PrimeFactorOscillations/Helpers/LPFUniformMajor.lean):
+there exists $K>0$, independent of $M,P,N,q$ and the interval, for which
+$$
+ E\le K P\sqrt P\,M^{15/16}(1+\log M)^2.
+$$
+In addition to the grid hypotheses above, this requires $M\ge8P$,
+$65536\le s$, $L\le M$, and $s+L\le2M$ for the input interval
+$s+1,\ldots,s+L$. Each input is below $N$.
+The complete arithmetic major-packet estimate retains both contributions:
+$$
+ 8K^2P^4M^{23/8}(1+\log M)^4+
+ 6K^4P^9M^{11/4}(1+\log M)^8.
+$$
+[LPFMajorPower.lean](../PrimeFactorOscillations/Helpers/LPFMajorPower.lean)
+proves that, when $P\le M^{1/40}$, their sum is at most
+$$
+ \bigl(8K^2(1+\log M)^4+6K^4(1+\log M)^8\bigr)M^{119/40}.
+$$
+This exponent is strictly below $3$; the constant remains existential.
+
+For the singular-series tail,
+[LPFTotientTail.lean](../PrimeFactorOscillations/Helpers/LPFTotientTail.lean)
+now proves the uniform arithmetic input
+$2q^3\le27\varphi(q)^4$ for every natural $q$, and consequently
+$1/\varphi(q)^2\le4/q^{3/2}$ for $q>0$. The proof separates the primes
+2 and 3 from the remaining prime factors; it is a universal proof.
+The finite and infinite pointwise Ramanujan tail bounds and their weighted
+mean-square consumer are proved below. The complete source estimate remains open.
+
+[LPFRamanujanGeneral.lean](../PrimeFactorOscillations/Helpers/LPFRamanujanGeneral.lean)
+proves the exact coefficient identity
+$$
+ c_q(t)=\sum_{d\mid\gcd(q,t)}d\,\mu(q/d),\qquad
+ |c_q(t)|\le\sum_{d\mid\gcd(q,t)}d.
+$$
+Here $q>0$ and $t\ge0$; nonsquarefree moduli and frequency zero are
+included. The negative-frequency sum in the inverse transform equals the
+positive-frequency coefficient. The proof retains the signed Mobius mask
+before bounding the explicit singular-series tail.
+
+[LPFPowerTail.lean](../PrimeFactorOscillations/Helpers/LPFPowerTail.lean)
+proves a uniform moving-cutoff bound: for $d,P\ge1$ and every $L\ge0$,
+$$
+ \sum_{i=0}^{L-1}\frac{d}{[d(\lfloor P/d\rfloor+1+i)]^{3/2}}
+ \le\frac4{\sqrt P}.
+$$
+The proof includes $d>P$, when the cofactor cutoff is zero, and retains
+the endpoint correction in its inverse-square-root telescoping estimate.
+The exact divisor reindexing is now proved in
+[LPFSingularTail.lean](../PrimeFactorOscillations/Helpers/LPFSingularTail.lean),
+giving, for $P\ge1$, every $Q\ge0$, and $t>0$,
+$$
+ \sum_{P<q\le Q}\left|\frac{\mu(q)^2c_q(t)}{\varphi(q)^2}\right|
+ \le\frac{16\tau(t)}{\sqrt P},\qquad \tau(t)=\#\{d:d\mid t\}.
+$$
+The theorem covers $Q<P$ and all prime-power moduli. Frequency zero is
+excluded from this tail theorem.
+
+[LPFSingularSeries.lean](../PrimeFactorOscillations/Helpers/LPFSingularSeries.lean)
+proves summability for every $t>0$ and the actual infinite truncation bound
+$$
+ |S(t)-S_P(t)|\le\frac{16\tau(t)}{\sqrt P},\qquad
+ |S_P(t)|\le17\tau(t),
+$$
+where $S(t)=\sum_{q\ge1}\mu(q)^2c_q(t)/\varphi(q)^2$ and $S_P$ cuts the
+sum at $q\le P$. The first bound requires $P\ge1$; the second includes
+$P=0$. The implementation explicitly sets the coefficient at modulus zero
+to zero. No convergence assertion is made at target frequency zero.
+
+[LPFDivisorPower.lean](../PrimeFactorOscillations/Helpers/LPFDivisorPower.lean)
+proves, for every integer $K\ge1$ and natural $n$,
+$$
+ \tau(n)^K\le (K!\,2^K)^{2^K}n.
+$$
+Its finite constant is symbolic and uniform in $n$.
+[LPFDivisorMoment.lean](../PrimeFactorOscillations/Helpers/LPFDivisorMoment.lean)
+converts the bound with symbolic $K$ before specializing $K=320$, giving one
+constant $C>0$ such that $\tau(n)^2\le Cn^{1/160}$ for every natural $n$.
+It then proves the complete weighted singular-tail estimate: there exists
+$A>0$ such that, for $P\ge1$, $T\subseteq\{1,\ldots,M\}$ with
+$|T|\le M$, and any complex weights satisfying $|w(t)|\le M$ on $T$,
+$$
+ \sum_{t\in T}|w(t)(S(t)-S_P(t))|^2
+ \le \frac{A M^{481/160}}{P}.
+$$
+The constant precedes all cutoffs and weights. At $P$ comparable to
+$M^{1/40}$, this packet has exponent $477/160<3$. A fixed factor between
+the physical input scale and the target cutoff is absorbed into $A$.
+
+[LPFIntervalGeometric.lean](../PrimeFactorOscillations/Helpers/LPFIntervalGeometric.lean)
+proves the exact two-endpoint geometric cancellation of the unweighted
+interval kernel $V(k)$. It proves $|1-e(k/N)|\,|V(k)|\le2$ for every
+signed offset, including zero, and Jordan's sine inequality gives
+$|V(k)|\le N/(2k)$ for $0<k$ and $2k\le N$.
+[LPFCyclicKernel.lean](../PrimeFactorOscillations/Helpers/LPFCyclicKernel.lean)
+now covers the complete cyclic complement by positive and negative
+representatives, including the even-grid midpoint. For $W\ge1$ it proves
+$$
+ \sum_{x\in(\mathbb Z/N\mathbb Z)\setminus K}|V(x)|^2
+ \le\frac{N^2}{2W},\qquad |J_N(t)-L_N(t)|\le\frac{N}{2W}.
+$$
+Here $K$ is the image modulo $N$ of the integer offsets $-W\le k\le W$;
+$J_N$ is the inverse of the truncated squared kernel, and $L_N$ is the
+full inverse. With $M\mid N$ and $W=(N/M)P$, the last bound is exactly
+$M/(2P)$. The normalization removes the auxiliary grid size.
+The full inverse is the exact ordered interval pair count, including
+diagonals. Its norm is at most the input interval length when $s+L<N$.
+The ordinary integer interpretation separately requires
+$2(s+L)<N$ and the target below $N$.
+
+[LPFKernelMoment.lean](../PrimeFactorOscillations/Helpers/LPFKernelMoment.lean)
+proves the retained corrections with constants preceding all cutoffs,
+intervals, grids, and finite target sets. For positive targets
+$T\subseteq\{1,\ldots,2M\}$ it proves
+$$
+ \sum_{t\in T}|(J_N(t)-L_N(t))S_P(t)|^2
+ \le\frac{B M^{481/160}}{P^2}.
+$$
+This requires $M,P>0$ and $M\mid N$. With input length $L\le M$,
+$s+L<N$, and $P\ge1$, it also proves the actual pair-weighted tail
+$$
+ \sum_{t\in T}|L_N(t)(S_P(t)-S(t))|^2
+ \le\frac{C M^{481/160}}P.
+$$
+At $P$ comparable to $M^{1/40}$, these packets have exponents
+$473/160$ and $477/160$ respectively, both below $3$.
+
+[LPFVaughan.lean](../PrimeFactorOscillations/Helpers/LPFVaughan.lean)
+proves the exact four-term signed Dirichlet-convolution decomposition of
+von Mangoldt for all natural cutoffs, including zero. It uses Mathlib's
+actual Mobius/zeta and log/von-Mangoldt identities. The Type I
+coefficient is bounded by $\log n$, with support $n\le UV$; the Type II
+coefficient is bounded by the divisor count $\tau(n)$. These are bounds
+for the actual convolution coefficients, including their zero conventions.
+
+[LPFMinorBilinear.lean](../PrimeFactorOscillations/Helpers/LPFMinorBilinear.lean)
+proves the exact paired Cauchy packet at every signed integer grid frequency.
+It keeps $b(n_1)\overline{b(n_2)}$, the relative phase, and the common
+product-window intersection. The inner sum runs over exactly one interval;
+the diagonal retains its admissible interval count.
+
+[LPFMinorGeometric.lean](../PrimeFactorOscillations/Helpers/LPFMinorGeometric.lean)
+connects the original grid phase to $\alpha=k/N=a/q+\beta$, without requiring
+$q\mid N$. For $d\in\mathbb Z$, let $j$ be the residue of $ad$ modulo $q$.
+When $0<j<q$ and $|\beta d|\le1/(4q)$, an interval of length $\ell$ satisfies
+$$
+\left|\sum_{m\in I}\psi_N(kmd)\right|
+ \le\min\left(\ell,\frac{q}{\min(j,q-j)}\right).
+$$
+Zero residues keep the length bound. The perturbation condition is proved
+from $|\beta|\le P/(qM)$, $|d|\le D$, and $4PD\le M$, with $q,M>0$.
+
+[LPFMinorResidueMean.lean](../PrimeFactorOscillations/Helpers/LPFMinorResidueMean.lean)
+proves residue multiplicity and logarithmic bounds. For $\ell\ge0$, define
+$F(0)=\ell$ and $F(j)=q/\min(j,q-j)$ for $0<j<q$. Then, for $q>0$,
+$$
+\sum_{0\le j<q}F(j)\le\ell+2q(1+\log q),\qquad
+\sum_{0\le d\le D}F(d\bmod q)
+ \le\left(\left\lfloor\frac Dq\right\rfloor+1\right)
+       \bigl(\ell+2q(1+\log q)\bigr).
+$$
+Translation and unit multiplication preserve the complete residue sum.
+The paired affine-residue aggregation is now proved for composite as well
+as prime denominators, with the zero residue and diagonal retained.
+
+[LPFMinorWeightedPacket.lean](../PrimeFactorOscillations/Helpers/LPFMinorWeightedPacket.lean)
+bounds the complete weighted Type II packet. Write $Q_m=B-A$, $Q_n=D-C$
+with natural subtraction. If $A_2$ bounds the outer coefficient square sum,
+$B_2$ bounds each inner coefficient square, $\alpha=k/N=a/q+\beta$,
+$a$ is a unit modulo $q$, and $|\beta|Q_n\le1/(4q)$, then
+$$
+ |\mathcal B|^2\le A_2B_2Q_n(\lfloor Q_n/q\rfloor+1)
+                 (Q_m+2q(1+\log q)).
+$$
+The mask $s<mn\le s+L$ stays inside the paired geometric estimate;
+$q\mid N$ is not required.
+
+[LPFMinorPower.lean](../PrimeFactorOscillations/Helpers/LPFMinorPower.lean)
+proves one uniform $C>0$ for the actual coefficients
+$\Lambda(m)-\Lambda_{\le U}(m)$ and
+$b_V(n)=\sum_{d\mid n,\ d>V}\mu(d)$:
+$$
+ |\mathcal B|^2\le C M^{1/160}(M^2/q+M^{8/5}+Mq)(1+\log(2M))^3.
+$$
+Besides the frequency conditions above, this requires $M\ge1$, $q\le2M$,
+$B,D\le2M$, $Q_mQ_n\le2M$, and $Q_m+Q_n\le4M^{3/5}$.
+The divisor coefficient estimate is proved.
+
+[LPFMinorDyadic.lean](../PrimeFactorOscillations/Helpers/LPFMinorDyadic.lean)
+assembles the entire Type II sum over $U<m\le2M$, $V<n\le2M$.
+The same right side is multiplied by $J^2K^2$, where
+$2M\le U2^J$, $2M\le V2^K$. It requires $M^{2/5}\le U,V\le2M$,
+$s+L\le2M$, and $|\beta|\,2M^{3/5}\le1/(4q)$.
+Clipped dyadic intervals partition the whole range. Boxes whose lower
+endpoint product is at least $2M$ vanish exactly; all other boxes satisfy
+the physical estimate.
+
+[LPFMinorTypeI.lean](../PrimeFactorOscillations/Helpers/LPFMinorTypeI.lean)
+and [LPFMinorTypeILog.lean](../PrimeFactorOscillations/Helpers/LPFMinorTypeILog.lean)
+prove both actual Type I bounds. For $X=s+L\le H$, define
+$$
+ T_D(X,q)=
+ \begin{cases}
+  0,&D<q,\\
+  (X/q)(1+\log\lfloor D/q\rfloor),&D\ge q
+ \end{cases}
+ +2q(\lfloor D/q\rfloor+1)(1+\log q).
+$$
+The Möbius-cutoff term with inner weight $\log m$ is at most
+$2\log H\,T_V(X,q)$. The Vaughan convolution-coefficient term is at most
+$\log H\,T_{UV}(X,q)$ when $UV\le H$. These require $H\ge1$ and respectively
+$|\beta|V\le1/(4q)$ and $|\beta|UV\le1/(4q)$.
+Summation by parts preserves every phase prefix cancellation.
+Positive multiples of $q$ reindex exactly as $qj$, giving zero contribution
+when the cutoff is below $q$.
+
+[LPFVaughanWindow.lean](../PrimeFactorOscillations/Helpers/LPFVaughanWindow.lean)
+now proves the exact divisor-to-product reindexing and the complete signed
+Vaughan decomposition in frequency windows. It uses the actual coefficients,
+retains the quotient endpoints, and proves the Type I and Type II cutoff
+supports. The signed window statement requires $V\le s+L$ and $UV\le s+L$.
+The Type II sums can now be extended exactly to any physical endpoint
+$H\ge s+L$: the added pairs have zero product mask. The small von Mangoldt
+cutoff contributes exactly zero when $U\le s$, since the physical window
+starts above its support.
+
+These results do not discharge the complete Goldbach mean-square hypothesis.
+The complete pointwise consumer is now proved in
+[LPFVaughanMinor.lean](../PrimeFactorOscillations/Helpers/LPFVaughanMinor.lean).
+With $X=s+L\le2M$, its bound on the original von Mangoldt window is
+$$
+ \left|\sum_{s<t\le X}\Lambda(t)e^{2\pi i kt/N}\right|
+ \le 2\log(2M)T_V(X,q)+\log(2M)T_{UV}(X,q)
+ +JK\sqrt{C M^{1/160}
+       (M^2/q+M^{8/5}+Mq)(1+\log(2M))^3}.
+$$
+One positive $C$ precedes all parameters. The hypotheses are $M,N\ge1$,
+$1\le q\le2M$, a unit numerator $a\bmod q$, $k/N=a/q+\beta$,
+$M^{2/5}\le U,V\le2M$, $2M\le U2^J,V2^K$,
+$U\le s$, $V\le X$, $UV\le X$, and each of
+$|\beta|V$, $|\beta|UV$, and $2|\beta|M^{3/5}$ at most $1/(4q)$.
+Both actual Type I terms and the whole Type II sum are retained; no
+coefficient bound is supplied as an additional assumption.
+
+The complete squared bound is also proved in `lpf_vaughan_minor_squared_bound`.
+Write $\mathcal W$ for the same interval transform and $\mathcal L=1+\log(2M)$.
+Under the preceding hypotheses, together with $P\ge1$, $P\le q\le2M/P$,
+$U\ge1$, and $UV\le4M^{4/5}$, it gives
+$$
+ |\mathcal W|^2\le
+ 1296\frac{M^2}{P^2}\mathcal L^4+2304M^{8/5}\mathcal L^4
+ +2CJ^2K^2M^{1/160}
+      \left(\frac{3M^2}{P}+M^{8/5}\right)\mathcal L^3.
+$$
+The two Type I terms together are at most
+$(18M/P+24M^{4/5})\mathcal L^2$ before squaring. The coupled Type II packet
+is retained. LPFWarmCutoffs and LPFMinorParseval now discharge cutoff placement,
+the logarithmic bound on $J,K$, and the fixed-interval minor mean-square consumer.
+
+The classical reduced-unit Dirichlet approximation is now proved in
+[LPFRationalApprox.lean](../PrimeFactorOscillations/Helpers/LPFRationalApprox.lean),
+using a port of the pinned Mathlib finite pigeonhole proof and cached primitives.
+For every real frequency and every positive integer cutoff $Q$, it supplies
+$1\le q\le Q$, a unit numerator modulo $q$, and error at most
+$1/((Q+1)q)$. The uncached Mathlib source module is not imported or rebuilt.
+For $1\le P\le M$, the proved choice $Q=\lfloor M/P\rfloor+1$ supplies
+$q\le2M/P$ and $|\beta|\le P/(Mq)$, as well as $q\le2M$.
+The exact equality between the von Mangoldt interval sum and the cyclic
+grid transform is proved in LPFVaughanMinor.
+
+The exact grid complement now has a proved selector in
+[LPFMajorSelection.lean](../PrimeFactorOscillations/Helpers/LPFMajorSelection.lean).
+For $N\ge1$, $M\mid N$, and every positive $q\le P$ dividing $N$, a
+frequency outside `lpfRationalGrid N P ((N / M) * P)` has a unit approximation
+with $P<q\le2M/P$ and $|\beta|\le P/(Mq)$. Composite denominators and
+negative integer numerators are included. Small denominators are excluded
+by proved membership in the actual finite grid, with its exact signed width.
+
+The cutoff placement and complete fixed-interval minor mean square are now
+proved in [LPFWarmCutoffs.lean](../PrimeFactorOscillations/Helpers/LPFWarmCutoffs.lean)
+and [LPFMinorParseval.lean](../PrimeFactorOscillations/Helpers/LPFMinorParseval.lean).
+For $M\ge2^{18}$ and $1\le P\le M^{1/40}$, take
+$U=V=\lfloor M^{2/5}\rfloor+1$ and
+$J=K=\lfloor\log(2M)/\log2\rfloor+1$.
+All physical cutoff and quarter-error conditions above are discharged when
+$M/4\le s$ and $s+L\le2M$. The uniform pointwise bound is
+$$
+ |\mathcal W(x)|^2\le C M^{1/160}
+   \left(\frac{M^2}{P}+M^{8/5}\right)(1+\log(2M))^7
+ \qquad(x\notin G),
+$$
+where $G$ is the actual rational grid with width $(N/M)P$, $M\mid N$,
+and every positive denominator through $P$ divides $N$.
+For $L\le M$, $s+L<N$, and every finite $T\subseteq\mathbb Z/N\mathbb Z$,
+$$
+ \sum_{t\in T}\left|I_N\left[
+   1_{(\mathbb Z/N\mathbb Z)\setminus G}\mathcal W^2\right](t)\right|^2
+ \le C M^{1/160}
+   \left(\frac{M^3}{P}+M^{13/5}\right)(1+\log(2M))^9.
+$$
+One positive $C$ is fixed before all scales, grids, intervals, frequencies and
+target sets. The proof retains every prime power and cancels the auxiliary
+$N$ using the exact weighted Parseval identity. Input non-wrap $s+L<N$
+is required here; ordinary integer interpretation of the pair convolution
+still separately requires $2(s+L)<N$ and the target below $N$.
+For $P$ comparable to $M^{1/40}$, the leading power before logarithms is
+$M^{477/160}$, strictly below $M^3$.
+
+The exact major-reference factorization is now proved in
+[LPFMajorFactorization.lean](../PrimeFactorOscillations/Helpers/LPFMajorFactorization.lean):
+$I_N[A_P^2](t)=J_N(t)S_P(t)$. Here $A_P$ is the actual rational-grid reference,
+$J_N$ is the inverse square of the offset-truncated interval kernel, and $S_P$
+is the finite Ramanujan sum. Composite denominators, the denominator one,
+negative offsets, and the input diagonals are retained. The proof gives the
+exact four-packet identity for the full error centered at $S_\infty$.
+
+[LPFFixedSourceBudget.lean](../PrimeFactorOscillations/Helpers/LPFFixedSourceBudget.lean)
+proves a complete budget with $K,C,B,D>0$ fixed before every parameter:
+$$
+\begin{aligned}
+\sum_{t\in T}|E(t)|^2\le4\bigg[&
+ (8K^2(1+\log M)^4+6K^4(1+\log M)^8)M^{119/40}\\
+ &+CM^{1/160}(M^3/P+M^{13/5})(1+\log(2M))^9\\
+ &+BM^{481/160}/P^2+DM^{481/160}/P\bigg],
+\end{aligned}
+$$
+where $E(t)=I_N[\mathcal W^2](t)-L_N(t)S_\infty(t)$ and $L_N(t)$ is the
+actual unweighted ordered-pair count for the same interval. The hypotheses
+are $M\ge2^{18}$, $1\le P\le M^{1/40}$, $M\mid N$, every positive $q\le P$
+dividing $N$, $M/4\le s$, $s+L\le2M$, $L\le M$, $s+L<N$, $2M<N$,
+and $T\subseteq\{1,\ldots,2M\}$ with $|T|\le2M$.
+
+[LPFSourcePower.lean](../PrimeFactorOscillations/Helpers/LPFSourcePower.lean)
+chooses $P=\lfloor M^{1/40}\rfloor$ and proves both sides of the cutoff
+comparison $M^{1/40}/2\le P\le M^{1/40}$. Under the same grid, interval and
+target hypotheses, one uniform constant $A>0$ gives
+$$
+ \sum_{t\in T}|E(t)|^2\le A M^{239/80}.
+$$
+Before logarithm absorption the bound is $A_0M^{477/160}(1+\log(2M))^9$.
+The explicit inequality
+$(1+\log(2M))^9\le1442^9M^{1/160}$ holds for every $M\ge1$;
+thus the final exponent is strictly below three, with no additional
+unproved analytic estimate in this consolidation.
+
+[LPFSingularEuler.lean](../PrimeFactorOscillations/Helpers/LPFSingularEuler.lean)
+now proves coprime multiplicativity of the actual coefficient, vanishing at
+prime powers of exponent at least two, absolute norm summability for positive
+targets, and the exact prime-product limit
+$$
+ S_\infty(t)=\lim_{R\to\infty}\prod_{p<R,\ p\text{ prime}}
+       (1+\mu(p)^2c_p(t)/\varphi(p)^2).
+$$
+The Ramanujan sum is derived from the actual Mobius/divisor-weight Dirichlet
+convolution; pointwise division and squaring retain the zero-modulus convention.
+
+[LPFSingularPositive.lean](../PrimeFactorOscillations/Helpers/LPFSingularPositive.lean)
+keeps every target-divisor correction and the factor at two. For positive
+even $t$, write $\mathcal G(t)=\operatorname{singularDivisorProduct}(t)$.
+For $R>t$ and $R\ge3$, the exact finite product is
+$$
+ \prod_{p<R}(1+\mu(p)^2c_p(t)/\varphi(p)^2)
+ =2B_R\mathcal G(t),\qquad
+ B_R=\prod_{3\le p<R}\left(1-\frac1{(p-1)^2}\right),
+$$
+where both products run only over primes. The bound $B_R\ge1/2$ follows
+from comparison with the exact consecutive-integer product
+$$
+ \prod_{j=0}^{u-1}\left(1-\frac1{(j+2)^2}\right)
+ =\frac{u+2}{2(u+1)}\ge\frac12\qquad(u\ge0).
+$$
+Passing to the limit gives the uniform arithmetic conclusion
+$$
+ \operatorname{Im}S_\infty(t)=0,\qquad
+ \operatorname{Re}S_\infty(t)\ge\mathcal G(t)\ge1
+ \quad(t>0,\ 2\mid t).
+$$
+Target zero is excluded; no lower bound for odd targets is asserted.
+
+[LPFPositiveCover.lean](../PrimeFactorOscillations/Helpers/LPFPositiveCover.lean)
+now completes the one-sided transfer through 257 admissible fixed subwindows.
+For every $M\ge2^{19}$, one uniform $C>0$ bounds the number of insufficient
+even targets in the half/full source pools by $CM^{79/80}$. Every target
+outside that set satisfies
+$$
+ W_M(t)\ge\frac{M\mathcal G(t)}{512},\qquad
+ W_M(t)=\sum_{p\in\operatorname{goldbachWindowInputs}(M,t)}
+             \Lambda(p)\Lambda(t-p).
+$$
+The canonical fixed subwindow has at least $M/256$ ordered integer pairs.
+An insufficient target forces a fixed-source error of magnitude at least
+$M/512$. Its squared error is charged to the complete $AM^{239/80}$ budget;
+fibers and the two physical scales are counted explicitly. All moduli fit
+one proved non-wrapping grid. This one-sided argument does not assert a
+complete moving-window mean-square estimate.
+
+[LPFPositiveSupply.lean](../PrimeFactorOscillations/Helpers/LPFPositiveSupply.lean)
+now also consumes the stronger
+[wide fixed-interval source](../PrimeFactorOscillations/Helpers/LPFWideSource.lean).
+For $r\in\operatorname{nextPrimeWindow}(M)$, use
+$m_r=M$ when $r\equiv1\pmod4$ and $m_r=\lfloor M/2\rfloor$ otherwise,
+with the fixed input interval
+$$
+ A_{m_r}=\{p:\lceil m_r/4\rceil<p\le m_r\}.
+$$
+Both cofactor branches have at least $M/8$ ordered integer representations
+inside their respective intervals, for every $M\ge128$. An insufficient
+weighted target forces a fixed-source error of at least $M/16$.
+Only these two fixed intervals are needed; the earlier 257-window argument
+remains valid for its narrower moving-window source.
+
+For every $M\ge2^{44}$, there is an exceptional set $Z_M$ of prime
+targets with $|Z_M|\le C_{\mathrm{wide}}M^{79/80}$ such that
+$$
+ \frac{|\operatorname{sumPartners}(\operatorname{inputPrimePrefix}(M),
+                  \operatorname{primeTargetSum}(r))|}
+      {\mathcal G(\operatorname{primeTargetSum}(r))}
+ \ge\frac{63M}{1024(\log M)^2}
+ \quad(r\in\operatorname{nextPrimeWindow}(M)\setminus Z_M).
+$$
+These are ordered pairs and include diagonals. The weighted supply is
+$M\mathcal G/16$ and the complete two-position prime-power loss is at most
+$M/1024$. The converter retains their signed difference
+$1/16-1/1024=63/1024$, rather than halving the positive supply.
+
+If $A$ denotes the constant in the same fixed-interval
+$AM^{239/80}$ mean-square budget, the construction gives
+$C_{\mathrm{wide}}=512A$. The earlier two-pool cover gave
+$C_{\mathrm{narrow}}=2\cdot257\cdot512^2 A=134742016A$ and normalized supply
+$1/1024$. Thus the positive coefficient improves by a factor of 63, and the
+exceptional-set coefficient falls by a factor of 263168. The exponent and
+the analytic input are unchanged. This is a symbolic comparison with a
+shared uniform budget constant; it is not a numerical orbit-entry certificate.
+
+The compiled complete one-step consumer now retains the power error directly:
+$$
+ E_{\mathrm{next}}\le\frac{17}{16}E+
+        C_{\mathrm{wide}}M^{79/80}+D\log M,
+ \qquad E\le\eta\frac{M}{\log M},
+$$
+for all sufficiently large $M$, where $\eta,D>0$ are uniform and
+$E=|\operatorname{inputPrimePrefix}(M)\setminus S|$.
+The representation-degree normalized proof takes
+$D=8\eta/a=(8192/63)\eta$ with $a=63/1024$. The earlier bound
+$D=8C_2\eta/a^2$ remains available; at a common admissible $\eta$ its
+logarithmic coefficient is larger by $C_2/a$.
+
+For each good target let $R_r$ be its complete ordered representation count,
+and assign every parent in that row weight $1/R_r$. The row mass is exactly
+one and its diagonal square sum is exactly $1/R_r$, at most
+$(aM/(\log M)^2)^{-1}$. The full cross-overlap packet rescales by the
+product of the two row masses. Its original absorption condition is retained;
+the improvement removes the diagonal upper-sieve constant, without discarding
+cross terms or changing the exception set.
+
+The deletion estimate still requires its large-target-set premise
+$|B|\ge M/(\log M)^4$. The smaller case is controlled separately:
+if a good target is missing, every representation loses a parent, so
+$R_P(t_r)\le2E$, including diagonals. Since $\mathcal G\ge1$, this gives
+$aM/(\log M)^2\le2E$. Choose the admissible density allowance also to satisfy
+$64\eta\le a$ and $64\eta\le a^2$. Together with
+$E\le\eta M/\log M$, these inequalities imply
+$a(\log M)^2\ge32$ whenever a good target is missing. Consequently
+$M/(\log M)^4\le E/16$ without imposing an additional global logarithmic
+cutoff. The small-target case is absorbed into $E/16$; the large-target
+case retains the joint overlap estimate and gives $|B|\le D\log M$.
+No size hypothesis is dropped. The remaining source constant, density
+allowance and complete entry threshold still need numerical bounds.
+
+The full error allowance needed for preservation of the dense-entry condition is
+$$
+ C_{\mathrm{wide}}M^{79/80}+D\log M
+       \le\frac{\eta M}{16\log M}.
+$$
+The uniform constants $A$ and $\eta$ are not yet numerically bounded.
+The complete usable entry threshold and an actual entry witness from
+$\{2\}$ remain unproved. The earlier $M/(\log M)^4$ recurrence is preserved
+as a weaker corollary.
+
+The analytic representation premise of the dense-seed recurrence is now
+discharged. Uniform $C\ge0$ and $\eta>0$ exist so that, at all sufficiently
+large initial cutoffs, a seed with initial defect $E_0\le\eta N_0$ satisfies
+$$
+ E_j\le\eta N_j,\qquad
+ E_j\le(17/16)^jE_0+16(C+1)F_j,
+$$
+where $M_j=\operatorname{lpfDensityCutoff}(M,j)$,
+$E_j=|\operatorname{inputPrimePrefix}(M_j)\setminus\operatorname{fullOrbit}(S,j)|$,
+$N_j=M_j/\log M_j$, and $F_j=M_j/(\log M_j)^4$.
+This retains the initial dense-entry condition on the actual seed.
+Density entry of the orbit from 2 and every-prime reachability remain unproved.
+The source estimate concerns the full input ensemble and is not
+equidistribution for a generated state.
+
+The active dynamical target is finite-density entry of the common orbit from
+two, alongside formalizing the positive representation input. No usable
+numerical entry threshold has been established. Every seed includes 2 and
+every generation permits diagonals. The initial inclusion retains 2
+throughout the orbit, since odd generated values cannot produce it.
+Every-prime reachability remains a stronger unproved target.
+
+## Reduced sufficient ranges
+
+The maintained proofs now give the following component cutoffs, without
+enlarging the existing source-error or two-/three-form sieve constants.
+
+| Component | Sufficient cutoff |
+| --- | ---: |
+| Physical Vaughan cutoffs and quarter-error conditions | $2^{18}=262144$ |
+| Two-/three-form sieve bounds | $5^8=390625$ |
+| Positive weighted source in the half/full pools | $2^{19}=524288$ |
+| Prime-power removal and normalized prime-pair source | $2^{44}$ |
+
+The sieve improvement uses the proved bound
+$\sum_{5\le p\le z}\log(p)/p\le\log z$, a sieve level $Q=z^4$,
+and an integer eighth-root cutoff. The sharper rounding estimate
+$U\le5M^{2/5}/4$ gives $U^2\le25M^{4/5}/16$ and lowers the physical range.
+
+For the actual weighted source coefficient $a=1/512$, the new pointwise
+prime-power estimate proves
+$$
+ 4\sqrt M(\log M)^2\le M/1024\qquad(M\ge2^{44}).
+$$
+It uses $v=M^{1/4}$ and $\log M\le(220/7)v/2048$ throughout that range.
+This replaces the previous sufficient eighth-power cutoff with $R>2^{20}$,
+which exceeded $2^{160}$. The explicit prime-pair source is
+`exists_primeTarget_supply_power_explicit`; the conversion retains both input
+positions and all diagonal representations.
+
+These are component thresholds, not a certified dense-entry threshold.
+The exceptional-set constant, the allowable defect fraction, and the complete
+error-absorption conditions must still be quantified to obtain a usable $M_0$.
+The missing-parent estimate proved above now controls the small-target case
+separately and absorbs its floor into $E/16$. The large-target case retains
+the installed deletion estimate's size premise. Entry from two remains open.
+
+### Lower prime-power conversion cutoff
+
+The maintained explicit mass theorem gives
+$$
+ \psi(x)-\vartheta(x)\le2\sqrt{x}\qquad(x\ge2^{20}).
+$$
+It applies the existing Chebyshev decomposition at the three root scales,
+then retains all nine correction terms. Their uniform rational bounds use
+$\log4\le10/7$ and give a total coefficient strictly below $2$.
+The complete two-position Goldbach loss is consequently at most
+$4\sqrt M\log M$, and the checked inequality
+$$
+ 4\sqrt M\log M\le\frac{15}{256}M\qquad(M\ge2^{20})
+$$
+leaves normalized supply $1/16-15/256=1/256$.
+
+| Integer input cutoff | Normalized prime-pair supply | Prime-power loss allowance |
+| --- | --- | --- |
+| $M\ge2^{20}=1048576$ | $M/[256(\log M)^2]$ | $15M/256$ |
+| $M\ge2^{44}$ | $63M/[1024(\log M)^2]$ | $M/1024$ |
+
+Both supply theorems use the same exceptional-set bound
+$|Z_M|\le512A M^{79/80}$ and retain diagonals. The lower row preserves the
+stronger coefficient at large inputs; the upper row lowers the conversion
+cutoff. Here $M$ bounds the integer inputs, rather than counting primes.
+Neither row certifies that the exceptional set is small enough at its
+first admissible input, or that the generated orbit has entered the dense
+regime. Those require the remaining complete error allowance and actual
+orbit-entry proof.
+
+### Complete source on a shorter growth window
+
+[LPFShortSource.lean](../PrimeFactorOscillations/Helpers/LPFShortSource.lean)
+and
+[LPFSubwindowTransfer.lean](../PrimeFactorOscillations/Helpers/LPFSubwindowTransfer.lean)
+now have a complete maintained consumer in
+[LPFShortSupply.lean](../PrimeFactorOscillations/Helpers/LPFShortSupply.lean).
+It uses prime targets $M<r\le\lfloor7M/6\rfloor$ and the same two fixed
+input branches. The exact integer kernel satisfies $M\le4R_{\rm int}+12$;
+for $M\ge2^{20}$ this gives $R_{\rm int}\ge127M/512$.
+
+The weighted cutoff is $127M\mathcal G/1024$. Retaining the complete
+two-position loss $15M/256$ leaves normalized supply $67/1024$.
+The half-scale error energy is retained rather than enlarged to the full scale.
+With the same fixed-source energy constant $A$, the construction takes
+$$
+ C_{\rm short}=\left(\frac{1024}{127}\right)^2
+       \left(1+2^{-239/80}\right)A.
+$$
+For all sufficiently large $M$, the compiled complete one-step theorem is
+$$
+ E(\lfloor7M/6\rfloor,\operatorname{fullStep}(S))
+ \le\frac{17}{16}E(M,S)+C_{\rm short}M^{79/80}
+       +\frac{8192}{67}\eta\log M,
+ \qquad E(M,S)\le\eta\frac{M}{\log M}.
+$$
+Here $E(T,S)=|\operatorname{inputPrimePrefix}(T)\setminus S|$.
+The subwindow proof retains the original large-set deletion premise and all
+cross-overlap terms. This theorem is exported through the maintained public
+assembly and its declaration dependency closure uses standard foundations only.
+
+The output cutoff differs from the wider-window theorem. Its asymptotic
+growth reserve is smaller: $7/6-17/16=5/48$, compared with $3/16$.
+The complete finite-scale preservation margin that still must be positive is
+$$
+ \eta\left(\frac{\lfloor7M/6\rfloor}{\log\lfloor7M/6\rfloor}
+                -\frac{17M}{16\log M}\right)
+ -C_{\rm short}M^{79/80}-\frac{8192}{67}\eta\log M.
+$$
+No numerical value of $A$, admissible $\eta$ or usable full entry cutoff is
+claimed. The certified zero defect at $M=10000$, generation nine, lies below
+this source conversion cutoff. It remains a finite orbit theorem, and does
+not discharge the analytic entry requirement.
+### Explicit finite margins and retained logarithms
+
+The complete short-window source can instead retain its logarithm:
+$$
+ E(\lfloor7M/6\rfloor,\operatorname{fullStep}S)
+ \le \frac{17}{16}E(M,S)
+   +C_0M^{157/160}(1+\log(2M))^9
+   +\frac{8192}{67}\eta\log M.
+$$
+Here
+$$
+ C_0=\left(\frac{1024}{127}\right)^2
+      (1+2^{-477/160})A_0,\qquad
+ A_0=4(8K_{\rm major}^2+6K_{\rm major}^4
+          +3C_{\rm minor}+4B_{\rm kernel}+2D_{\rm tail}).
+$$
+Both source branches and both prime-power positions are retained. This
+avoids multiplying $A_0$ by $1442^9$.
+
+The overlap fraction also has an explicit admissible choice. With
+$a=67/1024$ and $K=\texttt{sieveThreeUpperConstant}\,C_{\rm overlap}$,
+take
+$$
+ \eta=\min\left\{\min(1,a^2/(160K))^2,\ a/64,\ a^2/64\right\}.
+$$
+The source and overlap constants still require numerical upper bounds.
+
+For every $M\ge2^{20}$ the rounded output cutoff satisfies
+$$
+ \frac{\lfloor7M/6\rfloor}{\log\lfloor7M/6\rfloor}
+ -\frac{17M}{16\log M}\ge\frac5{96}\frac M{\log M}.
+$$
+Consequently the complete recurrence preserves the defect allowance if
+$$
+ C_0M^{157/160}(1+\log(2M))^9
+ \le\frac5{192}\eta\frac M{\log M},
+ \qquad
+ \frac{8192}{67}\log M\le\frac5{192}\frac M{\log M},
+$$
+and its uniform overlap hypotheses hold. These explicit finite inequalities
+replace the eventual growth comparison; they do not yet give a numerical
+full $M_0$. Finite orbit expansion is deferred until that threshold is certified.
+
+### Explicit averaged divisor input and complete Type II boxes
+
+The maintained divisor average has coefficient one:
+$$
+ \sum_{1\le n\le X}\tau(n)^2\le X(1+\log X)^3
+ \qquad(X\ge1).
+$$
+Its proof compares $\tau(n)^2$ with the four-divisor convolution, then uses
+exact finite convolution identities and harmonic bounds. It introduces no
+pointwise divisor-power constant.
+
+The actual paired Type II kernel can be bounded by its inner coefficient
+second moment, using uniform row and column residue sums. This retains the
+product-window intersection, every affine residue, and all diagonal pairs.
+For the Vaughan inner coefficient, the resulting prefix energy is at most
+$D(1+\log H)^3$ when $D\le H$. The clipped boxes are handled using
+$D\le2C$, $B-A\le A$ and $AC\le2M$, without assuming a clipped width is
+comparable to its upper endpoint.
+
+The complete dyadic Type II bound is
+$$
+ \|\mathrm{II}\|^2
+ \le48J^2K^2
+ \left(\frac{M^2}{q}+M^{8/5}+Mq\right)
+ (1+\log(2M))^6,
+$$
+under the same rational-frequency, cutoff and physical-window conditions.
+Here $N>0$, $M\ge1$, $1\le q\le2M$, $M^{2/5}\le U,V\le2M$,
+$2M\le U2^J,V2^K$, and $s+L\le2M$. The frequency satisfies
+$k/N=a/q+\beta$, with $a$ a unit modulo $q$, and
+$2|\beta|M^{3/5}\le1/(4q)$.
+This replaces the pointwise divisor constant and its factor $M^{1/160}$
+in that consumer, at the cost of three additional logarithm powers.
+
+For $M>0$, $P>0$, and a nonzero grid size $N$ divisible by $M$,
+the complete kernel correction on any finite target set contained in
+$\{1,\ldots,2M\}$ satisfies
+$$
+ \sum_t|\mathcal K(t)|^2
+ \le\frac{289}{2}\frac{M^3(1+\log(2M))^3}{P^2}.
+$$
+For $M>0$, $P\ge1$, and the complete singular tail with actual weights
+$|w(t)|\le M$ on that same finite target support,
+$$
+ \sum_t|w(t)(\mathfrak S(t)-\mathfrak S_P(t))|^2
+ \le512\frac{M^3(1+\log(2M))^3}{P}.
+$$
+No cardinality estimate beyond membership in the stated finite support is
+needed for these averages.
+
+The maintained owners are
+[LPFDivisorAverage.lean](../PrimeFactorOscillations/Helpers/LPFDivisorAverage.lean),
+[LPFMinorEnergyPacket.lean](../PrimeFactorOscillations/Helpers/LPFMinorEnergyPacket.lean),
+[LPFMinorEnergyPower.lean](../PrimeFactorOscillations/Helpers/LPFMinorEnergyPower.lean)
+and
+[LPFAveragedCorrections.lean](../PrimeFactorOscillations/Helpers/LPFAveragedCorrections.lean).
+All are publicly exported and their 23 new declarations have fresh
+statement/dependency-axiom checks using only standard foundational axioms.
+
+The currently installed complete short-source recurrence still selects the
+older Vaughan/Parseval bound. Transferring the new Type II estimate through
+those consumers and the four-packet source budget remains unfinished.
+Consequently no improved complete source coefficient, numerical $M_0$, or
+actual orbit-entry theorem is claimed by these component results.

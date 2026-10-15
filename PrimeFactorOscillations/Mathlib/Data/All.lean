@@ -3,6 +3,7 @@ Copyright (c) 2026 Prime Factor Oscillations contributors.
 Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Prime Factor Oscillations contributors
 -/
+import PrimeFactorOscillations.Mathlib.Data.Finset.SumPartnersDeletion
 import PrimeFactorOscillations.Mathlib.Data.Int.PrimeSquareRoot
 import PrimeFactorOscillations.Mathlib.Data.Nat.Factorial.LinearError
 import PrimeFactorOscillations.Mathlib.Data.Nat.Prime.All

@@ -88,11 +88,11 @@ module FormalizationTemplate
     case value
     when Hash
       value.flat_map do |key, child|
-        placeholder_paths(child, "#{path}.#{key}")
+        placeholder_paths(child, [path, key.to_s].join("."))
       end
     when Array
       value.each_with_index.flat_map do |child, index|
-        placeholder_paths(child, "#{path}[#{index}]")
+        placeholder_paths(child, [path, "[", index.to_s, "]"].join)
       end
     when String
       value.lstrip.match?(SENTINEL) ? [path] : []

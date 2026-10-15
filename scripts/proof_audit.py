@@ -51,7 +51,9 @@ set_option autoImplicit false
 
 def axiom_sets(log: str) -> dict[str, list[str]]:
     """Require exactly the requested reports and no research or sorry axioms."""
-    pairs = re.findall(r"(?ms)^'(.+?)' depends on axioms:\s*\[([^\]]*)\]", log)
+    pairs = re.findall(r"(?m)^'([^\r\n]+?)' depends on axioms:\s*\[([^\]]*)\]", log)
+    pure = re.findall(r"(?m)^'([^\r\n]+?)' does not depend on any axioms", log)
+    pairs.extend((name, "") for name in pure)
     result = {name: sorted(x.strip() for x in body.split(",") if x.strip()) for name, body in pairs}
     if len(pairs) != len(THEOREMS) or set(result) != set(THEOREMS):
         raise ValueError("missing, duplicate, or unexpected axiom report")
