@@ -1,0 +1,1123 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage[a4paper,margin=29mm]{geometry}
+\usepackage{microtype}
+\usepackage{booktabs,longtable,array}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{url}
+\setlength{\emergencystretch}{2em}
+\setlist{itemsep=3pt,topsep=5pt}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\PP}{\mathcal P}
+\newcommand{\Cl}{\mathcal C}
+\newcommand{\cT}{\mathcal T}
+\newcommand{\sig}{\sigma}
+\newcommand{\ee}{\mathrm e}
+\newcommand{\LPF}{P^{+}}
+\newcommand{\card}[1]{\lvert #1\rvert}
+\newcommand{\norm}[1]{\lVert #1\rVert}
+\newcommand{\floor}[1]{\left\lfloor #1\right\rfloor}
+\newcommand{\lean}[1]{\nolinkurl{#1}}
+\DeclareMathOperator{\lcm}{lcm}
+\title{Density amplification in a largest-prime-factor dynamical system}
+\author{Jonas Whidden}
+\date{15 October 2026\\\small Research draft}
+\begin{document}
+\maketitle
+
+\begin{abstract}
+For a finite set of primes \(S\), retain its elements and adjoin
+\(P^{+}(2(p+q)-1)\) for every \(p,q\in S\), allowing \(p=q\) at every
+generation. We prove that there are constants \(\eta>0\) and \(M_0\)
+such that any finite seed missing at most \(\eta M/\log M\) primes
+up to one scale \(M\ge M_0\) generates a set containing all but
+\(O_{S,M}(X^{79/80})\) primes up to \(X\). A stronger statement controls
+the actual finite generations at geometrically increasing cutoffs.
+The proof couples a power-saving exceptional-set estimate for canonical
+prime-pair representations with a deletion estimate uniform over all
+missing input sets. Exact representation-degree normalization and an
+averaged singular-factor overlap bound give a defect multiplier \(17/16\),
+smaller than the available scale growth. We give the complete iteration
+and interpolation argument, identify the analytic inputs and their
+normalizations, and record the corresponding Lean declarations.
+The motivating conjectures assert that the seed \(\{2\}\) generates every
+prime, and that each odd-prime singleton generates every odd prime.
+The theorem applies to sufficiently rich finite seeds; neither conjecture
+is proved here.
+\end{abstract}
+
+\section{Introduction}
+
+Largest-prime-factor dynamics combines two operations with rather different
+behavior. Addition produces many values from a finite set; taking the largest
+prime factor merges many of those values into a single output. A large number
+of pairs therefore need not give a large number of distinct new primes.
+This paper studies an accumulating, branching system in which that collision
+problem can be controlled after a suitable finite density condition has
+been reached.
+
+Write \(P^{+}(n)\) for the largest prime factor of \(n>1\). For a finite
+set \(S\) of primes define
+\begin{equation}\label{eq:step}
+ \cT(S)=S\cup\{P^{+}(2(p+q)-1):p,q\in S\},
+ \qquad S_0=S,\quad S_{j+1}=\cT(S_j).
+\end{equation}
+Pairs are ordered when counted, although the set of outputs is unchanged
+by interchanging the two inputs. Diagonal pairs are always permitted.
+The generated closure is \(\Cl(S)=\bigcup_{j\ge0}S_j\).
+
+Our main result is a robust propagation theorem: a sufficiently dense
+finite prime prefix amplifies into density one, with a quantitative
+power-saving exceptional set. The robustness is important. We impose
+no independence assumption, no random model, and no residue-distribution
+hypothesis on the missing primes of the seed. Their effects are controlled
+jointly through an incidence matrix.
+
+\subsection{The motivating generation conjectures}\label{sec:conjectures}
+
+Let \(\PP\) denote the set of all primes. The original objective is
+complete prime generation, not merely relative density one.
+
+\begin{conjecture}[Generation from two]\label{conj:two}
+For the dynamics \eqref{eq:step},
+\[
+ \Cl(\{2\})=\PP.
+\]
+Equivalently, for every prime \(r\) there is a finite generation \(j\)
+with \(r\in S_j\) when \(S_0=\{2\}\).
+\end{conjecture}
+
+\begin{conjecture}[Generation from an odd prime]\label{conj:odd}
+For every odd prime \(p\),
+\[
+ \Cl(\{p\})=\PP\setminus\{2\}.
+\]
+The generation at which a target prime appears may depend on both the
+initial prime \(p\) and the target. Repeated inputs remain permitted at
+every generation.
+\end{conjecture}
+
+The missing prime \(2\) in Conjecture~\ref{conj:odd} is forced: every
+new output is odd. The odd-singleton conjecture also implies
+Conjecture~\ref{conj:two}. Indeed \(P^{+}(2(2+2)-1)=7\), and monotonicity
+of the closure gives
+\(\Cl(\{7\})\subseteq\Cl(\{2\})\).
+If Conjecture~\ref{conj:odd} holds even just for \(p=7\), this inclusion
+supplies all odd primes, while \(2\) is present initially.
+
+The density-amplification theorem below is a step toward these
+generation questions, rather than their replacement. Even proving dense
+entry from a singleton would leave a further gap: the resulting
+\(O(X^{79/80})\) exceptional set may contain infinitely many primes.
+Complete generation requires showing that each individual prime is
+eventually reached, including any primes left outside that density
+conclusion.
+
+\subsection{Related work and the scope of the contribution}
+
+Caragiu and Vicol studied prime magmas with operation
+\(P^{+}(ap+bq)\), including accumulation from all available pairs
+\cite{CV}. Their cyclicity questions and finite-generation examples are
+close in spirit, but their homogeneous operations are different from
+the affine operation in \eqref{eq:step}. Back and Caragiu considered
+greatest-prime-factor recurrences with two preceding inputs
+\cite{BC}; these are single trajectories, rather than branching
+closures. Neither comparison identifies an existing theorem about the
+specific closure studied here.
+
+The analytic setting also has substantial antecedents. Ramar\'e and
+Ruzsa developed additive results for dense subsets of sifted sequences
+using sieve methods \cite{RR}. Restriction estimates for sieve
+majorants provide another approach to additive questions in the primes
+\cite{GT}. Alsetri and Shao showed that even prime subsets with arbitrarily
+high global relative density can miss a positive proportion of even
+sums; they also established an almost-all binary Goldbach theorem under
+uniform relative-density conditions in reduced residue classes
+\cite{AS}. These results explain why a density-to-representation passage
+requires care. In particular, an unspecified \(o(X)\) exceptional set
+among integers is insufficient when the desired targets are indexed by
+only \(O(X/\log X)\) primes.
+
+The contribution here is the combination of canonical largest-prime
+ownership, a deletion estimate uniform over the actual missing input
+set, and iteration on the \emph{generated states}. The exponent \(79/80\)
+is inherited from a deliberately conservative analytic supply estimate;
+it is not asserted to be optimal. The character estimates used by the
+installed proof chain draw on the 2026 zero-free work of OpenAI
+\cite{OAI}. We distinguish that analytic source from the dynamical
+argument and state the exact estimate consumed below. We make no claim
+to a new zero-free region, a new Goldbach exponent, or a resolution of
+the small-seed reachability problem.
+
+\section{An informal explanation of the argument}\label{sec:informal}
+
+Imagine that the current set already contains almost every prime below a
+large number \(M\). We try to produce almost every prime in the next window,
+from \(M\) to roughly \(5M/4\). A target prime \(r\) will be produced if we
+can find two available primes whose sum is a carefully chosen even number.
+
+There are two choices for that even number. If \(r\) is \(3\) modulo \(4\),
+use \((r+1)/2\). Then the value before taking its largest prime factor is
+exactly \(r\). If \(r\) is \(1\) modulo \(4\), use \((3r+1)/2\). The value
+is then \(3r\), whose largest prime factor is again \(r\). Thus the
+multiplicative output question becomes a controlled pair of additive
+representation questions.
+
+Almost every target has many representations using the full prime prefix.
+Some of those representations can disappear because an input prime is
+missing from the current state. A crude argument charging each missing
+input separately loses too much. Instead we examine all failed targets
+together. If a target fails, every representing pair must touch a missing
+input. Cauchy--Schwarz converts that statement into an energy inequality.
+The diagonal part of this energy is known exactly after dividing each
+target row by its own representation count. The overlap between two
+different rows is bounded by a three-prime sieve and then averaged over
+the actual failed targets.
+
+This gives the key comparison. The number of holes at the next cutoff is
+at most \(17/16\) times the old number, plus a power-saving exceptional
+term and a logarithmic remainder. Meanwhile the cutoff grows by roughly
+\(5/4\). The holes therefore occupy a smaller and smaller fraction of the
+prime prefix. Once this vanishing fraction is available, the stronger
+power-saving recurrence can be used permanently. Its forcing term has
+size \(M^{79/80}\); geometric summation gives the same exponent for the
+holes themselves.
+
+Finally, a prime that is missing forever is missing at every finite
+generation. Choosing the first cutoff above an arbitrary \(X\) transfers
+the finite-generation bound to the permanently missing primes below
+\(X\). This last step matters: a bound only at a sparse sequence of
+cutoffs is not yet the advertised statement for every large \(X\).
+
+The argument begins \emph{after dense entry}. The fact that a small seed
+has many pairs, or behaves well modulo a few small primes, does not prove
+that it reaches this regime. The seed \(\{2\}\) remains the main unresolved
+instance for this method. Our ultimate target is the complete generation
+assertion in Conjecture~\ref{conj:two}, together with its odd-singleton
+counterpart, Conjecture~\ref{conj:odd}.
+
+\section{Definitions and main results}
+
+Let
+\[
+ \PP(M)=\{p\le M:p\text{ is prime}\},\qquad
+ W(M)=\PP(\floor{5M/4})\setminus\PP(M),
+ \qquad N(M)=\frac{M}{\log M}.
+\]
+All asymptotic statements concern positive integer \(M\) tending to
+infinity. Floors in cutoffs are retained. Define
+\begin{equation}\label{eq:cutoffs}
+ m_0=M,\qquad m_{j+1}=\floor{5m_j/4},\qquad
+ E_j=\card{\PP(m_j)\setminus S_j},\qquad \gamma=\frac{79}{80}.
+\end{equation}
+The iterated cutoffs \(m_j\) are distinct from the fixed entry threshold.
+
+\begin{theorem}[Power-saving propagation]\label{thm:main}
+There exist \(\eta>0\) and an integer \(M_{\mathrm{entry}}\ge8\) such that,
+for every \(M\ge M_{\mathrm{entry}}\) and every finite set \(S\) of primes
+satisfying
+\begin{equation}\label{eq:entry}
+ \card{\PP(M)\setminus S}\le\eta\frac{M}{\log M},
+\end{equation}
+there are \(K>0\) and an integer \(J\) for which
+\begin{equation}\label{eq:stage}
+ \card{\PP(m_j)\setminus S_j}\le K m_j^{79/80}
+ \qquad(j\ge J).
+\end{equation}
+In particular, for some \(K'>0\) and \(X_0\),
+\begin{equation}\label{eq:closure}
+ \card{\{r\le X:r\text{ prime},\ r\notin\Cl(S)\}}
+ \le K'X^{79/80}\qquad(X\ge X_0).
+\end{equation}
+The constants \(K,J,K',X_0\) may depend on the fixed seed and entry scale.
+The entry fraction and entry threshold precede the quantifiers over
+\(M\) and \(S\).
+\end{theorem}
+
+In fact the Lean statements allow an arbitrary finite set of natural
+numbers as the initial set: the defect counts only missing primes.
+We state the prime-seed specialization to keep the dynamical
+interpretation uniform.
+
+\begin{corollary}\label{cor:density}
+For every seed satisfying Theorem~\ref{thm:main},
+\[
+ \frac{\card{\Cl(S)\cap\PP(X)}}{\pi(X)}\longrightarrow1.
+\]
+Consequently \(\Cl(S)\) is infinite. The fraction of primes below \(X\)
+that remain unreachable is \(O_{S,M}(X^{-1/80}\log X)\).
+\end{corollary}
+
+\begin{proof}
+Divide \eqref{eq:closure} by \(\pi(X)\sim X/\log X\).
+Since \(X^{-1/80}\log X\to0\), the missing fraction tends to zero.
+An infinite number of primes is therefore reached.
+\end{proof}
+
+\begin{corollary}[Finite-stage appearance]\label{cor:time}
+Under the same hypotheses, all but \(O_{S,M}(X^{79/80})\) primes up to
+\(X\) are present after \(O_M(\log X)\) generations. The lower medians
+of the increasing finite prime sets \(S_j\) tend to infinity.
+\end{corollary}
+
+\begin{proof}
+For \(m\ge8\), \(\floor{5m/4}\ge9m/8\). The first index \(j\)
+with \(m_j\ge X\) is therefore at most
+\(\lceil\log(X/M)/\log(9/8)\rceil\) when \(X>M\).
+For sufficiently large \(X\), that index is at least \(J\), and
+\(m_j\le5X/4\). Apply \eqref{eq:stage}. To prove the median assertion,
+fix \(B\). There are at most \(\pi(B)\) primes at most \(B\).
+The sets \(S_j\) are nested and their union is infinite, so their
+cardinalities tend to infinity. Eventually more than half their elements
+exceed \(B\).
+\end{proof}
+
+The two corollaries above are ordinary mathematical consequences of the
+formalized main theorem and the prime number theorem. They are not
+advertised as separate Lean declarations in this release.
+
+\section{Canonical prime targets and exact deletion}
+
+For an odd prime \(r\), put
+\begin{equation}\label{eq:targets}
+ c_r=\begin{cases}1&r\equiv3\pmod4,\\3&r\equiv1\pmod4,\end{cases}
+ \qquad t_r=\frac{c_rr+1}{2}.
+\end{equation}
+Then \(t_r\) is even and \(2t_r-1=c_rr\). Since every prime factor of
+\(c_r\) is at most \(r\), we have \(P^{+}(c_rr)=r\). Therefore
+\begin{equation}\label{eq:target-production}
+ p+q=t_r,\quad p,q\in S\quad\Longrightarrow\quad r\in\cT(S).
+\end{equation}
+This includes \(p=q\).
+
+For a finite prime set \(P\) and an even integer \(t\), define the
+\emph{ordered} representation degree
+\[
+ R_P(t)=\card{\{p\in P:t-p\in P\}},
+\]
+where subtraction is interpreted only when \(p\le t\).
+Every representation is counted by its first input; a diagonal
+representation contributes once. Write \(R_P(r)=R_P(t_r)\) when the
+target prime is clear. For \(D=P\setminus S\), the absence of a
+representation with both inputs in \(S\) implies
+\begin{equation}\label{eq:half-deleted}
+ R_P(r)\le2\card{\{p\in D:t_r-p\in P\}}.
+\end{equation}
+Indeed the involution \(p\mapsto t_r-p\) pairs the representations;
+every pair meets \(D\). The same inequality is valid at a fixed point
+of the involution, so no diagonal correction is discarded.
+
+\begin{lemma}[Distinct targets]\label{lem:injective}
+For \(M\ge3\), the map \(r\mapsto t_r\) is injective on \(W(M)\).
+\end{lemma}
+\begin{proof}
+Within either residue branch this is immediate. An equality across
+branches would give \(r=3s\) or \(s=3r\), whereas both targets lie in
+\((M,5M/4]\). Their ratio is less than \(5/4\), so this is impossible.
+\end{proof}
+
+We use the finite divisor factor
+\begin{equation}\label{eq:sigma}
+ \sig(n)=\prod_{\substack{\ell\mid n\\\ell\text{ prime},\,\ell\ge3}}
+       \left(1+\frac1{\ell-2}\right),\qquad \sig(1)=1.
+\end{equation}
+Only nonzero differences occur when \(\sig(|t_r-t_s|)\) is used.
+The two normalizations in the proof have different roles:
+\(\sig(t_r)^{-1}\) removes the arithmetic factor from a supply or sieve
+bound, while \(R_P(r)^{-1}\) makes each target row have mass exactly one.
+
+\section{The analytic representation supply}\label{sec:source}
+
+We state the quantitative inputs with their ranges and normalizations.
+They are proved in the maintained Lean source, rather than introduced
+as new assumptions of Theorem~\ref{thm:main}.
+
+\subsection{Character input and the complete error}
+
+The centered character estimate consumed by the major-arc calculation is
+\begin{equation}\label{eq:char}
+ \left|\sum_{n\le x}\Lambda(n)\chi(n)
+       -x\,\mathbf1_{\chi=\chi_0}\right|
+ \le A x^{15/16}
+       (1+\log q+\log(x+2))^2
+ \qquad(x\ge65536).
+\end{equation}
+Here one constant \(A>0\) precedes every modulus \(q\ge1\), character
+\(\chi\bmod q\), and prefix \(x\). The principal character includes the
+finite Euler-factor correction in the proof. The nonprincipal branch
+uses the installed \(7/8\) character estimate, while the principal
+branch is relaxed to \(15/16\). The formal owner is
+\lean{QRH.exists_all_characterChebyshevSum_power_bound}.
+The zero-free theorem in \cite{OAI} is part of the analytic provenance;
+we use the quantitative estimate \eqref{eq:char}, not a bare
+zero-free statement with an unstated uniformity inference.
+
+For an integer interval \(I=(s,s+L]\), let
+\[
+ V_I(t)=\sum_{\substack{a,b\in I\\a+b=t}}\Lambda(a)\Lambda(b),
+ \qquad
+ H_I(t)=\card{\{(a,b)\in I^2:a+b=t\}}.
+\]
+Use the standard binary Goldbach singular series
+\[
+ \mathfrak S(t)=
+ \begin{cases}
+ 2\displaystyle\prod_{\ell>2}\left(1-\frac1{(\ell-1)^2}\right)\sig(t),
+       &t\text{ even},\\
+ 0,&t\text{ odd}.
+ \end{cases}
+\]
+The error is centered at the \emph{infinite} series:
+\(\mathcal E_I(t)=V_I(t)-H_I(t)\mathfrak S(t)\).
+
+\begin{lemma}[Complete fixed-interval error]\label{lem:source-error}
+There is \(A_1>0\) such that, for every integer \(M\ge2^{18}\), every
+interval with
+\[
+ M/4\le s,\quad s+L\le2M,\quad L\le M,
+\]
+and every \(T\subseteq\{1,\ldots,2M\}\),
+\begin{equation}\label{eq:source-error}
+ \sum_{t\in T}|\mathcal E_I(t)|^2\le A_1 M^{239/80}.
+\end{equation}
+The constant is uniform in the interval and target set.
+\end{lemma}
+
+Here is the error accounting behind this bound. Choose an integer
+\(P\) with
+\(\tfrac12M^{1/40}\le P\le M^{1/40}\).
+The cyclic grid in the formal proof has a period \(N>2M\), divisible
+by \(M\) and every \(q\le P\); one may enlarge such a period to ensure
+\(s+L<N\). Consequently neither the interval nor the target set wraps
+around the grid. Inverse Fourier inversion gives the exact identity
+\begin{equation}\label{eq:four}
+ \mathcal E_I(t)=\mathcal E_{\mathrm{maj}}(t)
+   +\mathcal E_{\mathrm{min}}(t)+\mathcal E_{\mathrm{ker}}(t)
+   +H_I(t)(\mathfrak S_P(t)-\mathfrak S(t)).
+\end{equation}
+The kernel packet retains the interval weights; the last packet retains
+the actual pair count. Neither is replaced by an unweighted tail.
+
+For completeness, the squared packet budgets used in the proof, with
+\(L_M=1+\log(2M)\), are bounded by constants times
+\begin{align}
+ &(8K^2(1+\log M)^4+6K^4(1+\log M)^8)M^{119/40},
+                                      &&\text{major},\label{eq:maj}\\
+ &C M^{1/160}(M^3/P+M^{13/5})L_M^9,
+                                      &&\text{minor},\label{eq:min}\\
+ &B M^{481/160}/P^2,                   &&\text{kernel},\label{eq:ker}\\
+ &D M^{481/160}/P,                     &&\text{series tail}.\label{eq:tail}
+\end{align}
+All four constants are positive and independent of \(M,N,I,T\).
+The major bound uses \eqref{eq:char} after the character expansion at
+reduced rational frequencies. The minor bound uses the installed
+Vaughan decomposition and its mean-square estimate. The last two
+bounds use Fourier inversion for the interval kernel and divisor
+moment bounds for the singular tail. The exact finite Fourier
+identities and the four estimates have separate formal owners listed
+in Appendix~\ref{app:formal}; thus an overlap or kernel error is not
+hidden inside an unspecified error term.
+
+\begin{proof}[Proof of Lemma~\ref{lem:source-error} from the packet bounds]
+Apply \(|u_1+\cdots+u_4|^2\le4\sum_i|u_i|^2\) to
+\eqref{eq:four} and sum over the same target set.
+Substituting \(P\asymp M^{1/40}\) in \eqref{eq:maj}--\eqref{eq:tail}
+bounds the result by
+\[
+ A_2 M^{477/160}(1+\log(2M))^9.
+\]
+For example, the minor term \(M^{1/160}M^3/P\) has exponent
+\(477/160\), the kernel term has exponent \(473/160\), and the series
+tail again has exponent \(477/160\). The other terms are smaller.
+The elementary uniform bound
+\[
+ (1+\log(2M))^9\le1442^9 M^{1/160}\qquad(M\ge1)
+\]
+absorbs the remaining logarithms. Since \(478/160=239/80\),
+\eqref{eq:source-error} follows. The formal proof constructs \(P\)
+by an integer cutoff and includes the factor-two rounding bounds.
+\end{proof}
+
+The packet estimates are analytic library results, with their own proofs
+in the companion formal development. The elementary argument above
+records their complete consumer; it does not purport to reprove the
+underlying character and minor-arc theorems from first principles.
+
+\subsection{Supply on the two canonical branches}
+
+\begin{proposition}[Positive supply]\label{prop:supply}
+There is \(C_{\mathrm{src}}>0\) such that, for every \(M\ge2^{44}\),
+there is \(Z_M\subseteq W(M)\) with
+\[
+ \card{Z_M}\le C_{\mathrm{src}}M^{79/80}
+\]
+and, for every \(r\in W(M)\setminus Z_M\),
+\begin{equation}\label{eq:supply}
+ \frac{R_{\PP(M)}(r)}{\sig(t_r)}
+ \ge a\frac{M}{\log^2 M},\qquad a=\frac{63}{1024}.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+For the branch \(r\equiv1\pmod4\), use the fixed input interval
+\((\lceil M/4\rceil,M]\). For \(r\equiv3\pmod4\), use the analogous
+interval at scale \(\floor{M/2}\). Both inputs are at most \(M\).
+The interval-pair geometry, with all integer endpoints retained, gives
+the positive comparison underlying
+\[
+ V_I(t_r)\ge \frac1{16}M\sig(t_r)
+\]
+outside an exceptional set. To see the size of that set, a failure of
+this lower bound gives a fixed positive multiple of \(M\sig(t_r)\)
+in the error \(\mathcal E_I(t_r)\). Since \(\sig(t_r)\ge1\),
+\eqref{eq:source-error} and Chebyshev's inequality bound the number
+of failures by
+\[
+ O(M^{239/80}/M^2)=O(M^{79/80}).
+\]
+The map in Lemma~\ref{lem:injective} prevents a multiplicity loss when
+passing from even targets to primes. The two interval branches are
+counted together in the constant.
+
+The weights \(\Lambda(a)\Lambda(b)\) include prime powers. Their
+total unwanted contribution is at most
+\(4\sqrt M\log^2 M\); the explicit comparison at \(M\ge2^{44}\)
+bounds this by \(M/1024\). After discarding prime powers, each
+remaining weight is at most \(\log^2M\).
+Using \(\sig(t_r)\ge1\), the remaining weighted supply is at least
+\[
+ \left(\frac1{16}-\frac1{1024}\right)M\sig(t_r)
+   =\frac{63}{1024}M\sig(t_r).
+\]
+Division by \(\log^2M\) proves \eqref{eq:supply}.
+The finite interval geometry and exceptional-set comparison are
+formalized in \lean{LPFWideSource}; the prime-power subtraction is
+performed before the conversion to ordered prime representations.
+\end{proof}
+
+The endpoint \(2^{44}\) is a source-conversion cutoff. It is not the
+entry threshold of Theorem~\ref{thm:main}.
+
+\section{Uniform deletion control}\label{sec:deletion}
+
+Put \(P=\PP(M)\), \(D=P\setminus S\), \(E=\card D\), and
+\(G=W(M)\setminus Z_M\). For \(r\in G\), let
+\[
+ w_r(p)=\frac{\mathbf1_{\{p\in P,\ t_r-p\in P\}}}{R_P(r)}.
+\]
+By \eqref{eq:supply}, every denominator is positive. The row sums
+are exactly one, and their diagonal energies satisfy
+\begin{equation}\label{eq:self}
+ \sum_{p\in P}w_r(p)=1,\qquad
+ \sum_{p\in P}w_r(p)^2=\frac1{R_P(r)}
+       \le U,\qquad U=\frac{\log^2M}{aM}.
+\end{equation}
+
+The three-prime upper sieve and exact normalization give, for distinct
+\(r,s\in G\),
+\begin{equation}\label{eq:cross}
+ \sum_{p\in P}w_r(p)w_s(p)
+ \le V\sig(|t_r-t_s|),\qquad
+ V=\frac{C_3(M/\log^3M)}{(aM/\log^2M)^2}.
+\end{equation}
+The arithmetic factors \(\sig(t_r)\sig(t_s)\) in the unnormalized
+sieve bound are divided out before applying the source lower bounds.
+Using only a pointwise bound on the separation factor would be too
+expensive.
+
+\begin{lemma}[Averaged overlap]\label{lem:overlap}
+There is \(C_{\mathrm{ov}}>0\) such that, for every sufficiently
+large \(M\) and every \(B\subseteq W(M)\) of size
+\(b\ge M/\log^4M\),
+\begin{equation}\label{eq:overlap}
+ \sum_{r\in B}\sum_{\substack{s\in B\\s\ne r}}
+       \sig(|t_r-t_s|)
+ \le C_{\mathrm{ov}}b^2
+       \log\!\left(3+\log\frac{N(M)}b\right).
+\end{equation}
+\end{lemma}
+
+The formal proof obtains a uniform high-moment bound for the
+separation factor and applies H\"older with
+\(q=\lceil\log(N(M)/b)\rceil\). In the stated range,
+\(q\ll\log\log M\), \(b\le N(M)/2\) for large \(M\), and the
+moment estimate costs \(O(\log(q+2))\). This gives precisely the
+double logarithm in \eqref{eq:overlap}. Both residue branches and
+the omitted diagonal are retained. The lemma is
+\lean{exists_uniform_primeTarget_overlap}; it is uniform over
+the subset \(B\), which is essential for generated states.
+
+\begin{lemma}[Joint failed-target bound]\label{lem:joint}
+Let \(B=G\setminus\cT(S)\), \(b=\card B\), and suppose
+\(b\ge M/\log^4M\). If
+\begin{equation}\label{eq:absorb}
+ 8EVC_{\mathrm{ov}}\log\!\left(3+\log\frac{N(M)}b\right)\le1,
+\end{equation}
+then \(b\le8EU\).
+\end{lemma}
+
+\begin{proof}
+By \eqref{eq:half-deleted}, each failed target satisfies
+\(1\le2\sum_{p\in D}w_r(p)\). Sum over \(B\) and apply
+Cauchy--Schwarz:
+\[
+ b^2\le4E\sum_{p\in D}\left(\sum_{r\in B}w_r(p)\right)^2
+ \le4E\sum_{p\in P}\left(\sum_{r\in B}w_r(p)\right)^2.
+\]
+Expanding the square, \eqref{eq:self}, \eqref{eq:cross}, and
+\eqref{eq:overlap} bound the last sum by
+\[
+ bU+b^2VC_{\mathrm{ov}}\log\!\left(3+\log\frac{N(M)}b\right).
+\]
+Move the second contribution to the left using \eqref{eq:absorb}.
+This gives \(b^2/2\le4EbU\). Since \(b>0\), divide by \(b/2\).
+This is a joint estimate; no distribution model for \(D\) was used.
+\end{proof}
+
+\begin{proposition}[Row-normalized recurrence]\label{prop:recurrence}
+For each \(a>0\), there is \(\eta_a>0\) such that, for every sufficiently
+large \(M\), every finite set \(S\), and every exceptional set \(Z\)
+satisfying \eqref{eq:supply} on \(W(M)\setminus Z\),
+\[
+ E\le\eta_a N(M)\quad\Longrightarrow\quad
+ \card{\PP(\floor{5M/4})\setminus\cT(S)}
+ \le\frac{17}{16}E+\card Z+\frac{8\eta_a}{a}\log M.
+\]
+\end{proposition}
+
+\begin{proof}
+Write \(F=M/\log^4M\) and again let \(b\) count the good new targets
+that fail. We prove
+\begin{equation}\label{eq:b}
+ b\le E/16+(8\eta_a/a)\log M.
+\end{equation}
+There is nothing to prove when \(b<E/16\). Otherwise
+\(b\ge E/16\). Put \(d=E/N(M)\) and \(z=N(M)/b\).
+If \(E>0\), then \(0<d\le\eta_a\) and \(1\le z\le16/d\).
+The elementary limit
+\[
+ d\log(3+\log(16/d))\longrightarrow0\qquad(d\downarrow0)
+\]
+allows \(\eta_a\) to be chosen so small that
+\[
+ 8d(C_3C_{\mathrm{ov}})\log(3+\log z)\le a^2
+ \quad(0<d\le\eta_a,\ 1\le z\le16/d).
+\]
+After substituting \(V\), this is exactly \eqref{eq:absorb}.
+Thus, if also \(b\ge F\), Lemma~\ref{lem:joint} gives
+\[
+ b\le8EU\le (8\eta_a/a)\log M.
+\]
+When \(E=0\), the half-deleted inequality already forces \(b=0\).
+
+It remains to handle \(0<b<F\). Choose any failed good target.
+Its supply and \eqref{eq:half-deleted}, together with
+\(\sig(t_r)\ge1\), imply
+\(aM/\log^2M\le2E\).
+Decrease \(\eta_a\), if necessary, so that
+\(64\eta_a\le a\) and \(64\eta_a\le a^2\).
+Combining the supply with \(E\le\eta_a M/\log M\) gives
+\(a\le2\eta_a\log M\), hence \(a\log^2M\ge32\).
+Consequently
+\[
+ F=\frac{M}{\log^4M}\le
+ \frac{aM}{32\log^2M}\le E/16.
+\]
+This proves \eqref{eq:b} in the small-\(b\) case as well.
+
+An old hole contributes at most \(E\), an exceptional new target at
+most \(\card Z\), and a failed good target at most \(b\). Thus
+\[
+ \card{\PP(\floor{5M/4})\setminus\cT(S)}\le E+\card Z+b.
+\]
+Use \eqref{eq:b}. This retains all old holes; it does not assume they
+are healed.
+\end{proof}
+
+\begin{corollary}[Complete one-step estimate]\label{cor:onestep}
+There exist \(C,D,\eta_{\mathrm{pow}}>0\) and a scale threshold such
+that, for every larger \(M\) and every finite \(S\) with
+\(E\le\eta_{\mathrm{pow}}N(M)\),
+\begin{equation}\label{eq:onestep}
+ \card{\PP(\floor{5M/4})\setminus\cT(S)}
+ \le\frac{17}{16}E+CM^{79/80}+D\log M.
+\end{equation}
+\end{corollary}
+\begin{proof}
+Use Proposition~\ref{prop:supply} in
+Proposition~\ref{prop:recurrence}, and take
+\(D=8\eta_{\mathrm{pow}}/a\).
+The installed library also provides a proof through its earlier
+logarithmic deletion recurrence; either version has exactly the
+form \eqref{eq:onestep}.
+\end{proof}
+
+\section{Iteration: density zero and the \(79/80\) bound}\label{sec:iteration}
+
+We first record why entry leads to vanishing relative defect.
+This intermediate step lets us use independently selected small
+density constants without identifying them.
+
+\begin{lemma}[Vanishing defect after entry]\label{lem:zero}
+There are \(\eta_{\mathrm{ent}}>0\) and \(M_{\mathrm{ent}}\) such that
+\eqref{eq:entry} with these constants implies
+\[
+ \frac{E_j}{m_j/\log m_j}\longrightarrow0.
+\]
+\end{lemma}
+
+\begin{proof}
+Since \(\gamma<1\), the source exception satisfies
+\(CM^\gamma=O(M/\log^4M)\). The logarithmic remainder is also
+\(O(M/\log^4M)\). Hence for some fixed \(C_0>0\), the complete
+one-step inequality in its applicable density range gives
+\[
+ E_{j+1}\le\lambda E_j+C_0F_j,\quad
+ \lambda=17/16,\quad F_j=m_j/\log^4m_j.
+\]
+For sufficiently large starting \(M\), both
+\(N_j=m_j/\log m_j\) and \(F_j\) grow by at least \(9/8\)
+at each step. Choose \(\eta_{\mathrm{ent}}\) within the permitted
+density range and then take \(M_{\mathrm{ent}}\) large enough
+that \(C_0F_j\le\eta_{\mathrm{ent}}N_j/16\) throughout the
+increasing cutoff sequence. Induction gives
+\(E_j\le\eta_{\mathrm{ent}}N_j\), so every application of the
+recurrence is justified.
+
+Iteration, using \(F_{j+1}\ge(9/8)F_j\), gives
+\[
+ E_j\le\lambda^jE_0+16C_0F_j.
+\]
+For example, the inductive step is valid because
+\(16C_0(9/8-\lambda)=C_0\).
+Divide by \(N_j\). The first term is bounded by
+\((17/18)^j E_0/N_0\), and the second is
+\(16C_0/\log^3m_j\). Both tend to zero. Floors cause no
+difficulty because all the scale comparisons hold beyond a
+single fixed threshold.
+\end{proof}
+
+\begin{lemma}[Power growth]\label{lem:powergrowth}
+For \(M\ge8\), the cutoffs \eqref{eq:cutoffs} satisfy
+\[
+ m_j\ge M,\qquad
+ \left\lfloor\frac{5m_j}{4}\right\rfloor\ge\frac98m_j,\qquad
+ m_{j+1}^{\gamma}\ge\frac{13}{12}m_j^\gamma.
+\]
+\end{lemma}
+\begin{proof}
+The first assertion follows inductively. For an integer \(m\ge8\),
+the floor error in \(5m/4\) is at most \(3/4\), and the stated
+\(9/8\) lower bound follows. Finally,
+\[
+ \left(\frac{13}{12}\right)^4<
+ \left(\frac98\right)^3,\qquad
+ \gamma=\frac{79}{80}\ge\frac34.
+\]
+Taking fourth roots and then using monotonicity in the exponent gives
+\((9/8)^\gamma\ge13/12\). Raise the cutoff comparison to
+the positive power \(\gamma\).
+\end{proof}
+
+\begin{lemma}[Eventual recurrence with a growing forcing scale]
+\label{lem:abstract}
+Suppose \(F_j>0\), \(F_{j+1}\ge(13/12)F_j\) for every \(j\), and,
+for all \(j\ge J\),
+\[
+ E_{j+1}\le(17/16)E_j+C_1F_j.
+\]
+Then there is \(K>0\) such that \(E_j\le KF_j\) for every \(j\ge J\).
+One may take
+\[
+ K=\max\{1,E_J/F_J,48C_1\}.
+\]
+\end{lemma}
+\begin{proof}
+At \(j=J\) this is the definition of \(K\). Since
+\(13/12-17/16=1/48\), we have \(C_1\le K/48\). Thus
+\[
+ E_{j+1}\le\left(\frac{17}{16}K+C_1\right)F_j
+ \le\frac{13}{12}KF_j\le KF_{j+1}.
+\]
+Induction proves the result. No recurrence before \(J\) is required.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}: the actual generations]
+Choose entry constants from Lemma~\ref{lem:zero}, and increase the
+threshold to at least \(8\). Fix \(M,S\) satisfying entry.
+Apply Corollary~\ref{cor:onestep}, whose density constant
+\(\eta_{\mathrm{pow}}\) need not equal the entry constant.
+Lemma~\ref{lem:zero} implies \(E_j\le\eta_{\mathrm{pow}}N(m_j)\)
+eventually. Also \(m_j\to\infty\). Thus the complete power recurrence
+\eqref{eq:onestep} applies to the actual set \(S_j\) for every
+sufficiently large \(j\).
+
+For \(X>0\), the elementary inequality \(\log X\le2X^\gamma\)
+follows from \(\log(X^\gamma)\le X^\gamma-1\).
+Hence eventually
+\[
+ E_{j+1}\le\frac{17}{16}E_j+(C+2D)m_j^\gamma.
+\]
+Set \(F_j=m_j^\gamma\). Lemmas~\ref{lem:powergrowth}
+and \ref{lem:abstract} prove \eqref{eq:stage}.
+This step keeps the seed fixed while the generation grows; a different
+seed is not selected at each scale.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}: arbitrary cutoffs]
+Fix \(K,J\) from \eqref{eq:stage}. Given \(X>m_J\), choose the first
+\(j\) such that \(X\le m_j\). Monotonicity gives \(j\ge J\), while
+minimality gives \(m_{j-1}<X\) and
+\[
+ m_j=\floor{5m_{j-1}/4}\le5X/4.
+\]
+Every permanently missing prime at most \(X\) belongs to
+\(\PP(m_j)\setminus S_j\). Therefore
+\[
+ \card{\PP(X)\setminus\Cl(S)}
+ \le E_j\le Km_j^\gamma\le K(5/4)^\gamma X^\gamma.
+\]
+Take \(K'=K(5/4)^\gamma\). This proves \eqref{eq:closure}
+for all sufficiently large integer \(X\).
+\end{proof}
+
+\section{Birth layers, exact cancellation, and what remains open}
+\label{sec:birth}
+
+The previous results begin with a nearly complete prime prefix.
+For small-seed growth one must show that a significant part of the
+representation mass produces \emph{distinct new owners}.
+The development contains exact tools for that question, but not the
+needed positive lower bound.
+
+Let \(A,S\) be finite prime sets with \(\cT(A)\subseteq S\), and let
+\(B\) be any finite set of prime targets \(r\ge3\) outside \(S\).
+Then
+\begin{equation}\label{eq:cancel}
+ R_A(r)=0\qquad(r\in B).
+\end{equation}
+Otherwise a representation from \(A\) would put \(r\) in
+\(\cT(A)\subseteq S\). Thus for every real \(\beta\),
+\[
+ \frac{R_S(r)-\beta R_A(r)}{\sig(t_r)}
+   =\frac{R_S(r)}{\sig(t_r)}\qquad(r\in B).
+\]
+This is exact birth-layer cancellation, not an independence heuristic.
+
+If \(S\subseteq\PP(M)\) and \(M\ge5^8\), the two-prime upper sieve gives
+\[
+ 0\le w_r:=R_S(r)/\sig(t_r)\le
+ H(M):=C_2M/\log^2M.
+\]
+Writing \(W_B=\sum_{r\in B}w_r\), one obtains
+\begin{equation}\label{eq:energy}
+ \sum_{r\in B}
+ \left(\frac{R_S(r)-\beta R_A(r)}{\sig(t_r)}\right)^2
+ \le H(M)W_B.
+\end{equation}
+Indeed \eqref{eq:cancel} reduces each summand to \(w_r^2\le H(M)w_r\).
+Since a positive \(w_r\) produces \(r\), this also yields
+\begin{equation}\label{eq:newcount}
+ W_B\le H(M)\card{B\cap(\cT(S)\setminus S)}.
+\end{equation}
+For actual consecutive generations take \(A=S_{j-1}\) and \(S=S_j\).
+
+These inequalities control the energy in terms of the fresh mass.
+They do not prove that \(W_B\) is positive or grows along the orbit
+from \(\{2\}\). In particular, an upper bound such as
+\eqref{eq:energy} cannot be substituted for the lower bound needed in
+\eqref{eq:newcount}. The open small-seed problem is to obtain a
+usable joint newness/collision estimate that supplies enough fresh
+mass to reach a certified density region.
+
+\subsection{The role of the prime \(2\)}
+
+For prime inputs, \(2(p+q)-1\) is odd and at least \(7\), so its largest
+prime factor is odd. Thus \(2\) is never created and must be included
+if the intended closure is to contain every prime. Monotonicity of
+\(\cT\) gives the seed-inclusion reductions used in the implementation.
+The diagonal from \(p\) produces \(P^{+}(4p-1)\); it is available at
+every generation. For instance, \(\{3\}\) is not closed: the first
+diagonal produces \(11\), then the diagonal from \(11\) produces \(43\).
+
+\section{Finite verification and quantitative scope}\label{sec:finite}
+
+The repository contains a kernel-checked finite certificate
+\[
+ \PP(10000)\subseteq S_9\qquad\text{for }S_0=\{2\}.
+\]
+Its public owner is
+\lean{inputPrimePrefix_10000_subset_fullOrbit_two_9}.
+This proves the displayed finite inclusion. It does not bridge the
+entry threshold in Theorem~\ref{thm:main}.
+
+There is also a separate explicit density-preservation theorem.
+Writing \(\eta_{\mathrm{cert}}\) for the installed certified fraction,
+one has \(\eta_{\mathrm{cert}}\ge2^{-600}\), and
+\[
+ M\ge2^{49152},\quad
+ \card{\PP(M)\setminus S}\le\eta_{\mathrm{cert}}\frac M{\log M}
+ \ \Longrightarrow\
+ \card{\PP(\floor{7M/6})\setminus\cT(S)}
+ \le\eta_{\mathrm{cert}}\frac{\floor{7M/6}}{\log\floor{7M/6}}.
+\]
+This statement uses expansion factor \(7/6\), not \(5/4\).
+It provides a conservative explicit preservation range, not a numerical
+value for the eventual threshold of the new \(79/80\) theorem.
+The source cutoff \(2^{44}\), the preservation cutoff \(2^{49152}\),
+and the finite certificate at \(10000\) have different consumers.
+
+The strongest completed dynamical conclusion is therefore the
+power-saving theorem for sufficiently dense finite seeds.
+A precise next target is to prove that some actual generation from
+\(\{2\}\) satisfies a fully certified entry condition, or to derive a
+growth-and-density bootstrap that establishes such entry. Neither a
+finite diagnostic nor the density result for all prime-pair inputs
+settles that target. Dense entry is an intermediate milestone toward
+Conjectures~\ref{conj:two} and \ref{conj:odd}; it would not by itself
+remove every exceptional prime.
+
+\subsection{Affine and higher-arity generation questions}
+\label{sec:extensions}
+
+The broader proposed programme concerns fixed integers
+\[
+ a\ge1,\qquad b\in\mathbb Z,\qquad m\ge2.
+\]
+For a nonempty finite prime seed \(S\), define
+\[
+ \begin{aligned}
+ \cT_{a,b,m}(S)=S\cup\bigl\{
+ &P^{+}(\lvert a(p_1+\cdots+p_m)+b\rvert):
+       (p_1,\ldots,p_m)\in S^m,\\
+ &\lvert a(p_1+\cdots+p_m)+b\rvert>1
+ \bigr\}.
+ \end{aligned}
+\]
+Let \(\Cl_{a,b,m}(S)\) be its increasing iterated closure. Tuples may
+repeat inputs; permutations and repeated representations do not create
+multiple copies of an output prime. The absolute value and the exclusion
+of \(0,\pm1\) specify the convention when \(b\) is negative.
+The present operator is the case \((a,b,m)=(2,-1,2)\).
+
+We conjecture that complete prime-generation phenomena extend to suitable
+affine parameters and to sums of more than two prime inputs, with
+appropriate restrictions on the seed and target primes. A precise
+classification of those parameters and restrictions remains open.
+This is a proposed extension, not a theorem covering all triples.
+
+Some necessary restrictions are immediate. If a prime \(\ell\mid a\)
+does not divide \(b\), then every pre-factorization value is nonzero
+modulo \(\ell\). Consequently \(\ell\) can belong to the closure only
+if it is already in the seed. For example, \(a=2,b=-1\) excludes the
+creation of \(2\) at every arity. When all available inputs are odd,
+the value before factorization has parity \(am+b\); this must also
+be retained when formulating a candidate generation statement.
+A fixed divisor, on the other hand, is not necessarily the largest
+prime factor, so divisibility alone does not identify the output support.
+
+Congruence restrictions do not exhaust the possible degeneracies.
+For \((a,b,m)=(1,0,2)\), every prime singleton is closed, since
+\(P^{+}(p+p)=p\). Thus one cannot simply assert universal generation
+for every affine map after mentioning modulus caveats.
+The general problem is to determine which non-degenerate maps and seeds
+generate every target prime compatible with their arithmetic restrictions,
+and then prove individual reachability for those cases.
+
+The canonical-owner reduction has a direct higher-arity form. For a
+target prime \(r\), it is sufficient to find \(h\ge1\), all of whose prime
+factors are at most \(r\), and available inputs satisfying
+\[
+ a(p_1+\cdots+p_m)+b=hr.
+\]
+Then the largest prime factor is exactly \(r\). If all inputs are odd,
+the sum must be congruent to \(m\) modulo \(2\). In the subfamily
+\((a,b)=(2,-1)\), this requires
+\[
+ hr\equiv2m-1\pmod4.
+\]
+For every odd prime \(r\), one of \(h=1\) and \(h=3\) satisfies this
+congruence, and its prime factors are at most \(r\). This removes the
+elementary parity obstruction to that owner representation; it does
+not establish the required additive representation from a generated
+state. The higher-arity direction therefore preserves the distinction
+between an arithmetic compatibility check and an actual reachability proof.
+
+\appendix
+\section{Formal statements and verification map}\label{app:formal}
+
+The maintained proof uses Windows Lean \(4.34.0\), the repository's
+pinned Mathlib environment, and released dependency artifacts.
+Dependencies are reused from their existing caches. The main theorem
+has no RH, Goldbach, mixing, or small-seed-entry hypothesis.
+Its substantive seed hypothesis is precisely \eqref{eq:entry}.
+The analytic facts used to discharge supply and overlap belong to the
+transitive proof dependency closure.
+
+The following names are relative to
+\lean{PrimeFactorOscillations.LPF}, except for the final public consumer.
+Long implementation paths are listed by module stem to keep the table readable.
+
+\small
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.30\textwidth}>{\raggedright\arraybackslash}p{0.65\textwidth}@{}}
+\toprule
+Mathematical item & Maintained owner or declaration\\
+\midrule
+\endhead
+Full dynamics with diagonals &
+\lean{LPFDynamics}: \lean{fullStep}, \lean{fullOrbit}. The older
+\lean{step} and \lean{orbit} definitions exclude diagonals and are
+not the dynamics of this paper.\\[3pt]
+Canonical ownership &
+\lean{LPFJointTransfer}: \lean{primeTarget_lift},
+\lean{primeTarget_owner}, \lean{primeTarget_injective_window}.\\[3pt]
+Uniform character prefix &
+\lean{LPFCharacterPrefix}: namespace \lean{QRH},
+\lean{exists_all_characterChebyshevSum_power_bound}.\\[3pt]
+Four-packet source identity and budget &
+\lean{LPFFixedSourceBudget}: \lean{lpf_fixed_source_four_packet_budget};
+\lean{LPFSourcePower}: \lean{lpf_fixed_source_power_bound}.\\[3pt]
+Positive representation supply &
+\lean{LPFWideSource}:
+\lean{exists_wide_primeTarget_supply_power_explicit}.\\[3pt]
+Subset-uniform overlap &
+\lean{LPFPrimeTargetOverlap}:
+\lean{exists_uniform_primeTarget_overlap}.\\[3pt]
+Row normalization and deletion &
+\lean{LPFRowNormalization}:
+\lean{primeTargetWeight_self_exact},
+\lean{exists_dense_fullStep_prefix_row_normalized_recurrence}.\\[3pt]
+Complete power/log recurrence &
+\lean{LPFPositiveSupply}:
+\lean{exists_fullStep_dense_power_log_bound_from_wide_source}.\\[3pt]
+Vanishing relative defect &
+\lean{LPFDenseDensity}:
+\lean{exists_fullOrbit_dense_density_zero}, with its representation
+premise discharged by \lean{exists_wide_primeTarget_supply_log}.\\[3pt]
+Actual-generation \(79/80\) theorem &
+\lean{LPFDensePower}:
+\lean{exists_fullOrbit_dense_power_bound}.\\[3pt]
+All-cutoff closure theorem &
+\lean{LPFDensePower}:
+\lean{fullOrbitMissingPrimes},
+\lean{exists_fullOrbit_dense_closure_power_bound}.\\[3pt]
+Public implementation consumer &
+\lean{Solution.lean}:
+\lean{PrimeFactorOscillations.publicLPFDenseClosurePowerBound}.\\[3pt]
+Fresh-owner energy and mass &
+\lean{LPFWeightedCanonicalEnergy}:
+\lean{fresh_birth_energy_upper}, \lean{fresh_mass_bound}.\\[3pt]
+Finite seed certificate &
+\lean{LPFFiniteEntry.Result}:
+\lean{inputPrimePrefix_10000_subset_fullOrbit_two_9}.\\[3pt]
+Separate explicit preservation &
+\lean{LPFNumericalPreservation}:
+\lean{lpf_density_preservation_numerical_cutoff}.\\
+\bottomrule
+\end{longtable}
+\normalsize
+
+The closure statement is formalized over integer cutoffs. In readable
+quantifier form it says
+\[
+\begin{aligned}
+ &\exists\eta>0\ \ \forall M\text{ sufficiently large}\ \ \forall S,\\
+ &\quad \card{\PP(M)\setminus S}\le\eta M/\log M\\
+ &\qquad\Longrightarrow\
+   \exists K>0\ \ \forall X\text{ sufficiently large},\\
+ &\hspace{42mm}\card{\PP(X)\setminus\Cl(S)}\le KX^{79/80}.
+\end{aligned}
+\]
+The implementation represents the final missing set by filtering the finite
+prime prefix with the condition that membership fails at every generation.
+No infinite-set cardinality is used.
+
+The formal proof of the new power-saving conclusion proceeds in the same
+order as Section~\ref{sec:iteration}: cutoff power growth, an eventual
+recurrence lemma, the transfer from vanishing density to the power
+recurrence, and first-crossing interpolation. These are proofs, not axioms
+encoding the conclusion. The declaration audit checks their complete
+axiom sets; standard foundational axioms such as propositional
+extensionality, classical choice, and quotient soundness are distinguished
+from any additional analytic assumption. The build and audit commands,
+artifact pins, and saved results are supplied in the companion
+\href{https://github.com/kimihiro64/prime-factor-oscillations}{repository}.
+
+\section{What the result does and does not transfer}
+
+The result concerns an actual iterated closure once finite entry is
+given. It is stronger than a limiting divisibility law for the full
+prime-pair ensemble: such a law alone does not describe a dynamically
+generated input set. Conversely, it is weaker than all-prime
+reachability. A power-saving exceptional set may still contain infinitely
+many primes.
+
+No criterion for the Riemann hypothesis or for bounded prime gaps is
+derived from this dynamical theorem. The companion paper on
+prime-factor densities treats those separate questions with different
+quantifiers and different signed inequalities. Sharing analytic tools
+does not supply an implication between the two sets of conclusions.
+
+\clearpage
+\begin{thebibliography}{9}
+\bibitem{BC}
+G.~Back and M.~Caragiu,
+\emph{The greatest prime factor and recurrent sequences},
+Fibonacci Quarterly \textbf{48} (2010), no.~4, 358--362.
+\url{https://fq.math.ca/Papers1/48-4/Back_Caragiu.pdf}.
+
+\bibitem{CV}
+M.~Caragiu and P.~A.~Vicol,
+\emph{Prime magmas and a cyclicity conjecture},
+JP Journal of Algebra, Number Theory and Applications
+\textbf{38} (2016), no.~2, 129--143.
+\href{https://doi.org/10.17654/NT038020129}{doi:10.17654/NT038020129}.
+
+\bibitem{RR}
+O.~Ramar\'e and I.~Z.~Ruzsa,
+\emph{Additive properties of dense subsets of sifted sequences},
+Journal de Th\'eorie des Nombres de Bordeaux
+\textbf{13} (2001), no.~2, 559--581.
+\href{https://doi.org/10.5802/jtnb.338}{doi:10.5802/jtnb.338}.
+
+\bibitem{GT}
+B.~Green and T.~Tao,
+\emph{Restriction theory of the Selberg sieve, with applications},
+Journal de Th\'eorie des Nombres de Bordeaux
+\textbf{18} (2006), no.~1, 147--182.
+\url{https://jtnb.centre-mersenne.org/article/JTNB_2006__18_1_147_0.pdf}.
+
+\bibitem{AS}
+A.~Alsetri and X.~Shao,
+\emph{Density versions of the binary Goldbach problem},
+Acta Arithmetica \textbf{218} (2025), no.~3, 285--295.
+Preprint arXiv:2405.18576v2, 19 September 2024.
+\url{https://arxiv.org/abs/2405.18576v2}.
+
+\bibitem{OAI}
+OpenAI,
+\emph{The Quasi-Riemann Hypothesis: A Zero-Free Half-Plane
+\(\operatorname{Re}(s)>7/8\)},
+preprint, 30 September 2026, with companion Lean development.
+\url{https://github.com/openai/math/tree/main/preprints/The-Quasi-Riemann-Hypothesis-September-30-2026}.
+The referenced nonvanishing source is also available at revision
+\lean{adc7f1241b42e322a6451854ab7e4b4c146bf78a} of that repository.
+
+\bibitem{Repo}
+J.~Whidden,
+\emph{Prime Factor Oscillations}, companion source and formal proofs,
+2026.
+\url{https://github.com/kimihiro64/prime-factor-oscillations}.
+\end{thebibliography}
+\end{document}

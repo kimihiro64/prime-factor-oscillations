@@ -3,18 +3,18 @@ Copyright (c) 2026 Prime Factor Oscillations contributors.
 Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Prime Factor Oscillations contributors
 -/
+import PrimeFactorOscillations.Helpers.LPFDensePower
 import PrimeFactorOscillations.Helpers.LPFDiagonalSeed
 import PrimeFactorOscillations.Helpers.LPFFiniteEntry.Result
 import PrimeFactorOscillations.Helpers.LPFFrontierCharacter
 import PrimeFactorOscillations.Helpers.LPFGoldbachSourceTransfer
-import PrimeFactorOscillations.Helpers.LPFJointTransfer
 import PrimeFactorOscillations.Helpers.LPFLocalizedTransfer
-import PrimeFactorOscillations.Helpers.LPFPrimeTargetArithmetic
-import PrimeFactorOscillations.Helpers.LPFPrimeTargetLogPower
 import PrimeFactorOscillations.Helpers.LPFPrimeTargetTail
 import PrimeFactorOscillations.Helpers.LPFPrimeTargetTruncated
 import PrimeFactorOscillations.Helpers.LPFResidueCounts
 import PrimeFactorOscillations.Helpers.LPFResidueObstruction
+import PrimeFactorOscillations.Helpers.LPFTotalImageVariance
+import PrimeFactorOscillations.Helpers.LPFWeightedCanonicalEnergy
 
 /-!
 # Fresh largest-prime-factor distribution results

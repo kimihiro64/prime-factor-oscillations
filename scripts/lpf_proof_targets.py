@@ -3,6 +3,11 @@
 from scripts.lpf_minor_proof_targets import LPF_MINOR_THEOREMS
 
 LPF_THEOREMS = (
+    "PrimeFactorOscillations.LPF.fullOrbit_defect_power_bound_of_density_zero",
+    "PrimeFactorOscillations.LPF.exists_fullOrbit_dense_power_bound",
+    "PrimeFactorOscillations.LPF.fullOrbit_closure_power_bound_of_stage",
+    "PrimeFactorOscillations.LPF.exists_fullOrbit_dense_closure_power_bound",
+    "PrimeFactorOscillations.publicLPFDenseClosurePowerBound",
     "PrimeFactorOscillations.LPF.singular_factor_high_moment_increment",
     "PrimeFactorOscillations.LPF.singular_high_euler_term_le",
     "PrimeFactorOscillations.LPF.singular_high_euler_product_le",
@@ -441,4 +446,5 @@ LPF_THEOREMS = (
     "PrimeFactorOscillations.LPF.abs_lpfArithmeticCutoff_moebius_le",
     "PrimeFactorOscillations.LPF.lpfArithmeticCutoff_vonMangoldt_nonneg",
     "PrimeFactorOscillations.LPF.lpfArithmeticCutoff_vonMangoldt_le",
-) + LPF_MINOR_THEOREMS
+    *LPF_MINOR_THEOREMS,
+)

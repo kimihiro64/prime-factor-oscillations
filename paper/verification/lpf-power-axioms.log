@@ -1,0 +1,74 @@
+PrimeFactorOscillations.LPF.fullOrbit_defect_power_bound_of_density_zero (M : ℕ) (S : Finset ℕ) (hM : 8 ≤ M)
+  (hDensity :
+    Filter.Tendsto
+      (fun j =>
+        ↑(PrimeFactorOscillations.LPF.inputPrimePrefix (PrimeFactorOscillations.LPF.lpfDensityCutoff M j) \
+                PrimeFactorOscillations.LPF.fullOrbit S j).card /
+          (↑(PrimeFactorOscillations.LPF.lpfDensityCutoff M j) /
+            Real.log ↑(PrimeFactorOscillations.LPF.lpfDensityCutoff M j)))
+      Filter.atTop (nhds 0)) :
+  ∃ K,
+    0 < K ∧
+      ∀ᶠ (j : ℕ) in Filter.atTop,
+        ↑(PrimeFactorOscillations.LPF.inputPrimePrefix (PrimeFactorOscillations.LPF.lpfDensityCutoff M j) \
+                PrimeFactorOscillations.LPF.fullOrbit S j).card ≤
+          K * ↑(PrimeFactorOscillations.LPF.lpfDensityCutoff M j) ^ (79 / 80)
+'PrimeFactorOscillations.LPF.fullOrbit_defect_power_bound_of_density_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+
+PrimeFactorOscillations.LPF.exists_fullOrbit_dense_power_bound :
+  ∃ eta,
+    0 < eta ∧
+      ∀ᶠ (M : ℕ) in Filter.atTop,
+        ∀ (S : Finset ℕ),
+          ↑(PrimeFactorOscillations.LPF.inputPrimePrefix M \ S).card ≤ eta * (↑M / Real.log ↑M) →
+            ∃ K,
+              0 < K ∧
+                ∀ᶠ (j : ℕ) in Filter.atTop,
+                  ↑(PrimeFactorOscillations.LPF.inputPrimePrefix (PrimeFactorOscillations.LPF.lpfDensityCutoff M j) \
+                          PrimeFactorOscillations.LPF.fullOrbit S j).card ≤
+                    K * ↑(PrimeFactorOscillations.LPF.lpfDensityCutoff M j) ^ (79 / 80)
+'PrimeFactorOscillations.LPF.exists_fullOrbit_dense_power_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+
+PrimeFactorOscillations.LPF.fullOrbit_closure_power_bound_of_stage (M : ℕ) (S : Finset ℕ) (K : ℝ) (hM : 8 ≤ M)
+  (hK : 0 < K)
+  (hStage :
+    ∀ᶠ (j : ℕ) in Filter.atTop,
+      ↑(PrimeFactorOscillations.LPF.inputPrimePrefix (PrimeFactorOscillations.LPF.lpfDensityCutoff M j) \
+              PrimeFactorOscillations.LPF.fullOrbit S j).card ≤
+        K * ↑(PrimeFactorOscillations.LPF.lpfDensityCutoff M j) ^ (79 / 80)) :
+  ∃ L,
+    0 < L ∧
+      ∀ᶠ (X : ℕ) in Filter.atTop, ↑(PrimeFactorOscillations.LPF.fullOrbitMissingPrimes S X).card ≤ L * ↑X ^ (79 / 80)
+'PrimeFactorOscillations.LPF.fullOrbit_closure_power_bound_of_stage' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+
+PrimeFactorOscillations.LPF.exists_fullOrbit_dense_closure_power_bound :
+  ∃ eta,
+    0 < eta ∧
+      ∀ᶠ (M : ℕ) in Filter.atTop,
+        ∀ (S : Finset ℕ),
+          ↑(PrimeFactorOscillations.LPF.inputPrimePrefix M \ S).card ≤ eta * (↑M / Real.log ↑M) →
+            ∃ K,
+              0 < K ∧
+                ∀ᶠ (X : ℕ) in Filter.atTop,
+                  ↑(PrimeFactorOscillations.LPF.fullOrbitMissingPrimes S X).card ≤ K * ↑X ^ (79 / 80)
+'PrimeFactorOscillations.LPF.exists_fullOrbit_dense_closure_power_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+
+PrimeFactorOscillations.publicLPFDenseClosurePowerBound :
+  ∃ eta,
+    0 < eta ∧
+      ∀ᶠ (M : ℕ) in Filter.atTop,
+        ∀ (S : Finset ℕ),
+          ↑(PrimeFactorOscillations.LPF.inputPrimePrefix M \ S).card ≤ eta * (↑M / Real.log ↑M) →
+            ∃ K,
+              0 < K ∧
+                ∀ᶠ (X : ℕ) in Filter.atTop,
+                  ↑(PrimeFactorOscillations.LPF.fullOrbitMissingPrimes S X).card ≤ K * ↑X ^ (79 / 80)
+'PrimeFactorOscillations.publicLPFDenseClosurePowerBound' depends on axioms: [propext, Classical.choice, Quot.sound]

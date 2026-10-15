@@ -390,4 +390,6 @@ LPF_MINOR_THEOREMS = (
     "PrimeFactorOscillations.QRH.lpf_principal_poleFill_log_deriv_numeric",
     "PrimeFactorOscillations.QRH.lpf_principal_log_deriv_pole_identity",
     "PrimeFactorOscillations.QRH.lpf_log_deriv_numeric",
-) + LPF_NUMERIC_THEOREMS + LPF_FINITE_THEOREMS
+    *LPF_NUMERIC_THEOREMS,
+    *LPF_FINITE_THEOREMS,
+)
