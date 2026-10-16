@@ -14,6 +14,148 @@ set_option Elab.async false
 
 open Filter
 
+namespace Real
+
+/-- Fixed multiples of loglog have arbitrarily small logarithmic allowance. -/
+theorem eventually_loglog_allowance (A C epsilon : Real) (he : 0 < epsilon) :
+    Filter.Eventually (fun k : Nat =>
+      A + C * Real.log (Real.log (k : Real)) <= epsilon * Real.log (k : Real))
+        Filter.atTop := by
+  have hx : Filter.Tendsto (fun k : Nat => Real.log (k : Real))
+      Filter.atTop Filter.atTop :=
+    Real.tendsto_log_atTop.comp (tendsto_natCast_atTop_atTop (R := Real))
+  have ho := (_root_.isLittleO_log_rpow_rpow_atTop (1 : Real)
+    (by norm_num : (0 : Real) < 1)).const_mul_left C
+  have hn := hx.eventually (ho.bound (half_pos he))
+  have hc := hx.eventually (Filter.eventually_gt_atTop (A / (epsilon / 2)))
+  filter_upwards [hn, hc, Filter.eventually_ge_atTop 1] with k hk hconst hk1
+  have hlog : 0 <= Real.log (k : Real) :=
+    Real.log_nonneg (by exact_mod_cast hk1)
+  simp only [Real.rpow_one, Real.norm_eq_abs, abs_of_nonneg hlog] at hk
+  have hl : C * Real.log (Real.log (k : Real)) <=
+      (epsilon / 2) * Real.log (k : Real) := (le_abs_self _).trans hk
+  have hm := mul_lt_mul_of_pos_right hconst (half_pos he)
+  have hid : (A / (epsilon / 2)) * (epsilon / 2) = A := by
+    field_simp [ne_of_gt (half_pos he)]
+  rw [hid] at hm
+  linarith only [hl, hm]
+
+/-- The complete signed error budgets for a regular prime tilt are uniformly
+small on the logarithmic band, including bounded rank displacements. -/
+theorem eventually_primeTilt_error_budgets (P : Nat)
+    (nu alpha E D F J delta : Real) (hnu : 0 < nu) (halpha : 0 < alpha)
+    (hd : 0 < delta) :
+    Filter.Eventually (fun k : Nat =>
+      2 <= k /\ P <= k ^ 2 /\
+      forall (r : Nat) (L z : Real),
+        alpha * Real.log (k : Real) <= L -> 0 <= z ->
+        z * (nu * L) = (k : Real) -> abs ((k : Real) - (r : Real)) <= J ->
+          1 <= r /\
+          J + z * (2 * E + D + F +
+            2 * nu * ((r - 1 : Nat) : Real) / ((k ^ 2 : Nat) : Real) +
+              nu * Real.log (Real.log (((k ^ 2 : Nat) : Real)))) <=
+                delta * (r : Real) /\
+          J + z * (E + F) <= delta * (r : Real)) Filter.atTop := by
+  let A := 2 * E + D + F + 4 * nu + nu * Real.log 2
+  let c := (delta * nu / 4) * alpha
+  have hc : 0 < c := mul_pos (div_pos (mul_pos hd hnu) (by norm_num)) halpha
+  have hloCost := eventually_loglog_allowance A nu c hc
+  have hhiCost := eventually_loglog_allowance (E + F) 0 c hc
+  have hJ := (tendsto_natCast_atTop_atTop (R := Real)).eventually
+    (Filter.eventually_ge_atTop (max (4 * J / delta) (2 * J)))
+  filter_upwards [hloCost, hhiCost, hJ,
+      Filter.eventually_ge_atTop (max 2 P)] with k hklo hkhi hkJ hk
+  have hk2 : 2 <= k := (le_max_left 2 P).trans hk
+  have hkP : P <= k := (le_max_right 2 P).trans hk
+  have hkone : 1 <= (k : Real) := by exact_mod_cast (show 1 <= k by omega)
+  have hkpos : 0 < (k : Real) := lt_of_lt_of_le (by norm_num) hkone
+  have hkpow : k <= k ^ 2 := by nlinarith
+  refine And.intro hk2 (And.intro (hkP.trans hkpow) ?_)
+  intro r L z hL hz hcenter hshift
+  have hJtwo : 2 * J <= (k : Real) := (le_max_right _ _).trans hkJ
+  have hJfour : 4 * J <= (k : Real) * delta := by
+    have hbound : 4 * J / delta <= (k : Real) := (le_max_left _ _).trans hkJ
+    have hh := mul_le_mul_of_nonneg_right hbound hd.le
+    have hid : (4 * J / delta) * delta = 4 * J := by
+      field_simp [ne_of_gt hd]
+    rw [hid] at hh
+    exact hh
+  have hJsmall : J <= delta * (k : Real) / 4 := by linarith only [hJfour]
+  have hrlo : (k : Real) / 2 <= (r : Real) := by
+    linarith only [(abs_le.mp hshift).2, hJtwo]
+  have hrhi : (r : Real) <= 2 * (k : Real) := by
+    linarith only [(abs_le.mp hshift).1, hJtwo, hkpos]
+  have hr : 1 <= r := by
+    have hkR : 2 <= (k : Real) := by exact_mod_cast hk2
+    have hrr : 1 <= (r : Real) := by linarith only [hrlo, hkR]
+    exact_mod_cast hrr
+  have hlogpos : 0 < Real.log (k : Real) :=
+    Real.log_pos (by exact_mod_cast (show 1 < k by omega))
+  have hlogpow : Real.log (Real.log (((k ^ 2 : Nat) : Real))) =
+      Real.log 2 + Real.log (Real.log (k : Real)) := by
+    rw [Nat.cast_pow, Real.log_pow]
+    exact Real.log_mul (by norm_num) (ne_of_gt hlogpos)
+  have hksqpos : 0 < (k : Real) ^ 2 := sq_pos_of_pos hkpos
+  have hkpowR : (k : Real) <= (k : Real) ^ 2 := by exact_mod_cast hkpow
+  have hidx : ((r - 1 : Nat) : Real) <= 2 * (k : Real) ^ 2 := by
+    have hrr : ((r - 1 : Nat) : Real) <= (r : Real) := by
+      exact_mod_cast (Nat.sub_le r 1)
+    linarith only [hrr, hrhi, hkpowR]
+  have hterm : 2 * nu * ((r - 1 : Nat) : Real) /
+      ((k ^ 2 : Nat) : Real) <= 4 * nu := by
+    rw [Nat.cast_pow]
+    have hnum : 2 * nu * ((r - 1 : Nat) : Real) <=
+        (4 * nu) * (k : Real) ^ 2 := by
+      calc
+        _ <= 2 * nu * (2 * (k : Real) ^ 2) :=
+          mul_le_mul_of_nonneg_left hidx (mul_nonneg (by norm_num) hnu.le)
+        _ = _ := by ring
+    have hh := div_le_div_of_nonneg_right hnum hksqpos.le
+    have hid : ((4 * nu) * (k : Real) ^ 2) / (k : Real) ^ 2 = 4 * nu := by
+      field_simp [ne_of_gt hkpos]
+    rw [hid] at hh
+    exact hh
+  have hlarge : 2 * E + D + F +
+      2 * nu * ((r - 1 : Nat) : Real) / ((k ^ 2 : Nat) : Real) +
+        nu * Real.log (Real.log (((k ^ 2 : Nat) : Real))) <=
+          A + nu * Real.log (Real.log (k : Real)) := by
+    rw [hlogpow]
+    dsimp [A]
+    linarith only [hterm]
+  have hscale : c * Real.log (k : Real) <= (delta * nu / 4) * L := by
+    dsimp [c]
+    have hcoef : 0 <= delta * nu / 4 :=
+      div_nonneg (mul_nonneg hd.le hnu.le) (by norm_num)
+    have hh := mul_le_mul_of_nonneg_left hL hcoef
+    calc
+      _ = (delta * nu / 4) * (alpha * Real.log (k : Real)) := by ring
+      _ <= _ := hh
+  have hlowL := (hlarge.trans hklo).trans hscale
+  have hhighL : E + F <= (delta * nu / 4) * L := by
+    simp only [zero_mul, add_zero] at hkhi
+    exact hkhi.trans hscale
+  have hscaledlow : z * (2 * E + D + F +
+      2 * nu * ((r - 1 : Nat) : Real) / ((k ^ 2 : Nat) : Real) +
+        nu * Real.log (Real.log (((k ^ 2 : Nat) : Real)))) <=
+          delta * (k : Real) / 4 := by
+    calc
+      _ <= z * ((delta * nu / 4) * L) := mul_le_mul_of_nonneg_left hlowL hz
+      _ = delta / 4 * (z * (nu * L)) := by ring
+      _ = _ := by rw [hcenter]; ring
+  have hscaledhigh : z * (E + F) <= delta * (k : Real) / 4 := by
+    calc
+      _ <= z * ((delta * nu / 4) * L) := mul_le_mul_of_nonneg_left hhighL hz
+      _ = delta / 4 * (z * (nu * L)) := by ring
+      _ = _ := by rw [hcenter]; ring
+  have hrlower : delta * (k : Real) / 2 <= delta * (r : Real) := by
+    have hh := mul_le_mul_of_nonneg_left hrlo hd.le
+    linarith only [hh]
+  exact And.intro hr (And.intro
+    (by linarith only [hJsmall, hscaledlow, hrlower])
+    (by linarith only [hJsmall, hscaledhigh, hrlower]))
+
+end Real
+
 namespace List
 
 private theorem eventually_log_allowance (A C epsilon : Real) (he : 0 < epsilon) :

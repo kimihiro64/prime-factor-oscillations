@@ -4,10 +4,10 @@ import PrimeFactorOscillations.Assembly.GapRecurrence
 import PrimeFactorOscillations.Assembly.LPFResults
 import PrimeFactorOscillations.Assembly.RHResults
 import PrimeFactorOscillations.Assembly.Spectrum
+import PrimeFactorOscillations.Helpers.CharacterProbability
+import PrimeFactorOscillations.Helpers.PeakComparison
 import PrimeFactorOscillations.Mathlib
-import PrimeFactorOscillations.Proof.Statistical.CumulativeMass
-import PrimeFactorOscillations.Proof.Statistical.LowOwnerMarginalCountermodel
-import PrimeFactorOscillations.Proof.Statistical.TripleReferenceBound
+import PrimeFactorOscillations.Proof.Statistical.All
 import PrimeFactorOscillations.Proof.Upper.CountForcesTwins
 import PrimeFactorOscillations.Proof.Upper.GapFrequencyCount
 

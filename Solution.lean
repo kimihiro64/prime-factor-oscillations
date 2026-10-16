@@ -37,7 +37,6 @@ theorem PrimeFactorOscillations.publicDoubleExponentialReversalBounds :
   simpa only [PrimeFactorOscillations.ordinaryDensity_eq_localRankDensity,
     PrimeFactorOscillations.genericOddDensity, PrimeFactorOscillations.localRankDensity_eq_public,
     PrimeFactorOscillations.genericOddEta] using h
-
 open scoped Classical
 /-- Actual affine prime-pair density limits and the exact positive reversal spectrum. -/
 theorem PrimeFactorOscillations.publicAffinePrimePairSpectrum :
@@ -332,7 +331,6 @@ theorem PrimeFactorOscillations.publicPrimeProfileSecondOrderExpansion (b : Real
           (t ^ 2 * deriv (deriv (fun x : Real => (primeProfile (x : Complex)).re)) t) /
             (2 * r)) <= C / (r : Real) ^ 2 := by
   exact PrimeFactorOscillations.exists_primeProfile_normalized_secondOrder_error b hb
-
 /-- The actual prime endpoint capacity has the sharp reference normalization at every positive level. -/
 theorem PrimeFactorOscillations.publicReferenceLogCapacity (s : Real) (hs : 0 < s) :
     exists (A C : Real) (r0 : Nat), 0 < A /\ 0 <= C /\ 0 < r0 /\
@@ -354,7 +352,6 @@ theorem PrimeFactorOscillations.publicReferenceLogCapacity (s : Real) (hs : 0 < 
           Nat.factorialConvolution primeProfileRealCoefficient (r - 1) v /
             Nat.factorialConvolution primeProfileRealCoefficient r v = s -> v = u := by
   exact PrimeFactorOscillations.exists_primeProfile_reference_loglog_capacity s hs
-
 /-- Under RH the actual attained reversal maximum obeys the sharp second-log bound. -/
 theorem PrimeFactorOscillations.publicRHReversalCountLogBound (hRH : RiemannHypothesis) :
     exists c D : Real, 0 < c /\ 0 <= D /\ exists K : Nat, 2 <= K /\
@@ -374,7 +371,6 @@ theorem PrimeFactorOscillations.publicRHReversalCountLogBound (hRH : RiemannHypo
   choose N i u hN hlo hi hlast hu heq hLower htheta hcount hcapacity hupper hshift hBerror hNbound
     using hdata k hk
   exact Exists.intro N (And.intro hN (And.intro hlo hNbound))
-
 /-- Under RH, the exact eligible-gap count accommodates every reversal and the lower supply. -/
 theorem PrimeFactorOscillations.publicRHGapFilteredCounts (hRH : RiemannHypothesis) :
     exists c : Real, 0 < c /\ forall a : Real, 0 < a -> a < c ->
@@ -399,7 +395,6 @@ theorem PrimeFactorOscillations.publicRHGapFilteredCounts (hRH : RiemannHypothes
   intro k hk
   have hlate := h0 k ((le_max_left _ _).trans hk)
   exact And.intro hlate.1 (And.intro hlate.2 (h1 k ((le_max_right _ _).trans hk)))
-
 /-- The full weighted-psi spectral expansion, with an explicit uniform remainder. -/
 theorem PrimeFactorOscillations.publicRHSpectralPsiExpansion (hRH : RiemannHypothesis)
     {x : Real} (hx : max 3 (Real.exp 1) <= x) :
@@ -421,7 +416,6 @@ theorem PrimeFactorOscillations.publicRHSpectralPsiExpansion (hRH : RiemannHypot
   exact And.intro (PrimeFactorOscillations.nicolasZeroWave_eq_spectral_sum hRH hx1)
     (And.intro (PrimeFactorOscillations.abs_nicolasZeroWave_le hRH hx1)
       (PrimeFactorOscillations.nicolasJ_wave_uniform_error hRH hx3 hlog))
-
 /-- RH gives the full theta-tail spectral term, including the prime-square constant two. -/
 theorem PrimeFactorOscillations.publicRHThetaSpectralExpansion (hRH : RiemannHypothesis)
     {x : Real} (hx : max 4 (Real.exp 1) <= x) :
@@ -443,7 +437,6 @@ theorem PrimeFactorOscillations.publicRHThetaSpectralExpansion (hRH : RiemannHyp
   exact And.intro (PrimeFactorOscillations.nicolasZeroWave_eq_spectral_sum hRH hx1)
     (And.intro (PrimeFactorOscillations.abs_nicolasZeroWave_le hRH hx1)
       (PrimeFactorOscillations.nicolasK_wave_uniform_error hRH hx4 hlog))
-
 /-- One constant controls every degree of the weighted psi error under RH. -/
 theorem PrimeFactorOscillations.publicRHDegreeErrorBound (hRH : RiemannHypothesis)
     {n : Nat} (hn : 2 <= n) {x : Real} (hx : max 2 (Real.exp 1) <= x) :
@@ -455,7 +448,6 @@ theorem PrimeFactorOscillations.publicRHDegreeErrorBound (hRH : RiemannHypothesi
     simpa only [Real.log_exp] using h
   exact PrimeFactorOscillations.abs_nicolasDegreeError_le hRH hn
     ((le_max_left _ _).trans hx) hlog
-
 /-- RH gives pointwise power-saving control sufficient for the nonlinear log-log correction. -/
 theorem PrimeFactorOscillations.publicRHPointwisePowerBound (hRH : RiemannHypothesis)
     {x : Real} (hx : max 4 (2 * Real.exp 1) <= x) :
@@ -472,7 +464,6 @@ theorem PrimeFactorOscillations.publicRHPointwisePowerBound (hRH : RiemannHypoth
     simpa only [Real.log_exp] using h
   exact And.intro (PrimeFactorOscillations.abs_nicolasPsiError_le_two_thirds hRH hx4 hL)
     (PrimeFactorOscillations.abs_nicolasThetaError_le_two_thirds hRH hx4 hL)
-
 /-- The full finite Nicolas logarithm has the same canonical spectral wave under RH. -/
 theorem PrimeFactorOscillations.publicRHLogSpectralExpansion (hRH : RiemannHypothesis) :
     exists C : Real, 0 < C /\ exists X : Real, forall x : Real, X <= x ->
@@ -496,7 +487,6 @@ theorem PrimeFactorOscillations.publicRHLogSpectralExpansion (hRH : RiemannHypot
   exact And.intro (PrimeFactorOscillations.nicolasZeroWave_eq_spectral_sum hRH hx1)
     (And.intro (PrimeFactorOscillations.abs_nicolasZeroWave_le hRH hx1)
       (hX x ((le_max_left _ _).trans hx)))
-
 /-- RH locates the actual prime-product clock about theta on the square-root scale. -/
 theorem PrimeFactorOscillations.publicRHSpatialClockExpansion (hRH : RiemannHypothesis) :
     Filter.Tendsto (fun x : Real =>
@@ -542,7 +532,6 @@ theorem PrimeFactorOscillations.publicRHSpatialClockExpansion (hRH : RiemannHypo
     rw [hCancel] at hlo hhi
     exact And.intro hlo hhi
   exact Filter.eventually_atTop.mp hBands
-
 /-- Spatial sign tests at the unique local reference crossing for width h. -/
 theorem PrimeFactorOscillations.publicLocalDensityRatioThreshold
     (h : Nat) (D : Real) (hD : 1 <= D) :
@@ -576,7 +565,6 @@ theorem PrimeFactorOscillations.publicLocalDensityRatioThreshold
               (PrimeFactorUnimodality.primesBelow (N + 1)) r : Real) < ((h : Real) + 1)) := by
   exact PrimeFactorOscillations.exists_densityRatio_local_spatial_threshold
     ((h : Real) + 1) D (by positivity) hD
-
 /-- Every fixed positive theta-centered prime-product tilt has the RH criterion. -/
 theorem PrimeFactorOscillations.publicTiltedPrimeProductCriterion
     (z : Real) (hz : 0 < z) :
@@ -586,7 +574,6 @@ theorem PrimeFactorOscillations.publicTiltedPrimeProductCriterion
           (primeProfilePrefixSet (Nat.floor x)).prod
             (fun p => 1 + primeProfileWeight (p : Nat) * z) < 1) Filter.atTop := by
   exact PrimeFactorOscillations.riemannHypothesis_iff_eventually_nicolasTiltedProduct_lt_one z hz
-
 /-- One eventual cutoff works simultaneously for every positive tilt. -/
 theorem PrimeFactorOscillations.publicAllPositiveTiltedPrimeProductCriterion :
     RiemannHypothesis <-> Filter.Eventually (fun x : Real =>
@@ -596,7 +583,6 @@ theorem PrimeFactorOscillations.publicAllPositiveTiltedPrimeProductCriterion :
             (primeProfilePrefixSet (Nat.floor x)).prod
               (fun p => 1 + primeProfileWeight (p : Nat) * z) < 1) Filter.atTop := by
   exact PrimeFactorOscillations.riemannHypothesis_iff_eventually_all_positive_tiltedProducts_lt_one
-
 /-- Exact tilted logarithmic tail and both signs, with the inclusive prime cutoff. -/
 theorem PrimeFactorOscillations.publicTiltedLogTail
     (N : Nat) (z : Real) (hz : 0 <= z)
@@ -898,3 +884,17 @@ example (k : Real) (hk : 0 < k) (hkOne : 1 < k) (N : Nat) (hN : 3 <= N) (hRatio 
 example : RiemannHypothesis <-> exists C : Real, 0 < C /\ Filter.Eventually (fun N : Nat => PrimeFactorOscillations.eisensteinNormPowerDiscrepancy N <= C * (N : Real) ^ (1 / 2 : Real)) Filter.atTop := PrimeFactorOscillations.riemannHypothesis_iff_eisensteinNormPowerDiscrepancy_sqrt_bound
 /-- Dense finite entry implies O(X^(79/80)) permanently missing primes. -/
 theorem PrimeFactorOscillations.publicLPFDenseClosurePowerBound : exists eta : Real, And (0 < eta) (Filter.Eventually (fun M : Nat => forall S : Finset Nat, ((SDiff.sdiff (PrimeFactorOscillations.LPF.inputPrimePrefix M) S).card : Real) <= eta * ((M : Real) / Real.log (M : Real)) -> exists K : Real, And (0 < K) (Filter.Eventually (fun X : Nat => ((PrimeFactorOscillations.LPF.fullOrbitMissingPrimes S X).card : Real) <= K * (X : Real) ^ (79 / 80 : Real)) Filter.atTop)) Filter.atTop) := PrimeFactorOscillations.LPF.exists_fullOrbit_dense_closure_power_bound
+/-- Quartic masses recover actual analytic zeta multiplicity. -/
+theorem PrimeFactorOscillations.publicSparseProbabilityZeroRecovery
+    (eta : Nat -> Real) (nu E : Real) (hnu : 0 < nu) (hE : 0 <= E)
+    (hProb : forall p : Nat, Nat.Prime p -> 0 <= eta p /\ eta p <= 1)
+    (hError : exists P : Nat, forall p : Nat, P <= p -> Nat.Prime p ->
+      abs (eta p - nu / p) <= E / (p : Real) ^ 2)
+    (alpha : Real) (ha : 0 < alpha) (hRH : RiemannHypothesis) (w : Real) :
+    let law := PrimeFactorOscillations.quadraticPrimeLawOfEventualProbability eta nu E hnu hE hProb hError
+    Filter.Tendsto
+      (PrimeFactorOscillations.harmonicWaveMean (fun n : Nat => law.probabilityNormalizedFloorRatioWave eta alpha (n ^ 4)) w)
+      Filter.atTop (nhds
+        ((analyticOrderNatAt riemannZeta ((1 / 2 : Complex) + (w : Complex) * Complex.I) : Complex) /
+          ((1 / 4 + w ^ 2 : Real) : Complex))) :=
+  PrimeFactorOscillations.quadraticProbability_fourthPower_zero_recovery eta nu E hnu hE hProb hError alpha ha hRH w

@@ -36,6 +36,15 @@ Licensing and scholarly provenance are separate:
   the third party's notice and licence as well as any licence applying to
   project-authored modifications.
 
+## Euler--Maclaurin source extraction
+
+`PrimeFactorOscillations/Mathlib/Analysis/Calculus/FirstEulerMaclaurin.lean`
+adapts the Apache-2.0 proof in `PrimeNumberTheoremAnd/EulerMaclaurin.lean`
+at commit `0f15a38c619298b5cd786d39a84dd4bb8997324c`. Attribution belongs to
+the PrimeNumberTheoremAnd contributors. The extraction changes the namespace
+and ASCII syntax and adds local documentation; it preserves the Abel-summation
+argument. The repository Apache-2.0 licence also covers project modifications.
+
 ## Generated distributions
 
 The initial publication distributes project source, documentation and artifact

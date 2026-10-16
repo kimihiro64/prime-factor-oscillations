@@ -10,11 +10,10 @@ import PrimeFactorOscillations.Mathlib.Analysis.Analytic.FactorialSeries
 import PrimeFactorOscillations.Mathlib.Analysis.Calculus.IteratedDeriv.LinearProduct
 import PrimeFactorOscillations.Mathlib.Analysis.Complex.AbelBound
 import PrimeFactorOscillations.Mathlib.Analysis.Complex.AffineZeroEscape
+import PrimeFactorOscillations.Mathlib.Analysis.Fourier.All
 import PrimeFactorOscillations.Mathlib.Analysis.SpecialFunctions.Exp.All
 import PrimeFactorOscillations.Mathlib.Analysis.SpecialFunctions.Log.All
-import PrimeFactorOscillations.Mathlib.Analysis.SpecialFunctions.Pow.CeilDoubleExpPowerCount
-import PrimeFactorOscillations.Mathlib.Analysis.SpecialFunctions.Pow.NatSum
-import PrimeFactorOscillations.Mathlib.Analysis.SpecialFunctions.Pow.PowerLogCount
+import PrimeFactorOscillations.Mathlib.Analysis.SpecialFunctions.Pow.All
 
 /-!
 # Analysis candidates

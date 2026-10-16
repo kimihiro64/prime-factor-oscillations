@@ -2,12 +2,32 @@ import Mathlib.Algebra.BigOperators.Group.Finset.Basic
 import Mathlib.Tactic.Linarith
 import Mathlib.Tactic.Ring
 import PrimeFactorOscillations.Definitions.Reversals
+import PrimeFactorOscillations.Mathlib.Probability.Distributions.FiniteBernoulliTilt
 
 /-! # Exact local-mass generating functions and finite tail bounds -/
 
 set_option autoImplicit false
 
 namespace PrimeFactorOscillations
+
+/-- Identify the existing rational local-law recurrence with the reusable
+finite Bernoulli coefficient library, retaining zero and forced coordinates. -/
+theorem finiteLocalMass_eq_bernoulliMass (eta : Nat -> Rat) (xs : List Nat) (r : Nat) :
+    finiteLocalMass eta xs r = List.bernoulliMass (xs.map eta) r := by
+  induction xs generalizing r with
+  | nil => cases r <;> simp [finiteLocalMass, List.bernoulliMass]
+  | cons p xs ih =>
+    cases r <;> simp [finiteLocalMass, List.bernoulliMass, ih]
+
+/-- Real-valued Bernoulli analysis applies to the exact rational arithmetic
+coefficients, without changing their recurrence or their rank convention. -/
+theorem finiteLocalMass_cast_eq_bernoulliMass (eta : Nat -> Rat) (xs : List Nat) (r : Nat) :
+    (finiteLocalMass eta xs r : Real) =
+      List.bernoulliMass (xs.map (fun p => (eta p : Real))) r := by
+  induction xs generalizing r with
+  | nil => cases r <;> simp [finiteLocalMass, List.bernoulliMass]
+  | cons p xs ih =>
+    cases r <;> simp [finiteLocalMass, List.bernoulliMass, ih]
 
 theorem finiteLocalMass_eq_zero_of_length_lt (eta : Nat -> Rat) (xs : List Nat)
     (r : Nat) (hr : xs.length < r) : finiteLocalMass eta xs r = 0 := by
@@ -78,6 +98,24 @@ theorem finiteLocalMass_generating (eta : Nat -> Rat) (xs : List Nat) (z : Rat) 
       rw [<- ih]
       have hs := congrArg (fun t : Rat => (1 - eta p) * t) hshift
       nlinarith only [hs]
+
+/-- Exact finite tilting for the established arithmetic local-mass model.
+The normalizing sum is the existing proved generating function, and no
+asymptotic coefficient comparison is assumed. -/
+theorem finiteLocalMass_tilt (eta : Nat -> Rat) (xs : List Nat) (z : Rat) (r : Nat)
+    (h : forall p, List.Mem p xs -> Not (1 - eta p + eta p * z = 0)) :
+    (Finset.range (xs.length + 1)).sum (fun j => finiteLocalMass eta xs j * z ^ j) *
+        finiteLocalMass (fun p => eta p * z / (1 - eta p + eta p * z)) xs r =
+      z ^ r * finiteLocalMass eta xs r := by
+  rw [finiteLocalMass_generating]
+  simp only [finiteLocalMass_eq_bernoulliMass]
+  have hm : forall a, List.Mem a (xs.map eta) -> Not (1 - a + a * z = 0) := by
+    intro a ha
+    choose p hp using List.mem_map.mp ha
+    rw [<- hp.2]
+    exact h p hp.1
+  simpa only [List.map_map, Function.comp_def] using
+    List.bernoulliMass_tilt (xs.map eta) z r hm
 
 private theorem rat_power_mono_index (z : Rat) (hz : 1 <= z)
     (k r : Nat) (hkr : k <= r) : z ^ k <= z ^ r := by
