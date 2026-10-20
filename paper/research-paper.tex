@@ -4091,6 +4091,87 @@ The construction improves finite observation accuracy under an
 assumed arithmetic cost bound, and leaves the certified RH boundary unchanged.
 \end{flushleft}
 
+\subsection{Uniform recovery on the full localization window}
+
+The actual coordinate denominators sharpen the preceding geometric
+estimate. No separation from the endpoint $C=r/4$ is needed.
+
+\begin{theorem}[Full-window signed accuracy and stable readout]
+Suppose one positive probe satisfies $D_n(t)\le C$, where
+$0\le C<r/4$ and $r=p_n$. For every even order $m=2k\ge0$,
+\[
+ 0\le S_n-P_{m,n}\le 2^{-m}S_n\le4C\,2^{-m}.
+\]
+If $r\ge3$, put
+\[
+ k=\lfloor\log_4(2r)\rfloor+1,\qquad m=2k.
+\]
+Then there is one integer $K\ge0$, with $S_n=2K$, such that every
+observation $y$ satisfying $|y-P_{m,n}|<1/2$ has $2K$ as its
+unique nonnegative even integer at distance less than one.
+The degree is independent of $C$ throughout $0\le C<r/4$.
+\end{theorem}
+\begin{proof}
+For an entering coordinate $q$, localization gives
+$q-r\le4C<r$, hence $q<2r$ and
+\[
+ \frac{q-r}{q}<\frac12.
+\]
+For a leaving coordinate $p$, it gives
+$r-p\le C<r/4$, hence $p>3r/4$ and
+\[
+ \frac{r-p}{p}<\frac13<\frac12.
+\]
+The exact even-order remainder from the preceding theorem therefore
+satisfies, with its two signs retained,
+\[
+\begin{split}
+ S_n-P_{m,n}
+ &=\sum_{i\in E_n}(p_i-r)
+       \left(\frac{p_i-r}{p_i}\right)^m
+   +\sum_{i\in L_n}(r-p_i)
+       \left(\frac{r-p_i}{p_i}\right)^m\\
+ &\le2^{-m}
+    \left(\sum_{i\in E_n}(p_i-r)+\sum_{i\in L_n}(r-p_i)\right)
+ =2^{-m}S_n.
+\end{split}
+\]
+The maintained bound $S_n\le4C$ completes the uniform error estimate,
+including $m=0$.
+
+For the chosen degree, $2r<4^k$, so
+\[
+ 0\le S_n-P_{m,n}\le\frac{4C}{4^k}
+   <\frac r{4^k}<\frac12.
+\]
+Since $r-C>2$, the same exceptional-prime argument gives $S_n=2K$.
+Combining the retained one-sided error with
+$|y-P_{m,n}|<1/2$ yields $-1<y-2K<1/2$.
+Thus $|y-2K|<1$, and distinct even integers again prove uniqueness
+with the same $K$ before all possible observations are chosen.
+\end{proof}
+
+The degree is at most $\log_2 r+3$. This covers every budget in the
+full localization window, including budgets approaching its upper
+endpoint, with no deterioration of the moment count or the observation
+noise allowance. The previously stated per-centered-moment accuracy
+condition applies with this new value of $m$.
+
+\begin{flushleft}
+The arbitrary relative-ratio remainder and the two half-window
+coordinate comparisons are compiled in
+\path{Mathlib/Analysis/SpecialFunctions/Log/ReciprocalMomentWindow.lean}.
+The complete signed sandwich, retained $2^{-m}S_n$ error, and uniform
+noisy readout are compiled in
+\path{Helpers/PrimeProfileFullWindowReadout.lean}.
+The formal degree uses $\operatorname{Nat.log}_4(2p_n)$;
+the real-logarithm upper bound on the degree is an ordinary consequence.
+As before, the error estimate includes the first prime and the
+even-integer readout explicitly assumes $p_n\ge3$.
+This is a stronger observation certificate under the same localization
+hypothesis; it supplies no new arithmetic estimate of that hypothesis.
+\end{flushleft}
+
 \subsection{Rational residue-class laws: a stronger inverse theorem}
 
 The preceding inverse theorem extends beyond a common leading coefficient.
