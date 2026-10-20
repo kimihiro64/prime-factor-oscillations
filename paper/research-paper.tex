@@ -5188,6 +5188,199 @@ boundary $7/8$ are unchanged.
 \end{flushleft}
 
 
+\clearpage
+\subsection{The complete escape spectrum of a fixed profile probe}
+
+The one-coordinate locality threshold is the first member of a
+complete hierarchy. The underlying statement holds for any
+increasing sequence with a finite ceiling. This also separates
+a finite search for the entire prefix from a finite search for
+all but a prescribed number of its coordinates.
+
+Let $w:\mathbb N\to\mathbb R$ be nondecreasing, let $\ell$ be
+a finite upper bound, and assume it is approached from below:
+\[
+ w_i\le\ell\quad(i\ge0),\qquad
+ \forall a<\ell\ \exists M:\ a<w_M.
+\]
+Write
+\[
+ A_m=\sum_{i=0}^{m-1}w_i,\qquad
+ \Delta_N(e)=\sum_{i=0}^{N-1}w_{e(i)}-A_N,
+\]
+and, for $1\le k\le N$, define
+\[
+ T_k=k\ell-(A_N-A_{N-k}).
+\]
+
+\begin{theorem}[Exact finite-prefix escape spectrum]
+For every $N\ge1$, $1\le k\le N$, and real $C$, the following
+are equivalent:
+\[
+ \begin{gathered}
+ \exists M\ \forall e:\quad
+ \Delta_N(e)\le C\ \Longrightarrow\\
+ \#\bigl(e(\{0,\ldots,N-1\})\setminus\{0,\ldots,M-1\}\bigr)<k;
+ \end{gathered}
+\]
+\[
+ C<T_k.
+\]
+The subcritical implication comes from the complete signed bound
+\[
+ \Delta_N(e)\ge k w_M+A_{N-k}-A_N
+\]
+whenever at least $k$ image coordinates lie outside the prefix
+of length $M$.
+For every $C\ge T_k$ and every proposed $M$, a permutation fixed
+outside a finite interval has at least $k$ image coordinates
+outside that prefix and satisfies $\Delta_N(e)\le T_k\le C$.
+\end{theorem}
+
+\begin{proof}
+First, any finite set $S\subset\mathbb N$ of cardinality $m$
+satisfies
+\[
+ \sum_{i\in S}w_i\ge A_m.
+\]
+To see this without discarding signed terms, cancel
+$S\cap\{0,\ldots,m-1\}$. The remaining entering and leaving sets
+have equal cardinalities. Every entering weight is at least $w_m$,
+and every leaving weight is at most $w_m$. Their complete
+difference is therefore nonnegative. This is an application of
+the maintained signed equal-cardinality reference comparison.
+
+Suppose now that $S=e(\{0,\ldots,N-1\})$ contains at least $k$
+indices outside $\{0,\ldots,M-1\}$. Choose exactly $k$ such
+indices, forming $U$. The remainder $S\setminus U$ has
+cardinality $N-k$, so
+\[
+ \begin{split}
+ \sum_{i\in S}w_i
+  &=\sum_{i\in U}w_i+\sum_{i\in S\setminus U}w_i\\
+  &\ge k w_M+A_{N-k}.
+ \end{split}
+\]
+Subtracting $A_N$ gives the stated signed bound. In particular,
+if $C<T_k$, choose $M$ with
+\[
+ w_M>\ell-\frac{T_k-C}{k};
+\]
+the denominator is positive. The ceiling-approximation hypothesis
+supplies such an $M$. A budget-admissible prefix with $k$ outside
+indices would then have
+\[
+ \Delta_N(e)\ge T_k-k(\ell-w_M)>C,
+\]
+a contradiction. The same $M$ works for every admissible
+permutation.
+
+For the converse put $a=N-k$ and choose
+$b\ge\max(N,M)$. Exchange the two disjoint half-open integer
+blocks $[a,a+k)$ and $[b,b+k)$ pointwise, fixing all other indices.
+This is an involution and fixes every index at least $b+k$.
+Its first $N$ images consist of the unchanged first $N-k$
+indices and the complete far block. Thus at least $k$ images
+are outside the prefix of length $M$, and its exact cost is
+\[
+ \begin{split}
+ \Delta_N(e)
+  &=\sum_{i=0}^{k-1}w_{b+i}-\sum_{i=0}^{k-1}w_{a+i}\\
+  &\le k\ell-(A_N-A_{N-k})=T_k.
+ \end{split}
+\]
+This proves failure at the critical equality as well as at every
+larger budget. The entire leaving block remains in the formula.
+\end{proof}
+
+For the probability-profile application fix $t>0$ and $n\ge0$,
+put $N=n+1$, $r=p_n$, and use the actual scaled weights
+\[
+ w_i=c_t(r)B_t(p_i),\qquad \ell=0.
+\]
+They are strictly increasing and strictly negative. The proved
+logarithmic deficit bound gives
+\[
+ 0<-B_t(p_i)\le\frac{t^2}{p_i(p_i+t)}.
+\]
+Since $p_i\ge i$, these weights approach zero from below.
+This verifies the ceiling hypothesis on the entire prime
+enumeration without a prime number theorem. Moving the fixed
+positive factor $c_t(r)$ inside the finite sums gives the exact
+identity $\Delta_{n+1}(e)=D_n(t;e)$.
+
+\begin{corollary}[Every fixed-probe escape threshold]
+For $1\le k\le n+1$, set
+\[
+ T_k(t,n)=-c_t(r)\sum_{i=n+1-k}^{n}B_t(p_i).
+\]
+For every real $C$,
+\[
+ \begin{gathered}
+ \exists M\ \forall e:\quad D_n(t;e)\le C\ \Longrightarrow\\
+ \#\bigl(e(\{0,\ldots,n\})\setminus\{0,\ldots,M-1\}\bigr)<k
+ \end{gathered}
+\]
+holds if and only if $C<T_k(t,n)$. At $C=T_k(t,n)$,
+finite block permutations already put at least $k$ coordinates
+beyond every proposed ambient prefix.
+The thresholds obey
+\[
+ \begin{split}
+ T_0(t,n)&=0,\qquad T_1(t,n)=K_t(r),\\
+ T_{k+1}(t,n)-T_k(t,n)
+   &=-c_t(r)B_t(p_{n-k})>0\qquad(0\le k\le n).
+ \end{split}
+\]
+Hence they form a strictly ordered finite spectrum.
+\end{corollary}
+
+\begin{proof}
+Apply the general theorem to the scaled prime weights just
+verified. Canceling the first $n+1-k$ terms of their prefix sum
+gives the displayed threshold. The first increment is precisely
+$c_t(r)(-B_t(r))=K_t(r)$. Each later increment is the positive
+logarithmic deficit of the next earlier prime, with the same
+fixed normalizer. These cancellations also give $T_0=0$ and
+the exact successor difference.
+\end{proof}
+
+Consequently, for $0\le j<n+1$ and a nonnegative budget in
+$[T_j,T_{j+1})$, all but at most $j$ coordinates have one common
+finite ambient prefix, while $j$ coordinates can escape it in
+finite-permutation examples. At a budget at least $T_{n+1}$,
+all $n+1$ observed coordinates can be sent beyond every proposed
+cutoff. This interval interpretation is a mathematical consequence
+of the compiled threshold family. It quantifies precisely how
+much positional information one cost inequality retains.
+The probe is fixed throughout this spectrum; the preceding
+probe-uniform theorem has a different order of quantifiers.
+All prime-profile statements include $p_n=2$ and $n=0$, retain
+prefix length $n+1$, and require no parity hypothesis.
+
+\begin{flushleft}
+The explicit finite block involution, fixed-tail statement,
+complete signed transport identity and escaping cardinality
+are compiled in
+\path{Mathlib/Combinatorics/SeparatedBlockPrefix.lean}.
+The minimal-prefix comparison, retained tail-count lower bound,
+subcritical finite-prefix theorem, finite-permutation witnesses
+and exact general equivalence are compiled in
+\path{Mathlib/Combinatorics/FinitePrefixTailSpectrum.lean}.
+The prime-weight ceiling verification, scaled-cost identity,
+complete profile spectrum, finite witnesses, first-threshold
+consistency and strictly positive threshold increments are
+compiled in
+\path{Helpers/PrimeProfileEscapeSpectrum.lean}, exported by
+\path{Assembly/ProbabilityProfiles.lean}.
+The interval interpretation is not a separately compiled
+combined declaration. No external-priority claim is made.
+These results concern probability-profile information; the
+unresolved signed arithmetic estimate and certified RH
+boundary $7/8$ are unchanged.
+\end{flushleft}
+
+
 \subsection{Rational residue-class laws: a stronger inverse theorem}
 
 The preceding inverse theorem extends beyond a common leading coefficient.
