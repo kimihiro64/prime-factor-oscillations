@@ -6257,6 +6257,220 @@ and the simultaneous quadruplet specialization are compiled in
 exported through \path{Assembly/ProbabilityProfiles.lean}.
 \end{flushleft}
 
+\subsection{Shared excursions and every prescribed constellation shape}
+
+The uniform criterion has a stronger converse than selecting the identity.
+A false-RH excursion is visible simultaneously through every bounded
+prime permutation. This will supply an RH converse for a single
+shape-specific transport, including cycles longer than two.
+
+\begin{theorem}[Shared positive excursions]
+Fix $H\in\mathbb N$ and $\alpha>0$. If RH is false, then
+arbitrarily large integer cutoffs $N$ satisfy
+\[
+ \mathcal R_{0,r_N}(L(N))<R_{\sigma,N,r_N}
+       \qquad\text{for every }\sigma\in\mathcal S_H
+\]
+simultaneously. At these cutoffs $r_N>0$ and all actual and reference
+denominators are positive.
+\end{theorem}
+
+\begin{proof}
+The past reference clock $L(M-H)$ tends to infinity. Moreover
+\[
+ A(M)-L(M-H)
+ =[A(M-H)-L(M-H)]+[A(M)-A(M-H)]\longrightarrow0.
+\]
+For the second term apply (U2) at $M-H$, using
+$(M-H)+H=M$ eventually. Both assertions include $H=0$.
+
+Apply the canonical moving-clock sign theorem at prefix $M$ with
+reference clock $L(M-H)$. It supplies $C\ge0$ and an eventual domain
+on which a positive clock difference greater than $C/M$ forces the
+actual ratio above the reference. Put $M=N+H$.
+The fully retained signed difference is
+\[
+ L(N)-A(N+H)=F(N)-[A(N+H)-A(N)].
+\]
+Set $K=C+H+1$. If $N\ge1$ and $F(N)>K/N$, then
+\[
+ \begin{split}
+ L(N)-A(N+H)
+ &>\frac{C+H+1}{N}-\frac HN\\
+ &=\frac CN+\frac1N
+   >\frac C{N+H}.
+ \end{split}
+\]
+Thus the canonical ratio at $N+H$, with rank $r_N$, exceeds the
+reference. The lower inequality in (U1) transfers the same strict
+inequality to every $\sigma\in\mathcal S_H$.
+
+For completeness, the denominator required by (U1) is available
+unconditionally: the canonical moving-clock theorem with prefix $N-H$
+and reference clock $L(N)$ supplies positivity of
+$E_{0,N-H,r_N}$ and the reference denominator eventually, by the
+forward-shift clock limits already proved. Their finite superset
+comparisons supply every actual denominator.
+
+If RH is false, the proved Nicolas excursion theorem gives, beyond
+every threshold, an integer $N$ with $NF(N)>K$.
+Choose $N$ beyond all the preceding eventual domains.
+Dividing by the positive $N$ gives the required hypothesis.
+Neither $C$, $K$, nor the selected cutoff depends on $\sigma$.
+\end{proof}
+
+\begin{corollary}[Every individual bounded permutation reads RH]
+For any fixed $\sigma\in\mathcal S_H$ and $\alpha>0$,
+\[
+ \mathrm{RH}
+ \quad\Longleftrightarrow\quad
+ R_{\sigma,N,r_N}<\mathcal R_{0,r_N}(L(N))
+                      \quad\text{eventually in }N.
+\]
+Even the nonstrict eventual upper inequality implies RH.
+\end{corollary}
+
+\begin{proof}
+The uniform RH theorem gives the forward implication.
+If RH were false, the shared excursions would violate the asserted
+eventual upper inequality for this same $\sigma$.
+The argument uses its actual coefficients against the canonical
+reference, without assuming that $\sigma$ is an involution.
+\end{proof}
+
+We now retain a complete finite constellation shape.
+Let $k\ge2$, let $h_0,\ldots,h_{k-1}$ be distinct nonnegative integers,
+and suppose $h_j\le W$ for every $j$.
+The usual normalized description is
+$0=h_0<h_1<\cdots<h_{k-1}=W$; the formal theorem only needs
+injectivity of the offset list and its bound by $W$.
+Write $\operatorname{Rec}(\mathcal H)$ for
+\[
+ \forall X\in\mathbb N\ \exists q\ge X:
+          \quad q+h_j\text{ is prime for every }j<k.
+\]
+A \emph{full-shape cycle at $q$} in a prime permutation $\sigma$
+means that there are prime labels $a_0,\ldots,a_{k-1}$ satisfying
+\[
+ a_j=q+h_j,\qquad
+ \sigma(a_j)=a_{j+1\bmod k}\qquad(0\le j<k).
+\]
+Distinctness of the offsets gives distinct labels.
+This definition records the whole shape, including its cyclic order.
+
+\begin{theorem}[Arbitrary-shape constellation and RH equivalence]
+Fix the finite shape above and $\alpha>0$. Then the following are
+equivalent:
+\begin{enumerate}
+\item RH holds and $\operatorname{Rec}(\mathcal H)$ holds.
+\item There is a permutation $\sigma$ of the primes with
+$|\sigma(p)-p|\le W$ for every prime, with full-shape cycles at
+arbitrarily large anchors $q$, such that
+\[
+ R_{\sigma,N,r_N}<\mathcal R_{0,r_N}(L(N))
+                      \quad\text{eventually in }N.
+\]
+\end{enumerate}
+The construction in the forward direction can use disjoint intervals
+$[q,q+W]$ and fix every prime outside the selected copies.
+\end{theorem}
+
+\begin{proof}
+Assume recurrence of the shape. Apply the proved separated-subset
+selection theorem to its set of anchors, with separation $W+1$.
+This yields an unbounded set $A$ of valid anchors such that
+\[
+ a<b,\ a,b\in A\quad\Longrightarrow\quad a+W<b.
+\]
+For $a\in A$ and $j<k$, define the prime label
+$\iota(a,j)=a+h_j$.
+This map from $A\times\{0,\ldots,k-1\}$ to the primes is injective.
+Indeed, if $a<b$, then
+$a+h_i\le a+W<b\le b+h_j$, excluding equality.
+The reverse ordering is excluded in the same way.
+Equal anchors then force equal offsets, and injectivity of the
+offset list forces equal indices.
+
+Rotate the second coordinate of this labelled set and extend the
+resulting permutation along $\iota$, fixing its complement.
+The established embedding-extension API gives a genuine permutation
+of all primes, with
+\[
+ \sigma(\iota(a,j))=\iota(a,j+1\bmod k).
+\]
+On a selected copy the anchor cancels from the displacement:
+\[
+ |\sigma(\iota(a,j))-\iota(a,j)|
+      =|h_{j+1\bmod k}-h_j|\le W.
+\]
+On the complement the displacement is zero.
+Every selected anchor gives its full-shape cycle, and the anchors
+are unbounded. Under RH, the preceding individual-permutation
+criterion supplies its eventual canonical coefficient sign.
+
+Conversely, a full-shape cycle supplies prime labels equal to every
+$q+h_j$. Arbitrarily large cycle anchors therefore imply
+$\operatorname{Rec}(\mathcal H)$, with every offset retained.
+The eventual coefficient sign for this one bounded permutation implies
+RH by the preceding corollary. This proves both required conclusions.
+\end{proof}
+
+The construction starts with all occurrences and selects disjoint copies;
+it never assumes that the original occurrences do not overlap.
+No consecutive-prime condition is imposed: intervening primes may exist.
+If consecutive patterns are desired, their absence-of-extra-primes
+condition is additional geometric information. The analytic sign cutoff,
+when RH holds, depends only on $W$ and $\alpha$, and works for every
+permitted shape and cycle transport inside that displacement class.
+No uniformity for a growing $W$ or a growing $\alpha$ is claimed.
+
+For a compact comparison, let $s_\sigma(N)$ denote the canonical
+coefficient inequality at cutoff $N$, let $E_\sigma$ denote its eventual
+validity, and let $C_{\mathcal H}(\sigma)$ denote recurrence of full-shape
+cycles. For every fixed $\sigma\in\mathcal S_H$ we have
+\[
+ \mathrm{RH}\ \Longleftrightarrow\ E_{\rm id}
+              \ \Longleftrightarrow\ E_\sigma .
+\]
+The uniform and shape-specific statements are
+\[
+ \begin{aligned}
+ \mathrm{RH}
+ &\ \Longleftrightarrow\
+       \exists N_0\ \forall N\ge N_0\ \forall\sigma\in\mathcal S_H:
+          s_\sigma(N),\\
+ \mathrm{RH}\land\operatorname{Rec}(\mathcal H)
+ &\ \Longleftrightarrow\
+       \exists\sigma\in\mathcal S_W:
+           C_{\mathcal H}(\sigma)\land E_\sigma .
+ \end{aligned}
+\]
+The smallest-recurring-gap location theorem records one coarse
+geometric parameter. The full-shape cycle word records an arbitrary
+finite geometric pattern. The centered sign tests the common global
+Nicolas bias, which cannot be hidden by choosing a different bounded
+transport: false RH produces shared positive excursions.
+These are separate requirements in the equivalence; no logical
+independence theorem is asserted. An independently proved eventual
+sign for one such witness would imply RH. Shape recurrence alone
+does not supply that sign, and RH alone does not supply shape recurrence.
+The certified zero-free boundary remains $7/8$.
+
+\begin{flushleft}
+The past-clock limits are compiled in
+\path{Helpers/PrimeProfileExcursionClock.lean}.
+The shared positive response, simultaneous false-RH excursions and
+the individual bounded-permutation RH criterion are compiled in
+\path{Assembly/PrimeProfileSharedExcursions.lean}.
+The full-shape construction and decoding are compiled in
+\path{Helpers/PrimeConstellationCycles.lean}.
+The arbitrary-shape RH-and-recurrence equivalence is compiled in
+\path{Assembly/PrimeConstellationRH.lean}, exported through
+\path{Assembly/ProbabilityProfiles.lean}.
+The formal shape framework also permits the degenerate sizes zero
+and one; the full nontrivial-cycle interpretation above concerns $k\ge2$.
+\end{flushleft}
+
 \subsection{Rational residue-class laws: a stronger inverse theorem}
 
 The preceding inverse theorem extends beyond a common leading coefficient.
