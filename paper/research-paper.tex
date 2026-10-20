@@ -3267,14 +3267,18 @@ exactly $G$. In particular, cost $2$ is equivalent to infinitely many
 twin primes. This is an inverse characterization, not a new bound
 on $G$ or a zero-free region.
 
-The adaptive inverse for strictly positive laws is now Lean-formalized in
-\path{Assembly/PrimeProfileCutoffInverse.lean}, using
+The universal adaptive inverse, including all zero-coordinate exceptions,
+is now Lean-formalized in \path{Assembly/PrimeProfileZeroHoles.lean}.
+It consumes the positive-law inverse in
+\path{Assembly/PrimeProfileCutoffInverse.lean} and the maintained owners
 \path{Helpers/PrimeProfileCutoffRigidity.lean},
 \path{Mathlib/Combinatorics/FinitePrefixDisplacement.lean} and
 \path{Mathlib/Analysis/SpecialFunctions/Log/CompensatedReciprocalNormalization.lean}.
-The zero-coordinate extension (21.3) and the optimal recurring-gap
-constant have the ordinary proofs above; their complete Lean
-formalizations remain pending. These universal conclusions are
+The formal zero-exclusion argument uses the uniform lower bound $p_n/4$,
+obtained directly from the signed $p_n$-to-$2p_n$ comparison.
+The sharper displayed bound (21.3) and the optimal recurring-gap
+constant have the ordinary proofs above; the exact $G$ classification
+has not yet been fully formalized. These universal conclusions are
 distinct from the preceding constructed-swap result. The canonical
 product is classical; no claim of literature priority is made.
 

@@ -144,4 +144,26 @@ theorem prefixDefect_eq_zero_of_image_range_eq
     sum_image (fun _ _ _ _ he => e.injective he)
   rw [<- hs, h, sub_self]
 
+/-- A missing entry has a signed cost even when the two cardinalities differ. -/
+theorem neg_boundary_le_sum_sub_sum_of_card_lt {I : Type*} [DecidableEq I]
+    (s u : Finset I) (f : I -> Real) (a : Real) (ha : a <= 0)
+    (hc : s.card < u.card)
+    (hs : forall i, Membership.mem (s \ u) i -> a <= f i)
+    (hu : forall i, Membership.mem (u \ s) i -> f i <= a) :
+    -a <= s.sum f - u.sum f := by
+  have hcs := card_sdiff_add_card_inter s u
+  have hcu := card_sdiff_add_card_inter u s
+  have hci : (s \ u).card < (u \ s).card := by
+    rw [inter_comm u s] at hcu
+    omega
+  have hcr : ((s \ u).card : Real) + 1 <= (u \ s).card := by
+    exact_mod_cast (Nat.succ_le_of_lt hci)
+  have hm := mul_le_mul_of_nonpos_right hcr ha
+  have hlo := sum_le_sum (s := s \ u) (fun i hi => hs i hi)
+  have hup := sum_le_sum (s := u \ s) (fun i hi => hu i hi)
+  simp only [sum_const, nsmul_eq_mul] at hlo hup
+  have hid := @sum_sdiff_sub_sum_sdiff I Real u s inferInstance inferInstance f
+  rw [<- hid]
+  nlinarith only [hm, hlo, hup]
+
 end Finset

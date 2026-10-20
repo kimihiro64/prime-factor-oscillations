@@ -59,4 +59,33 @@ theorem quarter_le_normalized_pairLogDefect (t p q : Real) (ht : 0 < t)
   rw [<- heq]
   exact mul_le_mul_of_nonneg_left hlo hnorm
 
+/-- A zero coordinate has divergent normalized cost: the estimate is uniform
+over every positive probe, using only the signed p-to-2p comparison. -/
+theorem quarter_denominator_le_normalized_zero_cost (t p : Real)
+    (ht : 0 < t) (hp : 0 < p) :
+    p / 4 <= p ^ 2 * (p + t) / t ^ 2 *
+      (t / p - Real.log (1 + t / p)) := by
+  have h2p : 0 < 2 * p := by positivity
+  have hb := (pairLogDefect_bounds t p (2 * p) ht.le hp h2p).1
+  have hden : p * (2 * p) * (2 * p + t) <= 4 * p ^ 2 * (p + t) := by
+    nlinarith only [mul_nonneg (sq_nonneg p) ht.le]
+  have hlow : t ^ 2 * p / (4 * p ^ 2 * (p + t)) <= pairLogDefect t p (2 * p) := by
+    calc
+      _ <= t ^ 2 * p / (p * (2 * p) * (2 * p + t)) :=
+        div_le_div_of_nonneg_left (by positivity) (by positivity) hden
+      _ = t ^ 2 * (2 * p - p) / (p * (2 * p) * (2 * p + t)) := by ring
+      _ <= _ := hb
+  have hlog := Real.log_le_sub_one_of_pos
+    (by positivity : 0 < 1 + t / (2 * p))
+  have hpair : pairLogDefect t p (2 * p) <=
+      t / p - Real.log (1 + t / p) := by
+    unfold pairLogDefect bernoulliLogProfile
+    linarith only [hlog]
+  have hn : 0 <= p ^ 2 * (p + t) / t ^ 2 := by positivity
+  have heq : p ^ 2 * (p + t) / t ^ 2 *
+      (t ^ 2 * p / (4 * p ^ 2 * (p + t))) = p / 4 := by
+    field_simp [hp.ne', ht.ne', (add_pos hp ht).ne']
+  rw [<- heq]
+  exact mul_le_mul_of_nonneg_left (hlow.trans hpair) hn
+
 end Real
