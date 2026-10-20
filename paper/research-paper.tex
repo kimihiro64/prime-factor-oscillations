@@ -3381,18 +3381,19 @@ indices,
  \limsup_{n\to\infty}D_n(t_n)\ge12.
 \]
 Equivalently, an upper limit strictly below $12$ forces $m_n\le1$
-eventually. If that upper limit is at most $12$ and double crossings
-persist, one of the two displayed four-prime patterns occurs
-arbitrarily far out.
+eventually. If the upper limit is strictly below $14$ and double
+crossings persist, one of the two displayed four-prime patterns
+occurs arbitrarily far out.
 \end{corollary}
 \begin{proof}
 The fixed-shift prime ratio $p_n/p_{n+2}$ tends to $1$.
 The first two lemmas therefore give the lower threshold uniformly
 over every positive probe sequence. If the integer $T_n$ is not $12$
 at a sufficiently large double crossing, its parity gives $T_n\ge14$.
-Such crossings cannot occur arbitrarily late when the upper limit is
-at most $12$. Persistent double crossings consequently force
-arbitrarily late equality patterns.
+Such crossings would force an upper limit at least $14$, contradicting
+the stated ceiling. Thus every sufficiently late double crossing
+has one of the two equality patterns. Persistent double crossings
+give their recurrence.
 \end{proof}
 
 The complete signed finite-set inequality is maintained in
@@ -3409,10 +3410,14 @@ $12-\varepsilon$ at every later double crossing. It formally proves
 the arbitrarily late lower witnesses and the eventual width bound
 under an eventual cost ceiling $C<12$. The lower-limsup and strict
 upper-bound conclusions above are mathematical consequences of those
-compiled formulations. The final implication from an upper limit at
-most $12$ to recurrent equality patterns retains its ordinary proof;
-its direct Lean consumer is still being completed. The explicit initial
-values $7$ and $10$ also retain their elementary arithmetic checks.
+compiled formulations. The stronger inverse under an eventual
+ceiling $C<14$ is maintained in
+\path{Helpers/PrimeProfileQuadrupletInverse.lean}: every sufficiently
+late double crossing has an equality pattern, and persistent double
+crossings force recurrence of those patterns. The upper-limsup
+formulation is a mathematical consequence of this compiled criterion.
+The explicit initial values $7$ and $10$ retain their elementary
+arithmetic checks.
 No infinitude of either four-prime pattern is asserted.
 
 \subsection{Rational residue-class laws: a stronger inverse theorem}
