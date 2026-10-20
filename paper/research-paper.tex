@@ -2987,8 +2987,24 @@ Their mutual value-matching maps are strictly increasing maps of the natural
 numbers and are inverse to one another; each strictly increasing self-map satisfies
 $n\le f(n)$, so both maps must be the identity. The Lean equal-profile
 corollary consumes the positive-coordinate bijection above.
-The prime-labelled inverse theorems below remain ordinary proofs awaiting
-their full Lean implementations.
+The maintained assembly \path{Assembly/PrimeProfileInverse.lean} now proves
+the prime-labelled tail conclusion as well: equal profiles and reciprocal
+asymptotics $a_n^{-1}=p_n/\nu_1+b_1+o(1)$ and
+$b_n^{-1}=p_n/\nu_2+b_2+o(1)$, with $\nu_i>0$, force
+$\nu_1=\nu_2$, $b_1=b_2$, and $a_n=b_n$ eventually. Here $p_n$ is the
+increasing enumeration of primes. Its proof derives tail positivity,
+convergence to zero and strict ordering from the reciprocal remainder,
+then consumes the compiled matching theorem. The existing unconditional
+theta PNT and exact prime-prefix identity give $p_{n+b}/p_{n+a}\to1$
+for every fixed $a,b$. This identifies the leading scales. The remaining
+integer prime difference converges to $\nu(b_1-b_2)$, hence is eventually
+constant. A positive constant would translate every sufficiently large
+prime to a prime, contradicting the maintained prime-translation theorem.
+These complete consumers are implemented in
+\path{Helpers/PrimeProfilePrimeRatio.lean},
+\path{Helpers/PrimeProfileInverseAsymptotics.lean}, and
+\path{Helpers/PrimeProfileShiftRigidity.lean}.
+Finite permutations and the accumulation-set corollary remain to be formalized.
 
 \begin{theorem}[Prime-coordinate rigidity]
 Suppose two such laws satisfy, outside finite sets,
