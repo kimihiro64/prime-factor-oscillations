@@ -6471,6 +6471,308 @@ The formal shape framework also permits the degenerate sizes zero
 and one; the full nontrivial-cycle interpretation above concerns $k\ge2$.
 \end{flushleft}
 
+\subsection{Prime progressions with unbounded additive diameter}
+
+The fixed-shape theorem requires recurrence of one prescribed offset vector.
+Prime arithmetic progressions offer a different, established supply: the
+length is prescribed, while the common difference may vary. We retain this
+distinction throughout.
+
+Consider finite blocks of primes
+\[
+ \begin{gathered}
+ B_i=\{p_{i,0}<\cdots<p_{i,k_i-1}\},\qquad k_i\ge2,\\
+ p_{i,k_i-1}<p_{i+1,0},\qquad p_{i,k_i-1}\le2p_{i,0}.
+ \end{gathered}
+\]
+Rotate each block in increasing order, sending its last element to its first,
+and fix every other prime. This defines a permutation $\sigma$; the block
+lengths and additive displacements may be unbounded. Put
+\[
+ P_{\sigma,N}(z)=\prod_{p\le N}\left(1+\frac{z}{\sigma(p)-1}\right),
+ \qquad Q_{\sigma,N}(z)=P_{\sigma,N}(z)e^{-A(N)z},
+\]
+where $A(N)$ is the canonical arithmetic clock. Write $P_{0,N}$ and $Q_{0,N}$
+for the identity permutation, and $\Phi_0$ for the canonical entire profile.
+
+\begin{theorem}[One-boundary stability]\label{thm:ordered-cycle-boundary}
+For every fixed $R\ge0$, the normalized products satisfy
+\[
+ \sup_{|z|\le R}|Q_{\sigma,N}(z)-\Phi_0(z)|
+ \le \frac{C_R}{N}
+\]
+for all sufficiently large $N$. No upper bound on $k_i$ or on the additive
+diameter is needed. Consequently, for each fixed $b\ge0$ there are
+$r_0,N_0,K$ such that, for $r\ge r_0$, $N\ge N_0$, $u>0$ and $r/u\le b$,
+the finite and reference factorial-convolution denominators are positive
+and their adjacent coefficient ratios differ by at most $K/(rN)$.
+\end{theorem}
+
+\begin{proof}
+All complete blocks cancel exactly. If a block is incomplete at $N$, let
+$p_0$ be its first prime and $p_m$ its first prime exceeding $N$.
+The included primes form an initial segment, whose shifted product obeys
+\[
+ P_{\sigma,N}(z)(1+z/(p_0-1))
+   =P_{0,N}(z)(1+z/(p_m-1)).
+\]
+This identity is valid at zeros of either full product. Define instead the
+boundary multiplier
+\[
+ D_N(z)=\frac{1+z/(p_m-1)}{1+z/(p_0-1)}.
+\]
+If no block is incomplete, set $D_N=1$. In the incomplete case,
+$p_0\le N<p_m\le2p_0$, so
+\[
+ 0\le\frac1{p_m-1}\le\frac1{p_0-1}\le\frac4N.
+\]
+For $N\ge\max(1,8R)$ and $|z|\le R$, the boundary denominator has norm
+at least $1/2$. Thus
+\[
+ |D_N(z)-1|
+ =\left|\frac{(1/(p_m-1)-1/(p_0-1))z}{1+z/(p_0-1)}\right|
+ \le\frac{8R}{N}.
+\]
+The cross-multiplied identity now gives
+$Q_{\sigma,N}=Q_{0,N}D_N$ without dividing by $P_{0,N}$.
+If $|Q_{0,N}|\le B_R$ and
+$|Q_{0,N}-\Phi_0|\le C_{0,R}/N$, then
+\[
+ |Q_{\sigma,N}-\Phi_0|
+ \le\frac{C_{0,R}+8RB_R}{N}.
+\]
+The canonical prefix bound and profile approximation supply these constants.
+
+Cauchy's estimate on a disc of radius $b+1$ bounds every Taylor coefficient
+error by $C/[N(b+1)^j]$. The geometric descending-factorial estimates give
+$O(1/N)$ errors for both the normalized coefficient polynomial and its first
+derivative. The positive canonical lower bound controls their denominators.
+In the exact adjacent-ratio identity the common leading term cancels,
+leaving $(r/u)^2/r$ times a difference of logarithmic derivatives.
+This retains the bound $K/(rN)$, rather than $O(1/N)$.
+The initial cutoff is allowed to depend on the chosen radius throughout.
+\end{proof}
+
+\begin{corollary}[Progression transports retain the RH criterion]
+\label{cor:prime-progression-transport-rh}
+Fix $\alpha>0$ and the above permutation $\sigma$. Let
+$r_N=\lfloor\alpha L(N)\rfloor$, let $R_\sigma(N,r)$ denote the adjacent
+coefficient ratio of $P_{\sigma,N}$, and use the canonical reference ratio
+$\overline R_0$. Then
+\[
+ \mathrm{RH}\quad\Longleftrightarrow\quad
+ R_\sigma(N,r_N)<\overline R_0(r_N,L(N))
+ \quad\hbox{for every sufficiently large }N.
+\]
+The ranks and both denominators are positive eventually.
+There are such permutations whose blocks are prime arithmetic progressions
+of lengths tending to infinity.
+\end{corollary}
+
+\begin{proof}
+The preceding inverse-rank comparison and the canonical reference secant
+preserve both clock signs whenever $|L(N)-A(N)|>C/N$.
+Under RH the proved Nicolas estimate gives
+$L(N)-A(N)<-C/N$ eventually, for every fixed $C$.
+If RH fails, $N(L(N)-A(N))$ has arbitrarily late positive excursions
+exceeding every fixed constant. These force the reverse strict coefficient
+inequality and contradict even an eventual non-strict upper sign.
+The factorial-convolution coefficients at $A(N)$ are the coefficients of
+$P_{\sigma,N}$, since $P_{\sigma,N}=Q_{\sigma,N}e^{A(N)z}$.
+
+For the progression supply, use Green--Tao's theorem on arbitrarily long
+prime progressions beyond any prescribed threshold.\footnote{B.~Green and
+T.~Tao, \emph{The primes contain arbitrarily long arithmetic progressions},
+Annals of Mathematics 167 (2008), 481--547, Theorems~1.1 and~1.2,
+\url{https://doi.org/10.4007/annals.2008.167.481}.}
+From a progression of length $2k$, retain its latter $k$ terms.
+If its first retained prime is $p_0=a+kd$, its last is
+$a+(2k-1)d<2p_0$. Choose these blocks successively beyond the preceding
+last prime and with $k$ tending to infinity. Their disjoint cycles give
+the required permutation. This does not produce recurrence at a fixed
+common difference.
+\end{proof}
+
+The same ordinary construction works inside a fixed reduced residue class:
+its prime subset has positive relative density, so Green--Tao's
+Theorem~1.2 applies there. Every prime outside the chosen blocks remains
+fixed. The observable still uses all primes and the canonical RH reference.
+
+\begin{flushleft}
+The boundary bound, exact shifted-product identity and normalized-prefix
+transfer are compiled in
+\path{Helpers/PrimeProfileBoundaryMultiplier.lean}.
+The arbitrary-prefix Taylor-to-ratio transfer is compiled in
+\path{Helpers/PrimeProfileApproximationTransfer.lean}.
+The analytic interface is
+\path{Definitions/PrimeCyclePrefix.lean}; its uniform profile, Cauchy and
+inverse-rank estimates are compiled in
+\path{Helpers/PrimeCyclePrefixApproximation.lean}.
+The moving-clock sign transfer is compiled in
+\path{Helpers/PrimeCyclePrefixClockSign.lean}.
+The per-model RH criterion is compiled in
+\path{Assembly/PrimeCyclePrefixRH.lean} and exported through
+\path{Assembly/ProbabilityProfiles.lean}.
+The concrete progression construction above is an ordinary argument using
+Green--Tao as an explicit external supply input; its complete Lean transport
+construction remains separate.
+\end{flushleft}
+
+\subsection{One residue class and the complete Dirichlet zero signal}
+
+An intrinsic class-only observable has a different reference from the
+full-prime transport above. There is a particularly useful choice: the
+identity class $1\bmod q$, with a fixed integer $q\ge2$.
+All Dirichlet characters take value one at that class.
+
+\begin{theorem}[Positive character folding]\label{prop:identity-class-folding}
+Initially for $\Re s>1$, put
+\[
+ G_q(s)=\sum_{\substack{p\ {\rm prime}\\p\equiv1\ (q)}}\frac{\log p}{p^s}.
+\]
+Then
+\[
+ G_q(s)=-\frac1{\varphi(q)}
+       \sum_{\chi\bmod q}\frac{L'}{L}(s,\chi)-H_q(s),
+ \qquad
+ H_q(s)=\sum_{\substack{p\ {\rm prime},\ k\ge2\\p^k\equiv1\ (q)}}
+                  \frac{\log p}{p^{ks}}.
+\]
+The remainder is holomorphic on $\Re s>1/2$. A zero $\rho$ with
+$1/2<\Re\rho<1$ of any character in this family is a pole of $G_q$, with
+\[
+ \operatorname{Res}_{s=\rho}G_q(s)
+   =-\frac1{\varphi(q)}\sum_{\chi\bmod q}m_\chi(\rho)\ne0.
+\]
+Here $m_\chi(\rho)=0$ when that character has no zero at $\rho$.
+\end{theorem}
+
+\begin{proof}
+In the absolutely convergent Euler region, expand
+\[
+ -\frac{L'}L(s,\chi)
+  =\sum_{\substack{p\ {\rm prime}\\p\nmid q}}\sum_{k\ge1}
+          \chi(p)^k\frac{\log p}{p^{ks}}.
+\]
+Character orthogonality gives
+$\varphi(q)^{-1}\sum_\chi\chi(p)^k
+ ={\bf1}_{p^k\equiv1\ (q)}$.
+Separate $k=1$ to obtain the asserted identity. Primes dividing $q$
+contribute to neither side. For every fixed $\sigma_0>1/2$ and
+$\Re s\ge\sigma_0$,
+\[
+ |H_q(s)|
+ \le \frac1{1-2^{-\sigma_0}}
+           \sum_{n\ge2}\frac{\log n}{n^{2\sigma_0}}<\infty.
+\]
+This modulus-independent majorant gives normal convergence and holomorphy.
+Continue by the finite sum of logarithmic derivatives. At a zero in the
+stated strip, each contributing logarithmic derivative has residue
+$m_\chi(\rho)$; no $L$-function has a pole there. All multiplicities have
+the same sign in their sum, while $H_q$ is holomorphic. The residue is
+therefore nonzero, including when several characters share the zero.
+\end{proof}
+
+This identity has a direct probability interpretation. For each prime
+$p\equiv1\bmod q$, take a Bernoulli variable $B_p$ of success probability
+$1/p$, independently over each finite prefix. Its odds are precisely
+$1/(p-1)$, as in the coefficient law. The weighted mean is
+\[
+ \begin{gathered}
+ M_q(x)=\mathbb E\!\sum_{\substack{p\le x\\p\equiv1\ (q)}}(\log p)B_p
+       =\sum_{\substack{p\le x\\p\equiv1\ (q)}}\frac{\log p}{p},\\
+ \int_{1^-}^{\infty}x^{-s}\,dM_q(x)=G_q(s+1)
+ \qquad(\Re s>0).
+ \end{gathered}
+\]
+Consequently the centered transform
+\[
+ \mathcal D_q(s)=G_q(s+1)-\frac1{\varphi(q)s}
+\]
+is holomorphic on $\Re s>-1/2$ if and only if GRH holds for the characters
+modulo $q$ (equivalently, their associated primitive $L$-functions).
+The subtraction removes the principal-character pole. Nonprincipal
+characters are regular and nonzero at one; finite imprimitive Euler
+factors introduce no zeros in $\Re s>1/2$.
+The functional equations pair $\chi$ with $\overline\chi$, both present
+in the family, so absence of right-half-strip zeros gives the full
+critical-line assertion.
+
+For an explicit sufficient arithmetic estimate, fix $1/2\le c<1$.
+If there is a constant $C_q$ such that, for every $\varepsilon>0$,
+\[
+ M_q(x)-\frac{\log x}{\varphi(q)}-C_q
+       =O_{q,\varepsilon}(x^{c-1+\varepsilon}),
+\]
+then every nontrivial zero in this Dirichlet family has real part at most
+$c$. Indeed, integration by parts gives, initially for $\Re s>0$,
+\[
+ \mathcal D_q(s)
+  =C_q+s\int_1^\infty
+     \left(M_q(x)-\frac{\log x}{\varphi(q)}-C_q\right)x^{-s-1}\,dx.
+\]
+The assumed estimate continues this expression holomorphically to
+$\Re s>c-1$, contradicting the nonzero residue of any zero with
+$\Re\rho>c$.
+
+\begin{corollary}[Cyclotomic polynomial realization]
+\label{cor:cyclotomic-class-observable}
+Fix $q\ge2$ and put $F_q(u)=\Phi_q(u)$, the $q$th cyclotomic polynomial.
+For a divisor prime $p\nmid q$, its local root count and probability odds are
+\[
+ \rho_q(p)=\varphi(q){\bf1}_{p\equiv1\ (q)},\qquad
+ \eta_q(p)=\frac{\rho_q(p)}{p-\rho_q(p)}.
+\]
+For each fixed cutoff $N$, sample $u$ uniformly modulo
+$\prod_{p\le N,\ p\nmid q}p$. The weighted distinct-prime-divisor count has mean
+\[
+ \mathbb E\!\sum_{\substack{p\le N,\ p\nmid q\\p\mid F_q(u)}}\log p
+    =\varphi(q)M_q(N).
+\]
+Its Mellin--Stieltjes transform has residue
+$-\sum_{\chi\bmod q}m_\chi(\rho)$ at $s=\rho-1$ for every zero
+$1/2<\Re\rho<1$ in the Dirichlet family. All characters contribute with
+the same sign.
+\end{corollary}
+
+\begin{proof}
+Since $p\nmid q$, the polynomial $X^q-1$ is separable over $\mathbb F_p$.
+The roots of $\Phi_q$ are exactly the elements of multiplicative order $q$.
+The cyclic group $\mathbb F_p^\times$ has $\varphi(q)$ such elements when
+$q\mid p-1$, and none otherwise. In the nonzero case $p\ge q+1>\varphi(q)$,
+so the local success probability $\rho_q(p)/p$ is strictly below one.
+The Chinese remainder theorem makes these finite-prime divisibility
+events independent under the stated sampling law. Their odds give the
+displayed coefficient law, and linearity of expectation gives its weighted
+mean. The preceding character identity supplies the Mellin residue after
+multiplication by $\varphi(q)$.
+\end{proof}
+
+Thus polynomial inputs realize the intrinsic progression observable,
+including quadratic and quartic examples:
+\[
+ \begin{aligned}
+ \Phi_3(u)&=u^2+u+1,& \Phi_4(u)&=u^2+1,\\
+ \Phi_5(u)&=u^4+u^3+u^2+u+1,\\
+ \Phi_8(u)&=u^4+1,& \Phi_{12}(u)&=u^4-u^2+1.
+ \end{aligned}
+\]
+The class-$1\bmod5$ example includes characters of order four, beyond the
+quadratic characters modulo eight. Here $u$ is the sampled polynomial
+input and $N$ is the divisor cutoff. Primes dividing $q$ are explicitly
+removed; no assertion about their root counts is used. For fixed $q$ they
+form a finite exceptional set. The rescaled remainder is
+$\varphi(q)H_q$, so its bound carries this factor if $q$ varies.
+The local first-order term is character dependent; this argument does not
+silently qualify the law as a pointwise quadratic perturbation of the
+canonical prime law.
+
+The character-folding, cyclotomic and weighted-mean argument here is an ordinary
+derivation, not yet a Lean compilation or a priority claim. It identifies
+a concrete class-only probability observable and an explicit remaining
+arithmetic estimate. Existence of primes or progressions in the class
+does not itself provide that estimate.
+
 \subsection{Rational residue-class laws: a stronger inverse theorem}
 
 The preceding inverse theorem extends beyond a common leading coefficient.

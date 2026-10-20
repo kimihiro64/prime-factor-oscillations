@@ -5,6 +5,7 @@ Authors: Prime Factor Oscillations contributors
 -/
 
 import PrimeFactorOscillations.Assembly.PrimeConstellationRH
+import PrimeFactorOscillations.Assembly.PrimeCyclePrefixRH
 import PrimeFactorOscillations.Assembly.PrimeProfileDistortionClassification
 import PrimeFactorOscillations.Assembly.PrimeProfileInverse
 import PrimeFactorOscillations.Assembly.PrimeProfileLocality
