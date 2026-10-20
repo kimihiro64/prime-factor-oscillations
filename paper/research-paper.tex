@@ -5381,6 +5381,155 @@ boundary $7/8$ are unchanged.
 \end{flushleft}
 
 
+\clearpage
+\subsection{Simultaneous locality for arbitrary probe collections}
+
+The block witness can be chosen independently of the weight
+sequence. This gives an exact statement about simultaneous
+budgets, including collections with infinitely many probes.
+
+Let $I$ be any index set. For each $\alpha\in I$, let
+$w^{(\alpha)}$ be nondecreasing, bounded above by a finite
+$\ell_\alpha$, and cofinal below that ceiling as in the
+preceding theorem. At one common prefix length $N$ put
+\[
+ \begin{split}
+ \Delta_{\alpha,N}(e)
+   &=\sum_{i=0}^{N-1}w^{(\alpha)}_{e(i)}
+                        -\sum_{i=0}^{N-1}w^{(\alpha)}_i,\\
+ T_{\alpha,k}
+   &=k\ell_\alpha-
+       \sum_{i=N-k}^{N-1}w^{(\alpha)}_i.
+ \end{split}
+\]
+The budget $C_\alpha$ is any real number for each $\alpha$.
+
+\begin{theorem}[Exact joint-budget locality]
+For $N\ge1$ and $1\le k\le N$, the following are equivalent:
+\[
+ \begin{gathered}
+ \exists M\ \forall e:\quad
+ \bigl(\forall\alpha\in I,\
+          \Delta_{\alpha,N}(e)\le C_\alpha\bigr)
+       \ \Longrightarrow\\
+ \#\bigl(e(\{0,\ldots,N-1\})\setminus\{0,\ldots,M-1\}\bigr)<k;
+ \end{gathered}
+\]
+\[
+ \exists\alpha\in I:\quad C_\alpha<T_{\alpha,k}.
+\]
+More strongly, for every $M$ there is one finite permutation $e$
+with at least $k$ image coordinates outside that prefix and
+\[
+ \Delta_{\alpha,N}(e)\le T_{\alpha,k}
+       \qquad\text{for every }\alpha\in I.
+\]
+The same permutation works for the entire index set.
+\end{theorem}
+
+\begin{proof}
+Suppose an index $\alpha$ has $C_\alpha<T_{\alpha,k}$.
+Apply the preceding one-weight theorem to obtain a finite
+ambient prefix for its budget. Every permutation satisfying
+all the budgets satisfies this particular budget, so that
+same ambient prefix proves the joint assertion.
+
+Conversely, suppose $C_\alpha\ge T_{\alpha,k}$ for every
+$\alpha$. Given any proposed $M$, take $a=N-k$ and
+$b=\max(N,M)$, and exchange $[a,a+k)$ with $[b,b+k)$,
+fixing every other coordinate. This single permutation has
+at least $k$ images outside the prefix of length $M$ and
+fixes every coordinate at least $b+k$. For each $\alpha$,
+the complete signed block identity gives
+\[
+ \begin{split}
+ \Delta_{\alpha,N}(e)
+   &=\sum_{i=0}^{k-1}w^{(\alpha)}_{b+i}
+                   -\sum_{i=0}^{k-1}w^{(\alpha)}_{a+i}\\
+   &\le k\ell_\alpha-
+             \sum_{i=0}^{k-1}w^{(\alpha)}_{a+i}\\
+   &=T_{\alpha,k}\le C_\alpha.
+ \end{split}
+\]
+The construction of $e$ uses only $N,k,M$ and is therefore
+independent of $\alpha$. It proves all the inequalities
+pointwise, so a uniform convergence rate over the index set
+is unnecessary. This disproves every proposed joint ambient
+prefix. The same calculation proves the stronger common-witness
+assertion at the saturation budgets themselves.
+\end{proof}
+
+The empty index set is included. In that case the constraints
+on the left are vacuous, and the finite block exchange
+disproves localization; the existential condition on the
+right is false as well.
+
+\begin{corollary}[Arbitrarily many simultaneous positive probes]
+Fix $n\ge0$ and $1\le k\le n+1$. Let
+$t,C:I\to\mathbb R$ with $t_\alpha>0$ for every $\alpha$.
+Then
+\[
+ \begin{gathered}
+ \exists M\ \forall e:\quad
+ \bigl(\forall\alpha\in I,\
+           D_n(t_\alpha;e)\le C_\alpha\bigr)
+       \ \Longrightarrow\\
+ \#\bigl(e(\{0,\ldots,n\})\setminus\{0,\ldots,M-1\}\bigr)<k
+ \end{gathered}
+\]
+holds if and only if
+\[
+ \exists\alpha\in I:\quad
+ C_\alpha<T_k(t_\alpha,n).
+\]
+For every proposed $M$, one finite block permutation has at
+least $k$ image coordinates outside it while satisfying
+$D_n(t_\alpha;e)\le T_k(t_\alpha,n)$ for every $\alpha$
+simultaneously.
+\end{corollary}
+
+\begin{proof}
+Use
+\[
+ w_i^{(\alpha)}
+    =c_{t_\alpha}(p_n)B_{t_\alpha}(p_i),
+       \qquad \ell_\alpha=0.
+\]
+All increasing-weight and ceiling hypotheses were proved in the
+preceding specialization for every positive probe. The exact
+scaled-cost and threshold identities identify the general
+joint theorem with the displayed statement.
+\end{proof}
+
+Here a single permutation must satisfy all probe budgets
+simultaneously. The earlier probe-uniform theorem asks for a
+common ambient prefix for each positive probe's admissible
+permutations. These are different quantifiers.
+The present theorem classifies the information supplied by
+the conjunction of these upper cost bounds on the same
+ordered prime coordinates and the same cutoff. Exact profile
+values and additional signed arithmetic relations supply
+other information. The first prime $2$, the cutoff $n=0$,
+and finite permutations remain included.
+
+\begin{flushleft}
+The canonical signed block-cost bound, common finite witness
+for arbitrary weight families, and exact general joint
+equivalence are compiled in
+\path{Mathlib/Combinatorics/FinitePrefixTailSpectrum.lean}.
+The positive-probe common witness and exact joint-budget
+criterion are compiled in
+\path{Helpers/PrimeProfileJointProbeLocality.lean}.
+The locality results are grouped in
+\path{Assembly/PrimeProfileLocality.lean} and exported through
+\path{Assembly/ProbabilityProfiles.lean}.
+No finiteness or nonemptiness assumption on the probe index
+type is used. No external-priority claim is made.
+The unresolved signed arithmetic estimate and certified RH
+boundary $7/8$ are unchanged.
+\end{flushleft}
+
+
 \subsection{Rational residue-class laws: a stronger inverse theorem}
 
 The preceding inverse theorem extends beyond a common leading coefficient.

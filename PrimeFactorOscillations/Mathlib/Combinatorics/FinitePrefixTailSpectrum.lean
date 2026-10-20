@@ -110,14 +110,32 @@ theorem prefixTail_bounded_of_cost_lt_saturation
   dsimp only [A] at hstrict
   linarith only [hstrict, hlow, he]
 
-/-- A finite block permutation realizes k escaping coordinates at the saturation budget. -/
-theorem exists_prefixTail_escape_at_saturation
+/-- One canonical block permutation pays at most the saturation for every upper-bounded weight. -/
+theorem prefixDefect_separatedBlockSwap_le_saturation
     (w : Nat -> Real) (l : Real) (hupper : forall i : Nat, w i <= l)
+    (N k b : Nat) (hk : k <= N) (hNb : N <= b) :
+    prefixDefect w (Equiv.separatedBlockSwap (N - k) b k (by omega)) N <=
+      prefixTailSaturation w l N k := by
+  have haN : N - k + k = N := by omega
+  have hsep : N - k + k <= b := by omega
+  have hid := prefixDefect_separatedBlockSwap w (N - k) b k hsep
+  rw [haN] at hid
+  have hprefix := sum_range_add w (N - k) k
+  rw [haN] at hprefix
+  have hsum := sum_le_sum (s := range k) (fun i hi => hupper (b + i))
+  simp only [sum_const, nsmul_eq_mul, card_range] at hsum
+  unfold prefixTailSaturation
+  linarith only [hid, hprefix, hsum]
+
+/-- The same finite block exchange escapes simultaneously for an arbitrary weight family. -/
+theorem exists_common_prefixTail_escape_at_saturation
+    {J : Type*} (w : J -> Nat -> Real) (l : J -> Real)
+    (hupper : forall j : J, forall i : Nat, w j i <= l j)
     (N k M : Nat) (hk : k <= N) :
     exists e : Equiv.Perm Nat, exists L : Nat,
       (forall i : Nat, L <= i -> e i = i) /\
       k <= (((range N).image e) \ range M).card /\
-      prefixDefect w e N <= prefixTailSaturation w l N k := by
+      (forall j : J, prefixDefect (w j) e N <= prefixTailSaturation (w j) (l j) N k) := by
   let a := N - k
   let b := max N M
   have haN : a + k = N := by dsimp only [a]; omega
@@ -126,20 +144,29 @@ theorem exists_prefixTail_escape_at_saturation
   have htail := card_le_prefixTail_separatedBlockSwap a b k M hsep
     (by dsimp only [b]; exact le_max_right _ _)
   rw [haN] at htail
-  have hid := prefixDefect_separatedBlockSwap w a b k hsep
-  rw [haN] at hid
-  have hprefix := sum_range_add w a k
-  rw [haN] at hprefix
-  have hsum := sum_le_sum (s := range k) (fun i hi => hupper (b + i))
-  simp only [sum_const, nsmul_eq_mul, card_range] at hsum
-  have hcost : prefixDefect w e N <= prefixTailSaturation w l N k := by
-    unfold prefixTailSaturation
-    change _ <= (k : Real) * l - ((range N).sum w - (range a).sum w)
-    dsimp only [e]
-    linarith only [hid, hprefix, hsum]
-  refine Exists.intro e (Exists.intro (b + k) (And.intro ?_ (And.intro htail hcost)))
-  intro i hi
-  exact Equiv.separatedBlockSwap_apply_tail a b k hsep i hi
+  refine Exists.intro e (Exists.intro (b + k) (And.intro ?_ (And.intro htail ?_)))
+  . intro i hi
+    exact Equiv.separatedBlockSwap_apply_tail a b k hsep i hi
+  . intro j
+    exact prefixDefect_separatedBlockSwap_le_saturation (w j) (l j) (hupper j)
+      N k b hk (by dsimp only [b]; exact le_max_left _ _)
+
+/-- A finite block permutation realizes k escaping coordinates at the saturation budget. -/
+theorem exists_prefixTail_escape_at_saturation
+    (w : Nat -> Real) (l : Real) (hupper : forall i : Nat, w i <= l)
+    (N k M : Nat) (hk : k <= N) :
+    exists e : Equiv.Perm Nat, exists L : Nat,
+      (forall i : Nat, L <= i -> e i = i) /\
+      k <= (((range N).image e) \ range M).card /\
+      prefixDefect w e N <= prefixTailSaturation w l N k := by
+  have h := exists_common_prefixTail_escape_at_saturation
+    (fun _ : Unit => w) (fun _ : Unit => l) (fun _ => hupper) N k M hk
+  let e := Classical.choose h
+  have hL := Classical.choose_spec h
+  let L := Classical.choose hL
+  have he := Classical.choose_spec hL
+  exact Exists.intro e (Exists.intro L (And.intro he.1
+    (And.intro he.2.1 (he.2.2 Unit.unit))))
 
 /-- Every escape multiplicity has its exact cost threshold, including the critical equality. -/
 theorem prefixTail_locality_iff
@@ -165,5 +192,42 @@ theorem prefixTail_locality_iff
     exact (not_le_of_gt (hcover e hcost)) he.2.1
   . intro hC
     exact prefixTail_bounded_of_cost_lt_saturation w l hw hco N k hkpos C hC
+
+/-- Simultaneous budgets localize exactly when one member is strictly subcritical, even for infinite families. -/
+theorem prefixTail_joint_locality_iff
+    {J : Type*} (w : J -> Nat -> Real) (l C : J -> Real)
+    (hw : forall j : J, Monotone (w j))
+    (hupper : forall j : J, forall i : Nat, w j i <= l j)
+    (hco : forall j : J, forall a : Real, a < l j -> exists M : Nat, a < w j M)
+    (N k : Nat) (hkpos : 0 < k) (hk : k <= N) :
+    (exists M : Nat, forall e : Equiv.Perm Nat,
+      (forall j : J, prefixDefect (w j) e N <= C j) ->
+      (((range N).image e) \ range M).card < k) <->
+    (exists j : J, C j < prefixTailSaturation (w j) (l j) N k) := by
+  constructor
+  . intro h
+    let M := Classical.choose h
+    have hcover := Classical.choose_spec h
+    by_contra hn
+    have hTC : forall j : J, prefixTailSaturation (w j) (l j) N k <= C j := by
+      intro j
+      exact le_of_not_gt (fun hbad => hn (Exists.intro j hbad))
+    have hex := exists_common_prefixTail_escape_at_saturation w l hupper N k M hk
+    let e := Classical.choose hex
+    have hL := Classical.choose_spec hex
+    let L := Classical.choose hL
+    have he := Classical.choose_spec hL
+    have hcost : forall j : J, prefixDefect (w j) e N <= C j := by
+      intro j
+      exact (he.2.2 j).trans (hTC j)
+    exact (not_le_of_gt (hcover e hcost)) he.2.1
+  . intro h
+    let j := Classical.choose h
+    have hj := Classical.choose_spec h
+    have hM := prefixTail_bounded_of_cost_lt_saturation
+      (w j) (l j) (hw j) (hco j) N k hkpos (C j) hj
+    let M := Classical.choose hM
+    have hcover := Classical.choose_spec hM
+    exact Exists.intro M (fun e he => hcover e (he j))
 
 end Finset

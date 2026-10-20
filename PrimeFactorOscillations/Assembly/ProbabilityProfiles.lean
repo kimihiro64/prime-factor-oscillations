@@ -6,16 +6,14 @@ Authors: Prime Factor Oscillations contributors
 
 import PrimeFactorOscillations.Assembly.PrimeProfileDistortionClassification
 import PrimeFactorOscillations.Assembly.PrimeProfileInverse
+import PrimeFactorOscillations.Assembly.PrimeProfileLocality
 import PrimeFactorOscillations.Assembly.PrimeProfileMinimax
 import PrimeFactorOscillations.Assembly.PrimeProfileQuadrupletAttainment
 import PrimeFactorOscillations.Assembly.PrimeProfileReadouts
 import PrimeFactorOscillations.Helpers.CharacterProbability
 import PrimeFactorOscillations.Helpers.PeakComparison
-import PrimeFactorOscillations.Helpers.PrimeProfileEscapeSpectrum
 import PrimeFactorOscillations.Helpers.PrimeProfileNonlinearCoercivity
 import PrimeFactorOscillations.Helpers.PrimeProfilePairwiseRigidity
-import PrimeFactorOscillations.Helpers.PrimeProfileSaturationThreshold
-import PrimeFactorOscillations.Helpers.PrimeProfileUniformProbeLocality
 
 /-!
 # Probability profiles and their arithmetic comparison theorems
