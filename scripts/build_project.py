@@ -59,6 +59,12 @@ def module_fingerprint(
     return hashlib.sha256(json.dumps(payload, sort_keys=True).encode("utf-8")).hexdigest()
 
 
+def owned_compile_command(lean: str, source: Path, output: Path) -> list[str]:
+    """Shorten the owned output argument while preserving its exact target."""
+    relative_output = output.resolve().relative_to(ROOT).as_posix()
+    return [lean, "-j", "1", "-s", "65536", "-M", "8192", "-o", relative_output, str(source)]
+
+
 def compile_owned_module(command: list[str], environment: dict[str, str]) -> None:
     """Retry at most three times on native crashes; never retry a Lean proof error."""
     native_codes = {3221225477, 3221226505, -1073741819, -1073740791}
@@ -184,7 +190,7 @@ def main() -> int:
             output.parent.mkdir(parents=True, exist_ok=True)
             print(f"Checking {name}", flush=True)
             compile_owned_module(
-                [lean, "-j", "1", "-s", "65536", "-M", "8192", "-o", str(output), str(source)],
+                owned_compile_command(lean, source, output),
                 environment,
             )
             rows[name] = {

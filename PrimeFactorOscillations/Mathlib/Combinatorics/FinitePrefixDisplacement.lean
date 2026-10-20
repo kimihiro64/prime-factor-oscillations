@@ -45,6 +45,13 @@ theorem card_sdiff_mul_sub_le_sum_sub_sum {I : Type*} [DecidableEq I]
 def prefixDefect (w : Nat -> Real) (e : Equiv.Perm Nat) (k : Nat) : Real :=
   (range k).sum (fun i => w (e i)) - (range k).sum w
 
+/-- Consecutive exact defects recover the signed coordinate increment. -/
+theorem prefixDefect_succ (w : Nat -> Real) (e : Equiv.Perm Nat) (k : Nat) :
+    prefixDefect w e (k + 1) = prefixDefect w e k + w (e k) - w k := by
+  unfold prefixDefect
+  rw [sum_range_succ, sum_range_succ]
+  linarith
+
 /-- Number of coordinates entering the first `k` positions from outside. -/
 def prefixDisplacement (e : Equiv.Perm Nat) (k : Nat) : Nat :=
   ((range k).image e \ range k).card
@@ -144,6 +151,65 @@ theorem prefixDefect_eq_zero_of_image_range_eq
   have hs : ((range k).image e).sum w = (range k).sum (fun i => w (e i)) :=
     sum_image (fun _ _ _ _ he => e.injective he)
   rw [<- hs, h, sub_self]
+
+/-- Equal defects at two consecutive prefixes identify the intervening coordinate. -/
+theorem perm_apply_eq_of_prefixDefect_eq
+    (w : Nat -> Real) (hw : Function.Injective w)
+    (e f : Equiv.Perm Nat) (k : Nat)
+    (h0 : prefixDefect w e k = prefixDefect w f k)
+    (h1 : prefixDefect w e (k + 1) = prefixDefect w f (k + 1)) :
+    e k = f k := by
+  apply hw
+  rw [prefixDefect_succ, prefixDefect_succ] at h1
+  linarith only [h0, h1]
+
+/-- Two permutations with an equal tail have exactly the same later prefix images. -/
+theorem image_range_eq_of_equal_tail
+    (e f : Equiv.Perm Nat) (N k : Nat)
+    (htail : forall n, N <= n -> e n = f n) (hNk : N <= k) :
+    (range k).image e = (range k).image f := by
+  let g : Equiv.Perm Nat := e.trans f.symm
+  have hgfix : forall n, N <= n -> g n = n := by
+    intro n hn
+    change f.symm (e n) = n
+    rw [htail n hn]
+    exact f.symm_apply_apply n
+  have hg := image_range_eq_of_fixed_tail g N k hgfix hNk
+  have himage := congrArg (fun S : Finset Nat => S.image f) hg
+  rw [image_image] at himage
+  change (range k).image (fun n => f (g n)) = (range k).image f at himage
+  have hcomp : (fun n => f (g n)) = e := by
+    funext n
+    exact f.apply_symm_apply (e n)
+  rw [hcomp] at himage
+  exact himage
+
+/-- Exact prefix-defect data identifies a permutation up to its finite initial part. -/
+theorem prefixDefect_eventually_eq_iff
+    (w : Nat -> Real) (hw : Function.Injective w) (e f : Equiv.Perm Nat) :
+    (exists N : Nat, forall k : Nat, N <= k ->
+      prefixDefect w e k = prefixDefect w f k) <->
+    (exists N : Nat, forall k : Nat, N <= k -> e k = f k) := by
+  constructor
+  . intro h
+    let N := Classical.choose h
+    have hN := Classical.choose_spec h
+    refine Exists.intro N ?_
+    intro k hk
+    exact perm_apply_eq_of_prefixDefect_eq w hw e f k
+      (hN k hk) (hN (k + 1) (by omega))
+  . intro h
+    let N := Classical.choose h
+    have hN := Classical.choose_spec h
+    refine Exists.intro N ?_
+    intro k hk
+    have him := image_range_eq_of_equal_tail e f N k hN hk
+    unfold prefixDefect
+    have he : ((range k).image e).sum w = (range k).sum (fun i => w (e i)) :=
+      sum_image (fun _ _ _ _ hij => e.injective hij)
+    have hf : ((range k).image f).sum w = (range k).sum (fun i => w (f i)) :=
+      sum_image (fun _ _ _ _ hij => f.injective hij)
+    rw [<- he, <- hf, him]
 
 /-- A missing entry has a signed cost even when the two cardinalities differ. -/
 theorem neg_boundary_le_sum_sub_sum_of_card_lt {I : Type*} [DecidableEq I]

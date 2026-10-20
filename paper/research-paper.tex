@@ -3793,6 +3793,86 @@ statement is a mathematical consequence of that finite certificate and
 the maintained uniform error estimate, not a separately named limit
 declaration.
 
+\begin{theorem}[Pairwise recovery and discrete separation]
+Let $\sigma,\tau$ be two permutations of the prime coordinates. Suppose
+one positive adaptive probe sequence $(t_n)$ and one $C\ge0$ satisfy
+\[
+ D_n^\sigma(t_n)\le C,\qquad D_n^\tau(t_n)\le C
+\]
+for all sufficiently large $n$.
+Then
+\[
+ |D_n^\sigma(t_n)-D_n^\tau(t_n)|\longrightarrow0
+ \quad\Longleftrightarrow\quad
+ \sigma(n)=\tau(n)\ \hbox{for all sufficiently large }n.
+\]
+More quantitatively, if the two permutations do not agree eventually,
+then for every $\varepsilon>0$ and every $N$ there is $n\ge N$ such that
+\[
+ |D_n^\sigma(v)-D_n^\tau(w)|\ge2-\varepsilon
+ \qquad\hbox{for every }v,w>0
+\]
+simultaneously. The cutoff is shared by all pairs of probes.
+The hypothesis of nonagreement excludes pairs differing only finitely;
+in particular, at least one permutation is \emph{not a finite permutation}.
+\end{theorem}
+\begin{proof}
+At a cutoff with $p_n>4C$ and $p_n-C>2$, let
+$S_n^\sigma=2K$ and $S_n^\tau=2L$ be the exact signed transports.
+For any two positive probes, the two previously proved error bounds give
+\[
+ |S_n^\sigma-S_n^\tau|
+ \le |D_n^\sigma(v)-D_n^\tau(w)|+\frac{64C^2}{p_n}.
+\]
+Consequently
+\[
+ |D_n^\sigma(v)-D_n^\tau(w)|+\frac{64C^2}{p_n}<2
+ \quad\Longrightarrow\quad S_n^\sigma=S_n^\tau,
+\]
+because distinct even integers have distance at least $2$.
+
+Exact consecutive-prefix subtraction gives
+\[
+ S_{n+1}^\sigma-S_n^\sigma
+   =p_{\sigma(n+1)}-p_{n+1},
+\]
+and the same identity holds for $\tau$.
+Thus eventual equality of the signed transport sequences forces
+eventual equality of the prime coordinates, hence of their indices.
+If $\sigma$ and $\tau$ do not agree eventually, the transports therefore
+differ at arbitrarily late cutoffs. Choose one beyond $N$, both cost
+cutoffs, and a threshold where
+\[
+ p_n>\max(4C,\,2+C,\,64C^2/\varepsilon).
+\]
+Its two even transports differ by at least $2$. The displayed error
+comparison then proves the claimed $2-\varepsilon$ separation for every
+pair of positive probes at this one cutoff.
+
+In particular, asymptotically equal observations are incompatible with
+eventual nonagreement: use separation with $\varepsilon=1$ and the
+original probes. Conversely, if the permutations agree past a cutoff,
+their images of every later finite prefix are identical. Indeed those
+images have the same complement, namely the common image of the
+remaining tail. All weighted prefix sums, and therefore the normalized
+defects at each common probe, then agree exactly.
+\end{proof}
+
+\begin{flushleft}
+The finite comparison, shared separation witnesses, and pairwise inverse
+are compiled in \path{Helpers/PrimeProfilePairwiseRigidity.lean}.
+The formal inverse states convergence by its explicit
+$\varepsilon$--cutoff condition. The reusable consecutive-defect identity,
+two-prefix coordinate recovery, equal-tail prefix-image identity and
+eventual exact-defect equivalence are compiled in
+\path{Mathlib/Combinatorics/FinitePrefixDisplacement.lean}.
+This recovery compares two possibly infinite rearrangements; it does not
+assume either is the reference order. It identifies their tails even
+though their entire canonical profiles are equal. The separation
+constant $2$ is proved, with no claim here that it is attained by two
+distinct classes.
+\end{flushleft}
+
 \subsection{Rational residue-class laws: a stronger inverse theorem}
 
 The preceding inverse theorem extends beyond a common leading coefficient.
