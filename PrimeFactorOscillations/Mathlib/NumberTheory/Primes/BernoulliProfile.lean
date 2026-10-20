@@ -130,4 +130,69 @@ theorem prime_counts_eq_of_canonicalBernoulliProfile_eq
   intro z
   rw [hprofile]
 
+/-- Explicit zero locations for proper integer-over-prime local probabilities. -/
+theorem canonicalBernoulliProfile_prime_counts_eq_zero_iff
+    (a : Nat.Primes -> Nat) (ha : forall p, a p < (p : Nat))
+    (hs : Summable (fun p : Nat.Primes => ((a p : Real) / (p : Nat)) ^ 2))
+    (z : Complex) :
+    canonicalBernoulliProfile (fun p : Nat.Primes => (a p : Real) / (p : Nat)) z = 0 <->
+      exists p : Nat.Primes, And (0 < a p)
+        (z = 1 - (p : Nat) / (a p : Complex)) := by
+  have h0 : forall p : Nat.Primes, 0 <= (a p : Real) / (p : Nat) :=
+    fun p => div_nonneg (Nat.cast_nonneg _) (Nat.cast_nonneg _)
+  have h1 : forall p : Nat.Primes, (a p : Real) / (p : Nat) <= 1 := by
+    intro p
+    exact ((div_lt_one (by exact_mod_cast p.property.pos)).mpr
+      (by exact_mod_cast ha p)).le
+  rw [canonicalBernoulliProfile_eq_zero_iff _ h0 h1 hs z]
+  constructor
+  { intro h
+    choose p hp using h
+    have hpos : 0 < a p := Nat.pos_of_ne_zero (fun hzero => hp.1 (by simp [hzero]))
+    refine Exists.intro p (And.intro hpos ?_)
+    simpa only [Complex.ofReal_div, Complex.ofReal_natCast, one_div_div] using hp.2 }
+  { intro h
+    choose p hp using h
+    refine Exists.intro p (And.intro ?_ ?_)
+    { exact ne_of_gt (div_pos (by exact_mod_cast hp.1)
+        (by exact_mod_cast p.property.pos)) }
+    { simpa only [Complex.ofReal_div, Complex.ofReal_natCast, one_div_div] using hp.2 } }
+
+/-- Two profiles share a zero exactly at an agreeing positive prime coordinate. -/
+theorem canonicalBernoulliProfile_prime_counts_common_zero_iff
+    (a b : Nat.Primes -> Nat)
+    (ha : forall p, a p < (p : Nat)) (hb : forall p, b p < (p : Nat))
+    (hsa : Summable (fun p : Nat.Primes => ((a p : Real) / (p : Nat)) ^ 2))
+    (hsb : Summable (fun p : Nat.Primes => ((b p : Real) / (p : Nat)) ^ 2))
+    (z : Complex) :
+    And (canonicalBernoulliProfile (fun p : Nat.Primes => (a p : Real) / (p : Nat)) z = 0)
+      (canonicalBernoulliProfile (fun p : Nat.Primes => (b p : Real) / (p : Nat)) z = 0) <->
+      exists p : Nat.Primes, And (0 < a p) (And (a p = b p)
+        (z = 1 - (p : Nat) / (a p : Complex))) := by
+  constructor
+  { intro h
+    choose p hp using (canonicalBernoulliProfile_prime_counts_eq_zero_iff
+      a ha hsa z).mp h.1
+    choose q hq using (canonicalBernoulliProfile_prime_counts_eq_zero_iff
+      b hb hsb z).mp h.2
+    have heq : (p : Nat) / (a p : Complex) = (q : Nat) / (b q : Complex) :=
+      sub_right_inj.mp (hp.2.symm.trans hq.2)
+    have hfrac : (a p : Real) / (p : Nat) = (b q : Real) / (q : Nat) := by
+      apply Complex.ofReal_injective
+      simpa only [Complex.ofReal_div, Complex.ofReal_natCast, inv_div] using
+        congrArg Inv.inv heq
+    have hmatch := Nat.eq_of_prime_proper_fraction_eq
+      (p : Nat) (q : Nat) (a p) (b q) p.property q.property hp.1 (ha p) hfrac
+    have hpq : p = q := Subtype.ext hmatch.1
+    subst q
+    exact Exists.intro p (And.intro hp.1 (And.intro hmatch.2 hp.2)) }
+  { intro h
+    choose p hp using h
+    refine And.intro
+      ((canonicalBernoulliProfile_prime_counts_eq_zero_iff a ha hsa z).mpr
+        (Exists.intro p (And.intro hp.1 hp.2.2))) ?_
+    apply (canonicalBernoulliProfile_prime_counts_eq_zero_iff b hb hsb z).mpr
+    rw [hp.2.1] at hp
+    exact Exists.intro p (And.intro hp.1 hp.2.2) }
+
 end Complex

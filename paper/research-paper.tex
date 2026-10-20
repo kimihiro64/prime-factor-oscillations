@@ -6940,8 +6940,83 @@ $q=3$ and $q=6$ give the same depleted counts, since the relevant primes
 are odd. In contrast, the laws for $q=3$ and $q=4$ differ at $p=7$.
 Both facts are consistent with exact every-prime reconstruction.
 
+\begin{theorem}[Exact intersection of cyclotomic profile zero sets]
+\label{thm:cyclotomic-profile-common-zeros}
+Fix $q,r\ge2$, and let $L=\operatorname{lcm}(q,r)$.
+If $\varphi(q)\ne\varphi(r)$, the zero sets of $\mathcal C_q$
+and $\mathcal C_r$ are disjoint.
+If $\varphi(q)=\varphi(r)=D$, their intersection is exactly
+\[
+ \mathcal Z(\mathcal C_q)\cap\mathcal Z(\mathcal C_r)
+ =\left\{\,1-\frac pD:
+                 p\text{ prime},\ p\equiv1\pmod L\,\right\}.
+\]
+\end{theorem}
+
+\begin{proof}
+For general proper prime-denominator laws, suppose a zero contributed
+by $a_p>0$ is also contributed by $b_\ell>0$. Then
+$p/a_p=\ell/b_\ell$, hence $p b_\ell=\ell a_p$.
+As $p$ is prime and $0<a_p<p$, it follows that $p=\ell$ and
+then $a_p=b_p$.
+Conversely, an agreeing positive coordinate contributes the same zero
+to both profiles. Thus a common zero is equivalent to an agreeing
+positive count at the same prime.
+
+At an active cyclotomic coordinate the counts are $\varphi(q)$ and
+$\varphi(r)$. They must therefore be equal. When both equal $D$, a
+prime contributes to both profiles exactly when
+$q\mid p-1$ and $r\mid p-1$, or equivalently $L\mid p-1$.
+Its zero is $1-p/D$. Every prime satisfying this condition contributes
+to both, which proves the reverse inclusion as well.
+\end{proof}
+
+There is also an explicit entire factor carrying all the common zeros.
+In the equal-totient case, set
+\[
+ A_{q,r}(z)=
+ \mathcal C_L\!\left(1+\frac{D}{\varphi(L)}(z-1)\right).
+\]
+Substitution in the local factors gives
+\[
+ A_{q,r}(z)=
+ \prod_{\substack{p\ {\rm prime}\\p\equiv1\ ({\rm mod}\ L)}}
+ (1+(D/p)(z-1))\exp(-(D/p)(z-1)).
+\]
+Both $\mathcal C_q$ and $\mathcal C_r$ factor as $A_{q,r}$ times
+the same compensated product restricted to the respective remaining
+prime support. These products converge locally uniformly because the
+squared probabilities are summable. The two remaining products have
+disjoint zero sets, by the same prime-label argument.
+This factorization is an ordinary written consequence here; the
+checked declarations establish the exact zero-set intersection.
+
+The infinitude in these formulas is unconditional, by Dirichlet's
+theorem in the identity class. More quantitatively, write
+$\pi(X;m,1)$ for the number of primes at most $X$ that are $1$ modulo
+$m$, and count profile zeros in $[-T,0]$. The exact formulas and the
+prime number theorem in a fixed progression give
+\[
+ \begin{split}
+ N_q(T)&=\pi(\varphi(q)(T+1);q,1)
+                \sim \frac{T}{\log T},\\
+ N_{q,r}(T)&=\pi(D(T+1);L,1)
+                \sim \frac{D}{\varphi(L)}\,\frac{T}{\log T}
+       \quad\bigl(\varphi(q)=\varphi(r)=D\bigr).
+ \end{split}
+\]
+Here $q,r$ are fixed and $T\to\infty$; these prime-counting
+consequences are ordinary deductions, not additional checked Lean
+declarations. Every cyclotomic profile has the same leading zero
+density, while the overlap records the intersection of progressions.
+For example, $q=5$ and $r=8$ have $D=4$ and $L=40$, so their shared
+zeros have relative density $1/4$. For $q=3,r=4$ it is $1/2$.
+Different totients instead give no shared profile zeros.
+These statements concern zeros in $z$, and introduce no new
+Riemann or Dirichlet zero-free estimate.
+
 The reconstruction statements and actual cyclotomic application have
-ten checked declarations in the maintained owners
+seventeen checked declarations in the maintained owners
 \begin{quote}\small\ttfamily
 Mathlib/NumberTheory/Primes/BernoulliProfile.lean\\
 Helpers/CyclotomicProfileRigidity.lean
