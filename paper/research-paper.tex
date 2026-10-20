@@ -5530,6 +5530,218 @@ boundary $7/8$ are unchanged.
 \end{flushleft}
 
 
+\clearpage
+\subsection{The rational endpoint envelope of all positive probes}
+
+The preceding joint criterion can be evaluated without optimizing a
+transcendental function. The exact answer involves two rational sums.
+Throughout this subsection the observed prefix is fixed; only the
+positive real probe varies.
+
+For $r,p,t>0$ write
+\[
+ v_t(r,p)=\frac{r^2(r+t)}{t^2}
+       \left(\frac tp-\log(1+t/p)\right).
+\]
+For a nonempty finite set $S$ and positive coordinates $(p_i)_{i\in S}$,
+put
+\[
+ \begin{aligned}
+ Q_t&=\sum_{i\in S}v_t(r,p_i),&
+ A&=\sum_{i\in S}\frac{r^3}{2p_i^2},\\
+ B&=\sum_{i\in S}\frac{r^2}{p_i},&
+ H&=\sum_{i\in S}\frac{r^3}{2p_i^3}.
+ \end{aligned}
+\]
+In particular $A,B,H>0$ and $m=\#S\ge1$.
+
+\begin{theorem}[Exact rational envelope and explicit probe witnesses]
+For every such $S,r,(p_i)$,
+\[
+ \sup_{t>0}Q_t=\max(A,B).
+\]
+More precisely, for every $t>0$ and $a\ge1$,
+\[
+ \begin{split}
+ Q_t&\le\frac{r}{r+t}A+\frac{t}{r+t}B
+          \le\max(A,B),\\
+ Q_t&\ge A-tH,\\
+ Q_t&\ge (1-1/a)B-\frac{mr^2a}{t}.
+ \end{split}
+\]
+For every real $C$,
+\[
+ (\exists t>0:\ C<Q_t)\quad\Longleftrightarrow\quad C<\max(A,B).
+\]
+If $C<A$, the explicit choice $t=(A-C)/(2H)$ works.
+If $C<B$, put $\delta=B-C>0$; the explicit choices
+\[
+ a=1+\frac{4B}{\delta},\qquad
+ t=\frac{4mr^2a}{\delta}
+\]
+work. Thus the supremum assertion includes its least-upper-bound
+property and actual finite positive witnesses below it.
+\end{theorem}
+
+\begin{proof}
+We first prove the upper bound with its complete dependence on the
+probe. For any real $u$ and $z\ge0$ define
+\[
+ F_u(z)=(1+u)^2\log(1+z)-(1+2u)z+\frac{z^2}{2}.
+\]
+Direct differentiation gives
+\[
+ F_u(0)=0,\qquad F_u'(z)=\frac{(z-u)^2}{1+z}\ge0.
+\]
+The denominator is positive on the stated domain. Consequently
+\[
+ (1+2u)z-\frac{z^2}{2}\le(1+u)^2\log(1+z).
+\]
+Substitute $u=t/r$ and $z=t/p$ and multiply by
+$r^4/[t^2(r+t)]>0$. Expanding both sides yields exactly
+\[
+ v_t(r,p)\le
+ \frac{r}{r+t}\frac{r^3}{2p^2}
+       +\frac{t}{r+t}\frac{r^2}{p}.
+\]
+Summation gives the first inequality. Both coefficients are
+nonnegative and sum to one, so it also gives the asserted upper
+bound by $\max(A,B)$.
+
+For the small-probe lower bound use
+\[
+ G(z)=z-\log(1+z)-\frac{z^2}{2(1+z)},\qquad
+ G'(z)=\frac{z^2}{2(1+z)^2}\ge0,\qquad G(0)=0.
+\]
+Thus
+\[
+ v_t(r,p)\ge\frac{r^2(r+t)}{2p(p+t)}.
+\]
+The exact difference between this rational expression and
+$r^3/(2p^2)-tr^3/(2p^3)$ is
+\[
+ \frac{r^2t(p^2+rt)}{2p^3(p+t)}\ge0.
+\]
+All denominators are positive. Summing proves $Q_t\ge A-tH$.
+
+For the large-probe lower bound, the logarithmic tangent inequality
+$\log x\le x-1$ for $x>0$ implies, for $a\ge1$,
+\[
+ \begin{split}
+ \log(1+t/p)
+  &=\log((1+t/p)/a)+\log a\\
+  &\le (1+t/p)/a-1+a-1\\
+  &\le a+\frac{t}{ap}.
+ \end{split}
+\]
+Here the last step uses $1/a\le1$. The exact identity
+\[
+ v_t(r,p)=\frac{r^2}{p}-\frac{r^2}{t}\log(1+t/p)
+       +\frac{r^3}{t^2}
+          \left(\frac tp-\log(1+t/p)\right)
+\]
+has a nonnegative final term, again by the logarithmic tangent
+inequality. Therefore
+\[
+ v_t(r,p)\ge (1-1/a)\frac{r^2}{p}-\frac{r^2a}{t}.
+\]
+Summing gives the third estimate.
+
+If $C<A$, the displayed small probe is positive and satisfies
+\[
+ Q_t\ge A-\frac{A-C}{2}=\frac{A+C}{2}>C.
+\]
+If $C<B$, the displayed large probe is positive, $a\ge1$, and
+\[
+ a\delta=\delta+4B,\qquad
+ \frac Ba<\frac{\delta}{4},\qquad
+ \frac{mr^2a}{t}=\frac{\delta}{4}.
+\]
+Hence $Q_t>B-\delta/2>C$. Since
+$C<\max(A,B)$ means $C<A$ or $C<B$, this proves the witness
+implication. Its converse follows from the upper bound.
+Finally, an upper bound strictly below $\max(A,B)$ would itself
+be exceeded by a positive-probe witness. This proves the exact
+least-upper-bound assertion without assuming that a maximizing
+finite probe exists.
+\end{proof}
+
+\begin{corollary}[Exact all-positive-probe escape criterion]
+Fix $n\ge0$, put $r=p_n$, and let $1\le k\le n+1$. Define
+\[
+ A_{n,k}=\sum_{i=n+1-k}^{n}\frac{r^3}{2p_i^2},
+ \qquad
+ B_{n,k}=\sum_{i=n+1-k}^{n}\frac{r^2}{p_i}.
+\]
+Then
+\[
+ \sup_{t>0}T_k(t,n)=\max(A_{n,k},B_{n,k}).
+\]
+For every real $C$, the assertion
+\[
+ \begin{gathered}
+ \exists M\ \forall e:\quad
+   \bigl(\forall t>0,\ D_n(t;e)\le C\bigr)
+      \ \Longrightarrow\\
+ \#\bigl(e(\{0,\ldots,n\})\setminus\{0,\ldots,M-1\}\bigr)<k
+ \end{gathered}
+\]
+holds if and only if $C<\max(A_{n,k},B_{n,k})$.
+For $k=1$ this cutoff is exactly $C<p_n$.
+At or above the cutoff, every proposed $M$ has a finite
+block-permutation counterexample satisfying all the probe budgets
+simultaneously.
+\end{corollary}
+
+\begin{proof}
+Cancel the initial $n+1-k$ terms in the complete signed threshold:
+\[
+ T_k(t,n)
+   =\sum_{j=0}^{k-1}v_t(r,p_{n+1-k+j}).
+\]
+The index identity $(n+1-k)+k=n+1$ uses $k\le n+1$.
+The endpoint theorem applies to this nonempty finite block,
+proving the supremum and the strict-witness criterion.
+Apply the preceding joint-budget locality theorem to the
+index set of all positive reals, with probe $t$ and constant
+budget $C$. Its existential condition is precisely
+$\exists t>0:\ C<T_k(t,n)$, which the endpoint theorem has
+evaluated.
+
+When $k=1$, the block consists of $p_n=r$ alone, giving
+$A_{n,1}=r/2$ and $B_{n,1}=r$. Since $r>0$, their maximum is
+$r$. If $C$ is at least the maximum, every individual threshold
+is at most $C$, so the common finite block witness from the joint
+theorem satisfies every positive-probe budget at once.
+\end{proof}
+
+The quantifier order matters. The cutoff $p_n$ here concerns a
+single permutation satisfying every positive-probe bound.
+The earlier cutoff $p_n/2$ concerns the union of the admissible
+permutations as the probe varies. These classify different
+information. Every statement above includes $n=0$, $p_n=2$,
+the full prefix length $n+1$, and finite permutations; no odd-prime
+or large-rank exception is needed.
+
+\begin{flushleft}
+The scalar square-derivative envelope and the two endpoint
+lower estimates are compiled in
+\path{Mathlib/Analysis/SpecialFunctions/Log/CompensatedReciprocalEndpoint.lean}.
+The finite-sum bounds, explicit witnesses, strict-sublevel
+equivalence and actual least-upper-bound theorem are compiled in
+\path{Mathlib/Analysis/SpecialFunctions/Log/FiniteLogDeficitEndpoint.lean}.
+The exact prime-block identity, rational supremum, all-positive-probe
+locality equivalence and single-coordinate specialization are
+compiled in
+\path{Helpers/PrimeProfileAllProbeThreshold.lean},
+exported through \path{Assembly/PrimeProfileLocality.lean}
+and \path{Assembly/ProbabilityProfiles.lean}.
+These theorems measure finite probability-profile information.
+No external-priority claim or zero-free exponent gain is made;
+the certified RH boundary remains $7/8$.
+\end{flushleft}
+
+
 \subsection{Rational residue-class laws: a stronger inverse theorem}
 
 The preceding inverse theorem extends beyond a common leading coefficient.
