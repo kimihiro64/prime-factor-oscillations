@@ -281,6 +281,9 @@ Each real candidate file should:
 | --- | --- | --- | --- |
 | `PrimeFactorOscillations.Mathlib.NumberTheory.Primes.BernoulliDivisorProfile` | `Mathlib/NumberTheory/Primes/BernoulliDivisorProfile.lean` | project-verified | Reduced prime-power zero labels recover each prime and exponent; exact zero-set inclusion and equality for square-summable reciprocal-divisor Bernoulli profiles, including absent primes. |
 | `PrimeFactorOscillations.Mathlib.NumberTheory.Primes.ReciprocalDivisorInteger` | `Mathlib/NumberTheory/Primes/ReciprocalDivisorInteger.lean` | project-verified | Finite-support summability for integer factorizations; exact positive-integer recovery from profile zero sets; zero-set inclusion iff unitary divisibility, including the unit case. |
+| `PrimeFactorOscillations.Mathlib.NumberTheory.Primes.StrongDivisibilityCarrier` | `Mathlib/NumberTheory/Primes/StrongDivisibilityCarrier.lean` | project-verified | Prime-index divisibility carriers in normalized strongly divisible sequences; deterministic distinct Fibonacci carrier primes and exact finite marked count and product transport. |
+| `PrimeFactorOscillations.Mathlib.NumberTheory.Primes.FibonacciGoldenCarrier` | `Mathlib/NumberTheory/Primes/FibonacciGoldenCarrier.lean` | project-verified | Ring Binet identity; field and characteristic-r Fibonacci divisibility iff a power of -u^2 is one; exact prime-index golden-root order and the entry points of 2 and 5. |
+| `PrimeFactorOscillations.Mathlib.NumberTheory.Primes.All` | `Mathlib/NumberTheory/Primes/All.lean` | project-verified | Import-only group exporting prime-labelled reciprocal-divisor profiles and Fibonacci divisibility carriers. |
 
 ## Gauss-sum domain exports
 

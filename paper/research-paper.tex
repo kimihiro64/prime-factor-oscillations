@@ -7297,6 +7297,270 @@ no class-specific existence theorem. An RH implication still needs
 the appropriate independent inequality or a proved transfer of its
 probability law; injective encoding alone supplies neither.
 
+\subsection{Fibonacci carriers and the golden-ratio clock}
+\label{sec:fibonacci-golden-carriers}
+
+The Fibonacci sequence supplies an exact prime clock through its
+\emph{indices}. Set $F_0=0,F_1=1$, and, for each odd prime $\ell$,
+let $P_\ell$ be the least prime factor of $F_\ell$.
+This exists because $F_\ell>1$ for $\ell\ge3$.
+The sampled variable is the integer index $n$; the event is
+$P_\ell\mid F_n$. A label cutoff $X$ means $\ell\le X$.
+It is neither a bound on $P_\ell$ nor a bound on the value $F_n$.
+
+\begin{theorem}[A prime-index carrier of a strongly divisible sequence]
+\label{thm:strong-divisibility-carrier}
+Suppose $a_1=1$ and
+$\gcd(a_m,a_n)=a_{\gcd(m,n)}$ for a sequence of nonnegative integers.
+If $\ell$ is prime and $c\ne1$ divides $a_\ell$, then
+\[
+ c\mid a_n\quad\Longleftrightarrow\quad\ell\mid n
+ \qquad(n\ge0).
+\]
+In particular, for every odd prime $\ell$ and every prime divisor
+$c$ of $F_\ell$ this equivalence holds with $a_n=F_n$.
+The selected primes $P_\ell$ are pairwise distinct.
+For every finite set $S$ of odd primes and arbitrary marks $z_\ell$,
+\[
+ \prod_{\ell\in S}
+   z_\ell^{\boldsymbol{1}_{P_\ell\mid F_n}}
+ =
+ \prod_{\ell\in S}
+   z_\ell^{\boldsymbol{1}_{\ell\mid n}}.
+\]
+The product convention means a factor $1$ at an unsuccessful event,
+including when a mark is zero.
+\end{theorem}
+
+\begin{proof}
+If $\ell\nmid n$, primality gives $\gcd(\ell,n)=1$.
+A common divisor $c$ of $a_\ell$ and $a_n$ would then divide
+$a_1=1$, contradicting $c\ne1$. If $\ell\mid n$, the gcd identity
+instead gives $\gcd(a_\ell,a_n)=a_\ell$, so
+$a_\ell\mid a_n$ and hence $c\mid a_n$.
+For Fibonacci numbers use their strong divisibility identity
+$\gcd(F_m,F_n)=F_{\gcd(m,n)}$.
+If $P_\ell=P_q$ at two prime labels, the equivalence at $n=q$
+gives $\ell\mid q$, hence $\ell=q$.
+Finally, each individual indicator in the two products is equal.
+\end{proof}
+
+\paragraph{The real closed form and its alternating correction.}
+Write
+\[
+ \varphi=\frac{1+\sqrt5}{2},\qquad
+ \psi=\frac{1-\sqrt5}{2}=-\varphi^{-1}.
+\]
+Binet's formula and its exact relative error are
+\begin{align*}
+ F_n&=\frac{\varphi^n-\psi^n}{\sqrt5}
+     =\frac{\varphi^n}{\sqrt5}
+       \bigl(1-(-1)^n\varphi^{-2n}\bigr),\\
+ F_n-\frac{\varphi^n}{\sqrt5}
+     &=\frac{(-1)^{n+1}\varphi^{-n}}{\sqrt5}.
+\end{align*}
+Both powers satisfy the Fibonacci recurrence, and their difference
+divided by $\varphi-\psi=\sqrt5$ has initial values $0,1$;
+this proves the formula. Its absolute error is at most
+$1/\sqrt5<1/2$, so $F_n$ is the nearest integer to
+$\varphi^n/\sqrt5$ for every $n\ge0$.
+The sign alternates with parity and the relative error is
+$\varphi^{-2n}$. This real approximation explains the exponential
+value scale. The divisibility clock uses the same quadratic equation
+over finite fields, as follows.
+
+\begin{theorem}[Golden-root order and Fibonacci divisibility]
+\label{thm:fibonacci-golden-clock}
+For roots $u,v$ of $T^2-T-1$ in any commutative ring,
+\[
+ (u-v)F_n=u^n-v^n.
+\]
+In a field, if $v=1-u$ and $u\ne v$, then
+\[
+ F_n=0
+ \quad\Longleftrightarrow\quad
+ \left(\frac{u}{v}\right)^n=1
+ \quad\Longleftrightarrow\quad
+ (-u^2)^n=1.
+\]
+Here $F_n$ is interpreted by the natural-number map into the field.
+
+For an odd prime $r\ne5$, choose
+$u=(1+\sqrt5)/2$ in $\mathbb F_{r^2}$ and put
+$\chi_5(r)=(5/r)$. The Fibonacci entry point
+$\mathfrak z(r)=\min\{n\ge1:r\mid F_n\}$ satisfies
+\[
+ \mathfrak z(r)=\operatorname{ord}(-u^2),
+ \qquad
+ \mathfrak z(r)\mid r-\chi_5(r).
+\]
+The exceptional primes have the exact rules
+\[
+ 2\mid F_n\Longleftrightarrow3\mid n,\qquad
+ 5\mid F_n\Longleftrightarrow5\mid n.
+\]
+Thus $\mathfrak z(2)=3$, $\mathfrak z(5)=5$,
+$P_3=2$ and $P_5=5$.
+\end{theorem}
+
+\begin{proof}
+The ring identity follows from the initial values at $n=0,1$
+and the recurrence: $u^2=u+1$ and $v^2=v+1$ ensure that both
+sides satisfy the same second-order recursion.
+For $v=1-u$, these identities give $uv=-1$, so $v\ne0$
+and $u/v=-u^2$. With $u-v\ne0$, the ring identity can be
+divided by $u-v$ and $v^n$, proving the power test.
+
+For $r\ne2,5$, the discriminant $5$ is nonzero and the two roots
+in $\mathbb F_{r^2}$ are distinct. If $\chi_5(r)=1$, both roots
+belong to $\mathbb F_r$, so their nonzero quotient has order
+dividing $r-1$. If $\chi_5(r)=-1$, the Frobenius automorphism
+interchanges the two roots. For $t=u/v$ this gives
+$t^r=v/u=t^{-1}$, hence $t^{r+1}=1$.
+In either case the least positive exponent giving $t^n=1$
+is exactly the least index with $r\mid F_n$.
+
+Modulo $2$, the successive pairs in the Fibonacci recurrence
+cycle through $(0,1),(1,1),(1,0)$, yielding precisely the indices
+divisible by $3$. Modulo $5$ the roots coalesce at $3$; direct
+substitution in the recurrence gives
+$F_n=n\,3^{n-1}$ for $n\ge1$, with $n=0$ handled separately.
+Since $3$ is invertible, vanishing is equivalent to $5\mid n$.
+The selected carriers follow from $F_3=2$ and $F_5=5$.
+\end{proof}
+
+The use of finite fields is through the integral quadratic
+identity, not a reduction map from the real field.
+For the selected carrier and any odd prime label $\ell\ne5$,
+the appropriate distinct-root field therefore gives
+$\operatorname{ord}(-u^2)=\ell$.
+At $P_3=2$ one may use a root of $T^2+T+1$ in $\mathbb F_4$;
+its quotient has order $3$.
+At $P_5=5$ the repeated-root formula supplies the clock instead.
+This explicitly identifies the two exceptional labels.
+
+For $\ell>5$ the carrier is odd and different from $5$.
+The order bound consequently gives
+\[
+ \ell\mid P_\ell-\chi_5(P_\ell),\qquad
+ 2\ell-1\le P_\ell\le F_\ell<\varphi^\ell.
+\]
+Indeed, $P_\ell\pm1$ is even, so its positive multiple of the
+odd prime $\ell$ is a multiple of $2\ell$.
+The upper bound uses $P_\ell\mid F_\ell$ and Binet's formula.
+These inequalities connect the real growth scale and the modular
+clock while keeping label order and carrier magnitude distinct.
+
+\begin{theorem}[The marked Fibonacci law and an inherited RH criterion]
+\label{thm:fibonacci-marked-nicolas}
+For a finite set $S$ of odd primes put $M_S=\prod_{\ell\in S}\ell$.
+Uniform index sampling over $0\le n<M_S$ gives, for every binary
+pattern $b:S\to\{0,1\}$,
+\[
+ \mathbb P\!\left(
+   \boldsymbol{1}_{P_\ell\mid F_n}=b_\ell
+   \text{ for all }\ell\in S\right)
+ =
+ \prod_{\ell\in S}
+   \left(\frac1\ell\right)^{b_\ell}
+   \left(1-\frac1\ell\right)^{1-b_\ell}.
+\]
+The empty support is allowed, with period $1$.
+For $N\ge1$ and sampling over $1\le n\le N$, the probability of any fixed
+pattern differs from this product by at most $M_S/N$.
+
+For real $X\ge3$ let $S_X$ be the odd primes at most $X$,
+$M_X=M_{S_X}$, and
+\[
+ A(X)=\lim_{N\to\infty}\frac1N
+   \#\{1\le n\le N:
+       P_\ell\nmid F_n\ \hbox{for every }\ell\in S_X\}.
+\]
+Then
+\[
+ A(X)=\prod_{\ell\in S_X}(1-1/\ell),
+\]
+and the classical Nicolas criterion gives the exact equivalence
+\[
+ \mathrm{RH}
+ \quad\Longleftrightarrow\quad
+ A(X)<\frac{2e^{-\gamma}}{\log\log(2M_X)}
+ \quad\hbox{for all sufficiently large }X.
+\]
+\end{theorem}
+
+\begin{proof}
+The carrier theorem replaces every Fibonacci event by $\ell\mid n$.
+The Chinese remainder theorem identifies a uniform residue modulo
+$M_S$ with independent uniform residues modulo the distinct labels.
+There is one successful residue at each label and $\ell-1$
+unsuccessful residues, proving every pattern probability.
+For arbitrary $N=kM_S+t$, $0\le t<M_S$, there are $k$ complete
+periods and one remainder. If $a$ residues in a full period give
+the pattern, its total count is $ka+r$ with $0\le r\le t$.
+The difference from $Na/M_S$ is $r-ta/M_S$, of absolute value
+at most $t<M_S$. This proves the stated error and the fixed-cutoff
+limit. Divisibility at $F_0=0$ is well-defined; this sampling
+argument does not apply a reciprocal-divisor measure to zero.
+
+For $X\ge3$, the full primorial is $2M_X$, so
+$\theta(X)=\log(2M_X)>1$ and
+\[
+ f(X)=e^\gamma\log\theta(X)
+          \prod_{p\le X}(1-1/p)
+      =\frac{e^\gamma}{2}\log\log(2M_X)\,A(X).
+\]
+Every factor outside $A(X)$ is positive. Thus the displayed
+probability inequality is exactly $f(X)<1$, or $F(X)<0$,
+with $f,F$ as in \eqref{eq:analytic-objects}.
+The Nicolas equivalence already used above is precisely
+eventual $F(X)<0$ \cite{Nicolas1983,Nicolas2012}.
+\end{proof}
+
+The order of limits is essential: $S_X$ is fixed while
+$N\to\infty$, and only afterward does $X\to\infty$.
+The explicit sampling error $M_X/N$ gives no unproved uniform
+growing-cutoff assertion. The finite generating polynomial is
+\[
+ G_X(z)=\prod_{\ell\in S_X}(1+(z-1)/\ell).
+\]
+After canonical compensation the profiles
+\[
+ \mathcal F_X(z)=
+ \prod_{\ell\in S_X}
+   (1+(z-1)/\ell)e^{-(z-1)/\ell}
+\]
+converge locally uniformly to an entire function, since
+$\sum_\ell\ell^{-2}<\infty$. The existing Bernoulli profile
+zero theorem gives zeros exactly $1-\ell$ at the odd prime labels.
+These zeros encode index labels; the naturally ordered,
+unmarked prime factors of $F_n$ form a different observable.
+
+The maintained candidate owners
+\begin{quote}\small\ttfamily
+Mathlib/NumberTheory/Primes/StrongDivisibilityCarrier.lean\\
+Mathlib/NumberTheory/Primes/FibonacciGoldenCarrier.lean
+\end{quote}
+check twenty-two declarations: the generic carrier and its exact
+finite count/product transport, the ring Binet identity, the
+field power tests, prime-index orders, and the two exceptional
+integer clocks. Six more checked declarations in
+\begin{quote}\small\ttfamily
+Helpers/FibonacciProbability.lean
+\end{quote}
+reuse the existing CRT equivalence to identify the actual marked
+events and prove their full finite-period joint law.
+All twenty-eight axiom audits contain only the standard
+foundational axioms. The finite-field existence and Frobenius
+classification, interval remainder estimate, and displayed
+Nicolas equivalence are ordinary proofs here.
+Entry-point arithmetic and finite-field torus descriptions are
+classical; see Cubre--Rouse \cite{CubreRouse}.
+The contribution here is their exact use as a marked probability
+carrier and the explicit transfer to this existing RH criterion.
+No infinitude of Fibonacci primes is assumed, and no improved
+zero-free exponent follows without a new independent estimate.
+
 \subsection{Rational residue-class laws: a stronger inverse theorem}
 
 The preceding inverse theorem extends beyond a common leading coefficient.
@@ -7548,6 +7812,12 @@ Mathematika \textbf{23} (1976), 4--9.
 \href{https://doi.org/10.1112/S0025579300016442}{doi:10.1112/S0025579300016442}.
 The fixed-tuple formula (1) is distinguished from the uniform
 all-tuple hypothesis of Theorem~1.
+
+\bibitem{CubreRouse}
+P.~Cubre and J.~Rouse,
+\emph{Divisibility properties of the Fibonacci entry point},
+arXiv:1212.6221 (2012),
+\href{https://arxiv.org/abs/1212.6221}{arXiv preprint}.
 
 \end{thebibliography}
 

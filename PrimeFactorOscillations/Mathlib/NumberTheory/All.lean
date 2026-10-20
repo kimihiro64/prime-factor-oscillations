@@ -12,7 +12,7 @@ import PrimeFactorOscillations.Mathlib.NumberTheory.Metaplectic.QuinticCocycle
 import PrimeFactorOscillations.Mathlib.NumberTheory.Metaplectic.QuinticLocalMass
 import PrimeFactorOscillations.Mathlib.NumberTheory.MulChar.SplitNorm
 import PrimeFactorOscillations.Mathlib.NumberTheory.PrimeCounting.WeightedPrefix
-import PrimeFactorOscillations.Mathlib.NumberTheory.Primes.ReciprocalDivisorInteger
+import PrimeFactorOscillations.Mathlib.NumberTheory.Primes.All
 import PrimeFactorOscillations.Mathlib.NumberTheory.SmoothNumbers.All
 import PrimeFactorOscillations.Mathlib.NumberTheory.SumTwoSquares.InertDivisor
 
