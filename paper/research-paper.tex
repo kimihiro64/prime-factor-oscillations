@@ -4339,6 +4339,157 @@ hypothesis. It does not establish a stronger bound on that cost or
 change the certified RH boundary.
 \end{flushleft}
 
+\subsection{All-order filters and a halved logarithmic moment count}
+
+The quadratic can be replaced by a polynomial of every order.
+The required uniform bound and nonzero denominator follow from an
+elementary coupled recurrence; no trigonometric continuation is needed.
+
+Define polynomials $T_k,U_k$ by
+\[
+ T_0=1,\quad U_0=0,\qquad
+ \begin{cases}
+ T_{k+1}=XT_k-(1-X^2)U_k,\\
+ U_{k+1}=T_k+XU_k.
+ \end{cases}
+\]
+Here $U_k$ is the shifted second-kind coordinate, so the initial
+zero polynomial is part of the definition.
+Induction gives $\deg T_k\le k$ and $\deg U_k\le k-1$ for $k\ge1$,
+with $U_0=0$ handled separately.
+
+\begin{lemma}[Unit-window invariant and positive normalizer]
+For every $k\ge0$ and real $x$,
+\[
+ T_k(x)^2+(1-x^2)U_k(x)^2=1.
+\]
+Consequently $|T_k(x)|\le1$ on $[-1,1]$.
+At the exterior point $11/5$, the normalizer
+$a_k=T_k(11/5)$ satisfies
+\[
+ a_k>0,\qquad 4^k\le2a_k.
+\]
+\end{lemma}
+\begin{proof}
+Writing $d=1-x^2$, the recursion preserves the quadratic form because
+\[
+ (xT-dU)^2+d(T+xU)^2=T^2+dU^2.
+\]
+The initial value is one. For $|x|\le1$ its second term is
+nonnegative, so $T_k(x)^2\le1$, including both endpoints.
+
+For the exterior estimate, put $b_k=U_k(11/5)$. The exact recursion is
+\[
+ a_{k+1}=\frac{11}{5}a_k+\frac{96}{25}b_k,\qquad
+ b_{k+1}=a_k+\frac{11}{5}b_k.
+\]
+We retain the coupled inequalities
+\[
+ b_k\ge0,\qquad a_k\ge\frac95b_k,\qquad
+ V_k:=a_k+\frac95b_k\ge4^k.
+\]
+They hold at $k=0$. Assuming them at $k$, the next $b$ is nonnegative,
+and
+\[
+ a_{k+1}-\frac95b_{k+1}
+ =\frac25a_k-\frac3{25}b_k
+ \ge\frac35b_k\ge0.
+\]
+Moreover
+\[
+ V_{k+1}=4V_k+\frac35b_k\ge4^{k+1}.
+\]
+Thus all three inequalities hold by induction. Since $V_k\le2a_k$,
+we obtain $4^k\le2a_k$ and $a_k>0$.
+The normalizing denominator has therefore been controlled before division.
+\end{proof}
+
+Define
+\[
+ H_k(x)=\frac{T_k((11-12x)/5)}{a_k},\qquad
+ \mathcal A_{k,n}=A_{H_k,n}.
+\]
+Then $H_k(0)=1$, $\deg H_k\le k$, and the affine map sends
+$[1/2,4/3]$ into $[-1,1]$. The preceding lemma gives
+\[
+ |H_k(x)|\le\frac1{a_k}\le2\,4^{-k}
+ \qquad(1/2\le x\le4/3).
+\]
+
+\begin{theorem}[All-order stable readout]
+Under the same one-positive-probe hypothesis $D_n(t)\le C$,
+where $0\le C<r/4$ and $r=p_n$, the observable $\mathcal A_{k,n}$
+uses probability moments of degree at most $2k$, and
+\[
+ 0\le S_n-\mathcal A_{k,n}
+    \le4\,16^{-k}S_n\le16C\,16^{-k}
+ \qquad(k\ge0).
+\]
+If $r\ge3$, choose
+\[
+ k=\lfloor\log_{16}(8r)\rfloor+1.
+\]
+There is a single $K\ge0$ with $S_n=2K$ such that every observation
+$y$ satisfying $|y-\mathcal A_{k,n}|<1/2$ has $2K$ as its unique
+nonnegative even integer at distance less than one.
+\end{theorem}
+\begin{proof}
+Apply the complete signed square-filter theorem with
+$\eta=2\,4^{-k}$. The principal coefficient remains one, and the
+actual error is still
+\[
+ \sum_{i\in E_n}(p_i-r)H_k(r/p_i)^2
+ +\sum_{i\in L_n}(r-p_i)H_k(r/p_i)^2.
+\]
+The squared norm is $4\,16^{-k}$, giving the stated error bound.
+The polynomial representation has degree at most $2\deg H_k\le2k$.
+
+For the displayed choice of $k$, $8r<16^k$. Hence
+\[
+ 0\le S_n-\mathcal A_{k,n}\le\frac{16C}{16^k}
+       <\frac{4r}{16^k}<\frac12.
+\]
+As before $r-C>2$, so the retained entering and leaving primes are
+odd and equal cardinalities imply $S_n=2K$ with $K\ge0$.
+The combined error bounds give $-1<y-2K<1/2$.
+Separation of even integers proves uniqueness for every observation
+with this same $K$.
+\end{proof}
+
+The explicit degree now satisfies
+\[
+ m\le2\bigl(\lfloor\log_{16}(8r)\rfloor+1\bigr)
+   \le\frac12\log_2r+\frac72.
+\]
+Thus its leading logarithmic coefficient is half the original
+full-window geometric certificate's coefficient.
+At a matched even degree $m=2k$, the new complete error bound is
+$4\,4^{-m}S_n$, compared with $2^{-m}S_n$ previously; it is strictly
+smaller for every $m>2$. These real-logarithm and matched-degree
+comparisons are ordinary consequences of the compiled formulas.
+The observation-noise allowance remains a condition on the combined
+observable. The coefficient-weighted raw-moment accuracy requirement
+from the preceding subsection still applies.
+
+\begin{flushleft}
+The recurrence, degree bounds, quadratic invariant, unit-window norm
+and rational growth packet are compiled in
+\path{Mathlib/Analysis/SpecialFunctions/Log/ReciprocalChebyshevCore.lean}.
+The positive-denominator normalization, affine degree bound and
+uniform filter norm are compiled in
+\path{Mathlib/Analysis/SpecialFunctions/Log/ReciprocalChebyshevFilter.lean}.
+The actual probability-moment representation, complete signed error
+and explicit integer-logarithm noisy recovery are compiled in
+\path{Helpers/PrimeProfileChebyshevReadout.lean}.
+All readout certificates are exported together by
+\path{Assembly/PrimeProfileReadouts.lean}.
+The error theorem includes $p_n=2$; even-integer recovery assumes
+$p_n\ge3$. Identity profiles and finite permutations remain allowed.
+No minimax optimality or external-priority claim is made.
+The gain concerns finite observation accuracy under an assumed
+arithmetic cost bound, and supplies no new RH boundary.
+\end{flushleft}
+
 \subsection{Rational residue-class laws: a stronger inverse theorem}
 
 The preceding inverse theorem extends beyond a common leading coefficient.
