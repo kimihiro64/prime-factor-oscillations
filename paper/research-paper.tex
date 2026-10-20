@@ -3675,6 +3675,88 @@ No independent arithmetic bound on an RH detector is inferred from
 this profile classification.
 \end{sloppypar}
 
+\begin{theorem}[Complete shared-profile distortion alternatives]
+Let $a_j\in[0,1]$, $\sum_j a_j^2<\infty$, and suppose its entire
+canonical profile equals the reciprocal-prime profile.
+Write
+\[
+ D_{a,n}(t)=\frac{p_n^2(p_n+t)}{t^2}
+ \sum_{j=0}^{n}
+ \left\{\log(1+ta_j)-ta_j-\log(1+t/p_j)+t/p_j\right\}.
+\]
+Exactly one of the following alternatives holds:
+\begin{enumerate}
+\item There is an integer $K\ge0$ such that, for every $\varepsilon>0$,
+one cutoff gives $D_{a,n}(t)\le2K+\varepsilon$ for all later $n$
+and every $t>0$, while arbitrarily late cutoffs satisfy
+$D_{a,n}(t)\ge2K-\varepsilon$ for every $t>0$ simultaneously.
+\item For every real $C$ and every $N$, some $n\ge N$ satisfies
+$D_{a,n}(t)>C$ for every $t>0$ simultaneously.
+\end{enumerate}
+Thus every positive adaptive probe sequence has the same upper limit,
+belonging to $\{0,2,4,\ldots\}\cup\{+\infty\}$.
+The upper limit is zero exactly when $a$ is a finite coordinate
+permutation of the reciprocal-prime law.
+If even one coordinate of $a$ is zero, the stronger conclusion
+\[
+ \forall C\in\mathbb R\ \exists M\
+ \forall n\ge M\ \forall t>0:\quad D_{a,n}(t)>C
+\]
+holds.
+\end{theorem}
+\begin{proof}
+First suppose that all coordinates are positive. The maintained entire-profile
+reconstruction gives one permutation $\sigma$ with
+$a_j=1/p_{\sigma(j)}$. Substituting this equality into the complete signed
+prefix sum gives $D_{a,n}(t)=D_n(t)$ exactly.
+
+If the constant unit probe $D_n(1)$ is eventually bounded, the preceding
+theorem gives the first alternative. Otherwise, fix $C\in\mathbb R$ and
+$N$, and put $A=\max(C,0)$. There are arbitrarily late cutoffs with
+$D_n(1)>12A$; choose one beyond $N$ with $p_n>4A$.
+If any positive probe $v$ had $D_n(v)\le A$, the localization lemma,
+applied with $v$ as the original probe, would give
+\[
+ D_n(1)\le S_n+\frac{32A^2}{p_n}
+          \le4A+8A=12A,
+\]
+a contradiction. Thus every positive probe exceeds $A\ge C$ at this
+same cutoff. This proves the second alternative without selecting
+different cutoffs for different probes.
+
+If $a_i=0$, the maintained zero-hole estimate instead gives
+$D_{a,n}(t)\ge p_n/4$ for every $n\ge i$ and every $t>0$.
+Since $p_n\ge n$, it gives the asserted eventual uniform divergence.
+Nonnegativity of the coordinates makes these two cases exhaustive.
+
+The alternatives are disjoint: in the first, use $\varepsilon=1$;
+in the second, use $C=2K+2$ and a cutoff beyond that upper envelope.
+Their quantified bounds give the stated common upper limit.
+A finite permutation has eventual zero defect. Conversely, the zero
+level is incompatible with a zero coordinate, so reconstruction reduces
+it to the positive permutation case, where the preceding cutoff inverse
+applies. In particular, a law that is \emph{not a finite permutation}
+has a positive even level or infinite upper limit.
+\end{proof}
+
+\begin{flushleft}
+The quantitative implication
+$D_n(v)\le C\Rightarrow D_n(1)\le12C$ for $p_n>4C$, the shared
+unbounded witnesses, and the permutation dichotomy are compiled in
+\path{Helpers/PrimeProfileUniformDichotomy.lean}.
+The general-law dichotomy and eventual uniform zero-hole divergence are
+compiled in \path{Assembly/PrimeProfileDistortionClassification.lean}.
+The exact coordinate-substitution identity is maintained in
+\path{Assembly/PrimeProfileCutoffInverse.lean}.
+The formal alternatives use the displayed quantified upper and lower
+envelopes; their upper-limit wording, exclusivity and zero-level
+characterization are mathematical consequences, not additional named
+Lean declarations. The prime $2$ is retained in every finite prefix;
+evenness is used only after the localization window excludes it.
+No new prime-pattern infinitude or improvement of the certified
+$7/8$ RH boundary follows from this classification.
+\end{flushleft}
+
 \subsection{Rational residue-class laws: a stronger inverse theorem}
 
 The preceding inverse theorem extends beyond a common leading coefficient.

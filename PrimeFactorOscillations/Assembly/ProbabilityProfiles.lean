@@ -4,12 +4,12 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Prime Factor Oscillations contributors
 -/
 
+import PrimeFactorOscillations.Assembly.PrimeProfileDistortionClassification
 import PrimeFactorOscillations.Assembly.PrimeProfileInverse
 import PrimeFactorOscillations.Assembly.PrimeProfileMinimax
 import PrimeFactorOscillations.Assembly.PrimeProfileQuadrupletAttainment
 import PrimeFactorOscillations.Helpers.CharacterProbability
 import PrimeFactorOscillations.Helpers.PeakComparison
-import PrimeFactorOscillations.Helpers.PrimeProfileQuantization
 
 /-!
 # Probability profiles and their arithmetic comparison theorems

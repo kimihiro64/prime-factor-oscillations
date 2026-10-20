@@ -91,6 +91,20 @@ def normalizedProbabilityPrefixDefect (a t : Nat -> Real) (n : Nat) : Real :=
     ((Finset.range (n + 1)).sum (fun i => Real.log (1 + t n * a i) - t n * a i) -
       (Finset.range (n + 1)).sum (primeLogWeight (t n)))
 
+/-- Coordinate equality transports the complete signed normalized defect. -/
+theorem normalizedProbabilityPrefixDefect_eq_of_prime_perm
+    (a : Nat -> Real) (e : Equiv.Perm Nat)
+    (he : forall n, a n = reciprocalPrimeProbability (e n))
+    (t : Nat -> Real) (n : Nat) :
+    normalizedProbabilityPrefixDefect a t n = normalizedPrimePrefixDefect e t n := by
+  unfold normalizedProbabilityPrefixDefect normalizedPrimePrefixDefect Finset.prefixDefect
+  congr 2
+  apply Finset.sum_congr rfl
+  intro i hi
+  rw [he i]
+  simp only [primeLogWeight, reciprocalPrimeProbability, Real.bernoulliLogProfile,
+    mul_one_div]
+
 /-- Adaptive accuracy finer than the cubic scale detects every infinite
 rearrangement in the positive reciprocal-prime profile class. -/
 theorem positive_profile_cutoff_inverse (a : Nat -> Real)
@@ -106,15 +120,8 @@ theorem positive_profile_cutoff_inverse (a : Nat -> Real)
   have hh := exists_prime_perm_of_positive_profile_eq a ha ha1 hsa heq
   let e := Classical.choose hh
   have he : forall n, a n = reciprocalPrimeProbability (e n) := Classical.choose_spec hh
-  have hid : normalizedProbabilityPrefixDefect a t = normalizedPrimePrefixDefect e t := by
-    funext n
-    unfold normalizedProbabilityPrefixDefect normalizedPrimePrefixDefect Finset.prefixDefect
-    congr 2
-    apply Finset.sum_congr rfl
-    intro i hi
-    rw [he i]
-    simp only [primeLogWeight, reciprocalPrimeProbability, Real.bernoulliLogProfile,
-      mul_one_div]
+  have hid : normalizedProbabilityPrefixDefect a t = normalizedPrimePrefixDefect e t :=
+    funext (normalizedProbabilityPrefixDefect_eq_of_prime_perm a e he t)
   rw [hid, normalizedPrimePrefixDefect_tendsto_zero_iff e t ht]
   constructor
   . intro h
