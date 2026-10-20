@@ -3304,6 +3304,117 @@ inverse uses the sufficient uniform bound $p_n/4$. Finite permutations
 have eventual zero defect and are excluded from every positive
 lower-distortion assertion. No literature priority is claimed.
 
+\subsection{Two-coordinate cutoff transport}
+
+For a prime-coordinate permutation $\sigma$, define the crossing width
+\[
+ m_n=\bigl|\sigma(\{0,\ldots,n\})\setminus\{0,\ldots,n\}\bigr|,
+ \qquad
+ D_n(t)=\frac{p_n^2(p_n+t)}{t^2}\Delta_{a,n}(t),
+ \quad a_j=1/p_{\sigma(j)}.
+\]
+Put $g_j=p_{j+1}-p_j$. The full signed defect detects more than whether
+a prefix moves: it distinguishes simultaneous crossings.
+
+\begin{lemma}[Complete two-crossing cost]
+For every $n\ge1$ with $m_n\ge2$, and every $t>0$,
+\[
+ D_n(t)\ge
+ T_n\left(\frac{p_n}{p_{n+2}}\right)^2,
+ \qquad
+ T_n=g_{n-1}+2g_n+g_{n+1}.
+\]
+\end{lemma}
+\begin{proof}
+Write $W_t(j)=\log(1+t/p_j)-t/p_j$, an increasing weight.
+Cancel common coordinates from the two prefixes. There are $m_n$
+entering and $m_n$ leaving coordinates. Every entering coordinate
+has index at least $n+1$, and at least one has index at least $n+2$.
+Every leaving coordinate has index at most $n$, and at least one
+has index at most $n-1$. Consequently,
+\begin{align*}
+ \Delta_{a,n}(t)
+ &\ge m_n(W_t(n+1)-W_t(n))\\
+ &\quad+W_t(n+2)-W_t(n+1)+W_t(n)-W_t(n-1)\\
+ &\ge W_t(n+1)+W_t(n+2)-W_t(n)-W_t(n-1).
+\end{align*}
+The remaining crossing contributions have been retained in this
+inequality; no unsigned coefficient bound is used.
+
+The maintained scalar comparison, with a middle reference denominator,
+states that for $t>0$, $0<p\le q$ and $p\le r$,
+\[
+ \frac{r^2(r+t)}{t^2}
+ \left\{\log(1+t/q)-t/q-\log(1+t/p)+t/p\right\}
+ \ge(q-p)\left(\frac r q\right)^2.
+\]
+Apply it to $(p,q,r)=(p_{n-1},p_{n+1},p_n)$ and
+$(p_n,p_{n+2},p_n)$. Replace the first ratio by the smaller common
+ratio $p_n/p_{n+2}$ and add the two signed costs. Their denominator
+displacements sum to $T_n$.
+\end{proof}
+
+\begin{lemma}[The second prime-geometry threshold]
+For $n\ge3$, $T_n\ge12$. Equality holds exactly when
+\[
+ (g_{n-1},g_n,g_{n+1})=(2,4,2)\quad\hbox{or}\quad(4,2,4).
+\]
+The exceptional initial values are $T_1=7$ and $T_2=10$; a
+double crossing is impossible at $n=0$.
+\end{lemma}
+\begin{proof}
+The four primes start beyond $3$, so all three gaps are even and
+at least $2$. Two consecutive gaps cannot both be $2$: among
+$p,p+2,p+4$, one is divisible by $3$ and exceeds $3$.
+If the central gap is at least $4$, the weighted sum is at least
+$2+2\cdot4+2=12$, with equality only for $(2,4,2)$.
+If the central gap is $2$, both neighbours are at least $4$,
+giving $4+2\cdot2+4=12$, with equality only for $(4,2,4)$.
+The initial values use $2,3,5,7,11$ directly.
+\end{proof}
+
+\begin{corollary}[Double-crossing rigidity]
+Fix any positive probe sequence $(t_n)$. For a law that is
+\emph{not a finite permutation} and has $m_n\ge2$ at arbitrarily large
+indices,
+\[
+ \limsup_{n\to\infty}D_n(t_n)\ge12.
+\]
+Equivalently, an upper limit strictly below $12$ forces $m_n\le1$
+eventually. If that upper limit is at most $12$ and double crossings
+persist, one of the two displayed four-prime patterns occurs
+arbitrarily far out.
+\end{corollary}
+\begin{proof}
+The fixed-shift prime ratio $p_n/p_{n+2}$ tends to $1$.
+The first two lemmas therefore give the lower threshold uniformly
+over every positive probe sequence. If the integer $T_n$ is not $12$
+at a sufficiently large double crossing, its parity gives $T_n\ge14$.
+Such crossings cannot occur arbitrarily late when the upper limit is
+at most $12$. Persistent double crossings consequently force
+arbitrarily late equality patterns.
+\end{proof}
+
+The complete signed finite-set inequality is maintained in
+\path{Mathlib/Combinatorics/TwoBoundaryTransport.lean}; the actual
+prime-profile specialization and its middle-prime normalization are
+maintained in \path{Helpers/PrimeProfileDoubleCrossing.lean}.
+The prime-congruence classification is maintained in
+\path{Mathlib/NumberTheory/Primes/WeightedQuadruplet.lean}.
+The helper also proves the actual prime-index classification, the
+normalized lower bound $12(p_n/p_{n+2})^2$, and a quantified uniform
+threshold: for each $\varepsilon>0$, one cutoff works for every
+permutation and every positive probe, giving cost at least
+$12-\varepsilon$ at every later double crossing. It formally proves
+the arbitrarily late lower witnesses and the eventual width bound
+under an eventual cost ceiling $C<12$. The lower-limsup and strict
+upper-bound conclusions above are mathematical consequences of those
+compiled formulations. The final implication from an upper limit at
+most $12$ to recurrent equality patterns retains its ordinary proof;
+its direct Lean consumer is still being completed. The explicit initial
+values $7$ and $10$ also retain their elementary arithmetic checks.
+No infinitude of either four-prime pattern is asserted.
+
 \subsection{Rational residue-class laws: a stronger inverse theorem}
 
 The preceding inverse theorem extends beyond a common leading coefficient.

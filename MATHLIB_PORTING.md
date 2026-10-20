@@ -213,7 +213,10 @@ Each real candidate file should:
 | `PrimeFactorOscillations.Mathlib.Analysis.SpecialFunctions.Log.CompensatedReciprocalNormalization` | `Mathlib/Analysis/SpecialFunctions/Log/CompensatedReciprocalNormalization.lean` | project-verified | Strict monotonicity and a uniform positive normalized boundary cost for every positive logarithmic probe. |
 | `PrimeFactorOscillations.Mathlib.Combinatorics.FinitePrefixDisplacement` | `Mathlib/Combinatorics/FinitePrefixDisplacement.lean` | project-verified | Exact signed finite-prefix comparison with crossing multiplicity, recovery below the boundary gap, and fixed-tail prefix cancellation. |
 | `PrimeFactorOscillations.Mathlib.Combinatorics.AdjacentSwapPrefix` | `Mathlib/Combinatorics/AdjacentSwapPrefix.lean` | project-verified | Disjoint adjacent-swap involution and permutation; exact signed prefix defect equals only the pair crossing the boundary. |
+| `PrimeFactorOscillations.Mathlib.Combinatorics.TwoBoundaryTransport` | `Mathlib/Combinatorics/TwoBoundaryTransport.lean` | project-verified | Full signed two-crossing comparison with the two nearest exterior and interior weights; no unsigned relaxation. |
 | `PrimeFactorOscillations.Mathlib.NumberTheory.Primes.Translation` | `Mathlib/NumberTheory/Primes/Translation.lean` | project-verified | No positive additive translation preserves all sufficiently large primes. |
+| `PrimeFactorOscillations.Mathlib.NumberTheory.Primes.Geometry` | `Mathlib/NumberTheory/Primes/Geometry.lean` | project-verified | Import grouping for prime-label rigidity and weighted four-prime geometry. |
+| `PrimeFactorOscillations.Mathlib.NumberTheory.Primes.WeightedQuadruplet` | `Mathlib/NumberTheory/Primes/WeightedQuadruplet.lean` | project-verified | Weighted span at least twelve for four increasing primes beyond three, with exact equality-pattern classification. |
 
 ## Profile-comparison grouping
 

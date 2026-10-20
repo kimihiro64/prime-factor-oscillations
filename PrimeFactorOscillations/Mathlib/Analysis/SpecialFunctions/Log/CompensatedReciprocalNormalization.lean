@@ -153,4 +153,39 @@ theorem abs_reciprocal_difference_le_twice_gap (p q h : Real)
       field_simp [hp.ne', hq.ne']
     _ <= _ := div_le_div_of_nonneg_left (by positivity) (pow_pos hp 2) hden
 
+/-- A middle reference denominator preserves the sharp signed gap cost. -/
+theorem gap_mul_reference_ratio_sq_le_normalized_pairLogDefect (t p q r : Real)
+    (ht : 0 < t) (hp : 0 < p) (hpq : p <= q) (hpr : p <= r) :
+    (q - p) * (r / q) ^ 2 <=
+      r ^ 2 * (r + t) / t ^ 2 * pairLogDefect t p q := by
+  have hq : 0 < q := hp.trans_le hpq
+  have hr : 0 < r := hp.trans_le hpr
+  have hnorm : 0 <= r ^ 2 * (r + t) / t ^ 2 := by positivity
+  have hb := mul_le_mul_of_nonneg_left
+    (pairLogDefect_bounds t p q ht.le hp hq).1 hnorm
+  have heq : r ^ 2 * (r + t) / t ^ 2 *
+      (t ^ 2 * (q - p) / (p * q * (q + t))) =
+      (q - p) * r ^ 2 * (r + t) / (p * q * (q + t)) := by
+    field_simp [hp.ne', hq.ne', ht.ne', (add_pos hq ht).ne']
+  rw [heq] at hb
+  have hid : ((q - p) * r ^ 2 * (r + t) / (p * q * (q + t)) -
+      (q - p) * (r / q) ^ 2) * (p * q ^ 2 * (q + t)) =
+      (q - p) * r ^ 2 * (q * (r - p) + t * (q - p)) := by
+    field_simp [hp.ne', hq.ne', (add_pos hq ht).ne']
+    ring
+  have hcmp : (q - p) * (r / q) ^ 2 <=
+      (q - p) * r ^ 2 * (r + t) / (p * q * (q + t)) := by
+    by_contra hn
+    have hneg := sub_neg.mpr (lt_of_not_ge hn)
+    have hbad := mul_neg_of_neg_of_pos hneg
+      (by positivity : 0 < p * q ^ 2 * (q + t))
+    rw [hid] at hbad
+    have hcore : 0 <= q * (r - p) + t * (q - p) :=
+      add_nonneg (mul_nonneg hq.le (sub_nonneg.mpr hpr))
+        (mul_nonneg ht.le (sub_nonneg.mpr hpq))
+    have hpos : 0 <= (q - p) * r ^ 2 * (q * (r - p) + t * (q - p)) :=
+      mul_nonneg (mul_nonneg (sub_nonneg.mpr hpq) (sq_nonneg r)) hcore
+    exact (not_lt_of_ge hpos) hbad
+  exact hcmp.trans hb
+
 end Real
