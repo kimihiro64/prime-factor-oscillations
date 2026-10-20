@@ -5815,8 +5815,9 @@ Its finite coefficients and ratios are
 \]
 The reference ratio $\mathcal R_{B,r}(u)$ is the maintained
 factorial-convolution ratio formed from the entire reference
-profile of $\mathcal L_B$. Its dependence on the chosen law is
-retained. The natural number $N$ is an inclusive prime-value
+profile of $\mathcal L_B$. The subscript records its defining law;
+the following invariance theorem identifies it with one canonical
+reference. The natural number $N$ is an inclusive prime-value
 cutoff; $i$ remains the prime index. On the finite observed
 probability prefix the earlier notation is $n+1$, with endpoint
 $p_n$. No scalar is substituted into the permutation map.
@@ -5939,6 +5940,140 @@ The existing short-quadruplet attainment, support selection and
 inverse theorem are consumed without a new prime-pattern supply
 assumption. No external-priority claim is made. The certified
 zero-free boundary remains $7/8$.
+\end{flushleft}
+
+
+\clearpage
+\subsection{One canonical RH reference for every constellation transport}
+
+The entire reference in the preceding criterion is independent of the
+chosen block support. This follows from an exact infinite signed pairing,
+using the quadratic bounds to justify the complete series.
+
+\begin{theorem}[Involutive invariance of the entire reference]
+Let $\mathcal A,\mathcal B$ be qualifying quadratic prime laws with
+the same parameter $\nu$. Suppose $\sigma$ is an involutive permutation
+of the primes and
+\[
+ w_{\mathcal A}(p)=w_{\mathcal B}(\sigma(p))
+       \qquad\hbox{for every prime }p.
+\]
+Then their entire reference profiles are equal. Consequently all
+reference Taylor coefficients are equal, including degree zero.
+Their factorial-convolution reference ratios agree wherever the common
+denominator is nonzero.
+The two laws may have different quadratic error constants.
+\end{theorem}
+
+\begin{proof}
+For a fixed real $t\ge0$, define the complete signed difference
+\[
+ \begin{split}
+ g_t(p)
+ &=\left[\log(1+w_{\mathcal A}(p)t)
+           -\nu t\log(1+1/(p-1))\right]\\
+ &\quad-\left[\log(1+w_{\mathcal B}(p)t)
+           -\nu t\log(1+1/(p-1))\right]\\
+ &=\log(1+w_{\mathcal B}(\sigma(p))t)
+                  -\log(1+w_{\mathcal B}(p)t).
+ \end{split}
+\]
+Each bracketed profile series is absolutely convergent by its proved
+quadratic-law logarithmic bound. Their difference is therefore summable.
+The normalizing terms have been canceled exactly. Involutivity gives
+\[
+ g_t(\sigma(p))=-g_t(p).
+\]
+Reindex only this summable difference:
+\[
+ \sum_p g_t(p)=\sum_p g_t(\sigma(p))
+             =-\sum_p g_t(p).
+\]
+Its sum is zero. The two logarithmic reference profiles are thus equal
+for every $t\ge0$. Exponentiating and applying the existing positive-real
+product identity shows equality of their entire profiles on the
+nonnegative real axis.
+
+Both reference profiles are entire by the established quadratic-law
+construction. Their coincidence set has $0$ as an accumulation point:
+for every $\varepsilon>0$, the nonzero real point $\varepsilon/2$
+lies within distance $\varepsilon$ of zero and has equal profile values.
+The analytic identity principle therefore gives equality on the whole
+complex plane. Every Taylor coefficient at zero is equal. Substitution
+in the finite factorial convolutions proves the reference-ratio equality
+on its stated nonzero-denominator domain.
+\end{proof}
+
+Only the signed difference is reindexed in this proof. In particular,
+the argument does not rearrange either divergent positive sum
+$\sum_p\log(1+w_{\mathcal A}(p)t)$ or
+$\sum_p\log(1+w_{\mathcal B}(p)t)$ separately.
+
+Let $\mathcal L_0$ be the fixed canonical law with
+\[
+ w_0(p)=\frac1{p-1},\qquad \nu=1,\qquad\hbox{quadratic error }0,
+\]
+and denote its reference ratio by $\mathcal R_{0,r}(u)$.
+
+\begin{corollary}[A common canonical constellation RH criterion]
+For every fixed support $B$ from the preceding subsection,
+\[
+ \Phi_{\mathcal L_B}=\Phi_{\mathcal L_0},\qquad
+ \mathcal R_{B,r}(u)=\mathcal R_{0,r}(u)
+\]
+on the common nonzero-denominator domain of the ratios. The reference
+clock is exactly the same at every cutoff. For each fixed $\alpha>0$,
+\[
+ \mathrm{RH}\quad\Longleftrightarrow\quad
+ R_{B,N,r_N}<\mathcal R_{0,r_N}(L(N))
+       \quad\hbox{eventually in }N.
+\]
+Thus the reference profile, its coefficients, its clock and its ratio
+are fixed independently of $B$. The actual finite coefficient ratio
+$R_{B,N,r_N}$ still belongs to the chosen constellation transport.
+The existential criterion of the preceding subsection remains valid
+with $\mathcal R_0$ replacing every $\mathcal R_B$.
+\end{corollary}
+
+\begin{proof}
+The exact correspondence $i\mapsto p_i$ identifies the permutation
+$e_B$ with an involutive permutation of the primes. Its inverse
+coordinate is the number of primes strictly below the prime label;
+the two inverse identities hold on the entire enumeration, beginning
+at $p_0=2$. The actual odds satisfy
+\[
+ w_B(p_i)=w_0(p_{e_B(i)}).
+\]
+Both laws qualify: $\mathcal L_B$ has the already proved error bound
+$42$, and $\mathcal L_0$ has error zero; both have $\nu=1$.
+Apply the theorem to obtain equality of the entire profiles and every
+reference coefficient and ratio. The clock identity follows directly
+from their common $\nu=1$. Substitution into the already compiled
+fixed-witness and existential RH equivalences gives the assertions.
+Their eventual positive-denominator domain is retained.
+\end{proof}
+
+The infinite signed cancellation here removes the change in the
+reference caused by reindexing. The finite-cutoff coefficient ratio,
+the complete compensated cutoff cost, and the Nicolas clock oscillation
+remain in their respective statements. In particular the RH sign
+response is preserved; no zero signal is set to zero by this pairing.
+The cost threshold continues to distinguish the local prime geometry
+even though these entire references coincide.
+
+\begin{flushleft}
+The summable logarithmic pairing, entire-function equality, equality of
+all reference coefficients and ratios, and exact prime-coordinate
+conversion are compiled in
+\path{Helpers/PrimeProfileReferenceInvariance.lean}.
+Their application to the actual quadruplet law, the canonical clock,
+the fixed-reference RH criterion and the fixed-reference existential
+criterion are compiled in
+\path{Assembly/PrimeProfileQuadrupletCanonicalRH.lean},
+exported through \path{Assembly/ProbabilityProfiles.lean}.
+No uniform eventual cutoff over the supports or rank parameters is
+asserted. No external-priority claim or zero-free exponent improvement
+is made; the certified boundary remains $7/8$.
 \end{flushleft}
 
 
