@@ -10,6 +10,7 @@ import PrimeFactorOscillations.Assembly.PrimeProfileMinimax
 import PrimeFactorOscillations.Assembly.PrimeProfileQuadrupletAttainment
 import PrimeFactorOscillations.Helpers.CharacterProbability
 import PrimeFactorOscillations.Helpers.PeakComparison
+import PrimeFactorOscillations.Helpers.PrimeProfileTransportReadout
 
 /-!
 # Probability profiles and their arithmetic comparison theorems

@@ -3757,6 +3757,42 @@ No new prime-pattern infinitude or improvement of the certified
 $7/8$ RH boundary follows from this classification.
 \end{flushleft}
 
+\begin{theorem}[Exact finite-accuracy transport readout]
+Fix a prime-coordinate permutation $\sigma$ and a cutoff with $r=p_n\ge3$.
+Suppose $C\ge0$, $D_n(t)\le C$ for one $t>0$, and $32C^2<r$.
+Then there is one integer $K\ge0$ such that
+\[
+ S_n=2K,\qquad |D_n(v)-2K|<1\quad\hbox{for every }v>0.
+\]
+For each positive probe $v$ separately, $K$ is the unique nonnegative
+integer $j$ with $|D_n(v)-2j|<1$.
+\end{theorem}
+\begin{proof}
+The precision hypothesis implies $C<r/4$: otherwise
+$32C^2\ge2r^2\ge6r>r$. Hence $r-C>3r/4\ge9/4>2$.
+Localization excludes the exceptional prime $2$ from the transported
+sets, so their exact signed sum is $S_n=2K$ for some $K\ge0$.
+The uniform error estimate gives
+$|D_n(v)-2K|\le32C^2/r<1$ for every $v>0$.
+Two distinct even integers have distance at least $2$; they cannot both
+lie at distance strictly less than $1$ from the same observation.
+This proves uniqueness for each probe, with the same recovered value
+for every probe.
+\end{proof}
+
+The theorem has no global boundedness assumption.
+For example, suppose one positive adaptive probe has eventual cost at
+most $C_n\ge0$, where $C_n^2/p_n\to0$. Then, at every sufficiently late
+cutoff, \emph{every} positive probe determines the exact moving transport
+$S_n$ by its unique nearest even integer. Moreover the uniform readout
+error is at most $32C_n^2/p_n\to0$.
+The levels may grow with $n$; no constant distortion level is assumed.
+The finite theorem, including per-probe uniqueness, is compiled in
+\path{Helpers/PrimeProfileTransportReadout.lean}. The growing-budget
+statement is a mathematical consequence of that finite certificate and
+the maintained uniform error estimate, not a separately named limit
+declaration.
+
 \subsection{Rational residue-class laws: a stronger inverse theorem}
 
 The preceding inverse theorem extends beyond a common leading coefficient.
