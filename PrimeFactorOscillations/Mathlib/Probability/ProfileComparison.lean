@@ -13,8 +13,8 @@ import PrimeFactorOscillations.Mathlib.Analysis.SpecialFunctions.Log.Compensated
 import PrimeFactorOscillations.Mathlib.Analysis.SpecialFunctions.Log.ExplicitLinear
 import PrimeFactorOscillations.Mathlib.Analysis.SpecialFunctions.Log.TripleReference
 import PrimeFactorOscillations.Mathlib.Analysis.SpecialFunctions.Pow.RestrictionComposition
-import PrimeFactorOscillations.Mathlib.Combinatorics.AdjacentSwapPrefix
 import PrimeFactorOscillations.Mathlib.Combinatorics.TwoBoundaryTransport
+import PrimeFactorOscillations.Mathlib.Combinatorics.TwoStepSwapPrefix
 import PrimeFactorOscillations.Mathlib.NumberTheory.Primes.Geometry
 
 /-!

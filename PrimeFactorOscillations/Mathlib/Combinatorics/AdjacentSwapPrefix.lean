@@ -158,4 +158,57 @@ theorem exists_unbounded_nonadjacent_subset (S : Set Nat)
   . intro N
     exact Exists.intro (f N) (And.intro (hmono.id_le N) (Exists.intro N rfl))
 
+/-- Unbounded supports admit arbitrarily prescribed positive index separation. -/
+theorem exists_unbounded_separated_subset (S : Set Nat)
+    (hS : forall N : Nat, exists n : Nat, N <= n /\ Membership.mem S n)
+    (L : Nat) (hL : 0 < L) :
+    exists A : Set Nat,
+      (forall n, Membership.mem A n -> Membership.mem S n) /\
+      (forall a, Membership.mem A a -> forall b, Membership.mem A b ->
+        a < b -> a + L <= b) /\
+      (forall N : Nat, exists n : Nat, N <= n /\ Membership.mem A n) := by
+  classical
+  let next : Nat -> Nat := fun N => Classical.choose (hS N)
+  have hnext : forall N : Nat, N <= next N /\ Membership.mem S (next N) :=
+    fun N => Classical.choose_spec (hS N)
+  let f : Nat -> Nat := Nat.rec (next 0) (fun _ v => next (v + L))
+  have hstep : forall k : Nat, f k + L <= f (k + 1) := by
+    intro k
+    change f k + L <= next (f k + L)
+    exact (hnext (f k + L)).1
+  have hmono : StrictMono f := strictMono_nat_of_lt_succ (fun k => by
+    have hs := hstep k
+    omega)
+  have hfS : forall k : Nat, Membership.mem S (f k) := by
+    intro k
+    cases k with
+    | zero => exact And.right (hnext 0)
+    | succ k => exact And.right (hnext (f k + L))
+  let A : Set Nat := Set.range f
+  refine Exists.intro A (And.intro ?_ (And.intro ?_ ?_))
+  . intro n hn
+    have hex : exists k : Nat, f k = n := hn
+    let k := Classical.choose hex
+    have hk : f k = n := Classical.choose_spec hex
+    rw [<- hk]
+    exact hfS k
+  . intro a ha b hb hab
+    have hiEx : exists i : Nat, f i = a := ha
+    have hjEx : exists j : Nat, f j = b := hb
+    let i := Classical.choose hiEx
+    let j := Classical.choose hjEx
+    have hi : f i = a := Classical.choose_spec hiEx
+    have hj : f j = b := Classical.choose_spec hjEx
+    have hij : i < j := by
+      by_contra hn
+      have hindex : j <= i := by omega
+      have hle : f j <= f i := hmono.monotone hindex
+      omega
+    have hindex : i + 1 <= j := by omega
+    have hle : f (i + 1) <= f j := hmono.monotone hindex
+    have hgap := hstep i
+    omega
+  . intro N
+    exact Exists.intro (f N) (And.intro (hmono.id_le N) (Exists.intro N rfl))
+
 end Set

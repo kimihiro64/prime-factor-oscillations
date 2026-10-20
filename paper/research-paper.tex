@@ -3396,28 +3396,134 @@ has one of the two equality patterns. Persistent double crossings
 give their recurrence.
 \end{proof}
 
+\begin{theorem}[A sharp probability-profile equivalence]
+The following statements are equivalent:
+\begin{enumerate}
+\item Arbitrarily late consecutive four-prime windows, starting beyond $3$,
+have offsets $(0,2,6,8)$ or $(0,4,6,10)$.
+\item There is one permutation $\sigma$ with $m_n\ge2$ at arbitrarily
+large cutoffs and
+\[
+ \forall\varepsilon>0\ \exists N\
+ \forall n\ge N\ \forall t>0,\qquad D_n(t)\le12+\varepsilon.
+\]
+\end{enumerate}
+For the law $a_j=1/p_{\sigma(j)}$ in the construction, $0<a_j\le1$,
+$\sum_j a_j^2<\infty$, and the entire canonical profile equals that of
+$u_j=1/p_j$. It is \emph{not a finite permutation}. For every positive
+probe sequence, chosen after the law,
+\[
+ \limsup_{n\to\infty}D_n(t_n)=12.
+\]
+The cutoff in the upper estimate is independent of the positive probe.
+\end{theorem}
+\begin{proof}
+Suppose the windows recur. Greedily choose an unbounded set $A$ of
+their starting indices with $a+4\le b$ whenever $a<b$ in $A$.
+This is possible by selecting the next start beyond the previous start
+plus four. Set $B=A\cup(A+1)$. No $j$ and $j+2$ both belong to $B$:
+such a pair would put two selected starts at distance less than four.
+Define
+\[
+ \sigma(j)=
+ \begin{cases}
+ j+2,&j\in B,\\
+ j-2,&j\notin B,\ j\ge2,\ j-2\in B,\\
+ j,&\text{otherwise}.
+ \end{cases}
+\]
+The absence of two-step chains makes this an involution. In each
+selected block it swaps the first with the third coordinate and the
+second with the fourth. Both prime displacements equal six, for either
+offset pattern. At cutoff $n=a+1$ the distinct exterior coordinates
+$a+2,a+3$ enter, so double crossings recur.
+
+For an arbitrary real weight $W$, completed pairs cancel exactly:
+\begin{align*}
+ \sum_{j=0}^{k+1}\bigl(W(\sigma(j))-W(j)\bigr)
+ &=\mathbf1_B(k+1)\bigl(W(k+3)-W(k+1)\bigr)\\
+ &\quad+\mathbf1_B(k)\bigl(W(k+2)-W(k)\bigr).
+\end{align*}
+This identity includes every finite-prefix term. It follows either
+by pairing completed swaps or by induction, retaining the two pairs
+that can cross the boundary.
+
+We also need the upper comparison at a middle reference. Write
+$\delta_t(p,q)=\log(1+t/q)-t/q-\log(1+t/p)+t/p$.
+For $t>0$ and $0<p\le r\le q$,
+\[
+ \frac{r^2(r+t)}{t^2}\delta_t(p,q)
+ \le(q-p)\left(\frac r p\right)^2.
+\]
+Indeed,
+$\delta_t(p,q)=\int_p^q t^2/(x^2(x+t))\,dx
+ \le t^2(q-p)/(pq(p+t))$.
+After normalization, the desired comparison follows from the
+nonnegative identity
+\begin{align*}
+ &\left\{(q-p)(r/p)^2-
+   \frac{(q-p)r^2(r+t)}{pq(p+t)}\right\}p^2q(p+t)\\
+ &\hspace{25mm}=(q-p)r^2\{p(q-r)+t(q-p)\}\ge0.
+\end{align*}
+All denominators are positive.
+
+Apply the exact prefix identity to $W=W_t$ and this upper comparison
+with reference $r=p_{k+1}$. Each present pair has displacement six.
+The pair starting at $k+1$ costs at most $6$, and the pair starting
+at $k$ costs at most $6(p_{k+1}/p_k)^2$. Absent pairs contribute zero.
+Thus, for every $k\ge0$ and $t>0$,
+\[
+ D_{k+1}(t)\le6(p_{k+1}/p_k)^2+6.
+\]
+The right side tends to $12$, proving the upper estimate with a
+cutoff uniform in $t$. The previous lower threshold at recurring
+double crossings supplies arbitrarily late values at least
+$12-\varepsilon$ for every positive probe sequence. This proves
+the exact upper limit, including the rank shift $n=k+1$.
+
+Reindexing preserves square summability and the canonical entire
+product, so the constructed sequence has the asserted probability
+properties and profile. A finite permutation fixes all sufficiently
+late coordinates and preserves all later prefixes; it cannot have
+recurring double crossings. The selected blocks start beyond $3$,
+so the exceptional prime coordinates $2,3$ are fixed. The first
+cutoff $n=0$ plays no role in the eventual estimate.
+
+Conversely, use the constant probe $t=1$ and $\varepsilon=1$ in
+statement~(ii). The eventual ceiling is $13<14$. The compiled inverse
+criterion therefore forces an equality pattern at every sufficiently
+late double crossing. Their recurrence gives statement~(i).
+\end{proof}
+
 The complete signed finite-set inequality is maintained in
 \path{Mathlib/Combinatorics/TwoBoundaryTransport.lean}; the actual
 prime-profile specialization and its middle-prime normalization are
 maintained in \path{Helpers/PrimeProfileDoubleCrossing.lean}.
 The prime-congruence classification is maintained in
 \path{Mathlib/NumberTheory/Primes/WeightedQuadruplet.lean}.
-The helper also proves the actual prime-index classification, the
-normalized lower bound $12(p_n/p_{n+2})^2$, and a quantified uniform
-threshold: for each $\varepsilon>0$, one cutoff works for every
-permutation and every positive probe, giving cost at least
-$12-\varepsilon$ at every later double crossing. It formally proves
-the arbitrarily late lower witnesses and the eventual width bound
-under an eventual cost ceiling $C<12$. The lower-limsup and strict
-upper-bound conclusions above are mathematical consequences of those
-compiled formulations. The stronger inverse under an eventual
+The quantified uniform lower threshold and arbitrarily late witnesses
+are compiled there, as is the eventual width bound under a ceiling
+$C<12$. Their limsup formulations are mathematical consequences of
+these quantified statements. The stronger inverse under an eventual
 ceiling $C<14$ is maintained in
-\path{Helpers/PrimeProfileQuadrupletInverse.lean}: every sufficiently
-late double crossing has an equality pattern, and persistent double
-crossings force recurrence of those patterns. The upper-limsup
-formulation is a mathematical consequence of this compiled criterion.
-The explicit initial values $7$ and $10$ retain their elementary
-arithmetic checks.
+\path{Helpers/PrimeProfileQuadrupletInverse.lean}.
+The exceptional initial values $7,10$ retain their elementary checks.
+
+The converse is maintained in
+\path{Assembly/PrimeProfileQuadrupletAttainment.lean}.
+It formally proves the actual probability-profile equivalence, with
+one law before every positive probe, as well as positivity, the unit
+bound, square summability, full profile equality, arbitrarily late
+lower witnesses and exclusion of finite permutation representations.
+Its compiled upper formulation has one cutoff for all positive probes.
+The sparse block selection and the complete uniform upper estimate
+are maintained in \path{Helpers/PrimeQuadrupletSupport.lean} and
+\path{Helpers/PrimeProfileTwoStepTransport.lean}; the distance-two
+involution, exact signed prefix identity and double-crossing witness
+are reusable owners in
+\path{Mathlib/Combinatorics/TwoStepSwapPrefix.lean}.
+The matching middle-reference upper comparison is maintained in
+\path{Mathlib/Analysis/SpecialFunctions/Log/CompensatedReciprocalNormalization.lean}.
 No infinitude of either four-prime pattern is asserted.
 
 \subsection{Rational residue-class laws: a stronger inverse theorem}

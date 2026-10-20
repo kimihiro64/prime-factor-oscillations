@@ -188,4 +188,40 @@ theorem gap_mul_reference_ratio_sq_le_normalized_pairLogDefect (t p q r : Real)
     exact (not_lt_of_ge hpos) hbad
   exact hcmp.trans hb
 
+/-- The matching upper bound at a middle reference is uniform in the probe. -/
+theorem normalized_pairLogDefect_le_gap_mul_reference_ratio_sq (t p q r : Real)
+    (ht : 0 < t) (hp : 0 < p) (hpq : p <= q) (hpr : p <= r) (hrq : r <= q) :
+    r ^ 2 * (r + t) / t ^ 2 * pairLogDefect t p q <=
+      (q - p) * (r / p) ^ 2 := by
+  have hq : 0 < q := hp.trans_le hpq
+  have hr : 0 < r := hp.trans_le hpr
+  have hnorm : 0 <= r ^ 2 * (r + t) / t ^ 2 := by positivity
+  have hb := mul_le_mul_of_nonneg_left
+    (pairLogDefect_bounds t p q ht.le hp hq).2 hnorm
+  have heq : r ^ 2 * (r + t) / t ^ 2 *
+      (t ^ 2 * (q - p) / (p * q * (p + t))) =
+      (q - p) * r ^ 2 * (r + t) / (p * q * (p + t)) := by
+    field_simp [hp.ne', hq.ne', ht.ne', (add_pos hp ht).ne']
+  rw [heq] at hb
+  have hid : ((q - p) * (r / p) ^ 2 -
+      (q - p) * r ^ 2 * (r + t) / (p * q * (p + t))) *
+      (p ^ 2 * q * (p + t)) =
+      (q - p) * r ^ 2 * (p * (q - r) + t * (q - p)) := by
+    field_simp [hp.ne', hq.ne', (add_pos hp ht).ne']
+    ring
+  have hcmp : (q - p) * r ^ 2 * (r + t) / (p * q * (p + t)) <=
+      (q - p) * (r / p) ^ 2 := by
+    by_contra hn
+    have hneg := sub_neg.mpr (lt_of_not_ge hn)
+    have hbad := mul_neg_of_neg_of_pos hneg
+      (by positivity : 0 < p ^ 2 * q * (p + t))
+    rw [hid] at hbad
+    have hcore : 0 <= p * (q - r) + t * (q - p) :=
+      add_nonneg (mul_nonneg hp.le (sub_nonneg.mpr hrq))
+        (mul_nonneg ht.le (sub_nonneg.mpr hpq))
+    have hpos : 0 <= (q - p) * r ^ 2 * (p * (q - r) + t * (q - p)) :=
+      mul_nonneg (mul_nonneg (sub_nonneg.mpr hpq) (sq_nonneg r)) hcore
+    exact (not_lt_of_ge hpos) hbad
+  exact hb.trans hcmp
+
 end Real
