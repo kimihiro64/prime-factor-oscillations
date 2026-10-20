@@ -5,6 +5,7 @@ Authors: Prime Factor Oscillations contributors
 -/
 
 import PrimeFactorOscillations.Helpers.PrimeProfileShiftRigidity
+import PrimeFactorOscillations.Mathlib.Analysis.SpecialFunctions.Log.BernoulliProfileFinitePermutation
 import PrimeFactorOscillations.Mathlib.Analysis.SpecialFunctions.Log.BernoulliProfileTailMatching
 
 /-!
@@ -121,5 +122,66 @@ theorem prime_coordinates_rigid
   refine Exists.intro A ?_
   intro n hn
   simpa only [<- hparams.2.2, Nat.sub_add_cancel hn] using hmatch (n - A)
+
+/-- Complete profile classification, including every finite zero and unit probability. -/
+theorem prime_profile_eq_iff_finite_permutation
+    (a b : Nat -> Real) (nu1 nu2 c1 c2 : Real)
+    (ha : forall n, 0 <= a n) (ha1 : forall n, a n <= 1)
+    (hb : forall n, 0 <= b n) (hb1 : forall n, b n <= 1)
+    (hsa : Summable (fun n => (a n) ^ 2)) (hsb : Summable (fun n => (b n) ^ 2))
+    (hnu1 : 0 < nu1) (hnu2 : 0 < nu2)
+    (hrecipA : Tendsto (fun n : Nat =>
+      1 / a n - (PrimeFactorUnimodality.primeAt n : Real) / nu1 - c1)
+        atTop (nhds 0))
+    (hrecipB : Tendsto (fun n : Nat =>
+      1 / b n - (PrimeFactorUnimodality.primeAt n : Real) / nu2 - c2)
+        atTop (nhds 0)) :
+    Complex.canonicalBernoulliProfile a = Complex.canonicalBernoulliProfile b <->
+      nu1 = nu2 /\ c1 = c2 /\ exists N, exists e : Equiv.Perm Nat,
+        (forall n, N <= n -> e n = n) /\ forall n, a n = b (e n) := by
+  constructor
+  . intro hprofile
+    have hrigid := prime_coordinates_rigid a b nu1 nu2 c1 c2
+      ha ha1 hb hb1 hsa hsb hnu1 hnu2 hrecipA hrecipB hprofile
+    have hex := eventually_atTop.mp hrigid.2.2
+    let N := Classical.choose hex
+    have htail : forall n, N <= n -> a n = b n := Classical.choose_spec hex
+    exact And.intro hrigid.1 (And.intro hrigid.2.1
+      (Exists.intro N (Complex.exists_bounded_perm_of_canonicalBernoulliProfile_eq
+        a b N ha ha1 hb hb1 hsa hsb hprofile htail)))
+  . intro h
+    have hN := Classical.choose_spec h.2.2
+    let e := Classical.choose hN
+    have he : forall n, a n = b (e n) := (Classical.choose_spec hN).2
+    funext z
+    calc
+      Complex.canonicalBernoulliProfile a z =
+          Complex.canonicalBernoulliProfile (fun n => b (e n)) z :=
+        congrArg (fun f : Nat -> Real => Complex.canonicalBernoulliProfile f z) (funext he)
+      _ = Complex.canonicalBernoulliProfile b z :=
+        Complex.canonicalBernoulliProfile_comp_equiv b e z
+
+/-- Equality accumulating at a finite point gives the full prime-labelled classification. -/
+theorem prime_coordinates_rigid_of_frequently_eq
+    (a b : Nat -> Real) (nu1 nu2 c1 c2 : Real)
+    (ha : forall n, 0 <= a n) (ha1 : forall n, a n <= 1)
+    (hb : forall n, 0 <= b n) (hb1 : forall n, b n <= 1)
+    (hsa : Summable (fun n => (a n) ^ 2)) (hsb : Summable (fun n => (b n) ^ 2))
+    (hnu1 : 0 < nu1) (hnu2 : 0 < nu2)
+    (hrecipA : Tendsto (fun n : Nat =>
+      1 / a n - (PrimeFactorUnimodality.primeAt n : Real) / nu1 - c1)
+        atTop (nhds 0))
+    (hrecipB : Tendsto (fun n : Nat =>
+      1 / b n - (PrimeFactorUnimodality.primeAt n : Real) / nu2 - c2)
+        atTop (nhds 0))
+    (z0 : Complex)
+    (heq : Filter.Frequently (fun z => Complex.canonicalBernoulliProfile a z =
+      Complex.canonicalBernoulliProfile b z) (nhdsWithin z0 (Set.singleton z0).compl)) :
+    nu1 = nu2 /\ c1 = c2 /\ exists N, exists e : Equiv.Perm Nat,
+      (forall n, N <= n -> e n = n) /\ forall n, a n = b (e n) := by
+  apply (prime_profile_eq_iff_finite_permutation a b nu1 nu2 c1 c2
+    ha ha1 hb hb1 hsa hsb hnu1 hnu2 hrecipA hrecipB).mp
+  exact Complex.canonicalBernoulliProfile_eq_of_frequently_eq
+    a b ha ha1 hb hb1 hsa hsb z0 heq
 
 end PrimeFactorOscillations.PrimeProfileRigidity

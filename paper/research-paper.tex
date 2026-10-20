@@ -49,8 +49,9 @@ An RH-conditional harmonic second moment measures excess zero multiplicity.
 We also prove prime-coordinate and residue-rational inverse theorems and
 construct distinct laws with identical entire profiles and sharp cubic
 finite-cutoff defects. The spectral and local comparison components have
-maintained Lean proofs; the full inverse classifications and infinite swap
-construction are ordinary mathematical proofs. Classical inputs and unproved
+maintained Lean proofs, as does the full prime-coordinate inverse classification.
+The residue-rational classification and infinite swap construction remain
+ordinary mathematical proofs. Classical inputs and unproved
 arithmetic premises are distinguished; no new prime-gap bound or proof of
 RH is claimed.
 \end{abstract}
@@ -3004,7 +3005,23 @@ These complete consumers are implemented in
 \path{Helpers/PrimeProfilePrimeRatio.lean},
 \path{Helpers/PrimeProfileInverseAsymptotics.lean}, and
 \path{Helpers/PrimeProfileShiftRigidity.lean}.
-Finite permutations and the accumulation-set corollary remain to be formalized.
+The finite-exception conclusion is now compiled as well.
+The maintained modules
+\path{Mathlib/Analysis/SpecialFunctions/Log/BernoulliProfileIdentity.lean}
+and
+\path{Mathlib/Analysis/SpecialFunctions/Log/BernoulliProfileFinitePermutation.lean}
+split off the common tail and cancel it near $z=1$, where it has value one.
+The analytic identity theorem makes the remaining finite profiles equal
+everywhere. Their positive coordinates admit a value-preserving bijection;
+the equal total number of coordinates then gives equally many zeros.
+Joining the two bijections gives a permutation of the exceptional prefix,
+extended by the identity on its entire complement. Probabilities equal to
+one are included. The assembled theorem
+\texttt{prime\_profile\_eq\_iff\_finite\_permutation} proves both directions
+of this classification together with equality of the scale and intercept.
+The general finite-accumulation version is also compiled, with equality
+expressed as frequent agreement in a punctured neighborhood of the
+accumulation point.
 
 \begin{theorem}[Prime-coordinate rigidity]
 Suppose two such laws satisfy, outside finite sets,
@@ -3106,9 +3123,10 @@ hypothesis, demonstrating the significance of its $o(1)$ remainder.
 The canonical product is classical mod-Poisson machinery; the
 prime-coordinate rigidity and sharp arithmetic swap comparison are the
 specific conclusions considered here, without a claim of literature
-priority. The full inverse classification and infinite swap construction
-above are ordinary proofs, not separately completed Lean formalizations.
-The maintained Lean owners for the completed components, relative to
+priority. The prime-coordinate inverse classification is now Lean-formalized
+in the owners described above. The infinite swap construction remains an
+ordinary proof whose full Lean implementation is open.
+Additional maintained owners for completed surrounding inputs, relative to
 \path{PrimeFactorOscillations/}, are:
 \begin{itemize}\small
 \item \path{Helpers/XiWaveMoments.lean} and
@@ -3256,13 +3274,16 @@ Their public export is
 \path{PrimeFactorOscillations/Assembly/CompletedDetectorPackets.lean}.
 A copied source is not certified by this list: the inventory separately
 records the fresh compilation and axiom-audit status.
-The 20 October maintained build checks 1,139 owned Lean modules.
-The complete public audit checks 4,843 selected theorem closures with
-standard foundations only, and both public and canonical QRH statement
-comparisons pass. The reconciliation identifies 301 maintained owners;
-all 132 proved private graph nodes now point to maintained sources.
-These verification totals certify the stated formal components, not the
-ordinary inverse classifications or the open signed arithmetic estimate.
+An earlier 20 October reconciliation checked 1,139 owned Lean modules and
+4,843 selected theorem closures with standard foundations only; both the
+public and canonical QRH statement comparisons passed. That reconciliation
+identified 301 maintained owners and transferred all 132 proved private
+graph nodes to maintained sources. The later probability-profile promotion
+checks 1,150 owned modules with no dependency rebuild and freshly audits
+the identity, finite-permutation and complete prime-coordinate inverse
+consumers with standard foundations only. The residue-rational inverse
+classification and infinite-swap construction remain ordinary proofs, and
+the signed arithmetic estimate for an improved RH boundary remains open.
 
 The unfinished analytic consumer remains explicitly open. In the
 fixed-mask notation of that programme it asks, for each

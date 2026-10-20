@@ -7,6 +7,7 @@ Authors: Prime Factor Oscillations contributors
 import PrimeFactorOscillations.Mathlib.Algebra.Order.BigOperators.QuadraticAmplitude
 import PrimeFactorOscillations.Mathlib.Algebra.Order.QuadraticControl
 import PrimeFactorOscillations.Mathlib.Analysis.Fourier.LogarithmicBilinear
+import PrimeFactorOscillations.Mathlib.Analysis.SpecialFunctions.Log.BernoulliProfileFinitePermutation
 import PrimeFactorOscillations.Mathlib.Analysis.SpecialFunctions.Log.BernoulliProfileTailMatching
 import PrimeFactorOscillations.Mathlib.Analysis.SpecialFunctions.Log.CompensatedReciprocal
 import PrimeFactorOscillations.Mathlib.Analysis.SpecialFunctions.Log.ExplicitLinear
