@@ -5742,6 +5742,206 @@ the certified RH boundary remains $7/8$.
 \end{flushleft}
 
 
+\clearpage
+\subsection{RH readout on the same prime-quadruplet transport}
+
+The short-quadruplet theorem and the moving-coefficient RH criterion
+apply to the same probability law. The bridge is a quantitative
+bound on its actual local odds. It also clarifies which existential
+statement includes an additional prime-pattern conjecture.
+
+\begin{lemma}[Bounded prime reindexing preserves the RH law class]
+Let $f$ send every prime $p$ to a prime $q=f(p)$, and suppose
+$|q-p|\le H$ for every prime, where $H\ge0$ is fixed. Then
+\[
+ \left|\frac1{q-1}-\frac1{p-1}\right|
+ \le \frac{H(H+1)}{(p-1)^2}.
+\]
+Thus the weights $w(p)=1/(f(p)-1)$ define a qualifying quadratic
+prime law with $\nu=1$ and error constant $H(H+1)$.
+Bijectivity is unnecessary for this qualification.
+For each fixed such law and every fixed $\alpha>0$, its existing
+moving-coefficient reference-sign criterion is equivalent to RH.
+All primes, including $2$, belong to the stated domain.
+\end{lemma}
+
+\begin{proof}
+Put $x=p-1\ge1$ and $y=q-1\ge1$. The displacement hypothesis gives
+$|x-y|\le H$ and
+\[
+ x\le y+H\le(H+1)y.
+\]
+Consequently, keeping the exact reciprocal difference,
+\[
+ \begin{split}
+ \left|\frac1y-\frac1x\right|x^2
+   &=|x-y|\frac{x}{y}\\
+   &\le H(H+1).
+ \end{split}
+\]
+Division by the positive $x^2$ proves the estimate. The weights
+are positive, $\nu=1>0$, and $H(H+1)\ge0$, verifying every field
+of the maintained quadratic-law definition. The established
+quadratic-law RH equivalence now applies to this fixed law.
+No RH hypothesis is used to establish its qualification.
+\end{proof}
+
+To state the specialization precisely, let $B\subset\mathbb N$
+satisfy
+\[
+ n\in B\ \Longrightarrow\ n+2\notin B,\qquad
+ n\in B\ \Longrightarrow\ p_{n+2}=p_n+6.
+\]
+Let $e_B$ be the existing permutation exchanging $n$ with $n+2$
+for each $n\in B$, fixing all other coordinates. Selected starts
+may be adjacent; the first condition prevents conflicting edges.
+The associated same-profile probability law is
+\[
+ a_i=\frac1{p_{e_B(i)}}.
+\]
+For a prime-labelled coordinate $p=p_i$ its actual local odds are
+\[
+ w_B(p_i)=\frac{a_i}{1-a_i}=\frac1{p_{e_B(i)}-1}.
+\]
+Write $\mathcal L_B$ for the quadratic law with these weights.
+Its finite coefficients and ratios are
+\[
+ \begin{split}
+ E_{B,N,r}&=[z^r]\prod_{p_i\le N}(1+w_B(p_i)z),\\
+ R_{B,N,r}&=\frac{E_{B,N,r-1}}{E_{B,N,r}},\\
+ L(N)&=\gamma+\log\log\vartheta(N),\qquad
+ r_N=\lfloor\alpha L(N)\rfloor .
+ \end{split}
+\]
+The reference ratio $\mathcal R_{B,r}(u)$ is the maintained
+factorial-convolution ratio formed from the entire reference
+profile of $\mathcal L_B$. Its dependence on the chosen law is
+retained. The natural number $N$ is an inclusive prime-value
+cutoff; $i$ remains the prime index. On the finite observed
+probability prefix the earlier notation is $n+1$, with endpoint
+$p_n$. No scalar is substituted into the permutation map.
+
+\begin{theorem}[RH on a fixed constellation witness]
+For every fixed $B$ satisfying the two conditions above,
+$\mathcal L_B$ has $\nu=1$ and error constant $42$.
+For every fixed $\alpha>0$,
+\[
+ \mathrm{RH}\quad\Longleftrightarrow\quad
+ R_{B,N,r_N}<\mathcal R_{B,r_N}(L(N))
+       \quad\hbox{for every sufficiently large }N.
+\]
+The same fixed $B$ is used throughout the limit.
+The coefficient denominators and moving ranks are positive
+for all sufficiently large $N$, as provided by the existing
+quadratic-law comparison.
+Recurrence of the selected blocks is unnecessary for this
+fixed-witness equivalence.
+\end{theorem}
+
+\begin{proof}
+A selected start $i\in B$ is sent to $i+2$, so its prime value
+increases by exactly $6$. If $i$ is the upper end of a selected
+edge, then $i\ge2$, $i-2\in B$, and its prime value decreases by
+exactly $6$. Every other coordinate is fixed. Thus
+\[
+ |p_{e_B(i)}-p_i|\le6\qquad(i\ge0).
+\]
+This covers every coordinate, including the indices below two
+in the backward-edge test. Apply the preceding lemma with $H=6$:
+\[
+ |w_B(p)-1/(p-1)|\le42/(p-1)^2.
+\]
+The odds identity is exact since all moved values are primes
+at least $2$. The existing quadratic-law RH theorem, with
+$\nu=1$, now gives precisely the displayed moving-rank
+equivalence for $\mathcal L_B$.
+\end{proof}
+
+Here is how the established sign comparison preserves the zero
+information. For this fixed $B,\alpha$, there is $C\ge0$ such
+that eventually, with the actual Nicolas log oscillation $F(N)$,
+\[
+ \begin{array}{rcl}
+ F(N)>C/N&\Longrightarrow&
+       \mathcal R_{B,r_N}(L(N))<R_{B,N,r_N},\\
+ F(N)<-C/N&\Longrightarrow&
+       R_{B,N,r_N}<\mathcal R_{B,r_N}(L(N)).
+ \end{array}
+\]
+Under RH the installed Nicolas estimate eventually gives the
+second inequality for every fixed $C$. If RH fails, its installed
+unbounded positive excursions give $N F(N)>C+1$ arbitrarily far
+out, forcing the opposite coefficient sign. This contradicts an
+eventual upper-reference sign. The proof uses an unconditional
+comparison and the appropriate RH or non-RH Nicolas input in
+each direction. The cutoff and the whole signed oscillation are
+retained. No uniform cutoff over $B$ or $\alpha$ is asserted.
+
+\begin{corollary}[The exact existential constellation statement]
+Fix $\alpha>0$. The following are equivalent:
+\begin{enumerate}
+\item RH holds and short prime quadruplets recur arbitrarily far out.
+\item There is a set $B$ satisfying the two support conditions above,
+with arbitrarily large $k$ for which $k,k+1\in B$, and whose
+actual law $\mathcal L_B$ has
+$R_{B,N,r_N}<\mathcal R_{B,r_N}(L(N))$ eventually.
+\end{enumerate}
+The short quadruplets are the two already defined consecutive-prime
+families
+\[
+ (p,p+2,p+6,p+8),\qquad (p,p+4,p+6,p+10),\qquad p>3.
+\]
+No disjointness assumption is imposed on their arithmetic
+occurrences. The support construction selects separated
+four-coordinate blocks when constructing its one permutation.
+\end{corollary}
+
+\begin{proof}
+If RH and recurrence hold, the maintained support-selection theorem
+supplies $B$ with unbounded adjacent selected starts. The fixed-law
+RH equivalence gives its eventual coefficient sign.
+
+Conversely, the coefficient sign gives RH by that same equivalence.
+An adjacent selected pair $k,k+1$ forces two coordinates across the
+prefix cutoff $k+2$. These double crossings recur arbitrarily far
+out. The maintained signed transport estimate gives, for every
+$\varepsilon>0$, eventually and uniformly over all positive probes,
+\[
+ D_{k+1}(t;e_B)\le12+\varepsilon.
+\]
+Take $\varepsilon=1$ and the constant probe $t=1$. The resulting
+eventual ceiling $13<14$, together with recurrent double crossings,
+satisfies every hypothesis of the existing quadruplet inverse
+theorem. It yields recurrent short quadruplets. In particular the
+critical cost and the coefficient-sign readout concern the same
+transport, rather than independently chosen probability laws.
+\end{proof}
+
+This establishes an RH connection for the constellation witness.
+It does not identify RH with quadruplet recurrence alone: the
+existential criterion above detects their conjunction. The cost
+threshold $12$ records local four-prime geometry; the moving
+coefficient sign records the Nicolas oscillation. The full
+Bernoulli profile alone does not distinguish these transports,
+since it is invariant under coordinate permutations.
+
+\begin{flushleft}
+The reciprocal displacement bound, complete quadratic-law adapter,
+prime-index conversion and bounded-reindexing RH criterion are
+compiled in
+\path{Helpers/PrimeProfileBoundedReindexing.lean}.
+The complete distance-six verification, actual probability-odds
+identity, explicit law constants, fixed-witness RH equivalence and
+existential conjunction criterion are compiled in
+\path{Assembly/PrimeProfileQuadrupletRH.lean}, exported through
+\path{Assembly/ProbabilityProfiles.lean}.
+The existing short-quadruplet attainment, support selection and
+inverse theorem are consumed without a new prime-pattern supply
+assumption. No external-priority claim is made. The certified
+zero-free boundary remains $7/8$.
+\end{flushleft}
+
+
 \subsection{Rational residue-class laws: a stronger inverse theorem}
 
 The preceding inverse theorem extends beyond a common leading coefficient.
