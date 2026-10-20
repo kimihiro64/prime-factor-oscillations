@@ -3276,10 +3276,22 @@ It consumes the positive-law inverse in
 \path{Mathlib/Analysis/SpecialFunctions/Log/CompensatedReciprocalNormalization.lean}.
 The formal zero-exclusion argument uses the uniform lower bound $p_n/4$,
 obtained directly from the signed $p_n$-to-$2p_n$ comparison.
-The sharper displayed bound (21.3) and the optimal recurring-gap
-constant have the ordinary proofs above; the exact $G$ classification
-has not yet been fully formalized. These universal conclusions are
-distinct from the preceding constructed-swap result. The canonical
+The sharper displayed bound (21.3) has the ordinary proof above.
+
+The sharp lower-bound consumer is now formalized in
+\path{Assembly/PrimeProfileDistortion.lean}: for every law that is
+\emph{not a finite permutation}, every eventual adjacent-prime gap
+floor $h$, every positive probe sequence, every $\varepsilon>0$ and
+every $N$, there is an $n\ge N$ with normalized defect at least
+$h-\varepsilon$. The maintained scalar bound retains the exact factor
+$(q-p)(p/q)^2$. The lower bound with $h=G$ is a mathematical consequence
+of this compiled parameterized theorem and the defining eventual
+gap-floor property of $G$; no separate Lean declaration defining $G$
+is claimed here. The construction attaining the exact $G$ constant
+still has the ordinary proof above and awaits its full Lean implementation.
+Finite permutations have eventually zero defect and are expressly excluded
+from every positive lower-distortion assertion. These universal conclusions
+are distinct from the preceding constructed-swap result. The canonical
 product is classical; no claim of literature priority is made.
 
 \subsection{Rational residue-class laws: a stronger inverse theorem}

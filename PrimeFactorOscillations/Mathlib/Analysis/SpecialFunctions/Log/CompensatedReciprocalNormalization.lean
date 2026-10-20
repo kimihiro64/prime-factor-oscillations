@@ -88,4 +88,35 @@ theorem quarter_denominator_le_normalized_zero_cost (t p : Real)
   rw [<- heq]
   exact mul_le_mul_of_nonneg_left (hlow.trans hpair) hn
 
+/-- The sharp normalized boundary cost retains the complete displacement. -/
+theorem gap_mul_ratio_sq_le_normalized_pairLogDefect (t p q : Real)
+    (ht : 0 < t) (hp : 0 < p) (hpq : p <= q) :
+    (q - p) * (p / q) ^ 2 <=
+      p ^ 2 * (p + t) / t ^ 2 * pairLogDefect t p q := by
+  have hq : 0 < q := hp.trans_le hpq
+  have hnorm : 0 <= p ^ 2 * (p + t) / t ^ 2 := by positivity
+  have hb := mul_le_mul_of_nonneg_left
+    (pairLogDefect_bounds t p q ht.le hp hq).1 hnorm
+  have heq : p ^ 2 * (p + t) / t ^ 2 *
+      (t ^ 2 * (q - p) / (p * q * (q + t))) =
+      (q - p) * p * (p + t) / (q * (q + t)) := by
+    field_simp [hp.ne', hq.ne', ht.ne', (add_pos hq ht).ne']
+  rw [heq] at hb
+  have hid : ((q - p) * p * (p + t) / (q * (q + t)) -
+      (q - p) * (p / q) ^ 2) * (q ^ 2 * (q + t)) =
+      p * t * (q - p) ^ 2 := by
+    field_simp [hq.ne', (add_pos hq ht).ne']
+    ring
+  have hcmp : (q - p) * (p / q) ^ 2 <=
+      (q - p) * p * (p + t) / (q * (q + t)) := by
+    by_contra hn
+    have hneg : (q - p) * p * (p + t) / (q * (q + t)) -
+        (q - p) * (p / q) ^ 2 < 0 := sub_neg.mpr (lt_of_not_ge hn)
+    have hbad := mul_neg_of_neg_of_pos hneg
+      (by positivity : 0 < q ^ 2 * (q + t))
+    rw [hid] at hbad
+    have hpos : 0 <= p * t * (q - p) ^ 2 := by positivity
+    exact (not_lt_of_ge hpos) hbad
+  exact hcmp.trans hb
+
 end Real
