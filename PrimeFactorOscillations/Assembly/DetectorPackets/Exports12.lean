@@ -1,0 +1,24 @@
+/-
+Copyright (c) 2026 Prime Factor Oscillations contributors.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Prime Factor Oscillations contributors
+-/
+
+import PrimeFactorOscillations.Assembly.DetectorPackets.KappaHalfCappedLowStage
+import PrimeFactorOscillations.Assembly.DetectorPackets.KappaHalfHighAssembly
+import PrimeFactorOscillations.Assembly.DetectorPackets.KappaHalfHighPhysical
+import PrimeFactorOscillations.Assembly.DetectorPackets.KappaHalfLowPhysical
+import PrimeFactorOscillations.Assembly.DetectorPackets.KappaHalfNaturalLowStage
+import PrimeFactorOscillations.Assembly.DetectorPackets.KappaHalfPhysicalEntry
+import PrimeFactorOscillations.Assembly.DetectorPackets.KappaHalfSymmetricBoundedPower
+import PrimeFactorOscillations.Assembly.DetectorPackets.KappaHalfUnbalancedBoundedPower
+import PrimeFactorOscillations.Assembly.DetectorPackets.KappaHalfUnbalancedDeletedEnergy
+import PrimeFactorOscillations.Assembly.DetectorPackets.KappaHalfUnbalancedGeometry
+import PrimeFactorOscillations.Assembly.DetectorPackets.KappaHalfUnbalancedOriginalEnergy
+import PrimeFactorOscillations.Proof.DetectorPackets.QRHSourceRange
+
+/-!
+# Completed detector and signed-packet components
+
+Import-only grouping of maintained proof owners.
+-/

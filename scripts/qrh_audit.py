@@ -14,6 +14,8 @@ import QRHMathlibTarget
 import Solution
 
 set_option autoImplicit false
+set_option Elab.async false
+set_option maxRecDepth 100
 
 example : PrimeFactorOscillations.QRHSpecification.zetaSevenEighths :=
   PrimeFactorOscillations.QRH.zeta_ne_zero

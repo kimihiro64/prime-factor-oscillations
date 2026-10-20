@@ -1,0 +1,24 @@
+/-
+Copyright (c) 2026 Prime Factor Oscillations contributors.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Prime Factor Oscillations contributors
+-/
+
+import PrimeFactorOscillations.Assembly.DetectorPackets.DirichletCompanionIdentity
+import PrimeFactorOscillations.Assembly.DetectorPackets.EisensteinCarrierHighKernel
+import PrimeFactorOscillations.Assembly.DetectorPackets.EisensteinCarrierSieve
+import PrimeFactorOscillations.Assembly.DetectorPackets.EisensteinHighKernelScales
+import PrimeFactorOscillations.Assembly.DetectorPackets.EvenFrequencyPacket
+import PrimeFactorOscillations.Assembly.DetectorPackets.EvenPacketExchange
+import PrimeFactorOscillations.Assembly.DetectorPackets.EvenPacketRowBound
+import PrimeFactorOscillations.Assembly.DetectorPackets.SchwartzQuadraticSource
+import PrimeFactorOscillations.Proof.DetectorPackets.EisensteinPrimeMark
+import PrimeFactorOscillations.Proof.DetectorPackets.FilteredQuarticBudget
+import PrimeFactorOscillations.Proof.DetectorPackets.IndependentMomentInput
+import PrimeFactorOscillations.Proof.DetectorPackets.SchwartzQuadraticPullback
+
+/-!
+# Completed detector and signed-packet components
+
+Import-only grouping of maintained proof owners.
+-/

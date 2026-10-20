@@ -1,0 +1,24 @@
+/-
+Copyright (c) 2026 Prime Factor Oscillations contributors.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Prime Factor Oscillations contributors
+-/
+
+import PrimeFactorOscillations.Assembly.DetectorPackets.QuadraticInverseUnit
+import PrimeFactorOscillations.Assembly.DetectorPackets.QuadraticLowDivisorRange
+import PrimeFactorOscillations.Assembly.DetectorPackets.QuadraticPrimeOrigin
+import PrimeFactorOscillations.Assembly.DetectorPackets.QuadraticPrimeOriginPhase
+import PrimeFactorOscillations.Assembly.DetectorPackets.QuadraticShiftedMass
+import PrimeFactorOscillations.Assembly.DetectorPackets.QuadraticSourceMinFactor
+import PrimeFactorOscillations.Assembly.DetectorPackets.QuadraticSquareExtraction
+import PrimeFactorOscillations.Assembly.DetectorPackets.QuarticPowerfulPacket
+import PrimeFactorOscillations.Proof.DetectorPackets.QuadraticNeutralLocal
+import PrimeFactorOscillations.Proof.DetectorPackets.QuadraticPairDiagonal
+import PrimeFactorOscillations.Proof.DetectorPackets.QuarticAuxiliaryGauss
+import PrimeFactorOscillations.Proof.DetectorPackets.QuarticCompensatedLocal
+
+/-!
+# Completed detector and signed-packet components
+
+Import-only grouping of maintained proof owners.
+-/

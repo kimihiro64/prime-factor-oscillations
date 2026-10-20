@@ -7,6 +7,7 @@ import PrimeFactorOscillations.Mathlib.NumberTheory.GaussSum.PrimitiveTransform
 import PrimeFactorOscillations.Mathlib.NumberTheory.GaussSum.RootCusp
 import PrimeFactorOscillations.Mathlib.Order.Interval.Finset.NatPeaks
 import PrimeFactorOscillations.Mathlib.Probability.Distributions.FiniteBernoulliPeakScale
+import PrimeFactorOscillations.Mathlib.Probability.ProfileComparison
 import PrimeFactorOscillations.Mathlib.RingTheory.MvPolynomial.Symmetric.LargestWeightHarmonic
 import PrimeFactorOscillations.Mathlib.RingTheory.MvPolynomial.Symmetric.RationalBounds
 

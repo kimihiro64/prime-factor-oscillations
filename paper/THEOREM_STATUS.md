@@ -1,5 +1,32 @@
 # Paper theorem and provenance ledger
 
+## Maintained research results — 20 October 2026
+
+The [reconciliation inventory](completed-research-inventory.json) identifies
+301 maintained owners; the complete project build checks 1,139 owned modules
+and the public axiom audit checks 4,843 selected declarations. Every audited
+closure uses standard foundations only. The [verification record](VERIFICATION.md)
+separates these totals from the historical audits below.
+
+The research paper now includes the RH-conditional bilinear second moment and
+weighted multiplicity defect, the prime-coordinate inverse theorem, sharp
+cubic camouflage by infinitely many prime swaps, the residue-rational inverse
+classification, and the exact compensated coprime and all-prime identities.
+The inverse classifications and infinite construction have ordinary proofs;
+the public Lean library contains their completed spectral, signed-logarithmic,
+translation and finite-coordinate components, not a claimed full formalization.
+
+The dynamics paper retains the early finite ranges (primes through 22 at
+generation 4, and through 432 at generation 6), the general explicit divisor
+constant, and the recovered short-mean source budget with its original
+quantifiers. None supplies the open dense entry assumption.
+
+The signed arithmetic estimate on the full compensated packet remains open.
+The certified unconditional zero-free boundary is **7/8**; neither promotion,
+detector precision nor the conditional scalar exponent calculations improves it.
+Private proved nodes now have maintained owners, and failed attempts have an
+explicit disposition rather than being counted as completed mathematics.
+
 ## Growing families, power degrees, and divisor sums — 6 October 2026
 
 The paper now integrates the completed family-search results and the

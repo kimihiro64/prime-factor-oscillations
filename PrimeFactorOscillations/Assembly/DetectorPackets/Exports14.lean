@@ -1,0 +1,24 @@
+/-
+Copyright (c) 2026 Prime Factor Oscillations contributors.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Prime Factor Oscillations contributors
+-/
+
+import PrimeFactorOscillations.Assembly.DetectorPackets.LowKernelRowCount
+import PrimeFactorOscillations.Assembly.DetectorPackets.MaskedSignedWave
+import PrimeFactorOscillations.Assembly.DetectorPackets.MobiusCompensatedCovariance
+import PrimeFactorOscillations.Assembly.DetectorPackets.MobiusDirichletReciprocal
+import PrimeFactorOscillations.Assembly.DetectorPackets.MobiusWindowMellin
+import PrimeFactorOscillations.Assembly.DetectorPackets.MobiusWindowShift
+import PrimeFactorOscillations.Assembly.DetectorPackets.RationalInverseLine
+import PrimeFactorOscillations.Assembly.DetectorPackets.RationalReciprocalRegular
+import PrimeFactorOscillations.Assembly.DetectorPackets.SmoothMobiusDepletion
+import PrimeFactorOscillations.Assembly.DetectorPackets.WeightedDivisorConvolution
+import PrimeFactorOscillations.Proof.DetectorPackets.MellinPoleFilter
+import PrimeFactorOscillations.Proof.DetectorPackets.MixedRamanujanMellin
+
+/-!
+# Completed detector and signed-packet components
+
+Import-only grouping of maintained proof owners.
+-/

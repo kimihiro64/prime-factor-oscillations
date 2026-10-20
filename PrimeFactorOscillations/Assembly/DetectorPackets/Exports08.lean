@@ -1,0 +1,24 @@
+/-
+Copyright (c) 2026 Prime Factor Oscillations contributors.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Prime Factor Oscillations contributors
+-/
+
+import PrimeFactorOscillations.Assembly.DetectorPackets.FlexibleCentralSaving
+import PrimeFactorOscillations.Assembly.DetectorPackets.FlexibleHighBudget
+import PrimeFactorOscillations.Assembly.DetectorPackets.FullQuotientQuadraticMean
+import PrimeFactorOscillations.Assembly.DetectorPackets.GaussianCenteredPoisson
+import PrimeFactorOscillations.Assembly.DetectorPackets.GaussianDyadicCompensation
+import PrimeFactorOscillations.Assembly.DetectorPackets.GaussianMellinWavelet
+import PrimeFactorOscillations.Assembly.DetectorPackets.GaussianMobiusConvolution
+import PrimeFactorOscillations.Assembly.DetectorPackets.GaussianPrincipalTypeI
+import PrimeFactorOscillations.Assembly.DetectorPackets.SexticDiagonalResidueMean
+import PrimeFactorOscillations.Assembly.DetectorPackets.SexticMobiusDiagonal
+import PrimeFactorOscillations.Proof.DetectorPackets.FullCharacterPair
+import PrimeFactorOscillations.Proof.DetectorPackets.SexticToQuadraticLocal
+
+/-!
+# Completed detector and signed-packet components
+
+Import-only grouping of maintained proof owners.
+-/

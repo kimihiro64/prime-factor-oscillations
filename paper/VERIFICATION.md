@@ -1,5 +1,42 @@
 # Paper verification
 
+## Completed research reconciliation — 20 October 2026
+
+The standard maintained build checks 1,139 owned Lean modules against the
+pinned cached dependencies, with zero dependency builds. The public audit
+checks 4,843 selected theorem closures, all using only `propext`,
+`Classical.choice` and `Quot.sound` (or subsets). Both public compiled
+statements agree with Challenge, and the canonical Mathlib-only QRH
+statements agree with their maintained consumers. To avoid a native crash
+in one monolithic audit file, the same complete target list is checked in
+13 bounded files; missing or duplicate axiom reports remain fatal.
+
+The [completed-owner inventory](completed-research-inventory.json) records
+301 maintained owners. All 132 proved nodes in the private proof graph now
+point to maintained owners; the reconciliation leaves zero unresolved
+completed owners. Earlier named variants are checked against full quantified
+statement types, including 116 theorem aliases from 28 legacy sources.
+Finite certificate replacements retain their precise generation and prime
+range rather than claiming identical internal datasets.
+
+The inventory records both the exact compiler-input hash and the Git-normalized
+source hash where Windows CRLF differs from committed LF. The reconciliation
+checks that line endings are the only difference and rejects multiline Lean
+string literals from that normalization bridge.
+
+The Python suite passes 95 tests, lint and type checking; the metadata suite
+passes 17 tests and 86 assertions. The staged public source, architecture and
+Challenge/Solution boundary checks pass. The two updated papers compile with
+the installed Windows compiler and the built-in document compiler. Their new
+proof pages were rendered and inspected. Failed formalization attempts and
+unsuccessful arithmetic routes retain separate records in the private archive.
+
+The full profile inverse classifications and infinite swap construction are
+ordinary mathematical proofs in the paper; their completed spectral and local
+components are formalized. No full Lean formalization of those classifications
+is claimed. The certified unconditional zero-free boundary remains **7/8**.
+Older counts and compiler limitations below describe their dated snapshots.
+
 ## Paper and power-degree completion — 6 October 2026
 
 The same source document was edited in place and its tracked PDF rebuilt.

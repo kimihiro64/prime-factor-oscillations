@@ -1,0 +1,24 @@
+/-
+Copyright (c) 2026 Prime Factor Oscillations contributors.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Prime Factor Oscillations contributors
+-/
+
+import PrimeFactorOscillations.Assembly.DetectorPackets.GeneralLowCentralEnergy
+import PrimeFactorOscillations.Assembly.DetectorPackets.GeneralLowCompleteProbe
+import PrimeFactorOscillations.Assembly.DetectorPackets.GeneralLowGaussianEnergy
+import PrimeFactorOscillations.Assembly.DetectorPackets.GeneralPrincipalAnalytic
+import PrimeFactorOscillations.Assembly.DetectorPackets.GeneralPrincipalRegion
+import PrimeFactorOscillations.Assembly.DetectorPackets.GeneralPrincipalSlotError
+import PrimeFactorOscillations.Assembly.DetectorPackets.GeneralPrincipalSlotExponents
+import PrimeFactorOscillations.Assembly.DetectorPackets.GeneralPrincipalSlots
+import PrimeFactorOscillations.Assembly.DetectorPackets.IntegerGaussianMoment
+import PrimeFactorOscillations.Assembly.DetectorPackets.IntegerGaussianPhase
+import PrimeFactorOscillations.Proof.DetectorPackets.GeneralPrincipalExponents
+import PrimeFactorOscillations.Proof.DetectorPackets.HalfConductorPacketBudget
+
+/-!
+# Completed detector and signed-packet components
+
+Import-only grouping of maintained proof owners.
+-/

@@ -49,6 +49,42 @@ counterexample, and code revision. Commit experiment data only when it is
 reasonably sized, relevant to the mathematical account, and documented with its
 generator and meaning.
 
+## Completed research and failed paths
+
+When a private proof succeeds, or an audit discovers a completed private
+result, promote it before starting another research batch. First inventory its
+exact statement, hypotheses, proof receipt and dependency closure. Give each
+completed declaration one maintained owner, a public export, a fresh kernel
+build and axiom audit, and an accurate paper reference. Record source hashes
+and owners in the reconciliation inventory.
+
+Do not leave a checked theorem owned only by local research files, count an
+object file as a proof, or report a conditional result as unconditional. Once
+promotion is verified, replace the private proof with a forwarding and
+provenance record. Failed and open paths retain the attempted argument, exact
+failed step or missing estimate, quantitative loss, and status. A failed
+argument is not a proof that the research direction is impossible.
+
+The inventory must include every first-party declaration-bearing research
+source and proof receipt, including files without saved compiler objects and
+legacy files outside the probes directory. Match renamed declarations by their
+full statements and hypotheses before deciding that a result is missing or
+already maintained. Dependency copies and audit fixtures receive explicit
+classifications rather than being counted as new project theorems.
+For parsed statements, reject unmatched delimiters and compile the complete
+quantified type against the explicit canonical constant. After removing a
+duplicate declaration, reject documentation comments left before `end` or the
+end of the file, then recompile the retained source.
+
+Preserve the prototype's effective compiler options, including defaults, and
+compile in the exact destination namespace. A native compiler crash is a
+verification failure to diagnose; it does not refute the theorem or permit
+weakening its statement.
+
+Before resuming exploration, require zero unresolved completed-proof owners.
+An exponent changes only when its complete signed analytic consumer has been
+proved; detector accuracy and helper counts do not change that criterion.
+
 ## Public boundary
 
 Never stage local research state or AI working files. `python scripts/check.py`

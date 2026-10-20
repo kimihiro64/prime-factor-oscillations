@@ -7,6 +7,7 @@ import os
 import re
 import subprocess
 import sys
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 from typing import Any, cast
 
@@ -135,18 +136,15 @@ def main() -> int:
             raise ValueError(
                 f"Challenge failed ({challenge.returncode}); see {directory / 'Challenge.log'}"
             )
-        sources = {
-            "PublicTypes": BOUNDARY,
-            "PublicAxioms": "import Solution\n\n"
-            + "\n".join(f"#check {name}\n#print axioms {name}" for name in THEOREMS)
-            + "\n",
-        }
-        logs: dict[str, str] = {}
-        for name, source in sources.items():
+
+        def compile_audit_source(item: tuple[str, str]) -> tuple[str, str]:
+            name, source = item
             if not source.isascii() or "import Mathlib\n" in source or "!=" in source:
                 raise ValueError("generated Lean source policy failure")
             path = directory / f"{name}.lean"
             path.write_text(source.lstrip(), encoding="utf-8")
+            if path.read_text(encoding="utf-8") != source.lstrip():
+                raise ValueError("saved audit source changed")
             completed = subprocess.run(
                 [lean, "-j", "1", "-s", "65536", "-M", "8192", str(path)],
                 cwd=ROOT,
@@ -162,9 +160,30 @@ def main() -> int:
                 raise ValueError(
                     f"{name} failed ({completed.returncode}); see {directory / (name + '.log')}"
                 )
-            logs[name] = log
-        if "COMPILED_PUBLIC_TYPES_IDENTICAL" not in logs["PublicTypes"]:
+            return name, log
+
+        _, public_types = compile_audit_source(("PublicTypes", BOUNDARY))
+        if "COMPILED_PUBLIC_TYPES_IDENTICAL" not in public_types:
             raise ValueError("missing compiled-boundary success marker")
+        if not THEOREMS or len(set(THEOREMS)) != len(THEOREMS):
+            raise ValueError("empty or duplicate theorem audit registry")
+        sources: dict[str, str] = {}
+        for start in range(0, len(THEOREMS), 400):
+            name = f"PublicAxioms{start // 400 + 1:02}"
+            sources[name] = (
+                "import Solution\n\nset_option autoImplicit false\n"
+                "set_option Elab.async false\nset_option maxRecDepth 100\n\n"
+                + "\n".join(
+                    f"#check {name}\n#print axioms {name}" for name in THEOREMS[start : start + 400]
+                )
+                + "\n"
+            )
+        logs: dict[str, str] = {"PublicTypes": public_types}
+        with ThreadPoolExecutor(max_workers=2) as executor:
+            for name, log in executor.map(compile_audit_source, sources.items()):
+                logs[name] = log
+        logs["PublicAxioms"] = "".join(logs[name] for name in sources)
+        (directory / "PublicAxioms.log").write_text(logs["PublicAxioms"], encoding="utf-8")
         axioms = axiom_sets(logs["PublicAxioms"])
         result = {
             "status": "verified",
@@ -174,6 +193,10 @@ def main() -> int:
             "challenge_source_sha256": source_digest(challenge_source),
             "challenge_object_sha256": source_digest(challenge_object),
             "axioms": axioms,
+            "axiom_shard_count": len(sources),
+            "axiom_source_sha256": {
+                name: source_digest(directory / f"{name}.lean") for name in sources
+            },
             "compiler": lean,
             "version": version,
             "analytic_manifest_sha256": MANIFEST_SHA256,

@@ -1,0 +1,24 @@
+/-
+Copyright (c) 2026 Prime Factor Oscillations contributors.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Prime Factor Oscillations contributors
+-/
+
+import PrimeFactorOscillations.Assembly.DetectorPackets.PowerSampleCarrierBudget
+import PrimeFactorOscillations.Assembly.DetectorPackets.PowerSampleCarrierNorm
+import PrimeFactorOscillations.Assembly.DetectorPackets.PowerSampleCarrierPacket
+import PrimeFactorOscillations.Assembly.DetectorPackets.PowerSampleCarrierSum
+import PrimeFactorOscillations.Assembly.DetectorPackets.PowerSampleExceptionalProduct
+import PrimeFactorOscillations.Assembly.DetectorPackets.PowerSampleFourthCRT
+import PrimeFactorOscillations.Assembly.DetectorPackets.PowerSampleFourthCompletion
+import PrimeFactorOscillations.Assembly.DetectorPackets.PowerSamplePhysicalCarrier
+import PrimeFactorOscillations.Assembly.DetectorPackets.PowerSamplePrimePowers
+import PrimeFactorOscillations.Assembly.DetectorPackets.PowerSampleValuationCarrier
+import PrimeFactorOscillations.Assembly.DetectorPackets.PrimeCompensationMarginal
+import PrimeFactorOscillations.Assembly.DetectorPackets.PrimeQuarticLower
+
+/-!
+# Completed detector and signed-packet components
+
+Import-only grouping of maintained proof owners.
+-/

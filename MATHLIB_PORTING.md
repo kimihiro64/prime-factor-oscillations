@@ -198,6 +198,32 @@ Each real candidate file should:
 | `PrimeFactorOscillations.Mathlib.Analysis.Fourier.All` | `Mathlib/Analysis/Fourier/All.lean` | project-verified | Cohesive facade for logarithmic Fourier extraction, stability and recurrence. |
 | `PrimeFactorOscillations.Mathlib.Analysis.SpecialFunctions.Pow.All` | `Mathlib/Analysis/SpecialFunctions/Pow/All.lean` | project-verified | Cohesive facade preserving all power candidates and adding sampling. |
 
+## Second moments and compensated prime-profile comparisons
+
+| Module | Proposed destination | Readiness | Scope |
+| --- | --- | --- | --- |
+| `PrimeFactorOscillations.Mathlib.Analysis.Fourier.LogarithmicBilinear` | `Mathlib/Analysis/Fourier/LogarithmicBilinear.lean` | project-verified | Products of absolutely summable logarithmic spectra retain all additive resonances; vanishing perturbations preserve their product limit. |
+| `PrimeFactorOscillations.Mathlib.Analysis.SpecialFunctions.Log.CompensatedReciprocal` | `Mathlib/Analysis/SpecialFunctions/Log/CompensatedReciprocal.lean` | project-verified | Two-sided signed compensated reciprocal-log bounds and cubic bounded-displacement decay. |
+| `PrimeFactorOscillations.Mathlib.NumberTheory.Primes.Translation` | `Mathlib/NumberTheory/Primes/Translation.lean` | project-verified | No positive additive translation preserves all sufficiently large primes. |
+
+## Profile-comparison grouping
+
+| Module | Proposed destination | Readiness | Scope |
+| --- | --- | --- | --- |
+| `PrimeFactorOscillations.Mathlib.Probability.ProfileComparison` | `Mathlib/Probability/ProfileComparison.lean` | project-verified | Import-only grouping of bilinear harmonic means, signed reciprocal-log comparison, and eventual prime-translation obstruction. |
+
+## Signed amplitudes and explicit reference integrals
+
+| Module | Proposed destination | Readiness | Scope |
+| --- | --- | --- | --- |
+| `PrimeFactorOscillations.Mathlib.Algebra.Order.BigOperators.QuadraticAmplitude` | `Mathlib/Algebra/Order/BigOperators/QuadraticAmplitude.lean` | project-verified | Exact signed finite-amplitude expansion, signal-preserving corrections, completion of the square and the aggregate-positive minimization inequality. |
+| `PrimeFactorOscillations.Mathlib.Analysis.SpecialFunctions.Log.TripleReference` | `Mathlib/Analysis/SpecialFunctions/Log/TripleReference.lean` | project-verified | Explicit polynomial majorants, rational integration and the exact change of variables for the logarithmic reference integral; original endpoint constants are preserved. |
+
+| `PrimeFactorOscillations.Mathlib.Algebra.Order.QuadraticControl` | `Mathlib/Algebra/Order/QuadraticControl.lean` | project-verified | Four exact signed quadratic control identities, including the cross-multiplied gain inequality; no arithmetic variance estimate is assumed or supplied. |
+| `PrimeFactorOscillations.Mathlib.Analysis.SpecialFunctions.Pow.RestrictionComposition` | `Mathlib/Analysis/SpecialFunctions/Pow/RestrictionComposition.lean` | project-verified | Finite power-mean composition, quadratic control comparisons and an explicit scalar score ceiling; arithmetic restriction constants remain separate hypotheses. |
+
+| `PrimeFactorOscillations.Mathlib.Analysis.SpecialFunctions.Log.ExplicitLinear` | `Mathlib/Analysis/SpecialFunctions/Log/ExplicitLinear.lean` | project-verified | Explicit upper bounds log(5) <= 9/5 and log(n) <= (9/25)n for n >= 5, recovered from the checked cutoff proof. |
+
 Readiness should be one of: `extracting`, `project-verified`, `mathlib-ready`,
 `submitted`, or `upstreamed`. A module is `mathlib-ready` only after it has an
 identified destination, no project dependency, focused tests, and a clean

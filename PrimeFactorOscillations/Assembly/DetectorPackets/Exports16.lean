@@ -1,0 +1,24 @@
+/-
+Copyright (c) 2026 Prime Factor Oscillations contributors.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Prime Factor Oscillations contributors
+-/
+
+import PrimeFactorOscillations.Assembly.DetectorPackets.PowerResidueProjector
+import PrimeFactorOscillations.Assembly.DetectorPackets.PowerSampleCalibration
+import PrimeFactorOscillations.Assembly.DetectorPackets.PowerSampleEulerCorrection
+import PrimeFactorOscillations.Assembly.DetectorPackets.PowerSampleFrequencyLift
+import PrimeFactorOscillations.Assembly.DetectorPackets.PowerSampleJointFourier
+import PrimeFactorOscillations.Assembly.DetectorPackets.PowerSamplePhysicalCRT
+import PrimeFactorOscillations.Assembly.DetectorPackets.PowerSampleWaveKernel
+import PrimeFactorOscillations.Assembly.DetectorPackets.PowerSampleWavePair
+import PrimeFactorOscillations.Assembly.DetectorPackets.PowerSampleZeroMode
+import PrimeFactorOscillations.Assembly.DetectorPackets.PowerSampleZeroModeActual
+import PrimeFactorOscillations.Proof.DetectorPackets.PowerSampleGauss
+import PrimeFactorOscillations.Proof.DetectorPackets.PowerSampleNormalization
+
+/-!
+# Completed detector and signed-packet components
+
+Import-only grouping of maintained proof owners.
+-/

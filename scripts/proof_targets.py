@@ -1,8 +1,10 @@
 """Public theorem audit inventory, preserving the released theorem set."""
 
+from scripts.completed_research_proof_targets import COMPLETED_RESEARCH_THEOREMS
 from scripts.family_rh_proof_targets import FAMILY_RH_THEOREMS
 from scripts.lpf_proof_targets import LPF_THEOREMS
 from scripts.post_paper_proof_targets import POST_PAPER_THEOREMS
+from scripts.probe_euler_proof_targets import PROBE_EULER_THEOREMS
 from scripts.qrh_proof_targets import QRH_THEOREMS
 from scripts.sparse_rh_proof_targets import SPARSE_RH_THEOREMS
 
@@ -234,4 +236,6 @@ THEOREMS = (
     + QRH_THEOREMS
     + LPF_THEOREMS
     + SPARSE_RH_THEOREMS
+    + PROBE_EULER_THEOREMS
+    + COMPLETED_RESEARCH_THEOREMS
 )

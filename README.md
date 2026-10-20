@@ -39,6 +39,14 @@ These are equivalences, transfers, and conditional consequences where indicated.
 They do not prove RH, the twin prime conjecture, or a new bounded prime-gap
 record. The paper states the exact hypotheses and quantifiers.
 
+The completed research library also retains the signed detector and packet
+calculus, Euler-continuation results, and RH-conditional wave second moments
+and multiplicity-defect budgets. Its [maintained-owner inventory](paper/completed-research-inventory.json)
+records the source hashes and verification status. The paper gives ordinary
+proofs of prime-profile rigidity and sharp cubic camouflage, distinguishing
+these from their formalized components. The certified unconditional zero-free
+boundary remains **7/8**.
+
 ## Largest-prime-factor dynamics
 
 Starting with a finite prime set, retain it and repeatedly adjoin the largest

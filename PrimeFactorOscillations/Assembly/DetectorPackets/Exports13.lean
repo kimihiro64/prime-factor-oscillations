@@ -1,0 +1,24 @@
+/-
+Copyright (c) 2026 Prime Factor Oscillations contributors.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Prime Factor Oscillations contributors
+-/
+
+import PrimeFactorOscillations.Assembly.DetectorPackets.KappaHalfCappedSuccessor
+import PrimeFactorOscillations.Assembly.DetectorPackets.KappaHalfCertifiedExistence
+import PrimeFactorOscillations.Assembly.DetectorPackets.KappaHalfHighBound
+import PrimeFactorOscillations.Assembly.DetectorPackets.KappaHalfHighStage
+import PrimeFactorOscillations.Assembly.DetectorPackets.KappaHalfLivePower
+import PrimeFactorOscillations.Assembly.DetectorPackets.KappaHalfNaturalHighStage
+import PrimeFactorOscillations.Assembly.DetectorPackets.KappaHalfNaturalZeroStage
+import PrimeFactorOscillations.Assembly.DetectorPackets.KappaHalfOriginalPower
+import PrimeFactorOscillations.Assembly.DetectorPackets.KappaHalfZeroGrowthPhysical
+import PrimeFactorOscillations.Assembly.DetectorPackets.RadicalCoupledPacket
+import PrimeFactorOscillations.Proof.DetectorPackets.LPFCharacterConductorStage
+import PrimeFactorOscillations.Proof.DetectorPackets.LPFPrincipalKernel
+
+/-!
+# Completed detector and signed-packet components
+
+Import-only grouping of maintained proof owners.
+-/

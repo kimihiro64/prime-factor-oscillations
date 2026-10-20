@@ -1,0 +1,24 @@
+/-
+Copyright (c) 2026 Prime Factor Oscillations contributors.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Prime Factor Oscillations contributors
+-/
+
+import PrimeFactorOscillations.Assembly.DetectorPackets.CarrierIndexedAdmission
+import PrimeFactorOscillations.Assembly.DetectorPackets.GaussianCoprimePoisson
+import PrimeFactorOscillations.Assembly.DetectorPackets.GaussianIdealPrincipalPacket
+import PrimeFactorOscillations.Assembly.DetectorPackets.GaussianRamanujanStrata
+import PrimeFactorOscillations.Assembly.DetectorPackets.GaussianTwoDiagonal
+import PrimeFactorOscillations.Assembly.DetectorPackets.IntegerQuadraticCRT
+import PrimeFactorOscillations.Assembly.DetectorPackets.IntegerQuadraticCharacter
+import PrimeFactorOscillations.Assembly.DetectorPackets.IntegerQuadraticGauss
+import PrimeFactorOscillations.Assembly.DetectorPackets.IntegerQuadraticInitial
+import PrimeFactorOscillations.Assembly.DetectorPackets.IntegerQuadraticSieve
+import PrimeFactorOscillations.Assembly.DetectorPackets.IntegerQuadraticSquarefree
+import PrimeFactorOscillations.Assembly.DetectorPackets.QuadraticCarrierPacket
+
+/-!
+# Completed detector and signed-packet components
+
+Import-only grouping of maintained proof owners.
+-/

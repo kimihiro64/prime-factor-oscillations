@@ -32,7 +32,7 @@
 \DeclareMathOperator{\lcm}{lcm}
 \title{Density amplification in a largest-prime-factor dynamical system}
 \author{Jonas Whidden}
-\date{15 October 2026\\\small Research draft}
+\date{20 October 2026\\\small Research draft}
 \begin{document}
 \maketitle
 
@@ -1053,6 +1053,78 @@ extensionality, classical choice, and quotient soundness are distinguished
 from any additional analytic assumption. The build and audit commands,
 artifact pins, and saved results are supplied in the companion
 \href{https://github.com/kimihiro64/prime-factor-oscillations}{repository}.
+
+\section{Reconciled finite certificates and explicit constants}
+
+The auxiliary proofs recovered in the 20 October source reconciliation
+retain their original parameter ranges. In particular, with \(S_0=\{2\}\)
+in \eqref{eq:step}, the maintained certificate gives
+\[
+ \{p\le22:p\text{ prime}\}\subseteq S_4,\qquad
+ \{p\le432:p\text{ prime}\}\subseteq S_6.
+\]
+These statements preserve the earlier generation indices in addition to
+the inclusive generation-nine certificate up to \(10000\).
+The declarations are
+{\small\lean{prime_le_22_mem_fullOrbit_two_4}} and
+{\small\lean{prime_le_432_mem_fullOrbit_two_6}} in
+\lean{Helpers/LPFFiniteEntry/EarlyRange.lean}.
+
+The certificate proof uses a finite tree of factorizations of
+\(2(a+b)-1\). Each row records its output prime and the generation of
+its parents. Induction on the generation shows that a valid row with
+parents already reached has its output in the next accumulating stage.
+Kernel reduction checks the tree and the two finite prime-prefix
+coverage predicates. The separate list-witness formulation and its
+small regression certificate are maintained in
+\lean{Helpers/LPFFiniteWitness.lean}. These are finite statements;
+they do not establish the finite density entry required by the
+universal amplification theorem.
+
+The recovered explicit divisor estimate is, for \(1\le K\le512\)
+and every natural \(n\),
+\[
+ \tau(n)^2\le
+  2^{20\,2^K} n^{2/K}.
+\]
+Here \(\tau(0)=0\), matching the finite-divisor convention in Lean.
+Indeed the existing divisor-power bound gives
+\(\tau(n)^K\le A_Kn\), where
+\(A_K=(K!\,2^K)^{2^K}\).
+Since \(K!\le512^K=2^{9K}\), one has
+\(A_K\le2^{10K\,2^K}\). Raising the nonnegative inequality to
+\(2/K\) proves the displayed bound. At \(K=320\) this gives
+\[
+ \tau(n)^2\le2^{20\,2^{320}}n^{1/160}.
+\]
+The full parameterized proof and specialization are in
+\lean{Helpers/LPFExplicitDivisorConstant.lean}.
+
+An alternative source-budget calculation is preserved in
+\lean{Helpers/LPFShortMeanSource.lean}. Its exceptional-count constant is
+\[
+ C(K)=\left(\frac{1024}{127}\right)^2
+       \left(1+2^{-119/40}\right)
+       4(8K^2+6K^4+99906).
+\]
+For some \(K>0\), all \(M\ge2^{20}\) satisfy the corresponding
+short bad-target bound
+\(C(K)M^{39/40}(1+\log(2M))^{12}\).
+The definitions of the window, two source branches and bad-target
+threshold are retained exactly in the named Lean declaration
+{\small\lean{lpf_short_bad_prime_targets_mean_log_card_bound_probe}};
+its supply and normalized-transfer consumers are proved in the same
+module. This records the earlier source calculation without changing
+the main amplification exponent.
+
+The project-independent quadratic control and restriction-composition
+identities now have maintained candidate owners, with their arithmetic
+hypotheses explicit. The scalar comparison
+\(A^2\le242/29,\ C>9\Rightarrow A^2/C-1<-19/261\)
+bounds the specified coarse envelope. It is not an obstruction theorem
+for the full coupled arithmetic method. Unsuccessful constant refinements
+and superseded certificate implementations retain separate private
+failure or replacement records.
 
 \section{What the result does and does not transfer}
 

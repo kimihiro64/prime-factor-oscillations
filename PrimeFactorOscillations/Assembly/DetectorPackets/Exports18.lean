@@ -1,0 +1,24 @@
+/-
+Copyright (c) 2026 Prime Factor Oscillations contributors.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Prime Factor Oscillations contributors
+-/
+
+import PrimeFactorOscillations.Assembly.DetectorPackets.PuncturedMarkedSeries
+import PrimeFactorOscillations.Assembly.DetectorPackets.PuncturedQuadraticPrincipal
+import PrimeFactorOscillations.Assembly.DetectorPackets.PuncturedQuadraticReference
+import PrimeFactorOscillations.Assembly.DetectorPackets.QuadraticBandUniformPhase
+import PrimeFactorOscillations.Assembly.DetectorPackets.QuadraticCompensationSignal
+import PrimeFactorOscillations.Assembly.DetectorPackets.QuadraticDivisorBand
+import PrimeFactorOscillations.Assembly.DetectorPackets.QuadraticDyadicBand
+import PrimeFactorOscillations.Assembly.DetectorPackets.QuadraticProductBand
+import PrimeFactorOscillations.Assembly.DetectorPackets.QuadraticProductBandEstimate
+import PrimeFactorOscillations.Assembly.DetectorPackets.QuadraticProductBandSubpower
+import PrimeFactorOscillations.Assembly.DetectorPackets.QuadraticProductDivisor
+import PrimeFactorOscillations.Assembly.DetectorPackets.SelectedPrimePuncture
+
+/-!
+# Completed detector and signed-packet components
+
+Import-only grouping of maintained proof owners.
+-/

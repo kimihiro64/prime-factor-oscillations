@@ -13,7 +13,7 @@
 \newcommand{\N}{\mathbb N}
 \title{Prime-factor densities:\\ gap spectra, zeta-zero criteria,\\ and generalized Robin inequalities}
 \author{Jonas Whidden}
-\date{Research draft, 6 October 2026}
+\date{Research draft, 20 October 2026}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -45,9 +45,14 @@ uniformly for $1<\kappa\le3/2+2/(5\log\log M_N)$ at unbounded integer
 cutoffs. Under RH the same window holds eventually at every integer
 cutoff; consequently, every fixed $1<\kappa\le3/2$ has arbitrarily
 large counterexamples to the generalized upper inequality.
-The maintained results are formalized in Lean. Classical inputs,
-potentially new applications, and unproved arithmetic premises are
-distinguished; no new prime-gap bound or proof of RH is claimed.
+An RH-conditional harmonic second moment measures excess zero multiplicity.
+We also prove prime-coordinate and residue-rational inverse theorems and
+construct distinct laws with identical entire profiles and sharp cubic
+finite-cutoff defects. The spectral and local comparison components have
+maintained Lean proofs; the full inverse classifications and infinite swap
+construction are ordinary mathematical proofs. Classical inputs and unproved
+arithmetic premises are distinguished; no new prime-gap bound or proof of
+RH is claimed.
 \end{abstract}
 \section{Introduction and historical context}\label{sec:intro}
 Let $d_k(p)$ be the natural density of positive integers whose $k$th
@@ -2829,6 +2834,370 @@ for the stated definitions under the reported foundations.
 Source fidelity, attribution, novelty and significance require
 scrutiny beyond the kernel. AI assistance was used for research,
 proof development and exposition.
+
+\section{Second moments, simplicity defects, and prime-profile rigidity}
+\label{sec:moment-rigidity}
+
+The statements in this section separate three kinds of information: a
+conditional spectral identity, an unconditional inverse theorem for local
+probabilities, and an unconditional limit on what the normalized profile
+can identify. No improved zero-free boundary is asserted.
+
+\subsection{The full second moment and a simplicity defect}
+
+Assume RH. Let $\Gamma$ be the set of distinct ordinates of the nontrivial
+zeros, including both signs, write $m_\gamma$ for their analytic
+multiplicities, and put
+\[
+ c_\gamma=(1/4+\gamma^2)^{-1},\qquad
+ C=\gamma_{\mathrm E}+2-\log(4\pi).
+\]
+The existing zero-wave formula is absolutely convergent and has the form
+$W(x)=\sum_{\gamma\in\Gamma}m_\gamma c_\gamma x^{i\gamma}$.
+Its reality follows from conjugate pairing, and $|W(x)|\le C$.
+
+\begin{theorem}[Universal second moment and excess multiplicity]
+For any two fixed qualifying quadratic prime laws $F,G$ and any fixed
+positive rank parameters $\alpha,\alpha'$, let $W_F,W_G$ denote the
+normalized moving-rank observables already compared to $W$.
+Under RH,
+\[
+ \lim_{M\to\infty}\frac1{\log M}
+       \sum_{n=2}^{M}\frac{W_F(n^4)W_G(n^4)}n
+   =V:=\sum_{\gamma\in\Gamma}m_\gamma^2c_\gamma^2.
+\]
+Define
+\[
+ B=\sum_{\gamma\in\Gamma}m_\gamma c_\gamma^2,\qquad
+ \mathcal D=V-B.
+\]
+Then
+\[
+ 0\le\mathcal D
+   =\sum_{\gamma\in\Gamma}m_\gamma(m_\gamma-1)c_\gamma^2
+   \le C^2-B.
+\]
+In particular $\mathcal D=0$ if and only if all these zeros are simple.
+For every finite set $S\subset\Gamma$,
+\[
+ \sum_{\gamma\in S}m_\gamma(m_\gamma-1)c_\gamma^2
+       \le\mathcal D,\qquad
+ \frac{m_\gamma(m_\gamma-1)}{(1/4+\gamma^2)^2}
+       \le C^2-B.
+\]
+\end{theorem}
+\begin{proof}
+For every real $u$,
+$(\log M)^{-1}\sum_{n=2}^{M}n^{iu}/n$ tends to $1$ for $u=0$
+and to $0$ otherwise. Absolute summability permits termwise extraction
+from the product of two spectra. All pairs of frequencies whose sum is
+zero remain; conjugate symmetry therefore gives
+$\sum_\gamma m_\gamma^2c_\gamma^2$, with no simplicity assumption.
+The established comparison gives
+$W_F(n^4)-W(n^4)\to0$ and $W_G(n^4)-W(n^4)\to0$.
+Since $W$ is bounded, their product minus $W(n^4)^2$ tends to zero.
+The normalized harmonic average of that error tends to zero as well.
+Thus the same limit holds for both probability observables.
+The pointwise bound $W(n^4)^2\le C^2$ gives $V\le C^2$.
+Subtracting $B$ produces the nonnegative series displayed above.
+Every summand is zero precisely when its positive integer multiplicity
+is one. Finite subsums and a single complete frequency fiber give the
+remaining inequalities.
+\end{proof}
+
+Here $n^4$ is a divisor cutoff for each fixed family; it is not an
+argument substituted into a two-variable polynomial family.
+Finite exceptional primes and forced-rank shifts are included in the
+exact reference used to define each normalized observable.
+These bounds do not prove simplicity, RH, or a better unconditional
+multiplicity estimate than those already available.
+
+\clearpage
+\subsection{What the entire Bernoulli profile determines}
+
+For a law $\eta(p)\in[0,1]$ with $\sum_p\eta(p)^2<\infty$, define
+\[
+ \Phi_\eta(z)=\prod_p
+ (1+(z-1)\eta(p))\exp(-(z-1)\eta(p)).
+\]
+This is a locally uniformly convergent entire product. Its zeros,
+with multiplicity, are exactly $1-\eta(p)^{-1}$ for $\eta(p)>0$.
+Thus the profile recovers the unordered positive probabilities.
+This standard canonical-product observation alone does not label
+them by primes.
+
+\begin{theorem}[Prime-coordinate rigidity]
+Suppose two such laws satisfy, outside finite sets,
+\[
+ 0<\eta_i(p)<1,\qquad
+ \eta_i(p)^{-1}=p/\nu_i+b_i+o(1),\quad \nu_i>0.
+\]
+If $\Phi_{\eta_1}=\Phi_{\eta_2}$, then $\nu_1=\nu_2$, $b_1=b_2$,
+and $\eta_1(p)=\eta_2(p)$ for every sufficiently large prime.
+The complete laws differ only by a permutation of finitely many prime
+coordinates. Conversely every such finite permutation preserves the profile.
+Equality on a real interval, or on any set with a finite accumulation
+point, suffices.
+\end{theorem}
+\begin{proof}
+Write the reciprocal remainders as $r_i(p)\to0$.
+For sufficiently large consecutive primes the reciprocal increment is at
+least $1/\nu_i-2\sup|r_i|>0$. Each tail is therefore strictly ordered.
+Equality of entire functions gives equality of their zero multisets.
+After removing finitely many exceptional probabilities, the two ordered
+tails consequently match with one fixed prime-index shift:
+$\eta_1(p_{j+a})=\eta_2(p_{j+b})$ for all sufficiently large $j$.
+The prime number theorem gives $p_{j+a}/p_{j+b}\to1$, so comparison of
+the leading reciprocal terms forces $\nu_1=\nu_2=\nu$.
+Now
+\[
+ p_{j+b}-p_{j+a}=\nu(b_1-b_2)+o(1).
+\]
+An integer sequence with a real limit is eventually constant.
+If this constant were nonzero, one direction of the matching would give
+a fixed positive integer $c$ such that every sufficiently large prime
+$p$ has $p+c$ prime. Iteration would then make $p+pc=p(1+c)$ prime,
+a contradiction. Hence the constant and the shift are zero, and
+$b_1=b_2$. The prime-labelled tails coincide.
+
+Cancel the common tail product in a neighborhood of $z=1$.
+The remaining finite products have the same positive-probability
+multiset. Enlarging to one common finite prime set gives the same number
+of zero probabilities too, hence a finite permutation.
+This also retains probabilities equal to one, whose zeros lie at $z=0$.
+The converse follows by reordering finitely many factors. The identity
+theorem gives the last assertion.
+\end{proof}
+
+\subsection{Sharp cubic camouflage outside the rigid class}
+
+\begin{theorem}[Identical profiles with optimally small finite-cutoff defects]
+There are continuum many admissible laws
+$\eta(p)=p^{-1}+O(p^{-2})$, pairwise distinct on infinitely many primes,
+whose entire profiles are identical. They can be chosen so that for
+each fixed $T\ge0$, every $N\ge1200$ and $0\le t\le T$,
+\[
+ \begin{gathered}
+ 0\le L_\eta(N,t)-L_0(N,t)\le4800\,T^2N^{-3},\\
+ L_\eta(N,t)=\sum_{p\le N}
+       \{\log(1+t\eta(p))-t\eta(p)\}.
+ \end{gathered}
+\]
+For every nontrivial construction with infinitely many swaps and every
+fixed $t>0$, the difference is not $o(N^{-3})$.
+These laws need not come from a fixed polynomial arithmetic family.
+\end{theorem}
+\begin{proof}
+The established bounded-gap theorem supplies disjoint pairs
+$p_j<q_j\le p_j+H$, where $H=600$, $p_j>2H$,
+and $q_j<p_{j+1}$. Swap the probabilities $1/p_j,1/q_j$
+on any chosen subset of these pairs. The resulting law obeys
+$|\eta(p)-1/p|\le2H/p^2$.
+The entire product is unchanged, because its locally uniform absolute
+convergence permits permutation.
+
+Every cutoff meets at most one incomplete pair.
+Completed pairs cancel exactly. If $p\le N<q$ is an incomplete
+selected pair, the complete signed defect is
+\[
+ d_t(p,q)=\log(1+t/q)-\log(1+t/p)+t(1/p-1/q).
+\]
+Applying $\log u\le u-1$ to both reciprocal ratios gives
+\[
+ \frac{t^2(q-p)}{pq(q+t)}
+       \le d_t(p,q)\le
+ \frac{t^2(q-p)}{pq(p+t)}
+       \le \frac{t^2(q-p)}{p^3}.
+\]
+All denominators are positive. Since $p>N-H\ge N/2$, this proves
+the asserted bound. At the selected cutoffs $N=p_j$ the two-sided
+bounds imply
+$p_j^3d_t(p_j,q_j)/(q_j-p_j)\to t^2$.
+As $q_j-p_j\ge1$, the error cannot be $o(N^{-3})$.
+Partition the pair indices into countably many infinite blocks and swap
+all indices in a block according to one binary choice. This gives
+continuum many laws, any two differing on infinitely many coordinates.
+Finally their reciprocal deviations $\eta(p)^{-1}-p$ take positive
+and negative integer values at infinitely many swapped pairs; they have
+no limiting constant. Thus they lie outside the preceding rigidity
+hypothesis, demonstrating the significance of its $o(1)$ remainder.
+\end{proof}
+
+The canonical product is classical mod-Poisson machinery; the
+prime-coordinate rigidity and sharp arithmetic swap comparison are the
+specific conclusions considered here, without a claim of literature
+priority. The full inverse classification and infinite swap construction
+above are ordinary proofs, not separately completed Lean formalizations.
+The maintained Lean owners for the completed components, relative to
+\path{PrimeFactorOscillations/}, are:
+\begin{itemize}\small
+\item \path{Helpers/XiWaveMoments.lean} and
+      \path{Helpers/XiMultiplicityBudget.lean};
+\item \path{Mathlib/Analysis/Fourier/LogarithmicBilinear.lean};
+\item \path{Mathlib/Analysis/SpecialFunctions/Log/CompensatedReciprocal.lean};
+\item \path{Mathlib/NumberTheory/Primes/Translation.lean};
+\item \path{Assembly/PrimeProfileRigidity.lean}.
+\end{itemize}
+The latest promotion audit is separate from the older verification totals
+elsewhere in this manuscript; those historical totals do not certify this
+new batch or an improved analytic exponent.
+
+\subsection{Rational residue-class laws: a stronger inverse theorem}
+
+The preceding inverse theorem extends beyond a common leading coefficient.
+Fix an integer $Q\ge1$. Suppose that outside finitely many primes the laws
+have the form $\eta_1(p)=R_a(p)$ and $\eta_2(p)=S_a(p)$ for
+$p\equiv a\pmod Q$, where $a$ runs over the units modulo $Q$.
+Each $R_a,S_a$ is a rational function with rational coefficients.
+Assume each is either identically zero or has an expansion
+$\nu/x+\kappa/x^2+O(x^{-3})$ with rational $\nu>0$.
+The actual probabilities are in $[0,1]$.
+
+\begin{theorem}[Residue-rational profile rigidity]
+Equality of the entire profiles implies $R_a=S_a$ as rational functions
+for every unit class $a$. The complete laws then differ by a finite
+permutation of prime coordinates.
+More precisely, if one active $R_a$ differs from $S_a$, there is a unit
+progression $r\pmod M$, refining $a\pmod Q$, such that for every
+sufficiently large prime $p\equiv r\pmod M$ the value $R_a(p)$ is absent
+from the entire second law.
+Consequently the first profile has infinitely many zeros absent from
+the second. Using the prime number theorem in a fixed progression,
+their number in $[-T,0]$ is at least
+$(\nu/\varphi(M)+o(1))T/\log T$.
+If only the second law is active in a discrepant class, interchange
+the two laws.
+\end{theorem}
+\begin{proof}
+Write $R_a(x)=\nu/x+\kappa/x^2+O(x^{-3})$.
+For each active target class $b$, write
+$S_b(x)=\mu_b/x+\lambda_b/x^2+O(x^{-3})$.
+If $R_a(p)=S_b(q)$ and $p$ is large, then $q$ is large and comparable
+to $p$: finitely many small target primes have probabilities bounded
+away from the positive values tending to zero under consideration.
+Taking reciprocals gives
+\[
+ q=\frac{\mu_b}{\nu}p+
+       \left(\frac{\lambda_b}{\mu_b}
+                    -\frac{\mu_b\kappa}{\nu^2}\right)+O(p^{-1}).
+\]
+Both displayed coefficients are rational. The error belongs to a
+fixed rational lattice because $p,q$ are integers, so it is eventually
+zero. Thus every large equality satisfies an exact affine equation
+$C_bq=A_bp+B_b$, with positive integers $A_b,C_b$ and integer $B_b$.
+
+If $B_b=0$, primeness and sufficiently large $p,q$ force $q=p$ and
+$A_b=C_b$. Then $b=a$, and $R_a(p)=S_a(p)$ has only finitely many
+solutions unless the two rational functions are identical.
+For each remaining equation, $B_b\ne0$. Choose a distinct auxiliary
+prime $\ell_b$ not dividing $QA_bB_bC_b$, and impose
+$p\equiv-B_bA_b^{-1}\pmod{\ell_b}$.
+This is a nonzero residue. Together with $p\equiv a\pmod Q$, the
+Chinese remainder theorem gives one unit class modulo
+$M=Q\prod_b\ell_b$. Each affine equality on this class would make
+$\ell_b\mid q$, impossible once the prime $q>\ell_b$.
+This excludes every target class simultaneously; the finite
+exceptional target primes were already removed.
+
+Dirichlet's theorem supplies infinitely many primes in the chosen
+unit progression. Their probabilities are eventually distinct,
+since $R_a(p)^{-1}=p/\nu-\kappa/\nu^2+O(p^{-1})$ is strictly
+increasing on large prime arguments. They therefore give distinct
+exclusive zeros. Their cutoff is $p\le\nu T+O(1)$, which yields the
+stated count from the fixed-progression prime number theorem.
+Equal profiles cannot have such exclusive zeros. Hence all rational
+functions agree, the labelled tails agree, and cancellation of the
+common tail gives the finite-permutation conclusion.
+\end{proof}
+
+This is an ordinary proof; its finite affine-exclusion and
+residue-rational classification have not yet been formalized in Lean.
+It applies only after a family's rational local laws and exceptional
+prime set have been established. It does not assert such a transfer
+for every polynomial, marked family, or Dirichlet $L$-function.
+
+\subsection{The completed signed-packet calculus and its open consumer}
+
+For a finite $S\subset\{1,\ldots,N\}$ and complex coefficients $a,b$,
+put $A_d=\sum_{n\in S,\ d\mid n}a_n$ and
+$B_d=\sum_{n\in S,\ d\mid n}b_n$.
+The maintained signed covariance identity is exactly
+\[
+ \sum_{\substack{n,m\in S\\(n,m)=1}}
+      (a_n-cb_n)\overline{(a_m-cb_m)}
+    =\sum_{d=1}^{N}\mu(d)|A_d-cB_d|^2.
+\]
+Indeed $\sum_{d\mid(n,m)}\mu(d)$ is the coprimality indicator, and
+finite interchange of sums proves the identity. Each divisor row
+retains the full expansion
+\[
+ |A_d-cB_d|^2=|A_d|^2
+    -cB_d\overline{A_d}-\overline c A_d\overline{B_d}
+    +|c|^2|B_d|^2.
+\]
+In particular, if $b$ is supported on primes larger than $D$, then
+$B_d=0$ for every $2\le d\le D$. Such a prime-only compensator changes
+none of these low rows, regardless of the complex coefficient $c$.
+This rules out that specific compensation mechanism on those rows;
+it is not an obstruction to other coupled compensators.
+
+There is also an exact partition using every prime allowed by the
+finite support, rather than a chosen finite set. For $v_1=0$, define,
+for $1\le n\le N$ and prime $p\le N$,
+\[
+ v_p(n)=
+ \begin{cases}
+ \displaystyle\mu(n)v_n\frac{\log p}{\log n},&p\mid n,\ p\ {\rm prime},\\
+ 0,&\text{otherwise}.
+ \end{cases}
+\]
+Only $n>1$ enters the first branch. Since $\mu(n)=0$ off the
+squarefree numbers, $\sum_{p\le N}v_p(n)=\mu(n)v_n$ for
+$1\le n\le N$. The coprime form of two blocks with the same prime
+index vanishes exactly: both supported arguments are divisible by
+that prime. Writing $\mathcal C(f,g)=\sum_{n,m\in S,\,(n,m)=1}f_n\overline{g_m}$,
+this gives the exact identity
+\[
+ \mathcal C(\mu v,\mu v)=
+ \sum_{\substack{p,q\le N\\p,q\ {\rm prime},\ p\ne q}}
+            \mathcal C(v_p,v_q).
+\]
+The coefficient $v$ may itself retain a full compensation, so this
+identity does not erase its cross terms. It does not estimate their
+joint cancellation.
+
+The reconciliation inventory
+\path{paper/completed-research-inventory.json}
+and the public theorem-audit inventory record the maintained owners
+for these covariance identities, full-prime partitions, Gaussian
+principal and Poisson inputs, Euler-continuation results, detector
+adapters, and quantitative tail lemmas.
+Their public export is
+\path{PrimeFactorOscillations/Assembly/CompletedDetectorPackets.lean}.
+A copied source is not certified by this list: the inventory separately
+records the fresh compilation and axiom-audit status.
+The 20 October maintained build checks 1,139 owned Lean modules.
+The complete public audit checks 4,843 selected theorem closures with
+standard foundations only, and both public and canonical QRH statement
+comparisons pass. The reconciliation identifies 301 maintained owners;
+all 132 proved private graph nodes now point to maintained sources.
+These verification totals certify the stated formal components, not the
+ordinary inverse classifications or the open signed arithmetic estimate.
+
+The unfinished analytic consumer remains explicitly open. In the
+fixed-mask notation of that programme it asks, for each
+$\varepsilon>0$ and each fixed admissible $G$, for constants
+$C_{\varepsilon,G},D_{0,\varepsilon,G}$ such that
+\[
+ |I_{D,G}|\le C_{\varepsilon,G}D^{3/2+\varepsilon}
+ \quad(D\ge D_{0,\varepsilon,G}).
+\]
+No uniformity for a growing $G$ is implicit. The identities above do
+not prove this estimate. Detector precision, zero-signal preservation
+and smaller separate remainders are recorded as structural results;
+the certified unconditional boundary remains $7/8$.
+Failed absolute-value reductions and restricted-range attempts retain
+their failure records and are not counted as improvements of that boundary.
 
 \begin{thebibliography}{99}
 \small\raggedright

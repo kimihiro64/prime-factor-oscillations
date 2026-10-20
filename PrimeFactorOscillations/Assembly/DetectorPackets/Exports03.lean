@@ -1,0 +1,24 @@
+/-
+Copyright (c) 2026 Prime Factor Oscillations contributors.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Prime Factor Oscillations contributors
+-/
+
+import PrimeFactorOscillations.Assembly.DetectorPackets.DepletedMobiusBound
+import PrimeFactorOscillations.Assembly.DetectorPackets.DepletedMobiusUniform
+import PrimeFactorOscillations.Assembly.DetectorPackets.IntegerQuadraticMask
+import PrimeFactorOscillations.Assembly.DetectorPackets.IntegerQuadraticMaskedPoisson
+import PrimeFactorOscillations.Assembly.DetectorPackets.IntegerQuadraticOdd
+import PrimeFactorOscillations.Assembly.DetectorPackets.IntegerQuadraticPoisson
+import PrimeFactorOscillations.Assembly.DetectorPackets.IntegerQuadraticPoissonInteger
+import PrimeFactorOscillations.Assembly.DetectorPackets.IntegerQuadraticPrefix
+import PrimeFactorOscillations.Assembly.DetectorPackets.IntegerQuadraticScale
+import PrimeFactorOscillations.Assembly.DetectorPackets.QuadraticCoprimeMean
+import PrimeFactorOscillations.Assembly.DetectorPackets.QuadraticDivisorMean
+import PrimeFactorOscillations.Proof.DetectorPackets.DepletedMobius
+
+/-!
+# Completed detector and signed-packet components
+
+Import-only grouping of maintained proof owners.
+-/

@@ -1,0 +1,24 @@
+/-
+Copyright (c) 2026 Prime Factor Oscillations contributors.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Prime Factor Oscillations contributors
+-/
+
+import PrimeFactorOscillations.Assembly.DetectorPackets.CoprimeSchwartzMiddle
+import PrimeFactorOscillations.Assembly.DetectorPackets.CoprimeSchwartzRemainder
+import PrimeFactorOscillations.Assembly.DetectorPackets.CoprimeSchwartzUniform
+import PrimeFactorOscillations.Assembly.DetectorPackets.CubeRowQuotientMean
+import PrimeFactorOscillations.Assembly.DetectorPackets.DepletedMobiusPhysical
+import PrimeFactorOscillations.Assembly.DetectorPackets.DirichletCompanionIntegral
+import PrimeFactorOscillations.Assembly.DetectorPackets.LowKernelQuotientTransport
+import PrimeFactorOscillations.Proof.DetectorPackets.DetectorConsumerGeometry
+import PrimeFactorOscillations.Proof.DetectorPackets.DetectorPoissonShift
+import PrimeFactorOscillations.Proof.DetectorPackets.DilationFilterInversion
+import PrimeFactorOscillations.Proof.DetectorPackets.PeriodicCompanionGrowth
+import PrimeFactorOscillations.Proof.DetectorPackets.QuadraticLowKernelConductor
+
+/-!
+# Completed detector and signed-packet components
+
+Import-only grouping of maintained proof owners.
+-/

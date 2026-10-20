@@ -1,0 +1,24 @@
+/-
+Copyright (c) 2026 Prime Factor Oscillations contributors.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Prime Factor Oscillations contributors
+-/
+
+import PrimeFactorOscillations.Assembly.DetectorPackets.GaussianMobiusCentering
+import PrimeFactorOscillations.Assembly.DetectorPackets.GaussianSquarefreeWindows
+import PrimeFactorOscillations.Assembly.DetectorPackets.GaussianWaveletCarrier
+import PrimeFactorOscillations.Assembly.DetectorPackets.GeneralLowChoiceEnergy
+import PrimeFactorOscillations.Assembly.DetectorPackets.GeneralLowCompletedEnergy
+import PrimeFactorOscillations.Assembly.DetectorPackets.GeneralLowFixedMember
+import PrimeFactorOscillations.Assembly.DetectorPackets.GeneralLowFrozenEnergy
+import PrimeFactorOscillations.Assembly.DetectorPackets.GeneralLowFullEnergy
+import PrimeFactorOscillations.Assembly.DetectorPackets.GeneralLowGlobalEnergy
+import PrimeFactorOscillations.Assembly.DetectorPackets.GeneralLowPhysicalEnergy
+import PrimeFactorOscillations.Proof.DetectorPackets.GaussianSquarefreeEuler
+import PrimeFactorOscillations.Proof.DetectorPackets.GeneralLowEnergyExponent
+
+/-!
+# Completed detector and signed-packet components
+
+Import-only grouping of maintained proof owners.
+-/

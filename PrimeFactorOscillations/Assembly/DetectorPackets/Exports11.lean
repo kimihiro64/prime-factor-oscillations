@@ -1,0 +1,24 @@
+/-
+Copyright (c) 2026 Prime Factor Oscillations contributors.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Prime Factor Oscillations contributors
+-/
+
+import PrimeFactorOscillations.Assembly.DetectorPackets.IntegerGaussianAbelPhase
+import PrimeFactorOscillations.Assembly.DetectorPackets.IntegerGaussianSeries
+import PrimeFactorOscillations.Assembly.DetectorPackets.IntegerGaussianTail
+import PrimeFactorOscillations.Assembly.DetectorPackets.IntegerQuadraticFourModulus
+import PrimeFactorOscillations.Assembly.DetectorPackets.IntegerQuadraticStandardCRT
+import PrimeFactorOscillations.Assembly.DetectorPackets.JointSquarePrefixMean
+import PrimeFactorOscillations.Assembly.DetectorPackets.KappaHalfBoundedLivePower
+import PrimeFactorOscillations.Assembly.DetectorPackets.KappaHalfBoundedPower
+import PrimeFactorOscillations.Assembly.DetectorPackets.KappaHalfDeletedEnergy
+import PrimeFactorOscillations.Assembly.DetectorPackets.KappaHalfOriginalEnergy
+import PrimeFactorOscillations.Proof.DetectorPackets.InverseDeletionWave
+import PrimeFactorOscillations.Proof.DetectorPackets.KappaHalfReflection
+
+/-!
+# Completed detector and signed-packet components
+
+Import-only grouping of maintained proof owners.
+-/

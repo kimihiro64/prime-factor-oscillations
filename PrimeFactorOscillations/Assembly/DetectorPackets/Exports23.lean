@@ -1,0 +1,24 @@
+/-
+Copyright (c) 2026 Prime Factor Oscillations contributors.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Prime Factor Oscillations contributors
+-/
+
+import PrimeFactorOscillations.Assembly.DetectorPackets.RamanujanDualEnergy
+import PrimeFactorOscillations.Assembly.DetectorPackets.RamanujanFourthSector
+import PrimeFactorOscillations.Assembly.DetectorPackets.RamanujanMobiusTransfer
+import PrimeFactorOscillations.Assembly.DetectorPackets.RamanujanPrimePacket
+import PrimeFactorOscillations.Assembly.DetectorPackets.RamanujanProductEnergy
+import PrimeFactorOscillations.Assembly.DetectorPackets.RamanujanWeightedPhysical
+import PrimeFactorOscillations.Assembly.DetectorPackets.RawCubeRowCoefficients
+import PrimeFactorOscillations.Assembly.DetectorPackets.SexticQuadraticSieveBridge
+import PrimeFactorOscillations.Assembly.DetectorPackets.SexticQuadraticSymbol
+import PrimeFactorOscillations.Assembly.DetectorPackets.ShiftedPrincipalNormalization
+import PrimeFactorOscillations.Assembly.DetectorPackets.ShiftedPrincipalRemainders
+import PrimeFactorOscillations.Proof.DetectorPackets.RefinedPowerfulEnergy
+
+/-!
+# Completed detector and signed-packet components
+
+Import-only grouping of maintained proof owners.
+-/

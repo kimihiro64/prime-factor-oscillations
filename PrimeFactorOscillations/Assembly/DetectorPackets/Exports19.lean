@@ -1,0 +1,24 @@
+/-
+Copyright (c) 2026 Prime Factor Oscillations contributors.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Prime Factor Oscillations contributors
+-/
+
+import PrimeFactorOscillations.Assembly.DetectorPackets.QuadraticFullFrequencyBand
+import PrimeFactorOscillations.Assembly.DetectorPackets.QuadraticPhysicalBand
+import PrimeFactorOscillations.Assembly.DetectorPackets.QuadraticPhysicalBandWeight
+import PrimeFactorOscillations.Assembly.DetectorPackets.QuadraticPhysicalFrequency
+import PrimeFactorOscillations.Assembly.DetectorPackets.QuadraticSmoothBandEstimate
+import PrimeFactorOscillations.Assembly.DetectorPackets.QuadraticSmoothBandRows
+import PrimeFactorOscillations.Assembly.DetectorPackets.QuadraticSmoothUnit
+import PrimeFactorOscillations.Assembly.DetectorPackets.SchwartzDyadicSeparation
+import PrimeFactorOscillations.Assembly.DetectorPackets.SchwartzFinitePacket
+import PrimeFactorOscillations.Assembly.DetectorPackets.SchwartzFiniteSeparation
+import PrimeFactorOscillations.Proof.DetectorPackets.QuadraticDyadicCover
+import PrimeFactorOscillations.Proof.DetectorPackets.QuadraticSmoothBandCoordinates
+
+/-!
+# Completed detector and signed-packet components
+
+Import-only grouping of maintained proof owners.
+-/

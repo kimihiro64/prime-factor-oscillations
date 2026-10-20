@@ -2,7 +2,7 @@ import PrimeFactorOscillations.Assembly.AffineSpectrum
 import PrimeFactorOscillations.Assembly.FromPrimeWindows
 import PrimeFactorOscillations.Assembly.GapRecurrence
 import PrimeFactorOscillations.Assembly.LPFResults
-import PrimeFactorOscillations.Assembly.RHResults
+import PrimeFactorOscillations.Assembly.RHAnalysis
 import PrimeFactorOscillations.Assembly.Spectrum
 import PrimeFactorOscillations.Helpers.CharacterProbability
 import PrimeFactorOscillations.Helpers.PeakComparison
