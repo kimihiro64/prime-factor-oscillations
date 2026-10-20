@@ -4760,6 +4760,157 @@ It does not estimate the outstanding signed M\"obius packet, and the
 certified unconditional RH boundary remains $7/8$.
 \end{flushleft}
 
+\subsection{Rational characteristic acceleration from the integrated window}
+
+The integrated reference costs also sharpen the retained coordinate
+window. Keep $D_n(t)\le C$, $0\le C<r/4$, and $r=p_n$.
+For each entering prime $q$, its individual reference cost is at most
+the full cost, so
+\[
+ \frac r2\left(1-\frac{r^2}{q^2}\right)\le C<\frac r4,
+ \qquad \left(\frac rq\right)^2>\frac12.
+\]
+For each leaving prime $p$,
+\[
+ r\left(\frac rp-1\right)\le C<\frac r4,\qquad \frac rp<\frac54.
+\]
+The entering ratios are at most one, and the leaving ratios are at
+least one. Since $(45/64)^2=2025/4096<1/2$, every retained ratio
+therefore belongs to
+\[
+ J=[45/64,5/4].
+\]
+This assertion concerns precisely $E_n\cup L_n$ after cancellation.
+It makes no claim about a common small prime.
+
+The rational left endpoint is chosen to give exact characteristic
+roots. The affine map and its exterior parameters are
+\[
+ z(x)=\frac{125-128x}{35},\qquad
+ a=z(0)=\frac{25}{7},\qquad c=\frac{24}{7}.
+\]
+The map sends $J$ to $[-1,1]$, while $c^2=a^2-1$,
+$a+c=7$, and $a-c=1/7$. Define
+\[
+ V_k=7^k+7^{-k},\qquad
+ H_k(x)=\frac{2T_k(z(x))}{V_k}\qquad(k\ge0).
+\]
+The characteristic identities already proved above give
+$V_k=2T_k(25/7)>0$. In particular $H_k(0)=1$ and
+$\deg H_k\le k$. The retained-window bound is
+\[
+ |H_k(x)|\le\frac2{V_k}\le2\,7^{-k}\qquad(x\in J).
+\]
+Both branches are retained; $V_0=2$ and $H_0=1$.
+
+Use the same signed observable
+\[
+ A_{k,n}=\operatorname{Def}_{e,n+1}
+       \bigl((p-r)(1-H_k(r/p)^2)\bigr),
+\]
+where $\operatorname{Def}_{e,n+1}$ denotes the permuted finite
+prefix sum minus the original finite prefix sum.
+
+\begin{theorem}[Rational characteristic readout]
+Under the stated quarter-budget hypotheses, for every $k\ge0$ the
+observable $A_{k,n}$ is a probability-moment combination of degree
+at most $2k$, and
+\[
+ \begin{split}
+ 0\le S_n-A_{k,n}
+   &\le\frac{4S_n}{V_k^2}\le\frac{16C}{V_k^2},\\
+ S_n-A_{k,n}
+   &\le4\,49^{-k}S_n\le16C\,49^{-k}.
+ \end{split}
+\]
+If $r\ge3$ and $32C<V_k^2$, there is a single $K\ge0$ with
+$S_n=2K$ such that every observation satisfying
+$|y-A_{k,n}|<1/2$ has $2K$ as its unique nonnegative even integer
+at distance less than one.
+A uniform sufficient integer order is
+\[
+ k=\left\lfloor\log_{49}(8p_n)\right\rfloor+1.
+\]
+The Lean statement uses the natural-number logarithm at the positive
+integer argument $8p_n$.
+\end{theorem}
+
+\begin{proof}
+The exact kernel comparisons prove the window as just shown.
+The coupled rotation invariant bounds $|T_k(z)|$ by one for
+$-1\le z\le1$, and the exterior characteristic identity gives the
+strictly positive denominator $V_k$. This proves the stated
+polynomial norm and normalization at zero.
+
+The normalized square-filter representation supplies a polynomial
+$G_k$ of degree at most $2k$ with
+\[
+ (p-r)(1-H_k(r/p)^2)=rG_k(r/p).
+\]
+Thus $A_{k,n}=r\operatorname{Def}_{e,n+1}(G_k(r/p))$.
+Only the retained coordinates are used in estimating its error:
+\[
+ S_n-A_{k,n}=
+   \sum_{j\in E_n}(p_j-r)H_k(r/p_j)^2+
+   \sum_{j\in L_n}(r-p_j)H_k(r/p_j)^2.
+\]
+Every displayed displacement is nonnegative, and the principal
+coefficient remains one. The support-only comparison therefore gives
+$0\le S_n-A_{k,n}\le4S_n/V_k^2$.
+The previously compiled full signed estimate $S_n\le4C$ proves
+the first cost bound. Since $V_k\ge7^k$, squaring gives
+$V_k^2\ge49^k$ and proves both geometric bounds.
+
+For recovery, $r\ge3$ and $C<r/4$ give $r-C>2$.
+All retained primes are odd, so the maintained parity theorem gives
+$S_n=2K$ for some nonnegative integer $K$.
+The condition $32C<V_k^2$ makes the full signed observation error
+less than $1/2$. Combining it with $|y-A_{k,n}|<1/2$ puts $y$
+at distance less than one from $2K$.
+Two different even integers cannot both be at distance less than one
+from the same $y$, proving uniqueness with the same $K$ for all
+admissible observations.
+
+Finally the chosen natural logarithm gives
+$49^k>8r>32C$, hence $V_k^2>32C$. This proves the sufficient
+order without a finite sampling or growing-cutoff assumption.
+\end{proof}
+
+At matched degree $m=2k$, the geometric error factor changes from
+$4\,16^{-k}$ to $4\,49^{-k}$. The explicit sufficient moment degree
+has the ordinary real-logarithm bound
+\[
+ m\le\frac{\log r}{\log7}+\frac{3\log2}{\log7}+2.
+\]
+Its leading coefficient relative to $\log_2r$ is
+$\log2/\log7$, compared with $1/2$ for the earlier geometric
+certificate. These degree comparisons are ordinary consequences of
+the compiled natural-logarithm choice; no minimum-degree or
+minimax claim is made. The exact formula retains the contracting
+branch and can require less than this uniform sufficient order.
+
+\begin{flushleft}
+The integrated scalar window is compiled in
+\path{Mathlib/Analysis/SpecialFunctions/Log/CompensatedReciprocalWindow.lean};
+its two-support prime specialization is in
+\path{Helpers/PrimeProfileReciprocalWindow.lean}.
+The exact rational filter and all normalization and norm certificates are in
+\path{Mathlib/Analysis/SpecialFunctions/Log/ReciprocalSevenFilter.lean}.
+The reusable signed comparison requiring a norm only on the retained
+supports is in \path{Helpers/PrimeProfileSupportedFilter.lean}.
+The degree, exact and geometric full error, cost-adaptive recovery,
+and explicit logarithmic recovery are compiled in
+\path{Helpers/PrimeProfileSevenReadout.lean}, publicly exported by
+\path{Assembly/PrimeProfileReadouts.lean}.
+The error theorem includes $r=2$; the even-integer recovery explicitly
+requires $r\ge3$. Every finite permutation and zero transport remain
+included. The noise allowance concerns the combined observable,
+with the previously stated coefficient weights on raw moment errors.
+This proves a stronger finite observation theorem under the same cost
+hypothesis. It supplies no independent bound on the open signed
+M\"obius packet; the unconditional RH boundary remains $7/8$.
+\end{flushleft}
+
 \subsection{Rational residue-class laws: a stronger inverse theorem}
 
 The preceding inverse theorem extends beyond a common leading coefficient.
