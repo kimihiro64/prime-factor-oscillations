@@ -9,10 +9,11 @@ import PrimeFactorOscillations.Mathlib.Algebra.Order.QuadraticControl
 import PrimeFactorOscillations.Mathlib.Analysis.Fourier.LogarithmicBilinear
 import PrimeFactorOscillations.Mathlib.Analysis.SpecialFunctions.Log.BernoulliProfileFinitePermutation
 import PrimeFactorOscillations.Mathlib.Analysis.SpecialFunctions.Log.BernoulliProfileTailMatching
-import PrimeFactorOscillations.Mathlib.Analysis.SpecialFunctions.Log.CompensatedReciprocal
+import PrimeFactorOscillations.Mathlib.Analysis.SpecialFunctions.Log.CompensatedReciprocalNormalization
 import PrimeFactorOscillations.Mathlib.Analysis.SpecialFunctions.Log.ExplicitLinear
 import PrimeFactorOscillations.Mathlib.Analysis.SpecialFunctions.Log.TripleReference
 import PrimeFactorOscillations.Mathlib.Analysis.SpecialFunctions.Pow.RestrictionComposition
+import PrimeFactorOscillations.Mathlib.Combinatorics.FinitePrefixDisplacement
 import PrimeFactorOscillations.Mathlib.NumberTheory.Primes.Translation
 
 /-!

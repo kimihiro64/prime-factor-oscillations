@@ -3140,6 +3140,144 @@ The latest promotion audit is separate from the older verification totals
 elsewhere in this manuscript; those historical totals do not certify this
 new batch or an improved analytic exponent.
 
+\subsection{A universal cutoff inverse and the recurring-gap constant}
+
+The swap construction admits a converse without a reciprocal-intercept
+assumption. Write $p_0=2<p_1<\cdots$, and suppose
+$0\le a_j\le1$, $\sum_j a_j^2<\infty$, and
+$\Psi_a=\Psi_{(1/p_j)}$. Define the complete signed defect
+\[
+ \Delta_{a,n}(t)=\sum_{j=0}^{n}
+ \left\{\log(1+ta_j)-ta_j-
+          \log(1+t/p_j)+t/p_j\right\},\qquad t>0.
+\]
+The term $t/p_j-ta_j$ is part of the observable and is retained throughout.
+
+\begin{theorem}[Universal adaptive cutoff inverse]
+For every sequence $t_n>0$,
+\[
+ \frac{p_n^2(p_n+t_n)}{t_n^2}\Delta_{a,n}(t_n)\longrightarrow0
+\]
+if and only if $a_j=1/p_{\sigma(j)}$ for a permutation $\sigma$ fixing
+every sufficiently large index. In particular, for each fixed $t>0$,
+\[
+ \Delta_{a,n}(t)=o(p_n^{-3})
+ \quad\Longleftrightarrow\quad
+ a\text{ is a finite permutation of }(1/p_j).
+\]
+\end{theorem}
+\begin{proof}
+Multiplicity recovery shows that the positive coordinates of $a$ are
+exactly the distinct numbers $1/p_j$. First suppose no coordinate is
+zero, so $a_j=1/p_{\sigma(j)}$ for a permutation $\sigma$.
+Put $H_t(j)=\log(1+t/p_j)-t/p_j$, which is strictly increasing and negative.
+
+For $B_n=\{0,\ldots,n\}$ and $S_n=\sigma(B_n)$, cancel the common
+coordinates in the signed sum. If
+$m_n=|S_n\setminus B_n|=|B_n\setminus S_n|$, every entering weight is
+at least $H_t(n+1)$ and every leaving weight is at most $H_t(n)$.
+Consequently
+\[
+ \Delta_{a,n}(t)\ge
+ m_n\{H_t(n+1)-H_t(n)\}\ge0.                 \tag{21.1}
+\]
+Our signed scalar comparison gives, with $p=p_n$ and $q=p_{n+1}$,
+\[
+ H_t(n+1)-H_t(n)\ge\frac{t^2(q-p)}{pq(q+t)}.
+\]
+Eventually $q\le2p$, by the unconditional adjacent-prime ratio limit.
+Since $q-p\ge1$, uniformly for every $t>0$,
+\[
+ \frac{p^2(p+t)}{t^2}\{H_t(n+1)-H_t(n)\}
+ \ge\frac{p(p+t)}{q(q+t)}\ge\frac14.         \tag{21.2}
+\]
+A vanishing normalized defect therefore forces $m_n=0$ at every
+sufficiently large index. Two successive invariant prefixes imply
+$\sigma(n)=n$: the image of $n$ belongs to $B_n$ but cannot belong to
+the invariant prefix $B_{n-1}$. Conversely, a permutation fixing a
+tail preserves every sufficiently large prefix, whose defect is exactly zero.
+
+It remains to rule out a zero coordinate. After the first zero has
+entered $B_n$, the positive probabilities in that prefix correspond
+to a set $S_n$ of at most $n$ distinct prime indices. If
+$r=|S_n\setminus B_n|$ and $s=|B_n\setminus S_n|$, then $s\ge r+1$.
+The same common-coordinate cancellation, now using the boundary
+weight $H_t(n)$ on both sides, yields
+\[
+ \Delta_{a,n}(t)\ge(r-s)H_t(n)\ge-H_t(n).
+\]
+For $y>0$,
+\[
+ y-\log(1+y)\ge\frac{y^2}{2(1+y)}.
+\]
+Indeed the difference vanishes at zero and its derivative is
+$y^2/(2(1+y)^2)\ge0$. Taking $y=t/p_n$ gives
+\[
+ \frac{p_n^2(p_n+t)}{t^2}\Delta_{a,n}(t)
+ \ge\frac{p_n}{2}\longrightarrow\infty,     \tag{21.3}
+\]
+uniformly over all positive probes. Thus a zero coordinate cannot
+satisfy the proposed accuracy condition. For fixed $t$, the
+normalizing factor is asymptotic to $p_n^3/t^2$, proving the final equivalence.
+\end{proof}
+
+\begin{theorem}[Optimal distortion records the least recurring prime gap]
+Let $G$ be the least positive integer occurring infinitely often as
+$p_{n+1}-p_n$. This integer exists by bounded-gap supply and satisfies
+$2\le G\le600$. Every same-profile law $a$ that is not a finite
+permutation satisfies, for every sequence $t_n>0$,
+\[
+ \limsup_{n\to\infty}
+ \frac{p_n^2(p_n+t_n)}{t_n^2}\Delta_{a,n}(t_n)\ge G.
+\]
+There is one infinitely supported permutation law attaining equality
+for every such probe sequence. It satisfies
+$a(p)=1/p+O(p^{-2})$.
+\end{theorem}
+\begin{proof}
+Every gap smaller than $G$ occurs only finitely often; there are only
+finitely many such integer gaps. Hence eventually $q-p\ge G$.
+An infinite permutation moves infinitely many prefixes, and at each
+such sufficiently large prefix (21.1) gives normalized defect at least
+\[
+ G\frac{p(p+t)}{q(q+t)}
+ \ge G\left(\frac pq\right)^2\longrightarrow G,
+\]
+uniformly in $t>0$. Zero coordinates instead give the divergent
+lower bound (21.3).
+
+For attainment, choose disjoint adjacent prime pairs $p<q=p+G$
+at arbitrarily large heights, and swap each pair. At any cutoff at
+most one pair is incomplete; at its lower endpoint the exact defect
+is $d_t(p,q)$. At every other prime cutoff it is zero.
+The two-sided signed comparison gives
+\[
+ G\left(\frac pq\right)^2
+ \le \frac{p^2(p+t)}{t^2}d_t(p,q)
+ \le G\frac pq\le G.
+\]
+Both endpoints tend to $G$ uniformly in $t>0$, proving the claimed
+limsup for every probe sequence, including probes tending to zero or
+growing without bound. The bounded-displacement estimate proves the
+stated local-law error.
+\end{proof}
+
+Thus the optimal normalized cost among all infinite rearrangements is
+exactly $G$. In particular, cost $2$ is equivalent to infinitely many
+twin primes. This is an inverse characterization, not a new bound
+on $G$ or a zero-free region.
+
+The adaptive inverse for strictly positive laws is now Lean-formalized in
+\path{Assembly/PrimeProfileCutoffInverse.lean}, using
+\path{Helpers/PrimeProfileCutoffRigidity.lean},
+\path{Mathlib/Combinatorics/FinitePrefixDisplacement.lean} and
+\path{Mathlib/Analysis/SpecialFunctions/Log/CompensatedReciprocalNormalization.lean}.
+The zero-coordinate extension (21.3) and the optimal recurring-gap
+constant have the ordinary proofs above; their complete Lean
+formalizations remain pending. These universal conclusions are
+distinct from the preceding constructed-swap result. The canonical
+product is classical; no claim of literature priority is made.
+
 \subsection{Rational residue-class laws: a stronger inverse theorem}
 
 The preceding inverse theorem extends beyond a common leading coefficient.

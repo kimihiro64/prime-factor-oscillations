@@ -4,6 +4,7 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Prime Factor Oscillations contributors
 -/
 
+import PrimeFactorOscillations.Assembly.PrimeProfileCutoffInverse
 import PrimeFactorOscillations.Assembly.PrimeProfileInverse
 import PrimeFactorOscillations.Assembly.PrimeProfileRigidity
 import PrimeFactorOscillations.Helpers.CharacterProbability
