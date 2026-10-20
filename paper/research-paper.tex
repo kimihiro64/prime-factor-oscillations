@@ -2944,8 +2944,24 @@ Thus the compiled zero-set statement is exactly
  \exists p:\ \eta(p)>0,\quad z=1-\eta(p)^{-1}.
 \]
 The same module proves invariance under every bijective relabelling.
-Recovery of zero multiplicities and the prime-labelled inverse theorems
-below remain ordinary proofs awaiting their full Lean implementations.
+The companion maintained module
+\path{Mathlib/Analysis/SpecialFunctions/Log/BernoulliProfileMultiplicity.lean}
+also proves the full multiplicity identity
+\[
+ \operatorname{ord}_{z=1-1/c}\Phi_\eta
+   = m_c,\qquad m_c=\#\{p:\eta(p)=c\},\quad c>0.
+\]
+Indeed square summability makes this fibre finite. Splitting off the
+\emph{entire} fibre writes the profile as the $m_c$-th power of
+$(1+c(z-1))e^{-c(z-1)}$ times the profile of the remaining coordinates.
+The displayed factor has a simple zero at $1-1/c$; the remaining product
+is entire and nonzero there by the proved zero-set theorem. Orders add,
+giving the identity. It follows that equal profiles recover every positive
+probability with its complete multiplicity. The case $c=1$, giving a zero
+at $z=0$, is included. Zero probabilities contribute the unit factor and
+are invisible to the profile itself.
+The prime-labelled inverse theorems below remain ordinary proofs awaiting
+their full Lean implementations.
 
 \begin{theorem}[Prime-coordinate rigidity]
 Suppose two such laws satisfy, outside finite sets,
