@@ -4,6 +4,7 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Prime Factor Oscillations contributors
 -/
 
+import Mathlib.Analysis.Real.Sqrt
 import PrimeFactorOscillations.Mathlib.Analysis.SpecialFunctions.Log.ReciprocalChebyshevCore
 
 /-!
@@ -99,6 +100,91 @@ theorem abs_eval_reciprocalChebyshevFilter_le (k : Nat) (x : Real)
 theorem reciprocalChebyshevFilter_rate (k : Nat) :
     (2 * (1 / 4 : Real) ^ k) ^ 2 = 4 * (1 / 16 : Real) ^ k := by
   rw [mul_pow, <- pow_mul, Nat.mul_comm k 2, pow_mul]
+  norm_num
+
+/-- The expanding characteristic root of the fixed retained-window normalization. -/
+def reciprocalChebyshevLambda : Real := (11 + 4 * Real.sqrt 6) / 5
+
+/-- The contracting characteristic root, retained in the exact normalizer. -/
+def reciprocalChebyshevMu : Real := (11 - 4 * Real.sqrt 6) / 5
+
+/-- Both characteristic branches of the complete normalization denominator. -/
+def reciprocalChebyshevDenominator (k : Nat) : Real :=
+  reciprocalChebyshevLambda ^ k + reciprocalChebyshevMu ^ k
+
+/-- Retain both characteristic powers instead of a one-sided growth envelope. -/
+theorem reciprocalChebyshev_exact_normalizer (k : Nat) :
+    reciprocalChebyshevDenominator k =
+      2 * Polynomial.eval (11 / 5 : Real) (reciprocalChebyshevT k) := by
+  have hs := Real.sq_sqrt (by norm_num : (0 : Real) <= 6)
+  have hc : (4 * Real.sqrt 6 / 5) ^ 2 = (11 / 5 : Real) ^ 2 - 1 := by
+    nlinarith only [hs]
+  have hp := reciprocalChebyshev_characteristic_identity k (11 / 5 : Real)
+    (4 * Real.sqrt 6 / 5) hc
+  have hplus : (11 / 5 : Real) + 4 * Real.sqrt 6 / 5 = reciprocalChebyshevLambda := by
+    dsimp only [reciprocalChebyshevLambda]
+    ring
+  have hminus : (11 / 5 : Real) - 4 * Real.sqrt 6 / 5 = reciprocalChebyshevMu := by
+    dsimp only [reciprocalChebyshevMu]
+    ring
+  rw [hplus, hminus] at hp
+  dsimp only [reciprocalChebyshevDenominator]
+  linarith only [hp.1, hp.2]
+
+/-- The exact roots are positive reciprocals and the expanding root exceeds four. -/
+theorem reciprocalChebyshev_spectral_data :
+    4 < reciprocalChebyshevLambda /\
+      0 < reciprocalChebyshevMu /\
+      reciprocalChebyshevLambda * reciprocalChebyshevMu = 1 := by
+  have hs := Real.sq_sqrt (by norm_num : (0 : Real) <= 6)
+  have hs0 := Real.sqrt_nonneg 6
+  have hl : 4 < reciprocalChebyshevLambda := by
+    dsimp only [reciprocalChebyshevLambda]
+    nlinarith only [hs, hs0]
+  have hprod : reciprocalChebyshevLambda * reciprocalChebyshevMu = 1 := by
+    dsimp only [reciprocalChebyshevLambda, reciprocalChebyshevMu]
+    nlinarith only [hs]
+  have hm : 0 < reciprocalChebyshevMu := by
+    by_contra hn
+    have hb := mul_nonpos_of_nonneg_of_nonpos
+      (le_of_lt (lt_trans (by norm_num : (0 : Real) < 4) hl)) (le_of_not_gt hn)
+    rw [hprod] at hb
+    linarith only [hb]
+  exact And.intro hl (And.intro hm hprod)
+
+/-- Every exact normalizing denominator is strictly positive before division. -/
+theorem reciprocalChebyshevDenominator_pos (k : Nat) :
+    0 < reciprocalChebyshevDenominator k := by
+  rw [reciprocalChebyshev_exact_normalizer]
+  exact mul_pos (by norm_num) (reciprocalChebyshev_normalizer_lower k).1
+
+/-- The exact complete denominator gives the sharper retained-window norm. -/
+theorem abs_eval_reciprocalChebyshevFilter_le_exact (k : Nat) (x : Real)
+    (hlo : (1 / 2 : Real) <= x) (hup : x <= 4 / 3) :
+    abs (Polynomial.eval x (reciprocalChebyshevFilter k)) <=
+      2 / reciprocalChebyshevDenominator k := by
+  have hn := abs_eval_reciprocalChebyshevT_le_one k ((11 - 12 * x) / 5)
+    (by linarith only [hup]) (by linarith only [hlo])
+  have hd := (reciprocalChebyshev_normalizer_lower k).1
+  have hrecip : 1 / Polynomial.eval (11 / 5 : Real) (reciprocalChebyshevT k) =
+      2 / reciprocalChebyshevDenominator k := by
+    rw [reciprocalChebyshev_exact_normalizer]
+    field_simp [hd.ne']
+  calc
+    _ = abs (Polynomial.eval ((11 - 12 * x) / 5) (reciprocalChebyshevT k)) /
+        Polynomial.eval (11 / 5 : Real) (reciprocalChebyshevT k) := by
+          rw [eval_reciprocalChebyshevFilter, abs_div, abs_of_pos hd]
+    _ <= 1 / Polynomial.eval (11 / 5 : Real) (reciprocalChebyshevT k) := by
+      have hm := mul_le_mul_of_nonneg_right hn
+        (div_nonneg (by norm_num : (0 : Real) <= 1) hd.le)
+      simpa only [div_eq_mul_inv, one_mul] using hm
+    _ = 2 / reciprocalChebyshevDenominator k := hrecip
+
+/-- The exact square-filter error conversion, without discarding either branch. -/
+theorem reciprocalChebyshevFilter_exact_rate (k : Nat) :
+    (2 / reciprocalChebyshevDenominator k) ^ 2 =
+      4 / (reciprocalChebyshevDenominator k) ^ 2 := by
+  rw [div_pow]
   norm_num
 
 end Polynomial

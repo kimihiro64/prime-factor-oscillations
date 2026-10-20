@@ -4490,6 +4490,131 @@ The gain concerns finite observation accuracy under an assumed
 arithmetic cost bound, and supplies no new RH boundary.
 \end{flushleft}
 
+\subsection{Exact spectral error and cost-adaptive recovery}
+
+The coupled argument admits an exact refinement. This keeps both
+characteristic branches of the normalizer and gives a sufficient recovery
+condition in terms of the available cost budget.
+
+For a real exterior point $a\ge1$, choose $0\le c\le a$ with
+$c^2\le a^2-1$, and put $\delta=a^2-1-c^2\ge0$.
+Writing $A=T_k(a)$ and $B=U_k(a)$, the exact step identities are
+\[
+\begin{split}
+ T_{k+1}(a)-cU_{k+1}(a)
+   &=(a-c)(A-cB)+\delta B,\\
+ T_{k+1}(a)+cU_{k+1}(a)
+   &=(a+c)(A+cB)+\delta B.
+\end{split}
+\]
+They preserve the cone $B\ge0$, $A-cB\ge0$ and imply
+$(a+c)^k\le A+cB\le2A$. In particular the exterior normalizer
+is positive. On the characteristic boundary $\delta=0$, both
+linear forms have exact powers:
+\[
+ T_k(a)+cU_k(a)=(a+c)^k,\qquad
+ T_k(a)-cU_k(a)=(a-c)^k.
+\]
+Indeed the displayed step identities multiply the two forms by
+$a+c$ and $a-c$, respectively, and both start at one.
+
+Take $a=11/5$ and $c=4\sqrt6/5$, and define
+\[
+ \lambda=\frac{11+4\sqrt6}{5},\qquad
+ \mu=\frac{11-4\sqrt6}{5},\qquad
+ W_k=\lambda^k+\mu^k.
+\]
+Here $\lambda>4$, $\mu>0$, and $\lambda\mu=1$, so
+\[
+ W_k=\lambda^k+\lambda^{-k}
+     =2T_k(11/5)>0.
+\]
+These sign and nonvanishing conditions hold for every $k\ge0$,
+including $W_0=2$. The preceding normalized filter therefore satisfies
+\[
+ |H_k(x)|\le\frac{2}{W_k}
+ \qquad(1/2\le x\le4/3).
+\]
+
+\begin{theorem}[Exact spectral certificate]
+For the preceding observable $\mathcal A_{k,n}$, suppose
+$D_n(t)\le C$ at one positive probe, $0\le C<r/4$, $r=p_n$.
+Then, for every $k\ge0$,
+\[
+ 0\le S_n-\mathcal A_{k,n}
+   \le\frac{4S_n}{W_k^2}\le\frac{16C}{W_k^2}.
+\]
+The degree remains at most $2k$.
+If $r\ge3$ and
+\[
+ 32C<W_k^2,
+\]
+there is a single $K\ge0$ with $S_n=2K$ such that every observation
+$y$ with $|y-\mathcal A_{k,n}|<1/2$ has $2K$ as its unique
+nonnegative even integer at distance less than one.
+\end{theorem}
+\begin{proof}
+The exact characteristic identities prove the formula for $W_k$.
+The numerator of $H_k$ has absolute value at most one on the
+retained window, so division by its positive normalizer $W_k/2$
+gives the stated filter norm. Apply the same complete signed
+comparison, with its unchanged remainder
+\[
+ \sum_{i\in E_n}(p_i-r)H_k(r/p_i)^2+
+ \sum_{i\in L_n}(r-p_i)H_k(r/p_i)^2.
+\]
+This proves $0\le S_n-\mathcal A_{k,n}\le4S_n/W_k^2$.
+The maintained estimate $S_n\le4C$ gives the last inequality.
+
+Under $32C<W_k^2$, positivity of $W_k^2$ gives
+$16C/W_k^2<1/2$. The exceptional-prime argument is unchanged:
+$r-C>2$, so $S_n=2K$ for some $K\ge0$.
+Combining the one-sided error with the observation noise gives
+$-1<y-2K<1/2$, and separation of even integers proves uniqueness.
+The same $K$ works before any observation is chosen.
+\end{proof}
+
+This is a condition on $C$ and the chosen order, rather than a
+requirement to use the earlier worst-case order depending only on $r$.
+Since $\mu>0$ and $\lambda>4$, we have $W_k>4^k$ for every $k\ge0$.
+Thus the exact error coefficient $4/W_k^2$ is strictly smaller than
+the previously used $4\,16^{-k}$.
+Also $W_k^2\ge\lambda^{2k}$, so a sufficient condition at an even
+degree $m=2k$ is
+\[
+ \lambda^m>32C.
+\]
+For $C>0$, any nonnegative even $m>\log(32C)/\log\lambda$ suffices.
+Uniformly over $C<r/4$, one can instead choose an even degree with
+\[
+ m>\frac{\log(8r)}{\log\lambda},\qquad
+ m\le\frac{\log(8r)}{\log\lambda}+2.
+\]
+Its leading coefficient relative to $\log_2r$ is
+$\log2/\log\lambda<1/2$.
+These real-logarithm choices and coefficient comparisons are ordinary
+consequences of the compiled exact formula and spectral signs.
+No minimum-degree or minimax assertion is made.
+The noise condition still concerns the combined observable; raw-moment
+measurement errors retain their coefficient weights.
+
+\begin{flushleft}
+The quantified exterior cone and both characteristic identities are
+compiled in
+\path{Mathlib/Analysis/SpecialFunctions/Log/ReciprocalChebyshevCore.lean}.
+The exact two-branch denominator, reciprocal-root identities, positivity,
+and exact filter norm are compiled in
+\path{Mathlib/Analysis/SpecialFunctions/Log/ReciprocalChebyshevFilter.lean}.
+The full signed spectral bound and the cost-adaptive noisy readout are
+compiled in
+\path{Helpers/PrimeProfileChebyshevReadout.lean}.
+The error estimate includes the first prime, whereas even-integer recovery
+explicitly assumes $p_n\ge3$. Finite permutations and zero transport remain
+included. This proves a stronger finite observation certificate under the
+same arithmetic hypotheses, without a new arithmetic cost estimate or
+an improved RH boundary.
+\end{flushleft}
+
 \subsection{Rational residue-class laws: a stronger inverse theorem}
 
 The preceding inverse theorem extends beyond a common leading coefficient.

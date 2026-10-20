@@ -134,4 +134,82 @@ theorem primePrefixChebyshevTransport_noisy_readout
   have hKjn : K < j + 1 := by exact_mod_cast hKj
   omega
 
+/-- The complete characteristic denominator sharpens the same signed error. -/
+theorem primePrefixChebyshevTransport_exact_error
+    (k : Nat) (e : Equiv.Perm Nat) (t : Nat -> Real) (n : Nat) (C : Real)
+    (ht : 0 < t n) (hC0 : 0 <= C)
+    (hC : C < (PrimeFactorUnimodality.primeAt n : Real) / 4)
+    (hcost : normalizedPrimePrefixDefect e t n <= C) :
+    0 <= Finset.prefixDefect (fun j => (PrimeFactorUnimodality.primeAt j : Real))
+        e (n + 1) - primePrefixChebyshevTransport k e n /\
+      (Finset.prefixDefect (fun j => (PrimeFactorUnimodality.primeAt j : Real))
+        e (n + 1) - primePrefixChebyshevTransport k e n <=
+          (4 / (Polynomial.reciprocalChebyshevDenominator k) ^ 2) *
+            Finset.prefixDefect (fun j => (PrimeFactorUnimodality.primeAt j : Real))
+              e (n + 1)) /\
+      (Finset.prefixDefect (fun j => (PrimeFactorUnimodality.primeAt j : Real))
+        e (n + 1) - primePrefixChebyshevTransport k e n <=
+          16 * C / (Polynomial.reciprocalChebyshevDenominator k) ^ 2) := by
+  have he := primePrefixSquareFilterTransport_error
+    (Polynomial.reciprocalChebyshevFilter k)
+    (2 / Polynomial.reciprocalChebyshevDenominator k)
+    (Polynomial.abs_eval_reciprocalChebyshevFilter_le_exact k) e t n C ht hC0 hC hcost
+  rw [Polynomial.reciprocalChebyshevFilter_exact_rate] at he
+  refine And.intro he.1 (And.intro he.2.1 ?_)
+  calc
+    _ <= 4 * C * (4 / (Polynomial.reciprocalChebyshevDenominator k) ^ 2) := he.2.2
+    _ = 16 * C / (Polynomial.reciprocalChebyshevDenominator k) ^ 2 := by ring
+
+/-- A cost-adaptive exact spectral condition suffices for the same stable even readout. -/
+theorem primePrefixChebyshevTransport_exact_noisy_readout
+    (k : Nat) (e : Equiv.Perm Nat) (t : Nat -> Real) (n : Nat) (C : Real)
+    (ht : 0 < t n) (hC0 : 0 <= C)
+    (hp3 : (3 : Real) <= PrimeFactorUnimodality.primeAt n)
+    (hC : C < (PrimeFactorUnimodality.primeAt n : Real) / 4)
+    (hcost : normalizedPrimePrefixDefect e t n <= C)
+    (hprecision : 32 * C < (Polynomial.reciprocalChebyshevDenominator k) ^ 2) :
+    exists K : Nat,
+      Finset.prefixDefect (fun j => (PrimeFactorUnimodality.primeAt j : Real))
+        e (n + 1) = 2 * (K : Real) /\
+      (forall y : Real, abs (y - primePrefixChebyshevTransport k e n) < (1 / 2 : Real) ->
+        abs (y - 2 * (K : Real)) < 1 /\
+        (forall j : Nat, abs (y - 2 * (j : Real)) < 1 -> j = K)) := by
+  have hsmall : 2 < (PrimeFactorUnimodality.primeAt n : Real) - C := by
+    linarith only [hC, hp3]
+  have heven := prime_prefix_transport_even_of_cost_le e t n C
+    ht hC0 hC hcost hsmall
+  let K := Classical.choose heven
+  have hK : Finset.prefixDefect (fun j => (PrimeFactorUnimodality.primeAt j : Real))
+      e (n + 1) = 2 * (K : Real) := Classical.choose_spec heven
+  have hW := Polynomial.reciprocalChebyshevDenominator_pos k
+  have hWsq : 0 < (Polynomial.reciprocalChebyshevDenominator k) ^ 2 := pow_pos hW 2
+  have hcancel : (16 * C / (Polynomial.reciprocalChebyshevDenominator k) ^ 2) *
+      (Polynomial.reciprocalChebyshevDenominator k) ^ 2 = 16 * C := by
+    field_simp [pow_ne_zero 2 hW.ne']
+  have hprec : 16 * C / (Polynomial.reciprocalChebyshevDenominator k) ^ 2 <
+      (1 / 2 : Real) := by
+    by_contra hn
+    have hm := mul_le_mul_of_nonneg_right (le_of_not_gt hn) hWsq.le
+    rw [hcancel] at hm
+    linarith only [hm, hprecision]
+  have he := primePrefixChebyshevTransport_exact_error k e t n C ht hC0 hC hcost
+  rw [hK] at he
+  have herror : 2 * (K : Real) - primePrefixChebyshevTransport k e n < (1 / 2 : Real) :=
+    he.2.2.trans_lt hprec
+  refine Exists.intro K (And.intro hK ?_)
+  intro y hy
+  have hybounds := abs_lt.mp hy
+  have hread : abs (y - 2 * (K : Real)) < 1 := by
+    apply abs_lt.mpr
+    constructor <;> linarith only [hybounds.1, hybounds.2, he.1, herror]
+  refine And.intro hread ?_
+  intro j hj
+  have hKb := abs_lt.mp hread
+  have hjb := abs_lt.mp hj
+  have hjK : (j : Real) < (K : Real) + 1 := by linarith only [hjb.1, hKb.2]
+  have hKj : (K : Real) < (j : Real) + 1 := by linarith only [hKb.1, hjb.2]
+  have hjKn : j < K + 1 := by exact_mod_cast hjK
+  have hKjn : K < j + 1 := by exact_mod_cast hKj
+  omega
+
 end PrimeFactorOscillations.PrimeProfileRigidity

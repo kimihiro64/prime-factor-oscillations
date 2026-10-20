@@ -166,4 +166,97 @@ theorem reciprocalChebyshev_normalizer_lower (k : Nat) :
     linarith only [hp.2.1, hp.2.2]
   exact And.intro (by linarith only [hg, pow_pos (by norm_num : (0 : Real) < 4) k]) hg
 
+/-- The exterior cone is uniform in its reference point and sub-characteristic slope. -/
+theorem reciprocalChebyshev_exterior_growth_packet (k : Nat) (a c : Real)
+    (ha : 1 <= a) (hc : 0 <= c) (hca : c <= a)
+    (hcsq : c ^ 2 <= a ^ 2 - 1) :
+    0 <= Polynomial.eval a (reciprocalChebyshevU k) /\
+      c * Polynomial.eval a (reciprocalChebyshevU k) <=
+        Polynomial.eval a (reciprocalChebyshevT k) /\
+      (a + c) ^ k <= Polynomial.eval a (reciprocalChebyshevT k) +
+        c * Polynomial.eval a (reciprocalChebyshevU k) := by
+  have had : 0 <= a - c := sub_nonneg.mpr hca
+  have hdefect : 0 <= a ^ 2 - 1 - c ^ 2 := by linarith only [hcsq]
+  have hagamma : 0 <= a + c := by linarith only [ha, hc]
+  induction k with
+  | zero => simp [reciprocalChebyshevT_zero, reciprocalChebyshevU_zero]
+  | succ k ih =>
+      let A : Real := Polynomial.eval a (reciprocalChebyshevT k)
+      let B : Real := Polynomial.eval a (reciprocalChebyshevU k)
+      have hB : 0 <= B := ih.1
+      have hcone : 0 <= A - c * B := sub_nonneg.mpr ih.2.1
+      have hA : 0 <= A := (mul_nonneg hc hB).trans ih.2.1
+      have hg : (a + c) ^ k <= A + c * B := ih.2.2
+      have hT : Polynomial.eval a (reciprocalChebyshevT (k + 1)) =
+          a * A + (a ^ 2 - 1) * B := by
+        rw [reciprocalChebyshevT_succ]
+        simp only [Polynomial.eval_sub, Polynomial.eval_mul, Polynomial.eval_X,
+          Polynomial.eval_one, Polynomial.eval_pow]
+        dsimp only [A, B]
+        ring
+      have hU : Polynomial.eval a (reciprocalChebyshevU (k + 1)) =
+          A + a * B := by
+        rw [reciprocalChebyshevU_succ]
+        simp only [Polynomial.eval_add, Polynomial.eval_mul, Polynomial.eval_X]
+        rfl
+      have hconenext := add_nonneg (mul_nonneg had hcone) (mul_nonneg hdefect hB)
+      have hscaled := mul_le_mul_of_nonneg_left hg hagamma
+      have hrest := mul_nonneg hdefect hB
+      rw [hT, hU, pow_succ (a + c) k]
+      constructor
+      . exact add_nonneg hA (mul_nonneg (by linarith only [ha] : 0 <= a) hB)
+      . constructor
+        . nlinarith only [hconenext]
+        . nlinarith only [hscaled, hrest]
+
+/-- Any admissible exterior cone supplies a nonzero normalization and its growth. -/
+theorem reciprocalChebyshev_exterior_normalizer_lower (k : Nat) (a c : Real)
+    (ha : 1 <= a) (hc : 0 <= c) (hca : c <= a)
+    (hcsq : c ^ 2 <= a ^ 2 - 1) :
+    0 < Polynomial.eval a (reciprocalChebyshevT k) /\
+      (a + c) ^ k <= 2 * Polynomial.eval a (reciprocalChebyshevT k) := by
+  have hp := reciprocalChebyshev_exterior_growth_packet k a c ha hc hca hcsq
+  have hg : (a + c) ^ k <= 2 * Polynomial.eval a (reciprocalChebyshevT k) := by
+    linarith only [hp.2.1, hp.2.2]
+  have hpos : 0 < (a + c) ^ k := pow_pos (by linarith only [ha, hc]) k
+  exact And.intro (by linarith only [hg, hpos]) hg
+
+/-- On the characteristic boundary both coupled coordinates retain exact powers. -/
+theorem reciprocalChebyshev_characteristic_identity (k : Nat) (a c : Real)
+    (hcsq : c ^ 2 = a ^ 2 - 1) :
+    Polynomial.eval a (reciprocalChebyshevT k) +
+        c * Polynomial.eval a (reciprocalChebyshevU k) = (a + c) ^ k /\
+      Polynomial.eval a (reciprocalChebyshevT k) -
+        c * Polynomial.eval a (reciprocalChebyshevU k) = (a - c) ^ k := by
+  induction k with
+  | zero => simp [reciprocalChebyshevT_zero, reciprocalChebyshevU_zero]
+  | succ k ih =>
+      have hT : Polynomial.eval a (reciprocalChebyshevT (k + 1)) =
+          a * Polynomial.eval a (reciprocalChebyshevT k) +
+            (a ^ 2 - 1) * Polynomial.eval a (reciprocalChebyshevU k) := by
+        rw [reciprocalChebyshevT_succ]
+        simp only [Polynomial.eval_sub, Polynomial.eval_mul, Polynomial.eval_X,
+          Polynomial.eval_one, Polynomial.eval_pow]
+        ring
+      have hU : Polynomial.eval a (reciprocalChebyshevU (k + 1)) =
+          Polynomial.eval a (reciprocalChebyshevT k) +
+            a * Polynomial.eval a (reciprocalChebyshevU k) := by
+        rw [reciprocalChebyshevU_succ]
+        simp only [Polynomial.eval_add, Polynomial.eval_mul, Polynomial.eval_X]
+      constructor
+      . calc
+          _ = (a + c) * (Polynomial.eval a (reciprocalChebyshevT k) +
+              c * Polynomial.eval a (reciprocalChebyshevU k)) := by
+                rw [hT, hU, <- hcsq]
+                ring
+          _ = (a + c) * (a + c) ^ k := by rw [ih.1]
+          _ = (a + c) ^ (k + 1) := by rw [pow_succ]; ring
+      . calc
+          _ = (a - c) * (Polynomial.eval a (reciprocalChebyshevT k) -
+              c * Polynomial.eval a (reciprocalChebyshevU k)) := by
+                rw [hT, hU, <- hcsq]
+                ring
+          _ = (a - c) * (a - c) ^ k := by rw [ih.2]
+          _ = (a - c) ^ (k + 1) := by rw [pow_succ]; ring
+
 end Polynomial
