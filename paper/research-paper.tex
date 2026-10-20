@@ -2960,6 +2960,33 @@ giving the identity. It follows that equal profiles recover every positive
 probability with its complete multiplicity. The case $c=1$, giving a zero
 at $z=0$, is included. Zero probabilities contribute the unit factor and
 are invisible to the profile itself.
+The maintained companion
+\path{Mathlib/Analysis/SpecialFunctions/Log/BernoulliProfileReconstruction.lean}
+now proves the complete unlabelled inverse statement: two admissible,
+square-summable arrays have equal entire profiles if and only if there is a
+bijection between their positive coordinates preserving every probability
+value. To construct it, match each finite positive-value fibre using the
+proved multiplicity identity, then assemble these fibre bijections over all
+positive values. Conversely, delete the zero coordinates, whose factors are
+one, and reindex the remaining product by the value-preserving bijection.
+No hypothesis about the Riemann hypothesis or prime distributions enters
+this unlabelled reconstruction.
+The next maintained module,
+\path{Mathlib/Analysis/SpecialFunctions/Log/BernoulliProfileTailMatching.lean},
+also proves the ordered-tail matching step. If $a_n,b_n$ have eventually
+strictly decreasing positive tails, $a_n\to0$, and the same set of positive
+values, then there are fixed indices $A,B$ such that
+\[
+ a_{A+n}=b_{B+n}\qquad(n\ge0).
+\]
+To exclude finite exceptions, take a tail value $a_A$ smaller than every
+positive exceptional value in either sequence. Its matching value $b_B$
+lies in the ordered tail. Every positive value at most $a_A$ then lies
+after $A$ and after $B$, respectively. These two tails have the same range.
+Their mutual value-matching maps are strictly increasing maps of the natural
+numbers and are inverse to one another; each strictly increasing self-map satisfies
+$n\le f(n)$, so both maps must be the identity. The Lean equal-profile
+corollary consumes the positive-coordinate bijection above.
 The prime-labelled inverse theorems below remain ordinary proofs awaiting
 their full Lean implementations.
 
