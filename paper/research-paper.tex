@@ -3873,6 +3873,107 @@ constant $2$ is proved, with no claim here that it is attained by two
 distinct classes.
 \end{flushleft}
 
+\subsection{Two-moment compensation and a larger exact-readout range}
+
+The preceding readout uses one logarithmic probe. Two finite probability
+moments cancel its first nonlinear transport error. Write
+$I_n=\{0,\ldots,n\}$, $A_n=\sigma(I_n)$, $r=p_n$, and
+\[
+ E_n=A_n\setminus I_n,\qquad L_n=I_n\setminus A_n.
+\]
+Both sets are finite and have equal cardinality. Define
+\[
+ \Delta_j=\sum_{i=0}^n\left(p_i^{-j}-p_{\sigma(i)}^{-j}\right),
+ \qquad Q_n=3r^2\Delta_1-r^3\Delta_2.
+\]
+Thus $Q_n$ uses only the first two finite power sums of the actual
+Bernoulli probabilities and their reference probabilities. These are
+finite-prefix observations; equality of the entire canonical profiles
+does not assert equality of these labelled finite sums.
+
+\begin{theorem}[Cubic compensated transport and exact readout]
+Suppose $D_n(t)\le C$ for one $t>0$, where $C\ge0$ and $C<r/4$.
+Then the full signed transport satisfies
+\[
+ 0\le S_n-Q_n\le\frac{64C^3}{r^2}.
+\]
+If instead one assumes $r\ge3$ and $32C^3<r^2$, the condition $C<r/4$
+follows automatically, and $S_n=2K$ is the unique nonnegative even
+integer in $[Q_n,Q_n+2)$. In particular, $K$ is determined by the
+compensated observation without knowing $S_n$.
+\end{theorem}
+\begin{proof}
+Set
+\[
+ \Phi_r(p)=-\frac{3r^2}{p}+\frac{r^3}{p^2}.
+\]
+For positive $p,r$, direct algebra gives the exact identity
+\[
+ \Phi_r(p)-\Phi_r(r)
+   =(p-r)-\frac{(p-r)^3}{p^2}.
+\]
+By the definition of the finite moments,
+$Q_n=\sum_{i=0}^n\Phi_r(p_{\sigma(i)})
+          -\sum_{i=0}^n\Phi_r(p_i)$.
+Cancel the common coordinates and insert the common reference
+$\Phi_r(r)$. Equal cardinalities cancel its constant contribution.
+The analogous reference decomposition of $S_n$ therefore gives
+\[
+ S_n-Q_n=
+ \sum_{i\in E_n}\frac{(p_i-r)^3}{p_i^2}
+ +\sum_{i\in L_n}\frac{(r-p_i)^3}{p_i^2}.
+\]
+This retains the compensation and the unit coefficient of $S_n$;
+both displayed remainders are nonnegative.
+
+The proved one-probe localization gives
+$0\le p_i-r\le4C$ for $i\in E_n$ and
+$0\le r-p_i\le C$ for $i\in L_n$.
+On the entering set, $p_i\ge r$. On the leaving set,
+$p_i\ge r-C>3r/4$. Hence, on either set, the displacement divided
+by $p_i$ is at most $4C/r$. It follows that
+\[
+\begin{split}
+ S_n-Q_n
+ &\le\frac{16C^2}{r^2}
+    \left(\sum_{i\in E_n}(p_i-r)
+          +\sum_{i\in L_n}(r-p_i)\right)\\
+ &=\frac{16C^2}{r^2}S_n
+ \le\frac{64C^3}{r^2},
+\end{split}
+\]
+using the maintained bound $S_n\le4C$.
+
+For the readout statement, if $C\ge r/4$ then
+$32C^3\ge r^3/2\ge3r^2/2>r^2$, a contradiction.
+Thus $r-C>3r/4\ge9/4>2$. Localization excludes the exceptional
+prime $2$ from both transported sets, but retains it in the original
+prefixes. Their equal cardinalities force $S_n=2K$, $K\ge0$.
+The error bound and the precision hypothesis give
+$0\le2K-Q_n<2$. An interval of the form $[Q_n,Q_n+2)$ cannot
+contain two distinct even integers. This proves the asserted recovery.
+\end{proof}
+
+For growing budgets, $C_n^3/p_n^2\to0$ gives eventual exact recovery
+with error tending to zero. In particular, the sufficient scale is now
+$C_n=o(p_n^{2/3})$, compared with $o(p_n^{1/2})$ for the preceding
+single-probe readout. This is a stronger observation theorem.
+It supplies no new arithmetic upper bound for the probe cost itself,
+so it changes no RH boundary.
+
+\begin{flushleft}
+The exact scalar identity and signed entering/leaving comparisons are
+compiled in
+\path{Mathlib/Analysis/SpecialFunctions/Log/CubicReciprocalTransport.lean}.
+The two-moment identity, complete signed comparison, cubic error and
+unique finite even readout are compiled in
+\path{Helpers/PrimeProfileCubicReadout.lean}.
+The growing-budget statement is a mathematical consequence of the
+finite certificates, rather than a separately named limit declaration.
+The coefficient cancellation is elementary; no literature-priority claim
+is made for this quantitative application to prime-profile transport.
+\end{flushleft}
+
 \subsection{Rational residue-class laws: a stronger inverse theorem}
 
 The preceding inverse theorem extends beyond a common leading coefficient.
