@@ -6071,11 +6071,191 @@ the fixed-reference RH criterion and the fixed-reference existential
 criterion are compiled in
 \path{Assembly/PrimeProfileQuadrupletCanonicalRH.lean},
 exported through \path{Assembly/ProbabilityProfiles.lean}.
-No uniform eventual cutoff over the supports or rank parameters is
-asserted. No external-priority claim or zero-free exponent improvement
-is made; the certified boundary remains $7/8$.
+The preceding corollary concerns each fixed support and rank parameter.
+The next theorem makes the cutoff uniform over all supports, and more
+generally over every prime permutation of a fixed displacement radius.
+No uniformity in a growing rank parameter is asserted.
 \end{flushleft}
 
+\subsection{A uniform RH criterion over bounded prime permutations}
+
+Write $P_N=\{p\text{ prime}:p\le N\}$ and $w_0(p)=1/(p-1)$.
+For a permutation $\sigma$ of the primes put
+\[
+ S_{\sigma,N}=\sigma(P_N),\qquad
+ E_{\sigma,N,r}=e_r\bigl((w_0(p))_{p\in S_{\sigma,N}}\bigr),\qquad
+ R_{\sigma,N,r}=\frac{E_{\sigma,N,r-1}}{E_{\sigma,N,r}}.
+\]
+Thus these are exactly the coefficients obtained by assigning odds
+$w_0(\sigma(p))$ to the sampled prime coordinate $p\le N$.
+For the identity permutation write $E_{0,N,r}$ and $R_{0,N,r}$.
+The benchmark remains the fixed canonical reference
+$\mathcal R_{0,r}(u)$, rather than a reference chosen after $\sigma$.
+Set
+\[
+ \begin{gathered}
+ A(N)=\sum_{p\in P_N}\log(1+w_0(p)),\\
+ L(N)=\gamma+\log\log\vartheta(N),\qquad
+ r_N=\lfloor\alpha L(N)\rfloor .
+ \end{gathered}
+\]
+
+\begin{theorem}[Uniform bounded-displacement RH criterion]
+Fix $H\in\mathbb N$ and $\alpha>0$. Let $\mathcal S_H$ be the
+class of all permutations of the primes satisfying
+$|\sigma(p)-p|\le H$ at every prime. Then
+\[
+ \mathrm{RH}\quad\Longleftrightarrow\quad
+ \exists N_0\ \forall N\ge N_0\ \forall\sigma\in\mathcal S_H:
+ \quad R_{\sigma,N,r_N}<\mathcal R_{0,r_N}(L(N)).
+\]
+Under RH one may choose this same $N_0$ so that $r_N>0$,
+all the displayed actual denominators, and the canonical reference
+denominator are positive. The cutoff depends on $H$ and $\alpha$,
+and is independent of $\sigma$. The theorem includes $H=0$ and
+permutations with cycles of arbitrary length; no involution or prime-gap
+recurrence premise is required.
+\end{theorem}
+
+\begin{proof}
+We first establish two exact finite comparisons.
+
+If $H\le N$, bounded displacement applied to $\sigma$ and its inverse
+gives
+\[
+ P_{N-H}\subseteq S_{\sigma,N}\subseteq P_{N+H}.
+\]
+Indeed, $p\le N$ implies $\sigma(p)\le N+H$.
+If $q\le N-H$ and $p=\sigma^{-1}(q)$, then $p\le q+H\le N$,
+so $q\in S_{\sigma,N}$. This accounts for every crossing coordinate,
+including those at the endpoints.
+
+Adding a nonnegative coordinate to a finite nonnegative vector can
+only decrease $e_{r-1}/e_r$ wherever its initial denominator is positive.
+To see the sign, write $a\ge0$ for the new coordinate and use
+$e_j^{\rm new}=e_j+a e_{j-1}$, with $e_{-1}=0$.
+After multiplying the positive denominators, the assertion reduces to
+\[
+ a(e_{r-1}^2-e_{r-2}e_r)\ge0.
+\]
+The established elementary-symmetric log-concavity inequality gives
+this for $r\ge2$; for $r=1$ the numerator is $e_0=1$ and the
+denominator increases. Iteration over the finite complement proves
+\[
+ R_{0,N+H,r}\le R_{\sigma,N,r}\le R_{0,N-H,r}
+ \tag{U1}
+\]
+whenever $r\ge1$ and $E_{0,N-H,r}>0$.
+All intermediate and larger-prefix denominators remain positive.
+The maintained proof first works over the nonnegative rational odds
+and then transports the exact symmetric coefficients and inequalities
+to $\mathbb R$.
+
+Next, for every $M\ge1$ the complete clock correction satisfies
+\[
+ \begin{split}
+ 0\le A(M+H)-A(M)
+ &=\sum_{\substack{p\text{ prime}\\M<p\le M+H}}
+       \log\left(1+\frac1{p-1}\right)\\
+ &\le \frac{H}{M}.
+ \end{split}
+ \tag{U2}
+\]
+There are at most $H$ integers in the interval, and each summand is
+nonnegative and at most $1/(p-1)\le1/M$.
+No prime, logarithmic term, or positive correction is discarded.
+The argument includes $H=0$ and the prime $2$.
+In particular, for fixed $H$ this increment tends to zero.
+
+Apply the existing moving-clock coefficient-sign theorem to the single
+canonical law, at prefix $M$, with arithmetic clock $A(M)$ and reference
+clock $L(M+H)$. Its hypotheses hold: $L(M+H)\to\infty$, and
+\[
+ A(M)-L(M+H)
+ =[A(M+H)-L(M+H)]-[A(M+H)-A(M)]\longrightarrow0.
+\]
+It supplies a constant $C\ge0$, depending only on $H,\alpha$ and the
+canonical law, and an eventual domain with positive rank and
+denominators, on which
+\[
+ L(M+H)-A(M)<-\frac C M
+ \quad\Longrightarrow\quad
+ R_{0,M,r_{M+H}}<
+   \mathcal R_{0,r_{M+H}}(L(M+H)).
+ \tag{U3}
+\]
+Its finite factorial convolutions are the actual elementary symmetric
+coefficients by the proved generating-product identity.
+
+Assume RH. Write $F(N)=L(N)-A(N)$ on the eventual domain
+$\vartheta(N)>1$. The established Nicolas consequence of RH gives
+$F(N)<-K/N$ eventually for every fixed real $K$.
+Choose $K=2(C+H+1)$ and take $M\ge\max(1,H)$, $N=M+H$.
+Then $N\le2M$, and (U2) gives the fully signed estimate
+\[
+ \begin{split}
+ L(N)-A(M)
+ &= F(N)+[A(N)-A(M)]\\
+ &<-\frac{2(C+H+1)}{N}+\frac H M\\
+ &\le-\frac{C+H+1}{M}+\frac H M
+   =-\frac C M-\frac1M<-\frac C M.
+ \end{split}
+\]
+Thus (U3) applies. Combining it with the upper inequality in (U1)
+proves the desired strict inequality for every $\sigma\in\mathcal S_H$.
+Every threshold used here concerns only $M,H,\alpha$ and the canonical
+law. Replacing $M$ by $N-H$ therefore yields one eventual cutoff for
+the entire class, with all positivity conclusions retained.
+
+Conversely, the identity permutation belongs to $\mathcal S_H$ for
+every $H\ge0$. Selecting it in the asserted eventual inequality gives
+the canonical moving-rank coefficient criterion, whose already proved
+converse implies RH. This also proves nonvacuity at $H=0$.
+\end{proof}
+
+\begin{corollary}[One cutoff for all constellation supports]
+For each fixed $\alpha>0$, RH is equivalent to the eventual inequality
+\[
+ R_{B,N,r_N}<\mathcal R_{0,r_N}(L(N))
+\]
+holding simultaneously for every support $B$ satisfying the separation
+and distance-six hypotheses of the quadruplet construction.
+Under RH the actual denominators are positive on this common domain.
+\end{corollary}
+
+\begin{proof}
+The proved all-coordinate displacement theorem bounds the associated
+prime permutation by $6$, in both swap directions and at the small
+indices. Apply the uniform theorem with $H=6$; its actual finite odds
+are exactly those of $\mathcal L_B$.
+For the converse select the empty support, which satisfies both support
+hypotheses and gives the canonical criterion. Equivalently, apply the
+already proved fixed-support RH converse to that support.
+\end{proof}
+
+The quantifiers are stronger than
+$\forall B\,\exists N_0(B)\,\forall N\ge N_0(B)$:
+here $\exists N_0\,\forall N\ge N_0\,\forall B$.
+Consequently the same sign test also permits an admissible support or
+permutation chosen separately at each cutoff.
+The theorem does not assert uniformity for $H=H(N)$ or
+$\alpha=\alpha(N)$. It supplies no constellation occurrence by itself:
+adding a recurrent-witness requirement retains the earlier conjunction
+of RH with constellation recurrence. The canonical zero signal is
+retained through the signed clock correction. No zero-free exponent
+gain is claimed; the certified boundary remains $7/8$.
+
+\begin{flushleft}
+The finite rational and real ratio comparisons and the exact
+prime-prefix sandwich are compiled in
+\path{Assembly/PrimeProfilePrefixSandwich.lean}.
+The $H/M$ clock bound and shifted-clock limits are compiled in
+\path{Helpers/PrimeProfileClockShift.lean}.
+The uniform RH equivalence, its positive-denominator forward theorem
+and the simultaneous quadruplet specialization are compiled in
+\path{Assembly/PrimeProfileUniformConstellationRH.lean},
+exported through \path{Assembly/ProbabilityProfiles.lean}.
+\end{flushleft}
 
 \subsection{Rational residue-class laws: a stronger inverse theorem}
 
