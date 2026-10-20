@@ -6831,6 +6831,127 @@ probability observable and an explicit remaining arithmetic estimate.
 Existence of primes or progressions in the class does not itself provide
 that estimate.
 
+\subsection{An entire profile that remembers every prime}
+
+Each proper nonzero fraction $\rho_p/p$ has a prime denominator in lowest
+terms. This permits exact reconstruction at every prime, including inactive
+primes. For the forward compensated Bernoulli product, see
+\cite[Proposition~3.1]{KN}. Here the prime denominators supply an inverse
+conclusion without a common leading asymptotic.
+
+\begin{theorem}[Prime-labelled reconstruction from the zero set]
+\label{thm:prime-denominator-profile-rigidity}
+For each prime $p$, let $a_p,b_p$ be integers with
+$0\le a_p<p$ and $0\le b_p<p$, and suppose
+\[
+ \sum_p(a_p/p)^2<\infty,\qquad \sum_p(b_p/p)^2<\infty.
+\]
+The canonical probability-centred profiles
+\[
+ \mathcal P_a(z)=
+ \prod_p\bigl(1+(a_p/p)(z-1)\bigr)
+           \exp\bigl(-(a_p/p)(z-1)\bigr),
+\]
+and $\mathcal P_b$ are entire. Their zero sets recover every coordinate:
+\[
+ \begin{aligned}
+ \mathcal Z(\mathcal P_a)=\mathcal Z(\mathcal P_b)
+ &\ \Longleftrightarrow\ a_p=b_p\quad\text{for every prime }p\\
+ &\ \Longleftrightarrow\ \mathcal P_a=\mathcal P_b.
+ \end{aligned}
+\]
+Zero-set inclusion already implies $a_p=b_p$ wherever $a_p>0$.
+Every zero is negative and simple.
+\end{theorem}
+
+\begin{proof}
+On each compact set the compensated factor is
+$1+O_R((a_p/p)^2)$, giving locally uniform convergence.
+A sufficiently late tail has an absolutely convergent logarithm wherever
+its factors are nonzero. Consequently the zeros are exactly
+\[
+ z=1-\frac{p}{a_p}\qquad(a_p>0).
+\]
+If a zero contributed at $p$ is also contributed at a prime $q$ by
+$b_q>0$, then $p\,b_q=q\,a_p$. Hence $p\mid q\,a_p$.
+Since $0<a_p<p$, we have $p\nmid a_p$, so $p\mid q$, whence $p=q$.
+Cancellation gives $a_p=b_p$. This proves the inclusion assertion.
+
+Apply this argument in both directions when the zero sets agree.
+If $a_p=0<b_p$, reverse inclusion would force $b_p=a_p$.
+Thus all coordinates agree, giving equality of the products as well.
+Conversely, equality of the entire functions gives equality of their zeros.
+
+No two positive coordinates of one profile can contribute the same zero.
+At its unique vanishing factor, the remaining convergent product is
+nonzero. The linear factor has nonzero derivative, so the zero is simple.
+Finally $a_p<p$ implies $1-p/a_p<0$.
+\end{proof}
+
+The strict upper bound is essential: a deterministic success has factor
+$z\exp(-(z-1))$, and moving it to another prime preserves the profile.
+All probabilities may vanish, giving the constant profile one.
+The theorem recovers local root counts; different polynomials may have
+the same such counts.
+
+\begin{corollary}[Complete cyclotomic local-law fingerprint]
+\label{cor:cyclotomic-profile-fingerprint}
+Fix $q\ge2$, use the depleted root counts $\rho_q(p)$ above, and put
+$\theta_{q,p}=\rho_q(p)/p$. Then
+\[
+ \mathcal C_q(z)=
+ \prod_p(1+\theta_{q,p}(z-1))
+             \exp(-\theta_{q,p}(z-1))
+\]
+is entire, with simple zeros exactly at
+\[
+ \left\{\,1-\frac{p}{\varphi(q)}:
+          p\text{ prime},\ p\equiv1\pmod q\,\right\}.
+\]
+For $q,r\ge2$, equality of these zero sets, equality of the entire
+profiles, and $\rho_q(p)=\rho_r(p)$ at every prime are equivalent.
+\end{corollary}
+
+\begin{proof}
+The explicit root count gives
+\[
+ 0\le\theta_{q,p}\le\frac{\varphi(q)}p
+       \le\frac{\varphi(q)}{p-1},\qquad \theta_{q,p}<1.
+\]
+The squared probabilities are therefore summable. Apply
+Theorem~\ref{thm:prime-denominator-profile-rigidity}.
+At an active prime the numerator is precisely $\varphi(q)$;
+$q\mid p-1$ already implies $p\nmid q$, giving the displayed zero set.
+\end{proof}
+
+For the actual scalar sampling experiment, the exact finite law gives
+\[
+ \mathcal C_q(z)=\lim_{N\to\infty}
+  \exp\!\left(-(z-1)\sum_{p\le N}\theta_{q,p}\right)
+  \mathbb E_N z^{\sum_{p\le N}B_p(U_N)} .
+\]
+Each finite expectation uses its complete Chinese remainder period.
+These profile zeros lie in the generating variable $z$. The Dirichlet
+zeros in the preceding subsection occur in the Mellin continuation of
+the corresponding weighted prime count.
+
+A profile determines the local law rather than a unique modulus:
+$q=3$ and $q=6$ give the same depleted counts, since the relevant primes
+are odd. In contrast, the laws for $q=3$ and $q=4$ differ at $p=7$.
+Both facts are consistent with exact every-prime reconstruction.
+
+The reconstruction statements and actual cyclotomic application have
+ten checked declarations in the maintained owners
+\begin{quote}\small\ttfamily
+Mathlib/NumberTheory/Primes/BernoulliProfile.lean\\
+Helpers/CyclotomicProfileRigidity.lean
+\end{quote}
+under the project namespace. Their audits contain only the standard
+foundational axioms. The simple-zero assertion follows from the
+zero-factor argument above and is not a separately named declaration in
+this batch. All comparisons here use the displayed probability-centred
+compensation.
+
 \subsection{Rational residue-class laws: a stronger inverse theorem}
 
 The preceding inverse theorem extends beyond a common leading coefficient.
@@ -7050,7 +7171,7 @@ E. Kowalski and A. Nikeghbali,
 \emph{Mod-Poisson convergence in probability and number theory},
 Int. Math. Res. Not. \textbf{2010} (2010), 3549--3587.
 \href{https://arxiv.org/abs/0905.0318v2}{arXiv:0905.0318v2},
-especially \S4.
+especially Proposition~3.1 and \S4.
 
 \bibitem{FMN}
 V. F\'eray, P.-L. M\'eliot and A. Nikeghbali,

@@ -263,6 +263,12 @@ Each real candidate file should:
 | --- | --- | --- | --- |
 | `PrimeFactorOscillations.Mathlib.FieldTheory.Finite.Cyclotomic` | `Mathlib/FieldTheory/Finite/Cyclotomic.lean` | project-verified | Exact cyclotomic root count over finite fields, including the empty-root case and the explicit nonramification hypothesis. |
 
+## Prime-denominator profile reconstruction
+
+| Module | Proposed destination | Readiness | Scope |
+| --- | --- | --- | --- |
+| `PrimeFactorOscillations.Mathlib.NumberTheory.Primes.BernoulliProfile` | `Mathlib/NumberTheory/Primes/BernoulliProfile.lean` | project-verified | Exact prime-labelled recovery of arbitrary proper root probabilities from the zero set of their square-summable compensated Bernoulli profile; no leading asymptotic or tail ordering. |
+
 Readiness should be one of: `extracting`, `project-verified`, `mathlib-ready`,
 `submitted`, or `upstreamed`. A module is `mathlib-ready` only after it has an
 identified destination, no project dependency, focused tests, and a clean
