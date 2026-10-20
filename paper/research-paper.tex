@@ -50,8 +50,10 @@ We also prove prime-coordinate and residue-rational inverse theorems and
 construct distinct laws with identical entire profiles and sharp cubic
 finite-cutoff defects. The spectral and local comparison components have
 maintained Lean proofs, as does the full prime-coordinate inverse classification.
-The residue-rational classification and infinite swap construction remain
-ordinary mathematical proofs. Classical inputs and unproved
+The optimal cutoff distortion equals the least recurring prime gap; its
+adaptive characterization and full inverse are also Lean-formalized.
+The residue-rational classification and continuum-cardinality assertion
+remain ordinary proofs. Classical inputs and unproved
 arithmetic premises are distinguished; no new prime-gap bound or proof of
 RH is claimed.
 \end{abstract}
@@ -3121,11 +3123,11 @@ hypothesis, demonstrating the significance of its $o(1)$ remainder.
 \end{proof}
 
 The canonical product is classical mod-Poisson machinery; the
-prime-coordinate rigidity and sharp arithmetic swap comparison are the
+prime-coordinate rigidity and arithmetic swap comparisons are the
 specific conclusions considered here, without a claim of literature
-priority. The prime-coordinate inverse classification is now Lean-formalized
-in the owners described above. The infinite swap construction remains an
-ordinary proof whose full Lean implementation is open.
+priority. The prime-coordinate inverse, an infinite swap construction
+and its exact optimal constant are now Lean-formalized. The
+continuum-cardinality assertion retains its ordinary proof.
 Additional maintained owners for completed surrounding inputs, relative to
 \path{PrimeFactorOscillations/}, are:
 \begin{itemize}\small
@@ -3140,7 +3142,7 @@ The latest promotion audit is separate from the older verification totals
 elsewhere in this manuscript; those historical totals do not certify this
 new batch or an improved analytic exponent.
 
-\subsection{A universal cutoff inverse and the recurring-gap constant}
+\subsection{Universal cutoff rigidity and recurring prime gaps}
 
 The swap construction admits a converse without a reciprocal-intercept
 assumption. Write $p_0=2<p_1<\cdots$, and suppose
@@ -3154,7 +3156,7 @@ $\Psi_a=\Psi_{(1/p_j)}$. Define the complete signed defect
 The term $t/p_j-ta_j$ is part of the observable and is retained throughout.
 
 \begin{theorem}[Universal adaptive cutoff inverse]
-For every sequence $t_n>0$,
+For every positive probe sequence $(t_n)$,
 \[
  \frac{p_n^2(p_n+t_n)}{t_n^2}\Delta_{a,n}(t_n)\longrightarrow0
 \]
@@ -3225,7 +3227,7 @@ normalizing factor is asymptotic to $p_n^3/t^2$, proving the final equivalence.
 Let $G$ be the least positive integer occurring infinitely often as
 $p_{n+1}-p_n$. This integer exists by bounded-gap supply and satisfies
 $2\le G\le600$. Every same-profile law $a$ that is not a finite
-permutation satisfies, for every sequence $t_n>0$,
+permutation satisfies, for every positive probe sequence $(t_n)$,
 \[
  \limsup_{n\to\infty}
  \frac{p_n^2(p_n+t_n)}{t_n^2}\Delta_{a,n}(t_n)\ge G.
@@ -3267,32 +3269,40 @@ exactly $G$. In particular, cost $2$ is equivalent to infinitely many
 twin primes. This is an inverse characterization, not a new bound
 on $G$ or a zero-free region.
 
-The universal adaptive inverse, including all zero-coordinate exceptions,
-is now Lean-formalized in \path{Assembly/PrimeProfileZeroHoles.lean}.
-It consumes the positive-law inverse in
-\path{Assembly/PrimeProfileCutoffInverse.lean} and the maintained owners
-\path{Helpers/PrimeProfileCutoffRigidity.lean},
-\path{Mathlib/Combinatorics/FinitePrefixDisplacement.lean} and
-\path{Mathlib/Analysis/SpecialFunctions/Log/CompensatedReciprocalNormalization.lean}.
-The formal zero-exclusion argument uses the uniform lower bound $p_n/4$,
-obtained directly from the signed $p_n$-to-$2p_n$ comparison.
-The sharper displayed bound (21.3) has the ordinary proof above.
+\begin{corollary}[The same constant governs late ascents]
+Let $C$ denote the optimal distortion constant in the preceding theorem.
+The critical late-ascent scale for the ordinary and generic odd laws is
+\[
+ b_*=\frac{1}{1+C}=\frac{1}{1+G}.
+\]
+Every $0<b<b_*$ admits arbitrarily late simultaneous ascents in both
+laws; every $b>b_*$ has eventual strict descent beyond the corresponding
+moving-rank scale. The endpoint $b=b_*$ is left open.
+\end{corollary}
+\begin{proof}
+Apply the maintained recurring-gap/late-ascent critical-scale theorem
+to the actual least recurring gap $G$. The preceding optimality theorem
+identifies $C=G$.
+\end{proof}
 
-The sharp lower-bound consumer is now formalized in
-\path{Assembly/PrimeProfileDistortion.lean}: for every law that is
-\emph{not a finite permutation}, every eventual adjacent-prime gap
-floor $h$, every positive probe sequence, every $\varepsilon>0$ and
-every $N$, there is an $n\ge N$ with normalized defect at least
-$h-\varepsilon$. The maintained scalar bound retains the exact factor
-$(q-p)(p/q)^2$. The lower bound with $h=G$ is a mathematical consequence
-of this compiled parameterized theorem and the defining eventual
-gap-floor property of $G$; no separate Lean declaration defining $G$
-is claimed here. The construction attaining the exact $G$ constant
-still has the ordinary proof above and awaits its full Lean implementation.
-Finite permutations have eventually zero defect and are expressly excluded
-from every positive lower-distortion assertion. These universal conclusions
-are distinct from the preceding constructed-swap result. The canonical
-product is classical; no claim of literature priority is made.
+The full adaptive inverse is maintained in
+\path{Assembly/PrimeProfileZeroHoles.lean}. The exact optimality theorem,
+including the definition and bounds $2\le G\le600$, its universal lower
+threshold for every law \emph{not a finite permutation}, and a single
+witness for all positive probe sequences, is maintained in
+\path{Assembly/PrimeProfileMinimax.lean}. The formal statements use
+the equivalent threshold formulation: every witness defect is at most
+$G$, and for every $\varepsilon>0$ and $N$ some $n\ge N$ has defect
+at least $G-\varepsilon$. The witness also satisfies the explicit bound
+$|a_n-1/p_n|\le2G/p_n^2$ whenever $p_n\ge2G$, retaining all small-prime
+exceptions. Its signed construction is in
+\path{Assembly/PrimeProfileAttainment.lean} and
+\path{Mathlib/Combinatorics/AdjacentSwapPrefix.lean}.
+The late-ascent corollary has its own compiled declaration. The stronger
+zero-hole inequality (21.3) retains its ordinary proof; the formal
+inverse uses the sufficient uniform bound $p_n/4$. Finite permutations
+have eventual zero defect and are excluded from every positive
+lower-distortion assertion. No literature priority is claimed.
 
 \subsection{Rational residue-class laws: a stronger inverse theorem}
 
@@ -3432,12 +3442,13 @@ An earlier 20 October reconciliation checked 1,139 owned Lean modules and
 4,843 selected theorem closures with standard foundations only; both the
 public and canonical QRH statement comparisons passed. That reconciliation
 identified 301 maintained owners and transferred all 132 proved private
-graph nodes to maintained sources. The later probability-profile promotion
-checks 1,150 owned modules with no dependency rebuild and freshly audits
-the identity, finite-permutation and complete prime-coordinate inverse
-consumers with standard foundations only. The residue-rational inverse
-classification and infinite-swap construction remain ordinary proofs, and
-the signed arithmetic estimate for an improved RH boundary remains open.
+graph nodes to maintained sources. A later 1,150-module promotion covered
+the identity, finite-permutation and prime-coordinate inverse consumers.
+Subsequent maintained owners add the full adaptive cutoff inverse and
+exact optimal-distortion theorem, with separate build and axiom receipts.
+The residue-rational classification and continuum-cardinality assertion
+remain ordinary proofs. The signed arithmetic estimate for an improved
+RH boundary remains open.
 
 The unfinished analytic consumer remains explicitly open. In the
 fixed-mask notation of that programme it asks, for each

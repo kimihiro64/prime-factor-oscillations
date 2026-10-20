@@ -212,6 +212,7 @@ Each real candidate file should:
 | `PrimeFactorOscillations.Mathlib.Analysis.SpecialFunctions.Log.CompensatedReciprocal` | `Mathlib/Analysis/SpecialFunctions/Log/CompensatedReciprocal.lean` | project-verified | Two-sided signed compensated reciprocal-log bounds and cubic bounded-displacement decay. |
 | `PrimeFactorOscillations.Mathlib.Analysis.SpecialFunctions.Log.CompensatedReciprocalNormalization` | `Mathlib/Analysis/SpecialFunctions/Log/CompensatedReciprocalNormalization.lean` | project-verified | Strict monotonicity and a uniform positive normalized boundary cost for every positive logarithmic probe. |
 | `PrimeFactorOscillations.Mathlib.Combinatorics.FinitePrefixDisplacement` | `Mathlib/Combinatorics/FinitePrefixDisplacement.lean` | project-verified | Exact signed finite-prefix comparison with crossing multiplicity, recovery below the boundary gap, and fixed-tail prefix cancellation. |
+| `PrimeFactorOscillations.Mathlib.Combinatorics.AdjacentSwapPrefix` | `Mathlib/Combinatorics/AdjacentSwapPrefix.lean` | project-verified | Disjoint adjacent-swap involution and permutation; exact signed prefix defect equals only the pair crossing the boundary. |
 | `PrimeFactorOscillations.Mathlib.NumberTheory.Primes.Translation` | `Mathlib/NumberTheory/Primes/Translation.lean` | project-verified | No positive additive translation preserves all sufficiently large primes. |
 
 ## Profile-comparison grouping

@@ -119,4 +119,38 @@ theorem gap_mul_ratio_sq_le_normalized_pairLogDefect (t p q : Real)
     exact (not_lt_of_ge hpos) hbad
   exact hcmp.trans hb
 
+/-- The matching sharp upper cost is uniform over every positive probe. -/
+theorem normalized_pairLogDefect_le_gap_mul_ratio (t p q : Real)
+    (ht : 0 < t) (hp : 0 < p) (hq : 0 < q) :
+    p ^ 2 * (p + t) / t ^ 2 * pairLogDefect t p q <=
+      (q - p) * (p / q) := by
+  have hn : 0 <= p ^ 2 * (p + t) / t ^ 2 := by positivity
+  calc
+    _ <= p ^ 2 * (p + t) / t ^ 2 *
+        (t ^ 2 * (q - p) / (p * q * (p + t))) :=
+      mul_le_mul_of_nonneg_left (pairLogDefect_bounds t p q ht.le hp hq).2 hn
+    _ = _ := by
+      field_simp [hp.ne', hq.ne', ht.ne', (add_pos hp ht).ne']
+
+/-- Bounded denominator displacement gives an explicit reciprocal-law error,
+with the small-denominator cutoff retained. -/
+theorem abs_reciprocal_difference_le_twice_gap (p q h : Real)
+    (hp : 0 < p) (hq : 0 < q) (hgap : abs (p - q) <= h) (hcut : 2 * h <= p) :
+    abs (1 / q - 1 / p) <= 2 * h / p ^ 2 := by
+  have hh : 0 <= h := (abs_nonneg (p - q)).trans hgap
+  have hqp : p <= 2 * q := by
+    have hle : p - q <= h := (le_abs_self (p - q)).trans hgap
+    linarith only [hle, hcut]
+  have hden : p ^ 2 <= 2 * (p * q) := by
+    nlinarith only [mul_le_mul_of_nonneg_left hqp hp.le]
+  have heq : 1 / q - 1 / p = (p - q) / (p * q) := by
+    field_simp [hp.ne', hq.ne']
+  rw [heq, abs_div, abs_of_pos (mul_pos hp hq)]
+  calc
+    _ <= h / (p * q) :=
+      div_le_div_of_nonneg_right hgap (mul_nonneg hp.le hq.le)
+    _ = 2 * h / (2 * (p * q)) := by
+      field_simp [hp.ne', hq.ne']
+    _ <= _ := div_le_div_of_nonneg_left (by positivity) (pow_pos hp 2) hden
+
 end Real
