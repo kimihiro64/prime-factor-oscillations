@@ -2926,6 +2926,27 @@ Thus the profile recovers the unordered positive probabilities.
 This standard canonical-product observation alone does not label
 them by primes.
 
+The analytic input now has a maintained Lean proof in
+\path{Mathlib/Analysis/SpecialFunctions/Log/BernoulliProfileZeros.lean}
+under the project prefix. For $w=\eta(p)(z-1)$,
+\[
+ (1+w)e^{-w}-1=-(e^w-1-w)e^{-w}.
+\]
+Consequently, on $|z-1|\le R$, each factor's defect from one is at most
+$R^2e^{2R}\eta(p)^2$. Summing this bound gives locally uniform product
+convergence and entire continuation. At a point where no linear factor
+vanishes, the summable-defect nonvanishing theorem for infinite products
+makes the product nonzero. Conversely a zero factor makes the product zero.
+Thus the compiled zero-set statement is exactly
+\[
+ \Phi_\eta(z)=0
+ \quad\Longleftrightarrow\quad
+ \exists p:\ \eta(p)>0,\quad z=1-\eta(p)^{-1}.
+\]
+The same module proves invariance under every bijective relabelling.
+Recovery of zero multiplicities and the prime-labelled inverse theorems
+below remain ordinary proofs awaiting their full Lean implementations.
+
 \begin{theorem}[Prime-coordinate rigidity]
 Suppose two such laws satisfy, outside finite sets,
 \[
