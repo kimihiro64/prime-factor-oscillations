@@ -14,6 +14,7 @@ import PrimeFactorOscillations.Helpers.PeakComparison
 import PrimeFactorOscillations.Helpers.PrimeProfileNonlinearCoercivity
 import PrimeFactorOscillations.Helpers.PrimeProfilePairwiseRigidity
 import PrimeFactorOscillations.Helpers.PrimeProfileSaturationThreshold
+import PrimeFactorOscillations.Helpers.PrimeProfileUniformProbeLocality
 
 /-!
 # Probability profiles and their arithmetic comparison theorems

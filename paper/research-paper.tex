@@ -5047,6 +5047,147 @@ optimal moment degree is made. The outstanding signed arithmetic
 estimate and certified RH boundary $7/8$ are unchanged.
 \end{flushleft}
 
+\clearpage
+\subsection{The sharp locality threshold uniformly over positive probes}
+
+The order of quantifiers changes when a single ambient prefix must
+work for every positive probe. The preceding fixed-probe theorem
+keeps $t$ fixed; the next theorem requires the same $M$ for all
+$t>0$. Again $n\ge0$ is fixed, $r=p_n$, and the observed prefix
+has length $n+1$.
+
+\begin{theorem}[Exact probe-uniform locality threshold]
+For every real $C$, the following are equivalent:
+\[
+ \begin{gathered}
+ \text{There is an integer $M$ such that, for every $t>0$ and permutation $e$,}\\
+ D_n(t)\le C\ \Longrightarrow\
+ e(\{0,\ldots,n\})\subset\{0,\ldots,M-1\};
+ \end{gathered}
+\]
+\[
+ C<\frac r2.
+\]
+In the subcritical case, every entering prime $q$ satisfies the
+probe-independent quadratic constraint
+\[
+ (r-2C)q^2\le r^3.
+\]
+At the critical budget itself, finite transpositions already
+give unbounded displacement. More precisely, for every real $B$
+and integer $M$, choose $j>\max(n,M)$ with $q=p_j$ and
+$q-r>B$. The positive probe
+\[
+ t_{r,q}=\frac{r^3}{2(q^2-r^2)}
+\]
+and the swap of $n$ with $j$ satisfy
+\[
+ \begin{split}
+ S_n&=q-r>B,\\
+ D_n(t_{r,q})&\le\frac r2-\frac{r^3}{4q^2}<\frac r2.
+ \end{split}
+\]
+Thus the failure at every $C\ge r/2$ uses finite permutations
+and strictly positive probes, with no limiting probe admitted
+as an observation.
+\end{theorem}
+
+\begin{proof}
+We first prove the upper bound complementary to the maintained
+integrated lower bound. For $t>0$ and $q\ge r>0$, put
+\[
+ c=\frac{r^2(r+t)}{t^2},\qquad
+ a=\frac{r^2(r+t)}2,\qquad
+ F(x)=-cB_t(x)-\frac a{x^2}.
+\]
+The exact derivative $B_t'(x)=t^2/(x^2(x+t))$ gives
+\[
+ F'(x)=\frac{r^2(r+t)t}{x^3(x+t)}>0\qquad(x>0).
+\]
+Consequently $F(r)\le F(q)$, which rearranges to
+\[
+ \begin{split}
+ N_t(r;r,q)
+ &\le \frac a{r^2}-\frac a{q^2}\\
+ &=\frac{r+t}{2}\left(1-\frac{r^2}{q^2}\right).
+ \end{split}
+\]
+Together with the integrated lower bound this gives the
+two-sided, fully compensated estimate
+\[
+ \frac r2\left(1-\frac{r^2}{q^2}\right)
+ \le N_t(r;r,q)
+ \le\frac{r+t}{2}\left(1-\frac{r^2}{q^2}\right).
+\]
+
+Suppose first that $D_n(t)\le C<r/2$.
+In the exact signed reference decomposition,
+\[
+ D_n(t)=\sum_{j\in E}N_t(r;r,p_j)
+             +\sum_{i\in L}N_t(r;p_i,r),
+\]
+the common coordinates have canceled, and every retained reference
+cost is nonnegative. Thus an entering $q$ has
+$N_t(r;r,q)\le C$. The lower integrated bound yields
+\[
+ \frac r2\left(1-\frac{r^2}{q^2}\right)\le C,
+ \qquad (r-2C)q^2\le r^3.
+\]
+All denominators multiplied here are positive. Write
+$\delta=r-2C>0$. Since $q\ge2$, we have $q\le q^2$, so
+$q\le r^3/\delta$. Choose once and for all an integer
+\[
+ M>\max\left(n+1,\frac{r^3}{r-2C}\right).
+\]
+A coordinate retained from the original prefix has index at most
+$n<M$. Every entering coordinate has
+$j\le p_j=q\le r^3/\delta<M$. This $M$ depends only on $n$
+and $C$, and therefore works simultaneously for every $t>0$
+and every admissible permutation.
+
+For the converse, let $B$ and $M$ be arbitrary. The unbounded
+prime enumeration supplies $j>\max(n,M)$ with $q=p_j$ and
+$q-r>B$. In particular $q>r$, so $t_{r,q}>0$. Its exact
+substitution into the upper bound gives
+\[
+ \begin{split}
+ N_{t_{r,q}}(r;r,q)
+ &\le\frac{r+t_{r,q}}2\left(1-\frac{r^2}{q^2}\right)\\
+ &=\frac r2-\frac{r^3}{4q^2}<\frac r2.
+ \end{split}
+\]
+The crossing transposition has exactly this normalized cost and
+displacement $q-r$. For $C\ge r/2$ it is budget-admissible,
+but its image prefix contains $j>M$. Since $M$ was arbitrary,
+no common finite ambient prefix exists. This also treats the
+critical equality $C=r/2$.
+\end{proof}
+
+The theorem proves that the earlier half-reference condition
+for localization is sharp when the positive probe is allowed
+to vary. In a fixed-probe experiment the exact threshold remains
+$K_t(r)$ from the preceding subsection. Both results concern
+the information supplied by one cost-budget inequality;
+the complete profile inverse theorem has additional information.
+The small prime $r=2$, cutoff $n=0$, and finite permutations
+are included without parity restrictions or a rank shift.
+
+\begin{flushleft}
+The integrated upper bound, positivity of the explicit escaping
+probe, and quantitative half-reference margin are compiled in
+\path{Mathlib/Analysis/SpecialFunctions/Log/CompensatedReciprocalUpperCost.lean}.
+The probe-independent coordinate bound, common finite-prefix
+theorem, unbounded finite-swap witnesses and exact equivalence
+are compiled in
+\path{Helpers/PrimeProfileUniformProbeLocality.lean}, exported by
+\path{Assembly/ProbabilityProfiles.lean}.
+The earlier integrated lower bound and exact fixed-probe theorem
+are consumed directly. No external-priority claim is made.
+The unresolved signed arithmetic estimate and certified RH
+boundary $7/8$ are unchanged.
+\end{flushleft}
+
+
 \subsection{Rational residue-class laws: a stronger inverse theorem}
 
 The preceding inverse theorem extends beyond a common leading coefficient.
