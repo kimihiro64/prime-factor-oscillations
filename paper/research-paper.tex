@@ -2982,6 +2982,7 @@ values, then there are fixed indices $A,B$ such that
 \[
  a_{A+n}=b_{B+n}\qquad(n\ge0).
 \]
+\begin{sloppypar}
 To exclude finite exceptions, take a tail value $a_A$ smaller than every
 positive exceptional value in either sequence. Its matching value $b_B$
 lies in the ordered tail. Every positive value at most $a_A$ then lies
@@ -3024,6 +3025,7 @@ of this classification together with equality of the scale and intercept.
 The general finite-accumulation version is also compiled, with equality
 expressed as frequent agreement in a punctured neighborhood of the
 accumulation point.
+\end{sloppypar}
 
 \begin{theorem}[Prime-coordinate rigidity]
 Suppose two such laws satisfy, outside finite sets,
@@ -3285,6 +3287,7 @@ to the actual least recurring gap $G$. The preceding optimality theorem
 identifies $C=G$.
 \end{proof}
 
+\begin{sloppypar}
 The full adaptive inverse is maintained in
 \path{Assembly/PrimeProfileZeroHoles.lean}. The exact optimality theorem,
 including the definition and bounds $2\le G\le600$, its universal lower
@@ -3303,16 +3306,16 @@ zero-hole inequality (21.3) retains its ordinary proof; the formal
 inverse uses the sufficient uniform bound $p_n/4$. Finite permutations
 have eventual zero defect and are excluded from every positive
 lower-distortion assertion. No literature priority is claimed.
+\end{sloppypar}
 
 \subsection{Two-coordinate cutoff transport}
 
 For a prime-coordinate permutation $\sigma$, define the crossing width
-\[
- m_n=\bigl|\sigma(\{0,\ldots,n\})\setminus\{0,\ldots,n\}\bigr|,
- \qquad
- D_n(t)=\frac{p_n^2(p_n+t)}{t^2}\Delta_{a,n}(t),
- \quad a_j=1/p_{\sigma(j)}.
-\]
+\begin{align*}
+ m_n&=\bigl|\sigma(\{0,\ldots,n\})\setminus\{0,\ldots,n\}\bigr|,\\
+ D_n(t)&=\frac{p_n^2(p_n+t)}{t^2}\Delta_{a,n}(t),
+ \qquad a_j=1/p_{\sigma(j)}.
+\end{align*}
 Put $g_j=p_{j+1}-p_j$. The full signed defect detects more than whether
 a prefix moves: it distinguishes simultaneous crossings.
 
@@ -3509,6 +3512,7 @@ ceiling $C<14$ is maintained in
 \path{Helpers/PrimeProfileQuadrupletInverse.lean}.
 The exceptional initial values $7,10$ retain their elementary checks.
 
+\begin{sloppypar}
 The converse is maintained in
 \path{Assembly/PrimeProfileQuadrupletAttainment.lean}.
 It formally proves the actual probability-profile equivalence, with
@@ -3525,6 +3529,151 @@ are reusable owners in
 The matching middle-reference upper comparison is maintained in
 \path{Mathlib/Analysis/SpecialFunctions/Log/CompensatedReciprocalNormalization.lean}.
 No infinitude of either four-prime pattern is asserted.
+\end{sloppypar}
+
+\subsection{Quantized distortion and probe independence}
+
+The whole finite transport controls the distortion of every bounded
+profile. For a permutation $\sigma$, put
+\[
+ S_n=\sum_{j=0}^{n}p_{\sigma(j)}-\sum_{j=0}^{n}p_j.
+\]
+This is the exact signed prime-denominator transport. It is nonnegative,
+because the first $n+1$ primes have the least possible sum.
+
+\begin{lemma}[Localization and a uniform transport error]
+Let $r=p_n$, $C\ge0$, $C<r/4$, and suppose that $D_n(t)\le C$
+for one $t>0$. Then every entering prime is at most $r+4C$,
+and every leaving prime is at least $r-C$. Moreover,
+\[
+ 0\le S_n\le4C,
+ \qquad
+ S_n\left(\frac r{r+4C}\right)^2
+ \le D_n(v)\le
+ S_n\left(\frac r{r-C}\right)^2
+ \quad(v>0),
+\]
+and, uniformly over every new positive probe,
+\[
+ \left|D_n(v)-S_n\right|\le\frac{32C^2}{p_n}.
+\]
+\end{lemma}
+\begin{proof}
+Let $E$ and $L$ be the finite sets of entering and leaving prime values,
+after common coordinates cancel. They have equal cardinalities.
+For $\delta_t(p,q)=\log(1+t/q)-t/q-\log(1+t/p)+t/p$ and
+$N_r(t)=r^2(r+t)/t^2$, exact insertion of the common reference gives
+\begin{align*}
+ D_n(t)&=N_r(t)\left\{\sum_{q\in E}\delta_t(r,q)
+                   +\sum_{p\in L}\delta_t(p,r)\right\},\\
+ S_n&=\sum_{q\in E}(q-r)+\sum_{p\in L}(r-p).
+\end{align*}
+Every retained summand is nonnegative. Thus each reference cost is
+at most the full cost $C$. The middle-reference lower comparison
+gives $N_r(t)\delta_t(p,r)\ge r-p$ for a leaving prime.
+If an entering prime satisfies $q\ge2r$, monotonicity in $q$ gives
+\[
+ N_r(t)\delta_t(r,q)\ge
+ N_r(t)\delta_t(r,2r)\ge r/4,
+\]
+contrary to $C<r/4$. Hence $q<2r$, and the lower comparison gives
+$N_r(t)\delta_t(r,q)\ge(q-r)(r/q)^2\ge(q-r)/4$.
+This proves both localization bounds for every transported coordinate.
+
+For any $v>0$ and $0<\ell\le p\le r\le q\le u$, the two scalar
+comparisons already proved give
+\[
+ (q-p)(r/u)^2\le N_r(v)\delta_v(p,q)
+               \le(q-p)(r/\ell)^2.
+\]
+Use $\ell=r-C>0$ and $u=r+4C$, and sum this inequality on the
+\emph{same} two reference transports. This proves the displayed
+two-sided comparison for $D_n(v)$ and $S_n$. Applying its lower
+bound at the original probe $t$, with $r/(r+4C)>1/2$, gives $S_n\le4C$.
+
+Write $\lambda=(r/(r+4C))^2$ and $\mu=(r/(r-C))^2$.
+The following nonnegative identities justify the remaining constants:
+\begin{align*}
+ \{\lambda-(1-8C/r)\}\,r(r+4C)^2
+   &=48rC^2+128C^3,\\
+ \{1+4C/r-\mu\}\,r(r-C)^2
+   &=C\{2r(r-4C)+rC+4C^2\}.
+\end{align*}
+Thus $1-8C/r\le\lambda$ and $\mu\le1+4C/r$.
+Retaining the signed two-sided comparison and $0\le S_n\le4C$ gives
+\begin{align*}
+ S_n-D_n(v)&\le8CS_n/r\le32C^2/r,\\
+ D_n(v)-S_n&\le4CS_n/r\le16C^2/r.
+\end{align*}
+The asserted absolute bound concerns this isolated error after the
+complete signed transport has been compared.
+\end{proof}
+
+\begin{theorem}[A probe-independent even distortion level]
+Fix a permutation $\sigma$. Suppose that one positive probe sequence
+$(t_n)$ has eventually bounded normalized distortion:
+$D_n(t_n)\le C$ for all sufficiently large $n$, with one fixed $C\ge0$.
+Then there is an integer $K\ge0$, independent of subsequent probes,
+such that
+\[
+ \limsup_{n\to\infty}D_n(v_n)=2K
+\]
+for every positive sequence $(v_n)$. More strongly, for every
+$\varepsilon>0$ one cutoff gives $D_n(v)\le2K+\varepsilon$
+for all later $n$ and all $v>0$; arbitrarily late cutoffs satisfy
+$D_n(v)\ge2K-\varepsilon$ for \emph{all} $v>0$ simultaneously.
+The level is zero exactly for a finite permutation.
+Consequently a law that is \emph{not a finite permutation} has a
+positive even level whenever one probe has eventually bounded cost.
+\end{theorem}
+\begin{proof}
+Apply the lemma at every sufficiently large cutoff using the original
+probe $t_n$. Since $p_n\to\infty$, it gives a single eventual bound
+$0\le S_n\le4C$ and an error tending to zero uniformly in every new
+positive probe. This step only uses $p_n\ge n$, not a quantitative
+prime number theorem.
+
+Once $p_n-C>2$, every entering and leaving prime is odd.
+The two transported sets have equal cardinalities, so their sums
+have the same parity. Hence $S_n$ is a nonnegative even integer.
+Only finitely many such values lie in $[0,4C]$. At least one occurs
+arbitrarily late; let $2K$ be the largest value that does.
+Every larger value then disappears after one cutoff, so $S_n\le2K$
+eventually, whereas $S_n=2K$ at arbitrarily late cutoffs.
+The error estimate in the lemma gives both uniform assertions,
+with the same cutoffs for all positive probes, and therefore every
+displayed limsup.
+
+A finite permutation has zero defect at every sufficiently late
+prefix, so its level is zero. Conversely, level zero and
+nonnegativity give $D_n(1)\to0$. The maintained adaptive cutoff
+inverse then forces the permutation to be finite.
+\end{proof}
+
+\begin{sloppypar}
+The localization theorem is maintained in
+\path{Helpers/PrimeProfileCostLocalization.lean}.
+The complete cross-probe comparison, nonnegative transport, budget
+$S_n\le4C$ and explicit error $32C^2/p_n$ are maintained in
+\path{Helpers/PrimeProfileTransportComparison.lean}.
+The even-lattice and uniform-tail owners are
+\path{Helpers/PrimeProfileTransportParity.lean} and
+\path{Helpers/PrimeProfileTransportTail.lean}.
+The quantified uniform even-level theorem is maintained in
+\path{Helpers/PrimeProfileQuantization.lean}.
+Its single cutoff is selected before every new positive probe,
+and its lower witnesses are shared by all positive probes.
+The limsup wording and zero-level characterization above are
+mathematical consequences of that compiled formulation and the
+previously maintained cutoff inverse; they are not advertised as
+separate named Lean declarations.
+The generic finite reference transport and parity lemmas are maintained
+in \path{Mathlib/Combinatorics/FinitePrefixDisplacement.lean};
+the bounded natural-sequence recurrence lemma is maintained in
+\path{Mathlib/Order/BoundedNatSequence.lean}.
+No independent arithmetic bound on an RH detector is inferred from
+this profile classification.
+\end{sloppypar}
 
 \subsection{Rational residue-class laws: a stronger inverse theorem}
 

@@ -224,4 +224,157 @@ theorem normalized_pairLogDefect_le_gap_mul_reference_ratio_sq (t p q r : Real)
     exact (not_lt_of_ge hpos) hbad
   exact hb.trans hcmp
 
+/-- A bounded reference-normalized entering cost forces bounded displacement. -/
+theorem incoming_gap_localization_of_normalized_pairLogDefect_le
+    (t r q C : Real) (ht : 0 < t) (hr : 0 < r) (hrq : r <= q)
+    (hC : C < r / 4)
+    (hcost : r ^ 2 * (r + t) / t ^ 2 * pairLogDefect t r q <= C) :
+    q < 2 * r /\ q - r <= 4 * C := by
+  have hq : 0 < q := hr.trans_le hrq
+  have hnorm : 0 <= r ^ 2 * (r + t) / t ^ 2 := by positivity
+  have htwo : r / 4 <=
+      r ^ 2 * (r + t) / t ^ 2 * pairLogDefect t r (2 * r) := by
+    have hb := gap_mul_ratio_sq_le_normalized_pairLogDefect t r (2 * r)
+      ht hr (by linarith only [hr])
+    have he : (2 * r - r) * (r / (2 * r)) ^ 2 = r / 4 := by
+      field_simp [hr.ne']
+      ring
+    rw [he] at hb
+    exact hb
+  have hsmall : q < 2 * r := by
+    by_contra hn
+    have hlarge : 2 * r <= q := le_of_not_gt hn
+    have hw := (bernoulliLogProfile_strictMonoOn_pos t ht).monotoneOn
+      (show Membership.mem (Set.Ioi 0) (2 * r) by
+        change 0 < 2 * r
+        positivity)
+      (show Membership.mem (Set.Ioi 0) q from hq) hlarge
+    have hd : pairLogDefect t r (2 * r) <= pairLogDefect t r q := by
+      unfold pairLogDefect
+      linarith only [hw]
+    have hb := mul_le_mul_of_nonneg_left hd hnorm
+    linarith only [htwo, hb, hcost, hC]
+  have hratio : (1 / 2 : Real) <= r / q := by
+    have hb := div_le_div_of_nonneg_left hr.le hq hsmall.le
+    have he : r / (2 * r) = (1 / 2 : Real) := by
+      field_simp [hr.ne']
+    rw [he] at hb
+    exact hb
+  have hsquare : (1 / 4 : Real) <= (r / q) ^ 2 := by
+    nlinarith only [hratio, sq_nonneg (r / q - 1 / 2)]
+  have hmul := mul_le_mul_of_nonneg_left hsquare (sub_nonneg.mpr hrq)
+  have hlow := gap_mul_ratio_sq_le_normalized_pairLogDefect t r q ht hr hrq
+  exact And.intro hsmall (by linarith only [hmul, hlow, hcost])
+
+/-- The leaving displacement already has unit reference-normalized cost. -/
+theorem reference_gap_le_normalized_pairLogDefect (t p r : Real)
+    (ht : 0 < t) (hp : 0 < p) (hpr : p <= r) :
+    r - p <= r ^ 2 * (r + t) / t ^ 2 * pairLogDefect t p r := by
+  have hr : 0 < r := hp.trans_le hpr
+  have hb := gap_mul_reference_ratio_sq_le_normalized_pairLogDefect t p r r
+    ht hp hpr hpr
+  simpa only [div_self hr.ne', one_pow, mul_one] using hb
+
+/-- A common denominator window gives one comparison for every positive probe. -/
+theorem normalized_pairLogDefect_window_bounds (t p q r L U : Real)
+    (ht : 0 < t) (hL : 0 < L) (hLp : L <= p) (hpr : p <= r)
+    (hrq : r <= q) (hqU : q <= U) :
+    (q - p) * (r / U) ^ 2 <=
+      r ^ 2 * (r + t) / t ^ 2 * pairLogDefect t p q /\
+    r ^ 2 * (r + t) / t ^ 2 * pairLogDefect t p q <=
+      (q - p) * (r / L) ^ 2 := by
+  have hp : 0 < p := hL.trans_le hLp
+  have hr : 0 < r := hp.trans_le hpr
+  have hq : 0 < q := hr.trans_le hrq
+  have hU : 0 < U := hq.trans_le hqU
+  have hpq : p <= q := hpr.trans hrq
+  have hloRatio : r / U <= r / q :=
+    div_le_div_of_nonneg_left hr.le hq hqU
+  have hloSquare : (r / U) ^ 2 <= (r / q) ^ 2 := by
+    have hm := mul_le_mul hloRatio hloRatio
+      (div_nonneg hr.le hU.le) (div_nonneg hr.le hq.le)
+    simpa only [pow_two] using hm
+  have hhiRatio : r / p <= r / L :=
+    div_le_div_of_nonneg_left hr.le hL hLp
+  have hhiSquare : (r / p) ^ 2 <= (r / L) ^ 2 := by
+    have hm := mul_le_mul hhiRatio hhiRatio
+      (div_nonneg hr.le hp.le) (div_nonneg hr.le hL.le)
+    simpa only [pow_two] using hm
+  exact And.intro
+    ((mul_le_mul_of_nonneg_left hloSquare (sub_nonneg.mpr hpq)).trans
+      (gap_mul_reference_ratio_sq_le_normalized_pairLogDefect t p q r ht hp hpq hpr))
+    ((normalized_pairLogDefect_le_gap_mul_reference_ratio_sq t p q r
+      ht hp hpq hpr hrq).trans
+      (mul_le_mul_of_nonneg_left hhiSquare (sub_nonneg.mpr hpq)))
+
+/-- The lower reference ratio differs from one by at most eight C/r. -/
+theorem one_sub_eight_cost_div_le_reference_ratio_sq (r C : Real)
+    (hr : 0 < r) (hC : 0 <= C) :
+    1 - 8 * C / r <= (r / (r + 4 * C)) ^ 2 := by
+  have hd : 0 < r + 4 * C := by positivity
+  have hid : ((r / (r + 4 * C)) ^ 2 - (1 - 8 * C / r)) *
+      (r * (r + 4 * C) ^ 2) = 48 * r * C ^ 2 + 128 * C ^ 3 := by
+    field_simp [hr.ne', hd.ne']
+    ring
+  by_contra hn
+  have hbad := mul_neg_of_neg_of_pos (sub_neg.mpr (lt_of_not_ge hn))
+    (by positivity : 0 < r * (r + 4 * C) ^ 2)
+  rw [hid] at hbad
+  have hpos : 0 <= 48 * r * C ^ 2 + 128 * C ^ 3 := by positivity
+  exact (not_lt_of_ge hpos) hbad
+
+/-- The upper reference ratio differs from one by at most four C/r. -/
+theorem reference_ratio_sq_le_one_add_four_cost_div (r C : Real)
+    (hC : 0 <= C) (hbudget : 4 * C < r) :
+    (r / (r - C)) ^ 2 <= 1 + 4 * C / r := by
+  have hr : 0 < r := by linarith only [hC, hbudget]
+  have hd : 0 < r - C := by linarith only [hC, hbudget]
+  have hg : 0 < r - 4 * C := sub_pos.mpr hbudget
+  have hid : ((1 + 4 * C / r) - (r / (r - C)) ^ 2) *
+      (r * (r - C) ^ 2) = C * (2 * r * (r - 4 * C) + r * C + 4 * C ^ 2) := by
+    field_simp [hr.ne', hd.ne']
+    ring
+  by_contra hn
+  have hbad := mul_neg_of_neg_of_pos (sub_neg.mpr (lt_of_not_ge hn))
+    (by positivity : 0 < r * (r - C) ^ 2)
+  rw [hid] at hbad
+  have hpos : 0 <= C * (2 * r * (r - 4 * C) + r * C + 4 * C ^ 2) := by positivity
+  exact (not_lt_of_ge hpos) hbad
+
+/-- A localized signed transport has a uniform explicit error at every probe. -/
+theorem reference_transport_sandwich_abs_error (r C S D : Real)
+    (hC : 0 <= C) (hbudget : 4 * C < r) (hS : 0 <= S) (hSC : S <= 4 * C)
+    (hlo : S * (r / (r + 4 * C)) ^ 2 <= D)
+    (hhi : D <= S * (r / (r - C)) ^ 2) :
+    abs (D - S) <= 32 * C ^ 2 / r := by
+  have hr : 0 < r := by linarith only [hC, hbudget]
+  have hmulLo : S * (8 * C / r) <= 32 * C ^ 2 / r := by
+    calc
+      _ <= (4 * C) * (8 * C / r) :=
+        mul_le_mul_of_nonneg_right hSC (by positivity)
+      _ = _ := by ring
+  have hmulHi : S * (4 * C / r) <= 16 * C ^ 2 / r := by
+    calc
+      _ <= (4 * C) * (4 * C / r) :=
+        mul_le_mul_of_nonneg_right hSC (by positivity)
+      _ = _ := by ring
+  have hl : S - 32 * C ^ 2 / r <= D := by
+    calc
+      _ <= S - S * (8 * C / r) := sub_le_sub_left hmulLo S
+      _ = S * (1 - 8 * C / r) := by ring
+      _ <= S * (r / (r + 4 * C)) ^ 2 :=
+        mul_le_mul_of_nonneg_left (one_sub_eight_cost_div_le_reference_ratio_sq r C hr hC) hS
+      _ <= _ := hlo
+  have hu : D <= S + 32 * C ^ 2 / r := by
+    calc
+      _ <= S * (r / (r - C)) ^ 2 := hhi
+      _ <= S * (1 + 4 * C / r) :=
+        mul_le_mul_of_nonneg_left (reference_ratio_sq_le_one_add_four_cost_div r C hC hbudget) hS
+      _ = S + S * (4 * C / r) := by ring
+      _ <= S + 16 * C ^ 2 / r := add_le_add le_rfl hmulHi
+      _ <= _ := add_le_add le_rfl (div_le_div_of_nonneg_right
+        (by nlinarith only [sq_nonneg C] : 16 * C ^ 2 <= 32 * C ^ 2) hr.le)
+  apply abs_le.mpr
+  constructor <;> linarith only [hl, hu]
+
 end Real

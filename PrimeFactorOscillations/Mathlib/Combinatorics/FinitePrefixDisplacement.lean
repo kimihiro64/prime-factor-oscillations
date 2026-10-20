@@ -4,6 +4,7 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Prime Factor Oscillations contributors
 -/
 
+import Mathlib.Algebra.BigOperators.Ring.Finset
 import Mathlib.Algebra.Order.BigOperators.Group.Finset
 import Mathlib.Basic.Real.Basic
 import Mathlib.Data.Finset.Card
@@ -165,5 +166,84 @@ theorem neg_boundary_le_sum_sub_sum_of_card_lt {I : Type*} [DecidableEq I]
   have hid := @sum_sdiff_sub_sum_sdiff I Real u s inferInstance inferInstance f
   rw [<- hid]
   nlinarith only [hm, hlo, hup]
+
+/-- Insert a common reference only after the common coordinates cancel. -/
+theorem sum_sub_sum_eq_reference_transport {I : Type*} [DecidableEq I]
+    (s u : Finset I) (f : I -> Real) (a : Real) (hc : s.card = u.card) :
+    s.sum f - u.sum f =
+      (s \ u).sum (fun i => f i - a) + (u \ s).sum (fun i => a - f i) := by
+  have hcard : (s \ u).card = (u \ s).card := card_sdiff_comm hc
+  have hid := @sum_sdiff_sub_sum_sdiff I Real u s inferInstance inferInstance f
+  rw [<- hid, sum_sub_distrib, sum_sub_distrib, sum_const, sum_const,
+    nsmul_eq_mul, nsmul_eq_mul, hcard]
+  linarith
+
+/-- Each entering reference cost is bounded by the complete signed defect. -/
+theorem incoming_reference_le_sum_sub_sum {I : Type*} [DecidableEq I]
+    (s u : Finset I) (f : I -> Real) (a : Real) (hc : s.card = u.card)
+    (hs : forall i, Membership.mem (s \ u) i -> a <= f i)
+    (hu : forall i, Membership.mem (u \ s) i -> f i <= a)
+    (j : I) (hj : Membership.mem (s \ u) j) :
+    f j - a <= s.sum f - u.sum f := by
+  rw [sum_sub_sum_eq_reference_transport s u f a hc]
+  have hsingle := single_le_sum
+    (fun i hi => sub_nonneg.mpr (hs i hi)) hj
+  have hrest := sum_nonneg (s := u \ s)
+    (fun i hi => sub_nonneg.mpr (hu i hi))
+  linarith only [hsingle, hrest]
+
+/-- Each leaving reference cost is bounded by the complete signed defect. -/
+theorem outgoing_reference_le_sum_sub_sum {I : Type*} [DecidableEq I]
+    (s u : Finset I) (f : I -> Real) (a : Real) (hc : s.card = u.card)
+    (hs : forall i, Membership.mem (s \ u) i -> a <= f i)
+    (hu : forall i, Membership.mem (u \ s) i -> f i <= a)
+    (j : I) (hj : Membership.mem (u \ s) j) :
+    a - f j <= s.sum f - u.sum f := by
+  rw [sum_sub_sum_eq_reference_transport s u f a hc]
+  have hsingle := single_le_sum
+    (fun i hi => sub_nonneg.mpr (hu i hi)) hj
+  have hrest := sum_nonneg (s := s \ u)
+    (fun i hi => sub_nonneg.mpr (hs i hi))
+  linarith only [hsingle, hrest]
+
+/-- Compare the full signed transport after the same reference decomposition. -/
+theorem reference_transport_comparison {I : Type*} [DecidableEq I]
+    (s u : Finset I) (f g : I -> Real) (a b L U : Real) (hc : s.card = u.card)
+    (hin : forall i, Membership.mem (s \ u) i ->
+      L * (f i - a) <= g i - b /\ g i - b <= U * (f i - a))
+    (hout : forall i, Membership.mem (u \ s) i ->
+      L * (a - f i) <= b - g i /\ b - g i <= U * (a - f i)) :
+    L * (s.sum f - u.sum f) <= s.sum g - u.sum g /\
+      s.sum g - u.sum g <= U * (s.sum f - u.sum f) := by
+  constructor
+  . rw [sum_sub_sum_eq_reference_transport s u f a hc,
+      sum_sub_sum_eq_reference_transport s u g b hc, mul_add, mul_sum, mul_sum]
+    exact add_le_add (sum_le_sum (fun i hi => (hin i hi).1))
+      (sum_le_sum (fun i hi => (hout i hi).1))
+  . rw [sum_sub_sum_eq_reference_transport s u f a hc,
+      sum_sub_sum_eq_reference_transport s u g b hc, mul_add, mul_sum, mul_sum]
+    exact add_le_add (sum_le_sum (fun i hi => (hin i hi).2))
+      (sum_le_sum (fun i hi => (hout i hi).2))
+
+/-- Equal-cardinality odd-coordinate sums have an even natural difference. -/
+theorem exists_nat_sum_sub_sum_eq_twice {I : Type*}
+    (s u : Finset I) (f : I -> Nat) (hc : s.card = u.card)
+    (hs : forall i, Membership.mem s i -> f i % 2 = 1)
+    (hu : forall i, Membership.mem u i -> f i % 2 = 1) :
+    exists k : Nat, s.sum f - u.sum f = 2 * k := by
+  have hsone : s.sum (fun i => f i % 2) = s.card := by
+    calc
+      _ = s.sum (fun _ => 1) := sum_congr rfl hs
+      _ = _ := by simp
+  have huone : u.sum (fun i => f i % 2) = u.card := by
+    calc
+      _ = u.sum (fun _ => 1) := sum_congr rfl hu
+      _ = _ := by simp
+  have hsmod : s.sum f % 2 = s.card % 2 := by rw [sum_nat_mod s 2 f, hsone]
+  have humod : u.sum f % 2 = u.card % 2 := by rw [sum_nat_mod u 2 f, huone]
+  let d := s.sum f - u.sum f
+  have hd : d % 2 = 0 := by dsimp only [d]; omega
+  have he := Nat.mod_add_div d 2
+  exact Exists.intro (d / 2) (by dsimp only [d] at hd he; omega)
 
 end Finset
