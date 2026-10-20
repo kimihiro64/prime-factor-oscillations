@@ -14,6 +14,7 @@ import PrimeFactorOscillations.Helpers.PrimeProfileCubicReadout
 import PrimeFactorOscillations.Helpers.PrimeProfileFullWindowReadout
 import PrimeFactorOscillations.Helpers.PrimeProfileMomentReadout
 import PrimeFactorOscillations.Helpers.PrimeProfilePairwiseRigidity
+import PrimeFactorOscillations.Helpers.PrimeProfileQuadraticFilterReadout
 import PrimeFactorOscillations.Helpers.PrimeProfileTransportReadout
 
 /-!

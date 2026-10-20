@@ -4172,6 +4172,173 @@ This is a stronger observation certificate under the same localization
 hypothesis; it supplies no new arithmetic estimate of that hypothesis.
 \end{flushleft}
 
+\subsection{Polynomial square filters preserve the full transport}
+
+The geometric polynomial is one choice in a larger class of finite
+probability observables. This gives freedom to suppress the complete
+remainder while retaining the principal transport coefficient exactly.
+
+\begin{theorem}[Arbitrary normalized polynomial filters]
+Let $H\in\mathbb R[X]$ satisfy $H(0)=1$, and suppose
+\[
+ |H(x)|\le\eta\qquad(1/2\le x\le4/3).
+\]
+There is a polynomial $G$ with $\deg G\le2\deg H$ such that, for every
+$p>0$,
+\[
+ \Phi_{H,r}(p):=(p-r)\bigl(1-H(r/p)^2\bigr)=rG(r/p).
+\]
+Define the complete signed observable
+\[
+ A_{H,n}=\sum_{i=0}^{n}\Phi_{H,r}(p_{e(i)})
+              -\sum_{i=0}^{n}\Phi_{H,r}(p_i),\qquad r=p_n.
+\]
+Under the same hypothesis $D_n(t)\le C$ at one positive probe,
+with $0\le C<r/4$,
+\[
+ 0\le S_n-A_{H,n}\le\eta^2S_n\le4C\eta^2.
+\]
+Thus $A_{H,n}$ is a finite linear combination of probability moments
+of orders at most $2\deg H$, with principal coefficient one.
+\end{theorem}
+\begin{proof}
+Put $R=1-H^2$. Since $R(0)=0$, write $R=XQ$ and set
+$G=(1-X)Q$. Then $\deg G\le2\deg H$; the zero polynomial case
+is immediate. For $p\ne0$,
+\[
+ rG(r/p)=r(1-r/p)Q(r/p)
+        =(p-r)R(r/p)=\Phi_{H,r}(p).
+\]
+The constant coefficient of $G$ cancels between the two equal-size
+prefixes, so this is genuinely a finite probability-moment observable.
+
+Cancel the common coordinates before estimating anything. On $E_n$,
+localization gives $r\le p_i<2r$; on $L_n$, it gives
+$3r/4<p_i\le r$. Consequently $r/p_i\in[1/2,4/3]$
+on both retained supports. No such assertion is needed for a common
+small-prime coordinate. Equal cardinalities give the exact signed identity
+\[
+\begin{split}
+ S_n-A_{H,n}
+ &=\sum_{i\in E_n}(p_i-r)H(r/p_i)^2\\
+ &\quad+\sum_{i\in L_n}(r-p_i)H(r/p_i)^2.
+\end{split}
+\]
+Every displayed displacement is nonnegative. Applying the filter bound
+to this complete remainder gives
+\[
+ 0\le S_n-A_{H,n}
+ \le\eta^2\left(\sum_{i\in E_n}(p_i-r)
+                +\sum_{i\in L_n}(r-p_i)\right)
+ =\eta^2S_n.
+\]
+Finally use the already proved $S_n\le4C$.
+The principal term has not been discarded or bounded separately.
+\end{proof}
+
+\begin{flushleft}
+The polynomial realization and degree bound are compiled in
+\path{Mathlib/Analysis/SpecialFunctions/Log/PolynomialReciprocalTransport.lean}.
+The actual profile polynomial representation, complete signed comparison
+and retained $\eta^2S_n$ error are compiled in
+\path{Helpers/PrimeProfileSquareFilter.lean}.
+These statements allow the identity profile and finite permutations;
+the recovered transport may be zero.
+\end{flushleft}
+
+\subsection{An accelerated quadratic filter and fewer moments}
+
+Consider the explicit polynomial
+\[
+ B(x)=1-\frac{528}{217}x+\frac{288}{217}x^2
+     =\frac{2(12x-11)^2-25}{217}.
+\]
+It satisfies $B(0)=1$. This is the normalized shifted quadratic
+Chebyshev polynomial; the construction below uses its explicit formula.
+
+\begin{theorem}[Accelerated stable moment readout]
+Set $H_k=B^k$ and $A_{k,n}=A_{H_k,n}$, for each integer $k\ge0$.
+Under $D_n(t)\le C$ at one positive probe, $0\le C<r/4$,
+the observable uses probability moments of degree at most $4k$, and
+\[
+ 0\le S_n-A_{k,n}
+ \le\left(\frac{25}{217}\right)^{2k}S_n
+ \le64^{-k}S_n\le4C\,64^{-k}.
+\]
+If $r\ge3$, choose
+\[
+ k=\lfloor\log_{64}(2r)\rfloor+1.
+\]
+There is a single $K\ge0$ with $S_n=2K$ such that every observation
+$y$ with $|y-A_{k,n}|<1/2$ satisfies $|y-2K|<1$, and no other
+nonnegative even integer has distance less than one from $y$.
+\end{theorem}
+\begin{proof}
+For $1/2\le x\le4/3$, the quantity $12x-11$ lies in $[-5,5]$.
+Hence
+\[
+ -25\le2(12x-11)^2-25\le25,\qquad
+ |B(x)|\le\frac{25}{217}.
+\]
+It follows that $H_k(0)=1$, $\deg H_k\le2k$, and
+$|H_k(x)|\le(25/217)^k$ throughout the retained window.
+The preceding theorem therefore gives the exact-rate error.
+The rational inequality $(25/217)^2<1/64$ gives the stated
+convenient geometric bound, also valid at $k=0$.
+
+For the specified $k$, we have $2r<64^k$, and consequently
+\[
+ 0\le S_n-A_{k,n}\le\frac{4C}{64^k}
+       <\frac r{64^k}<\frac12.
+\]
+The localization inequality $r-C>2$ excludes the prime $2$ from
+the transported coordinates. Equal entering and leaving cardinalities
+then imply $S_n=2K$ for some $K\ge0$, as in the earlier parity proof.
+Combining the one-sided error with $|y-A_{k,n}|<1/2$ gives
+$-1<y-2K<1/2$. Distinct even integers are separated by two,
+which proves uniqueness uniformly over all observations.
+\end{proof}
+
+At the same degree $m=4k$, the previous geometric certificate gave
+$2^{-m}S_n=16^{-k}S_n$; the quadratic filter gives $64^{-k}S_n$.
+Thus the certified remainder is smaller by a factor $4^{-k}$.
+The explicit degree is at most
+\[
+ 4\bigl(\lfloor\log_{64}(2r)\rfloor+1\bigr)
+ \le \frac23\log_2 r+\frac{14}{3},
+\]
+compared with the earlier $\log_2r+3$ bound. The leading coefficient
+in the logarithmic moment count is reduced by one third.
+This real-logarithm comparison is an ordinary consequence of the
+compiled integer-logarithm certificate; it is not a separate Lean theorem.
+
+The fixed noise allowance concerns the combined observable.
+It does not assert that all raw probability moments can be measured
+with the same accuracy. If $G(x)=\sum_{j=0}^{m}a_jx^j$ and the measured
+raw moment differences have errors at most $\epsilon_j$, their induced
+observable error is bounded by
+\[
+ r\sum_{j=1}^{m}|a_j|r^j\epsilon_j.
+\]
+Requiring this quantity to be less than $1/2$ suffices.
+The constant moment cancels exactly.
+
+\begin{flushleft}
+The explicit quadratic normalization, degree and all-power window bounds
+are compiled in
+\path{Mathlib/Analysis/SpecialFunctions/Log/QuadraticReciprocalFilter.lean}.
+The degree-$4k$ profile representation, full $64^{-k}S_n$ comparison,
+and explicit noisy even-integer recovery are compiled in
+\path{Helpers/PrimeProfileQuadraticFilterReadout.lean}.
+The sharper $(25/217)^{2k}$ error is a consequence of the compiled
+general filter theorem and compiled norm bound.
+The error statements retain the first prime; the even-integer readout
+assumes $p_n\ge3$ explicitly. No minimax optimality is asserted.
+This improves observation accuracy under the same arithmetic cost
+hypothesis. It does not establish a stronger bound on that cost or
+change the certified RH boundary.
+\end{flushleft}
+
 \subsection{Rational residue-class laws: a stronger inverse theorem}
 
 The preceding inverse theorem extends beyond a common leading coefficient.
