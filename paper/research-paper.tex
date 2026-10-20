@@ -4911,6 +4911,142 @@ hypothesis. It supplies no independent bound on the open signed
 M\"obius packet; the unconditional RH boundary remains $7/8$.
 \end{flushleft}
 
+\clearpage
+\subsection{The exact locality threshold for one fixed probe}
+
+The universal half-reference estimate can be complemented by an exact
+threshold when the positive probe itself is fixed. Fix $n\ge0$,
+$r=p_n$, and $t>0$. Define
+\[
+ \begin{split}
+ c_t(r)&=\frac{r^2(r+t)}{t^2},\\
+ K_t(r)&=c_t(r)\left(\frac tr-\log(1+t/r)\right).
+ \end{split}
+\]
+The threshold is strictly positive. Throughout this subsection $n$
+and $t$ are held fixed while the coordinate permutation varies.
+
+\begin{theorem}[Exact fixed-probe locality threshold]
+For every real budget $C$, the following are equivalent:
+\[
+ \begin{gathered}
+ \text{There is an integer $M$ such that, for every permutation $e$,}\\
+ D_n(t)\le C\ \Longrightarrow\
+ e(\{0,\ldots,n\})\subset\{0,\ldots,M-1\};
+ \end{gathered}
+\]
+\[
+ C<K_t(r).
+\]
+More quantitatively, if $D_n(t)\le C<K_t(r)$, every entering prime
+$q=p_j$ satisfies
+\[
+ (K_t(r)-C)\,q(q+t)\le r^2(r+t).
+\]
+At every budget $C\ge K_t(r)$ the failure is already witnessed by
+finite transpositions: for every real $B$ and integer $M$, a swap
+of $n$ with some $j>\max(n,M)$ has
+\[
+ S_n>B,\qquad D_n(t)<K_t(r)\le C.
+\]
+The same fixed $t$ works for all these witnesses.
+\end{theorem}
+
+\begin{proof}
+For $u>0$, the strict logarithmic tangent inequality and its
+reciprocal application give
+\[
+ 0<u-\log(1+u)\le\frac{u^2}{1+u}.
+\]
+Indeed $\log(1+u)<u$. Also
+$\log(1/(1+u))\le1/(1+u)-1$, hence
+$\log(1+u)\ge u/(1+u)$, which proves the upper bound.
+Taking $u=t/r$ proves $K_t(r)>0$.
+
+For any positive coordinate $q$, exact cancellation gives
+\[
+ \begin{split}
+ K_t(r)-N_t(r;r,q)
+  &=c_t(r)\left(\frac tq-\log(1+t/q)\right),\\
+ 0<K_t(r)-N_t(r;r,q)
+  &\le\frac{r^2(r+t)}{q(q+t)}.
+ \end{split}
+\]
+This keeps the full compensated logarithmic expression.
+For an entering coordinate, the maintained signed reference
+decomposition gives $N_t(r;r,q)\le D_n(t)\le C$.
+Put $\delta=K_t(r)-C>0$. Then
+\[
+ \delta\le K_t(r)-N_t(r;r,q)
+     \le\frac{r^2(r+t)}{q(q+t)}.
+\]
+Multiplying by the strictly positive denominator proves the
+quantitative coordinate constraint.
+
+Let $A=r^2(r+t)$. Since a prime $q\ge2$ and $t>0$ have
+$q+t>1$, the same constraint gives $\delta q\le A$ and thus
+$q\le A/\delta$. The zero-based prime enumeration satisfies
+$j\le p_j=q$. Choose an integer
+\[
+ M>\max\left(n+1,\frac A\delta\right).
+\]
+An image coordinate common to the original prefix has index at most
+$n<M$. Every other image coordinate is entering, and its index
+satisfies $j\le q\le A/\delta<M$. This proves the finite ambient
+prefix assertion, uniformly over all permutations satisfying the
+same budget. The argument also covers negative $C$, when applicable
+cost constraints may be vacuous.
+
+For the converse, fix any $B\in\mathbb R$ and $M\ge0$.
+Choose an integer $Q>B+r$ and put $j=Q+n+M+1$.
+Then $j>\max(n,M)$ and $p_j\ge j\ge Q$.
+The permutation exchanging exactly $n$ and $j$ has the exact
+crossing-prefix identities
+\[
+ S_n=p_j-r>B,\qquad D_n(t)=N_t(r;r,p_j).
+\]
+The positive residual already proved gives
+$N_t(r;r,p_j)<K_t(r)$. This constructs arbitrarily large
+displacement and entering index with the same fixed probe.
+If $C\ge K_t(r)$, each such swap satisfies $D_n(t)\le C$.
+Its image prefix contains $j>M$, contradicting any proposed
+uniform ambient prefix of length $M$.
+Thus finite uniform localization implies $C<K_t(r)$.
+\end{proof}
+
+The residual estimate also shows, as an ordinary consequence,
+that the swap costs approach $K_t(r)$ from below with error at most
+$r^2(r+t)/(p_j(p_j+t))$, while their displacements tend to infinity.
+The sharpness assertion concerns the budget value for one fixed
+probe and cutoff. It does not change the probe with the escaping
+coordinate. In the converse, the counterexamples are finite
+permutations; no assertion restricted to permutations that are not
+finite is used.
+
+This gives an exact criterion for reducing reconstruction from a
+single cost inequality to a finite search over possible prefix
+images. The complete probability profile and its existing inverse
+theorems supply additional information beyond that one inequality.
+All statements here include the first prime $r=2$, use a prefix of
+length $n+1$, and keep the boundary reference $p_n$.
+
+\begin{flushleft}
+The strict logarithmic deficit, positive saturation, complete
+rational residual and coordinate constraint are compiled in
+\path{Mathlib/Analysis/SpecialFunctions/Log/CompensatedReciprocalSaturation.lean}.
+The crossing transposition identity is compiled in
+\path{Mathlib/Combinatorics/FinitePrefixTransposition.lean}.
+The full-cost incoming bound, uniform ambient-prefix theorem,
+unbounded finite-swap witnesses and exact equivalence are compiled in
+\path{Helpers/PrimeProfileSaturationThreshold.lean}, exported by
+\path{Assembly/ProbabilityProfiles.lean}.
+The displayed asymptotic consequence follows from the compiled
+residual and unbounded prime enumeration; it is not a separately
+compiled limit declaration. No assertion of external priority or
+optimal moment degree is made. The outstanding signed arithmetic
+estimate and certified RH boundary $7/8$ are unchanged.
+\end{flushleft}
+
 \subsection{Rational residue-class laws: a stronger inverse theorem}
 
 The preceding inverse theorem extends beyond a common leading coefficient.
