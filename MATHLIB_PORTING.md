@@ -257,6 +257,12 @@ Each real candidate file should:
 
 | `PrimeFactorOscillations.Mathlib.Analysis.SpecialFunctions.Log.ExplicitLinear` | `Mathlib/Analysis/SpecialFunctions/Log/ExplicitLinear.lean` | project-verified | Explicit upper bounds log(5) <= 9/5 and log(n) <= (9/25)n for n >= 5, recovered from the checked cutoff proof. |
 
+## Cyclotomic local probability counts
+
+| Module | Proposed destination | Readiness | Scope |
+| --- | --- | --- | --- |
+| `PrimeFactorOscillations.Mathlib.FieldTheory.Finite.Cyclotomic` | `Mathlib/FieldTheory/Finite/Cyclotomic.lean` | project-verified | Exact cyclotomic root count over finite fields, including the empty-root case and the explicit nonramification hypothesis. |
+
 Readiness should be one of: `extracting`, `project-verified`, `mathlib-ready`,
 `submitted`, or `upstreamed`. A module is `mathlib-ready` only after it has an
 identified destination, no project dependency, focused tests, and a clean

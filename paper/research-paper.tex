@@ -6748,6 +6748,51 @@ mean. The preceding character identity supplies the Mellin residue after
 multiplication by $\varphi(q)$.
 \end{proof}
 
+\begin{theorem}[Exact finite cyclotomic sampling]
+\label{thm:cyclotomic-finite-sampling}
+Fix $q\ge2$ and a finite set $S$ of primes. Sample $U$ uniformly modulo
+$M_S=\prod_{p\in S}p$, and define
+\[
+ B_p(U)={\bf1}_{p\nmid q,\ p\mid\Phi_q(U)},\qquad
+ \theta_{q,p}=
+ \begin{cases}
+  \varphi(q)/p,&p\nmid q,\ p\equiv1\pmod q,\\
+  0,&\text{otherwise}.
+ \end{cases}
+\]
+For every prescribed pattern $\varepsilon:S\to\{0,1\}$,
+\[
+ \Pr(B_p(U)=\varepsilon_p\text{ for all }p\in S)
+ =
+ \prod_{\substack{p\in S\\\varepsilon_p=1}}\theta_{q,p}
+ \prod_{\substack{p\in S\\\varepsilon_p=0}}(1-\theta_{q,p}).
+\]
+All factors satisfy $0\le\theta_{q,p}<1$. In particular, every $p\le q$
+has $\theta_{q,p}=0$. The statement includes $S=\varnothing$, with
+$M_S=1$ and both products equal to one.
+\end{theorem}
+
+\begin{proof}
+Chinese remaindering bijects scalar residues modulo $M_S$ with tuples
+$(u_p)_{p\in S}\in\prod_{p\in S}\mathbb F_p$. A success coordinate has
+$\rho_q(p)$ permitted values, and a failure coordinate has
+$p-\rho_q(p)$, where $\rho_q(p)=p\theta_{q,p}$ includes the depleted case.
+The number of tuples giving the pattern is therefore exactly
+\[
+ \prod_{\substack{p\in S\\\varepsilon_p=1}}\rho_q(p)
+ \prod_{\substack{p\in S\\\varepsilon_p=0}}(p-\rho_q(p)).
+\]
+Dividing by $M_S$ proves the formula. The preceding cyclotomic root
+calculation gives the local probabilities. If a nondepleted success
+is possible, $q\mid p-1$, so $q\le p-1$ and
+$\varphi(q)\le q<p$. This also excludes every $p\le q$.
+\end{proof}
+
+This is an exact law for each fixed finite divisor support, without a
+sampling-limit error. It asserts independence across divisor primes for
+fixed $q$. Different cyclotomic families evaluated at the same scalar
+need not be independent.
+
 Thus polynomial inputs realize the intrinsic progression observable,
 including quadratic and quartic examples:
 \[
@@ -6767,11 +6812,24 @@ The local first-order term is character dependent; this argument does not
 silently qualify the law as a pointwise quadratic perturbation of the
 canonical prime law.
 
-The character-folding, cyclotomic and weighted-mean argument here is an ordinary
-derivation, not yet a Lean compilation or a priority claim. It identifies
-a concrete class-only probability observable and an explicit remaining
-arithmetic estimate. Existence of primes or progressions in the class
-does not itself provide that estimate.
+The finite-field root counts, their prime-modulus specialization, strict
+local probabilities, the actual \texttt{PrimeClockLaw}, its general
+coefficient comparison, and the full finite sampling law are checked in
+Lean. The maintained owners, under the project namespace, are
+\begin{quote}\small\ttfamily
+Mathlib/FieldTheory/Finite/Cyclotomic.lean\\
+Helpers/CyclotomicProbability.lean\\
+Helpers/CyclotomicSampling.lean
+\end{quote}
+All nineteen declarations have only the standard foundational axioms
+in their audits. The weighted expectation formula is an ordinary
+consequence of the checked finite distribution and linearity of
+expectation; it has no separately checked declaration here.
+Character folding and the analytic continuation argument remain ordinary
+written proofs, with no priority claim. They identify a concrete class-only
+probability observable and an explicit remaining arithmetic estimate.
+Existence of primes or progressions in the class does not itself provide
+that estimate.
 
 \subsection{Rational residue-class laws: a stronger inverse theorem}
 
