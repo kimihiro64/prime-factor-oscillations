@@ -4615,6 +4615,151 @@ same arithmetic hypotheses, without a new arithmetic cost estimate or
 an improved RH boundary.
 \end{flushleft}
 
+\subsection{Nonlinear coercivity and the half-reference window}
+
+The preceding localization used a tangent estimate for each entering
+coordinate. Integrating the exact compensated kernel gives a stronger
+bound on the whole signed transport. Fix a cutoff $n\ge0$ and put
+$r=p_n$, with the prefix containing exactly $n+1$ primes. The probe
+$t>0$ is arbitrary and may be chosen independently at each cutoff.
+Write
+\[
+ \begin{split}
+ B_t(x)&=\log(1+t/x)-t/x,\\
+ N_t(r;p,q)&=\frac{r^2(r+t)}{t^2}\bigl(B_t(q)-B_t(p)\bigr),\\
+ f_r(d)&=\frac r2\left(1-\frac{r^2}{(r+d)^2}\right).
+ \end{split}
+\]
+In the gauge $f_r$ we require $r>0$ and $d\ge0$.
+
+\begin{theorem}[Full signed nonlinear coercivity]
+For every prime-coordinate permutation, every cutoff, and every
+positive probe, the complete displacement and normalized cost satisfy
+\[
+ 0\le S_n,\qquad
+ f_r(S_n)\le D_n(t).
+\]
+Consequently, if $D_n(t)\le C<r/2$, then
+\[
+ S_n\le r\left(\frac1{\sqrt{1-2C/r}}-1\right).
+\]
+The hypotheses imply $C\ge0$. Every denominator is positive on the
+stated domain.
+\end{theorem}
+
+\begin{proof}
+The exact kernel is
+\[
+ B_t'(x)=\frac{t^2}{x^2(x+t)}\qquad(x>0).
+\]
+For an entering coordinate $q\ge r$, the function
+\[
+ F(x)=\frac{r^2(r+t)}{t^2}B_t(x)+\frac{r^3}{2x^2}
+\]
+has derivative
+\[
+ F'(x)=\frac{r^2t(x-r)}{x^3(x+t)}\ge0
+       \qquad(r\le x\le q).
+\]
+Comparing its endpoint values gives the probe-uniform inequality
+\[
+ N_t(r;r,q)\ge\frac r2\left(1-\frac{r^2}{q^2}\right)
+             =f_r(q-r).
+\]
+For a leaving coordinate $0<p\le r$, the maintained exact lower
+comparison gives
+\[
+ N_t(r;p,r)\ge r\left(\frac rp-1\right)\ge r-p
+             \ge f_r(r-p).
+\]
+The middle inequality follows from
+$r(r/p-1)-(r-p)=(r-p)^2/p\ge0$. For the last inequality, the exact
+identity
+\[
+ d-f_r(d)=\frac{d^2(3r+2d)}{2(r+d)^2}\ge0
+\]
+holds for every $d\ge0$; also $f_r(d)\ge0$.
+
+The gauge is subadditive. To see this without changing any signed
+main term, set
+\[
+ a=\frac r{r+x},\quad b=\frac r{r+y},\quad
+ c=\frac r{r+x+y}\qquad(x,y\ge0).
+\]
+Then $0\le a,b,c\le1$ and
+\[
+ c-ab=\frac{rxy}{(r+x)(r+y)(r+x+y)}\ge0.
+\]
+Hence $c^2\ge a^2b^2$, and
+\[
+ 1-c^2\le1-a^2b^2
+  =(1-a^2)+(1-b^2)-(1-a^2)(1-b^2)
+  \le(1-a^2)+(1-b^2).
+\]
+Multiplying by $r/2$ proves
+$f_r(x+y)\le f_r(x)+f_r(y)$; induction gives its finite-sum form.
+
+Let
+\[
+ E_n=e(\{0,\ldots,n\})\setminus\{0,\ldots,n\},\qquad
+ L_n=\{0,\ldots,n\}\setminus e(\{0,\ldots,n\}).
+\]
+They have equal cardinality. Cancelling common coordinates and
+retaining the boundary reference gives the exact identities
+\[
+ \begin{split}
+ S_n&=\sum_{j\in E_n}(p_j-r)+\sum_{j\in L_n}(r-p_j),\\
+ D_n(t)&=\sum_{j\in E_n}N_t(r;r,p_j)
+          +\sum_{j\in L_n}N_t(r;p_j,r).
+ \end{split}
+\]
+Each displacement is nonnegative. Apply finite subadditivity to the
+first identity and the scalar bounds to each reference cost in the
+second. This proves $0\le f_r(S_n)\le D_n(t)$ and $S_n\ge0$.
+No estimate of the magnitudes of the original signed terms is used.
+
+Finally, $f_r(S_n)\le C<r/2$ implies
+\[
+ 0<1-\frac{2C}{r}\le
+       \left(\frac r{r+S_n}\right)^2.
+\]
+Both square roots are nonnegative, and $r+S_n>0$, so
+\[
+ \sqrt{1-2C/r}\,(r+S_n)\le r.
+\]
+Division by the strictly positive square root proves the displayed
+localization. Nonnegativity of the gauge also gives $C\ge0$.
+\end{proof}
+
+The finite-set theorem is more general than the prime specialization:
+it applies to any two equal-cardinality finite sets whose retained
+coordinates lie on the stated sides of a positive reference.
+Only the leaving coordinates need an explicit positivity hypothesis;
+the entering coordinates are automatically positive.
+
+This extends the available localization domain from $C<r/4$ to
+$C<r/2$. Within the former domain the new upper bound approaches
+$r(\sqrt2-1)$ as $C$ increases to $r/4$, whereas the old bound
+$S_n\le4C$ approaches $r$. The new theorem includes the first prime
+$r=2$, every finite permutation, and zero displacement.
+It makes no even-integer readout assertion at the exceptional first
+prime and does not assume an eventual prime-ratio estimate.
+The boundary prime is $p_n$ throughout, while both finite prefixes
+have length $n+1$; there is no shift to $p_{n+1}$ in the cost.
+
+\begin{flushleft}
+The exact derivative, integrated reference costs, subadditive gauge,
+finite signed assembly and inverse bound are compiled in
+\path{Mathlib/Analysis/SpecialFunctions/Log/CompensatedReciprocalCoercivity.lean}.
+The prime-profile coercivity and half-reference localization are compiled in
+\path{Helpers/PrimeProfileNonlinearCoercivity.lean}.
+The public export is
+\path{Assembly/ProbabilityProfiles.lean}.
+This is a stronger estimate of the finite probability-profile cost.
+It does not estimate the outstanding signed M\"obius packet, and the
+certified unconditional RH boundary remains $7/8$.
+\end{flushleft}
+
 \subsection{Rational residue-class laws: a stronger inverse theorem}
 
 The preceding inverse theorem extends beyond a common leading coefficient.
