@@ -7124,6 +7124,179 @@ zero-factor argument above and is not a separately named declaration in
 this batch. All comparisons here use the displayed probability-centred
 compensation.
 
+\subsection{Special integers: reciprocal-divisor fingerprints}
+
+Directly sampling a special sequence and sampling divisors of one of
+its members are different experiments. The latter gives a single exact
+probability model for every positive integer, without an infinitude
+assumption on the class from which that integer is selected.
+For $n\ge1$, choose $d\mid n$ with probability
+\[
+ {\mathbb P}_n(d)=
+ \frac{d^{-1}}{\sum_{e\mid n}e^{-1}},\qquad
+ P_n(z)={\mathbb E}_n z^{\omega(d)}.
+\]
+Here $\omega(d)$ counts distinct prime factors and $\omega(1)=0$.
+The divisor involution $d\mapsto n/d$ gives
+$\sum_{d\mid n}d^{-1}=\sigma(n)/n$, so $P_n(0)=n/\sigma(n)$.
+
+\begin{theorem}[Complete prime-power recovery and unitary divisibility]
+\label{thm:divisor-profile-unitary}
+For positive integers $n,m$, the zero set of $P_n$ determines $n$.
+More precisely, put
+\[
+ S_{p,a}=1+p+\cdots+p^{a-1},\qquad a\ge1.
+\]
+The zeros of $P_n$ are exactly the distinct simple numbers
+\[
+ -\frac{p^a}{S_{p,a}}\qquad(p^a\Vert n).
+\]
+Consequently,
+\[
+ \begin{split}
+ Z(P_n)=Z(P_m)&\quad\Longleftrightarrow\quad n=m,\\
+ Z(P_n)\subseteq Z(P_m)&\quad\Longleftrightarrow\quad
+ \exists\,k\ge1:\ m=nk,\ \gcd(n,k)=1.
+ \end{split}
+\]
+For $n=1$ the zero set is empty. Both conclusions also hold for
+the canonically compensated profiles
+\[
+ \mathcal D_n(z)=e^{-\mu_n(z-1)}P_n(z),\qquad
+ \mu_n=\sum_{p^a\Vert n}\frac{S_{p,a}}{p^a+S_{p,a}}.
+\]
+\end{theorem}
+
+\begin{proof}
+Under reciprocal divisor weight the exponent choices at distinct
+primes are independent, since both the support and the weight factor:
+\[
+ P_n(z)=
+ \prod_{p^a\Vert n}
+ \frac{1+z\sum_{j=1}^{a}p^{-j}}
+      {1+\sum_{j=1}^{a}p^{-j}}
+ =
+ \prod_{p^a\Vert n}
+ \frac{p^a+S_{p,a}z}{p^a+S_{p,a}}.
+\]
+Each linear factor has the displayed zero.
+Since $S_{p,a}\equiv1\pmod p$, the fraction $p^a/S_{p,a}$
+is reduced. Its positive numerator therefore identifies the prime
+$p$ and the exponent $a$. In particular, distinct prime powers from
+different prime coordinates cannot contribute the same zero.
+The product has exactly one factor for each positive prime valuation,
+so all its zeros are simple. Its zero set recovers every positive
+valuation and hence the integer.
+
+Inclusion of the zero sets says that every prime dividing $n$
+occurs in $m$ with exactly the same exponent. This is equivalent to
+$m=nk$ with no prime common to $n$ and $k$. Conversely, such a
+coprime factorization retains precisely those prime-power factors
+of $P_n$ in $P_m$. Finally the exponential compensation never
+vanishes, so it changes neither zero set.
+\end{proof}
+
+The profile itself is a finite compensated Bernoulli product with
+success probabilities $S_{p,a}/(p^a+S_{p,a})$.
+The maintained Lean results prove its exact zero formula, recover
+arbitrary square-summable prime-indexed exponent functions, discharge
+summability for every integer factorization, and prove the two integer
+equivalences for $\mathcal D_n$, including unitary divisibility.
+Their transfer to $P_n$ uses the ordinary product identity above.
+There are fourteen checked declarations in
+\begin{quote}\small\ttfamily
+Mathlib/NumberTheory/Primes/BernoulliDivisorProfile.lean\\
+Mathlib/NumberTheory/Primes/ReciprocalDivisorInteger.lean
+\end{quote}
+under the project namespace, with only standard foundational axioms.
+The finite weighted-divisor sampling identity in the displayed product
+is proved ordinarily here; it is not yet a separately named Lean
+sampling adapter. No priority claim is made for this inverse statement.
+
+This fingerprint retains substantially more information than
+abundancy alone. For example, both $6$ and $28$ are perfect, so both
+have $P_n(0)=1/2$, but their zero sets are respectively
+$\{-2,-3\}$ and $\{-4/3,-7\}$.
+Zero-set inclusion also differs from ordinary divisibility:
+$2\mid4$, but the zero $-2$ of $P_2$ is absent from $P_4$,
+whose zero is $-4/3$.
+
+\paragraph{The classical RH criterion in the same model.}
+Robin's criterion, together with its colossally abundant
+counterexample reduction, gives
+\[
+ \mathrm{RH}\quad\Longleftrightarrow\quad
+ P_n(0)>\frac{e^{-\gamma}}{\log\log n}
+ \quad\hbox{for every integer }n\ge5041.
+\]
+One may equivalently quantify over just the colossally abundant
+integers $n\ge5041$, or over just the superabundant integers in that
+range: a counterexample exists among the former if RH fails, and
+they are contained in the latter. These are translations of the
+classical criterion, not new independent estimates
+\cite[Section~2 and equation~(1.2)]{Lagarias}.
+The denominator is positive on the stated range. Compensation
+must be undone before reading this probability:
+$P_n(0)=e^{-\mu_n}\mathcal D_n(0)$, rather than
+$\mathcal D_n(0)$ itself.
+
+\paragraph{What the named classes contribute.}
+The common divisor model above applies to every existing member of
+each class. Its relation to direct sampling is as follows.
+\begin{description}
+\item[Sophie Germain primes.]
+For primes $p$ with $2p+1$ prime, direct counts are
+$\omega(p)=1$ and $\omega(p(2p+1))=2$.
+They have no growing distinct-factor rank regime.
+No infinitude assumption is made. The integer fingerprint is valid
+for each such $p$ or product; conditioning a polynomial sieve family
+on both outputs being prime needs its own sampling theorem.
+\item[Fermat and Mersenne primes.]
+Use the precise values $2^{2^j}+1$ with $j\ge0$, or $2^j-1$
+with $j\ge2$, only when prime.
+Their individual divisor profiles each have one zero, at the
+negative prime itself. This neither assumes infinitely many such
+primes nor transfers an index cutoff to a divisor cutoff.
+Uniform residue sampling of a cyclotomic polynomial is a separate
+experiment from evaluating it at the fixed base $2$.
+\item[Even and odd perfect numbers.]
+Every hypothetical or actual perfect integer has $P_n(0)=1/2$.
+For even perfect numbers the Euclid--Euler form specifies the two
+prime coordinates and their exponents; the full profile retains them.
+For odd perfect numbers the statement is conditional on a witness,
+without assuming one exists. At $n\ge5041$ the value $1/2$ already
+satisfies Robin's probability inequality, so restricting that
+inequality to perfect numbers supplies no stronger RH criterion.
+\item[Superabundant and colossally abundant numbers.]
+Under the strict record convention, superabundant integers are
+exactly the strict lower records of $P_n(0)$.
+For a fixed $\epsilon>0$, a colossally abundant optimizer minimizes
+$n^\epsilon P_n(0)$; all maximizing ties in the usual non-strict
+definition are retained. These classes lie in the actual extremal
+regime of the RH criterion. Exact reconstruction does not estimate
+their probability relative to the critical threshold.
+\item[Fibonacci values.]
+Take $F_0=0,F_1=1$ and values $F_j$ for $j\ge2$,
+distinguishing all Fibonacci values from Fibonacci primes.
+Each positive value has the exact divisor fingerprint.
+Uniform index sampling instead gives local divisibility through
+ranks of apparition; simultaneous events are controlled by the
+least common multiple of those ranks, so independence requires
+a separate justification. The index cutoff, the value $F_j$,
+and a prime-divisor cutoff are distinct parameters.
+\item[Primorials, factorials and highly composite numbers.]
+They also fit the finite model. A primorial uses exponent one at
+each supported prime, whereas factorials and the extremal classes
+retain nontrivial exponents. Direct sampling of these sequences
+can force every fixed small prime in the limit, so a finite rank
+shift does not justify applying a positive-rank prime clock to
+that direct measure.
+\end{description}
+The zero-set theorem is uniform over positive integers and requires
+no class-specific existence theorem. An RH implication still needs
+the appropriate independent inequality or a proved transfer of its
+probability law; injective encoding alone supplies neither.
+
 \subsection{Rational residue-class laws: a stronger inverse theorem}
 
 The preceding inverse theorem extends beyond a common leading coefficient.

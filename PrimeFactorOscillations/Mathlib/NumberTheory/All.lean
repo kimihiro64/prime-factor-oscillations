@@ -7,12 +7,12 @@ import PrimeFactorOscillations.Mathlib.FieldTheory.Finite.Cyclotomic
 import PrimeFactorOscillations.Mathlib.NumberTheory.ArithmeticFunction.All
 import PrimeFactorOscillations.Mathlib.NumberTheory.Chebyshev.All
 import PrimeFactorOscillations.Mathlib.NumberTheory.DirichletCharacter.All
-import PrimeFactorOscillations.Mathlib.NumberTheory.GaussSum.RamifiedPermutation
-import PrimeFactorOscillations.Mathlib.NumberTheory.GaussSum.TorsionCovariance
+import PrimeFactorOscillations.Mathlib.NumberTheory.GaussSum.All
 import PrimeFactorOscillations.Mathlib.NumberTheory.Metaplectic.QuinticCocycle
 import PrimeFactorOscillations.Mathlib.NumberTheory.Metaplectic.QuinticLocalMass
 import PrimeFactorOscillations.Mathlib.NumberTheory.MulChar.SplitNorm
 import PrimeFactorOscillations.Mathlib.NumberTheory.PrimeCounting.WeightedPrefix
+import PrimeFactorOscillations.Mathlib.NumberTheory.Primes.ReciprocalDivisorInteger
 import PrimeFactorOscillations.Mathlib.NumberTheory.SmoothNumbers.All
 import PrimeFactorOscillations.Mathlib.NumberTheory.SumTwoSquares.InertDivisor
 

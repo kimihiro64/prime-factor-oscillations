@@ -275,6 +275,19 @@ Each real candidate file should:
 | --- | --- | --- | --- |
 | `PrimeFactorOscillations.Mathlib.NumberTheory.Primes.BernoulliProfile` | `Mathlib/NumberTheory/Primes/BernoulliProfile.lean` | project-verified | Exact prime-labelled recovery of arbitrary proper root probabilities from the zero set of their square-summable compensated Bernoulli profile; explicit prime zero locations and common zeros iff an agreeing positive prime coordinate; uniform bounded-count zero separation and unique approximate prime-label recovery; no leading asymptotic or tail ordering. |
 
+## Reciprocal-divisor prime-power reconstruction
+
+| Module | Proposed destination | Readiness | Scope |
+| --- | --- | --- | --- |
+| `PrimeFactorOscillations.Mathlib.NumberTheory.Primes.BernoulliDivisorProfile` | `Mathlib/NumberTheory/Primes/BernoulliDivisorProfile.lean` | project-verified | Reduced prime-power zero labels recover each prime and exponent; exact zero-set inclusion and equality for square-summable reciprocal-divisor Bernoulli profiles, including absent primes. |
+| `PrimeFactorOscillations.Mathlib.NumberTheory.Primes.ReciprocalDivisorInteger` | `Mathlib/NumberTheory/Primes/ReciprocalDivisorInteger.lean` | project-verified | Finite-support summability for integer factorizations; exact positive-integer recovery from profile zero sets; zero-set inclusion iff unitary divisibility, including the unit case. |
+
+## Gauss-sum domain exports
+
+| Module | Proposed destination | Readiness | Scope |
+| --- | --- | --- | --- |
+| `PrimeFactorOscillations.Mathlib.NumberTheory.GaussSum.All` | `Mathlib/NumberTheory/GaussSum/All.lean` | project-verified | Import-only grouping of existing reusable Gauss-sum candidates; preserves the root and number-theory facade import budgets. |
+
 Readiness should be one of: `extracting`, `project-verified`, `mathlib-ready`,
 `submitted`, or `upstreamed`. A module is `mathlib-ready` only after it has an
 identified destination, no project dependency, focused tests, and a clean
