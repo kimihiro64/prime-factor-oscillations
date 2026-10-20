@@ -3974,6 +3974,123 @@ The coefficient cancellation is elementary; no literature-priority claim
 is made for this quantitative application to prime-profile transport.
 \end{flushleft}
 
+\subsection{Geometric compensation and stable logarithmic-moment readout}
+
+For an integer $m\ge0$, define the centered reciprocal polynomial
+\[
+ \Psi_{m,r}(p)=r\sum_{j=1}^m(1-r/p)^j,\qquad
+ P_{m,n}=\sum_{i=0}^n
+       \bigl(\Psi_{m,r}(p_{\sigma(i)})-\Psi_{m,r}(p_i)\bigr),
+ \quad r=p_n.
+\]
+The empty sum is zero. Equivalently,
+\[
+ P_{m,n}=r\sum_{j=1}^m M_{j,n},\qquad
+ M_{j,n}=\sum_{i=0}^n
+    \bigl((1-r/p_{\sigma(i)})^j-(1-r/p_i)^j\bigr).
+\]
+These are finite centered power-sum differences of the probabilities.
+Binomial expansion expresses $M_{j,n}$ using their ordinary power sums
+of degrees at most $j$; the constant terms cancel.
+For $m=2$, the polynomial is $\Phi_r(p)+2r$, so $P_{2,n}=Q_n$.
+
+\begin{theorem}[All even orders preserve the exact transport]
+Suppose one positive probe satisfies $D_n(t)\le C$, with
+$0\le C<r/4$. For every even integer $m=2k\ge0$,
+\[
+ 0\le S_n-P_{m,n}\le4C(4C/r)^m.
+\]
+If $r\ge3$ and $4C(4C/r)^m<2$, the exact transport $S_n=2K$
+is the unique nonnegative even integer in $[P_{m,n},P_{m,n}+2)$.
+\end{theorem}
+\begin{proof}
+The finite geometric identity gives, for every $p>0$,
+\[
+ \Psi_{m,r}(p)=(p-r)-\frac{(p-r)^{m+1}}{p^m},
+ \qquad \Psi_{m,r}(r)=0.
+\]
+One may verify the identity by induction on $m$; the successor adds
+$r(1-r/p)^{m+1}$ and cancels the preceding remainder.
+After the same common-coordinate cancellation and equal-cardinality
+reference decomposition as before, evenness of $m$ gives exactly
+\[
+ S_n-P_{m,n}=
+ \sum_{i\in E_n}\frac{(p_i-r)^{m+1}}{p_i^m}
+ +\sum_{i\in L_n}\frac{(r-p_i)^{m+1}}{p_i^m}.
+\]
+Every summand is nonnegative. The proved localization implies that
+the displacement divided by $p_i$ is at most $4C/r$ on both sets.
+Each summand is therefore at most $(4C/r)^m$ times its displacement.
+Their displacement sum is $S_n\le4C$, proving the bound.
+This argument includes $m=0$: both sides reduce to the existing
+transport bound. For the readout statement, $r-C>2$ excludes
+the exceptional prime from the transported sets, and the error
+interval of width less than two identifies the even integer uniquely.
+\end{proof}
+
+\begin{theorem}[Stable recovery from logarithmically many centered moments]
+Suppose $r=p_n\ge3$ and one positive probe satisfies $D_n(t)\le r/8$.
+Put
+\[
+ k=\lfloor\log_4 r\rfloor+1,\qquad m=2k.
+\]
+There is an integer $K\ge0$ with $S_n=2K$ such that, simultaneously
+for every real observation $y$,
+\[
+ |y-P_{m,n}|<\tfrac12
+ \quad\Longrightarrow\quad |y-2K|<1.
+\]
+For each such $y$, $K$ is the unique nonnegative integer $j$
+with $|y-2j|<1$. Thus nearest-even rounding recovers the exact
+transport despite an observation error of almost one half.
+\end{theorem}
+\begin{proof}
+Since $r<4^k$, the preceding signed estimate with $C=r/8$ gives
+\[
+ 0\le S_n-P_{m,n}
+ \le \frac r2(1/2)^{2k}
+ =\frac{r}{2\cdot4^k}<\frac12.
+\]
+The localization window satisfies $r-C=7r/8\ge21/8>2$, so
+$S_n=2K$ for some $K\ge0$.
+If $|y-P_{m,n}|<1/2$, the retained one-sided error gives
+$-1<y-2K<1/2$, hence $|y-2K|<1$.
+Two distinct even integers cannot both be at distance less than one
+from $y$, proving uniqueness with the same $K$ for every observation.
+\end{proof}
+
+The number of centered moments is at most $\log_2 r+2$.
+The noiseless readout needs only
+$m=2\lfloor\log_4 r\rfloor$, using the interval of width two;
+the two extra moments above leave a fixed observation-error allowance.
+For example, if each centered difference $M_{j,n}$ is supplied with
+absolute error at most $1/(4rm)$, the combined observation
+$y=r\sum_{j=1}^m\widehat M_{j,n}$ has error at most $1/4$,
+so the stable readout applies. This last statement follows by the
+finite sum inequality. Its precision concerns the centered differences;
+expanding them into raw powers requires retaining the binomial
+coefficient amplification.
+
+\begin{flushleft}
+The finite geometric identity, reference value and arbitrary-order
+remainder are compiled in
+\path{Mathlib/Analysis/SpecialFunctions/Log/ReciprocalMomentCore.lean}.
+The signed coordinate comparisons are compiled in
+\path{Mathlib/Analysis/SpecialFunctions/Log/ReciprocalMomentTransport.lean}.
+The complete signed estimate, finite readout, explicit degree
+$2\,\operatorname{Nat.log}_4(p_n)$ and uniform noisy readout with degree
+$2(\operatorname{Nat.log}_4(p_n)+1)$ are compiled in
+\path{Helpers/PrimeProfileMomentReadout.lean}.
+Here the natural-number logarithm is the integer base-four logarithm.
+The real-logarithm moment-count inequality and the per-moment
+measurement-error consequence are ordinary mathematical consequences,
+not separate named Lean declarations.
+The error theorem retains $r=2$; the stated even-integer recovery
+certificates explicitly require $r\ge3$.
+The construction improves finite observation accuracy under an
+assumed arithmetic cost bound, and leaves the certified RH boundary unchanged.
+\end{flushleft}
+
 \subsection{Rational residue-class laws: a stronger inverse theorem}
 
 The preceding inverse theorem extends beyond a common leading coefficient.

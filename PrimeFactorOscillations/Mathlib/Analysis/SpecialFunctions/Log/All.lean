@@ -7,6 +7,8 @@ import PrimeFactorOscillations.Mathlib.Analysis.SpecialFunctions.Log.CountingRat
 import PrimeFactorOscillations.Mathlib.Analysis.SpecialFunctions.Log.CubicReciprocalTransport
 import PrimeFactorOscillations.Mathlib.Analysis.SpecialFunctions.Log.CubicRemainder
 import PrimeFactorOscillations.Mathlib.Analysis.SpecialFunctions.Log.DoubleExponential
+import PrimeFactorOscillations.Mathlib.Analysis.SpecialFunctions.Log.ReciprocalMomentCore
+import PrimeFactorOscillations.Mathlib.Analysis.SpecialFunctions.Log.ReciprocalMomentTransport
 import PrimeFactorOscillations.Mathlib.Analysis.SpecialFunctions.Log.SignedIteratedRemainder
 
 /-!

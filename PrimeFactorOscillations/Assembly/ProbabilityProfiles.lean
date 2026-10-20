@@ -11,6 +11,7 @@ import PrimeFactorOscillations.Assembly.PrimeProfileQuadrupletAttainment
 import PrimeFactorOscillations.Helpers.CharacterProbability
 import PrimeFactorOscillations.Helpers.PeakComparison
 import PrimeFactorOscillations.Helpers.PrimeProfileCubicReadout
+import PrimeFactorOscillations.Helpers.PrimeProfileMomentReadout
 import PrimeFactorOscillations.Helpers.PrimeProfilePairwiseRigidity
 import PrimeFactorOscillations.Helpers.PrimeProfileTransportReadout
 
