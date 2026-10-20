@@ -7015,8 +7015,58 @@ Different totients instead give no shared profile zeros.
 These statements concern zeros in $z$, and introduce no new
 Riemann or Dirichlet zero-free estimate.
 
+\begin{theorem}[Uniform separation and stable prime-label recovery]
+\label{thm:prime-profile-stable-recovery}
+Under the hypotheses of Theorem~\ref{thm:prime-denominator-profile-rigidity},
+suppose additionally that $a_p,b_p\le D$ for every prime, where
+$D\ge1$ is an integer.
+Any two distinct zeros $z,w$ drawn from the two profiles satisfy
+\[
+ |z-w|\ge \frac1{D^2}.
+\]
+More precisely, distinct proper prime/count labels $(p,r)$ and
+$(\ell,s)$, with $1\le r<p$, $1\le s<\ell$ and $r,s\le D$,
+satisfy
+\[
+ \left|\left(1-\frac p r\right)
+           -\left(1-\frac\ell s\right)\right|
+       \ge\frac1{rs}\ge\frac1{D^2}.
+\]
+Consequently, an observed complex location within strictly less than
+$1/(2D^2)$ of a zero can match at most one such prime/count label.
+The constants are independent of the height of the zero.
+\end{theorem}
+
+\begin{proof}
+The prime-label argument shows that $ps-\ell r$ is a nonzero integer
+for distinct admissible labels. Its absolute value is at least one.
+Since $r,s>0$, clearing denominators gives
+\[
+ \left|\left(1-\frac p r\right)
+           -\left(1-\frac\ell s\right)\right|
+   =\frac{|ps-\ell r|}{rs}\ge\frac1{rs}\ge\frac1{D^2}.
+\]
+Every profile zero has one of these labels by the exact zero formula,
+which proves separation between any two distinct zeros, including
+zeros taken from different profiles.
+If an observation were within the stated strict tolerance of two
+different labels, the triangle inequality would put their locations
+strictly less than $1/D^2$ apart, contradicting the bound.
+\end{proof}
+
+For the actual progression profiles, take
+$D=\max(\varphi(q),\varphi(r))$ for fixed $q,r\ge2$.
+Then every distinct pair of zeros from $\mathcal C_q$ and
+$\mathcal C_r$ has distance at least $D^{-2}$.
+This is a uniform lower bound, with no optimality claim.
+It concerns accuracy of zero locations: a bound on the error in
+function values alone still needs a separate analytic estimate to
+control the displacement of zeros. The determinant inequality used
+in the proof is elementary; the conclusion here is its application
+to exact and approximate prime-labelled profile recovery.
+
 The reconstruction statements and actual cyclotomic application have
-seventeen checked declarations in the maintained owners
+twenty-two checked declarations in the maintained owners
 \begin{quote}\small\ttfamily
 Mathlib/NumberTheory/Primes/BernoulliProfile.lean\\
 Helpers/CyclotomicProfileRigidity.lean

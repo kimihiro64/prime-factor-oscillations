@@ -267,7 +267,7 @@ Each real candidate file should:
 
 | Module | Proposed destination | Readiness | Scope |
 | --- | --- | --- | --- |
-| `PrimeFactorOscillations.Mathlib.NumberTheory.Primes.BernoulliProfile` | `Mathlib/NumberTheory/Primes/BernoulliProfile.lean` | project-verified | Exact prime-labelled recovery of arbitrary proper root probabilities from the zero set of their square-summable compensated Bernoulli profile; explicit prime zero locations and common zeros iff an agreeing positive prime coordinate; no leading asymptotic or tail ordering. |
+| `PrimeFactorOscillations.Mathlib.NumberTheory.Primes.BernoulliProfile` | `Mathlib/NumberTheory/Primes/BernoulliProfile.lean` | project-verified | Exact prime-labelled recovery of arbitrary proper root probabilities from the zero set of their square-summable compensated Bernoulli profile; explicit prime zero locations and common zeros iff an agreeing positive prime coordinate; uniform bounded-count zero separation and unique approximate prime-label recovery; no leading asymptotic or tail ordering. |
 
 Readiness should be one of: `extracting`, `project-verified`, `mathlib-ready`,
 `submitted`, or `upstreamed`. A module is `mathlib-ready` only after it has an

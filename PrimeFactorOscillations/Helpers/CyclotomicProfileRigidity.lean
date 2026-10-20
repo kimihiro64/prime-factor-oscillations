@@ -183,4 +183,18 @@ theorem bernoulliProfile_no_common_zero_of_totient_ne
   intro h
   exact hphi ((bernoulliProfile_common_zero_iff q r hq hr z).mp h).1
 
+/-- Distinct zeros across two progression profiles have a uniform degree gap. -/
+theorem bernoulliProfile_zeros_separated
+    (q r : Nat) (z w : Complex)
+    (hz : bernoulliProfile q z = 0) (hw : bernoulliProfile r w = 0)
+    (hne : Not (z = w)) :
+    (1 : Real) / ((max (Nat.totient q) (Nat.totient r) : Nat) : Real) ^ 2 <=
+      dist z w := by
+  exact Complex.canonicalBernoulliProfile_prime_zeros_separated
+    (max (Nat.totient q) (Nat.totient r)) (count q) (count r)
+    (count_lt_prime q) (count_lt_prime r)
+    (fun p => (count_le_totient q p).trans (Nat.le_max_left _ _))
+    (fun p => (count_le_totient r p).trans (Nat.le_max_right _ _))
+    (summable_probability_sq q) (summable_probability_sq r) z w hz hw hne
+
 end PrimeFactorOscillations.CyclotomicProbability

@@ -45,6 +45,50 @@ theorem eq_of_prime_proper_fraction_eq
   subst q
   exact Nat.eq_of_mul_eq_mul_right hp.pos hcross
 
+/-- Distinct prime/count labels have an explicit integer-determinant gap. -/
+theorem prime_label_zero_separation
+    (p q r s : Nat) (hp : Nat.Prime p) (hq : Nat.Prime q)
+    (hr : 0 < r) (hs : 0 < s) (hrp : r < p)
+    (hne : Not (And (p = q) (r = s))) :
+    (1 : Real) / ((r : Real) * s) <=
+      abs ((1 - (p : Real) / r) - (1 - (q : Real) / s)) := by
+  have hp0 : Not ((p : Real) = 0) := by exact_mod_cast hp.ne_zero
+  have hq0 : Not ((q : Real) = 0) := by exact_mod_cast hq.ne_zero
+  have hrR : (0 : Real) < r := by exact_mod_cast hr
+  have hsR : (0 : Real) < s := by exact_mod_cast hs
+  have hdet : Not (p * s = q * r) := by
+    intro h
+    have hcross : r * q = s * p := by
+      simpa only [Nat.mul_comm] using h.symm
+    apply hne
+    apply eq_of_prime_proper_fraction_eq p q r s hp hq hr hrp
+    apply (_root_.div_eq_div_iff hp0 hq0).mpr
+    exact_mod_cast hcross
+  have hunit : (1 : Real) <=
+      abs (((p * s : Nat) : Real) - ((q * r : Nat) : Real)) := by
+    cases lt_or_gt_of_ne hdet with
+    | inl hlt =>
+        have hstep : ((p * s : Nat) : Real) + 1 <= ((q * r : Nat) : Real) := by
+          exact_mod_cast Nat.succ_le_of_lt hlt
+        have hneg : ((p * s : Nat) : Real) - ((q * r : Nat) : Real) < 0 := by
+          exact sub_neg.mpr (by exact_mod_cast hlt)
+        rw [abs_of_neg hneg]
+        linarith
+    | inr hgt =>
+        have hstep : ((q * r : Nat) : Real) + 1 <= ((p * s : Nat) : Real) := by
+          exact_mod_cast Nat.succ_le_of_lt hgt
+        have hpos : 0 < ((p * s : Nat) : Real) - ((q * r : Nat) : Real) := by
+          exact sub_pos.mpr (by exact_mod_cast hgt)
+        rw [abs_of_pos hpos]
+        linarith
+  have hid : (1 - (p : Real) / r) - (1 - (q : Real) / s) =
+      ((q : Real) * r - (p : Real) * s) / ((r : Real) * s) := by
+    field_simp [ne_of_gt hrR, ne_of_gt hsR]
+    ring
+  rw [hid, abs_div, abs_of_pos (mul_pos hrR hsR)]
+  apply _root_.div_le_div_of_nonneg_right _ (mul_pos hrR hsR).le
+  simpa only [Nat.cast_mul, abs_sub_comm] using hunit
+
 end Nat
 
 namespace Complex
@@ -194,5 +238,71 @@ theorem canonicalBernoulliProfile_prime_counts_common_zero_iff
     apply (canonicalBernoulliProfile_prime_counts_eq_zero_iff b hb hsb z).mpr
     rw [hp.2.1] at hp
     exact Exists.intro p (And.intro hp.1 hp.2.2) }
+
+/-- A bounded local root count gives a height-independent profile-zero gap. -/
+theorem prime_label_zero_separation_bounded
+    (D p q r s : Nat) (hp : Nat.Prime p) (hq : Nat.Prime q)
+    (hr : 0 < r) (hs : 0 < s) (hrp : r < p)
+    (hrD : r <= D) (hsD : s <= D)
+    (hne : Not (And (p = q) (r = s))) :
+    (1 : Real) / (D : Real) ^ 2 <=
+      dist (1 - (p : Complex) / r) (1 - (q : Complex) / s) := by
+  have hrR : (0 : Real) < r := by exact_mod_cast hr
+  have hsR : (0 : Real) < s := by exact_mod_cast hs
+  have hprod : (r : Real) * s <= (D : Real) ^ 2 := by
+    rw [pow_two]
+    exact_mod_cast Nat.mul_le_mul hrD hsD
+  have hsep := Nat.prime_label_zero_separation p q r s hp hq hr hs hrp hne
+  have hsepC : (1 : Real) / ((r : Real) * s) <=
+      dist (1 - (p : Complex) / r) (1 - (q : Complex) / s) := by
+    simpa only [dist_eq_norm, <- Complex.ofReal_natCast, <- Complex.ofReal_one,
+      <- Complex.ofReal_div, <- Complex.ofReal_sub, Complex.norm_real,
+      Real.norm_eq_abs] using hsep
+  exact (div_le_div_of_nonneg_left zero_le_one (mul_pos hrR hsR) hprod).trans hsepC
+
+/-- A noisy zero location within half the gap has a unique prime/count label. -/
+theorem prime_label_eq_of_close_zero_locations
+    (D p q r s : Nat) (hp : Nat.Prime p) (hq : Nat.Prime q)
+    (hr : 0 < r) (hs : 0 < s) (hrp : r < p)
+    (hrD : r <= D) (hsD : s <= D) (u : Complex)
+    (hu : dist u (1 - (p : Complex) / r) < 1 / (2 * (D : Real) ^ 2))
+    (hv : dist u (1 - (q : Complex) / s) < 1 / (2 * (D : Real) ^ 2)) :
+    And (p = q) (r = s) := by
+  by_contra hne
+  have hsep := prime_label_zero_separation_bounded D p q r s hp hq hr hs hrp hrD hsD hne
+  have htriangle := dist_triangle (1 - (p : Complex) / r) u
+    (1 - (q : Complex) / s)
+  rw [dist_comm (1 - (p : Complex) / r) u] at htriangle
+  have hD : (0 : Real) < D := by exact_mod_cast Nat.lt_of_lt_of_le hr hrD
+  have hhalf : (1 : Real) / (2 * (D : Real) ^ 2) +
+      1 / (2 * (D : Real) ^ 2) = 1 / (D : Real) ^ 2 := by
+    field_simp [ne_of_gt hD]
+    ring
+  linarith
+
+/-- The same separation holds between zeros from any two bounded-count profiles. -/
+theorem canonicalBernoulliProfile_prime_zeros_separated
+    (D : Nat) (a b : Nat.Primes -> Nat)
+    (ha : forall p, a p < (p : Nat)) (hb : forall p, b p < (p : Nat))
+    (hDa : forall p, a p <= D) (hDb : forall p, b p <= D)
+    (hsa : Summable (fun p : Nat.Primes => ((a p : Real) / (p : Nat)) ^ 2))
+    (hsb : Summable (fun p : Nat.Primes => ((b p : Real) / (p : Nat)) ^ 2))
+    (z w : Complex)
+    (hz : canonicalBernoulliProfile (fun p : Nat.Primes => (a p : Real) / (p : Nat)) z = 0)
+    (hw : canonicalBernoulliProfile (fun p : Nat.Primes => (b p : Real) / (p : Nat)) w = 0)
+    (hne : Not (z = w)) :
+    (1 : Real) / (D : Real) ^ 2 <= dist z w := by
+  choose p hp using (canonicalBernoulliProfile_prime_counts_eq_zero_iff a ha hsa z).mp hz
+  choose q hq using (canonicalBernoulliProfile_prime_counts_eq_zero_iff b hb hsb w).mp hw
+  have hlabels : Not (And ((p : Nat) = (q : Nat)) (a p = b q)) := by
+    intro h
+    apply hne
+    calc
+      z = 1 - (p : Nat) / (a p : Complex) := hp.2
+      _ = 1 - (q : Nat) / (b q : Complex) := by rw [h.1, h.2]
+      _ = w := hq.2.symm
+  rw [hp.2, hq.2]
+  exact prime_label_zero_separation_bounded D (p : Nat) (q : Nat) (a p) (b q)
+    p.property q.property hp.1 hq.1 (ha p) (hDa p) (hDb q) hlabels
 
 end Complex
