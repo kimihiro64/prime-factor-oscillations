@@ -6971,25 +6971,70 @@ Its zero is $1-p/D$. Every prime satisfying this condition contributes
 to both, which proves the reverse inclusion as well.
 \end{proof}
 
-There is also an explicit entire factor carrying all the common zeros.
-In the equal-totient case, set
+\begin{theorem}[Exact shared-support factorization]\label{thm:cyclotomic-shared-factor}
+Let $q,r\ge2$, $L=\operatorname{lcm}(q,r)$ and $d_m=\varphi(m)$.
+Define the residual entire function
+\[
+ R_{q\setminus r}(z)=
+ \prod_{\substack{p\ {\rm prime}\\q\mid p-1,\ r\nmid p-1}}
+ \left(1+\frac{d_q}{p}(z-1)\right)
+       \exp\!\left(-\frac{d_q}{p}(z-1)\right).
+\]
+Then, with the displayed compensation retained exactly,
+\[
+ \mathcal C_q(z)=
+ \mathcal C_L\!\left(1+\frac{d_q}{d_L}(z-1)\right)
+ R_{q\setminus r}(z).
+\]
+The analogous identity holds with $q,r$ interchanged. Moreover,
+\[
+ R_{q\setminus r}(z)=0
+ \quad\Longleftrightarrow\quad
+ \exists\,p\ {\rm prime}:\quad
+ q\mid p-1,\quad r\nmid p-1,\quad z=1-\frac{p}{d_q}.
+\]
+The two residual functions have disjoint zero sets.
+If $d_q=d_r=D$, the common entire factor is
 \[
  A_{q,r}(z)=
- \mathcal C_L\!\left(1+\frac{D}{\varphi(L)}(z-1)\right).
+ \mathcal C_L\!\left(1+\frac{D}{\varphi(L)}(z-1)\right),
 \]
-Substitution in the local factors gives
+and $\mathcal C_q=A_{q,r}R_{q\setminus r}$,
+$\mathcal C_r=A_{q,r}R_{r\setminus q}$.
+\end{theorem}
+
+\begin{proof}
+The prime support $q\mid p-1$ splits into $L\mid p-1$ and
+$q\mid p-1,\ r\nmid p-1$. On the first part,
 \[
- A_{q,r}(z)=
- \prod_{\substack{p\ {\rm prime}\\p\equiv1\ ({\rm mod}\ L)}}
- (1+(D/p)(z-1))\exp(-(D/p)(z-1)).
+ \eta_q(p)=\frac{d_q}{p}
+         =\frac{d_q}{d_L}\,\eta_L(p).
 \]
-Both $\mathcal C_q$ and $\mathcal C_r$ factor as $A_{q,r}$ times
-the same compensated product restricted to the respective remaining
-prime support. These products converge locally uniformly because the
-squared probabilities are summable. The two remaining products have
-disjoint zero sets, by the same prime-label argument.
-This factorization is an ordinary written consequence here; the
-checked declarations establish the exact zero-set intersection.
+For $B_a(z)=(1+a(z-1))\exp(-a(z-1))$ the exact identity
+$B_{ca}(z)=B_a(1+c(z-1))$ includes both the linear factor and
+the exponential. Squared local probabilities are summable, so the
+products of $B_a$ converge locally uniformly. Equivalently,
+$\sum_p|B_{\eta_q(p)}(z)-1|$ converges for every fixed $z$.
+Splitting this convergent product over the two complementary supports
+therefore proves the factorization, including at its zeros.
+
+The residuals inherit square summability, take local probabilities
+in $[0,1)$, and are entire. The zero theorem for compensated Bernoulli
+products gives the displayed residual zero set. If the two residuals
+shared a zero, their full profiles would share it as well.
+The preceding common-zero theorem forces $d_q=d_r$.
+Their residual prime labels $p,t$ would then satisfy
+$1-p/d_q=1-t/d_q$, hence $p=t$. One residual requires
+$r\nmid p-1$, whereas the other requires $r\mid p-1$,
+a contradiction.
+\end{proof}
+
+The support-partition identity is proved for arbitrary square-summable
+Bernoulli laws and arbitrary, possibly infinite supports. The scaling
+identity itself needs no convergence hypothesis, since its local
+factors agree pointwise. The actual cyclotomic factorization, residual
+entireness and residual zero statements above are kernel checked;
+no division by a profile at a zero is used.
 
 The infinitude in these formulas is unconditional, by Dirichlet's
 theorem in the identity class. More quantitatively, write
@@ -7065,9 +7110,11 @@ control the displacement of zeros. The determinant inequality used
 in the proof is elementary; the conclusion here is its application
 to exact and approximate prime-labelled profile recovery.
 
-The reconstruction statements and actual cyclotomic application have
-twenty-two checked declarations in the maintained owners
+The reconstruction, support-partition and actual cyclotomic results have
+thirty-three checked declarations in the maintained owners
 \begin{quote}\small\ttfamily
+Mathlib/Analysis/SpecialFunctions/Log/\\
+\hspace*{1em}BernoulliProfilePartition.lean\\
 Mathlib/NumberTheory/Primes/BernoulliProfile.lean\\
 Helpers/CyclotomicProfileRigidity.lean
 \end{quote}

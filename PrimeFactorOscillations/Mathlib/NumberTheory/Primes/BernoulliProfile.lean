@@ -4,7 +4,7 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Prime Factor Oscillations contributors
 -/
 import Mathlib.Data.Nat.Prime.Basic
-import PrimeFactorOscillations.Mathlib.Analysis.SpecialFunctions.Log.BernoulliProfileZeros
+import PrimeFactorOscillations.Mathlib.Analysis.SpecialFunctions.Log.BernoulliProfilePartition
 
 /-!
 # Prime-labelled recovery from Bernoulli profile zero sets

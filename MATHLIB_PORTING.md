@@ -263,6 +263,12 @@ Each real candidate file should:
 | --- | --- | --- | --- |
 | `PrimeFactorOscillations.Mathlib.FieldTheory.Finite.Cyclotomic` | `Mathlib/FieldTheory/Finite/Cyclotomic.lean` | project-verified | Exact cyclotomic root count over finite fields, including the empty-root case and the explicit nonramification hypothesis. |
 
+## Partition and rescaling of Bernoulli profiles
+
+| Module | Proposed destination | Readiness | Scope |
+| --- | --- | --- | --- |
+| `PrimeFactorOscillations.Mathlib.Analysis.SpecialFunctions.Log.BernoulliProfilePartition` | `Mathlib/Analysis/SpecialFunctions/Log/BernoulliProfilePartition.lean` | project-verified | Exact support partition, subtype/zero-extension identity, and affine rescaling of square-summable compensated Bernoulli profiles. |
+
 ## Prime-denominator profile reconstruction
 
 | Module | Proposed destination | Readiness | Scope |

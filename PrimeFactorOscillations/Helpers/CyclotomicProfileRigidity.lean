@@ -197,4 +197,165 @@ theorem bernoulliProfile_zeros_separated
     (fun p => (count_le_totient r p).trans (Nat.le_max_right _ _))
     (summable_probability_sq q) (summable_probability_sq r) z w hz hw hne
 
+/-- Prime labels shared by the two identity residue classes. -/
+def sharedPrimeSupport (q r : Nat) : Set Nat.Primes :=
+  {p | Dvd.dvd (Nat.lcm q r) ((p : Nat) - 1)}
+
+/-- The original success probabilities outside the shared prime support. -/
+def residualProbability (q r : Nat) : Nat.Primes -> Real :=
+  (sharedPrimeSupport q r).compl.indicator (probability q)
+
+/-- The remaining compensated product after removing the shared prime support. -/
+def residualProfile (q r : Nat) : Complex -> Complex :=
+  Complex.canonicalBernoulliProfile (residualProbability q r)
+
+theorem residualProbability_nonneg (q r : Nat) (p : Nat.Primes) :
+    0 <= residualProbability q r p := by
+  classical
+  unfold residualProbability
+  by_cases hp : Membership.mem (sharedPrimeSupport q r).compl p
+  { rw [Set.indicator_of_mem hp]
+    exact probability_nonneg q p }
+  { simp [Set.indicator, hp] }
+
+theorem residualProbability_le_one (q r : Nat) (p : Nat.Primes) :
+    residualProbability q r p <= 1 := by
+  classical
+  unfold residualProbability
+  by_cases hp : Membership.mem (sharedPrimeSupport q r).compl p
+  { rw [Set.indicator_of_mem hp]
+    exact (probability_lt_one q p).le }
+  { simp [Set.indicator, hp] }
+
+theorem summable_residualProbability_sq (q r : Nat) :
+    Summable (fun p : Nat.Primes => (residualProbability q r p) ^ 2) := by
+  classical
+  have hs := (summable_probability_sq q).indicator (sharedPrimeSupport q r).compl
+  apply hs.congr
+  intro p
+  by_cases hp : Membership.mem (sharedPrimeSupport q r).compl p <;>
+    simp [residualProbability, Set.indicator, hp]
+
+theorem differentiable_residualProfile (q r : Nat) :
+    Differentiable Complex (residualProfile q r) :=
+  Complex.differentiable_canonicalBernoulliProfile (residualProbability q r)
+    (residualProbability_nonneg q r) (residualProbability_le_one q r)
+    (summable_residualProbability_sq q r)
+
+/-- On the shared support the local probabilities differ by the degree ratio. -/
+theorem shared_probability_eq_scaled_lcm (q r : Nat) (hq : 2 <= q)
+    (hr : 2 <= r) :
+    (sharedPrimeSupport q r).indicator (probability q) =
+      fun p => ((Nat.totient q : Real) / Nat.totient (Nat.lcm q r)) *
+        probability (Nat.lcm q r) p := by
+  classical
+  have hLpos : 0 < Nat.lcm q r := Nat.lcm_pos (by omega) (by omega)
+  have hqL : q <= Nat.lcm q r := Nat.le_of_dvd hLpos (Nat.dvd_lcm_left q r)
+  have hL : 2 <= Nat.lcm q r := hq.trans hqL
+  have hphi : Not ((Nat.totient (Nat.lcm q r) : Real) = 0) := by
+    exact_mod_cast (Nat.totient_pos.mpr hLpos).ne'
+  funext p
+  by_cases hp : Membership.mem (sharedPrimeSupport q r) p
+  { have hdiv : Dvd.dvd (Nat.lcm q r) ((p : Nat) - 1) := hp
+    have hqpos := (count_pos_iff q hq p).mpr (Nat.lcm_dvd_iff.mp hdiv).1
+    have hLcount := (count_pos_iff (Nat.lcm q r) hL p).mpr hdiv
+    rw [Set.indicator_of_mem hp]
+    unfold probability
+    rw [count_eq_totient_of_pos q p hqpos,
+      count_eq_totient_of_pos (Nat.lcm q r) p hLcount]
+    field_simp }
+  { have hzero : count (Nat.lcm q r) p = 0 := by
+      apply Nat.eq_zero_of_not_pos
+      intro hpos
+      exact hp ((count_pos_iff (Nat.lcm q r) hL p).mp hpos)
+    simp [Set.indicator, hp, probability, hzero] }
+
+/-- Exact shared-support factorization, with its compensation and rank scaling. -/
+theorem bernoulliProfile_lcm_factorization (q r : Nat) (hq : 2 <= q)
+    (hr : 2 <= r) (z : Complex) :
+    bernoulliProfile q z =
+      bernoulliProfile (Nat.lcm q r)
+        (1 + (((Nat.totient q : Real) / Nat.totient (Nat.lcm q r)) : Complex) *
+          (z - 1)) * residualProfile q r z := by
+  unfold bernoulliProfile
+  rw [Complex.canonicalBernoulliProfile_partition (probability q)
+    (probability_nonneg q) (fun p => (probability_lt_one q p).le)
+    (summable_probability_sq q) (sharedPrimeSupport q r) z]
+  rw [shared_probability_eq_scaled_lcm q r hq hr,
+    Complex.canonicalBernoulliProfile_scale]
+  simp only [Complex.ofReal_div, Complex.ofReal_natCast,
+    residualProfile, residualProbability]
+
+/-- The residual zeros are exactly the primes belonging to only the first class. -/
+theorem residualProfile_eq_zero_iff (q r : Nat) (hq : 2 <= q)
+    (z : Complex) :
+    residualProfile q r z = 0 <->
+      exists p : Nat.Primes, And (Dvd.dvd q ((p : Nat) - 1))
+        (And (Not (Dvd.dvd r ((p : Nat) - 1)))
+          (z = 1 - (p : Nat) / (Nat.totient q : Complex))) := by
+  classical
+  have hlocal (p : Nat.Primes)
+      (hm : Membership.mem (sharedPrimeSupport q r).compl p)
+      (hc : 0 < count q p) :
+      residualProbability q r p = (Nat.totient q : Real) / (p : Nat) := by
+    simp [residualProbability, Set.indicator, hm, probability,
+      count_eq_totient_of_pos q p hc]
+  rw [residualProfile, Complex.canonicalBernoulliProfile_eq_zero_iff
+    (residualProbability q r) (residualProbability_nonneg q r)
+    (residualProbability_le_one q r) (summable_residualProbability_sq q r) z]
+  constructor
+  { intro h
+    choose p hp using h
+    have hm : Membership.mem (sharedPrimeSupport q r).compl p := by
+      by_contra hn
+      exact hp.1 (by simp [residualProbability, Set.indicator, hn])
+    have hc : 0 < count q p := by
+      by_contra hn
+      have hc0 : count q p = 0 := by omega
+      exact hp.1 (by simp [residualProbability, Set.indicator, hm,
+        probability, hc0])
+    have hqdiv := (count_pos_iff q hq p).mp hc
+    have hrdiv : Not (Dvd.dvd r ((p : Nat) - 1)) := by
+      intro hd
+      exact hm (Nat.lcm_dvd_iff.mpr (And.intro hqdiv hd))
+    refine Exists.intro p (And.intro hqdiv (And.intro hrdiv ?_))
+    simpa only [hlocal p hm hc, Complex.ofReal_div,
+      Complex.ofReal_natCast, one_div_div] using hp.2 }
+  { intro h
+    choose p hp using h
+    have hm : Membership.mem (sharedPrimeSupport q r).compl p := by
+      intro hd
+      exact hp.2.1 (Nat.lcm_dvd_iff.mp hd).2
+    have hc := (count_pos_iff q hq p).mpr hp.1
+    refine Exists.intro p (And.intro ?_ ?_)
+    { rw [hlocal p hm hc]
+      apply div_ne_zero
+      { exact_mod_cast (Nat.totient_pos.mpr (by omega : 0 < q)).ne' }
+      { exact_mod_cast p.property.ne_zero } }
+    { simpa only [hlocal p hm hc, Complex.ofReal_div,
+        Complex.ofReal_natCast, one_div_div] using hp.2.2 } }
+
+/-- Removing the shared prime support leaves residuals with disjoint zero sets. -/
+theorem residualProfile_no_common_zero (q r : Nat) (hq : 2 <= q)
+    (hr : 2 <= r) (z : Complex) :
+    Not (And (residualProfile q r z = 0) (residualProfile r q z = 0)) := by
+  intro h
+  have hqzero : bernoulliProfile q z = 0 := by
+    rw [bernoulliProfile_lcm_factorization q r hq hr z, h.1, mul_zero]
+  have hrzero : bernoulliProfile r z = 0 := by
+    rw [bernoulliProfile_lcm_factorization r q hr hq z, h.2, mul_zero]
+  have hphi := ((bernoulliProfile_common_zero_iff q r hq hr z).mp
+    (And.intro hqzero hrzero)).1
+  choose p hp using (residualProfile_eq_zero_iff q r hq z).mp h.1
+  choose t ht using (residualProfile_eq_zero_iff r q hr z).mp h.2
+  have hphiC : Not ((Nat.totient q : Complex) = 0) := by
+    exact_mod_cast (Nat.totient_pos.mpr (by omega : 0 < q)).ne'
+  have heqC : ((p : Nat) : Complex) = ((t : Nat) : Complex) := by
+    apply (div_left_inj' hphiC).mp
+    rw [<- hphi] at ht
+    linear_combination hp.2.2 - ht.2.2
+  have heqN : (p : Nat) = (t : Nat) := by exact_mod_cast heqC
+  have heq : p = t := Subtype.ext heqN
+  exact hp.2.1 (by rw [heq]; exact ht.1)
+
 end PrimeFactorOscillations.CyclotomicProbability
