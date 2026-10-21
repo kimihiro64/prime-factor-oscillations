@@ -200,4 +200,13 @@ TARGETS = (
     "PrimeFactorOscillations.PrimeClassDeletion.primeClassPrefix_erase",
     "PrimeFactorOscillations.PrimeClassDeletion.primeClassPrefix_remove_not_eq",
     "PrimeFactorOscillations.PrimeClassDeletion.primeClassPrefix_remove_of_absent",
+    "PrimeFactorOscillations.PrimeClassDeletion.primeClassPrefix_complement_weight_sum",
+    "PrimeFactorOscillations.PrimeClassDeletion.greedyPrimeClass_missing_weight_prefix_le",
+    "PrimeFactorOscillations.PrimeClassDeletion.primeClassMissingWeight_nonneg",
+    "PrimeFactorOscillations.PrimeClassDeletion.sum_primeClassMissingWeight_le_prefix",
+    "PrimeFactorOscillations.PrimeClassDeletion.primeClassMissingWeight_prefix_le_tsum",
+    "PrimeFactorOscillations.PrimeClassDeletion.greedyPrimeClass_missing_weight_summable",
+    "PrimeFactorOscillations.PrimeClassDeletion.primeEulerLogWeight_nonneg",
+    "PrimeFactorOscillations.PrimeClassDeletion.primeEulerLogWeight_antitone",
+    "PrimeFactorOscillations.PrimeClassDeletion.greedyPrimeClass_missing_logEulerCost",
 )

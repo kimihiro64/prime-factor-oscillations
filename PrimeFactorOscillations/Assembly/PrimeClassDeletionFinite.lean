@@ -8,6 +8,7 @@ import PrimeFactorOscillations.Helpers.PrimeClassSparseDeletion
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.BernoulliDominance
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.CapacitySelectionFinite
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.CappedPrimeDivisibility
+import PrimeFactorOscillations.Proof.PrimeClassDeletion.CappedPrimeMissingCost
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.GreedyPrimeExceptionalCoordinate
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.PolynomialPrimeNorming
 
@@ -33,7 +34,9 @@ The finite product law, its exact coefficients and deterministic endpoints
 are checked. Ordinary integer divisibility has the literal fixed-cutoff
 sampling limit with explicit error. Affine probabilities include beta=-2;
 affine odds require beta>-2. The exceptional prime2 is removed with its
-exact rank shift and positive survival factor. Infinite missing-product
-comparison, the full prime-power component law and RH applications remain
-separate obligations.
+exact rank shift and positive survival factor. Missing-cost optimality
+extends to infinite nonnegative decreasing weights whenever a competitor's
+missing cost converges, including the full logarithmic Euler cost.
+The full prime-power component law and RH applications remain separate
+obligations.
 -/

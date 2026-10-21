@@ -13863,11 +13863,24 @@ These identities retain the survival factor, including the empty
 remaining product. They do not extend the separate odds-coefficient
 order to \(\beta=-2\).
 
-Applying the decreasing weight $-\log(1-1/p)$ shows, at each
+Applying the decreasing weight \(w(p)=-\log(1-1/p)\) shows, at each
 finite cutoff, that the greedy class minimizes the missing
 logarithmic Euler-product cost among all capped competitors.
-Passing to the limit gives
-$C_{\mathcal D}\le C_{\mathcal T^c}$ whenever the latter is finite.
+The passage to infinity also proves convergence, rather than assuming it
+for the greedy class. For each finite set \(A\) of primes outside
+\(\mathcal S\), choose a cutoff \(X\) containing \(A\). Nonnegativity and
+the exact finite complement identity give
+\[
+ \sum_{p\in A}w(p)
+ \le\sum_{\substack{p\le X,\ p\ {\rm prime}\\p\notin\mathcal S}}w(p)
+ \le\sum_{\substack{p\le X,\ p\ {\rm prime}\\p\notin\mathcal T}}w(p)
+ \le C_{\mathcal T^c}.
+\]
+If \(C_{\mathcal T^c}\) is finite, these bounds force convergence of the
+nonnegative greedy missing-cost series and give
+\(C_{\mathcal D}\le C_{\mathcal T^c}\).
+The same proof works for every nonnegative decreasing prime weight
+whose missing total for the competitor converges.
 This sharpens the earlier additive count comparison to exact
 optimality for counts and for all these probability observables.
 It does not estimate the optimal count's growth:
@@ -13918,9 +13931,19 @@ and its endpoint consumers.
 All these owners are exported and included by exact declaration name
 in the recurring foundational-axiom audit.
 
-The infinite missing-product comparison and signed record-energy
-calculation remain separate formalization obligations.
-No established originality priority or new zero-free boundary is asserted.
+The infinite missing-product comparison is now Lean-checked in
+\path{Proof/PrimeClassDeletion/CappedPrimeMissingCost.lean}.
+The full general consumer
+\texttt{greedyPrimeClass\_\allowbreak missing\_\allowbreak weight\_\allowbreak summable}
+proves both convergence and the infinite comparison. Its logarithmic
+specialization
+\texttt{greedyPrimeClass\_\allowbreak missing\_\allowbreak logEulerCost}
+has the exact prime filter and class complement in every summand;
+cutoffs zero and one are included in the finite proof.
+The complete owner is exported and registered for recurring axiom checks.
+The signed record-energy calculation remains a separate formalization
+obligation. No established originality priority or new zero-free boundary
+is asserted.
 
 \subsection{How a prime-counting wave becomes a persistent deletion signal}
 \label{sec:greedy-prime-wave-envelope}
