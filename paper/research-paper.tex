@@ -7811,6 +7811,476 @@ equivalence. No implication from RH to finiteness or infinitude
 of actual Fermat primes has been established here, and the
 certified zero-free boundary remains $7/8$.
 
+\subsection{Which prime classes may be removed?}
+\label{sec:prime-class-deletion}
+
+The preceding argument depends on the size of the removed prime
+class, rather than its being a Fermat family. The following gives
+a sufficient condition, not a classification of all possible
+zero-preserving restrictions.
+
+\begin{theorem}[Critical-exponent prime deletion]
+\label{thm:critical-prime-deletion}
+Let $S$ be a fixed set of primes. Suppose that for every
+$\epsilon>0$ there are constants $C_\epsilon>0$ and
+$X_\epsilon\ge2$ such that
+\[
+ \pi_S(X)=\#\{p\in S:p\le X\}
+ \le C_\epsilon X^{1/2+\epsilon}
+ \qquad(X\ge X_\epsilon).
+\]
+Then
+\[
+ H_S(s)=\prod_{p\in S}(1-p^{-s})
+\]
+is holomorphic and nowhere zero for $\Re s>1/2$.
+Thus $\zeta(s)H_S(s)$ retains exactly the zeros of $\zeta$,
+with their multiplicities, in that half-plane, as well as its
+pole at $1$.
+
+Let $C$ denote the complementary prime set, and define
+\[
+ b_S=\prod_{p\in S}(1-1/p)>0,\quad
+ A_C(X)=\prod_{\substack{p\in C\\p\le X}}(1-1/p),\quad
+ \theta_C(X)=\sum_{\substack{p\in C\\p\le X}}\log p.
+\]
+There is an exact probability version of the equivalence:
+\[
+ \mathrm{RH}\quad\Longleftrightarrow\quad
+ A_C(X)<\frac{e^{-\gamma}}{b_S\log\theta_C(X)}
+ \quad\hbox{for all sufficiently large }X.
+\]
+Here $A_C(X)$ is the limiting avoidance probability for
+uniform sampling of positive integers at each fixed cutoff $X$.
+No existence or infinitude assumption on the class $S$ is needed.
+\end{theorem}
+
+\begin{proof}
+For every $\sigma>1/2$, choose $\epsilon>0$ with
+$1/2+\epsilon<\min(\sigma,1)$. Partial summation gives
+$\sum_{p\in S}p^{-\sigma}<\infty$. The logarithmic product
+argument in Theorem~\ref{thm:fermat-euler-zero-preservation}
+therefore gives the claimed holomorphic unit. In particular,
+the product $b_S$ converges positively.
+
+We record the complete signed error for the probability
+criterion. Write
+\begin{align*}
+ B_S(X)&=\prod_{\substack{p\in S\\p\le X}}(1-1/p),\qquad
+ r_S(X)=\sum_{\substack{p\in S\\p\le X}}\log p,\\
+ f_C(X)&=e^\gamma b_S\log\theta_C(X)A_C(X).
+\end{align*}
+Whenever $\theta_C(X)>1$, the exact identity is
+\begin{align*}
+ \Delta_S(X)&=\log f(X)-\log f_C(X)\\
+ &=\sum_{\substack{p\in S\\p>X}}-\log(1-1/p)
+   +\log\log\theta(X)-\log\log(\theta(X)-r_S(X))\ge0.
+\end{align*}
+Both the reciprocal tail and the change of the theta normalizer
+are retained. For a quantitative bound, suppose
+$\pi_S(t)\le C_0t^\alpha$ on $t\ge X_0$, where
+$C_0>0$ and $0\le\alpha<1$. For $X\ge\max(2,X_0)$,
+\[
+ \sum_{\substack{p\in S\\p>X}}-\log(1-1/p)
+ \le2\sum_{\substack{p\in S\\p>X}}\frac1p
+ \le\frac{2C_0}{1-\alpha}X^{\alpha-1},\qquad
+ r_S(X)\le C_0X^\alpha\log X.
+\]
+Eventually the unconditional prime number theorem and
+$r_S(X)=o(X)$ give $\theta_C(X)\ge X/4$ and
+$\log\theta_C(X)\ge\tfrac12\log X$. Hence
+\[
+ 0\le\Delta_S(X)
+ \le C_0\left(8+\frac2{1-\alpha}\right)X^{\alpha-1}
+ \quad\hbox{eventually}.
+\]
+Every denominator is positive in this range. The numerical
+coefficient is explicit; the threshold depends on the stated
+counting bound and is not specified numerically here.
+
+Under RH, $\log f<0$ eventually and $\Delta_S\ge0$, so
+$\log f_C<0$. If RH fails, the existing Nicolas theorem
+supplies some $c>0$ and $0<b<1/2$ with
+$\log f(X)\ge cX^{-b}$ at arbitrarily large $X$.
+Choose $\epsilon$ with $0<\epsilon<1/2-b$ and apply the
+last bound with $\alpha=1/2+\epsilon$. Then
+$\Delta_S(X)=o(X^{-b})$, so $\log f_C(X)>0$ at arbitrarily
+large points of the same sequence. This contradicts the
+eventual inequality and proves the converse.
+The CRT proves the fixed-cutoff probability interpretation.
+\end{proof}
+
+Finite unions of classes satisfying the hypothesis can be
+deleted simultaneously. Examples include actual Fermat primes,
+Mersenne primes and Fibonacci primes: their counting functions
+are at most logarithmic, with no assumed infinitude.
+For a fixed integer polynomial $P$ of degree $d\ge2$ and
+positive leading coefficient, the primes among $P(n)$,
+$n\ge0$, have counting function $O_P(X^{1/d})$ and can also
+be deleted. These are prime \emph{values}, not all prime
+divisors of those values. Infinite unions or varying polynomial
+parameters require additional uniform estimates.
+The theorem alone does not cover a positive-density residue
+class, nor does it supply the needed bound for Sophie Germain
+primes. Failure of this sufficient counting condition is not
+an impossibility theorem for those classes.
+
+\begin{theorem}[All Fermat factors form a deletable class]
+\label{thm:all-fermat-factor-deletion}
+Let
+\[
+ \mathcal D_F=\{p\text{ prime}:p\mid 2^{2^j}+1
+                              \text{ for some }j\ge0\}.
+\]
+This is an infinite set. For every real $X\ge3$,
+\[
+ \pi_{\mathcal D_F}(X)
+ \le(1+6\log2)\sqrt{\frac{X}{\log X}}.
+\]
+Consequently every prime in $\mathcal D_F$ can be deleted
+simultaneously in Theorem~\ref{thm:critical-prime-deletion}.
+The result concerns all prime factors of all Fermat numbers,
+regardless of whether there are finitely or infinitely many
+actual Fermat primes.
+\end{theorem}
+
+\begin{proof}
+Let $m_j$ be the number of distinct prime factors of $T_j$,
+and $W_k=\sum_{j<k}m_j$. The proved factor-count and cumulative
+weight estimates give
+\[
+ (j+1)m_j\le2^j,\qquad (k+1)W_k\le3\cdot2^k.
+\]
+Their maintained providers are
+\texttt{Nat.fermatFactorCount\_mul\_le\_pow} and
+\texttt{Nat.dyadicPrefixWeight\_mul\_le\_three\_pow}.
+Every factor has multiplicative order $2^{j+1}$ for base $2$.
+Lagrange's theorem in the nonzero residue group therefore
+gives $2^{j+1}\mid p-1$. In particular, all factors from
+labels $j\ge k$ lie in the \emph{single} progression
+$p\equiv1\pmod{2^{k+1}}$. Since $p>1$, there are at most
+$X/2^{k+1}$ such primes up to $X$. Thus the finite covering
+bound, including the low-label factors, is
+\[
+ \pi_{\mathcal D_F}(X)\le W_k+\frac{X}{2^{k+1}}
+ \qquad(k\ge0).
+\]
+This bound does not sum overlapping progression counts.
+
+Set $Y=\sqrt{X\log X}$ and choose $k\ge0$ with
+$2^k\le Y<2^{k+1}$. Since $X\ge3$,
+\[
+ k+1>\frac{\log Y}{\log2}
+       \ge\frac{\log X}{2\log2}.
+\]
+The low part is at most
+$6\log2\sqrt{X/\log X}$, while the high part is at most
+$X/Y=\sqrt{X/\log X}$. Adding proves the stated bound.
+Every Fermat number has a prime factor, and distinct labels
+have disjoint prime-factor supports, so $\mathcal D_F$ is
+infinite. The counting bound implies the hypothesis of
+Theorem~\ref{thm:critical-prime-deletion}.
+\end{proof}
+
+The finite covering and its optimized real bound are ordinary
+consequences here of the named checked weight estimates and
+the exact order theorem. They are not yet separately compiled
+declarations. No improved zero-free exponent is inferred.
+
+\begin{theorem}[Deletion by smooth multiplicative order]
+\label{thm:smooth-order-deletion}
+Fix an integer $a\ge2$ and a finite set $B$ of primes. Let
+$S_{a,B}$ be the primes $p\nmid a$ for which every prime
+factor of $\operatorname{ord}_p(a)$ belongs to $B$; order $1$
+is allowed. For $0<\eta<1$ set
+\[
+ C_B(\eta)=\prod_{q\in B}(1-q^{-\eta})^{-1}.
+\]
+Then, for every $X\ge2$,
+\[
+ \pi_{S_{a,B}}(X)
+ \le\left(1+\frac{\log a}{\log2}\right)
+          C_B(\eta)X^{(1+\eta)/2}.
+\]
+In particular $S_{a,B}$ satisfies the critical-exponent deletion
+criterion. This gives an RH equivalence after deleting all
+primes whose multiplicative orders use any specified finite
+set of prime factors.
+\end{theorem}
+
+\begin{proof}
+Let $E_B$ be the positive integers all of whose prime factors
+are in $B$, including $1$. Unique factorization and finite
+geometric products give
+\[
+ \sum_{m\in E_B}m^{-\eta}=C_B(\eta).
+\]
+Partition the primes being counted by whether their actual
+order $m$ is at most $Y\ge1$. Every low-order prime divides
+\[
+ \prod_{\substack{m\in E_B\\m\le Y}}(a^m-1).
+\]
+The distinct product of these primes is at least $2$ to the
+power of their number and divides the displayed integer.
+Consequently their number is at most
+\[
+ \frac{\log a}{\log2}
+      \sum_{\substack{m\in E_B\\m\le Y}}m
+ \le\frac{\log a}{\log2}C_B(\eta)Y^{1+\eta}.
+\]
+For the high-order primes, $m\mid p-1$ and $p\le X$ give
+at most $X/m$ possibilities at any fixed $m$. Thus their
+total number is at most
+\[
+ X\sum_{\substack{m\in E_B\\m>Y}}\frac1m
+ \le X C_B(\eta)Y^{-1+\eta}.
+\]
+These are bounds on the two parts of the actual order
+partition; they do not assume distinctness of the integers
+$a^m-1$. Set $Y=\sqrt X$ and add the bounds.
+Since $\eta$ can be arbitrarily small and positive, the
+critical-exponent hypothesis follows. For $a=2$ and
+$B=\{2\}$, a nontrivial power-of-two order is equivalent
+to divisibility by a Fermat number, giving $\mathcal D_F$.
+\end{proof}
+
+The explicit factor $C_B(\eta)$ records the cost of enlarging
+the removed order class. The theorem is uniform in $X$ for
+fixed $a,B,\eta$, and does not exchange an unbounded $B$
+with the cutoff limit. These deletions still leave a set of
+primes of relative density $1$. To minimize the retained
+\emph{proportion} requires a different argument; identifying
+safe sparse deletions alone does not accomplish that.
+
+\subsection{Sparse positive prime carriers for all Dirichlet zeros}
+\label{sec:sparse-positive-prime-carriers}
+
+Safe deletion of thin classes leaves almost all primes. Reducing
+the retained proportion is a different problem. Fixed-rank
+thinning, retaining every $k$th prime for a fixed $k$, already
+occurs in partial-Euler-product RH criteria
+\cite{JurzakPartialEuler}. The next construction instead
+allows positive integer multiplicities and retains a single
+set with only polynomially many primes in $\log X$.
+The multiplicities are part of the data and cannot be erased.
+
+\begin{theorem}[A simultaneous positive integer prime compression]
+\label{thm:universal-prime-compression}
+There are a fixed set $Q$ of ordinary primes and positive
+integer weights $w_p$, $p\in Q$, with
+\[
+ \#\{p\in Q:p\le X\}
+ \le(\lfloor\log_2X\rfloor+2)^6\qquad(X\ge2),
+\]
+such that the following holds for \emph{every} Dirichlet
+character $\chi$, of any fixed modulus $q\ge1$.
+The weighted Euler product
+\[
+ L_w(s,\chi)=\prod_{p\in Q}(1-\chi(p)p^{-s})^{-w_p},
+ \qquad\Re s>1,
+\]
+converges absolutely and has a meromorphic continuation to
+$\Re s>0$ of the form
+\[
+ L_w(s,\chi)=L(s,\chi)\exp G_\chi(s),
+ \qquad G_\chi\text{ holomorphic on }\Re s>0.
+\]
+Consequently all zeros and their multiplicities in that
+half-plane, and any principal-character pole at $1$, are
+preserved exactly. In particular, with $\boldsymbol1$ the
+character modulo $1$,
+\[
+ \mathrm{RH}\quad\Longleftrightarrow\quad
+ L_w(s,\boldsymbol1)\ne0
+ \quad(\Re s>1/2,\ s\ne1).
+\]
+The weights can be chosen with $w_p\le2^j$ for
+$2^j\le p<2^{j+1}$. The same $Q$ and the same weights work
+for all characters; no uniform bound for their compensators
+over unbounded conductors or heights is asserted.
+\end{theorem}
+
+\begin{proof}
+For $j\ge1$ let $P_j$ be the primes in $[2^j,2^{j+1})$,
+and $N_j=\#P_j\le2^j$. We first choose nonnegative integer
+weights $w_{j,p}$ on this finite set, preserving all moments
+\begin{equation}\label{eq:prime-compression-moments}
+ \sum_{\substack{p\in P_j\\p\equiv a\ ({\rm mod}\ m)}}
+       w_{j,p}p^r
+ =\sum_{\substack{p\in P_j\\p\equiv a\ ({\rm mod}\ m)}}p^r,
+ \quad 1\le m\le j,\quad0\le a<m,\quad0\le r\le j.
+\end{equation}
+The all-one weights are feasible. The coordinate $m=1,r=0$
+forces $\sum_p w_{j,p}=N_j$, so every feasible weight is
+at most $N_j$ and the feasible collection is finite. Choose
+a feasible weight vector with minimum positive support $S_j$.
+For an empty block take the empty vector.
+
+The map taking a subset $U\subseteq S_j$ to its vector of
+\emph{unweighted} moment sums is injective. Otherwise two
+distinct subsets with equal vectors give, after deleting their
+intersection, disjoint nonempty subsets $A,B$ with equal
+vectors. They are both nonempty because the zeroth moment
+also gives equal cardinalities. Subtract
+$t=\min_{p\in A}w_{j,p}\ge1$ from the weights on $A$ and add
+$t$ to the weights on $B$. All weights remain nonnegative
+integers, every moment is preserved, and at least one support
+point disappears without adding a new one. This contradicts
+minimality.
+
+Write $K_j=\#S_j$. Each coordinate of a subset moment vector
+at degree $r$ is an integer between $0$ and
+$2^{j+(j+1)r}$. Its number of possible values is at most
+$2^{(j+1)(r+1)}$. Counting all coordinates of the injective
+map therefore gives
+\[
+ 2^{K_j}\le
+ 2^{\sum_{m=1}^j\sum_{a=0}^{m-1}\sum_{r=0}^j
+                         (j+1)(r+1)},\qquad
+ K_j\le\frac{j(j+1)^3(j+2)}4\le(j+2)^5.
+\]
+Set $Q=\bigcup_{j\ge1}S_j$ and retain the positive weights
+on each block. For $J=\lfloor\log_2X\rfloor\ge1$,
+\[
+ \#\{p\in Q:p\le X\}
+ \le\sum_{j=1}^J K_j
+ \le J(J+2)^5\le(J+2)^6.
+\]
+
+It remains to prove that these exact finite cancellations
+preserve the full Euler factors, including all prime powers.
+For $|c|\le1$, $x>1$ and $\Re s>0$ put
+\[
+ f_{s,c}(x)=-\log(1-cx^{-s})
+           =\sum_{\ell\ge1}\frac{c^\ell x^{-\ell s}}\ell,
+\]
+using the power-series branch. Every finite block difference
+\[
+ D_{j,\chi}(s)=\sum_{p\in P_j}(w_{j,p}-1)f_{s,\chi(p)}(p)
+\]
+is holomorphic on $\Re s>0$. Fix a compact subset $K$ of
+that half-plane, and bounds $\Re s\ge\sigma_0>0$ and
+$|\Im s|\le T$ on $K$. Let $u=2^j$ and $c_j=3u/2$.
+On the complex disk $|z-c_j|\le u$, we have
+$\Re z\ge u/2$ and, for sufficiently large $j$,
+\[
+ |z^{-s}|\le2^{\sigma_0}e^{T\pi/2}u^{-\sigma_0}\le\frac12.
+\]
+Thus $f_{s,c}(z)$ is holomorphic there and is bounded uniformly
+for $s\in K$ and $|c|\le1$ by $M_Ku^{-\sigma_0}$, where
+one may take $M_K=2^{1+\sigma_0}e^{T\pi/2}$ in this
+eventual range.
+
+The Taylor polynomial of degree $j$ about $c_j$ has remainder
+at most
+\[
+ M_Ku^{-\sigma_0}2^{-j}
+ \quad\text{on }u\le x\le2u,
+\]
+by Cauchy's estimate and $|x-c_j|/u\le1/2$.
+If $j\ge q$, apply this separately in each residue class
+modulo $q$. The value $\chi(p)$ is constant on that class.
+Equation~\eqref{eq:prime-compression-moments} cancels its
+entire Taylor polynomial, including the constant term.
+Only after this exact signed cancellation do we bound the
+two remainder measures, whose total mass is $2N_j\le2u$.
+It follows that
+\[
+ \sup_{s\in K}|D_{j,\chi}(s)|
+ \le2M_K2^{-j\sigma_0}
+ \qquad(j\ge\max(q,J_K)),
+\]
+where $J_K$ makes the preceding disk estimate valid. Hence
+$G_\chi=\sum_{j\ge1}D_{j,\chi}$ converges locally uniformly
+on $\Re s>0$ and is holomorphic there. More explicitly,
+\[
+ \sup_{s\in K}\left|\sum_{j\ge J}D_{j,\chi}(s)\right|
+ \le\frac{2M_K2^{-J\sigma_0}}{1-2^{-\sigma_0}}
+ \quad(J\ge\max(q,J_K)).
+\]
+This also makes the conductor and height restrictions on the
+tail estimate explicit.
+
+For $\Re s>1$, absolute convergence follows from
+\[
+ \sum_{p\in Q}w_pp^{-\sigma}
+ \le\sum_{j\ge1}N_j2^{-j\sigma}
+ \le\sum_{j\ge1}2^{-j(\sigma-1)}<\infty.
+\]
+The usual Dirichlet Euler product then gives, in that domain,
+$\log L_w-\log L=G_\chi$. Exponentiation and analytic
+continuation prove the displayed factorization. The multiplier
+is a holomorphic unit, so it preserves zeros, multiplicities
+and poles. Taking the character modulo $1$ proves the RH
+equivalence.
+\end{proof}
+
+The finite support-reduction argument is the classical integer
+moment-elimination principle, related to the integer-cone
+bounds of Eisenbrand--Shmonin \cite{EisenbrandShmonin}.
+Grosswald--Schnitzer \cite{GrosswaldSchnitzer} preserve zeta
+and Dirichlet zeros by perturbing Euler bases. Jurzak's
+fixed-rank thinning retains a positive proportion of the prime
+list. The theorem above specifies a single actual prime
+support of polynomial logarithmic size, positive integer
+multiplicities, and simultaneous preservation for every fixed
+Dirichlet character. Its proof is given here; priority for this
+combination has not been established.
+
+\paragraph{The associated positive probability law.}
+The weights give a genuine probability model, without an
+assumed prime-clock sampling theorem. For $\sigma>1$, expand
+\[
+ Z_w(s)=L_w(s,\boldsymbol1)
+       =\sum_{n\ge1}\frac{a_w(n)}{n^s},\qquad
+ a_w(p^r)=\binom{w_p+r-1}{r}\quad(p\in Q),
+\]
+with $a_w$ multiplicative and zero on integers having a prime
+factor outside $Q$. All coefficients are nonnegative integers.
+The distribution
+\[
+ \mathbb P_{w,\sigma}(n)=
+       \frac{a_w(n)n^{-\sigma}}{Z_w(\sigma)}
+\]
+is normalized on positive integers. Its prime exponents are
+independent negative-binomial variables with integer shape
+$w_p$ and parameter $p^{-\sigma}$. For every Dirichlet
+character and real $t$,
+\[
+ \mathbb E_{w,\sigma}[\chi(n)n^{-it}]
+       =\frac{L_w(\sigma+it,\chi)}{Z_w(\sigma)}.
+\]
+The sampled variable is the integer $n$ under this explicitly
+weighted law; $\sigma>1$ is fixed. This is not an assertion
+about uniform integer sampling, nor a transfer of a
+prime-clock estimate to a new family without an adapter.
+
+\paragraph{What compression does and does not give.}
+The main terms vanish through the exact moment identities;
+the proof bounds only their retained analytic remainder.
+It preserves the complete zero signal, rather than showing
+that the signal cannot occur. The integer weights encode
+moments of all primes in each block and can grow with the
+prime size. A useful attack would need an independent estimate
+on the resulting weighted arithmetic sums, with that growth
+charged explicitly. No such zero-excluding estimate follows
+from support size alone.
+
+Indeed, deleting the multiplicities would destroy this
+construction's signal: the unweighted Euler product on $Q$
+is already holomorphic and nowhere zero on $\Re s>0$, since
+its prime count is only polynomial in $\log X$.
+The sparse weighted product need not admit a direct
+pointwise Nicolas comparison at every cutoff: weights are
+chosen on complete dyadic blocks, and no uniform small
+error for partial blocks has been proved. Nor does
+holomorphic continuation alone supply a square-root bound
+for its signed inverse coefficients without the necessary
+vertical growth estimates. These ordinary proofs add a
+precise research framework; they do not improve the
+certified $7/8$ zero-free boundary or constitute completed
+Lean declarations.
+
 \subsection{Nested Fermat carriers and a joint Fibonacci profile}
 \label{sec:fermat-fibonacci-joint}
 
@@ -8904,6 +9374,17 @@ doi:10.1017/fmp.2022.8; arXiv:1909.03562, Proposition~1.9.
 C. Pomerance, \emph{Cyclotomic primes}, manuscript dated
 October~14, 2024, Introduction.
 \url{https://math.dartmouth.edu/~carlp/cyclotomicprimesj.pdf}.
+\bibitem{JurzakPartialEuler}
+J.-P. Jurzak, \emph{Partial Euler products as a new approach to
+Riemann hypothesis}, arXiv:math/0202273v1 (2002).
+\bibitem{GrosswaldSchnitzer}
+E. Grosswald and F.~J. Schnitzer, \emph{A class of modified
+$\zeta$ and $L$-functions}, Pacific J. Math. \textbf{74} (1978),
+357--364. \url{https://msp.org/pjm/1978/74-2/pjm-v74-n2-p09-s.pdf}.
+\bibitem{EisenbrandShmonin}
+F. Eisenbrand and G. Shmonin, \emph{Carath\'eodory bounds for
+integer cones}, Oper. Res. Lett. \textbf{34} (2006), 564--568.
+doi:10.1016/j.orl.2005.09.008.
 \end{thebibliography}
 
 \bigskip
