@@ -18963,8 +18963,9 @@ The proof derives the entire-product growth, all coefficient and series
 tails, the full signed error decomposition, and both losses for the
 literal integer selectors $U_N,V_N,M_N,R_N$.
 Its threshold is uniform over the whole disc and its constant is explicit.
-The subsequent half-integer signal and exact decoding theorem remain
-separate formalization obligations.
+The signed half-integer supply and the mathematical decoding guarantees
+below are also Lean-verified. The computation-cost clauses are tracked
+separately and are not included in that verification claim.
 
 \begin{theorem}[Exact prime labels from finite integer sign tests]
 \label{thm:finite-integer-prime-decoding}
@@ -19007,43 +19008,38 @@ We give an independent lower bound for the magnitude of the
 signed model at the actual evaluation points.
 For any integer $R\ge1$ and $0\le n\le R$, put
 $w_n=-n-1/2$ and $S=S_{\mathcal P,\sigma}$.
-Every numerator $p-1+w_n$ is a nonzero half-integer, so its
-absolute value is at least $1/2$.
-For $p\le4R+2$ this gives
+Use the actual probability-normalized Euler factors:
 \[
- |1+w_n/(p-1)|\ge1/(20R),\qquad
+ P_{\mathcal P}(z)=\prod_{p\in\mathcal P}
+                 \left(1+\frac{z-1}{p}\right),\qquad
+ f_p(w_n)=\frac{p-n-3/2}{p}.
+\]
+Every numerator is a nonzero half-integer and has absolute value
+at least $1/2$. For $p\le4R+2$,
+\[
+ |f_p(w_n)|\ge\frac1{2p}\ge\frac1{12R},\qquad
  N_{\mathcal P}(4R+2)\le6^\sigma SR^\sigma .
 \]
-For $p>4R+2$, $|w_n|/(p-1)<1/2$.
-Using $\log(1-u)\ge-2u$ for $0\le u\le1/2$ gives
+For $p>4R+2$, put $t=(n+3/2)/p$. Then $0\le t<1/2$, so
+$\log f_p(w_n)=\log(1-t)\ge-2t\ge-5R/p$.
+The tail over the same class satisfies
 \[
- \sum_{\substack{p\in\mathcal P\\p>4R+2}}
-       \log|1+w_n/(p-1)|
-       \ge-8SR^\sigma .
+ \sum_{\substack{p\in\mathcal P\\p>4R+2}}\frac1p
+                            \le R^{\sigma-1}S.
 \]
-Indeed $|w_n|\le2R$, $(p-1)^{-1}\le2/p$, and the
-tail over this same prime class satisfies
-\[
- \sum_{\substack{p\in\mathcal P\\p>4R+2}}p^{-1}
-                        \le(4R+2)^{\sigma-1}S .
-\]
-The convergent product therefore satisfies, uniformly in $n$,
+Moreover $f_p(w_n)<0$ if and only if $p\le n+1$.
+Thus for every finite class prefix with endpoint $Y\ge4R+2$,
+multiplication by $(-1)^{N_{\mathcal P}(n+1)}$ gives exactly the
+product of the factor magnitudes. Bounding that signed finite
+product and passing to its proved Euler-product limit gives
 \begin{equation}
- |P_{\mathcal P}(w_n)|
-       \ge c_{\mathcal P}
-          (20R)^{-6^\sigma SR^\sigma}e^{-8SR^\sigma}.
+ 0<e^{-6^\sigma SR^\sigma\log(12R)-5SR^\sigma}
+ \le(-1)^{N_{\mathcal P}(n+1)}P_{\mathcal P}(w_n).
  \label{eq:finite-decoding-independent-supply}
 \end{equation}
-Every normalization factor, including $c_{\mathcal P}$, is retained.
-
-There are exactly $N_{\mathcal P}(n+1)$ negative factors:
-\[
- 1+w_n/(p-1)<0\quad\Longleftrightarrow\quad p\le n+1 .
-\]
-The late tail is a convergent product of positive factors,
-with positive limit by the same logarithmic estimate.
-Hence
-$\operatorname{sgn}P_{\mathcal P}(w_n)=(-1)^{N_{\mathcal P}(n+1)}$.
+This bound includes every probability-normalization factor:
+it is proved directly for $1+(z-1)/p$, without removing the
+constant factor from the product.
 
 Now take $R=R_N$.
 Since $h\sigma<1$,
@@ -19097,6 +19093,20 @@ Their bit lengths are $O_{h,c}(\log N)$.
 Horner evaluation at $R_N+1$ points uses $O(R_NM_N)$
 operations when $M_N\ge1$, as it is eventually.
 \end{proof}
+
+\paragraph{Formalization status.}
+The nonvanishing, simultaneous signed parity, adjacent-prime criterion
+and exact set equality in Theorem~\ref{thm:finite-integer-prime-decoding}
+are Lean-verified by
+\texttt{finite\_\allowbreak integer\_\allowbreak prime\_\allowbreak decoding}
+in \texttt{Helpers/}\allowbreak\texttt{PrimeClassDecoderExact.lean}.
+The declaration uses the actual integer counts and selectors, derives
+the independent signed infinite-product supply, and proves one eventual
+threshold for every $n\le R_N$. It includes $2$, composites and finite or
+empty classes without an exceptional-prime assumption.
+The arithmetic-operation and bit-length claims in the theorem remain
+separate formalization obligations; the theorem as a whole is therefore
+not recorded as fully formalized.
 
 \subsection{Exact decoding capacity and an operational RH criterion}
 \label{sec:prime-decoding-capacity}
