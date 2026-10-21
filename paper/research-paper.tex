@@ -7561,6 +7561,256 @@ carrier and the explicit transfer to this existing RH criterion.
 No infinitude of Fibonacci primes is assumed, and no improved
 zero-free exponent follows without a new independent estimate.
 
+\subsection{Actual Fermat primes: finite or infinite}
+\label{sec:actual-fermat-prime-rh}
+
+Here the prime family is exactly
+\[
+ T_j=2^{2^j}+1,\qquad
+ J=\{j\ge0:T_j\text{ is prime}\},\qquad
+ \mathcal P_F=\{T_j:j\in J\}.
+\]
+No assertion about the finiteness of $J$ is assumed. This family
+differs from choosing one prime factor of every $T_j$: a composite
+Fermat number contributes nothing to $\mathcal P_F$.
+The distinction matters for the RH criterion. In the joint
+Fibonacci--Fermat construction below, the RH information comes
+from all odd prime labels in the Fibonacci block; the nested
+Fermat block contributes a fixed vacancy factor $1/2$.
+That construction is not an RH equivalence for actual Fermat
+primes by themselves.
+
+\begin{theorem}[Actual Fermat-prime avoidance and deficiency]
+\label{thm:actual-fermat-avoidance}
+Whether $J$ is finite or infinite, the product
+\[
+ b_F=\prod_{j\in J}(1-1/T_j)
+\]
+converges and is positive. It is the natural density of positive
+integers divisible by no actual Fermat prime. More precisely,
+\[
+ \frac{2^{32}+1}{2^{33}}
+ \ \le\ b_F\ \le\ \frac{2^{31}}{2^{32}-1},\qquad
+ \frac{2^{31}}{2^{32}-1}-\frac{2^{32}+1}{2^{33}}
+ =\frac1{2^{33}(2^{32}-1)}.
+\]
+Every positive integer $n$ whose prime divisors all belong to
+$\mathcal P_F$ satisfies
+\[
+ \frac{\sigma(n)}n<2,\qquad P_n(0)>\frac12.
+\]
+Consequently restricting Robin's inequality to these integers
+$n\ge5041$ gives a statement already true unconditionally,
+rather than an RH equivalence.
+\end{theorem}
+
+\begin{proof}
+The finite Fermat product telescopes:
+\[
+ \prod_{j<k}T_j=2^{2^k}-1,\qquad
+ \prod_{j<k}(1-1/T_j)
+ =\frac{2^{2^k-1}}{2^{2^k}-1},\qquad k\ge0.
+\]
+The empty product at $k=0$ is $1$. Thus the product over
+\emph{all} Fermat numbers tends to $1/2$, and deleting factors
+in $(0,1)$ can only increase it. Also
+$\sum_jT_j^{-1}<\infty$, so the subproduct defining $b_F$
+converges positively. The first five Fermat numbers are prime,
+whereas $T_5=641\cdot6700417$ is composite. Retaining the first
+five factors gives the upper bound. Retaining every factor
+except $j=5$ gives the lower bound
+$\tfrac12(1-1/T_5)^{-1}=(2^{32}+1)/2^{33}$.
+Subtracting gives the displayed interval width. These elementary
+facts about Fermat numbers are recalled in the introduction to
+\cite{PomeranceCyclotomic}; no later primality decisions are used.
+
+For any fixed finite prime cutoff, the Chinese remainder theorem
+gives the avoidance density as its finite product. The upper
+density of positive integers divisible by any omitted Fermat
+prime is at most the reciprocal tail: for each $N\ge1$,
+\[
+ \frac1N\#\{1\le n\le N:\exists\,p\in\mathcal P_F,
+                      \ p>X,\ p\mid n\}
+ \le\sum_{\substack{p\in\mathcal P_F\\X<p\le N}}\frac1p
+ \le\sum_{\substack{p\in\mathcal P_F\\p>X}}\frac1p.
+\]
+The final tail tends to zero, proving the full natural density
+without exchanging two unproved sampling limits.
+
+Finally write $n=\prod_{j\in S}T_j^{a_j}$, where $S$ is a
+finite subset of $J$ and $a_j\ge1$. Choose $k$ with
+$S\subseteq\{0,\ldots,k-1\}$. The divisor-sum product gives
+\[
+ \frac{\sigma(n)}n
+ =\prod_{j\in S}
+    \frac{1-T_j^{-(a_j+1)}}{1-T_j^{-1}}
+ \le\prod_{j<k}(1-1/T_j)^{-1}
+ =2-2^{1-2^k}<2.
+\]
+This also covers $n=1$ with $k=0$.
+Since $P_n(0)=n/\sigma(n)$, its vacancy is greater than $1/2$.
+On $n\ge5041$, $e^{-\gamma}/\log\log n<1/2$, as used in
+the perfect-number discussion above, so Robin's probability
+inequality follows with no RH hypothesis.
+\end{proof}
+
+This proves that even allowing arbitrary powers and arbitrarily
+many actual Fermat primes does not reach the large-abundancy
+regime responsible for Robin counterexamples. It does not prove
+that $J$ is finite, infinite, or independent of RH.
+
+\begin{theorem}[The Fermat Euler factor preserves the zeta zeros]
+\label{thm:fermat-euler-zero-preservation}
+For $\Re s>0$ define
+\[
+ H_F(s)=\prod_{p\in\mathcal P_F}(1-p^{-s}).
+\]
+This is holomorphic and nowhere zero on that half-plane, with
+$H_F(1)=b_F$. The meromorphic function
+\[
+ \zeta_{\overline F}(s)=\zeta(s)H_F(s)
+\]
+has exactly the same zeros, with the same multiplicities, as
+$\zeta$ in $\Re s>0$, and still has a simple pole at $1$.
+In $\Re s>1$ it is the Euler product over primes that are not
+Fermat primes. In particular,
+\[
+ \mathrm{RH}\quad\Longleftrightarrow\quad
+ \zeta_{\overline F}(s)\ne0
+ \quad(\Re s>1/2,\ s\ne1).
+\]
+This holds in both the finite and infinite cases for $J$.
+\end{theorem}
+
+\begin{proof}
+For every $\sigma>0$,
+\[
+ \sum_{j\in J}T_j^{-\sigma}
+ \le\sum_{j\ge0}2^{-\sigma 2^j}
+ \le\sum_{j\ge0}2^{-\sigma(j+1)}<\infty.
+\]
+On a compact subset of $\Re s>0$ choose a lower bound
+$\Re s\ge\sigma>0$. The factors $p^{-s}$ have modulus at most
+$p^{-\sigma}<1$, and the displayed sum gives locally uniform
+absolute convergence of $\sum_p\log(1-p^{-s})$ using the branch
+defined by its power series in the unit disk. Its exponential
+is $H_F$, proving holomorphy and nonvanishing. This argument
+does not distinguish a finite subproduct from an infinite one.
+
+The ordinary Euler product of $\zeta$ in $\Re s>1$ gives the
+asserted complementary product. Multiplication by a holomorphic
+unit preserves every zero and its order, and $H_F(1)=b_F>0$
+preserves the pole. The final equivalence is the usual zero-free
+half-plane formulation of RH.
+\end{proof}
+
+Thus the Fermat-prime Euler product $H_F^{-1}$ itself is
+already zero-free throughout $\Re s>0$. The displayed RH
+equivalence retains the complementary primes; it is not a
+criterion involving only the number or spacing of Fermat primes.
+
+\begin{theorem}[An infinitude-free complementary probability criterion]
+\label{thm:fermat-complement-nicolas}
+For $X\ge3$ put
+\[
+ B_F(X)=\prod_{\substack{p\le X\\p\in\mathcal P_F}}(1-1/p),
+ \quad
+ A_{\overline F}(X)=
+      \prod_{\substack{p\le X\\p\notin\mathcal P_F}}(1-1/p),
+ \quad
+ \theta_{\overline F}(X)=
+      \sum_{\substack{p\le X\\p\notin\mathcal P_F}}\log p,
+\]
+where every $p$ in these finite products and sums is prime.
+Then, without an assumption on the size of $J$,
+\[
+ \mathrm{RH}\quad\Longleftrightarrow\quad
+ A_{\overline F}(X)<
+ \frac{e^{-\gamma}}{b_F\log\theta_{\overline F}(X)}
+ \quad\hbox{for all sufficiently large }X.
+\]
+The product $A_{\overline F}(X)$ is the fixed-cutoff limiting
+probability of avoiding all non-Fermat primes at most $X$ in
+uniform positive-integer sampling. If $f(X)$ is the original
+Nicolas function and
+\[
+ f_{\overline F}(X)=e^\gamma b_F
+             \log\theta_{\overline F}(X)A_{\overline F}(X),
+\]
+then an absolute eventual error bound is
+\[
+ 0\le\log f(X)-\log f_{\overline F}(X)\le\frac{19}{X}.
+\]
+The constant $19$ is explicit; the starting threshold here is
+only asserted to exist, not numerically specified.
+\end{theorem}
+
+\begin{proof}
+Let $m$ be the least label for which $T_m>X$. Telescoping the
+full Fermat-number product gives
+\[
+ 1-\frac1{T_m-1}
+ =\prod_{j\ge m}(1-1/T_j)
+ \le\frac{b_F}{B_F(X)}\le1.
+\]
+Consequently, for $X\ge3$,
+\[
+ 0\le\log B_F(X)-\log b_F
+ \le-\log(1-1/(X-1))\le\frac3X.
+\]
+For $r_F(X)=\theta(X)-\theta_{\overline F}(X)$, the other
+finite product identity gives
+\[
+ 0\le r_F(X)\le\sum_{j<m}\log T_j
+ =\log(T_m-2)<2\log T_{m-1}\le2\log X.
+\]
+Here $m\ge1$ because $X\ge3$.
+The unconditional prime number theorem implies that, eventually,
+$\theta(X)\ge X/2$, $2\log X\le X/4$, and
+$\log(X/4)\ge\tfrac12\log X$. Therefore
+$\theta_{\overline F}(X)\ge X/4>1$ and
+\[
+ 0\le\log\log\theta(X)-\log\log\theta_{\overline F}(X)
+ \le\frac{r_F(X)}{
+      \theta_{\overline F}(X)\log\theta_{\overline F}(X)}
+ \le\frac{16}{X}.
+\]
+All denominators used in the criterion are positive in this
+eventual range. Since the full prime product is
+$B_F(X)A_{\overline F}(X)$, exact subtraction gives
+\[
+ \log f-\log f_{\overline F}
+ =\log B_F-\log b_F+
+   \log\log\theta-\log\log\theta_{\overline F}.
+\]
+The preceding estimates prove the claimed signed error bound.
+
+Under RH, Nicolas's criterion gives $\log f(X)<0$ eventually;
+the nonnegative subtraction then gives
+$\log f_{\overline F}(X)<0$. If RH fails, the same source
+gives positive excursions
+$\log f(X)\ge cX^{-b}$ at arbitrarily large $X$, for some
+constants $c>0$ and $0<b<1/2$
+\cite[equation~(1.10)]{Nicolas2012}.
+For sufficiently large points on that excursion sequence,
+$cX^{-b}>19/X$, hence $\log f_{\overline F}(X)>0$.
+The eventual inequality is therefore false. This proves both
+directions without assuming finitely or infinitely many Fermat
+primes, and without using an RH-dependent reconstruction in
+the non-RH direction.
+\end{proof}
+
+These are ordinary proofs in this section, not new Lean
+declarations or claims of a new RH estimate. The last criterion
+is an application of the existing Nicolas excursion theorem
+with a proved $O(X^{-1})$ deletion error. If $J$ is finite,
+$B_F(X)$ eventually equals the finite constant $b_F$; if $J$
+is infinite it approaches the same well-defined positive
+constant without stabilizing. Neither case changes the
+equivalence. No implication from RH to finiteness or infinitude
+of actual Fermat primes has been established here, and the
+certified zero-free boundary remains $7/8$.
+
 \subsection{Nested Fermat carriers and a joint Fibonacci profile}
 \label{sec:fermat-fibonacci-joint}
 
@@ -8650,6 +8900,10 @@ arXiv:1212.6221 (2012),
 T. Tao, \emph{Almost all orbits of the Collatz map attain almost
 bounded values}, Forum of Mathematics, Pi \textbf{10} (2022), e12.
 doi:10.1017/fmp.2022.8; arXiv:1909.03562, Proposition~1.9.
+\bibitem{PomeranceCyclotomic}
+C. Pomerance, \emph{Cyclotomic primes}, manuscript dated
+October~14, 2024, Introduction.
+\url{https://math.dartmouth.edu/~carlp/cyclotomicprimesj.pdf}.
 \end{thebibliography}
 
 \bigskip
