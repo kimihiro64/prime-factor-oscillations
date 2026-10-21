@@ -14459,6 +14459,324 @@ The required analytic formalization still includes the
 Gaussian-smoothed Perron contour shift and its zero-sum limit.
 No established literature priority is asserted.
 
+\subsection{A critical-line record floor and a genuine counting-exponent limit}
+\label{sec:greedy-prime-critical-record-floor}
+
+The preceding Gaussian argument separates an off-critical zero from the
+square-prime term by a strict exponent gap. At the critical line that gap
+vanishes. A compact window and coherent use of many zero frequencies
+supply a different mechanism. Throughout this subsection the literal
+classes $\mathcal S,\mathcal D$ are unchanged.
+
+\begin{lemma}[Compact positive window with the square-prime term retained]
+\label{lem:greedy-prime-compact-critical-profile}
+For $h>0$, define
+\[
+ \begin{aligned}
+ W_h(u)&=\frac1h\left(1-\frac{|u|}{h}\right)_+,\qquad
+ K_h(u)=e^{-u/2}W_h(u),\\
+ w(y)&=\left(\frac{\sin(y/2)}{y/2}\right)^2,\qquad w(0)=1.
+ \end{aligned}
+\]
+Here $r_+=\max(r,0)$.
+Assume RH and count positive zero heights $\gamma$ with multiplicities
+$m_\gamma$. Then, for this fixed $h$,
+\begin{equation}
+ \begin{aligned}
+ J_h(X)&=\int_{\mathbb R}(\theta(Xe^u)-Xe^u)K_h(u)\,du,\\
+ \frac{J_h(X)}{\sqrt X}&=f_h(\log X)+o_h(1),\\
+ f_h(v)&=-1-2\sum_{\gamma>0}
+ m_\gamma w(h\gamma)
+ \frac{\tfrac12\cos(\gamma v)+\gamma\sin(\gamma v)}
+      {\tfrac14+\gamma^2}.
+ \end{aligned}
+ \label{eq:greedy-prime-compact-critical-profile}
+\end{equation}
+The series converges absolutely and uniformly in real $v$.
+In particular $f_h$ is uniformly almost periodic.
+The constant $-1$ is the full leading square-prime contribution.
+\end{lemma}
+
+\begin{proof}
+The triangular Fourier pair is
+\[
+ \int_{\mathbb R}W_h(u)e^{itu}\,du=w(ht).
+\]
+Its entire Mellin multiplier is
+\[
+ \Phi_h(s)=\int_{\mathbb R}K_h(u)e^{su}\,du
+ =\left(\frac{\sinh((s-\tfrac12)h/2)}
+                  {(s-\tfrac12)h/2}\right)^2,
+\]
+with its removable value at $s=1/2$.
+On every fixed vertical strip,
+$\Phi_h(\sigma+it)=O_h((1+|t|)^{-2})$.
+The same Perron argument as in
+Lemma~\ref{lem:greedy-prime-Gaussian-explicit}, now with this compact
+kernel, gives the unconditional identity
+\begin{equation}
+ \begin{aligned}
+ \int_{\mathbb R}(\psi(Xe^u)-Xe^u)K_h(u)\,du
+ &=-\sum_{\rho\in\mathcal Z}
+       \frac{m_\rho}{\rho}X^\rho\Phi_h(\rho)\\
+ &\quad-\log(2\pi)\Phi_h(0)+O_h(X^{-1}).
+ \end{aligned}
+ \label{eq:greedy-prime-compact-explicit}
+\end{equation}
+For clarity, its initial integrand on $\Re s=2$ is the complete
+\[
+                     -(\zeta'/\zeta)(s)X^s\Phi_h(s)/s .
+\]
+Shift only to $\Re s=-1$.
+The pole at $1$ cancels the integral of $Xe^u$, the pole at $0$
+gives the displayed constant, and no trivial zero is crossed.
+On zero-avoiding horizontal heights the integrand is
+$O_{h,X}(\log^2(2+|t|)/(1+|t|)^3)$.
+On the left vertical line the integral is absolutely convergent and
+$O_h(X^{-1})$. The same decay and the zero count make the zero sum
+absolutely convergent. This also justifies the contour limit for
+the piecewise linear window; differentiability at its corners is
+not needed.
+
+The prime number theorem, together with $\theta(t)=O(t)$, gives
+\[
+ Q(t):=\psi(t)-\theta(t)
+   =\theta(\sqrt t)+O(t^{1/3}\log t)
+   =\sqrt t+o(\sqrt t).
+\]
+Indeed the terms with prime-power exponent at least $3$ are at most
+$O(\log t)$ terms, each $O(t^{1/3})$.
+Since $|u|\le h$ on the kernel support, this asymptotic is uniform
+at $t=Xe^u$ as $X\to\infty$, and
+\[
+ \int Q(Xe^u)K_h(u)\,du
+       =\sqrt X\int W_h(u)\,du+o_h(\sqrt X)
+       =\sqrt X+o_h(\sqrt X).
+\]
+Under RH, $\Phi_h(1/2+i\gamma)=w(h\gamma)$.
+Divide \eqref{eq:greedy-prime-compact-explicit} by $\sqrt X$ and
+pair conjugate zeros to obtain
+\eqref{eq:greedy-prime-compact-critical-profile}.
+For fixed $h$, its coefficients are $O_h(m_\gamma/\gamma^3)$
+at large height. Their sum converges by
+$N(T)=O(T\log(2+T))$.
+Finite trigonometric sums are uniformly almost periodic by the
+compact-torus argument used above, and their uniform limit has
+the same property. No independence of zero ordinates is assumed.
+\end{proof}
+
+\begin{lemma}[Coherent critical frequencies exceed the square-prime bias]
+\label{lem:greedy-prime-critical-coherence}
+Under RH, the profiles in
+\eqref{eq:greedy-prime-compact-critical-profile} satisfy
+\begin{equation}
+                  f_h(-2h)=\frac12\log(1/h)+O(1)
+                         \qquad(h\downarrow0).
+ \label{eq:greedy-prime-critical-coherence}
+\end{equation}
+The implied constant is uniform for sufficiently small $h>0$.
+In particular, some fixed $h$ has $f_h(-2h)>0$.
+\end{lemma}
+
+\begin{proof}
+Keep the complete signed expression
+\[
+ f_h(-2h)=-1-
+ \sum_{\gamma>0}\frac{m_\gamma w(h\gamma)\cos(2h\gamma)}
+                         {\tfrac14+\gamma^2}
+ +2\sum_{\gamma>0}
+       \frac{m_\gamma w(h\gamma)\gamma\sin(2h\gamma)}
+                         {\tfrac14+\gamma^2}.
+\]
+The cosine sum is $O(1)$ uniformly in $h$, since $0\le w\le1$
+and $\sum m_\gamma/(1/4+\gamma^2)<\infty$.
+Write the last sum without its factor $2$ as $S_h$.
+Replacing $\gamma/(1/4+\gamma^2)$ by $1/\gamma$ changes $S_h$
+by $O(h)$: use $|\sin(2h\gamma)|\le2h\gamma$ and that same
+convergent reciprocal-square sum.
+
+We give the signed evaluation, rather than an unsigned zero bound.
+The Riemann--von Mangoldt formula, with multiplicities, is
+\[
+ N(t)=\frac{t}{2\pi}\log\frac{t}{2\pi}
+                     -\frac{t}{2\pi}+O(\log(2+t)).
+\]
+Stieltjes integration by parts consequently gives
+\begin{equation}
+ S_h=\frac1{2\pi}\int_2^\infty
+       w(ht)\frac{\sin(2ht)}t\log\frac{t}{2\pi}\,dt+O(1).
+ \label{eq:greedy-prime-critical-Stieltjes}
+\end{equation}
+Here the bounded initial interval contributes $O(h)$.
+To verify the uniform remainder, set
+$g(y)=w(y)\sin(2y)/y$ with its removable value at $0$.
+Then
+\[
+ \int_0^\infty |g'(y)|(1+\log(2+y))\,dy<\infty,
+ \qquad w(ht)\sin(2ht)/t=h g(ht).
+\]
+Thus the error integral against $O(\log(2+t))$ is
+$O(h\log(2/h))$, and the endpoint errors are bounded.
+This proves the claimed uniformity in
+\eqref{eq:greedy-prime-critical-Stieltjes}.
+
+Substitute $y=ht$ there. The integral with the additional
+$\log(y/(2\pi))$ is absolutely convergent, including at $0$.
+It follows that
+\[
+ S_h=\frac{\log(1/h)}{2\pi}\,I+O(1),\qquad
+ I=\int_0^\infty w(y)\frac{\sin(2y)}y\,dy.
+\]
+This signed integral is positive and has the exact value $\pi/2$.
+Indeed, if $I(a)=\int_0^\infty w(y)\sin(ay)/y\,dy$ for $a\ge0$,
+Fourier inversion for $W_1(u)=(1-|u|)_+$ gives
+\[
+ I'(a)=\int_0^\infty w(y)\cos(ay)\,dy
+                         =\pi(1-a)_+.
+\]
+Differentiation is justified by integrability of $w$;
+$I(0)=0$ therefore gives $I(2)=\pi/2$.
+Consequently $2S_h=\tfrac12\log(1/h)+O(1)$.
+Together with the retained constant $-1$ and the bounded
+cosine contribution this proves
+\eqref{eq:greedy-prime-critical-coherence}.
+\end{proof}
+
+\begin{theorem}[An unconditional square-root floor for deleted primes]
+\label{thm:greedy-prime-critical-record-floor}
+There are constants $c>0$ and $X_0$ such that, for every real
+$X\ge X_0$,
+\begin{equation}
+              R(X)\ge c\sqrt X,\qquad
+              N_{\mathcal D}(X)\ge\frac{c\sqrt X}{\log X}.
+ \label{eq:greedy-prime-critical-record-floor}
+\end{equation}
+In particular the same fixed computable deleted-prime class
+$\mathcal D$ is infinite unconditionally.
+\end{theorem}
+
+\begin{proof}
+First assume RH. Choose a fixed small $h$ for which
+$d=f_h(-2h)>0$.
+Uniform almost periodicity supplies $L>0$ such that every real
+interval of length $L$ contains a $v$ with $f_h(v)\ge3d/4$:
+translate the relatively dense set of $d/4$-almost periods by $-2h$.
+The error in
+\eqref{eq:greedy-prime-compact-critical-profile} tends to zero
+for all $X\to\infty$, so at such sufficiently large $v$, with
+$Y=e^v$, one has
+\[
+                         J_h(Y)\ge(d/2)\sqrt Y .
+\]
+Given any sufficiently large real cutoff $X$, choose this $v$ in
+$[\log X-h-L,\log X-h]$.
+Every point $Ye^u$ in the compact kernel support is then at most $X$.
+Since $\theta(t)-t\le R(X)$ for every $0<t\le X$, including $t<2$,
+and $K_h\ge0$,
+\[
+ J_h(Y)\le C_h R(X),\qquad
+ C_h=\int_{\mathbb R}K_h(u)\,du=\Phi_h(0)>0.
+\]
+Also $\sqrt Y\ge e^{-(h+L)/2}\sqrt X$.
+This proves the first inequality in
+\eqref{eq:greedy-prime-critical-record-floor} under RH.
+The regulator comparison $M(X)\ge R(X)$ and
+$N_{\mathcal D}(X)\log X\ge M(X)$ give its second inequality.
+
+If RH fails, take a zero with real part $\beta>1/2$ and put
+$\epsilon=(\beta-1/2)/2$.
+Theorem~\ref{thm:greedy-prime-uniform-zero-response} gives
+$N_{\mathcal D}(X)\ge d_\epsilon X^{1/2+\epsilon}$
+at every sufficiently large cutoff.
+Now use both sides of the regulator estimate:
+\[
+ R(X)\ge M(X)-\log X
+       \ge(\log2)N_{\mathcal D}(X)-\log X
+       \ge \sqrt X
+\]
+eventually. The last inequality holds because $\epsilon>0$.
+This proves the same first inequality in the other case;
+the same regulator argument again gives the second.
+The two cases establish the unconditional assertion.
+No RH-dependent Fourier identity was used under the bad-zero
+hypothesis.
+\end{proof}
+
+\begin{theorem}[An exact all-scale exponent and its inverse prime sequence]
+\label{thm:greedy-prime-all-scale-exponent}
+Unconditionally,
+\begin{equation}
+ \lim_{X\to\infty}\frac{\log(1+N_{\mathcal D}(X))}{\log X}
+       =\Theta_\zeta .
+ \label{eq:greedy-prime-all-scale-exponent}
+\end{equation}
+If $d_j$ is the $j$th prime in $\mathcal D$, then
+\begin{equation}
+ \lim_{j\to\infty}\frac{\log d_j}{\log j}=\frac1{\Theta_\zeta},
+ \qquad
+ d_j\ll j^2(\log j)^2 .
+ \label{eq:greedy-prime-inverse-exponent}
+\end{equation}
+In particular RH is equivalent to $d_j=j^{2+o(1)}$.
+Under RH there are constants $a,A>0$ such that, eventually,
+\begin{equation}
+ \frac{a j^2}{(\log j)^2}\le d_j\le A j^2(\log j)^2 .
+ \label{eq:greedy-prime-RH-inverse-bounds}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Under false RH, the exponent limit was proved in
+Theorem~\ref{thm:greedy-prime-liminf-RH}.
+Under RH the unconditional lower floor just proved and the
+upper bound $N_{\mathcal D}(X)\ll\sqrt X\log X$ from
+Theorem~\ref{thm:greedy-prime-RH-size} squeeze the exponent to
+$1/2=\Theta_\zeta$. These cases prove
+\eqref{eq:greedy-prime-all-scale-exponent} for all real cutoffs.
+
+The class is infinite by
+Theorem~\ref{thm:greedy-prime-critical-record-floor}.
+Its prime enumeration is strictly increasing and
+$N_{\mathcal D}(d_j)=j$ exactly.
+Since $1/2\le\Theta_\zeta\le1$, substituting $X=d_j$ into
+\eqref{eq:greedy-prime-all-scale-exponent} and inverting its
+positive limit gives the first formula in
+\eqref{eq:greedy-prime-inverse-exponent}.
+For its quantitative upper bound, put
+$X=A j^2(\log j)^2$ in the unconditional count lower floor.
+For a sufficiently large fixed $A$ this gives
+$N_{\mathcal D}(X)\ge j$ eventually, hence $d_j\le X$.
+In particular $\log d_j\le3\log j$ eventually after increasing
+the cutoff. Under RH, the count upper bound at $d_j$ then gives
+$j\le C\sqrt{d_j}\log d_j\le3C\sqrt{d_j}\log j$,
+which proves the lower inequality in
+\eqref{eq:greedy-prime-RH-inverse-bounds}.
+Finally zero symmetry gives
+$\Theta_\zeta=1/2$ if and only if RH, proving the stated
+inverse-sequence equivalence.
+\end{proof}
+
+These results concern the very same automatically favorable capped class,
+rather than a new model or a selected subsequence of cutoffs.
+The compact window retains the square-prime bias and obtains positivity
+from its signed interaction with all critical zero frequencies.
+They strengthen the earlier limsup readout for moment-rounded classes:
+for this greedy class the exponent is a genuine limit, including when RH
+holds. The Bernoulli profile above consequently has a degree deficit
+at least $c\sqrt n/\log n$ at every sufficiently large integer cutoff.
+
+This is a lower-count theorem. The independent upper-count estimate
+at exponent $3/4$ or $1/2$ is still unproved, and the certified
+unconditional zero-free boundary remains $7/8$.
+All the compact-window contour, zero-count Stieltjes estimate,
+almost-periodic recurrence and arithmetic conclusions in this subsection
+have ordinary proofs above. They are not claimed as Lean declarations.
+Their analytic Lean blockers are the compact-window Perron shift,
+the Riemann--von Mangoldt Stieltjes asymptotic and the uniform
+almost-periodic passage for the full zero series.
+The classical explicit formula and zero-count law are inputs;
+no established originality priority is asserted.
+
 \subsection{Selecting certified good primes before estimating their size}
 \label{sec:certified-good-prime-class}
 
