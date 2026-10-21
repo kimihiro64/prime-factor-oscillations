@@ -8276,10 +8276,51 @@ chosen on complete dyadic blocks, and no uniform small
 error for partial blocks has been proved. Nor does
 holomorphic continuation alone supply a square-root bound
 for its signed inverse coefficients without the necessary
-vertical growth estimates. These ordinary proofs add a
-precise research framework; they do not improve the
-certified $7/8$ zero-free boundary or constitute completed
-Lean declarations.
+vertical growth estimates.
+
+\begin{lemma}[Exact finite integer moment compression]
+\label{lem:integer-moment-compression}
+Let $I,K$ be finite sets and $v:I\times K\to\mathbb N$.
+There are weights $w_i\in\mathbb N$ such that, writing
+$S=\{i:w_i>0\}$ and $M_k=\sum_{i\in I}v(i,k)$,
+\[
+ \sum_{i\in I}w_iv(i,k)=M_k\quad(k\in K),
+ \qquad 2^{|S|}\le\prod_{k\in K}(M_k+1).
+\]
+They can be chosen so that distinct subsets of $S$ have
+distinct vectors of unweighted coordinate sums.
+Empty index or coordinate sets are allowed.
+\end{lemma}
+
+\begin{proof}
+The all-one vector is feasible. Minimize its support
+cardinality among feasible natural weight vectors. If two
+distinct subsets of the support have equal signatures,
+delete their intersection and orient the resulting pair
+so that the first subset is nonempty. Subtract its minimum
+positive weight there and add it on the second subset.
+Disjointness preserves nonnegativity and every coordinate
+sum, while strictly decreasing support. This contradiction
+proves injectivity, including when the second subset is empty.
+For each $k$, every unweighted subset sum is an integer
+between $0$ and $M_k$, because the support is contained in $I$
+and $v$ is nonnegative. Counting signatures gives the bound.
+No nonemptiness hypothesis was used.
+\end{proof}
+
+The finite lemma, including its injectivity and exact
+support bound, is compiled in the maintained Lean candidate
+\path{PrimeFactorOscillations/Mathlib/Combinatorics/IntegerMomentCompression.lean}.
+Its quantitative declaration is
+\texttt{Finset.exists\_nat\_weights\_card\_pow\_le}.
+The axiom audit contains only \texttt{propext},
+\texttt{Classical.choice} and \texttt{Quot.sound}.
+The prime-class deletion results and the analytic continuation
+and zero preservation in
+Theorem~\ref{thm:universal-prime-compression} retain their
+ordinary proofs; those analytic conclusions are not claimed
+as compiled Lean declarations.
+The certified $7/8$ zero-free boundary is unchanged.
 
 \subsection{Nested Fermat carriers and a joint Fibonacci profile}
 \label{sec:fermat-fibonacci-joint}

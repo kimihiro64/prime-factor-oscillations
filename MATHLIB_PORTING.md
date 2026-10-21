@@ -5,6 +5,13 @@ Reusable mathematics intended for possible upstreaming lives under
 The child generator replaces `PrimeFactorOscillations` with the configured project
 namespace.
 
+## Exact integer moment compression
+
+| Module | Proposed destination | Readiness | Scope |
+| --- | --- | --- | --- |
+| `PrimeFactorOscillations.Mathlib.Combinatorics.IntegerMomentCompression` | `Mathlib/Combinatorics/IntegerMomentCompression.lean` | project-verified | Positive integer moment representatives with injective subset signatures and the exact bound 2^support.card <= product(total coordinate moment + 1); empty domains allowed. |
+| `PrimeFactorOscillations.Mathlib.Probability.All` | `Mathlib/Probability/All.lean` | project-verified | Import-only grouping preserving the existing probability candidate exports. |
+
 ## LPF distribution foundation
 
 | Module | Proposed destination | Readiness | Scope |
