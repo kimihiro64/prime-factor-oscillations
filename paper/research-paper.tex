@@ -10621,6 +10621,167 @@ proved here; in particular the certified reference boundary
 remains $7/8$. No literature priority is asserted.
 
 
+\paragraph{Exact contact geometry of the optimized carrier.}
+The finite optimum has an explicit polynomial description,
+retaining the mass deficit and every signed capacity term.
+
+\begin{theorem}[Binary interpolation and the contact-prime profile]
+\label{thm:prime-repair-contact-profile}
+Fix a cell in the all-moment construction. Write
+$\mu=R\nu|_I$, $S=S_I$, $H=\mu(I)$, $C=\sum_{p\in S}A(p)$,
+and $E=E_{I,k}$. For $\deg P<k$ put
+\[
+ \mathcal D(P)=\int_I P\,d\mu-\sum_{p\in S}A(p)(P(p))_+.
+\]
+There are at least $k$ actual prime nodes in $S$.
+For each $k$-element subset $T\subset S$ and map
+$b:T\to\{0,1\}$, form the unique degree-less-than-$k$
+Lagrange interpolant $P_{T,b}$. Retain those satisfying
+$P_{T,b}(p)\le1$ at every node in $S$, and call the resulting
+finite nonempty set $\mathfrak P_{k,S}$. Then
+\begin{equation}
+ \begin{gathered}
+ E=\max_{P\in\mathfrak P_{k,S}}\mathcal D(P)\\
+ =\max\left(\{0,H-C\}\cup
+ \{\mathcal D(P):P\in\mathfrak P_{k,S},\
+                                    P\text{ nonconstant}\}\right).
+ \end{gathered}
+ \label{eq:binary-prime-interpolation-dual}
+\end{equation}
+Let $P$ be any maximizing feasible dual polynomial and $w$
+any optimal actual weight vector. The complete contact rules are
+\begin{equation}
+ \begin{array}{c|c}
+ \text{dual value}&\text{optimal actual weight}\\ \hline
+ P(p)<0&w_p=0\\
+ P(p)=0&0\le w_p\le A(p)\\
+ 0<P(p)<1&w_p=A(p)\\
+ P(p)=1&w_p\ge A(p).
+ \end{array}
+ \label{eq:prime-repair-contact-rules}
+\end{equation}
+If $E>\max\{0,H-C\}$, every maximizing dual polynomial is
+nonconstant. There are then at most $k-1$ repair primes
+$w_p>A(p)$, at most $k-1$ partly used nodes $0<w_p<A(p)$,
+and at most $2(k-1)$ nodes with weight different from both
+$0$ and $A(p)$.
+If $E=H-C>0$, the constant polynomial $P=1$ is optimal and
+every optimal vector has $w_p\ge A(p)$ at all nodes.
+If $E=0$, every optimal vector has $w_p\le A(p)$.
+\end{theorem}
+
+\begin{proof}
+We first justify dual attainment. If $E=0$, the zero polynomial
+attains it. If $E>0$, take a maximizing sequence with
+$\mathcal D(P)\ge E/2$. Its polynomials have positive
+$\mu$-integral and node values at most $1$. The proof of
+Lemma~\ref{lem:positive-objective-prime-norming}, with
+$t=C_k\epsilon_{j,k}<1$, gives
+\[
+ \max_I P\le(1-t)^{-1},\qquad
+ \max_I|P|\le4B_{k-1}(r/\ell)(1-t)^{-1}.
+\]
+The constants here concern this fixed cell.
+Interpolation on the fixed equispaced grid bounds every
+coefficient. The feasible inequalities and
+$\mathcal D(P)\ge E/2$ are closed. Compactness in the
+finite-dimensional coefficient space therefore supplies
+a limit attaining $E$.
+
+The actual nodes are unisolvent for degree less than $k$.
+If $Q$ of that degree vanishes at every node, a feasible
+actual quadrature gives $\int_I Q\,d\mu=0$.
+For every real $v$, the polynomial $1+vQ$ has integral
+$H>0$ and node values $1$. Norming bounds its maximum on
+$I$ by $(1-t)^{-1}$, independently of $v$.
+Varying both signs of $v$ forces $Q=0$ on $I$, hence
+identically. If $|S|<k$, the nonzero polynomial
+$\prod_{p\in S}(x-p)$ contradicts this fact.
+Thus $|S|\ge k$.
+
+Start with an optimal dual polynomial.
+If fewer than $k$ distinct nodes have value $0$ or $1$,
+choose a nonzero polynomial $Q$ of degree less than $k$
+vanishing at all those contacts.
+For sufficiently small positive and negative $v$,
+$P+vQ$ stays feasible and keeps every noncontact node's
+sign. The objective is affine on that sign region;
+maximality in both directions makes its slope zero.
+Unisolvence supplies a noncontact node where $Q\ne0$.
+Orient $v$ so its value increases, and move to the first
+time a noncontact node reaches $0$ or $1$.
+That time is positive and finite: the selected node
+must reach $0$ if it started negative or $1$ if positive.
+Until then all signs and node upper bounds are preserved.
+The objective stays constant, all old contacts stay fixed,
+and a new contact appears. Repeat until at least $k$
+distinct contacts are present. Their binary values
+determine $P$ by Lagrange interpolation.
+This proves the finite maximum. Constant interpolants
+$0$ and $1$ supply the explicit tests $0$ and $H-C$.
+
+For the weight classification put $P_+=\max(P,0)$,
+$P_-=\max(-P,0)$ and $e=(w-A)_+$ at a node.
+The exact signed slack identity is
+\begin{equation}
+ e-(wP-A P_+)=(1-P_+)e+P_+(A-w)_++P_-w.
+ \label{eq:overweight-three-signed-slacks}
+\end{equation}
+All three terms on the right are nonnegative for $w\ge0$,
+$P\le1$. Moment matching and primal-dual equality give
+\begin{equation}
+ \begin{aligned}
+ \sum_{p\in S}\bigl[(1-P(p)_+)e_p
+        &+P(p)_+(A(p)-w_p)_++P(p)_-w_p\bigr]\\
+        &=E-\mathcal D(P)=0.
+ \end{aligned}
+ \label{eq:zero-total-prime-contact-slack}
+\end{equation}
+Thus every node gap vanishes. If $P<0$, its last term
+forces $w=0$; if $P=0$, its first forces $w\le A$.
+For $0<P<1$, the first two force both positive parts
+of $w-A$ to vanish, so $w=A$.
+For $P=1$, the second forces $w\ge A$.
+No absolute-value estimate of the signed arithmetic
+main terms enters these conclusions.
+
+A constant feasible polynomial has objective at most
+$\max\{0,H-C\}$: for $c\le0$ it is $cH\le0$,
+and for $0\le c\le1$ it is $c(H-C)$.
+The strict non-mass-deficit case therefore has only
+nonconstant optimizers. Each of $P=0$ and $P=1$ has
+at most $k-1$ distinct roots; the contact rules give
+all three exceptional-node counts.
+When $E=H-C>0$, the constant optimizer $1$ instead
+forces $w\ge A$ at every node.
+When $E=0$, all nonnegative excesses vanish.
+\end{proof}
+
+Apart from contact primes, the optimized carrier therefore
+uses either the full available capacity or none of it.
+For $k=2$, the nonconstant interpolation candidates are
+affine, recovering the actual-hull finite-strike description.
+For larger fixed $k$ the candidate list is still finite
+and uses the actual prime locations.
+Estimating its signed objectives, including $H-C$, remains
+the separate arithmetic task.
+
+The exact signed decomposition, its nonnegativity, the
+summed primal-dual gap, vanishing of every optimal node
+gap, and the four contact implications have maintained
+Lean proofs in
+\texttt{Proof/}\allowbreak
+\texttt{PrimeClassDeletion/}\allowbreak
+\texttt{OverweightSlack.lean}.
+They use only \texttt{propext}, \texttt{Classical.choice}
+and \texttt{Quot.sound}, and are exported by the
+prime-class-deletion assembly.
+Polynomial-dual attainment, finite interpolation and
+the root-count consequences above retain their full
+ordinary proofs here. This classification supplies
+no new weight estimate or certified improvement of $7/8$.
+
+
 \subsection{Nested Fermat carriers and a joint Fibonacci profile}
 \label{sec:fermat-fibonacci-joint}
 
