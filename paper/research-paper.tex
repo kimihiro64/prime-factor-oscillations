@@ -14014,6 +14014,451 @@ This arithmetic identification, partial summation and the asymptotic
 wave transfer retain their ordinary proofs above; the combined
 prime-wave theorem is not claimed as a compiled Lean declaration.
 
+\subsection{An infinitely-often size criterion from positive Gaussian probes}
+\label{sec:greedy-prime-Gaussian-liminf}
+
+The leading-wave hypothesis in the preceding subsection can be removed
+for the purpose of detecting an off-critical zero in the deletion count.
+The class $\mathcal S$, its complement $\mathcal D$, and the functions
+$R,M,N_{\mathcal D}$ are exactly the same fixed objects as above.
+They do not depend on a hypothetical zero or on any probe parameter.
+
+\begin{theorem}[A forbidden zero forces deletions at every large cutoff]
+\label{thm:greedy-prime-uniform-zero-response}
+Suppose $\zeta(\rho_0)=0$, where
+$\rho_0=\beta_0+i\gamma_0$ is nontrivial and $\beta_0>1/2$.
+For every $\epsilon>0$ there are constants $d_\epsilon>0$ and
+$X_\epsilon$ such that
+\begin{equation}
+ N_{\mathcal D}(X)\ge d_\epsilon X^{\beta_0-\epsilon}
+                         \qquad(X\ge X_\epsilon).
+ \label{eq:greedy-prime-uniform-zero-response}
+\end{equation}
+The constants may depend on the chosen zero and $\epsilon$, but not on
+the real cutoff $X$.
+No largest zero real part, single leading frequency or RH hypothesis
+is assumed.
+\end{theorem}
+
+We first establish the exact smoothed identity and its errors.
+Write $E_\theta(t)=\theta(t)-t$ and $E_\psi(t)=\psi(t)-t$,
+with $\theta(t)=\psi(t)=0$ for $0<t<2$.
+For $X>1$, $V>0$ and real $\tau$, put
+\begin{equation}
+ G_V(u)=\frac{e^{-u^2/(2V)}}{\sqrt{2\pi V}},
+ \qquad
+ H_\tau^\theta(X,V)=
+   \int_{\mathbb R}E_\theta(Xe^u)G_V(u)e^{-i\tau u}\,du,
+ \label{eq:greedy-prime-Gaussian-probe}
+\end{equation}
+and define $H_\tau^\psi$ in the same way.
+These integrals converge absolutely: the elementary bound
+$\theta(t),\psi(t)=O(t\log(2t))$ for $t\ge2$ suffices.
+
+\begin{lemma}[Signed Gaussian explicit formula with the prime powers retained]
+\label{lem:greedy-prime-Gaussian-explicit}
+Fix $0<c<1$ and a real $\tau$, and put $V=c\log X$.
+Let $\mathcal Z$ be the set of distinct nontrivial zeta zeros,
+and let $m_\rho$ denote their multiplicities.
+For $V\ge1$,
+\begin{equation}
+ \begin{aligned}
+ H_\tau^\psi(X,V)
+   &=-\sum_{\rho\in\mathcal Z}
+       \frac{m_\rho}{\rho}X^\rho
+            \exp\left(\frac V2(\rho-i\tau)^2\right)\\
+   &\quad-\log(2\pi)e^{-V\tau^2/2}
+                 +O_\tau(X^{-1+c/2}).
+ \end{aligned}
+ \label{eq:greedy-prime-Gaussian-explicit}
+\end{equation}
+The zero sum is absolutely convergent.
+Uniformly in real $\tau$, the complete prime-power correction satisfies
+\begin{equation}
+ \begin{aligned}
+ |H_\tau^\psi-H_\tau^\theta|
+ &\le
+ 2X^{1/2}e^{V/8}
+       \left(\log X+\frac V2+\sqrt{\frac{2V}{\pi}}\right)\\
+ &=O_c\left(X^{1/2+c/8}\log X\right).
+ \end{aligned}
+ \label{eq:greedy-prime-Gaussian-prime-powers}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+We use the classical unconditional meromorphic continuation,
+functional equation and zero-count estimates for $\zeta$.
+In particular $0<\Re\rho<1$ for $\rho\in\mathcal Z$,
+the zero set is locally finite,
+$N(T)=O(T\log(2+T))$, and
+$\zeta'/\zeta(-1+it)=O(\log(2+|t|))$.
+The last estimate follows directly from the functional equation and
+absolute convergence of $\zeta'/\zeta$ on $\Re s=2$.
+None of these facts assumes a zero-free substrip of the critical strip.
+
+Gaussian-smoothed Perron inversion on $\Re s=2$ gives
+\[
+ \int_{\mathbb R}\psi(Xe^u)G_V(u)e^{-i\tau u}\,du
+ =
+ \frac1{2\pi i}\int_{(2)}
+       -\frac{\zeta'(s)}{\zeta(s)}
+        \frac{X^s}{s}
+        \exp\left(\frac V2(s-i\tau)^2\right)\,ds .
+\]
+For example apply Mellin inversion to
+$\int_{\log(n/X)}^\infty G_V(u)e^{-i\tau u}\,du$
+and then sum against $\Lambda(n)$.
+The Dirichlet series is absolutely convergent on this line,
+and the vertical Gaussian gives absolute convergence of the
+resulting contour integral.
+The Gaussian moment is exactly
+$\int G_V(u)e^{(s-i\tau)u}\,du
+=\exp(V(s-i\tau)^2/2)$.
+
+Move the line only to $\Re s=-1$.
+On horizontal contours tending to infinity through heights avoiding
+zeros, the usual logarithmic-derivative estimate is
+$O(\log^2(2+|t|))$ on the bounded strip $-1\le\Re s\le2$.
+Such heights exist by the local zero-count bound; the factor
+$e^{-V(t-\tau)^2/2}$ makes their integrals vanish.
+The pole at $s=1$ contributes
+$X\exp(V(1-i\tau)^2/2)$.
+This cancels exactly the Gaussian integral of $Xe^u$ in
+$E_\psi$.
+A zero $\rho$ contributes the signed residue
+$-m_\rho X^\rho\exp(V(\rho-i\tau)^2/2)/\rho$.
+At $s=0$ the residue is
+$-(\zeta'/\zeta)(0)e^{-V\tau^2/2}
+=-\log(2\pi)e^{-V\tau^2/2}$.
+There is no trivial zero in this contour strip.
+
+On the new line the modulus of the exponential factor is
+$e^{V/2}e^{-V(t-\tau)^2/2}$.
+For $V\ge1$ the remaining vertical integral, after extracting
+$X^{-1}e^{V/2}$, is bounded by a constant depending on $\tau$.
+This proves the remainder in
+\eqref{eq:greedy-prime-Gaussian-explicit}.
+The zero-count bound and Gaussian decay in $\Im\rho$ prove absolute
+convergence of its zero sum.
+It would be invalid to continue this shift to $-\infty$ and sum all
+trivial zeros: the Gaussian grows quadratically in the real direction.
+
+Finally $Q(t)=\psi(t)-\theta(t)$ is nonnegative and satisfies the
+existing bound $Q(t)\le2\sqrt t\log t$ for $t\ge2$.
+Below the first prime power $4$, $Q=0$, so there is no omitted
+small-input correction.
+The same bound is the input used in the maintained
+Nicolas prime-power-tail estimates.
+Since $|e^{-i\tau u}|=1$, its complete Gaussian contribution is at most
+\[
+ 2X^{1/2}\int_{\mathbb R}
+       e^{u/2}(\log X+|u|)G_V(u)\,du .
+\]
+Use
+$e^{u/2}G_V(u)=e^{V/8}G_V(u-V/2)$ and
+$\int|u|G_V(u)\,du=\sqrt{2V/\pi}$.
+This gives \eqref{eq:greedy-prime-Gaussian-prime-powers}.
+Only this explicitly separated prime-power remainder has been
+estimated in modulus; the full signed zero sum remains in
+\eqref{eq:greedy-prime-Gaussian-explicit}.
+\end{proof}
+
+\begin{lemma}[A Gaussian shift exposes a strictly dominant zero]
+\label{lem:greedy-prime-Gaussian-exposure}
+For every fixed $c>0$ define
+\begin{equation}
+ A_c(\rho,\tau)
+   =\beta+\frac c2\bigl(\beta^2-(\gamma-\tau)^2\bigr),
+ \qquad
+ B_c(\tau)=\max_{\rho\in\mathcal Z}A_c(\rho,\tau),
+ \quad \rho=\beta+i\gamma.
+ \label{eq:greedy-prime-Gaussian-exponents}
+\end{equation}
+If a zero $\rho_0$ has $\beta_0>1/2$, one can choose $\tau>0$
+such that the maximum at $\tau$ is attained at a unique distinct zero
+$\rho_*$ and
+\begin{equation}
+ B_c(\tau)>
+   \max\left\{B_c(0),\ \frac12+\frac c8,\ \beta_0\right\}.
+ \label{eq:greedy-prime-Gaussian-gap}
+\end{equation}
+The maximum is over distinct zeros; multiplicity at $\rho_*$
+is retained as the nonzero coefficient $m_{\rho_*}/\rho_*$.
+\end{lemma}
+
+\begin{proof}
+The maximum exists: uniformly for $\tau$ in a compact interval,
+\[
+ A_c(\rho,\tau)\le1+\frac c2-\frac c2(\gamma-\tau)^2
+                                      \longrightarrow-\infty
+\]
+as $|\gamma|\to\infty$, and there are only finitely many zeros in
+any bounded part of the critical strip.
+There are no real nontrivial zeros; conjugation permits us to
+take $\gamma_0>0$.
+
+Put $b=\beta_0+c\beta_0^2/2$.
+Then $b>\max(\beta_0,1/2+c/8)$.
+If $B_c(0)<b$, the choice $\tau=\gamma_0$ gives
+$B_c(\tau)\ge b>B_c(0)$ and the required strict inequalities.
+If $B_c(0)\ge b$, choose a maximizer at $0$ with $\gamma>0$,
+using its conjugate if necessary.
+For every $0<\tau<2\gamma$,
+\[
+ A_c(\rho,\tau)-A_c(\rho,0)
+                =\frac c2\,\tau(2\gamma-\tau)>0.
+\]
+Thus in this case too there is a positive $\tau$ with all the
+strict inequalities in \eqref{eq:greedy-prime-Gaussian-gap}.
+
+It remains to remove ties without changing these inequalities.
+Locally the maximum is over finitely many candidate zeros, by the
+uniform tail bound above.
+For two different heights, the difference of their exponents is
+an affine function of $\tau$ with nonzero slope
+$c(\gamma-\gamma')$.
+At the same height the exponent strictly increases with $\beta$,
+since the difference for $\beta'<\beta$ is
+$(\beta-\beta')(1+c(\beta+\beta')/2)>0$.
+Consequently only finitely many crossing parameters need be avoided
+in a sufficiently small interval about the chosen $\tau$.
+Perturbing within that interval gives a unique maximizing zero,
+while continuity of the finite maximum preserves every strict gap.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:greedy-prime-uniform-zero-response}]
+It suffices to treat $0<\epsilon<1$.
+Choose $0<a<1/4$ so small that
+$\kappa=a^2+2a<\epsilon/2$, and set $c=a^2$.
+Fix $\tau$ and the unique $\rho_*$ given by the exposure lemma,
+and abbreviate $B=B_c(\tau)$ and $q=1/2+c/8$.
+The uniqueness supplies a positive gap between $B$ and every other
+zero exponent: only finitely many zeros have exponent near $B$.
+
+For $V=c\log X$, the signed term at $\rho_*$ in
+\eqref{eq:greedy-prime-Gaussian-explicit} has modulus
+$(m_{\rho_*}/|\rho_*|)X^B$.
+The sum of all other zero terms is $O(X^{B-\delta})$
+for some $\delta>0$.
+To justify this also for the infinite tail, fix $X_1>1$ and use the
+summable majorant
+$\sum_\rho(m_\rho/|\rho|)X_1^{A_c(\rho,\tau)-B+\delta}$.
+The prime-power error is $O(X^q\log X)$, strictly smaller since $q<B$.
+The $s=0$ term and the left contour remainder are smaller as well.
+It follows that, for all sufficiently large $X$,
+\[
+ |H_\tau^\theta(X,V)|\ge dX^B,\qquad
+ H_0^\theta(X,V)=o(X^B)
+\]
+for some $d>0$.
+The second estimate uses the full unshifted zero sum and the
+strict gap $B_c(0)<B$; its prime-power error is again retained.
+The oscillation of the leading residue cannot cancel its modulus,
+because there is a unique dominant distinct zero.
+
+Now retain the \emph{coupled signed} expression
+\begin{equation}
+ \begin{aligned}
+ P_\phi(X)
+   &=H_0^\theta(X,V)+
+                  \Re\bigl(e^{i\phi}H_\tau^\theta(X,V)\bigr)\\
+   &=\int_{\mathbb R}E_\theta(Xe^u)G_V(u)
+                         \bigl(1+\cos(\tau u-\phi)\bigr)\,du .
+ \end{aligned}
+ \label{eq:greedy-prime-positive-Gaussian}
+\end{equation}
+Its kernel is nonnegative for every phase.
+Choosing the phase to maximize the first line gives, eventually,
+\[
+ \max_\phi P_\phi(X)=H_0^\theta(X,V)+|H_\tau^\theta(X,V)|
+                                      \ge\frac d2X^B .
+\]
+In particular the unshifted term has not been discarded.
+It is lower order by the independent exponent gap, rather than by
+a main-term triangle or Gram estimate.
+
+Put $Y=X^{1+\kappa}$.
+For $u\le\kappa\log X$ one has
+$E_\theta(Xe^u)\le R(Y)$.
+This includes $Xe^u<2$, where $E_\theta(Xe^u)=-Xe^u<0$.
+The kernel in \eqref{eq:greedy-prime-positive-Gaussian} is at most $2G_V$.
+For the remaining tail use only the elementary
+$\theta(t)\le t\log t$ for $t\ge2$.
+Writing $L=\log X$, $z=(\kappa-c)L/\sqrt V$ and
+$\overline\Phi(z)=(2\pi)^{-1/2}\int_z^\infty e^{-v^2/2}\,dv$, one has
+\begin{equation}
+ \begin{aligned}
+ \int_{\kappa L}^\infty e^u(L+u)G_V(u)\,du
+  &=e^{V/2}\left((L+V)\overline\Phi(z)
+                  +\sqrt{\frac V{2\pi}}e^{-z^2/2}\right)\\
+  &\ll_c L X^{c/2-2}.
+ \end{aligned}
+ \label{eq:greedy-prime-Gaussian-tail}
+\end{equation}
+Indeed $\kappa-c=2a$ and $V=a^2L$, so $z=2\sqrt L$;
+use $\overline\Phi(z)\le e^{-z^2/2}$.
+Consequently, uniformly in the phase,
+\[
+ P_\phi(X)\le2R(Y)+O_c(X^{-1+c/2}\log X).
+\]
+Combining this with the positive lower bound proves
+$R(Y)\ge d'X^B$ for every sufficiently large $X$.
+
+The substitution $Y=X^{1+\kappa}$ covers every sufficiently large real
+$Y$, not just a subsequence.
+Since $B>\beta_0$ and $\beta_0<1$,
+\[
+ \frac{B}{1+\kappa}>
+ \frac{\beta_0}{1+\kappa}\ge\beta_0-\kappa
+                                      >\beta_0-\epsilon/2.
+\]
+Every denominator is positive.
+Finally
+$N_{\mathcal D}(Y)\log Y\ge M(Y)\ge R(Y)$.
+Absorbing this single logarithm into the remaining $\epsilon/2$
+margin proves \eqref{eq:greedy-prime-uniform-zero-response}.
+All probe parameters were fixed before allowing $X$ to grow.
+\end{proof}
+
+\begin{theorem}[Infinitely-often deletion-size criterion]
+\label{thm:greedy-prime-liminf-RH}
+For every fixed $1/2\le\eta<1$, the following are equivalent:
+\begin{equation}
+ \begin{gathered}
+ \Re\rho\le\eta\qquad(\rho\in\mathcal Z),\\
+ \liminf_{\substack{n\to\infty\\n\in\mathbb N,\ n\ge2}}
+       \frac{\log(1+N_{\mathcal D}(n))}{\log n}\le\eta .
+ \end{gathered}
+ \label{eq:greedy-prime-liminf-RH}
+\end{equation}
+Equivalently the second condition says that for every $\epsilon>0$
+and every integer $N$ there exists an integer $n\ge\max(N,2)$ with
+$N_{\mathcal D}(n)\le n^{\eta+\epsilon}$.
+In particular $\eta=1/2$ gives an RH equivalence for this fixed
+computable prime class.
+If RH is false and $\Theta_\zeta$ is the supremum of the nontrivial
+zero real parts, then the counting exponent has an actual limit:
+\[
+ \lim_{\substack{n\to\infty\\n\in\mathbb N,\ n\ge2}}
+       \frac{\log(1+N_{\mathcal D}(n))}{\log n}
+                                      =\Theta_\zeta .
+\]
+\end{theorem}
+
+\begin{proof}
+The zero-free condition and
+Theorem~\ref{thm:greedy-prime-RH-size} give the stronger all-cutoff
+upper bound $N_{\mathcal D}(X)\ll_\epsilon X^{\eta+\epsilon}$.
+It implies the stated lower-limit condition and the equivalent
+infinitely-often formulation, absorbing its constant into
+$\epsilon/2$ of exponent margin.
+Conversely a zero with $\beta_0>\eta$ has $\beta_0>1/2$.
+The uniform lower bound
+\eqref{eq:greedy-prime-uniform-zero-response}, for every positive
+$\epsilon$, implies that the displayed lower limit is at least
+$\beta_0>\eta$, a contradiction.
+The elementary equivalence between the lower-limit formulation and
+the integer subsequence formulation follows by taking logarithms;
+the extra $1$ changes the quotient by $o(1)$ on any such subsequence.
+
+If RH is false, $\Theta_\zeta>1/2$.
+Taking the supremum over all off-critical zeros in the uniform lower
+bound gives a lower limit at least $\Theta_\zeta$.
+For $\Theta_\zeta<1$ the existing zero-strip-to-count estimate gives
+an upper limit at most $\Theta_\zeta$.
+If $\Theta_\zeta=1$, the elementary $N_{\mathcal D}(n)\le n$
+gives that same upper limit.
+This proves the last assertion.
+\end{proof}
+
+The independent size burden has changed quantifiers: an unbounded sequence
+of favorable integer cutoffs is sufficient; an estimate at every cutoff
+is no longer required.
+No such independent sequence estimate at exponent $3/4$ or $1/2$
+is proved here, and no claim that finding it is arithmetically easier
+is made. The certified unconditional zero-free boundary remains $7/8$.
+At $\beta_0=1/2$ the strict separation from the prime-power exponent
+fails; no all-scale square-root lower bound under RH is asserted.
+
+\newpage
+\begin{theorem}[Stabilizing probability-profile rank test]
+For an integer $n\ge2$, form the finite Bernoulli probability profile%
+\label{thm:greedy-prime-RH-rank-clock}
+\[
+ P_{\mathcal S,n}(z)
+ =\prod_{\substack{p\le n\\p\in\mathcal S}}
+       \left(1-\frac1p+\frac zp\right).
+\]
+Define the computable bit
+\begin{equation}\label{eq:greedy-prime-RH-rank-bit}
+ b(n)=
+ \boldsymbol1_{\left\{
+ \pi(n)-\deg P_{\mathcal S,n}\le\sqrt n(\log n)^2
+ \right\}}.
+\end{equation}
+This binary sequence stabilizes unconditionally, and its limit is
+\begin{equation}\label{eq:greedy-prime-RH-rank-bit-limit}
+ \lim_{n\to\infty}b(n)=
+ \begin{cases}
+ 1,&\text{if RH holds},\\
+ 0,&\text{if RH fails}.
+ \end{cases}
+\end{equation}
+Consequently, RH is equivalent both to $b(n)=1$ for infinitely many
+integers $n$ and to $b(n)=1$ for all sufficiently large integers $n$.
+\end{theorem}
+
+\begin{proof}
+Every factor has positive leading coefficient $1/p$. Thus, also for the
+empty product,
+\[
+ \deg P_{\mathcal S,n}=\#\{p\le n:p\in\mathcal S\},
+ \qquad
+ \pi(n)-\deg P_{\mathcal S,n}=N_{\mathcal D}(n).
+\]
+These are finite independent Bernoulli variables with success probabilities
+$1/p$ at a fixed cutoff. No simultaneous growing-cutoff sampling limit
+is used.
+
+Under RH, Theorem~\ref{thm:greedy-prime-RH-size} gives
+$N_{\mathcal D}(n)\ll\sqrt n\log n$. Its fixed implied constant is absorbed
+by the additional factor $\log n$, so $b(n)=1$ eventually.
+If RH fails, functional reflection gives a zero with
+$\beta>1/2$. Put $\delta=(\beta-1/2)/2>0$ and apply
+Theorem~\ref{thm:greedy-prime-uniform-zero-response}
+with $\varepsilon=\delta$. It gives
+$N_{\mathcal D}(n)\ge c n^{1/2+\delta}$ at every sufficiently large
+integer $n$, for some fixed $c>0$.
+Since $c n^\delta>(\log n)^2$ eventually, $b(n)=0$ eventually.
+
+For completeness, each finite bit is computable. The greedy membership
+test already has effective comparisons at integer cutoffs.
+The threshold $\sqrt n(\log n)^2$ cannot be an integer: otherwise
+$(\log n)^2$ and hence $\log n$ would be algebraic, contradicting
+Lindemann's theorem since $\log n\ne0$ and $e^{\log n}=n$ is algebraic.
+Certified rational intervals for the logarithm therefore eventually
+separate the threshold from the integer $N_{\mathcal D}(n)$.
+This proves computability of each bit, not an effective unconditional
+bound on its last change. No finite run of zeros or ones certifies the
+limiting bit, and the theorem supplies no decision algorithm for RH.
+\end{proof}
+
+The nine spectral-exponent identities, strict comparisons and
+localization-parameter statements in
+\path{Proof/PrimeClassDeletion/GaussianRecordExponents.lean}
+are Lean-checked.
+They include the exact signed shift, strict dominance over the
+prime-power exponent, the positive-denominator exponent comparison
+and the cross-multiplied Gaussian tail identity.
+The complex contour formula, its infinite zero-sum audit,
+phase-positive integral argument and the resulting prime-count/RH
+theorems have full ordinary proofs here.
+They are not claimed as separately compiled Lean declarations.
+The required analytic formalization still includes the
+Gaussian-smoothed Perron contour shift and its zero-sum limit.
+No established literature priority is asserted.
+
 \subsection{Selecting certified good primes before estimating their size}
 \label{sec:certified-good-prime-class}
 
