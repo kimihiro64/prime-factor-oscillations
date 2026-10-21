@@ -19085,28 +19085,125 @@ small-input probe vanishes: the strict integer inequality still
 defines a finite set.
 Its guarantee is eventual, with a threshold depending on the
 fixed class and parameters.
-Computability follows from the exact integer formula.
-Since $\sum_{k=0}^{M_N}C_{N,k}\le N$, one may bound
-all magnitudes and Horner intermediates by
-$N(4R_N+2)^{M_N}2^{M_N}$.
-Their bit lengths are $O_{h,c}(\log N)$.
-Horner evaluation at $R_N+1$ points uses $O(R_NM_N)$
-operations when $M_N\ge1$, as it is eventually.
+For the evaluation algorithm, write $M=M_N$, $R=R_N$ and
+$x_n=-2n-1$. Initialize $A_0=0$, $V_0=1$ and, for $0\le j\le M$, compute
+\[
+ A_{j+1}=x_nA_j+C_{N,M-j}V_j,\qquad V_{j+1}=2V_j .
+\]
+Induction gives $V_j=2^j$ and
+\[
+ A_j=\sum_{i<j}C_{N,M-i}x_n^{j-1-i}2^i,\qquad A_{M+1}=I_{N,n}.
+\]
+Thus the evaluation uses only the supplied counts through rank $M$.
+The executable decoder is unchanged if any higher counts are changed.
+Five arithmetic operations per step include the coefficient-index
+subtraction, the two value multiplications, addition and power doubling.
+Charging four setup operations per point and multiplication and
+comparison at every adjacent test gives, eventually,
+\[
+ (R+1)\{5(M+1)+4\}+2R\le30RM .
+\]
+Here $R,M\ge1$ eventually. The literal executable program may instead
+evaluate both endpoints separately at each of the $R$ adjacent tests.
+Charging those repeated evaluations gives the valid bound
+\[
+ 2R\{5(M+1)+4\}+2R\le30RM
+\]
+as well. Thus no caching assumption is needed for its complexity.
+Input-count acquisition is excluded.
+
+The actual sample partition gives $\sum_{k=0}^{M}C_{N,k}\le N$.
+The output satisfies $|I_{N,n}|\le N(2R+1)^M2^M$.
+Every partial Horner accumulator, its next multiplication,
+scaled coefficient and stored power is bounded by
+\[
+ B_N=N(2R+1)^M4^M=N(4R+2)^M2^M .
+\]
+This follows by retaining the partial sum above, bounding each
+coefficient by $N$ and using $j\le M+1\le2^M$.
+Products of adjacent probes are charged the full bound $B_N^2$.
+The literal selector limits give
+\[
+ \frac{M_N}{\log N}\longrightarrow0,\qquad
+ \frac{M_N\log(2R_N)}{\log N}\longrightarrow ch,\qquad
+ \log B_N\le(2+ch)\log N
+\]
+eventually. For the binary width
+$b(z)=1+\lfloor\log_2(1+|z|)\rfloor$, put
+$D_{h,c}=(2+ch)/\log2+2>0$.
+Every value bounded by $B_N$ has width at most
+$D_{h,c}\log N$ eventually; comparison products have width at most
+$2D_{h,c}\log N$. All thresholds are simultaneous across the
+evaluation range and all Horner steps.
+Each shorter prefix uses the same signs and gives its exact class count.
+
+The rational parameters also admit an integer-only construction of both
+selectors. Write $h=a/d$ and $c=u/v$ with positive integers and
+$d,v\ge1$. Compute $U_N$ and $V_N$ by successive divisions by $2$.
+Their numbers of visited tests are exactly $U_N+1$ and $V_N+1$,
+including inputs $0$ and $1$, and $V_N\le U_N$.
+The rank is the integer quotient
+\[
+ M_N=\frac{uU_N}{vV_N}\ \hbox{rounded down},
+\]
+with quotient zero when $V_N=0$, agreeing with the original formula.
+For the radius, form $Y=U_N^a$ and start at $r=0$; increase $r$
+while $(r+1)^d\le Y$. The returned integer is exactly $R_N$.
+This forward search visits at most $R_N+1$ tests.
+An arbitrary a priori termination fuel does not enter that test count.
+
+Charge five operations per binary-log test, $a$ multiplications to
+form $Y$, $d+6$ operations per root test and twelve fixed setup/rank
+operations. The resulting preprocessing count is at most
+\[
+ (a+d+28)(U_N+R_N+1).
+\]
+The proved selector limits imply
+\[
+ \frac{\log\log N}{R_N}\longrightarrow0,\qquad
+ \frac{\log N}{R_NM_N}\longrightarrow0,\qquad
+ \frac{U_N+R_N+1}{R_NM_N}\longrightarrow0.
+\]
+For the first limit, divide $\log R_N/R_N\to0$ by the earlier
+normalized logarithmic radius limit. Combine that limit with the
+normalized rank limit to obtain the second; the binary-cutoff limit
+then gives the third.
+Consequently preprocessing is eventually at most $R_NM_N$.
+The complete arithmetic count, including the literal program's
+repeated evaluations, is therefore at most $31R_NM_N$.
+
+Finally put $E=(a+1)(d+1)$ and $K=a+d+u+v+1$.
+For $U_N\ge1$, every root-search power with base at most $U_N^a+1$
+and exponent at most $d+1$ is at most $(U_N+1)^E$.
+Both rank multiplication inputs and their quotient are bounded by
+$K(U_N+1)^E$. The same scalar bounds all fixed parameter integers.
+For every fixed $K,E$, the proved limit
+\[
+ \frac{\log\{K(U_N+1)^E\}}{\log N}\longrightarrow0
+\]
+implies $K(U_N+1)^E\le N$ eventually.
+The binary-log values and termination fuel are at most $N+1$.
+Thus every retained preprocessing integer is bounded by
+$N+1+K(U_N+1)^E\le3N\le B_N$ eventually.
+This proves its claimed logarithmic binary width on the same range.
 \end{proof}
 
 \paragraph{Formalization status.}
-The nonvanishing, simultaneous signed parity, adjacent-prime criterion
-and exact set equality in Theorem~\ref{thm:finite-integer-prime-decoding}
-are Lean-verified by
-\texttt{finite\_\allowbreak integer\_\allowbreak prime\_\allowbreak decoding}
-in \texttt{Helpers/}\allowbreak\texttt{PrimeClassDecoderExact.lean}.
-The declaration uses the actual integer counts and selectors, derives
-the independent signed infinite-product supply, and proves one eventual
-threshold for every $n\le R_N$. It includes $2$, composites and finite or
-empty classes without an exceptional-prime assumption.
-The arithmetic-operation and bit-length claims in the theorem remain
-separate formalization obligations; the theorem as a whole is therefore
-not recorded as fully formalized.
+The complete statement of Theorem~\ref{thm:finite-integer-prime-decoding}
+is Lean-verified by
+\texttt{finite\_\allowbreak integer\_\allowbreak prime\_\allowbreak decoding\_\allowbreak complete}
+in \texttt{Helpers/}\allowbreak\texttt{PrimeClassDecoderComplete.lean}.
+It derives the actual signed infinite-product supply and literal integer
+signs, nonvanishing, all prefix sets and counts, executable selection from
+rational parameters and observed counts alone, the full preprocessing
+and evaluation arithmetic budget, and all retained binary-width bounds.
+One eventual threshold covers all ranges and all these conclusions.
+The executable program makes no class-membership or primality queries
+and no caching assumption enters its displayed cost.
+The theorem includes $2$, composites and finite or empty classes.
+The capacity classification and RH corollaries below remain separate
+formalization obligations; this completion makes no new claim about
+the zero-free boundary.
 
 \subsection{Exact decoding capacity and an operational RH criterion}
 \label{sec:prime-decoding-capacity}
