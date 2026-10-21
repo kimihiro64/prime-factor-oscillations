@@ -19536,9 +19536,25 @@ $M_{N_j}\le c\,2^{bj}/(bj)$ and uses
 $j=\lfloor\log_{2^a}x\rfloor+1$.
 It gives $K=c\,2^b a\log2/b$, with the witness $c$
 from admissibility.
-The RH and special-sequence corollaries also remain separate
-obligations; the completed general theorem does not by itself
-verify their class-specific inputs.
+Corollary~\ref{cor:prime-decoding-sparse-special-classes} is now
+verified for the three actual prime-value classes by
+\[
+ \texttt{special\_\allowbreak prime\_\allowbreak value\_\allowbreak capacity}.
+\]
+Its certificate includes convergence at every positive exponent,
+zero convergence exponent, infinite capacity, admissibility of
+every positive rational power, and finite membership tests.
+The real Binet identity and the displayed golden-ratio lower
+bound are checked by
+\texttt{fibonacci\_binet\_real} and
+\texttt{fibonacci\_golden\_exponential\_lower}.
+The membership tests search only indices
+$n\le p$ for Fermat and Mersenne values and $n\le p+2$
+for Fibonacci values, with the primality filter retained.
+The monotonicity and small-index claims in the proof are
+also checked. No infinitude hypothesis is used.
+The sparse-deletion invariance paragraph above and the RH
+corollaries remain separate formalization obligations.
 
 These exact decoders use $M_N+1=O(\log N/\log\log N)$ bins
 and recover prime labels on a growing prefix, a distinct conclusion

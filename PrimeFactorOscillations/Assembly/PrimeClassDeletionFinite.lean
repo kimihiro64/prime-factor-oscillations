@@ -4,7 +4,7 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Prime Factor Oscillations contributors
 -/
 import PrimeFactorOscillations.Helpers.PrimeClassDecoderIntegerProbes
-import PrimeFactorOscillations.Helpers.PrimeClassDecoderInverseCount
+import PrimeFactorOscillations.Helpers.PrimeClassSpecialValueCapacity
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.BernoulliDominance
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.CapacitySelectionFinite
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.PolynomialPrimeNorming
@@ -20,6 +20,8 @@ binary bit guarantees and the polynomial degree obstruction. The exact
 critical decoding capacity, convergence/counting exponent identification,
 and the missed fraction for arbitrary polynomial coefficients are proved.
 Every admissible power also gives the full all-cutoff inverse count bound.
+The actual Fermat, Mersenne and Fibonacci prime-value classes have infinite
+capacity, with verified finite membership tests and the golden-ratio bound.
 The full prime-power component law and RH applications remain separate
 obligations.
 -/
