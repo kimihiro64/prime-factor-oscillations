@@ -12540,6 +12540,368 @@ count would move the zero-free boundary by exactly the
 same exponent. No such improved estimate is asserted here,
 and the certified $7/8$ boundary is unchanged.
 
+\subsection{Endpoint divergence and the arithmetic cost of a zero}
+\label{sec:prime-class-endpoint-cost}
+
+The exponent identity leaves an endpoint question:
+a positive series can converge at its abscissa of convergence.
+The full Euler quotients rule out that possibility here
+when the endpoint is the real part of an actual zero.
+
+We use a boundary fact about positive series.
+If $f_j(n)\ge0$, every $\sum_n f_j(n)$ converges and is at
+most $M$, and $f_j(n)\to g(n)\ge0$ for every $n$, then
+$\sum_n g(n)$ converges. Indeed every finite sum of $g$
+is the limit of the corresponding finite sums of $f_j$,
+hence is at most $M$. Bounded nonnegative finite sums
+imply summability.
+The maintained \texttt{PositiveDirichletBoundary.lean}
+proves this fact and its explicit specialization to
+$a_n n^{-\sigma_j}$, $\sigma_j\to\alpha$,
+in two standard-axiom-audited declarations.
+No zero theorem is asserted to be Lean formalized by those lemmas.
+
+\begin{theorem}[Both one-sided Euler masses diverge at a zero]
+\label{thm:two-sided-prime-endpoint-divergence}
+Let $w_p\ge0$, with $\sum_p w_p p^{-\sigma}<\infty$
+for every $\sigma>1$. Suppose its complete Euler product
+$F_w$ has a nowhere-zero holomorphic continuation on
+$\{\Re s>\tau\}\setminus\{1\}$ and a simple pole at $1$,
+where $0\le\tau<1$.
+If $\rho=\beta+i\gamma$ is a nontrivial zeta zero with
+$\beta>\tau$, put
+\[
+ \begin{gathered}
+ d_p=(1-w_p)_+,\qquad e_p=(w_p-1)_+,\\
+ \mathcal P_d(\sigma)=\sum_p d_p p^{-\sigma},\qquad
+ \mathcal P_e(\sigma)=\sum_p e_p p^{-\sigma}.
+ \end{gathered}
+\]
+Then both nonnegative series diverge at that endpoint:
+\begin{equation}
+             \mathcal P_d(\beta)=\mathcal P_e(\beta)=\infty .
+ \label{eq:two-sided-prime-endpoint-divergence}
+\end{equation}
+The statement is unconditional and makes no rightmost-zero
+or RH assumption.
+\end{theorem}
+
+\begin{proof}
+Retain the full products
+\[
+ E_-=\prod_p(1-p^{-s})^{-d_p},\qquad
+ E_+=\prod_p(1-p^{-s})^{-e_p},\qquad
+                         \zeta E_+=F_wE_- .
+\]
+The identity holds initially on $\Re s>1$.
+Assume first $\mathcal P_d(\beta)<\infty$.
+Because $\beta>0$,
+\[
+ \sum_p\sum_{r\ge1}\frac{d_p p^{-r\beta}}r
+       \le\frac{\mathcal P_d(\beta)}{1-2^{-\beta}}<\infty.
+\]
+Thus the logarithm of $E_-$ converges uniformly on the
+closed half-plane $\Re s\ge\beta$. Its exponential is
+continuous and nonzero there, and holomorphic in the interior.
+
+On the real ray $\sigma>\beta$, the meromorphic quotient
+$F_wE_-/\zeta$ is real analytic after cancellation of the
+two simple poles at $1$.
+Zeta has no real zero in $(0,1)$ or $(1,\infty)$.
+This quotient agrees initially with the positive Dirichlet
+series of $E_+$. The positive-continuation principle
+therefore forces actual Dirichlet summability for $E_+$
+at every real $\sigma>\beta$, and its prime coefficients
+give $\mathcal P_e(\sigma)<\infty$ there.
+This argument uses real-axis neighborhoods, not an
+RH-dependent complex zero-free region.
+
+As $\sigma\downarrow\beta$, the same real quotient remains
+bounded: $F_w(\beta)$ and $E_-(\beta)$ are finite, whereas
+$\zeta(\beta)\ne0$. Choose a sequence of such $\sigma$
+tending to $\beta$. The positive-series boundary fact
+just proved gives actual Dirichlet summability of $E_+$
+at $\beta$. Its prime subseries then gives
+$\mathcal P_e(\beta)<\infty$.
+Consequently $E_+$ also has a continuous nonzero boundary
+value at $\rho$, with every prime power retained.
+Continue the cross-multiplied identity on $\Re s>\beta$,
+then let $s=\rho+h$, $h\downarrow0$. It would give
+\[
+                 0\cdot E_+(\rho)=F_w(\rho)E_-(\rho)\ne0,
+\]
+a contradiction.
+
+If instead $\mathcal P_e(\beta)<\infty$, interchange the
+roles of the products and use the positive quotient
+$E_-=\zeta E_+/F_w$. Its real continuation, cancellation
+at $1$, and bounded boundary limit give
+$\mathcal P_d(\beta)<\infty$ by the same argument,
+and the same contradiction follows.
+All products and boundary limits above are justified
+by absolute convergence before a value at $\rho$ is used.
+This proves \eqref{eq:two-sided-prime-endpoint-divergence}.
+\end{proof}
+
+\begin{theorem}[Logarithmic one-sided cost of a boundary zero]
+\label{thm:prime-zero-logarithmic-cost}
+In the preceding setting let the order of the zero at
+$\rho$ be $m\ge1$. Assume in addition
+\begin{equation}
+       \mathcal P_d(\sigma)<\infty
+                           \quad\text{for every }\sigma>\beta .
+ \label{eq:prime-zero-cost-right-convergence}
+\end{equation}
+Then $\mathcal P_e$ also converges on that real ray, and
+as $h\downarrow0$,
+\begin{equation}
+ \begin{aligned}
+ \mathcal P_d(\beta+h)&\ge\frac m2\log(1/h)-O_{\rho,w}(1),\\
+ \mathcal P_e(\beta+h)&\ge\frac m2\log(1/h)-O_{\rho,w}(1).
+ \end{aligned}
+ \label{eq:prime-zero-logarithmic-mass-cost}
+\end{equation}
+The constants are for this fixed zero and fixed model;
+no height-uniform bound is asserted.
+\end{theorem}
+
+\begin{proof}
+The same positive-continuation argument makes both complete
+Euler products convergent units on $\Re s>\beta$.
+Write
+\[
+ H_\pm(\sigma)=\log E_\pm(\sigma),\quad
+ K(s)=F_w(s)/\zeta(s),\quad
+ B(\sigma)=\log|F_w(\sigma)/\zeta(\sigma)|.
+\]
+The real function $B$ stays bounded as $\sigma\downarrow\beta$,
+since its numerator and denominator are both nonzero at
+that real point. The exact signed real balance is
+\[
+                       H_+(\sigma)-H_-(\sigma)=B(\sigma).
+\]
+For $s=\sigma+it$ the full Euler factors give
+\begin{equation}
+ |E_+(s)|\le E_+(\sigma),\qquad
+ |E_-(s)|\ge\frac{E_-(2\sigma)}{E_-(\sigma)}.
+ \label{eq:prime-zero-complete-product-norm}
+\end{equation}
+For the second inequality use
+$|1-p^{-s}|\le1+p^{-\sigma}$ and the exact identity
+$1+p^{-\sigma}=(1-p^{-2\sigma})/(1-p^{-\sigma})$.
+Take the nonnegative powers $d_p$ and pass from finite
+products by the already established absolute convergence.
+Thus the scalar factor $E_-(2\sigma)$ is retained.
+
+Since $F_w$ is nonzero at $\rho$ and $\zeta$ has order $m$
+there, $|K(\rho+h)|\ge c_{\rho,w}h^{-m}$ for all sufficiently
+small $h>0$, where $c_{\rho,w}>0$.
+With $\sigma=\beta+h$, the complete quotient and real
+compensation therefore give
+\begin{equation}
+ \begin{aligned}
+ m\log(1/h)+\log c_{\rho,w}
+    &\le\log|K(\rho+h)|\\
+    &\le H_+(\sigma)+H_-(\sigma)-H_-(2\sigma)\\
+    &=2H_-(\sigma)+B(\sigma)-H_-(2\sigma).
+ \end{aligned}
+ \label{eq:prime-zero-full-signed-pole-consumer}
+\end{equation}
+Here $H_-(2\sigma)\ge0$, and $B$ is bounded.
+It follows that $H_-(\beta+h)\ge(m/2)\log(1/h)-O(1)$.
+The signed real balance gives the same bound for $H_+$.
+
+Finally the retained higher prime powers have bounded mass
+at the endpoint:
+\[
+ 0\le H_-(\sigma)-\mathcal P_d(\sigma)
+       \le\frac{\mathcal P_d(2\beta)}{1-2^{-\beta}}
+                  \quad(\sigma\ge\beta,\ \sigma>\beta).
+\]
+The numerator is finite by
+\eqref{eq:prime-zero-cost-right-convergence}, since $2\beta>\beta$.
+The analogous bound for $H_+$ uses
+$\mathcal P_e(2\beta)<\infty$, already supplied by positive
+continuation. Subtracting these bounded tails proves
+\eqref{eq:prime-zero-logarithmic-mass-cost}.
+\end{proof}
+
+\begin{corollary}[Endpoint size of the computable prime class]
+\label{cor:computed-prime-endpoint-size}
+The single class $\mathcal D_*$ satisfies, unconditionally,
+\begin{equation}
+                   \sum_{p\in\mathcal D_*}p^{-1/2}=\infty .
+ \label{eq:computed-prime-root-divergence}
+\end{equation}
+If a zero $\rho$ of order $m$ attains
+$\Re\rho=\beta=\Theta_\zeta<1$, then
+\begin{equation}
+ \begin{gathered}
+ \sum_{p\in\mathcal D_*}p^{-\beta-h}
+                \ge\frac m2\log(1/h)-O_\rho(1),\qquad h\downarrow0,\\
+ \limsup_{X\to\infty}
+        \frac{\pi_{\mathcal D_*}(X)\log X}{X^\beta}
+                                  \ge\frac{m}{2\beta}.
+ \end{gathered}
+ \label{eq:computed-prime-rightmost-zero-size}
+\end{equation}
+For every critical-line zero of order $m$, regardless of RH,
+\begin{equation}
+ \limsup_{X\to\infty}
+      \frac{\pi_{\mathcal D_*}(X)\log X}{\sqrt X}\ge m .
+ \label{eq:computed-prime-unconditional-root-size}
+\end{equation}
+In particular the last limsup is at least $1$.
+If RH is false, that limsup is infinite.
+\end{corollary}
+
+\begin{proof}
+The strict-partial coordinates of the diagonal model have
+subpower counting function. For every fixed $b>0$ they
+therefore have finite sum $\sum p^{-b}$, by dyadic summation.
+Their deficits are between $0$ and $1$.
+At every prime, its deficit is $1$ on $\mathcal D_*$,
+is strictly between $0$ and $1$ on those partial coordinates,
+and is zero elsewhere. Consequently
+\begin{equation}
+ \mathcal P_d(\sigma)
+      =\sum_{p\in\mathcal D_*}p^{-\sigma}
+             +\sum_{\substack{p\text{ prime}\\0<w_p^*<1}}
+                    (1-w_p^*)p^{-\sigma},
+ \label{eq:computed-prime-full-endpoint-ledger}
+\end{equation}
+where the second sum is finite for every fixed $\sigma>0$.
+The model $F_*$ is independently favorable on $\Re s>0$.
+Apply Theorem~\ref{thm:two-sided-prime-endpoint-divergence}
+to an unconditional critical-line zero. The second sum
+cannot supply its divergent deficit, proving
+\eqref{eq:computed-prime-root-divergence}.
+
+When $\beta=\Theta_\zeta$, the exact counting exponent
+proved above makes $\mathcal P_d(\sigma)$ finite for all
+$\sigma>\beta$. The logarithmic cost theorem applies.
+The partial-coordinate sum in
+\eqref{eq:computed-prime-full-endpoint-ledger} is bounded
+uniformly for $\sigma\ge\beta$ near that endpoint,
+so it gives the first inequality of
+\eqref{eq:computed-prime-rightmost-zero-size}.
+
+We check the count normalization explicitly.
+If the second limsup in
+\eqref{eq:computed-prime-rightmost-zero-size} is finite, call
+it $L$. For any $A>L$,
+$\pi_{\mathcal D_*}(X)\le A X^\beta/\log X$ after some
+finite $X_A$. Positive partial summation gives
+\[
+ \begin{aligned}
+ \sum_{p\in\mathcal D_*}p^{-\beta-h}
+   &=(\beta+h)\int_2^\infty
+               \pi_{\mathcal D_*}(x)x^{-\beta-h-1}\,dx\\
+   &\le A(\beta+h)\int_{X_A}^\infty
+                           \frac{x^{-1-h}}{\log x}\,dx+O_A(1)\\
+   &=A\beta\log(1/h)+O_A(1).
+ \end{aligned}
+\]
+For the last equality set $t=\log x$, split the integral
+at $t=1/h$, and use
+$\int_{\log X_A}^\infty e^{-ht}\,dt/t=\log(1/h)+O_A(1)$.
+The pole lower bound forces $A\beta\ge m/2$.
+Let $A\downarrow L$ to obtain $L\ge m/(2\beta)$.
+An infinite limsup already satisfies that conclusion.
+
+If RH holds, every critical-line zero attains
+$\beta=\Theta_\zeta=1/2$, so the factor $m/(2\beta)$ is
+exactly $m$. If RH is false, $\Theta_\zeta>1/2$ and the
+exact counting exponent of $\mathcal D_*$ makes the
+square-root-normalized limsup infinite.
+This proves \eqref{eq:computed-prime-unconditional-root-size}
+in both cases.
+\end{proof}
+
+\begin{corollary}[Root-summable exclusions preserve the signal]
+\label{cor:computed-prime-root-summable-exclusions}
+Let $\mathcal A$ be any prime class with
+$\sum_{p\in\mathcal A}p^{-1/2}<\infty$, and set
+$\mathcal D'=\mathcal D_*\setminus\mathcal A$.
+Then
+\begin{equation}
+ \sum_{p\in\mathcal D'}p^{-1/2}=\infty,\qquad
+ \limsup_{X\to\infty}
+       \frac{\log(1+\pi_{\mathcal D'}(X))}{\log X}=\Theta_\zeta .
+ \label{eq:computed-prime-root-stable-exponent}
+\end{equation}
+The zero-free-strip and RH count equivalences hold for
+$\mathcal D'$ as well, and so does
+\eqref{eq:computed-prime-unconditional-root-size}.
+If $\mathcal A$ is computable, $\mathcal D'$ is computable.
+
+In particular one may exclude simultaneously all actual
+Fermat primes and all actual Fibonacci primes:
+\[
+ \begin{aligned}
+ \mathcal A_{\rm Fer}
+   &=\{2^{2^n}+1:n\ge0,\ 2^{2^n}+1\text{ prime}\},\\
+ \mathcal A_{\rm Fib}
+   &=\{F_n:n\ge3,\ F_n\text{ prime}\}.
+ \end{aligned}
+\]
+These are sets of prime values; overlaps in their union
+are counted once. Neither class is assumed infinite.
+\end{corollary}
+
+\begin{proof}
+Subtracting a finite positive subseries cannot remove the
+divergence in \eqref{eq:computed-prime-root-divergence}.
+Also
+$\pi_{\mathcal A}(X)\le
+\sqrt X\sum_{p\in\mathcal A}p^{-1/2}$.
+If $\Theta_\zeta>1/2$, this smaller-exponent count cannot
+absorb the $\Theta_\zeta$ signal of $\mathcal D_*$.
+If $\Theta_\zeta=1/2$, the divergent root sum of
+$\mathcal D'$ forces its counting exponent to be at least
+$1/2$: a smaller exponent would make that sum convergent
+by dyadic summation. Its exponent is at most that of
+$\mathcal D_*$, since it is a subset. This proves
+\eqref{eq:computed-prime-root-stable-exponent} and hence
+the same strip and RH equivalences.
+
+Under RH, the removed prime Dirichlet sum stays bounded
+as $\sigma\downarrow1/2$, so subtracting it preserves the
+logarithmic lower bound $ (m/2)\log(1/h)-O(1)$.
+The partial-summation argument therefore preserves the
+constant $m$ in the square-root-normalized count limsup.
+If RH is false, the retained exponent is greater than
+$1/2$ and that limsup is infinite.
+Computability follows by testing membership in the two
+specified computable sets.
+
+Finally the two named classes have finite root sums
+even before primality filtering:
+\[
+ \sum_{n\ge0}(2^{2^n}+1)^{-1/2}<\infty,\qquad
+ \sum_{n\ge3}F_n^{-1/2}
+                  \le\sum_{n\ge3}\varphi^{-(n-2)/2}<\infty,
+ \quad \varphi=\frac{1+\sqrt5}{2}.
+\]
+The Fibonacci bound $F_n\ge\varphi^{n-2}$ for $n\ge2$
+follows from the recurrence and $\varphi^2=\varphi+1$,
+or the earlier Binet formula. Both prime-value membership
+tests terminate by monotone integer sequence enumeration.
+Their union is root-summable even when the two sets overlap.
+This proves the stated actual-prime exclusions.
+\end{proof}
+
+These results give an unconditional endpoint size obstruction
+for the constructed prime classes, stronger than their earlier
+infinitely-often $X^{1/2-\epsilon}$ lower bounds.
+The multiplicity parameter supplies a lower count cost,
+not an independently proved upper bound on zero multiplicity.
+The Euler and prime-class conclusions are ordinary full proofs;
+only the two positive boundary-summability statements are newly
+Lean checked. No new independent count upper estimate is
+installed, and the certified zero-free boundary remains $7/8$.
+No established literature priority is asserted.
+
 \subsection{Nested Fermat carriers and a joint Fibonacci profile}
 \label{sec:fermat-fibonacci-joint}
 
