@@ -15243,6 +15243,370 @@ normalization, the absolutely summable M\"obius floor expansion and
 the positive Jordan consumer with its Rankin bounds.
 No originality priority over the literature is established.
 
+\subsection{Universal optimality of capped prime-component laws}
+\label{sec:geometric-cap-extremality}
+
+The exact rank theorem has consequences for entire prime-power laws.
+Here a capped class $\mathcal T$ always means a subset of the primes
+satisfying $\theta_{\mathcal T}(x)\le x$ for every $x\ge2$.
+Its complement inside the primes is $\mathcal E$.
+For a prime class $\mathcal V$, let $A_{\mathcal V}(m)$ be the
+component of $m$ supported on $\mathcal V$, with all valuations retained.
+The previous subsection defines this statistic for $\mathcal D$;
+the same definition applies to $\mathcal E$.
+
+\begin{lemma}[Geometric prime factors are ordered by every concave loss]
+\label{lem:geometric-prime-concave-order}
+For a real $p>1$, let $G_p$ have probabilities
+$\mathbb P(G_p=k)=(1-p^{-1})p^{-k}$ at $k\ge0$, and put $Z_p=p^{G_p}$.
+For $x\ge1$, with $k=\lfloor\log x/\log p\rfloor$,
+\begin{equation}
+ S_p(x):=\mathbb E\min(Z_p,x)
+                =(k+1)(1-p^{-1})+xp^{-k-1}.
+ \label{eq:geometric-prime-capped-mean}
+\end{equation}
+For every $x>1$, $S_p(x)$ is strictly decreasing in $p>1$.
+Consequently, for $1<p\le q$ and every nonnegative nondecreasing
+concave function $g:[1,\infty)\to[0,\infty)$,
+\[
+                            \mathbb E g(Z_q)\le\mathbb E g(Z_p),
+\]
+allowing infinite expectations.
+\end{lemma}
+
+\begin{proof}
+The probabilities at $j\le k$, multiplied by $p^j$, each contribute
+$1-p^{-1}$, while the entire remaining tail has probability $p^{-k-1}$.
+This proves \eqref{eq:geometric-prime-capped-mean}, including $x=p^k$.
+For fixed $x>1$, on a cell where $k$ is constant its derivative is
+\begin{equation}
+ \frac{\partial S_p(x)}{\partial p}
+      =\frac{k+1}{p^2}\left(1-\frac{x}{p^k}\right)\le0.
+ \label{eq:geometric-prime-capped-derivative}
+\end{equation}
+All denominators are positive. The derivative is strictly negative
+inside each cell.
+At a boundary $x=p^k$, $k\ge1$, the formulas for $k$ and $k-1$
+both equal $k+1-k/p$.
+There are only finitely many such boundaries on any compact interval
+$1<p_0\le p\le p_1$.
+Thus the function is continuous and strictly decreasing on that
+interval. When $x=1$ it is identically $1$.
+
+We supply the test-function passage.
+For a continuous nonnegative nondecreasing concave $g$, interpolate
+its values on nested finite dyadic grids in $[1,2^n]$ and make the
+interpolant constant past $2^n$.
+These nonnegative concave interpolants increase to $g$.
+Each is a constant plus a nonnegative linear combination of
+$\min(z,x_i)-1$, since its successive nonnegative slopes decrease
+and its last slope is zero.
+The capped-mean inequality therefore compares its expectations.
+Monotone convergence gives the comparison for $g$.
+
+A finite concave nondecreasing function can only have an upward
+right jump at the endpoint $1$.
+Writing $b=g(1+)-g(1)\ge0$, it is the sum of a continuous
+nonnegative nondecreasing concave function and $b\boldsymbol1_{\{z>1\}}$.
+The latter indicator is the increasing limit, as $\epsilon\downarrow0$,
+of $(\min(z,1+\epsilon)-1)/\epsilon$.
+Its expectation has the same order.
+This covers the endpoint case and all stated test functions.
+\end{proof}
+
+\begin{theorem}[The greedy deletion law is the least concave-cost law]
+\label{thm:greedy-geometric-concave-extremum}
+Let $\mathcal T$ be any capped class and let $\mathcal E$ be its
+deleted complement.
+Take independent geometric valuations at the primes of $\mathcal E$,
+and let $Y_{\mathcal E}$ be their product, allowing the value $+\infty$.
+Let $Y_{\mathcal D}$ have the proper integer-valued law $\nu$
+from Theorem~\ref{thm:deleted-component-sampling-law}.
+For every nonnegative nondecreasing concave $g$ as above, put
+$g(+\infty)=\lim_{z\to\infty}g(z)$. Then
+\begin{equation}
+                    \mathbb E g(Y_{\mathcal D})
+                           \le\mathbb E g(Y_{\mathcal E}).
+ \label{eq:greedy-geometric-concave-extremum}
+\end{equation}
+If $\mathcal T\ne\mathcal S$, the capped-mean comparison is strict
+at every threshold $x>1$:
+\begin{equation}
+       \mathbb E\min(Y_{\mathcal D},x)
+                    <\mathbb E\min(Y_{\mathcal E},x).
+ \label{eq:greedy-geometric-strict-capped-mean}
+\end{equation}
+Thus the greedy law is uniquely least in this concave-cost order.
+The comparison concerns limiting laws, rather than exact ordering
+of arbitrary finite-sample component distributions.
+\end{theorem}
+
+\begin{proof}
+Theorem~\ref{thm:capped-prime-rank-extremum} gives
+$N_{\mathcal D}(x)\le N_{\mathcal E}(x)$ at every cutoff.
+The unconditional lower floor shows that both deleted classes are
+infinite. List their primes as $d_1<d_2<\cdots$ and
+$e_1<e_2<\cdots$. The count comparison gives
+\[
+                                 d_j\ge e_j\qquad(j\ge1).
+\]
+For any independent nonnegative multiplier $B\ge1$,
+the function $z\mapsto g(Bz)$ is again nondecreasing and concave.
+Conditioning on $B$ therefore preserves the preceding one-prime
+comparison, with no integrability hypothesis needed for a
+nonnegative expectation.
+Replace the coordinates one at a time in a finite product to obtain
+the comparison for its first $n$ geometric factors.
+The products increase to $Y_{\mathcal D}$ and $Y_{\mathcal E}$.
+Monotone convergence gives \eqref{eq:greedy-geometric-concave-extremum}.
+For $\mathcal D$ only finitely many valuations are nonzero almost
+surely, so its limit really has the already proved law $\nu$.
+
+If $\sum_{p\in\mathcal E}1/p=\infty$, then $Y_{\mathcal E}=+\infty$
+almost surely. Indeed, for each finite $L$, the event
+$Y_{\mathcal E}\le L$ requires all valuations at $p>L$ to vanish;
+their finite avoidance products tend to zero.
+In this case the right side of
+\eqref{eq:greedy-geometric-strict-capped-mean} is $x$, whereas the
+left side is strictly below $x$ because
+$\mathbb P(Y_{\mathcal D}=1)=c_{\mathcal D}>0$.
+
+In the remaining case both products are finite almost surely.
+If the classes differ, some rank $j$ has $d_j>e_j$.
+Form an auxiliary independent product by replacing only the
+$j$th greedy coordinate by the factor with base $e_j$.
+Such an auxiliary coordinate product need not itself be a
+prime-component law; only its independence is used.
+All other greedy factors equal $1$ with positive probability
+\[
+                    \prod_{i\ne j}(1-1/d_i)>0.
+\]
+On that event the strict one-prime capped-mean difference applies;
+on every other event its conditional difference is nonnegative.
+The auxiliary law therefore has strictly greater capped mean than
+the greedy law at each $x>1$.
+Changing its remaining coordinates to the $e_i$ coordinates can
+only increase that mean, by the non-strict product comparison
+already proved. This proves strictness.
+\end{proof}
+
+\begin{theorem}[Maximal retained density and minimal component entropy]
+\label{thm:greedy-component-density-entropy}
+For every capped $\mathcal T$, the set of positive integers all of
+whose prime factors belong to $\mathcal T$ has a natural density
+\begin{equation}
+ c_{\mathcal E}=\prod_{p\in\mathcal E}(1-1/p)
+                           \le c_{\mathcal D}.
+ \label{eq:greedy-component-density-extremum}
+\end{equation}
+The inequality is strict unless $\mathcal T=\mathcal S$.
+
+Among capped competitors with $\sum_{p\in\mathcal E}1/p<\infty$,
+let $\nu_{\mathcal E}(a)=c_{\mathcal E}/a$ on
+$\mathcal E$-smooth positive integers.
+Their Shannon entropies, in natural logarithms, satisfy
+\begin{equation}
+ H(\nu_{\mathcal D})\le H(\nu_{\mathcal E}),\qquad
+ H(\nu_{\mathcal V})=
+ \sum_{p\in\mathcal V}
+ \left[-\log(1-1/p)+\frac{\log p}{p-1}\right].
+ \label{eq:greedy-component-entropy-extremum}
+\end{equation}
+Here $H(\nu_{\mathcal D})<\infty$; a competitor's entropy may
+be infinite. Equality holds only for $\mathcal T=\mathcal S$.
+\end{theorem}
+
+\begin{proof}
+If the reciprocal sum over $\mathcal E$ converges, the finite
+CRT avoidance law and its uniform reciprocal-tail bound prove
+the density formula, exactly as in the earlier Fermat avoidance
+argument. If it diverges, upper density is at most every finite
+avoidance product, and those products tend to zero.
+Thus the stated density exists in both cases.
+
+The weight $w(p)=-\log(1-1/p)$ is positive and strictly decreasing.
+The deleted-prime rank comparison $d_j\ge e_j$ therefore gives
+$\sum_jw(d_j)\le\sum_jw(e_j)$.
+If the latter sum diverges, the density inequality is strict.
+If it converges and the classes differ, one strict rank gives
+a positive strict gap between the sums.
+Exponentiating proves \eqref{eq:greedy-component-density-extremum}
+and its equality characterization.
+
+For a proper component law, normalization and Tonelli give
+\[
+ \begin{aligned}
+ H(\nu_{\mathcal V})
+   &=-\log c_{\mathcal V}+\mathbb E\log Y_{\mathcal V}\\
+   &=-\log c_{\mathcal V}
+              +\sum_{p\in\mathcal V}\frac{\log p}{p-1}.
+ \end{aligned}
+\]
+This identity allows infinite entropy.
+The single-prime entropy
+$h(p)=-\log(1-1/p)+\log p/(p-1)$ obeys
+\[
+                              h'(p)=-\frac{\log p}{(p-1)^2}<0
+                                      \qquad(p>1).
+\]
+It is positive and strictly decreasing.
+The same rank comparison proves the entropy inequality and
+strictness when the classes differ.
+For the greedy class, $h(p)\ll(1+\log p)/p$ is summable by the
+proved count exponent $\Theta<1$.
+This proves finiteness of its entropy.
+Entropy is asserted here only for the proper countable integer-valued
+laws, namely competitors with summable deleted reciprocal primes.
+\end{proof}
+
+\begin{theorem}[Adaptive finite caps cannot reduce the moment exponent]
+\label{thm:adaptive-capped-moment-exponent}
+For an integer $N\ge2$, let
+$\mathcal P_N=\{p\le N:p\text{ prime}\}$.
+A subset $\mathcal T\subseteq\mathcal P_N$ is admissible if
+\[
+       \sum_{\substack{p\in\mathcal T\\p\le q}}\log p\le q
+                            \qquad(q\in\mathcal P_N).
+\]
+For $0<t\le1$ define the finite optimization
+\begin{equation}
+ \begin{aligned}
+ V_t(N)&=\min_{\mathcal T\ {\rm admissible}} U_t(\mathcal T;N),\\
+ U_t(\mathcal T;N)
+   &=\frac1N\sum_{m=1}^N
+       \left(\prod_{\substack{p\in\mathcal P_N\setminus\mathcal T\\p\mid m}}
+                         p^{v_p(m)}\right)^t .
+ \end{aligned}
+ \label{eq:adaptive-capped-moment-definition}
+\end{equation}
+With $c_t=(1-2^{-t})/2>0$, every admissible choice satisfies
+\begin{equation}
+ U_t(\mathcal T;N)\ge
+ c_t\sum_{\substack{p\le N\\p\in\mathcal D}}p^{t-1}
+ \ge c_t N^{t-1}N_{\mathcal D}(N).
+ \label{eq:adaptive-capped-uniform-moment-floor}
+\end{equation}
+Consequently
+\begin{equation}
+ \lim_{N\to\infty}\frac{\log V_t(N)}{\log N}
+                          =\max\{0,\Theta+t-1\}.
+ \label{eq:adaptive-capped-moment-exponent}
+\end{equation}
+In particular there are $c>0,N_0$, independent of the admissible
+selection, such that
+\begin{equation}
+ V_{1/2}(N)\ge c\log\log N\quad(N\ge N_0),\qquad
+ \lim_{N\to\infty}\frac{\log V_{1/2}(N)}{\log N}
+                                      =\Theta-\frac12 .
+ \label{eq:adaptive-capped-critical-floor}
+\end{equation}
+For each fixed $1/2\le\eta<1$,
+\begin{equation}
+ \Theta\le\eta
+ \quad\Longleftrightarrow\quad
+ V_{1/2}(N)\ll_\epsilon N^{\eta-1/2+\epsilon}
+                           \quad\hbox{for every }\epsilon>0.
+ \label{eq:adaptive-capped-moment-strip}
+\end{equation}
+The value and an attaining subset for $V_{1/2}(N)$ are computable
+from the integer $N$, without an efficiency claim.
+\end{theorem}
+
+\begin{proof}
+There are finitely many subsets of $\mathcal P_N$, and the empty
+subset is admissible. Thus the minimum exists.
+The finite prime inequalities are equivalent to the cap throughout
+$2\le x\le N$: the theta function is constant between prime nodes.
+Theorem~\ref{thm:capped-prime-rank-extremum} therefore applies at
+every prefix of this same finite problem.
+If $e_1<\cdots<e_b$ are the primes in
+$\mathcal E_N=\mathcal P_N\setminus\mathcal T$ and
+$d_1<\cdots<d_a$ are those in $\mathcal D\cap[2,N]$, it gives
+$b\ge a$ and $e_j\le d_j$ for $j\le a$.
+Since $p^{t-1}$ is nonnegative and nonincreasing for $0<t\le1$,
+\[
+                  \sum_{p\in\mathcal E_N}p^{t-1}
+                    \ge\sum_{\substack{p\le N\\p\in\mathcal D}}p^{t-1}.
+\]
+
+Apply the exact positive Jordan divisor identity to
+$\mathcal E_N$; it does not require a fixed infinite class.
+Retaining its nonnegative prime terms gives
+\[
+ U_t(\mathcal T;N)\ge
+     \sum_{p\in\mathcal E_N}(p^t-1)\frac{\lfloor N/p\rfloor}{N}.
+\]
+For every such prime,
+$p^t-1\ge(1-2^{-t})p^t$ and
+$\lfloor N/p\rfloor/N\ge1/(2p)$.
+These inequalities prove the first bound in
+\eqref{eq:adaptive-capped-uniform-moment-floor}.
+The second uses $p^{t-1}\ge N^{t-1}$ for $p\le N$.
+All constants are independent of $\mathcal T$ and $N$.
+
+The fixed greedy choice restricted to $\mathcal P_N$ is admissible,
+so $V_t(N)\le U_t(N)$ for its previously proved moment mean.
+That mean has exponent $\max(0,\Theta+t-1)$.
+On the other side the new uniform floor and
+$N_{\mathcal D}(N)=N^{\Theta+o(1)}$ give the lower exponent
+$\Theta+t-1$, while the elementary $V_t(N)\ge1$ supplies zero
+when that exponent is nonpositive.
+This proves \eqref{eq:adaptive-capped-moment-exponent}.
+For $t=1/2$, partial summation of the unconditional deletion
+count floor gives
+$\sum_{p\le N,p\in\mathcal D}p^{-1/2}\gg\log\log N$.
+Substitute this into the same uniform inequality to obtain
+\eqref{eq:adaptive-capped-critical-floor}.
+Since $\Theta\ge1/2$, its exponent yields
+\eqref{eq:adaptive-capped-moment-strip}, including RH at $\eta=1/2$.
+
+Finally enumerate the finite prime set and all its subsets.
+Every admissibility comparison is $\log M\le q$ for an integer
+prime subproduct $M$ and a positive integer prime $q$.
+Equality is impossible by transcendence of $e^q$, so certified
+logarithm intervals decide it.
+At $t=1/2$ each cost is a finite sum of square roots of integers
+divided by $N$, hence is algebraic.
+Exact algebraic comparisons, including equality, select a minimum
+and an attaining subset.
+This proves the computability assertion on its stated integer domain.
+\end{proof}
+
+The limiting-law order and the finite optimization have different
+quantifiers. The former compares full geometric laws for fixed
+global capped classes. The latter is uniform over every admissible
+subset chosen separately at each sample size.
+The selection must be made before the integer $m$ is sampled.
+Randomizing that selection independently of $m$ preserves the lower
+bound by averaging. Thus a cutoff-dependent or independently
+randomized family cannot conceal the same moment exponent.
+
+The one-prime result is a concave-cost order.
+It does not imply ordinary stochastic order: for the factors with
+bases $2$ and $3$, their tails at $3/2$ are $1/2$ and $1/3$,
+whereas at $5/2$ they are $1/4$ and $1/3$.
+These exact crossing tails concern the one-prime comparison;
+no claim about failure of stochastic order for a particular
+whole greedy-versus-competitor pair is made.
+
+The new conclusions use the completed rank theorem and full
+prime-power law. They extend the earlier Bernoulli count-profile
+extremality to geometric components, concave losses, actual integer
+density, entropy, and a finite optimization with a uniform exponent.
+They do not supply an independent upper estimate for that exponent.
+The certified boundary is still $7/8$; $3/4$ requires
+$V_{1/2}(N)\ll_\epsilon N^{1/4+\epsilon}$, and RH requires
+$V_{1/2}(N)\ll_\epsilon N^\epsilon$ for every $\epsilon>0$.
+The universal logarithmic lower floor is compatible with RH.
+
+All proofs in this subsection are ordinary proofs.
+No new Lean verification is claimed for the geometric capped mean,
+its concave-test extension, the infinite-product comparison or the
+adaptive finite optimization. Those are the concrete formalization
+consumers; the earlier finite Bernoulli tail comparisons remain
+separate compiled inputs.
+No established originality priority is asserted.
+
 \subsection{Selecting certified good primes before estimating their size}
 \label{sec:certified-good-prime-class}
 
