@@ -13795,6 +13795,225 @@ proofs here; their combination is not claimed to be a separately
 compiled Lean declaration. No established originality priority
 or new zero-free boundary is asserted.
 
+\subsection{How a prime-counting wave becomes a persistent deletion signal}
+\label{sec:greedy-prime-wave-envelope}
+
+The exact regulator permits a more precise statement than a comparison
+of growth exponents. It describes what happens to the whole wave,
+including its negative phases. The next theorem is conditional on a
+specified leading asymptotic for the \emph{entire} prime-counting error;
+it does not assert that a single zeta zero supplies that asymptotic.
+
+\begin{theorem}[The deletion envelope of a periodic leading error]
+\label{thm:greedy-prime-wave-envelope}
+Let $0<\beta<1$, let $T>0$, and let $f:\mathbb R\to\mathbb R$
+be continuous and $T$-periodic, with $f(v_0)>0$ for some $v_0$.
+Suppose, as $x\to\infty$ through real cutoffs, that
+\begin{equation}
+ \theta(x)-x=x^\beta f(\log x)+o(x^\beta).
+ \label{eq:greedy-prime-periodic-error}
+\end{equation}
+Define
+\begin{equation}
+ \Phi_{\beta,f}(v)=
+   \max\left\{0,\ \sup_{u\ge0}e^{-\beta u}f(v-u)\right\}.
+ \label{eq:greedy-prime-wave-envelope}
+\end{equation}
+Then $\Phi_{\beta,f}$ is continuous and $T$-periodic, and
+\begin{equation}
+ \begin{aligned}
+ R(x)&=x^\beta\Phi_{\beta,f}(\log x)+o(x^\beta),\\
+ M(x)&=x^\beta\Phi_{\beta,f}(\log x)+o(x^\beta),\\
+ N_{\mathcal D}(x)
+   &=\frac{x^\beta}{\log x}\Phi_{\beta,f}(\log x)
+                      +o\left(\frac{x^\beta}{\log x}\right).
+ \end{aligned}
+ \label{eq:greedy-prime-wave-count}
+\end{equation}
+In particular
+\[
+ 0<f(v_0)e^{-\beta T}\le\Phi_{\beta,f}(v)
+                                  \le\|f\|_\infty
+ \qquad(v\in\mathbb R),
+\]
+so $N_{\mathcal D}(x)\asymp x^\beta/\log x$ at \emph{all}
+sufficiently large cutoffs, including those on a negative phase of $f$.
+Constants may depend on $\beta,T,f$ and the error in
+\eqref{eq:greedy-prime-periodic-error}, but not on $x$.
+\end{theorem}
+
+\begin{proof}
+Between primes the function $\theta(t)-t$ decreases. Consequently
+its positive running maximum over all $2\le t\le x$ is exactly $R(x)$.
+For each $\epsilon>0$ choose $Y_\epsilon$ such that the error in
+\eqref{eq:greedy-prime-periodic-error} is at most
+$\epsilon t^\beta$ for $t\ge Y_\epsilon$.
+On the remaining bounded initial interval the error is bounded by
+a constant $C_\epsilon$.
+The maximum of two functions differs by at most their uniform difference.
+Replacing $\theta(t)-t$ by $t^\beta f(\log t)$ therefore changes
+$R(x)$ by at most $\epsilon x^\beta+C_\epsilon$.
+After division by $x^\beta$ this is $o(1)$.
+
+Put $v=\log x$ and $u=\log(x/t)$.
+The model maximum divided by $x^\beta$ is
+\[
+ \max\left\{0,\ \sup_{0\le u\le\log(x/2)}
+                           e^{-\beta u}f(v-u)\right\}.
+\]
+Extending this domain to all $u\ge0$ changes the value by at most
+$\|f\|_\infty(2/x)^\beta$.
+This proves the first line of \eqref{eq:greedy-prime-wave-count}.
+The second follows from $0\le M(x)-R(x)\le\log x$.
+
+Partial summation on the \emph{actual deleted primes} gives
+\[
+ N_{\mathcal D}(x)=\frac{M(x)}{\log x}
+                  +\int_2^x\frac{M(t)}{t\log^2t}\,dt.
+\]
+Here $M(t)=O(t^\beta)$, and the integral is
+$O(x^\beta/\log^2x)$.
+For completeness, split at $\sqrt x$:
+the initial part is $O(x^{\beta/2})$, while the rest is bounded
+by a constant times
+$\log^{-2}x\int_{\sqrt x}^x t^{\beta-1}\,dt$.
+This proves the count asymptotic, without identifying a mass estimate
+with a count estimate.
+
+Continuity follows from the uniform continuity of the periodic function
+$f$: the modulus of continuity of every
+$v\mapsto e^{-\beta u}f(v-u)$ is bounded by that of $f$,
+uniformly in $u\ge0$. Taking a supremum and the positive part preserves
+this bound. Periodicity is immediate.
+For each $v$, choose $u\in[0,T]$ with
+$v-u\equiv v_0\pmod T$.
+The corresponding term is at least $e^{-\beta T}f(v_0)>0$,
+which proves the uniform lower bound.
+\end{proof}
+
+\begin{theorem}[Joint almost-periodic waves]
+\label{thm:greedy-prime-joint-wave-envelope}
+Let $0<\beta<1$.
+The conclusions \eqref{eq:greedy-prime-wave-count} also hold when $f$
+is bounded, uniformly continuous and uniformly almost periodic,
+provided $f(v_0)>0$ somewhere and
+\eqref{eq:greedy-prime-periodic-error} holds.
+Here uniformly almost periodic means that for every $\epsilon>0$
+there is $L>0$ such that every interval of length $L$ contains
+a real $\tau$ with
+$\sup_v|f(v+\tau)-f(v)|<\epsilon$.
+The resulting $\Phi_{\beta,f}$ is uniformly almost periodic,
+continuous and bounded away from zero.
+In particular this applies to any finite joint wave
+$f(v)=\sum_{j=1}^m A_j\cos(\tau_jv+\varphi_j)$ that is positive
+somewhere; no common period of the frequencies is required.
+\end{theorem}
+
+\begin{proof}
+The running-maximum and partial-summation parts of the preceding proof
+use boundedness of $f$, not its periodicity.
+They therefore give all three asymptotics once
+$\Phi_{\beta,f}$ is defined by
+\eqref{eq:greedy-prime-wave-envelope}.
+Uniform continuity again passes to this envelope.
+Every $\epsilon$-almost period of $f$ is an
+$\epsilon$-almost period of $\Phi_{\beta,f}$: each translated
+term $e^{-\beta u}f(v-u)$ changes by at most $\epsilon$,
+uniformly for $u\ge0$, and the same is true after taking
+the supremum and the positive part.
+Thus the envelope is uniformly almost periodic.
+
+Put $a=f(v_0)/2>0$, and choose an almost-period length $L$
+for tolerance $a$.
+For any $v$, choose an $a$-almost period $\tau$ in
+$[v-v_0-L,v-v_0]$ and put $u=v-v_0-\tau$.
+Then $0\le u\le L$ and $f(v-u)=f(v_0+\tau)>a$.
+Hence $\Phi_{\beta,f}(v)\ge a e^{-\beta L}>0$ uniformly in $v$.
+
+For completeness the finite joint wave satisfies the stated
+almost-period condition even with incommensurable frequencies.
+Put $h(t)=(e^{i\tau_1t},\ldots,e^{i\tau_mt})$.
+Compactness of the product of the $m$ unit circles supplies, for any
+$\delta>0$, a finite $\delta$-net for this orbit with centres
+$h(t_1),\ldots,h(t_q)$ in the orbit itself.
+Let $c=\max_j t_j$ and $L=\max(1,c-\min_j t_j)$.
+For any real $b$, some $j$ satisfies
+$\max_k|e^{i\tau_k(b+c)}-e^{i\tau_kt_j}|<\delta$.
+Then $\tau=b+c-t_j\in[b,b+L]$ and
+$\max_k|e^{i\tau_k\tau}-1|<\delta$.
+It follows, uniformly in $v$, that
+$|f(v+\tau)-f(v)|\le\delta\sum_j|A_j|$.
+Choosing $\delta$ sufficiently small proves the required
+almost-period condition. Finite joint waves are also bounded and
+uniformly continuous, so all hypotheses have been checked.
+\end{proof}
+
+\begin{theorem}[Explicit response to one leading harmonic]
+\label{thm:greedy-prime-cosine-envelope}
+Under Theorem~\ref{thm:greedy-prime-wave-envelope}'s hypotheses, suppose
+$f(v)=A\cos(\tau v+\varphi)$ with $A>0$ and $\tau>0$.
+Put $\alpha=\arctan(\beta/\tau)$, $w=\tau v+\varphi$, and let
+$d(v)$ be the representative of $w-\alpha$ modulo $2\pi$
+in $[0,2\pi)$.
+Then
+\begin{equation}
+ \begin{aligned}
+ \Phi_{\beta,f}(v)
+   &=A\max\left\{\cos w,\
+       \cos\alpha\exp\left(-\frac{\beta}{\tau}d(v)\right)\right\},\\
+ A\cos\alpha\,e^{-2\pi\beta/\tau}
+   &\le\Phi_{\beta,f}(v)\le A.
+ \end{aligned}
+ \label{eq:greedy-prime-cosine-envelope}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+For $g(u)=e^{-\beta u}\cos(w-\tau u)$ one has
+\[
+ g'(u)=e^{-\beta u}
+             \bigl(\tau\sin(w-\tau u)-\beta\cos(w-\tau u)\bigr).
+\]
+Its positive local maxima occur at
+$u=d(v)/\tau+2\pi k/\tau$ for integers $k\ge0$.
+Each successive such maximum is the preceding one multiplied by
+$e^{-2\pi\beta/\tau}<1$.
+The remaining interior stationary points are negative local minima,
+and $g(u)\to0$ as $u\to\infty$.
+Thus the maximum on $u\ge0$ is attained either at $u=0$ or at the
+first nonnegative positive local maximum.
+Their two values give the formula.
+The displayed bounds follow from $0\le d(v)<2\pi$ and $\cos\alpha>0$.
+Although $d(v)$ jumps at its modular endpoint, the maximum formula
+is continuous there, as also follows from the preceding theorem.
+\end{proof}
+
+This is a precise memory effect of the \emph{same} selected class:
+a negative phase of the original error cannot undo primes already deleted.
+It is not an independent upper bound on that class's size.
+For actual zeta applications, a putative zero alone does not justify
+\eqref{eq:greedy-prime-periodic-error}; other frequencies and their
+remainders must first be controlled.
+No assumption of an attained largest zero real part, a unique leading
+zero pair, or an RH-dependent Fourier limit is used or inferred here.
+The certified unconditional boundary remains $7/8$.
+
+In the prime-deletion assembly, \texttt{GreedyRegulator.lean}
+contains the Lean-checked finite regulator core.
+For a clock error $e_n$, increasing weights $w_n$, and initial deleted
+mass and record both zero, its assumptions are
+$0\le w_0$, $e_0\le w_0$, and
+$e_{n+1}\le e_n+w_{n+1}$.
+It proves the exact rejection recursion, its signed slack identity,
+the record sandwich at every finite prefix, and that every rejection
+is a new positive record.
+For primes, take $e_n=\theta(p_{n+1})-p_{n+1}$ and
+$w_n=\log p_{n+1}$; the clock condition follows from the elapsed
+positive prime gap.
+This arithmetic identification, partial summation and the asymptotic
+wave transfer retain their ordinary proofs above; the combined
+prime-wave theorem is not claimed as a compiled Lean declaration.
+
 \subsection{Selecting certified good primes before estimating their size}
 \label{sec:certified-good-prime-class}
 
