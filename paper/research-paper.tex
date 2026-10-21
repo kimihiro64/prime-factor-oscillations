@@ -18223,6 +18223,496 @@ and is not asserted for $\mathcal D$.
 These profile reconstruction results supply no independent
 bound on $\Theta_\zeta$; the certified boundary remains $7/8$.
 
+\subsection{The largest coordinate and the cutoff from empirical bins alone}
+\label{sec:empirical-moment-cutoff}
+
+The remaining prime input in the preceding cutoff can also be
+removed.  Newton's identities recover power sums from the first
+coefficients, while a growing power sum locates the largest
+coordinate.  Both facts are classical algebraic and norm
+mechanisms.  The point here is a uniform error estimate for
+their signed composition, followed by the actual integer-sampling
+consumer.  No individual surviving prime is needed by the new
+cutoff once $X,J$ and the indicated empirical bins are supplied.
+This does not eliminate the class-membership computation needed
+to form those finite counts.
+
+\begin{lemma}[Uniform stability of collision-moment recovery]
+\label{lem:empirical-collision-moment-stability}
+Let $(a_i)$ be a finite or countable probability vector,
+$m=\sup_i a_i>0$, and let $e_j$ be its elementary symmetric
+coefficients, with $e_0=1$.
+For an integer $t\ge1$, suppose real numbers
+$\widehat e_0,\ldots,\widehat e_t$ satisfy
+\begin{equation}
+ \widehat e_0=1,\qquad
+ \max_{1\le j\le t}|\widehat e_j-e_j|\le\varepsilon,
+                   \qquad 0\le\varepsilon\le\tfrac12 .
+ \label{eq:empirical-moment-coefficient-error}
+\end{equation}
+Define the recovered moments by the signed triangular identities
+\begin{equation}
+ s\widehat e_s
+    =\sum_{j=1}^s(-1)^{j-1}
+                \widehat\theta_j\widehat e_{s-j}
+                         \qquad(1\le s\le t).
+ \label{eq:empirical-moment-newton}
+\end{equation}
+For $\theta_s=\sum_i a_i^s$ and every $1\le s\le t$,
+\begin{equation}
+ \begin{gathered}
+ |\widehat\theta_s-\theta_s|
+                   \le s4^s\varepsilon,\qquad
+                  m^s\le\theta_s\le m^{s-1},\\
+ m\le(\widehat\theta_s+s4^s\varepsilon)^{1/s}.
+ \end{gathered}
+ \label{eq:empirical-moment-recovery-bound}
+\end{equation}
+The final root has a strictly positive argument.
+The constants are uniform in $t$, in the probability vector,
+and in the signs of the recovered moments.
+\end{lemma}
+
+\begin{proof}
+The nonnegative expansion of $(\sum_i a_i)^j$ gives
+$0\le e_j\le1/j!$.
+The full product $E(z)=\prod_i(1+a_i z)$ converges locally
+uniformly, and near zero
+\[
+ \log E(z)=\sum_{s\ge1}\frac{(-1)^{s-1}}s\theta_sz^s .
+\]
+Indeed the coordinate logarithms converge absolutely on every
+closed disc of radius less than one, since $\sum_i a_i=1$.
+Let $E_t(z)=\sum_{j=0}^te_jz^j$ and
+$\widehat E_t(z)=\sum_{j=0}^t\widehat e_jz^j$.
+The normalized logarithm of $E_t$ has the same coefficients
+as $\log E$ through degree $t$.
+For the observed polynomial, its own recovered moments satisfy
+\[
+ [z^s]\log\widehat E_t(z)
+                       =(-1)^{s-1}\widehat\theta_s/s .
+\]
+It follows directly by comparing coefficients in
+$\widehat E_t'=\widehat E_t(\log\widehat E_t)'$;
+the coefficient of degree $s-1$ is exactly
+\eqref{eq:empirical-moment-newton}.
+Thus the signed recursion, including every lower-order cross
+term, precedes the error estimate.
+
+On $|z|\le1/4$ one has
+\[
+ |E_t(z)-1|\le e^{1/4}-1<1/3,\qquad
+ |\widehat E_t(z)-E_t(z)|\le\varepsilon/3\le1/6 .
+\]
+Every point on the segment between the two polynomials stays
+within distance less than $1/2$ of one.
+Their normalized logarithms are therefore analytic on a
+neighborhood of this disc, and integration along that segment gives
+\[
+ |\log\widehat E_t(z)-\log E_t(z)|
+       \le2|\widehat E_t(z)-E_t(z)|
+       \le2\varepsilon/3 .
+\]
+Cauchy's estimate at radius $1/4$ now proves the first inequality
+of \eqref{eq:empirical-moment-recovery-bound}, with room in its
+constant.  No tail of a truncated Newton recursion is discarded.
+The two power-sum bounds follow from $a_i\le m$ and
+$\sum_i a_i=1$, taking a supremum for the lower bound.
+In particular $\theta_s>0$.
+Finally $\widehat\theta_s+s4^s\varepsilon\ge\theta_s\ge m^s>0$,
+which proves the remaining assertion.
+\end{proof}
+
+We will use rational upper roots without an oracle for real roots.
+For an integer $s\ge1$ and a positive rational $y$, choose the
+unique integer $h$ with $2^{hs}\le y<2^{(h+1)s}$.
+Among $q=s,s+1,\ldots,2s$, take the least one for which
+$(q2^h/s)^s\ge y$, and define
+\begin{equation}
+       \mathsf U_s(y)=q2^h/s,\qquad
+       y^{1/s}\le\mathsf U_s(y)
+                         \le(1+1/s)y^{1/s}.
+ \label{eq:empirical-moment-rational-root}
+\end{equation}
+These are finite integer or rational comparisons.
+The choice exists because $q=2s$ works.
+If $q>s$, minimality shows that the upward rounding error
+is less than $2^h/s\le y^{1/s}/s$; if $q=s$, the root is
+exact.  This proves both bounds, including exact dyadic endpoints.
+The search for $h$ terminates in either direction since $y>0$.
+
+\begin{theorem}[An almost optimal cutoff measured from the bins]
+\label{thm:empirical-moment-cutoff}
+Use the fixed prime class, progression, and parameter domain of
+Theorem~\ref{thm:adaptive-bin-almost-linear}:
+$p_j=j^{1/\alpha+o(1)}$, $0<b<1-\alpha$, and rational
+$0<c<\alpha(1-b-\alpha)$.
+For large integer $X$, write $\ell_J=1+\lfloor\log_2J\rfloor$
+and define
+\begin{equation}
+ \begin{gathered}
+ t_X=\ell_J^2,\qquad \widehat W_X=b_{X,1}/b_{X,0},\\
+ \widehat e_{X,i}
+       =\frac{b_{X,i}}{b_{X,0}\widehat W_X^{\,i}}
+                              \quad(0\le i\le t_X).
+ \end{gathered}
+ \label{eq:empirical-cutoff-observed-coefficients}
+\end{equation}
+Use \eqref{eq:empirical-moment-newton} to compute
+$\widehat\theta_{X,s}$ through $s=t_X$, and put
+\begin{equation}
+ \begin{gathered}
+ \widetilde m_X
+        =\mathsf U_{t_X}(2\widehat\theta_{X,t_X}),\qquad
+ \widetilde L_X=\min\left\{
+       \left\lfloor\frac1{256\widetilde m_X}\right\rfloor,
+                                      \kappa_c(X)\right\},\\
+ L_X^\star=\min\left\{
+       \left\lfloor\frac1{256m_J}\right\rfloor,
+                                      \kappa_c(X)\right\}.
+ \end{gathered}
+ \label{eq:empirical-cutoff-measured-and-ideal}
+\end{equation}
+The last cutoff is a theoretical benchmark only.
+All observed nodes are positive eventually, and the recovered
+moment used in the root is positive eventually.
+With constants depending on the fixed class and the displayed
+parameters, one has
+\begin{equation}
+ \begin{gathered}
+ 1\le\frac{\widetilde m_X}{m_J}
+                   \le1+O(1/\log J),\qquad
+ 0\le1-\frac{\widetilde L_X}{L_X^\star}
+                         =O(1/\log J),\\
+ \widetilde L_X=J^{1+o(1)},\qquad
+ \widetilde L_X=O(J),\\
+ \max_{0\le k\le\widetilde L_X}
+ \left|\frac{b_{X,k}}{\mathcal R^{(t_X)}_{X,k}}-1\right|
+       \ll \exp(-(\log J)^2)+X^{-\delta},\\
+ 0<\delta<1-b-\alpha-c/\alpha .
+ \end{gathered}
+ \label{eq:empirical-cutoff-profile}
+\end{equation}
+Here $\mathcal R^{(t_X)}$ is the same rational empirical Newton
+reference as before, now using its first $t_X+1$ bins.
+It exactly matches those bins and needs no further surviving
+prime as input.
+This uses $O((\log\log X)^2)$ measured bins and a single
+construction works for every fixed power accuracy $J^{-A}$.
+For $\mathcal P=\mathcal D$, $b=1/16$, $c=1/20$, one may
+take $\delta=1/200$ unconditionally, with no value of
+$\Theta_\zeta$ supplied to the computation.
+All assertions are eventual; no uniform effective onset
+threshold is assumed in the index hypothesis.
+\end{theorem}
+
+\begin{proof}
+Fix $\delta$ and choose a fixed $\sigma>\alpha$ so that
+$\xi=1-b-\sigma>c/\alpha+\delta$.
+Use the full signed sampling theorem, which gives
+$|b_{X,k}-\beta_{J,k}|\le\Delta_X\ll X^{-\xi}$ for all $k$.
+Let $m=m_J=J^{-1+o(1)}$, and abbreviate $t=t_X$.
+The exact model identity is
+\[
+ \beta_{J,i}=c_JW_J^ie_i,\qquad e_i=D_i/i! .
+\]
+In particular the observed coefficients in
+\eqref{eq:empirical-cutoff-observed-coefficients}
+have no extra factorial.  They obey
+$\widehat e_{X,0}=\widehat e_{X,1}=1$.
+The order-two normalization, for example, gives exactly
+\[
+ \widehat\theta_{X,1}=1,\qquad
+ \widehat\theta_{X,2}
+       =1-\frac{2b_{X,0}b_{X,2}}{b_{X,1}^2},
+\]
+consistent with the pair-collision correction above.
+
+First retain the growing-node positive supply.
+Since $t=O((\log J)^2)$ and $m=J^{-1+o(1)}$,
+$t^2m\to0$.
+The collision logarithm bound gives $D_i\ge1/2$ for all
+$0\le i\le t$, eventually.
+As $c_J\ge1/2$ and $W_J\le1$ eventually, one may use
+\begin{equation}
+ \begin{gathered}
+ u_X=\min_{0\le i\le t}\beta_{J,i}
+       \ge\frac{W_J^t}{4t^t}
+       \ge\exp(-C(\log J)^3),\\
+       \Delta_X/u_X\le X^{-\xi+o(1)} .
+ \end{gathered}
+ \label{eq:empirical-cutoff-node-supply}
+\end{equation}
+The last step uses $-\log W_J=O(\log J)$ and
+$(\log J)^3=o(\log X)$.
+Thus every observed node is positive before any division.
+
+Let $\zeta_i=\log(b_{X,i}/\beta_{J,i})$.
+For $\Delta_X\le u_X/2$, $|\zeta_i|\le2\Delta_X/u_X$.
+Subtracting the empirical normalization exactly gives
+\begin{equation}
+ \begin{gathered}
+ \log\frac{\widehat e_{X,i}}{e_i}
+       =\zeta_i-\zeta_0-i(\zeta_1-\zeta_0),\\
+ \left|\log\frac{\widehat e_{X,i}}{e_i}\right|
+                 \le4(i+1)\Delta_X/u_X .
+ \end{gathered}
+ \label{eq:empirical-cutoff-normalization-error}
+\end{equation}
+All empirical powers and both normalizing denominators remain
+in this identity.
+Since $e_i\le1$, the coefficient error consequently satisfies
+\[
+ \varepsilon_X=\max_{1\le i\le t}
+                        |\widehat e_{X,i}-e_i|
+       \le8(t+1)\Delta_X/u_X
+       \le X^{-\xi+o(1)}
+\]
+eventually, when the logarithmic bound is at most one.
+The recovery lemma applies.
+Moreover $\theta_t\ge m^t\ge\exp(-C(\log J)^3)$, so
+\begin{equation}
+ \left|\frac{\widehat\theta_{X,t}}{\theta_t}-1\right|
+     \le\frac{t4^t\varepsilon_X}{\theta_t}
+     \le\Delta_X\exp(O((\log J)^3))
+     \le X^{-\xi+o(1)} .
+ \label{eq:empirical-cutoff-relative-moment}
+\end{equation}
+This proves positivity of the recovered high moment without
+assuming that arbitrary empirical Newton moments are positive.
+
+Eventually $\theta_t\le2\widehat\theta_{X,t}\le3\theta_t$.
+Combining both power-sum inequalities of the lemma with
+the rational upper-root bounds gives
+\begin{equation}
+ \begin{gathered}
+ m\le\widetilde m_X
+       \le(1+1/t)\,3^{1/t}m^{\,1-1/t},\\
+ 0\le\log(\widetilde m_X/m)
+       \le\log(1+1/t)+\frac{\log3+\log(1/m)}t
+       =O(1/\log J).
+ \end{gathered}
+ \label{eq:empirical-cutoff-largest-coordinate}
+\end{equation}
+This proves the asserted relative accuracy of the maximum.
+The unobserved vector is used in the proof, not in the formula
+for $\widetilde m_X$.
+
+For completeness account for both integer cutoffs.
+Write $\widetilde m_X/m=1+\rho_X$ with
+$0\le\rho_X=O(1/\log J)$.
+Monotonicity and a floor allowance of one give
+\[
+  \frac{L_X^\star}{1+\rho_X}-1
+           \le\widetilde L_X\le L_X^\star .
+\]
+Indeed the unrounded capacity $1/(256m)$ is at least
+$L_X^\star$, while the other entry $\kappa_c(X)$ is an integer
+at least $L_X^\star$.
+Both entries defining $L_X^\star$ have logarithmic index one
+in $J$, and $\kappa_c(X)=O(J)$ by the independently checked
+selector formula in the preceding theorem.
+Thus $L_X^\star=J^{1+o(1)}=O(J)$ and its reciprocal is
+$o(1/\log J)$.
+Division by this positive cutoff proves the claimed ratio,
+$\widetilde L_X=J^{1+o(1)}$ and $\widetilde L_X=O(J)$.
+In particular $t\le\widetilde L_X$ eventually.
+Also $\widetilde L_Xm\le1/256$.
+
+We can now apply the explicit interpolation and stability
+lemmas on the full output range.
+With $L=\widetilde L_X$, their analytic remainder satisfies
+\begin{equation}
+ E=C_tL^{t+1}m^t
+       \le(t+1)L\,4^{-t}
+       \le\exp(-(\log J)^2)
+                         \quad\hbox{eventually}.
+ \label{eq:empirical-cutoff-superpolynomial-remainder}
+\end{equation}
+To check the final constant, note that
+$t=(\log J)^2/(\log2)^2+O(\log J)$, so the logarithm
+of the middle expression is at most
+$-(2/\log2+o(1))(\log J)^2$.
+The complete interpolation-parameter allowance is
+\begin{equation}
+ \eta_X=\frac{2\Delta_X}{u_X}S(L,t)
+       \le\Delta_X\exp(O((\log J)^3))
+       \le X^{-\xi+o(1)} .
+ \label{eq:empirical-cutoff-parameter-allowance}
+\end{equation}
+Here $S(L,t)\le(t+1)(1+2L)^t$, and
+\eqref{eq:empirical-cutoff-node-supply} charges the noise in
+every measured bin.
+
+Finally the full positive mass over $k\le L$ satisfies the
+same physical estimate, with all terms retained:
+\begin{equation}
+ \begin{gathered}
+ \begin{aligned}
+ -\log\beta_{J,k}
+       &\le O(1)+k\log(1/W_J)+\log(k!)+4k^2m\\
+       &\le(c/\alpha+o(1))\log X,
+ \end{aligned}\\
+ v_X=\min_{0\le k\le L}\beta_{J,k}
+       \ge X^{-c/\alpha-o(1)},\qquad
+              \Delta_X/v_X=O(X^{-\delta}).
+ \end{gathered}
+ \label{eq:empirical-cutoff-full-sampling-budget}
+\end{equation}
+The second inequality uses $L=O(J)$,
+$k^2m\le k/256$, and $k\le\kappa_c(X)$.
+The final estimate follows from
+$\xi>c/\alpha+\delta$.
+
+The exact signed consumer
+\eqref{eq:adaptive-bin-signed-consumer}, or equivalently its
+proved bound \eqref{eq:adaptive-bin-stability-bound}, gives
+\[
+ e^{E+\eta_X}-1+(\Delta_X/v_X)e^{E+\eta_X}
+       \ll \exp(-(\log J)^2)+X^{-\delta}.
+\]
+This includes both the error in the inferred cutoff and all
+compensation by the empirical normalizations.
+The arithmetic positive supply is still $\beta_{J,k}$;
+its negative allowance is $\Delta_X$.
+Since both $\exp(-(\log J)^2)$ and $X^{-\delta}$ are
+$o(J^{-A})$ for every fixed $A$, the same construction
+gives every fixed power accuracy.
+All its operations, including the upper root, are finite
+rational or integer computations once the bins and $J$ are given.
+For finitely many small inputs one may test for a zero node
+or a nonpositive recovered moment before performing the divisions
+and root; the theorem proves those tests eventually pass.
+The $\mathcal D$ specialization follows from the already checked
+margin $15/16-\Theta_\zeta-1/(20\Theta_\zeta)\ge3/560>1/200$.
+\end{proof}
+
+\begin{corollary}[The same calibration within a logarithmic bin budget]
+\label{cor:empirical-cutoff-logarithmic-budget}
+Fix an integer $A\ge1$, and instead take
+$t_X=(A+3)\ell_J$ in all the empirical formulas of
+Theorem~\ref{thm:empirical-moment-cutoff}.
+Denote the resulting maximum and cutoff by
+$\widetilde m_X^{(A)}$ and $\widetilde L_X^{(A)}$.
+Then, eventually,
+\begin{equation}
+ \begin{gathered}
+ m_J\le\widetilde m_X^{(A)}
+       \le\{2^{1/(A+3)}+o(1)\}m_J,\\
+            \widetilde L_X^{(A)}=J^{1+o(1)}=O(J),\\
+ 2^{-1/(A+3)}
+       \le\liminf_{X\to\infty}
+           \frac{\widetilde L_X^{(A)}}{L_X^\star}
+       \le\limsup_{X\to\infty}
+           \frac{\widetilde L_X^{(A)}}{L_X^\star}\le1,\\
+ \max_{0\le k\le\widetilde L_X^{(A)}}
+ \left|\frac{b_{X,k}}{\mathcal R^{(t_X)}_{X,k}}-1\right|
+                          \ll_A J^{-A}+X^{-\delta}.
+ \end{gathered}
+ \label{eq:empirical-cutoff-logarithmic-version}
+\end{equation}
+Only $O_A(\log\log X)$ empirical bins are used, with no
+additional surviving-prime input.
+Any prescribed fixed relative uncertainty above one for the
+maximum can be reached by choosing a sufficiently large fixed
+$A$; no uniformity as $A$ varies with $X$ is asserted.
+\end{corollary}
+
+\begin{proof}
+The proof just given applies with the smaller order, keeping
+each dependence explicit.
+Now the node supply is at least
+$\exp(-C_A(\log J)^2)$, and both coefficient recovery and
+relative moment recovery have error at most
+$\Delta_X\exp(O_A((\log J)^2))$.
+The rational-root bound is unchanged.
+Since
+\[
+ m_J^{-1/t_X}\longrightarrow2^{1/(A+3)},
+\]
+it gives the stated one-sided bound on the maximum.
+The floor comparison with $L_X^\star$, divided by that
+diverging cutoff, gives the displayed liminf and limsup.
+Also $\widetilde L_X^{(A)}m_J\le1/256$.
+The explicit analytic remainder is now at most
+$(t_X+1)\widetilde L_X^{(A)}4^{-t_X}
+ =O_A((\log J)J^{-2A-5})$.
+The full parameter and sampling allowances are bounded just
+as before, giving the asserted relative error.
+Finally $2^{1/(A+3)}\downarrow1$, which proves the last
+fixed-accuracy assertion.
+\end{proof}
+
+\begin{corollary}[Exact calibrated linear limits under power asymptotics]
+\label{cor:empirical-cutoff-linear-limits}
+If $p_j\sim Cj^{1/\alpha}$ for some $C>0$, put
+$v=1/\alpha-1$.
+The two fully empirical cutoffs above satisfy
+\begin{equation}
+ \begin{aligned}
+ \frac{\widetilde L_X}{J}
+       &\longrightarrow
+               \min\left\{\frac1{256v},\frac{c}{\alpha b}\right\},\\
+ \frac{\widetilde L_X^{(A)}}J
+       &\longrightarrow
+          \min\left\{\frac1{256\,2^{1/(A+3)}v},
+                                      \frac{c}{\alpha b}\right\}.
+ \end{aligned}
+ \label{eq:empirical-cutoff-linear-limits}
+\end{equation}
+Both limits are strictly positive.
+The first reaches the full benchmark capacity of this
+interpolation argument; the earlier prime-assisted cutoff had
+capacity constant $1/(512v)$ before the same physical rank cap.
+\end{corollary}
+
+\begin{proof}
+The preceding power-asymptotic corollary gives $m_J\sim v/J$.
+The quadratic-order maximum estimate therefore yields
+$\widetilde m_X\sim v/J$, proving the first limit.
+
+For the logarithmic order $t=(A+3)\ell_J$, let
+$q_J=\lfloor J/t\rfloor$.
+Then $q_J\to\infty$, $q_J=o(J)$, and monotonicity of
+the prime weights gives
+\[
+ \theta_t\ge q_Ja_{J+q_J}^{\,t},\qquad
+ \frac{a_{J+q_J}}{m_J}
+       =\frac{p_{J+1}-1}{p_{J+q_J}-1}\longrightarrow1 .
+\]
+The last limit follows directly from the common asymptotic
+$p_j\sim Cj^{1/\alpha}$ and $q_J/J\to0$.
+Also $q_J^{1/t}\to2^{1/(A+3)}$.
+Together with $\theta_t\le m_J^{t-1}$, this proves
+\[
+ \frac{\theta_t^{1/t}}{m_J}\longrightarrow2^{1/(A+3)} .
+\]
+Relative empirical recovery and
+$1\le\mathsf U_t(y)/y^{1/t}\le1+1/t$ then show that
+$\widetilde m_X^{(A)}/m_J$ has that same limit.
+Taking the two capacity minima, with floors costing at most
+$1/J$ after division, proves the second displayed limit.
+The comparison constant $1/(512v)$ is
+\eqref{eq:adaptive-bin-linear-limit}.
+No such additional power asymptotic is asserted for
+$\mathcal D$.
+\end{proof}
+
+All results in this subsection have full ordinary proofs.
+They do not add Lean declarations.
+Power-sum recovery and approximation of a maximum by high
+moments are classical ingredients, not new zero detectors.
+The new arithmetic consumer preserves their precision through
+the signed empirical normalization and through the rare-event
+denominator, and it no longer enumerates a surviving prime
+to choose the reference's range.
+The quadratic bin budget improves calibration to relative
+error $O(1/\log J)$ and gives superpolynomial accuracy in $J$;
+the logarithmic budget retains the preceding fixed-power
+accuracy with no extra prime input.
+Neither statement proves a new estimate on
+$\Theta_\zeta$; the certified zero-free boundary remains $7/8$.
+
 \subsection{Selecting certified good primes before estimating their size}
 \label{sec:certified-good-prime-class}
 
