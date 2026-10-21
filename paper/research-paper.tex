@@ -7561,6 +7561,246 @@ carrier and the explicit transfer to this existing RH criterion.
 No infinitude of Fibonacci primes is assumed, and no improved
 zero-free exponent follows without a new independent estimate.
 
+\subsection{Nested Fermat carriers and a joint Fibonacci profile}
+\label{sec:fermat-fibonacci-joint}
+
+Fermat numbers need not be prime to supply exact clocks. Write
+$T_j=2^{2^j}+1$ for $j\ge0$ and choose its least prime factor $R_j$.
+Here the sampled value is $2^n-1$, with scalar exponent $n\ge0$:
+we test $R_j\mid2^n-1$. This is a different observable from
+testing divisibility directly on the Fermat sequence $T_n$.
+The cutoff $k$ selects the labels $0\le j<k$, independently of
+the sizes of $R_j$ and $2^n-1$.
+
+\begin{theorem}[Fermat divisors give a nested dyadic clock]
+\label{thm:fermat-dyadic-clock}
+If $r>2$ divides $T_j$, then
+\[
+ \operatorname{ord}_{r}(2)=2^{j+1},\qquad
+ r\mid2^n-1\quad\Longleftrightarrow\quad2^{j+1}\mid n.
+\]
+In particular all prime factors of a fixed $T_j$ have exactly the
+same event on this sampled sequence. The selected primes $R_j$
+are pairwise distinct, and $R_0=3$.
+For
+\[
+ C_k(n)=\sum_{j=0}^{k-1}\boldsymbol{1}_{R_j\mid2^n-1}
+       =\sum_{j=0}^{k-1}\boldsymbol{1}_{2^{j+1}\mid n},
+\]
+uniform sampling over $0\le n<2^k$ gives
+\[
+ \mathbb P(C_k=t)=2^{-t-1}\quad(0\le t<k),\qquad
+ \mathbb P(C_k=k)=2^{-k}.
+\]
+Thus, with $G_k(z)=\mathbb E z^{C_k}$,
+\begin{align}
+ G_k(z)&=\frac12\sum_{t=0}^{k-1}(z/2)^t+(z/2)^k,
+ \label{eq:fermat-geometric-pgf}\\
+ (2-z)G_k(z)&=1+(1-z)(z/2)^k,\qquad
+ \mathbb E C_k=1-2^{-k}.
+ \label{eq:fermat-geometric-compensation}
+\end{align}
+The cross-multiplied identity holds for every complex $z$,
+including $z=2$, where $G_k(2)=1+k/2$.
+\end{theorem}
+
+\begin{proof}
+In $\mathbb Z/r\mathbb Z$ the hypothesis gives
+$2^{2^j}=-1\ne1$, while $2^{2^{j+1}}=1$.
+In particular $2$ is a unit. Its order divides $2^{j+1}$ but
+does not divide $2^j$, so the order is exactly $2^{j+1}$.
+The power test proves the claimed divisibility equivalence,
+including $n=0$. A shared prime factor at two Fermat labels
+would consequently have two different exact orders, which is
+impossible. The first selected factor is the prime $T_0=3$.
+
+For $t<k$, exactly $2^{k-t-1}$ residues in a complete period
+are divisible by $2^t$ and not by $2^{t+1}$.
+Their count $C_k$ is $t$. Only the zero residue is divisible by
+$2^k$, and it has count $k$. This proves the distribution and
+\eqref{eq:fermat-geometric-pgf}, also when $k=0$.
+The indicator definition handles the zero residue without assigning
+a finite $2$-adic valuation to zero. Multiplying the finite
+geometric sum proves the cross identity without division by $2-z$.
+Alternatively, splitting the sampled indices into even and odd
+parts gives $G_0=1$ and $G_{k+1}=(1+zG_k)/2$.
+Finally, summing the threshold probabilities gives
+$\mathbb E C_k=\sum_{j<k}2^{-j-1}=1-2^{-k}$.
+\end{proof}
+
+These events are nested, not independent Bernoulli trials.
+Nor is an infinitude of Fermat primes assumed: $R_j$ exists
+even when $T_j$ is composite. Direct sampling of $T_n$ would
+give a different law: each fixed $R_j$ divides only $T_j$,
+so its density among Fermat indices is zero.
+
+\begin{theorem}[A common-index product law and its exact compensation]
+\label{thm:fermat-fibonacci-profile}
+Let $S$ be a finite set of odd prime labels,
+$M_S=\prod_{\ell\in S}\ell$, and $k\ge0$.
+Sample the same index $n$ uniformly over
+$0\le n<2^kM_S$, evaluating the pair $(F_n,2^n-1)$.
+For every binary Fibonacci pattern $b$ and every complex $z$,
+\[
+ \mathbb E\!\left[
+ z^{C_k(n)}
+ \boldsymbol{1}_{
+   \boldsymbol{1}_{P_\ell\mid F_n}=b_\ell\ \text{for every }\ell\in S}\right]
+ =
+ G_k(z)\prod_{\ell\in S}
+ \left(\frac1\ell\right)^{b_\ell}
+ \left(1-\frac1\ell\right)^{1-b_\ell}.
+\]
+Consequently, for arbitrary complex marks $w_\ell$,
+\[
+ \mathbb E\!\left[
+ z^{C_k(n)}
+ \prod_{\ell\in S}w_\ell^{\boldsymbol{1}_{P_\ell\mid F_n}}\right]
+ =G_k(z)\prod_{\ell\in S}(1+(w_\ell-1)/\ell).
+\]
+The entire nested Fermat block is independent of the Fibonacci
+block. No independence is asserted within the Fermat block.
+
+For $S_X$ the odd primes at most $X$, put
+$\mu_X=\sum_{\ell\in S_X}1/\ell$ and let
+\[
+ T_{X,k}(n)=C_k(n)+
+   \sum_{\ell\in S_X}\boldsymbol{1}_{P_\ell\mid F_n}.
+\]
+Compensation by the \emph{actual mean} gives
+\[
+ H_{X,k}(z)
+ =e^{-(z-1)(\mu_X+1-2^{-k})}\,
+   \mathbb E z^{T_{X,k}}.
+\]
+As $X,k\to\infty$, independently, these functions converge
+locally uniformly on $|z|<2$ to
+\[
+ H(z)=\frac{e^{1-z}\mathcal F_{\mathrm{odd}}(z)}{2-z},
+ \qquad
+ \mathcal F_{\mathrm{odd}}(z)=
+ \prod_{\ell\ge3\ {\rm prime}}
+   (1+(z-1)/\ell)e^{-(z-1)/\ell}.
+\]
+This limit extends meromorphically to the whole plane.
+It has a simple pole at $2$, with residue
+$-e^{-1}\mathcal F_{\mathrm{odd}}(2)\ne0$.
+The exact compensation
+\[
+ (2-z)e^{z-1}H(z)=\mathcal F_{\mathrm{odd}}(z)
+ \label{eq:fermat-fibonacci-pole-removal}
+\]
+extends to an entire function and recovers all the simple zeros
+$1-\ell$, for odd primes $\ell$.
+\end{theorem}
+
+\begin{proof}
+The previous carrier theorems replace the events by
+$2^{j+1}\mid n$ and $\ell\mid n$, respectively.
+Since $2^k$ and $M_S$ are coprime, CRT identifies one uniform
+scalar residue with independent uniform residues modulo $2^k$
+and modulo $M_S$. The first coordinate determines the whole
+Fermat count; the second determines the full Fibonacci pattern.
+This proves the first formula. Summing over all binary patterns,
+with the stated marks, gives the second formula and the mean
+$\mu_X+1-2^{-k}$. Empty supports and $k=0$ are included.
+
+The exact finite identity gives, for $z\ne2$,
+\[
+ G_k(z)-\frac1{2-z}
+ =\frac{(1-z)(z/2)^k}{2-z}.
+\]
+For every fixed $0\le R<2$ this implies the uniform bound
+\[
+ \sup_{|z|\le R}\left|G_k(z)-\frac1{2-z}\right|
+ \le \frac{1+R}{2-R}(R/2)^k.
+\]
+The dyadic mean correction tends uniformly on compact sets to
+$e^{1-z}$. The previously proved canonical Bernoulli products
+converge locally uniformly to $\mathcal F_{\mathrm{odd}}$.
+Their product therefore gives the stated two-parameter limit.
+
+The displayed quotient supplies the meromorphic extension.
+Every factor at $z=2$ is positive, and the logarithms of the
+factors have an absolutely convergent sum, because their
+absolute values are bounded by a constant times $\ell^{-2}$.
+Thus $\mathcal F_{\mathrm{odd}}(2)>0$ and the residue is nonzero.
+Multiplying by the stated entire compensator removes this pole.
+Away from $2$ the removed factors are nonzero, so all odd-prime
+profile zeros and their multiplicities are preserved.
+\end{proof}
+
+\paragraph{A shared physical prime does not mean a shared index event.}
+The same prime $5$ occurs as $P_5=5$ and $R_1=5$, yet
+\[
+ 5\mid F_n\Longleftrightarrow5\mid n,\qquad
+ 5\mid2^n-1\Longleftrightarrow4\mid n.
+\]
+These two events have probabilities $1/5$ and $1/4$ and joint
+probability $1/20$ under uniform sampling modulo $20$.
+Their independence comes from their coprime index clocks.
+Likewise $P_3=2$ supplies the index-$3$ event, while $R_0=3$
+supplies the index-$2$ event. Thus the arithmetic names of the
+carrier primes are not the parameters of the probability law.
+
+\paragraph{The RH information and the order of limits.}
+For $k\ge1$ the event $C_k=0$ is exactly $n$ odd.
+Writing $A(X)$ as in Theorem~\ref{thm:fibonacci-marked-nicolas},
+the limiting density of avoiding every selected carrier in both
+sampled sequences is therefore
+\[
+ B(X)=\frac12 A(X)=\prod_{p\le X}(1-1/p).
+\]
+The existing Nicolas criterion becomes
+\[
+ \mathrm{RH}\quad\Longleftrightarrow\quad
+ B(X)<\frac{e^{-\gamma}}{\log\log(2M_X)}
+ \quad\hbox{for all sufficiently large }X\ge3.
+\]
+The extra nested Fermat events beyond $R_0$ do not change this
+vacancy event. This exact translation supplies no new independent
+bound on the product or on zeta zeros.
+
+All finite probability formulas above first use a complete period.
+For fixed $X,k$, interval sampling over $1\le n\le N$, $N\ge1$,
+has pattern error at most $2^kM_X/N$, by the same period-remainder
+argument as before. If a fixed finite weight has absolute value
+at most $W$, the corresponding expectation error is at most
+$2^{k+1}M_XW/N$: the incomplete period and its predicted average
+each have absolute contribution at most $2^kM_XW$ before
+dividing by $N$.
+Only after $N\to\infty$ at fixed cutoffs are $X,k$ allowed to grow.
+The local uniform profile limit does not assert simultaneous
+growing-cutoff sampling accuracy.
+
+\paragraph{Formalization scope.}
+The maintained candidate owners
+\begin{quote}\small\ttfamily
+Mathlib/NumberTheory/Primes/FermatCarrier.lean\\
+Mathlib/NumberTheory/Primes/FermatCarrierProbability.lean
+\end{quote}
+check twenty-nine declarations: exact orders and integer power
+tests, distinct selected carriers, actual dyadic sample sums and
+their geometric recurrence, compensation at all $z$, the
+exceptional value at $2$, and the exact mean.
+Four further checked declarations in
+\begin{quote}\small\ttfamily
+Helpers/FermatFibonacciProbability.lean
+\end{quote}
+prove coprimality of the sample periods, pointwise compatibility
+of the actual scalar events with CRT, the generating-sum
+factorization over arbitrary commutative semirings, and the
+normalized real joint law. All thirty-three axiom audits contain
+only the standard foundational axioms. The complex normalized
+law follows by the same finite algebra; the interval estimate,
+locally uniform limit, residue, and RH translation above are
+ordinary proofs, with no separate Lean compilation claim.
+The elementary order and geometric-law mechanisms are classical.
+The purpose of this construction is
+their common-index realization alongside the Fibonacci golden-root
+clock and the exact preservation of the marked profile.
+
+
 \subsection{Rational residue-class laws: a stronger inverse theorem}
 
 The preceding inverse theorem extends beyond a common leading coefficient.
