@@ -5,6 +5,7 @@ Authors: Prime Factor Oscillations contributors
 -/
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.CapacitySelection
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.CappedSupportFunction
+import PrimeFactorOscillations.Proof.PrimeClassDeletion.CriticalCellScale
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.OverweightSlack
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.PartialCapacityCounts
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.PolynomialPrimeNorming

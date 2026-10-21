@@ -11942,6 +11942,604 @@ positive-series continuation principle are classical inputs;
 no established literature priority is asserted for this
 application.
 
+\subsection{Critical-line retention and the zero supremum in prime counts}
+\label{sec:critical-deleted-prime-signal}
+
+A second scale choice continues the favorable model through
+the critical line. It keeps the same rational vertex algorithm,
+but defines new prime sets; the preceding $\mathcal D_k$
+retain their original definitions.
+
+\begin{lemma}[Prime-count error to the right of the zero supremum]
+\label{lem:prime-error-zero-supremum}
+Put
+\[
+ \Theta_\zeta=\sup\{\Re\rho:\zeta(\rho)=0,\ 0<\Re\rho<1\}.
+\]
+Then $1/2\le\Theta_\zeta\le1$. For every fixed
+$\Theta_\zeta<b<1$,
+\begin{equation}
+ \pi(X)-\operatorname{Li}_2(X)=O_b(X^b\log^2 X)\quad(X\ge2).
+ \label{eq:prime-error-zero-supremum}
+\end{equation}
+The constant may depend on $b-\Theta_\zeta$ and is not
+asserted uniform as that distance tends to zero.
+\end{lemma}
+
+\begin{proof}
+The nontrivial zeros are nonempty and symmetric about
+$\Re s=1/2$, giving the bounds for their supremum;
+see \cite[\S25.10(i)]{DLMFZetaZeros}.
+We supply the analytic estimate used below, keeping a
+finite contour rather than an unsummed infinite explicit formula.
+
+The classical Hadamard product for the completed zeta
+function and the local zero count
+$\#\{\rho:|\Im\rho-t|\le1\}=O(\log(|t|+2))$ give
+\begin{equation}
+ \left|\frac{\zeta'}{\zeta}(\sigma+it)\right|
+       \ll_b\log(|t|+2)
+       \quad(b\le\sigma\le2,\ |t|\ge2).
+ \label{eq:zero-supremum-log-derivative}
+\end{equation}
+Indeed, subtract the completed logarithmic derivative at
+$2+it$ from that at $\sigma+it$. The zero sum becomes
+\[
+ \sum_\rho\left(\frac1{\sigma+it-\rho}
+                            -\frac1{2+it-\rho}\right).
+\]
+Zeros with $|\Im\rho-t|\le1$ contribute
+$O_b(\log(|t|+2))$, since every first denominator has
+modulus at least $b-\Theta_\zeta>0$.
+For the other zeros each difference is
+$O_b((\Im\rho-t)^{-2})$; summing unit height intervals
+with the local zero count gives the same bound.
+Stirling's formula controls the gamma and rational factors.
+The logarithmic derivative at $2+it$ converges absolutely.
+This proves \eqref{eq:zero-supremum-log-derivative}.
+
+For a half-integer $x\ge3$, put $c=1+1/\log x$ and $T=x^2$.
+Truncated Perron inversion gives
+\[
+ \psi(x)=\frac1{2\pi i}\int_{c-iT}^{c+iT}
+       -\frac{\zeta'}{\zeta}(s)\frac{x^s}{s}\,ds
+                           +O(x\log^2 x/T).
+\]
+Its error is bounded by
+\[
+ \sum_{n\ge2}\Lambda(n)(x/n)^c
+                  \min\{1,(T|\log(x/n)|)^{-1}\}.
+\]
+On $x/2<n<2x$, use
+$|\log(x/n)|\gg|n-x|/x$, $|n-x|\ge1/2$, and the
+harmonic sum over these distances. Outside that interval
+use $\Lambda(n)\le\log n$ and
+$\sum_{n\ge2}(\log n)n^{-c}\ll(c-1)^{-2}$.
+These give the stated error. The truncated kernel bound
+follows by integrating $y^s/s$ and bounding the omitted tails.
+
+Move the finite contour to $\Re s=b$.
+No zero pole is crossed; the pole at $1$ contributes $x$.
+Equation~\eqref{eq:zero-supremum-log-derivative} bounds the
+horizontal segments by $O_b(x\log T/T)$ and the new vertical
+segment by $O_b(x^b\log^2 T)$. The bounded portion of that
+line has a finite bound since it misses $1$ and every zero.
+Thus $\psi(x)-x=O_b(x^b\log^2 x)$.
+The half-integer $\lfloor X\rfloor+1/2$ preserves $\psi(X)$
+for arbitrary real $X$ and changes the main term by at most
+$1/2$. Higher prime powers contribute
+$O(\sqrt X\log^2 X)$, absorbed because $b>1/2$.
+Partial summation proves \eqref{eq:prime-error-zero-supremum}.
+These classical inputs give no new upper bound for
+$\Theta_\zeta$.
+\end{proof}
+
+\begin{theorem}[Computable prime classes retaining critical-line zeros]
+\label{thm:critical-deleted-prime-model}
+Fix an integer $k\ge4$. In each block $u=2^j$, $j\ge3$,
+use the zeta portfolio, $A(p)=R=1$, and set
+\begin{equation}
+ \theta_k^0=1-\frac1k,\quad
+ h_{j,k}=2^{\lfloor(k-1)j/k\rfloor},\quad
+ \tau=u^{-3},\quad M=u^4.
+ \label{eq:critical-prime-cell-scale}
+\end{equation}
+Use the same rational good-cell test, deterministic minimizing
+LP vertex and downward rounding as
+Theorem~\ref{thm:computable-deleted-prime-RH}, with this cell
+length. Keep weight zero at primes below $8$ and on bad cells.
+Write the output as $w^0_{p,k}$ and define
+\[
+ \mathcal D_k^0=\{p\text{ prime}:w^0_{p,k}=0\},\qquad
+ \mathcal T_k^0=\{p\text{ prime}:0<w^0_{p,k}<1\}.
+\]
+These fixed prime classes are computable from integer inputs
+$p,k$. For $S_j=\{p\text{ prime}:u\le p<2u\}$, put
+\[
+ N^0_{j,k}=\#(\mathcal D_k^0\cap S_j),\qquad
+ D^0_{j,k}=\sum_{p\in S_j}(1-w^0_{p,k})_+.
+\]
+The full Euler model has the unconditional representation
+\begin{equation}
+ F_k^0(s)=\prod_p(1-p^{-s})^{-w^0_{p,k}}
+       =\frac{s}{s-1}\exp(G_k^0(s)),\qquad \Re s>0,
+ \label{eq:critical-prime-favorable-product}
+\end{equation}
+where $G_k^0$ is holomorphic. The product initially means its
+absolutely convergent full Euler logarithm on $\Re s>1$.
+For every $j\ge3$,
+\begin{equation}
+ 0\le D^0_{j,k}-N^0_{j,k}
+       \le\#(\mathcal T_k^0\cap S_j)\le2k\,u^{1/k}.
+ \label{eq:critical-prime-count-ledger}
+\end{equation}
+Every nontrivial zeta zero with real part $\beta>1/k$ forces
+\begin{equation}
+ \limsup_{j\to\infty}
+       \frac{\log(1+N^0_{j,k})}{j\log2}\ge\beta.
+ \label{eq:critical-prime-zero-readout}
+\end{equation}
+In particular, unconditionally, for every fixed $k\ge4$
+and $\epsilon>0$,
+\begin{equation}
+ N^0_{j,k}\ge u^{1/2-\epsilon}
+                       \quad\text{for infinitely many }j.
+ \label{eq:critical-prime-unconditional-infinitude}
+\end{equation}
+Thus every $\mathcal D_k^0$ is infinite, independently of RH.
+\end{theorem}
+
+\begin{proof}
+The earlier classes used $1-1/(2k)$; these use $1-1/k$.
+Here $2/3<\theta_k^0<1$ and $u/h_{j,k}\le2u^{1/k}$.
+The unconditional prime-mesh bound therefore makes all
+sufficiently late cells good, for each fixed $k$.
+The finite algorithm tests goodness itself and needs no
+knowledge of that eventual threshold.
+Its grid and LP data are rational, so the membership
+decision terminates exactly as before.
+The vertex theorem applies unchanged on every good cell.
+Rounding preserves zero and unit coordinates; bad cells
+have no partial coordinates. Count cells and apply
+Lemma~\ref{lem:deleted-count-deficit-ledger} to obtain
+\eqref{eq:critical-prime-count-ledger}.
+
+We check the full new continuation region.
+Fix a compact $K\subset\{\Re s>0\}$ and
+$\sigma_0=\inf_{s\in K}\Re s>0$.
+The complete Euler kernel and differentiated series are
+\[
+ \begin{aligned}
+ f_s(x)&=\sum_{m\ge1}x^{-ms}/m=-\log(1-x^{-s}),\\
+ f_s^{(k)}(x)&=(-1)^k\sum_{m\ge1}
+     \frac{(ms)(ms+1)\cdots(ms+k-1)}m\,x^{-ms-k}.
+ \end{aligned}
+\]
+For $x\ge u$, the full derivative bound is
+\[
+ |f_s^{(k)}(x)|\le
+ (k-1)!\prod_{r=0}^{k-1}(|s|+r)\,
+             \frac{x^{-\Re s-k}}{(1-x^{-\Re s})^k}.
+\]
+No prime-power term has been removed. Now $h_{j,k}^k\le u^{k-1}$,
+and the exact exponent identity is
+\begin{equation}
+ 1-\sigma-k(1-\theta_k^0)=-\sigma .
+ \label{eq:critical-prime-remainder-exponent}
+\end{equation}
+The rounded normalized moment errors are at most $3u^{-3}$.
+Every Taylor coefficient of $f_s(a+hy)$ through degree $k-1$
+is $O_{k,K}(u^{-\sigma_0})$.
+The block's model plus actual positive mass is
+$O_k(u/\log u)$, by the zeroth moment tolerance and the
+zero weights on bad cells. The complete good-cell discrepancy
+therefore satisfies
+\begin{equation}
+ |G^0_{j,k}(s)|\ll_{k,K}
+       \frac{u^{-\sigma_0}}{\log u}
+                       +u^{-3+1/k-\sigma_0}\qquad(s\in K).
+ \label{eq:critical-prime-full-error}
+\end{equation}
+The second term retains the Taylor-polynomial residual
+from all cells; moments are not claimed to cancel exactly.
+Both terms are summable over dyadic blocks.
+The exponent identity, mesh range and negativity of both
+powers have separate checked Lean proofs in
+\texttt{CriticalCellScale.lean}; the Euler analysis is ordinary.
+
+Let $\mathcal H_k^0$ be $(1,8)$ together with all bad cells,
+a bounded union. The full initial normalization is
+\begin{equation}
+ \log F_k^0(s)-\log\frac{s}{s-1}
+       =-\int_{\mathcal H_k^0}f_s(x)\,d\nu(x)
+                    +\sum_{j\ge3}G^0_{j,k}(s)\quad(\Re s>1).
+ \label{eq:critical-prime-complete-normalization}
+\end{equation}
+The head integral is holomorphic on $\Re s>0$.
+Near $x=1$, uniformly on $K$, its kernel is
+$O_K(1+|\log(x-1)|)$ and $\nu'$ is bounded.
+Together with \eqref{eq:critical-prime-full-error}, this
+defines $G_k^0$ throughout $\Re s>0$ and proves
+\eqref{eq:critical-prime-favorable-product}.
+Only zeta is used: its nonsplit factor is $U_{\{1\}}=1$.
+No general portfolio's nonsplit unit is extended below
+its proved half-plane.
+
+The proof of Theorem~\ref{thm:underweight-real-axis-transfer}
+now applies with any $0<\eta<1$.
+All its factors are units on $\Re s>\eta$, zeta has no
+real zero on $(\eta,1)$, and the positive Dirichlet
+continuation theorem has no $1/2$ restriction on its endpoint.
+Explicitly, set
+\[
+ \begin{gathered}
+ d_p=(1-w^0_{p,k})_+,\qquad e_p=(w^0_{p,k}-1)_+,\\
+ E_-=\prod_p(1-p^{-s})^{-d_p},\qquad
+ E_+=\prod_p(1-p^{-s})^{-e_p}.
+ \end{gathered}
+\]
+The complete identity is $\zeta E_+=F_k^0E_-$.
+First assume a deficit bound above $\eta$, making $E_-$
+a convergent unit. The meromorphic quotient $F_k^0E_-/\zeta$
+is real analytic on the real ray after canceling the
+pole at $1$. Its positive Dirichlet series really converges
+above $\eta$, making $E_+$ a unit too.
+Only then continue the cross-multiplied identity.
+It excludes a zeta zero in that half-plane.
+
+Thus every zero at real part $\beta>0$ forces the deficit
+$D^0_{j,k}$ to have limsup exponent at least $\beta$.
+For $\beta>1/k$ the partial allowance $2ku^{1/k}$ has
+strictly smaller exponent and cannot absorb this signal.
+This proves \eqref{eq:critical-prime-zero-readout}.
+Critical-line zeros exist unconditionally
+\cite[\S25.10(i)]{DLMFZetaZeros}.
+Take $\beta=1/2>1/k$ and use the limsup with $\epsilon/2$
+to absorb the added $1$. This proves
+\eqref{eq:critical-prime-unconditional-infinitude}.
+\end{proof}
+
+\begin{theorem}[The zero supremum recovered from literal prime counts]
+\label{thm:prime-count-exponents-zero-supremum}
+For these fixed computable classes define
+\[
+ \lambda_k=\limsup_{j\to\infty}
+       \frac{\log(1+N^0_{j,k})}{j\log2}\qquad(k\ge4).
+\]
+Then, unconditionally,
+\begin{equation}
+ \Theta_\zeta\le\lambda_k\le\min\{1,\Theta_\zeta+1/k\},
+ \qquad
+ \lim_{k\to\infty}\lambda_k
+                =\inf_{k\ge4}\lambda_k=\Theta_\zeta .
+ \label{eq:prime-count-zero-supremum-sandwich}
+\end{equation}
+In particular,
+\begin{equation}
+ \begin{gathered}
+ {\rm RH}\quad\Longleftrightarrow\quad
+       \lim_{k\to\infty}\lambda_k=\tfrac12\\
+ \Longleftrightarrow\
+ \left[\forall k\ge4,\epsilon>0,\quad
+    N^0_{j,k}\ll_{k,\epsilon}u^{1/2+1/k+\epsilon}\right].
+ \end{gathered}
+ \label{eq:critical-prime-RH-count-criterion}
+\end{equation}
+Each $k$ is fixed before the dyadic limsup; no uniformity
+in growing $k$ is asserted.
+\end{theorem}
+
+\begin{proof}
+The zero readout gives $\lambda_k\ge\beta$ for every zero
+with $\beta>1/k$. Since $\Theta_\zeta\ge1/2>1/k$, taking
+the supremum gives $\lambda_k\ge\Theta_\zeta$, without
+assuming that a rightmost zero is attained.
+There are at most $u$ integer nodes in $S_j$, so
+$\lambda_k\le1$. If $\Theta_\zeta=1$, these two bounds
+already prove the sandwich and its limit.
+
+Suppose $\Theta_\zeta<1$ and fix $\Theta_\zeta<b<1$.
+The unconditional comparison
+\eqref{eq:continuous-model-logarithmic-integral-error}
+and Lemma~\ref{lem:prime-error-zero-supremum} give
+\[
+ F(t):=\nu([1,t])-\pi(t)=O_b(t^b\log^2 t)\quad(t\ge2),
+\]
+also for one-sided endpoint limits.
+Take a late block where all cells are good.
+For each exact real optimum $E_{I,k}$, choose an attaining
+degree-less-than-$k$ dual polynomial $P_I$.
+Use $P_I=0$ if the optimum is zero.
+Otherwise positive-objective norming on this very good
+cell gives $\|P_I\|_I\le64B_{k-1}$, as in
+\eqref{eq:rational-model-dual-coefficient-budget}.
+Writing $\pi$ also for its counting measure, retain
+\begin{equation}
+ E_{I,k}=\int_I P_I\,d(\nu-\pi)
+                       -\sum_{p\in S_I}(P_I(p))_- .
+ \label{eq:critical-prime-signed-cell-objective}
+\end{equation}
+The negative dual values remain in the exact objective.
+
+A nonconstant polynomial of degree less than $k$ has at
+most $k-1$ monotonicity intervals, so
+$\operatorname{Var}_I(P_I)\le2(k-1)\|P_I\|_I$;
+the constant case has variation zero.
+Stieltjes integration by parts on $I=[a,b_I)$ uses
+$F(a^-),F(b_I^-)$ and the integral of $F(t)P_I'(t)$.
+Its endpoint and derivative contributions are bounded by
+\[
+ \left(|P_I(a)|+|P_I(b_I)|
+                   +\operatorname{Var}_I(P_I)\right)
+ \sup_{u\le t\le2u}\max\{|F(t)|,|F(t^-)|\}.
+\]
+Hence $E_{I,k}\ll_{k,b}u^b\log^2u$.
+This uses the classical prime error to the right of
+$\Theta_\zeta$, and proves no new zero-free strip.
+
+There are at most $2u^{1/k}$ cells.
+The rounded vertex overweight is at most the exact
+optimum cellwise, so
+$E^0_{j,k}\ll_{k,b}u^{b+1/k}\log^2u$.
+The zeroth moment tolerance gives
+$W^0_{j,k}=\nu([u,2u))+O_k(u^{-3+1/k})$.
+With $C_j=\#S_j$, the full signed consumer is
+\begin{equation}
+ \begin{aligned}
+ N^0_{j,k}\le D^0_{j,k}
+    &=E^0_{j,k}+C_j-W^0_{j,k}\\
+    &\ll_{k,b}u^{b+1/k}\log^2u
+                       +u^b\log^2u+u^{-3+1/k}.
+ \end{aligned}
+ \label{eq:critical-prime-full-signed-count-bound}
+\end{equation}
+Thus $\lambda_k\le b+1/k$.
+Let $b\downarrow\Theta_\zeta$ and retain the independent
+upper bound $\lambda_k\le1$.
+The sandwich proves both the limit and the infimum.
+Zero symmetry gives
+$ {\rm RH}\Longleftrightarrow\Theta_\zeta=1/2$.
+Under RH take $b>1/2$ arbitrarily close in the same bound
+to obtain the count criterion. Conversely that criterion
+gives $\lambda_k\le1/2+1/k$ for every fixed $k$;
+let $k\to\infty$ and use $\lambda_k\ge\Theta_\zeta$.
+\end{proof}
+
+The size needed to retain the signal is now explicit:
+the fixed $\mathcal D_k^0$ cannot have counting exponent
+below $\Theta_\zeta$, and approach it within $1/k$.
+They are infinite even if RH holds, unlike the preceding
+classes whose finiteness was only a sufficient RH condition.
+The construction consumes completed moment, vertex and
+positive-series inputs. Its new analytic consumers have
+the full ordinary proofs above; only the three scalar
+cell-scale lemmas are newly Lean checked.
+No independent arithmetic bound on these cardinalities
+has been proved, and the installed boundary remains $7/8$.
+No established literature priority is asserted.
+
+\begin{theorem}[One computable prime class with the exact zero exponent]
+\label{thm:single-computable-prime-RH}
+There is one fixed computable class $\mathcal D_*$ of actual
+primes, defined without any zero-location assumption, such that
+\begin{equation}
+ \limsup_{X\to\infty}
+       \frac{\log(1+\pi_{\mathcal D_*}(X))}{\log X}
+                         =\Theta_\zeta,\qquad
+ \pi_{\mathcal D_*}(X)=\#\{p\le X:p\in\mathcal D_*\}.
+ \label{eq:single-prime-class-zero-exponent}
+\end{equation}
+For every $\eta\in[1/2,1)$ the exact equivalence is
+\begin{equation}
+ \begin{gathered}
+ \zeta(s)\ne0\quad(\Re s>\eta)\\
+ \Longleftrightarrow\
+ \left[\forall\epsilon>0,\quad
+   \pi_{\mathcal D_*}(X)\ll_\epsilon X^{\eta+\epsilon}\right].
+ \end{gathered}
+ \label{eq:single-prime-class-strip-equivalence}
+\end{equation}
+In particular the square-root count criterion is equivalent
+to RH. Unconditionally $\mathcal D_*$ is infinite, and its
+dyadic count is at least $u^{1/2-\epsilon}$ at infinitely
+many scales, for every $\epsilon>0$.
+\end{theorem}
+
+\begin{proof}
+We give an effective diagonal construction with a uniform
+analytic budget. Merely substituting a growing $k$ into the
+preceding fixed-$k$ big-$O$ statements would not suffice.
+
+For integers $k\ge4$, use the explicit rational norming
+constant $B_{k-1}=2^{k-1}(k-1)^k/(k-1)!$ and put
+\begin{equation}
+ C_k=(2k)^{2k},\qquad
+ Q_k=1+16kC_k+128kB_{k-1}.
+ \label{eq:single-prime-rational-budget}
+\end{equation}
+For $j\ge3$ put $u=2^j$ and $m_j=\lfloor\sqrt j\rfloor$,
+computed as an integer square root.
+An integer $k$ is admissible at this block if
+\begin{equation}
+ 4\le k\le m_j,\qquad Q_k\le2^{m_j},
+ \quad\text{and every length-}h_{j,k}\text{ cell is good}.
+ \label{eq:single-prime-admissible-order}
+\end{equation}
+The last condition is the previous finite rational good-cell
+test on the actual primes. All these are decidable finite
+tests. If any order is admissible, take the largest, $k_j$,
+and run the corresponding rounded minimizing-vertex algorithm
+on every cell of this block. If there is none, assign weight
+zero throughout the block. Also keep weight zero below $8$.
+Write the resulting rational weight as $w_p^*$ and define
+\[
+                         \mathcal D_*=\{p\text{ prime}:w_p^*=0\}.
+\]
+Given an integer prime $p$, its block, every candidate order,
+all prime enumerations, rational moment approximations and
+LP vertex comparisons require only terminating finite
+computations. This proves computability, without asserting
+that the algorithm is efficient.
+
+For each fixed $k\ge4$, all its cells are good at every
+sufficiently late block. Also $m_j\to\infty$ and
+$2^{m_j}\to\infty$, so this fixed $k$ is eventually admissible
+at every block. Consequently only finitely many blocks are
+skipped, and
+\begin{equation}
+ k_j\longrightarrow\infty,\qquad
+ k_j\le m_j,\qquad Q_{k_j}\le2^{m_j},\qquad m_j/j\longrightarrow0
+ \label{eq:single-prime-order-and-budget}
+\end{equation}
+on all sufficiently late blocks. No monotonicity of $k_j$
+is needed, and no unknown prime-gap threshold is used by
+the algorithm.
+
+We now verify the uniform budget in
+\eqref{eq:single-prime-rational-budget}.
+If $k\ge4$, $u\ge8$, $\Re s=\sigma\ge1/k$ and $|s|\le k$,
+then
+\[
+ 1-u^{-\sigma}\ge1-8^{-1/k}\ge\frac1{2k}.
+\]
+The last inequality follows from Bernoulli:
+$(1-1/(2k))^k\ge1/2>1/8$.
+The full differentiated Euler series gives, for
+$1\le r\le k$,
+\[
+ \frac{h^r}{r!}|f_s^{(r)}(a)|
+ \le\frac1r(2k)^{2r}u^{-\sigma}(h/u)^r,
+ \qquad a\ge u.
+\]
+For $r=0$, $|f_s(a)|\le2k u^{-\sigma}$.
+Thus every retained Taylor coefficient is at most
+$C_k u^{-\sigma}$.
+There are at most $2u^{1/k}$ cells, each with every normalized
+moment discrepancy at most $3u^{-3}$.
+Their polynomial residual is at most
+$6kC_k u^{-3+1/k-\sigma}$.
+The combined model and actual positive mass is at most $3u$:
+$\nu([u,2u))\le u/\log u$ and the extra mass is at most
+$3u^{-3}$ times the number of cells, which is at most $u$.
+Using $h^k\le u^{k-1}$, the full Taylor remainder is at most
+$3C_k u^{-\sigma}$.
+We have therefore proved, uniformly in the indicated $k,s,u$,
+\begin{equation}
+ |G_{j,k}^0(s)|
+       \le Q_k\bigl(u^{-\sigma}
+                         +u^{-3+1/k-\sigma}\bigr).
+ \label{eq:single-prime-uniform-Euler-error}
+\end{equation}
+All prime powers, all moment residuals and the mass in
+every cell have been included.
+
+Fix an arbitrary compact $K\subset\{\Re s>0\}$ and
+$\sigma_0=\inf_K\Re s>0$. Since $k_j\to\infty$,
+eventually $1/k_j\le\sigma_0$ and $\sup_K|s|\le k_j$.
+Equations~\eqref{eq:single-prime-order-and-budget} and
+\eqref{eq:single-prime-uniform-Euler-error} bound the
+tail uniformly on $K$ by
+\[
+ 2^{m_j-\sigma_0 j}
+       +2^{m_j-(3-1/4+\sigma_0)j}.
+\]
+Both series converge, because $m_j/j\to0$.
+The finite head consists of $(1,8)$ and the finitely many
+skipped blocks, with every initial integral retained.
+Exactly the complete normalization from
+\eqref{eq:critical-prime-complete-normalization} now proves
+\begin{equation}
+ F_*(s)=\prod_p(1-p^{-s})^{-w_p^*}
+       =\frac{s}{s-1}\exp(G_*(s))\quad(\Re s>0),
+ \label{eq:single-prime-favorable-model}
+\end{equation}
+with $G_*$ holomorphic. Initial absolute convergence on
+$\Re s>1$ follows from the same block mass bound.
+
+For a late block let $N_j^*=\#(\mathcal D_*\cap S_j)$ and
+$D_j^*=\sum_{p\in S_j}(1-w_p^*)_+$.
+The vertex and finite ledger give
+\begin{equation}
+ 0\le D_j^*-N_j^*
+       \le2k_j u^{1/k_j}=u^{o(1)} .
+ \label{eq:single-prime-partial-allowance}
+\end{equation}
+Indeed $1/k_j\to0$ and
+$\log(2k_j)/(j\log2)\le\log(2m_j)/(j\log2)\to0$.
+The zeta-only underweight argument above, applied to
+\eqref{eq:single-prime-favorable-model}, implies that every
+zero of real part $\beta>0$ forces $D_j^*$ to have dyadic
+limsup exponent at least $\beta$. The subpower allowance
+in \eqref{eq:single-prime-partial-allowance} cannot absorb
+any such positive-power signal. Therefore
+\begin{equation}
+ \lambda_*:=\limsup_{j\to\infty}
+       \frac{\log(1+N_j^*)}{j\log2}\ge\Theta_\zeta .
+ \label{eq:single-prime-unconditional-readout}
+\end{equation}
+A critical-line zero gives the stated infinitely-often
+square-root lower exponent, so $\mathcal D_*$ is infinite.
+
+For the opposite inequality suppose first $\Theta_\zeta<1$
+and fix $\Theta_\zeta<b<1$.
+The cumulative discrepancy $F(t)=\nu([1,t])-\pi(t)$ is
+bounded by $C_b t^b\log^2t$ as above, with $C_b$ independent
+of $k$. On any good cell, retain the signed dual identity
+\eqref{eq:critical-prime-signed-cell-objective}.
+The endpoint-plus-variation factor used there is at most
+\[
+                  2k\,64B_{k-1}\le Q_k .
+\]
+There is therefore no untracked fixed-$k$ constant:
+summing cells gives
+$E_j^*\ll_b Q_{k_j}u^{b+1/k_j}\log^2u$.
+The zeroth moment tolerance and the same cumulative
+discrepancy control the remaining signed mass balance.
+Explicitly, with $C_j=\#S_j$ and $W_j^*=\sum_{p\in S_j}w_p^*$,
+\begin{equation}
+ \begin{aligned}
+ N_j^*\le D_j^*
+    &=E_j^*+C_j-W_j^*\\
+    &\ll_b
+      2^{m_j}u^{b+1/k_j}\log^2u
+                         +u^b\log^2u+u^{-3+1/k_j}.
+ \end{aligned}
+ \label{eq:single-prime-full-signed-upper-bound}
+\end{equation}
+Its exponent is at most $b$, since
+$m_j/j\to0$ and $1/k_j\to0$.
+Let $b\downarrow\Theta_\zeta$ in this conclusion to obtain
+$\lambda_*\le\Theta_\zeta$.
+If $\Theta_\zeta=1$, the elementary bound $N_j^*\le u$
+already gives the same conclusion.
+Together with \eqref{eq:single-prime-unconditional-readout},
+this proves $\lambda_*=\Theta_\zeta$.
+
+Dyadic summation, using $\Theta_\zeta\ge1/2>0$, transfers
+this exponent unchanged to the cumulative count.
+For example every bound $N_j^*\ll u^{b+\epsilon}$ with
+$b>0$ sums geometrically to
+$\pi_{\mathcal D_*}(X)\ll X^{b+\epsilon}$;
+the reverse exponent inequality follows from
+$N_j^*\le\pi_{\mathcal D_*}(2u)$.
+This proves \eqref{eq:single-prime-class-zero-exponent}.
+Finally $\Theta_\zeta\le\eta$ is exactly the absence of
+zeros on $\Re s>\eta$.
+Equation~\eqref{eq:single-prime-class-zero-exponent} gives
+\eqref{eq:single-prime-class-strip-equivalence};
+zero symmetry specializes $\eta=1/2$ to RH.
+\end{proof}
+
+This single-class construction removes the order parameter
+from the final arithmetic question. Its weights and its
+zero-weight prime set are fixed in advance.
+The uniform budgets above are ordinary proofs; they do
+not follow merely by exchanging the earlier fixed-order
+quantifiers. An independent estimate of this one class's
+count would move the zero-free boundary by exactly the
+same exponent. No such improved estimate is asserted here,
+and the certified $7/8$ boundary is unchanged.
+
 \subsection{Nested Fermat carriers and a joint Fibonacci profile}
 \label{sec:fermat-fibonacci-joint}
 
@@ -13056,6 +13654,11 @@ actual prime nodes in the moment cells.
 NIST Digital Library of Mathematical Functions,
 \S6.16(ii), Eq.~6.16.5.
 \url{https://dlmf.nist.gov/6.16#E5}.
+
+\bibitem{DLMFZetaZeros}
+NIST Digital Library of Mathematical Functions,
+\S25.10(i), distribution and symmetry of zeta zeros.
+\url{https://dlmf.nist.gov/25.10#i}.
 
 \bibitem{KudoKakutani}
 H. Kud\=o, \emph{A Theorem of Kakutani on Infinite Product Measures},
