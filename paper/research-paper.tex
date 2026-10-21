@@ -17407,6 +17407,426 @@ earlier Euler-model sampling range, which already allowed ranks
 of order $J$.  They supply no independent estimate changing
 $\Theta_\zeta$; the certified zero-free boundary remains $7/8$.
 
+\subsection{A finite-bin hierarchy for every fixed sublinear rank power}
+\label{sec:finite-bin-hierarchy}
+
+The three-bin theorem extends to every fixed interpolation order.
+The underlying polynomial-degree phenomenon belongs to classical
+nonuniform birthday analysis; compare
+Mase~\cite[Proposition~5.2]{MaseCollision}.
+We give the analytic remainder and the full empirical transfer,
+including all powers of the measured parameters.
+The conclusion concerns the actual integer samples already fixed
+in \eqref{eq:primorial-filter-arithmetic-sample}.
+
+\begin{lemma}[Uniform interpolation of collision logarithms]
+\label{lem:all-order-collision-interpolation}
+Let $(a_i)_{i\in I}$ be a probability vector on a finite or
+countable set, put $m=\sup_{i\in I}a_i>0$, and let $D_n$
+be the probability that $n$ independent draws have distinct labels.
+Write $F(n)=\log D_n$ when $D_n>0$.
+For integers $r\ge1$ and $n\ge0$ such that
+$m\max\{n,r\}\le1/16$, every required $D_i$ is positive and
+\begin{equation}
+ \begin{gathered}
+ \left|F(n)-\sum_{j=0}^r{n\choose j}\Delta^jF(0)\right|
+       \le C_r n^{r+1}m^r,\\
+ C_r=8^r\left(1+\frac{2^r r^{r+1}}{r!}\right),\qquad
+ \Delta^jF(0)=\sum_{i=0}^j(-1)^{j-i}{j\choose i}F(i).
+ \end{gathered}
+ \label{eq:all-order-collision-interpolation}
+\end{equation}
+Here $F(0)=F(1)=0$, so the sum may start at $j=2$.
+The constant is explicit and depends only on $r$.
+\end{lemma}
+
+\begin{proof}
+Put $\theta_\ell=\sum_{i\in I}a_i^\ell$, including $\theta_1=1$.
+Then $0\le\theta_\ell\le m^{\ell-1}$.
+Use the falling factorial
+$(x)_s=x(x-1)\cdots(x-s+1)$, with $(x)_0=1$.
+Define polynomials $B_n(z)$ by
+\begin{equation}
+ \begin{aligned}
+ B_0(z)&=1,\\
+ B_n(z)&=\sum_{\ell=1}^n(-1)^{\ell-1}
+        (n-1)_{\ell-1}\theta_\ell z^{\ell-1}B_{n-\ell}(z)
+                                      \quad(n\ge1).
+ \end{aligned}
+ \label{eq:collision-deformed-newton}
+\end{equation}
+Their formal exponential generating function is
+\[
+ \sum_{n\ge0}B_n(z)\frac{t^n}{n!}
+  =\exp\left(t+
+       \sum_{\ell\ge2}
+          \frac{(-1)^{\ell-1}}{\ell}
+                     \theta_\ell z^{\ell-1}t^\ell\right).
+\]
+The recurrence follows by differentiation in $t$, or verifies
+this identity coefficient by coefficient.
+At $z=1$ the right side is $\prod_{i\in I}(1+a_it)$,
+so $B_n(1)=D_n$.
+The countable product converges locally uniformly since
+$\sum_i a_i=1$, and the coefficient identity follows by
+its finite-product limits.
+Also $B_n(0)=1$ for every $n$.
+
+We first establish a uniform analytic logarithm.
+Fix an integer $N\ge1$ and set $\rho_N=(8Nm)^{-1}$.
+On $|z|\le\rho_N$, induction in $1\le s\le N$ gives
+\begin{equation}
+ B_s(z)\ne0,\qquad
+ R_s(z)=B_s(z)/B_{s-1}(z),\qquad
+ |R_s(z)-1|\le1/3 .
+ \label{eq:collision-deformed-zero-free}
+\end{equation}
+Indeed $R_1=1$.
+After division by $B_{s-1}$, the terms of the recurrence
+with $\ell\ge2$ contain $\ell-1$ reciprocal earlier ratios.
+If those ratios have distance at most $1/3$ from one,
+each reciprocal has modulus at most two.
+Thus
+\[
+ |R_s(z)-1|
+   \le\sum_{\ell=2}^s(2sm|z|)^{\ell-1}
+   \le\frac{2sm|z|}{1-2sm|z|}
+   \le\frac13 .
+\]
+This proves nonvanishing and completes the induction on the
+closed disc.  In particular the logarithms
+$\log R_s(z)=\sum_{j\ge1}(-1)^{j-1}(R_s(z)-1)^j/j$
+are analytic there and normalized to zero at $z=0$.
+Define $H_N(z)=\sum_{s=1}^N\log R_s(z)$.
+It satisfies $e^{H_N(z)}=B_N(z)$, $H_N(0)=0$, and
+\[
+ \begin{aligned}
+ |\log R_s(z)|&\le\tfrac32|R_s(z)-1|\le4sm|z|,\\
+ |H_N(z)|&\le4N^2m|z|\le N/2
+                              \quad(|z|\le\rho_N).
+ \end{aligned}
+\]
+Nonvanishing on the closed disc also gives analyticity in
+a neighborhood of it, as needed for Cauchy's estimate.
+Write $f_\ell(N)=[z^\ell]H_N(z)$.
+If $Nm\le1/16$, then $\rho_N\ge2$, and Cauchy's estimate
+and a geometric tail give, for every $r\ge1$,
+\begin{equation}
+ \left|H_N(1)-\sum_{\ell=1}^{r-1}f_\ell(N)\right|
+       \le\frac N2\frac{(8Nm)^r}{1-8Nm}
+       \le8^rN^{r+1}m^r.
+ \label{eq:collision-uniform-taylor-tail}
+\end{equation}
+On the real interval from zero to one the ratios are positive,
+so the chosen logarithm has $H_N(1)=\log D_N$.
+This also proves all positivity assertions in the lemma.
+
+We next prove that each $f_\ell(N)$, initially defined for
+nonnegative integers, is a polynomial in $N$ of degree at most
+$\ell+1$, with $f_\ell(0)=0$.
+This step is formal near $z=0$, where every $B_N(0)=1$,
+and therefore does not require a bound on $Nm$.
+Write $H_N=\log B_N$ for this normalized formal series.
+The recurrence is equivalently
+\begin{equation}
+ e^{H_{N+1}-H_N}
+  =1+\sum_{s=1}^N(-1)^s(N)_s\theta_{s+1}z^s
+                          e^{H_{N-s}-H_N}.
+ \label{eq:collision-log-degree-recurrence}
+\end{equation}
+Induct on $\ell$.
+In the coefficient of $z^\ell$ on the right, only $s\le\ell$
+occurs and every exponential coefficient uses $f_j$ with
+$j\le\ell-s<\ell$.
+By induction, $f_j(N-s)-f_j(N)$ has degree at most $j$.
+Consequently that exponential coefficient has degree at most
+$\ell-s$; multiplication by $(N)_s$ gives degree at most $\ell$.
+When $N<s$, extend the coefficient term by zero using
+$(N)_s=0$; only the already constructed lower-order
+polynomials are used in this extension.
+On the left the coefficient is
+$f_\ell(N+1)-f_\ell(N)$ plus a polynomial of degree at most
+$\ell$ built from lower differences.
+Thus $f_\ell(N+1)-f_\ell(N)$ is a polynomial of degree at most
+$\ell$ for all $N\ge0$.
+A discrete antiderivative in the binomial polynomial basis,
+with value zero at zero, has degree at most $\ell+1$.
+This proves the induction, including the first case, where the
+right coefficient is $-N\theta_2$.
+
+For the desired order $r$, the polynomial
+$Q_r(N)=\sum_{\ell=1}^{r-1}f_\ell(N)$ has degree at most $r$.
+Let $I_r$ denote polynomial interpolation on $0,1,\ldots,r$;
+in Newton form,
+$(I_rF)(n)=\sum_{j=0}^r\binom nj\Delta^jF(0)$.
+If $n\le r$, it equals $F(n)$ exactly.
+Otherwise $n\ge r\ge1$.
+For every node $i\le r$, as well as at $n$,
+\eqref{eq:collision-uniform-taylor-tail} bounds
+$T(i)=F(i)-Q_r(i)$ by $8^r i^{r+1}m^r$, with $T(0)=0$.
+The absolute sum of the Lagrange interpolation weights at
+an integer $n\ge r$ is at most
+\[
+ n^r\sum_{i=0}^r\frac1{i!(r-i)!}
+                   =\frac{2^r n^r}{r!}.
+\]
+Since $I_rQ_r=Q_r$, it follows that
+\[
+ \begin{aligned}
+ |F(n)-(I_rF)(n)|
+ &\le |T(n)|+|(I_rT)(n)|\\
+ &\le8^r n^{r+1}m^r
+       +8^r r^{r+1}m^r\,\frac{2^r n^r}{r!}\\
+ &\le C_r n^{r+1}m^r .
+ \end{aligned}
+\]
+The case $n=0$ is exact.  This proves the full stated bound.
+\end{proof}
+
+\begin{theorem}[The empirical finite-bin hierarchy]
+\label{thm:empirical-finite-bin-hierarchy}
+Fix an integer $r\ge1$.
+For the progression counts $b_{X,i}$ put
+\begin{equation}
+ A_{X,i}=i!\,b_{X,i},\qquad
+ \Gamma_{X,j}=\prod_{i=0}^j
+       A_{X,i}^{\,(-1)^{j-i}\binom ji}
+                              \quad(0\le j\le r),
+ \label{eq:finite-bin-empirical-parameters}
+\end{equation}
+and define
+\begin{equation}
+ \mathcal R^{(r)}_{X,k}
+       =\frac1{k!}\prod_{j=0}^r
+                       \Gamma_{X,j}^{\binom kj}\qquad(k\ge0).
+ \label{eq:finite-bin-rational-reference}
+\end{equation}
+For large $X$, every measured bin used here is positive,
+so even the negative integer powers are defined.
+For each fixed $0<\epsilon<r/(r+1)$,
+\begin{equation}
+ \max_{0\le k\le\lfloor J^{\,r/(r+1)-\epsilon}\rfloor}
+    \left|\frac{b_{X,k}}{\mathcal R^{(r)}_{X,k}}-1\right|
+       \le J^{-(r+1)\epsilon+o(1)}.
+ \label{eq:finite-bin-hierarchy-relative}
+\end{equation}
+The reference exactly matches bins $0,\ldots,r$.
+It is rational and computable from those $r+1$ finite counts
+on the decidable integer domains of the preceding theorems.
+For $r=2$ it is exactly the three-bin reference
+\eqref{eq:three-bin-rational-reference}.
+No normalization over all ranks is asserted.
+All orders and constants in this arithmetic statement are fixed
+before letting $X\to\infty$; no uniformity in growing $r(X)$
+is claimed.
+\end{theorem}
+
+\begin{proof}
+Use the normalized prime weights
+$a_j=(p_j-1)^{-1}/W_J$ for $j>J$.
+Their maximum is $m_J=J^{-1+o(1)}$ by
+\eqref{eq:three-bin-weight-indices}.
+Let $D_k$ denote their distinct-label probability and
+$F_J(k)=\log D_k$.
+The exact model coefficients satisfy
+$\beta_{J,k}=c_JW_J^kD_k/k!$.
+For $i\le r$ define the model parameters and reference
+by replacing every $b_{X,i}$ in
+\eqref{eq:finite-bin-empirical-parameters}--%
+\eqref{eq:finite-bin-rational-reference} with $\beta_{J,i}$.
+Denote the reference by $R^{0,(r)}_{J,k}$.
+The logarithm of $i!\beta_{J,i}$ is
+$\log c_J+i\log W_J+F_J(i)$.
+Newton interpolation reproduces its constant and linear parts.
+Consequently the interpolation lemma gives
+\begin{equation}
+ \begin{gathered}
+ \beta_{J,k}=R^{0,(r)}_{J,k}e^{E_{J,k}},\\
+ \max_{0\le k\le L}|E_{J,k}|
+       \le C_r L^{r+1}m_J^r
+       \le J^{-(r+1)\epsilon+o(1)},\qquad
+ L=\lfloor J^{r/(r+1)-\epsilon}\rfloor .
+ \end{gathered}
+ \label{eq:finite-bin-model-consumer}
+\end{equation}
+Indeed $\max\{L,r\}m_J\to0$.
+
+For each fixed $i\le r$, $D_i\to1$, either by the
+pair-collision bound or by a finite union bound.
+Thus $\beta_{J,i}\sim\lambda_J^i/i!$, including the
+zero-bin limit $\beta_{J,0}=c_J\to1$.
+Since $|b_{X,i}-\beta_{J,i}|\le\Delta_X$, all measured
+bins are positive eventually and
+\[
+ \max_{i\le r}
+ \left|\log\frac{i!b_{X,i}}{i!\beta_{J,i}}\right|
+       \ll_r \Delta_X/\lambda_J^r .
+\]
+The finite-difference coefficients have absolute sum at most
+$2^j$ at order $j$.
+Charging the power $\binom kj$ of every parameter therefore gives
+\begin{equation}
+ \max_{k\le L}
+   \left|\log\frac{\mathcal R^{(r)}_{X,k}}{R^{0,(r)}_{J,k}}\right|
+       \ll_r(1+L)^r\Delta_X/\lambda_J^r
+       =X^{-\xi+o(1)} .
+ \label{eq:finite-bin-parameter-loss}
+\end{equation}
+In particular no order-$r$ parameter error is charged as
+though it appeared only to its first power.
+
+The analytic bound in the lemma, evaluated at $z=1$,
+also gives $|\log D_k|\le4k^2m_J$ on this range.
+As $W_J=J^{1-1/\alpha+o(1)}$, we obtain
+\[
+ -\log\beta_{J,k}
+       \le O(1+L\log J+L^2m_J)=o(\log X)
+                                  \qquad(0\le k\le L).
+\]
+Here $L=J^u$ up to a floor with fixed $u<1$,
+so $L\log J=o(\log X)$ and
+$L^2m_J=J^{2u-1+o(1)}=o(\log X)$.
+Both references therefore have minimum at least $X^{-o(1)}$
+on the full range, by
+\eqref{eq:finite-bin-model-consumer} and
+\eqref{eq:finite-bin-parameter-loss}.
+
+Retain the complete relative identity
+\begin{equation}
+ \begin{aligned}
+ \frac{b_{X,k}}{\mathcal R^{(r)}_{X,k}}-1
+ ={}&\frac{R^{0,(r)}_{J,k}}{\mathcal R^{(r)}_{X,k}}
+                          (e^{E_{J,k}}-1)
+      +\left(\frac{R^{0,(r)}_{J,k}}{\mathcal R^{(r)}_{X,k}}-1\right)\\
+   &+\frac{b_{X,k}-\beta_{J,k}}{\mathcal R^{(r)}_{X,k}} .
+ \end{aligned}
+ \label{eq:finite-bin-complete-consumer}
+\end{equation}
+Its first error is $J^{-(r+1)\epsilon+o(1)}$.
+Its second and third errors are $X^{-\xi+o(1)}$:
+use the parameter bound and divide the full sampling allowance
+$\Delta_X$ by the proved reference minimum.
+This proves \eqref{eq:finite-bin-hierarchy-relative}, including
+eventual positivity of all empirical masses on the range.
+The positive supply is the model reference times
+$e^{-|E_{J,k}|}$; its negative allowance is precisely $\Delta_X$.
+
+Newton interpolation at each node $k\le r$ reproduces
+$\log(k!b_{X,k})$ exactly, proving exact bin matching.
+The definitions use integer powers of positive rational numbers,
+so all finite references are rational and computable as asserted.
+At $r=2$, $\Gamma_{X,0}=b_{X,0}$,
+$\Gamma_{X,1}=b_{X,1}/b_{X,0}$ and
+$\Gamma_{X,2}=2b_{X,0}b_{X,2}/b_{X,1}^2$,
+which recovers the preceding formula.
+\end{proof}
+
+\begin{corollary}[Finite data recover every fixed sublinear power]
+\label{cor:finite-bin-every-sublinear-power}
+Fix $0<u<1$ and any integer $r>u/(1-u)$.
+Then the first $r+1$ empirical bins give
+\begin{equation}
+ \max_{0\le k\le\lfloor J^u\rfloor}
+ \left|\frac{b_{X,k}}{\mathcal R^{(r)}_{X,k}}-1\right|
+       \le J^{-\{r-(r+1)u\}+o(1)}\longrightarrow0.
+ \label{eq:finite-bin-sublinear-power}
+\end{equation}
+The number of bins is independent of $X$.
+In particular four bins suffice for every fixed rank exponent
+$u<3/4$, and five suffice for every fixed $u<4/5$.
+These are exponents of the rank range, not zero-free boundaries.
+The statement does not include all sequences $k=o(J)$,
+nor the linear endpoint $k\asymp J$.
+\end{corollary}
+
+\begin{proof}
+Set $\epsilon=r/(r+1)-u>0$ in
+Theorem~\ref{thm:empirical-finite-bin-hierarchy}.
+The exponent $(r+1)\epsilon=r-(r+1)u$ is positive.
+Taking $r=3$ and $r=4$ proves the two displayed examples.
+\end{proof}
+
+\begin{corollary}[Sharp scale for the canonical interpolation formula]
+\label{cor:uniform-collision-interpolation-sharpness}
+Let $D_{N,n}$ be the no-collision probability for $n$ draws
+from the uniform distribution on $N$ labels.
+For fixed $r\ge1$ and $N>r$ let
+\[
+ T^{(r)}_{N,n}
+       =\exp\left(\sum_{j=0}^r{n\choose j}
+                          \Delta^j\log D_{N,0}\right),
+\]
+where the finite differences use the values
+$\log D_{N,i}$ for $0\le i\le r$.
+If $n=n_N\to\infty$ and $n=o(N)$, then
+\begin{equation}
+ \log\frac{D_{N,n}}{T^{(r)}_{N,n}}
+       =-\frac{n^{r+1}}{r(r+1)N^r}(1+o(1)).
+ \label{eq:uniform-hierarchy-sharpness}
+\end{equation}
+In particular, for every fixed $t>0$ and
+$n_N\sim tN^{r/(r+1)}$,
+\begin{equation}
+ \frac{D_{N,n_N}}{T^{(r)}_{N,n_N}}
+       \longrightarrow
+        \exp\left(-\frac{t^{r+1}}{r(r+1)}\right)<1.
+ \label{eq:uniform-hierarchy-critical-limit}
+\end{equation}
+Thus the exponent $r/(r+1)$ cannot be enlarged for this
+canonical interpolation scheme without another correction.
+This is not an information-theoretic lower bound for every
+procedure using finitely many bins: in the uniform model, its
+parameter $N$ can itself be recovered from a low-order collision
+probability.
+\end{corollary}
+
+\begin{proof}
+For $n\le N$ the exact probability is
+$D_{N,n}=\prod_{j=0}^{n-1}(1-j/N)$.
+For $n=o(N)$, expand each logarithm through order $r$:
+\[
+ \log D_{N,n}
+   =-\sum_{\ell=1}^r\frac1{\ell N^\ell}
+                    \sum_{j=0}^{n-1}j^\ell
+       +O_r(n^{r+2}/N^{r+1}).
+\]
+The same expansion at the finitely many nodes $0,\ldots,r$
+has remainder $O_r(N^{-r-1})$.
+Their interpolation weights are $O_r(n^r)$.
+The polynomial $\sum_{j=0}^{n-1}j^\ell$ has degree
+$\ell+1$ and leading coefficient $1/(\ell+1)$;
+this follows by discrete integration of $n^\ell$.
+For $\ell<r$ it is reproduced exactly by interpolation of
+degree $r$.
+For $\ell=r$, the difference from its interpolant vanishes
+at $0,\ldots,r$ and has leading coefficient $1/(r+1)$.
+It is therefore exactly $(n)_{r+1}/(r+1)$.
+Subtracting the interpolated node expansion yields
+\[
+ \log\frac{D_{N,n}}{T^{(r)}_{N,n}}
+   =-\frac{(n)_{r+1}}{r(r+1)N^r}
+      +O_r\left(\frac{n^{r+2}+n^r}{N^{r+1}}\right).
+\]
+Since $n\to\infty$ and $n/N\to0$, the remainder divided by
+$n^{r+1}/N^r$ tends to zero, and
+$(n)_{r+1}/n^{r+1}\to1$.
+This proves both limits.
+At a larger fixed power $n=\lfloor N^u\rfloor$ with
+$r/(r+1)<u<1$, the logarithm tends to minus infinity,
+which proves the claimed obstruction for this formula.
+\end{proof}
+
+The hierarchy and its arithmetic consumer are full ordinary proofs;
+no additional Lean declarations are asserted.
+It replaces an infinite Euler reference by finitely many actual
+integer-count frequencies on every fixed sublinear power range.
+The earlier Euler-law sampling theorem already reached ranks of
+order $J$ and is not weakened or superseded by this change of
+reference.
+For $\mathcal D$ all statements apply unconditionally with
+$b=1/16$, but they do not independently bound $\Theta_\zeta$.
+The certified zero-free boundary is still $7/8$.
+
 \subsection{Selecting certified good primes before estimating their size}
 \label{sec:certified-good-prime-class}
 
