@@ -3,8 +3,8 @@ Copyright (c) 2026 Prime Factor Oscillations contributors.
 Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Prime Factor Oscillations contributors
 -/
-import PrimeFactorOscillations.Helpers.PrimeClassDecoderClassification
 import PrimeFactorOscillations.Helpers.PrimeClassDecoderIntegerProbes
+import PrimeFactorOscillations.Helpers.PrimeClassDecoderInverseCount
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.BernoulliDominance
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.CapacitySelectionFinite
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.PolynomialPrimeNorming
@@ -19,6 +19,7 @@ executable rational selectors, full preprocessing and evaluation costs,
 binary bit guarantees and the polynomial degree obstruction. The exact
 critical decoding capacity, convergence/counting exponent identification,
 and the missed fraction for arbitrary polynomial coefficients are proved.
+Every admissible power also gives the full all-cutoff inverse count bound.
 The full prime-power component law and RH applications remain separate
 obligations.
 -/

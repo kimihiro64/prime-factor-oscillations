@@ -19523,8 +19523,19 @@ identifies $\tau_{\mathcal P}=\alpha$ under the counting-index
 hypothesis, and proves the missed-fraction limit for arbitrary
 real polynomial coefficients.
 It makes no endpoint-attainment assertion.
-The sharper all-cutoff inverse estimate displayed in the ordinary
-proof above remains a separate auxiliary formalization obligation.
+The sharper all-cutoff inverse estimate is also formalized:
+\[
+ \texttt{integerDecoderAdmissible\_\allowbreak all\_\allowbreak cutoff\_\allowbreak inverse\_\allowbreak bound}
+\]
+proves that each admissible positive rational $h$ has a fixed $K>0$
+such that
+$N_{\mathcal P}(x)\le Kx^{1/h}/\log x$
+at every sufficiently large integer cutoff.
+For $h=a/b$ the proof retains the full factor $bj$ in
+$M_{N_j}\le c\,2^{bj}/(bj)$ and uses
+$j=\lfloor\log_{2^a}x\rfloor+1$.
+It gives $K=c\,2^b a\log2/b$, with the witness $c$
+from admissibility.
 The RH and special-sequence corollaries also remain separate
 obligations; the completed general theorem does not by itself
 verify their class-specific inputs.
