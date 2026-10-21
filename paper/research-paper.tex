@@ -13573,6 +13573,228 @@ size bound easier than the earlier RH criterion.
 These are ordinary proofs, with no new Lean verification
 or established originality priority asserted.
 
+\subsection{The signed energy of the positive-record process}
+\label{sec:prime-record-energy}
+
+The count attack must retain the stopped prime weights,
+rather than assume an independent prime-gap law.
+Put $E(t)=\theta(t)-t$, retain the running positive record
+$R$ from \eqref{eq:greedy-prime-regulator}, and let
+$\Delta R(p)=R(p)-R(p^-)\ge0$.
+For every real $X\ge2$ define the finite signed quantity
+\[
+ \mathcal C_R(X)=
+   \sum_{\substack{p\le X\\p\ {\rm prime}}}R(p^-)\log p
+                              -\int_2^X R(t)\,dt,
+ \qquad
+ Q_R(X)=\sum_{\substack{p\le X\\p\ {\rm prime}}}(\Delta R(p))^2 .
+\]
+Then the exact energy identity is
+\begin{equation}
+ R(X)^2=2\mathcal C_R(X)+2R(X)(R(X)-E(X))+Q_R(X).
+ \label{eq:prime-record-energy}
+\end{equation}
+To prove it, integrate the finite step function product $RE$.
+The continuous part of $dE$ is $-dt$, its prime jump is
+$\log p$, and $R$ has only prime jumps.
+The right-endpoint form of integration by parts gives
+\[
+ R(X)E(X)=\mathcal C_R(X)+
+                 \sum_{p\le X}R(p)\Delta R(p).
+\]
+Here $E(p)=R(p)$ whenever $\Delta R(p)>0$, and
+$R(2^-)=0$ removes the initial endpoint.
+Finally
+$2\sum_{p\le X}R(p)\Delta R(p)=R(X)^2+Q_R(X)$.
+Every displayed sum in this calculation is over the finite
+prime support $p\le X$.
+
+At a positive record prime $X$, the terminal correction vanishes:
+\begin{equation}
+ R(X)^2=2\mathcal C_R(X)+Q_R(X),
+ \qquad 0\le Q_R(X)\le R(X)\log X.
+ \label{eq:prime-record-energy-at-record}
+\end{equation}
+The last bound uses $0\le\Delta R(p)\le\log p$ and
+$\sum_{p\le X}\Delta R(p)=R(X)$.
+Consequently an independent estimate
+$\mathcal C_R(X)\ll_\epsilon X^{3/2+\epsilon}$ at all sufficiently
+large positive record primes would give
+$R(X)\ll_\epsilon X^{3/4+\epsilon}$, hence the boundary $3/4$
+through the complete deletion consumer.
+The corresponding root target is
+$\mathcal C_R(X)\ll_\epsilon X^{1+\epsilon}$.
+The installed input supplies only
+$R(X)\ll_\epsilon X^{7/8+\epsilon}$ and thus the record-endpoint
+bound $\mathcal C_R(X)\ll_\epsilon X^{7/4+\epsilon}$.
+Constants are independent of the record cutoff, but may depend
+on $\epsilon$ and the stated source estimate.
+
+This is a signed calculation and a checked failed application,
+not an improved estimate. The prime-divisibility probability
+law samples integers at a fixed prime cutoff; it does not make
+the successive prime gaps, stopped at their positive records,
+a mean-zero independent process. Thus its existing independence
+hypothesis does not apply to $\mathcal C_R$.
+Outside record endpoints, the terminal term in
+\eqref{eq:prime-record-energy} must also remain present.
+No new zero-free exponent follows from this identity.
+
+\subsection{An extremal probability law among capped prime classes}
+\label{sec:capped-prime-probability-extremum}
+
+The count comparison in Theorem~\ref{thm:greedy-prime-cap}
+has an exact strengthening, with consequences for every finite
+decreasing local probability law.
+
+\begin{theorem}[Rank domination and exact optimality]
+\label{thm:capped-prime-rank-extremum}
+Fix a real cutoff $x\ge2$, and let $\mathcal T$ be any prime
+class with $\theta_{\mathcal T}(t)\le t$ for $2\le t\le x$.
+List the selected primes through $x$ as
+$s_1<\cdots<s_a$ for the fixed greedy class $\mathcal S$,
+and $t_1<\cdots<t_b$ for $\mathcal T$.
+Then
+\begin{equation}
+                  a\ge b,\qquad s_i\le t_i\quad(1\le i\le b).
+ \label{eq:capped-prime-rank-extremum}
+\end{equation}
+In particular the greedy class minimizes the number of deleted
+primes exactly at every cutoff.
+For every nonnegative nonincreasing function $w$ on primes,
+\[
+ \sum_{\substack{p\le x\\p\in\mathcal S}}w(p)
+       \ge\sum_{\substack{p\le x\\p\in\mathcal T}}w(p).
+\]
+If $w$ is positive and strictly decreasing, equality is possible
+only when the two selected prime sets through $x$ coincide.
+\end{theorem}
+
+\begin{proof}
+Induct on the competitor's rank $i$.
+Suppose $s_j\le t_j$ for $j<i$ and the greedy class has not
+made its $i$th selection by $t_i$.
+It has then selected exactly $i-1$ primes before $t_i$.
+Since $\log$ is increasing,
+\[
+ A_{\pi(t_i)-1}+\log t_i
+   =\sum_{j<i}\log s_j+\log t_i
+   \le\sum_{j\le i}\log t_j
+   =\theta_{\mathcal T}(t_i)\le t_i .
+\]
+The greedy rule therefore retains $t_i$, a contradiction.
+For $i=1$ the same proof has empty preceding sums.
+This proves every required rank and hence $a\ge b$.
+The weighted comparison follows from $w(s_i)\ge w(t_i)$
+on the matched ranks and the nonnegative unmatched terms.
+For a positive strictly decreasing $w$, distinct selected
+sets give either an unmatched positive term or a strict
+inequality on at least one matched rank.
+\end{proof}
+
+\begin{theorem}[Stochastic and coefficient extremality]
+\label{thm:capped-prime-probability-extremum}
+Let $\eta(p)\in[0,1]$ be nonincreasing on primes.
+At a fixed cutoff $x$, let $K_{\mathcal V,x}$ denote the sum
+of independent Bernoulli variables of success probabilities
+$\eta(p)$ over the finite set $p\le x$, $p\in\mathcal V$.
+For every capped competitor $\mathcal T$ as above and every
+integer rank $r\ge0$,
+\begin{equation}
+ \mathbb P(K_{\mathcal S,x}\ge r)
+                  \ge\mathbb P(K_{\mathcal T,x}\ge r).
+ \label{eq:capped-prime-tail-extremum}
+\end{equation}
+The same comparison holds for expectations of every increasing
+function on $\{0,\ldots,a\}$.
+It implies
+\[
+ \mathbb E z^{K_{\mathcal S,x}}\ge\mathbb E z^{K_{\mathcal T,x}}
+       \quad(z\ge1),\qquad
+ \mathbb E z^{K_{\mathcal S,x}}\le\mathbb E z^{K_{\mathcal T,x}}
+       \quad(0\le z\le1).
+\]
+Separately, for every nonnegative nonincreasing finite odds
+function $v(p)$, one has coefficientwise domination
+\begin{equation}
+ [z^r]\prod_{\substack{p\le x\\p\in\mathcal S}}(1+v(p)z)
+       \ge
+ [z^r]\prod_{\substack{p\le x\\p\in\mathcal T}}(1+v(p)z)
+                           \qquad(r\ge0).
+ \label{eq:capped-prime-coefficient-extremum}
+\end{equation}
+No comparison of individual normalized point masses or of
+peak heights is asserted.
+\end{theorem}
+
+\begin{proof}
+The rank theorem gives $\eta(s_i)\ge\eta(t_i)$ for $i\le b$.
+Pad the competitor's array by $a-b$ zeros.
+Increasing one coordinate from $u$ to $v\ge u$ changes
+the tail at rank $r+1$ by exactly
+\[
+ (v-u)\mathbb P(K=r)\ge0,
+\]
+where $K$ is the sum over the other coordinates.
+This follows by conditioning on that coordinate:
+the new tail is $(1-v)\mathbb P(K\ge r+1)+v\mathbb P(K\ge r)$.
+The rank-zero tail is always one.
+Iterating the replacement over the padded arrays proves
+\eqref{eq:capped-prime-tail-extremum}, including coordinates
+equal to zero or one.
+Writing any increasing test function as its value at zero
+plus a nonnegative combination of the tail indicators proves
+the expectation assertion. The two moment comparisons follow
+from the monotonicity of $k\mapsto z^k$ in their stated domains.
+
+For the coefficient assertion, each matched factor has
+$v(s_i)\ge v(t_i)\ge0$, so replacing the matched factors
+increases every coefficient.
+The remaining factors have nonnegative coefficients and
+constant term one; appending them cannot decrease a coefficient.
+This proves the assertion also for ranks above the competitor's
+support and at rank zero.
+\end{proof}
+
+For the ordinary integer-divisibility law $\eta(p)=1/p$,
+the fixed-cutoff Bernoulli law is the already established
+finite prime-divisibility density.
+Thus the greedy capped carrier maximizes every limiting
+upper-tail density of
+$\sum_{p\le x,\ p\in\mathcal V}{\bf1}_{p\mid n}$.
+The limit is over the sampled integer $n$, with $x$ fixed;
+no uniform growing-cutoff sampling statement is used.
+The coefficient conclusion applies directly to $v(p)=1/(p-1)$.
+For affine odds $v(p)=\rho/(p+\beta)$ it applies when
+$\rho>0$ and $\beta>-2$.
+The associated probability law
+$\eta(p)=\rho/(p+\beta+\rho)$ is also covered.
+At $\beta=-2$, its forced coordinate at $p=2$ is covered
+by the stochastic statement; an odds formula must first
+remove that coordinate and retain its exact rank shift.
+
+Applying the decreasing weight $-\log(1-1/p)$ shows, at each
+finite cutoff, that the greedy class minimizes the missing
+logarithmic Euler-product cost among all capped competitors.
+Passing to the limit gives
+$C_{\mathcal D}\le C_{\mathcal T^c}$ whenever the latter is finite.
+This sharpens the earlier additive count comparison to exact
+optimality for counts and for all these probability observables.
+It does not estimate the optimal count's growth:
+the independent $3/4$ and square-root size bounds remain open.
+
+The abstract finite tail theorem and its exact identification
+with the existing Bernoulli coefficients are now Lean-checked
+in \path{Proof/PrimeClassDeletion/BernoulliDominance.lean},
+exported by the prime-deletion assembly.
+In particular \texttt{List.bernoulliTail\_mono\_padded}
+retains the full coordinate interval and all ranks.
+The greedy rank theorem, its prime-class consumers and
+the signed record-energy calculation above have full ordinary
+proofs here; their combination is not claimed to be a separately
+compiled Lean declaration. No established originality priority
+or new zero-free boundary is asserted.
+
 \subsection{Selecting certified good primes before estimating their size}
 \label{sec:certified-good-prime-class}
 
