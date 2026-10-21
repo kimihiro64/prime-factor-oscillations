@@ -19496,29 +19496,42 @@ special classes from $\mathcal D$.
 It is an invariance of the capacity criterion, not an
 independent proof of its RH endpoint.
 
-The finite algebraic decoder is now formalized in Lean.
-The module \texttt{PrimeClassDecoderCounts} uses the literal
-counts of prime divisors in the full integer sample, and
-\texttt{PrimeClassDecoderIntegerProbes} proves the exact
-normalization \eqref{eq:finite-decoding-integer-probe}.
-Its declaration
+The complete finite decoder theorem is now formalized in Lean,
+including the growing-disc approximation, independent signed
+half-integer supply, exact recovery, executable rational selectors,
+and the full arithmetic and bit-cost clauses.
+The maintained declaration
 \[
- \texttt{card\_integerDecodedSampleLabels\_le}
+ \texttt{finite\_\allowbreak integer\_\allowbreak prime\_\allowbreak
+ decoding\_\allowbreak complete}
 \]
-proves the degree obstruction
-\eqref{eq:prime-decoding-degree-obstruction} for every prime
-class, every $N\ge1$, and all nonnegative integers $M,R$.
-No asymptotic sampling hypothesis is used for this finite bound.
-The growing-disc approximation, the independent half-integer
-product bound, eventual exact recovery, the capacity
-classification and the two corollaries remain ordinary proofs
-awaiting their full Lean formalization. The finite algebraic
-declarations alone do not verify those analytic conclusions.
-They use $M_N+1=O(\log N/\log\log N)$ bins, more than the
-preceding approximate largest-coordinate reconstruction,
-and recover exact prime labels on a growing prefix.
-Their new finite-data conclusion must be distinguished from
-the existing full-profile inverse theorem.
+verifies Theorem~\ref{thm:finite-integer-prime-decoding}.
+
+The critical-capacity theorem, including every clause of
+Theorem~\ref{thm:prime-decoding-critical-exponent}, is verified by
+\[
+ \texttt{integer\_\allowbreak decoder\_\allowbreak capacity\_\allowbreak classification}.
+\]
+Its converse uses the exact samples
+$N_j=2^{2^{bj}}$ for $h=a/b$.
+They satisfy $U_{N_j}=2^{bj}$ and $R_{N_j}=2^{aj}$.
+The actual degree constraint then bounds each geometric prime
+shell, and a finite-subsums argument proves convergence for
+every $s>b/a$.
+The proof retains the infinite-capacity case $\tau_{\mathcal P}=0$,
+identifies $\tau_{\mathcal P}=\alpha$ under the counting-index
+hypothesis, and proves the missed-fraction limit for arbitrary
+real polynomial coefficients.
+It makes no endpoint-attainment assertion.
+The sharper all-cutoff inverse estimate displayed in the ordinary
+proof above remains a separate auxiliary formalization obligation.
+The RH and special-sequence corollaries also remain separate
+obligations; the completed general theorem does not by itself
+verify their class-specific inputs.
+
+These exact decoders use $M_N+1=O(\log N/\log\log N)$ bins
+and recover prime labels on a growing prefix, a distinct conclusion
+from the existing full-profile inverse theorem.
 For $\mathcal D$ the certified zero-free boundary remains $7/8$;
 the operational endpoint $2$ is an equivalence, not a newly
 proved arithmetic estimate at that endpoint.
