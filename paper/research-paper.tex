@@ -15607,6 +15607,119 @@ consumers; the earlier finite Bernoulli tail comparisons remain
 separate compiled inputs.
 No established originality priority is asserted.
 
+\subsection{A signed certificate for greedy rank optimality}
+\label{sec:ordered-stream-greedy}
+
+The exact rank comparison has a finite mechanism that does not
+depend on primes.  It is useful to retain this mechanism rather
+than just its cardinality consequence.  Let $w_0,w_1,\ldots$ be
+nondecreasing real weights and let $b_0,b_1,\ldots$ be arbitrary
+real budgets.  For a selection $a\subseteq\mathbb N_0$, set
+\begin{equation}
+ \begin{aligned}
+ C_a(n)&=\#(a\cap\{0,\ldots,n-1\}),\\
+ S_a(n)&=\sum_{\substack{0\le j<n\\j\in a}}w_j,\\
+ n\in g&\ \Longleftrightarrow\ S_g(n)+w_n\le b_n .
+ \end{aligned}
+ \label{eq:ordered-stream-greedy-ledger}
+\end{equation}
+The last line defines the greedy selection recursively, starting
+with $S_g(0)=0$.  A competitor $t$ is admissible when
+$S_t(n)+w_n\le b_n$ at every index $n\in t$.
+The budget test is imposed at selected indices.  If budgets
+decrease, this definition does not assert a budget inequality at
+an index where nothing is selected.
+
+\begin{theorem}[Greedy rank optimality with arbitrary budgets]
+\label{thm:ordered-stream-greedy-optimality}
+For every such admissible competitor and every $n\ge0$,
+\[
+ C_t(n)\le C_g(n),\qquad
+ S_g(n)-S_t(n)\le (C_g(n)-C_t(n))w_n .
+\]
+In particular, equal counts imply $S_g(n)\le S_t(n)$, and
+$n-C_g(n)\le n-C_t(n)$.
+Define the signed count--cost slack by
+$Q_n=(C_g(n)-C_t(n))w_n-(S_g(n)-S_t(n))$.
+For arbitrary selections $g,t$, before imposing either greedy
+admissibility or monotonicity, its exact identities are
+\begin{equation}
+ Q_{n+1}-Q_n
+   =(C_g(n+1)-C_t(n+1))(w_{n+1}-w_n)
+ \label{eq:ordered-stream-greedy-slack}
+\end{equation}
+and
+\begin{equation}
+ Q_n=\sum_{j=0}^{n-1}
+       (C_g(j+1)-C_t(j+1))(w_{j+1}-w_j).
+ \label{eq:ordered-stream-greedy-abel}
+\end{equation}
+For the greedy selection and an admissible competitor,
+$Q_n\ge0$.  More precisely, every selected competitor index $i$
+has a greedy index of the same zero-based rank at or before it:
+\begin{equation}
+ i\in t\ \Longrightarrow\
+ \exists j\le i:\quad j\in g,\qquad C_g(j)=C_t(i).
+ \label{eq:ordered-stream-greedy-rank}
+\end{equation}
+No monotonicity of $b_n$ or nonnegativity of $w_n$ is required.
+\end{theorem}
+
+\begin{proof}
+Write $\Delta C_n=C_g(n)-C_t(n)$ and
+$\Delta S_n=S_g(n)-S_t(n)$.
+The two exact recursions give
+\[
+ \Delta S_{n+1}-\Delta S_n
+       =(\Delta C_{n+1}-\Delta C_n)w_n .
+\]
+Substitution proves
+\eqref{eq:ordered-stream-greedy-slack}; telescoping from $Q_0=0$
+proves \eqref{eq:ordered-stream-greedy-abel}.  All endpoints
+and signs are retained.
+
+We prove $\Delta C_n\ge0$ and $Q_n\ge0$ simultaneously.
+Both vanish at zero.  Assume both inequalities at $n$.
+The count gap can become negative at $n+1$ only when it is
+zero at $n$, the competitor selects $n$, and greedy does not.
+But when $\Delta C_n=0$, the inequality $Q_n\ge0$ says
+$S_g(n)\le S_t(n)$.  Competitor admissibility would give
+\[
+ S_g(n)+w_n\le S_t(n)+w_n\le b_n,
+\]
+so greedy must select $n$, a contradiction.  Therefore
+$\Delta C_{n+1}\ge0$.  Since $w_{n+1}-w_n\ge0$, the exact
+slack recursion now implies $Q_{n+1}\ge Q_n\ge0$.
+This closes the joint induction and gives all count and cost
+conclusions.
+
+Finally fix $i\in t$ and put $k=C_t(i)$.
+Then $C_t(i+1)=k+1$, so $C_g(i+1)\ge k+1$.
+The greedy count starts at zero and changes only by zero or
+one.  Consequently some $j\le i$ is selected with
+$C_g(j)=k$, proving the rank assertion.
+\end{proof}
+
+For the prime construction take the stream to be the increasing
+primes, $w_n=\log p_n$ and $b_n=p_n$.
+This gives the rank mechanism used in
+Theorem~\ref{thm:capped-prime-rank-extremum}, which in turn
+feeds the full-law and adaptive finite-cap results above.
+The signed slack is a finite certificate for that ordering;
+it supplies no independent upper estimate for the square-root
+moment and changes no zero-free boundary.
+
+The module
+\texttt{PrimeClassDeletion.}\allowbreak\texttt{CapacitySelection} implements the
+actual greedy cost recursion and prefix counts, not merely
+an assumed optimizer.  It proves the exact slack step and
+Abel sum, the joint invariant, existence of a selected index
+at each attained rank, rank domination, deleted-count
+optimality and the equal-count cost comparison.  These finite
+ordered-stream statements are the formalized scope.
+The analytic prime enumeration and the infinite geometric
+probability-law consumers remain ordinary proofs.
+
 \subsection{Selecting certified good primes before estimating their size}
 \label{sec:certified-good-prime-class}
 
