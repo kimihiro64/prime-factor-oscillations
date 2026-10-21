@@ -8,11 +8,13 @@ import PrimeFactorOscillations.Proof.PrimeClassDeletion.CappedSupportFunction
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.OverweightSlack
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.PolynomialPrimeNorming
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.PositiveDirichletContinuation
+import PrimeFactorOscillations.Proof.PrimeClassDeletion.RepairHellinger
 
 /-!
 # Prime capacities and positive Dirichlet continuation
 
 Exports capped capacities, signed overweight contacts, actual-node polynomial
-interpolation and derivative bounds, and positive Dirichlet convergence.
+interpolation and derivative bounds, positive Dirichlet convergence, and the
+finite signed Hellinger-energy comparison for sparse repairs.
 Integral moment geometry and Euler adapters retain their ordinary paper proofs.
 -/

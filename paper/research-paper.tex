@@ -13,7 +13,7 @@
 \newcommand{\N}{\mathbb N}
 \title{Prime-factor densities:\\ gap spectra, zeta-zero criteria,\\ and generalized Robin inequalities}
 \author{Jonas Whidden}
-\date{Research draft, 20 October 2026}
+\date{Research draft, 21 October 2026}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -11210,6 +11210,305 @@ compression procedure; those steps have not yet been
 formalized in Lean.
 \end{proof}
 
+\subsection{Sparse repairs as a prime-Poisson overlap criterion}
+\label{sec:prime-poisson-repair-RH}
+
+There is a probability interpretation of the computable repair
+weights which retains their unconditional zero signal.
+The probability space here is an auxiliary product of Poisson
+coordinates indexed by prime powers. It is constructed from
+the weights, rather than asserted to be the sampling law of a
+polynomial or affine family. The positive floor below is needed:
+an unregularized zero weight would give a point mass at a
+coordinate where the reference law has full support.
+
+\begin{lemma}[The signed repair--energy comparison]
+\label{prop:signed-repair-Hellinger}
+For $a,w,\delta\ge0$, put
+\[
+ h_\delta(a,w)=
+   \bigl(\sqrt{w+\delta}-\sqrt{a+\delta}\bigr)^2,\qquad
+ e=(w-a)_+.
+\]
+Then
+\begin{equation}
+ \begin{aligned}
+ 0\le h_\delta(a,w)&\le |w-a|,\\
+ e&\le2h_\delta(a,w)
+           +(a+\delta)\boldsymbol 1_{\{w>a\}},\\
+ |w-a|&=2e+a-w.
+ \end{aligned}
+ \label{eq:signed-repair-Hellinger-scalar}
+\end{equation}
+In particular, for any finite index set $S$, nonnegative
+$a_p,w_p,\delta_p$ on $S$, and
+$B=\{p\in S:w_p>a_p\}$, define
+\[
+ E=\sum_{p\in S}(w_p-a_p)_+,\quad
+ H=\sum_{p\in S}h_{\delta_p}(a_p,w_p),\quad
+ C=\sum_{p\in S}a_p,\quad W=\sum_{p\in S}w_p.
+\]
+The complete finite comparison is
+\begin{equation}
+ \begin{aligned}
+ H&\le2E+C-W,\\
+ E&\le2H+\sum_{p\in B}(a_p+\delta_p)\\
+  &\le2H+c\,\#B
+       \quad\text{if }a_p+\delta_p\le c\ (p\in S).
+ \end{aligned}
+ \label{eq:signed-repair-Hellinger-sum}
+\end{equation}
+The signed mass correction $C-W$ has not been discarded.
+\end{lemma}
+
+\begin{proof}
+Write $x=\sqrt{w+\delta}$ and $y=\sqrt{a+\delta}$.
+Then $x,y\ge0$ and $x^2-y^2=w-a$.
+Since $x+y\ge|x-y|$, their squared difference is at most
+$|w-a|$. If $w>a$, the exact square identity
+\[
+ 2(x-y)^2+y^2-(x^2-y^2)=(x-2y)^2
+\]
+gives the second inequality. If $w\le a$, its left side is
+zero and the energy is nonnegative. Splitting into the same
+two cases proves $|w-a|=2(w-a)_++a-w$.
+Sum these statements on the specified finite sets.
+The final comparison uses only the capacity bound on $B$.
+\end{proof}
+
+The maintained module \texttt{RepairHellinger.lean} proves
+these scalar and finite-sum statements, including
+common-floor positivity and the explicit repair-cardinality
+consumer, in ten standard-axiom-audited declarations.
+The infinite probability products and analytic consequences
+in the following theorem are ordinary mathematics.
+
+\begin{theorem}[A computable prime-Poisson overlap criterion for RH]
+\label{thm:prime-Poisson-repair-RH}
+Fix the finite character portfolio $\mathcal Q$, an integer
+$k\ge2$, and either computable rational construction of
+Theorem~\ref{thm:computable-rational-repair-detector} and
+Corollary~\ref{cor:rational-LP-prime-repairs}.
+Write $w_{p,k}$ for its output, $A(p)$ for the portfolio
+capacity, and
+\[
+ \delta_p=p^{-4},\quad
+ h_{p,k}=h_{\delta_p}(A(p),w_{p,k}),\quad
+ H_{j,k}=\sum_{\substack{u\le p<2u\\p\ {\rm prime}}}h_{p,k},
+ \qquad u=2^j.
+\]
+The repair support and repair mass below always refer to
+the original weights $w_{p,k}$, before adding $\delta_p$.
+
+For each fixed real $\sigma>0$, define independent Poisson
+coordinates $(p,m)$, where $p$ is prime and $m\ge1$, with means
+\begin{equation}
+ \lambda^0_{p,m}(\sigma)
+     =(A(p)+\delta_p)\frac{p^{-m\sigma}}m,\qquad
+ \lambda^k_{p,m}(\sigma)
+     =(w_{p,k}+\delta_p)\frac{p^{-m\sigma}}m.
+ \label{eq:prime-Poisson-repair-means}
+\end{equation}
+Let $\mathsf P^0_{\sigma,\mathcal Q}$ and
+$\mathsf P^k_{\sigma,\mathcal Q}$ be their product probability
+measures on $\mathbb N_0^{\{(p,m)\}}$ with its product
+sigma algebra. Every coordinate mean is strictly positive.
+
+Put $f_\sigma(p)=-\log(1-p^{-\sigma})$.
+For each integer cutoff $X\ge2$, the limiting affinity
+of the complete prime-power laws at
+primes $p\le X$ is
+\begin{equation}
+ \rho_{X,k}(\sigma)=
+  \exp\left(-\frac12
+       \sum_{\substack{p\le X\\p\ {\rm prime}}}
+               h_{p,k}f_\sigma(p)\right).
+ \label{eq:prime-Poisson-repair-affinity}
+\end{equation}
+Its decreasing limit $\rho_{\infty,k}(\sigma)$ satisfies
+\begin{equation}
+ \begin{aligned}
+ \rho_{\infty,k}(\sigma)>0
+ &\quad\Longleftrightarrow\quad
+ \sum_p h_{p,k}p^{-\sigma}<\infty\\
+ &\quad\Longleftrightarrow\quad
+ \mathsf P^k_{\sigma,\mathcal Q}
+           \text{ and }\mathsf P^0_{\sigma,\mathcal Q}
+             \text{ are mutually absolutely continuous}.
+ \end{aligned}
+ \label{eq:prime-Poisson-repair-equivalence}
+\end{equation}
+If the affinity is zero, the two product measures are
+mutually singular.
+
+Unconditionally, a reference zero with real part
+$\beta>1/2$ has the following response: for every fixed $k$,
+$1/2<\sigma<\beta$, and $0<\epsilon<\beta-\sigma$, infinitely
+many dyadic $u=2^j$ satisfy
+\begin{equation}
+ \rho_{2u,k}(\sigma)
+       \le\exp\left(-2^{-\sigma-3}
+                         u^{\beta-\sigma-\epsilon}\right).
+ \label{eq:prime-Poisson-bad-zero-response}
+\end{equation}
+Thus the product laws are mutually singular at every such
+$\sigma$. No RH assumption is used for this response.
+
+For $\mathcal Q=\{1\}$ and any prescribed unbounded set
+$\mathcal K$ of integers $k\ge2$,
+\begin{equation}
+ \begin{aligned}
+ {\rm RH}\quad\Longleftrightarrow\quad&
+ \text{for every }\sigma\in\mathbb Q\cap(1/2,1)
+ \text{ there exists a fixed }k\in\mathcal K\\[-2pt]
+ &\text{with }\mathsf P^k_{\sigma,\{1\}}
+          \text{ mutually absolutely continuous with }
+                         \mathsf P^0_{\sigma,\{1\}}.
+ \end{aligned}
+ \label{eq:prime-Poisson-RH-criterion}
+\end{equation}
+In the RH direction, all sufficiently large $k\in\mathcal K$
+work for a given $\sigma$. All finite affinities in
+\eqref{eq:prime-Poisson-repair-affinity} are computable for
+rational $\sigma>0$. This assertion does not decide positivity
+of their infinite limit.
+\end{theorem}
+
+\begin{proof}
+For positive means $\lambda,\mu$, the one-coordinate affinity
+is obtained directly from the exponential series:
+\[
+ \sum_{n=0}^\infty
+ \sqrt{e^{-\lambda}\frac{\lambda^n}{n!}
+       e^{-\mu}\frac{\mu^n}{n!}}
+   =e^{-(\lambda+\mu)/2}e^{\sqrt{\lambda\mu}}
+   =e^{-(\sqrt\lambda-\sqrt\mu)^2/2}.
+\]
+Independence gives the product formula for finitely many
+$(p,m)$. At a fixed prime, summing every $m\ge1$ gives
+\[
+ \sum_{m\ge1}\frac{p^{-m\sigma}}m
+       =-\log(1-p^{-\sigma})=f_\sigma(p).
+\]
+The series is finite for $\sigma>0$; passing to its increasing
+partial sums proves \eqref{eq:prime-Poisson-repair-affinity}.
+No prime-power correction has been omitted.
+
+The nonnegative exponent increases with $X$. Moreover
+\begin{equation}
+ p^{-\sigma}\le f_\sigma(p)
+       \le\frac{p^{-\sigma}}{1-2^{-\sigma}}
+                    \qquad(p\ {\rm prime},\ \sigma>0).
+ \label{eq:prime-Poisson-primepower-comparison}
+\end{equation}
+The lower estimate is the $m=1$ term, and the upper estimate
+bounds $1/m$ by $1$ in the geometric series.
+This proves the first equivalence in
+\eqref{eq:prime-Poisson-repair-equivalence}.
+All coordinate Poisson laws assign positive probability
+to every nonnegative integer. They are therefore mutually
+absolutely continuous coordinate by coordinate.
+Kakutani's product-measure dichotomy, in the form proved
+by Kud\=o~\cite{KudoKakutani}, now gives the second equivalence
+and the mutually singular alternative. Its local equivalence
+hypothesis is why the same strictly positive floor was added
+to both means, including at primes with $A(p)=0$.
+
+We next retain the zero signal. Put
+$c_{\mathcal Q}=1+\sum_{q\in\mathcal Q}\varphi(q)$, so that
+$A(p)+\delta_p\le c_{\mathcal Q}$ for every prime.
+On the dyadic block the finite comparison gives
+\begin{equation}
+ \widehat E_{j,k}
+   \le2H_{j,k}
+       +c_{\mathcal Q}
+            \#(\widehat{\mathcal B}_k\cap[u,2u))
+   \le2H_{j,k}
+       +2k c_{\mathcal Q}u^{1/(2k)}.
+ \label{eq:prime-Poisson-retained-repair-signal}
+\end{equation}
+The rational repair detector already proves, for a reference
+zero at real part $\beta>1/2$, that
+$\limsup_j\log(1+\widehat E_{j,k})/\log u\ge\beta$.
+Consequently $\widehat E_{j,k}\ge u^{\beta-\epsilon}$
+at infinitely many sufficiently large dyadic scales.
+One can use the limsup with $\epsilon/2$ first to absorb
+the added $1$ without changing this conclusion.
+Since $\beta-\epsilon>\sigma>1/2$ and $1/(2k)\le1/4$,
+the last support term in
+\eqref{eq:prime-Poisson-retained-repair-signal} is at most
+$\widehat E_{j,k}/2$ on those scales. Thus
+$H_{j,k}\ge u^{\beta-\epsilon}/4$.
+For $p\in[u,2u)$,
+$f_\sigma(p)\ge(2u)^{-\sigma}$; keeping just this block
+in the nonnegative affinity exponent gives
+\eqref{eq:prime-Poisson-bad-zero-response}.
+It forces $\rho_{\infty,k}(\sigma)=0$.
+
+For the RH direction specialize to $\mathcal Q=\{1\}$,
+so $A(p)=1$. Write
+$C_j=\#\{p\text{ prime}:u\le p<2u\}$ and
+$W_{j,k}=\sum_{u\le p<2u}w_{p,k}$.
+All sufficiently late cells are good, and their zeroth
+moment errors give
+\[
+ |W_{j,k}-\nu([u,2u))|
+          \ll_k u^{-3+1/(2k)}.
+\]
+Under RH the previously used prime-counting estimate and
+the unconditional comparison of $\nu$ with the logarithmic
+integral give
+\[
+ |C_j-W_{j,k}|\ll_k u^{1/2}\log u.
+\]
+For every fixed $\epsilon>0$, the existing rational repair
+bound and the full signed energy comparison therefore imply
+\begin{equation}
+ 0\le H_{j,k}
+       \le2\widehat E_{j,k}+C_j-W_{j,k}
+       \ll_{k,\epsilon}u^{1/2+1/(2k)+\epsilon}.
+ \label{eq:prime-Poisson-RH-energy-bound}
+\end{equation}
+Fix $\sigma>1/2$. Choose $k\in\mathcal K$ large enough
+that $1/(2k)<\sigma-1/2$, and then choose
+$0<\epsilon<\sigma-1/2-1/(2k)$. The finitely many initial
+blocks have finite energy, and the remaining series obeys
+\[
+ \sum_p h_{p,k}p^{-\sigma}
+       \le\text{a finite initial contribution}
+          +\sum_{j\ {\rm sufficiently\ large}}u^{-\sigma}H_{j,k}
+       <\infty,
+\]
+by geometric summation. This proves the asserted probability
+equivalence under RH, for every sufficiently large fixed $k$.
+
+Conversely, if RH is false, reflection of the nontrivial
+zeros supplies a zero with real part $\beta>1/2$.
+Choose rational $\sigma$ with $1/2<\sigma<\beta$.
+The unconditional bad-zero response makes the two product
+laws mutually singular for every fixed $k$, contradicting
+the right side of \eqref{eq:prime-Poisson-RH-criterion}.
+This proves the reverse implication.
+Finally, the rational weights and common floors are computable,
+and at rational $\sigma$ the finite expression uses only
+algebraic powers, square roots, logarithms and an exponential
+of computable real numbers. This proves the finite
+computability assertion.
+\end{proof}
+
+The new criterion interprets a hypothetical bad zero as
+asymptotic statistical separation of explicit probability
+laws. The sparse repair set retains the signal through
+\eqref{eq:prime-Poisson-retained-repair-signal}; a positive
+density of repair primes is unnecessary. An independent
+upper bound on this energy or on the original repair mass
+would still be needed to exclude the zero. The theorem
+does not supply such an unconditional bound or change
+the certified $7/8$ boundary. Kakutani's dichotomy and the
+one-coordinate Poisson calculation are classical inputs;
+the construction used here is the computable actual-prime
+repair model with its quantitative capacity and zero signal.
+
 \subsection{Nested Fermat carriers and a joint Fibonacci profile}
 \label{sec:fermat-fibonacci-joint}
 
@@ -12324,6 +12623,12 @@ actual prime nodes in the moment cells.
 NIST Digital Library of Mathematical Functions,
 \S6.16(ii), Eq.~6.16.5.
 \url{https://dlmf.nist.gov/6.16#E5}.
+
+\bibitem{KudoKakutani}
+H. Kud\=o, \emph{A Theorem of Kakutani on Infinite Product Measures},
+Natural Science Report, Ochanomizu University \textbf{3} (1952).
+\href{https://teapot.lib.ocha.ac.jp/record/35128/files/KJ00004829299.pdf}{Primary article};
+\href{https://www.lib.ocha.ac.jp/oab/12shizenkagaku/1952-07-01.html}{publisher's issue record}.
 
 \end{thebibliography}
 
