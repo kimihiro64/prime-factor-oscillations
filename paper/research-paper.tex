@@ -14831,6 +14831,418 @@ almost-periodic passage for the full zero series.
 The classical explicit formula and zero-count law are inputs;
 no established originality priority is asserted.
 
+\subsection{Optimal prime-component sampling and its moment spectrum}
+\label{sec:deleted-component-sampling}
+
+The fixed deleted class also defines a statistic of ordinary integers,
+with every prime power retained.
+Let $\mathcal H_{\mathcal D}$ be the positive integers all of whose
+prime factors belong to $\mathcal D$, and put
+\[
+ A_{\mathcal D}(m)=\prod_{\substack{p\in\mathcal D\\p\mid m}}p^{v_p(m)}.
+\]
+The empty product is $1$.
+The sampled variable is the integer $m\in\{1,\ldots,N\}$;
+$\mathcal D$ is fixed before sampling, and $N$ is the sample endpoint.
+This is neither a polynomial input nor a substitution into a two-input
+family. Every finite $A_{\mathcal D}(m)$ is computable by factorization
+and the already certified greedy membership test.
+
+Write $\Theta=\Theta_\zeta$.
+The installed unconditional boundary gives $\Theta\le7/8<1$.
+In particular $\sum_{p\in\mathcal D}1/p<\infty$.
+The results below use that installed input; they do not improve it.
+
+\begin{lemma}[Every reciprocal tail has an exact exponent]
+\label{lem:deleted-prime-weighted-tail}
+For every fixed $s>\Theta$,
+\begin{equation}
+ T_s(X):=\sum_{\substack{p\in\mathcal D\\p>X}}p^{-s}
+                       =X^{\Theta-s+o(1)}\qquad(X\to\infty).
+ \label{eq:deleted-prime-weighted-tail}
+\end{equation}
+The implied asymptotics are for each fixed $s$; no uniformity as
+$s\downarrow\Theta$ is asserted.
+\end{lemma}
+
+\begin{proof}
+By Theorem~\ref{thm:greedy-prime-all-scale-exponent},
+$N_{\mathcal D}(X)=X^{\Theta+o(1)}$.
+For $0<\epsilon<s-\Theta$, partial summation retains the exact
+endpoint correction
+\[
+ \begin{aligned}
+ T_s(X)&=-X^{-s}N_{\mathcal D}(X)
+              +s\int_X^\infty N_{\mathcal D}(t)t^{-s-1}\,dt\\
+       &\ll_{s,\epsilon}X^{\Theta+\epsilon-s}.
+ \end{aligned}
+\]
+The upper constant can contain $(s-\Theta-\epsilon)^{-1}$.
+For a fixed $b>1$, logarithmic concentration from
+Theorem~\ref{thm:greedy-prime-record-count-calibration} gives
+$N_{\mathcal D}(X)/N_{\mathcal D}(X^b)\to0$.
+The independently positive interval contribution therefore gives
+\[
+ T_s(X)\ge
+ \frac{N_{\mathcal D}(X^b)-N_{\mathcal D}(X)}{X^{bs}}
+       =X^{b(\Theta-s)+o(1)}.
+\]
+Take logarithms, then let $\epsilon\downarrow0$ in the upper bound
+and $b\downarrow1$ in the lower bound.
+This proves \eqref{eq:deleted-prime-weighted-tail}.
+\end{proof}
+
+\begin{theorem}[A full prime-power law with a uniform sampling error]
+\label{thm:deleted-component-sampling-law}
+Let
+\[
+ c_{\mathcal D}=\prod_{p\in\mathcal D}(1-1/p)>0,\qquad
+ \nu(a)=\frac{c_{\mathcal D}}a
+                         \quad(a\in\mathcal H_{\mathcal D}).
+\]
+Then $\nu$ is a probability law on $\mathcal H_{\mathcal D}$.
+Equivalently, its valuations at primes of $\mathcal D$ are independent,
+with probabilities $(1-1/p)p^{-k}$ at $k\ge0$.
+Only finitely many of these valuations are nonzero almost surely.
+
+For an integer $N\ge1$ let
+\[
+ \mu_N(a)=\frac1N
+       \#\{1\le m\le N:A_{\mathcal D}(m)=a\}.
+\]
+For every fixed $\Theta<\sigma<1$, the complete Euler constant
+\begin{equation}
+ B_\sigma=\prod_{p\in\mathcal D}
+                  \frac{1+p^{-\sigma}}{1-p^{-\sigma}}<\infty
+ \label{eq:deleted-component-Euler-budget}
+\end{equation}
+gives, with total variation equal to half the sum of absolute
+point-mass differences,
+\begin{equation}
+ d_{\rm TV}(\mu_N,\nu)
+       \le\min\{1,\tfrac12 B_\sigma N^{\sigma-1}\}
+                         \qquad(N\ge1).
+ \label{eq:deleted-component-uniform-TV}
+\end{equation}
+The constant does not depend on a prime cutoff or on a statistic
+subsequently applied to the component.
+\end{theorem}
+
+\begin{proof}
+The reciprocal prime sum converges by the preceding lemma with $s=1$.
+Thus the product defining $c_{\mathcal D}$ is positive.
+The nonnegative Euler expansion, including every prime power, gives
+\[
+ \sum_{a\in\mathcal H_{\mathcal D}}\frac1a
+           =\prod_{p\in\mathcal D}(1-1/p)^{-1}
+           =c_{\mathcal D}^{-1}.
+\]
+This proves normalization.
+For the equivalent product measure, the probability that the
+valuation at $p$ is nonzero is $1/p$.
+The summable union bound shows that the probability of any nonzero
+valuation beyond a prime cutoff tends to zero.
+Hence the product law is concentrated on finite-support configurations,
+and its mass at each $a$ is exactly $c_{\mathcal D}/a$.
+
+Write $\mu_{\rm Mob}$ for the ordinary M\"obius function, to distinguish
+it from $\mu_N$.
+For each $a\in\mathcal H_{\mathcal D}$ the full signed finite identity is
+\begin{equation}
+ \mu_N(a)=
+ \sum_{\substack{e\in\mathcal H_{\mathcal D}\\e\ {\rm squarefree}\\ae\le N}}
+      \mu_{\rm Mob}(e)\frac{\lfloor N/(ae)\rfloor}{N}.
+ \label{eq:deleted-component-exact-Mobius}
+\end{equation}
+Indeed $A_{\mathcal D}(m)=a$ means $a\mid m$ and $m/a$ has no
+prime factor in $\mathcal D$; inclusion-exclusion on those actual
+prime divisors gives the formula.
+There is no coprimality restriction between $a$ and $e$:
+a prime dividing $a$ must also be excluded from $m/a$.
+Thus all higher valuations and their cross terms remain present.
+Absolute convergence at exponent $1$ also gives
+\[
+ \nu(a)=
+ \sum_{\substack{e\in\mathcal H_{\mathcal D}\\e\ {\rm squarefree}}}
+                    \frac{\mu_{\rm Mob}(e)}{ae}.
+\]
+Subtract these identities, giving zero floor terms when $ae>N$.
+For any integer $q\ge1$ and $0<\sigma<1$,
+\[
+ 0\le \frac1q-\frac{\lfloor N/q\rfloor}{N}
+          \le N^{\sigma-1}q^{-\sigma}.
+\]
+For $q\le N$ use the rounding bound $1/N$; for $q>N$ use $1/q$.
+These two domains form the entire supported sum.
+
+Only this explicit finite-sampling remainder is now bounded in
+absolute value. Summing it over the whole state space gives
+\[
+ \begin{aligned}
+ \sum_{a\in\mathcal H_{\mathcal D}}|\mu_N(a)-\nu(a)|
+ &\le N^{\sigma-1}
+   \sum_{a\in\mathcal H_{\mathcal D}}
+   \sum_{\substack{e\in\mathcal H_{\mathcal D}\\e\ {\rm squarefree}}}
+                                      (ae)^{-\sigma}\\
+ &=N^{\sigma-1}
+       \prod_{p\in\mathcal D}
+                    \frac{1+p^{-\sigma}}{1-p^{-\sigma}}.
+ \end{aligned}
+\]
+The prime-power geometric denominator and the squarefree numerator
+are both charged in this product.
+Its convergence follows from
+$\sum_{p\in\mathcal D}p^{-\sigma}<\infty$ and
+$1-p^{-\sigma}\ge1-2^{-\sigma}>0$.
+Tonelli applies to the displayed nonnegative majorant.
+Dividing by $2$ and using that total variation is at most $1$
+proves \eqref{eq:deleted-component-uniform-TV}.
+This is a uniform law for the full component; a fixed-cutoff sampling
+limit has not been substituted for a growing-cutoff estimate.
+\end{proof}
+
+\begin{theorem}[The exact statistical convergence exponent]
+\label{thm:deleted-component-exact-rate}
+Put $\Delta_N=d_{\rm TV}(\mu_N,\nu)$.
+If $L(a)$ is the largest prime factor of $a$, with $L(1)=1$, let
+$\Delta_N^{\max}$ be the total variation distance of the two
+$L$-laws and let $K_N^{\max}$ be their Kolmogorov distance.
+Then all three are positive and
+\begin{equation}
+ \begin{aligned}
+ \lim_{N\to\infty}\frac{\log\Delta_N}{\log N}&=\Theta-1,\\
+ \lim_{N\to\infty}\frac{\log\Delta_N^{\max}}{\log N}&=\Theta-1,\\
+ \lim_{N\to\infty}\frac{\log K_N^{\max}}{\log N}&=\Theta-1.
+ \end{aligned}
+ \label{eq:deleted-component-exact-rate}
+\end{equation}
+Consequently, for every fixed $1/2\le\eta<1$,
+\begin{equation}
+ \begin{gathered}
+ \Re\rho\le\eta\quad(\rho\in\mathcal Z)\\
+ \Longleftrightarrow\
+ \Delta_N\ll_\epsilon N^{\eta-1+\epsilon}
+                         \quad\hbox{for every }\epsilon>0.
+ \end{gathered}
+ \label{eq:deleted-component-rate-strip}
+\end{equation}
+In particular RH is equivalent to the square-root convergence
+exponent $\Delta_N=N^{-1/2+o(1)}$.
+\end{theorem}
+
+\begin{proof}
+Under $\nu$ the exact tail of the largest deleted prime is
+\[
+ q(X)=\nu\{a:L(a)>X\}
+       =1-\prod_{\substack{p\in\mathcal D\\p>X}}(1-1/p)
+       \sim T_1(X)=X^{\Theta-1+o(1)}.
+\]
+For the comparison, the logarithm of the reciprocal tail product is
+$T_1(X)+O(T_1(X)/X)$, and $T_1(X)\to0$.
+Every prime divisor of $A_{\mathcal D}(m)$ is at most $N$ when
+$m\le N$. The empirical tail above $N$ is therefore exactly zero.
+At that moving cutoff the limiting tail is $q(N)>0$, since
+$\mathcal D$ is infinite.
+The uniform full-law theorem and contraction under deterministic
+maps consequently give
+\[
+ \begin{gathered}
+ 0<q(N)\le K_N^{\max}\le\Delta_N^{\max}\le\Delta_N,\\
+ \Delta_N\le\tfrac12 B_\sigma N^{\sigma-1}
+                         \qquad(\Theta<\sigma<1).
+ \end{gathered}
+\]
+Take logarithms and then $\sigma\downarrow\Theta$.
+This proves \eqref{eq:deleted-component-exact-rate}.
+It also proves both directions of
+\eqref{eq:deleted-component-rate-strip}.
+Zero symmetry gives the RH specialization.
+The phrase square-root exponent allows every positive exponent margin;
+no bound $O(N^{-1/2})$ is asserted.
+\end{proof}
+
+\begin{theorem}[A positive divisor identity gives the full moment spectrum]
+\label{thm:deleted-component-moment-spectrum}
+For every fixed real $t>0$, put
+\[
+ U_t(N)=\frac1N\sum_{m=1}^N A_{\mathcal D}(m)^t.
+\]
+Then unconditionally
+\begin{equation}
+ \lim_{N\to\infty}\frac{\log U_t(N)}{\log N}
+                         =\max\{0,\Theta+t-1\}.
+ \label{eq:deleted-component-moment-spectrum}
+\end{equation}
+For $0<t<1-\Theta$ its finite limiting moment is
+\[
+ U_t(\infty)
+ =c_{\mathcal D}\prod_{p\in\mathcal D}(1-p^{t-1})^{-1},
+\]
+and the deficit has a strict sign and an exact decay exponent:
+\begin{equation}
+ 0<U_t(\infty)-U_t(N)
+                 =N^{\Theta+t-1+o(1)}.
+ \label{eq:deleted-component-moment-deficit}
+\end{equation}
+The square-root statistic always diverges, with
+\begin{equation}
+ U_{1/2}(N)\gg\log\log N,\qquad
+ \lim_{N\to\infty}\frac{\log U_{1/2}(N)}{\log N}
+                                      =\Theta-\frac12 .
+ \label{eq:deleted-component-square-root-readout}
+\end{equation}
+In particular RH is equivalent to
+$U_{1/2}(N)\ll_\epsilon N^\epsilon$ for every $\epsilon>0$;
+boundedness of this square-root mean would be false even under RH.
+\end{theorem}
+
+\begin{proof}
+For $d\in\mathcal H_{\mathcal D}$ define the positive Jordan weight
+\[
+ J_t(1)=1,\qquad
+ J_t(d)=d^t\prod_{p\mid d}(1-p^{-t})\quad(d>1).
+\]
+On a prime power,
+$J_t(p^k)=p^{kt}-p^{(k-1)t}$; telescoping and multiplication give
+$\sum_{d\mid a}J_t(d)=a^t$.
+Since the $\mathcal D$-smooth divisors of $m$ are exactly the
+divisors of $A_{\mathcal D}(m)$, the complete finite consumer is
+\begin{equation}
+ U_t(N)=
+ \sum_{\substack{d\in\mathcal H_{\mathcal D}\\d\le N}}
+             J_t(d)\frac{\lfloor N/d\rfloor}{N}.
+ \label{eq:deleted-component-Jordan-consumer}
+\end{equation}
+Every weight is nonnegative. This identity includes all prime powers;
+it is not a bound obtained by discarding signed main terms.
+
+For every $r>\Theta+t$ the full positive Euler budget is
+\[
+ Z_t(r):=\sum_{d\in\mathcal H_{\mathcal D}}J_t(d)d^{-r}
+      =\prod_{p\in\mathcal D}\frac{1-p^{-r}}{1-p^{t-r}}<\infty.
+\]
+The local identity follows by summing every $k\ge1$;
+convergence follows from $r-t>\Theta$.
+All denominators are positive, since $r>t$.
+
+If $\Theta+t<1$, $Z_t(1)<\infty$ and dominated convergence in
+\eqref{eq:deleted-component-Jordan-consumer} gives
+$U_t(N)\to Z_t(1)=U_t(\infty)$.
+Also $U_t(N)\ge1$, so its exponent is zero.
+If $\Theta+t\ge1$, choose any $r>\Theta+t$, hence $r>1$.
+The same exact identity gives
+\[
+ U_t(N)\le\sum_{\substack{d\in\mathcal H_{\mathcal D}\\d\le N}}
+                        \frac{J_t(d)}d
+          \le N^{r-1}Z_t(r).
+\]
+Together with $U_t(N)\ge1$, this proves the upper exponent,
+including equality $\Theta+t=1$.
+
+For the remaining lower exponent, fix $0<a<1$.
+There are $N^{\Theta+o(1)}$ deleted primes in $(N^a,N]$ by
+logarithmic concentration.
+At each such prime, eventually $J_t(p)\ge p^t/2$ and
+$\lfloor N/p\rfloor/N\ge1/(2p)$.
+Their positive contribution to the same consumer is at least
+\[
+ \frac14 N^{\min\{t-1,a(t-1)\}}
+       \bigl(N_{\mathcal D}(N)-N_{\mathcal D}(N^a)\bigr).
+\]
+Its lower exponent tends to $\Theta+t-1$ as $a\uparrow1$.
+This proves \eqref{eq:deleted-component-moment-spectrum}.
+
+In the subcritical case $0<t<1-\Theta$, subtraction retains the
+exact nonnegative rounding and tail deficit
+\[
+ U_t(\infty)-U_t(N)=
+ \sum_{d\in\mathcal H_{\mathcal D}}J_t(d)
+       \left(\frac1d-\frac{\lfloor N/d\rfloor}{N}\right).
+\]
+Choose $\Theta+t<r<1$ and use the same two-domain rounding inequality
+as before. The deficit is at most $N^{r-1}Z_t(r)$.
+Its terms at deleted primes $p>N$ are at least
+$\tfrac12 T_{1-t}(N)$ eventually.
+Lemma~\ref{lem:deleted-prime-weighted-tail} therefore supplies a
+strictly positive lower bound of exponent $\Theta+t-1$.
+Let $r\downarrow\Theta+t$ to obtain
+\eqref{eq:deleted-component-moment-deficit}.
+
+Finally use the unconditional count floor
+$N_{\mathcal D}(x)\ge c\sqrt x/\log x$.
+Partial summation gives
+\[
+ \sum_{\substack{p\le N\\p\in\mathcal D}}p^{-1/2}
+ \ge \frac12\int_{X_0}^N
+                    N_{\mathcal D}(x)x^{-3/2}\,dx
+ \ge\frac c2\log\log N-O(1).
+\]
+The prime terms of the positive Jordan consumer at $t=1/2$ give
+\[
+ U_{1/2}(N)\ge
+ \frac12\sum_{\substack{p\le N\\p\in\mathcal D}}
+                 (p^{-1/2}-p^{-1}).
+\]
+The reciprocal-prime sum is finite, so this proves the asserted
+logarithmic divergence.
+Since $\Theta\ge1/2$, the moment-spectrum formula at $t=1/2$
+gives exactly $\Theta-1/2$.
+Reflection again proves the RH equivalence.
+\end{proof}
+
+The same uniform law also controls the previously studied probability
+profiles. If $K_{\mathcal D}(m)$ counts distinct deleted prime divisors,
+its limiting probability generating function is the entire product
+\[
+ P_{\mathcal D}(z)=
+             \prod_{p\in\mathcal D}(1-1/p+z/p).
+\]
+Uniform convergence on every compact $z$-set follows from
+$\sum_{p\in\mathcal D}1/p<\infty$.
+For its coefficients $b_k$ and the empirical probabilities
+$b_{N,k}=N^{-1}\#\{m\le N:K_{\mathcal D}(m)=k\}$, contraction of
+total variation gives the full profile bound
+\[
+                  \sum_{k\ge0}|b_{N,k}-b_k|
+                                  \le B_\sigma N^{\sigma-1}.
+\]
+This is an upper estimate for the count-profile error; its exponent
+is not claimed to be sharp for that particular statistic.
+In contrast the full component, largest-prime total variation and
+largest-prime Kolmogorov error all have the exact exponent above.
+
+The elementary fixed-prime CRT law and the earlier Fermat avoidance
+density are completed inputs for the sampling interpretation.
+The present conclusion concerns all valuations in one fixed infinite
+greedy class, a uniform error for the entire law, and its exact
+zero-supremum exponent. It differs from the earlier prime-Poisson
+repair criterion, whose measures use fractional repair weights and
+whose zero response was a dyadic limsup.
+The positive Jordan identity supplies a genuine one-sided moment
+deficit, with no omitted prime-power or cutoff correction.
+
+For the RH programme the exact numerical consumer is now
+\[
+ \begin{gathered}
+ \Theta\le\eta
+ \quad\Longleftrightarrow\quad
+ \sum_{m=1}^N\sqrt{A_{\mathcal D}(m)}
+             \ll_\epsilon N^{\eta+1/2+\epsilon}\\
+ \hbox{for every }\epsilon>0,\qquad \frac12\le\eta<1 .
+ \end{gathered}
+\]
+The installed $7/8$ gives mean exponent at most $3/8$;
+boundary $3/4$ requires at most $1/4$; RH requires exponent zero.
+No independent improvement of that mean estimate is proved here.
+The certified zero-free boundary remains $7/8$.
+
+These are full ordinary proofs. No new Lean declaration is claimed
+for the infinite law, the full total-variation estimate or the moment
+spectrum. Concrete formalization tasks are the countable Euler-law
+normalization, the absolutely summable M\"obius floor expansion and
+the positive Jordan consumer with its Rankin bounds.
+No originality priority over the literature is established.
+
 \subsection{Selecting certified good primes before estimating their size}
 \label{sec:certified-good-prime-class}
 
