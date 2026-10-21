@@ -13813,21 +13813,55 @@ support and at rank zero.
 \end{proof}
 
 For the ordinary integer-divisibility law $\eta(p)=1/p$,
-the fixed-cutoff Bernoulli law is the already established
-finite prime-divisibility density.
-Thus the greedy capped carrier maximizes every limiting
-upper-tail density of
-$\sum_{p\le x,\ p\in\mathcal V}{\bf1}_{p\mid n}$.
-The limit is over the sampled integer $n$, with $x$ fixed;
-no uniform growing-cutoff sampling statement is used.
-The coefficient conclusion applies directly to $v(p)=1/(p-1)$.
-For affine odds $v(p)=\rho/(p+\beta)$ it applies when
-$\rho>0$ and $\beta>-2$.
+the fixed-cutoff Bernoulli law is the finite prime-divisibility density.
+More explicitly, put \(V_x=\{p\le x:p\text{ prime},\ p\in\mathcal V\}\)
+and \(m=|V_x|\). For every integer \(N>0\) and every \(r\ge0\),
+\[
+ \left|\frac1N\#\{1\le n\le N:
+             \#\{p\in V_x:p\mid n\}\ge r\}
+       -\mathbb P(K_{\mathcal V,x}\ge r)\right|
+ \le \frac{3^m}{N}.
+\]
+The bound follows from the proved coefficient error at parameter zero,
+followed by summation over the finite support of the tail indicator.
+Thus the greedy capped carrier maximizes every limiting upper-tail
+density. The limit is over sampled integers with \(x\) fixed;
+no uniform growing-cutoff sampling assertion is used.
+The coefficient conclusion applies directly to \(v(p)=1/(p-1)\).
+For affine odds \(v(p)=\rho/(p+\beta)\), it applies when
+\(\rho>0\) and \(\beta>-2\).
 The associated probability law
-$\eta(p)=\rho/(p+\beta+\rho)$ is also covered.
-At $\beta=-2$, its forced coordinate at $p=2$ is covered
-by the stochastic statement; an odds formula must first
-remove that coordinate and retain its exact rank shift.
+\(\eta(p)=\rho/(p+\beta+\rho)\) obeys the full stochastic comparison
+for every \(\beta\ge-2\).
+These are prime-coordinate laws; no sampling theorem for an affine
+polynomial prime-pair family is asserted.
+
+At \(\beta=-2\), only \(p=2\) is forced.
+Write \(V_x^\circ=V_x\setminus\{2\}\) and
+\[
+ A_{\mathcal V,x}
+    =\prod_{p\in V_x^\circ}(1-\eta(p))>0,\qquad
+ Q_{\mathcal V,x}(z)
+    =\prod_{p\in V_x^\circ}\left(1+\frac{\rho}{p-2}z\right).
+\]
+If \(2\in V_x\), then \(K_{\mathcal V,x}=1+K^\circ_{\mathcal V,x}\)
+in distribution and, for every \(r\ge0\),
+\[
+ \begin{aligned}
+ \mathbb P(K_{\mathcal V,x}=0)&=0,\\
+ \mathbb P(K_{\mathcal V,x}=r+1)
+      &=A_{\mathcal V,x}[z^r]Q_{\mathcal V,x}(z),\\
+ \mathbb P(K_{\mathcal V,x}\ge r+1)
+      &=\mathbb P(K^\circ_{\mathcal V,x}\ge r).
+ \end{aligned}
+\]
+If \(2\notin V_x\), no shift occurs and
+\(\mathbb P(K_{\mathcal V,x}=r)=A_{\mathcal V,x}[z^r]Q_{\mathcal V,x}(z)\).
+The fixed greedy class contains \(2\), so its shifted identities apply
+at every real cutoff \(x\ge2\).
+These identities retain the survival factor, including the empty
+remaining product. They do not extend the separate odds-coefficient
+order to \(\beta=-2\).
 
 Applying the decreasing weight $-\log(1-1/p)$ shows, at each
 finite cutoff, that the greedy class minimizes the missing
@@ -13863,12 +13897,30 @@ proves the displayed coefficient inequality for the literal
 prime products and arbitrary finite nonnegative decreasing odds.
 All owners are exported through the prime-deletion assembly.
 
-The ordinary-divisibility application, affine odds specializations,
-their exceptional forced-coordinate rank shifts, and the infinite
-missing-product comparison remain separate formalization obligations.
-The signed record-energy calculation also retains its ordinary-proof
-status. No established originality priority or new zero-free boundary
-is asserted.
+The whole adjacent ordinary-divisibility and affine application block
+is also Lean-checked.
+\texttt{greedyPrimeClass\_\allowbreak local\_\allowbreak divisibility\_\allowbreak limits}
+proves both actual integer-density limits and their comparison, using
+\texttt{ordinaryPrimeTail\_\allowbreak density\_\allowbreak error}'s
+explicit \(3^m/N\) error.
+\texttt{greedyPrimeClass\_\allowbreak local\_\allowbreak affine\_\allowbreak probability}
+and
+\texttt{greedyPrimeClass\_\allowbreak local\_\allowbreak affine\_\allowbreak odds\_\allowbreak coefficient}
+retain the distinct closed and open parameter domains above.
+
+The exceptional-coordinate certificate
+\texttt{affinePrime\allowbreak Endpoint\_\allowbreak rank\_\allowbreak shift}
+treats both prime cases. Its shifted and unshifted odds identities retain
+the full survival factor.
+The actual greedy endpoint is discharged by
+\texttt{greedyPrimeClass\_\allowbreak two}
+and its endpoint consumers.
+All these owners are exported and included by exact declaration name
+in the recurring foundational-axiom audit.
+
+The infinite missing-product comparison and signed record-energy
+calculation remain separate formalization obligations.
+No established originality priority or new zero-free boundary is asserted.
 
 \subsection{How a prime-counting wave becomes a persistent deletion signal}
 \label{sec:greedy-prime-wave-envelope}
