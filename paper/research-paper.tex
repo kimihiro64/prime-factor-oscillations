@@ -13134,6 +13134,648 @@ and removes the final order parameter. No better independent
 arithmetic bound, and hence no advantage for proving RH or a
 smaller zero-free boundary, has yet been demonstrated.
 
+\subsection{What selection by the theta sign can establish}
+\label{sec:theta-sign-prime-test}
+
+Here selection of prime factors and selection of prime cutoffs
+must be distinguished. The following statements concern the
+original full-prime Nicolas quantity
+\[
+ F(p)=\gamma+\log\log\theta(p)
+                  +\sum_{q\le p,\ q\ {\rm prime}}\log(1-1/q).
+\]
+They do not replace this product by one over the selected class.
+
+For consecutive primes $q<p$, $p\ge5$, put $T=\theta(q)>1$.
+The exact increment is
+\begin{equation}
+ F(p)-F(q)=\int_T^{T+\log p}\frac{dt}{t\log t}
+                                      +\log(1-1/p).
+ \label{eq:theta-sign-Nicolas-increment}
+\end{equation}
+If $\theta(p)\le p$, this increment is strictly positive.
+Indeed, writing $L=\log p>1$, its integral is at least
+$-\log(1-L/p)/L$. The convergent logarithmic series gives
+\[
+ \frac{-\log(1-L/p)}L
+ =\sum_{m\ge1}\frac{L^{m-1}}{mp^m}
+ >\sum_{m\ge1}\frac1{mp^m}=-\log(1-1/p).
+\]
+If instead $\theta(q)\ge p$, the integral in
+\eqref{eq:theta-sign-Nicolas-increment} is at most $1/p$,
+whereas $\log(1-1/p)<-1/p$, so the increment is negative.
+These are directional statements about changes in $F$;
+neither gives the absolute inequality $F(p)<0$.
+
+Define the actual prime classes
+\begin{equation}
+ \begin{aligned}
+ S_+&=\{p\ {\rm prime}:\theta(p)>p\},\\
+ U&=\{p\ {\rm prime}:\theta(p)-\log p<p<\theta(p)\}
+                                                   \subset S_+ .
+ \end{aligned}
+ \label{eq:theta-upcrossing-prime-class}
+\end{equation}
+The class $U$ consists of upward crossings at the prime jump.
+Its membership is computable: both theta values are logarithms
+of explicitly computable integer primorials, and neither equals
+the integer $p$. Otherwise $e$ would satisfy an integer polynomial
+$X^p-N=0$, contrary to its transcendence.
+Certified approximations therefore decide both strict signs.
+
+\begin{theorem}[Theta-upcrossing cutoffs retain Nicolas violations]
+\label{thm:theta-upcrossing-RH-test}
+RH is equivalent to $F(p)<0$ for every sufficiently large
+$p\in U$. It is also equivalent to that inequality for every
+sufficiently large $p\in S_+$.
+If RH is false, there are infinitely many $p\in U$ with
+$F(p)>0$. No cardinality or density lower bound for $U$ is
+assumed in this statement.
+\end{theorem}
+
+\begin{proof}
+Under RH the established Nicolas inequality holds at all
+sufficiently large cutoffs, so it holds on both selected classes.
+
+Suppose RH is false. The proved two-sided excursion theorem
+for $K$ gives positive values arbitrarily far out and negative
+values arbitrarily far out. Consequently $\{x:K(x)>0\}$ has
+infinitely many bounded positive components tending to infinity.
+On the closure of each component, continuity gives an interior
+positive maximum. Such a maximum cannot lie strictly between
+primes: there $\theta(t)=c$ is constant and
+$K'(t)=(t-c)\kappa(t)$ has either a constant sign or changes
+from negative to positive, giving a minimum.
+Thus a maximum occurs at a prime $p$.
+Its one-sided derivative signs imply
+$\theta(p)-\log p\le p\le\theta(p)$.
+The non-equality just proved makes both inequalities strict,
+so $p\in U$ and $K(p)>0$.
+
+On $U$ the overshoot obeys $0<\theta(p)-p<\log p$.
+The exact nonlinear correction therefore has the unconditional
+Taylor bound
+\[
+ 0\le D(p)\le\frac{\log p+1}{2p^2}.
+\]
+The positive prime-power tail is larger than this correction.
+Indeed PNT gives at least $p/(3\log p)$ primes in $(p,2p]$
+for all sufficiently large $p$. Each contributes at least
+$1/(2q^2)\ge1/(8p^2)$ to $A(p)$, whence
+\[
+ A(p)\ge\frac1{24p\log p}>D(p)
+\]
+eventually. The exact identity $F=K-D+A$ now yields
+$F(p)>K(p)>0$ at the infinitely many maximizing primes.
+This contradicts the proposed eventual inequality on $U$,
+and also contradicts it on $S_+$ since $U\subset S_+$.
+\end{proof}
+
+This is a qualitative cutoff-retention theorem, not an
+independent proof of the inequality on those cutoffs.
+In particular the theta-positive class has not been shown
+to satisfy the RH condition unconditionally.
+The earlier quantitative excursion proof uses maxima of
+$K(x)-A_0x^{-b}$ and a wider theta-error band; the present
+unweighted component maxima give the exact logarithmic band
+but do not retain a claimed power-size amplitude.
+No restricted moving-rank coefficient criterion follows here
+without checking its comparison remainder against that amplitude.
+The inputs are the existing Nicolas identities and excursions;
+no established literature priority or new Lean check is claimed.
+
+For selection inside an Euler product there is a further
+hypothesis to keep visible. If an unweighted prime subset $S$
+had a zero-free continuation of
+$\prod_{p\in S}(1-p^{-s})^{-1}$ on $\Re s>1/2$, apart from
+a simple pole of order one at $1$, the existing one-sided
+transfer theorem would already imply RH: its weights are
+bounded by the reference capacity $1$, so its overweight
+is identically zero. No separate cardinality lemma is needed
+under those full hypotheses.
+Theta-sign selection has not proved them.
+The weighted model avoids this conclusion precisely by
+leaving an unestimated overweight; its prescribed zero-free
+continuation does not itself provide an arithmetic saving.
+
+\subsection{A greedy prime carrier with its inequality built in}
+\label{sec:greedy-prime-cap}
+
+A direct selection inside the prime measure avoids testing the
+desired Nicolas sign at each member. List all primes increasingly
+as $p_1,p_2,\ldots$. Starting with $A_0=M_0=0$, retain $p_j$
+in $\mathcal S$ exactly when $A_{j-1}+\log p_j\le p_j$.
+On retention put $A_j=A_{j-1}+\log p_j$, $M_j=M_{j-1}$;
+on rejection put $A_j=A_{j-1}$, $M_j=M_{j-1}+\log p_j$.
+Let $\mathcal D$ be the rejected prime class and write
+\[
+ \theta_{\mathcal S}(x)=A_{\pi(x)},\qquad
+ M(x)=\theta_{\mathcal D}(x)=M_{\pi(x)},\qquad
+ N_{\mathcal D}(x)=\#(\mathcal D\cap[2,x]).
+\]
+This is a fixed class, not a new choice at each cutoff.
+Every step is decidable by certified logarithms: equality
+$\log N=p_j$ with an integer primorial subproduct $N$ is
+impossible by transcendence of $e$.
+
+\begin{theorem}[Greedy cap and optimal deletion cost]
+\label{thm:greedy-prime-cap}
+The selected class satisfies, unconditionally,
+$\theta_{\mathcal S}(x)\le x$ for every real $x\ge2$.
+Put
+\begin{equation}
+ R(x)=\max\bigl(\{0\}\cup
+       \{\theta(p)-p:\ p\le x,\ p\ {\rm prime}\}\bigr).
+ \label{eq:greedy-prime-regulator}
+\end{equation}
+Then
+\begin{equation}
+                     R(x)\le M(x)\le R(x)+\log x .
+ \label{eq:greedy-prime-regulator-bound}
+\end{equation}
+For any other fixed prime class $\mathcal T$ satisfying
+$\theta_{\mathcal T}(x)\le x$ for every $x\ge2$, its deleted
+class $\mathcal T^c$ (complement inside the primes) obeys
+\begin{equation}
+ \begin{aligned}
+ M(x)&\le\theta_{\mathcal T^c}(x)+\log x,\\
+ N_{\mathcal D}(x)&\le
+    \#(\mathcal T^c\cap[2,x])+1+\log\frac{\log x}{\log2}
+                                   \qquad(x\ge2).
+ \end{aligned}
+ \label{eq:greedy-prime-count-optimality}
+\end{equation}
+Thus the explicit greedy carrier minimizes the number of deletions,
+up to an additive $O(\log\log x)$, among every class with this cap.
+Moreover $\theta_{\mathcal S}(x)\sim x$ and
+$\#(\mathcal S\cap[2,x])\sim x/\log x$ unconditionally.
+\end{theorem}
+
+\begin{proof}
+The invariant $A_j\le p_j$ follows immediately by induction:
+retention enforces it, while rejection preserves $A_{j-1}\le p_{j-1}<p_j$.
+It holds between primes as well, proving the selected inequality.
+
+Put $E_j=\theta(p_j)-p_j$ and
+$R_j=\max(0,E_1,\ldots,E_j)$. The selection rule is exactly
+\begin{equation}
+ M_j=
+ \begin{cases}
+ M_{j-1},&E_j\le M_{j-1},\\
+ M_{j-1}+\log p_j,&E_j>M_{j-1}.
+ \end{cases}
+ \label{eq:greedy-prime-exact-recursion}
+\end{equation}
+At a rejected prime, the cap invariant gives
+$M_j>E_j$, while the rejection test gives
+$M_j<E_j+\log p_j$. At a retained prime,
+$E_j\le M_j=M_{j-1}$. Induction, using the increasing prime
+weights $\log p_j$, therefore gives
+$R_j\le M_j\le R_j+\log p_j$ in both cases.
+This proves \eqref{eq:greedy-prime-regulator-bound} at primes
+and hence at all real cutoffs.
+
+For any other capped class,
+$\theta_{\mathcal T^c}(t)=\theta(t)-\theta_{\mathcal T}(t)
+\ge\theta(t)-t$. Its left side is nondecreasing and nonnegative,
+so $\theta_{\mathcal T^c}(x)\ge R(x)$.
+This proves the first optimality inequality.
+For every prime class $\mathcal V$, partial summation gives
+\[
+ \#(\mathcal V\cap[2,x])
+ =\frac{\theta_{\mathcal V}(x)}{\log x}
+    +\int_2^x\frac{\theta_{\mathcal V}(t)}{t\log^2t}\,dt.
+\]
+Subtract the identities for $\mathcal D$ and $\mathcal T^c$
+and use $M(t)-\theta_{\mathcal T^c}(t)\le\log t$ throughout.
+The resulting upper bound is exactly
+$1+\int_2^xdt/(t\log t)=1+\log(\log x/\log2)$.
+
+Finally PNT gives $R(x)=o(x)$: split the defining maximum
+into a fixed initial segment and a tail on which
+$|\theta(t)-t|\le\epsilon t$.
+Thus $M(x)=o(x)$ and $\theta_{\mathcal S}(x)=\theta(x)-M(x)\sim x$.
+Also
+\[
+ N_{\mathcal D}(x)\le\sqrt x+\frac{2M(x)}{\log x}
+                         =o(x/\log x),
+\]
+by separating rejected primes below and above $\sqrt x$.
+Subtracting this from PNT proves the stated retained-prime count.
+\end{proof}
+
+The independent favorable condition can be written in the exact
+integral form of the earlier RH criterion:
+\begin{equation}
+ K_{\mathcal S}(x)=
+    \int_x^\infty(\theta_{\mathcal S}(t)-t)\kappa(t)\,dt\le0,
+ \qquad
+ K(x)=K_{\mathcal S}(x)+\int_x^\infty M(t)\kappa(t)\,dt.
+ \label{eq:greedy-prime-K-transfer}
+\end{equation}
+Both integrals converge unconditionally.
+For example the quantitative PNT error
+$O(t\exp(-c\sqrt{\log t}))$ bounds its running maximum by
+$O(t\exp(-c'\sqrt{\log t}))$ for a possibly smaller $c'>0$.
+The integrand on the selected class is nonpositive pointwise.
+No RH hypothesis supplies this inequality.
+
+
+The same selected class satisfies an actual calibrated
+Nicolas product inequality, not only the integral sign.
+Define its finite missing-product constant and its error by
+\begin{equation}
+ \begin{aligned}
+ C_{\mathcal D}
+   &=\sum_{p\in\mathcal D}-\log(1-1/p),\\
+ F_{\mathcal S}(x)
+   &=\gamma-C_{\mathcal D}+\log\log\theta_{\mathcal S}(x)
+       +\sum_{\substack{p\le x\\p\in\mathcal S}}\log(1-1/p).
+ \end{aligned}
+ \label{eq:greedy-prime-calibrated-Nicolas}
+\end{equation}
+The constant is finite by the quantitative PNT regulator bound;
+the error is defined once $\theta_{\mathcal S}(x)>1$.
+The subtraction of $C_{\mathcal D}$ is essential.
+
+\begin{theorem}[The selected class already has the product sign]
+\label{prop:greedy-prime-product-sign}
+There are constants $c_0>0$ and $X_0$ such that, unconditionally,
+\begin{equation}
+ F_{\mathcal S}(x)\le-\frac{c_0}{x}<0\qquad(x\ge X_0).
+ \label{eq:greedy-prime-product-sign}
+\end{equation}
+The exact difference from the original all-prime error is
+\begin{equation}
+ F(x)-F_{\mathcal S}(x)
+ =\log\log\theta(x)-\log\log\theta_{\mathcal S}(x)
+       +\sum_{\substack{p>x\\p\in\mathcal D}}-\log(1-1/p).
+ \label{eq:greedy-prime-product-signal}
+\end{equation}
+Both terms on the right are nonnegative, and both must be
+estimated in a zero-signal transfer.
+\end{theorem}
+
+\begin{proof}
+Write $D_{\mathcal S}$ and $A_{\mathcal S}$ for the earlier
+nonlinear correction and prime tail with $\theta_{\mathcal S}$
+and the selected primes in place of $\theta$ and all primes.
+The calibrated exact identity is
+\[
+ F_{\mathcal S}=K_{\mathcal S}-D_{\mathcal S}+A_{\mathcal S}.
+\]
+Indeed subtract the original identity, and use
+\[
+ \int_x^\infty M(t)\kappa(t)\,dt
+ =\frac{M(x)}{x\log x}
+                  +\sum_{\substack{p>x\\p\in\mathcal D}}\frac1p,
+\]
+which is partial summation against $1/(t\log t)$.
+The nonlinear corrections supply the difference of the two
+$\log\log$ terms, and the remaining prime tail supplies exactly
+the quadratic part of the missing logarithmic product.
+This verifies the normalization as well as
+\eqref{eq:greedy-prime-product-signal}.
+Concavity gives $D_{\mathcal S}\ge0$, while PNT gives
+$0\le A_{\mathcal S}(x)\le A(x)=O(1/(x\log x))$.
+
+There is also a definite negative area in $K_{\mathcal S}$.
+Choose a constant $C\ge1$ with $\pi(2x)\le Cx/\log x$
+eventually, and put $h=\log x/(8C)$.
+Inside $[x,2x]$, the union of intervals $[p,p+h)$
+over all primes $p\le2x$ has measure at most $x/8$.
+At every remaining point $t$, its last full prime is at
+most $t-h$. Since the selected theta function is bounded
+by the last selected prime, the cap gives
+$t-\theta_{\mathcal S}(t)\ge h$ there.
+Also $\kappa(t)\ge1/(8x^2\log x)$ on $[x,2x]$ eventually.
+Consequently
+\[
+ -K_{\mathcal S}(x)
+ \ge\int_x^{2x}(t-\theta_{\mathcal S}(t))\kappa(t)\,dt
+ \ge\frac{7}{512C x}.
+\]
+The pointwise cap makes the omitted part of the integral
+nonnegative. The $O(1/(x\log x))$ upper bound on $A_{\mathcal S}$
+is eventually smaller than half this supply.
+The calibrated identity proves
+\eqref{eq:greedy-prime-product-sign}, with a smaller $c_0>0$.
+\end{proof}
+
+
+\begin{theorem}[The size condition retains every off-line zero]
+\label{thm:greedy-prime-RH-size}
+For every fixed $1/2\le\eta<1$, the following are equivalent:
+\[
+ \zeta(s)\ne0\quad(\Re s>\eta),\qquad
+ N_{\mathcal D}(X)\ll_\epsilon X^{\eta+\epsilon}
+                         \quad\hbox{for every }\epsilon>0 .
+\]
+Here the zero statement concerns nontrivial zeros; the pole at $1$
+is not a zero. In particular the same explicit selected class
+has an independently proved favorable inequality, and
+\begin{equation}
+ \mathrm{RH}\quad\Longleftrightarrow\quad
+ \#\{p\le X:p\ {\rm prime},\ p\notin\mathcal S\}
+             \ll_\epsilon X^{1/2+\epsilon}
+                   \quad\hbox{for every }\epsilon>0.
+ \label{eq:greedy-prime-RH-size}
+\end{equation}
+Under RH the stronger count
+$N_{\mathcal D}(X)=O(\sqrt X\log X)$ follows from the usual
+Chebyshev error bound.
+\end{theorem}
+
+\begin{proof}
+Suppose first that $\Theta_\zeta\le\eta$.
+For $\eta<\kappa<1$, the proof of
+Lemma~\ref{lem:prime-error-zero-supremum} gives
+$|\theta(t)-t|=O_\kappa(t^\kappa\log^2t)$.
+The regulator bound and the preceding split at $\sqrt X$ give
+\[
+ M(X)=O_\kappa(X^\kappa\log^2X),\qquad
+ N_{\mathcal D}(X)=O_\kappa(X^\kappa\log X).
+\]
+Taking $\kappa$ strictly between $\eta$ and $\eta+\epsilon$
+proves the claimed bound; when $\eta+\epsilon\ge1$,
+the elementary count bound suffices.
+Under RH insert instead
+$|\theta(t)-t|=O(\sqrt t\log^2t)$ to obtain the stronger count.
+
+Conversely suppose the stated count holds, and fix
+$0<\epsilon<1-\eta$. Then
+$M(t)\le\log t\,N_{\mathcal D}(t)
+=O_\epsilon(t^{\eta+\epsilon}\log t)$.
+The complete positive correction in
+\eqref{eq:greedy-prime-K-transfer} consequently satisfies
+\begin{equation}
+ 0\le K(x)-K_{\mathcal S}(x)
+ \le C_\epsilon
+       \frac{x^{\eta+\epsilon-1}}{1-\eta-\epsilon}.
+ \label{eq:greedy-prime-zero-signal-error}
+\end{equation}
+The denominator is positive on the stated parameter domain.
+The same count controls both terms in
+\eqref{eq:greedy-prime-product-signal}: since
+$\theta_{\mathcal S}(x)\sim\theta(x)\sim x$, its clock term is
+$O(M(x)/(x\log x))$, and partial summation bounds the entire
+missing-product tail by
+$O_\epsilon(x^{\eta+\epsilon-1}/(1-\eta-\epsilon))$.
+Consequently $0\le F(x)-F_{\mathcal S}(x)$ has this same
+upper order. Positive excursions of the original Nicolas error
+are therefore preserved as well, including the full normalization
+and both deletion corrections.
+If there were a zero of real part $\beta>\eta$,
+choose also $\epsilon<\beta-\eta$ and
+$1-\beta<b<1-\eta-\epsilon\le1/2$.
+The unconditional positive excursion theorem gives
+$\limsup x^bK(x)=+\infty$.
+But $K_{\mathcal S}\le0$ and the displayed correction give
+$\limsup x^bK(x)\le0$, since
+$b+\eta+\epsilon-1<0$. This is a contradiction.
+The zero-free implication is therefore established without
+using an RH-dependent wave under the bad-zero hypothesis.
+\end{proof}
+
+This carrier supplies the two requested obligations separately.
+The cap and $K_{\mathcal S}\le0$ are unconditional properties
+of the constructed class. The root-size deletion estimate
+would make it large enough to retain every off-line zero signal.
+The independent bound proved so far is only
+$N_{\mathcal D}(X)\ll_\epsilon X^{7/8+\epsilon}$, from the
+installed boundary and the preceding theorem.
+An improvement to $X^{3/4+\epsilon}$ would give the boundary
+$3/4$ by the same complete consumer; the square-root target gives RH.
+
+The actual size attack is now the concrete positive-record problem
+\[
+ \max_{\substack{p\le X\\p\ {\rm prime}}}(\theta(p)-p)_+
+                  \ll_\epsilon X^{\eta+\epsilon}.
+\]
+The recursion and optimality theorem show exactly why changing
+the capped selection cannot by itself improve its exponent:
+every other capped prime class must delete at least this
+running positive mass, and the greedy algorithm pays at most
+one prime weight more. Every rejected prime is a strict new
+positive record of $\theta(p)-p$, because its rejection requires
+$\theta(p)-p>M(p^-)\ge R(p^-)$. In particular, if $q<p$
+are consecutive full primes and $p$ is rejected, then
+$p-q<\log p$. This necessary short-gap condition is insufficient
+for the desired count: it discards the record-height comparison,
+and supplies no power-saving upper bound on the number of
+rejections. The retained exact target is the quantized record
+process \eqref{eq:greedy-prime-exact-recursion}, not a count of
+all short prime gaps. No independent improvement of the
+positive-record bound has been proved here.
+The construction simplifies the arithmetic object and proves
+optimal selection; it is not claimed to make its remaining
+size bound easier than the earlier RH criterion.
+These are ordinary proofs, with no new Lean verification
+or established originality priority asserted.
+
+\subsection{Selecting certified good primes before estimating their size}
+\label{sec:certified-good-prime-class}
+
+We now reverse the order of the two obligations.
+First construct a decidable class whose members satisfy the
+Nicolas inequality independently; then ask how large that
+same class must be to retain every forbidden zero signal.
+Here, as in the preceding subsection, the selected primes
+are cutoffs for the full-prime product.
+
+Fix a deterministic certified rational approximation $a_p$,
+for each prime $p\ge5$, such that
+$|a_p-F(p)|\le p^{-3}$. Such an approximation is computable
+from the finite primorial and finite prime product, together
+with certified logarithms and Euler's constant.
+Define the actual prime classes and their counting functions by
+\begin{equation}
+ \begin{aligned}
+ \mathcal G&=\{p\ge5:\ p\ {\rm prime},\ a_p\le-2p^{-3}\},\\
+ \mathcal B&=\{p\ge5:\ p\ {\rm prime},\ a_p>-2p^{-3}\},\\
+ G(X)&=\#(\mathcal G\cap[5,X]),\qquad
+ B(X)=\#(\mathcal B\cap[5,X]).
+ \end{aligned}
+ \label{eq:certified-good-prime-definition}
+\end{equation}
+The rational comparison decides membership, including equality.
+There is no need to decide whether the real number $F(p)$
+equals zero. For every selected prime, unconditionally,
+\begin{equation}
+ p\in\mathcal G\ \Longrightarrow\ F(p)\le-p^{-3}<0,
+ \qquad
+ p\in\mathcal B\ \Longrightarrow\ F(p)>-3p^{-3}.
+ \label{eq:certified-good-prime-inequality}
+\end{equation}
+Thus the member inequality is proved before any size assertion.
+
+\begin{lemma}[Persistence through consecutive prime indices]
+\label{lem:prime-index-persistence}
+Suppose $|\theta(t)-t|=O_\kappa(t^\kappa\log^2t)$
+for some $1/2\le\kappa\le1$. For consecutive primes $q<p$
+with $X\le p\le2X$, one has, uniformly for sufficiently large $X$,
+\begin{equation}
+                    |F(p)-F(q)|
+              \le C_\kappa X^{\kappa-2}\log^2X .
+ \label{eq:prime-index-jump-bound}
+\end{equation}
+Here $C_\kappa>0$ is independent of the primes and $X$.
+If $0<b<1/2$, $\kappa+b>1$, and arbitrarily large primes $P$
+satisfy $F(P)>2P^{-b}$, then arbitrarily large $P$ satisfy
+\begin{equation}
+ B(2P)\ge c_\kappa P^{2-\kappa-b}/\log^2P.
+ \label{eq:prime-index-bad-count}
+\end{equation}
+The same conclusion with $G$ in place of $B$ follows from
+arbitrarily large $P$ with $F(P)<-2P^{-b}$.
+The thresholds may depend on $b$, $\kappa$ and their input bounds.
+\end{lemma}
+
+\begin{proof}
+Put $L=\log p$, $T=\theta(q)=\theta(p)-L$, and
+$h(t)=1/(t\log t)$. PNT ensures that the segment
+$[T,T+L]$ lies in $[p/2,2p]$ eventually, also when $\kappa=1$.
+On this segment,
+$|h'(t)|\ll1/(p^2\log p)$.
+Since $Lh(p)=1/p$, the exact increment
+\eqref{eq:theta-sign-Nicolas-increment} gives
+\[
+ \begin{split}
+ F(p)-F(q)
+ &=\int_T^{T+L}(h(t)-h(p))\,dt
+                           +\log(1-1/p)+1/p,\\
+ |F(p)-F(q)|
+ &\ll\frac{|\theta(p)-p|+\log p+1}{p^2}.
+ \end{split}
+\]
+This proves \eqref{eq:prime-index-jump-bound}.
+The cancellation of $1/p$ has been performed exactly;
+a bound on either uncancelled summand would lose that cancellation.
+
+Increase $C_\kappa$ if necessary and put
+\[
+ M_P=\left\lfloor
+       \frac{P^{2-\kappa-b}}{4C_\kappa\log^2P}
+      \right\rfloor .
+\]
+Because $0<2-\kappa-b<1$, this tends to infinity and is
+$o(P/\log P)$. PNT therefore supplies at least $M_P$
+successor primes between $P$ and $2P$.
+Telescoping the signed increment, followed by its proved
+local variation bound, changes $F$ by at most $P^{-b}/4$
+over these successors.
+A positive starting value $>2P^{-b}$ consequently remains
+$>P^{-b}>0$. Every one of these primes belongs to $\mathcal B$.
+For a negative starting value $<-2P^{-b}$, every successor
+satisfies $F(p)<-P^{-b}<-3p^{-3}$ eventually.
+Then $a_p\le F(p)+p^{-3}<-2p^{-3}$, so these primes
+belong to $\mathcal G$. Taking a fixed smaller positive
+multiple of the displayed expression for $M_P$ proves both bounds.
+\end{proof}
+
+\begin{theorem}[Exact size burden for the certified good class]
+\label{thm:certified-good-prime-size}
+The class $\mathcal G$ satisfies $F(p)<0$ on every member
+without assuming RH. Nevertheless its counting exponent alone
+does not retain the forbidden signal: unconditionally,
+\[
+        \limsup_{X\to\infty}
+           \frac{\log(1+G(X))}{\log X}=1.
+\]
+More precisely the complementary count has the dichotomy
+\begin{equation}
+ \limsup_{X\to\infty}\frac{\log(1+B(X))}{\log X}
+ =
+ \begin{cases}
+ 0,&\text{if RH holds},\\
+ 1,&\text{if RH fails}.
+ \end{cases}
+ \label{eq:certified-good-prime-dichotomy}
+\end{equation}
+In particular,
+\begin{equation}
+ \mathrm{RH}
+ \quad\Longleftrightarrow\quad
+ B(X)=O(X^{1-\delta})\text{ for some fixed }0<\delta<1 .
+ \label{eq:certified-good-prime-RH-size}
+\end{equation}
+The constant and eventual cutoff in this proposed size estimate
+must be independent of $X$. They are not supplied here.
+\end{theorem}
+
+\begin{proof}
+Under RH, \eqref{eq:nicolas-wave} and $\beta_0<2$ give
+$F(p)\le-c/(\sqrt p\log p)$ eventually for some fixed $c>0$.
+Thus $a_p\le-2p^{-3}$ eventually: $\mathcal B$ is finite,
+and $\mathcal G$ contains every sufficiently large prime.
+This proves the RH branches.
+
+Suppose RH is false. Fix a zero with real part $\beta>1/2$
+and an exponent $1-\beta<b<1/2$.
+Theorem~\ref{thm:power-excursions} supplies both signs of $F$
+with arbitrarily large multiples of $x^{-b}$.
+The function $F$ is constant between consecutive primes.
+PNT makes the last prime below $x$ asymptotic to $x$,
+so the two signs occur at arbitrarily large primes
+with the starting inequalities in
+Lemma~\ref{lem:prime-index-persistence}.
+
+Write $\Theta=\Theta_\zeta$ as in
+Lemma~\ref{lem:prime-error-zero-supremum}.
+If $\Theta<1$, fix $\Theta<\kappa<1$.
+The proof of that lemma gives
+$|\theta(x)-x|=O_\kappa(x^\kappa\log^2x)$.
+The condition $\kappa+b>1$ follows from $\kappa>\Theta\ge\beta$.
+The persistence lemma gives, for each sign along its own
+unbounded sequence, at least
+$c_\kappa P^{2-\kappa-b}/\log^2P$ primes in that class below $2P$.
+Let $\beta$ approach $\Theta$ from the actual zeros,
+$\kappa$ decrease to $\Theta$, and $b$ decrease to $1-\beta$.
+The counting exponents $2-\kappa-b$ approach $1$.
+No zero attaining $\Theta$ is assumed and no constant is
+claimed uniform in these limits.
+The elementary upper bound $G(X),B(X)\le X$ proves that
+both limsup exponents are exactly $1$.
+
+If $\Theta=1$, use $\kappa=1$ and the elementary PNT bound
+$|\theta(x)-x|=O(x)$ in the persistence lemma.
+Zeros with $\beta$ arbitrarily close to $1$ permit $b>1-\beta$
+arbitrarily close to zero, giving exponents $1-b$ tending to $1$.
+This proves the remaining case and the dichotomy.
+A bound in \eqref{eq:certified-good-prime-RH-size}
+would give a complementary limsup exponent at most $1-\delta$,
+contradicting the false-RH branch.
+The converse follows from finiteness of $\mathcal B$ under RH.
+\end{proof}
+
+This construction meets the first reverse-selection obligation
+literally: its selected primes already satisfy the inequality.
+It also proves the retention threshold for that same class:
+omitting only a power-saving number of primes would force an
+off-line zero's persistent positive signal to hit $\mathcal G$,
+which is impossible by \eqref{eq:certified-good-prime-inequality}.
+Merely proving that $\mathcal G$ has exponent $1$ is insufficient,
+since both classes have exponent $1$ under false RH.
+
+The attempted direct size argument from theta-sign monotonicity
+has a precise unresolved edge. Its exact input is
+\[
+ F(p)=F(3)+
+ \sum_{\substack{5\le r\le p\\r\ {\rm prime}}}
+ \left\{\int_{\theta(r)-\log r}^{\theta(r)}
+                \frac{dt}{t\log t}+\log(1-1/r)\right\}.
+\]
+The theta sign controls an individual increment as proved above,
+whereas membership of $\mathcal B$ depends on this entire signed
+prefix sum. Thus no bound on the number of increments of either
+sign supplies a bound on $B(X)$. The jump estimate proves
+persistence and the required burden; it does not supply the
+independent upper count in
+\eqref{eq:certified-good-prime-RH-size}.
+That upper bound remains unproved. These are full ordinary proofs,
+not new Lean-checked declarations or a claimed originality priority.
+The certified zero-free boundary remains $7/8$.
+
 \subsection{Nested Fermat carriers and a joint Fibonacci profile}
 \label{sec:fermat-fibonacci-joint}
 
