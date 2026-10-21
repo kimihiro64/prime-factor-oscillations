@@ -8917,6 +8917,718 @@ require a separately proved holomorphic function with
 nonnegative Dirichlet coefficients; no such input is supplied
 by compression alone.
 
+\subsection{A reverse construction with capped prime capacities}
+\label{sec:reverse-prime-capacity}
+
+We now prescribe a favorable analytic model first and ask whether
+actual primes can supply it. The construction separates an exact
+normalization identity from the independent size estimate needed
+to exclude zeros. All prime powers and overlaps between congruence
+classes remain in the identity.
+
+We use the following positive-series principle. Let $a_n\ge0$,
+let $\sum_{n\ge1}a_n n^{-c}<\infty$, and suppose its sum to the
+right of $c$ agrees with a real-analytic function on
+$(\alpha,\infty)$. Then
+\begin{equation}
+ \sum_{n\ge1}a_n n^{-\sigma}<\infty
+ \qquad(\sigma>\alpha).
+ \label{eq:positive-dirichlet-continuation-core}
+\end{equation}
+Indeed put $w_n=a_n n^{-c}$ and $x_n=\log n$. The finite positive
+atomic measure $\sum_n w_n\delta_n$ has exponential transform
+$\sum_n w_n e^{t x_n}$. Its analytic continuation to $t<c-\alpha$
+forces exponential integrability there by the positive-measure
+Landau frontier theorem. Taking $t=c-\sigma$ proves the claim.
+This argument has now been compiled in
+\texttt{PositiveDirichletContinuation.lean},
+including the atomic measure identities and the final theorem
+\texttt{summable\_}\allowbreak
+\texttt{positiveDirichlet\_of\_}\allowbreak
+\texttt{analyticContinuation}.
+The five declarations use only the standard Lean axioms.
+The Euler-product adapters and the reverse construction below
+have ordinary proofs here; they are not yet Lean declarations.
+
+\begin{lemma}[A positive continuous model with a prescribed pole]
+\label{lem:continuous-prime-model}
+For $x>1$, define the positive measure
+\[
+ d\nu(x)=
+ \frac{1}{x\log x}
+ \sum_{r\ge1}\frac{(\log x)^r}{r!\,\zeta(r+1)}\,dx.
+\]
+Its density is at most $1/\log x$, is bounded near $1$, and its
+full Euler transform is
+\begin{equation}
+ M(s):=\exp\left(\int_1^\infty
+                     -\log(1-x^{-s})\,d\nu(x)\right)
+       =\frac{s}{s-1}\qquad(\Re s>1).
+ \label{eq:continuous-prime-model}
+\end{equation}
+Thus its continuation is zero-free on $\Re s>0$, with one simple
+pole at $1$. The logarithm on the initial half-plane is the full
+series $\sum_{m\ge1}x^{-ms}/m$.
+\end{lemma}
+
+\begin{proof}
+Since $\zeta(r+1)>1$, the density is bounded above by
+$(1-x^{-1})/\log x$, which has a finite limit at $1$.
+For real $s>1$, substitute $x=e^t$ and use Tonelli:
+\[
+ P_0(s):=\int_1^\infty x^{-s}\,d\nu(x)
+       =\sum_{r\ge1}\frac{1}{r\,\zeta(r+1)s^r}.
+\]
+Another nonnegative interchange gives
+\begin{align*}
+ \log M(s)&=\sum_{m\ge1}\frac{P_0(ms)}m\\
+ &=\sum_{r\ge1}\frac{1}{r s^r\zeta(r+1)}
+                      \sum_{m\ge1}m^{-r-1}\\
+ &=\sum_{r\ge1}\frac{1}{r s^r}
+ =\log\frac{s}{s-1}.
+\end{align*}
+The same sums and integrals converge absolutely and normally on
+$\Re s>1$, so the identity holds there for complex $s$ as well.
+The rational expression gives the stated continuation.
+No assertion about the zeros of $\zeta$ was used.
+\end{proof}
+
+Fix a nonempty finite set $\mathcal Q$ of positive integer moduli.
+Write $R=|\mathcal Q|$, $d_q=\varphi(q)$, and
+\begin{equation}
+ \mathcal Z_{\mathcal Q}(s)
+   =\prod_{q\in\mathcal Q}\prod_{\chi\bmod q}L(s,\chi),
+ \qquad
+ A(p)=\sum_{\substack{q\in\mathcal Q\\p\equiv1\pmod q}}d_q.
+ \label{eq:reverse-reference-capacity}
+\end{equation}
+These are fixed moduli throughout; no conductor-uniform assertion
+is implicit. For $p\nmid q$, let $f_q(p)$ be its multiplicative
+order modulo $q$. The local factor of the product over characters is
+\begin{equation}
+ \prod_{\chi\bmod q}(1-\chi(p)p^{-s})^{-1}
+   =(1-p^{-f_q(p)s})^{-d_q/f_q(p)}.
+ \label{eq:full-character-local-factor}
+\end{equation}
+For $p\mid q$ it is $1$. In particular,
+\begin{equation}
+ \mathcal Z_{\mathcal Q}(s)=
+       \prod_p(1-p^{-s})^{-A(p)}\,U_{\mathcal Q}(s),
+ \label{eq:split-nonsplit-factorization}
+\end{equation}
+where $U_{\mathcal Q}$ retains every nonsplit local factor, with
+$f_q(p)\ge2$. It is an absolutely convergent holomorphic unit on
+$\Re s>1/2$. The order and the exponent are integers since
+$f_q(p)\mid d_q$. Formula \eqref{eq:full-character-local-factor}
+follows by multiplying over the characters of the finite unit group.
+It includes the trivial groups for $q=1,2$. Overlapping split classes
+contribute their summed capacity $A(p)$ exactly once.
+
+The usual continuations of the Dirichlet $L$-functions show that
+$\mathcal Z_{\mathcal Q}$ has a pole of order $R$ at $1$.
+Every zero $\rho$ of $\zeta$ with $\Re\rho>1/2$ is a zero of this
+reference of multiplicity at least $R\,m_\zeta(\rho)$:
+each principal factor is $\zeta(s)\prod_{p\mid q}(1-p^{-s})$,
+the finite product is a unit on $\Re s>0$, and all other factors
+are holomorphic there. Additional nonprincipal zeros may increase
+the multiplicity; they cannot cancel it.
+
+Choose $0<\theta<1$. For $j\ge1$ put
+\[
+ u_j=2^j,\quad L_j=2^{\lfloor\theta j\rfloor},\quad
+ B_j=2^{j-\lfloor\theta j\rfloor},\quad
+ \tau=\max(\theta,1-\theta).
+\]
+Partition $[u_j,2u_j)$ into its $B_j$ half-open intervals $I$ of
+integer length $L_j$, and denote their integer left endpoints by
+$t_I$. Define the target, available capacity, and deficit by
+\begin{equation}
+ \begin{aligned}
+ H_I&=\lceil R\nu(I)\rceil,&
+ C_I&=\sum_{\substack{p\in I\\p\ {\rm prime}}}A(p),\\
+ \delta_I&=(H_I-C_I)_+,&
+ \Delta_j&=\sum_{I\subset[u_j,2u_j)}\delta_I.
+ \end{aligned}
+ \label{eq:reverse-capacity-deficit}
+\end{equation}
+All these sums are over the stated finite sets. Choose integer
+weights on the actual primes of each interval satisfying
+\begin{equation}
+ 0\le v_p\le A(p),\qquad
+ \sum_{\substack{p\in I\\p\ {\rm prime}}}v_p
+          =\min(H_I,C_I)=H_I-\delta_I.
+ \label{eq:capped-prime-selection}
+\end{equation}
+They exist by filling the finite integer capacities in any fixed
+order until the target is met or all capacities are exhausted.
+This finite existence and exact-deficit assertion is compiled as
+\texttt{exists\_capped\_selection} in
+\texttt{CapacitySelection.lean}.
+This constructs a set $Q=\{p:v_p>0\}$ without assuming that every
+interval contains a prime. At fixed total weight, using larger
+capacities first minimizes the number of selected primes in that
+interval. The zero-capacity primes are never selected.
+
+\begin{theorem}[Reverse model and retained-zero criterion]
+\label{thm:reverse-prime-capacity}
+For the construction above, set initially on $\Re s>1$
+\[
+ F(s)=\prod_p(1-p^{-s})^{-v_p},\qquad
+ D(s)=\sum_{j\ge1}\ \sum_{I\subset[u_j,2u_j)}
+                  \delta_I[-\log(1-t_I^{-s})].
+\]
+There is a holomorphic $G$ on $\Re s>\tau$, defined independently
+of any zero-free hypothesis, such that
+\begin{equation}
+             F(s)e^{D(s)}=M(s)^R e^{G(s)}
+                    \qquad(\Re s>1).
+ \label{eq:reverse-completed-model}
+\end{equation}
+Consequently the completed model has a zero-free meromorphic
+continuation to $\Re s>\tau$, with a pole of order $R$ at $1$.
+
+If $\tau\le\eta<1$ and, independently,
+\begin{equation}
+ \forall\epsilon>0\quad
+       \Delta_j\ll_\epsilon 2^{j(\eta+\epsilon)}
+                    \qquad(j\ge1),
+ \label{eq:reverse-capacity-estimate}
+\end{equation}
+then every $L(s,\chi)$ for $\chi\bmod q$, $q\in\mathcal Q$,
+and $\zeta(s)$ have no zeros on $\Re s>\eta$.
+In particular, with $\theta=1/2$, a deficit bound of exponent
+$3/4$ gives the requested boundary $3/4$, and exponent $1/2$
+would imply RH as well as the corresponding assertions for
+the included Dirichlet $L$-functions.
+
+More quantitatively, put
+\[
+ \gamma=\limsup_{j\to\infty}
+              \frac{\log(1+\Delta_j)}{j\log2}\in[0,1].
+\]
+Every zero $\rho$ of the reference with $\Re\rho>\tau$ satisfies
+\begin{equation}
+                         \Re\rho\le\gamma.
+ \label{eq:deficit-zero-readout}
+\end{equation}
+Thus a hypothetical off-line zero has an unconditional nonzero
+response in the capacity deficits. No estimate such as
+\eqref{eq:reverse-capacity-estimate} is assumed in this last readout.
+\end{theorem}
+
+\begin{proof}
+Write $f_s(x)=-\log(1-x^{-s})$, with its full power series.
+The initial Euler products and logarithms converge absolutely on
+$\Re s>1$, since
+\[
+ \sum_{I\subset[u,2u)}H_I
+ \le R\nu([u,2u))+B_j\le R u/\log2+B_j\ll_R u.
+\]
+In particular this controls both $\sum v_p$ and $\Delta_j$.
+
+The exact identity $\sum_{p\in I}v_p+\delta_I=H_I$ gives
+\begin{equation}
+ \log F(s)+D(s)-R\log M(s)=G_{\rm init}(s)+\sum_{j\ge1}G_j(s),
+ \label{eq:reverse-exact-signed-log}
+\end{equation}
+where the initial interval, which is not part of the dyadic partition,
+is retained explicitly:
+\[
+ G_{\rm init}(s)=-R\int_1^2 f_s(x)\,d\nu(x).
+\]
+The complete dyadic summand is
+\begin{align*}
+ G_j(s)={}&
+ \sum_{I\subset[u,2u)}(H_I-R\nu(I))f_s(t_I)\\
+ &+R\sum_{I\subset[u,2u)}
+                  \int_I[f_s(t_I)-f_s(x)]\,d\nu(x)\\
+ &+\sum_{I\subset[u,2u)}
+             \sum_{\substack{p\in I\\p\ {\rm prime}}}
+                    v_p[f_s(p)-f_s(t_I)] .
+\end{align*}
+This is an exact signed mass cancellation. In particular the
+deficit term has not been discarded or included in an error norm.
+
+For $\sigma=\Re s>0$ and $x\ge u$,
+\[
+ |f_s(x)|\le\frac{x^{-\sigma}}{1-x^{-\sigma}},\qquad
+ f_s'(x)=\frac{-s x^{-s-1}}{1-x^{-s}},\qquad
+ |f_s'(x)|\le\frac{|s|x^{-\sigma-1}}{1-x^{-\sigma}}.
+\]
+The rounding mass in each interval is less than $1$.
+Moreover $L_j\le u^\theta$, $B_j\le2u^{1-\theta}$,
+$\nu([u,2u))\le u/\log2$, and $B_j\le u$.
+After the displayed mass cancellation, these inequalities give
+the explicit remainder bound
+\begin{equation}
+ |G_j(s)|\le
+ \frac{2u^{1-\theta-\sigma}
+            +(1+2R/\log2)|s|u^{\theta-\sigma}}
+      {1-u^{-\sigma}}.
+ \label{eq:reverse-local-transport-bound}
+\end{equation}
+The first term is rounding; the other two transports together
+have mass at most $(1+2R/\log2)u$ and displacement at most $L_j$.
+The bound is summable, uniformly on compact subsets of
+$\Re s>\tau$. The initial integral is holomorphic on $\Re s>0$:
+its density is bounded near $1$, and on every closed subhalf-plane
+$|f_s(x)|\le-\log(1-x^{-\sigma_0})$, an integrable logarithmic
+singularity at $1$. This proves normal convergence of $G$ and
+\eqref{eq:reverse-completed-model}. It also gives linear height
+growth for the local error on each closed subhalf-plane.
+The rational function $M^R$ has exactly the asserted pole and
+no zeros on this domain.
+
+Now suppose \eqref{eq:reverse-capacity-estimate}. If $\sigma>\eta$,
+choose $\epsilon<\sigma-\eta$. Since $t_I\ge2^j$, the full deficit
+logarithm is absolutely normally convergent on $\Re s>\eta$:
+on closed subhalf-planes it is majorized by
+\[
+ \sum_{j\ge1}\frac{\Delta_j\,2^{-j\sigma}}{1-2^{-j\sigma}}<\infty.
+\]
+Thus $e^D$ is a holomorphic unit there and the continuation
+\[
+                       F=M^R e^{G-D}
+\]
+is zero-free with pole order $R$ at $1$.
+
+The cap $v_p\le A(p)$ now supplies the independent positivity
+input. On the initial half-plane the full quotient
+\begin{equation}
+ B(s):=\frac{\mathcal Z_{\mathcal Q}(s)}{F(s)}
+ =\prod_p(1-p^{-s})^{-(A(p)-v_p)}\,U_{\mathcal Q}(s)
+ =\sum_{n\ge1}b_n n^{-s}
+ \label{eq:positive-capped-quotient}
+\end{equation}
+has nonnegative integer coefficients and $b_1=1$.
+All nonsplit prime powers and every overlap multiplicity are
+still present. The meromorphic continuations of the numerator
+and $F$ make $B$ holomorphic on $\Re s>\eta$:
+$F$ has no zeros, and their equal pole orders cancel at $1$.
+The positive-series principle above therefore forces actual
+convergence of $\sum b_n n^{-\sigma}$ for every $\sigma>\eta$.
+
+For completeness, this convergence gives a unit, not just a
+positive value on the real axis. Every finite subproduct of the
+positive Euler factors in \eqref{eq:positive-capped-quotient}
+is bounded by $\sum b_n n^{-\sigma}$ for real $\sigma>\eta$.
+Its nonnegative logarithm is therefore uniformly bounded.
+Increasing the finite set of factors proves convergence of the
+full logarithmic Euler sum at $\sigma$, and hence absolute normal
+convergence at every complex point to its right. Varying $\sigma$
+shows that $B$ is a holomorphic unit on $\Re s>\eta$.
+Thus $\mathcal Z_{\mathcal Q}=FB$ has no zeros there.
+Since none of its factors has a pole away from $1$, each factor
+is zero-free there as well, including every principal factor
+and hence $\zeta$. No RH-dependent recovery theorem is used.
+
+Finally $\Delta_j\ll_R2^j$, so $0\le\gamma\le1$.
+If a reference zero had $\Re\rho>\max(\tau,\gamma)$, choose
+$\max(\tau,\gamma)<\eta<\Re\rho<1$. The definition of the
+limsup implies \eqref{eq:reverse-capacity-estimate}, contradicting
+the result just proved. The standard zero-free line $\Re s=1$
+handles the endpoint if necessary. This proves
+\eqref{eq:deficit-zero-readout}.
+\end{proof}
+
+\paragraph{The size requirement is an Euler-capacity requirement.}
+Under \eqref{eq:reverse-capacity-estimate}, positivity of the
+prime coefficients in \eqref{eq:positive-capped-quotient} also gives
+\begin{equation}
+ \begin{gathered}
+ \sum_p(A(p)-v_p)p^{-\sigma}<\infty\quad(\sigma>\eta),\\
+ \sum_{p\le X}(A(p)-v_p)\le
+       X^\sigma\sum_p(A(p)-v_p)p^{-\sigma}.
+ \end{gathered}
+ \label{eq:capacity-retention-size}
+\end{equation}
+In particular the number of eligible but unselected primes is
+$O_\sigma(X^\sigma)$. For $\eta<\sigma<1$, the fixed-modulus
+prime number theorem in progressions implies that $Q$ retains
+relative density $1$ within the union of the eligible split
+classes. With $\mathcal Q=\{1\}$ this means almost all primes;
+with $\mathcal Q=\{q\}$ the ambient class is $p\equiv1\pmod q$,
+whose primes have capacity $\varphi(q)$. Taking a large fixed
+$q$ can make this class a small positive proportion of all
+primes, but does not give a zero-density carrier.
+Growing moduli would require new uniform estimates.
+The lighter carriers of the preceding subsections use a different
+weight budget and cannot inherit the positive quotient by assumption.
+
+For $\sigma>1$ the selected weights also give an honest probability
+law:
+\[
+ a_v(p^r)=\binom{v_p+r-1}{r}\quad(v_p>0),\qquad
+ \mathbb P_\sigma(n)=\frac{a_v(n)n^{-\sigma}}{F(\sigma)}.
+\]
+Here $a_v$ is multiplicative and is zero on positive powers of
+unselected primes. The quotient has its analogous positive
+Dirichlet law. These are explicitly weighted integer laws, not an
+unstated extension of a uniform prime-clock theorem. Their
+positive-measure structure is exactly what the continuation
+argument consumes.
+
+\paragraph{Exact joint compensation between congruence classes.}
+The advantage of combining moduli can be stated without discarding
+signs. In one fixed interval $I$, let
+\[
+ \begin{gathered}
+ h_I=\lceil\nu(I)\rceil,\qquad a_{q,I}=h_I-C_{q,I},\\
+ C_{q,I}=d_q\,\#\{p\in I:p\ {\rm prime},\ p\equiv1\pmod q\}.
+ \end{gathered}
+\]
+These last quantities are signed integers. Set
+\[
+ \begin{gathered}
+ P_I=\sum_{q\in\mathcal Q}(a_{q,I})_+,\qquad
+ N_I=\sum_{q\in\mathcal Q}(-a_{q,I})_+,\\
+ r_I=R h_I-\lceil R\nu(I)\rceil\in\{0,\ldots,R-1\}.
+ \end{gathered}
+\]
+Then the combined deficit obeys the exact identity
+\begin{equation}
+ \delta_I=(P_I-N_I-r_I)_+
+         =P_I-\min(P_I,N_I+r_I).
+ \label{eq:exact-joint-capacity-compensation}
+\end{equation}
+Indeed $\sum_q a_{q,I}=P_I-N_I$ and
+$H_I-\sum_q C_{q,I}=\sum_q a_{q,I}-r_I$.
+Thus capacity surplus from one split class cancels another
+class's deficit in the same interval, including the precise
+rounding correction. Overlaps are already counted correctly
+in $C_I=\sum_q C_{q,I}$. This identity identifies an actual
+joint saving; it is not an estimate for its size.
+For an exponent improvement one must prove the full retained sum
+\begin{equation}
+ \sum_{I\subset[2^j,2^{j+1})}
+       \bigl[P_I-\min(P_I,N_I+r_I)\bigr]
+       \ll_\epsilon 2^{j(\eta+\epsilon)}.
+ \label{eq:joint-capacity-analytic-target}
+\end{equation}
+A centered variance, a finite sample, or the existing $7/8$
+boundary does not establish this inequality at a smaller $\eta$.
+
+The reverse theorem supplies a sufficient arithmetic criterion,
+not an equivalence between RH and these fine-interval deficit
+bounds. RH alone has not been shown to imply their asserted
+size, and including nonprincipal characters adds their own
+zero-free requirements. Unconditionally the construction only
+gives $\Delta_j\ll_R2^j$. The certified boundary remains $7/8$.
+The new conclusion is the exact model, its noncancelling
+zero readout, and the explicit capped-capacity estimate that
+would change that boundary. No literature priority is asserted
+for this construction.
+
+
+\subsection{Capped moment transport and longer prime intervals}
+\label{sec:capped-moment-transport}
+
+Higher moment accuracy changes the interval scale in the reverse
+construction. The following selection theorem supplies the missing
+finite feasibility statement while preserving nonnegative weights
+and the Euler-capacity cap. Its deficit is controlled by an explicit
+one-sided interval discrepancy, rather than by an unsigned moment
+matrix norm.
+
+\begin{theorem}[Capped moment selection with positive defects]
+\label{thm:capped-positive-moment-selection}
+Let $I=[a,b]$ with $a<b$, let $\mu$ be a finite positive measure on
+$I$ of mass $H$, and let
+\[
+ \alpha=\sum_{i\in S}A_i\delta_{x_i},\qquad
+ x_i\in I,\quad A_i\ge0,
+\]
+where $S$ is finite. Repeated locations are allowed and their
+capacities add. For an integer $k\ge1$ define
+\begin{equation}
+ d_I=\sup_{J\subseteq I}
+                 \bigl(\mu(J)-\alpha(J)\bigr)_+,\qquad
+ m_k=\lceil k/2\rceil.
+ \label{eq:moment-one-sided-interval-deficit}
+\end{equation}
+Here $J$ ranges over all subintervals, with every choice of included
+or excluded endpoints, and includes the empty interval.
+
+There exist $0\le v_i\le A_i$ and a positive measure $\lambda$ on
+$I$, supported on at most $k$ points, such that
+\begin{equation}
+ \begin{gathered}
+ \sum_{i\in S}v_i x_i^r+\int_I x^r\,d\lambda(x)
+      =\int_I x^r\,d\mu(x)\quad(0\le r<k),\\
+ 0\le\lambda(I)\le\min(H,m_k d_I).
+ \end{gathered}
+ \label{eq:capped-moment-defect}
+\end{equation}
+Thus the actual selected mass is at least $H-m_kd_I$.
+If every capacity is at most $A_*>0$, its selected support has
+cardinality at least $(H-m_kd_I)_+/A_*$.
+
+Moreover the smallest possible defect mass $\delta_*$ satisfies
+the exact finite-dimensional dual identity
+\begin{equation}
+ \delta_*=
+ \sup_{\substack{P\in\mathbb R[x],\ \deg P<k\\
+                         P(x)\le1\ (x\in I)}}
+       \left(\int_I P\,d\mu
+                    -\sum_{i\in S}A_i(P(x_i))_+\right).
+ \label{eq:capped-moment-dual}
+\end{equation}
+The zero polynomial is allowed, so the supremum is nonnegative.
+\end{theorem}
+
+\begin{proof}
+The case $H=0$ follows by taking all weights and $\lambda$ zero.
+Write $z(x)=(1,x,\ldots,x^{k-1})\in\mathbb R^k$ and
+$c=\int_I z\,d\mu$.
+For $\delta\ge0$ the compact convex set
+\[
+ K_\delta=
+ \left\{\sum_{i\in S}v_i z(x_i):0\le v_i\le A_i\right\}
+       +\delta\,\operatorname{conv}(\{0\}\cup z(I))
+\]
+is exactly the set of moments obtainable with these capacities
+and a positive defect measure of mass at most $\delta$.
+Indeed a convex combination gives such a measure immediately.
+Conversely the normalized moment vector of any positive measure
+lies in the closed convex hull of the compact moment curve;
+a separating linear functional would otherwise contradict its
+own pointwise upper bound after integration. In finite dimensions
+this hull is compact, so finite convex combinations suffice.
+
+Suppose $c\notin K_\delta$. Strict separation of a point from a
+compact convex set gives a polynomial $P$ of degree less than $k$
+with
+\begin{equation}
+ \int_I P\,d\mu>
+       \sum_{i\in S}A_i(P(x_i))_+
+                  +\delta\max(0,\max_{x\in I}P(x)).
+ \label{eq:capped-moment-separation}
+\end{equation}
+The maximum on the right is positive: otherwise $P\le0$ on $I$,
+the left side is nonpositive, and the right side is zero.
+Divide by this maximum. We obtain a polynomial $Q\le1$ on $I$
+such that
+\begin{equation}
+ \int_I Q\,d\mu-\sum_i A_i(Q(x_i))_+>\delta.
+ \label{eq:capped-moment-normalized-separation}
+\end{equation}
+
+For $0<t<1$, the relative open set $\{x\in I:Q(x)>t\}$ is a union
+of at most $m_k$ intervals. To verify the count, a polynomial of
+degree $d$ has at most $d$ distinct real roots unless it is
+identically zero; the greatest possible number of positive
+components on a compact interval is $\lfloor d/2\rfloor+1$.
+Between successive positive components, either two sign-changing
+roots or an even-multiplicity root are required; counting
+multiplicities proves this bound. Here $d\le k-1$, which gives
+$m_k=\lceil k/2\rceil$.
+Endpoint conventions are covered by the definition of $d_I$.
+The constant and identically-zero cases have at most one
+component. Layer-cake integration now gives
+\begin{align*}
+ \int_I Q\,d\mu-\sum_i A_i(Q(x_i))_+
+ &\le \int_I Q_+\,d(\mu-\alpha)\\
+ &=\int_0^1
+       [\mu(\{Q>t\})-\alpha(\{Q>t\})]\,dt
+ \le m_k d_I .
+\end{align*}
+Take $\delta=m_kd_I$. This contradicts
+\eqref{eq:capped-moment-normalized-separation}, so $c\in K_\delta$.
+Also $c\in K_H$ by taking no actual atoms and the original
+measure as defect. This proves the claimed bound with
+$\min(H,m_kd_I)$.
+
+A representation of the defect moments can be reduced to at most
+$k$ atoms: whenever more than $k$ positive weights occur, their
+vectors $z(x)$ are linearly dependent. Move the weights along a
+nonzero dependence until one first reaches zero, choosing the
+direction that decreases some weight. The first coordinate
+preserves their total mass, and all coordinates preserve the
+moments. Repeat finitely. This proves the support assertion.
+The support lower bound for the actual atoms follows from the
+zeroth moment and $v_i\le A_*$.
+
+For the dual identity, any feasible choice with defect mass
+$\delta$ and any polynomial $P\le1$ on $I$ obey
+\[
+ \int_I P\,d\mu-\sum_i A_i(P(x_i))_+
+ =\sum_i[v_iP(x_i)-A_i(P(x_i))_+]+\int_I P\,d\lambda
+ \le\delta.
+\]
+This proves that the dual supremum is at most $\delta_*$.
+A feasible optimum exists: restrict to defect mass at most $H$;
+the capped atom box and the compact truncated moment hull are
+compact, and the zeroth moment expresses the defect mass
+continuously as $H-\sum_i v_i$.
+For any $0\le\delta<\delta_*$, strict separation gives the
+normalized polynomial in
+\eqref{eq:capped-moment-normalized-separation}, so the supremum
+is greater than $\delta$. Letting $\delta$ increase to $\delta_*$
+proves equality. If $\delta_*=0$, the zero polynomial and the
+already proved upper inequality give the same conclusion.
+\end{proof}
+
+Apply this theorem in each half-open dyadic cell of the previous
+construction, using its closed hull for the compact moment
+problem. Take
+\[
+ \mu_I=R\,\nu|_I,\qquad
+ \alpha_I=\sum_{\substack{p\in I\\p\ {\rm prime}}}A(p)\delta_p .
+\]
+Actual prime atoms remain assigned to exactly one half-open cell.
+Only the synthetic defect measures may share an endpoint; their
+masses add in the transform. There is no rounding:
+$H_I=R\nu(I)$ is now real, and the selected weights may be real.
+For $u=2^j$ and $L_j=2^{\lfloor\theta j\rfloor}$ define
+\begin{equation}
+ \mathcal D_{j,k,\theta}
+       =\sum_{I\subset[u,2u)} d_I,\qquad
+ \widetilde\Delta_j
+       =\sum_{I\subset[u,2u)}\lambda_I(I)
+       \le m_k\mathcal D_{j,k,\theta}.
+ \label{eq:moment-total-defect}
+\end{equation}
+Choose one of the feasible moment selections in every cell.
+This defines the actual prime set and its capped weights
+independently of a zero-free hypothesis.
+
+\begin{theorem}[Moment accuracy extends the admissible interval length]
+\label{thm:long-interval-reverse-capacity}
+For the preceding construction and any fixed $k\ge1$, put
+\[
+ \tau_k=\max\bigl(1/2,\ 1-k(1-\theta)\bigr).
+\]
+If $\tau_k\le\eta<1$ and
+\begin{equation}
+ \forall\epsilon>0\qquad
+       \mathcal D_{j,k,\theta}
+             \ll_\epsilon 2^{j(\eta+\epsilon)}\quad(j\ge1),
+ \label{eq:long-interval-capacity-target}
+\end{equation}
+then $\zeta$ and every included Dirichlet $L$-function have
+no zeros on $\Re s>\eta$.
+In particular, choosing
+\begin{equation}
+                   \theta=1-\frac{1}{2k}
+ \label{eq:moment-optimal-cell-length}
+\end{equation}
+keeps $\tau_k=1/2$ while allowing intervals of length
+$X^{1-1/(2k)}$.
+The sufficient arithmetic exponent remains $3/4$ for boundary
+$3/4$, or $1/2$ for RH; the intervals on which it must be
+proved are longer as $k$ increases.
+
+Unconditionally, a reference zero with $\beta=\Re\rho>\tau_k$
+forces
+\begin{equation}
+ \limsup_{j\to\infty}
+ \frac{\log(1+\mathcal D_{j,k,\theta})}{j\log2}\ge\beta.
+ \label{eq:long-interval-zero-readout}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Use all the full Euler factors, now setting
+\[
+ \widetilde D(s)=\sum_{j\ge1}\ \sum_{I\subset[u,2u)}
+                           \int_I f_s(x)\,d\lambda_I(x).
+\]
+Initial absolute convergence on $\Re s>1$ follows because
+the combined mass of actual and synthetic atoms in a block
+is exactly $R\nu([u,2u))\ll_Ru$.
+The complete identity is
+\[
+ \log F(s)+\widetilde D(s)-R\log M(s)
+       =-R\int_1^2 f_s(x)\,d\nu(x)+\sum_{j\ge1}\widetilde G_j(s).
+\]
+For each cell, the degree less than $k$ Taylor polynomial of
+$f_s$ at its left endpoint cancels exactly by
+\eqref{eq:capped-moment-defect}.
+For $x\ge u$ and $\sigma=\Re s>0$, the full-series derivative
+bound from the earlier moment compression proof is
+\[
+ |f_s^{(k)}(x)|\le
+ (k-1)!\prod_{r=0}^{k-1}(|s|+r)\,
+       \frac{x^{-\sigma-k}}{(1-x^{-\sigma})^k}.
+\]
+It also follows directly by differentiating
+$\sum_{m\ge1}x^{-ms}/m$: use
+$|(ms)(ms+1)\cdots(ms+k-1)|
+ \le m^k\prod_{r<k}(|s|+r)$ and
+$\sum_{m\ge1}m^{k-1}z^m\le(k-1)!z/(1-z)^k$.
+
+The two compared positive measures in a cell both have mass
+$H_I$, so Taylor's remainder, after the exact moment cancellation,
+gives
+\begin{equation}
+ |\widetilde G_j(s)|\le
+ \frac{2R}{k\log2}\prod_{r=0}^{k-1}(|s|+r)\,
+ \frac{u^{\,1-k(1-\theta)-\sigma}}{(1-u^{-\sigma})^k}.
+ \label{eq:capped-high-moment-error}
+\end{equation}
+This is normally summable when
+$\sigma>\max(0,1-k(1-\theta))$.
+The initial integral has already been proved holomorphic
+on $\Re s>0$. Thus the completed model is zero-free there,
+apart from its prescribed pole, with polynomial height
+cost of degree $k$. Both $k$ and the moduli are fixed.
+
+By \eqref{eq:moment-total-defect} and
+\eqref{eq:long-interval-capacity-target}, the synthetic
+logarithm converges normally on $\Re s>\eta$, with majorant
+\[
+ \sum_{j\ge1}\frac{\widetilde\Delta_j\,2^{-j\sigma}}
+                           {1-2^{-j\sigma}}.
+\]
+It follows that $F=M^R\exp(\widetilde G-\widetilde D)$
+is zero-free there, with the exact same pole order $R$.
+Although the $v_p$ are now real, the quotient is still positive:
+for every real $a\ge0$,
+\[
+ (1-z)^{-a}=\sum_{r\ge0}
+      \frac{a(a+1)\cdots(a+r-1)}{r!}\,z^r,\qquad |z|<1,
+\]
+where the constant coefficient is $1$.
+Thus $a=A(p)-v_p\ge0$ gives nonnegative real Dirichlet
+coefficients in the full quotient
+$\mathcal Z_{\mathcal Q}/F$.
+The compiled positive-series core explicitly allows real
+coefficients, so the same positive continuation and
+Euler-logarithm argument from
+Theorem~\ref{thm:reverse-prime-capacity} makes that quotient a unit
+on $\Re s>\eta$. The zero-free conclusion follows.
+
+Finally $d_I\le H_I$, so
+$\mathcal D_{j,k,\theta}\le R\nu([u,2u))\ll_Ru$.
+If its displayed limsup were smaller than a reference
+zero's real part $\beta>\tau_k$, choose $\eta$ strictly between
+their maximum and $\beta$. The resulting power bound would
+contradict the zero-free conclusion. This proves the
+unconditional readout.
+\end{proof}
+
+This is a quantitative use of higher accuracy: $k=1,2,3,4$
+permit cell-length exponents $1/2,3/4,5/6,7/8$, respectively,
+with the same RH-side analytic threshold.
+The new arithmetic quantity is a sum of maximal
+\emph{one-sided subinterval capacity deficits}; it is not
+automatically controlled by the deficit of each whole cell.
+The capped moment theorem proves the transfer to that quantity,
+including its factor $m_k$, and its dual identity preserves the
+positive and negative contributions before layer-cake comparison.
+It does not prove the required power bound for primes.
+In particular, longer intervals, finite numerical diagnostics,
+or a larger character portfolio alone do not certify an exponent
+gain. The global certified boundary is still $7/8$.
+
+The two theorems in this subsection have full ordinary proofs.
+Finite moment compression and positive Dirichlet continuation
+have compiled providers, but the compact separation argument,
+real-capacity moment selection and analytic consumers above
+have not yet been formalized in Lean. No such formalization
+or literature priority is claimed.
+
+
 \subsection{Nested Fermat carriers and a joint Fibonacci profile}
 \label{sec:fermat-fibonacci-joint}
 
