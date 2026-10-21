@@ -13718,6 +13718,26 @@ sets give either an unmatched positive term or a strict
 inequality on at least one matched rank.
 \end{proof}
 
+The entire statement of Theorem~\ref{thm:capped-prime-rank-extremum}
+is now formalized, including its local cap hypothesis
+$2\le t\le x$, arbitrary decreasing weights, and the strict
+equality criterion. Its complete certificate is
+\[
+ \texttt{greedyPrimeClass\_\allowbreak local\_\allowbreak rank\_\allowbreak complete}.
+\]
+The rank of a prime in a class is the number of class primes
+strictly below it. The direct comparison at any specified
+ordinal rank is checked by
+\[
+ \texttt{greedyPrimeClass\_\allowbreak local\_\allowbreak rank\_\allowbreak at}.
+\]
+The formal proof truncates only the competitor, so the
+greedy class remains fixed at every cutoff.
+The weighted comparison retains the exact signed prefix
+ledger; equality with a positive strictly decreasing weight
+forces all prefix count surpluses to vanish and hence the
+two finite prime sets to coincide.
+
 \begin{theorem}[Stochastic and coefficient extremality]
 \label{thm:capped-prime-probability-extremum}
 Let $\eta(p)\in[0,1]$ be nonincreasing on primes.
@@ -13815,11 +13835,14 @@ in \path{Proof/PrimeClassDeletion/BernoulliDominance.lean},
 exported by the prime-deletion assembly.
 In particular \texttt{List.bernoulliTail\_mono\_padded}
 retains the full coordinate interval and all ranks.
-The greedy rank theorem, its prime-class consumers and
-the signed record-energy calculation above have full ordinary
-proofs here; their combination is not claimed to be a separately
-compiled Lean declaration. No established originality priority
-or new zero-free boundary is asserted.
+The full rank and weighted extremality theorem is now Lean-checked
+as identified above. The actual prime-class stochastic consumers,
+their increasing-test expectations, moment and coefficient consequences,
+the affine odds specializations and rank shifts, and the infinite
+missing-product comparison remain separate formalization obligations.
+The signed record-energy calculation also retains its ordinary-proof
+status. No established originality priority or new zero-free boundary
+is asserted.
 
 \subsection{How a prime-counting wave becomes a persistent deletion signal}
 \label{sec:greedy-prime-wave-envelope}

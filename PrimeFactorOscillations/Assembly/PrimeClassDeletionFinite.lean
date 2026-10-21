@@ -7,6 +7,7 @@ import PrimeFactorOscillations.Helpers.PrimeClassDecoderIntegerProbes
 import PrimeFactorOscillations.Helpers.PrimeClassSparseDeletion
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.BernoulliDominance
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.CapacitySelectionFinite
+import PrimeFactorOscillations.Proof.PrimeClassDeletion.CappedPrimeWeights
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.PolynomialPrimeNorming
 
 /-!
