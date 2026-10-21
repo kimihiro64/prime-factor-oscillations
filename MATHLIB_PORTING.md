@@ -9,6 +9,7 @@ namespace.
 
 | Module | Proposed destination | Readiness | Scope |
 | --- | --- | --- | --- |
+| `PrimeFactorOscillations.Mathlib.Combinatorics.IntegerBlockGrouping` | `Mathlib/Combinatorics/IntegerBlockGrouping.lean` | project-verified | Terminal rank grouping with positive cap, exact mass and prefix sums, and the full integer signed discrepancy in [1-h,0], including the shorter final group and empty blocks. |
 | `PrimeFactorOscillations.Mathlib.Combinatorics.IntegerMomentCompression` | `Mathlib/Combinatorics/IntegerMomentCompression.lean` | project-verified | Positive integer moment representatives with injective subset signatures and the exact bound 2^support.card <= product(total coordinate moment + 1); empty domains allowed. |
 | `PrimeFactorOscillations.Mathlib.Probability.All` | `Mathlib/Probability/All.lean` | project-verified | Import-only grouping preserving the existing probability candidate exports. |
 

@@ -1,5 +1,6 @@
 import PrimeFactorOscillations.Mathlib.Algebra.All
 import PrimeFactorOscillations.Mathlib.Analysis.All
+import PrimeFactorOscillations.Mathlib.Combinatorics.IntegerBlockGrouping
 import PrimeFactorOscillations.Mathlib.Combinatorics.IntegerMomentCompression
 import PrimeFactorOscillations.Mathlib.Data.All
 import PrimeFactorOscillations.Mathlib.NumberTheory.All

@@ -8322,6 +8322,251 @@ ordinary proofs; those analytic conclusions are not claimed
 as compiled Lean declarations.
 The certified $7/8$ zero-free boundary is unchanged.
 
+\subsection{Controlled weights and a square-root prime carrier}
+\label{sec:controlled-prime-carrier}
+
+The preceding construction minimizes support aggressively, but
+its large integer weights encode many moments. A different
+choice gives a prescribed small weight cap and an explicit
+height bound. It can simultaneously avoid every prime in a
+fixed safely deletable class.
+
+\begin{theorem}[A weight-controlled carrier at the RH threshold]
+\label{thm:controlled-prime-carrier}
+Let $S$ be a fixed prime set with
+$\pi_S(X)\ll_\epsilon X^{1/2+\epsilon}$ for every $\epsilon>0$,
+and put $C=\mathcal P\setminus S$.
+There are a fixed set $Q\subseteq C$ and positive integer
+weights $w_p\le\sqrt p$, $p\in Q$, such that, for
+$J=\lfloor\log_2X\rfloor$,
+\[
+ \pi_Q(X)\le6\sqrt X+\frac{J(J+1)}2\qquad(X\ge2).
+\]
+The prime number theorem sharpens the order to
+$\pi_Q(X)\asymp\sqrt X/\log X$ as $X\to\infty$.
+For every fixed Dirichlet character $\chi$, the product
+\[
+ L_Q(s,\chi)=\prod_{p\in Q}(1-\chi(p)p^{-s})^{-w_p}
+ \qquad(\Re s>1)
+\]
+has a meromorphic continuation to $\Re s>1/2$ of the form
+\[
+ L_Q(s,\chi)=L(s,\chi)H_{S,\chi}(s)\exp G_\chi(s),
+ \qquad
+ H_{S,\chi}(s)=\prod_{p\in S}(1-\chi(p)p^{-s}),
+\]
+where both multipliers are holomorphic and nowhere zero
+there. Thus every zero and multiplicity in that half-plane
+is preserved, as is the principal pole at $1$.
+In particular, RH is equivalent to
+$L_Q(s,\boldsymbol1)\ne0$ for $\Re s>1/2$, $s\ne1$.
+The same $Q$ and weights work for all fixed characters.
+For every fixed modulus $q$ and $\sigma_0>1/2$,
+\[
+ |G_\chi(s)|\le B_{q,\sigma_0}
+                  +A_{\sigma_0}|s|
+ \quad(\Re s\ge\sigma_0,\ \chi\bmod q),
+\]
+with constants specified in the proof.
+There is no uncharged uniformity in a growing modulus.
+\end{theorem}
+
+\begin{proof}
+For $j\ge1$ let $C_j=C\cap[2^j,2^{j+1})$ and $N_j=|C_j|$.
+Let $k_j$ be the largest integer $k\le j$ with $k!\le j$,
+and set $M_j=k_j!$. Then $1\le M_j\le j$, and
+$q\mid M_j$ whenever $j\ge q!$.
+Set $h_j=2^{\lfloor j/2\rfloor}$.
+Within each residue class modulo $M_j$, list the elements
+of $C_j$ in increasing order and divide this list into
+successive groups of length $h_j$, allowing a shorter last
+group. Retain the largest prime of each nonempty group and
+give it weight equal to the group length.
+
+Writing $K_j=|Q\cap C_j|$, this gives the exact identities
+and bounds
+\[
+ \sum_{\substack{p\in Q\cap C_j\\p\equiv a\ ({\rm mod}\ M_j)}}w_p
+   =\#\{p\in C_j:p\equiv a\ ({\rm mod}\ M_j)\},\qquad
+ \frac{N_j}{h_j}\le K_j\le\frac{N_j}{h_j}+M_j.
+\]
+All weights are positive integers at most $h_j\le\sqrt p$.
+In particular,
+\[
+ \pi_Q(X)\le
+ \sum_{j=1}^J2^{\lceil j/2\rceil}+\sum_{j=1}^Jj
+ \le6\sqrt X+\frac{J(J+1)}2.
+\]
+For the first sum, pair $j=2r-1,2r$; the possible final
+unpaired term is also covered by the constant $6$.
+The deletion hypothesis implies $\pi_S(X)=o(X/\log X)$.
+Consequently the prime number theorem gives
+$N_j\asymp2^j/j$. The displayed two bounds on $K_j$, followed
+by a geometric sum for the upper bound and the last complete
+block for the lower bound, prove the sharper order for
+$\pi_Q(X)$. Its comparison constants and starting point
+are eventual; no numerical starting point is asserted.
+
+Here is the signed cancellation preserving the full Euler
+factors. For $u=2^j$, $u\le x\le2u$, and $0\le a<M_j$, put
+\[
+ E_{j,a}(x)=
+ \sum_{\substack{p\in C_j,\ p\le x\\p\equiv a\ ({\rm mod}\ M_j)}}
+       \bigl(w_p\mathbf1_Q(p)-1\bigr),
+\]
+where $w_p\mathbf1_Q(p)$ means zero off $Q$.
+A completed group contributes zero. Inside an unfinished
+group there are fewer than $h_j$ omitted primes.
+The shorter final group also has total contribution zero.
+Hence, including both endpoints,
+\[
+ -(h_j-1)\le E_{j,a}(x)\le0,\qquad E_{j,a}(2u)=0.
+\]
+For $|c|\le1$ and $\Re s>0$, retain the entire Euler function
+\[
+ f_{s,c}(x)=-\log(1-cx^{-s})
+   =\sum_{\ell\ge1}\frac{c^\ell x^{-\ell s}}{\ell},
+ \qquad
+ f'_{s,c}(x)=-\frac{scx^{-s-1}}{1-cx^{-s}}.
+\]
+No prime powers have been discarded.
+If $j\ge q!$, the character has a constant value $c_a$ on
+each of these residue classes. Finite Abel summation gives
+the exact coupled identity
+\[
+ D_{j,\chi}(s):=
+ \sum_{p\in C_j}(w_p\mathbf1_Q(p)-1)f_{s,\chi(p)}(p)
+ =-\sum_{a=0}^{M_j-1}\int_u^{2u}E_{j,a}(x)f'_{s,c_a}(x)\,dx.
+\]
+The endpoint term vanishes because each class has exactly
+matched total mass. Only after this cancellation do we
+estimate the retained derivative integral. For
+$\sigma=\Re s>1/2$,
+\[
+ |D_{j,\chi}(s)|
+ \le
+ \frac{M_j(h_j-1)|s|\,2^{-j\sigma}(1-2^{-\sigma})}
+      {\sigma(1-2^{-j\sigma})}.
+\]
+In particular, for $\sigma\ge\sigma_0>1/2$, put
+$\rho=2^{-(\sigma_0-1/2)}<1$ and
+$C_{\sigma_0}=1/[\sigma_0(1-2^{-\sigma_0})]$.
+For every $R\ge q!$ this yields the explicit tail
+\[
+ \left|\sum_{j\ge R}D_{j,\chi}(s)\right|
+ \le C_{\sigma_0}|s|\rho^R
+       \left(\frac{R}{1-\rho}
+                      +\frac{\rho}{(1-\rho)^2}\right).
+\]
+This proves normal convergence on $\Re s>1/2$ of
+$G_\chi(s)=\sum_{j\ge1}D_{j,\chi}(s)$; the finitely many
+blocks $j<q!$ are individually holomorphic on $\Re s>0$.
+For the stated height bound one may take
+\[
+ B_{q,\sigma_0}=
+ 2\sum_{1\le j<q!}
+       \frac{2^{j(1-\sigma_0)}}{1-2^{-j\sigma_0}},
+ \qquad
+ A_{\sigma_0}=
+ C_{\sigma_0}\frac{\rho}{(1-\rho)^2}.
+\]
+Indeed, the absolute coefficient mass in an initial block
+is at most $2N_j$, and
+$|f_{s,c}(p)|\le p^{-\sigma_0}/(1-p^{-\sigma_0})$.
+These are explicit constants, although the dependence on
+$q!$ is too large to ignore in a growing-conductor application.
+
+Exact mass preservation gives
+$\sum_{p\in Q\cap C_j}w_p=N_j\le2^j$.
+Thus the weighted Euler product converges absolutely on
+$\Re s>1$. In that domain the full logarithms satisfy
+\[
+ \log L_Q(s,\chi)
+ =\sum_{p\in C}f_{s,\chi(p)}(p)+G_\chi(s).
+\]
+The deletion hypothesis makes $H_{S,\chi}$ a holomorphic
+unit on $\Re s>1/2$, by the same absolute-convergence proof
+as Theorem~\ref{thm:critical-prime-deletion}.
+Its power-series logarithm also satisfies, uniformly in $\chi$
+and $\Re s\ge\sigma_0>1/2$,
+\[
+ |\log H_{S,\chi}(s)|
+ \le B_{S,\sigma_0}:=
+       \sum_{p\in S}\frac{p^{-\sigma_0}}{1-p^{-\sigma_0}}<\infty.
+\]
+Thus this deleted-prime factor has also been charged in the
+full multiplier bound; its constant depends on $S$ and
+$\sigma_0$.
+Exponentiating proves the factorization and continuation.
+The multiplier being a unit, all stated zeros, multiplicities
+and poles are preserved. The ordinary RH criterion follows
+by taking the character modulo $1$.
+\end{proof}
+
+\paragraph{What the weight cap costs.}
+The estimate $K_j\ge N_j/h_j$ is necessary for
+\emph{any} nonnegative weight vector with weight cap $h_j$
+and the same zeroth block moment: $N_j=\sum w_p\le h_jK_j$.
+The construction is therefore within $M_j\le j$ support
+points of the minimum permitted by this mass constraint.
+This is an optimality statement for that specified constraint,
+not a lower bound on the support of every possible RH detector.
+
+The full signed identity also gives an untwisted real-axis
+comparison. When $\chi=\boldsymbol1$ and $s=\sigma>1/2$ is
+real, $E_{j,a}\le0$ and $f'_{\sigma,1}\le0$ show
+$D_{j,\boldsymbol1}(\sigma)\le0$, so
+$G_{\boldsymbol1}(\sigma)\le0$.
+On $\sigma>1$, the weighted product is at most the Euler
+product on $C$. This sign is not a zero-excluding inequality
+at complex $s$.
+
+More generally, the same construction with any integer
+caps $h_j\ge1$ has the exact same signed identity. It works
+on every half-plane where
+$\sum_j jh_j2^{-j\sigma}$ converges, together with the
+continuation domain of the deleted-prime multiplier.
+For example, $h_j=(j+1)^r$, with fixed integer $r\ge1$
+and $S=\varnothing$, gives weights bounded by
+$(1+\log_2p)^r$, support
+$\pi_Q(X)\asymp X/(\log X)^{r+1}$, and preservation of all
+Dirichlet zeros on $\Re s>0$.
+For every fixed $\sigma_0>0$ its compensator again has
+a bound $B_{q,r,\sigma_0}+A_{r,\sigma_0}|s|$.
+Thus the price of support reduction can be chosen explicitly:
+polylogarithmic weights permit logarithmic thinning while
+retaining the entire open positive half-plane; square-root
+weights permit a square-root prime count while retaining
+the open RH half-plane.
+
+The positive negative-binomial probability law from the
+preceding subsection applies to these integer weights as
+well. It is still a weighted sampling law.
+The finite rank-clock step is compiled in
+\path{PrimeFactorOscillations/Mathlib/Combinatorics/IntegerBlockGrouping.lean}.
+For $n\ge0$, $h\ge1$, define
+\[
+ P_{n,h}(m)=
+ \begin{cases}h\lfloor m/h\rfloor,&m<n,\\n,&m\ge n,\end{cases}
+ \qquad v_i=P_{n,h}(i+1)-P_{n,h}(i).
+\]
+The verified statements give $0\le v_i\le h$,
+$\sum_{i<n}v_i=n$, and, for every $0\le m\le n$,
+\[
+ -(h-1)\le \sum_{i<m}v_i-m\le0.
+\]
+The signed declaration is
+\texttt{Nat.groupedPrefix\_signed\_balance}; the exact mass
+declaration is \texttt{Nat.groupedTerminalWeight\_total}.
+The final shorter group is included in both statements.
+
+The ordinary proof here does not establish a bound on its
+signed inverse coefficients or improve the certified
+$7/8$ boundary. The analytic Abel-summation and normal-convergence
+steps are not yet formalized in Lean.
+This controlled-weight construction is stated with its proof;
+no established novelty priority is claimed.
+
 \subsection{Nested Fermat carriers and a joint Fibonacci profile}
 \label{sec:fermat-fibonacci-joint}
 
