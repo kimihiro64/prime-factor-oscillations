@@ -7800,6 +7800,289 @@ The purpose of this construction is
 their common-index realization alongside the Fibonacci golden-root
 clock and the exact preservation of the marked profile.
 
+\subsection{All Fermat prime factors: a uniform logarithmic tail}
+\label{sec:all-fermat-factors}
+
+The preceding construction selected one factor $R_j$ at each Fermat
+label. We now retain \emph{every distinct physical prime factor}.
+For $T_j=2^{2^j}+1$ define
+\[
+ m_j=\omega(T_j),\qquad W_t=\sum_{0\le j<t}m_j,\qquad
+ \mathcal U_k=\bigcup_{0\le j<k}\operatorname{PF}(T_j),
+\]
+where $\operatorname{PF}$ is the finite set of distinct prime
+factors. The supported count is
+\[
+ C_k^{\rm all}(n)
+ =\#\{r\in\mathcal U_k:r\mid2^n-1\}\qquad(n\ge0).
+\]
+At $n=0$ this count is $W_k$; it is not defined using
+$\operatorname{PF}(0)$.
+
+\begin{theorem}[The full weighted Fermat law]
+\label{thm:full-fermat-law}
+The supports $\operatorname{PF}(T_j)$ are pairwise disjoint,
+$m_j\ge1$, and, for every $j,t\ge0$,
+\[
+ (j+1)m_j\le2^j,\qquad
+ W_t<2^t,\qquad
+ (t+1)W_t\le3\cdot2^t.
+\]
+Every index has the exact count
+\[
+ C_k^{\rm all}(n)=
+ \sum_{j<k}m_j\boldsymbol{1}_{2^{j+1}\mid n}.
+\]
+Uniform sampling over $0\le n<2^k$ gives the distribution
+\[
+ \mathbb P(C_k^{\rm all}=W_t)=2^{-t-1}\quad(0\le t<k),
+ \qquad
+ \mathbb P(C_k^{\rm all}=W_k)=2^{-k},
+\]
+and hence
+\[
+ Q_k(z)=\mathbb E z^{C_k^{\rm all}}
+       =\frac12\sum_{t<k}\frac{z^{W_t}}{2^t}
+          +\frac{z^{W_k}}{2^k}.
+\]
+No independence among the factors inside one Fermat number
+is used.
+\end{theorem}
+
+\begin{proof}
+A shared prime factor at two distinct labels would have two
+different orders by Theorem~\ref{thm:fermat-dyadic-clock}.
+The supports are therefore disjoint, and each is nonempty.
+
+For a prime factor $r$ of $T_j$, the order $2^{j+1}$ is at most
+the size $r$ of $\mathbb Z/r\mathbb Z$. Equality is impossible:
+$r>2$ is an odd prime, whereas $2^{j+1}$ is even.
+Thus $r\ge2^{j+1}+1$.
+The product of the distinct prime factors divides $T_j$, so
+\[
+ 2^{(j+1)m_j}
+ <\prod_{r\in\operatorname{PF}(T_j)}r
+ \le T_j=2^{2^j}+1.
+\]
+All quantities are integers. Therefore
+$2^{(j+1)m_j}\le2^{2^j}$ and $(j+1)m_j\le2^j$.
+
+For general natural weights satisfying this last inequality,
+induction in $t$ gives the slightly stronger first bound
+$W_t+1\le2^t$: use $m_t\le2^t$ and
+$W_{t+1}=W_t+m_t$.
+The second bound has the immediate bases $t=0,1$.
+For its induction step with $t\ge1$,
+\[
+ (t+1)W_{t+1}
+ =(t+1)(W_t+m_t)\le4\cdot2^t.
+\]
+Consequently
+\[
+ (t+2)W_{t+1}
+ \le4\frac{t+2}{t+1}\,2^t
+ \le6\cdot2^t=3\cdot2^{t+1},
+\]
+where $t\ge1$ gives $(t+2)/(t+1)\le3/2$.
+
+Every factor in the $j$th block divides $2^n-1$ exactly when
+$2^{j+1}\mid n$. Disjointness allows the full supported count
+to be summed block by block, proving its identity.
+For a nonzero residue with $2$-adic valuation $t<k$ the count
+is $W_t$; the zero residue has count $W_k$.
+The same dyadic residue counts as before prove the distribution.
+The levels are distinct because all $m_j$ are positive.
+The generating formula follows, including $k=0$.
+\end{proof}
+
+For positive indices the finite count stabilizes as $k$ grows.
+Define the full observable, with an explicitly finite ambient set,
+by
+\[
+ C^{\rm all}(n)=
+ \#\{r\in\operatorname{PF}(2^n-1):
+       r\mid T_j\text{ for some }j\ge0\}
+ =W_{v_2(n)}\qquad(n\ge1).
+\]
+This is the component of the Mersenne-value prime factors whose
+base-two order is $2^a$ for some $a\ge1$. Indeed, in the odd
+prime field the half-order power then has order two, so it is
+$-1$; the prime therefore divides $T_{a-1}$. The converse is
+the proved Fermat order test. The observable is finite even
+though all Fermat labels are allowed.
+
+\begin{theorem}[A tail bound uniform in sample size and cutoff]
+\label{thm:full-fermat-tail}
+For every real $x\ge1$, every integer $N\ge1$, and every
+cutoff $k\ge0$,
+\begin{align*}
+ \frac1N\#\{1\le n\le N:C_k^{\rm all}(n)\ge x\}
+ &\le \frac{3}{x(1+\log_2 x)},\\
+ \frac1N\#\{1\le n\le N:C^{\rm all}(n)\ge x\}
+ &\le \frac{3}{x(1+\log_2 x)}.
+\end{align*}
+The same bound holds for the complete-period laws and their
+limiting weighted geometric law.
+For every $0<\theta<1$, all these laws have the uniform
+fractional-moment bound
+\[
+ \mathbb E C^\theta
+ \le\frac{1}{2(1-2^{\theta-1})}.
+\]
+With $H_0=0$ and $H_a=\sum_{j=1}^a1/j$ for $a\ge1$,
+their truncated means satisfy
+\[
+ \mathbb E_{\rm period} C_k^{\rm all}
+   =\sum_{j<k}\frac{m_j}{2^{j+1}}\le\frac12 H_k.
+\]
+For $L=\lfloor\log_2 N\rfloor$, positive-interval sampling has
+the stronger cutoff-dependent bound
+\[
+ \frac1N\sum_{n=1}^N C_k^{\rm all}(n)
+ \le\frac12 H_{\min(k,L)},\qquad
+ \frac1N\sum_{n=1}^N C^{\rm all}(n)
+ \le\frac12 H_L.
+\]
+Thus the full positive-interval mean is $O(\log\log N)$.
+\end{theorem}
+
+\begin{proof}
+Since $W_t\ge t$ and $W_0=0$, for each $x\ge1$ there is a
+least $t=t(x)\ge1$ with $W_t\ge x$.
+If $k<t$, the truncated threshold event is empty.
+If $k\ge t$, the nested clock gives the exact equivalence
+\[
+ C_k^{\rm all}(n)\ge x
+ \quad\Longleftrightarrow\quad2^t\mid n.
+\]
+The full observable has the same equivalence for every positive
+$n$. Hence the positive-interval probability is exactly
+$\lfloor N/2^t\rfloor/N$, at most $2^{-t}$.
+There is no added period-remainder error, and no restriction
+on how $k$ may grow with $N$.
+
+The compiled cumulative inequalities give
+\[
+ x(t+1)\le W_t(t+1)\le3\cdot2^t,\qquad x\le W_t<2^t.
+\]
+In particular $\log_2 x<t$ and all denominators below are
+positive. Therefore
+\[
+ \frac{\lfloor N/2^t\rfloor}{N}
+ \le2^{-t}\le\frac{3}{x(t+1)}
+ \le\frac{3}{x(1+\log_2 x)}.
+\]
+For the reference random variable $T$ with
+$\mathbb P(T=s)=2^{-s-1}$, the limiting count is $W_T$ and
+its threshold probability is exactly $2^{-t}$.
+The complete-period law is $W_{\min(T,k)}$, so it obeys
+the same upper bound.
+
+For $U_N$ uniform on $1,\ldots,N$,
+\[
+ \mathbb P(v_2(U_N)\ge t)
+ =\frac{\lfloor N/2^t\rfloor}{N}\le2^{-t}
+ =\mathbb P(T\ge t).
+\]
+Thus $v_2(U_N)$ is stochastically dominated by $T$.
+The cumulative weights are increasing, and truncation can
+only decrease them. Every indicated fractional moment is
+therefore at most that of $W_T$.
+Since $W_s<2^s$,
+\[
+ \mathbb E W_T^\theta
+ \le\frac12\sum_{s\ge0}2^{-(1-\theta)s}
+ =\frac{1}{2(1-2^{\theta-1})}.
+\]
+
+Finally, linearity applied to the exact block indicators gives
+the complete-period mean. The arithmetic bound
+$m_j/2^{j+1}\le1/(2(j+1))$ proves its harmonic upper bound.
+On $1,\ldots,N$, the $j$th indicator has probability
+$\lfloor N/2^{j+1}\rfloor/N\le2^{-j-1}$ and is zero when
+$j+1>L$. Summing only these active rows proves both interval
+mean inequalities. No independent-factor approximation enters
+any of these bounds.
+\end{proof}
+
+The theorem does not assert that the infinite reference mean
+$\sum_{j\ge0}m_j2^{-j-1}$ is finite. Its finite partial sums
+have the proved harmonic envelope; fractional moments below
+one are uniformly finite without that extra assertion.
+
+\paragraph{The infinite PGF records factor complexity.}
+For $|z|\le1$ put
+\[
+ Q(z)=\sum_{t\ge0}2^{-t-1}z^{W_t}.
+\]
+The sum is absolutely convergent, and the finite reference
+laws satisfy the explicit uniform estimate
+\[
+ \sup_{|z|\le1}|Q_k(z)-Q(z)|\le2^{1-k}.
+\]
+Indeed, the terminal atom of $Q_k$ and the omitted tail of
+$Q$ each have total mass $2^{-k}$.
+
+More generally, let
+$\alpha=\limsup_{t\to\infty}W_t/t\in[1,\infty]$.
+The radius of convergence of $Q$ is exactly
+\[
+ R_Q=2^{1/\alpha}\in[1,2],
+ \qquad 1/\infty=0.
+\]
+Because the $W_t$ are strictly increasing, its nonzero Taylor
+coefficients are precisely $a_{W_t}=2^{-t-1}$.
+The Cauchy--Hadamard formula consequently gives
+\[
+ R_Q^{-1}
+ =\limsup_{t\to\infty}2^{-(t+1)/W_t}
+ =2^{-1/\alpha}.
+\]
+Thus the one-carrier pole at $2$ cannot simply be transferred
+to the full factor count. Its analytic radius measures the
+average growth of the actual Fermat factor counts.
+No value of $\alpha$ beyond the stated range is assumed.
+
+\paragraph{The Fibonacci connection is retained.}
+For a finite odd-prime support $S$ and a common scalar sampled
+modulo $2^kM_S$, the same CRT argument gives
+\[
+ \mathbb E\!\left[
+ z^{C_k^{\rm all}(n)}
+ \prod_{\ell\in S}w_\ell^{\boldsymbol{1}_{P_\ell\mid F_n}}\right]
+ =Q_k(z)\prod_{\ell\in S}(1+(w_\ell-1)/\ell).
+\]
+The whole weighted dyadic block depends on the first CRT
+coordinate, and the Fibonacci vector on the second; this is
+the complete independence argument. With the Fibonacci
+compensation alone, the limits on $|z|\le1$ are therefore
+$\mathcal F_{\mathrm{odd}}(z)Q(z)$.
+Adding independent noise to a mod-Poisson limit is classical
+\cite[Example~2.2]{KN}; here the noise and its tail have an
+explicit arithmetic realization. A neighborhood outside the
+unit disc requires the actual radius condition above.
+These sampling and factor-count results supply no new
+independent estimate for the earlier zeta-zero exclusion bound.
+
+\paragraph{Formalization scope.}
+The maintained candidate modules
+\begin{quote}\footnotesize\ttfamily
+Mathlib/NumberTheory/Primes/FermatFactorCount.lean\\
+Mathlib/Probability/Distributions/WeightedDyadic.lean\\
+Mathlib/NumberTheory/Primes/FermatAllFactorProbability.lean\\
+Mathlib/Probability/Distributions/WeightedDyadicBound.lean
+\end{quote}
+check twenty-one declarations. They prove the physical
+prime-factor lower and cardinal bounds, disjointness, the
+arbitrary-weight generating law, its actual full-factor
+transport, and both cumulative weight estimates.
+Every axiom audit contains only standard foundational axioms.
+The threshold/floor consumer, logarithmic tail, fractional
+moments, interval means, infinite PGF and radius statements,
+and the final weighted CRT specialization are the complete
+ordinary proofs above, without a separate Lean compilation
+claim for those combined analytic conclusions.
+
 
 \subsection{Rational residue-class laws: a stronger inverse theorem}
 
