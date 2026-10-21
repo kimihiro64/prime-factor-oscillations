@@ -18713,6 +18713,612 @@ accuracy with no extra prime input.
 Neither statement proves a new estimate on
 $\Theta_\zeta$; the certified zero-free boundary remains $7/8$.
 
+\subsection{Finite integer signs recover a thin prime class}
+\label{sec:finite-integer-prime-decoding}
+
+Exact profile zeros already identify prime labels in
+Theorem~\ref{thm:prime-denominator-profile-rigidity};
+Theorem~\ref{thm:prime-profile-stable-recovery} gives their
+separation. Those results do not bound the displacement caused
+by an empirical function error.
+We now control the entire error on a growing disc and preserve
+the signs at negative half-integers.
+The decoder will use integer arithmetic, without locating roots.
+The forward Bernoulli-product mechanism is classical; compare
+\cite[Proposition~3.1]{KN}.
+The finite arithmetic sign transfer, its quantitative range,
+and the decoding capacity below are the conclusions proved here;
+no established literature priority is claimed.
+
+Fix any set of primes $\mathcal P$, possibly finite or empty,
+for which
+\begin{equation}
+ 0<\sigma<1,\qquad
+ S_{\mathcal P,\sigma}=\sum_{p\in\mathcal P}p^{-\sigma}<\infty .
+ \label{eq:finite-decoding-summability}
+\end{equation}
+For positive integers $m$ use the actual divisor count
+$K_{\mathcal P}(m)=\#\{p\in\mathcal P:p\mid m\}$.
+This count is finite at every $m$.
+For integer $N\ge4$ put
+\begin{equation}
+ C_{N,k}=\#\{1\le m\le N:K_{\mathcal P}(m)=k\},
+       \qquad b_{N,k}=C_{N,k}/N .
+ \label{eq:finite-decoding-actual-counts}
+\end{equation}
+The prime class is fixed before sampling.
+The independent reference has success probabilities $1/p$ and
+the proper entire generating function
+\[
+ \begin{gathered}
+ P_{\mathcal P}(z)=\sum_{k\ge0}\beta_kz^k
+       =c_{\mathcal P}\prod_{p\in\mathcal P}(1+z/(p-1)),\\
+ c_{\mathcal P}=\prod_{p\in\mathcal P}(1-1/p)>0 .
+ \end{gathered}
+\]
+No asymptotic prime index or infinitude is assumed in this subsection.
+
+Fix positive rational numbers $h,c$ satisfying
+\begin{equation}
+ h\sigma<1,\qquad 0<c<(1-\sigma)/h .
+ \label{eq:finite-decoding-parameter-domain}
+\end{equation}
+All parameters are fixed before $N$ tends to infinity.
+Define the integer cutoffs and empirical polynomial by
+\begin{equation}
+ \begin{gathered}
+ U_N=\lfloor\log_2N\rfloor,\quad
+ V_N=\lfloor\log_2U_N\rfloor,\\
+ M_N=\left\lfloor cU_N/V_N\right\rfloor,\quad
+ R_N=\lfloor U_N^h\rfloor,\\
+ T_N(z)=\sum_{k=0}^{M_N}b_{N,k}z^k .
+ \end{gathered}
+ \label{eq:finite-decoding-polynomial}
+\end{equation}
+Here $U_N\ge2$, $V_N\ge1$ and $R_N\ge1$.
+The selector formula is valid for every positive rational $c$,
+as independently checked in
+Theorem~\ref{thm:adaptive-bin-almost-linear}.
+For $h=a/b>0$ with positive integers $a,b$,
+$R_N$ is the integer $b$th root of $U_N^a$.
+Consequently no comparison with an unspecified real cutoff is used.
+
+\begin{lemma}[Sampling on a growing complex disc]
+\label{lem:finite-decoding-complex-error}
+For every fixed
+\begin{equation}
+ 0<\eta<\min\{1-\sigma-hc,\ c(1/\sigma-h)\},
+ \label{eq:finite-decoding-error-exponent}
+\end{equation}
+one has
+\begin{equation}
+ \sup_{|z|\le2R_N}|T_N(z)-P_{\mathcal P}(z)|
+                      \ll_{\mathcal P,\sigma,h,c,\eta}N^{-\eta}.
+ \label{eq:finite-decoding-complex-error}
+\end{equation}
+The constant and eventual threshold are independent of $z$.
+This includes finite and empty $\mathcal P$.
+If $\sigma$ is rational, the choice $c=\sigma(1-\sigma)$
+balances the two displayed losses and permits every
+$\eta<(1-\sigma)(1-h\sigma)$.
+\end{lemma}
+
+\begin{proof}
+The proof of the full-component sampling budget
+\eqref{eq:thin-prime-profile-sampling-budget} uses only the
+summability in \eqref{eq:finite-decoding-summability}.
+Its exact signed inclusion--exclusion identity, followed by
+the rounding and tail bound
+\[
+ 0\le q^{-1}-N^{-1}\lfloor N/q\rfloor
+                 \le N^{\sigma-1}q^{-\sigma}\quad(q\ge1),
+\]
+therefore gives, without a rank restriction,
+\begin{equation}
+ \begin{gathered}
+ \sum_{k\ge0}|b_{N,k}-\beta_k|
+     \le B_{\mathcal P,\sigma}N^{\sigma-1},\\
+ B_{\mathcal P,\sigma}
+       =\prod_{p\in\mathcal P}\frac{1+p^{-\sigma}}{1-p^{-\sigma}}
+       <\infty .
+ \end{gathered}
+ \label{eq:finite-decoding-arithmetic-input}
+\end{equation}
+This argument also applies when the smooth state space or the
+prime set is finite. It sums the prime-power denominator and
+the squarefree numerator with no coprimality restriction;
+it does not invoke the more restrictive relative-rank conclusion.
+
+The coefficient proof of
+\eqref{eq:thin-prime-coefficient-bounds} likewise requires only
+this summability. In detail, with
+$A_\sigma=\sigma^{-1}S_{\mathcal P,\sigma}$,
+\[
+ \begin{gathered}
+ \log P_{\mathcal P}(r)\le A_\sigma r^\sigma\quad(r\ge1),\\
+ \beta_k\le\exp\{A_\sigma k-(k/\sigma)\log k\}\quad(k\ge2).
+ \end{gathered}
+\]
+The first inequality follows from
+$\log(1+y)\le y^\sigma/\sigma$.
+The second follows by bounding a nonnegative coefficient with
+$r^{-k}P_{\mathcal P}(r)$ and taking $r=k^{1/\sigma}$.
+No positive lower bound for high coefficients is required;
+they may be zero in a finite class.
+
+Write $M=M_N$ and $R=R_N$.
+Retain the complete signed error before bounding its two remainders:
+\begin{equation}
+ T_N(z)-P_{\mathcal P}(z)
+       =\sum_{k=0}^M(b_{N,k}-\beta_k)z^k
+                              -\sum_{k>M}\beta_kz^k .
+ \label{eq:finite-decoding-complete-error}
+\end{equation}
+On $|z|\le2R$, the first remainder is at most
+\[
+ B_{\mathcal P,\sigma}N^{\sigma-1}(2R)^M
+                  =N^{-(1-\sigma-hc)+o(1)} .
+\]
+This charges the full growing test $(2R)^M$.
+For the second, $M\to\infty$ and, eventually, $M+1\ge2$.
+Put
+\[
+ \begin{aligned}
+ a_N&=\sigma^{-1}\log(M+1)-\log(2R)-A_\sigma\\
+    &=(1/\sigma-h+o(1))\log\log N\longrightarrow\infty .
+ \end{aligned}
+\]
+For every $k>M$, the coefficient bound gives
+$\beta_k(2R)^k\le e^{-a_Nk}$.
+Consequently
+\[
+ \sum_{k>M}\beta_k(2R)^k
+       \le\frac{e^{-a_N(M+1)}}{1-e^{-a_N}}
+       =N^{-c(1/\sigma-h)+o(1)} .
+\]
+Here $M\sim c\log N/\log\log N$ and
+$\log R=(h+o(1))\log\log N$, by the integer selector formulas.
+Both exponents are positive by the parameter domain.
+Their sum proves \eqref{eq:finite-decoding-complex-error}
+for every stated strict $\eta$.
+Finally substituting $c=\sigma(1-\sigma)$ makes both
+exponents $(1-\sigma)(1-h\sigma)$.
+\end{proof}
+
+\begin{theorem}[Exact prime labels from finite integer sign tests]
+\label{thm:finite-integer-prime-decoding}
+Use \eqref{eq:finite-decoding-summability}--%
+\eqref{eq:finite-decoding-polynomial}.
+For every integer $0\le n\le R_N$ compute the integer
+\begin{equation}
+ I_{N,n}=\sum_{k=0}^{M_N}(-1)^k C_{N,k}
+                       (2n+1)^k2^{M_N-k}.
+ \label{eq:finite-decoding-integer-probe}
+\end{equation}
+For all sufficiently large integer $N$, every such integer
+is nonzero and, simultaneously for all those $n$,
+\begin{equation}
+ \operatorname{sgn}I_{N,n}
+                 =(-1)^{N_{\mathcal P}(n+1)} .
+ \label{eq:finite-decoding-sign-parity}
+\end{equation}
+In particular the completely finite decoder
+\begin{equation}
+ \begin{aligned}
+ \widehat{\mathcal P}_{N;h,c}
+  &=\{n+1:1\le n\le R_N,\ I_{N,n-1}I_{N,n}<0\}\\
+  &=\mathcal P\cap\{2,\ldots,R_N+1\}.
+ \end{aligned}
+ \label{eq:finite-decoding-exact-class}
+\end{equation}
+is eventually exact.
+It also gives every prefix count through $R_N+1$ by summing
+the indicated sign changes.
+Given $N,h,c$ and the $M_N+1$ integer counts, it uses no
+additional class-membership or primality queries.
+There are $O(R_NM_N)$ integer arithmetic operations, on integers
+of $O_{h,c}(\log N)$ bits.
+The cost of obtaining the input counts is not included.
+\end{theorem}
+
+\begin{proof}
+We give an independent lower bound for the magnitude of the
+signed model at the actual evaluation points.
+For any integer $R\ge1$ and $0\le n\le R$, put
+$w_n=-n-1/2$ and $S=S_{\mathcal P,\sigma}$.
+Every numerator $p-1+w_n$ is a nonzero half-integer, so its
+absolute value is at least $1/2$.
+For $p\le4R+2$ this gives
+\[
+ |1+w_n/(p-1)|\ge1/(20R),\qquad
+ N_{\mathcal P}(4R+2)\le6^\sigma SR^\sigma .
+\]
+For $p>4R+2$, $|w_n|/(p-1)<1/2$.
+Using $\log(1-u)\ge-2u$ for $0\le u\le1/2$ gives
+\[
+ \sum_{\substack{p\in\mathcal P\\p>4R+2}}
+       \log|1+w_n/(p-1)|
+       \ge-8SR^\sigma .
+\]
+Indeed $|w_n|\le2R$, $(p-1)^{-1}\le2/p$, and the
+tail over this same prime class satisfies
+\[
+ \sum_{\substack{p\in\mathcal P\\p>4R+2}}p^{-1}
+                        \le(4R+2)^{\sigma-1}S .
+\]
+The convergent product therefore satisfies, uniformly in $n$,
+\begin{equation}
+ |P_{\mathcal P}(w_n)|
+       \ge c_{\mathcal P}
+          (20R)^{-6^\sigma SR^\sigma}e^{-8SR^\sigma}.
+ \label{eq:finite-decoding-independent-supply}
+\end{equation}
+Every normalization factor, including $c_{\mathcal P}$, is retained.
+
+There are exactly $N_{\mathcal P}(n+1)$ negative factors:
+\[
+ 1+w_n/(p-1)<0\quad\Longleftrightarrow\quad p\le n+1 .
+\]
+The late tail is a convergent product of positive factors,
+with positive limit by the same logarithmic estimate.
+Hence
+$\operatorname{sgn}P_{\mathcal P}(w_n)=(-1)^{N_{\mathcal P}(n+1)}$.
+
+Now take $R=R_N$.
+Since $h\sigma<1$,
+$R_N^\sigma\log(2R_N)=o(\log N)$.
+Thus the independent lower bound in
+\eqref{eq:finite-decoding-independent-supply} is $N^{-o(1)}$,
+uniformly at all evaluation points.
+Lemma~\ref{lem:finite-decoding-complex-error} makes the
+arithmetic and truncation allowance $O(N^{-\eta})$ for a
+fixed $\eta>0$.
+It is eventually strictly smaller than that magnitude.
+Both quantities are real at $w_n$, so their signs agree:
+\[
+ \operatorname{sgn}T_N(w_n)
+                       =\operatorname{sgn}P_{\mathcal P}(w_n).
+\]
+This preserves the signed model signal rather than replacing
+it by an unsigned coefficient mass.
+The exact integer normalization is
+\begin{equation}
+             I_{N,n}=N2^{M_N}T_N(-n-1/2),
+                   \qquad N2^{M_N}>0 .
+ \label{eq:finite-decoding-exact-normalization}
+\end{equation}
+It proves nonvanishing and
+\eqref{eq:finite-decoding-sign-parity}.
+Subtracting the two adjacent prime counts gives the class
+criterion, because
+$N_{\mathcal P}(n+1)-N_{\mathcal P}(n)$ is one precisely
+when the integer $n+1$ belongs to $\mathcal P$, and is zero otherwise.
+
+At $n=0$ the sign is positive.
+The step $n=1$ detects $2$, and $n=2$ detects $3$, with no
+exceptional-prime deletion.
+All later composite labels produce no sign change.
+The same proof includes a finite class without knowing its
+last prime. For the empty class all probes are the positive
+integer $N2^{M_N}$, so the decoded set is empty even before
+the eventual range is reached.
+
+The algorithm is well defined for every $N\ge4$, even if a
+small-input probe vanishes: the strict integer inequality still
+defines a finite set.
+Its guarantee is eventual, with a threshold depending on the
+fixed class and parameters.
+Computability follows from the exact integer formula.
+Since $\sum_{k=0}^{M_N}C_{N,k}\le N$, one may bound
+all magnitudes and Horner intermediates by
+$N(4R_N+2)^{M_N}2^{M_N}$.
+Their bit lengths are $O_{h,c}(\log N)$.
+Horner evaluation at $R_N+1$ points uses $O(R_NM_N)$
+operations when $M_N\ge1$, as it is eventually.
+\end{proof}
+
+\subsection{Exact decoding capacity and an operational RH criterion}
+\label{sec:prime-decoding-capacity}
+
+The degree budget supplies a converse to the preceding analytic
+construction. This gives a critical exponent for this particular
+polynomial sign decoder, not an impossibility theorem for every
+algorithm that might use the same counts.
+
+For every positive rational $h,c$, the sign-test set in the
+first line of \eqref{eq:finite-decoding-exact-class} is defined
+by the integer formula, without the analytic parameter
+restrictions. Its eventual equality with the class is the
+property to be required, rather than part of that unrestricted
+definition.
+
+For a class satisfying
+\eqref{eq:finite-decoding-summability} for at least one
+$0<\sigma<1$, define its convergence exponent and admissible
+decoding powers by
+\begin{equation}
+ \begin{gathered}
+ \tau_{\mathcal P}=
+    \inf\{s>0:\ \sum_{p\in\mathcal P}p^{-s}<\infty\}
+                         \in[0,1),\\
+ \mathcal H_{\rm dec}(\mathcal P)=
+ \left\{h\in\mathbb Q_{>0}:
+   \begin{array}{l}
+   \text{there is a fixed $c\in\mathbb Q_{>0}$ such that}\\
+   \widehat{\mathcal P}_{N;h,c}
+      =\mathcal P\cap\{2,\ldots,R_N+1\}\\
+   \text{for every sufficiently large integer $N$}
+   \end{array}\right\},\\
+ \mathcal C_{\rm dec}(\mathcal P)
+       =\sup\mathcal H_{\rm dec}(\mathcal P)\in[0,+\infty].
+ \end{gathered}
+ \label{eq:prime-decoding-capacity-definition}
+\end{equation}
+In this definition the counts and the decoder are always
+\eqref{eq:finite-decoding-actual-counts} and
+\eqref{eq:finite-decoding-integer-probe}--%
+\eqref{eq:finite-decoding-exact-class};
+$M_N=\lfloor cU_N/V_N\rfloor$ and $R_N=\lfloor U_N^h\rfloor$.
+The constant $c$ may depend on $h$ and the class, but never on $N$.
+
+\begin{theorem}[The exact critical decoding exponent]
+\label{thm:prime-decoding-critical-exponent}
+With the convention $1/0=+\infty$,
+\begin{equation}
+             \mathcal C_{\rm dec}(\mathcal P)=1/\tau_{\mathcal P}.
+ \label{eq:prime-decoding-critical-exponent}
+\end{equation}
+Every positive rational $h<1/\tau_{\mathcal P}$ is admissible.
+No positive rational $h>1/\tau_{\mathcal P}$ is admissible.
+The theorem makes no assertion about attainment at equality.
+
+If additionally
+$N_{\mathcal P}(x)=x^{\alpha+o(1)}$, $0<\alpha<1$, then
+$\tau_{\mathcal P}=\alpha$.
+For any fixed positive rational $h>1/\alpha$ and $c$, every
+decoder based on
+the consecutive signs of a nonzero real polynomial of degree
+at most $M_N$ misses a fraction $1-o(1)$ of the class primes
+in $\{2,\ldots,R_N+1\}$.
+This last assertion allows arbitrary real coefficients, not
+only the actual empirical polynomial.
+\end{theorem}
+
+\begin{proof}
+The set of convergent exponents is upward closed.
+Consequently every $s>\tau_{\mathcal P}$ is a convergent
+exponent: the definition of the infimum supplies a convergent
+exponent strictly below $s$, and comparison gives convergence at $s$.
+If $0<h<1/\tau_{\mathcal P}$, choose
+\[
+ \tau_{\mathcal P}<\sigma<\min\{1,1/h\},
+       \qquad 0<c<(1-\sigma)/h
+\]
+with $c$ rational.
+The preceding decoder theorem applies, proving admissibility.
+When $\tau_{\mathcal P}=0$, this works for every fixed
+positive rational $h$ and already proves infinite capacity.
+
+For the converse let $h$ be admissible, with its fixed $c$.
+For every $N$, $T_N$ is a nonzero polynomial:
+its constant coefficient is at least $1/N$, because
+$K_{\mathcal P}(1)=0$.
+A strict sign change between $T_N(-n+1/2)$ and
+$T_N(-n-1/2)$ forces a real zero in the open interval
+$(-n-1/2,-n+1/2)$.
+Those intervals are pairwise disjoint.
+A nonzero polynomial of degree at most $M_N$ has at most
+$M_N$ distinct real roots.
+Thus the following is an exact degree constraint, before any
+analytic relaxation:
+\begin{equation}
+ \begin{gathered}
+       |\widehat{\mathcal P}_{N;h,c}|\le M_N,\\
+       N_{\mathcal P}(R_N+1)\le M_N
+                 \quad\hbox{whenever decoding is exact}.
+ \end{gathered}
+ \label{eq:prime-decoding-degree-obstruction}
+\end{equation}
+Zeros at shared interval endpoints cannot create a strict
+sign change and cause no exception.
+
+To obtain a bound at every large integer cutoff $x$, put
+$q=\lceil(x+1)^{1/h}\rceil$ and $N=2^q$.
+Then $U_N=q$, $R_N\ge x+1$,
+$q\sim x^{1/h}$, and
+$M_N=O_c(q/\log q)$.
+The eventual exactness hypothesis therefore gives
+\[
+ N_{\mathcal P}(x)\ll_{h,c}x^{1/h}/\log x .
+\]
+For any $s>1/h$, summing over dyadic prime intervals now gives
+\[
+ \sum_{p\in\mathcal P}p^{-s}
+    \le\text{a finite initial sum}
+       +\sum_{j\ge j_0}2^{-js}N_{\mathcal P}(2^{j+1})
+    <\infty .
+\]
+It follows that $\tau_{\mathcal P}\le1/h$.
+For $\tau_{\mathcal P}>0$ this says
+$h\le1/\tau_{\mathcal P}$, proving the required upper bound
+on the capacity.
+Rational density and the proved admissibility below that value
+give the exact supremum.
+
+Under the additional exact counting index,
+convergence holds for every $s>\alpha$ by dyadic comparison.
+If $0<s<\alpha$, a convergent sum would imply
+$N_{\mathcal P}(x)\le x^s\sum_{\mathcal P}p^{-s}$,
+contradicting $N_{\mathcal P}(x)=x^{\alpha+o(1)}$.
+Thus $\tau_{\mathcal P}=\alpha$.
+Finally if $h\alpha>1$,
+\[
+ \begin{gathered}
+ N_{\mathcal P}(R_N+1)=(\log N)^{h\alpha+o(1)},\qquad
+       M_N=(\log N)^{1+o(1)},\\
+       \frac{M_N}{N_{\mathcal P}(R_N+1)}\longrightarrow0 .
+ \end{gathered}
+\]
+The degree argument applies to any nonzero real polynomial
+and permits at most $M_N$ reported labels.
+At least $N_{\mathcal P}(R_N+1)-M_N$ true labels must be
+missed, proving the asserted fraction.
+This is a restriction of the polynomial sign-code scheme;
+it is not an information-theoretic bound on arbitrary
+finite-data procedures.
+\end{proof}
+
+\begin{corollary}[A finite integer-sign criterion for RH]
+\label{cor:prime-decoding-RH}
+For the fixed greedy deleted class $\mathcal D$,
+\begin{equation}
+ \mathcal C_{\rm dec}(\mathcal D)=1/\Theta_\zeta,\qquad
+               \frac87\le\mathcal C_{\rm dec}(\mathcal D)\le2 .
+ \label{eq:prime-decoding-zero-supremum}
+\end{equation}
+In particular
+\begin{equation}
+ \begin{gathered}
+ {\rm RH}\quad\Longleftrightarrow\quad
+                   \mathcal C_{\rm dec}(\mathcal D)=2,\\
+ \Theta_\zeta\le3/4\quad\Longleftrightarrow\quad
+                   \mathcal C_{\rm dec}(\mathcal D)\ge4/3 .
+ \end{gathered}
+ \label{eq:prime-decoding-RH-equivalences}
+\end{equation}
+An equivalent literal form of the first statement is:
+for every rational $0<h<2$ there is a fixed positive rational
+$c$ such that the integer tests
+\eqref{eq:finite-decoding-integer-probe} recover exactly
+$\mathcal D\cap\{2,\ldots,\lfloor U_N^h\rfloor+1\}$ for
+every sufficiently large integer $N$.
+
+Unconditionally, one explicit choice is
+\begin{equation}
+ \begin{gathered}
+ h=10/9,\qquad \sigma=8/9,\qquad c=8/81,\\
+ \sup_{|z|\le2R_N}|T_N(z)-P_{\mathcal D}(z)|
+                          =O(N^{-1/1000}).
+ \end{gathered}
+ \label{eq:prime-decoding-explicit-unconditional}
+\end{equation}
+The corresponding integer signs eventually decode the full
+displayed prefix, including the labels $2$ and $3$ when present.
+\end{corollary}
+
+\begin{proof}
+The proved all-scale counting index for $\mathcal D$ is
+$N_{\mathcal D}(x)=x^{\Theta_\zeta+o(1)}$, with
+$1/2\le\Theta_\zeta\le7/8$.
+The critical-exponent theorem therefore gives
+$\mathcal C_{\rm dec}(\mathcal D)=1/\Theta_\zeta$ and the
+displayed bounds.
+The already established equivalence
+$ \mathrm{RH}\Longleftrightarrow\Theta_\zeta=1/2$ proves the
+first criterion, and positivity of $\Theta_\zeta$ gives the
+$3/4$ criterion.
+Admissibility of every $h<1/\Theta_\zeta$ proves the literal
+RH implication.
+Conversely admissibility of all rational $h<2$ implies
+$\Theta_\zeta\le1/h$ for all those $h$, hence
+$\Theta_\zeta\le1/2$.
+
+For the numerical specialization, $\sigma=8/9>7/8$ makes
+$S_{\mathcal D,\sigma}$ finite without RH.
+Also $h\sigma=80/81<1$ and
+$c=\sigma(1-\sigma)$.
+Both errors of the complex-disc lemma have exponent
+$(1-\sigma)(1-h\sigma)=1/729>1/1000$.
+The independent half-integer magnitude is $N^{-o(1)}$,
+so that error preserves every required sign eventually.
+This proof supplies no new independent upper estimate on
+$\Theta_\zeta$; it uses the installed $7/8$ boundary.
+\end{proof}
+
+\begin{corollary}[Prime values of exponential sequences have infinite capacity]
+\label{cor:prime-decoding-sparse-special-classes}
+Let each of the following denote the set of distinct
+\emph{prime values} of the indicated sequence:
+\[
+ \begin{aligned}
+ \mathcal P_{\rm Fermat}
+   &=\{2^{2^j}+1:j\ge0,\ 2^{2^j}+1\text{ prime}\},\\
+ \mathcal P_{\rm Mersenne}
+   &=\{2^m-1:m\ge2,\ 2^m-1\text{ prime}\},\\
+ \mathcal P_{\rm Fib}
+   &=\{F_m:m\ge0,\ F_m\text{ prime}\},
+       \qquad F_0=0,\ F_1=1 .
+ \end{aligned}
+\]
+The Fibonacci recurrence is $F_{m+2}=F_{m+1}+F_m$.
+For each class, whether it is finite or infinite,
+\begin{equation}
+                \tau_{\mathcal P}=0,\qquad
+                \mathcal C_{\rm dec}(\mathcal P)=+\infty .
+ \label{eq:prime-decoding-special-capacities}
+\end{equation}
+Thus every fixed rational logarithmic power of the prime
+cutoff can be recovered by the corresponding finite sign
+decoder, with an admissible fixed bin constant $c$.
+This does not decide infinitude of any of the three classes.
+\end{corollary}
+
+\begin{proof}
+For every fixed $\sigma>0$ the unfiltered sequence bounds give
+\[
+ \begin{aligned}
+ \sum_{p\in\mathcal P_{\rm Fermat}}p^{-\sigma}
+       &\le\sum_{j\ge0}2^{-\sigma2^j}<\infty,\\
+ \sum_{p\in\mathcal P_{\rm Mersenne}}p^{-\sigma}
+       &\le\sum_{m\ge2}2^{-\sigma(m-1)}<\infty .
+ \end{aligned}
+\]
+The composite sequence values occur only in these upper bounds;
+the observations and decoded classes retain actual prime values.
+For Fibonacci, Binet's identity with the golden ratio
+$\phi=(1+\sqrt5)/2$ gives
+\[
+ F_m=\frac{\phi^m-(-\phi^{-1})^m}{\sqrt5}
+       \ge\frac{\phi^m}{2\sqrt5}\quad(m\ge2).
+\]
+Consequently
+$\sum_{p\in\mathcal P_{\rm Fib}}p^{-\sigma}
+ \le(2\sqrt5)^\sigma\sum_{m\ge3}\phi^{-m\sigma}<\infty$.
+The Fibonacci values at indices zero, one and two are nonprime;
+the prime values from index three onward are distinct.
+The other two sequences are strictly increasing.
+Each class is a set, so a value is counted once.
+They are separate observations; their overlaps, for example
+the prime $3$, introduce no joint-independence assertion.
+
+Since all positive exponents converge, each convergence
+exponent is zero.
+The capacity theorem proves the claim, including the case
+of a finite class with an unknown final prime.
+The sequences and primality filters are decidable on integer
+domains, so their finite counts and sign tests are computable.
+\end{proof}
+
+As an immediate consequence, removing any prime class
+$\mathcal Q$ with $\tau_{\mathcal Q}=0$ leaves
+$\tau_{\mathcal P}$, and therefore the decoding capacity,
+unchanged: for every $s>0$ the removed subseries is finite.
+This applies to removing any union of the three displayed
+special classes from $\mathcal D$.
+It is an invariance of the capacity criterion, not an
+independent proof of its RH endpoint.
+
+The results in these two subsections have full ordinary proofs;
+no additional Lean declarations are asserted.
+They use $M_N+1=O(\log N/\log\log N)$ bins, more than the
+preceding approximate largest-coordinate reconstruction,
+and recover exact prime labels on a growing prefix.
+Their new finite-data conclusion must be distinguished from
+the existing full-profile inverse theorem.
+For $\mathcal D$ the certified zero-free boundary remains $7/8$;
+the operational endpoint $2$ is an equivalence, not a newly
+proved arithmetic estimate at that endpoint.
+
 \subsection{Selecting certified good primes before estimating their size}
 \label{sec:certified-good-prime-class}
 
