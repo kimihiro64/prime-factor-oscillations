@@ -13300,13 +13300,12 @@ class $\mathcal T^c$ (complement inside the primes) obeys
  \begin{aligned}
  M(x)&\le\theta_{\mathcal T^c}(x)+\log x,\\
  N_{\mathcal D}(x)&\le
-    \#(\mathcal T^c\cap[2,x])+1+\log\frac{\log x}{\log2}
-                                   \qquad(x\ge2).
+    \#(\mathcal T^c\cap[2,x])\qquad(x\ge2).
  \end{aligned}
  \label{eq:greedy-prime-count-optimality}
 \end{equation}
-Thus the explicit greedy carrier minimizes the number of deletions,
-up to an additive $O(\log\log x)$, among every class with this cap.
+Thus the fixed greedy carrier minimizes the number of deletions
+exactly at every cutoff among every class with this cap.
 Moreover $\theta_{\mathcal S}(x)\sim x$ and
 $\#(\mathcal S\cap[2,x])\sim x/\log x$ unconditionally.
 \end{theorem}
@@ -13327,7 +13326,7 @@ $R_j=\max(0,E_1,\ldots,E_j)$. The selection rule is exactly
  \label{eq:greedy-prime-exact-recursion}
 \end{equation}
 At a rejected prime, the cap invariant gives
-$M_j>E_j$, while the rejection test gives
+$M_j\ge E_j$, while the rejection test gives
 $M_j<E_j+\log p_j$. At a retained prime,
 $E_j\le M_j=M_{j-1}$. Induction, using the increasing prime
 weights $\log p_j$, therefore gives
@@ -13340,29 +13339,52 @@ $\theta_{\mathcal T^c}(t)=\theta(t)-\theta_{\mathcal T}(t)
 \ge\theta(t)-t$. Its left side is nondecreasing and nonnegative,
 so $\theta_{\mathcal T^c}(x)\ge R(x)$.
 This proves the first optimality inequality.
-For every prime class $\mathcal V$, partial summation gives
-\[
- \#(\mathcal V\cap[2,x])
- =\frac{\theta_{\mathcal V}(x)}{\log x}
-    +\int_2^x\frac{\theta_{\mathcal V}(t)}{t\log^2t}\,dt.
-\]
-Subtract the identities for $\mathcal D$ and $\mathcal T^c$
-and use $M(t)-\theta_{\mathcal T^c}(t)\le\log t$ throughout.
-The resulting upper bound is exactly
-$1+\int_2^xdt/(t\log t)=1+\log(\log x/\log2)$.
+For the sharper count comparison, apply
+Theorem~\ref{thm:ordered-stream-greedy-optimality} to the actual
+ordered prime stream, with weight $w_j=\log p_j$ and budget $p_j$.
+The weights are nonnegative and increasing. Membership in any
+competing capped class is a feasible selection at every prime
+prefix, because its retained logarithmic sum is at most $p_j$.
+The theorem therefore gives
+$\#(\mathcal T\cap[2,x])\le\#(\mathcal S\cap[2,x])$.
+Taking complements inside the same finite prime prefix proves
+the exact deletion-count inequality. No logarithmic overhead
+is needed.
 
 Finally PNT gives $R(x)=o(x)$: split the defining maximum
 into a fixed initial segment and a tail on which
 $|\theta(t)-t|\le\epsilon t$.
 Thus $M(x)=o(x)$ and $\theta_{\mathcal S}(x)=\theta(x)-M(x)\sim x$.
-Also
+For the retained count, use the direct squeeze
 \[
- N_{\mathcal D}(x)\le\sqrt x+\frac{2M(x)}{\log x}
-                         =o(x/\log x),
+ \theta_{\mathcal S}(x)
+ \le \#(\mathcal S\cap[2,x])\log x
+ \le \pi(x)\log x .
 \]
-by separating rejected primes below and above $\sqrt x$.
-Subtracting this from PNT proves the stated retained-prime count.
+The lower bound follows term by term from $\log p\le\log x$,
+and the upper bound from inclusion in the full prime prefix.
+Divide by $x$ and use the theta and prime-count forms of PNT.
+This proves the retained-prime count asymptotic.
 \end{proof}
+
+The complete statement of Theorem~\ref{thm:greedy-prime-cap},
+including both density limits at real cutoffs and comparison
+with every competing capped class, is now formalized by
+\[
+ \texttt{greedyPrimeClass\_\allowbreak complete\_\allowbreak cap}.
+\]
+The exact identification of the regulator with the displayed
+finite maximum is checked by
+\[
+ \texttt{greedyPrimeRegulatorReal\_\allowbreak le\_\allowbreak iff}.
+\]
+The proof transfers actual prime indices to the literal filtered
+prime sums and counts, including natural cutoffs zero and one,
+and uses the established unconditional theta and count PNT.
+No RH assumption is used.
+The preceding certified-logarithm membership algorithm remains
+a separate formalization obligation; the maintained class here
+is defined by the exact real comparison.
 
 The independent favorable condition can be written in the exact
 integral form of the earlier RH criterion:
@@ -13491,7 +13513,8 @@ Suppose first that $\Theta_\zeta\le\eta$.
 For $\eta<\kappa<1$, the proof of
 Lemma~\ref{lem:prime-error-zero-supremum} gives
 $|\theta(t)-t|=O_\kappa(t^\kappa\log^2t)$.
-The regulator bound and the preceding split at $\sqrt X$ give
+The regulator bound and splitting the rejected primes
+below and above $\sqrt X$ give
 \[
  M(X)=O_\kappa(X^\kappa\log^2X),\qquad
  N_{\mathcal D}(X)=O_\kappa(X^\kappa\log X).
@@ -13570,8 +13593,11 @@ positive-record bound has been proved here.
 The construction simplifies the arithmetic object and proves
 optimal selection; it is not claimed to make its remaining
 size bound easier than the earlier RH criterion.
-These are ordinary proofs, with no new Lean verification
-or established originality priority asserted.
+The cap, regulator, exact count optimality, and density claims in
+Theorem~\ref{thm:greedy-prime-cap} have the Lean proofs identified above.
+The product-sign and zero-signal transfer theorems in this subsection
+remain ordinary proofs with separate formalization obligations.
+No established originality priority is asserted.
 
 \subsection{The signed energy of the positive-record process}
 \label{sec:prime-record-energy}
