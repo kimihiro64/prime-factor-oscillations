@@ -12902,6 +12902,182 @@ Lean checked. No new independent count upper estimate is
 installed, and the certified zero-free boundary remains $7/8$.
 No established literature priority is asserted.
 
+\subsection{The independent arithmetic count problem}
+\label{sec:independent-computable-prime-count}
+
+Computability decides membership at each integer cutoff; it does
+not give an asymptotic count bound. We now retain the signed
+optimizer in an arithmetic form, without inserting the
+$\Theta_\zeta$-dependent estimate used in
+\eqref{eq:single-prime-full-signed-upper-bound}.
+
+Take a sufficiently late admitted block, with $u=2^j$,
+$k=k_j$, $h=h_{j,k}$ and cells $I=[a,a+h)$.
+Here $h$ divides $u$, so there is no unaccounted terminal cell.
+For the exact-moment problem on $I$ write $H_I=\nu(I)$,
+$C_I=\#S_I$, and let $E_I$ be the minimum overweight.
+Its minimum deficit is $D_I^{\rm ex}=E_I+C_I-H_I$.
+The rounded algorithm has
+\begin{equation}
+ N_j^*\le\sum_I D_I^{\rm ex}+O(u^{-3+1/k}).
+ \label{eq:independent-count-exact-consumer}
+\end{equation}
+Indeed its overweight is no larger than the exact optimum,
+and its zeroth moment has the already proved total tolerance.
+The exact dual, after substituting $Q=1-P$, is
+\begin{equation}
+ D_I^{\rm ex}
+ =\max_{\substack{\deg Q<k\\Q(p)\ge0\ (p\in S_I)}}
+       \left(\sum_{p\in S_I}\min\{Q(p),1\}
+                                    -\int_I Q\,d\nu\right).
+ \label{eq:independent-count-deficit-dual}
+\end{equation}
+This is the preceding finite LP duality, since
+$(1-Q)_+=1-\min\{Q,1\}$ at the prime nodes.
+An attaining polynomial can be chosen with
+$\|Q-1\|_I\le64B_{k-1}$, using the proved positive-objective
+norming and $P=0$ when $E_I=0$.
+
+For any such tuple put $T(x)=\min\{1,\max\{0,Q_I(x)\}\}$ on
+its cell, and $T=0$ outside $[u,2u)$.
+Use the right cell at every shared endpoint.
+Define the complete signed terms
+\begin{equation}
+ \begin{aligned}
+ \mathcal A_j(T)&=\sum_{p\in S_j}T(p)-\int_u^{2u}T\,d\nu,\\
+ \mathcal B_j(Q)&=\sum_I\int_I(Q_I-1)_+\,d\nu,\qquad
+ \mathcal N_j(Q)=\sum_I\int_I(Q_I)_-\,d\nu .
+ \end{aligned}
+ \label{eq:independent-count-clipped-ledger}
+\end{equation}
+The objective in \eqref{eq:independent-count-deficit-dual},
+summed over cells, is exactly
+$\mathcal A_j(T)-\mathcal B_j(Q)+\mathcal N_j(Q)$.
+In particular $Q_I=1$ retains
+$\mathcal A_j(1)=\#S_j-\nu([u,2u))$ and both penalties vanish.
+That constant row cannot be removed by centering the other
+polynomials.
+
+Here the continuum negativity really is a smaller error.
+Let $G$ bound the first and last prime's distances to the
+cell endpoints and all successive prime gaps in the block.
+The proved prime-mesh input gives $G\ll u^{2/3}$ for all
+sufficiently large $u$. If
+$Q(a+hy)=\sum_{r=0}^{d}c_ry^r$, $d<k$, set
+$A(Q)=\sum_r|c_r|$. Then
+$|Q'|\le dA(Q)/h$ and $|Q''|\le d^2A(Q)/h^2$.
+Between successive prime nodes $b,c$, where $Q(b),Q(c)\ge0$,
+linear interpolation gives
+\[
+ Q(x)\ge-\tfrac12\|Q''\|_I(x-b)(c-x).
+\]
+Its negative integral is at most
+$\|Q''\|_I(c-b)^3/12$.
+At each end, the derivative bound gives at most
+$\|Q'\|_I G^2/2$. Since $\nu'(x)\le1/\log u$, summing these
+pieces, including both endpoints, proves
+\begin{equation}
+ \int_I(Q)_-\,d\nu
+ \le \frac{A(Q)(d+d^2/12)G^2}{h\log u}.
+ \label{eq:independent-count-negative-gap-bound}
+\end{equation}
+A constant polynomial has no negative part here.
+For $d\ge1$, Lagrange interpolation at $0,1/d,\ldots,1$
+bounds its coefficient sum by
+\[
+ A(Q)\le \|Q\|_I\,4^d d^d/d! .
+\]
+Indeed each numerator has coefficient sum at most $2^d$,
+and the sum of reciprocal absolute denominators is
+$d^d2^d/d!$.
+The norming bound, $k\le\sqrt j$, and this explicit inequality
+give $A(Q)k^2=\exp(O(k\log(k+1)))=u^{o(1)}$ uniformly
+for all the retained tuples.
+There are $u/h$ cells and $h\ge\tfrac12u^{1-1/k}$.
+Consequently the full, uniform correction is
+\begin{equation}
+                 \mathcal N_j(Q)\ll u^{1/3+o(1)}.
+ \label{eq:independent-count-subroot-negativity}
+\end{equation}
+Node positivity has not been confused with continuum positivity.
+
+We next expand the remaining main term with every divisor sign.
+For integer $n\ge2$,
+$\Lambda(n)=\sum_{d\mid n}\mu(d)\log(n/d)$.
+Also the defining density of $\nu$ gives the absolutely convergent
+identity
+\[
+ \nu'(x)=\frac1{x\log x}
+       \sum_{r\ge1}\frac{\mu(r)}r(x^{1/r}-1),\qquad x>1.
+\]
+To verify it, insert
+$1/\zeta(\ell+1)=\sum_{r\ge1}\mu(r)r^{-\ell-1}$
+in the defining exponential series and sum over $\ell\ge1$.
+Absolute convergence follows from
+$(x^{1/r}-1)/r=O_x(r^{-2})$.
+Thus, with all endpoints and prime powers retained,
+\begin{equation}
+ \begin{aligned}
+ \mathcal A_j(T)
+ &=\sum_{\substack{d,m\ge1\\u\le dm<2u}}
+       \mu(d)\frac{\log m}{\log(dm)}T(dm)\\
+ &\quad-\sum_{\substack{r\ge2,\ p\ {\rm prime}\\u\le p^r<2u}}
+                         \frac{T(p^r)}r\\
+ &\quad-\sum_{r\ge1}\frac{\mu(r)}r
+       \int_u^{2u}\frac{x^{1/r}-1}{x\log x}T(x)\,dx .
+ \end{aligned}
+ \label{eq:independent-count-full-Mobius-row}
+\end{equation}
+The first two sums are finite.
+For integer $R\ge1$ the last sum's tail has absolute value
+at most $(2u)^{1/R}\log(2)/R$, since $0\le T\le1$.
+In particular $R=u$ makes its tail $O(u^{-1})$ uniformly
+in every adaptive polynomial tuple. This is a universal
+truncation estimate, not a finite numerical test.
+The reciprocal zeta identity above is used only at the
+absolutely convergent integers $\ell+1>1$.
+
+One actual cancellation test shows why the high divisor rows
+must stay coupled. Put $T=1$ and take $n=2q\in[u,2u)$
+with $q>\sqrt{2u}$ an odd prime.
+Keeping only $d\le\sqrt{2u}$ leaves
+$\log(2q)-\log q=\log2$ in the numerator.
+The retained full row $d=q$ contributes $-\log2$;
+$d=2q$ contributes zero. Thus these composite terms cancel
+exactly. The positive small-divisor subpacket has size
+\begin{equation}
+ \sum_{\substack{u/2\le q<u\\q\ {\rm prime}}}
+       \frac{\log2}{\log(2q)}
+              \sim\frac{\log2}{2}\frac{u}{(\log u)^2}.
+ \label{eq:independent-count-semiprime-cross-cancellation}
+\end{equation}
+Here the omitted finitely many small $u$ are immaterial.
+This follows from the ordinary prime number theorem on
+$[u/2,u)$ and $\log(2q)=\log u+O(1)$.
+It rules out discarding that paired subpacket as a square-root
+remainder. It is not a lower bound for the entire high-divisor
+sum, which has further signs and cross terms.
+
+The independent RH estimate being attacked is therefore the
+uniform signed bound
+\begin{equation}
+ \sup_{Q}\{\mathcal A_j(T_Q)-\mathcal B_j(Q)\}
+                         \ll_\epsilon u^{1/2+\epsilon},
+ \label{eq:independent-count-live-arithmetic-estimate}
+\end{equation}
+over the explicitly bounded, prime-dependent dual tuples above.
+Equations~\eqref{eq:independent-count-exact-consumer} and
+\eqref{eq:independent-count-subroot-negativity} show that this
+estimate would imply the required literal count bound and RH.
+All mesh, clipping, rounding and model-series tails now have
+displayed costs compatible with that endpoint.
+The estimate \eqref{eq:independent-count-live-arithmetic-estimate}
+itself has not been proved. The signed expansion and the
+evaluated semiprime cancellation do not supply its upper bound.
+These are ordinary calculations; no new Lean verification or
+zero-free exponent is claimed in this subsection.
+The certified boundary remains $7/8$.
+
 \subsection{Nested Fermat carriers and a joint Fibonacci profile}
 \label{sec:fermat-fibonacci-joint}
 
