@@ -17101,6 +17101,312 @@ the $3/4$ target requires $4/3$ and RH requires two.
 No independent improvement of that median lower bound is proved,
 and the certified zero-free boundary remains $7/8$.
 
+\subsection{Three-bin reconstruction beyond the Poisson collision scale}
+\label{sec:three-bin-reconstruction}
+
+Retain the fixed thin prime class and the actual integer progression
+of \eqref{eq:primorial-filter-arithmetic-sample}.
+Use $J,c_J,W_J,\lambda_J,\Delta_X,\xi$ from
+\eqref{eq:conditional-thin-model-budget}.
+The square-root scale in the preceding Poisson comparison comes
+from collisions of labels in the coefficient expansion.
+We now retain that term rather than requiring it to tend to zero.
+Nonuniform birthday probabilities and logarithmic expansions
+are classical; see Mase~\cite[\S\S3--5]{MaseCollision}.
+The lemma below supplies an explicit uniform remainder for our
+moving weights.  The arithmetic conclusion reconstructs actual
+sample probabilities from three rational empirical bins.
+No priority claim for the classical collision expansion is made.
+
+\begin{lemma}[A uniform pair-collision correction]
+\label{lem:uniform-pair-collision-correction}
+Let $(a_i)$ be a finite or countable probability vector, with
+$a_i\ge0$, $\sum_i a_i=1$, and
+$m=\sup_i a_i\le1/4$.
+Write $\theta_r=\sum_i a_i^r$ for $r\ge2$.
+Let $D_n$ be the probability that $n$ independent draws have
+distinct labels, with $D_0=1$.
+If $n\ge0$ is an integer and $nm\le1/4$, then $D_n>0$ and
+\begin{equation}
+ \begin{aligned}
+ \left|\log D_n+{n\choose2}\theta_2\right|
+       &\le8n^3(\theta_3+\theta_2^2),\\
+ \left|\log\frac{D_n}{(1-\theta_2)^{\binom n2}}\right|
+       &\le10n^3(\theta_3+\theta_2^2).
+ \end{aligned}
+ \label{eq:uniform-pair-collision-correction}
+\end{equation}
+Every logarithm has a positive argument; $1-\theta_2\ge3/4$.
+\end{lemma}
+
+\begin{proof}
+Let $e_j$ be the elementary symmetric sum of degree $j$ in
+the $a_i$, with $e_0=1$.
+Then $D_j=j!e_j$.
+On the event of $j$ distinct draws, let $h_j$ be the
+conditional expected total weight of their occupied labels.
+The next draw avoids those labels with probability $1-h_j$,
+so the exact recurrence and pointwise bound are
+\begin{equation}
+ \frac{D_{j+1}}{D_j}=1-h_j,\qquad
+ 0\le h_j\le jm,\qquad h_0=0.
+ \label{eq:pair-collision-exact-hazard}
+\end{equation}
+These statements inductively show $D_j>0$ through $j=n+1$:
+at every required step $jm\le1/4$.
+There is no division by a zero coefficient.
+
+Conditional on $j$ distinct labels, an unordered set $S$
+of size $j$ has probability $\prod_{i\in S}a_i/e_j$.
+Writing $e_j^{(i)}$ for the sum omitting label $i$ gives
+\[
+ h_j=\frac{\sum_i a_i^2e_{j-1}^{(i)}}{e_j}
+                                      \quad(j\ge1).
+\]
+For $j\ge2$ put
+$u_{j-1,i}=\mathbb P(i\in S\mid |S|=j-1)$ and
+$V_{j-1}=\sum_i a_i^2u_{j-1,i}$.
+The elementary identity
+$e_{j-1}^{(i)}=e_{j-1}(1-u_{j-1,i})$
+and the preceding exact recurrence give
+\begin{equation}
+ \begin{aligned}
+ h_j&=\frac{j(\theta_2-V_{j-1})}{1-h_{j-1}},\\
+ 0\le u_{j-1,i}
+   &=\frac{a_i e_{j-2}^{(i)}}{e_{j-1}}
+       \le\frac{(j-1)a_i}{1-h_{j-2}},\\
+ 0\le V_{j-1}
+   &\le\frac{(j-1)\theta_3}{1-h_{j-2}}.
+ \end{aligned}
+ \label{eq:pair-collision-signed-recurrence}
+\end{equation}
+All sums converge absolutely by nonnegativity and $\sum_i a_i=1$.
+The same formulas follow on finite supports first and then by
+monotone convergence if the support is infinite.
+For $j=1$, directly $h_1=\theta_2$.
+
+Every denominator in the required range is at least $3/4$.
+The recurrence, with its negative term retained, implies
+$h_j\le(4/3)j\theta_2$.
+Subtracting the leading term before estimating gives, for $j\ge2$,
+\[
+ h_j-j\theta_2
+   =\frac{j(\theta_2h_{j-1}-V_{j-1})}{1-h_{j-1}},
+ \qquad
+ |h_j-j\theta_2|
+   \le2j^2(\theta_2^2+\theta_3).
+\]
+The latter bound also holds at $j=0,1$.
+For $0\le h_j\le1/4$,
+$|\log(1-h_j)+h_j|\le h_j^2$, and
+$h_j^2\le2j^2\theta_2^2$.
+Summing these two remainders in
+$\log D_n=\sum_{j=0}^{n-1}\log(1-h_j)$ and using
+$\sum_{j<n}j=\binom n2$ proves the first bound, with the
+displayed constant eight (and room to spare).
+Finally
+$|-\log(1-\theta_2)-\theta_2|
+\le\theta_2^2/[2(1-\theta_2)]\le\theta_2^2$.
+Its extra contribution is at most $n^2\theta_2^2/2$;
+for $n\ge1$ this is absorbed by the second displayed constant.
+For $n=0$ both assertions are exact.
+\end{proof}
+
+\begin{theorem}[Rational reconstruction from the first three empirical bins]
+\label{thm:three-bin-rational-reconstruction}
+For the actual progression probabilities $b_{X,k}$ define
+\begin{equation}
+ \widehat W_X=\frac{b_{X,1}}{b_{X,0}},\qquad
+ \widehat q_X=\frac{2b_{X,0}b_{X,2}}{b_{X,1}^2},\qquad
+ \mathcal R_{X,k}
+  =\frac{b_{X,0}\widehat W_X^k}{k!}
+                              \widehat q_X^{\binom k2}.
+ \label{eq:three-bin-rational-reference}
+\end{equation}
+For all sufficiently large integer $X$, these quantities are
+positive and $0<\widehat q_X<1$.
+For every fixed $0<\epsilon<2/3$,
+\begin{equation}
+ \max_{0\le k\le\lfloor J^{2/3-\epsilon}\rfloor}
+       \left|\frac{b_{X,k}}{\mathcal R_{X,k}}-1\right|
+        \le J^{-3\epsilon+o(1)}.
+ \label{eq:three-bin-relative-window}
+\end{equation}
+The reference matches $b_{X,0},b_{X,1},b_{X,2}$ exactly.
+For a computable $\mathcal P$ and a computable integer budget,
+it is rational and computable from the first three finite counts
+and the integer input $k$.
+In particular this applies to $\mathcal D$ with $b=1/16$.
+The reference need not sum to one over all $k$; the conclusion
+is the stated uniform relative estimate on its finite rank range.
+\end{theorem}
+
+\begin{proof}
+For $j>J$ set
+$a_j=(p_j-1)^{-1}/W_J$ and
+$\theta_{r,J}=\sum_{j>J}a_j^r$.
+Their maximum and second moment have the exact logarithmic indices
+\begin{equation}
+ m_J=J^{-1+o(1)},\qquad
+ \theta_{2,J}=J^{-1+o(1)},\qquad
+ \theta_{3,J}+\theta_{2,J}^2\le J^{-2+o(1)}.
+ \label{eq:three-bin-weight-indices}
+\end{equation}
+Indeed $m_J=(p_{J+1}-1)^{-1}/W_J=J^{-1+o(1)}$.
+The upper bounds follow from
+$\theta_{2,J}\le m_J$ and $\theta_{3,J}\le m_J^2$.
+For the matching second-moment lower bound retain $J<j\le2J$:
+\[
+ \theta_{2,J}\ge
+       \frac{J(p_{2J}-1)^{-2}}{W_J^2}=J^{-1+o(1)}.
+\]
+Here $W_J\sim\lambda_J=J^{1-1/\alpha+o(1)}$, as proved
+in the preceding subsection.
+
+Write $\beta_{J,k}$ for the model count masses.
+The exact distinct-label coefficient formula gives
+$\beta_{J,k}=c_JW_J^kD_k/k!$.
+Put $q_J=1-\theta_{2,J}$ and
+\[
+ R^0_{J,k}=c_JW_J^kq_J^{\binom k2}/k!.
+\]
+For $L=\lfloor J^{2/3-\epsilon}\rfloor$,
+$Lm_J\to0$.
+The collision lemma applies uniformly to $0\le k\le L$:
+\begin{equation}
+ \beta_{J,k}=R^0_{J,k}e^{E_{J,k}},\qquad
+ \max_{k\le L}|E_{J,k}|
+       \le10L^3(\theta_{3,J}+\theta_{2,J}^2)
+       \le J^{-3\epsilon+o(1)}.
+ \label{eq:three-bin-model-consumer}
+\end{equation}
+
+The exact first three model coefficients are
+\[
+ \beta_{J,0}=c_J,\quad
+ \beta_{J,1}=c_JW_J,\quad
+ \beta_{J,2}=\tfrac12c_JW_J^2q_J.
+\]
+Each empirical coefficient differs from its model by at most
+$\Delta_X$.  Since $c_J\to1$ and $W_J\sim\lambda_J$,
+these identities prove
+\begin{equation}
+ \begin{gathered}
+ b_{X,0}=c_J(1+O(\Delta_X)),\qquad
+ \widehat W_X/W_J=1+O(\Delta_X/\lambda_J),\\
+ \widehat q_X-q_J=O(\Delta_X/\lambda_J^2).
+ \end{gathered}
+ \label{eq:three-bin-parameter-transfer}
+\end{equation}
+In particular $b_{X,0},b_{X,1},b_{X,2}>0$ eventually.
+The error in $\widehat q_X$ is polynomially small in $X$,
+whereas $1-q_J=\theta_{2,J}=J^{-1+o(1)}$.
+Thus $0<\widehat q_X<1$ eventually, including the strict
+upper inequality.
+
+All factors in the two references are positive.
+Taking their logarithmic ratio and charging both growing powers
+in \eqref{eq:three-bin-rational-reference} gives
+\[
+ \max_{k\le L}\left|\log\frac{\mathcal R_{X,k}}{R^0_{J,k}}\right|
+ \ll \Delta_X
+       +L\Delta_X/\lambda_J
+       +L^2\Delta_X/\lambda_J^2
+ =X^{-\xi+o(1)}.
+\]
+Also uniformly on this range,
+\[
+ -\log R^0_{J,k}
+   \le O(1+L\log J+L^2\theta_{2,J})=o(\log X).
+\]
+Use $J\asymp\log X/\log\log X$ and $2/3-\epsilon<1$
+for the first growing term; the second is at most
+$J^{1/3-2\epsilon+o(1)}$.
+Consequently both reference minima are at least $X^{-o(1)}$.
+
+For clarity the complete relative consumer, including the signed
+arithmetic discrepancy, is
+\begin{equation}
+ \begin{aligned}
+ \frac{b_{X,k}}{\mathcal R_{X,k}}-1
+  ={}&\frac{R^0_{J,k}}{\mathcal R_{X,k}}(e^{E_{J,k}}-1)
+       +\left(\frac{R^0_{J,k}}{\mathcal R_{X,k}}-1\right)\\
+     &+\frac{b_{X,k}-\beta_{J,k}}{\mathcal R_{X,k}} .
+ \end{aligned}
+ \label{eq:three-bin-full-relative-consumer}
+\end{equation}
+The first term is bounded by
+$J^{-3\epsilon+o(1)}$ using the uniform logarithmic remainder.
+The other two are $X^{-\xi+o(1)}$, since
+$|b_{X,k}-\beta_{J,k}|\le\Delta_X$ and the reference minimum
+is $X^{-o(1)}$.
+This proves \eqref{eq:three-bin-relative-window}.
+Equivalently the positive model supply is
+$R^0_{J,k}e^{-|E_{J,k}|}$ and the negative sampling allowance
+is $\Delta_X$; all empirical masses on the range are
+therefore positive eventually.
+Substitution at $k=0,1,2$ proves exact matching of the three bins.
+Finally all displayed empirical parameters and reference values
+use only rational operations, integer powers and factorials.
+Finite enumeration proves the computability assertion on the
+stated decidable integer domains.
+\end{proof}
+
+\begin{corollary}[A genuine transition for the uncorrected Poisson law]
+\label{cor:three-bin-poisson-transition}
+Let $\widehat\lambda_X=-\log b_{X,0}$ and
+$\pi_{X,k}=e^{-\widehat\lambda_X}\widehat\lambda_X^k/k!$.
+For $k_X=\lfloor J^u\rfloor$ one has
+\begin{equation}
+ \begin{cases}
+ b_{X,k_X}/\pi_{X,k_X}\longrightarrow1,
+                         &0<u<1/2,\\
+ b_{X,k_X}/\pi_{X,k_X}
+        =\exp[-J^{\,2u-1+o(1)}]\longrightarrow0,
+                         &1/2<u<2/3 .
+ \end{cases}
+ \label{eq:three-bin-poisson-transition}
+\end{equation}
+In the second range the three-bin reference still has relative
+error tending to zero.
+Thus the correction extends the logarithmic rank exponent
+from $1/2$ to $2/3$ for a directly reconstructed reference.
+No limit at $u=1/2$ is claimed under the present hypotheses.
+\end{corollary}
+
+\begin{proof}
+Below $1/2$ use
+Theorem~\ref{thm:zero-bin-poisson-reconstruction} with
+$\epsilon=1/2-u$.
+For $1/2<u<2/3$, the three-bin theorem applies with
+$\epsilon=2/3-u$ and gives $b_{X,k_X}/\mathcal R_{X,k_X}\to1$.
+Since $e^{-\widehat\lambda_X}=b_{X,0}$,
+\[
+ \log\frac{\mathcal R_{X,k_X}}{\pi_{X,k_X}}
+   =k_X\log\frac{\widehat W_X}{\widehat\lambda_X}
+       +{k_X\choose2}\log\widehat q_X .
+\]
+The already proved parameter bounds give
+$\widehat W_X/\widehat\lambda_X
+ =1+O(p_{J+1}^{-1}+\Delta_X/\lambda_J)$.
+Its growing-power contribution tends to zero, since
+$u<2/3<1/\alpha$.
+On the other hand,
+$-\log\widehat q_X=\theta_{2,J}(1+o(1))=J^{-1+o(1)}$.
+The second term is therefore $-J^{2u-1+o(1)}$ and tends
+to minus infinity.
+The logarithm of the remaining empirical relative error is $o(1)$.
+This proves the second formula with its sign intact.
+\end{proof}
+
+The collision lemma is a quantitative version of classical
+nonuniform birthday analysis.  The arithmetic reconstruction and
+transition above are full ordinary proofs, not Lean declarations.
+They improve the simple reconstructed profile, rather than the
+earlier Euler-model sampling range, which already allowed ranks
+of order $J$.  They supply no independent estimate changing
+$\Theta_\zeta$; the certified zero-free boundary remains $7/8$.
+
 \subsection{Selecting certified good primes before estimating their size}
 \label{sec:certified-good-prime-class}
 
@@ -18429,6 +18735,13 @@ H. Kud\=o, \emph{A Theorem of Kakutani on Infinite Product Measures},
 Natural Science Report, Ochanomizu University \textbf{3} (1952).
 \href{https://teapot.lib.ocha.ac.jp/record/35128/files/KJ00004829299.pdf}{Primary article};
 \href{https://www.lib.ocha.ac.jp/oab/12shizenkagaku/1952-07-01.html}{publisher's issue record}.
+
+\bibitem{MaseCollision}
+S. Mase, \emph{Approximations to the birthday problem with unequal
+occurrence probabilities and their application to the surname problem
+in Japan}, Ann. Inst. Statist. Math. \textbf{44} (1992), 479--499.
+Primary article, especially \S\S3--5.
+\url{https://www.ism.ac.jp/editsec/aism/pdf/044_3_0479.pdf}.
 
 \end{thebibliography}
 
