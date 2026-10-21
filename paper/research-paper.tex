@@ -14756,6 +14756,60 @@ $\Theta_\zeta=1/2$ if and only if RH, proving the stated
 inverse-sequence equivalence.
 \end{proof}
 
+\begin{theorem}[Exact record-to-count calibration and logarithmic concentration]
+\label{thm:greedy-prime-record-count-calibration}
+Unconditionally,
+\begin{equation}
+ N_{\mathcal D}(X)\sim\frac{M(X)}{\log X}
+                  \sim\frac{R(X)}{\log X}\qquad(X\to\infty).
+ \label{eq:greedy-prime-record-count-calibration}
+\end{equation}
+For every fixed $0\le a<1$,
+\begin{equation}
+               \frac{N_{\mathcal D}(X^a)}{N_{\mathcal D}(X)}
+                                      \longrightarrow0.
+ \label{eq:greedy-prime-deletion-log-concentration}
+\end{equation}
+Thus if $P_n$ is sampled uniformly from the nonempty finite set
+$\{p\in\mathcal D:p\le n\}$ at a sufficiently large integer cutoff,
+then $\log P_n/\log n$ tends to $1$ in probability.
+This is a statement about that specified uniform finite sample.
+\end{theorem}
+
+\begin{proof}
+The denominators are positive for all sufficiently large $X$,
+by Theorem~\ref{thm:greedy-prime-critical-record-floor}.
+Fix $0<a<1$ and write $\Theta=\Theta_\zeta\ge1/2$.
+The actual exponent limit in
+Theorem~\ref{thm:greedy-prime-all-scale-exponent}, applied at both
+$X$ and $X^a$, gives
+\[
+ \frac{N_{\mathcal D}(X^a)}{N_{\mathcal D}(X)}
+     =X^{-(1-a)\Theta+o(1)}\longrightarrow0.
+\]
+For $a=0$ the numerator is zero.
+Now retain the entire finite weighted mass
+\[
+ M(X)=\sum_{\substack{p\le X\\p\in\mathcal D}}\log p .
+\]
+Its terms from $X^a<p\le X$ each have weight at least $a\log X$,
+and every term has weight at most $\log X$. Hence
+\[
+ a\left(1-\frac{N_{\mathcal D}(X^a)}{N_{\mathcal D}(X)}\right)
+ \le\frac{M(X)}{N_{\mathcal D}(X)\log X}\le1 .
+\]
+First let $X\to\infty$ for each fixed $a$, then let $a\uparrow1$.
+The middle ratio tends to $1$.
+The regulator sandwich $0\le M(X)-R(X)\le\log X$ and the lower
+floor $R(X)\ge c\sqrt X$ also give $M(X)/R(X)\to1$.
+This proves \eqref{eq:greedy-prime-record-count-calibration}.
+Finally $P_n\le n$, and for each fixed $0<a<1$ the probability
+that $\log P_n/\log n\le a$ is exactly
+$N_{\mathcal D}(n^a)/N_{\mathcal D}(n)$.
+Equation~\eqref{eq:greedy-prime-deletion-log-concentration} proves
+the asserted convergence in probability.
+\end{proof}
+
 These results concern the very same automatically favorable capped class,
 rather than a new model or a selected subsequence of cutoffs.
 The compact window retains the square-prime bias and obtains positivity
