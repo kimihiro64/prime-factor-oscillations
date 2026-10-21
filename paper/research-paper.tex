@@ -16268,6 +16268,512 @@ Euler-law normalization, its elementary-symmetric
 coefficient limits, the uniform asymptotic division, and
 the dyadic Borel--Cantelli consumer.
 
+\subsection{Affine samples, optimal prime filters, and a disappearing law}
+\label{sec:affine-thin-prime-filters}
+
+Fix a prime class $\mathcal P$ satisfying
+\eqref{eq:thin-prime-index-hypothesis}, with exponent $\alpha$.
+Write $\mathcal H_{\mathcal P}$ for its positive smooth integers and
+$A_{\mathcal P}(m)=\prod_{p\in\mathcal P}p^{v_p(m)}$.
+All samples in this subsection are \emph{integer} samples, different
+from the earlier affine prime-pair ensembles.  The local congruence
+count is classical.  The conclusions concern uniform moving filters,
+their optimal product budget, and rare events whose exponent survives
+convergence of the whole count law to zero.
+The comparison with the divergent-mean framework of \cite{KN} made
+above still applies; no literature priority claim is required.
+
+\begin{theorem}[Full affine law with its forced component]
+\label{thm:affine-thin-full-law}
+Let $A,q,M$ be arbitrary positive integers, and sample
+$F(n)=A+qn$ uniformly over $0\le n<M$.  Put
+\begin{equation}
+ \begin{gathered}
+ Y=A+q(M-1),\quad g=\gcd(A,q),\quad
+ A_0=A/g,\quad q_0=q/g,\quad R=Y/g,\\
+ \mathcal V=\mathcal P\setminus\{p:p\mid q_0\},\quad
+ \mathcal Q=\mathcal P\setminus\{p:p\mid q\},\quad
+ r=K_{\mathcal P}(g).
+ \end{gathered}
+ \label{eq:affine-thin-domains}
+\end{equation}
+Let $Z_{\mathcal V}$ have the full component law
+$\mathbb P(Z_{\mathcal V}=a)=c_{\mathcal V}/a$ on
+$\mathcal H_{\mathcal V}$.
+For each fixed $\alpha<\sigma<1$ the actual full component law
+$\mu_{A,q,M}$ satisfies
+\begin{equation}
+ \begin{aligned}
+ \|\mu_{A,q,M}
+       -\operatorname{Law}(A_{\mathcal P}(g)Z_{\mathcal V})\|_1
+   &\le B_{\mathcal P,\sigma}R^\sigma/M,\\
+ d_{\rm TV}(\mu_{A,q,M},
+       \operatorname{Law}(A_{\mathcal P}(g)Z_{\mathcal V}))
+   &\le\min\{1,B_{\mathcal P,\sigma}R^\sigma/(2M)\}.
+ \end{aligned}
+ \label{eq:affine-thin-full-budget}
+\end{equation}
+The induced model for the distinct count is exactly
+$r+K_{\mathcal Q}$, with independent Bernoulli probabilities
+$1/p$ for $p\in\mathcal Q$.
+The valuation mask uses $q_0$, while the count mask uses $q$.
+
+Every small-prime exception is included.  At a prime $p\mid q$,
+write $a=v_p(A)$ and $b=v_p(q)$.
+If $a<b$, its valuation is forced to equal $a$.
+If $a\ge b$, its model is $b+G_p$, where
+$\mathbb P(G_p=j)=(1-1/p)p^{-j}$ for $j\ge0$.
+At $p\nmid q$ it is $G_p$.  These model coordinates are independent.
+This includes $p=2$, $M=1$, and $g>1$.
+\end{theorem}
+
+\begin{proof}
+Reduction by $g$ gives $F_0(n)=A_0+q_0n$, with
+$\gcd(A_0,q_0)=1$ and $1\le F_0(n)\le R$.
+In particular $R=A_0+q_0(M-1)\ge M$.
+No prime dividing $q_0$ divides any $F_0(n)$.
+For $d\in\mathcal H_{\mathcal V}$ let
+$C_d=\#\{0\le n<M:d\mid F_0(n)\}$.
+Since $\gcd(d,q_0)=1$, its congruence is one residue class
+modulo $d$, so $|C_d/M-1/d|\le1/M$.
+If $d>R$, then $C_d=0$.  Hence for every such $d$,
+\begin{equation}
+ \left|C_d/M-1/d\right|
+       \le (R^\sigma/M)d^{-\sigma}.
+ \label{eq:affine-thin-rounding}
+\end{equation}
+For $d\le R$ use $1\le(R/d)^\sigma$.
+For $d>R$ use $M\le R\le R^\sigma d^{1-\sigma}$.
+
+For each $a\in\mathcal H_{\mathcal V}$ the exact identity is
+\[
+ \mathbb P(A_{\mathcal V}(F_0(n))=a)
+  =\sum_{\substack{e\in\mathcal H_{\mathcal V}\\
+                   e\ {\rm squarefree}\\ae\le R}}
+           \mu_{\rm Mob}(e)C_{ae}/M .
+\]
+There is no restriction $\gcd(a,e)=1$.
+Its model counterpart is the absolutely convergent sum
+$c_{\mathcal V}/a=\sum_e\mu_{\rm Mob}(e)/(ae)$ over
+all squarefree $e\in\mathcal H_{\mathcal V}$.
+Subtract these complete signed identities.
+Only their rounding and omitted-tail remainder is bounded by
+\eqref{eq:affine-thin-rounding}.
+Summing that bound over all $a$ and squarefree $e$ gives
+\[
+ \frac{R^\sigma}{M}
+ \sum_{a\in\mathcal H_{\mathcal V}}a^{-\sigma}
+ \sum_{\substack{e\in\mathcal H_{\mathcal V}\\e\ {\rm squarefree}}}
+                      e^{-\sigma}
+ =\frac{R^\sigma}{M}
+       \prod_{p\in\mathcal V}
+                  \frac{1+p^{-\sigma}}{1-p^{-\sigma}}
+ \le\frac{R^\sigma}{M}B_{\mathcal P,\sigma}.
+\]
+All series converge since $\sigma>\alpha$.
+Multiplication by $A_{\mathcal P}(g)$ is injective and preserves
+both distances.
+The identity
+$A_{\mathcal P}(F(n))=A_{\mathcal P}(g)A_{\mathcal V}(F_0(n))$
+proves \eqref{eq:affine-thin-full-budget}.
+
+For the distinct count, primes dividing $g$ are already present.
+A prime dividing $q$ but not $g$ never occurs.
+All other coordinates are the geometric presence indicators,
+with probability $1/p$.  Thus both the arithmetic statistic and
+its model equal $r$ plus the count from $\mathcal Q$.
+Comparing $v_p(A)$ and $v_p(q)$ after division by $g$ gives
+the full local classification, with no omitted exceptional prime.
+\end{proof}
+
+\begin{lemma}[Uniform positive supply after a moving finite filter]
+\label{lem:masked-thin-positive-supply}
+For finite $S\subset\mathcal P$ put
+$b_k^S=\mathbb P(K_{\mathcal P\setminus S}=k)$ and
+$q_k^S=\mathbb P(K_{\mathcal P\setminus S}\ge k)$.
+If $|S|\le J$, then
+\begin{equation}
+ b_k^S\ge c_{\mathcal P}p_{J+k}^{-k}\ (k\ge1),\quad
+ b_0^S\ge c_{\mathcal P},\quad
+ b_k^S\le q_k^S\le q_k\ (k\ge0).
+ \label{eq:masked-thin-positive-supply}
+\end{equation}
+For $S=\mathcal P\cap\{p:p\mid q\}$, integer $1\le q\le Y$,
+fixed $c>0$ and $\epsilon>0$, a constant $C_\epsilon>0$ gives
+\begin{equation}
+ \min_{0\le k\le\lfloor c\log Y/\log\log Y\rfloor}b_k^S
+       \ge C_\epsilon Y^{-c/\alpha-\epsilon}
+ \label{eq:masked-thin-uniform-supply}
+\end{equation}
+for all sufficiently large $Y$, uniformly in $q$.
+Individual point masses need not be monotone under filtering.
+\end{lemma}
+
+\begin{proof}
+The $i$th surviving prime $t_i$ is at most $p_{J+i}$.
+The event in which exactly its first $k$ coordinates are one has
+probability $c_{\mathcal P\setminus S}/\prod_{i\le k}(t_i-1)$,
+and $c_{\mathcal P\setminus S}\ge c_{\mathcal P}>0$.
+This proves the lower bounds.
+Bernoulli coupling with the original law proves the tail upper bound.
+
+For the second assertion,
+$J=K_{\mathcal P}(q)\le H_{\mathcal P}(Y)
+=O(\log Y/\log\log Y)$ by
+\eqref{eq:thin-prime-primorial-inverse}.
+Put $L=\lfloor c\log Y/\log\log Y\rfloor$.
+Bounding $J+L$ by a fixed multiple of $\log Y/\log\log Y$
+and using \eqref{eq:thin-prime-index-hypothesis} gives
+$L\log p_{J+L}\le(c/\alpha+o(1))\log Y$, uniformly.
+For $1\le k\le L$, $p_{J+k}^{k}\le p_{J+L}^{L}$;
+the zero-rank bound is independent of $J$.
+This proves \eqref{eq:masked-thin-uniform-supply}.
+\end{proof}
+
+\begin{theorem}[Uniform affine recovery of rare profiles]
+\label{thm:affine-thin-rare-recovery}
+Fix $0<h\le1$, $0\le\gamma<1$, $h+\gamma\le1$,
+and $0<\rho\le1$, with $h>(1-\gamma)\alpha$.
+Use \eqref{eq:affine-thin-domains} and suppose
+\begin{equation}
+ \begin{gathered}
+ M\ge\rho Y^h,\quad g\ge Y^\gamma,\quad
+ 0<c<\alpha\{h-(1-\gamma)\alpha\},\\
+ 0<\delta<h-(1-\gamma)\alpha-c/\alpha .
+ \end{gathered}
+ \label{eq:affine-thin-rare-range}
+\end{equation}
+Write $b_{A,q,M}(j),q_{A,q,M}(j)$ for the empirical point
+mass and tail of $K_{\mathcal P}(F(n))$.
+With $S=\mathcal P\cap\{p:p\mid q\}$ one has
+\begin{equation}
+ \max_{0\le k\le\lfloor c\log Y/\log\log Y\rfloor}
+ \left(
+ \left|\frac{b_{A,q,M}(r+k)}{b_k^S}-1\right|
+ +\left|\frac{q_{A,q,M}(r+k)}{q_k^S}-1\right|
+ \right)\ll Y^{-\delta}.
+ \label{eq:affine-thin-relative-recovery}
+\end{equation}
+The constant and starting point depend only on
+$\mathcal P,h,\gamma,\rho,c,\delta$.
+For every rank sequence $k_Y\sim c\log Y/\log\log Y$
+in this strict range, both empirical probabilities at $r+k_Y$
+equal $Y^{-c/\alpha+o(1)}$, uniformly over these families.
+\end{theorem}
+
+\begin{proof}
+For large $Y$, $M\ge2$ and hence $q\le Y$.
+The full-law error contracts to every count event with allowance
+$B_{\mathcal P,\sigma}R^\sigma/M$.
+The independent positive supply and full negative allowance are
+\begin{equation}
+ \begin{aligned}
+ b_k^S&\ge C_\epsilon Y^{-c/\alpha-\epsilon},\\
+ b_{A,q,M}(r+k)&\ge C_\epsilon Y^{-c/\alpha-\epsilon}
+                      -B_{\mathcal P,\sigma}R^\sigma/M .
+ \end{aligned}
+ \label{eq:affine-thin-signed-consumer}
+\end{equation}
+Since $R\le Y^{1-\gamma}$ and $M\ge\rho Y^h$,
+the relative error is at most a constant times
+$Y^{(1-\gamma)\sigma-h+c/\alpha+\epsilon}$.
+Choose fixed $\alpha<\sigma<1$ and $\epsilon>0$ close
+enough to $\alpha$ and zero that this exponent is below $-\delta$.
+The strict range permits this choice.
+The same division works for tails since $q_k^S\ge b_k^S$.
+
+At $k_Y\sim c\log Y/\log\log Y$, the positive supply and
+the original tail upper bound
+\eqref{eq:thin-prime-coefficient-bounds} give
+$b_{k_Y}^S,q_{k_Y}^S=Y^{-c/\alpha+o(1)}$ uniformly in $q\le Y$.
+In the upper bound take the limit first and then
+$\sigma\downarrow\alpha$.
+Choose a slightly larger permitted $c'$ to contain these ranks,
+and apply the relative estimate.
+\end{proof}
+
+\begin{theorem}[Exact optimal filter under a product budget]
+\label{thm:thin-prime-product-filter-optimality}
+For integer $B\ge1$ put $J=H_{\mathcal P}(B)$ and
+$S_*=\{p_1,\ldots,p_J\}$, empty when $J=0$.
+Among all finite $S\subset\mathcal P$ with $\prod_{p\in S}p\le B$,
+the set $S_*$ minimizes
+$\mathbb P(K_{\mathcal P\setminus S}\ge k)$ for every integer
+$k\ge0$ simultaneously.
+For each $k\ge1$ it is the unique minimizer.
+This is a tail-order assertion, not minimization of each point mass.
+\end{theorem}
+
+\begin{proof}
+Every feasible $S$ has $|S|\le J$, since any $j$ primes
+of $\mathcal P$ have product at least $\prod_{i\le j}p_i$.
+Its successive surviving primes satisfy $t_i\le p_{J+i}$.
+Using independent uniforms $U_i$, couple the indicators
+$\mathbf1_{\{U_i\le1/t_i\}}$ and
+$\mathbf1_{\{U_i\le1/p_{J+i}\}}$.
+Their sums are finite almost surely and ordered.
+The prefix $S_*$ is feasible by the exact primorial inverse,
+so this proves every tail inequality.
+
+If $S\ne S_*$, at least one coordinate satisfies $t_i<p_{J+i}$;
+otherwise the survivor sets and hence the deleted sets coincide.
+At that coordinate there is a positive probability of selecting
+only the larger indicator.
+Independently, the other coordinates of the smaller law have
+positive probability of summing to $k-1$: select any $k-1$
+of them and set all others to zero.
+The infinite product of their failure probabilities is positive.
+On this event the smaller total is $k-1$ and the larger at least $k$.
+Thus the tail inequality is strict for every $k\ge1$.
+For $k=0$ all tails are one.
+\end{proof}
+
+\begin{theorem}[Sharp budget threshold for erasing a rare-event exponent]
+\label{thm:thin-prime-filter-budget-phase}
+Let $X\to\infty$ through integers, let $B_X\ge3$ be integers,
+and suppose
+\[
+ \frac{\log\log B_X}{\log\log X}\longrightarrow s,
+ \qquad 0\le s<\infty.
+\]
+Let $k_X\sim c\log X/\log\log X$ be positive integers,
+where $c>0$ is fixed.
+Take minima over the finite nonempty family
+$\mathfrak S_X=\{S\subset\mathcal P:\prod_{p\in S}p\le B_X\}$.
+Then
+\begin{equation}
+ \begin{aligned}
+ \frac{-\log\min_{S\in\mathfrak S_X}b_{k_X}^S}{\log X}
+     &\longrightarrow c\Phi_\alpha(s),\\
+ \frac{-\log\min_{S\in\mathfrak S_X}q_{k_X}^S}{\log X}
+     &\longrightarrow c\Phi_\alpha(s),\\
+ \Phi_\alpha(s)&=1+(1/\alpha-1)\max\{1,s\}.
+ \end{aligned}
+ \label{eq:thin-prime-filter-budget-phase}
+\end{equation}
+The prefix filter $S_*=\{p_1,\ldots,p_{H_{\mathcal P}(B_X)}\}$
+attains both limiting exponents.
+For $s\le1$, every feasible filter has point mass and tail
+$X^{-c/\alpha+o(1)}$, uniformly over all filters.
+In particular every polynomial product budget preserves this exponent.
+Some larger budgets also have $s=1$; polynomial growth is not
+claimed to be a sharp boundary within that plateau.
+\end{theorem}
+
+\begin{proof}
+Every prime in a feasible nonempty set is at most $B_X$.
+Thus the family is finite; it contains the empty set, and all
+of its count point masses are positive.
+Put $J=H_{\mathcal P}(B_X)$ and $k=k_X$.
+The primorial inverse gives
+\begin{equation}
+ \frac{\log(1+J)}{\log\log X}\longrightarrow s.
+ \label{eq:thin-prime-filter-budget-rank}
+\end{equation}
+For $s>0$, use
+$H_{\mathcal P}(B)\sim\alpha\log B/\log\log B$.
+For $s=0$, the bound $0\le J\le\log B_X/\log2$
+also covers bounded budgets.
+
+If $s\le1$, then $\log(J+k)/\log\log X\to1$.
+The uniform bound $b_k^S\ge c_{\mathcal P}p_{J+k}^{-k}$
+gives probability at least $X^{-c/\alpha+o(1)}$.
+The unfiltered bound $q_k^S\le q_k=X^{-c/\alpha+o(1)}$
+gives the matching upper probability.
+Both bounds are independent of $S$, proving all plateau assertions.
+
+If $s>1$, then $J/k\to\infty$.
+For every feasible filter, its first $J$ surviving primes
+are at most $p_{2J}$.
+Retain all ways of selecting $k$ of these $J$ coordinates
+in the positive coefficient expansion:
+\begin{equation}
+ b_k^S\ge c_{\mathcal P}{J\choose k}p_{2J}^{-k}
+       \ge c_{\mathcal P}(J/k)^kp_{2J}^{-k}.
+ \label{eq:thin-prime-filter-binomial-supply}
+\end{equation}
+Indeed, each factor $(J-i)/(k-i)$ in the binomial product
+is at least $J/k$ for $0\le i<k$.
+Since
+$\log p_{2J}=(1/\alpha+o(1))\log J$,
+$\log J=(s+o(1))\log\log X$, and
+$\log k=(1+o(1))\log\log X$,
+this gives upper decay exponent
+$c\{1+s(1/\alpha-1)\}$ uniformly over all filters.
+
+For the prefix filter the remaining mean satisfies
+\[
+ \lambda_J=\sum_{j>J}p_j^{-1}
+                   =J^{\,1-1/\alpha+o(1)}.
+\]
+For the upper bound compare with
+$\sum_{j>J}j^{-1/\alpha+\epsilon}$ for fixed sufficiently
+small $\epsilon>0$.
+For the lower bound retain $J<j\le2J$ and use $J/p_{2J}$.
+Letting $\epsilon\downarrow0$ proves the exponent.
+Its factorial moment gives
+\[
+ q_k^{S_*}\le
+  \mathbb E{K_{\mathcal P\setminus S_*}\choose k}
+              \le\lambda_J^k/k!.
+\]
+Monotone convergence justifies the infinite nonnegative expansion.
+The estimate $\log k!=k\log k-k+O(\log k)$ now makes
+the lower decay exponent of this tail at least
+$c\{1+s(1/\alpha-1)\}$.
+Since $b_k^{S_*}\le q_k^{S_*}$, the prefix supplies the
+matching upper bounds for both minimum probabilities.
+Together with the uniform positive supply this proves both limits.
+Its exact tail minimization was proved above.
+\end{proof}
+
+\begin{corollary}[An optimal disappearing law still carries the zero index]
+\label{cor:primorial-filter-zero-index}
+Let $\mathcal P$ satisfy \eqref{eq:thin-prime-index-hypothesis}
+and fix $0<b<1-\alpha$.
+For sufficiently large integer $X$ put
+\begin{equation}
+ \begin{gathered}
+ B_X=\lfloor X^b\rfloor,\quad
+ J_X=H_{\mathcal P}(B_X),\quad Q_X=\prod_{j\le J_X}p_j,\quad
+ M_X=1+\left\lfloor\frac{X-1}{Q_X}\right\rfloor,\\
+ e_X=\frac1{M_X}\#\{0\le n<M_X:
+                         K_{\mathcal P}(1+Q_Xn)\ge1\}.
+ \end{gathered}
+ \label{eq:primorial-filter-arithmetic-sample}
+\end{equation}
+Let $E_X$ be the minimum nonzero-count probability over all
+unit residue classes $a\bmod q$ with $1\le q\le B_X$,
+sampled uniformly over
+$\{1\le m\le X:m\equiv a\pmod q\}$.
+These finite sample sets are nonempty.  Then
+\begin{equation}
+ \begin{aligned}
+ e_X,\ E_X
+  &=\left(\frac{\log X}{\log\log X}\right)^{1-1/\alpha+o(1)},\\
+ \operatorname{Law}(K_{\mathcal P}(1+Q_Xn))
+  &\longrightarrow\delta_0\quad\hbox{in total variation}.
+ \end{aligned}
+ \label{eq:primorial-filter-vanishing-profile}
+\end{equation}
+Thus the explicit progression is asymptotically optimal for
+suppressing nonzero counts at this modulus budget, but does
+not remove their logarithmic exponent.
+
+For the computable greedy deleted class $\mathcal D$, take
+$b=1/16$ and $\Theta=\Theta_\zeta$.  One has
+\begin{equation}
+ \begin{gathered}
+ \lim_{X\to\infty}\frac{\log e_X}{\log\log X}
+ =\lim_{X\to\infty}\frac{\log E_X}{\log\log X}
+ =1-\frac1\Theta,\\
+ {\rm RH}\quad\Longleftrightarrow\quad
+ \text{for every $\epsilon>0$, }\
+ e_X\ll_\epsilon(\log X)^{-1+\epsilon}.
+ \end{gathered}
+ \label{eq:primorial-filter-RH}
+\end{equation}
+The same equivalence holds with $E_X$.
+For the binary rank selector $\kappa_{1/20}(X)$ of
+\eqref{eq:greedy-binary-rank-selector}, the actual progression
+point mass and tail moreover satisfy
+\begin{equation}
+ \begin{aligned}
+ \mathbb P_X(K_{\mathcal D}=\kappa_{1/20}(X))
+       &=X^{-1/(20\Theta)+o(1)},\\
+ \mathbb P_X(K_{\mathcal D}\ge\kappa_{1/20}(X))
+       &=X^{-1/(20\Theta)+o(1)}.
+ \end{aligned}
+ \label{eq:primorial-filter-rare-zero-index}
+\end{equation}
+Both have relative error $O(X^{-1/200})$ from the model with
+its first $J_X$ deleted-prime coordinates removed.
+In this specialization, integer $X$ and the integer root
+$B_X=\lfloor X^{1/16}\rfloor$ give computable finite cutoffs,
+progressions and counts.
+\end{corollary}
+
+\begin{proof}
+Use representatives $1\le a\le q$, $\gcd(a,q)=1$.
+For $q\le X^b$, the sample size is $M_a=X/q+O(1)$,
+hence at least $X/(2q)$ eventually, uniformly in $a,q$.
+The largest sample is at most $X$ and the gcd shift is zero.
+For any fixed $\alpha<\sigma<1-b$, the full affine law gives
+the uniform event-probability error
+\begin{equation}
+ O_{\mathcal P,\sigma}(X^{\sigma+b-1})
+ \label{eq:primorial-filter-uniform-error}
+\end{equation}
+from each masked Bernoulli model.
+
+Its erased set is $S=\mathcal P\cap\{p:p\mid q\}$,
+with prime product at most $q\le B_X$.
+The optimality theorem minimizes the model probability
+of a nonzero count at $S_*=\{p_1,\ldots,p_{J_X}\}$.
+This filter is realized by the allowed modulus $Q_X\le B_X$
+and residue one.
+Thus both $E_X$ and $e_X$ differ from this optimal model
+probability by \eqref{eq:primorial-filter-uniform-error}.
+Taking a minimum changes an additive uniform error by at most
+that error; no exact finite empirical optimizer is asserted.
+
+The primorial inverse gives
+$J_X\sim\alpha b\log X/\log\log X$.
+Writing $\lambda_J=\sum_{j>J}p_j^{-1}$, one has
+\[
+ 1-\prod_{j>J}(1-1/p_j)\sim\lambda_J
+                         =J^{1-1/\alpha+o(1)}.
+\]
+Indeed, $\lambda_J\to0$ and
+$\sum_{j>J}p_j^{-2}\le p_{J+1}^{-1}\lambda_J=o(\lambda_J)$.
+Expand the logarithm of the product and then its exponential.
+This positive logarithmic-scale mass dominates the polynomial
+error \eqref{eq:primorial-filter-uniform-error}, proving the
+two asymptotics in \eqref{eq:primorial-filter-vanishing-profile}.
+The total variation distance of a nonnegative integer law
+from $\delta_0$ is its probability of being nonzero,
+which also proves the asserted convergence.
+
+For $\mathcal D$, the proved range
+$1/2\le\Theta\le7/8$ makes $b=1/16<1-\Theta$ admissible.
+The logarithmic limits follow because
+$\log(\log X/\log\log X)/\log\log X\to1$.
+Their common value is at least $-1$, with equality precisely
+when $\Theta=1/2$, equivalently RH.
+The upper bounds for every $\epsilon>0$ force the limit
+to be at most $-1$, and equality implies all those bounds.
+This proves both equivalences.
+
+The model filter has polynomial budget, so the phase theorem
+preserves its rare exponent.
+For the relative error apply the affine rare-recovery theorem:
+the largest sample satisfies $X-Q_X<Y_X\le X$, so $Y_X\sim X$,
+and $M_X\ge\frac12Y_X^{15/16}$ eventually.
+Take $h=15/16$, $\gamma=0$, $\rho=1/2$.
+For $c=1/20$ the available margin is
+\[
+ \frac{15}{16}-\Theta-\frac{1}{20\Theta}
+ \ge\frac{15}{16}-\frac78-\frac{1/20}{7/8}
+ =\frac3{560}>\frac1{200}.
+\]
+The first inequality holds since
+$t\mapsto15/16-t-1/(20t)$ is decreasing on $[1/2,7/8]$.
+Choose $c'>1/20$ close enough that this margin still
+exceeds $1/200$.
+The binary rank is asymptotic to
+$(1/20)\log X/\log\log X$ and lies in the $c'$ range.
+The relative error and both rare exponents follow.
+The integer sixteenth root and finite tests for the computable
+class implement the sample without a decision about a real cutoff.
+\end{proof}
+
+These full affine and optimization results have ordinary proofs;
+they are not advertised as Lean declarations.
+The RH equivalence is not an independent arithmetic upper estimate.
+The installed $\Theta\le7/8$ gives the upper exponent $-1/7$
+for $e_X,E_X$ on the logarithmic scale; RH requires $-1$.
+No improvement of the certified zero-free boundary is claimed.
+
 \subsection{Selecting certified good primes before estimating their size}
 \label{sec:certified-good-prime-class}
 
