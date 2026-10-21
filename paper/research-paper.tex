@@ -13788,10 +13788,20 @@ The rank-zero tail is always one.
 Iterating the replacement over the padded arrays proves
 \eqref{eq:capped-prime-tail-extremum}, including coordinates
 equal to zero or one.
-Writing any increasing test function as its value at zero
-plus a nonnegative combination of the tail indicators proves
-the expectation assertion. The two moment comparisons follow
-from the monotonicity of $k\mapsto z^k$ in their stated domains.
+For either finite law, use the common support bound $a$.
+The exact finite Abel identity is
+\[
+ \mathbb E\phi(K)=\phi(0)+
+   \sum_{k=0}^{a-1}\bigl(\phi(k+1)-\phi(k)\bigr)
+                                      \mathbb P(K\ge k+1).
+\]
+The boundary term vanishes because $K\le a$; for the competitor,
+all tails above its smaller support $b$ vanish as well.
+Every difference in this sum is nonnegative, whereas $\phi(0)$
+may have either sign and cancels between the two laws.
+This proves the expectation assertion.
+The two moment comparisons follow from the monotonicity of
+$k\mapsto z^k$ in their stated domains, retaining $z=0,1$.
 
 For the coefficient assertion, each matched factor has
 $v(s_i)\ge v(t_i)\ge0$, so replacing the matched factors
@@ -13829,16 +13839,32 @@ optimality for counts and for all these probability observables.
 It does not estimate the optimal count's growth:
 the independent $3/4$ and square-root size bounds remain open.
 
-The abstract finite tail theorem and its exact identification
-with the existing Bernoulli coefficients are now Lean-checked
-in \path{Proof/PrimeClassDeletion/BernoulliDominance.lean},
-exported by the prime-deletion assembly.
-In particular \texttt{List.bernoulliTail\_mono\_padded}
-retains the full coordinate interval and all ranks.
-The full rank and weighted extremality theorem is now Lean-checked
-as identified above. The actual prime-class stochastic consumers,
-their increasing-test expectations, moment and coefficient consequences,
-the affine odds specializations and rank shifts, and the infinite
+The whole stochastic and coefficient theorem is now Lean-checked.
+The actual finite product probability space is constructed from bit
+tuples; each tuple has the product of its coordinate success and
+failure weights. In
+\path{Proof/PrimeClassDeletion/BernoulliFiniteLaw.lean},
+these weights are proved nonnegative and normalized, and their
+success-count masses equal the existing Bernoulli coefficients.
+\texttt{List.bernoulliOutcomeTail\_eq} and
+\texttt{List.bernoulliOutcomeExpectation\_eq}
+identify its actual tail probabilities and expectations.
+The finite generating polynomial is identified with the literal
+prime product by
+\texttt{primeClassBernoulliMass\_\allowbreak eq\_\allowbreak product\_\allowbreak coeff}.
+The assembled certificate
+\texttt{greedyPrimeClass\_\allowbreak local\_\allowbreak probability\_\allowbreak complete}
+retains every rank, every increasing test on the actual finite
+support, both moment ranges, and only the local competing cap
+$2\le t\le x$.
+Separately,
+\texttt{greedyPrimeClass\_\allowbreak local\_\allowbreak odds\_\allowbreak coefficient}
+proves the displayed coefficient inequality for the literal
+prime products and arbitrary finite nonnegative decreasing odds.
+All owners are exported through the prime-deletion assembly.
+
+The ordinary-divisibility application, affine odds specializations,
+their exceptional forced-coordinate rank shifts, and the infinite
 missing-product comparison remain separate formalization obligations.
 The signed record-energy calculation also retains its ordinary-proof
 status. No established originality priority or new zero-free boundary

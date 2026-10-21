@@ -7,7 +7,7 @@ import PrimeFactorOscillations.Helpers.PrimeClassDecoderIntegerProbes
 import PrimeFactorOscillations.Helpers.PrimeClassSparseDeletion
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.BernoulliDominance
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.CapacitySelectionFinite
-import PrimeFactorOscillations.Proof.PrimeClassDeletion.CappedPrimeWeights
+import PrimeFactorOscillations.Proof.PrimeClassDeletion.CappedPrimeProbability
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.PolynomialPrimeNorming
 
 /-!
@@ -25,6 +25,11 @@ The actual Fermat, Mersenne and Fibonacci prime-value classes have infinite
 capacity, with verified finite membership tests and the golden-ratio bound.
 Deleting a class of convergence exponent zero preserves every convergent
 positive exponent and the decoding capacity on its stated class domain.
-The full prime-power component law and RH applications remain separate
+The actual capped-prime class has stochastic dominance at every rank,
+comparison for every increasing test and both moment ranges, and
+coefficientwise extremality for all finite nonnegative decreasing odds.
+The finite product law, its exact coefficients and deterministic endpoints
+are checked. Affine specializations, infinite missing-product comparison,
+the full prime-power component law and RH applications remain separate
 obligations.
 -/
