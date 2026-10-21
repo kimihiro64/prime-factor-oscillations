@@ -8567,6 +8567,356 @@ steps are not yet formalized in Lean.
 This controlled-weight construction is stated with its proof;
 no established novelty priority is claimed.
 
+\subsection{Power sparsity, weight caps and height growth}
+\label{sec:prime-carrier-power-tradeoff}
+
+The finite integer compression lemma can be used locally,
+rather than on an entire dyadic block. This retains much
+smaller weights and controls the full height dependence with
+a fixed number of moments.
+
+\begin{theorem}[A tunable prime-carrier tradeoff]
+\label{thm:prime-carrier-power-tradeoff}
+Fix an integer $k\ge2$ and put
+\[
+ C_k=k(k+1)\frac{2^{1/k}}{2^{1/k}-1}.
+\]
+There are a fixed prime set $Q_k$ and positive integer
+weights $w_p\le p^{1-1/k}$ such that
+\[
+ \pi_{Q_k}(X)\le C_k J(J+1)X^{1/k},
+ \qquad J=\lfloor\log_2X\rfloor,\quad X\ge2.
+\]
+For every fixed Dirichlet character $\chi$ the absolutely
+convergent Euler product
+\[
+ \mathcal L_k(s,\chi)
+ =\prod_{p\in Q_k}(1-\chi(p)p^{-s})^{-w_p},
+ \qquad \Re s>1,
+\]
+continues meromorphically to $\Re s>0$ as
+\[
+ \mathcal L_k(s,\chi)=L(s,\chi)\exp G_{k,\chi}(s),
+ \qquad G_{k,\chi}\text{ holomorphic on }\Re s>0.
+\]
+All zeros, multiplicities and poles in that half-plane are
+therefore preserved. The same set and weights work for every
+fixed character. In particular this gives an RH-equivalent
+zero criterion on each $Q_k$.
+For every fixed modulus $q$ and $\sigma_0>0$,
+\[
+ |G_{k,\chi}(s)|\le B_{q,\sigma_0}
+       +\frac{2}{k}\prod_{r=0}^{k-1}(|s|+r)
+                  \frac{2^{-\sigma_0}}{(1-2^{-\sigma_0})^{k+1}}
+ \quad(\Re s\ge\sigma_0,\ \chi\bmod q),
+\]
+where, for every $\sigma_0>0$,
+\[
+ B_{q,\sigma_0}
+   =2\sum_{1\le j<q!}\frac{2^{j(1-\sigma_0)}}{1-2^{-j\sigma_0}}.
+\]
+This is the same finite initial-block expression as before,
+now used and justified throughout $\sigma_0>0$.
+Thus it is the \emph{logarithm of the multiplier} that has
+polynomial height growth of degree $k$.
+All assertions keep $k$ fixed; no uniformity as $k\to\infty$
+or the conductor grows is implicit.
+\end{theorem}
+
+\begin{proof}
+Use the moduli $M_j\le j$ from the preceding construction,
+so $q\mid M_j$ for $j\ge q!$.
+For $u=2^j$, put
+\[
+ \ell_j=\left\lfloor\frac{(k-1)j}{k}\right\rfloor,\qquad
+ L_j=2^{\ell_j},\qquad b_j=2^{j-\ell_j}.
+\]
+Divide $[u,2u)$ into its $b_j$ consecutive integer intervals
+of length $L_j$. In each such interval, and each residue
+class modulo $M_j$, let $I$ be the finite set of primes in
+that cell and class. Apply
+Lemma~\ref{lem:integer-moment-compression} to the natural
+vectors $(1,p,\ldots,p^{k-1})$, $p\in I$.
+It supplies nonnegative integer weights satisfying
+\[
+ \sum_{p\in I}w_pp^r=\sum_{p\in I}p^r\quad(0\le r<k),
+ \qquad
+ 2^{|\{p:w_p>0\}|}\le
+       \prod_{r=0}^{k-1}\left(1+\sum_{p\in I}p^r\right).
+\]
+This is exactly the already compiled finite compression
+input, instantiated with coordinate type $\operatorname{Fin}(k)$.
+The subsequent analytic argument is an ordinary proof.
+
+Write $n=|I|\le L_j$. The zeroth moment forces
+$\sum_{p\in I}w_p=n$, hence every weight is at most
+$n\le L_j\le u^{1-1/k}\le p^{1-1/k}$.
+Discard the zero weights. Empty cells contribute no primes.
+For $0\le r<k$,
+\[
+ 1+\sum_{p\in I}p^r
+ \le2^{\ell_j+r(j+1)+1}.
+\]
+Consequently the retained support in one cell and class has
+at most
+\[
+ k(\ell_j+1)+\frac{k(k-1)}2(j+1)
+ \le\frac{k(k+1)}2(j+1)
+\]
+points. There are at most $j$ residue classes and
+$b_j\le2\cdot2^{j/k}$ cells. The total block support is
+therefore at most $k(k+1)j(j+1)2^{j/k}$.
+Summing this bound for $1\le j\le J$, using
+\[
+ \sum_{j=1}^J2^{j/k}
+ \le\frac{2^{1/k}}{2^{1/k}-1}\,2^{J/k},
+\]
+proves the claimed bound for all $X\ge2$.
+The denominator is positive because $k\ge2$.
+
+We now estimate the exact full Euler-block difference
+\[
+ D_{j,k,\chi}(s)
+ =\sum_{\substack{p\text{ prime}\\u\le p<2u}}
+        (w_p\mathbf1_{Q_k}(p)-1)f_{s,\chi(p)}(p),
+ \qquad
+ f_{s,c}(x)=\sum_{m\ge1}\frac{c^m x^{-ms}}m.
+\]
+The series retains every prime power.
+If $j\ge q!$, the character value is constant on each
+cell and residue class. The moment identities annihilate
+the entire Taylor polynomial of degree $k-1$ of $f_{s,c}$
+about the left endpoint of the cell. In particular,
+\[
+ D_{j,k,\chi}(s)
+ =\sum_{\text{cells and classes}}\ \sum_{p\in I}
+       (w_p-1)\bigl(f_{s,c}(p)-T_{k-1,s,c,I}(p)\bigr).
+\]
+This signed identity, with all moments removed exactly,
+precedes any bound on the Taylor remainder.
+
+For $\sigma=\Re s>0$, termwise differentiation gives
+\[
+ |f^{(k)}_{s,c}(x)|
+ \le \prod_{r=0}^{k-1}(|s|+r)\,x^{-k}
+          \sum_{m\ge1}m^{k-1}x^{-m\sigma}
+ \le
+ (k-1)!\prod_{r=0}^{k-1}(|s|+r)
+       \frac{x^{-\sigma-k}}{(1-x^{-\sigma})^k}.
+\]
+For the last inequality, use
+$m^{k-1}\le(k-1)!\binom{m+k-2}{k-1}$ and its geometric
+generating series. The differentiation is justified
+locally uniformly on $x>1$, $\Re s>0$, $|c|\le1$.
+Taylor's integral remainder on an interval of length $L_j$
+is bounded by $L_j^k/k!$ times this derivative bound.
+The residual coefficient mass in a cell is at most $2n$.
+Summing the remainders over cells and classes uses
+$\sum n\le u$ and $L_j^k\le u^{k-1}$, and yields
+\[
+ |D_{j,k,\chi}(s)|
+ \le\frac2k\prod_{r=0}^{k-1}(|s|+r)
+       \frac{2^{-j\sigma}}{(1-2^{-j\sigma})^k}
+ \qquad(j\ge q!).
+\]
+In particular, for $\Re s\ge\sigma_0>0$ and $R\ge q!$,
+\[
+ \left|\sum_{j\ge R}D_{j,k,\chi}(s)\right|
+ \le\frac2k\prod_{r=0}^{k-1}(|s|+r)
+       \frac{2^{-R\sigma_0}}{(1-2^{-\sigma_0})^{k+1}}.
+\]
+This proves normal convergence of
+$G_{k,\chi}=\sum_{j\ge1}D_{j,k,\chi}$ on $\Re s>0$.
+The initial blocks $j<q!$ are bounded by $B_{q,\sigma_0}$,
+because they have total residual mass at most twice their
+original prime count. Bounding the remaining tail by the
+sum over all $j\ge1$ proves the stated height estimate.
+
+Each block still has total weight equal to its original
+prime count. Thus the Euler product is absolutely
+convergent for $\Re s>1$, and the complete logarithms in
+that domain differ by $G_{k,\chi}$.
+Exponentiation gives
+$\mathcal L_k=L(s,\chi)\exp G_{k,\chi}$ and hence the
+meromorphic continuation. The exponential is a holomorphic
+unit, so the full zero signal and multiplicities survive.
+\end{proof}
+
+\paragraph{Deletion, probability and the unavoidable mass cost.}
+The construction can instead be carried out on primes outside
+any fixed class $S$ from
+Theorem~\ref{thm:critical-prime-deletion}. All cell bounds
+and the analytic estimate for $G_{k,\chi}$ remain valid.
+The factorization becomes
+\[
+ \mathcal L_{k,S}(s,\chi)
+   =L(s,\chi)H_{S,\chi}(s)\exp G_{k,S,\chi}(s).
+\]
+For a critical-thin class $S$ this preserves zeros on
+$\Re s>1/2$, the domain where the deleted-prime factor is
+proved to be a unit; it does not assert preservation on all
+of $\Re s>0$ for that class.
+The full logarithmic multiplier bound additionally includes
+$B_{S,\sigma_0}$ from the preceding proof.
+Thus all Fermat-number prime divisors can be excluded
+while the support is further compressed to
+$O_k(X^{1/k}(\log X)^2)$.
+The positive integer weights again define the stated
+negative-binomial probability law.
+
+The mass cost is explicit. In a dyadic block, preserving
+zeroth mass $N_j$ under the cap $w_p\le p^{1-1/k}$ requires
+at least $N_j/(2u)^{1-1/k}$ support points.
+The prime number theorem makes this
+$\gg_k u^{1/k}/\log u$. Our construction is within
+logarithmic factors of the smallest support power permitted
+by that cap and mass constraint.
+It is not a lower bound on all possible detectors.
+
+For example, $k=2$ gives square-root weights and support
+$O(\sqrt X(\log X)^2)$, with a quadratic height bound for
+the logarithmic compensator and preservation on $\Re s>0$.
+The preceding terminal-group construction has the sharper
+support order $\sqrt X/\log X$, a linear height bound and
+a real-axis sign, but only preserves $\Re s>1/2$.
+These are distinct quantitative choices.
+Taking larger fixed $k$ makes the prime support sparser,
+increases the allowed weight exponent, and raises the degree
+of the logarithmic height bound. It does not remove the
+mass or height costs.
+
+The finite integer moment theorem used here is compiled.
+The short-interval prime construction, Taylor cancellation,
+analytic continuation and resulting RH criterion have the
+complete ordinary proof above; they are not claimed as
+compiled Lean declarations. No independent bound on the
+weighted signed inverse coefficients has been proved, and
+the certified zero-free boundary remains $7/8$.
+This explicit tradeoff is proved here without an established
+novelty-priority claim.
+
+\subsection{The exact scope of deletion by an Euler unit}
+\label{sec:euler-unit-deletion-classification}
+
+The sufficient deletion condition also has a converse for
+the precise mechanism used here. Positivity prevents a
+larger deleted prime class from having a holomorphic-unit
+Euler factor throughout the same half-plane.
+
+\begin{theorem}[Classification of pure Euler-unit deletions]
+\label{thm:euler-unit-deletion-classification}
+Let $S$ be any fixed prime set, and let $\alpha\ge0$.
+The following are equivalent:
+\begin{enumerate}
+\item For every $\epsilon>0$,
+$\pi_S(X)\ll_\epsilon X^{\alpha+\epsilon}$.
+\item The Euler product
+$E_S(s)=\prod_{p\in S}(1-p^{-s})^{-1}$, initially defined
+on $\Re s>1$, has a holomorphic continuation to
+$\Re s>\alpha$.
+\item The product
+$H_S(s)=\prod_{p\in S}(1-p^{-s})$, initially defined
+on $\Re s>1$, continues to a holomorphic nowhere-zero
+function on $\Re s>\alpha$.
+\end{enumerate}
+In these cases both Euler products actually converge
+absolutely on $\Re s>\alpha$.
+In particular, at $\alpha=1/2$, the critical-thin counting
+condition is necessary and sufficient for deletion by an
+Euler unit on the entire open RH half-plane.
+\end{theorem}
+
+\begin{proof}
+Assume (1), and fix $\sigma>\alpha$.
+Choose $0<\epsilon<\sigma-\alpha$.
+Dyadic summation of the counting bound gives
+$\sum_{p\in S}p^{-\sigma}<\infty$.
+Since $\sigma>0$, the full logarithmic sums
+\[
+ \sum_{p\in S}\sum_{m\ge1}\frac{p^{-ms}}m
+\]
+converge normally on $\Re s>\alpha$.
+Exponentiation and its reciprocal give absolutely convergent
+Euler products that are holomorphic and nowhere zero there.
+This proves (3), and (3) implies (2) by taking a reciprocal.
+
+For (2) implies (1), write the initial Euler product as
+\[
+ E_S(s)=\sum_{n\ge1}\frac{a_S(n)}{n^s},\qquad
+ a_S(n)=\mathbf1_{\{\text{every prime factor of }n
+                            \text{ belongs to }S\}}.
+\]
+Here $a_S(1)=1$, and all coefficients are nonnegative and
+at most $1$. The expansion and its differentiated series
+are absolutely convergent on $\Re s>1$.
+
+Fix a real $\sigma>\alpha$ and choose
+$c>\max(1,\sigma)$.
+The continued function is holomorphic on the disk
+$|s-c|<c-\alpha$. Set $t=c-\sigma$; then
+$0<t<c-\alpha$.
+Termwise differentiation at $c$, followed by its convergent
+Taylor expansion at $c-t$, gives
+\[
+ E_S(\sigma)
+ =\sum_{r\ge0}\frac{t^r}{r!}
+       \sum_{n\ge1}a_S(n)(\log n)^r n^{-c}.
+\]
+Every term is nonnegative. Tonelli's theorem therefore
+allows the two sums to be interchanged, yielding
+\[
+ E_S(\sigma)
+ =\sum_{n\ge1}a_S(n)n^{-c}
+       \sum_{r\ge0}\frac{(t\log n)^r}{r!}
+ =\sum_{n\ge1}a_S(n)n^{-\sigma}<\infty.
+\]
+This is the classical positive-Taylor argument behind
+Landau's theorem, included here so that the continuation
+hypothesis and the use of positivity are explicit.
+In particular,
+$\sum_{p\in S}p^{-\sigma}\le E_S(\sigma)<\infty$.
+For $\sigma=\alpha+\epsilon$ and every $X\ge2$,
+\[
+ \pi_S(X)\le
+ X^{\alpha+\epsilon}
+       \sum_{p\in S}p^{-(\alpha+\epsilon)}.
+\]
+This convergent prime sum gives a finite bound constant,
+depending on $S$ and $\epsilon$; no numerical value is asserted.
+This proves (1), and the already proved implication from
+(1) also establishes absolute convergence of both products.
+\end{proof}
+
+The classification applies to an Euler multiplier required
+to be a unit at \emph{every} point of $\Re s>1/2$,
+including $s=1$, as needed to preserve the original pole.
+It is not a classification of every RH-equivalent observable.
+At this threshold the deleted class has
+$\pi_S(X)=o(\pi(X))$, so its unweighted complement retains
+relative prime density $1$.
+An entire positive proportion of primes therefore cannot
+be removed by this exact unit mechanism.
+Finite and many infinite special-prime classes both qualify;
+infinitude itself is not the criterion.
+
+The smaller weighted carriers proved above achieve
+something different: they preserve zeroth mass in their
+blocks and move that mass onto fewer locations.
+Their support can have zero relative density because the
+weights or normalization carry the missing information.
+The classification explains precisely why the cost must be
+tracked; it does not rule out a different compensated
+observable or prove a zero-excluding estimate.
+The classification has the complete ordinary proof above
+and uses the classical Landau positivity principle.
+No separate Lean compilation or novelty claim is made.
+The weighted carriers retain the pole at $1$, so they do not
+satisfy the holomorphy hypothesis in (2). Applying this
+positivity argument after compensating that pole would
+require a separately proved holomorphic function with
+nonnegative Dirichlet coefficients; no such input is supplied
+by compression alone.
+
 \subsection{Nested Fermat carriers and a joint Fibonacci profile}
 \label{sec:fermat-fibonacci-joint}
 
