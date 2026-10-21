@@ -15267,11 +15267,37 @@ The proof uses the exact subset expansion with coefficient
 $\lfloor N/\prod_{p\in T}p\rfloor/N$, the signed floor remainder,
 and the identity that the coefficient norm of $(z-1)^r$ is $2^r$.
 Thus the estimate is uniform in the independently varying cutoff $Y$.
-The countable Euler-law normalization, the full absolutely summable
-M\"obius floor expansion, the infinite-profile limit, the full
-total-variation estimate for all valuations, and the positive Jordan
-moment consumer remain to be formalized. The finite uniform estimate
-does not verify their exact convergence and moment spectra.
+The infinite count-profile consumer is now also Lean-verified.
+For $0\le\sigma<1$ with the same summability hypothesis, the declaration
+\[
+ \texttt{classEulerProfile\_count\_sampling\_law}
+\]
+proves that the literal product
+$P_{\mathcal P}(z)=\prod_{p\in\mathcal P}(1-1/p+z/p)$ is entire,
+that its Taylor coefficients $b_k$ satisfy
+\[
+ b_k\ge0,\qquad \sum_{k\ge0}b_k=1,\qquad
+ \sum_{k\ge0}\left|\frac{C_{N,k}}N-b_k\right|
+       \le e^{2S_\sigma}N^{\sigma-1}\quad(N\ge1).
+\]
+The formal proof constructs the coefficient limits from the uniform
+finite sampling estimate, passes every finite coefficient sum to the
+limit, and then proves the full infinite sum bound and normalization.
+Uniform convergence of the finite Euler products and Cauchy's coefficient
+estimate identify this same limiting law with the entire product's
+Taylor coefficients. The separate declaration
+\[
+ \texttt{classEulerProfile\_eq\_zero\_iff}
+\]
+proves that its zeros are exactly $1-p$ for $p\in\mathcal P$.
+All these statements include finite and empty classes and the smallest
+prime $2$; no infinitude or additional sampling-law hypothesis is used.
+
+Normalization of the full prime-power component law, its absolutely
+summable M\"obius floor expansion, the full total-variation estimate
+retaining all valuations, and the positive Jordan moment consumer remain
+to be formalized. The verified count-profile law does not establish
+their exact convergence and moment spectra.
 No originality priority over the literature is established.
 
 \subsection{Universal optimality of capped prime-component laws}
@@ -15740,16 +15766,27 @@ The signed slack is a finite certificate for that ordering;
 it supplies no independent upper estimate for the square-root
 moment and changes no zero-free boundary.
 
+Theorem~\ref{thm:ordered-stream-greedy-optimality} is now
+Lean-verified in its full finite ordered-stream form.
 The module
-\texttt{PrimeClassDeletion.}\allowbreak\texttt{CapacitySelection} implements the
-actual greedy cost recursion and prefix counts, not merely
-an assumed optimizer.  It proves the exact slack step and
-Abel sum, the joint invariant, existence of a selected index
-at each attained rank, rank domination, deleted-count
-optimality and the equal-count cost comparison.  These finite
-ordered-stream statements are the formalized scope.
+\texttt{PrimeClassDeletion.}\allowbreak\texttt{CapacitySelection}
+implements the actual greedy recursion and proves its signed invariant.
+The maintained module
+\texttt{CapacitySelectionFinite} identifies the recursive counts and costs
+with the literal finite-set cardinalities and sums used here.
+Its declarations
+\[
+ \begin{gathered}
+ \texttt{prefixSlack\_step},\qquad \texttt{prefixSlack\_sum},\\
+ \texttt{greedySelection\_finset\_prefix\_optimality},\\
+ \texttt{greedySelection\_finset\_rank\_le}
+ \end{gathered}
+\]
+verify the exact difference and Abel identities, every count and cost
+conclusion, nonnegative slack, and the actual selected same-rank witness.
+They include $n=0$, arbitrary real budgets, and signed nondecreasing weights.
 The analytic prime enumeration and the infinite geometric
-probability-law consumers remain ordinary proofs.
+probability-law consumers remain separate formalization obligations.
 
 \subsection{Rare profiles, arithmetic records, and spectral dimension}
 \label{sec:thin-prime-profile}
