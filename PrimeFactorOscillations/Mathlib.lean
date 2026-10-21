@@ -3,6 +3,7 @@ import PrimeFactorOscillations.Mathlib.Analysis.All
 import PrimeFactorOscillations.Mathlib.Data.All
 import PrimeFactorOscillations.Mathlib.NumberTheory.All
 import PrimeFactorOscillations.Mathlib.Order.All
+import PrimeFactorOscillations.Mathlib.Probability.Distributions.DyadicDiscrepancy
 import PrimeFactorOscillations.Mathlib.Probability.Distributions.FiniteBernoulliPeakScale
 import PrimeFactorOscillations.Mathlib.Probability.Distributions.WeightedDyadic
 import PrimeFactorOscillations.Mathlib.Probability.Distributions.WeightedDyadicBound

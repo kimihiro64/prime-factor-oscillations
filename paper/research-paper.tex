@@ -8084,6 +8084,310 @@ ordinary proofs above, without a separate Lean compilation
 claim for those combined analytic conclusions.
 
 
+\subsection{Exact binary sampling and its sharp leading constant}
+\label{sec:binary-sampling}
+
+The weighted geometric law has a stronger finite-sampling statement
+than the generic complete-period remainder estimate.  It does not
+depend on the unknown sizes of the positive Fermat block weights.
+We use total variation in the convention
+$d_{\mathrm{TV}}(\mu,\nu)=\frac12\sum_x|\mu(x)-\nu(x)|$.
+
+\begin{theorem}[Exact binary defect and sharp sampling constant]
+\label{thm:binary-sampling}
+Let $w_j$ be positive integers, $W_t=\sum_{0\le j<t}w_j$,
+$U_N$ uniform on $\{1,\ldots,N\}$ with $N\ge1$, and let $T$
+have $\mathbb P(T=t)=2^{-t-1}$ for $t\ge0$.
+For $k\ge0$ put
+\[
+ X_{N,k}=W_{\min(v_2(U_N),k)},\qquad X_k=W_{\min(T,k)}.
+\]
+Write
+\begin{align*}
+ r_t&=\frac{N\bmod 2^t}{2^t},\\
+ b_t&=\left\lfloor\frac{N}{2^t}\right\rfloor
+       -2\left\lfloor\frac{N}{2^{t+1}}\right\rfloor\in\{0,1\},\\
+ h&=\min\{k,1+\lfloor\log_2N\rfloor\}.
+\end{align*}
+Then
+\[
+ d_{\mathrm{TV}}(X_{N,k},X_k)
+ =\frac1{2N}\sum_{\substack{0\le t<k\\b_t=1}}(1-r_t)
+ \le \frac{h}{6N}+\frac1{2N}.
+\]
+The same formula, with the finite sum over all nonzero bits of $N$,
+and the bound with $h=1+\lfloor\log_2N\rfloor$ hold without truncation.
+For the untruncated variables the leading constant is optimal:
+\[
+ \limsup_{N\to\infty}
+ \frac{N}{\log_2N}\,
+ d_{\mathrm{TV}}(W_{v_2(U_N)},W_T)=\frac16.
+\]
+For nonnegative weights the displayed error remains an upper bound;
+strict positivity is needed for the equality of transported defects.
+\end{theorem}
+
+\begin{proof}
+Set $q_t=\lfloor N/2^t\rfloor$, so $N/2^t=q_t+r_t$,
+$r_0=0$ and
+\[
+ q_t=2q_{t+1}+b_t,\qquad
+ r_{t+1}=\frac{r_t+b_t}{2}.
+\]
+For $t<k$, the empirical mass at level $W_t$ is
+$(q_t-q_{t+1})/N$.  Its difference from $2^{-t-1}$ is
+\[
+ \frac{q_t-q_{t+1}}N-\frac1{2^{t+1}}
+   =\frac{b_t-r_t}{2N}.
+\]
+The terminal mass difference is
+$q_k/N-2^{-k}=-r_k/N\le0$.
+Since $0\le r_t<1$, the positive differences occur exactly at
+the bits $b_t=1$.  The levels $W_t$ are distinct, so total variation,
+the total positive difference between two probability laws,
+is the stated sum.  All bits above $\lfloor\log_2N\rfloor$ vanish.
+For the full law there are likewise only finitely many positive
+differences, and the same calculation applies.  If levels merge
+because some weights vanish, summing masses in each fiber can
+only decrease total variation.
+
+Here is the joint estimate on the retained digit sum.  Define
+\[
+ R(b,r)=b(1-r),\qquad B(r)=r-\frac{|r-\tfrac12|}{3}.
+\]
+For $0\le r\le1$ and $b\in\{0,1\}$, put $y=(r+b)/2$.
+Then
+\[
+ R(b,r)\le \frac13+B(y)-B(r).
+ \tag{*}
+\]
+This is a two-branch identity with a nonnegative slack.
+For $b=0$ that slack is $0$ when $r\ge1/2$, and
+$(1-2r)/3$ when $r\le1/2$.  For $b=1$ it is $0$
+when $r\le1/2$, and $(2r-1)/3$ when $r\ge1/2$.
+Thus all four cases prove $(*)$ directly.
+We also have $B(0)=-1/6$ and $B(r)\le5/6$ on $[0,1]$.
+Summing $(*)$ over the actual binary orbit makes all intermediate
+compensator terms cancel:
+\[
+ \sum_{0\le t<h}b_t(1-r_t)
+ \le \frac h3+B(r_h)-B(0)\le \frac h3+1.
+\]
+Division by $2N>0$ proves the claimed bound.
+
+To prove sharpness symbolically for every $m\ge1$, take
+\[
+ N_m=\frac{4^m-1}{3}.
+\]
+Its binary expansion has ones exactly at $t=2i$,
+$0\le i<m$, and
+$r_{2i}=(1-4^{-i})/3$.  Therefore
+\begin{align*}
+ \sum_{0\le i<m}(1-r_{2i})
+ &=\frac{2m}{3}+\frac49(1-4^{-m}),\\
+ d_{\mathrm{TV}}(W_{v_2(U_{N_m})},W_T)
+ &=\frac{m}{3N_m}+\frac{2(1-4^{-m})}{9N_m}.
+\end{align*}
+Since $\log_2N_m=2m-\log_2 3+\log_2(1-4^{-m})$,
+the normalized limit along this sequence is $1/6$.
+The universal upper bound gives the reverse limsup inequality.
+For $k=0$ both laws are the point mass at $W_0=0$;
+for $N=1$ and $k\ge1$ the exact defect is $1/2$.
+These cases also verify the endpoint conventions.
+\end{proof}
+
+Taking $w_j=m_j=\omega(T_j)$ applies the theorem to the
+actual all-Fermat-factor count, by the exact order and disjoint-support
+theorems.  The result is independent of how many prime factors
+any particular Fermat number has.  In particular, the complete
+reference law approximates the actual positive-interval law in total
+variation at the displayed rate, simultaneously for every cutoff.
+
+\begin{theorem}[Uniform common-index sampling with odd clocks]
+\label{thm:binary-odd-joint-sampling}
+Let $M\ge1$ be odd, and let $A$ be uniform on
+$\mathbb Z/M\mathbb Z$, independently of $T$.
+For every $N\ge1$ and integer $a\ge0$,
+\[
+ d_{\mathrm{TV}}\bigl((U_N\bmod M,v_2(U_N)),(A,T)\bigr)
+ \le \frac{Ma}{2N}+2^{-a}.
+\]
+Consequently, if $N\ge M$, this distance is at most
+\[
+ \min\left\{1,\,
+ \frac{M}{2N}\left(\log_2\frac NM+3\right)\right\}.
+\]
+Every deterministic joint observation of the two coordinates obeys
+the same upper bound.  In particular, for any finite set $S$ of odd
+prime labels, taking $M=M_S$ gives it for the full or truncated
+weighted Fermat count together with
+$(\boldsymbol1_{P_\ell\mid F_n})_{\ell\in S}$,
+uniformly in the Fermat cutoff.
+Thus $M_S=o(N)$ suffices for convergence of these growing finite
+vectors to the independent reference law.
+\end{theorem}
+
+\begin{proof}
+For each $0\le t<a$ and each residue $c\bmod M$,
+the event $n\equiv c\bmod M$, $v_2(n)=t$ is exactly one
+residue class modulo $M2^{t+1}$: combine $n\equiv c\bmod M$
+and $n\equiv2^t\bmod2^{t+1}$ by CRT.
+Its count on $1,\ldots,N$ differs from
+$N/(M2^{t+1})$ by at most one.
+The contribution of these $Ma$ cells to half the sum of
+absolute mass differences is therefore at most $Ma/(2N)$.
+On the remaining levels, the empirical total mass is
+$\lfloor N/2^a\rfloor/N\le2^{-a}$, and the reference total
+mass is $2^{-a}$.  Their contribution to half the absolute
+difference is at most $2^{-a}$.  This proves the first estimate,
+including $a=0$.
+For $N\ge M$ choose $a=\lceil\log_2(N/M)\rceil$.
+Then $2^{-a}\le M/N$ and $a\le\log_2(N/M)+1$.
+Total variation is also at most one, giving the displayed minimum.
+A deterministic map cannot increase total variation: sum the
+signed masses over each fiber before applying the triangle
+inequality.  For the Fibonacci labels use the odd modulus
+$M=M_S$, and send $c$ to the vector
+$(\boldsymbol1_{\ell\mid c})_{\ell\in S}$.
+The maintained Fibonacci carrier theorem identifies this with
+the actual vector $(\boldsymbol1_{P_\ell\mid F_n})_{\ell\in S}$.
+Send the other coordinate to $W_{\min(t,k)}$, or to $W_t$
+for the full count.  Finally, writing $q=N/M\to\infty$,
+the bound $(\log_2q+3)/(2q)$ tends to zero.
+\end{proof}
+
+This common-index statement uses the Fibonacci clocks obtained from
+Binet's quadratic identity and the golden-root quotient in
+Section~\ref{sec:fibonacci-golden-carriers}.
+It gives a growing-cutoff probability comparison for bounded tests.
+For example, a bounded complex test of absolute value at most one has
+expectation error at most twice the displayed total variation.
+Tests outside that bounded class require their own integrability
+estimates; the statement supplies no new zeta-zero exclusion.
+Geometric approximation for valuation vectors is classical, for
+example \cite[Proposition~1.9]{TaoCollatz}; the exact single-index
+binary defect and its transport to these arithmetic counts are
+the assertions proved here.  No literature priority is claimed.
+
+\begin{corollary}[A simultaneous compensated Fibonacci--Fermat limit]
+\label{cor:diagonal-fibonacci-fermat}
+For real $X\ge3$ put
+\begin{align*}
+ S_X&=\{\ell\le X:\ell\text{ is an odd prime}\},\qquad s_X=|S_X|,\\
+ M_X&=\prod_{\ell\in S_X}\ell,\qquad
+ \lambda_X=\sum_{\ell\in S_X}\frac1\ell.
+\end{align*}
+Define the actual Fibonacci observation and compensated joint transform by
+\begin{align*}
+ B_X(n)&=\sum_{\ell\in S_X}\boldsymbol1_{P_\ell\mid F_n},\\
+ \mathcal G_{N,X,k}(z,u)
+ &=e^{-\lambda_X(z-1)}
+   \frac1N\sum_{n=1}^N z^{B_X(n)}u^{C_k^{\mathrm{all}}(n)}.
+\end{align*}
+Let $\mathcal F_{\mathrm{odd}}$ be the entire compensated Fibonacci
+profile and $Q$ the full weighted Fermat PGF above.
+For each $R\ge1$ there is a constant $C_R$ depending only on $R$
+such that, for every $X\ge3$, $N\ge M_X$ and $k\ge0$,
+\begin{align*}
+ &\sup_{\substack{|z|\le R\\|u|\le1}}
+ \left|\mathcal G_{N,X,k}(z,u)-\mathcal F_{\mathrm{odd}}(z)Q(u)\right|
+ \le E_{N,X}(R)+C_R(X^{-1}+2^{-k}),\\
+ &E_{N,X}(R)=R^{s_X}e^{(R+1)\lambda_X}
+       \frac{M_X}{N}\left(\log_2\frac{N}{M_X}+3\right).
+\end{align*}
+In particular, fix $0<c<1$, and for all sufficiently large $N$ set
+\[
+ X(N)=\left\lfloor\frac{c\log N}{\log\log N}\right\rfloor.
+\]
+For every integer sequence $k(N)\to\infty$, the compensated transforms
+converge to $\mathcal F_{\mathrm{odd}}(z)Q(u)$, uniformly on
+$|z|\le R$, $|u|\le1$.  More precisely, for every $0<\eta<1-c$,
+the uniform error is
+\[
+ O_{c,R,\eta}\left(
+ N^{c-1+\eta}+\frac{\log\log N}{\log N}+2^{-k(N)}
+ \right).
+\]
+No fixed-cutoff sampling limit or uniform first moment of the full
+Fermat law is assumed.
+\end{corollary}
+
+\begin{proof}
+In the independent reference law from
+Theorem~\ref{thm:binary-odd-joint-sampling}, the Fibonacci coordinates
+have probabilities $1/\ell$, and the other coordinate has PGF $Q_k(u)$.
+Consequently its compensated joint transform is exactly
+\[
+ \mathcal F_X(z)Q_k(u),\qquad
+ \mathcal F_X(z)=
+ \prod_{\ell\in S_X}(1+(z-1)/\ell)e^{-(z-1)/\ell}.
+\]
+For the unnormalized test, $|z^{B_X}u^{C_k}|\le R^{s_X}$.
+Also $|e^{-\lambda_X(z-1)}|\le e^{(R+1)\lambda_X}$.
+The expectation bound $2\|f\|_\infty d_{\mathrm{TV}}$ and the
+joint total-variation estimate therefore give
+\[
+ \sup_{\substack{|z|\le R\\|u|\le1}}
+ |\mathcal G_{N,X,k}(z,u)-\mathcal F_X(z)Q_k(u)|
+ \le E_{N,X}(R).
+\]
+This explicitly charges the growing complex test and its compensator.
+
+The canonical product satisfies
+\[
+ \sup_{|z|\le R}|\mathcal F_X(z)-\mathcal F_{\mathrm{odd}}(z)|
+ \le C_R/X.
+\]
+For completeness, with $a=z-1$ a factor
+$(1+a/\ell)e^{-a/\ell}$ differs from one by $O_R(\ell^{-2})$.
+This follows by its Taylor expansion, uniformly for $|a|\le R+1$.
+The tail sum is bounded by
+$\sum_{n>X}n^{-2}=O(X^{-1})$.
+The finite-product inequality
+$|\prod_j(1+e_j)-1|\le\exp(\sum_j|e_j|)-1$
+bounds the remaining tail product, while the initial products are
+uniformly bounded on the compact disc.
+This proves the displayed estimate first for large $X$ depending on
+$R$; enlarging $C_R$ covers $3\le X$ in the bounded remaining range.
+It uses the cross-multiplied tail factorization
+$\mathcal F_{\mathrm{odd}}=\mathcal F_X\cdot\mathrm{tail}_X$,
+so it remains valid at every zero of $\mathcal F_X$.
+Since $|Q_k(u)|\le1$ and
+$\sup_{|u|\le1}|Q_k(u)-Q(u)|\le2^{1-k}$, the first conclusion follows.
+
+The diagonal claim needs only elementary bounds:
+\[
+ s_X\le X,\qquad \lambda_X\le1+\log X,\qquad M_X\le X^X.
+\]
+Indeed, the first and third count and bound the labels, and the second
+bounds their reciprocal sum by the harmonic sum.
+For the stated $X(N)$,
+$X=o(\log N)$ and $X\log X=(c+o(1))\log N$.
+Thus $M_X\le N^{c+o(1)}<N$ eventually,
+$R^{s_X}e^{(R+1)\lambda_X}=N^{o(1)}$, and
+$\log_2(N/M_X)+3=O(\log N)$.
+It follows that $E_{N,X}(R)\le N^{c-1+o(1)}$,
+hence it is $O_{c,R,\eta}(N^{c-1+\eta})$.
+Finally $X(N)^{-1}=O_c(\log\log N/\log N)$.
+Substitution proves the stated rate and simultaneous limit.
+\end{proof}
+
+\paragraph{Formalization scope.}
+The maintained candidate owner
+\begin{quote}\footnotesize\ttfamily
+Mathlib/Probability/Distributions/DyadicDiscrepancy.lean
+\end{quote}
+checks nine declarations: the common compensator and its endpoint
+bounds, preservation of the unit interval, the one-step signed
+inequality, its telescoped and normalized forms, and the exact
+alternating reward sum.  Its axiom audit contains only the standard
+foundational axioms.  The exact total-variation identification,
+the sharp limsup, transport to the physical Fermat count, and the
+joint odd-clock theorem and simultaneous compensated limit are the
+complete ordinary proofs above, without a separate Lean compilation
+claim for those assembled
+probability conclusions.
+
 \subsection{Rational residue-class laws: a stronger inverse theorem}
 
 The preceding inverse theorem extends beyond a common leading coefficient.
@@ -8342,6 +8646,10 @@ P.~Cubre and J.~Rouse,
 arXiv:1212.6221 (2012),
 \href{https://arxiv.org/abs/1212.6221}{arXiv preprint}.
 
+\bibitem{TaoCollatz}
+T. Tao, \emph{Almost all orbits of the Collatz map attain almost
+bounded values}, Forum of Mathematics, Pi \textbf{10} (2022), e12.
+doi:10.1017/fmp.2022.8; arXiv:1909.03562, Proposition~1.9.
 \end{thebibliography}
 
 \bigskip
