@@ -13078,6 +13078,62 @@ These are ordinary calculations; no new Lean verification or
 zero-free exponent is claimed in this subsection.
 The certified boundary remains $7/8$.
 
+\paragraph{What the reverse construction has and has not achieved.}
+The independently favorable weighted model has been constructed;
+its signal-retention size estimate has not been proved.
+Large support by itself cannot replace that weighted estimate.
+For example the computable rational perturbation
+\[
+ \widetilde w_p=w_p^*+2^{-p}\boldsymbol1_{\{w_p^*=0\}}
+\]
+has support equal to every prime. Its additional Euler factor is
+\[
+ U(s)=\exp\left(\sum_{p\in\mathcal D_*}
+                    2^{-p}[-\log(1-p^{-s})]\right).
+\]
+The logarithm converges normally on every compact subset of
+$\Re s>0$, so $U$ is a holomorphic unit there.
+Thus $F_{\widetilde w}=F_*U$ has the same favorable region and
+simple pole, without an RH assumption. But exactly
+\[
+ (\widetilde w_p-1)_+=(w_p^*-1)_+,\qquad
+ (1-\widetilde w_p)_+=(1-w_p^*)_+
+                       -2^{-p}\boldsymbol1_{\{w_p^*=0\}} .
+\]
+The overweight condition is unchanged, and the deficit changes
+by a summable mass at every positive exponent.
+Full support has therefore been obtained without reducing the
+unresolved arithmetic burden.
+Although the new zero-weight set is empty, its strict-partial
+coordinates now contain all of $\mathcal D_*$; the subpower
+partial-coordinate hypothesis needed for literal count recovery
+is no longer available. The deleted-prime theorem cannot be
+applied to this modified model by ignoring that hypothesis.
+
+The original vertex construction does make the deficit
+comparable to a literal count, but that comparison is not an
+independent upper estimate. For dyadic endpoints $X=2^J$,
+complete block mass matching, the finite initial head and the
+summable moment errors give
+$\sum_{p<X}w_p^*=\nu([1,X])+O(1)$.
+The strict-partial support below $X$ is subpower.
+Since total overweight is nonnegative, the exact signed ledger
+therefore implies, for every $\epsilon>0$,
+\[
+ \pi_{\mathcal D_*}(X)
+       \ge \pi(X)-\nu([1,X])-O_\epsilon(X^\epsilon),
+                       \qquad X=2^J .
+\]
+Thus even its constant row retains an ordinary one-sided
+prime-count discrepancy. The other rows add adaptive polynomial
+tests and their compensating penalties; their uniform estimate
+has not been established.
+Compared with the earlier overweight and prime-Poisson energy
+criteria, the single class improves the arithmetic formulation
+and removes the final order parameter. No better independent
+arithmetic bound, and hence no advantage for proving RH or a
+smaller zero-free boundary, has yet been demonstrated.
+
 \subsection{Nested Fermat carriers and a joint Fibonacci profile}
 \label{sec:fermat-fibonacci-joint}
 
