@@ -17827,6 +17827,402 @@ For $\mathcal D$ all statements apply unconditionally with
 $b=1/16$, but they do not independently bound $\Theta_\zeta$.
 The certified zero-free boundary is still $7/8$.
 
+\subsection{Adaptive reconstruction with a growing number of empirical bins}
+\label{sec:adaptive-bin-reconstruction}
+
+The preceding arithmetic theorem fixes the interpolation order.
+We now keep its explicit analytic constant and prove a new
+empirical transfer with an order growing with the sample.
+Only $O(\log J)=O(\log\log X)$ measured bins will be needed.
+The cutoff is chosen from rational measured data, rather than
+from an unavailable exact value of the maximal model weight.
+The classical collision ingredients and their relation to
+Mase~\cite{MaseCollision} remain as described above;
+the growing-order arithmetic transfer is proved here.
+
+\begin{lemma}[Stability with every interpolation power charged]
+\label{lem:adaptive-bin-stability}
+Let $(a_i)$ be a probability vector as in
+Lemma~\ref{lem:all-order-collision-interpolation}, with maximum
+$m>0$ and distinct-label probabilities $D_k$.
+Fix $c_0,W>0$ and put $\beta_k=c_0W^kD_k/k!$.
+Let $1\le r\le L$ be integers with $Lm\le1/16$.
+Suppose nonnegative observations $b_k$, $0\le k\le L$,
+satisfy $|b_k-\beta_k|\le\Delta$.
+Define
+\begin{equation}
+ \begin{gathered}
+ u=\min_{0\le i\le r}\beta_i,\qquad
+ v=\min_{0\le k\le L}\beta_k,\qquad
+ S(L,r)=\sum_{j=0}^r2^j{L\choose j},\\
+ E=C_rL^{r+1}m^r,\qquad
+ \eta=\frac{2\Delta}{u}S(L,r),
+ \qquad 0\le\Delta\le u/2 .
+ \end{gathered}
+ \label{eq:adaptive-bin-noise-budget}
+\end{equation}
+Then $u,v>0$, every observed node $b_i$, $i\le r$, is
+positive, and its reference
+\[
+ R_k=\frac1{k!}\prod_{j=0}^r
+       \left\{\prod_{i=0}^j(i!b_i)^{(-1)^{j-i}\binom ji}\right\}^{\binom kj}
+                         \qquad(0\le k\le L)
+\]
+obeys the completely explicit bound
+\begin{equation}
+ \max_{0\le k\le L}\left|\frac{b_k}{R_k}-1\right|
+       \le e^{E+\eta}-1+\frac{\Delta}{v}e^{E+\eta}.
+ \label{eq:adaptive-bin-stability-bound}
+\end{equation}
+Moreover $R_k=b_k$ for $0\le k\le r$ and
+$S(L,r)\le(r+1)(1+2L)^r$.
+No constant hidden in this statement depends on the order.
+\end{lemma}
+
+\begin{proof}
+All model nodes are positive by the interpolation lemma.
+The assumption on $\Delta$ gives $b_i\ge\beta_i/2>0$
+at the measured nodes and
+$|\varepsilon_i|\le2\Delta/u$, where
+$\varepsilon_i=\log(b_i/\beta_i)$.
+Let $R_k^0$ be the reference with model nodes $\beta_i$.
+Interpolation reproduces the constant and linear terms in
+$\log(k!\beta_k)=\log c_0+k\log W+\log D_k$.
+Thus $\beta_k=R_k^0e^{E_k}$ with $|E_k|\le E$.
+Exactly, including all powers of the empirical parameters,
+\[
+ \Lambda_k=\log(R_k/R_k^0)
+   =\sum_{j=0}^r{k\choose j}
+            \sum_{i=0}^j(-1)^{j-i}{j\choose i}\varepsilon_i .
+\]
+For integer $0\le k\le L$,
+$\binom kj\le\binom Lj$, with the usual zero convention
+when $j>k$.
+It follows that $|\Lambda_k|\le\eta$.
+Retain the signed identity
+\begin{equation}
+ \frac{b_k}{R_k}-1
+       =e^{E_k-\Lambda_k}-1
+                         +\frac{b_k-\beta_k}{R_k},
+ \qquad R_k=\beta_ke^{\Lambda_k-E_k}
+                         \ge v e^{-E-\eta}.
+ \label{eq:adaptive-bin-signed-consumer}
+\end{equation}
+Estimating only these proved remainders gives
+\eqref{eq:adaptive-bin-stability-bound}.
+The positive arithmetic supply is $\beta_k$; the competing
+negative allowance is $\Delta$.
+Newton interpolation is exact at its nodes, proving bin matching.
+Finally $\binom Lj\le L^j$ and each $j\le r$ contributes
+at most $(1+2L)^r$, which proves the stated bound on $S$.
+\end{proof}
+
+\begin{theorem}[An empirical reconstruction at almost linear rank]
+\label{thm:adaptive-bin-almost-linear}
+Use the same fixed thin prime class
+$p_j=j^{1/\alpha+o(1)}$, $0<\alpha<1$, and the actual
+progression sample of
+\eqref{eq:primorial-filter-arithmetic-sample}, with
+$0<b<1-\alpha$.
+Fix a positive rational $c$ and an integer $A\ge1$ such that
+\begin{equation}
+       0<c<\alpha(1-b-\alpha).
+ \label{eq:adaptive-bin-parameter-domain}
+\end{equation}
+For every integer $X\ge4$ and every positive rational $c$,
+use the same discrete formula as in
+\eqref{eq:greedy-binary-rank-selector}:
+\[
+ U_X=\lfloor\log_2X\rfloor,\qquad
+ V_X=\lfloor\log_2U_X\rfloor,\qquad
+ \kappa_c(X)=\left\lfloor cU_X/V_X\right\rfloor .
+\]
+Here $U_X\ge2$ and $V_X\ge1$.
+This defines the selector on the full parameter domain above;
+the earlier rare-count corollary used its smaller interval
+$0<c<7/64$.
+For sufficiently large integer $X$, define
+\begin{equation}
+ \begin{gathered}
+ \ell_J=1+\lfloor\log_2J\rfloor,\qquad r_X=(A+3)\ell_J,\\
+ \widehat W_X=b_{X,1}/b_{X,0},\qquad
+ \widehat m_X=\frac{2}{(p_{J+1}-1)\widehat W_X},\\
+ L_X=\min\left\{
+       \left\lfloor\frac1{256\widehat m_X}\right\rfloor,
+                                      \kappa_c(X)\right\}.
+ \end{gathered}
+ \label{eq:adaptive-bin-computable-cutoff}
+\end{equation}
+Here $\ell_J$ is the binary length of the positive integer $J$.
+Use \eqref{eq:finite-bin-empirical-parameters}--%
+\eqref{eq:finite-bin-rational-reference} at the variable
+order $r_X$, and denote its value by
+$\mathcal R^{(r_X)}_{X,k}$.
+All its input bins are positive eventually, and
+\begin{equation}
+ \begin{gathered}
+ L_X=J^{1+o(1)},\qquad L_X=O(J),\qquad
+ r_X=O(\log J)=O(\log\log X),\\
+ \max_{0\le k\le L_X}
+  \left|\frac{b_{X,k}}{\mathcal R^{(r_X)}_{X,k}}-1\right|
+       \ll_{\mathcal P,b,c,A,\delta}J^{-A}+X^{-\delta}
+       \ll_{\mathcal P,b,c,A,\delta}J^{-A},\\
+ 0<\delta<1-b-\alpha-c/\alpha .
+ \end{gathered}
+ \label{eq:adaptive-bin-relative-window}
+\end{equation}
+The number of measured bins is $r_X+1$.
+Each reference is positive and rational and matches those
+measured bins exactly.
+For decidable $\mathcal P$ and a computable integer budget
+$B_X$, every cutoff and reference here is computable using
+finite integer counts and rational arithmetic.
+In particular rational $b$ supplies such a budget by integer
+root extraction.
+No value of $\alpha$ is needed as an input to the algorithm
+once the fixed choices $b,c,A$ are admissible.
+\end{theorem}
+
+\begin{proof}
+First check the selector on its complete stated domain.
+The bit lengths satisfy
+$U_X=\log_2X+O(1)$ and
+$V_X=\log_2\log_2X+O(1)$.
+As $V_X\ge1$, the ratio is defined for every $X\ge4$.
+For any fixed positive rational $c$, these estimates and the
+outer floor give
+$\kappa_c(X)\sim c\log X/\log\log X$.
+This argument does not use the parameter restriction of the
+earlier corollary.
+
+Fix the displayed $\delta$ and choose a fixed $\sigma>\alpha$
+sufficiently close to $\alpha$ that
+\[
+ \xi=1-b-\sigma>c/\alpha+\delta .
+\]
+The full sampling theorem supplies
+$|b_{X,k}-\beta_{J,k}|\le\Delta_X\ll X^{-\xi}$
+for every $k$, uniformly.
+It also gives
+$J\sim\alpha b\log X/\log\log X$.
+Write $m=m_J$ for the largest normalized prime weight.
+The exact first two model bins are
+$\beta_{J,0}=c_J$ and $\beta_{J,1}=c_JW_J$.
+Since $c_J\to1$, $W_J=J^{1-1/\alpha+o(1)}$ and
+$\Delta_X/W_J\to0$, division of these two bins gives
+\begin{equation}
+ \begin{gathered}
+ \frac{\widehat W_X}{W_J}=1+O(\Delta_X/W_J),\qquad
+ \frac{\widehat m_X}{m_J}
+             =\frac{2W_J}{\widehat W_X}\longrightarrow2,\\
+ m_J\le\widehat m_X\le3m_J\quad\hbox{eventually}.
+ \end{gathered}
+ \label{eq:adaptive-bin-maxweight-certificate}
+\end{equation}
+Both measured bins are positive before making either division.
+Here
+$m_J=((p_{J+1}-1)W_J)^{-1}=J^{-1+o(1)}$
+is an exact maximum, not just an upper estimate.
+
+Both entries of the minimum defining $L_X$ have logarithmic
+index one in $J$:
+the first is $J^{1+o(1)}$, and
+\[
+ \frac{\kappa_c(X)}J\longrightarrow\frac{c}{\alpha b}.
+\]
+Taking floors does not change these statements, since both
+entries tend to infinity.
+Thus $L_X=J^{1+o(1)}$ and $L_X=O(J)$.
+In particular $L_X\ge r_X$ eventually.
+Also $L_Xm_J\le1/256$ and $r_Xm_J\to0$.
+Every use of the explicit interpolation lemma is therefore
+within its stated domain.
+
+We first bound the analytic error without hiding dependence on $r_X$.
+The elementary integral bound on $\log(r!)$ gives
+$r!\ge(r/e)^r$ for every integer $r\ge1$, and hence
+\begin{equation}
+ C_r\le(r+1)(16e)^r,\qquad
+ C_rL_X^{r+1}m_J^r
+       \le(r+1)L_X\,4^{-r}
+                   \quad(r=r_X).
+ \label{eq:adaptive-bin-uniform-order-remainder}
+\end{equation}
+Indeed $16eL_Xm_J\le e/16<1/4$.
+Since $\ell_J>\log_2J$, we have
+$4^{-r_X}\le J^{-2(A+3)}$.
+With $L_X=O(J)$, the last bound in
+\eqref{eq:adaptive-bin-uniform-order-remainder} is
+$O_A((\log J)J^{-2A-5})=O_A(J^{-A})$.
+All constants used to obtain this geometric decrease are
+valid for every order, not only for fixed $r$.
+
+We next control the observed nodes, including their factorials.
+For $0\le i\le r_X$, the analytic logarithm estimate in the
+interpolation lemma gives
+\[
+ D_i\ge e^{-4i^2m_J}\ge\tfrac12
+ \quad\hbox{eventually},\qquad
+ \beta_{J,i}=\frac{c_JW_J^iD_i}{i!}.
+\]
+Since $r_X=O_A(\log J)$, $c_J\ge1/2$ eventually and
+$-\log W_J=O(\log J)$, it follows, uniformly over the nodes,
+that
+\begin{equation}
+ u_X=\min_{0\le i\le r_X}\beta_{J,i}
+            \ge \exp(-C_A(\log J)^2),\qquad
+             \Delta_X/u_X\le X^{-\xi+o(1)}.
+ \label{eq:adaptive-bin-growing-node-supply}
+\end{equation}
+For example, when $W_J\le1$ one may use the explicit lower
+bound $u_X\ge W_J^{r_X}/(4r_X^{r_X})$.
+Thus $\Delta_X\le u_X/2$ eventually and all measured nodes
+are positive.
+The complete parameter amplification is bounded by
+\begin{equation}
+ \eta_X=\frac{2\Delta_X}{u_X}S(L_X,r_X)
+       \le \Delta_X\exp(O_A((\log J)^2))
+       \le X^{-\xi+o(1)}.
+ \label{eq:adaptive-bin-growing-parameter-budget}
+\end{equation}
+Here we used $L_X=O(J)$,
+$S(L_X,r_X)\le(r_X+1)(1+2L_X)^{r_X}$ and
+$(\log J)^2=o(\log X)$.
+This is the required fresh growing-order transfer; it is
+not a substitution into a fixed-order implied constant.
+
+The remaining allowance is the sampling discrepancy divided
+by the full positive model mass at the largest ranks.
+For every $0\le k\le L_X$,
+\[
+ \begin{aligned}
+ -\log\beta_{J,k}
+  &\le O(1)+k\log(1/W_J)+\log(k!)+4k^2m_J\\
+  &\le (1/\alpha+o(1))k\log J+O(k)
+   \le(c/\alpha+o(1))\log X .
+ \end{aligned}
+\]
+For the second line use
+$\log(1/W_J)=(1/\alpha-1+o(1))\log J$,
+$\log(k!)\le k\log(1+L_X)$,
+$L_X=O(J)$ and $k^2m_J\le k/256$.
+For the final line use
+$k\le\kappa_c(X)\sim c\log X/\log\log X$
+and $\log J\sim\log\log X$.
+Consequently
+\begin{equation}
+ v_X=\min_{0\le k\le L_X}\beta_{J,k}
+        \ge X^{-c/\alpha-o(1)},\qquad
+ \Delta_X/v_X\le X^{-\xi+c/\alpha+o(1)}
+                                      =O(X^{-\delta}).
+ \label{eq:adaptive-bin-full-positive-supply}
+\end{equation}
+In particular this supply dominates the arithmetic allowance,
+so the empirical bins throughout the output range are positive.
+
+Apply Lemma~\ref{lem:adaptive-bin-stability} with these
+$u_X,v_X,\eta_X$, and with
+$E=O_A(J^{-A})$.
+Its full signed consumer yields
+$O_A(J^{-A})+O(X^{-\delta})$, as asserted.
+The model mass has not been replaced by zero or by a centered
+variance in this step.
+Exact matching and rationality follow from the interpolation
+formula.
+Computability uses binary lengths, the rational selector
+$\kappa_c$, integer prime cutoffs and integer powers of positive
+rational counts.
+For finitely many small inputs a direct zero test can report
+that the required measured nodes are not yet positive;
+the theorem asserts eventual positivity, not a claimed
+uniform effective threshold in its asymptotic hypotheses.
+\end{proof}
+
+\begin{corollary}[A linear window under power asymptotics]
+\label{cor:adaptive-bin-linear-power-law}
+In addition to the preceding hypotheses, suppose
+$p_j\sim Cj^{1/\alpha}$ for some constant $C>0$.
+Put $v=1/\alpha-1$.
+Then the same data-driven cutoff has the definite positive limit
+\begin{equation}
+ \frac{L_X}{J}\longrightarrow
+       \min\left\{\frac1{512v},\frac{c}{\alpha b}\right\}>0 .
+ \label{eq:adaptive-bin-linear-limit}
+\end{equation}
+Thus $O(\log J)$ actual empirical bins reconstruct a fixed
+positive fraction of the linear rank range with error
+$O(J^{-A})$, for each prescribed fixed integer $A\ge1$.
+\end{corollary}
+
+\begin{proof}
+For every fixed $\varepsilon>0$, the bounds
+$(1-\varepsilon)Cj^{1/\alpha}\le p_j
+ \le(1+\varepsilon)Cj^{1/\alpha}$ hold at all sufficiently
+large indices.
+Integral comparison of the convergent power tail, followed
+by $\varepsilon\downarrow0$, gives
+\[
+ W_J\sim\frac{J^{1-1/\alpha}}{Cv},\qquad
+ m_J=\frac1{(p_{J+1}-1)W_J}\sim\frac vJ .
+\]
+The subtraction of one changes the tail by a relative
+$o(1)$, since its smallest prime tends to infinity.
+By \eqref{eq:adaptive-bin-maxweight-certificate},
+$\widehat m_X\sim2v/J$.
+The two integer entries defining $L_X$, divided by $J$,
+therefore tend to $1/(512v)$ and $c/(\alpha b)$.
+Floors change either ratio by at most $1/J$.
+Their minimum has the stated limit, and the error estimate
+is that of the theorem.
+\end{proof}
+
+\begin{corollary}[An unconditional adaptive profile for the greedy class]
+\label{cor:adaptive-bin-greedy-class}
+For $\mathcal P=\mathcal D$, take $b=1/16$, $c=1/20$ and
+any fixed integer $A\ge1$.
+The construction uses no value of $\Theta_\zeta$ as input and,
+unconditionally, satisfies
+\begin{equation}
+ \max_{0\le k\le L_X}
+  \left|\frac{b_{X,k}}{\mathcal R^{(r_X)}_{X,k}}-1\right|
+       \ll_A J^{-A}+X^{-1/200},\qquad L_X=J^{1+o(1)} .
+ \label{eq:adaptive-bin-greedy-unconditional}
+\end{equation}
+It uses only $O_A(\log\log X)$ measured bins.
+No stronger regularity of the deleted primes is assumed.
+\end{corollary}
+
+\begin{proof}
+The proved range $1/2\le\Theta_\zeta\le7/8$ implies
+\[
+ 1-\frac1{16}-\Theta_\zeta-\frac1{20\Theta_\zeta}
+       \ge\frac3{560}>\frac1{200}.
+\]
+Indeed the left side is decreasing on $[1/2,7/8]$:
+its derivative is $-1+1/(20\Theta_\zeta^2)<0$.
+Thus the parameter condition holds with
+$\alpha=\Theta_\zeta$, and the theorem allows $\delta=1/200$.
+All finite decisions use the proved decidable class
+$\mathcal D$, the integer sixteenth root and rational counts;
+neither the choices nor their computation require knowing
+$\Theta_\zeta$.
+\end{proof}
+
+These are full ordinary proofs and do not add Lean declarations.
+The constants in the new stability lemma are uniform in the order;
+the subsequent arithmetic constants depend on the fixed class
+and the displayed parameters.
+The earlier relative sampling theorem already compared the
+integer law with an infinite Euler reference on a linear range.
+The new conclusion constructs its reference from
+$O(\log\log X)$ actual empirical bins and one surviving prime.
+For the general index hypothesis, $L_X=J^{1+o(1)}$ does not
+assert coverage of every possible sequence $k=o(J)$.
+The stronger linear limit requires the extra power asymptotic
+and is not asserted for $\mathcal D$.
+These profile reconstruction results supply no independent
+bound on $\Theta_\zeta$; the certified boundary remains $7/8$.
+
 \subsection{Selecting certified good primes before estimating their size}
 \label{sec:certified-good-prime-class}
 
