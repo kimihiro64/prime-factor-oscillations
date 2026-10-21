@@ -6,6 +6,7 @@ Authors: Prime Factor Oscillations contributors
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.CapacitySelection
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.CappedSupportFunction
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.OverweightSlack
+import PrimeFactorOscillations.Proof.PrimeClassDeletion.PartialCapacityCounts
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.PolynomialPrimeNorming
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.PositiveDirichletContinuation
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.RepairHellinger
@@ -15,6 +16,6 @@ import PrimeFactorOscillations.Proof.PrimeClassDeletion.RepairHellinger
 
 Exports capped capacities, signed overweight contacts, actual-node polynomial
 interpolation and derivative bounds, positive Dirichlet convergence, and the
-finite signed Hellinger-energy comparison for sparse repairs.
+finite signed Hellinger-energy comparison and exact deleted-prime counts.
 Integral moment geometry and Euler adapters retain their ordinary paper proofs.
 -/

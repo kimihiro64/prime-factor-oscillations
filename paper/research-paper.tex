@@ -11509,6 +11509,439 @@ one-coordinate Poisson calculation are classical inputs;
 the construction used here is the computable actual-prime
 repair model with its quantitative capacity and zero signal.
 
+\subsection{A computable deleted-prime class retaining the RH signal}
+\label{sec:computed-deleted-prime-RH}
+
+The weighted construction admits a criterion involving the
+cardinality of a fixed, computable class of actual primes.
+Two facts are needed. The positive-series continuation principle
+can be applied to the opposite one-sided Euler quotient, provided
+the reference has no real zero on the ray of continuation.
+Also, an optimal LP vertex has few coordinates between its
+zero and full-capacity states, including the constant-dual cases.
+
+\begin{theorem}[Underweight transfer along the real axis]
+\label{thm:underweight-real-axis-transfer}
+Fix a nonempty finite character portfolio and
+$1/2\le\tau\le\eta<1$. Let $w_p\ge0$, with
+$\sum_p w_p p^{-\sigma}<\infty$ for every $\sigma>1$.
+Assume its full Euler product $F_w$ has a nowhere-zero
+holomorphic continuation on
+$\{\Re s>\tau\}\setminus\{1\}$ and a pole of order $R$ at $1$.
+Set
+\[
+ d_p=(A(p)-w_p)_+,\quad e_p=(w_p-A(p))_+,\quad
+ D_w(X)=\sum_{\substack{p\le X\\p\ {\rm prime}}}d_p.
+\]
+Suppose
+\[
+ \mathcal Z_{\mathcal Q}(\sigma)\ne0\quad(\eta<\sigma<1),
+ \qquad
+ D_w(X)\ll_\epsilon X^{\eta+\epsilon}
+                       \quad\text{for every }\epsilon>0.
+\]
+Then $\mathcal Z_{\mathcal Q}$ has no zeros on $\Re s>\eta$.
+
+For the zeta reference $\mathcal Q=\{1\}$, the real-axis
+nonvanishing condition is unconditional. In particular any
+particular independently favorable $F_w$ as above has this
+unconditional response to a zeta zero with real part $\beta>\tau$:
+\begin{equation}
+ \limsup_{j\to\infty}
+ \frac{\log(1+D_{j,w})}{j\log2}\ge\beta,\qquad
+ D_{j,w}=\sum_{\substack{2^j\le p<2^{j+1}\\p\ {\rm prime}}}
+                          (1-w_p)_+.
+ \label{eq:underweight-zero-readout}
+\end{equation}
+For general Dirichlet portfolios the displayed real-axis
+hypothesis is retained; a possible exceptional real zero
+cannot be discarded.
+\end{theorem}
+
+\begin{proof}
+Define the complete products
+\[
+ E_-(s)=\prod_p(1-p^{-s})^{-d_p},\qquad
+ E_+(s)=\prod_p(1-p^{-s})^{-e_p}.
+\]
+The assumed growth bound and dyadic summation make $E_-$
+an absolutely normally convergent holomorphic unit on
+$\Re s>\eta$. This includes every prime-power term in its
+logarithm. The exact exponent identity
+$w_p+d_p-A(p)=e_p$ gives, initially on $\Re s>1$,
+\begin{equation}
+ \frac{F_w(s)E_-(s)U_{\mathcal Q}(s)}
+             {\mathcal Z_{\mathcal Q}(s)}
+                 =E_+(s).
+ \label{eq:underweight-full-positive-quotient}
+\end{equation}
+The nonsplit Euler factor $U_{\mathcal Q}$ is present.
+The right side has nonnegative real Dirichlet coefficients
+$a_n$, with $a_1=1$ and $a_p=e_p$ for each prime $p$.
+Indeed the coefficient of $z^m$ in $(1-z)^{-e_p}$ is
+$e_p(e_p+1)\cdots(e_p+m-1)/m!\ge0$; finite products and
+monotone summation give the stated Dirichlet expansion.
+It converges absolutely for $\Re s>1$ because $e_p\le w_p$.
+
+Treat the left side of
+\eqref{eq:underweight-full-positive-quotient} as a meromorphic
+quotient, without assigning a value at a reference zero.
+At every real $\sigma>\eta$, $\sigma\ne1$, it is holomorphic
+in a neighborhood of $\sigma$: there are no reference
+zeros on $(\eta,1)$ by hypothesis, and none on $(1,\infty)$
+by the initial Euler product. At $1$, the two poles of
+order $R$ cancel and give a removable, nonzero quotient.
+The factors $E_-$ and $U_{\mathcal Q}$ are holomorphic
+units there. Thus the real part of this quotient, with
+its removable value at $1$, is a real analytic function
+on the entire ray $\sigma>\eta$.
+For real $\sigma>1$ it equals
+$\sum_{n\ge1}a_n n^{-\sigma}$.
+
+Choose an absolutely summable real anchor $c>1$.
+The positive Dirichlet continuation principle proved in
+\texttt{PositiveDirichletContinuation.lean} applies to
+these coefficients and this real analytic function.
+It gives actual summability of
+$\sum_{n\ge1}a_n n^{-\sigma}$ for every $\sigma>\eta$.
+The prime subseries therefore gives
+\[
+ \sum_p e_p p^{-\sigma}
+   =\sum_{p\ {\rm prime}}a_p p^{-\sigma}
+   \le\sum_{n\ge1}a_n n^{-\sigma}<\infty .
+\]
+Consequently the full logarithm of $E_+$ converges normally
+on $\Re s>\eta$, since at a real $\sigma>\eta$
+\[
+ \sum_p\sum_{m\ge1}\frac{e_p p^{-m\sigma}}m
+       \le\frac1{1-2^{-\sigma}}\sum_p e_p p^{-\sigma}<\infty.
+\]
+It defines a holomorphic unit there.
+
+Cross multiplication now gives the meromorphic identity
+\begin{equation}
+ \mathcal Z_{\mathcal Q}(s)E_+(s)
+           =F_w(s)E_-(s)U_{\mathcal Q}(s)
+                         \qquad(\Re s>\eta).
+ \label{eq:underweight-complete-cross-identity}
+\end{equation}
+It holds first on $\Re s>1$ and then throughout the connected
+half-plane by meromorphic uniqueness. The right side is
+nonzero away from the pole at $1$, and $E_+$ is a unit.
+This excludes every reference zero on $\Re s>\eta$.
+
+For $0<\sigma<1$, the alternating Dirichlet series gives
+\[
+ \zeta(\sigma)=
+ \frac{\sum_{m\ge1}\bigl((2m-1)^{-\sigma}-(2m)^{-\sigma}\bigr)}
+                 {1-2^{1-\sigma}}<0 .
+\]
+The paired numerator converges and is strictly positive.
+Thus the real-axis hypothesis for zeta does not assume RH.
+Finally, if the limsup in
+\eqref{eq:underweight-zero-readout} were smaller than a zero
+real part $\beta>\tau$, choose
+$\max(\tau,\limsup)<\eta<\beta$.
+Dyadic summation would give the required underweight bound
+above $\eta$, and the result just proved would exclude that
+zero. This contradiction proves the readout.
+\end{proof}
+
+\begin{lemma}[Few nonbinary coordinates at an optimal rational vertex]
+\label{lem:rational-LP-binary-vertex}
+On any good cell of the nonempty-portfolio rational program
+\eqref{eq:rational-repair-linear-program}, every optimal
+vertex $(v,e)$ satisfies
+\begin{equation}
+ \#\{p\in S:v_p\notin\{0,A(p)\}\}\le k.
+ \label{eq:rational-LP-vertex-sparsity}
+\end{equation}
+This includes all constant-dual and mass-deficit cases.
+Choosing a deterministic minimizing rational vertex and
+rounding its $v_p$ down to multiples of $M^{-1}$, without
+the previous conic compression, gives weights $w^{\rm v}_{p,k}$
+with
+\begin{equation}
+ \begin{gathered}
+ \#\{p\in S:w^{\rm v}_{p,k}\notin\{0,A(p)\}\}\le k,\\
+ \left|\sum_{p\in S}w^{\rm v}_{p,k}y_p^r-m_r\right|
+                               \le3\tau\quad(0\le r<k),\\
+ \sum_{p\in S}(w^{\rm v}_{p,k}-A(p))_+
+           \le E_I^{\rm LP}\le E_{I,k}.
+ \end{gathered}
+ \label{eq:rational-LP-rounded-binary}
+\end{equation}
+Here $m_r$ are the true normalized model moments,
+$\tau=u^{-3}$ and $M=u^4$ as before.
+\end{lemma}
+
+\begin{proof}
+At an optimum $e_p=(v_p-A(p))_+$, since otherwise decreasing
+that $e_p$ alone would lower the objective while remaining
+feasible. The zeroth moment tolerance gives
+\[
+ \sum_{p\in S}v_p\le\widetilde m_0+\tau\le H+2\tau<2Ru,
+ \qquad H=R\nu(I).
+\]
+For the last strict inequality use $u\ge8$, $R\ge1$,
+$H\le Ru/\log8<Ru$ and $2\tau<Ru$.
+Thus every upper coordinate box for $v$ is strict.
+Every upper box for $e$ is strict as well, since
+$0\le e_p\le v_p$.
+
+Suppose $T=\{p\in S:v_p\notin\{0,A(p)\}\}$ has more than
+$k$ elements. Its rational moment columns
+$(1,y_p,\ldots,y_p^{k-1})$ are linearly dependent over
+$\mathbb Q$. Choose rational $c_p$, not all zero, supported
+on $T$, with
+\[
+ \sum_{p\in S}c_p y_p^r=0\quad(0\le r<k).
+\]
+For a sufficiently small rational $t>0$, perturb in both signs:
+\[
+ v_p^\pm=v_p\pm tc_p,\qquad
+ e_p^\pm=e_p\pm tc_p\boldsymbol1_{\{v_p>A(p)\}}.
+\]
+If $0<v_p<A(p)$, keep $e_p=0$ and choose $t$ small enough
+to remain in that strict interval. If $v_p>A(p)$, keep
+$e_p^\pm=v_p^\pm-A(p)>0$. Coordinates with $v_p=0$ or
+$v_p=A(p)$ are unchanged. There are finitely many strict
+margins, including the upper boxes, so one positive rational
+$t$ preserves all of them in both directions.
+All normalized moments are unchanged, hence all their
+two-sided tolerance constraints are preserved.
+The two feasible points are distinct and have $(v,e)$ as
+their midpoint, contradicting the vertex property.
+This proves \eqref{eq:rational-LP-vertex-sparsity}.
+
+The earlier finite rational active-basis construction supplies
+an optimal rational vertex. Fix an ordering of its finite
+candidate bases and choose the first minimizing feasible
+vertex; all comparisons are rational and decidable.
+For $w^{\rm v}_{p,k}=\lfloor Mv_p\rfloor/M$, the coordinates
+$0$ and $A(p)$ are unchanged, because $A(p)$ and $M$ are
+integers. Rounding therefore creates no nonbinary coordinate.
+It decreases each coordinate by less than $M^{-1}$, so each
+normalized moment changes by at most $|S|/M\le u/M=\tau$.
+The LP tolerance and target approximation contribute the
+other two copies of $\tau$.
+The positive overweight cannot increase.
+Finally an exact optimal real quadrature is feasible for
+the rational LP, since its exact moments differ from the
+rational targets by at most $\tau$. Hence
+$E_I^{\rm LP}\le E_{I,k}$.
+\end{proof}
+
+\begin{lemma}[The exact deleted-count ledger]
+\label{lem:deleted-count-deficit-ledger}
+Let $S$ be a finite set and $w_p\ge0$ on $S$. Define
+\[
+ Z=\{p\in S:w_p=0\},\quad T=\{p\in S:0<w_p<1\},\quad
+ D=\sum_{p\in S}(1-w_p)_+.
+\]
+Then
+\begin{equation}
+ D=\#Z+\sum_{p\in T}(1-w_p),\qquad
+                  0\le D-\#Z\le\#T .
+ \label{eq:deleted-count-deficit-ledger}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+A zero coordinate contributes exactly $1$. A coordinate
+in $T$ contributes exactly $1-w_p\in(0,1)$. Every remaining
+coordinate has $w_p\ge1$ and contributes zero.
+Partition the specified finite support into these three cases.
+The maintained module \texttt{PartialCapacityCounts.lean}
+proves this identity and its two count inequalities, including
+their difference form, in seven standard-axiom-audited
+declarations. The real-axis Euler transfer and the LP vertex
+geometry remain ordinary proofs.
+\end{proof}
+
+\begin{theorem}[A predefined deleted-prime RH criterion]
+\label{thm:computable-deleted-prime-RH}
+For each fixed integer $k\ge2$, specialize the rational model
+to $\mathcal Q=\{1\}$ and use the deterministic vertex and
+rounding procedure of
+Lemma~\ref{lem:rational-LP-binary-vertex}.
+Use zero weights at primes below $8$ and on bad cells,
+as in the previous construction. Define actual prime classes
+\[
+ \mathcal D_k=\{p\text{ prime}:w^{\rm v}_{p,k}=0\},\qquad
+ \mathcal T_k=\{p\text{ prime}:0<w^{\rm v}_{p,k}<1\}.
+\]
+Membership in both classes is decidable by a terminating
+finite computation from the integer inputs $p,k$.
+Their definition uses no RH or zero-location assumption.
+
+The full product $F_k^{\rm v}$ is independently favorable:
+it has the same unconditional nowhere-zero continuation
+on $\Re s>1/2$ and simple pole at $1$ as before.
+For $j\ge3$, write $u=2^j$,
+$S_j=\{p\text{ prime}:u\le p<2u\}$ and
+\[
+ N_{j,k}=\#(\mathcal D_k\cap S_j),\qquad
+ D_{j,k}=\sum_{p\in S_j}(1-w^{\rm v}_{p,k})_+.
+\]
+At every such dyadic block,
+\begin{equation}
+ \#(\mathcal T_k\cap S_j)\le2k u^{1/(2k)},\qquad
+             0\le D_{j,k}-N_{j,k}\le2k u^{1/(2k)}.
+ \label{eq:computed-deleted-prime-counts}
+\end{equation}
+Every hypothetical zeta zero with real part $\beta>1/2$
+forces, for every fixed $k$,
+\begin{equation}
+ \limsup_{j\to\infty}
+       \frac{\log(1+N_{j,k})}{j\log2}\ge\beta.
+ \label{eq:deleted-prime-count-zero-readout}
+\end{equation}
+In particular for every $\epsilon>0$ there are infinitely
+many $j$ with $N_{j,k}\ge u^{\beta-\epsilon}$.
+
+For every prescribed unbounded set $\mathcal K$ of integers
+$k\ge2$, the exact equivalence is
+\begin{equation}
+ {\rm RH}\quad\Longleftrightarrow\quad
+ N_{j,k}\ll_{k,\epsilon}u^{1/2+1/(2k)+\epsilon}
+       \quad\text{for every }k\in\mathcal K,\ \epsilon>0.
+ \label{eq:deleted-prime-RH-count-equivalence}
+\end{equation}
+There is also a one-model sufficient condition.
+For any fixed $k\ge2$ and $1/2\le\eta<1$,
+\begin{equation}
+ \left[
+   \forall\epsilon>0,\quad N_{j,k}\ll_\epsilon u^{\eta+\epsilon}
+ \right]
+ \quad\Longrightarrow\quad
+       \zeta(s)\ne0\quad(\Re s>\eta).
+ \label{eq:deleted-prime-fixed-k-zero-free}
+\end{equation}
+Thus finiteness of even one of these constructed deleted-prime
+classes would imply RH.
+\end{theorem}
+
+\begin{proof}
+The earlier good-cell test is a finite rational test after
+enumerating the actual primes in the cell. The target moments
+admit certified rational approximations.
+The vertex is selected from finitely many rational active
+bases, feasibility and objective comparisons are exact,
+and rounding produces dyadic rational weights.
+Given a prime $p\ge8$, its dyadic block and its unique
+half-open cell are obtained by integer arithmetic.
+Run this finite procedure on that cell and compare the
+output at $p$ with $0$ and $1$. The finitely many smaller
+primes have their specified zero weights.
+This proves the claimed membership computation.
+
+By Lemma~\ref{lem:rational-LP-binary-vertex}, there are at most
+$k$ nonbinary coordinates on each good cell. On a bad cell
+all coordinates are zero, so there are no partially weighted
+coordinates. There are at most $2u^{1/(2k)}$ cells per block.
+This proves the first inequality in
+\eqref{eq:computed-deleted-prime-counts}.
+Apply Lemma~\ref{lem:deleted-count-deficit-ledger} on the
+actual finite support $S_j$ for the second inequality.
+
+For each fixed $k$, all sufficiently late cells are good
+by the same unconditional prime-mesh argument as before.
+The rounded vertex model has nonnegative weights, true
+normalized moment errors at most $3u^{-3}$ and the previous
+block mass bound. Those are precisely the inputs of the
+complete Euler-logarithm argument
+\eqref{eq:rational-model-complete-logarithm}--%
+\eqref{eq:rational-model-summable-error}.
+The initial interval and all bad cells are retained there
+in the finite head factor. It follows unconditionally that
+\[
+ F_k^{\rm v}(s)=\frac{s}{s-1}\exp(G_k^{\rm v}(s)),
+                     \qquad \Re s>1/2,
+\]
+with $G_k^{\rm v}$ holomorphic.
+This proves favorability independently of the reference zeros.
+
+Apply Theorem~\ref{thm:underweight-real-axis-transfer} with
+this model and $\tau=1/2$. A hypothetical zero at real part
+$\beta>1/2$ forces the dyadic deficit $D_{j,k}$ to have
+limsup exponent at least $\beta$.
+If the limsup exponent of $N_{j,k}$ were smaller than
+$\beta$, choose
+\[
+ \max\left(1/(2k),
+       \limsup_j\frac{\log(1+N_{j,k})}{j\log2}\right)
+                               <\alpha<\beta.
+\]
+The exact finite comparison
+$D_{j,k}\le N_{j,k}+2k u^{1/(2k)}$ would give
+$D_{j,k}\ll u^\alpha$, a contradiction.
+This proves \eqref{eq:deleted-prime-count-zero-readout}.
+Using the limsup with $\epsilon/2$ and absorbing the added
+$1$ proves the stated infinitely-often power lower bound.
+
+For the RH direction put
+\[
+ E^{\rm v}_{j,k}
+       =\sum_{p\in S_j}(w^{\rm v}_{p,k}-1)_+,\quad
+ C_j=\#S_j,\quad W^{\rm v}_{j,k}=\sum_{p\in S_j}w^{\rm v}_{p,k}.
+\]
+The complete signed balance is
+\begin{equation}
+ D_{j,k}=E^{\rm v}_{j,k}+C_j-W^{\rm v}_{j,k}.
+ \label{eq:deleted-prime-signed-forward-ledger}
+\end{equation}
+For sufficiently large $j$, the vertex-model overweight
+is at most the exact real optimum $E_{j,k}$, by
+\eqref{eq:rational-LP-rounded-binary}.
+Under RH the existing optimal-repair estimate gives
+$E^{\rm v}_{j,k}\ll_{k,\epsilon}u^{1/2+1/(2k)+\epsilon}$.
+Its zeroth moment error and the prime-counting estimate
+give $|C_j-W^{\rm v}_{j,k}|\ll_k u^{1/2}\log u$, exactly
+as in the preceding Poisson proof.
+Combining the signed balance with $N_{j,k}\le D_{j,k}$
+proves the forward half of
+\eqref{eq:deleted-prime-RH-count-equivalence}.
+The finitely many initial blocks are absorbed in its constant.
+
+If RH is false, choose a zero with real part $\beta>1/2$,
+then choose a fixed $k\in\mathcal K$ with
+$1/(2k)<\beta-1/2$, and choose
+$0<\epsilon<\beta-1/2-1/(2k)$.
+The claimed count upper bound would contradict
+\eqref{eq:deleted-prime-count-zero-readout}.
+This proves the reverse half.
+
+Finally suppose the premise of
+\eqref{eq:deleted-prime-fixed-k-zero-free} holds.
+Since $1/(2k)\le1/4<\eta$, the finite comparison in
+\eqref{eq:computed-deleted-prime-counts} gives
+$D_{j,k}\ll_\epsilon u^{\eta+\epsilon}$.
+Dyadic summation, including the finite initial prime factors,
+gives the cumulative underweight hypothesis of
+Theorem~\ref{thm:underweight-real-axis-transfer}.
+Its zeta specialization excludes zeros on $\Re s>\eta$.
+If $\mathcal D_k$ is finite, this premise holds with
+$\eta=1/2$, which yields RH by reflection.
+\end{proof}
+
+This criterion places the hypothetical bad-zero response in
+the cardinality of a predefined actual prime class.
+The nonbinary weights contribute only the explicitly bounded
+partial-capacity term in
+\eqref{eq:computed-deleted-prime-counts}.
+An independent arithmetic estimate for $N_{j,k}$ would still
+be needed for a new unconditional zero-free boundary;
+the installed boundary remains $7/8$.
+Jurzak~\cite{JurzakPartialEuler} studies analytic-continuation
+criteria for partial products on prime-index arithmetic lists.
+Here the classes are selected by finite rational moment
+programs, and the response is an unconditional lower exponent
+for their counting functions. The finite vertex geometry and
+positive-series continuation principle are classical inputs;
+no established literature priority is asserted for this
+application.
+
 \subsection{Nested Fermat carriers and a joint Fibonacci profile}
 \label{sec:fermat-fibonacci-joint}
 
