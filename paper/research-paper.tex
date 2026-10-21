@@ -10181,6 +10181,446 @@ proofs here and consume the cited classical prime-gap theorem;
 they have not yet been formalized in Lean.
 No literature priority is asserted.
 
+\subsubsection{Higher moments and sparse repair primes}
+\label{sec:higher-moment-repair-primes}
+
+The actual construction extends to every fixed moment order.
+Its overweight can moreover be confined to a sparse set of actual
+primes. This is sparsity of the repair, not an estimate for its
+weighted mass.
+
+\begin{lemma}[Positive-objective polynomial norming]
+\label{lem:positive-objective-prime-norming}
+Let $I=[a,b]$, $h=b-a>0$, and let $\mu$ have density between
+$\ell$ and $r$, where $0<\ell\le r$. Let a finite set $S\subset I$
+have covering radius at most $\epsilon h$ on $I$. For an integer
+$d\ge1$ put
+\[
+ B_d=\frac{2^d d^{d+1}}{d!},\qquad C_d=4B_d^2r/\ell.
+\]
+If $C_d\epsilon<1$, every real polynomial $P$ of degree at most
+$d$ with $\int_I P\,d\mu>0$ satisfies
+\begin{equation}
+ 0<\max_I P\le
+       \frac{\max_{x\in S}P(x)}{1-C_d\epsilon}.
+ \label{eq:positive-objective-norming}
+\end{equation}
+In particular the moment vector of $\mu/\mu(I)$ through degree
+$d$ belongs to the convex hull of the corresponding moment
+vectors of the actual nodes.
+\end{lemma}
+
+\begin{proof}
+Write $L=\max_I|P|$. Interpolation at the $d+1$ nodes
+$a+ih/d$, $0\le i\le d$, gives the elementary derivative bound
+\[
+ \max_I|P'|\le \frac{B_d}{h}L.
+\]
+Indeed, the denominator of the $i$th Lagrange basis polynomial
+has absolute value $(h/d)^d i!(d-i)!$. Its derivative numerator
+is a sum of $d$ products, each bounded by $h^{d-1}$ on $I$.
+Summing these bounds and using
+$\sum_{i=0}^d1/(i!(d-i)!)=2^d/d!$ proves the assertion.
+This argument also covers constant polynomials represented
+on this interpolation grid.
+
+Let $M=\max_I P>0$. If $L=M$, then $L\le4B_d(r/\ell)M$.
+Otherwise $P$ attains $-L$. On the intersection of $I$ with a
+radius $h/(2B_d)$ interval about such a point it is at most
+$-L/2$. This intersection has length at least $h/(2B_d)$;
+here $B_d\ge2$. Consequently
+\[
+ \int_I P_-\,d\mu\ge\frac{\ell hL}{4B_d},
+ \qquad
+ \int_I P_+\,d\mu\le rhM.
+\]
+The positive integral gives $L\le4B_d(r/\ell)M$ in this case
+as well. A node within $\epsilon h$ of a positive maximum
+therefore has value at least
+$M-B_d\epsilon L\ge(1-C_d\epsilon)M$.
+This proves \eqref{eq:positive-objective-norming} with all
+signs retained.
+
+If the normalized moment vector were outside the finite
+convex hull, strict separation would give a polynomial whose
+$\mu$-average is larger than its maximum on $S$. Subtract
+that node maximum. The resulting polynomial has positive
+integral and nonpositive values at every node, contradicting
+\eqref{eq:positive-objective-norming}.
+\end{proof}
+
+\begin{lemma}[Actual overweight dual and sparse attainment]
+\label{lem:actual-overweight-dual-sparse}
+Let $k\ge2$, let $\mu$ be a positive measure of mass $H>0$
+on a compact interval $I$, and let $S\subset I$ be finite.
+Give its nodes capacities $A_x\ge0$. Suppose nonnegative
+weights on $S$ can match the moments of $\mu$ through degree
+$k-1$. Let $E$ be the minimum positive overweight among
+such weights, and let $\delta^*$ be the ideal capped defect
+on the whole interval from
+Theorem~\ref{thm:capped-positive-moment-selection}. Then
+\begin{equation}
+ E=\sup_{\substack{\deg P<k\\P(x)\le1\ (x\in S)}}
+       \left(\int_I P\,d\mu-\sum_{x\in S}A_x(P(x))_+\right).
+ \label{eq:actual-overweight-polynomial-dual}
+\end{equation}
+A minimizer exists with $(w_x-A_x)_+>0$ on at most $k$
+nodes. If the norming conclusion
+\eqref{eq:positive-objective-norming} holds with
+$C_d\epsilon=t<1$, $d=k-1$, then
+\begin{equation}
+ \delta^*\le E\le(1-t)^{-1}\delta^*.
+ \label{eq:all-moment-actual-ideal-comparison}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+The feasible weights form a nonempty compact set: their
+zeroth moment is $H$, so each coordinate is in $[0,H]$.
+The continuous overweight objective therefore attains its
+minimum.
+
+Put $z(x)=(1,x,\ldots,x^{k-1})$ and $c=\int_I z\,d\mu$.
+For $\delta\ge0$ the capped weights with actual-node repair
+mass at most $\delta$ have the compact convex moment set
+\[
+ K_\delta=
+ \left\{\sum_{x\in S}v_xz(x):0\le v_x\le A_x\right\}
+ +\delta\operatorname{conv}\bigl(\{0\}\cup\{z(x):x\in S\}\bigr).
+\]
+Clipping $w$ to $\min(w,A)$ shows $c\in K_E$.
+Conversely, $c\in K_\delta$ gives feasible actual weights
+with overweight at most $\delta$. Hence $c\notin K_\delta$
+when $0\le\delta<E$.
+
+Strict separation in that case gives a polynomial $P$ with
+\[
+ \int_I P\,d\mu>
+       \sum_{x\in S}A_x(P(x))_+
+             +\delta\max\{0,\max_S P\}.
+\]
+Its node maximum is positive: otherwise any already feasible
+nonnegative actual quadrature would make its integral
+nonpositive, contrary to this strict inequality.
+Normalize by that maximum. The resulting dual objective is
+larger than $\delta$. Weak duality follows directly, node by
+node, from $P(x)\le1$:
+\[
+ w_xP(x)-A_x(P(x))_+\le(w_x-A_x)_+.
+\]
+Letting $\delta$ increase to $E$ proves the dual equality;
+if $E=0$, the zero polynomial supplies equality.
+
+For sparse attainment start with an optimal $w$ and write
+$v=\min(w,A)$, $e=(w-A)_+$. A nonnegative combination
+$\sum e_xz(x)$ can be reduced to at most $k$ nodes while
+preserving that entire vector. If more than $k$ vectors
+remain, take a linear dependence among them. Its coefficients
+sum to zero by the first coordinate, so they have both signs.
+Move the positive weights along that dependence until one
+vanishes, and repeat. Denote the resulting weights by $e'$.
+They have the same mass $E$. Then $w'=v+e'$ matches all
+moments and has overweight at most $E$, hence exactly $E$
+by optimality. Its positive overweight is supported among
+the at most $k$ nodes supporting $e'$.
+
+Clipping also makes every actual minimizer an admissible
+ideal capped-defect solution, proving $\delta^*\le E$.
+For the other inequality take a polynomial in the actual
+dual with positive objective. Its integral is positive, so
+norming gives $M=\max_I P\le(1-t)^{-1}$.
+The polynomial $P/M$ is at most $1$ on all of $I$.
+The exact ideal dual already proved above, and positive
+homogeneity of its objective, give an actual objective at
+most $M\delta^*\le(1-t)^{-1}\delta^*$.
+Nonpositive objectives require no bound beyond $0\le\delta^*$.
+Taking the supremum proves
+\eqref{eq:all-moment-actual-ideal-comparison}.
+\end{proof}
+
+\begin{theorem}[Actual favorable models with sparse repair]
+\label{thm:all-moment-actual-prime-models}
+Fix the finite character portfolio and an integer $k\ge2$.
+Put
+\[
+ \theta_k=1-\frac1{2k},\qquad d=k-1,\qquad
+ C_k=16\zeta(2)B_d^2.
+\]
+There is a fixed $J_0(k,\mathcal Q)$ with the following
+properties. For each $j\ge J_0$, $u=2^j$, partition $[u,2u)$
+into cells of length $h=2^{\lfloor\theta_kj\rfloor}$.
+On every cell choose nonnegative actual prime weights
+minimizing
+\begin{equation}
+ \begin{gathered}
+ E_{I,k}=\min\sum_{p\in S_I}(w_{p,k}-A(p))_+,\\
+ \sum_{p\in S_I}p^r w_{p,k}
+                 =R\int_I x^r\,d\nu(x)\quad(0\le r<k).
+ \end{gathered}
+ \label{eq:higher-moment-prime-program}
+\end{equation}
+A minimizer with at most $k$ positive-overweight coordinates
+exists. Choose the lexicographically least such minimizer
+in increasing prime order, and put $w_{p,k}=0$ below
+$2^{J_0}$. This defines the model before any RH assumption.
+
+Its full actual prime Euler product has an unconditional
+continuation
+\begin{equation}
+ F_{k,\mathcal Q}(s)=\prod_p(1-p^{-s})^{-w_{p,k}}
+       =\left(\frac{s}{s-1}\right)^R e^{G_k(s)},
+       \qquad \Re s>1/2,
+ \label{eq:higher-moment-favorable-product}
+\end{equation}
+where $G_k$ is holomorphic. The product initially means its
+full Euler logarithm on $\Re s>1$.
+
+Let $e_{p,k}=(w_{p,k}-A(p))_+$,
+$\mathcal B_k=\{p:e_{p,k}>0\}$, and
+$E_{j,k}=\sum_{u\le p<2u}e_{p,k}$. Then, unconditionally,
+\begin{equation}
+ \#(\mathcal B_k\cap[u,2u))\le k\,u/h
+                           \le2k\,u^{1/(2k)}.
+ \label{eq:sparse-prime-repair-count}
+\end{equation}
+For the ideal degree-$(k-1)$ defects on the original cells,
+write $\Delta_{j,k}^*=\sum_I\delta_{I,k}^*$. With the same
+fixed prime-gap constants as above, put
+\[
+ \epsilon_{j,k}=C_g(2u)^{2/3}/h.
+\]
+The starting threshold can be chosen so $C_k\epsilon_{j,k}\le1/2$,
+and then
+\begin{equation}
+ \begin{gathered}
+ \Delta_{j,k}^*\le E_{j,k}
+              \le(1-C_k\epsilon_{j,k})^{-1}\Delta_{j,k}^*,\\
+ E_{j,k}\le(1+2C_k\epsilon_{j,k})\Delta_{j,k}^*,
+ \qquad \epsilon_{j,k}\ll_k u^{2/3-\theta_k}=o(1).
+ \end{gathered}
+ \label{eq:higher-moment-full-capacity-consumer}
+\end{equation}
+Every reference zero with real part $\beta>1/2$ forces
+\begin{equation}
+ \limsup_{j\to\infty}
+       \frac{\log(1+E_{j,k})}{j\log2}\ge\beta.
+ \label{eq:sparse-repair-zero-signal}
+\end{equation}
+In particular, for every $\epsilon>0$, infinitely many repair
+primes satisfy
+\begin{equation}
+ e_{p,k}\ge p^{\,\beta-1/(2k)-\epsilon}.
+ \label{eq:sparse-repair-heavy-atom}
+\end{equation}
+All constants, thresholds and choices here may depend on
+the fixed $k$ and the fixed portfolio; $k$ and conductors
+do not grow with $j$.
+\end{theorem}
+
+\begin{proof}
+On a cell in $[u,2u]$, the density of $R\nu$ lies between
+$R\ell_u$ and $R/\log u$, with ratio at most $4\zeta(2)$.
+The prime-gap argument in
+Theorem~\ref{thm:actual-favorable-prime-model} gives covering
+radius at most $g_u=C_g(2u)^{2/3}$ using actual primes inside
+the cell. This includes both end strips. Since
+\[
+ \epsilon_{j,k}\le2C_g2^{2/3}u^{2/3-\theta_k}\longrightarrow0,
+\]
+choose $J_0\ge3$ with $2^{J_0}>2p_0+2$ and
+$2C_kC_g2^{2/3}2^{J_0(2/3-\theta_k)}\le1/2$.
+These inequalities hold for all later blocks; they ensure
+the grid exists inside each cell and the norming hypothesis
+holds. The cell endpoints are even integers greater than
+$2$, so they carry no prime atoms. The original half-open
+partition and its closed hulls therefore use identical
+prime nodes and continuous moments.
+
+The norming lemma places the normalized target moment vector
+in the convex hull of actual prime moment vectors. It gives
+feasibility of \eqref{eq:higher-moment-prime-program}.
+The second lemma gives attainment, sparse attainment and the
+ideal comparison, uniformly on all cells. The set of optimal
+weights with at most $k$ positive-overweight coordinates is
+a finite union of closed subsets of the compact optimal set:
+outside a chosen set of at most $k$ coordinates require
+$w_p\le A(p)$. Successive coordinate minima therefore define
+the announced tie rule. Summing the cell comparisons and
+counting the cells proves
+\eqref{eq:sparse-prime-repair-count} and
+\eqref{eq:higher-moment-full-capacity-consumer}.
+
+Every block has total weight
+$W_j=R\nu([u,2u))\le Ru/\log u$, ensuring initial absolute
+convergence on $\Re s>1$. Retain the complete normalization:
+\begin{align}
+ G_k(s)&=-R\int_1^{2^{J_0}}f_s(x)\,d\nu(x)
+                                      +\sum_{j\ge J_0}G_{j,k}(s),\notag\\
+ G_{j,k}(s)&=\sum_{I\subset[u,2u)}
+    \left[\sum_{p\in S_I}w_{p,k}f_s(p)
+                          -R\int_I f_s(x)\,d\nu(x)\right],
+ \qquad u=2^j .
+ \label{eq:higher-moment-complete-logarithm}
+\end{align}
+Here $f_s(x)=-\log(1-x^{-s})$ retains every prime power.
+The moments cancel every Taylor term of degree less than
+$k$. The full remainder estimate from
+Theorem~\ref{thm:long-interval-reverse-capacity} gives
+\begin{equation}
+ |G_{j,k}(s)|\le
+ \frac{2R}{k\log2}
+       \left(\prod_{r=0}^{k-1}(|s|+r)\right)
+       \frac{u^{1/2-\Re s}}{(1-u^{-\Re s})^k}.
+ \label{eq:higher-moment-prime-error}
+\end{equation}
+Indeed $h^k\le u^{k-1/2}$, and the model and the actual
+quadrature have equal positive mass. This bound converges
+normally on $\Re s>1/2$. The retained finite initial integral
+is holomorphic on $\Re s>0$, with an integrable logarithmic
+endpoint at $1$. Exponentiating the initial exact identity
+proves \eqref{eq:higher-moment-favorable-product}.
+
+Apply Theorem~\ref{thm:one-sided-prime-model-transfer} to
+this independently favorable model. If the limsup in
+\eqref{eq:sparse-repair-zero-signal} were below $\beta$,
+choose $\eta$ strictly between their maximum with $1/2$
+and $\beta$. The dyadic bounds would give cumulative
+overweight $O(X^\eta)$, excluding that reference zero.
+This proves the signal statement without assuming RH.
+For the last claim choose arbitrarily late blocks with
+$E_{j,k}>u^{\beta-\epsilon/3}$ and use
+\eqref{eq:sparse-prime-repair-count}. Some repair weight
+is at least $(2k)^{-1}u^{\beta-1/(2k)-\epsilon/3}$.
+For large blocks this is at least
+$p^{\beta-1/(2k)-\epsilon}$, since $u\le p<2u$.
+The chosen primes tend to infinity.
+\end{proof}
+
+\begin{corollary}[An RH equivalence for predefined sparse repairs]
+\label{cor:predefined-sparse-repair-RH}
+Take $\mathcal Q=\{1\}$ and construct all the above models
+unconditionally. Let $\mathcal K$ be any unbounded subset
+of $\{2,3,\ldots\}$. The following are equivalent:
+\begin{enumerate}
+\item RH.
+\item For every fixed $k\in\mathcal K$ and $\epsilon>0$,
+\begin{equation}
+ E_{j,k}\ll_{k,\epsilon}
+                u^{1/2+1/(2k)+\epsilon},\qquad u=2^j.
+ \label{eq:sparse-repair-RH-total}
+\end{equation}
+\item For every fixed $k\in\mathcal K$ and $\epsilon>0$,
+\begin{equation}
+ \max_{\substack{u\le p<2u\\p\ {\rm prime}}}e_{p,k}
+          \ll_{k,\epsilon}u^{1/2+1/(2k)+\epsilon}.
+ \label{eq:sparse-repair-RH-individual}
+\end{equation}
+\end{enumerate}
+An empty maximum is defined as zero. The ideal defects
+$\Delta_{j,k}^*$ may replace $E_{j,k}$ in the second condition.
+The quantifiers fix $k$ before taking $j\to\infty$.
+\end{corollary}
+
+\begin{proof}
+First compare the reference counting model with the usual
+logarithmic integral $\operatorname{Li}_2(X)=\int_2^Xdt/\log t$.
+For $r\ge1$, the integral test gives
+\[
+ 0\le1-\zeta(r+1)^{-1}
+       \le\zeta(r+1)-1
+       \le2^{-r}(1/2+1/r)\le(3/2)2^{-r}.
+\]
+In the defining series of $\nu$, sum this bound with
+$t=\log x$. For $x\ge2$ it gives
+\begin{equation}
+ 0\le\frac1{\log x}-\nu'(x)
+       \le\frac{x^{-1}+(3/2)x^{-1/2}}{\log x}
+       \le\frac{5x^{-1/2}}{2\log x}.
+ \label{eq:continuous-model-logarithmic-integral-error}
+\end{equation}
+Integration shows
+\[
+ 0\le\operatorname{Li}_2(X)-\nu([2,X])
+       \le\frac5{\log2}(\sqrt X-\sqrt2).
+\]
+Thus the model-count error is $O(\sqrt X)$, unconditionally.
+
+Assume RH. Its classical consequence
+$\pi(X)-\operatorname{li}(X)=O(\sqrt X\log X)$ is used
+only in this forward direction; see
+\cite[Eq.~6.16.5]{DLMFPrimeError}.
+The preceding model estimate shows, uniformly over every
+interval $J\subset[u,2u]$ and every endpoint convention,
+\[
+ \bigl(\nu(J)-\#\{p\in J\}\bigr)_+
+                                \ll\sqrt u\log u.
+\]
+One-sided limits of the same cumulative estimate handle
+prime endpoints; no boundary prime is silently discarded.
+There are $u/h\le2u^{1/(2k)}$ cells. The ideal defect bound
+$\delta_{I,k}^*\le\lceil k/2\rceil d_I$, followed by the
+actual comparison
+\eqref{eq:higher-moment-full-capacity-consumer}, gives the
+stronger estimate
+\begin{equation}
+ E_{j,k}\ll_k u^{1/2+1/(2k)}\log u.
+ \label{eq:RH-implies-sparse-repair-rate}
+\end{equation}
+This proves the second condition and hence the third,
+since every individual overweight is at most its block sum.
+
+Conversely, a failure of RH gives a zero with real part
+$\beta>1/2$, by the functional equation. Under the second
+condition choose one fixed $k\in\mathcal K$ with
+$1/2+1/(2k)<\beta$, and then a sufficiently small fixed
+$\epsilon>0$. Its rate contradicts
+\eqref{eq:sparse-repair-zero-signal}.
+Under the third condition use the sparse repair count to
+obtain
+\[
+ E_{j,k}\ll_{k,\epsilon}u^{1/2+1/k+\epsilon}.
+\]
+Choose instead one fixed $k\in\mathcal K$ with
+$1/2+1/k<\beta$ and then small $\epsilon$; the same
+unconditional signal statement gives a contradiction.
+Finally \eqref{eq:higher-moment-full-capacity-consumer}
+compares the actual and ideal defects by a factor tending
+to $1$, proving the stated replacement.
+\end{proof}
+
+For clarity, the full positively weighted model and its
+repair set have different sizes. If
+$\mathcal S_k=\{p:w_{p,k}>0\}$ and
+$A_*=\sum_{q\in\mathcal Q}\varphi(q)>0$, the exact identity
+and its cardinality consequence are
+\begin{equation}
+ \sum_{u\le p<2u}\min\{w_{p,k},A(p)\}=W_j-E_{j,k},
+ \qquad
+ \#(\mathcal S_k\cap[u,2u))
+          \ge\frac{(W_j-E_{j,k})_+}{A_*}.
+ \label{eq:full-carrier-versus-sparse-repair}
+\end{equation}
+The unconditional density comparison just proved gives
+$W_j=(R+o(1))u/\log u$. Therefore an independent overweight
+bound with any fixed exponent less than $1$ forces at least
+$(R/A_*+o(1))u/\log u$ selected primes per block.
+For $\mathcal Q=\{1\}$ the classical prime number theorem
+then makes the full carrier density one among primes.
+Meanwhile the repair set has only $O_k(u^{1/(2k)})$ primes
+per block. A small unweighted repair count therefore does
+not exclude a zero: its weights can be large, as
+\eqref{eq:sparse-repair-heavy-atom} quantifies.
+
+These are ordinary proofs for independently defined actual
+prime models, not yet Lean formalizations of the polynomial
+norming, finite moment duality or Euler continuation.
+The already compiled positive-Dirichlet continuation and
+capped support-function lemmas remain inputs to that work.
+No unconditional power estimate for $E_{j,k}$ has been
+proved here; in particular the certified reference boundary
+remains $7/8$. No literature priority is asserted.
+
+
 \subsection{Nested Fermat carriers and a joint Fibonacci profile}
 \label{sec:fermat-fibonacci-joint}
 
@@ -11291,6 +11731,11 @@ R. C. Baker, G. Harman and J. Pintz,
 Proc. London Math. Soc. (3) \textbf{83} (2001), 532--562.
 Theorem~1. The weak $2/3$ consequence is used only to place
 actual prime nodes in the moment cells.
+\bibitem{DLMFPrimeError}
+NIST Digital Library of Mathematical Functions,
+\S6.16(ii), Eq.~6.16.5.
+\url{https://dlmf.nist.gov/6.16#E5}.
+
 \end{thebibliography}
 
 \bigskip
