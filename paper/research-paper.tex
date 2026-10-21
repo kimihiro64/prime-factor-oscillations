@@ -16774,6 +16774,333 @@ The installed $\Theta\le7/8$ gives the upper exponent $-1/7$
 for $e_X,E_X$ on the logarithmic scale; RH requires $-1$.
 No improvement of the certified zero-free boundary is claimed.
 
+\subsection{Conditional prime localization and reconstruction from the zero bin}
+\label{sec:conditional-thin-prime-reconstruction}
+
+Continue with the explicit progression of
+\eqref{eq:primorial-filter-arithmetic-sample}, for a fixed
+$0<b<1-\alpha$.
+Let $\mathbb P_X$ be uniform measure on its $M_X$ integers and put
+\[
+ C_X=A_{\mathcal P}(1+Q_Xn),\qquad
+ K_X=K_{\mathcal P}(1+Q_Xn),\qquad
+ b_{X,k}=\mathbb P_X(K_X=k).
+\]
+Thus $C_X>1$ is exactly the event $K_X\ge1$.
+Abbreviate $J=J_X$ and write
+\begin{equation}
+ \begin{gathered}
+ \lambda_J=\sum_{j>J}p_j^{-1},\quad
+ c_J=\prod_{j>J}(1-1/p_j),\quad
+ W_J=\sum_{j>J}(p_j-1)^{-1},\\
+ S_{2,J}=\sum_{j>J}(p_j-1)^{-2},\qquad
+ v=1/\alpha-1>0 .
+ \end{gathered}
+ \label{eq:conditional-thin-parameters}
+\end{equation}
+All sums converge and all displayed normalizations are positive.
+The previous proofs give
+\begin{equation}
+ \begin{gathered}
+ J\sim\alpha b\,\frac{\log X}{\log\log X},\quad
+ p_{J+1}=J^{1/\alpha+o(1)},\quad
+ \lambda_J=J^{-v+o(1)},\quad
+ 1-c_J\sim\lambda_J,\\
+ d_{\rm TV}(\operatorname{Law}(C_X),
+       \operatorname{Law}(Z_J))\le\Delta_X,\qquad
+ \Delta_X\ll X^{-\xi},\quad \xi=1-b-\sigma>0,
+ \end{gathered}
+ \label{eq:conditional-thin-model-budget}
+\end{equation}
+where $\alpha<\sigma<1-b$ is fixed and
+$Z_J=\prod_{j>J}p_j^{G_{p_j}}$ has the full independent
+geometric law.  The last estimate is the full-component estimate
+of Theorem~\ref{thm:affine-thin-full-law}, not just convergence
+of count distributions.  Since $\Delta_X=o(\lambda_J)$,
+both the zero and nonzero empirical bins are positive eventually.
+Classical Poisson approximation is background; the relative
+growing-rank statement and its arithmetic normalization below
+are proved directly.
+
+\begin{theorem}[A growing rare profile determined by the zero bin]
+\label{thm:zero-bin-poisson-reconstruction}
+Define the parameter from the actual finite sample alone by
+\begin{equation}
+ \widehat\lambda_X=-\log b_{X,0}.
+ \label{eq:zero-bin-poisson-parameter}
+\end{equation}
+It is finite and positive for large $X$, and
+$\widehat\lambda_X\sim\lambda_J$.
+For every fixed $0<\epsilon<1/2$,
+\begin{equation}
+ \max_{0\le k\le\lfloor J^{1/2-\epsilon}\rfloor}
+ \left|
+ \frac{b_{X,k}}
+      {e^{-\widehat\lambda_X}\widehat\lambda_X^k/k!}-1
+ \right|
+       \le J^{-2\epsilon+o(1)}.
+ \label{eq:zero-bin-relative-poisson-window}
+\end{equation}
+In particular, the whole displayed growing collection of rare
+point masses is recoverable to relative accuracy from the zero
+bin.  This asserts a relative point-mass estimate, beyond the
+unconditional convergence of both laws to $\delta_0$.
+\end{theorem}
+
+\begin{proof}
+For the model let $\beta_{J,k}=\mathbb P(K_{\mathcal P\setminus
+\{p_1,\ldots,p_J\}}=k)$.
+With $w_j=(p_j-1)^{-1}$ for $j>J$ its generating function is
+$c_J\prod_{j>J}(1+w_jz)$.
+Normalize the positive weights $w_j$ to a probability law by
+division by $W_J$.
+In $k$ independent draws from that law, the probability that
+all labels are distinct is exactly
+$k!\beta_{J,k}/(c_JW_J^k)$.
+The union bound on collisions of pairs therefore proves the
+finite quantitative inequality
+\begin{equation}
+ 0\le1-\frac{k!\beta_{J,k}}{c_JW_J^k}
+       \le {k\choose2}\frac{S_{2,J}}{W_J^2}
+                           \qquad(k\ge0).
+ \label{eq:zero-bin-collision-identity}
+\end{equation}
+For $k=0$ the middle expression is zero.
+The countable formula follows either by the independent-draw
+construction or by monotone convergence from finite supports.
+
+For large $J$, $p_{J+1}\to\infty$, so
+\[
+ W_J=\lambda_J(1+O(p_{J+1}^{-1})),\qquad
+ S_{2,J}\ll p_{J+1}^{-1}\lambda_J .
+\]
+Put $t_J=-\log c_J$.
+Expansion of $-\log(1-x)$, with $0\le x\le1/p_{J+1}$,
+also gives
+\[
+ t_J=\lambda_J+O(p_{J+1}^{-1}\lambda_J),\qquad
+ |W_J-t_J|\ll p_{J+1}^{-1}\lambda_J .
+\]
+The full sampling bound gives
+$|b_{X,0}-c_J|\le\Delta_X$.
+As both terms tend to one, the logarithm is Lipschitz on
+their common eventual interval $[1/2,1]$, whence
+\[
+ |\widehat\lambda_X-t_J|\ll\Delta_X,\quad
+ \widehat\lambda_X\sim\lambda_J,\quad
+ \left|\frac{W_J}{\widehat\lambda_X}-1\right|
+       \ll p_{J+1}^{-1}+\Delta_X/\lambda_J .
+\]
+Furthermore $c_J/b_{X,0}=1+O(\Delta_X)$.
+
+Set $L=\lfloor J^{1/2-\epsilon}\rfloor$.
+The collision allowance in \eqref{eq:zero-bin-collision-identity}
+is at most
+\[
+ L^2S_{2,J}/W_J^2
+       \le J^{1-2\epsilon}
+              J^{-1/\alpha+v+o(1)}
+       =J^{-2\epsilon+o(1)}.
+\]
+The normalization error after raising to any $k\le L$ is
+bounded by a constant times
+$L(p_{J+1}^{-1}+\Delta_X/\lambda_J)$.
+Its first part is
+$J^{1/2-\epsilon-1/\alpha+o(1)}
+=o(J^{-2\epsilon})$, since $\epsilon<1/2$ and $\alpha<1$;
+its second part decays faster than every fixed power of $J$.
+The elementary estimate
+$|(1+u)^k-1|\le e^{2k|u|}-1$ for $|u|\le1/2$
+justifies that normalization bound.
+Using $e^{-\widehat\lambda_X}=b_{X,0}$,
+these estimates prove the claimed relative comparison first
+for the model masses $\beta_{J,k}$.
+
+It remains to transfer relative, rather than absolute, accuracy.
+Let
+$\pi_{X,k}=e^{-\widehat\lambda_X}
+\widehat\lambda_X^k/k!$.
+Since $\widehat\lambda_X=J^{-v+o(1)}<1$ eventually,
+its minimum on $0\le k\le L$ is at $L$, and
+\[
+ -\log\pi_{X,L}=O(L\log J)=o(\log X).
+\]
+Thus $\min_{k\le L}\pi_{X,k}=X^{-o(1)}$.
+The full sampling error $|b_{X,k}-\beta_{J,k}|\le\Delta_X$
+divided by this minimum is at most $X^{-\xi+o(1)}$,
+again smaller than every fixed negative power of $J$.
+This completes \eqref{eq:zero-bin-relative-poisson-window}.
+At $k=0$ the empirical ratio is exactly one.
+\end{proof}
+
+\begin{theorem}[The conditional surviving component is one localized prime]
+\label{thm:conditional-thin-single-prime-localization}
+Under the same hypotheses,
+\begin{equation}
+ \mathbb P_X(C_X\ {\rm is\ prime}\mid C_X>1)
+       =1-O(J^{-v+o(1)}).
+ \label{eq:conditional-thin-single-prime}
+\end{equation}
+Moreover, for every fixed $\eta>0$, put
+$t=\min\{1,\alpha\eta/2\}>0$.
+For all sufficiently large integer $X$,
+\begin{equation}
+ \mathbb P_X\left(
+ \left|\frac{\log C_X}{\log\log X}-\frac1\alpha\right|>\eta
+                 \,\middle|\, C_X>1\right)
+       \le J^{-vt+o(1)}.
+ \label{eq:conditional-thin-prime-size}
+\end{equation}
+Consequently $\log C_X/\log\log X\to1/\alpha$
+in conditional probability, even though
+$\mathbb P_X(C_X>1)\to0$.
+Prime powers and multiple distinct factors are both included
+in the error.
+\end{theorem}
+
+\begin{proof}
+For the full model $Z_J$, the probability of at least two
+distinct active prime coordinates is at most $\lambda_J^2/2$,
+by its second factorial moment.
+The probability of a repeated prime factor is at most
+$\sum_{j>J}p_j^{-2}\le p_{J+1}^{-1}\lambda_J$,
+because $\mathbb P(G_p\ge2)=p^{-2}$ exactly.
+These exhaust the ways a nontrivial component can fail to
+be a prime.  Since $\mathbb P(Z_J>1)=1-c_J\sim\lambda_J$,
+\begin{equation}
+ \mathbb P(Z_J\ {\rm composite}\mid Z_J>1)
+       \ll\lambda_J+p_{J+1}^{-1}
+       =J^{-v+o(1)}.
+ \label{eq:conditional-thin-composite-allowance}
+\end{equation}
+
+Here conditioning must be justified quantitatively.
+If two probability measures $\mu,\nu$ have total variation
+at most $\Delta$ and $\nu(E)>\Delta$, then
+\begin{equation}
+ d_{\rm TV}(\mu(\,\cdot\mid E),\nu(\,\cdot\mid E))
+       \le\frac{2\Delta}{\nu(E)-\Delta}.
+ \label{eq:conditional-thin-TV-transfer}
+\end{equation}
+Indeed, for each measurable $B\subseteq E$, subtract
+$\mu(B)/\mu(E)$ and $\nu(B)/\nu(E)$, keeping the numerator
+difference and normalization difference separately.
+Each contributes at most $\Delta/\mu(E)$, and
+$\mu(E)\ge\nu(E)-\Delta$.
+Apply this with the full component laws and $E=\{a>1\}$.
+The conditional error is
+$O(\Delta_X/\lambda_J)=X^{-\xi+o(1)}$, smaller than every
+fixed negative power of $J$.
+This proves \eqref{eq:conditional-thin-single-prime} for
+the actual arithmetic samples.
+
+Every nontrivial model component is at least $p_{J+1}$.
+The same is exactly true for every actual sample, since
+$1+Q_Xn$ is coprime to all of $p_1,\ldots,p_J$.
+As $\log p_{J+1}/\log\log X\to1/\alpha$, the lower
+size exception in \eqref{eq:conditional-thin-prime-size}
+is eventually empty.
+
+For the upper exception retain the full composite allowance
+and consider the remaining case of a single prime.
+Let $T=\lfloor J^{1+t}\rfloor$.
+The unconditional probability that this prime has label
+$j>T$ is at most $\lambda_T$.
+The already proved mean exponent gives
+\[
+ \frac{\lambda_T}{1-c_J}
+       =J^{-vt+o(1)}.
+\]
+If $J<j\le T$, then
+\[
+ \frac{\log p_j}{\log\log X}
+       \le\frac{1+t}{\alpha}+o(1)
+       \le\frac1\alpha+\frac\eta2+o(1)
+       <\frac1\alpha+\eta
+\]
+eventually, by the choice of $t$.
+Thus the model upper exception is bounded by the sum of
+$J^{-v+o(1)}$ and $J^{-vt+o(1)}$.
+Since $t\le1$, the latter controls both.
+Transfer once more with
+\eqref{eq:conditional-thin-TV-transfer}; its polynomially
+decaying error is negligible.
+This proves the full conditional bound with all multiplicities
+retained.
+\end{proof}
+
+\begin{corollary}[Computable conditional quantiles recover the zero supremum]
+\label{cor:conditional-thin-quantile-RH}
+For fixed $0<\tau<1$ define the lower conditional quantile
+\begin{equation}
+ m_\tau(X)=
+ \min\{a\in\{1,\ldots,X\}:
+       \mathbb P_X(C_X\le a\mid C_X>1)\ge\tau\}.
+ \label{eq:conditional-thin-quantile}
+\end{equation}
+It exists for all large integer $X$ and satisfies
+\begin{equation}
+ \frac{\log m_\tau(X)}{\log\log X}\longrightarrow\frac1\alpha,
+ \label{eq:conditional-thin-quantile-limit}
+\end{equation}
+uniformly for $\tau$ in any fixed compact subinterval of $(0,1)$.
+
+For $\mathcal P=\mathcal D$, $b=1/16$ and each rational
+$\tau\in(0,1)$, this quantile is a computable integer.
+Its limit is $1/\Theta_\zeta$.
+In particular, for the conditional median $m_{1/2}(X)$,
+\begin{equation}
+ \begin{aligned}
+ {\rm RH}
+ &\ \Longleftrightarrow\
+       m_{1/2}(X)=(\log X)^{2+o(1)}\\
+ &\ \Longleftrightarrow\
+       \text{for every $\epsilon>0$, }\
+       m_{1/2}(X)\gg_\epsilon(\log X)^{2-\epsilon}.
+ \end{aligned}
+ \label{eq:conditional-thin-median-RH}
+\end{equation}
+Similarly $\Theta_\zeta\le3/4$ is equivalent to the
+lower bounds $(\log X)^{4/3-\epsilon}$ for every $\epsilon>0$.
+\end{corollary}
+
+\begin{proof}
+The conditioning event has positive probability eventually,
+and the actual component always lies in $\{1,\ldots,X\}$.
+Hence the finite set in the quantile definition is nonempty.
+For every $\eta>0$ the localization theorem puts probability
+$1-o(1)$ inside the interval
+$[(\log X)^{1/\alpha-\eta},(\log X)^{1/\alpha+\eta}]$.
+For any fixed $0<\tau_0\le1/2$, this brackets every quantile
+with $\tau_0\le\tau\le1-\tau_0$ eventually.
+Using slightly smaller interior windows removes any endpoint
+rounding issue.  Take logarithms and let $\eta\downarrow0$
+to prove \eqref{eq:conditional-thin-quantile-limit} uniformly.
+
+For rational $\tau$, compare finite integer counts by
+cross-multiplication and choose the first component value
+meeting the threshold.  The progression uses an integer
+sixteenth root and the proved computable class $\mathcal D$,
+so no real-cutoff decision is needed.
+For this class $\alpha=\Theta_\zeta\ge1/2$, so its quantile
+exponent is at most two, with equality exactly under RH.
+The family of median lower bounds forces its exponent to
+be at least two, and equality implies all those bounds.
+The same argument with $4/3$ proves the $3/4$ equivalence.
+\end{proof}
+
+These are ordinary proofs of relative probability and conditional
+localization results, not new Lean declarations.
+The classical independent-coordinate and collision arguments are
+explicit inputs, rather than a claim that Poisson approximation
+itself is new.
+The new arithmetic conclusions use the full affine sampling budget
+and its positive rare-event denominator.
+The installed bound gives median exponent at least $8/7$;
+the $3/4$ target requires $4/3$ and RH requires two.
+No independent improvement of that median lower bound is proved,
+and the certified zero-free boundary remains $7/8$.
+
 \subsection{Selecting certified good primes before estimating their size}
 \label{sec:certified-good-prime-class}
 
