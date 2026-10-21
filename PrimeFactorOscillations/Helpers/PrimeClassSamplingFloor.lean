@@ -4,6 +4,7 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Prime Factor Oscillations contributors
 -/
 import Mathlib.Analysis.SpecialFunctions.Pow.Real
+import Mathlib.Order.Interval.Finset.Nat
 import Mathlib.Tactic.FieldSimp
 import Mathlib.Tactic.Linarith
 import Mathlib.Tactic.NormNum
@@ -21,6 +22,38 @@ set_option autoImplicit false
 set_option Elab.async false
 
 namespace PrimeFactorOscillations.PrimeClassSampling
+
+/-- Exact positive multiples in the actual integer sample; the empty sample is allowed. -/
+theorem card_positive_multiples (N q : Nat) (hq : 0 < q) :
+    ((Finset.Icc 1 N).filter (fun m => Dvd.dvd q m)).card = N / q := by
+  classical
+  have hcard : (Finset.Icc 1 (N / q)).card =
+      ((Finset.Icc 1 N).filter (fun m => Dvd.dvd q m)).card := by
+    apply Finset.card_bij (fun k _ => q * k)
+    case hi =>
+      intro k hk
+      have hkdata := Finset.mem_Icc.mp hk
+      have hkpos : 0 < k := Nat.lt_of_lt_of_le Nat.zero_lt_one hkdata.1
+      have hprod : 1 <= q * k := Nat.succ_le_of_lt (Nat.mul_pos hq hkpos)
+      have hupper : q * k <= N := by
+        simpa only [Nat.mul_comm] using (Nat.le_div_iff_mul_le hq).mp hkdata.2
+      exact Finset.mem_filter.mpr (And.intro
+        (Finset.mem_Icc.mpr (And.intro hprod hupper)) (dvd_mul_right q k))
+    case i_inj =>
+      intro a ha b hb hab
+      exact Nat.eq_of_mul_eq_mul_left hq hab
+    case i_surj =>
+      intro m hm
+      have hmdata := Finset.mem_filter.mp hm
+      have hinterval := Finset.mem_Icc.mp hmdata.1
+      have hmpos : 0 < m := Nat.lt_of_lt_of_le Nat.zero_lt_one hinterval.1
+      have hqlem : q <= m := Nat.le_of_dvd hmpos hmdata.2
+      have hquotpos : 0 < m / q := Nat.div_pos hqlem hq
+      have hquot : Membership.mem (Finset.Icc 1 (N / q)) (m / q) :=
+        Finset.mem_Icc.mpr (And.intro (Nat.succ_le_of_lt hquotpos)
+          (Nat.div_le_div_right hinterval.2))
+      exact Exists.intro (m / q) (Exists.intro hquot (Nat.mul_div_cancel' hmdata.2))
+  simpa using hcard.symm
 
 noncomputable def floorSamplingError (N q : Nat) : Real :=
   1 / (q : Real) - (N / q : Nat) / (N : Real)

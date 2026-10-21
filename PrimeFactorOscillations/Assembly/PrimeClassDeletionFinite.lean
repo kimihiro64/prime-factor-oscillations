@@ -4,7 +4,7 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Prime Factor Oscillations contributors
 -/
 import PrimeFactorOscillations.Helpers.PrimeClassDecoderIntegerProbes
-import PrimeFactorOscillations.Helpers.PrimeClassSamplingFloor
+import PrimeFactorOscillations.Helpers.PrimeClassSamplingUniform
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.BernoulliDominance
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.PolynomialPrimeNorming
 

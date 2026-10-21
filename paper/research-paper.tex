@@ -15242,11 +15242,36 @@ residue-sum identity and its weighted error estimate, is
 Lean-verified in \texttt{PrimeClassSamplingFloor}.
 The declaration \texttt{floorSamplingError\_le\_rpow} proves
 the rounding estimate used above.
+The finite sampling argument is also Lean-verified directly for the
+actual integer counts, rather than under a sampling-error hypothesis.
+For a class $\mathcal P$ of primes put
+$S_Y=\{p\in\mathcal P:p\le Y\}$ and
+\[
+ B_{S_Y}(z)=\prod_{p\in S_Y}(1-1/p+z/p),\qquad
+ C_{N,k}=\#\{1\le m\le N:K_{\mathcal P}(m)=k\}.
+\]
+For every $1\le N\le Y$, $0\le\sigma\le1$, and
+$S_\sigma=\sum_{p\in\mathcal P}p^{-\sigma}<\infty$, the maintained
+declaration
+\[
+ \texttt{actualSample\_coefficient\_error\_le\_exp}
+\]
+proves
+\[
+ \sum_{k=0}^{|S_Y|}
+ \left|\frac{C_{N,k}}N-[z^k]B_{S_Y}(z)\right|
+ \le N^{\sigma-1}\prod_{p\in S_Y}(1+2p^{-\sigma})
+ \le e^{2S_\sigma}N^{\sigma-1}.
+\]
+The proof uses the exact subset expansion with coefficient
+$\lfloor N/\prod_{p\in T}p\rfloor/N$, the signed floor remainder,
+and the identity that the coefficient norm of $(z-1)^r$ is $2^r$.
+Thus the estimate is uniform in the independently varying cutoff $Y$.
 The countable Euler-law normalization, the full absolutely summable
-M\"obius floor expansion, the full total-variation estimate, and
-the positive Jordan moment consumer remain to be formalized.
-Thus these finite rounding proofs do not verify the infinite
-sampling law or its exact convergence and moment spectra.
+M\"obius floor expansion, the infinite-profile limit, the full
+total-variation estimate for all valuations, and the positive Jordan
+moment consumer remain to be formalized. The finite uniform estimate
+does not verify their exact convergence and moment spectra.
 No originality priority over the literature is established.
 
 \subsection{Universal optimality of capped prime-component laws}
