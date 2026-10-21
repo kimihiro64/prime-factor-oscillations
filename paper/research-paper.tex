@@ -9629,6 +9629,558 @@ have not yet been formalized in Lean. No such formalization
 or literature priority is claimed.
 
 
+\subsection{The two-moment defect as a finite signed prime test}
+\label{sec:two-moment-capacity-test}
+
+For two moments the polynomial dual can be evaluated exactly
+from a finite list of integrated prime-capacity sums.
+This makes the reverse construction explicit without relaxing
+its signed main terms.
+
+\begin{theorem}[Exact finite formula for the two-moment deficit]
+\label{thm:two-moment-finite-capacity}
+Let $\mu$ be a positive finite measure on $[a,b]$, where $a<b$,
+with mass $H>0$ and first moment $M$, and assume
+$m=M/H\in(a,b)$. Let
+$\alpha=\sum_{i\in S}A_i\delta_{x_i}$, where $S$ is finite,
+$x_i\in[a,b]$, $A_i\ge0$, and $C=\sum_i A_i$.
+Define
+\begin{align*}
+ L(c)&=\frac{cH-M-\sum_i A_i(c-x_i)_+}{c-a}
+                                      &&(c>m),\\
+ R(c)&=\frac{M-cH-\sum_i A_i(x_i-c)_+}{b-c}
+                                      &&(c<m).
+\end{align*}
+Set
+\[
+ T_L=\{b\}\cup\{x_i:m<x_i<b\},\qquad
+ T_R=\{a\}\cup\{x_i:a<x_i<m\}.
+\]
+These are finite nonempty sets of distinct locations; repeated
+atoms contribute their summed capacities in the formulas.
+The least defect mass preserving zeroth and first moments is
+\begin{equation}
+ \delta_*=\max\left\{0,\ H-C,\
+                    \max_{c\in T_L}L(c),\
+                    \max_{c\in T_R}R(c)\right\}.
+ \label{eq:two-moment-finite-defect}
+\end{equation}
+In particular every retained denominator is strictly positive.
+The formula includes both boundary tests and the raw total
+mass deficit, even when that last term is negative.
+\end{theorem}
+
+\begin{proof}
+Use the exact dual in
+Theorem~\ref{thm:capped-positive-moment-selection} for $k=2$.
+A dual affine polynomial whose maximum on $[a,b]$ is
+nonpositive has nonpositive objective. If its maximum is
+$0<t<1$ and its objective is positive, division by $t$
+increases that objective. Thus it suffices to consider the
+zero polynomial and affine polynomials with maximum $1$.
+
+The constant polynomial $1$ gives $H-C$.
+A nonconstant normalized affine polynomial has one of the forms
+\[
+ 1-\lambda(x-a)\quad\hbox{or}\quad1-\lambda(b-x),
+                       \qquad\lambda>0.
+\]
+For the first form put $c=a+1/\lambda$.
+Its exact objective is $L(c)$, since
+$(1-\lambda(x-a))_+=(c-x)_+/(c-a)$.
+When $c\le m$, its model integral $(cH-M)/(c-a)$ is
+nonpositive, so its objective cannot improve on $0$.
+This leaves $c>m$.
+On each interval between consecutive atom locations, the
+numerator of $L$ is affine in $c$. A quotient of an affine
+function by $c-a>0$ is monotone or constant on that interval:
+the sign of its derivative is constant.
+Consequently its supremum for $m<c\le b$ is attained at a
+location in $T_L$, or is bounded by its limiting value at $m$,
+which is nonpositive.
+For $c\ge b$ all atoms are active, and
+\[
+ L(c)=\frac{c(H-C)-M+\sum_i A_i x_i}{c-a}.
+\]
+Its supremum is bounded by the larger of $L(b)$ and its
+limit $H-C$ at infinity. Thus the entire decreasing-affine
+branch reduces to $0,H-C$, and the $T_L$ tests.
+
+For the increasing-affine form set $c=b-1/\lambda$.
+The identical argument gives $R(c)$, discards $c\ge m$
+because its model integral is nonpositive, and reduces the
+remaining branch to $T_R$ and the limit $H-C$ at negative
+infinity. Conversely every retained test is the objective
+of an admissible affine polynomial; $0$ and $H-C$ come
+from admissible constants. The dual equality proves
+\eqref{eq:two-moment-finite-defect}.
+\end{proof}
+
+\paragraph{The principal compensation is explicit.}
+For $a\le t\le b$ write
+\[
+ E_L(t)=\mu([a,t])-\alpha([a,t]),\qquad
+ E_R(t)=\mu([t,b])-\alpha([t,b]).
+\]
+Fubini's theorem, with all endpoint atoms retained, gives
+\begin{align}
+ L(c)&=
+ \frac{\displaystyle\int_a^c E_L(t)\,dt
+            -\displaystyle\int_{(c,b]}(x-c)\,d\mu(x)}{c-a}
+                                  &&(m<c\le b),
+ \label{eq:two-moment-left-compensation}\\
+ R(c)&=
+ \frac{\displaystyle\int_c^b E_R(t)\,dt
+            -\displaystyle\int_{[a,c)}(c-x)\,d\mu(x)}{b-c}
+                                  &&(a\le c<m).
+ \label{eq:two-moment-right-compensation}
+\end{align}
+For example,
+$\int_a^c\alpha([a,t])\,dt=\sum_i A_i(c-x_i)_+$.
+The analogous identity for $\mu$ supplies its left truncated
+moment; subtracting the right tail restores the complete
+signed moment $cH-M$. The right formula is proved the same way.
+These are exact identities, including compensation across the
+two sides of the strike $c$.
+
+For the actual prime model $\mu=R\nu|_{[a,b]}$ in a cell
+$[a,b]\subset[u,2u]$, $u\ge2$, the coefficient inequalities
+\[
+ \frac1{\zeta(2)}\le\frac1{\zeta(r+1)}\le1
+                       \qquad(r\ge1)
+\]
+give the unconditional pointwise lower density
+\[
+ \nu'(x)\ge\frac{1-x^{-1}}{\zeta(2)\log x}
+       \ge \ell_u:=
+            \frac{1-u^{-1}}{\zeta(2)\log(2u)}>0.
+\]
+Hence the retained negative model tails have explicit reserves:
+\begin{align}
+ L(c)&\le
+ \frac{\displaystyle\int_a^c E_L(t)\,dt
+                         -R\ell_u(b-c)^2/2}{c-a},
+ \label{eq:two-moment-left-reserve}\\
+ R(c)&\le
+ \frac{\displaystyle\int_c^b E_R(t)\,dt
+                         -R\ell_u(c-a)^2/2}{b-c}.
+ \label{eq:two-moment-right-reserve}
+\end{align}
+The domains are respectively $c\in T_L$ and $c\in T_R$.
+No absolute value has replaced the signed integrated
+prime-capacity discrepancy. At $c=b$ in the left test and
+$c=a$ in the right test, the corresponding reserve is
+exactly zero. Those endpoint tests and $H-C$ remain in
+\eqref{eq:two-moment-finite-defect}; the interior reserve
+does not estimate them.
+
+The atomic support calculation used in the dual now has
+its own compiled owner,
+\texttt{CappedSupportFunction.lean}.
+It proves the signed capped-dot upper bound and an actual
+supported real maximizer attaining
+$\sum_i A_i(P(x_i))_+$, for arbitrary real coefficients
+$P(x_i)$, including negative ones.
+This checks the exact box support term used in the separation
+proof. The finite strike reduction, continuous moment selection,
+and analytic zero readout retain their ordinary proofs here;
+they are not reported as compiled.
+
+For the prime application, choose $k=2$ and $\theta=3/4$.
+The analytic error in
+\eqref{eq:capped-high-moment-error} is then normally summable
+for $\Re s>1/2$, while the cell length is $X^{3/4}$.
+The complete arithmetic consumer is
+\begin{equation}
+ \sum_{I\subset[2^j,2^{j+1})}
+ \max\left\{0,H_I-C_I,\
+            \max_{c\in T_{L,I}}L_I(c),\
+            \max_{c\in T_{R,I}}R_I(c)\right\}
+       \ll_\epsilon 2^{j(\eta+\epsilon)} .
+ \label{eq:two-moment-full-signed-consumer}
+\end{equation}
+Here $H_I=R\nu(I)$ is real, with no rounding, and the actual
+prime capacity is
+$C_I=\sum_{p\in I,\ p\ {\rm prime}}A(p)$.
+The preceding theorem constructs capped weights with exactly
+this optimal synthetic defect in every cell.
+If \eqref{eq:two-moment-full-signed-consumer} is proved for
+$\eta=3/4$, the positive quotient argument proves the
+zero-free boundary $3/4$; $\eta=1/2$ would imply RH.
+One can use this exact optimal defect in place of the sufficient
+maximal interval deficit, since only its positive mass enters
+the convergence majorant.
+
+This is a universal finite formula and an independently bounded
+model compensation, not a finite numerical experiment or a proved
+prime-discrepancy saving. The missing estimates are the full
+signed integrated-capacity terms including their endpoint
+tests and total mass deficit. The only unconditional aggregate
+bound installed here is $O_R(2^j)$, so the certified
+zero-free boundary remains $7/8$. No literature priority
+is asserted for this reduction.
+
+
+\subsection{One-sided overweight control for a favorable prime model}
+\label{sec:one-sided-prime-model-transfer}
+
+The reverse order can also be expressed directly for an actual
+weighted prime Euler product. It is enough to control its
+overweight relative to the available reference capacities;
+pointwise domination is sufficient but is not necessary.
+
+\begin{theorem}[One-sided favorable-model transfer]
+\label{thm:one-sided-prime-model-transfer}
+Fix the finite character portfolio and its capacities $A(p)$,
+and let $1/2\le\eta<1$. The following are equivalent.
+\begin{enumerate}
+\item The reference $\mathcal Z_{\mathcal Q}$ is zero-free
+on $\Re s>\eta$.
+\item There exist real weights $w_p\ge0$, with
+$\sum_p w_p p^{-\sigma}<\infty$ for every $\sigma>1$,
+whose initial full Euler product
+\[
+                  F_w(s)=\prod_p(1-p^{-s})^{-w_p}
+\]
+has a holomorphic nowhere-zero continuation on
+$\{\Re s>\eta\}\setminus\{1\}$, a pole of order $R$ at $1$,
+and satisfies the one-sided size bound
+\begin{equation}
+ \forall\epsilon>0\qquad
+ E(X):=\sum_{p\le X}(w_p-A(p))_+
+             \ll_\epsilon X^{\eta+\epsilon}\quad(X\ge2).
+ \label{eq:one-sided-overweight-size}
+\end{equation}
+\end{enumerate}
+For $\mathcal Q=\{1\}$ and $\eta=1/2$, this is an RH
+equivalence. For a general portfolio at $\eta=1/2$ it is
+the zero-free assertion for all of its Dirichlet
+$L$-functions, including $\zeta$.
+
+More generally, if a particular $F_w$ has the stated
+favorable continuation on $\Re s>\tau$ with $1/2\le\tau<1$,
+put
+\[
+ E_j=\sum_{2^j\le p<2^{j+1}}(w_p-A(p))_+ .
+\]
+Any reference zero of real part $\beta>\tau$ forces
+\begin{equation}
+ \limsup_{j\to\infty}\frac{\log(1+E_j)}{j\log2}\ge\beta.
+ \label{eq:overweight-zero-readout}
+\end{equation}
+Thus a favorable prime model cannot erase a hypothetical
+bad-zero response while keeping its positive overweight
+smaller than that response.
+\end{theorem}
+
+\begin{proof}
+Set $e_p=(w_p-A(p))_+$.
+Dyadic summation shows that
+\eqref{eq:one-sided-overweight-size} is equivalent to
+$\sum_p e_p p^{-\sigma}<\infty$ for every $\sigma>\eta$.
+For the converse direction of this elementary equivalence,
+use $E(X)\le X^\sigma\sum_p e_p p^{-\sigma}$.
+Accordingly
+\[
+                  E_+(s)=\prod_p(1-p^{-s})^{-e_p}
+\]
+is an absolutely convergent holomorphic unit on $\Re s>\eta$,
+with every prime power retained.
+
+Under (2), the complete quotient is initially
+\begin{equation}
+ \frac{\mathcal Z_{\mathcal Q}(s)E_+(s)}{F_w(s)}
+   =\prod_p(1-p^{-s})^{-(A(p)-w_p)_+}\,U_{\mathcal Q}(s).
+ \label{eq:overweight-positive-quotient}
+\end{equation}
+Its coefficients are nonnegative real numbers.
+Its continuation is holomorphic on $\Re s>\eta$:
+$F_w$ is zero-free and its pole of order $R$ cancels the
+reference pole, while $E_+$ is a unit.
+The positive Dirichlet continuation principle therefore
+gives actual series convergence throughout this half-plane.
+The finite-positive-product and logarithm argument in
+Theorem~\ref{thm:reverse-prime-capacity} makes the full
+quotient a unit there. Equation
+\eqref{eq:overweight-positive-quotient} then proves that
+$\mathcal Z_{\mathcal Q}$ is zero-free. This proves (2)
+implies (1).
+
+Conversely, under (1) choose $w_p=A(p)$.
+Then $F_w=\mathcal Z_{\mathcal Q}/U_{\mathcal Q}$ has the
+required favorable continuation and pole order, and $E(X)=0$.
+For $\mathcal Q=\{1\}$ the reference is $\zeta$; the usual
+functional-equation symmetry identifies its zero-free
+open right half of the critical strip with RH.
+For other portfolios, the reference's factors have no poles
+away from $1$, so its zero-free assertion is exactly the
+corresponding assertion for every included factor.
+
+For the last statement, if the displayed limsup were smaller
+than $\beta>\tau$, choose an exponent strictly between their
+maximum and $\beta$. Dyadic summation makes $E_+$ a unit
+above that exponent, and the same quotient proof excludes
+the zero, a contradiction.
+\end{proof}
+
+\paragraph{The necessary size of the selected set.}
+Let $Q_w=\{p:w_p>0\}$ and $A_*=\sum_{q\in\mathcal Q}\varphi(q)>0$.
+Write $W_j=\sum_{2^j\le p<2^{j+1}}w_p$. Since $A(p)\le A_*$,
+the exact one-sided comparison gives
+\begin{equation}
+ \#(Q_w\cap[2^j,2^{j+1}))
+       \ge\frac{(W_j-E_j)_+}{A_*}.
+ \label{eq:overweight-support-size}
+\end{equation}
+Indeed $w_p\le A(p)+e_p$ on each selected prime, and both
+$w_p$ and $e_p$ vanish outside the selected set.
+For a prime quadrature with
+$W_j=R\nu([u,2u))$, $u=2^j$, the explicit density lower bound
+above gives $W_j\ge R\ell_u u$.
+If $E_j\ll_\epsilon u^{\eta+\epsilon}$ with $\eta<1$,
+this forces selected support of order at least $u/\log u$,
+with constants depending only on the fixed portfolio.
+A small support with large weights must pay for those weights
+in $E_j$; its cardinality alone is not the signal-retention test.
+
+The converse in the equivalence uses the zero-free assertion
+itself. The next theorem supplies an independently favorable
+model on actual primes, completing the construction part of
+the proposed reverse order. Its one-sided overweight still
+requires a separate arithmetic estimate. The transfer theorem
+identifies the exact sufficient size condition and its
+noncancelling zero response. Its proof is ordinary, not yet
+a separate Lean declaration, and the certified unconditional
+reference boundary remains $7/8$.
+
+
+\subsection{An unconditional favorable model on actual primes}
+\label{sec:actual-favorable-prime-model}
+
+The favorable model can be built on actual primes before estimating
+the size of its overweight. Only a weak classical prime-gap input
+is needed to guarantee that the finite moment problems have solutions:
+there are constants $C_g>0$ and $p_0$ such that consecutive primes
+$p<p'$ with $p\ge p_0$ satisfy
+\begin{equation}
+                         p'-p\le C_g p^{2/3}.
+ \label{eq:weak-prime-grid-input}
+\end{equation}
+This follows, for example, from the stronger short-interval
+theorem of Baker--Harman--Pintz~\cite[Theorem~1]{BakerHarmanPintz}.
+It is used only for the availability of prime locations.
+It supplies no estimate for the one-sided overweight below.
+
+\begin{theorem}[Actual prime model with optimal local overweight]
+\label{thm:actual-favorable-prime-model}
+Fix the finite character portfolio. There is a fixed integer $J_0$
+such that the following construction works for every $j\ge J_0$.
+Partition $[u,2u)$, $u=2^j$, into half-open cells of length
+$h=2^{\lfloor3j/4\rfloor}$. For a cell $I=[a,b)$ put
+\[
+ H_I=R\nu(I),\qquad M_I=R\int_I x\,d\nu(x),\qquad m_I=M_I/H_I,
+\]
+and let $S_I$ be its actual primes, with extreme primes $p_-,p_+$.
+They satisfy $p_-<m_I<p_+$.
+Choose a nonnegative weight vector solving the finite problem
+\begin{equation}
+ \min\ \sum_{p\in S_I}(w_p-A(p))_+,\qquad
+ \sum_{p\in S_I}w_p=H_I,\qquad
+ \sum_{p\in S_I}p\,w_p=M_I .
+ \label{eq:actual-prime-overweight-program}
+\end{equation}
+A minimizer exists. Fix it, for example, by lexicographic
+minimization of the ordered coordinates among all minimizers.
+Set $w_p=0$ for primes below $2^{J_0}$.
+
+The resulting actual prime Euler product has an unconditional
+continuation
+\begin{equation}
+ F_w(s)=\left(\frac{s}{s-1}\right)^R e^{G(s)}
+                                  \qquad(\Re s>1/2),
+ \label{eq:actual-favorable-prime-product}
+\end{equation}
+where $G$ is holomorphic. Thus $F_w$ is zero-free on this
+half-plane and has precisely a pole of order $R$ at $1$.
+
+Let $E_I$ denote the optimal value in
+\eqref{eq:actual-prime-overweight-program}, and let $\delta_I^*$
+be the ideal two-moment defect from
+Theorem~\ref{thm:two-moment-finite-capacity} on the original
+cell hull $[a,b]$, with the original mass $H_I$, moment $M_I$
+and actual prime capacities. Then
+\begin{equation}
+ \delta_I^*\le E_I\le K_I\delta_I^*,\qquad
+ K_I=\max\left\{1,\frac{m_I-a}{m_I-p_-},
+                         \frac{b-m_I}{p_+-m_I}\right\}.
+ \label{eq:actual-ideal-defect-comparison}
+\end{equation}
+All these denominators are positive. Uniformly over the cells,
+\begin{equation}
+ 1\le K_I\le1+C_1u^{-1/12},\qquad
+ C_1=\frac{4C_g\,2^{2/3}}{c_0},\quad c_0=\frac1{8\zeta(2)}.
+ \label{eq:actual-prime-mesh-loss}
+\end{equation}
+In particular passing from the ideal defect to actual prime
+weights loses neither a power nor an asymptotic leading coefficient.
+The model is independently favorable; excluding reference zeros
+still requires the separate overweight estimate.
+\end{theorem}
+
+\begin{proof}
+On $[u,2u]$ the model density lies between $\ell_u$ and
+$r_u=1/\log u$. Therefore the two distances of its cell mean
+from the endpoints obey
+\[
+ m_I-a,\ b-m_I\ge\frac{\ell_u}{2r_u}h\ge c_0h.
+\]
+The last inequality uses $u\ge2$,
+$1-u^{-1}\ge1/2$, and $\log u/\log(2u)\ge1/2$.
+
+For all sufficiently large $u$, the prime-gap bound gives
+\[
+ 0\le p_--a\le g_u,\qquad
+ 0<b-p_+\le g_u,\qquad g_u=C_g(2u)^{2/3}.
+\]
+For the left edge use the prime just preceding $a$, unless
+$a$ itself is prime; for the right edge use the prime preceding
+$b$, since $b$ is excluded. Bertrand's theorem ensures that
+these preceding primes are at least $u/2$ when $u$ is large,
+so the starting threshold $p_0$ is respected.
+Because $h\ge u^{3/4}/2$, choose $J_0\ge2$ with
+\[
+ 2^{J_0}>2p_0+2,\qquad
+ 2C_g2^{2/3}2^{-J_0/12}\le c_0/2.
+\]
+These monotone conditions hold at every later block and give
+$g_u\le c_0h/2$. In particular there are actual primes on both
+sides of $m_I$. No numerical value for the classical starting
+threshold is asserted.
+
+Nonnegative weights on just $p_-,p_+$ can already match
+$H_I,M_I$, by the barycentric formulas
+\[
+ w_-=\frac{H_I(p_+-m_I)}{p_+-p_-},\qquad
+ w_+=\frac{H_I(m_I-p_-)}{p_+-p_-}.
+\]
+The feasible set of all weight vectors is nonempty and compact:
+it is closed and every coordinate lies in $[0,H_I]$.
+The overweight objective is continuous, so it attains its
+minimum. Successive coordinate minima on its compact minimizer
+set justify the stated tie rule.
+
+To identify the minimum, consider the capped moment-defect
+problem on the smaller hull $[p_-,p_+]$, with model measure
+$H_I\delta_{m_I}$. This is only a device for this finite
+moment problem: its mass and first moment are exactly the
+original $H_I,M_I$. The continuous model used in the analytic
+comparison remains $R\nu|_I$.
+Let its optimal defect be $\delta'_I$.
+Any feasible actual $w$ can be clipped to
+$v_p=\min(w_p,A(p))$; its removed weights give a positive
+actual-prime defect of mass $\sum_p(w_p-A(p))_+$.
+Thus $\delta'_I\le E_I$.
+Conversely, redistribute any optimal positive defect on
+$[p_-,p_+]$ to the two actual extreme primes by barycentric
+weights, preserving its mass and first moment. Add those
+weights to the capped vector. The resulting actual vector
+is feasible for \eqref{eq:actual-prime-overweight-program},
+and its positive overweight is at most the added mass.
+Hence $E_I\le\delta'_I$, proving equality.
+
+The finite strike formula for $\delta'_I$ has exactly the
+same numerators as the original ideal formula. Its left
+strikes are the actual primes above $m_I$, including $p_+$,
+and its right strikes are the actual primes below $m_I$,
+including $p_-$. Its denominators are respectively $c-p_-$
+and $p_+-c$. The ideal formula tests these same locations
+with denominators $c-a$ and $b-c$.
+For $c>m_I$,
+\[
+ \frac{c-a}{c-p_-}\le\frac{m_I-a}{m_I-p_-};
+\]
+the symmetric right ratio is bounded by
+$(b-m_I)/(p_+-m_I)$.
+If a numerator is negative it is already dominated by the
+zero test; otherwise these ratios bound the corresponding
+objectives. The common tests $0,H_I-C_I$ require no factor.
+This proves $E_I\le K_I\delta_I^*$.
+Every smaller-hull defect is feasible on the larger cell
+hull, so $\delta_I^*\le\delta'_I=E_I$.
+
+Finally
+\[
+ K_I\le1+\frac{g_u}{c_0h-g_u}
+      \le1+\frac{2g_u}{c_0h}
+      \le1+C_1u^{-1/12},
+\]
+which proves the asserted uniform loss.
+
+It remains to verify favorability independently of the
+overweight size. Every block has exact total weight
+$R\nu([u,2u))\ll_Ru$, so the full prime product converges
+absolutely for $\Re s>1$.
+The complete signed logarithmic identity there is
+\begin{gather*}
+ \log F_w(s)-R\log M(s)
+ =-R\int_1^{2^{J_0}}f_s(x)\,d\nu(x)+\sum_{j\ge J_0}G_j(s),\\
+ G_j(s)=\sum_{I\subset[2^j,2^{j+1})}
+       \left[\sum_{p\in S_I}w_pf_s(p)
+                          -R\int_I f_s(x)\,d\nu(x)\right].
+\end{gather*}
+Both the constant and linear Taylor terms cancel in every
+cell. The $k=2$ remainder calculation already proved above
+gives the full block bound
+\begin{equation}
+ |G_j(s)|\le
+ \frac{R}{\log2}|s|(|s|+1)
+              \frac{u^{1/2-\Re s}}{(1-u^{-\Re s})^2}.
+ \label{eq:actual-prime-model-error}
+\end{equation}
+It converges normally on $\Re s>1/2$.
+The retained finite initial integral is holomorphic on
+$\Re s>0$, including its integrable endpoint at $1$.
+Consequently the right side defines a holomorphic $G$ on
+$\Re s>1/2$, and exponentiation proves
+\eqref{eq:actual-favorable-prime-product}.
+This proves the favorable continuation without assuming
+any zero-free assertion for the reference.
+\end{proof}
+
+For this explicit optimized model, put
+$E_j=\sum_{I\subset[u,2u)}E_I$ and
+$\Delta_j^*=\sum_{I\subset[u,2u)}\delta_I^*$.
+The complete comparison is
+\begin{equation}
+ \Delta_j^*\le E_j\le(1+C_1u^{-1/12})\Delta_j^*.
+ \label{eq:actual-prime-complete-consumer}
+\end{equation}
+An independent estimate $E_j\ll_\epsilon u^{3/4+\epsilon}$
+therefore gives boundary $3/4$ by
+Theorem~\ref{thm:one-sided-prime-model-transfer};
+exponent $1/2$ would imply RH and the corresponding
+zero-free assertions for the included characters.
+Every hypothetical reference zero with real part $\beta>1/2$
+forces the dyadic overweight exponent to be at least $\beta$.
+The ideal and actual exponents agree by
+\eqref{eq:actual-prime-complete-consumer}.
+This completes the construction and signal-retention parts
+of the reverse strategy.
+
+The remaining arithmetic problem is the full finite-strike
+sum from \eqref{eq:two-moment-full-signed-consumer}, including
+its total mass deficit and both boundary tests.
+Unconditionally $E_I\le H_I$, so
+$E_j\le R\nu([u,2u))\ll_Ru/\log u$.
+That logarithmic bound supplies no new fixed power saving.
+The favorable model is not $\zeta$; its positive overweight
+still carries the potential zeros. The certified reference
+boundary remains $7/8$.
+This actual-prime construction and comparison have ordinary
+proofs here and consume the cited classical prime-gap theorem;
+they have not yet been formalized in Lean.
+No literature priority is asserted.
+
 \subsection{Nested Fermat carriers and a joint Fibonacci profile}
 \label{sec:fermat-fibonacci-joint}
 
@@ -10733,6 +11285,12 @@ $\zeta$ and $L$-functions}, Pacific J. Math. \textbf{74} (1978),
 F. Eisenbrand and G. Shmonin, \emph{Carath\'eodory bounds for
 integer cones}, Oper. Res. Lett. \textbf{34} (2006), 564--568.
 doi:10.1016/j.orl.2005.09.008.
+\bibitem{BakerHarmanPintz}
+R. C. Baker, G. Harman and J. Pintz,
+\emph{The difference between consecutive primes, II},
+Proc. London Math. Soc. (3) \textbf{83} (2001), 532--562.
+Theorem~1. The weak $2/3$ consequence is used only to place
+actual prime nodes in the moment cells.
 \end{thebibliography}
 
 \bigskip
