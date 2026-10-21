@@ -18872,30 +18872,25 @@ $\eta<(1-\sigma)(1-h\sigma)$.
 \end{lemma}
 
 \begin{proof}
-The proof of the full-component sampling budget
-\eqref{eq:thin-prime-profile-sampling-budget} uses only the
-summability in \eqref{eq:finite-decoding-summability}.
-Its exact signed inclusion--exclusion identity, followed by
-the rounding and tail bound
+The complete count-profile law identifies the reference coefficients
+with the Taylor coefficients of the actual entire Euler product.
+Its signed finite-subset sampling identity and the rounding estimate
 \[
  0\le q^{-1}-N^{-1}\lfloor N/q\rfloor
-                 \le N^{\sigma-1}q^{-\sigma}\quad(q\ge1),
+                 \le N^{\sigma-1}q^{-\sigma}\quad(q\ge1)
 \]
-therefore gives, without a rank restriction,
+give the uniform finite-reference bound. Passing every partial
+coefficient sum to the reference limit gives
 \begin{equation}
  \begin{gathered}
  \sum_{k\ge0}|b_{N,k}-\beta_k|
      \le B_{\mathcal P,\sigma}N^{\sigma-1},\\
  B_{\mathcal P,\sigma}
-       =\prod_{p\in\mathcal P}\frac{1+p^{-\sigma}}{1-p^{-\sigma}}
-       <\infty .
+       =\exp(2S_{\mathcal P,\sigma})<\infty .
  \end{gathered}
  \label{eq:finite-decoding-arithmetic-input}
 \end{equation}
-This argument also applies when the smooth state space or the
-prime set is finite. It sums the prime-power denominator and
-the squarefree numerator with no coprimality restriction;
-it does not invoke the more restrictive relative-rank conclusion.
+This uses the count law alone and includes finite and empty prime classes.
 
 The coefficient proof of
 \eqref{eq:thin-prime-coefficient-bounds} likewise requires only
@@ -18947,11 +18942,29 @@ Consequently
 Here $M\sim c\log N/\log\log N$ and
 $\log R=(h+o(1))\log\log N$, by the integer selector formulas.
 Both exponents are positive by the parameter domain.
-Their sum proves \eqref{eq:finite-decoding-complex-error}
-for every stated strict $\eta$.
+For each stated strict $\eta$, the first remainder is eventually at most
+$B_{\mathcal P,\sigma}N^{-\eta}$.
+The tail slope eventually satisfies $a_N\ge\log2$, so its denominator
+is at least $1/2$, and the second remainder is at most $2N^{-\eta}$.
+Thus the constant in \eqref{eq:finite-decoding-complex-error} can be taken as
+$\exp(2S_{\mathcal P,\sigma})+2$, with an eventual threshold depending
+on the fixed parameters.
 Finally substituting $c=\sigma(1-\sigma)$ makes both
 exponents $(1-\sigma)(1-h\sigma)$.
 \end{proof}
+
+\paragraph{Formalization status.}
+The complete statement of Lemma~\ref{lem:finite-decoding-complex-error},
+including the balanced specialization, is Lean-verified by
+\texttt{finite\_\allowbreak decoding\_\allowbreak complex\_\allowbreak error} and
+\texttt{finite\_\allowbreak decoding\_\allowbreak complex\_\allowbreak error\_\allowbreak balanced} in
+\texttt{Helpers/}\allowbreak\texttt{PrimeClassDecoderComplexError.lean}.
+The proof derives the entire-product growth, all coefficient and series
+tails, the full signed error decomposition, and both losses for the
+literal integer selectors $U_N,V_N,M_N,R_N$.
+Its threshold is uniform over the whole disc and its constant is explicit.
+The subsequent half-integer signal and exact decoding theorem remain
+separate formalization obligations.
 
 \begin{theorem}[Exact prime labels from finite integer sign tests]
 \label{thm:finite-integer-prime-decoding}
