@@ -4,7 +4,7 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Prime Factor Oscillations contributors
 -/
 import PrimeFactorOscillations.Helpers.PrimeClassDecoderIntegerProbes
-import PrimeFactorOscillations.Helpers.PrimeClassSpecialValueCapacity
+import PrimeFactorOscillations.Helpers.PrimeClassSparseDeletion
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.BernoulliDominance
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.CapacitySelectionFinite
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.PolynomialPrimeNorming
@@ -22,6 +22,8 @@ and the missed fraction for arbitrary polynomial coefficients are proved.
 Every admissible power also gives the full all-cutoff inverse count bound.
 The actual Fermat, Mersenne and Fibonacci prime-value classes have infinite
 capacity, with verified finite membership tests and the golden-ratio bound.
+Deleting a class of convergence exponent zero preserves every convergent
+positive exponent and the decoding capacity on its stated class domain.
 The full prime-power component law and RH applications remain separate
 obligations.
 -/

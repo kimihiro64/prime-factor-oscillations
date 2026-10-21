@@ -19487,14 +19487,54 @@ The sequences and primality filters are decidable on integer
 domains, so their finite counts and sign tests are computable.
 \end{proof}
 
-As an immediate consequence, removing any prime class
-$\mathcal Q$ with $\tau_{\mathcal Q}=0$ leaves
-$\tau_{\mathcal P}$, and therefore the decoding capacity,
-unchanged: for every $s>0$ the removed subseries is finite.
-This applies to removing any union of the three displayed
-special classes from $\mathcal D$.
-It is an invariance of the capacity criterion, not an
-independent proof of its RH endpoint.
+Removing any prime class $\mathcal Q$ with
+$\tau_{\mathcal Q}=0$ preserves the complete set of
+convergent positive exponents:
+\[
+ \left\{s>0:\sum_{p\in\mathcal P\setminus\mathcal Q}p^{-s}<\infty\right\}
+ =
+ \left\{s>0:\sum_{p\in\mathcal P}p^{-s}<\infty\right\}.
+\]
+Consequently $\tau_{\mathcal P\setminus\mathcal Q}=\tau_{\mathcal P}$.
+For the capacity conclusion retain this section's hypothesis:
+$\sum_{p\in\mathcal P}p^{-s_0}<\infty$ for some $0<s_0<1$.
+Then
+$\mathcal C_{\rm dec}(\mathcal P\setminus\mathcal Q)
+ =\mathcal C_{\rm dec}(\mathcal P)$.
+This includes removing any subclass of the union of the three
+displayed special prime classes, regardless of their overlaps.
+
+Here is the complete summability argument.
+Every prime class has a convergent exponent, since its
+inverse-square series is bounded by the natural inverse-square
+series. Thus the infimum defining $\tau_{\mathcal Q}$ has
+a nonempty defining set, and $\tau_{\mathcal Q}=0$ implies
+convergence at every positive exponent.
+For each such exponent and every finite cutoff $X$, use the
+exact partition of partial sums:
+\[
+ \sum_{\substack{p\le X\\p\in\mathcal P}}p^{-s}
+ =
+ \sum_{\substack{p\le X\\p\in\mathcal P\setminus\mathcal Q}}p^{-s}
+ +\sum_{\substack{p\le X\\p\in\mathcal P\cap\mathcal Q}}p^{-s}.
+\]
+The last series converges by comparison with the series for
+$\mathcal Q$. This proves the equality of convergence sets;
+the capacity classification gives the stated capacity equality.
+Finite unions of the special classes converge at every
+positive exponent by the sum bound, as does every subclass.
+The general deletion argument is Lean-verified by
+\[
+ \begin{gathered}
+ \texttt{primeClassConvergentExponents\_\allowbreak diff\_\allowbreak eq},\\
+ \texttt{primeClassConvergenceExponent\_\allowbreak diff\_\allowbreak eq},\\
+ \texttt{integerDecoderCapacity\_\allowbreak diff\_\allowbreak eq}.
+ \end{gathered}
+\]
+The union and arbitrary-subclass applications are also checked.
+Applying this to $\mathcal D$ uses its class-specific summability
+input; the general invariance proof does not verify that input
+or prove the RH endpoint.
 
 The complete finite decoder theorem is now formalized in Lean,
 including the growing-disc approximation, independent signed
@@ -19553,8 +19593,10 @@ $n\le p$ for Fermat and Mersenne values and $n\le p+2$
 for Fibonacci values, with the primality filter retained.
 The monotonicity and small-index claims in the proof are
 also checked. No infinitude hypothesis is used.
-The sparse-deletion invariance paragraph above and the RH
-corollaries remain separate formalization obligations.
+The general sparse-deletion argument and the three special-class
+applications above are now formalized.
+The RH corollaries and their class-specific inputs remain
+separate formalization obligations.
 
 These exact decoders use $M_N+1=O(\log N/\log\log N)$ bins
 and recover prime labels on a growing prefix, a distinct conclusion
