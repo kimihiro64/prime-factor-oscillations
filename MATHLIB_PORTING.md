@@ -5,6 +5,12 @@ Reusable mathematics intended for possible upstreaming lives under
 The child generator replaces `PrimeFactorOscillations` with the configured project
 namespace.
 
+## Polynomial sign intervals
+
+| Module | Proposed destination | Readiness | Scope |
+| --- | --- | --- | --- |
+| `PrimeFactorOscillations.Mathlib.Analysis.Polynomial.SignIntervals` | `Mathlib/Analysis/Polynomial/SignIntervals.lean` | project-verified | Opposite endpoint signs force a real root strictly inside the interval; pairwise disjoint open sign intervals consume distinct roots and have cardinality at most the natural degree. Fresh maintained proofs and foundational-axiom audits passed; the actual integer sample decoder consumes the degree bound. |
+
 ## Exact integer moment compression
 
 | Module | Proposed destination | Readiness | Scope |

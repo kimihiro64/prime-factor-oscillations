@@ -11,6 +11,7 @@ import PrimeFactorOscillations.Mathlib.Analysis.Calculus.IteratedDeriv.LinearPro
 import PrimeFactorOscillations.Mathlib.Analysis.Complex.AbelBound
 import PrimeFactorOscillations.Mathlib.Analysis.Complex.AffineZeroEscape
 import PrimeFactorOscillations.Mathlib.Analysis.Fourier.All
+import PrimeFactorOscillations.Mathlib.Analysis.Polynomial.SignIntervals
 import PrimeFactorOscillations.Mathlib.Analysis.SpecialFunctions.Exp.All
 import PrimeFactorOscillations.Mathlib.Analysis.SpecialFunctions.Log.All
 import PrimeFactorOscillations.Mathlib.Analysis.SpecialFunctions.Pow.All

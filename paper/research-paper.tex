@@ -15236,11 +15236,17 @@ boundary $3/4$ requires at most $1/4$; RH requires exponent zero.
 No independent improvement of that mean estimate is proved here.
 The certified zero-free boundary remains $7/8$.
 
-These are full ordinary proofs. No new Lean declaration is claimed
-for the infinite law, the full total-variation estimate or the moment
-spectrum. Concrete formalization tasks are the countable Euler-law
-normalization, the absolutely summable M\"obius floor expansion and
-the positive Jordan consumer with its Rankin bounds.
+The pointwise rounding bound for all $N,q\ge1$ and
+$0\le\sigma\le1$, together with the exact finite signed
+residue-sum identity and its weighted error estimate, is
+Lean-verified in \texttt{PrimeClassSamplingFloor}.
+The declaration \texttt{floorSamplingError\_le\_rpow} proves
+the rounding estimate used above.
+The countable Euler-law normalization, the full absolutely summable
+M\"obius floor expansion, the full total-variation estimate, and
+the positive Jordan moment consumer remain to be formalized.
+Thus these finite rounding proofs do not verify the infinite
+sampling law or its exact convergence and moment spectra.
 No originality priority over the literature is established.
 
 \subsection{Universal optimality of capped prime-component laws}
@@ -19308,8 +19314,24 @@ special classes from $\mathcal D$.
 It is an invariance of the capacity criterion, not an
 independent proof of its RH endpoint.
 
-The results in these two subsections have full ordinary proofs;
-no additional Lean declarations are asserted.
+The finite algebraic decoder is now formalized in Lean.
+The module \texttt{PrimeClassDecoderCounts} uses the literal
+counts of prime divisors in the full integer sample, and
+\texttt{PrimeClassDecoderIntegerProbes} proves the exact
+normalization \eqref{eq:finite-decoding-integer-probe}.
+Its declaration
+\[
+ \texttt{card\_integerDecodedSampleLabels\_le}
+\]
+proves the degree obstruction
+\eqref{eq:prime-decoding-degree-obstruction} for every prime
+class, every $N\ge1$, and all nonnegative integers $M,R$.
+No asymptotic sampling hypothesis is used for this finite bound.
+The growing-disc approximation, the independent half-integer
+product bound, eventual exact recovery, the capacity
+classification and the two corollaries remain ordinary proofs
+awaiting their full Lean formalization. The finite algebraic
+declarations alone do not verify those analytic conclusions.
 They use $M_N+1=O(\log N/\log\log N)$ bins, more than the
 preceding approximate largest-coordinate reconstruction,
 and recover exact prime labels on a growing prefix.
