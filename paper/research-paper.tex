@@ -15720,6 +15720,554 @@ ordered-stream statements are the formalized scope.
 The analytic prime enumeration and the infinite geometric
 probability-law consumers remain ordinary proofs.
 
+\subsection{Rare profiles, arithmetic records, and spectral dimension}
+\label{sec:thin-prime-profile}
+
+The full sampling law also controls ranks growing with the
+sample size.  The following statements apply first to an arbitrary
+fixed infinite prime class $\mathcal P=\{p_1<p_2<\cdots\}$ with
+\begin{equation}
+ 0<\alpha<1,\qquad
+ \lim_{j\to\infty}\frac{\log p_j}{\log j}=\frac1\alpha .
+ \label{eq:thin-prime-index-hypothesis}
+\end{equation}
+Equivalently $N_{\mathcal P}(X)=X^{\alpha+o(1)}$;
+bracketing $X$ between successive $p_j$ proves the equivalence.
+For positive integers $m$ define
+$K_{\mathcal P}(m)=\#\{p\in\mathcal P:p\mid m\}$.
+The prime class is fixed before sampling $m$ uniformly from
+$\{1,\ldots,N\}$.  The integer $N$ is the sample endpoint,
+$k$ is a factor-count level, and $r$ below is a generating-function
+argument.
+
+For every $\sigma>\alpha$ the prime sum
+$\sum_{p\in\mathcal P}p^{-\sigma}$ converges.
+Indeed, choose $\epsilon>0$ with
+$\sigma(1/\alpha-\epsilon)>1$ and compare
+$p_j^{-\sigma}$ with $j^{-\sigma(1/\alpha-\epsilon)}$.
+In particular $\sum_{\mathcal P}1/p<\infty$.
+There is therefore a proper independent count law
+$K_{\mathcal P}=\sum_{p\in\mathcal P}B_p$, where
+$\mathbb P(B_p=1)=1/p$ and $\mathbb P(B_p=0)=1-1/p$.
+Only finitely many $B_p$ are nonzero almost surely.
+Put
+\begin{equation}
+ \begin{aligned}
+ c_{\mathcal P}&=\prod_{p\in\mathcal P}(1-1/p)>0,\\
+ P_{\mathcal P}(z)
+   &=\mathbb E z^{K_{\mathcal P}}
+     =\prod_{p\in\mathcal P}(1-1/p+z/p)
+     =c_{\mathcal P}\prod_{p\in\mathcal P}
+                              (1+z/(p-1)),\\
+ b_k&=\mathbb P(K_{\mathcal P}=k),\qquad
+ q_k=\mathbb P(K_{\mathcal P}\ge k).
+ \end{aligned}
+ \label{eq:thin-prime-profile-definitions}
+\end{equation}
+All denominators $p-1$ are positive.
+The products converge uniformly on compact sets, so
+$P_{\mathcal P}$ is entire, with nonnegative coefficients $b_k$.
+Its mean $\sum_{\mathcal P}1/p$ is finite.
+
+\begin{theorem}[Reciprocal indices of growth and rare probabilities]
+\label{thm:thin-prime-rare-profile}
+For every class satisfying
+\eqref{eq:thin-prime-index-hypothesis}, let
+$M_{\mathcal P}(r)=\max_{|z|\le r}|P_{\mathcal P}(z)|$.
+Then $M_{\mathcal P}(r)=P_{\mathcal P}(r)$ and
+\begin{equation}
+ \lim_{r\to\infty}
+       \frac{\log\log M_{\mathcal P}(r)}{\log r}=\alpha .
+ \label{eq:thin-prime-entire-index}
+\end{equation}
+Every $b_k$ and $q_k$ is positive, including $b_0=c_{\mathcal P}$
+and $q_0=1$.  At large ranks the point mass and the tail have
+the same exact logarithmic decay:
+\begin{equation}
+ \lim_{k\to\infty}\frac{-\log b_k}{k\log k}
+  =\lim_{k\to\infty}\frac{-\log q_k}{k\log k}
+  =\frac1\alpha .
+ \label{eq:thin-prime-rare-coefficient-index}
+\end{equation}
+More explicitly, for each fixed $\alpha<\sigma<1$, put
+$C_\sigma=\sigma^{-1}\sum_{\mathcal P}p^{-\sigma}<\infty$.
+For every integer $k\ge2$,
+\begin{equation}
+ \frac{c_{\mathcal P}}{\prod_{j=1}^k(p_j-1)}
+ \le b_k\le q_k
+ \le \exp\!\left(C_\sigma k-\frac{k}{\sigma}\log k\right).
+ \label{eq:thin-prime-coefficient-bounds}
+\end{equation}
+No uniform constant as $\sigma\downarrow\alpha$ is asserted.
+\end{theorem}
+
+\begin{proof}
+For $r\ge1$, independence and nonnegative product expansion give
+\[
+ \log P_{\mathcal P}(r)
+  =\sum_{p\in\mathcal P}
+                   \log(1+(r-1)/p)
+  \le C_\sigma r^\sigma.
+\]
+Here $\log(1+y)\le y^\sigma/\sigma$ for $y\ge0$ and
+$0<\sigma<1$: for $t>0$,
+$t^{1-\sigma}\le1+t$, and integration of
+$(1+t)^{-1}\le t^{\sigma-1}$ proves the inequality.
+For $r\ge2$, each factor with $p\le r$ is at least $3/2$,
+whereas all other factors are at least one.  Thus
+\[
+ \log P_{\mathcal P}(r)
+       \ge(\log(3/2))N_{\mathcal P}(r)
+       =r^{\alpha+o(1)}.
+\]
+Nonnegative Taylor coefficients imply
+$|P_{\mathcal P}(z)|\le P_{\mathcal P}(|z|)$ and equality
+in the maximum at $z=r$.  The last two bounds show that the
+lower growth index is at least $\alpha$ and its upper index
+is at most every fixed $\sigma>\alpha$.
+Let $\sigma\downarrow\alpha$ after taking the limit in $r$.
+This proves \eqref{eq:thin-prime-entire-index}.
+
+The event in which exactly the first $k$ Bernoulli variables
+are one has probability
+\[
+ \left(\prod_{j=1}^kp_j^{-1}\right)
+       \prod_{j>k}(1-1/p_j)
+       =\frac{c_{\mathcal P}}{\prod_{j=1}^k(p_j-1)}>0.
+\]
+It supplies the independent positive lower bound for $b_k$.
+For $r\ge1$, exponential Markov gives
+$q_k\le r^{-k}P_{\mathcal P}(r)$.
+Taking $r=k^{1/\sigma}$ proves the upper bound in
+\eqref{eq:thin-prime-coefficient-bounds}.
+
+Finally, \eqref{eq:thin-prime-index-hypothesis} and elementary
+integral bounds for $\sum_{j\le k}\log j$ give
+\[
+ \sum_{j=1}^k\log(p_j-1)
+       =\left(\frac1\alpha+o(1)\right)k\log k .
+\]
+Replacing $\log p_j$ by $\log(p_j-1)$ changes this sum by
+a bounded amount, since $\sum_j1/p_j<\infty$.
+The positive configuration bound therefore makes the upper
+decay index of $b_k$ at most $1/\alpha$.
+The exponential upper bound makes the lower decay index of
+$q_k$ at least $1/\sigma$ for every $\sigma>\alpha$.
+Since $b_k\le q_k$, letting $\sigma\downarrow\alpha$ proves
+both limits in \eqref{eq:thin-prime-rare-coefficient-index}.
+\end{proof}
+
+\begin{theorem}[Arithmetic and independent records agree]
+\label{thm:thin-prime-record-duality}
+For integer $N\ge1$ put
+$H_{\mathcal P}(N)=\max_{1\le m\le N}K_{\mathcal P}(m)$.
+On one probability space let $K_1,K_2,\ldots$ be independent
+copies of $K_{\mathcal P}$ and put
+$W_{\mathcal P}(N)=\max_{1\le i\le N}K_i$.
+Then
+\begin{equation}
+ \begin{aligned}
+ H_{\mathcal P}(N)
+       &\sim\alpha\,\frac{\log N}{\log\log N},\\
+ W_{\mathcal P}(N)
+       &\sim\alpha\,\frac{\log N}{\log\log N}
+                                      \quad\hbox{almost surely},\\
+ \frac{W_{\mathcal P}(N)}{H_{\mathcal P}(N)}
+       &\longrightarrow1\quad\hbox{almost surely}.
+ \end{aligned}
+ \label{eq:thin-prime-record-limits}
+\end{equation}
+The last ratio is asserted for all sufficiently large $N$,
+when its denominator is positive.
+\end{theorem}
+
+\begin{proof}
+Let $Q_0=1$ and $Q_k=\prod_{j=1}^kp_j$.
+An integer with $k$ distinct prime divisors in $\mathcal P$
+is divisible by their product, which is at least $Q_k$.
+Conversely $Q_k$ has exactly $k$ such prime divisors.
+Consequently, including $k=0$ and both integer endpoints,
+\begin{equation}
+ H_{\mathcal P}(N)=\max\{k\ge0:Q_k\le N\},\qquad
+ \log Q_k=\left(\frac1\alpha+o(1)\right)k\log k .
+ \label{eq:thin-prime-primorial-inverse}
+\end{equation}
+The maximum is finite because $Q_k\ge2^k$, and tends to
+infinity with $N$.  If $h=H_{\mathcal P}(N)$, then
+$Q_h\le N<Q_{h+1}$, so
+$\log N\sim h\log h/\alpha$ and
+$\log\log N\sim\log h$.  This proves the deterministic limit.
+
+Write $\ell_N=\log N/\log\log N$ for $N\ge3$.
+For fixed $0<\epsilon<\alpha$, the tail limit in
+\eqref{eq:thin-prime-rare-coefficient-index} gives, for
+$k_N^\pm=\lceil(\alpha\pm\epsilon)\ell_N\rceil$,
+\[
+ Nq_{k_N^+}=N^{-\epsilon/\alpha+o(1)},\qquad
+ Nq_{k_N^-}=N^{\epsilon/\alpha+o(1)}.
+\]
+A union bound and independence, respectively, give
+\[
+ \mathbb P(W_{\mathcal P}(N)\ge k_N^+)
+       \le Nq_{k_N^+},\qquad
+ \mathbb P(W_{\mathcal P}(N)<k_N^-)
+       \le \exp(-Nq_{k_N^-}).
+\]
+Both bounds are summable along $N=2^j$.
+Borel--Cantelli, followed by an intersection over a countable
+sequence $\epsilon\downarrow0$, proves the almost-sure limit
+along these dyadic samples.
+The record $W_{\mathcal P}(N)$ is nondecreasing, $\ell_N$
+is eventually increasing, and
+$\ell_{2^{j+1}}/\ell_{2^j}\to1$.
+Bracketing each integer $N$ between successive powers of two
+therefore proves the full almost-sure limit.
+Combining with the deterministic limit proves the ratio.
+No independence of the arithmetic values
+$K_{\mathcal P}(1),K_{\mathcal P}(2),\ldots$ is assumed.
+\end{proof}
+
+\begin{theorem}[Uniform relative recovery at growing ranks]
+\label{thm:thin-prime-growing-rank-recovery}
+For integers $N\ge1$ and $k\ge0$ define the actual empirical
+mass and tail by
+\[
+ \begin{aligned}
+ b_{N,k}&=\frac1N\#\{m\in\{1,\ldots,N\}:K_{\mathcal P}(m)=k\},\\
+ q_{N,k}&=\frac1N\#\{m\in\{1,\ldots,N\}:K_{\mathcal P}(m)\ge k\}.
+ \end{aligned}
+\]
+Fix
+\begin{equation}
+ 0<c<\alpha(1-\alpha),\qquad
+ 0<\delta<1-\alpha-\frac c\alpha,\qquad
+ L_N=\left\lfloor c\frac{\log N}{\log\log N}\right\rfloor
+ \quad(N\ge3).
+ \label{eq:thin-prime-growing-rank-range}
+\end{equation}
+Then, for all sufficiently large integer $N$,
+\begin{equation}
+ \max_{\substack{k\in\mathbb N_0\\0\le k\le L_N}}
+ \left(\left|\frac{b_{N,k}}{b_k}-1\right|
+       +\left|\frac{q_{N,k}}{q_k}-1\right|\right)
+       \ll_{\mathcal P,c,\delta}N^{-\delta}.
+ \label{eq:thin-prime-growing-rank-relative}
+\end{equation}
+The constant and the starting point are independent of $k$.
+All denominators are positive; in this range the empirical
+masses are also positive eventually.
+For any integer sequence
+$k_N\sim c\log N/\log\log N$ with
+$0<c<\alpha(1-\alpha)$, one moreover has
+\begin{equation}
+ b_{N,k_N}=N^{-c/\alpha+o(1)},\qquad
+ q_{N,k_N}=N^{-c/\alpha+o(1)}.
+ \label{eq:thin-prime-growing-rank-power}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+For each $\alpha<\sigma<1$ define the finite constant
+\[
+ B_{\mathcal P,\sigma}
+       =\prod_{p\in\mathcal P}
+                    \frac{1+p^{-\sigma}}{1-p^{-\sigma}}.
+\]
+The normalization and full sampling proof of
+Theorem~\ref{thm:deleted-component-sampling-law} require only
+these summable Euler products, and therefore apply to this
+fixed class $\mathcal P$.
+For clarity, on its positive smooth state space
+$\mathcal H_{\mathcal P}$ the exact finite identity is
+\[
+ \mu_{\mathcal P,N}(a)=
+ \sum_{\substack{e\in\mathcal H_{\mathcal P}\\
+                   e\ {\rm squarefree}\\ae\le N}}
+      \mu_{\rm Mob}(e)\frac{\lfloor N/(ae)\rfloor}{N},
+ \qquad
+ \nu_{\mathcal P}(a)=\frac{c_{\mathcal P}}a .
+\]
+Here $\mu_{\mathcal P,N}$ is the law of the full
+$\mathcal P$-component of a uniform $m\in\{1,\ldots,N\}$.
+There is no coprimality restriction between $a$ and $e$.
+The infinite counterpart for $\nu_{\mathcal P}$ is absolutely
+convergent.  After subtraction, only the rounding and tail
+remainder is estimated, using
+\[
+ 0\le q^{-1}-N^{-1}\lfloor N/q\rfloor
+          \le N^{\sigma-1}q^{-\sigma}\qquad(q\ge1).
+\]
+This includes the domain $q>N$, where the floor is zero.
+Summing over all $a$ and all squarefree $e$ charges both the
+prime-power denominator and the squarefree numerator.
+Contraction to $K_{\mathcal P}$ consequently gives
+\begin{equation}
+ \sum_{k\ge0}|b_{N,k}-b_k|
+       \le B_{\mathcal P,\sigma}N^{\sigma-1},\qquad
+ |q_{N,k}-q_k|\le B_{\mathcal P,\sigma}N^{\sigma-1}.
+ \label{eq:thin-prime-profile-sampling-budget}
+\end{equation}
+This is uniform in the statistic level $k$.
+
+The positive coefficient lower bound in
+Theorem~\ref{thm:thin-prime-rare-profile} implies, for each
+$\epsilon>0$, a constant $A_\epsilon>0$ such that
+\[
+ b_k\ge A_\epsilon
+          \exp\!\left(-\left(\frac1\alpha+\epsilon\right)
+                        k\log(\max\{2,k\})\right)
+                                      \qquad(k\ge0).
+\]
+The finitely many initial ranks, including zero and one,
+are absorbed using $b_k>0$.
+For $0\le k\le L_N$, eventually
+$k\log(\max\{2,k\})\le c\log N$.
+Thus the independent positive supply and its negative
+sampling allowance remain explicit:
+\[
+ \begin{aligned}
+ b_k&\ge A_\epsilon N^{-c(1/\alpha+\epsilon)},\\
+ b_{N,k}&\ge
+ A_\epsilon N^{-c(1/\alpha+\epsilon)}
+          -B_{\mathcal P,\sigma}N^{\sigma-1}.
+ \end{aligned}
+\]
+Choose fixed $\sigma>\alpha$ and $\epsilon>0$ sufficiently
+close to $\alpha$ and zero, respectively, that
+\[
+ \sigma-1+c(1/\alpha+\epsilon)<-\delta .
+\]
+Such choices exist precisely because of the strict
+parameter inequalities in
+\eqref{eq:thin-prime-growing-rank-range}.
+Divide the two absolute sampling errors by
+$b_k\ge A_\epsilon N^{-c(1/\alpha+\epsilon)}$ and
+$q_k\ge b_k$.  This proves
+\eqref{eq:thin-prime-growing-rank-relative}, with a bound
+uniform in the entire displayed finite rank range.
+It also proves eventual positivity of the empirical masses.
+
+Finally, if $k_N\sim c\ell_N$, choose
+$c<c'<\alpha(1-\alpha)$.
+Then $k_N\le\lfloor c'\ell_N\rfloor$ eventually and the
+relative estimate with $c'$ applies.
+Since $k_N\log k_N/\log N\to c$, the exact coefficient and
+tail limits prove
+\eqref{eq:thin-prime-growing-rank-power}.
+\end{proof}
+
+\begin{theorem}[Exact adaptive minimax for the factor-count record]
+\label{thm:greedy-adaptive-support-minimax}
+Take the fixed greedy retained and deleted classes
+$\mathcal S,\mathcal D$ of the preceding subsections, and
+write $\Theta=\Theta_\zeta$.
+For each integer $N\ge2$, let
+$\mathcal P_N=\{p\le N:p\ {\rm prime}\}$ and let
+$\mathcal T\subseteq\mathcal P_N$ range over all choices
+satisfying the logarithmic cap at every prime through $N$.
+Put $\mathcal E_N=\mathcal P_N\setminus\mathcal T$.
+Then
+\begin{equation}
+ \begin{aligned}
+ \min_{\mathcal T\ {\rm admissible}}\quad
+       \max_{1\le m\le N}K_{\mathcal E_N}(m)
+      &=H_{\mathcal D}(N),\\
+ H_{\mathcal D}(N)
+      &\sim\Theta\,\frac{\log N}{\log\log N}.
+ \end{aligned}
+ \label{eq:greedy-adaptive-support-minimax}
+\end{equation}
+The first equality is exact at every $N$ and is attained by
+$\mathcal T=\mathcal S\cap\mathcal P_N$.
+A competitor may be chosen separately at every $N$, before
+taking its worst case over $m$.
+Among fixed global capped classes, $\mathcal S$ is the
+unique class whose record is no larger than every
+competitor's record at every integer cutoff.
+\end{theorem}
+
+\begin{proof}
+Theorem~\ref{thm:greedy-prime-all-scale-exponent} supplies
+\eqref{eq:thin-prime-index-hypothesis} for $\mathcal D$
+with $\alpha=\Theta$.
+Here $1/2\le\Theta\le7/8<1$ unconditionally.
+The record asymptotic follows from
+Theorem~\ref{thm:thin-prime-record-duality}.
+
+For exact finite optimality put $h=H_{\mathcal D}(N)$.
+If $h=0$, every competing maximum is nonnegative.
+If $h>0$, let $d_1,\ldots,d_h$ be the first $h$ deleted
+primes.  Their product is at most $N$, so all lie in
+$\mathcal P_N$.
+The exact rank comparison of
+Theorem~\ref{thm:capped-prime-rank-extremum} gives at least
+$h$ primes $e_1<\cdots<e_h$ in $\mathcal E_N$, with
+$e_j\le d_j$ for $1\le j\le h$.
+Their product is an integer at most $N$ with exactly
+$h$ prime divisors in $\mathcal E_N$.
+Thus the competing record is at least $h$.
+The greedy prefix is admissible and gives exactly the
+original statistic on every $m\le N$, proving equality.
+
+For a fixed different global cap, its complement has
+ranks $e_j\le d_j$ for every $j$, with at least one strict
+inequality.  At such a rank $h$,
+$\prod_{j\le h}e_j<\prod_{j\le h}d_j$.
+At the integer cutoff $N=\prod_{j\le h}e_j$, its record
+is at least $h$, whereas the greedy record is below $h$.
+This proves the asserted uniqueness across all cutoffs.
+No uniqueness of a finite optimizer at each separate $N$
+is asserted.
+\end{proof}
+
+\begin{corollary}[A fully discrete rare-count readout of the zero supremum]
+\label{cor:greedy-discrete-rare-RH}
+Fix a rational number $0<c<7/64$.
+For integer $N\ge4$ define the entirely discrete ranks
+\begin{equation}
+ u_N=\lfloor\log_2N\rfloor,\qquad
+ v_N=\lfloor\log_2u_N\rfloor,\qquad
+ \kappa_c(N)=\left\lfloor\frac{c u_N}{v_N}\right\rfloor .
+ \label{eq:greedy-binary-rank-selector}
+\end{equation}
+Here $u_N\ge2$ and $v_N\ge1$.
+Both logarithmic floors are integer bit-length operations.
+Define actual integer counts
+\[
+ \begin{aligned}
+ C_c^=(N)&=\#\{m\in\{1,\ldots,N\}:
+                     K_{\mathcal D}(m)=\kappa_c(N)\},\\
+ C_c^{\ge}(N)&=\#\{m\in\{1,\ldots,N\}:
+                     K_{\mathcal D}(m)\ge\kappa_c(N)\}.
+ \end{aligned}
+\]
+Then, unconditionally, for either $\star\in\{=,\ge\}$,
+\begin{equation}
+ C_c^\star(N)=N^{1-c/\Theta+o(1)},\qquad
+ \Theta=\frac{c}{
+       1-\displaystyle\lim_{N\to\infty}
+                        \frac{\log C_c^\star(N)}{\log N}} .
+ \label{eq:greedy-rare-integer-counts}
+\end{equation}
+The counts are positive for every sufficiently large $N$.
+For each fixed $1/2\le\eta<1$,
+\begin{equation}
+ \Theta\le\eta
+ \quad\Longleftrightarrow\quad
+ C_c^\star(N)\ll_\epsilon N^{1-c/\eta+\epsilon}
+                         \quad\hbox{for every }\epsilon>0.
+ \label{eq:greedy-rare-integer-strip}
+\end{equation}
+At $\eta=1/2$ this is equivalent to RH.
+The limiting entire-function order is $\Theta$, the
+rare-probability decay index is $1/\Theta$, and both the
+arithmetic record and its independent-law counterpart have
+record constant $\Theta$.
+
+In particular, for $\mathcal P=\mathcal D$, the uniform
+relative estimate holds for every
+$0<c<7/64$ and every $0<\delta<1/8-8c/7$.
+One explicit unconditional specialization is
+\begin{equation}
+ \max_{\substack{k\in\mathbb N_0\\
+       0\le k\le\lfloor(\log N)/(10\log\log N)\rfloor}}
+ \left(\left|\frac{b_{N,k}}{b_k}-1\right|
+       +\left|\frac{q_{N,k}}{q_k}-1\right|\right)
+                                  \ll N^{-1/100}.
+ \label{eq:greedy-rare-one-tenth-budget}
+\end{equation}
+The same $O(N^{-1/100})$ relative estimate holds at the
+single binary rank $\kappa_{1/10}(N)$.
+All these discrete counts are computable from integer $N$,
+without an efficiency assertion.
+\end{corollary}
+
+\begin{proof}
+For $1/2\le\Theta\le\eta<1$ and
+$0<c<\eta(1-\eta)$ one has
+\[
+ 1-\Theta-\frac c\Theta
+  -\left(1-\eta-\frac c\eta\right)
+       =(\eta-\Theta)\left(1-\frac c{\eta\Theta}\right)
+       \ge0.
+\]
+Indeed $c<\eta(1-\eta)\le\eta\Theta$.
+Taking the installed $\eta=7/8$ proves that
+$c<7/64$ is inside the actual growing-rank range, and
+every $\delta<1/8-8c/7$ is allowed.
+
+The bit-length definitions give
+$u_N=(\log N)/\log2+O(1)$ and
+$v_N=(\log\log N)/\log2+O(1)$.
+Hence
+$\kappa_c(N)\sim c\log N/\log\log N$.
+Apply \eqref{eq:thin-prime-growing-rank-power} to this
+sequence, for the same fixed class $\mathcal D$.
+Multiplying each probability by $N$ proves both count
+exponents in \eqref{eq:greedy-rare-integer-counts}.
+The denominator in its recovery formula is $c/\Theta>0$.
+
+The exact count exponent is at most $1-c/\eta$ if and
+only if $\Theta\le\eta$.
+A sequence with an existing logarithmic exponent has that
+upper exponent precisely when it satisfies every displayed
+$\epsilon$-upper bound; this proves
+\eqref{eq:greedy-rare-integer-strip}.
+Zero symmetry gives the RH specialization.
+The remaining growth and record indices follow from the
+two preceding general theorems.
+
+For $c=1/10$ the available margin is
+$1/8-8c/7=3/280>1/100$, proving
+\eqref{eq:greedy-rare-one-tenth-budget}.
+For the binary rank choose a fixed $c'>1/10$ sufficiently
+close to $1/10$ that
+$1/100<1/8-8c'/7$.
+Eventually
+$\kappa_{1/10}(N)\le
+ \lfloor c'\log N/\log\log N\rfloor$,
+so the same uniform theorem proves its pointwise relative
+estimate.
+Finally the already proved finite decidability of the
+greedy class determines its prime membership through $N$.
+Bit lengths, rational floors and integer factorization
+then compute the two displayed finite counts.
+\end{proof}
+
+For $c=1/10$, the installed boundary supplies count upper
+exponent $31/35$; a boundary $3/4$ would supply $13/15$,
+and RH supplies $4/5$, each with an arbitrary positive
+$\epsilon$ allowance.
+No independent arithmetic estimate reducing that count
+exponent is proved here.  The certified zero-free boundary
+remains $7/8$.
+The growing-rank interval is a proved sufficient range;
+no failure of relative approximation outside it is claimed.
+
+The Bernoulli-product and ordinary prime-factor-count
+background is classical; compare
+\cite[Proposition~3.1 and \S4]{KN}.
+That proposition treats a divergent sum of Bernoulli
+parameters.  The present class has a finite parameter sum,
+a fixed entire limiting law, and rare levels of order
+$\log N/\log\log N$ tied to its all-scale prime exponent.
+The independent-record argument is also elementary.
+The specific conclusions here are the spectral
+interpretation for the greedy class, its exact adaptive
+record minimum, and the uniform relative arithmetic
+recovery.  No literature-priority claim is made.
+
+These are full ordinary proofs.  No new Lean verification
+is claimed for the countable Euler law, the coefficient
+asymptotics, the growing-rank transfer or the independent
+record limit.
+The maintained finite greedy count--cost and rank
+comparisons are compiled inputs to the cap mechanism.
+Concrete remaining formalization tasks are countable
+Euler-law normalization, its elementary-symmetric
+coefficient limits, the uniform asymptotic division, and
+the dyadic Borel--Cantelli consumer.
+
 \subsection{Selecting certified good primes before estimating their size}
 \label{sec:certified-good-prime-class}
 
