@@ -16340,10 +16340,36 @@ In particular, if \(\sum_{p\in P}1/p<\infty\), Lean proves
 \]
 Here the formula is understood on positive supported integers and is
 zero elsewhere. Thus normalization of this infinite supported-state
-law is proved. Identification of \(Z_P^{-1}\) with the infinite
-survival Euler product, passage of the literal sampling error to that
-limit with the exact constant \(B_\sigma\), and geometric valuation
-independence remain separate Lean obligations.
+law is proved.
+
+\paragraph{The survival Euler limit (Lean verified).}
+The maintained owner \texttt{PrimePowerComponentClassLimit} also proves
+the full cutoff convergence. Write \(P_Y=P\cap[2,Y]\), retaining only
+primes. Under the summability hypothesis at \(\sigma>0\),
+\[
+ \lim_{Y\to\infty}\sum_{a\in\mathcal H_{P_Y}}a^{-\sigma}
+       =\sum_{a\in\mathcal H_P}a^{-\sigma}.
+\]
+For each fixed supported integer, its weight is unchanged once the
+cutoff contains its finite prime support. The finite-cutoff weights
+are bounded by the full supported weight, whose summability is already
+proved, so dominated convergence applies to the complete series.
+At exponent one, the finite normalization identity is
+\[
+ c_{P_Y}\sum_{a\in\mathcal H_{P_Y}}\frac1a=1.
+\]
+Consequently the compiled limits are
+\[
+ \lim_{Y\to\infty}\prod_{p\in P_Y}(1-1/p)
+       =Z_P^{-1}>0,\qquad
+ \lim_{Y\to\infty}\nu_{P_Y}(a)=\nu_P(a)
+                         \quad\text{for every fixed }a\ge0.
+\]
+This identifies the survival Euler product taken over the actual
+increasing prime prefixes, without assuming its positive limit.
+The infinite-class literal sampling-error bound with the exact
+complete constant \(B_\sigma\), and geometric valuation independence,
+remain separate Lean obligations.
 
 \begin{proof}
 The reciprocal prime sum converges by the preceding lemma with $s=1$.
