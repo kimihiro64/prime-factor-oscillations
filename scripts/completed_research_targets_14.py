@@ -1,6 +1,7 @@
 """Complete Gaussian formulas, exposure and every-cutoff zero response."""
 
 TARGETS = (
+    "PrimeFactorOscillations.PrimeClassDeletion.exists_thetaError_bound_of_uniform_zero_strip",
     "PrimeFactorOscillations.PrimeClassDeletion.gaussianCrossingSet_finite",
     "PrimeFactorOscillations.PrimeClassDeletion.gaussianLocalizationTail_div_power_tendsto",
     "PrimeFactorOscillations.PrimeClassDeletion.gaussianLocalizationTail_eventually_nonneg",
@@ -143,6 +144,7 @@ TARGETS = (
     "PrimeFactorOscillations.PrimeClassDeletion.nicolasTailKernel_dyadic_lower",
     "PrimeFactorOscillations.PrimeClassDeletion.nicolasTailKernel_eq_robinRealWeight_one",
     "PrimeFactorOscillations.PrimeClassDeletion.primeClassCount_error_abel",
+    "PrimeFactorOscillations.PrimeClassDeletion.primeClassCount_error_bound_of_eventual_theta_bound",
     "PrimeFactorOscillations.PrimeClassDeletion.primeClassCount_error_bound_of_theta_bound",
     "PrimeFactorOscillations.PrimeClassDeletion.primeClassLogCount_le_one",
     "PrimeFactorOscillations.PrimeClassDeletion.primeClassMertensTail_greedy_partition",
@@ -163,8 +165,11 @@ TARGETS = (
     "PrimeFactorOscillations.PrimeClassDeletion.primeClassPrefix_eventually_nat_power_of_real_power_bigO",
     "PrimeFactorOscillations.PrimeClassDeletion.primeClassPrefix_real_power_bigO_of_eventually_nat",
     "PrimeFactorOscillations.PrimeClassDeletion.primeClassThetaReal_eq_of_no_selected_prime",
+    "PrimeFactorOscillations.PrimeClassDeletion.primeClassThetaReal_global_error_of_tail_bound",
+    "PrimeFactorOscillations.PrimeClassDeletion.primeClassThetaReal_initial_error_bound",
     "PrimeFactorOscillations.PrimeClassDeletion.primeCounting_error_abel",
     "PrimeFactorOscillations.PrimeClassDeletion.primeCounting_error_bound_of_theta_bound",
+    "PrimeFactorOscillations.PrimeClassDeletion.primeCounting_error_bound_of_uniform_zero_strip",
     "PrimeFactorOscillations.PrimeClassDeletion.primeEulerLogWeight_le_two_div",
     "PrimeFactorOscillations.PrimeClassDeletion.primeLogarithmicIntegral_eq_boundary_add_double_log_integral",
     "PrimeFactorOscillations.PrimeClassDeletion.riemannHypothesis_iff_cofinal_greedyDeletedPrimeClass_count",

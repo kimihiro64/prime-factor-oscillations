@@ -12005,11 +12005,59 @@ The complete integral, including its initial range, contributes at most
 The endpoint constant remains \(2/\log2\).
 Since \(x^r\ge1\) and \(\log x\ge1\), the sum of these three
 bounds is at most the displayed coefficient times \(x^r\log x\).
-The hypothesis controls every real \(t\ge2\); transferring an eventual
-theta estimate requires a separate bound for its compact initial range.
-No zero hypothesis enters these Abel consumers. The zero-supremum
-bounds and the independent theta estimate required by the following
-lemma remain separate formalization obligations.
+The compact initial range is now controlled in the same maintained Lean
+owner. For every prime class and every \(2\le t\le Y\),
+\[
+ |\theta_{\mathcal P}(t)-t|\le B(Y),\qquad
+ B(Y)=(Y+1)\log Y+Y.
+\]
+Its finite prime prefix has at most \(\lfloor t\rfloor+1\)
+members, each logarithm is at most \(\log Y\), and its theta sum
+is nonnegative. If the theta-error estimate with constant \(C\)
+holds for every \(t\ge Y\), then it holds for every \(t\ge2\)
+after replacing \(C\) by
+\[
+ D=C+\frac{B(Y)}{(\log2)^2}.
+\]
+Here \(t^r\ge1\) and \((\log t)^2\ge(\log2)^2\) pay the entire
+initial range; the tail uses \(D\ge C\).
+The resulting prime-count bound from an eventual theta estimate
+is also proved as a maintained Lean declaration.
+
+There is now a full zero-strip consumer as well. Let
+\(1/2\le\eta<1\), \(0<\delta\le1\), and suppose every nontrivial
+zero has real part at most \(\eta\). The maintained source proves
+that some \(A>0\) satisfies
+\[
+ |\theta(x)-x|
+ \le A x^{\eta+\delta/2}(\log x)^2\qquad(x\ge2).
+\]
+Its analytic input is the existing proved bound
+\(|\psi(x)-x|\le Cx^{\eta+\delta/2}\) on
+\(x\ge4,\ \log(x/2)\ge1\), with the stated upper zero-strip
+hypothesis. The prime-power correction is retained:
+\[
+ |\psi(x)-\theta(x)|\le2\sqrt{x}\log x.
+\]
+Since \(\eta+\delta/2\ge1/2\), the two terms are bounded by
+\((C+2)x^{\eta+\delta/2}(\log x)^2\) on that range.
+Take \(Y=\max(4,2e)\) and apply the proved compact-prefix extension.
+In Lean the zero hypothesis is stated over the actual Xi divisor-zero
+index, whose equivalence with the nontrivial zeta zeros is already proved.
+
+Consequently for every \(b>\eta\), a maintained Lean declaration gives
+some \(A_b>0\) with
+\[
+ |\pi(x)-\operatorname{Li}_1(x)|\le A_bx^b\log x
+ \qquad(x\ge2,\ \log x\ge1).
+\]
+Choose \(\delta=\min(1,b-\eta)>0\), so
+\(\eta+\delta/2\le b\), and apply the quantitative Abel consumer.
+The all-range theta extension and this complete strip-to-count transfer
+are proved; the following lemma's unconditional assertions about the
+actual zero supremum remain separate formalization obligations.
+Neither this conditional transfer nor the Abel identities constitute
+an independent improvement of the certified \(7/8\) zero-free boundary.
 
 \begin{lemma}[Prime-count error to the right of the zero supremum]
 \label{lem:prime-error-zero-supremum}
