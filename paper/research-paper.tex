@@ -14445,6 +14445,55 @@ estimated in modulus; the full signed zero sum remains in
 \eqref{eq:greedy-prime-Gaussian-explicit}.
 \end{proof}
 
+\emph{Lean formalization status: partial.}
+The full assertions of Lemmas~\ref{lem:greedy-prime-Gaussian-explicit}
+and~\ref{lem:greedy-prime-Gaussian-exposure}, and
+Theorem~\ref{thm:greedy-prime-uniform-zero-response}, remain unfinished
+in Lean. The maintained proofs now establish the following actual
+analytic inputs, rather than only the scalar exponent comparisons.
+
+For $X>0$, $V>0$ and every real frequency $\tau$, put
+\[
+ T_{X,V,\tau}(s)=
+       \frac{X^s\exp\bigl(V(s-i\tau)^2/2\bigr)}s .
+\]
+\texttt{LogGaussianMellinKernel.lean} proves its exact vertical norm.
+For every $\sigma>0$, \texttt{LogGaussianIntegrability.lean} proves
+integrability on that vertical line, and
+\texttt{LogGaussianMajorant.lean} proves
+\[
+ \begin{aligned}
+ |T_{X,V,\tau}(\sigma+it)|
+       &\le\frac{C_{X,V,\tau,\sigma}}{|\sigma+it|^2},\\
+ C_{X,V,\tau,\sigma}
+       &=X^\sigma e^{V\sigma^2/2}
+      \left(|\sigma|+|\tau|+1+\frac1{V/2}\right).
+ \end{aligned}
+\]
+The reciprocal $s$ factor, variance and shifted frequency are retained
+throughout. The constant is explicit and the norm denominator is
+strictly positive on the stated domain.
+
+\texttt{XiZeroStrip.lean} proves $0<\Re\rho<1$ for actual xi zeros
+without RH. \texttt{LogGaussianXiInterchange.lean} consumes the
+existing upper-strip interchange theorem on those actual zeros,
+with the actual Gaussian kernel and its proved majorant.
+It retains every canonical divisor-zero index, so multiplicities
+are included. Absolute integrated summability and the complete
+sum--integral interchange are proved.
+
+\texttt{LogGaussianSignedIdentity.lean} proves integrability and the
+full signed decomposition on $\Re s=3/2$, with the constant,
+paired xi-zero series, reference pole and digamma term all retained.
+Its declaration is
+\texttt{logGaussian\_\allowbreak safeLine\_\allowbreak signed\_\allowbreak identity}.
+These supporting proofs are exported and registered by exact name.
+The physical Perron identification, left-contour remainder,
+complete prime-power correction, dominant-zero exposure and
+every-large-cutoff zero-response conclusion still require their
+matching Lean proofs. No entire Gaussian lemma or zero-response
+theorem is declared formalized on the strength of these inputs.
+
 \begin{lemma}[A Gaussian shift exposes a strictly dominant zero]
 \label{lem:greedy-prime-Gaussian-exposure}
 For every fixed $c>0$ define
