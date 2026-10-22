@@ -13812,24 +13812,40 @@ proof in \texttt{GreedyPrimeNegativeArea}, with $c_0=7/4096$.
 The quantitative $K$ and full-product correction bounds below are now
 proved in \texttt{GreedyPrimePowerTransfer}, and the actual zero-excursion
 contradiction is proved in \texttt{GreedyPrimeExcursionTransfer}.
-The alternative forward asymptotic remains a separate formalization
-obligation; the preceding size-criterion proof is complete.
+The forward mass/count estimates are also proved there directly from
+the existing uniform strip theorem. These transfers and the preceding
+size-criterion proof are complete.
 
-Suppose first that $\Theta_\zeta\le\eta$.
-For $\eta<\kappa<1$, the proof of
-Lemma~\ref{lem:prime-error-zero-supremum} gives
-$|\theta(t)-t|=O_\kappa(t^\kappa\log^2t)$.
-The regulator bound and splitting the rejected primes
-below and above $\sqrt X$ give
+Suppose first that the zero strip is bounded above by \(\eta\),
+so \(\Theta_\zeta\le\eta\). For every \(\kappa>\eta\), the maintained
+uniform strip count theorem, with parameter \(\kappa-\eta>0\), gives
+\(N_{\mathcal D}(n)\le n^\kappa\) at every sufficiently large integer.
+At a real cutoff \(x\), use \(n=\lfloor x\rfloor\).
+Because \(\kappa>0\), this gives \(N_{\mathcal D}(x)\le x^\kappa\)
+eventually. The exact logarithmic-mass inequality and \(\log x\ge1\)
+then give the formalized simultaneous estimates
+\[
+ M(x)\le N_{\mathcal D}(x)\log x
+       \le x^\kappa(\log x)^2,\qquad
+ N_{\mathcal D}(x)\le x^\kappa\log x
+\]
+for every sufficiently large real \(x\). In particular, for
+\(\eta<\kappa<1\),
 \[
  M(X)=O_\kappa(X^\kappa\log^2X),\qquad
  N_{\mathcal D}(X)=O_\kappa(X^\kappa\log X).
 \]
-Taking $\kappa$ strictly between $\eta$ and $\eta+\epsilon$
-proves the claimed bound; when $\eta+\epsilon\ge1$,
+Taking \(\kappa\) strictly between \(\eta\) and \(\eta+\epsilon\)
+proves the claimed bound; when \(\eta+\epsilon\ge1\),
 the elementary count bound suffices.
-Under RH insert instead
-$|\theta(t)-t|=O(\sqrt t\log^2t)$ to obtain the stronger count.
+The stronger RH \(O(\sqrt X\log X)\) conclusion has its separate
+maintained proof above.
+The earlier classical route uses
+\(\lvert\theta(t)-t\rvert=O_\kappa(t^\kappa\log^2t)\) and, under RH,
+\(\lvert\theta(t)-t\rvert=O(\sqrt t\log^2t)\).
+The general auxiliary prime-error assertion is retained with
+Lemma~\ref{lem:prime-error-zero-supremum} as a separate formalization
+obligation; it is not an unproved input to the compiled transfer above.
 
 Conversely suppose the stated count holds, and fix
 $0<\epsilon<1-\eta$. Then

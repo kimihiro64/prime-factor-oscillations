@@ -36,6 +36,7 @@ TARGETS = (
     "PrimeFactorOscillations.PrimeClassDeletion.greedyDeletedPrimeClass_reciprocal_summable",
     "PrimeFactorOscillations.PrimeClassDeletion.greedyDeletedPrimeClass_strip_count_mass_bound",
     "PrimeFactorOscillations.PrimeClassDeletion.greedyDeletedPrimeClass_uniform_zero_response",
+    "PrimeFactorOscillations.PrimeClassDeletion.greedyDeletedPrimeClass_strip_eventually_mass_and_count",
     "PrimeFactorOscillations.PrimeClassDeletion.greedyDeletedPrimeClass_zero_exclusion_via_integral",
     "PrimeFactorOscillations.PrimeClassDeletion.greedyDeletedPrimeClass_zero_strip_iff_cofinal_count",
     "PrimeFactorOscillations.PrimeClassDeletion.greedyDeletedPrimeClass_zero_strip_iff_log_count_liminf",

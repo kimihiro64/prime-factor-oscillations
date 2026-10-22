@@ -5,13 +5,15 @@ Authors: Prime Factor Oscillations contributors
 -/
 import PrimeFactorOscillations.Helpers.NicolasPowerExcursions
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.GreedyPrimePowerTransfer
+import PrimeFactorOscillations.Proof.PrimeClassDeletion.GreedyPrimeStripCriterion
 
 /-!
 # Actual positive-excursion exclusion through the signed deletion integral
 
 The independent eventual count estimate bounds the full correction.
 The native unconditional zero response supplies a larger positive amplitude.
-No RH-dependent reconstruction is used.
+No RH-dependent reconstruction is used. The existing uniform strip count
+also supplies the full forward mass and count estimates at real cutoffs.
 -/
 
 set_option autoImplicit false
@@ -62,5 +64,52 @@ theorem greedyDeletedPrimeClass_zero_exclusion_via_integral
     hK.trans (mul_le_mul_of_nonneg_left hPower hD)
   have hPositive : 0 < x ^ (-b) := Real.rpow_pos_of_pos hx0 _
   nlinarith only [hSignal, hUpper, hPositive]
+
+theorem greedyDeletedPrimeClass_strip_eventually_mass_and_count
+    (eta kappa : Real) (hEtaHalf : (1 / 2 : Real) <= eta) (hEtaOne : eta < 1)
+    (hGap : eta < kappa)
+    (hUpper : forall p : RiemannXiDivisorZeroIndex,
+      (riemannXiDivisorZeroValue p).re <= eta) :
+    Filter.Eventually (fun x : Real => And
+      (primeClassThetaReal greedyDeletedPrimeClass x <=
+        x ^ kappa * (Real.log x) ^ 2)
+      (((primeClassPrefix greedyDeletedPrimeClass (Nat.floor x)).card : Real) <=
+        x ^ kappa * Real.log x)) atTop := by
+  have hNat := greedyDeletedPrimeClass_eventually_power_count_of_zero_strip eta
+    hEtaHalf hEtaOne hUpper (kappa - eta) (sub_pos.mpr hGap)
+  rw [show eta + (kappa - eta) = kappa by ring] at hNat
+  choose N hN using eventually_atTop.mp hNat
+  have hk : 0 <= kappa := by linarith only [hEtaHalf, hGap]
+  filter_upwards [eventually_ge_atTop (max ((N : Real) + 4) (Real.exp 1))] with x hx
+  have hxN : (N : Real) + 4 <= x :=
+    (le_max_left ((N : Real) + 4) (Real.exp 1)).trans hx
+  have hx4 : 4 <= x := by
+    linarith only [hxN, (Nat.cast_nonneg N : (0 : Real) <= (N : Real))]
+  have hx0 : 0 < x := by linarith only [hx4]
+  have hFloor : N <= Nat.floor x := Nat.le_floor (by linarith only [hxN])
+  have hLog : 1 <= Real.log x := by
+    have h := Real.log_le_log (Real.exp_pos 1)
+      ((le_max_right ((N : Real) + 4) (Real.exp 1)).trans hx)
+    simpa only [Real.log_exp] using h
+  have hLog0 : 0 <= Real.log x := by linarith only [hLog]
+  have hCount : ((primeClassPrefix greedyDeletedPrimeClass (Nat.floor x)).card : Real) <=
+      x ^ kappa :=
+    (hN (Nat.floor x) hFloor).trans
+      (Real.rpow_le_rpow (Nat.cast_nonneg _) (Nat.floor_le hx0.le) hk)
+  have hPower0 : 0 <= x ^ kappa := Real.rpow_nonneg hx0.le kappa
+  have hCountLog : ((primeClassPrefix greedyDeletedPrimeClass (Nat.floor x)).card : Real) *
+      Real.log x <= x ^ kappa * Real.log x :=
+    mul_le_mul_of_nonneg_right hCount hLog0
+  have hMass := primeClassThetaReal_le_count_mul_log greedyDeletedPrimeClass x
+    (by linarith only [hx4])
+  have hLogSquare : Real.log x <= (Real.log x) ^ 2 := by nlinarith only [hLog]
+  have hMassBound := hMass.trans
+    (hCountLog.trans (mul_le_mul_of_nonneg_left hLogSquare hPower0))
+  have hCountBound : ((primeClassPrefix greedyDeletedPrimeClass (Nat.floor x)).card : Real) <=
+      x ^ kappa * Real.log x := by
+    have h := mul_le_mul_of_nonneg_left hLog hPower0
+    rw [mul_one] at h
+    exact hCount.trans h
+  exact And.intro hMassBound hCountBound
 
 end PrimeFactorOscillations.PrimeClassDeletion
