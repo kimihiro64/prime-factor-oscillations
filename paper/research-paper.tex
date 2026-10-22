@@ -13509,6 +13509,72 @@ Chebyshev error bound.
 \end{theorem}
 
 \begin{proof}
+We first give the proof now verified in the maintained Lean sources,
+retaining every initial-range and rounding allowance.
+The uniform degree estimate for a zero strip gives, for each
+$0<\delta\le1$, constants $A\ge0$ and $C_\delta>0$ such that
+\[
+ N_{\mathcal D}(n)\log2
+ \le A+C_\delta n^{\eta+\delta/2}+\log n\qquad(n\ge2).
+\]
+Given $\epsilon>0$, choose $\delta=\min(\epsilon,1)$.
+Since $\eta+\delta/2<\eta+\epsilon$, division by
+$n^{\eta+\epsilon}$ shows that all three terms on the right tend
+to zero. Thus $N_{\mathcal D}(n)\le n^{\eta+\epsilon}$
+eventually. For real $X$ use $n=\lfloor X\rfloor$ and
+$n^{\eta+\epsilon}\le X^{\eta+\epsilon}$.
+
+Conversely a real-cutoff $O(X^{\eta+\epsilon/2})$ bound yields,
+by evaluating at integers and absorbing its fixed constant,
+$N_{\mathcal D}(n)\le n^{\eta+\epsilon}$ eventually.
+The unconditional every-cutoff zero-response theorem excludes
+a zero of real part $\beta>\eta$: with
+$e=(\beta-\eta)/4>0$, it supplies
+$d\,n^{\beta-e}\le N_{\mathcal D}(n)$ for some $d>0$
+and every sufficiently large $n$, whereas the size condition
+gives $N_{\mathcal D}(n)\le n^{\eta+e}$.
+Their exponent gap is $\beta-\eta-2e=(\beta-\eta)/2>0$.
+The critical-line specialization gives the stated RH equivalence.
+
+For the stronger RH conclusion, the maintained RH theta estimate
+and the native regulator bound give $A\ge0$, $C>0$ with
+\[
+ \theta_{\mathcal D}(n)
+ \le A+C\sqrt n(\log n)^2+\log n \qquad(n\ge2).
+\]
+For any prime class $\mathcal P$ and real $q\ge1$ the exact finite
+splitting inequality is
+\[
+ N_{\mathcal P}(n)\log q
+ \le \theta_{\mathcal P}(n)+\lceil q\rceil\log q.
+\]
+Indeed each prime at least $\lceil q\rceil$ contributes at least
+$\log q$; the entire remaining subset has at most
+$\lceil q\rceil$ elements, and every prime logarithm is
+nonnegative. Set $q=\sqrt n$.
+Using $\lceil\sqrt n\rceil\le\sqrt n+1$ and
+$\log\sqrt n=\tfrac12\log n$, the full signed inequality gives
+\[
+ N_{\mathcal D}(n)
+ \le (2A+2C+4)\sqrt n\log n
+       \qquad(n\ge4,\ \log n\ge1).
+\]
+The constant is positive. Replacing $n$ by $\lfloor X\rfloor$
+and using monotonicity of the square root and logarithm proves
+the literal real-cutoff $O(\sqrt X\log X)$ statement.
+
+These quantitative conclusions are compiled in
+\texttt{GreedyPrimeRHCount} and \texttt{GreedyPrimeRealCount},
+with the finite splitting inequality in
+\texttt{PrimeClassCountSplit}.
+The favorable-product assertion is a separate statement; this
+size proof does not certify its Lean formalization.
+
+\paragraph{Alternative transfer calculation; Lean formalization pending.}
+The following argument retains the earlier correction formulas as
+additional claims to be formalized, independently of the preceding
+compiled proof of the size criterion.
+
 Suppose first that $\Theta_\zeta\le\eta$.
 For $\eta<\kappa<1$, the proof of
 Lemma~\ref{lem:prime-error-zero-supremum} gives

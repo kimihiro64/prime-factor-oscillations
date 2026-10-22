@@ -34,10 +34,10 @@ theorem primeClassPrefix_count_mul_log_two_le_theta (P : Set Nat) (X : Nat) :
       have hPrime : Nat.Prime p := (Finset.mem_filter.mp hp).2.1
       exact Real.log_le_log (by norm_num) (Nat.cast_le.mpr hPrime.two_le)
 
-theorem greedyDeletedPrimeClass_RH_count_mass_bound (hRH : RiemannHypothesis) :
+theorem greedyDeletedPrimeClass_RH_theta_mass_bound (hRH : RiemannHypothesis) :
     Exists fun A : Real => And (0 <= A) (Exists fun C : Real => And (0 < C)
       (forall X : Nat, 2 <= X ->
-        ((primeClassPrefix greedyDeletedPrimeClass X).card : Real) * Real.log 2 <=
+        primeClassTheta greedyDeletedPrimeClass X <=
           A + C * Real.sqrt (X : Real) * (Real.log (X : Real)) ^ 2 +
             Real.log (X : Real))) := by
   choose C hC hTheta using
@@ -90,8 +90,19 @@ theorem greedyDeletedPrimeClass_RH_count_mass_bound (hRH : RiemannHypothesis) :
   refine Exists.intro A (And.intro hA (Exists.intro C (And.intro hC ?_)))
   intro X hX
   have hMass := (greedyDeletedPrimeClass_record_bounds X hX).2
-  have hCount := primeClassPrefix_count_mul_log_two_le_theta greedyDeletedPrimeClass X
   have hReg := hRecord X
-  linarith only [hCount, hMass, hReg]
+  linarith only [hMass, hReg]
+
+theorem greedyDeletedPrimeClass_RH_count_mass_bound (hRH : RiemannHypothesis) :
+    Exists fun A : Real => And (0 <= A) (Exists fun C : Real => And (0 < C)
+      (forall X : Nat, 2 <= X ->
+        ((primeClassPrefix greedyDeletedPrimeClass X).card : Real) * Real.log 2 <=
+          A + C * Real.sqrt (X : Real) * (Real.log (X : Real)) ^ 2 +
+            Real.log (X : Real))) := by
+  choose A hA C hC hTheta using greedyDeletedPrimeClass_RH_theta_mass_bound hRH
+  refine Exists.intro A (And.intro hA (Exists.intro C (And.intro hC ?_)))
+  intro X hX
+  exact (primeClassPrefix_count_mul_log_two_le_theta greedyDeletedPrimeClass X).trans
+    (hTheta X hX)
 
 end PrimeFactorOscillations.PrimeClassDeletion
