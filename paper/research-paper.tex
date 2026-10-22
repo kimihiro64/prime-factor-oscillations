@@ -13420,8 +13420,10 @@ The error is defined once $\theta_{\mathcal S}(x)>1$.
 The subtraction of $C_{\mathcal D}$ is essential.
 The following mass and convergence statements now have maintained Lean
 proofs. The full Abel tail identity and its absolute integrability are
-also formalized below. The calibrated product identity and strict
-product-sign conclusion remain separate formalization obligations.
+also formalized below. The exact full-prime product difference and the
+nonnegativity of both corrections are now formalized as well. The signed
+calibrated integral identity and strict product-sign conclusion remain
+separate formalization obligations.
 
 \begin{lemma}[Unconditional convergence of the missing Euler cost]
 \label{lem:greedy-prime-missing-cost-convergence}
@@ -13544,7 +13546,36 @@ estimated in a zero-signal transfer.
 \end{theorem}
 
 \begin{proof}
-Write $D_{\mathcal S}$ and $A_{\mathcal S}$ for the earlier
+We first prove \eqref{eq:greedy-prime-product-signal} directly;
+this complete comparison and both correction signs now have Lean proofs.
+For $x\ge3$ the original finite Mertens product is positive and
+$\theta(x)>1$, hence
+\[
+ F(x)=\gamma+\log\log\theta(x)
+       -\sum_{p\le x}-\log(1-1/p).
+\]
+The exact finite complement identity and the convergent missing-cost
+split give, respectively,
+\[
+ \begin{aligned}
+ \sum_{p\le x}-\log(1-1/p)
+  &=\sum_{\substack{p\le x\\p\in\mathcal S}}-\log(1-1/p)
+    +\sum_{\substack{p\le x\\p\in\mathcal D}}-\log(1-1/p),\\
+ C_{\mathcal D}
+  &=\sum_{\substack{p\le x\\p\in\mathcal D}}-\log(1-1/p)
+    +\sum_{\substack{p>x\\p\in\mathcal D}}-\log(1-1/p).
+ \end{aligned}
+\]
+Substitution cancels the entire missing finite prefix and proves
+\eqref{eq:greedy-prime-product-signal}.
+When $\theta_{\mathcal S}(x)>1$, the inequalities
+$\theta_{\mathcal S}(x)\le\theta(x)$ and monotonicity of $\log\log$
+make its height correction nonnegative.
+Every retained missing Euler weight is nonnegative, so the full
+infinite tail is nonnegative too. In particular $F_{\mathcal S}(x)\le F(x)$;
+neither correction has been discarded.
+
+For the strict sign, write $D_{\mathcal S}$ and $A_{\mathcal S}$ for the earlier
 nonlinear correction and prime tail with $\theta_{\mathcal S}$
 and the selected primes in place of $\theta$ and all primes.
 The calibrated exact identity is

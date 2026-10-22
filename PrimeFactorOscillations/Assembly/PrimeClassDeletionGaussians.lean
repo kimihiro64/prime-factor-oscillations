@@ -6,6 +6,7 @@ Authors: Prime Factor Oscillations contributors
 import PrimeFactorOscillations.Assembly.PrimeClassDeletionWaves
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.GreedyPrimeCountLimit
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.GreedyPrimeEulerSummability
+import PrimeFactorOscillations.Proof.PrimeClassDeletion.GreedyPrimeNicolasProduct
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.GreedyPrimeRealCount
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.PrimeClassNicolasTail
 
