@@ -16241,9 +16241,37 @@ floor-error estimate to the complete divisor \(a\prod_{p\in T}p\),
 then sum over every subset \(T\); its exact weighted sum is
 \(\prod_{p\in S}(1+p^{-\sigma})\).
 There is no coprimality restriction between \(a\) and the subset product.
-The geometric sum over all supported prime powers, normalization and
-independence of the infinite law, and the full uniform
-total-variation conclusion remain separate Lean obligations.
+The maintained owner \texttt{PrimePowerComponentBudget} also proves the
+complete finite prime-support budget. For every finite
+\(T\subseteq\mathcal H_S\) and every \(\sigma>0\),
+\[
+ \sum_{a\in T}a^{-\sigma}
+       \le\prod_{p\in S}(1-p^{-\sigma})^{-1}.
+\]
+Here \(a\in\mathcal H_S\) means \(a\ge1\) and every prime factor of
+\(a\) belongs to \(S\). To prove this uniformly over \(T\), choose an
+integer \(M\) larger than every valuation \(v_p(a)\), for
+\(a\in T,p\in S\). Unique factorization injects \(T\) into the full
+exponent box \(\{0,\ldots,M-1\}^{S}\). Nonnegativity gives
+\[
+ \sum_{a\in T}a^{-\sigma}
+ \le\prod_{p\in S}\sum_{k=0}^{M-1}p^{-k\sigma}
+ \le\prod_{p\in S}(1-p^{-\sigma})^{-1}.
+\]
+All higher valuations are included by the box, and \(M\) disappears from
+the bound. Combining this proved geometric budget with the atom estimate
+gives, for \(N\ge1\), \(0<\sigma\le1\), and every such finite \(T\),
+\[
+ \sum_{a\in T}
+       \left|\frac{M_{S,N}(a)}N-\frac{c_S}a\right|
+ \le N^{\sigma-1}
+           \prod_{p\in S}\frac{1+p^{-\sigma}}{1-p^{-\sigma}}.
+\]
+Thus the exact numerator and geometric denominator are both retained,
+uniformly over the component subset \(T\).
+The passage to the infinite prime class, normalization and independence
+of its law, and the full uniform total-variation conclusion remain
+separate Lean obligations.
 
 \begin{proof}
 The reciprocal prime sum converges by the preceding lemma with $s=1$.
