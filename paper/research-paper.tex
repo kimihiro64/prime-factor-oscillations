@@ -14923,7 +14923,7 @@ gives that same upper limit.
 This proves the last assertion.
 \end{proof}
 
-\paragraph{Maintained Lean proofs of the cofinal and logarithmic RH criteria.}
+\paragraph{Maintained Lean proof of the general criterion and count limit.}
 For $\eta=1/2$, the cofinal integer-count formulation has a complete
 direct proof in \texttt{GreedyPrimeRHCriterion.lean}.
 The maintained theorem
@@ -14981,12 +14981,132 @@ $\liminf_{n\to\infty}g_{\mathcal D}(n)\le1/2$.
 Both new declarations and the preceding six are registered in the
 recurring foundational audit.
 
-This verifies both RH formulations, including their exact cofinal
+This verifies both RH formulations and the exact logarithmic/cofinal
 transfer for every $\eta\ge0$.
-The upper zero-strip implication for general $1/2\le\eta<1$ and the
-final zero-supremum limit in
-Theorem~\ref{thm:greedy-prime-liminf-RH} remain separate formalization
-obligations; the larger labelled claim is not closed by this specialization.
+The maintained consumers below also prove the general upper-strip
+implication and the actual zero-supremum limit in
+Theorem~\ref{thm:greedy-prime-liminf-RH}.
+
+\paragraph{Maintained fractional-degree coefficient bound.}
+A separate complete proof in \texttt{NicolasStripPowerMoment.lean}
+removes RH from the degree estimate needed for the general upper-strip
+direction.  Let $(\rho_j)_j$ be the complete canonical xi-zero family,
+with multiplicity, and assume $\Re\rho_j\le1$.
+For every fixed $0<\delta\le1$, the maintained theorem
+\texttt{exists\_\allowbreak nicolasZeroCoefficient\_\allowbreak power\_\allowbreak bound}
+proves one constant uniform in all integers $n\ge2$:
+\[
+ \sum_j\left|\frac{n}{\rho_j(n-\rho_j)}\right|
+       \le C_\delta n^\delta,\qquad
+ C_\delta=2\left(1+\sum_j|\rho_j|^{-1-\delta}\right)>0 .
+\]
+The existing unconditional inverse-power summability theorem makes
+$C_\delta$ finite.
+Indeed, with $r=|\rho_j|$ the exact upper-strip geometry gives
+$|n/(\rho_j(n-\rho_j))|\le2/r$ and
+$|n/(\rho_j(n-\rho_j))|\le n/r^2$.
+For $t=n/r\ge1$ use $1\le t^\delta$; for $0<t<1$ use
+$t\le t^\delta$.
+In both cases the retained coefficient is at most
+$2n^\delta r^{-1-\delta}$.
+Summation proves the displayed bound with no RH hypothesis.
+The two complete consumers are
+\texttt{NicolasStripDegreeError.lean} and
+\texttt{NicolasStripDegreeLocalization.lean}.
+To specify their normalization, write
+\[
+ E_k(x)=\int_x^\infty(\psi(t)-t)\,
+       t^{-k-1}\frac{k\log t+1}{(\log t)^2}\,dt,
+ \qquad S_2=\sum_j|\rho_j|^{-2}<\infty .
+\]
+For $0\le\eta<1$ and $\Re\rho_j\le\eta$, the complete weighted formula,
+including its entire trivial-zero correction, gives
+\[
+ |E_k(x)|\le
+ D_{\eta,\delta}\,k^\delta\frac{x^{\eta-k}}{\log x},
+ \qquad k\ge2,\quad x\ge2,\quad\log x\ge1 .
+\]
+One may take
+$D_{\eta,\delta}=C_\delta+3S_2+\log(2\pi)+1$.
+The factor $3S_2$ bounds the full retained remainder:
+the two inverse-logarithm powers are at most $(\log x)^{-1}$,
+and $k-\Re\rho_j\ge1$ bounds its remaining denominator.
+The scalar correction is at most
+$\log(2\pi)x^{-k}/\log x$, and $k^\delta\ge1$ pays its
+entire allowance.
+
+For $1/2\le\eta<1$, apply the exact signed two-endpoint integral
+sandwich to both adjacent bands $[a,x]$ and $[x,b]$, where
+\[
+ a=x(k-1)/k,\qquad b=xk/(k-1).
+\]
+In each band the two masses $y^{-k}/\log y$ are retained, and the
+outer mass is at most half the inner mass.
+The resulting pointwise inequality is
+\[
+ |\psi(x)-x|
+ \le \frac{x}{k-1}+6D_{\eta,\delta}k^\delta x^\eta,
+ \qquad x\ge4,\quad\log(x/2)\ge1 .
+\]
+Choose $k=\lceil\sqrt x\rceil+1$.
+Then $x/(k-1)\le\sqrt x$,
+$k^\delta\le2x^{\delta/2}$, and
+$\sqrt x\le x^{\eta+\delta/2}$, so the maintained theorem proves
+\[
+ |\psi(x)-x|\le
+ (1+12D_{\eta,\delta})x^{\eta+\delta/2}.
+\]
+
+The actual prime-class consumer
+\texttt{GreedyPrimeStripCriterion.lean} uses $\theta\le\psi$
+and the native greedy record formula.
+It retains the complete initial range in the fixed nonnegative constant
+$A=\theta(\max\{4,2e\})$, and the complete overshoot $\log n$:
+\[
+ N_{\mathcal D}(n)\log2
+ \le A+C_{\eta,\delta}n^{\eta+\delta/2}+\log n
+ \qquad(n\ge2).
+\]
+For each fixed $\epsilon>0$ choose $\delta=\min\{\epsilon,1\}$.
+Division by $n^{\eta+\epsilon}$ makes all three allowances tend to
+zero.  Consequently $N_{\mathcal D}(n)\le n^{\eta+\epsilon}$
+at every sufficiently large integer cutoff.
+The maintained theorems
+\texttt{greedyDeletedPrimeClass\_\allowbreak zero\_\allowbreak strip\_\allowbreak
+iff\_\allowbreak cofinal\_\allowbreak count} and
+\texttt{greedyDeletedPrimeClass\_\allowbreak zero\_\allowbreak strip\_\allowbreak
+iff\_\allowbreak log\_\allowbreak count\_\allowbreak liminf}
+therefore prove the two stated general-$\eta$ equivalences directly
+over the actual nontrivial zeta zero set.
+
+Finally \texttt{GreedyPrimeCountLimit.lean} proves the actual limit
+when RH is false.
+It takes $\Theta_\zeta$ to be the supremum of the real parts of the
+literal distinct nontrivial zeta zero set.
+A bad zero gives $\Theta_\zeta>1/2$, while the unconditional strip
+gives $\Theta_\zeta\le1$.
+For every $r<\Theta_\zeta$, choose a zero
+$\beta>\max\{r,1/2\}$ and put $\epsilon=(\beta-r)/2$.
+The uniform native response, with its positive constant $d$, yields
+\[
+ g_{\mathcal D}(n)\ge
+ \beta-\epsilon+\frac{\log d}{\log n}>r
+\]
+for every sufficiently large integer $n$.
+The term $\log d/\log n$ is retained, with its actual sign, until
+its limit zero is used.
+If $\Theta_\zeta<1$, the just-proved strip consumer gives every
+upper-limit inequality above $\Theta_\zeta$.
+If $\Theta_\zeta=1$, the exact finite-prefix inequality
+$N_{\mathcal P}(n)+1\le n$ for $n\ge2$ gives
+$g_{\mathcal P}(n)\le1$ directly, for every prime class.
+Thus $g_{\mathcal D}(n)\to\Theta_\zeta$ in both cases.
+The exact maintained declaration is
+\texttt{greedyDeletedPrimeClass\_\allowbreak log\_\allowbreak count\_\allowbreak
+tendsto\_\allowbreak zero\_\allowbreak supremum\_\allowbreak of\_\allowbreak not\_\allowbreak RH}.
+All fifteen new supporting declarations are registered in the recurring
+foundational audit; none assumes RH in the general strip or bad-zero
+implication.
 
 The independent size burden has changed quantifiers: an unbounded sequence
 of favorable integer cutoffs is sufficient; an estimate at every cutoff

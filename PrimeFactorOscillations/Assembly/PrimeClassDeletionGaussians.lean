@@ -4,6 +4,6 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Prime Factor Oscillations contributors
 -/
 import PrimeFactorOscillations.Assembly.PrimeClassDeletionWaves
-import PrimeFactorOscillations.Proof.PrimeClassDeletion.GreedyPrimeCountLiminf
+import PrimeFactorOscillations.Proof.PrimeClassDeletion.GreedyPrimeCountLimit
 
-/-! # Gaussian zero response and the logarithmic deleted-prime RH criterion -/
+/-! # Full greedy-prime upper-strip criterion and actual count-exponent limit -/
