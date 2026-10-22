@@ -16367,9 +16367,80 @@ Consequently the compiled limits are
 \]
 This identifies the survival Euler product taken over the actual
 increasing prime prefixes, without assuming its positive limit.
-The infinite-class literal sampling-error bound with the exact
-complete constant \(B_\sigma\), and geometric valuation independence,
-remain separate Lean obligations.
+\paragraph{The full sampling law and all statistics (Lean verified).}
+The maintained owners \texttt{PrimePowerComponentErrorEuler},
+\texttt{PrimePowerComponentClassArithmetic},
+\texttt{PrimePowerComponentClassLaw},
+\texttt{PrimePowerComponentStatistics} and
+\texttt{GreedyPrimeComponentLaw} now prove the full infinite-class
+sampling bound and its contraction under every statistic.
+First, for \(\sigma>0\) with a summable prime power weight, the
+complete logarithmic error series is summable:
+\[
+ 0\le\log\frac{1+p^{-\sigma}}{1-p^{-\sigma}}
+       \le\frac{2p^{-\sigma}}{1-2^{-\sigma}}.
+\]
+The actual finite prime-prefix products therefore converge to the
+positive, finite, exact constant
+\[
+ B_{P,\sigma}
+ =\exp\left(\sum_{p\in P}
+                  \log\frac{1+p^{-\sigma}}{1-p^{-\sigma}}\right)
+ =\lim_{Y\to\infty}\prod_{p\in P_Y}
+                  \frac{1+p^{-\sigma}}{1-p^{-\sigma}}
+ \le E_{P,\sigma}.
+\]
+No geometric denominator is omitted.
+
+The literal whole-class component is defined by restricting the
+integer factorization to \(P\), with its actual empirical count over
+\(1\le m\le N\). For every \(Y\ge N\) these counts agree exactly
+with the finite \(P_Y\)-component counts. At fixed \(N\), every finite
+atom subsum of the error consequently converges to its whole-class
+counterpart. The finite-prime bound has right side
+\(N^{\sigma-1}B_{P_Y,\sigma}\), whose limit is
+\(N^{\sigma-1}B_{P,\sigma}\). Passing every finite subsum to this
+limit proves summability of the entire error series and
+\[
+ \sum_{a\ge0}|\mu_{P,N}(a)-\nu_P(a)|
+       \le N^{\sigma-1}B_{P,\sigma},
+ \qquad
+ d_{\rm TV}(\mu_{P,N},\nu_P)
+       \le\min\{1,\tfrac12N^{\sigma-1}B_{P,\sigma}\}.
+\]
+This holds for every \(N\ge1\), \(0<\sigma\le1\), and
+\(\sum_{p\in P}p^{-\sigma}<\infty\).
+Both laws have proved nonnegative masses summing to one.
+
+For the actual greedy deleted class \(\mathcal D\), the required
+summability is also now proved throughout
+\(\Theta_\zeta<\sigma<1\), without RH or an exact count-index limit.
+Choose \(\Theta_\zeta<\eta<a<\sigma\).
+The existing zero-strip/count theorem gives
+\(N_{\mathcal D}(n)\le n^a\) eventually.
+On every sufficiently late dyadic shell the power-weight budget is
+bounded by
+\(2^a(2^{a-\sigma})^j\), a convergent geometric series.
+This supplies the hypothesis of the general law and compiles the
+literal specialization \eqref{eq:deleted-component-uniform-TV},
+including its critical-case applicability.
+
+Finally, for any map \(f:\mathbb N\to B\) into an arbitrary target
+type, define its pushed masses by summing over the exact fibers:
+\[
+ \mu^f_{P,N}(b)=\sum_{\substack{a\ge0\\f(a)=b}}\mu_{P,N}(a),
+ \qquad
+ \nu^f_P(b)=\sum_{\substack{a\ge0\\f(a)=b}}\nu_P(a).
+\]
+Fiberwise summation preserves nonnegativity and total mass and proves
+\[
+ \sum_{b\in B}|\mu^f_{P,N}(b)-\nu^f_P(b)|
+       \le\sum_{a\ge0}|\mu_{P,N}(a)-\nu_P(a)|.
+\]
+Thus the identical total-variation bound holds after every statistic,
+with no dependence of the constant on \(f\) or its target.
+Geometric valuation independence and its explicit almost-sure
+product-space interpretation remain separate Lean obligations.
 
 \begin{proof}
 The reciprocal prime sum converges by the preceding lemma with $s=1$.
