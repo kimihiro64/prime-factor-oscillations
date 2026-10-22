@@ -14,5 +14,6 @@ import PrimeFactorOscillations.Proof.PrimeClassDeletion.GreedyPrimeNicolasProduc
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.GreedyPrimePowerTransfer
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.GreedyPrimeRealCount
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.PrimeClassNicolasTail
+import PrimeFactorOscillations.Proof.PrimeClassDeletion.PrimeCountingErrorAbel
 
 /-! # Full greedy-prime strip, real-cutoff size and count-exponent criteria -/

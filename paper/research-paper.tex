@@ -10523,7 +10523,9 @@ The quantifiers fix $k$ before taking $j\to\infty$.
 
 \begin{proof}
 First compare the reference counting model with the usual
-logarithmic integral $\operatorname{Li}_2(X)=\int_2^Xdt/\log t$.
+logarithmic integral $\operatorname{Li}_1(X)=\int_2^Xdt/\log t$.
+Here the subscript records the denominator power: $\operatorname{Li}_2$
+continues to denote $\int_2^Xdt/(\log t)^2$ in the gap-count estimates.
 For $r\ge1$, the integral test gives
 \[
  0\le1-\zeta(r+1)^{-1}
@@ -10540,7 +10542,7 @@ $t=\log x$. For $x\ge2$ it gives
 \end{equation}
 Integration shows
 \[
- 0\le\operatorname{Li}_2(X)-\nu([2,X])
+ 0\le\operatorname{Li}_1(X)-\nu([2,X])
        \le\frac5{\log2}(\sqrt X-\sqrt2).
 \]
 Thus the model-count error is $O(\sqrt X)$, unconditionally.
@@ -11950,6 +11952,40 @@ the critical line. It keeps the same rational vertex algorithm,
 but defines new prime sets; the preceding $\mathcal D_k$
 retain their original definitions.
 
+\paragraph{Exact signed prime-count bridge (Lean verified).}
+Write
+\[
+ \operatorname{Li}_1(x)=\int_2^x\frac{dt}{\log t},\qquad
+ \operatorname{Li}_2(x)=\int_2^x\frac{dt}{(\log t)^2}.
+\]
+These are distinct references. For every prime class \(\mathcal P\)
+and every real \(x\ge2\), the maintained source
+\texttt{PrimeCountingErrorAbel} proves the full signed identity
+\[
+ \begin{aligned}
+ N_{\mathcal P}(x)-\operatorname{Li}_1(x)
+ &=\frac2{\log2}+\frac{\theta_{\mathcal P}(x)-x}{\log x}\\
+ &\quad+\int_2^x
+       \frac{\theta_{\mathcal P}(t)-t}{t(\log t)^2}\,dt.
+ \end{aligned}
+\]
+Indeed the fundamental theorem of calculus applied to \(t/\log t\)
+gives
+\[
+ \operatorname{Li}_1(x)
+ =\frac{x}{\log x}-\frac2{\log2}+\operatorname{Li}_2(x).
+\]
+Subtract this from the already proved exact prime-class Abel formula
+\(N_{\mathcal P}(x)=\theta_{\mathcal P}(x)/\log x+
+\int_2^x\theta_{\mathcal P}(t)/(t(\log t)^2)\,dt\).
+All integrands are integrable on the actual finite interval, and
+\(t/(t(\log t)^2)=1/(\log t)^2\) throughout it.
+This proves the identity with the first prime and both endpoints
+retained. The all-prime specialization gives \(N_{\mathcal P}=\pi\)
+and \(\theta_{\mathcal P}=\theta\).
+No zero hypothesis enters this bridge; the exponent estimate in the
+following lemma remains a separate formalization obligation.
+
 \begin{lemma}[Prime-count error to the right of the zero supremum]
 \label{lem:prime-error-zero-supremum}
 Put
@@ -11959,7 +11995,7 @@ Put
 Then $1/2\le\Theta_\zeta\le1$. For every fixed
 $\Theta_\zeta<b<1$,
 \begin{equation}
- \pi(X)-\operatorname{Li}_2(X)=O_b(X^b\log^2 X)\quad(X\ge2).
+ \pi(X)-\operatorname{Li}_1(X)=O_b(X^b\log^2 X)\quad(X\ge2).
  \label{eq:prime-error-zero-supremum}
 \end{equation}
 The constant may depend on $b-\Theta_\zeta$ and is not
