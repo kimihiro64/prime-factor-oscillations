@@ -11983,8 +11983,33 @@ All integrands are integrable on the actual finite interval, and
 This proves the identity with the first prime and both endpoints
 retained. The all-prime specialization gives \(N_{\mathcal P}=\pi\)
 and \(\theta_{\mathcal P}=\theta\).
-No zero hypothesis enters this bridge; the exponent estimate in the
-following lemma remains a separate formalization obligation.
+There is also a complete quantitative consumer, proved in the same
+maintained Lean owner. Let \(r>0\), \(C\ge0\), and assume the actual
+full-range estimate
+\[
+ |\theta_{\mathcal P}(t)-t|\le Ct^r(\log t)^2\qquad(t\ge2).
+\]
+Then for \(x\ge2\) and \(\log x\ge1\),
+\[
+ |N_{\mathcal P}(x)-\operatorname{Li}_1(x)|
+ \le\left(\frac2{\log2}+C+\frac Cr\right)x^r\log x.
+\]
+The full-prime specialization is proved as a separate Lean declaration.
+To verify the constant, estimate the residual after the exact signed
+cancellation above. Its endpoint contributes at most \(Cx^r\log x\).
+The complete integral, including its initial range, contributes at most
+\[
+ C\int_2^x t^{r-1}\,dt
+ =\frac Cr(x^r-2^r)\le\frac Cr x^r.
+\]
+The endpoint constant remains \(2/\log2\).
+Since \(x^r\ge1\) and \(\log x\ge1\), the sum of these three
+bounds is at most the displayed coefficient times \(x^r\log x\).
+The hypothesis controls every real \(t\ge2\); transferring an eventual
+theta estimate requires a separate bound for its compact initial range.
+No zero hypothesis enters these Abel consumers. The zero-supremum
+bounds and the independent theta estimate required by the following
+lemma remain separate formalization obligations.
 
 \begin{lemma}[Prime-count error to the right of the zero supremum]
 \label{lem:prime-error-zero-supremum}
