@@ -13810,9 +13810,10 @@ proof in \texttt{GreedyPrimeNegativeArea}, with $c_0=7/4096$.
 
 \paragraph{Additional transfer calculation.}
 The quantitative $K$ and full-product correction bounds below are now
-proved in \texttt{GreedyPrimePowerTransfer}. The alternative forward
-asymptotic argument and final excursion consumer remain separate
-formalization obligations; the preceding size-criterion proof is complete.
+proved in \texttt{GreedyPrimePowerTransfer}, and the actual zero-excursion
+contradiction is proved in \texttt{GreedyPrimeExcursionTransfer}.
+The alternative forward asymptotic remains a separate formalization
+obligation; the preceding size-criterion proof is complete.
 
 Suppose first that $\Theta_\zeta\le\eta$.
 For $\eta<\kappa<1$, the proof of
@@ -13898,16 +13899,31 @@ with its positive denominator and both tails retained.
 Positive excursions of the original Nicolas error
 are therefore preserved as well, including the full normalization
 and both deletion corrections.
-If there were a zero of real part $\beta>\eta$,
-choose also $\epsilon<\beta-\eta$ and
-$1-\beta<b<1-\eta-\epsilon\le1/2$.
-The unconditional positive excursion theorem gives
-$\limsup x^bK(x)=+\infty$.
-But $K_{\mathcal S}\le0$ and the displayed correction give
-$\limsup x^bK(x)\le0$, since
-$b+\eta+\epsilon-1<0$. This is a contradiction.
-The zero-free implication is therefore established without
-using an RH-dependent wave under the bad-zero hypothesis.
+The actual excursion contradiction is now formalized without introducing
+a limsup assumption. Suppose a nontrivial zero has real part
+\(\eta<\beta<1\). Choose \(0<\epsilon<\beta-\eta\), put
+\(a=\eta+\epsilon\), and choose the count constant and onset so that
+\(N_{\mathcal D}(t)\le Ct^a\) for all sufficiently large \(t\).
+Set
+\[
+ b=\frac{(1-\beta)+(1-a)}2,\qquad D=\frac{2C}{1-a}.
+\]
+Then \(1-\beta<b<1-a\le1/2\), and \(D\ge0\).
+For every sufficiently large \(x\), the cap and complete transfer give
+\[
+ K(x)\le D x^{a-1}\le D x^{-b};
+\]
+the second inequality uses \(x\ge1\).
+The unconditional maintained zero-response theorem, with amplitude
+\(D+1\) and cutoff beyond the count onset, \(2\), and \(e\), supplies
+an actual later point satisfying
+\[
+ (D+1)x^{-b}<K(x).
+\]
+Since \(x^{-b}>0\), this contradicts the displayed upper bound.
+Every hypothesis of the native response is retained: the hypothetical
+zero, \(1/2<\beta<1\), and \(1-\beta<b\le1/2\).
+No RH or zero-free-strip hypothesis is used under the bad-zero assumption.
 \end{proof}
 
 This carrier supplies the two requested obligations separately.
