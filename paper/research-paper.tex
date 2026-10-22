@@ -14487,12 +14487,40 @@ full signed decomposition on $\Re s=3/2$, with the constant,
 paired xi-zero series, reference pole and digamma term all retained.
 Its declaration is
 \texttt{logGaussian\_\allowbreak safeLine\_\allowbreak signed\_\allowbreak identity}.
-These supporting proofs are exported and registered by exact name.
-The physical Perron identification, left-contour remainder,
-complete prime-power correction, dominant-zero exposure and
-every-large-cutoff zero-response conclusion still require their
-matching Lean proofs. No entire Gaussian lemma or zero-response
-theorem is declared formalized on the strength of these inputs.
+The physical Perron identification is now also proved.
+For every $X,V>0$, every real $\tau$ and every $\sigma>1$,
+\texttt{LogGaussianPhysicalProbe.lean} establishes
+\[
+ \begin{aligned}
+ H_\tau^\psi(X,V)
+   &=\frac1{2\pi}\int_{\mathbb R}
+       \frac{-\zeta'(\sigma+it)}{\zeta(\sigma+it)}
+                        T_{X,V,\tau}(\sigma+it)\,dt\\
+   &\qquad{}-X\exp\!\left(\frac V2(1-i\tau)^2\right).
+ \end{aligned}
+\]
+Here the left side is the actual integral of
+$\psi(Xe^u)-Xe^u$ against $G_V(u)e^{-i\tau u}$.
+Absolute integrability is proved for this physical integrand.
+The proof includes the normalized complex Gaussian moment,
+exact inversion on every real vertical line, the cumulative Gaussian
+tail, every von Mangoldt threshold, absolute arithmetic summability,
+and absolute sum--integral interchange.
+No additional RH or zero-location hypothesis is used.
+
+At $\sigma=3/2$, the same maintained owner proves the full signed
+identity for this physical probe, retaining the constant,
+every multiplicity-counted paired xi term, the reference pole,
+the gamma contribution and the explicitly evaluated Gaussian
+reference term. Its declaration is
+\texttt{logGaussianPsiProbe\_eq\_\allowbreak full\_signed\_xi\_identity}.
+These proofs are exported and registered by exact name.
+
+The residue expansion with its stated remainder, complete prime-power
+correction, dominant-zero exposure and every-large-cutoff zero-response
+conclusion still require their matching Lean proofs.
+No entire Gaussian lemma or zero-response theorem is declared
+formalized on the strength of these completed inputs.
 
 \begin{lemma}[A Gaussian shift exposes a strictly dominant zero]
 \label{lem:greedy-prime-Gaussian-exposure}

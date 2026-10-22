@@ -10,8 +10,8 @@ import PrimeFactorOscillations.Helpers.LogGaussianXiInterchange
 
 The constant, paired multiplicity-counted xi sum, reference pole and gamma
 term remain coupled. Integrability and sum interchange are proved for the
-actual test. This unnormalized vertical integral is not yet identified
-with the physical prime-error probe, and no left-contour error is asserted.
+actual test. The physical prime-error identification is proved in
+LogGaussianPhysicalProbe. No left-contour remainder is asserted here.
 -/
 
 set_option autoImplicit false
