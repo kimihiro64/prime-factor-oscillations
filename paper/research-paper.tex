@@ -13805,13 +13805,14 @@ These quantitative conclusions are compiled in
 \texttt{GreedyPrimeRHCount} and \texttt{GreedyPrimeRealCount},
 with the finite splitting inequality in
 \texttt{PrimeClassCountSplit}.
-The favorable-product assertion is a separate statement; this
-size proof does not certify its Lean formalization.
+The favorable-product assertion now has its separate complete Lean
+proof in \texttt{GreedyPrimeNegativeArea}, with $c_0=7/4096$.
 
-\paragraph{Alternative transfer calculation; Lean formalization pending.}
-The following argument retains the earlier correction formulas as
-additional claims to be formalized, independently of the preceding
-compiled proof of the size criterion.
+\paragraph{Additional transfer calculation.}
+The quantitative $K$ and full-product correction bounds below are now
+proved in \texttt{GreedyPrimePowerTransfer}. The alternative forward
+asymptotic argument and final excursion consumer remain separate
+formalization obligations; the preceding size-criterion proof is complete.
 
 Suppose first that $\Theta_\zeta\le\eta$.
 For $\eta<\kappa<1$, the proof of
@@ -13842,14 +13843,59 @@ The complete positive correction in
  \label{eq:greedy-prime-zero-signal-error}
 \end{equation}
 The denominator is positive on the stated parameter domain.
-The same count controls both terms in
-\eqref{eq:greedy-prime-product-signal}: since
-$\theta_{\mathcal S}(x)\sim\theta(x)\sim x$, its clock term is
-$O(M(x)/(x\log x))$, and partial summation bounds the entire
-missing-product tail by
-$O_\epsilon(x^{\eta+\epsilon-1}/(1-\eta-\epsilon))$.
-Consequently $0\le F(x)-F_{\mathcal S}(x)$ has this same
-upper order. Positive excursions of the original Nicolas error
+Here are explicit constants and the complete formalized consumer.
+If \(N_{\mathcal D}(t)\le Ct^a\) for every \(t\ge x\), with
+\(C\ge0\), \(a<1\), \(x\ge2\), and \(\log x\ge1\), then
+\[
+ M(t)\kappa(t)\le2Ct^{a-2},\qquad
+ 0\le K(x)-K_{\mathcal S}(x)
+ \le\frac{2C}{1-a}x^{a-1}.
+\]
+Indeed \(M(t)\le N_{\mathcal D}(t)\log t\), and
+\(1+1/\log t\le2\). The integral of \(t^{a-2}\) over \((x,\infty)\)
+is exactly \(x^{a-1}/(1-a)\); the complete Abel tail justifies
+integration and retains the boundary term.
+
+For \(x\ge4\) with \(\theta_{\mathcal S}(x)\ge x/2\), there is also
+the coupled comparison
+\[
+ 0\le F(x)-F_{\mathcal S}(x)
+ \le4\bigl(K(x)-K_{\mathcal S}(x)\bigr).
+\]
+To see the full accounting, put
+\(B_{\mathcal D}=M(x)/(x\log x)\) and retain
+\(R_{\mathcal D}\), \(E_{\mathcal D}\), and \(T_{\mathcal D}\)
+as in the preceding proof. Twice applying \(\log u\le u-1\) gives
+\[
+ \log\log\theta(x)-\log\log\theta_{\mathcal S}(x)
+ \le\frac{M(x)}
+          {\theta_{\mathcal S}(x)\log\theta_{\mathcal S}(x)}
+ \le4B_{\mathcal D}(x).
+\]
+Here \(\log\theta_{\mathcal S}(x)\ge(\log x)/2\).
+For every deleted prime, the coupled Mertens remainder satisfies
+\(-(\log(1-1/p)+1/p)\le2/p^2\le1/p\).
+Absolute summability therefore gives
+\(-T_{\mathcal D}\le R_{\mathcal D}\), and the exact identity
+\(E_{\mathcal D}=R_{\mathcal D}-T_{\mathcal D}\) yields
+\(E_{\mathcal D}\le2R_{\mathcal D}\).
+Both product corrections are nonnegative. Their sum is at most
+\[
+ 4B_{\mathcal D}+2R_{\mathcal D}
+ \le4(B_{\mathcal D}+R_{\mathcal D})
+ =4(K-K_{\mathcal S}).
+\]
+Thus the same hypotheses, together with \(x\ge4\) and
+\(\theta_{\mathcal S}(x)\ge x/2\), give the explicit full-product bound
+\[
+ 0\le F(x)-F_{\mathcal S}(x)\le
+       \frac{8C}{1-a}x^{a-1}.
+\]
+The additional half-height condition holds eventually by the already
+proved limit \(\theta_{\mathcal S}(x)/x\to1\).
+Setting \(a=\eta+\epsilon<1\) proves the displayed correction order
+with its positive denominator and both tails retained.
+Positive excursions of the original Nicolas error
 are therefore preserved as well, including the full normalization
 and both deletion corrections.
 If there were a zero of real part $\beta>\eta$,
