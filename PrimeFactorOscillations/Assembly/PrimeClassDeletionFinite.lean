@@ -12,7 +12,7 @@ import PrimeFactorOscillations.Proof.PrimeClassDeletion.CappedPrimeMissingCost
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.GreedyPrimeExceptionalCoordinate
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.GreedyPrimeGeometricLaw
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.PolynomialPrimeNorming
-import PrimeFactorOscillations.Proof.PrimeClassDeletion.PrimeComponentCarrierNorm
+import PrimeFactorOscillations.Proof.PrimeClassDeletion.PrimeComponentCarrierSharpness
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.PrimePowerComponentBudget
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.PrimeRecordAllCutoffs
 
@@ -54,4 +54,7 @@ finite support almost surely. Literal full-component sampling retains the
 exact complete Euler total-variation budget after every statistic.
 Multiplicative component noise has a normalized signed Mobius inverse whose
 complete absolute norm is exactly that same Euler budget.
+The convolution channel has two-sided total-variation stability with this
+optimal inverse constant, attained by explicit probability laws. The proof
+uses disjoint squarefree and four-dilated supports, including empty classes.
 -/

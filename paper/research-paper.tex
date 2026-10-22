@@ -16766,8 +16766,127 @@ the complete local Euler sums, absolute summability and the exact
 infinite norm. The assembled certificate also includes
 nonnegativity and total mass one for the noise law.
 This identifies the sampling budget with an inverse-kernel norm.
-The total-variation stability inequality and its explicit
-probability extremizers remain separate formalization targets.
+The following theorem turns this identity into an optimal
+stability statement for the probability channel.
+
+\begin{theorem}[Sharp stability of multiplicative prime-component noise]
+\label{thm:component-carrier-sharp-probability-stability}
+Retain \(P,\sigma,\eta,\rho\) and \(B=B_{P,\sigma}\) from the
+preceding theorem. For every probability law \(f\) on the positive
+integers, \(T f=\eta*f\) is again a probability law. For every two
+such laws \(f,g\),
+\[
+ \frac1B\,d_{\rm TV}(f,g)
+ \ \le\ d_{\rm TV}(Tf,Tg)
+ \ \le\ d_{\rm TV}(f,g).
+\]
+The inverse constant \(B\) is optimal and is attained.
+More precisely, let \(\delta_4\) be the point mass at \(4\), and put
+\[
+ h=\rho-\delta_4*\rho,\qquad
+ f_+(n)=\frac{|h(n)|+h(n)}{2B},\qquad
+ f_-(n)=\frac{|h(n)|-h(n)}{2B}.
+\]
+Then \(f_+,f_-\) are probability laws with
+\[
+ d_{\rm TV}(f_+,f_-)=1,\qquad
+ d_{\rm TV}(Tf_+,Tf_-)=\frac1B.
+\]
+Consequently any real \(C\) satisfying
+\(d_{\rm TV}(f,g)\le C\,d_{\rm TV}(Tf,Tg)\) for all probability
+laws must satisfy \(C\ge B\).
+All input laws are on the positive integers; the construction
+requires no membership hypothesis on the prime \(2\).
+The empty prime class is included.
+\end{theorem}
+
+\begin{proof}
+We first justify the full convolution estimates.
+For absolutely summable real arithmetic functions \(u,v\), the
+double series \(u(a)v(b)\) is absolutely summable. Regrouping it by
+the product \(ab=n\) gives the exact signed identity
+\[
+ \sum_{n\ge0}(u*v)(n)
+       =\Bigl(\sum_{a\ge0}u(a)\Bigr)
+        \Bigl(\sum_{b\ge0}v(b)\Bigr).
+\]
+The zero fiber contributes zero because arithmetic functions
+vanish at \(0\); every positive fiber is the finite divisor
+antidiagonal. Applying the finite triangle inequality and then
+the same nonnegative product identity gives
+\[
+ \|u*v\|_1\le\|u\|_1\|v\|_1,
+\]
+and proves absolute summability of the convolution.
+
+The noise law has nonnegative coefficients and total mass one.
+Thus convolution with it preserves nonnegativity and total mass,
+and contracts the absolute norm. Since
+\(\rho*(\eta*u)=u\), the exact inverse norm from the preceding
+theorem also gives
+\[
+ \|u\|_1
+   =\|\rho*(\eta*u)\|_1
+   \le B\|\eta*u\|_1.
+\]
+Apply both estimates to \(u=f-g\) and divide by two to obtain the
+two-sided total-variation bound.
+
+It remains to attain the inverse bound with probability laws.
+The exact point-mass formula is
+\[
+ (\delta_4*\rho)(n)=
+ \begin{cases}
+  \rho(n/4),&4\mid n,\\
+  0,&4\nmid n.
+ \end{cases}
+\]
+This dilation preserves both the total signed mass and the total
+absolute mass of every absolutely summable arithmetic function.
+The inverse \(\rho\) vanishes at every multiple of \(4\), since
+its M\"obius factor is supported on squarefree integers.
+Therefore \(\rho\) and \(\delta_4*\rho\) have disjoint supports.
+Their difference \(h\) satisfies the exact identities
+\[
+ \sum_{n\ge0}h(n)=0,\qquad
+ \sum_{n\ge0}|h(n)|=2B,\qquad
+ \eta*h=\delta_1-\delta_4.
+\]
+In particular the last signed probe has absolute mass exactly two.
+
+The quantities \(|h(n)|+h(n)\) and \(|h(n)|-h(n)\) are
+nonnegative. Their sums are both \(2B\), by the preceding
+absolute-mass and signed-mass identities. Since \(B>0\), the
+displayed \(f_+,f_-\) are probability laws, and
+\(f_+-f_-=h/B\). Consequently
+\[
+ d_{\rm TV}(f_+,f_-)=\frac{\|h\|_1}{2B}=1,\qquad
+ d_{\rm TV}(Tf_+,Tf_-)
+       =\frac{\|\delta_1-\delta_4\|_1}{2B}=\frac1B.
+\]
+Substituting this pair into a proposed universal recovery bound
+gives \(1\le C/B\), hence \(B\le C\).
+No step assumes \(2\in P\), and the same construction applies
+when \(P\) is empty.
+\end{proof}
+
+\paragraph{Interpretation and maintained verification.}
+Multiplying by an independent prime-component variable preserves
+distinguishability up to exactly the factor \(B_{P,\sigma}\).
+An output total-variation error \(\varepsilon\) therefore gives an
+input error at most \(B_{P,\sigma}\varepsilon\), and the explicit
+pair shows that this universal factor cannot be reduced.
+The same constant is now a sampling budget, an inverse-kernel
+absolute norm, and an attained probability recovery constant.
+
+The shared owners \texttt{ArithmeticFunctionDirichletL1} and
+\texttt{ArithmeticFunctionFourDilation} verify the full signed
+mass identity, Young estimate and exact dilation identities.
+The maintained owners \texttt{PrimeComponentCarrierStability},
+\texttt{PrimeComponentCarrierSeparation} and
+\texttt{PrimeComponentCarrierSharpness} prove probability
+preservation, both bounds, the disjoint-support probe, the
+normalized witnesses, both exact distances and optimality.
 
 \begin{theorem}[The exact statistical convergence exponent]
 \label{thm:deleted-component-exact-rate}
