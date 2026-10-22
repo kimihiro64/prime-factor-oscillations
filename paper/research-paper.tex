@@ -13396,9 +13396,9 @@ integral form of the earlier RH criterion:
  \label{eq:greedy-prime-K-transfer}
 \end{equation}
 Both integrals converge unconditionally.
-For example the quantitative PNT error
-$O(t\exp(-c\sqrt{\log t}))$ bounds its running maximum by
-$O(t\exp(-c'\sqrt{\log t}))$ for a possibly smaller $c'>0$.
+The quantitative PNT estimates of orders zero and two already give
+$M(n)\le A+Cn/(\log n)^2+\log n$ eventually, as proved below.
+This also supplies the required absolute tail convergence.
 The integrand on the selected class is nonpositive pointwise.
 No RH hypothesis supplies this inequality.
 
@@ -13416,9 +13416,72 @@ Define its finite missing-product constant and its error by
  \end{aligned}
  \label{eq:greedy-prime-calibrated-Nicolas}
 \end{equation}
-The constant is finite by the quantitative PNT regulator bound;
-the error is defined once $\theta_{\mathcal S}(x)>1$.
+The error is defined once $\theta_{\mathcal S}(x)>1$.
 The subtraction of $C_{\mathcal D}$ is essential.
+The following mass and convergence statements now have maintained Lean
+proofs. The full improper-integral identity and strict product-sign
+conclusion following them remain separate formalization obligations.
+
+\begin{lemma}[Unconditional convergence of the missing Euler cost]
+\label{lem:greedy-prime-missing-cost-convergence}
+There are constants $A\ge0$ and $C>0$ such that for all sufficiently
+large integers $n$,
+\[
+ \theta_{\mathcal D}(n)
+ \le A+C\frac{n}{(\log n)^2}+\log n.
+\]
+Unconditionally,
+\[
+ \sum_{p\in\mathcal D}\frac1p<\infty,
+ \qquad
+ C_{\mathcal D}=\sum_{p\in\mathcal D}-\log(1-1/p)<\infty.
+\]
+No convergent competitor class is assumed.
+\end{lemma}
+
+\begin{proof}
+Choose $C_0,C_2>0$ and $T\ge4$ so that for $u\ge T$,
+\[
+ |\theta(u)-u|\le C_0u,
+ \qquad
+ |\theta(u)-u|\le C_2u/(\log u)^2.
+\]
+Set $A=\theta(T)\ge0$ and take $n$ large enough that
+$(\log n)^2\le\sqrt n$.
+In the full running maximum $R(n)$, a prime $p<T$ contributes at most
+$A$. If $T\le p\le\sqrt n$, its contribution is at most
+$C_0\sqrt n\le C_0n/(\log n)^2$.
+If $\sqrt n<p\le n$, then $\log p\ge\tfrac12\log n$ and its
+contribution is at most $4C_2n/(\log n)^2$.
+Consequently
+\[
+ R(n)\le A+(C_0+4C_2)\frac{n}{(\log n)^2}.
+\]
+The actual greedy overshoot bound
+$\theta_{\mathcal D}(n)\le R(n)+\log n$ proves the first claim
+with $C=C_0+4C_2$.
+
+Put $L=\log2$.
+Every deleted prime contributes at least $L$ to its theta sum, so
+$N_{\mathcal D}(n)L\le\theta_{\mathcal D}(n)$.
+For every sufficiently large $j$ the full reciprocal mass in
+$2^j\le p<2^{j+1}$ is therefore at most
+\[
+ \frac{N_{\mathcal D}(2^{j+1})}{2^j}
+ \le \frac{A}{L}\,2^{-j}
+     +\frac{2C}{L^3(j+1)^2}
+     +(j+1)2^{-j}.
+\]
+All three series converge; the omitted initial shells are finite.
+This proves reciprocal-prime convergence with every prime retained.
+Finally, for $p\ge2$, the elementary inequality
+$\log v\le v-1$ at $v=(1-1/p)^{-1}$ gives
+\[
+ 0\le-\log(1-1/p)
+ \le\frac1{p-1}\le\frac2p.
+\]
+Comparison proves the asserted finiteness of $C_{\mathcal D}$.
+\end{proof}
 
 \begin{theorem}[The selected class already has the product sign]
 \label{prop:greedy-prime-product-sign}
