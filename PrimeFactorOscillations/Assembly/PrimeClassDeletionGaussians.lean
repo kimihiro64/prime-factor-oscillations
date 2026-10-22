@@ -7,5 +7,6 @@ import PrimeFactorOscillations.Assembly.PrimeClassDeletionWaves
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.GreedyPrimeCountLimit
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.GreedyPrimeEulerSummability
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.GreedyPrimeRealCount
+import PrimeFactorOscillations.Proof.PrimeClassDeletion.PrimeClassNicolasTail
 
 /-! # Full greedy-prime strip, real-cutoff size and count-exponent criteria -/

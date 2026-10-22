@@ -13419,8 +13419,9 @@ Define its finite missing-product constant and its error by
 The error is defined once $\theta_{\mathcal S}(x)>1$.
 The subtraction of $C_{\mathcal D}$ is essential.
 The following mass and convergence statements now have maintained Lean
-proofs. The full improper-integral identity and strict product-sign
-conclusion following them remain separate formalization obligations.
+proofs. The full Abel tail identity and its absolute integrability are
+also formalized below. The calibrated product identity and strict
+product-sign conclusion remain separate formalization obligations.
 
 \begin{lemma}[Unconditional convergence of the missing Euler cost]
 \label{lem:greedy-prime-missing-cost-convergence}
@@ -13481,6 +13482,47 @@ $\log v\le v-1$ at $v=(1-1/p)^{-1}$ gives
  \le\frac1{p-1}\le\frac2p.
 \]
 Comparison proves the asserted finiteness of $C_{\mathcal D}$.
+\end{proof}
+
+\begin{lemma}[The full prime-class Abel tail, verified in Lean]
+\label{lem:prime-class-full-Nicolas-Abel-tail}
+Let $\mathcal P$ be any prime class with
+$\sum_{p\in\mathcal P}1/p<\infty$.
+For every real $x>1$, the following integral is absolutely convergent,
+and
+\[
+ \int_x^\infty\theta_{\mathcal P}(t)\kappa(t)\,dt
+ =\frac{\theta_{\mathcal P}(x)}{x\log x}
+    +\sum_{\substack{p>x\\p\in\mathcal P}}\frac1p.
+\]
+In particular this holds unconditionally for the actual greedy
+deleted class $\mathcal D$, with $M=\theta_{\mathcal D}$.
+\end{lemma}
+
+\begin{proof}
+The maintained unconditional kernel primitive gives
+$\int_y^\infty\kappa(t)\,dt=1/(y\log y)$ for every $y>1$.
+For a class prime $p$ put
+$\phi_p(t)=\log p\,\boldsymbol1_{[p,\infty)}(t)\kappa(t)$.
+Its exact integral over $(x,\infty)$ is
+\[
+ \int_x^\infty\phi_p(t)\,dt
+ =\frac{\log p}
+        {\max(x,p)\log\max(x,p)}.
+\]
+It is nonnegative and at most $1/p$, since
+$u\log u$ is increasing for $u\ge2$.
+Thus the series of integrated absolute values converges.
+Absolute integration of the series is justified; pointwise the sum
+is the actual finite prime prefix
+$\theta_{\mathcal P}(t)\kappa(t)$.
+The finitely many primes $p\le x$ contribute
+$\theta_{\mathcal P}(x)/(x\log x)$, and every prime $p>x$
+contributes exactly $1/p$.
+A prime at $p=x$ is included in the first term, and the first prime
+$2$ is retained. There is no endpoint or initial-range deletion.
+The preceding lemma supplies the required reciprocal summability
+for $\mathcal D$, without RH.
 \end{proof}
 
 \begin{theorem}[The selected class already has the product sign]
