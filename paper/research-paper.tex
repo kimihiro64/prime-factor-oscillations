@@ -14516,11 +14516,66 @@ reference term. Its declaration is
 \texttt{logGaussianPsiProbe\_eq\_\allowbreak full\_signed\_xi\_identity}.
 These proofs are exported and registered by exact name.
 
-The residue expansion with its stated remainder, complete prime-power
-correction, dominant-zero exposure and every-large-cutoff zero-response
-conclusion still require their matching Lean proofs.
-No entire Gaussian lemma or zero-response theorem is declared
-formalized on the strength of these completed inputs.
+The full physical residue expansion and its remainder are now also
+proved in \texttt{LogGaussianExplicitFormula.lean}.
+For every $X>0$, $V\ge1$ and real $\tau$, let
+$\rho_p$ range over the canonical xi divisor-zero indices, which retain
+analytic multiplicity, and put
+\[
+ \begin{aligned}
+ B_V&=\frac{e^{V/2}}{\sqrt{2\pi V}},
+       \qquad S_\xi=\sum_p|\rho_p|^{-2},\\
+ S_\Gamma&=\sum_{k=0}^\infty
+             \frac1{2(k+1)(2(k+1)-1)},\\
+ K_\tau&=(5+|\tau|)S_\xi+|\log(2\pi)|+\frac12+S_\Gamma .
+ \end{aligned}
+\]
+Both series defining the constants converge. The maintained declarations
+prove the actual physical identity and uniform remainder bound
+\[
+ \begin{aligned}
+ H_\tau^\psi(X,V)
+   &=-\sum_p\frac{X^{\rho_p}}{\rho_p}
+               \exp\!\left(\frac V2(\rho_p-i\tau)^2\right)\\
+   &\quad{}-\log(2\pi)e^{-V\tau^2/2}+R_\tau(X,V),\\
+ |R_\tau(X,V)|&\le K_\tau\,\frac{B_V}{X}.
+ \end{aligned}
+\]
+The full residue series is absolutely convergent.
+The declarations are
+\begin{quote}
+\texttt{logGaussian\allowbreak PsiProbe\_eq\_\allowbreak explicit\_formula},\\
+\texttt{logGaussian\allowbreak ExplicitRemainder\_\allowbreak norm\_bound},\\
+\texttt{logGaussian\allowbreak ExplicitRemainder\_\allowbreak log\_scale\_bound}.
+\end{quote}
+The last declaration proves
+$|R_\tau(X,c\log X)|\le K_\tau X^{-1+c/2}$
+whenever $X>0$ and $c\log X\ge1$.
+
+The proof starts from the complete signed safe-line identity.
+For each zero, it retains the full Gaussian moment and separates only
+the omitted physical left tail $E_{\rho_p}$.
+Integration by parts gives the independently summable estimate
+\[
+ |E_{\rho_p}|
+ \le (5+|\tau|)\frac{B_V}{X|\rho_p|^2}.
+\]
+The actual zero sum, its full left-tail error, the constant and reference
+pole, and every negative-even gamma atom remain coupled until the exact
+identity is assembled. The complete gamma remainder is bounded by
+$B_V S_\Gamma/X$; this uses the physical tails of all gamma atoms,
+rather than a divergent full Gaussian residue sum at the trivial zeros.
+The constant and reference-pole tails contribute the remaining
+$(|\log(2\pi)|+1/2)B_V/X$.
+No principal zero contribution is estimated away.
+
+These proofs are exported and registered by exact declaration name.
+The translation from canonical indices to the displayed distinct-zero
+multiplicity sum, the complete prime-power correction,
+dominant-zero exposure and every-large-cutoff zero-response conclusion
+still require their matching Lean proofs.
+Consequently no entire Gaussian lemma or zero-response theorem is
+declared formalized on the strength of this completed residue formula.
 
 \begin{lemma}[A Gaussian shift exposes a strictly dominant zero]
 \label{lem:greedy-prime-Gaussian-exposure}
