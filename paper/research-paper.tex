@@ -13646,9 +13646,34 @@ Consequently the complete maintained consumer is
 \[
  F_{\mathcal S}(x)\le K_{\mathcal S}(x)+A_{\mathcal S}(x).
 \]
-The stronger bound $A_{\mathcal S}(x)=O(1/(x\log x))$ and the
-quantitative negative-area estimate below are the remaining analytic
-formalization steps.
+The quantitative Euler-tail bound is also proved in Lean:
+\[
+ A_{\mathcal S}(n)\le\frac{8}{n\log n}\quad(n\in\mathbb N,\ n\ge2),
+ \qquad
+ A_{\mathcal S}(x)\le\frac{32}{x\log x}\quad(x\ge4).
+\]
+For every finite set of selected primes in \(2^j n\le p<2^{j+1}n\),
+the literal cap gives
+\[
+ \#\{p\hbox{ in the set}\}\log n
+ \le\sum_p\log p
+ \le\theta_{\mathcal S}(2^{j+1}n)\le2^{j+1}n.
+\]
+The coupled Mertens remainder is at most \(2/p^2\), so that shell
+contributes at most \(4\,2^{-j}/(n\log n)\).
+Partitioning an arbitrary finite subsum by
+\(j=\lfloor\log_2(p/n)\rfloor\), and summing the geometric majorant,
+gives \(8/(n\log n)\). Absolute convergence passes the bound to the
+whole selected tail. For real \(x\ge4\), put \(n=\lfloor x\rfloor\).
+Then \(n\ge x/2\) and \(\log n\ge(\log x)/2\); positivity and support
+inclusion give \(A_{\mathcal S}(x)\le A_{\mathcal S}(n)\), proving the
+stated constant \(32\). Thus the complete formalized signed bound is
+\[
+ F_{\mathcal S}(x)\le K_{\mathcal S}(x)+\frac{32}{x\log x}
+ \qquad(x\ge4,\ \theta_{\mathcal S}(x)>1).
+\]
+The quantitative negative-area estimate below and its strict-sign
+consumer remain formalization obligations.
 
 There is also a definite negative area in $K_{\mathcal S}$.
 Choose a constant $C\ge1$ with $\pi(2x)\le Cx/\log x$
