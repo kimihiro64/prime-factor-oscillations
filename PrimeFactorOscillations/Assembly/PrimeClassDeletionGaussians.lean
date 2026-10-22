@@ -4,6 +4,6 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Prime Factor Oscillations contributors
 -/
 import PrimeFactorOscillations.Assembly.PrimeClassDeletionWaves
-import PrimeFactorOscillations.Proof.PrimeClassDeletion.GaussianUniformZeroResponse
+import PrimeFactorOscillations.Proof.PrimeClassDeletion.GreedyPrimeRHCriterion
 
-/-! # The complete Gaussian formula, exposure and every-cutoff zero response -/
+/-! # Gaussian zero response and the cofinal deleted-prime RH criterion -/

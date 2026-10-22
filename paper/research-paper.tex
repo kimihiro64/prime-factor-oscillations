@@ -14923,6 +14923,41 @@ gives that same upper limit.
 This proves the last assertion.
 \end{proof}
 
+\paragraph{Maintained Lean proof of the cofinal RH specialization.}
+For $\eta=1/2$, the cofinal integer-count formulation has a complete
+direct proof in \texttt{GreedyPrimeRHCriterion.lean}.
+The maintained theorem
+\texttt{riemannHypothesis\_\allowbreak iff\_\allowbreak cofinal\_\allowbreak
+greedyDeletedPrimeClass\_\allowbreak count} states exactly
+\[
+ {\rm RH}\quad\Longleftrightarrow\quad
+ \left[\forall\epsilon>0\ \forall N\in\mathbb N\
+ \exists n\ge\max(N,2),\quad
+ N_{\mathcal D}(n)\le n^{1/2+\epsilon}\right].
+\]
+Its forward implication proves the bound at every sufficiently large
+integer cutoff.  The direct formal proof first establishes constants
+$A\ge0$ and $C>0$ such that, for every integer $n\ge2$,
+\[
+ N_{\mathcal D}(n)\log2
+ \le A+C\sqrt n\,(\log n)^2+\log n .
+\]
+The constant $A$ retains the entire initial prime range.
+Division by $n^{1/2+\epsilon}$ makes each of the three allowances
+tend to zero; the proof carries all of them through the count comparison.
+The reverse implication consumes the unconditional uniform zero-response
+theorem at the same cofinal integer cutoffs.
+The supporting maintained owners are
+\texttt{GreedyPrimeRHUpper.lean} and
+\texttt{GreedyPrimeSparseCriterion.lean}; all six declarations are registered
+in the recurring foundational audit.
+
+This verifies the cofinal integer-count RH equivalence.
+The logarithmic lower-limit reformulation, the upper implication for
+general $\eta$, and the final zero-supremum limit in
+Theorem~\ref{thm:greedy-prime-liminf-RH} remain separate formalization
+obligations and are not asserted by this declaration.
+
 The independent size burden has changed quantifiers: an unbounded sequence
 of favorable integer cutoffs is sufficient; an estimate at every cutoff
 is no longer required.
