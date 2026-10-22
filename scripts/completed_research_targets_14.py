@@ -1,6 +1,16 @@
-"""Complete zeta Gaussian formula, multiplicities and prime-power correction."""
+"""Complete zeta Gaussian formulas, prime powers and dominant-zero exposure."""
 
 TARGETS = (
+    "PrimeFactorOscillations.PrimeClassDeletion.gaussianCrossingSet_finite",
+    "PrimeFactorOscillations.PrimeClassDeletion.gaussianZeroExponent_eq_crossingTime_of_eq",
+    "PrimeFactorOscillations.PrimeClassDeletion.gaussianZeroExponent_eq_of_equal_height",
+    "PrimeFactorOscillations.PrimeClassDeletion.gaussianZeroExponent_exists_max",
+    "PrimeFactorOscillations.PrimeClassDeletion.gaussianZeroExponent_height_bound",
+    "PrimeFactorOscillations.PrimeClassDeletion.gaussianZeroExponent_injOn_outside_crossings",
+    "PrimeFactorOscillations.PrimeClassDeletion.gaussianZeroExponent_strict_shift_gain",
+    "PrimeFactorOscillations.PrimeClassDeletion.gaussianZeroExponent_uniform_candidates_finite",
+    "PrimeFactorOscillations.PrimeClassDeletion.gaussianZetaEnvelope_attained",
+    "PrimeFactorOscillations.PrimeClassDeletion.gaussianZetaEnvelope_unique_exposure",
     "PrimeFactorOscillations.PrimeClassDeletion.logGaussianDensity_abs_moment",
     "PrimeFactorOscillations.PrimeClassDeletion.logGaussianDensity_abs_moment_integrable",
     "PrimeFactorOscillations.PrimeClassDeletion.logGaussianDensity_centered_abs_shift_integrable",
@@ -43,4 +53,8 @@ TARGETS = (
     "PrimeFactorOscillations.PrimeClassDeletion.xiDistinctZero_fiber_sum",
     "PrimeFactorOscillations.PrimeClassDeletion.xiDistinctZero_ne_zero",
     "PrimeFactorOscillations.PrimeClassDeletion.xiDistinctZero_weighted_hasSum",
+    "PrimeFactorOscillations.PrimeClassDeletion.zetaDistinctZero_bounded_height_finite",
+    "PrimeFactorOscillations.PrimeClassDeletion.zetaDistinctZero_coefficient_ne_zero",
+    "PrimeFactorOscillations.PrimeClassDeletion.zetaDistinctZero_exists_positive_height",
+    "PrimeFactorOscillations.PrimeClassDeletion.zetaDistinctZero_im_ne_zero",
 )

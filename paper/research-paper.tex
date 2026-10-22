@@ -14450,8 +14450,8 @@ Lemma~\ref{lem:greedy-prime-Gaussian-explicit} is formalized in full.
 Its maintained statement retains the actual physical probes, distinct
 nontrivial zeta zeros with their analytic multiplicities, absolute
 convergence, the explicit uniform remainder and the complete prime-power
-correction. Lemma~\ref{lem:greedy-prime-Gaussian-exposure} and
-Theorem~\ref{thm:greedy-prime-uniform-zero-response} remain unfinished.
+correction. Lemma~\ref{lem:greedy-prime-Gaussian-exposure} is also formalized in full.
+Theorem~\ref{thm:greedy-prime-uniform-zero-response} remains unfinished.
 The exact analytic proof chain is described below.
 
 For $X>0$, $V>0$ and every real frequency $\tau$, put
@@ -14597,9 +14597,9 @@ proves the displayed $O_c$ estimate with the explicit positive constant
 \]
 for every real $\tau$ and every $X\ge e$.
 All these declarations are exported and registered by exact name.
-Dominant-zero exposure and the every-large-cutoff zero response remain
-separate open formalization items; the completed lemma alone proves
-no improved zero-free boundary.
+The every-large-cutoff zero response remains an open formalization
+item. These completed analytic lemmas supply no improved zero-free
+boundary by themselves.
 
 \begin{lemma}[A Gaussian shift exposes a strictly dominant zero]
 \label{lem:greedy-prime-Gaussian-exposure}
@@ -14663,6 +14663,37 @@ in a sufficiently small interval about the chosen $\tau$.
 Perturbing within that interval gives a unique maximizing zero,
 while continuity of the finite maximum preserves every strict gap.
 \end{proof}
+
+\emph{Lean formalization status: complete.}
+\texttt{GaussianExposure.lean} proves
+\begin{quote}
+\texttt{gaussianZetaEnvelope\_\allowbreak unique\_exposure}.
+\end{quote}
+For every $c>0$ and actual nontrivial zero with $\beta_0>1/2$,
+its conclusion gives a positive shift, an attained unique maximum
+over the entire distinct-zero set, every strict inequality in
+\eqref{eq:greedy-prime-Gaussian-gap}, and the nonzero analytic
+multiplicity coefficient $m_{\rho_*}/\rho_*$.
+The proof reuses the existing real-axis nonvanishing and compact
+zero-set results, and retains conjugation and analytic multiplicity.
+
+\texttt{GaussianFiniteEnvelope.lean} proves the scalar height cutoff
+for $0\le\beta\le1$: if $A_c(\beta+i\gamma,\tau)\ge L$, then
+\[
+ |\gamma|\le |\tau|+1+\frac{2(1+c/2+|L|)}c.
+\]
+It proves uniform finiteness of the actual candidate set on bounded
+shift intervals, and attainment of the actual supremum.
+\texttt{GaussianShiftGain.lean} proves the
+simultaneous strict gain at a positive shift.
+
+\texttt{GaussianCrossings.lean} proves that unequal heights can tie
+only at their explicit affine crossing, while equal-height scores
+are injective in the real part. A small open interval preserving the
+strict gain contains a shift outside the finite crossing set.
+All these real proofs are maintained, exported and registered by
+exact name. The every-large-cutoff response theorem below remains
+unfinished in Lean.
 
 \begin{proof}[Proof of Theorem~\ref{thm:greedy-prime-uniform-zero-response}]
 It suffices to treat $0<\epsilon<1$.
