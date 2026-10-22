@@ -11,6 +11,7 @@ import PrimeFactorOscillations.Proof.PrimeClassDeletion.CappedPrimeDivisibility
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.CappedPrimeMissingCost
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.GreedyPrimeExceptionalCoordinate
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.PolynomialPrimeNorming
+import PrimeFactorOscillations.Proof.PrimeClassDeletion.PrimePowerComponentFiber
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.PrimeRecordAllCutoffs
 
 /-!
@@ -42,6 +43,7 @@ The actual signed record energy retains its prime supply, ordinary integral,
 left limits and terminal correction at every real cutoff. Strict-record
 energy bounds imply all-cutoff power bounds with the finite initial record
 explicit in the constant. These estimates retain the independent energy
-hypothesis. The full prime-power component law and RH applications remain
-separate obligations.
+hypothesis. Full-component finite atom counts, exact signed floor errors and
+uniform atom error bounds are proved. The full infinite prime-power law and
+its geometric normalization remain separate obligations.
 -/

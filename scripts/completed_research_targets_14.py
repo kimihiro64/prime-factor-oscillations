@@ -1,4 +1,4 @@
-"""Complete Gaussian formulas, exposure and every-cutoff zero response."""
+"""Prime-class zero spectra, signed comparisons and full component sampling."""
 
 TARGETS = (
     "PrimeFactorOscillations.PrimeClassDeletion.actualZetaZeroSupremum_spec",
@@ -190,6 +190,11 @@ TARGETS = (
     "PrimeFactorOscillations.PrimeClassDeletion.zetaDistinctZero_coefficient_ne_zero",
     "PrimeFactorOscillations.PrimeClassDeletion.zetaDistinctZero_exists_positive_height",
     "PrimeFactorOscillations.PrimeClassDeletion.zetaDistinctZero_im_ne_zero",
+    "PrimeFactorOscillations.PrimeClassSampling.abs_primePowerComponentFiber_probability_error_le",
+    "PrimeFactorOscillations.PrimeClassSampling.finitePrimeComponentSurvival_div_eq_subset_sum",
+    "PrimeFactorOscillations.PrimeClassSampling.primePowerComponentFiber_card_eq_subset_floor_sum",
+    "PrimeFactorOscillations.PrimeClassSampling.primePowerComponentFiber_card_eq_zero_sample",
+    "PrimeFactorOscillations.PrimeClassSampling.primePowerComponentFiber_signed_probability_error",
     "PrimeFactorOscillations.abs_nicolasPsiError_le_stripDegree",
     "PrimeFactorOscillations.exists_nicolasPsiError_le_strip_rpow",
     "PrimeFactorOscillations.exists_nicolasStripDegreeError_bound",

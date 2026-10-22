@@ -16204,6 +16204,47 @@ The constant does not depend on a prime cutoff or on a statistic
 subsequently applied to the component.
 \end{theorem}
 
+\paragraph{Finite prime-power atoms (Lean verified).}
+The maintained owner \texttt{PrimePowerComponentFiber} now proves the
+literal finite-support counting identity and its full signed error.
+For a finite set \(S\) of primes and \(a\ge1\), put
+\[
+ M_{S,N}(a)=\#\{1\le m\le N:a\mid m,\
+                   p\nmid m/a\ \text{for every }p\in S\},\qquad
+ c_S=\prod_{p\in S}(1-1/p).
+\]
+When every prime factor of \(a\) belongs to \(S\), this is exactly the
+sample count of the full \(S\)-component atom \(a\).
+The bijection \(m=ak\) identifies this fiber with the integers
+\(1\le k\le\lfloor N/a\rfloor\) divisible by none of the primes in \(S\).
+The already proved finite support identity, evaluated at zero, therefore
+gives the exact formula
+\[
+ M_{S,N}(a)=\sum_{T\subseteq S}(-1)^{|T|}
+                    \left\lfloor\frac{N}{a\prod_{p\in T}p}\right\rfloor.
+\]
+The finite Euler expansion gives
+\[
+ \frac{M_{S,N}(a)}N-\frac{c_S}a
+ =\sum_{T\subseteq S}(-1)^{|T|}
+   \left(\frac{\lfloor N/(a\prod_{p\in T}p)\rfloor}{N}
+                   -\frac1{a\prod_{p\in T}p}\right).
+\]
+Both identities are proved with the actual integer endpoints.
+For \(N\ge1\) and \(0\le\sigma\le1\), the maintained source also proves
+\[
+ \left|\frac{M_{S,N}(a)}N-\frac{c_S}a\right|
+ \le N^{\sigma-1}a^{-\sigma}\prod_{p\in S}(1+p^{-\sigma}).
+\]
+Indeed the signed main term cancels first. Apply the proved scalar
+floor-error estimate to the complete divisor \(a\prod_{p\in T}p\),
+then sum over every subset \(T\); its exact weighted sum is
+\(\prod_{p\in S}(1+p^{-\sigma})\).
+There is no coprimality restriction between \(a\) and the subset product.
+The geometric sum over all supported prime powers, normalization and
+independence of the infinite law, and the full uniform
+total-variation conclusion remain separate Lean obligations.
+
 \begin{proof}
 The reciprocal prime sum converges by the preceding lemma with $s=1$.
 Thus the product defining $c_{\mathcal D}$ is positive.
