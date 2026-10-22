@@ -3,7 +3,7 @@ Copyright (c) 2026 Prime Factor Oscillations contributors.
 Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Prime Factor Oscillations contributors
 -/
-import PrimeFactorOscillations.Assembly.PrimeClassDeletionFinite
+import PrimeFactorOscillations.Assembly.PrimeClassDeletionWaves
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.CapacitySelection
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.CappedSupportFunction
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.CriticalCellScale
@@ -22,5 +22,7 @@ import PrimeFactorOscillations.Proof.PrimeClassDeletion.RepairHellinger
 Exports capped capacities, signed overweight contacts, actual-node polynomial
 interpolation and derivative bounds, positive Dirichlet convergence and boundary
 summability, and the finite signed Hellinger-energy and deleted-prime counts.
+The complete signed record-energy and periodic-wave theorems include the actual
+deleted-prime count asymptotic.
 Integral moment geometry and Euler adapters retain their ordinary paper proofs.
 -/

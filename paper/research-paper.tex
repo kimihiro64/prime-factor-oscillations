@@ -14201,20 +14201,43 @@ zero pair, or an RH-dependent Fourier limit is used or inferred here.
 The certified unconditional boundary remains $7/8$.
 
 In the prime-deletion assembly, \texttt{GreedyRegulator.lean}
-contains the Lean-checked finite regulator core.
-For a clock error $e_n$, increasing weights $w_n$, and initial deleted
-mass and record both zero, its assumptions are
-$0\le w_0$, $e_0\le w_0$, and
-$e_{n+1}\le e_n+w_{n+1}$.
-It proves the exact rejection recursion, its signed slack identity,
-the record sandwich at every finite prefix, and that every rejection
-is a new positive record.
-For primes, take $e_n=\theta(p_{n+1})-p_{n+1}$ and
-$w_n=\log p_{n+1}$; the clock condition follows from the elapsed
-positive prime gap.
-This arithmetic identification, partial summation and the asymptotic
-wave transfer retain their ordinary proofs above; the combined
-prime-wave theorem is not claimed as a compiled Lean declaration.
+contains the finite regulator core, and
+\texttt{GreedyPrimeRegulator.lean} identifies its clock with the actual
+greedy prime class.
+Theorem~\ref{thm:greedy-prime-wave-envelope}, including all three
+real-cutoff asymptotics, is now proved by the maintained declaration
+\texttt{greedyPrime\_periodic\_wave} in
+\texttt{PrimeWavePeriodic.lean}.
+Its proof retains the full leading-error hypothesis
+\eqref{eq:greedy-prime-periodic-error}; it does not infer that hypothesis
+from the existence of a zero.
+The formal theorem permits every $\beta>0$, so it covers the stated
+range $0<\beta<1$.
+
+The maintained proof includes the literal positive-supremum formula,
+the finite sup norm, continuity and periodicity of the envelope, and
+the lower bound $f(v_0)e^{-\beta T}$.
+\texttt{PrimeWaveRecordComparison.lean} proves the uniform finite-prefix
+comparison with its initial-range and logarithmic overshoot terms;
+\texttt{PrimeWaveLimits.lean} proves the actual regulator and deleted-mass
+limits.
+\texttt{PrimeClassAbel.lean} proves the exact partial-summation formula
+for every actual prime class, with the first prime $2$ retained.
+\texttt{PrimeClassAbelBigO.lean} proves the displayed
+$O(x^\beta/\log^2x)$ remainder from a uniform class-mass power bound.
+\texttt{PrimeWaveCount.lean} then proves the actual deleted-count
+asymptotic.
+The companion declaration
+\texttt{greedyPrime\_periodic\_wave\_count\_bounds} gives, for every
+sufficiently large real $x$, the explicit comparison constants
+$f(v_0)e^{-\beta T}/2$ and $\|f\|_\infty+1$.
+
+The envelope contraction, almost-period inheritance and uniform positive
+recurrence bound are also formalized in
+\texttt{DampedWaveRecurrence.lean}.
+The full joint-wave theorem, its finite incommensurable-frequency
+specialization, and the explicit cosine optimization remain separate
+formalization obligations.
 
 \subsection{An infinitely-often size criterion from positive Gaussian probes}
 \label{sec:greedy-prime-Gaussian-liminf}
