@@ -14171,23 +14171,47 @@ Then
 \end{theorem}
 
 \begin{proof}
-For $g(u)=e^{-\beta u}\cos(w-\tau u)$ one has
+Put $k=\beta/\tau>0$, $a=\arctan k$ and
+$h(r)=e^{kr}\cos(a+r)$.
+Then $\cos a>0$, $\sin a=k\cos a$, and
 \[
- g'(u)=e^{-\beta u}
-             \bigl(\tau\sin(w-\tau u)-\beta\cos(w-\tau u)\bigr).
+ h'(r)=-e^{kr}\cos a\,(1+k^2)\sin r .
 \]
-Its positive local maxima occur at
-$u=d(v)/\tau+2\pi k/\tau$ for integers $k\ge0$.
-Each successive such maximum is the preceding one multiplied by
-$e^{-2\pi\beta/\tau}<1$.
-The remaining interior stationary points are negative local minima,
-and $g(u)\to0$ as $u\to\infty$.
-Thus the maximum on $u\ge0$ is attained either at $u=0$ or at the
-first nonnegative positive local maximum.
-Their two values give the formula.
-The displayed bounds follow from $0\le d(v)<2\pi$ and $\cos\alpha>0$.
-Although $d(v)$ jumps at its modular endpoint, the maximum formula
-is continuous there, as also follows from the preceding theorem.
+Consequently $h$ decreases on $[0,\pi]$ and increases on
+$[\pi,2\pi]$. For $0\le r\le d<2\pi$ this gives
+$h(r)\le\max\{\cos a,h(d)\}$.
+
+The entire earlier-wave tail satisfies the same bound.
+For $t\ge0$, the elementary inequalities $\sin t\le t$,
+$\cos t\le1$ and $1+kt\le e^{kt}$ give
+\[
+ \cos(a-t)=\cos a\,(\cos t+k\sin t)
+       \le\cos a\,(1+kt)\le\cos a\,e^{kt}.
+\]
+Taking $t=-r$ proves $h(r)\le\cos a$ for every $r\le0$.
+Thus
+\[
+ h(r)\le\max\{\cos a,h(d)\}\qquad(r\le d).
+\]
+
+The representative is implemented explicitly as
+\[
+ d=w-a-2\pi\left\lfloor\frac{w-a}{2\pi}\right\rfloor,
+ \qquad 0\le d<2\pi.
+\]
+For each $u\ge0$, put $r=d-\tau u\le d$.
+Periodicity and $k\tau=\beta$ give
+\[
+ e^{-\beta u}\cos(w-\tau u)=e^{-kd}h(r)
+   \le\max\{\cos w,\cos a\,e^{-kd}\}.
+\]
+Both candidate values are attained: use $u=0$ and $u=d/\tau$,
+respectively. The second is strictly positive, so adjoining zero
+to the supremum changes nothing. Multiplication by $A$ proves
+the exact formula.
+The lower bound follows from $d<2\pi$ and $\cos a>0$;
+the upper bound follows from $e^{-\beta u}\le1$ and $\cos\le1$.
+Continuity at the modular endpoint also follows from the preceding theorem.
 \end{proof}
 
 This is a precise memory effect of the \emph{same} selected class:
@@ -14257,8 +14281,19 @@ The envelope contraction, almost-period inheritance and positive
 recurrence bound are in \texttt{DampedWaveRecurrence.lean}.
 All these declarations are exported and included by exact name in
 the recurring foundational-axiom audit.
-The explicit cosine optimization remains a separate formalization
-obligation.
+Theorem~\ref{thm:greedy-prime-cosine-envelope} is now proved in
+\texttt{CosineEnvelope.lean} by
+\texttt{dampedWaveEnvelope\_\allowbreak cosine} and
+\texttt{dampedWaveEnvelope\_\allowbreak cosine\_\allowbreak bounds}.
+The literal floor phase and its full range are proved in
+\texttt{DiscountedCosinePhase.lean}.
+\texttt{GrowingCosineKernel.lean} proves the exact derivative,
+both monotonicity intervals and the entire historical-tail estimate;
+the supremum proof exhibits both attaining lookbacks.
+These owners are exported and every named proof is registered for
+the recurring foundational-axiom audit.
+The independent zero-size estimates and zero-response applications
+remain separate obligations.
 
 \subsection{An infinitely-often size criterion from positive Gaussian probes}
 \label{sec:greedy-prime-Gaussian-liminf}
