@@ -14445,12 +14445,14 @@ estimated in modulus; the full signed zero sum remains in
 \eqref{eq:greedy-prime-Gaussian-explicit}.
 \end{proof}
 
-\emph{Lean formalization status: partial.}
-The full assertions of Lemmas~\ref{lem:greedy-prime-Gaussian-explicit}
-and~\ref{lem:greedy-prime-Gaussian-exposure}, and
-Theorem~\ref{thm:greedy-prime-uniform-zero-response}, remain unfinished
-in Lean. The maintained proofs now establish the following actual
-analytic inputs, rather than only the scalar exponent comparisons.
+\emph{Lean formalization status.}
+Lemma~\ref{lem:greedy-prime-Gaussian-explicit} is formalized in full.
+Its maintained statement retains the actual physical probes, distinct
+nontrivial zeta zeros with their analytic multiplicities, absolute
+convergence, the explicit uniform remainder and the complete prime-power
+correction. Lemma~\ref{lem:greedy-prime-Gaussian-exposure} and
+Theorem~\ref{thm:greedy-prime-uniform-zero-response} remain unfinished.
+The exact analytic proof chain is described below.
 
 For $X>0$, $V>0$ and every real frequency $\tau$, put
 \[
@@ -14569,13 +14571,35 @@ The constant and reference-pole tails contribute the remaining
 $(|\log(2\pi)|+1/2)B_V/X$.
 No principal zero contribution is estimated away.
 
-These proofs are exported and registered by exact declaration name.
-The translation from canonical indices to the displayed distinct-zero
-multiplicity sum, the complete prime-power correction,
-dominant-zero exposure and every-large-cutoff zero-response conclusion
-still require their matching Lean proofs.
-Consequently no entire Gaussian lemma or zero-response theorem is
-declared formalized on the strength of this completed residue formula.
+The distinct-zero formula is proved in
+\texttt{LogGaussian\allowbreak ZetaExplicit.lean}. It reuses the existing
+\texttt{XiZetaMultiplicity.lean} bridge, which identifies the xi and
+zeta analytic orders unconditionally on the positive half-plane away
+from one. Exact finite-fiber regrouping gives the coefficient
+$m_\rho/\rho$ at each distinct nontrivial zeta zero.
+The complete assembled declaration is
+\begin{quote}
+\texttt{logGaussian\_signed\_zeta\_explicit\_\allowbreak with\_prime\_powers}.
+\end{quote}
+It proves the signed formula, absolute convergence, explicit
+$K_\tau X^{-1+c/2}$ remainder and the first inequality in
+\eqref{eq:greedy-prime-Gaussian-prime-powers} together, for all
+$X>1$, $c>0$, $c\log X\ge1$ and real $\tau$.
+This includes the lemma's full $0<c<1$ domain.
+
+The prime-power proof uses the exact normalized Gaussian mass and
+absolute first moment, the shift $u\mapsto u-V/2$, and the full
+$\psi-\theta$ contribution, including small inputs.
+\texttt{logGaussian\_prime\_power\_uniform\_log\_scale} additionally
+proves the displayed $O_c$ estimate with the explicit positive constant
+\[
+ C_c=2\left(2+\frac c2+\frac{2c}{\pi}\right)
+\]
+for every real $\tau$ and every $X\ge e$.
+All these declarations are exported and registered by exact name.
+Dominant-zero exposure and the every-large-cutoff zero response remain
+separate open formalization items; the completed lemma alone proves
+no improved zero-free boundary.
 
 \begin{lemma}[A Gaussian shift exposes a strictly dominant zero]
 \label{lem:greedy-prime-Gaussian-exposure}
