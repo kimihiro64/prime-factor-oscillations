@@ -16888,6 +16888,101 @@ The maintained owners \texttt{PrimeComponentCarrierStability},
 preservation, both bounds, the disjoint-support probe, the
 normalized witnesses, both exact distances and optimality.
 
+\begin{theorem}[Exact inverse geometry and optimal finite-prime approximation]
+\label{thm:component-carrier-exact-geometry}
+Let \(\sigma>0\), and let \(P,Q\) be prime classes satisfying
+\(\sum_{p\in P}p^{-\sigma}<\infty\) and
+\(\sum_{p\in Q}p^{-\sigma}<\infty\).
+For each relevant class \(R\), use the partition sum \(Z_R\),
+inverse \(\rho_R=Z_R\mu w_R\), and Euler budget
+\(B_R=B_{R,\sigma}\) of
+Theorem~\ref{thm:component-carrier-exact-inverse-norm}.
+Write \(J=P\cap Q\). Then
+\[
+ \|\rho_P-\rho_Q\|_1
+   =B_P+B_Q-2\min(Z_P,Z_Q)\frac{B_J}{Z_J}.
+\]
+In particular, if \(P\subseteq Q\), then
+\[
+                  \|\rho_P-\rho_Q\|_1=B_Q-B_P.
+\]
+For every integer cutoff \(Y\ge0\), put
+\(P_Y=\{p\in P:p\text{ prime},\ p\le Y\}\).
+The actual finite-prime inverse satisfies
+\[
+ E_Y:=\|\rho_P-\rho_{P_Y}\|_1=B_P-B_{P_Y},
+ \qquad \lim_{Y\to\infty}E_Y=0.
+\]
+For every absolutely summable real arithmetic function \(u\),
+\[
+ \|(\rho_P-\rho_{P_Y})*u\|_1\le E_Y\|u\|_1.
+\]
+The constant \(E_Y\) is the smallest real constant valid for all
+such \(u\); equality is attained at \(u=\delta_1\).
+Empty classes and all cutoffs below \(2\) are included.
+\end{theorem}
+
+\begin{proof}
+Every coefficient has the same M\"obius sign in both inverses.
+If \(n\) is supported on both prime classes, its unnormalized
+weight is \(w_J(n)=n^{-\sigma}\); otherwise the corresponding
+missing weights vanish. Thus the elementary identity
+\(|a-b|=a+b-2\min(a,b)\) gives, pointwise,
+\[
+ |\rho_P(n)-\rho_Q(n)|
+  =|\rho_P(n)|+|\rho_Q(n)|
+    -2\min(Z_P,Z_Q)|\mu(n)|w_J(n).
+\]
+All series are absolutely summable: the two inverse norms are
+finite, and the intersection weight is dominated by the
+\(P\)-weight. Also \(Z_J>0\), since its \(n=1\) term is one.
+The exact inverse norm gives
+\[
+ \sum_{n\ge1}|\mu(n)|w_J(n)=\frac{B_J}{Z_J}.
+\]
+Summing the pointwise identity proves the distance formula.
+When \(P\subseteq Q\), the supported weights are pointwise
+ordered, hence \(Z_P\le Z_Q\), and \(J=P\).
+The general formula then reduces to \(B_Q-B_P\).
+
+Apply this identity with \(P_Y\subseteq P\).
+For each fixed integer \(n\), the prefix-supported weight
+eventually equals the full weight. It is dominated by the
+summable full supported weight. The same holds after
+multiplication by \(|\mu(n)|\le1\).
+Dominated convergence therefore gives
+\[
+ Z_{P_Y}\longrightarrow Z_P,\qquad
+ \sum_{n\ge1}|\mu(n)|w_{P_Y}(n)
+   \longrightarrow\sum_{n\ge1}|\mu(n)|w_P(n).
+\]
+Since \(B_R=Z_R\sum_{n\ge1}|\mu(n)|w_R(n)\),
+we obtain \(B_{P_Y}\to B_P\), proving the exact error limit.
+
+The absolutely summable convolution inequality applied to
+\(\rho_P-\rho_{P_Y}\) gives the displayed uniform bound.
+Taking \(u=\delta_1\), whose absolute norm is one and which is
+the convolution identity, gives equality. Every uniform
+constant is therefore at least \(E_Y\).
+\end{proof}
+
+\paragraph{Interpretation and maintained verification.}
+Along nested prime classes, the inverse kernels are isometric
+to their scalar Euler budgets. A finite-prime reconstruction
+therefore has an exact error budget, rather than only an
+unspecified continuity bound. The maintained owners
+\texttt{PrimeComponentCarrierDistance} and
+\texttt{PrimeComponentCarrierCutoff} prove the general formula,
+nested identity, finite-cutoff limit, uniform convolution
+bound and its optimality. The ambient algebra of absolutely
+summable Dirichlet coefficients is classical.\footnote{See
+\href{https://arxiv.org/html/0904.2527v1}{Bayart, Finet, Li and
+Queff\'elec, \emph{Composition operators on the Wiener--Dirichlet
+algebra}}, introduction. The formulas here use the particular
+common M\"obius sign and prime-support intersections of these
+inverse kernels.}
+
+
 \begin{theorem}[The exact statistical convergence exponent]
 \label{thm:deleted-component-exact-rate}
 Put $\Delta_N=d_{\rm TV}(\mu_N,\nu)$.

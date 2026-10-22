@@ -12,7 +12,7 @@ import PrimeFactorOscillations.Proof.PrimeClassDeletion.CappedPrimeMissingCost
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.GreedyPrimeExceptionalCoordinate
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.GreedyPrimeGeometricLaw
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.PolynomialPrimeNorming
-import PrimeFactorOscillations.Proof.PrimeClassDeletion.PrimeComponentCarrierSharpness
+import PrimeFactorOscillations.Proof.PrimeClassDeletion.PrimeComponentCarrierCutoff
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.PrimePowerComponentBudget
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.PrimeRecordAllCutoffs
 
@@ -57,4 +57,7 @@ complete absolute norm is exactly that same Euler budget.
 The convolution channel has two-sided total-variation stability with this
 optimal inverse constant, attained by explicit probability laws. The proof
 uses disjoint squarefree and four-dilated supports, including empty classes.
+Signed inverse-kernel distances have an exact intersection formula. Nested
+classes are isometric to their Euler budgets, and finite-prime inverses
+converge with the exact optimal uniform convolution-error constant.
 -/

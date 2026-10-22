@@ -2,7 +2,7 @@
 
 ## Recent paper claims — reconciliation of 22 October 2026
 
-All **81 labelled claims in the recent-paper repair ledger** have explicit current statuses: **24 fully matched, 13 partially matched, and 44 with no exact maintained full-statement match identified**. There are **zero default pending matches** and **zero completed proofs awaiting promotion**. The formalization backlog is not complete; the separate review of unlabelled paper assertions remains open.
+All **82 labelled claims in the recent-paper repair ledger** have explicit current statuses: **25 fully matched, 13 partially matched, and 44 with no exact maintained full-statement match identified**. There are **zero default pending matches** and **zero completed proofs awaiting promotion**. The formalization backlog is not complete; the separate review of unlabelled paper assertions remains open.
 
 “Fully matched” records existing Lean proofs of the complete statement. “Partial match” records proved clauses and lists the remaining clauses. “No exact match identified” records the result of the maintained-source comparison; related inputs alone do not establish the stated theorem. Existing proof verification is reused here. No unchanged proof closure or axiom audit was rerun.
 
@@ -91,10 +91,11 @@ The table includes every claim in this ledger, in ledger order. Owner links iden
 | 79 | Exact distance between full component laws (`thm:component-reference-exact-distance`) | **Fully matched** | 21 matched declarations. Recorded owner: [GreedyPrimeGeometricLaw.lean](../PrimeFactorOscillations/Proof/PrimeClassDeletion/GreedyPrimeGeometricLaw.lean). No remaining clause. |
 | 80 | Exact inverse norm of multiplicative prime-component noise (`thm:component-carrier-exact-inverse-norm`) | **Fully matched** | 32 matched declarations. Recorded owner: [PrimeComponentCarrierArithmetic.lean](../PrimeFactorOscillations/Proof/PrimeClassDeletion/PrimeComponentCarrierArithmetic.lean). No remaining clause. |
 | 81 | Sharp stability of multiplicative prime-component noise (`thm:component-carrier-sharp-probability-stability`) | **Fully matched** | 31 matched declarations. Recorded owner: [ArithmeticFunctionDirichletL1.lean](../PrimeFactorOscillations/Helpers/ArithmeticFunctionDirichletL1.lean). No remaining clause. |
+| 82 | Exact inverse geometry and optimal finite-prime approximation (`thm:component-carrier-exact-geometry`) | **Fully matched** | 16 matched declarations in [PrimeComponentCarrierDistance.lean](../PrimeFactorOscillations/Proof/PrimeClassDeletion/PrimeComponentCarrierDistance.lean) and [PrimeComponentCarrierCutoff.lean](../PrimeFactorOscillations/Proof/PrimeClassDeletion/PrimeComponentCarrierCutoff.lean). Exact general and nested inverse distances, convergence of finite-prime inverses, and the optimal uniform convolution error constant. Both owners and all five affected public consumers compiled. No remaining clause. |
 
 Reconciled cross-claim dependencies: claim 37 no longer lists the completed claim 36 law as missing. Claims 37, 50 and 57 no longer describe its proofs as held or unpromoted. Claims 50 and 57 still require their distinct progression and conditional-localization statements; the unshifted law does not establish those statements.
 
-The dated sections below retain their historical theorem scopes and verification counts. Those historical counts are not current totals for this 81-claim reconciliation.
+The dated sections below retain their historical theorem scopes and verification counts. Those historical counts are not current totals for this 82-claim reconciliation.
 
 
 ## Maintained research results — 20 October 2026
