@@ -16688,6 +16688,87 @@ tail expression used in the following ordinary sampling-rate proof.
 It supplies no new estimate for that tail's decay, and does not
 resolve that proof's separate asymptotic obligations.
 
+\begin{theorem}[Exact inverse norm of multiplicative prime-component noise]
+\label{thm:component-carrier-exact-inverse-norm}
+Let \(P\) be a set of primes and let \(\sigma>0\) satisfy
+\(\sum_{p\in P}p^{-\sigma}<\infty\). For \(n\ge0\), put
+\[
+ w(n)=
+ \begin{cases}
+ n^{-\sigma},&n\in\mathcal H_P,\\
+ 0,&n\notin\mathcal H_P,
+ \end{cases}
+ \qquad Z=\sum_{n\ge0}w(n),\qquad
+ \eta(n)=\frac{w(n)}Z,\qquad
+ \rho(n)=Z\mu(n)w(n).
+\]
+Here \(\mathcal H_P\) contains only positive integers, so \(w(0)=0\);
+we also set \(\mu(0)=0\). Then \(0<Z<\infty\), and \(\eta\) is
+a probability law. Under Dirichlet convolution, with value zero at
+\(0\), its signed inverse satisfies
+\[
+ \rho*\eta=\delta_1,\qquad
+ \sum_{n\ge0}|\rho(n)|
+   =B_{P,\sigma}
+   =\prod_{p\in P}\frac{1+p^{-\sigma}}{1-p^{-\sigma}}<\infty.
+\]
+The product is the same complete Euler budget as in the sampling
+law. The assertion applies to every positive \(\sigma\) satisfying
+the stated summability condition, including the empty prime class.
+\end{theorem}
+
+\begin{proof}
+The full supported-weight series is summable by the uniform
+geometric-budget theorem, and its term at \(1\) is one. Thus
+\(Z\) is finite and positive, and normalizing the nonnegative
+weights gives total mass one.
+
+The support indicator is completely multiplicative: a product
+has all prime divisors in \(P\) if and only if both factors do.
+Consequently \(w(mn)=w(m)w(n)\), including zero arguments.
+Twisting the exact arithmetic identity \(\mu*\boldsymbol1=\delta_1\)
+by \(w\), and then multiplying the two kernels by \(Z\) and \(1/Z\),
+proves \(\rho*\eta=\delta_1\).
+
+Write \(a(n)=|\mu(n)|w(n)\). Since \(0\le a(n)\le w(n)\),
+the series for \(a\) is summable. Both \(a\) and \(w\) are
+multiplicative. For a prime \(p\), write \(q_p=w(p)\). We have
+\(0\le q_p<1\); it equals \(p^{-\sigma}\) for \(p\in P\)
+and zero otherwise. The complete local series are exactly
+\[
+ \sum_{k\ge0}w(p^k)=\frac1{1-q_p},
+ \qquad
+ \sum_{k\ge0}a(p^k)=1+q_p.
+\]
+The second equality retains precisely exponents \(0\) and \(1\),
+because the higher prime powers have zero M\"obius coefficient.
+
+Apply the absolutely convergent multiplicative Euler-product
+theorem to each series. Multiplying the two finite products over
+\(p\le Y\) gives exactly
+\[
+ \prod_{\substack{p\in P\\p\le Y}}
+       \frac{1+p^{-\sigma}}{1-p^{-\sigma}}.
+\]
+The separate series limits and the already proved complete
+error-Euler limit therefore give
+\(Z\sum_n a(n)=B_{P,\sigma}\).
+Finally \(|\rho(n)|=Za(n)\), proving absolute summability and
+the displayed exact norm. All denominators are positive; neither
+the prime \(2\) nor empty prefixes require an exception.
+\end{proof}
+
+\paragraph{Scope and maintained verification.}
+The maintained owners \texttt{PrimeComponentCarrierArithmetic},
+\texttt{PrimeComponentCarrierEuler} and
+\texttt{PrimeComponentCarrierNorm} prove the normalized inverse,
+the complete local Euler sums, absolute summability and the exact
+infinite norm. The assembled certificate also includes
+nonnegativity and total mass one for the noise law.
+This identifies the sampling budget with an inverse-kernel norm.
+The total-variation stability inequality and its explicit
+probability extremizers remain separate formalization targets.
+
 \begin{theorem}[The exact statistical convergence exponent]
 \label{thm:deleted-component-exact-rate}
 Put $\Delta_N=d_{\rm TV}(\mu_N,\nu)$.

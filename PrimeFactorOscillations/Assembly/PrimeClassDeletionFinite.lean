@@ -12,8 +12,8 @@ import PrimeFactorOscillations.Proof.PrimeClassDeletion.CappedPrimeMissingCost
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.GreedyPrimeExceptionalCoordinate
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.GreedyPrimeGeometricLaw
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.PolynomialPrimeNorming
+import PrimeFactorOscillations.Proof.PrimeClassDeletion.PrimeComponentCarrierNorm
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.PrimePowerComponentBudget
-import PrimeFactorOscillations.Proof.PrimeClassDeletion.PrimePowerComponentClassLimit
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.PrimeRecordAllCutoffs
 
 /-!
@@ -52,4 +52,6 @@ every prime power. The full infinite prime-power law is normalized and its
 finite-dimensional valuation laws are independent geometric laws, with
 finite support almost surely. Literal full-component sampling retains the
 exact complete Euler total-variation budget after every statistic.
+Multiplicative component noise has a normalized signed Mobius inverse whose
+complete absolute norm is exactly that same Euler budget.
 -/
