@@ -13672,30 +13672,54 @@ stated constant \(32\). Thus the complete formalized signed bound is
  F_{\mathcal S}(x)\le K_{\mathcal S}(x)+\frac{32}{x\log x}
  \qquad(x\ge4,\ \theta_{\mathcal S}(x)>1).
 \]
-The quantitative negative-area estimate below and its strict-sign
-consumer remain formalization obligations.
-
-There is also a definite negative area in $K_{\mathcal S}$.
-Choose a constant $C\ge1$ with $\pi(2x)\le Cx/\log x$
-eventually, and put $h=\log x/(8C)$.
-Inside $[x,2x]$, the union of intervals $[p,p+h)$
-over all primes $p\le2x$ has measure at most $x/8$.
-At every remaining point $t$, its last full prime is at
-most $t-h$. Since the selected theta function is bounded
-by the last selected prime, the cap gives
-$t-\theta_{\mathcal S}(t)\ge h$ there.
-Also $\kappa(t)\ge1/(8x^2\log x)$ on $[x,2x]$ eventually.
-Consequently
+The remaining negative area and the strict-sign consumer are now also
+proved in Lean. In fact the literal cap suffices, without a prime-count
+asymptotic. For \(x\ge4\), let
+\[
+ \mathcal P_x=\{p\in\mathcal S:x/2\le p\le2x\},
+ \qquad h=\frac{\log x}{32}.
+\]
+Since \(\log p\ge(\log x)/2\) on this finite set,
+\[
+ \#\mathcal P_x\,\log x
+ \le2\theta_{\mathcal S}(2x)\le4x.
+\]
+The union \(B_x=\bigcup_{p\in\mathcal P_x}[p,p+h)\) therefore has
+measure at most \(h\#\mathcal P_x\le x/8\).
+Its complement \(G_x=(x,2x]\setminus B_x\) has measure at least \(7x/8\).
+The elementary bound \(\log x/32\le x/2\) ensures that any selected
+prime in \((t-h,t]\), for \(t\in(x,2x]\), belongs to \(\mathcal P_x\).
+Such a prime would put \(t\) in \(B_x\). Hence for every \(t\in G_x\)
+the literal selected prefixes at \(t-h\) and \(t\) are equal, including
+their endpoints. The cap at \(t-h\ge0\) yields
+\[
+ t-\theta_{\mathcal S}(t)\ge h.
+\]
+The exact kernel
+\(\kappa(t)=(1/\log t+1/(\log t)^2)/t^2\) satisfies
+\(\kappa(t)\ge1/(8x^2\log x)\) throughout \([x,2x]\), for \(x\ge4\).
+Consequently the actual absolutely convergent integral satisfies
 \[
  -K_{\mathcal S}(x)
- \ge\int_x^{2x}(t-\theta_{\mathcal S}(t))\kappa(t)\,dt
- \ge\frac{7}{512C x}.
+ \ge\int_{G_x}(t-\theta_{\mathcal S}(t))\kappa(t)\,dt
+ \ge\frac{7x}{8}\frac{\log x}{32}\frac{1}{8x^2\log x}
+ =\frac{7}{2048x}.
 \]
-The pointwise cap makes the omitted part of the integral
-nonnegative. The $O(1/(x\log x))$ upper bound on $A_{\mathcal S}$
-is eventually smaller than half this supply.
-The calibrated identity proves
-\eqref{eq:greedy-prime-product-sign}, with a smaller $c_0>0$.
+The cap makes the omitted integrand nonnegative; no signed contribution
+has been bounded separately and lost. Combining this supply with the
+proved Euler tail gives
+\[
+ F_{\mathcal S}(x)
+ \le-\frac{7}{2048x}+\frac{32}{x\log x}
+ \le-\frac{7}{4096x}<0
+\]
+whenever \(x\ge4\), \(\log x\ge131072/7\), and
+\(\theta_{\mathcal S}(x)>1\).
+The maintained unconditional limit
+\(\theta_{\mathcal S}(x)/x\to1\) proves the last condition eventually;
+the logarithm tends to infinity too. Thus
+\eqref{eq:greedy-prime-product-sign} holds with the explicit choice
+\(c_0=7/4096\).
 \end{proof}
 
 
