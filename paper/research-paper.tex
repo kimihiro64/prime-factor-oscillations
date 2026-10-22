@@ -13395,12 +13395,15 @@ integral form of the earlier RH criterion:
  K(x)=K_{\mathcal S}(x)+\int_x^\infty M(t)\kappa(t)\,dt.
  \label{eq:greedy-prime-K-transfer}
 \end{equation}
-Both integrals converge unconditionally.
-The quantitative PNT estimates of orders zero and two already give
-$M(n)\le A+Cn/(\log n)^2+\log n$ eventually, as proved below.
-This also supplies the required absolute tail convergence.
-The integrand on the selected class is nonpositive pointwise.
-No RH hypothesis supplies this inequality.
+For every $x\ge2$, both integrals converge absolutely and the complete
+identity and sign in \eqref{eq:greedy-prime-K-transfer} now have maintained
+Lean proofs. The literal partition
+$\theta_{\mathcal S}(t)+M(t)=\theta(t)$ identifies the selected integrand
+with the full theta-error integrand minus $M(t)\kappa(t)$.
+The established unconditional full-tail integrability and the Abel-tail
+lemma below justify this subtraction before taking integrals.
+The native greedy cap gives $\theta_{\mathcal S}(t)-t\le0$ pointwise;
+the kernel is nonnegative. No RH hypothesis is used.
 
 
 The same selected class satisfies an actual calibrated
@@ -13421,9 +13424,11 @@ The subtraction of $C_{\mathcal D}$ is essential.
 The following mass and convergence statements now have maintained Lean
 proofs. The full Abel tail identity and its absolute integrability are
 also formalized below. The exact full-prime product difference and the
-nonnegativity of both corrections are now formalized as well. The signed
-calibrated integral identity and strict product-sign conclusion remain
-separate formalization obligations.
+nonnegativity of both corrections are now formalized as well. The
+selected integral transfer, the signed calibrated identity, and both
+remainder signs are also proved in Lean. The quantitative prime-tail
+bound, negative-area lower bound and strict product-sign conclusion
+remain separate formalization obligations.
 
 \begin{lemma}[Unconditional convergence of the missing Euler cost]
 \label{lem:greedy-prime-missing-cost-convergence}
@@ -13575,27 +13580,75 @@ Every retained missing Euler weight is nonnegative, so the full
 infinite tail is nonnegative too. In particular $F_{\mathcal S}(x)\le F(x)$;
 neither correction has been discarded.
 
-For the strict sign, write $D_{\mathcal S}$ and $A_{\mathcal S}$ for the earlier
-nonlinear correction and prime tail with $\theta_{\mathcal S}$
-and the selected primes in place of $\theta$ and all primes.
-The calibrated exact identity is
+For the strict sign, define the actual nonlinear correction and selected
+prime tail by
+\[
+ \begin{aligned}
+ D_{\mathcal S}(x)
+  &=\frac{\theta_{\mathcal S}(x)-x}{x\log x}
+     -\bigl(\log\log\theta_{\mathcal S}(x)-\log\log x\bigr),\\
+ A_{\mathcal S}(x)
+  &=\sum_{\substack{p>x\\p\in\mathcal S}}
+          \bigl(-\log(1-1/p)-1/p\bigr).
+ \end{aligned}
+\]
+The complete calibrated identity, now proved in Lean, is
 \[
  F_{\mathcal S}=K_{\mathcal S}-D_{\mathcal S}+A_{\mathcal S}.
 \]
-Indeed subtract the original identity, and use
+Here is the signed cancellation with every tail retained.
+Put
 \[
- \int_x^\infty M(t)\kappa(t)\,dt
- =\frac{M(x)}{x\log x}
-                  +\sum_{\substack{p>x\\p\in\mathcal D}}\frac1p,
+ \begin{aligned}
+ R_{\mathcal D}(x)&=\sum_{\substack{p>x\\p\in\mathcal D}}1/p,\\
+ E_{\mathcal D}(x)&=\sum_{\substack{p>x\\p\in\mathcal D}}-\log(1-1/p),\\
+ T_{\mathcal P}(x)&=\sum_{\substack{p>x\\p\in\mathcal P}}
+                         \bigl(\log(1-1/p)+1/p\bigr).
+ \end{aligned}
 \]
-which is partial summation against $1/(t\log t)$.
-The nonlinear corrections supply the difference of the two
-$\log\log$ terms, and the remaining prime tail supplies exactly
-the quadratic part of the missing logarithmic product.
-This verifies the normalization as well as
-\eqref{eq:greedy-prime-product-signal}.
-Concavity gives $D_{\mathcal S}\ge0$, while PNT gives
-$0\le A_{\mathcal S}(x)\le A(x)=O(1/(x\log x))$.
+The coupled Mertens summand is nonpositive and bounded in absolute value
+by $2/p^2$, so every $T_{\mathcal P}$ converges absolutely.
+The maintained unconditional Mertens-series identity gives
+$A=-T_{\rm all}$, and the actual partition gives
+$T_{\rm all}=T_{\mathcal S}+T_{\mathcal D}$.
+Also $E_{\mathcal D}=R_{\mathcal D}-T_{\mathcal D}$.
+Both separate deleted tails converge by the preceding lemma.
+The Abel identity gives
+$K=K_{\mathcal S}+M(x)/(x\log x)+R_{\mathcal D}$, while
+\[
+ D(x)+\log\log\theta(x)-\log\log\theta_{\mathcal S}(x)
+ =D_{\mathcal S}(x)+\frac{M(x)}{x\log x}.
+\]
+Substituting in the original full-prime identity and the already
+proved product difference yields
+\[
+ \begin{aligned}
+ F_{\mathcal S}
+ &=K_{\mathcal S}+\frac{M(x)}{x\log x}+R_{\mathcal D}
+    -\left(D_{\mathcal S}+\frac{M(x)}{x\log x}\right)\\
+ &\hspace{1em}-(T_{\mathcal S}+T_{\mathcal D})
+                    -(R_{\mathcal D}-T_{\mathcal D})\\
+ &=K_{\mathcal S}-D_{\mathcal S}-T_{\mathcal S}.
+ \end{aligned}
+\]
+Since $A_{\mathcal S}=-T_{\mathcal S}$ this proves the stated calibration.
+
+The two correction signs are formalized without RH.
+For $x,y>1$, twice applying $\log v\le v-1$ gives
+\[
+ \log\frac{\log y}{\log x}
+ \le\frac{\log y-\log x}{\log x}
+ \le\frac{y-x}{x\log x}.
+\]
+Taking $y=\theta_{\mathcal S}(x)>1$ proves $D_{\mathcal S}\ge0$.
+Each coupled prime remainder is nonnegative, so $A_{\mathcal S}\ge0$.
+Consequently the complete maintained consumer is
+\[
+ F_{\mathcal S}(x)\le K_{\mathcal S}(x)+A_{\mathcal S}(x).
+\]
+The stronger bound $A_{\mathcal S}(x)=O(1/(x\log x))$ and the
+quantitative negative-area estimate below are the remaining analytic
+formalization steps.
 
 There is also a definite negative area in $K_{\mathcal S}$.
 Choose a constant $C\ge1$ with $\pi(2x)\le Cx/\log x$
