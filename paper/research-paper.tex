@@ -14923,7 +14923,7 @@ gives that same upper limit.
 This proves the last assertion.
 \end{proof}
 
-\paragraph{Maintained Lean proof of the cofinal RH specialization.}
+\paragraph{Maintained Lean proofs of the cofinal and logarithmic RH criteria.}
 For $\eta=1/2$, the cofinal integer-count formulation has a complete
 direct proof in \texttt{GreedyPrimeRHCriterion.lean}.
 The maintained theorem
@@ -14949,14 +14949,44 @@ The reverse implication consumes the unconditional uniform zero-response
 theorem at the same cofinal integer cutoffs.
 The supporting maintained owners are
 \texttt{GreedyPrimeRHUpper.lean} and
-\texttt{GreedyPrimeSparseCriterion.lean}; all six declarations are registered
-in the recurring foundational audit.
+\texttt{GreedyPrimeSparseCriterion.lean}.
 
-This verifies the cofinal integer-count RH equivalence.
-The logarithmic lower-limit reformulation, the upper implication for
-general $\eta$, and the final zero-supremum limit in
+The maintained owner \texttt{GreedyPrimeCountLiminf.lean} proves the
+literal logarithmic lower-limit reformulation as well.
+Writing $g_{\mathcal P}(n)=\log(1+N_{\mathcal P}(n))/\log n$,
+its proof first establishes $0\le g_{\mathcal P}(n)\le2$ for every
+prime class $\mathcal P$ and integer $n$, with the formal real division
+convention giving $g_{\mathcal P}(0)=g_{\mathcal P}(1)=0$.
+For $n\ge2$ and $a\ge0$, it retains the entire logarithmic allowance:
+\[
+ N_{\mathcal P}(n)\le n^a
+ \quad\Longrightarrow\quad
+ g_{\mathcal P}(n)\le a+\frac{\log2}{\log n}.
+\]
+Conversely, $g_{\mathcal P}(n)<a$ implies
+$1+N_{\mathcal P}(n)<n^a$ by multiplying by $\log n>0$
+and exponentiating.
+Given $y>\eta\ge0$, choose $a=\eta+(y-\eta)/2$.
+At all sufficiently large cutoffs the displayed allowance is less
+than $(y-\eta)/2$.
+The cofinal power bound therefore gives $g_{\mathcal P}(n)<y$
+arbitrarily far out.
+The reverse follows by taking $y=\eta+\epsilon$ in the
+bounded lower-limit characterization.
+In particular the exact maintained theorem
+\texttt{riemannHypothesis\_\allowbreak iff\_\allowbreak
+greedyDeletedPrimeClass\_\allowbreak log\_\allowbreak count\_\allowbreak liminf}
+states RH if and only if
+$\liminf_{n\to\infty}g_{\mathcal D}(n)\le1/2$.
+Both new declarations and the preceding six are registered in the
+recurring foundational audit.
+
+This verifies both RH formulations, including their exact cofinal
+transfer for every $\eta\ge0$.
+The upper zero-strip implication for general $1/2\le\eta<1$ and the
+final zero-supremum limit in
 Theorem~\ref{thm:greedy-prime-liminf-RH} remain separate formalization
-obligations and are not asserted by this declaration.
+obligations; the larger labelled claim is not closed by this specialization.
 
 The independent size burden has changed quantifiers: an unbounded sequence
 of favorable integer cutoffs is sufficient; an estimate at every cutoff
