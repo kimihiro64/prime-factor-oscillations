@@ -13626,14 +13626,14 @@ $\log p$, and $R$ has only prime jumps.
 The right-endpoint form of integration by parts gives
 \[
  R(X)E(X)=\mathcal C_R(X)+
-                 \sum_{p\le X}R(p)\Delta R(p).
+       \sum_{\substack{p\le X\\p\ {\rm prime}}}R(p)\Delta R(p).
 \]
 Here $E(p)=R(p)$ whenever $\Delta R(p)>0$, and
 $R(2^-)=0$ removes the initial endpoint.
 Finally
-$2\sum_{p\le X}R(p)\Delta R(p)=R(X)^2+Q_R(X)$.
-Every displayed sum in this calculation is over the finite
-prime support $p\le X$.
+\(2\sum_{\substack{p\le X\\p\ {\rm prime}}}
+       R(p)\Delta R(p)=R(X)^2+Q_R(X)\).
+All sums retain their finite prime support.
 
 At a positive record prime $X$, the terminal correction vanishes:
 \begin{equation}
@@ -13641,8 +13641,35 @@ At a positive record prime $X$, the terminal correction vanishes:
  \qquad 0\le Q_R(X)\le R(X)\log X.
  \label{eq:prime-record-energy-at-record}
 \end{equation}
-The last bound uses $0\le\Delta R(p)\le\log p$ and
-$\sum_{p\le X}\Delta R(p)=R(X)$.
+The last bound uses \(0\le\Delta R(p)\le\log p\) and
+\(\sum_{\substack{p\le X\\p\ {\rm prime}}}\Delta R(p)=R(X)\).
+At these record endpoints the complete signed bounds are
+\[
+ \frac{R(X)^2-R(X)\log X}{2}\le\mathcal C_R(X)
+                                      \le\frac{R(X)^2}{2}.
+\]
+For \(A\ge0\), an independent bound \(\mathcal C_R(X)\le A\) implies
+\[
+ R(X)\le\log X+\sqrt{2A}.
+\]
+More generally, suppose \(a>0\), \(K\ge0\), \(X_0\ge2\), and
+\(\mathcal C_R(p)\le Kp^{2a}\) at every strict record prime
+\(p\ge X_0\), where strict means \(\Delta R(p)>0\).
+Then the full bound, including all nonrecord cutoffs and the initial
+range, is
+\[
+ R(X)\le
+   \left(R(X_0)+\frac1a+\sqrt{2K}\right)X^a
+                         \qquad(X\ge2).
+\]
+Indeed \(\log t\le t^a/a\) for \(t>0\), and the record-endpoint
+root bound gives \(R(p)\le(a^{-1}+\sqrt{2K})p^a\).
+Every positive running maximum is attained at a strict record jump.
+If that prime is below \(X_0\), its height is bounded by \(R(X_0)\);
+otherwise the preceding estimate applies. Monotonicity of \(t^a\)
+and \(X^a\ge1\) give the displayed uniform constant.
+The independent signed-energy hypothesis is retained throughout.
+
 Consequently an independent estimate
 $\mathcal C_R(X)\ll_\epsilon X^{3/2+\epsilon}$ at all sufficiently
 large positive record primes would give
@@ -13665,6 +13692,29 @@ hypothesis does not apply to $\mathcal C_R$.
 Outside record endpoints, the terminal term in
 \eqref{eq:prime-record-energy} must also remain present.
 No new zero-free exponent follows from this identity.
+
+The entire signed energy calculation and its quantitative record-to-cutoff
+consumer are now Lean-checked.
+\texttt{primeRecordEnergy\_\allowbreak identity} uses the actual finite
+prime sum and ordinary real interval integral for every \(X\ge2\).
+\texttt{primeRecordJump\_\allowbreak left\_\allowbreak limit} identifies
+each prime jump with its one-sided limit; the first-prime left limit is
+zero.
+\texttt{greedyPrimeRegulatorReal\_\allowbreak integral} evaluates the
+actual record integral by the finite sum of its right-continuous jumps.
+The two finite product identities and the record-endpoint variation
+bound are compiled with their full support.
+\texttt{primeRecordEnergy\_\allowbreak root\_\allowbreak bound} and
+\texttt{primeRecordEnergy\_\allowbreak power\_\allowbreak bound\_\allowbreak explicit}
+retain the independent energy estimate.
+\texttt{primeRecordEnergy\_\allowbreak all\_\allowbreak cutoff\_\allowbreak bound}
+proves the displayed uniform constant, using strict record primes
+and the finite initial record.
+All proof owners are maintained, exported, and registered by exact name
+for recurring foundational-axiom checks.
+The separate zero-response theorems are required for the zero-free
+interpretation; no independent power-saving estimate for
+\(\mathcal C_R\) is supplied by these identities.
 
 \subsection{An extremal probability law among capped prime classes}
 \label{sec:capped-prime-probability-extremum}
@@ -13941,9 +13991,11 @@ specialization
 has the exact prime filter and class complement in every summand;
 cutoffs zero and one are included in the finite proof.
 The complete owner is exported and registered for recurring axiom checks.
-The signed record-energy calculation remains a separate formalization
-obligation. No established originality priority or new zero-free boundary
-is asserted.
+The signed record-energy identity, actual integral and left limits,
+and the complete record-to-cutoff power implication are now Lean-checked
+as described above. The independent signed-energy estimate and the
+separate zero-response applications remain open obligations.
+No established originality priority or new zero-free boundary is asserted.
 
 \subsection{How a prime-counting wave becomes a persistent deletion signal}
 \label{sec:greedy-prime-wave-envelope}

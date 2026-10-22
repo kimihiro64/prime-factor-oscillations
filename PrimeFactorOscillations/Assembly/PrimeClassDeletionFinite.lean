@@ -11,6 +11,7 @@ import PrimeFactorOscillations.Proof.PrimeClassDeletion.CappedPrimeDivisibility
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.CappedPrimeMissingCost
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.GreedyPrimeExceptionalCoordinate
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.PolynomialPrimeNorming
+import PrimeFactorOscillations.Proof.PrimeClassDeletion.PrimeRecordAllCutoffs
 
 /-!
 # Prime-class count laws and finite polynomial decoding
@@ -37,6 +38,10 @@ affine odds require beta>-2. The exceptional prime2 is removed with its
 exact rank shift and positive survival factor. Missing-cost optimality
 extends to infinite nonnegative decreasing weights whenever a competitor's
 missing cost converges, including the full logarithmic Euler cost.
-The full prime-power component law and RH applications remain separate
-obligations.
+The actual signed record energy retains its prime supply, ordinary integral,
+left limits and terminal correction at every real cutoff. Strict-record
+energy bounds imply all-cutoff power bounds with the finite initial record
+explicit in the constant. These estimates retain the independent energy
+hypothesis. The full prime-power component law and RH applications remain
+separate obligations.
 -/
