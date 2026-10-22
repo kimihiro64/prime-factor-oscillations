@@ -12053,9 +12053,10 @@ some \(A_b>0\) with
 \]
 Choose \(\delta=\min(1,b-\eta)>0\), so
 \(\eta+\delta/2\le b\), and apply the quantitative Abel consumer.
-The all-range theta extension and this complete strip-to-count transfer
-are proved; the following lemma's unconditional assertions about the
-actual zero supremum remain separate formalization obligations.
+The all-range theta extension and the complete strip-to-count transfer
+are proved. The actual zero-supremum bounds and their specialization
+below are now also proved in the maintained Lean owner
+\texttt{PrimeCountingZeroSupremum}.
 Neither this conditional transfer nor the Abel identities constitute
 an independent improvement of the certified \(7/8\) zero-free boundary.
 
@@ -12076,11 +12077,59 @@ asserted uniform as that distance tends to zero.
 \end{lemma}
 
 \begin{proof}
-The nontrivial zeros are nonempty and symmetric about
-$\Re s=1/2$, giving the bounds for their supremum;
-see \cite[\S25.10(i)]{DLMFZetaZeros}.
-We supply the analytic estimate used below, keeping a
-finite contour rather than an unsummed infinite explicit formula.
+We give the argument implemented in the maintained Lean sources.
+First, the existing Hadamard factorization for the entire Xi function
+has an exponential polynomial of degree at most one.
+If Xi had no zeros, its canonical product would be the empty product,
+and hence \(\Xi(s)=\exp(P(s))\) with \(\deg P\le1\). Such a polynomial
+satisfies \(P(2)+P(0)=2P(1)\), so
+\[
+ \Xi(2)\Xi(0)=\Xi(1)^2.
+\]
+But \(\Xi(0)=\Xi(1)=1/2\), while the completed-zeta formula,
+\(\Gamma(1)=1\), and \(\zeta(2)=\pi^2/6\) give
+\(\Xi(2)=\pi/6>1/2\). This is a contradiction.
+Thus Xi has a zero. Its functional equation
+\(\Xi(1-s)=\Xi(s)\) supplies a zero with real part at least \(1/2\).
+The already proved Xi--zeta identification places every such zero
+in \(0<\Re s<1\). Consequently the set defining \(\Theta_\zeta\)
+is nonempty and bounded above by one, and
+\[
+ 1/2\le\Theta_\zeta\le1.
+\]
+This is the actual supremum of the nontrivial zeta-zero real parts,
+with no RH or independent nonemptiness hypothesis.
+
+Now fix \(\Theta_\zeta<b<1\) and put
+\[
+ \eta=\frac{\Theta_\zeta+b}{2},\qquad
+ \delta=\min(1,b-\eta),\qquad r=\eta+\delta/2.
+\]
+Then \(1/2\le\eta<b<1\), \(0<\delta\le1\), and \(r\le b\).
+Every nontrivial zero has real part at most \(\Theta_\zeta<\eta\).
+The preceding proved strip consumer therefore gives
+\[
+ |\theta(t)-t|\le Ct^r(\log t)^2\qquad(t\ge2)
+\]
+for some \(C>0\), including the full compact initial range.
+The exact signed Abel estimate gives
+\[
+ |\pi(x)-\operatorname{Li}_1(x)|
+ \le\left(\frac2{\log2}+C+\frac Cr\right)x^r\log x
+ \le C_bx^b\log x
+\]
+for \(x\ge2,\ \log x\ge1\).
+This implies \eqref{eq:prime-error-zero-supremum}.
+The declarations \texttt{actualZetaZeroSupremum\_spec} and
+\texttt{primeCounting\_error\_bigO\_right\_of\_actual\_zero\_supremum}
+verify respectively the actual supremum bounds and the exact
+asymptotic conclusion. No uniformity as \(b-\Theta_\zeta\to0\)
+is asserted.
+
+For completeness, we retain a supplementary classical finite-contour
+derivation. Its local logarithmic-derivative and truncated Perron
+estimates below remain separate auxiliary formalization obligations;
+the preceding Lean proof of this lemma does not depend on them.
 
 The classical Hadamard product for the completed zeta
 function and the local zero count

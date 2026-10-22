@@ -1,6 +1,9 @@
 """Complete Gaussian formulas, exposure and every-cutoff zero response."""
 
 TARGETS = (
+    "PrimeFactorOscillations.PrimeClassDeletion.actualZetaZeroSupremum_spec",
+    "PrimeFactorOscillations.PrimeClassDeletion.exists_nontrivial_zeta_zero_re_ge_half",
+    "PrimeFactorOscillations.PrimeClassDeletion.exists_riemannXi_zero",
     "PrimeFactorOscillations.PrimeClassDeletion.exists_thetaError_bound_of_uniform_zero_strip",
     "PrimeFactorOscillations.PrimeClassDeletion.gaussianCrossingSet_finite",
     "PrimeFactorOscillations.PrimeClassDeletion.gaussianLocalizationTail_div_power_tendsto",
@@ -168,14 +171,17 @@ TARGETS = (
     "PrimeFactorOscillations.PrimeClassDeletion.primeClassThetaReal_global_error_of_tail_bound",
     "PrimeFactorOscillations.PrimeClassDeletion.primeClassThetaReal_initial_error_bound",
     "PrimeFactorOscillations.PrimeClassDeletion.primeCounting_error_abel",
+    "PrimeFactorOscillations.PrimeClassDeletion.primeCounting_error_bigO_right_of_actual_zero_supremum",
     "PrimeFactorOscillations.PrimeClassDeletion.primeCounting_error_bound_of_theta_bound",
     "PrimeFactorOscillations.PrimeClassDeletion.primeCounting_error_bound_of_uniform_zero_strip",
+    "PrimeFactorOscillations.PrimeClassDeletion.primeCounting_error_bound_right_of_actual_zero_supremum",
     "PrimeFactorOscillations.PrimeClassDeletion.primeEulerLogWeight_le_two_div",
     "PrimeFactorOscillations.PrimeClassDeletion.primeLogarithmicIntegral_eq_boundary_add_double_log_integral",
     "PrimeFactorOscillations.PrimeClassDeletion.riemannHypothesis_iff_cofinal_greedyDeletedPrimeClass_count",
     "PrimeFactorOscillations.PrimeClassDeletion.riemannHypothesis_iff_greedyDeletedPrimeClass_log_count_liminf",
     "PrimeFactorOscillations.PrimeClassDeletion.riemannHypothesis_iff_greedyDeletedPrimeClass_real_count_bigO",
     "PrimeFactorOscillations.PrimeClassDeletion.riemannHypothesis_of_sparse_greedyDeletedPrimeClass_count",
+    "PrimeFactorOscillations.PrimeClassDeletion.riemannXi_two_eq_pi_div_six",
     "PrimeFactorOscillations.PrimeClassDeletion.riemannXi_zero_iff_nontrivial_zeta_zero",
     "PrimeFactorOscillations.PrimeClassDeletion.xiDistinctZero_fiber_sum",
     "PrimeFactorOscillations.PrimeClassDeletion.xiDistinctZero_ne_zero",
