@@ -14451,8 +14451,8 @@ Its maintained statement retains the actual physical probes, distinct
 nontrivial zeta zeros with their analytic multiplicities, absolute
 convergence, the explicit uniform remainder and the complete prime-power
 correction. Lemma~\ref{lem:greedy-prime-Gaussian-exposure} is also formalized in full.
-Theorem~\ref{thm:greedy-prime-uniform-zero-response} remains unfinished.
-The exact analytic proof chain is described below.
+Theorem~\ref{thm:greedy-prime-uniform-zero-response} is also formalized in full.
+The exact analytic proof chain and its complete counting consumer are described below.
 
 For $X>0$, $V>0$ and every real frequency $\tau$, put
 \[
@@ -14597,9 +14597,9 @@ proves the displayed $O_c$ estimate with the explicit positive constant
 \]
 for every real $\tau$ and every $X\ge e$.
 All these declarations are exported and registered by exact name.
-The every-large-cutoff zero response remains an open formalization
-item. These completed analytic lemmas supply no improved zero-free
-boundary by themselves.
+The every-large-cutoff zero response is now formalized as well.
+The full proof and its exact maintained declaration are described below.
+The certified unconditional zero-free boundary remains $7/8$.
 
 \begin{lemma}[A Gaussian shift exposes a strictly dominant zero]
 \label{lem:greedy-prime-Gaussian-exposure}
@@ -14692,8 +14692,8 @@ only at their explicit affine crossing, while equal-height scores
 are injective in the real part. A small open interval preserving the
 strict gain contains a shift outside the finite crossing set.
 All these real proofs are maintained, exported and registered by
-exact name. The every-large-cutoff response theorem below remains
-unfinished in Lean.
+exact name. The every-large-cutoff response theorem below is now
+formalized with its complete real-cutoff and deleted-count conclusion.
 
 \begin{proof}[Proof of Theorem~\ref{thm:greedy-prime-uniform-zero-response}]
 It suffices to treat $0<\epsilon<1$.
@@ -14709,7 +14709,7 @@ For $V=c\log X$, the signed term at $\rho_*$ in
 $(m_{\rho_*}/|\rho_*|)X^B$.
 The sum of all other zero terms is $O(X^{B-\delta})$
 for some $\delta>0$.
-To justify this also for the infinite tail, fix $X_1>1$ and use the
+To justify this also for the infinite tail, fix $X_1=e^{1/c}$ and use the
 summable majorant
 $\sum_\rho(m_\rho/|\rho|)X_1^{A_c(\rho,\tau)-B+\delta}$.
 The prime-power error is $O(X^q\log X)$, strictly smaller since $q<B$.
@@ -14788,6 +14788,89 @@ Absorbing this single logarithm into the remaining $\epsilon/2$
 margin proves \eqref{eq:greedy-prime-uniform-zero-response}.
 All probe parameters were fixed before allowing $X$ to grow.
 \end{proof}
+
+\emph{Lean formalization of the full theorem.}
+The maintained declaration
+\begin{quote}
+\texttt{greedyDeletedPrimeClass\_uniform\_zero\_response}
+\end{quote}
+proves Theorem~\ref{thm:greedy-prime-uniform-zero-response} with its
+full quantifiers: every actual nontrivial zero with real part greater
+than $1/2$, every $\epsilon>0$, and every real cutoff beyond one fixed
+threshold. Its conclusion uses the literal cardinality of the deleted
+prime prefix at $\lfloor X\rfloor$. No RH, largest-real-part,
+single-frequency or assumed oscillation-asymptotic hypothesis is added.
+
+\texttt{Gaussian\allowbreak SpectralGap.lean} proves a positive gap from the
+uniquely exposed zero to the entire remaining zero set.
+\texttt{Gaussian\allowbreak SpectralWeight.lean} identifies its exact residue norm
+as $(m_\rho/|\rho|)X^{A_c(\rho,\tau)}$.
+\texttt{Gaussian\allowbreak SpectralMajorant.lean} controls every subset of the
+remaining zeros by its absolutely summable series at $X_1=e^{1/c}$.
+The exact signed split and the resulting full infinite-series lower
+bound are proved in \texttt{Gaussian\allowbreak SpectralDominance.lean}.
+
+The actual theta identity in \texttt{Gaussian\allowbreak ThetaBounds.lean}
+retains the reference term, physical remainder and complete prime
+powers. With $b=m_{\rho_*}/|\rho_*|$, its signed consumer
+\texttt{Gaussian\allowbreak SignedProbeBound.lean} proves
+\[
+ \begin{aligned}
+ \Re H_0^\theta+|H_\tau^\theta|
+ &\ge bX^B-C_1X^{B-\delta}-C_0X^{B_c(0)}
+       -2|\log(2\pi)|\\
+ &\quad -(K_\tau+K_0)X^{-1+c/2}
+       -4(2+c/2+2c/\pi)X^{1/2+c/8}\log X .
+ \end{aligned}
+\]
+\texttt{Gaussian\allowbreak PositiveSignal.lean} absorbs all five allowances
+using their strict exponent gaps and proves a lower bound
+$(b/2)X^B$ at every sufficiently large real scale.
+
+\texttt{Gaussian\allowbreak PositiveKernel.lean} constructs a unit complex
+rotation realizing the shifted probe's full norm, proves the exact
+weighted-integral identity, and proves $0\le K(u)\le2G_V(u)$.
+For the full complementary tail, the formal proof uses the real tilt
+\[
+ e^{tu}G_V(u)=e^{Vt^2/2}G_V(u-Vt)
+\]
+and the existing shifted absolute moment.
+\texttt{Gaussian\allowbreak ChernoffTail.lean} proves the supported exponential
+tail inequality, and \texttt{Gaussian\allowbreak LocalizationTail.lean}
+specializes it with $\lambda=2/a$.
+Including the physical factor $2X$, the complete tail $T_a(X)$ satisfies
+\[
+ T_a(X)\le
+ 2(2+a^2+2a+2a^2/\pi)X^{-1+a^2/2}\log X
+ \qquad(X\ge e).
+\]
+This bounds the same tail directly, without requiring the normal-tail
+identity as a formal input.
+
+\texttt{Gaussian\allowbreak RecordLocalization.lean} reuses the existing
+unconditional prime number theorem for the large-input bound.
+It retains the native record allowance and proves
+\[
+ \Re H_0^\theta+|H_\tau^\theta|
+ \le 2\bigl(R(Y)+\log Y\bigr)+T_a(X),\qquad Y=X^{1+a^2+2a}.
+\]
+The extra logarithm comes from the already formalized record
+comparison and is retained until it is absorbed.
+\texttt{Gaussian\allowbreak RegulatorLower.lean} then proves, for every
+sufficiently large real $X$,
+\[
+ R\!\left(X^{1+a^2+2a}\right)\ge\frac{b}{8}X^B.
+\]
+\texttt{Gaussian\allowbreak RealCutoffTransfer.lean} proves that the power
+substitution covers every sufficiently large real cutoff and applies
+the actual deleted-mass and deleted-count comparisons.
+Finally \texttt{Gaussian\allowbreak UniformZeroResponse.lean} selects the
+localizer and exposure and proves the complete theorem, with
+$d_\epsilon=b/8>0$ for those fixed choices.
+All thirty-four new proof declarations are maintained, exported and
+registered by exact name. This closes the every-cutoff response
+formalization; it supplies no improved zero-free boundary.
+The certified unconditional boundary remains $7/8$.
 
 \begin{theorem}[Infinitely-often deletion-size criterion]
 \label{thm:greedy-prime-liminf-RH}

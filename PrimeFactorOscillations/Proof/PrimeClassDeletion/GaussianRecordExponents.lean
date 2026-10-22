@@ -12,8 +12,9 @@ import Mathlib.Tactic.Ring
 
 The exact spectral shift keeps the signed exponent difference. The
 localization parameters tend to zero without losing the target exponent.
-The contour identity and the prime-counting consumer are ordinary proofs
-in the maintained paper; they are not asserted as Lean declarations here.
+The full contour identity and every-real-cutoff prime-counting consumer
+are proved by the maintained GaussianUniformZeroResponse chain; this
+module supplies the scalar exponent comparisons consumed there.
 -/
 
 set_option autoImplicit false

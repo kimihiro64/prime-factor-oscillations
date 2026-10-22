@@ -4,6 +4,6 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Prime Factor Oscillations contributors
 -/
 import PrimeFactorOscillations.Assembly.PrimeClassDeletionWaves
-import PrimeFactorOscillations.Proof.PrimeClassDeletion.GaussianExposure
+import PrimeFactorOscillations.Proof.PrimeClassDeletion.GaussianUniformZeroResponse
 
-/-! # The complete Gaussian explicit formula and unconditional dominant-zero exposure -/
+/-! # The complete Gaussian formula, exposure and every-cutoff zero response -/
