@@ -5,7 +5,7 @@ Authors: Prime Factor Oscillations contributors
 -/
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.GreedyPrimeComponentLaw
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.GreedyPrimeEulerSummability
-import PrimeFactorOscillations.Proof.PrimeClassDeletion.PrimePowerComponentIndependence
+import PrimeFactorOscillations.Proof.PrimeClassDeletion.PrimePowerComponentCutoffDistance
 
 /-!
 # The actual deleted-prime geometric law
@@ -46,6 +46,22 @@ theorem greedyDeletedPrimeClass_valuation_finite_support_mass_one :
     tsum (fun a : {a : Nat // Set.Finite {p : Nat | Not (a.factorization p = 0)}} =>
       classPrimePowerReference greedyDeletedPrimeClass a.val) = 1 := by
   exact classPrimePowerReference_valuation_finite_support_mass_one greedyDeletedPrimeClass
+    greedyDeletedPrimeClass_reciprocal_summable
+
+theorem greedyDeletedPrimeClass_reference_prefix_totalVariation_eq (Y : Nat) :
+    tsum (fun a => abs (classPrimePowerReference greedyDeletedPrimeClass a -
+      finitePrimePowerReference (primeClassPrefix greedyDeletedPrimeClass Y) a)) / 2 =
+      1 - (1 / classPrimePowerNormalizer greedyDeletedPrimeClass) /
+        finitePrimeComponentSurvival (primeClassPrefix greedyDeletedPrimeClass Y) := by
+  exact classPrimePowerReference_prefix_totalVariation_eq greedyDeletedPrimeClass
+    greedyDeletedPrimeClass_reciprocal_summable Y
+
+theorem greedyDeletedPrimeClass_reference_prefix_totalVariation_tendsto_zero :
+    Filter.Tendsto (fun Y : Nat => tsum (fun a => abs
+      (classPrimePowerReference greedyDeletedPrimeClass a -
+        finitePrimePowerReference (primeClassPrefix greedyDeletedPrimeClass Y) a)) / 2)
+      Filter.atTop (nhds 0) := by
+  exact classPrimePowerReference_prefix_totalVariation_tendsto_zero greedyDeletedPrimeClass
     greedyDeletedPrimeClass_reciprocal_summable
 
 end PrimeFactorOscillations.PrimeClassDeletion

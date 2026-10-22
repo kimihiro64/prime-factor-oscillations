@@ -16588,6 +16588,106 @@ This is a uniform law for the full component; a fixed-cutoff sampling
 limit has not been substituted for a growing-cutoff estimate.
 \end{proof}
 
+\begin{theorem}[Exact distance between full component laws]
+\label{thm:component-reference-exact-distance}
+Let \(P,Q\) be sets of primes with
+\(\sum_{p\in P}1/p<\infty\) and
+\(\sum_{p\in Q}1/p<\infty\), and put \(I=P\cap Q\).
+For \(R=P,Q,I\), define
+\[
+ w_R(a)=
+ \begin{cases}
+  1/a,&a\in\mathcal H_R,\\
+  0,&a\notin\mathcal H_R,
+ \end{cases}
+ \qquad
+ Z_R=\sum_{a\ge0}w_R(a),\qquad c_R=Z_R^{-1}.
+\]
+These normalizers are finite and at least one, and the normalized
+laws are \(\nu_R(a)=w_R(a)/Z_R\). Their exact common mass and distance are
+\begin{equation}
+ \sum_{a\ge0}\min\{\nu_P(a),\nu_Q(a)\}
+       =\frac{Z_I}{\max\{Z_P,Z_Q\}},\qquad
+ d_{\rm TV}(\nu_P,\nu_Q)
+       =1-\frac{Z_I}{\max\{Z_P,Z_Q\}}<1.
+ \label{eq:component-reference-exact-distance}
+\end{equation}
+Neither class is required to contain the other.
+
+For every finite set of primes \(S\subseteq P\), put
+\(c_S=\prod_{p\in S}(1-1/p)>0\). Then
+\begin{equation}
+ d_{\rm TV}(\nu_P,\nu_S)=1-\frac{c_P}{c_S}.
+ \label{eq:component-reference-finite-distance}
+\end{equation}
+In particular, with \(P_Y=\{p\in P:p\le Y\}\), this identity holds
+for every integer \(Y\ge0\), including the empty prefixes, and
+\[
+ d_{\rm TV}(\nu_P,\nu_{P_Y})\longrightarrow0
+                         \qquad(Y\to\infty).
+\]
+\end{theorem}
+
+\begin{proof}
+The supported reciprocal weight of \(I\) is bounded pointwise by
+that of \(P\), so it is summable. Each of the three weights has
+value one at the integer \(1\), proving \(Z_R\ge1\).
+The normalized laws have nonnegative masses summing to one.
+
+An integer belongs to both supported state spaces precisely when
+it belongs to \(\mathcal H_I\). On this intersection the two
+densities are \(1/(aZ_P)\) and \(1/(aZ_Q)\); off it at least one
+density is zero. All denominators in the nonzero cases are positive.
+Consequently the exact pointwise identity is
+\[
+ \min\{\nu_P(a),\nu_Q(a)\}
+       =\frac{w_I(a)}{\max\{Z_P,Z_Q\}}.
+\]
+Summing its summable right side proves the first identity in
+\eqref{eq:component-reference-exact-distance}. Now use the exact
+scalar identity
+\[
+ |u-v|=u+v-2\min\{u,v\}.
+\]
+The normalized masses and the common-mass series are summable;
+their signed sum is therefore the full absolute-difference series,
+with sum \(2-2Z_I/\max\{Z_P,Z_Q\}\).
+This proves the distance formula. Its strict upper bound follows
+from \(Z_I\ge1\) and the positive, finite denominator.
+
+For \(S\subseteq P\), the supported weights obey \(w_S\le w_P\),
+so \(Z_S\le Z_P\), and the intersection is \(S\).
+The proved finite Euler normalization is \(Z_S=1/c_S\).
+Substituting these two facts into the general distance formula
+gives \eqref{eq:component-reference-finite-distance}.
+The finite references here are exactly the earlier finite-prime
+geometric laws, as verified by their supported weights and normalizers.
+Finally, their survival products tend to \(c_P>0\) by the maintained
+Euler-limit theorem. The displayed cutoff distance therefore tends
+to zero. Empty sets and the prime \(2\) require no exceptions.
+\end{proof}
+
+\paragraph{Scope and maintained verification.}
+Independent geometric prime-factor models and comparisons with
+integer samples have a classical theory; see
+\href{https://arxiv.org/abs/1305.0941}
+     {Arratia's study of prime-factor dependence}.
+The present formula compares two different prime supports of the
+normalized reference law itself.
+The maintained owners \texttt{PrimePowerComponentOverlap},
+\texttt{PrimePowerComponentDistance} and
+\texttt{PrimePowerComponentCutoffDistance} verify the common-mass
+identity, full absolute-difference sum, exact distance for arbitrary
+classes, finite-prime specialization and total-variation convergence.
+The two new consumers in \texttt{GreedyPrimeGeometricLaw} specialize
+the exact cutoff distance and its convergence to the actual deleted
+class \(\mathcal D\), using its proved reciprocal summability.
+These are twenty-one newly registered declarations.
+The cutoff formula identifies the reference-law error with the Euler
+tail expression used in the following ordinary sampling-rate proof.
+It supplies no new estimate for that tail's decay, and does not
+resolve that proof's separate asymptotic obligations.
+
 \begin{theorem}[The exact statistical convergence exponent]
 \label{thm:deleted-component-exact-rate}
 Put $\Delta_N=d_{\rm TV}(\mu_N,\nu)$.
