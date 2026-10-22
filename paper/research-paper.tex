@@ -14232,12 +14232,33 @@ The companion declaration
 sufficiently large real $x$, the explicit comparison constants
 $f(v_0)e^{-\beta T}/2$ and $\|f\|_\infty+1$.
 
-The envelope contraction, almost-period inheritance and uniform positive
-recurrence bound are also formalized in
-\texttt{DampedWaveRecurrence.lean}.
-The full joint-wave theorem, its finite incommensurable-frequency
-specialization, and the explicit cosine optimization remain separate
-formalization obligations.
+Theorem~\ref{thm:greedy-prime-joint-wave-envelope} is now proved in
+\texttt{PrimeWaveJoint.lean}.
+The declaration
+\texttt{greedyPrime\_\allowbreak almost\_\allowbreak periodic\_\allowbreak wave}
+contains the complete response for bounded uniformly continuous
+almost-periodic profiles.
+The declaration
+\texttt{greedyPrime\_\allowbreak finite\_\allowbreak joint\_\allowbreak wave}
+discharges those hypotheses for every finite trigonometric wave with
+arbitrary real amplitudes, frequencies and phases.
+Both conclusions retain all three real-cutoff limits, uniform continuity
+and almost periodicity of the envelope, its finite sup norm and a strictly
+positive uniform lower bound, and count bounds at every sufficiently
+large real cutoff.
+
+\texttt{FiniteUnitCharacterRecurrence.lean} proves the relatively dense
+simultaneous returns by compactness of the finite phase orbit.
+\texttt{FiniteJointWave.lean} proves boundedness, uniform continuity
+and almost periodicity without a common-period assumption.
+\texttt{UniformWaveSupremum.lean} identifies the pointwise epsilon
+convention with the strict full-line supremum convention stated here.
+The envelope contraction, almost-period inheritance and positive
+recurrence bound are in \texttt{DampedWaveRecurrence.lean}.
+All these declarations are exported and included by exact name in
+the recurring foundational-axiom audit.
+The explicit cosine optimization remains a separate formalization
+obligation.
 
 \subsection{An infinitely-often size criterion from positive Gaussian probes}
 \label{sec:greedy-prime-Gaussian-liminf}
