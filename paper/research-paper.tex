@@ -16301,9 +16301,49 @@ Nonnegativity and the two exact mass-one identities then prove
 \]
 These declarations cover every finite prime set, including the empty
 set and the prime \(2\), and every positive integer sample size.
-The passage to the infinite prime class, its complete Euler constant,
-and independence of its infinite-class valuation law remain separate
-Lean obligations.
+\paragraph{Infinite supported series (Lean verified).}
+The maintained owners \texttt{PrimePowerComponentUniformEuler} and
+\texttt{PrimePowerComponentClassSeries} now prove the following uniform
+bound for any fixed prime class \(P\). For \(\sigma>0\) with
+\(\sum_{p\in P}p^{-\sigma}<\infty\), put
+\[
+ E_{P,\sigma}=\exp\left(
+      \frac{2}{1-2^{-\sigma}}\sum_{p\in P}p^{-\sigma}\right).
+\]
+For every finite prime set \(S\subseteq P\), and for the complete
+positive supported state space \(\mathcal H_P\), the compiled bounds are
+\[
+ \prod_{p\in S}\frac{1+p^{-\sigma}}{1-p^{-\sigma}}
+       \le E_{P,\sigma},\qquad
+ \sum_{a\in\mathcal H_P}a^{-\sigma}\le E_{P,\sigma}.
+\]
+For the local comparison put \(u=p^{-\sigma}\) and
+\(r=2^{-\sigma}<1\). Then
+\[
+ \frac{1+u}{1-u}
+ =1+\frac{2u}{1-u}
+ \le1+\frac{2u}{1-r}
+ \le\exp\left(\frac{2u}{1-r}\right).
+\]
+The finite-prime full sampling error is bounded by
+\(N^{\sigma-1}E_{P,\sigma}\) throughout \(0<\sigma\le1\).
+For an arbitrary finite collection of supported integers, take the
+union of their prime-factor supports and apply the already proved
+finite geometric budget. The uniform constant proves summability
+over the whole infinite state space.
+
+In particular, if \(\sum_{p\in P}1/p<\infty\), Lean proves
+\[
+ 1\le Z_P:=\sum_{a\in\mathcal H_P}\frac1a<\infty,\qquad
+ \nu_P(a)=\frac{\mathbf1_{\mathcal H_P}(a)}{aZ_P},\qquad
+ \sum_{a\ge0}\nu_P(a)=1.
+\]
+Here the formula is understood on positive supported integers and is
+zero elsewhere. Thus normalization of this infinite supported-state
+law is proved. Identification of \(Z_P^{-1}\) with the infinite
+survival Euler product, passage of the literal sampling error to that
+limit with the exact constant \(B_\sigma\), and geometric valuation
+independence remain separate Lean obligations.
 
 \begin{proof}
 The reciprocal prime sum converges by the preceding lemma with $s=1$.
