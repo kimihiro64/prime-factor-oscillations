@@ -16269,9 +16269,41 @@ gives, for \(N\ge1\), \(0<\sigma\le1\), and every such finite \(T\),
 \]
 Thus the exact numerator and geometric denominator are both retained,
 uniformly over the component subset \(T\).
-The passage to the infinite prime class, normalization and independence
-of its law, and the full uniform total-variation conclusion remain
-separate Lean obligations.
+
+\paragraph{The complete finite-prime law (Lean verified).}
+The maintained owners \texttt{PrimePowerComponentSeries},
+\texttt{PrimePowerComponentArithmetic} and
+\texttt{PrimePowerComponentFiniteLaw} extend this finite-subsum estimate
+to the entire supported state space. Define the literal component
+\[
+ A_S(m)=\prod_{p\in S}p^{v_p(m)},\qquad
+ \mu_{S,N}(a)=N^{-1}\#\{1\le m\le N:A_S(m)=a\},\qquad
+ \nu_S(a)=\frac{c_S}{a}\,\mathbf1_{\mathcal H_S}(a).
+\]
+Both laws are extended by zero outside the positive supported integers.
+The exact factorization proof identifies each literal component fiber
+with \(M_{S,N}(a)\), and the empirical probabilities sum to one.
+The nonnegative finite-subsum bounds prove summability over all
+\(a\in\mathcal H_S\), including arbitrarily large prime powers, and give
+\[
+ \sum_{a\ge0}|\mu_{S,N}(a)-\nu_S(a)|
+ \le N^{\sigma-1}
+       \prod_{p\in S}\frac{1+p^{-\sigma}}{1-p^{-\sigma}}
+       \qquad(N\ge1,\ 0<\sigma\le1).
+\]
+Applying this bound at \(\sigma=1/2\) and letting \(N\to\infty\)
+proves \(\sum_a\nu_S(a)=1\); normalization is not assumed.
+Nonnegativity and the two exact mass-one identities then prove
+\[
+ d_{\rm TV}(\mu_{S,N},\nu_S)
+ \le\min\left\{1,\frac12 N^{\sigma-1}
+       \prod_{p\in S}\frac{1+p^{-\sigma}}{1-p^{-\sigma}}\right\}.
+\]
+These declarations cover every finite prime set, including the empty
+set and the prime \(2\), and every positive integer sample size.
+The passage to the infinite prime class, its complete Euler constant,
+and independence of its infinite-class valuation law remain separate
+Lean obligations.
 
 \begin{proof}
 The reciprocal prime sum converges by the preceding lemma with $s=1$.
