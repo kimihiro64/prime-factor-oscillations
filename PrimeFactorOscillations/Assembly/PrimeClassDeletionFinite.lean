@@ -9,8 +9,8 @@ import PrimeFactorOscillations.Proof.PrimeClassDeletion.BernoulliDominance
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.CapacitySelectionFinite
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.CappedPrimeDivisibility
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.CappedPrimeMissingCost
-import PrimeFactorOscillations.Proof.PrimeClassDeletion.GreedyPrimeComponentLaw
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.GreedyPrimeExceptionalCoordinate
+import PrimeFactorOscillations.Proof.PrimeClassDeletion.GreedyPrimeGeometricLaw
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.PolynomialPrimeNorming
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.PrimePowerComponentBudget
 import PrimeFactorOscillations.Proof.PrimeClassDeletion.PrimePowerComponentClassLimit
@@ -48,6 +48,8 @@ explicit in the constant. These estimates retain the independent energy
 hypothesis. Full-component finite atom counts, exact signed floor errors and
 uniform atom error bounds are proved. Summing over arbitrary finite sets of
 supported components retains the complete geometric Euler budget, including
-every prime power. The infinite prime-power law, its normalization and
-independence remain separate obligations.
+every prime power. The full infinite prime-power law is normalized and its
+finite-dimensional valuation laws are independent geometric laws, with
+finite support almost surely. Literal full-component sampling retains the
+exact complete Euler total-variation budget after every statistic.
 -/

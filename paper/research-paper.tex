@@ -16439,8 +16439,81 @@ Fiberwise summation preserves nonnegativity and total mass and proves
 \]
 Thus the identical total-variation bound holds after every statistic,
 with no dependence of the constant on \(f\) or its target.
-Geometric valuation independence and its explicit almost-sure
-product-space interpretation remain separate Lean obligations.
+The remaining clauses of Theorem~\ref{thm:deleted-component-sampling-law}
+are also now verified.
+
+\paragraph{Independent geometric valuations (Lean verified).}
+The additional maintained owners
+\texttt{ComponentEmpiricalStatistics},
+\texttt{PrimePowerComponentProjection},
+\texttt{PrimePowerComponentInfiniteProjection},
+\texttt{PrimePowerComponentGeometric},
+\texttt{PrimePowerComponentIndependence} and
+\texttt{GreedyPrimeGeometricLaw} prove the exact joint law and its
+finite-support realization. This part needs only
+\(\sum_{p\in P}1/p<\infty\).
+For any finite set of primes \(S\subseteq P\), write
+\[
+ a_{S,k}=\prod_{p\in S}p^{k_p},
+ \qquad
+ E_{S,k}=\{a\in\mathcal H_P:v_p(a)=k_p
+                                  \text{ for every }p\in S\}.
+\]
+Here each \(k_p\) is an arbitrary nonnegative integer.
+The factorization of \(a_{S,k}\) has precisely those prescribed
+coordinates, and the identity
+\[
+ A_S(A_T(m))=A_S(m)\qquad(S\subseteq T)
+\]
+holds for every integer sample. Consequently, projection of the
+finite-\(T\) empirical law onto \(S\) is exactly the finite-\(S\)
+empirical law. Passing \(N\to\infty\) using the proved finite-prime
+error bound gives exact consistency of the finite reference laws.
+
+Next take \(T=P_Y\). For each atom, the finite reference is bounded
+by its full reciprocal supported weight:
+\[
+ 0\le \nu_{P_Y}(a)\le w_P(a),\qquad
+ w_P(a)=
+ \begin{cases}
+   1/a,&a\in\mathcal H_P,\\
+   0,&a\notin\mathcal H_P.
+ \end{cases}
+\]
+The right side is summable by the proved supported-series theorem
+at exponent one. Dominated convergence on each projection fiber,
+together with eventual containment \(S\subseteq P_Y\), therefore gives
+\[
+ (A_S)_*\nu_P=\nu_S.
+\]
+The factorization identity identifies the fiber at \(a_{S,k}\) with
+\(E_{S,k}\). Hence the exact, fully quantified joint mass is
+\[
+ \nu_P(E_{S,k})
+   =\nu_S(a_{S,k})
+   =\frac{\prod_{p\in S}(1-1/p)}
+           {\prod_{p\in S}p^{k_p}}
+   =\prod_{p\in S}(1-1/p)p^{-k_p}.
+\]
+This includes the empty set, the prime \(2\), and zero exponents.
+Applying the singleton formula shows explicitly that every finite
+joint mass is the product of its one-prime masses, proving mutual
+independence of the geometric coordinates.
+
+Finally, the map \(a\mapsto(v_p(a))_{p\in P}\) realizes this law on
+valuation sequences. Every integer factorization has finite support,
+and the formal proof verifies
+\[
+ \sum_{\substack{a\ge0\\
+          \#\{p:v_p(a)\ne0\}<\infty}}\nu_P(a)=1.
+\]
+Thus the countable independent geometric family has only finitely
+many nonzero coordinates almost surely. For the actual deleted class
+\(\mathcal D\), the already proved reciprocal summability supplies
+the hypothesis unconditionally. Together with the normalization,
+literal sampling law and statistic contraction above, this completes
+the maintained Lean proof of
+Theorem~\ref{thm:deleted-component-sampling-law}.
 
 \begin{proof}
 The reciprocal prime sum converges by the preceding lemma with $s=1$.
