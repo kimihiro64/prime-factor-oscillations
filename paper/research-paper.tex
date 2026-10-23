@@ -7297,6 +7297,1771 @@ no class-specific existence theorem. An RH implication still needs
 the appropriate independent inequality or a proved transfer of its
 probability law; injective encoding alone supplies neither.
 
+\subsection{Carmichael seeds with separated period coordinates}
+\label{sec:carmichael-separated-seeds}
+
+A Carmichael analogue of the Fibonacci construction needs arithmetic
+carriers, rather than merely evaluating an existing detector at
+Carmichael cutoffs. The finite seed statement below provides a
+distinguished prime whose odd period coordinates are absent from every
+auxiliary prime factor. The even coordinate is retained explicitly.
+
+\begin{theorem}[Negative-one Carmichael seeds and separated periods]
+\label{thm:carmichael-negative-one-seed}
+Let \(q\ge5\) be prime with \(4\mid q-1\). Let \(B>1\) be
+squarefree with \(\gcd(B,2q)=1\) and an even number of prime factors.
+Suppose that every prime \(p\mid B\) satisfies
+\[
+ q-1\mid p+1,\qquad \frac{p-1}{2}\mid qB-1.
+\]
+Then \(c=qB\) satisfies the complete Korselt certificate
+\[
+ c>2,\qquad c\text{ is composite and squarefree},\qquad
+ r-1\mid c-1\quad\text{for every prime }r\mid c.
+\]
+Moreover, for every prime \(p\mid B\),
+\[
+ \gcd(q-1,p-1)=2,\qquad p\equiv3\pmod4.
+\]
+Consequently no odd prime divisor of \(q-1\) divides any \(p-1\)
+with \(p\mid B\). Also \(B\equiv1\pmod{q-1}\).
+\end{theorem}
+
+\begin{proof}
+Put \(m=q-1\). Every prime factor of \(B\) is \(-1\) modulo \(m\).
+The squarefree factorization of \(B\), with its even number of factors,
+therefore gives \(B\equiv1\pmod m\). Since \(q\equiv1\pmod m\), we
+obtain \(m\mid qB-1\).
+
+The condition \(4\mid m\mid p+1\) gives \(p\equiv3\pmod4\).
+In particular \((p-1)/2\) is odd. The number \(qB\) is odd,
+so \(2\mid qB-1\). The coprime divisors \(2\) and \((p-1)/2\)
+of \(qB-1\) combine to give \(p-1\mid qB-1\). This treats every
+prime divisor of \(B\), and the distinguished prime was treated above.
+The product \(qB\) is squarefree because its two factors are squarefree
+and coprime. Both factors exceed one, proving compositeness and
+completing all four clauses of the Korselt certificate.
+
+Finally any common divisor of \(m\) and \(p-1\) divides both
+\(p+1\) and \(p-1\), and hence divides \(2\). Both \(m\) and
+\(p-1\) are even, so their greatest common divisor is exactly \(2\).
+An odd prime dividing both would consequently divide \(2\), which
+is impossible.
+\end{proof}
+
+The maintained owner
+\begin{quote}\small\ttfamily
+Helpers/CarmichaelSeed.lean
+\end{quote}
+defines the certificate and proves all its clauses, the modular
+product identity, and both period-separation statements. The two
+coprimality hypotheses in Lean are \(\gcd(q,B)=1\) and
+\(\gcd(2,B)=1\). No implementation of Carmichael infinitude or of
+a unit-base probability law is claimed by this finite result.
+The classical name \emph{Carmichael} here uses Korselt's characterization;
+the checked declaration states its four arithmetic clauses directly.
+
+\subsection{Prime-order returns under full unit-base sampling}
+\label{sec:carmichael-native-unit-returns}
+
+The next finite result samples the entire modular unit group.
+It does not replace that sampling by powers of one selected base.
+The actual image sizes retain every period multiplicity.
+For the full packet of primes dividing \(\lambda(c)\), vacancy
+means that a unit has order exactly \(\lambda(c)\): a proper
+divisor of \(\lambda(c)\) divides \(\lambda(c)/\ell\) for some
+prime \(\ell\mid\lambda(c)\). Thus full-packet vacancy is the
+classical density of primitive \(\lambda\)-roots.
+Li and Pomerance~\cite[Section~2]{LiPomeranceLambda} give the
+finite-abelian-group product formula using the multiplicities of
+the largest prime-power cyclic factors. We use that classical
+structure as the baseline. The separated Carmichael attainment
+and quantitative vacancy rigidity below are distinct claims;
+no originality claim is made for the baseline counting formula.
+For the full packet, the equality case in which every maximal
+prime-power multiplicity is one is also explicitly recorded by
+M\"uller and Schlage-Puchta~\cite[Introduction]{MullerSchlagePuchtaLambda}.
+The reciprocal-prime excess budget and its arbitrary-packet
+stability conclusion below are stated separately; their
+publication priority is not established here.
+
+\begin{theorem}[Full prime-order return law and vacancy floor]
+\label{thm:prime-order-return-law}
+Let \(G\) be a finite abelian group, and let \(L\) be a natural
+number such that \(g^L=1\) for every \(g\in G\).
+For a finite set \(S\) of distinct prime divisors of \(L\), put
+\[
+ H_\ell=\{g^{L/\ell}:g\in G\},\qquad d_\ell=|H_\ell|
+ \quad(\ell\in S).
+\]
+Sample \(g\) uniformly from all of \(G\).
+For every binary pattern \(b:S\to\{0,1\}\),
+\[
+ \mathbb P\!\left(
+   \boldsymbol 1_{g^{L/\ell}=1}=b_\ell
+   \text{ for every }\ell\in S\right)
+ =
+ \prod_{\ell\in S}
+ \begin{cases}
+  d_\ell^{-1},&b_\ell=1,\\
+  1-d_\ell^{-1},&b_\ell=0.
+ \end{cases}
+\]
+Both the empty set and the prime \(2\) are included.
+If \(L\) is the canonical group exponent, then \(d_\ell\ge\ell\).
+Consequently the vacancy probability satisfies
+\[
+ \mathbb P\!\left(g^{L/\ell}\ne1
+          \text{ for every }\ell\in S\right)
+ \ge \prod_{\ell\in S}(1-1/\ell).
+\]
+In particular the law and bound apply to uniform bases in
+\(G=(\mathbb Z/c\mathbb Z)^\times\) for every positive \(c\),
+with \(L=\lambda(c)\), including every Carmichael modulus.
+\end{theorem}
+
+\begin{proof}
+Each \(H_\ell\) is a subgroup, since \(G\) is abelian, and every
+element of \(H_\ell\) has \(\ell\)-th power one.
+Consider the simultaneous homomorphism
+\[
+ F:G\longrightarrow\prod_{\ell\in S}H_\ell,\qquad
+ F(g)=(g^{L/\ell})_{\ell\in S}.
+\]
+We prove surjectivity without assuming independence.
+Choose any tuple \(y_\ell\in H_\ell\), and choose \(g_\ell\in G\)
+with \(g_\ell^{L/\ell}=y_\ell\).
+The Chinese remainder theorem gives nonnegative integers
+\(e_\ell\) with
+\[
+ e_\ell\equiv
+ \begin{cases}1,&m=\ell,\\0,&m\ne\ell\end{cases}
+ \pmod m
+ \quad\text{for all }m\in S.
+\]
+Set \(g=\prod_{\ell\in S}g_\ell^{e_\ell}\).
+For each \(m\in S\), all \(g_\ell^{L/m}\) have \(m\)-th power one.
+Reducing each \(e_\ell\) modulo \(m\) therefore gives
+\(g^{L/m}=y_m\). This proves simultaneous surjectivity.
+For the empty support the target is the one-element group.
+
+Every fiber of a surjective group homomorphism is a translated
+copy of its kernel. More explicitly, choose a lift \(s(y)\) of
+each output \(y\). The correspondence
+\[
+ x\longmapsto \bigl(F(x),\,x\,s(F(x))^{-1}\bigr)
+\]
+identifies the preimage of any allowed output set \(T\) with
+\(T\times\ker F\). Thus uniform sampling on \(G\) pushes forward
+to uniform sampling on the full product of the \(H_\ell\).
+There is one successful element and \(d_\ell-1\) unsuccessful
+elements in each coordinate. Counting every prescribed pattern
+gives the displayed product, including coordinates with \(d_\ell=1\).
+
+Now let \(L\) be the canonical exponent. A finite abelian group
+has an element \(u\) of order \(L\). For each \(\ell\mid L\),
+the element \(u^{L/\ell}\in H_\ell\) has order \(\ell\), whence
+\(d_\ell\ge\ell\). All factors in the vacancy product are
+nonnegative, and
+\(1-d_\ell^{-1}\ge1-\ell^{-1}\).
+Their finite product proves the bound. Finally the exponent of
+the finite unit group modulo \(c\) is precisely \(\lambda(c)\).
+\end{proof}
+
+The complete fiber equivalence, simultaneous CRT surjectivity,
+all binary-pattern probabilities, canonical image-size bound,
+and vacancy floor are maintained in
+\begin{quote}\small\ttfamily
+Helpers/FiniteHomProbability.lean\\
+Helpers/PrimeOrderReturnLaw.lean
+\end{quote}
+and exported through the Carmichael probability grouping.
+No RH assumption or asymptotic sampling limit occurs here.
+The following theorem identifies those actual image sizes arithmetically.
+
+\begin{theorem}[Exact squarefree return indices and period multiplicity]
+\label{thm:squarefree-return-multiplicity}
+Let \(c\ge1\) be squarefree. For natural numbers \(L,k\), let
+\(d_k(c;L)\) be the size of the image of \(a\mapsto a^{L/k}\)
+on all of \((\mathbb Z/c\mathbb Z)^\times\).
+Then, with natural-number division,
+\[
+ d_k(c;L)=\prod_{\substack{p\mid c\\p\ {\rm prime}}}
+ \frac{p-1}{\gcd(p-1,L/k)},\qquad
+ \lambda(c)=\mathop{\rm lcm}_{\substack{p\mid c\\p\ {\rm prime}}}(p-1).
+\]
+The empty lcm is \(1\).
+Suppose all \(p-1\) in this product divide \(L\), and let
+\(\ell\) be a prime divisor of \(L\). Define
+\[
+ r_\ell(c;L)=
+ \#\{p\mid c:\ p\ {\rm prime},\ (p-1)\nmid L/\ell\}.
+\]
+Then
+\[
+ d_\ell(c;L)=\ell^{r_\ell(c;L)}.
+\]
+In particular all hypotheses concerning the common period hold
+automatically when \(L=\lambda(c)\).
+The factor \(p=2\), if present, has \(p-1=1\) and contributes
+one to the image-size product and zero to \(r_\ell\).
+For \(c=1\) both products are empty and the image size is one.
+\end{theorem}
+
+\begin{proof}
+Squarefree CRT gives an isomorphism of the full unit groups
+\[
+ (\mathbb Z/c\mathbb Z)^\times
+ \simeq\prod_{\substack{p\mid c\\p\ {\rm prime}}}
+       (\mathbb Z/p\mathbb Z)^\times.
+\]
+It intertwines every power map. Each coordinate group is cyclic
+of order \(m=p-1\). In a cyclic group of order \(m\), the kernel
+of the \(N\)-th power map has size \(\gcd(m,N)\): after choosing
+a generator its elements are precisely the residues \(t\) with
+\(m\mid Nt\). Thus its image has size \(m/\gcd(m,N)\).
+Power-image sizes multiply across the full finite product,
+giving the first formula with \(N=L/k\), including \(N=0\).
+The exponent of a finite direct product is the lcm of its
+coordinate exponents, which gives the formula for \(\lambda(c)\).
+
+We now prove the local dichotomy without discarding a repeated
+prime factor. Let \(m>0\), \(m\mid L\), and \(\ell\mid L\) with
+\(\ell\) prime. Put \(N=L/\ell\) and \(g=\gcd(m,N)\).
+Since \(m\mid \ell N\), division by \(g\) gives
+\(m/g\mid\ell(N/g)\). The integers \(m/g\) and \(N/g\) are
+coprime, so \(m/g\mid\ell\). Consequently \(m/g\) is \(1\)
+or \(\ell\). It is \(1\) exactly when \(m\mid N\):
+one direction follows from \(g=m\); in the other direction
+\(m/g=1\) and \(m=(m/g)g\) give \(m=g\mid N\).
+Therefore
+\[
+ \frac{m}{\gcd(m,L/\ell)}
+ =
+ \begin{cases}
+  1,&m\mid L/\ell,\\
+  \ell,&m\nmid L/\ell.
+ \end{cases}
+\]
+Multiplying this exact dichotomy over every prime divisor
+of \(c\) proves the power formula. The lcm formula discharges
+the common-period hypotheses at the canonical exponent.
+It also covers \(c=1\); the cyclic group modulo \(2\) has
+order one, so its contribution is as stated.
+\end{proof}
+
+The complete arithmetic theorem, canonical specialization and
+CRT image equivalences are maintained in
+\begin{quote}\small\ttfamily
+Helpers/PrimeOrderReturnIndex.lean
+\end{quote}
+and exported through the Carmichael probability grouping.
+Together with Theorem~\ref{thm:prime-order-return-law}, this
+determines every joint return probability from the actual prime
+factorization.
+
+\begin{theorem}[Separated seeds attain the native return floor]
+\label{thm:carmichael-separated-return-attainment}
+Let \(c\ge1\) be squarefree and let \(q\mid c\) be prime,
+\(q\ge5\), with \(4\mid q-1\). Suppose every other prime
+\(p\mid c\) satisfies \(q-1\mid p+1\).
+For every prime \(\ell\mid q-1\), the canonical shortened-period
+image has exactly
+\[
+ d_\ell(c;\lambda(c))=\ell
+\]
+elements. Thus, for every finite set \(S\) of prime divisors of
+\(q-1\), uniform sampling from the full unit group gives
+\[
+ \mathbb P\!\left(
+   \boldsymbol 1_{a^{\lambda(c)/\ell}=1}=b_\ell
+   \text{ for all }\ell\in S\right)
+ =
+ \prod_{\ell\in S}
+ \begin{cases}
+  1/\ell,&b_\ell=1,\\
+  1-1/\ell,&b_\ell=0.
+ \end{cases}
+\]
+In particular its vacancy probability equals
+\(\prod_{\ell\in S}(1-1/\ell)\), attaining the universal floor.
+These statements include the prime label \(2\) and the empty
+packet. Under all hypotheses of
+Theorem~\ref{thm:carmichael-negative-one-seed}, the modulus \(c=qB\)
+has the complete Korselt certificate and satisfies this exact law.
+\end{theorem}
+
+\begin{proof}
+Write \(L=\lambda(c)\). Every local period \(p-1\) divides \(L\).
+For an odd prime \(\ell\mid q-1\), the proved seed separation
+\(\gcd(q-1,p-1)=2\) implies \(\ell\nmid p-1\) at every
+\(p\ne q\). Since \(p-1\mid L=\ell(L/\ell)\), coprimality
+gives \(p-1\mid L/\ell\).
+
+For \(\ell=2\) the shared factor two must be retained. Put
+\(a=q-1\), \(m=p-1\). Then \(4\mid a\),
+\(\gcd(a,m)=2\), and \(\operatorname{lcm}(a,m)\mid L\).
+Write \(a=4t\). The exact identity
+\[
+ 2\operatorname{lcm}(a,m)=am=4tm
+\]
+gives \(\operatorname{lcm}(a,m)=2mt\), hence \(2m\mid L\)
+and \(m\mid L/2\). Thus every auxiliary period survives the
+shortening for every selected prime label.
+
+The distinguished period \(q-1\) cannot also divide \(L/\ell\).
+Otherwise every \(p-1\) would divide \(L/\ell\), so their lcm
+\(L\) would divide \(L/\ell\). But \(L>0\), \(\ell\mid L\)
+and \(\ell>1\) imply \(0<L/\ell<L\), a contradiction.
+The local dichotomy of
+Theorem~\ref{thm:squarefree-return-multiplicity} therefore gives
+one image factor \(\ell\) at \(q\) and factors one at every
+other prime divisor. This proves \(d_\ell=\ell\).
+Substitution into the full native joint law proves all binary
+patterns and the vacancy equality.
+
+Finally, for a negative-one seed, the preceding seed theorem
+provides the squarefree Korselt certificate for \(qB\).
+A prime \(p\mid qB\) with \(p\ne q\) divides \(B\), so its
+negative-one congruence supplies exactly the required separated
+period condition. This proves the claimed seed specialization.
+\end{proof}
+
+These four finite arithmetic and probability theorems are
+maintained in
+\begin{quote}\small\ttfamily
+Helpers/CarmichaelReturnAttainment.lean
+\end{quote}
+and exported through the Carmichael probability grouping.
+No RH hypothesis or asymptotic construction is used in the
+finite attainment proof. The external theorem producing
+arbitrarily large seeds, and the final Nicolas RH transfer,
+remain unformalized. In particular finite attainment alone does
+not assert the existence of such a modulus for every packet.
+
+\begin{theorem}[Quantitative rigidity of native vacancy minimizers]
+\label{thm:prime-return-vacancy-rigidity}
+Let \(c\ge1\) be squarefree and \(S\) a finite set of prime
+divisors of \(L=\lambda(c)\). For uniform sampling of all units
+modulo \(c\), write
+\[
+ A=\mathbb P(a^{L/\ell}\ne1\text{ for all }\ell\in S),\qquad
+ B=\prod_{\ell\in S}(1-1/\ell),\qquad E=A/B-1.
+\]
+Let \(r_\ell\) count the prime divisors \(p\mid c\) for which
+\(p-1\nmid L/\ell\), and put \(d_\ell=\ell^{r_\ell}\).
+Then \(B>0\), every \(r_\ell\ge1\), and, with
+\[
+ \eta_\ell=\frac{d_\ell-\ell}{d_\ell(\ell-1)},
+\]
+one has the exact factorization and bounds
+\[
+ \frac AB=\prod_{\ell\in S}(1+\eta_\ell),\qquad
+ E\ge\sum_{\ell\in S}\eta_\ell
+   \ge\sum_{\substack{\ell\in S\\r_\ell\ge2}}\frac1\ell.
+\]
+Consequently
+\[
+ A=B\quad\Longleftrightarrow\quad
+ r_\ell=1\text{ for every }\ell\in S.
+\]
+More quantitatively, for every real \(Y>0\), if \(E<1/Y\)
+then \(r_\ell=1\) for every \(\ell\in S\) with \(\ell\le Y\).
+Prime label \(2\) and the empty packet are included.
+The unique prime factor counted by \(r_\ell=1\) may depend on
+\(\ell\); a common distinguished factor is not required.
+\end{theorem}
+
+\begin{proof}
+The canonical image-size lower bound \(d_\ell\ge\ell\),
+together with \(d_\ell=\ell^{r_\ell}\) and \(\ell\ge2\),
+shows \(r_\ell\ge1\). In particular every denominator in
+\(\eta_\ell\) is positive. Every factor \(1-1/\ell\) is
+positive, so \(B>0\), also for the empty product.
+For \(d\ge\ell>1\), exact algebra gives
+\[
+ 1-\frac1d
+ =\left(1-\frac1\ell\right)
+   \left(1+\frac{d-\ell}{d(\ell-1)}\right).
+\]
+Apply this to the exact joint vacancy product, retaining all
+factors, to obtain \(A/B=\prod_{\ell\in S}(1+\eta_\ell)\).
+Each \(\eta_\ell\ge0\). Expanding this finite product retains
+the constant term, the sum of the single-coordinate terms,
+and nonnegative products over every larger subset; hence
+\(E\ge\sum_{\ell\in S}\eta_\ell\).
+
+If \(r_\ell\ge2\), then \(d_\ell\ge\ell^2\), and the exact
+difference
+\[
+ \eta_\ell-\frac1\ell
+ =\frac{d_\ell-\ell^2}{\ell d_\ell(\ell-1)}
+ \ge0
+\]
+gives the reciprocal-prime bound after summation.
+Thus any repeated local period at a label \(\ell\) forces
+\(E\ge1/\ell\). This rules out repetition at every
+\(\ell\le Y\) when \(E<1/Y\), and rules out all repetition
+when \(A=B\). Since every \(r_\ell\ge1\), equality then forces
+every \(r_\ell=1\). Conversely these multiplicities give
+\(d_\ell=\ell\), so the exact joint law gives \(A=B\).
+No argument identifies the unique coordinate for two different
+labels, which is why a common distinguished prime is not asserted.
+\end{proof}
+
+The complete relative-product identity, weighted redundancy
+bound, individual-label gap, scale-dependent stability theorem
+and equality classification are maintained in
+\begin{quote}\small\ttfamily
+Helpers/PrimeOrderReturnRigidity.lean
+\end{quote}
+and exported through the Carmichael probability grouping.
+They give arithmetic information from one aggregate native
+probability. They do not supply a new estimate for zeta zeros
+or discharge the external existence and RH-transfer dependencies.
+
+\begin{theorem}[Profile-preserving Carmichael extensions]
+\label{thm:carmichael-profile-extension}
+Let \(m\) have the complete Korselt certificate and put
+\(L=\lambda(m)\). Assume \(L\ge4\) and \(2\mid L\).
+Let \(B>1\) be squarefree, coprime to \(m\), with
+\(\omega(B)\) even, and suppose every prime \(p\mid B\) satisfies
+\[
+ p\equiv-1\pmod{4L},
+ \qquad \frac{p-1}{2}\mid mB-1.
+\]
+Then \(c=mB\) has the complete Korselt certificate.
+Its canonical exponent \(E=\lambda(c)\) has the form
+\(E=LK\) with \(\gcd(K,L)=1\). For every prime \(\ell\mid L\),
+\[
+ d_\ell(c;E)=d_\ell(m;L)F_\ell,\qquad
+ F_\ell=
+ \begin{cases}
+  2^{\omega(B)},&\ell=2\text{ and }4\nmid L,\\
+  1,&\text{otherwise}.
+ \end{cases}
+\]
+For any finite prime packet \(S\) dividing \(L\), every binary
+return pattern under uniform sampling of all units modulo \(c\)
+therefore has probability
+\[
+ \prod_{\ell\in S}
+ \begin{cases}
+  1/(d_\ell(m;L)F_\ell),&b_\ell=1,\\
+  1-1/(d_\ell(m;L)F_\ell),&b_\ell=0.
+ \end{cases}
+\]
+In particular, if \(4\mid L\), the complete joint return law
+on every packet of original prime labels is identical for
+\(m\) and \(c\). If \(2\parallel L\), every odd-label image
+is preserved and the even-label image grows by precisely
+\(2^{\omega(B)}\). Empty packets are included.
+\end{theorem}
+
+\begin{proof}
+Write \(k_p=(p-1)/2\) for each added prime.
+From \(p+1=4Lt\), one obtains
+\(k_p+1=2Lt\). Hence \(k_p\) is odd and
+\(\gcd(k_p,L)=1\): any common divisor divides
+both \(k_p\) and \(k_p+1\).
+Also \(p-1=2k_p\) and \(\gcd(L,p-1)=2\).
+
+Put \(P=\prod_{p\mid B}k_p\), over prime divisors.
+Then \(\gcd(P,L)=1\). Every old period divides \(L\);
+every added period \(2k_p\) divides \(LP\), since \(2\mid L\).
+The canonical lcm formula therefore gives \(E\mid LP\).
+Every old prime factor remains a factor of \(c\), so \(L\mid E\).
+Writing \(E=LK\), cancellation of the positive integer \(L\)
+gives \(K\mid P\), whence \(\gcd(K,L)=1\).
+
+For an old prime factor \(q\mid m\) and a label \(\ell\mid L\),
+\[
+ \frac E\ell=\frac L\ell K,\qquad
+ \gcd(q-1,E/\ell)=\gcd(q-1,L/\ell),
+\]
+because \(q-1\mid L\) and \(\gcd(q-1,K)=1\).
+Thus every old coordinate retains its exact image factor.
+For an added period \(p-1\), an odd \(\ell\mid L\) is coprime
+to \(p-1\), since their common divisor would divide two.
+Together with \(p-1\mid E\), this gives \(p-1\mid E/\ell\).
+
+At label two, suppose first \(4\mid L\).
+The identity
+\(2\operatorname{lcm}(L,p-1)=L(p-1)\), together with
+\(4\mid L\), shows \(2(p-1)\mid E\).
+Thus the added coordinate is again killed by \(E/2\).
+If \(2\parallel L\), then \(K\) is odd and \(2\parallel E\),
+so \(E/2\) is odd. The even period \(p-1\) cannot divide it.
+The local one-or-prime dichotomy gives image factor two
+at every added prime in this case.
+The prime factors of \(m\) and \(B\) are disjoint.
+Multiplying all old and new local image factors proves the
+displayed formula, including its exact even-label exponent.
+The full native joint law then proves every pattern probability.
+
+It remains to verify the Carmichael certificate.
+The original certificate and the lcm formula imply \(L\mid m-1\).
+The even number of negative-one prime factors gives \(B\equiv1\pmod L\),
+hence \(mB\equiv1\pmod L\).
+All old prime periods therefore divide \(mB-1\).
+For an added prime, its odd half-period \(k_p\) divides \(mB-1\)
+by hypothesis; also \(2\mid mB-1\).
+Coprimality of \(k_p\) and two gives \(p-1=2k_p\mid mB-1\).
+Finally \(mB\) is squarefree by coprimality, is greater than two,
+and is composite because \(m>2\) and \(B>1\).
+This proves every Korselt clause.
+\end{proof}
+
+The coprime-multiplier certificate, exact image comparison,
+all binary-pattern probabilities, complete Korselt extension
+and their combined profile-preserving consumer are maintained in
+\begin{quote}\small\ttfamily
+Helpers/CarmichaelProfileExtension.lean
+\end{quote}
+and exported through the Carmichael probability grouping.
+The result preserves the law restricted to prime labels of
+the original exponent \(L\); it does not assert preservation
+at new prime labels which may divide \(E\).
+Larsen's Proposition~1 supplies the relevant arithmetic seed
+hypotheses on specialization to \(m_0=m\), \(q_0=4L\),
+\(a_0=-1\), and \(\ell_0=2\). That external existence theorem
+and its infinitude consumer remain outside the current
+kernel-checked closure. No new RH estimate is claimed.
+
+\begin{theorem}[Pointwise Carmichael profile lifts and exact fibers]
+\label{thm:carmichael-profile-lift-fibers}
+Assume the complete finite seed hypotheses of
+Theorem~\ref{thm:carmichael-profile-extension}, and put
+\(c=mB\), \(L=\lambda(m)\), \(E=\lambda(c)\), and
+\(U_d=(\mathbb Z/d\mathbb Z)^\times\).
+Let \(r_m:U_c\to U_m\) and \(r_B:U_c\to U_B\) be reduction.
+The actual Chinese remainder isomorphism
+\(\Psi=(r_m,r_B):U_c\to U_m\times U_B\) defines an injective
+group homomorphism
+\[
+ \sigma:U_m\longrightarrow U_c,\qquad
+ \sigma(a)=\Psi^{-1}(a,1),\qquad r_m\circ\sigma=\mathrm{id}.
+\]
+For every prime \(\ell\mid L\) and every \(u\in U_c\),
+\[
+ u^{E/\ell}=1
+ \quad\Longleftrightarrow\quad
+ r_m(u)^{L/\ell}=1\ \hbox{ and }\ r_B(u)^{E/\ell}=1.
+ \tag{*}
+\]
+Consequently \(\sigma\) preserves every old prime-label return
+bit, including the label \(2\), and hence every prescribed
+joint success/failure pattern.
+
+Every fiber \(r_m^{-1}(a)\) has \(\varphi(B)\) elements.
+Let \(S\) be any finite set of primes dividing \(L\), with a
+prescribed binary pattern \(\varepsilon:S\to\{0,1\}\), where
+\(1\) means return. If \(4\mid L\) or \(2\notin S\), then
+\[
+ \#\{u\in r_m^{-1}(a):u\text{ has pattern }\varepsilon
+          \text{ at exponent }E\}
+ =
+ \begin{cases}
+ \varphi(B),&a\text{ has pattern }\varepsilon
+                    \text{ at exponent }L,\\
+ 0,&\text{otherwise}.
+ \end{cases}
+\]
+This includes the empty packet. When \(2\parallel L\), the
+canonical section still preserves the even bit; preservation
+by every lift is asserted only for packets avoiding \(2\).
+No assertion is made about new prime labels dividing \(E\)
+but not \(L\).
+\end{theorem}
+\begin{proof}
+Coprimality of \(m,B\) gives the indicated CRT isomorphism
+with the actual reduction maps as coordinates. Restricting
+\(\Psi^{-1}\) to \(U_m\times\{1\}\) gives \(\sigma\), its
+homomorphism property, injectivity and both coordinate identities.
+For fixed \(a\), the map \(u\mapsto r_B(u)\) is a bijection
+from \(r_m^{-1}(a)\) onto \(U_B\), so this fiber has
+\(\varphi(B)\) elements.
+
+The preceding theorem gives \(E=LK\) with \(\gcd(K,L)=1\).
+For \(\ell\mid L\),
+\(E/\ell=(L/\ell)K\).
+An element of \(U_m\) has order dividing \(L\), so taking its
+\(K\)-th power is injective. Thus its return at \(E/\ell\)
+is equivalent to its return at \(L/\ell\).
+An element of \(U_c\) is the identity exactly when both CRT
+coordinates are the identity. Applying this observation to
+\(u^{E/\ell}\) proves \((*)\). On the canonical section the
+second coordinate is \(1\), which proves preservation of
+every old return and nonreturn, including the even label.
+
+For a safe label (\(4\mid L\) or \(\ell\ne2\)), the local
+image-factor calculation in the preceding theorem gives
+\[
+ (p-1)/\gcd(p-1,E/\ell)=1\qquad(p\mid B).
+\]
+Hence every \(p-1\) divides \(E/\ell\). Since \(B\) is
+squarefree, \(\lambda(B)=\operatorname{lcm}_{p\mid B}(p-1)\)
+also divides \(E/\ell\). The second condition in \((*)\)
+therefore holds for every auxiliary unit. Every unit in a
+fixed fiber has exactly the same safe return bits as its
+old base \(a\). Either the entire fiber has the requested
+pattern, or none of it does; the fiber cardinality proves
+the formula.
+\end{proof}
+
+The actual unit reductions, complete fiber parametrization,
+canonical section and all pointwise pattern statements are
+maintained in
+\begin{quote}\small\ttfamily
+Helpers/CarmichaelProfileLifts.lean
+\end{quote}
+and exported through the Carmichael probability grouping.
+The pointwise statement is stronger than equality of aggregate
+pattern frequencies: it identifies which lifts retain a
+given base's full profile, while retaining the exceptional
+auxiliary event at the singly-even label.
+
+\begin{theorem}[Exact conditional even thinning in Carmichael fibers]
+\label{thm:carmichael-conditional-even-thinning}
+Under the complete finite seed hypotheses of
+Theorem~\ref{thm:carmichael-profile-extension}, assume
+\(2\parallel L=\lambda(m)\), put \(E=\lambda(mB)\) and
+\(r=\omega(B)\), and fix \(a\in U_m\).
+Choose a lift \(u\) uniformly from the complete fiber
+\(r_m^{-1}(a)\). Let \(S\) be any finite packet of odd
+primes dividing \(L\), with any prescribed return/nonreturn
+pattern \(\varepsilon\).
+If \(a\) does not have this odd pattern at exponent \(L\),
+the probability that \(u\) has it at exponent \(E\), together
+with either specified even bit, is zero.
+If \(a\) has the odd pattern, the full joint probabilities are
+\[
+\begin{array}{c|cc}
+ & u^{E/2}=1 & u^{E/2}\ne1\\ \hline
+ a^{L/2}=1 & 2^{-r} & 1-2^{-r}\\
+ a^{L/2}\ne1 & 0 & 1
+\end{array}
+\]
+while all the prescribed odd bits remain fixed.
+The formula includes the empty odd packet.
+In particular, no failed old even return can become a
+successful new return. The canonical lift from
+Theorem~\ref{thm:carmichael-profile-lift-fibers} lies in the
+surviving fraction whenever the old even return succeeds.
+\end{theorem}
+\begin{proof}
+The actual CRT fiber bijection identifies uniform choice
+of a lift of \(a\) with uniform choice of \(b\in U_B\).
+The pointwise factorization of the preceding theorem gives
+\[
+ u^{E/2}=1
+ \quad\Longleftrightarrow\quad
+ a^{L/2}=1\ \hbox{ and }\ b^{E/2}=1.
+\]
+All odd-label returns and nonreturns are constant on this
+fiber. Thus a mismatched odd pattern has probability zero;
+otherwise it places no further restriction on \(b\).
+
+Every auxiliary prime \(p\mid B\) has the local image index
+\[
+ (p-1)/\gcd(p-1,E/2)=2,
+\]
+by the exceptional even-label calculation in
+Theorem~\ref{thm:carmichael-profile-extension}.
+Since \(B\) is squarefree, the image of
+\(b\mapsto b^{E/2}\) on \(U_B\) therefore has size
+\(\prod_{p\mid B}2=2^r\).
+Each image element of a homomorphism from a finite group has
+the same number of preimages. Its identity fiber consequently
+has uniform probability \(2^{-r}\), and its complement has
+probability \(1-2^{-r}\).
+If \(a^{L/2}\ne1\), the displayed conjunction is always false.
+These alternatives give all four entries without discarding
+the failure events or conditioning on an incomplete fiber.
+For the canonical lift \(b=1\), so the conjunction reduces
+exactly to the old return condition.
+\end{proof}
+
+The conditional law over every actual base fiber, its
+general prime-label version, the exact auxiliary image index
+\(2^{\omega(B)}\), and the full odd/even joint consumer are
+maintained in
+\begin{quote}\small\ttfamily
+Helpers/CarmichaelEvenThinning.lean
+\end{quote}
+and exported through the Carmichael probability grouping.
+These are native modular-unit probability laws on finite
+Carmichael extensions; they make no new infinitude or RH
+exclusion claim.
+
+\begin{theorem}[Exact criterion for pointwise profile preservation]
+\label{thm:carmichael-pointwise-profile-criterion}
+Let \(m,B\ge1\) be arbitrary coprime integers, and write
+\[
+ L=\lambda(m),\qquad H=\lambda(B),\qquad
+ E=\lambda(mB)=\operatorname{lcm}(L,H).
+\]
+No squarefreeness, Carmichael, or separated-congruence
+hypothesis is required. For each prime \(\ell\mid L\),
+\[
+ \left[
+ \ \forall u\in U_{mB},\quad
+ u^{E/\ell}=1
+ \ \Longleftrightarrow\
+ r_m(u)^{L/\ell}=1\
+ \right]
+ \quad\Longleftrightarrow\quad H\mid E/\ell.
+ \tag{**}
+\]
+Thus a finite packet \(S\) of old prime labels is preserved
+pointwise by every lift exactly when \(H\mid E/\ell\) for
+each \(\ell\in S\). Both success and failure bits are preserved.
+The empty packet is included.
+
+If \(H\nmid E/\ell\), there is already a witness over the
+old identity:
+\[
+ r_m(u)=1,\qquad u^{E/\ell}\ne1.
+\]
+Consequently the criterion is necessary for the actual
+fiber geometry, rather than merely sufficient for an
+aggregate probability comparison.
+\end{theorem}
+\begin{proof}
+CRT gives \(U_{mB}\simeq U_m\times U_B\) with the actual
+reduction maps as coordinates. An integer annihilates
+\(U_{mB}\) precisely when it annihilates both coordinate
+groups. Taking their least positive annihilators gives
+\(E=\operatorname{lcm}(L,H)\), in particular \(L\mid E\).
+
+For necessity, take an arbitrary \(b\in U_B\) and its lift
+with coordinates \((1,b)\). The old return condition is
+true. If every lift preserves that condition, then
+\(b^{E/\ell}=1\). As this holds for every \(b\),
+the defining property of the exponent gives \(H\mid E/\ell\).
+If this divisibility fails, the same property supplies
+\(b^{E/\ell}\ne1\); its lift with first coordinate \(1\)
+is the stated witness.
+
+For sufficiency, assume \(H\mid E/\ell\), write \(E=LK\),
+and note
+\[
+ E/\ell=(L/\ell)K.
+\]
+We first show \(\ell\nmid K\). If \(K=\ell t\), then
+\(L\mid E/\ell\) as well as \(H\mid E/\ell\).
+Both coordinate groups, and hence all of \(U_{mB}\), would
+be annihilated by \(E/\ell\). This contradicts minimality
+of the positive exponent \(E\), since
+\(0<E/\ell<E\).
+Thus \(\gcd(K,\ell)=1\).
+
+For \(a\in U_m\), the element \(x=a^{L/\ell}\) satisfies
+\(x^\ell=1\). Its order divides \(\ell\), so coprimality
+implies \(x^K=1\) exactly when \(x=1\).
+Therefore \(a^{E/\ell}=1\) is equivalent to
+\(a^{L/\ell}=1\). The auxiliary coordinate always returns
+because \(H\mid E/\ell\). CRT now gives \((**)\).
+Applying this equivalence at each label proves the packet
+statement, and negating it preserves every nonreturn bit.
+\end{proof}
+
+This complete criterion, the canonical-exponent lcm identity
+and the identity-fiber obstruction are maintained in
+\begin{quote}\small\ttfamily
+Helpers/CarmichaelProfileCriterion.lean
+\end{quote}
+and exported through the Carmichael probability grouping.
+The specialized Carmichael seed results above provide
+arithmetic families in which the criterion can be evaluated.
+The criterion itself is valid for every coprime modular
+extension. CRT and the group-exponent identities used in
+its proof are classical; no publication-priority claim is
+made for this pointwise assembly.
+
+\begin{theorem}[Full conditional profile kernel for coprime extensions]
+\label{thm:carmichael-full-profile-kernel}
+Let \(m,B\ge1\) be arbitrary coprime integers, put
+\(L=\lambda(m)\), \(E=\lambda(mB)\), \(K=E/L\), and fix
+\(a\in U_m\). Let \(S\) be any finite set of primes dividing
+the \emph{new} exponent \(E\), and let
+\(\varepsilon:S\to\{0,1\}\) be any prescribed return pattern.
+For \(\ell\in S\), define
+\[
+ d_\ell=\#\{b^{E/\ell}:b\in U_B\},\qquad
+ g_\ell(a)=
+ \begin{cases}
+ 1,&\ell\mid K\ \text{or }a^{\lfloor L/\ell\rfloor}=1,\\
+ 0,&\text{otherwise}.
+ \end{cases}
+\]
+Choose \(u\) uniformly among all \(\varphi(B)\) lifts of \(a\).
+Then
+\[
+ \Pr\!\left(
+   \mathbf 1_{\{u^{E/\ell}=1\}}=\varepsilon_\ell
+          \text{ for every }\ell\in S
+       \,\middle|\,r_m(u)=a\right)
+   =\prod_{\ell\in S} T_\ell(a,\varepsilon_\ell),
+\]
+where the exact factors, with \(d_\ell\ge1\), are
+\[
+\begin{array}{c|cc}
+ &\varepsilon_\ell=1&\varepsilon_\ell=0\\ \hline
+ g_\ell(a)=1&1/d_\ell&1-1/d_\ell\\
+ g_\ell(a)=0&0&1
+\end{array}.
+\]
+This includes new prime labels, the even label, all failure
+patterns and the empty packet.
+For a new label \(\ell\nmid L\), the gate is automatically
+open and the new return bit is determined entirely by the
+auxiliary unit. For an old label with \(\ell\nmid K\), a
+failed old return stays a nonreturn, while a successful old
+return survives with probability \(1/d_\ell\).
+No squarefree or separated-seed hypothesis is required.
+\end{theorem}
+\begin{proof}
+CRT identifies the complete fiber over \(a\) with \(U_B\),
+preserving uniform counting probability. Write its
+coordinates as \(u\leftrightarrow(a,b)\).
+Since \(L\mid E\), we have \(E=LK\).
+For a prime \(\ell\mid E\), if \(\ell\mid K\), then
+\(E/\ell=L(K/\ell)\), and every old coordinate satisfies
+\(a^{E/\ell}=1\).
+Otherwise primality gives \(\ell\mid L\) and
+\(\gcd(K,\ell)=1\).
+The element \(a^{L/\ell}\) has order dividing \(\ell\), so
+\[
+ a^{E/\ell}=1
+ \quad\Longleftrightarrow\quad a^{L/\ell}=1.
+\]
+In either case the exact pointwise identity is
+\[
+ u^{E/\ell}=1
+ \quad\Longleftrightarrow\quad
+ g_\ell(a)=1\ \hbox{ and }\ b^{E/\ell}=1.
+\]
+
+The exponent \(E\) annihilates \(U_B\). The full prime-order
+return law therefore applies on \(U_B\), with exponent
+\(E\) and distinct labels in \(S\). Its image coordinates
+are jointly uniform on the product of the actual images
+of \(b\mapsto b^{E/\ell}\). Their respective sizes are
+\(d_\ell\), so each identity coordinate has probability
+\(1/d_\ell\). A closed gate permits every auxiliary
+coordinate when nonreturn is requested, and permits none
+when return is requested. An open gate permits the identity
+coordinate for return and its full complement for nonreturn.
+Counting these coordinate sets in the product, then retaining
+the complete homomorphism-fiber multiplicity, gives the
+displayed product. This also proves the zero entries and the
+empty-packet value without dropping any failure pattern.
+\end{proof}
+
+The gated full-group law and the actual-fiber transition
+theorem are maintained in
+\begin{quote}\small\ttfamily
+Helpers/PrimeOrderReturnKernel.lean\\
+Helpers/CarmichaelProfileKernel.lean
+\end{quote}
+and exported through the Carmichael probability grouping.
+The preceding even-thinning theorem is the specialized
+negative-one seed case. The general kernel additionally
+handles exponent growth and newly introduced prime labels.
+These finite identities use classical CRT and finite-group
+counting; external Carmichael seed existence and the final
+RH equivalence remain separate formalization dependencies.
+
+\begin{theorem}[Maximal-order lifts: exact density and existence]
+\label{thm:carmichael-maximal-order-lifts}
+Let \(m,B\ge1\) be coprime, and put \(L=\lambda(m)\),
+\(H=\lambda(B)\), \(E=\lambda(mB)\).
+Fix \(a\in U_m\), and use the gates \(g_\ell(a)\) and
+auxiliary image sizes \(d_\ell\) of
+Theorem~\ref{thm:carmichael-full-profile-kernel}, now on the
+complete packet \(S=\{\ell:\ell\text{ prime},\ \ell\mid E\}\).
+For uniform choice from the entire reduction fiber over \(a\),
+\[
+ \Pr\bigl(\operatorname{ord}(u)=E\mid r_m(u)=a\bigr)
+ =
+ \prod_{\ell\in S}
+ \begin{cases}
+ 1-1/d_\ell,&g_\ell(a)=1,\\
+ 1,&g_\ell(a)=0.
+ \end{cases}
+\]
+There is such a maximal-order lift if and only if
+\[
+ \operatorname{lcm}\bigl(\operatorname{ord}(a),H\bigr)=E.
+\]
+In particular, the exact conditional count is governed by
+the complete profile, including every newly introduced
+prime label. The cases \(m=1\), \(B=1\), and \(E=1\) are
+included; for \(E=1\), the packet is empty and the probability
+is \(1\).
+\end{theorem}
+\begin{proof}
+An element \(u\in U_{mB}\) has order \(E\) exactly when
+\(u^{E/\ell}\ne1\) for every prime \(\ell\mid E\).
+Indeed, full order forbids every smaller positive annihilator.
+Conversely, the prime-divisor criterion for exact order,
+together with \(u^E=1\), gives order \(E\) from precisely
+these nonreturns. Applying the full conditional kernel to
+the all-nonreturn pattern gives the density formula.
+
+For the existence criterion, CRT gives the exact order identity
+\[
+ \operatorname{ord}(u)
+   =\operatorname{lcm}
+      \bigl(\operatorname{ord}(r_m(u)),
+            \operatorname{ord}(r_B(u))\bigr).
+\]
+Every auxiliary order divides \(H\), and every old order
+divides \(L\). If a lift of \(a\) has order \(E\), the displayed
+identity shows that \(E\) divides
+\(\operatorname{lcm}(\operatorname{ord}(a),H)\); the reverse
+divisibility follows from \(E=\operatorname{lcm}(L,H)\).
+This proves necessity.
+For sufficiency, the finite abelian group \(U_B\) contains
+an element \(b\) whose order is its exponent \(H\).
+The CRT lift of \((a,b)\) then has order
+\(\operatorname{lcm}(\operatorname{ord}(a),H)=E\).
+
+If \(E=1\), every unit has order dividing \(1\), hence order
+\(1\). This agrees with the empty-packet product and includes
+the stated degenerate moduli.
+\end{proof}
+
+The canonical complete prime packet, its exact-order
+interpretation, the conditional density and the necessary
+and sufficient existence criterion are maintained in
+\begin{quote}\small\ttfamily
+Helpers/CarmichaelMaximalOrderLifts.lean
+\end{quote}
+and exported through the Carmichael probability grouping.
+This connects the native conditional profile law directly
+to maximal-order units (primitive \(\lambda\)-roots).
+The CRT order identity and attainment of the exponent in
+finite abelian groups are classical ingredients.
+
+\begin{theorem}[Conditional rigidity of maximal-order lift profiles]
+\label{thm:carmichael-conditional-profile-rigidity}
+Let \(m,B\ge1\) be coprime, with \(B\) squarefree, and fix
+\(a\in U_m\). Put \(E=\lambda(mB)\),
+\(S=\{\ell:\ell\text{ prime},\ \ell\mid E\}\), and
+\[
+ \rho(a)=\Pr\bigl(\operatorname{ord}(u)=E\mid r_m(u)=a\bigr),
+ \qquad V=\prod_{\ell\in S}(1-1/\ell)>0.
+\]
+Use the gates \(g_\ell(a)\) from
+Theorem~\ref{thm:carmichael-full-profile-kernel}, and define
+the auxiliary ranks by the actual prime-factor support
+\[
+ r_\ell=\#\{p:p\text{ prime},\ p\mid B,\
+                   (p-1)\nmid E/\ell\}.
+\]
+If
+\(\operatorname{lcm}(\operatorname{ord}(a),\lambda(B))\ne E\),
+then \(\rho(a)=0\).
+In the feasible case
+\(\operatorname{lcm}(\operatorname{ord}(a),\lambda(B))=E\),
+one has \(\rho(a)\ge V\), and the normalized excess satisfies
+\[
+ \Gamma(a):=\frac{\rho(a)}{V}-1
+ \ \ge\
+ \sum_{\substack{\ell\in S\\g_\ell(a)=0}}\frac1{\ell-1}
+ +
+ \sum_{\substack{\ell\in S\\g_\ell(a)=1,\ r_\ell\ge2}}\frac1\ell.
+ \tag{***}
+\]
+Consequently every row has density either \(0\) or at least
+\(V\). Within the feasible case,
+\[
+ \rho(a)=V
+ \quad\Longleftrightarrow\quad
+ \forall\ell\in S,\quad g_\ell(a)=1\ \hbox{ and }\ r_\ell=1.
+\]
+More quantitatively, for every real \(Y>0\),
+\[
+ \Gamma(a)<1/Y
+ \quad\Longrightarrow\quad
+ g_\ell(a)=1,\quad r_\ell=1
+ \qquad(\ell\in S,\ \ell\le Y).
+\]
+The conclusions include the empty packet and the moduli
+\(m=1\) and \(B=1\).
+\end{theorem}
+\begin{proof}
+The zero-row criterion follows from the exact lift-existence
+theorem. In the feasible case choose a maximal-order lift.
+Because \(B\) is squarefree and \(E\) annihilates \(U_B\),
+the actual auxiliary image index is
+\[
+ d_\ell=\#\{b^{E/\ell}:b\in U_B\}=\ell^{r_\ell}.
+\]
+If an open gate had \(r_\ell=0\), its image would have one
+element, so every auxiliary unit would return at \(E/\ell\).
+The gate factorization would then force the chosen lift to
+return at \(E/\ell\), contradicting full order.
+Thus every open gate has \(r_\ell\ge1\) and \(d_\ell\ge\ell\).
+
+For each label introduce the nonnegative exact defect
+\[
+ \delta_\ell=
+ \begin{cases}
+ (d_\ell-\ell)/(d_\ell(\ell-1)),&g_\ell(a)=1,\\
+ 1/(\ell-1),&g_\ell(a)=0.
+ \end{cases}
+\]
+The exact conditional kernel, divided by the positive
+prime-product floor, gives
+\[
+ \frac{\rho(a)}V=\prod_{\ell\in S}(1+\delta_\ell).
+\]
+This identity retains every product cross term.
+Nonnegativity therefore gives
+\(\Gamma(a)\ge\sum_{\ell\in S}\delta_\ell\).
+For an open gate with \(r_\ell\ge2\), we have
+\(d_\ell\ge\ell^2\), and
+\[
+ \delta_\ell-\frac1\ell
+   =\frac{d_\ell-\ell^2}{\ell d_\ell(\ell-1)}\ge0.
+\]
+For a closed gate the defect is exactly \(1/(\ell-1)\).
+These two cases prove \((***)\), as well as \(\rho(a)\ge V\).
+
+If \(\Gamma(a)<1/Y\) and \(\ell\le Y\), a closed gate
+would contribute \(1/(\ell-1)\ge1/Y\); an open repeated
+rank would contribute \(1/\ell\ge1/Y\).
+Both are impossible. The gate is therefore open and its
+positive integer rank is \(1\).
+For equality \(\Gamma(a)=0\), this conclusion applies
+at every label, by taking \(Y=\ell\).
+Conversely, an open gate with rank \(1\) contributes exactly
+\(1-1/\ell\) to the conditional product, proving \(\rho(a)=V\).
+If \(S\) is empty, all products and sums have their usual
+empty values and the same proof gives \(\rho(a)=V=1\).
+\end{proof}
+
+The general gate-defect budget, its full modular-unit
+consumer, the zero-or-floor dichotomy, equality classification
+and quantitative small-prime conclusion are maintained in
+\begin{quote}\small\ttfamily
+Helpers/PrimeOrderGatedRigidity.lean\\
+Helpers/CarmichaelConditionalRigidity.lean
+\end{quote}
+and exported through the Carmichael probability grouping.
+The conditional refinement adds a separate cost for gates
+closed by the fixed old base and recovers auxiliary ranks
+from a small excess. The classical full-group product is
+described by Li and Pomerance~\cite{LiPomeranceLambda}.
+Publication priority for this conditional stability statement
+has not been established. The external infinitude and RH
+transfer dependencies remain as stated above; the certified
+zero-free boundary remains \(7/8\).
+
+
+
+\subsection{Intrinsic power-return spectra identify physical prime carriers}
+\label{sec:carmichael-intrinsic-spectrum}
+
+The return multiplicity records how many physical prime factors carry a
+shortened period. The next result recovers the factor itself when that
+multiplicity is one. Its observable uses only the modulus and the tested
+power; the unknown carrier does not occur in its definition.
+
+\begin{theorem}[Intrinsic additive carrier readout]
+\label{thm:carmichael-intrinsic-carrier-readout}
+Let \(B\ge1\) be squarefree and \(k\ge0\) an integer. On
+\(R_B=\mathbb Z/B\mathbb Z\), put
+\[
+ u(x)=\boldsymbol 1_{x\in R_B^\times},\qquad
+ r_k(x)=\boldsymbol 1_{x\in R_B^\times,\ x^k=1},\qquad
+ U=\sum_{x\in R_B}u(x),\quad T_k=\sum_{x\in R_B}r_k(x),
+\]
+and define the intrinsic signed observable and its additive transform by
+\[
+ F_{B,k}(x)=U r_k(x)-T_k u(x),\qquad
+ \widehat F_{B,k}(h)=
+ \sum_{x\in R_B}F_{B,k}(x)\,\mathrm e_B(hx),\quad h\in\mathbb N,
+\]
+where \(\mathrm e_B\) is the standard faithful additive character.
+Suppose exactly one prime \(q\mid B\) satisfies \(q-1\nmid k\).
+Then
+\[
+ \boxed{\ \widehat F_{B,k}(h)=0\quad\Longleftrightarrow\quad q\mid h.\ }
+\]
+In particular \(q\) is its first positive zero frequency.
+
+More generally, let \(f_p:\mathbb F_p\to\mathbb Q\) be arbitrary
+functions for the prime factors \(p\mid B\). For the actual CRT pullback
+\(f(x)=\prod_{p\mid B}f_p(x_p)\), its additive transform vanishes at
+\(h\in\mathbb N\) if and only if some \(p\mid B\) satisfies either
+\[
+ p\mid h\ \text{ and }\ \sum_{t\in\mathbb F_p}f_p(t)=0,
+ \qquad\text{or}\qquad
+ p\nmid h\ \text{ and }\ f_p\text{ is constant}.
+\]
+This includes constant and zero functions and the empty CRT product.
+
+In the setting of
+Theorem~\ref{thm:carmichael-conditional-profile-rigidity}, write
+\(E=\lambda(mB)\). If the fixed-base fiber is feasible and
+\(\Gamma(a)<1/Y\), \(Y>0\), then every prime label
+\(\ell\mid E\), \(\ell\le Y\), has a unique auxiliary carrier
+\(q_\ell\mid B\), and
+\[
+ \widehat F_{B,E/\ell}(h)=0
+ \quad\Longleftrightarrow\quad q_\ell\mid h
+ \qquad(h\in\mathbb N).
+\]
+Thus the quantitative probability-profile rigidity determines actual
+prime ownership through intrinsic additive zero sets.
+\end{theorem}
+
+\begin{proof}
+For a prime \(p\), a faithful additive character has value at \(1\)
+equal to a primitive \(p\)-th root \(\zeta\). The classical rational
+root-of-unity lemma states
+\[
+ \sum_{j=0}^{p-1}a_j\zeta^j=0
+ \quad\Longleftrightarrow\quad a_0=\cdots=a_{p-1}
+ \qquad(a_j\in\mathbb Q).
+\]
+We reuse Mathlib's
+\texttt{IsPrimitiveRoot.sum\_eq\_zero\_iff\_forall\_eq};
+its documentation credits de Launey--Flannery,
+\emph{Algebraic Design Theory}, Lemma~2.8.5.
+Every nontrivial additive character of \(\mathbb F_p\) is faithful,
+so the same statement holds at every nontrivial local frequency.
+
+Transport the standard character on \(R_B\) through the actual
+squarefree CRT ring equivalence. Its restriction to a prime coordinate
+at frequency \(h\) is trivial exactly when \(p\mid h\).
+Indeed multiplication by \(h\) is zero in that coordinate in the
+divisible case; otherwise it is invertible, and both the CRT coordinate
+inclusion and the global character are injective. The full finite
+Fourier sum factors exactly into the product of its local sums.
+A trivial local character gives the rational mean, whereas the
+preceding root-of-unity lemma classifies a nontrivial local zero
+exactly by constancy. A product over \(\mathbb C\) vanishes exactly
+when one factor does, proving the general classification. No term
+is replaced by its magnitude.
+
+For the unique carrier \(q\), set
+\[
+ u_p(t)=\boldsymbol 1_{t\ne0},\quad
+ v_q(t)=\boldsymbol 1_{t\ne0,\ t^k=1},\quad
+ A_q=\sum_tu_q(t),\quad C_q=\sum_tv_q(t),\quad
+ g_q=A_qv_q-C_qu_q.
+\]
+The function \(g_q\) has mean zero. It is nonconstant:
+\(q-1\nmid k\), together with the exact exponent \(q-1\) of
+\(\mathbb F_q^\times\), supplies a nonreturning unit \(b\).
+Then \(g_q(1)-g_q(b)=A_q>0\).
+Every other \(u_p\) is nonconstant and has positive mean, including
+the physical prime \(2\). The general classification therefore gives
+zeros exactly at \(q\mid h\) for the CRT tensor
+\[
+ H(x)=g_q(x_q)\prod_{\substack{p\mid B\\p\ne q}}u_p(x_p).
+\]
+All other local unit periods divide \(k\), so on actual residues this
+is the exact signed identity
+\[
+ H(x)=A_q r_k(x)-C_q u(x).
+\]
+Its mean is zero, hence \(A_qT_k=C_qU\).
+Keeping both centering terms gives
+\[
+ A_q F_{B,k}(x)=U H(x).
+\]
+Both \(A_q\) and \(U\) are positive. Their nonzero scalar factors
+preserve the Fourier zero set, proving the intrinsic readout.
+If \(0<h<q\), divisibility \(q\mid h\) is impossible, while
+\(q\mid q\); this proves the first-positive-zero assertion.
+
+Finally, the cited conditional rigidity theorem gives auxiliary
+multiplicity one at each stated small label. Its defining filtered
+set of physical prime factors is therefore a singleton. For its
+unique member \(q_\ell\), precisely \(q_\ell-1\) fails to divide
+\(E/\ell\). Apply the intrinsic readout with \(k=E/\ell\).
+\end{proof}
+
+The whole statement, the exact signed scaling identity, the CRT
+factorization and the quantitative conditional consumer are maintained in
+\begin{quote}\small\ttfamily
+Helpers/PrimeCarrierFourier.lean\\
+Helpers/ModularReturnFourier.lean\\
+Helpers/CarmichaelCarrierReadout.lean
+\end{quote}
+and exported through the Carmichael probability grouping.
+The cases \(B=1\), \(k=0\), and a putative carrier \(q=2\)
+do not satisfy the unique-carrier hypothesis: respectively there is
+no prime factor, every local period divides zero, and \(1\mid k\).
+Noncarrier factors equal to \(2\) remain in every product.
+The prime-field root-of-unity input and CRT factorization are classical.
+The intrinsic physical-carrier conclusion is distinct from the earlier
+multiplicity and conditional-rank conclusions; its publication priority
+has not been established. This finite additive spectrum is not the
+analytic zeta-zero detector. The external Carmichael infinitude and
+Nicolas transfer dependencies remain open in Lean, and the certified
+zero-free boundary remains \(7/8\).
+
+\subsection{The complete carrier product from one intrinsic spectrum}
+\label{sec:carmichael-all-carrier-spectrum}
+
+The preceding result assumed a single carrier. Global centering permits
+a stronger conclusion for an arbitrary number of carriers. It is essential
+to retain the difference of the two complete tensors: separately centering
+each local coordinate would give a different zero set.
+
+\begin{theorem}[All-carrier intrinsic readout]
+\label{thm:carmichael-all-carrier-readout}
+Let \(B\ge1\) be squarefree and \(k\in\mathbb N\).
+Use the intrinsic observable \(F_{B,k}=U r_k-T_k u\) and its standard
+additive Fourier transform from
+Theorem~\ref{thm:carmichael-intrinsic-carrier-readout}. Define
+\[
+ \mathcal C(B,k)=\{p:p\mid B,\ p\text{ prime},\ p-1\nmid k\},
+ \qquad Q(B,k)=\prod_{p\in\mathcal C(B,k)}p.
+\]
+For every natural frequency \(h\),
+\[
+ \boxed{\quad \widehat F_{B,k}(h)=0
+       \quad\Longleftrightarrow\quad Q(B,k)\mid h.\quad}
+\]
+The integer \(Q(B,k)>0\) is therefore the first positive zero frequency.
+No restriction on the number of carriers or on a probability-density
+excess is imposed. The empty carrier product is \(1\).
+\end{theorem}
+
+\begin{proof}
+We first record the exact rational zero transport used below. Let
+\(\zeta=\mathrm e_B(1)\), a primitive \(B\)-th root, and let \(f\) be
+any rational coefficient function on \(R_B\). For a fixed \(h\), form
+\[
+ P_h(X)=\sum_{x\in R_B} f(x)X^{h x_0}\in\mathbb Q[X],
+\]
+where \(x_0\) is the canonical representative. Its value at \(\zeta\)
+is the actual Fourier sum at \(h\). If this vanishes, the minimal
+polynomial \(\Phi_B\) divides \(P_h\). For every \(t\) coprime to \(B\),
+\(\zeta^t\) has the same minimal polynomial, so \(P_h(\zeta^t)=0\).
+Consequently
+\[
+ \widehat f(h)=0\quad\Longrightarrow\quad\widehat f(th)=0
+ \qquad(\gcd(t,B)=1).
+\]
+This transports the full rational signed equation, with both centering
+terms intact.
+
+Under the actual CRT equivalence write
+\[
+ R_p(h)=\sum_{a\in\mathbb F_p}
+       \boldsymbol1_{a\ne0,\ a^k=1}\,\chi_{p,h}(a),
+ \qquad
+ V_p(h)=\sum_{a\in\mathbb F_p}
+       \boldsymbol1_{a\ne0}\,\chi_{p,h}(a),
+\]
+where \(\chi_{p,h}\) is the restricted additive character.
+The exact finite factorization is
+\[
+ \widehat F_{B,k}(h)
+   =U\prod_{p\mid B}R_p(h)-T_k\prod_{p\mid B}V_p(h).       \tag{A}
+\]
+Every factor in either product is nonzero. At a trivial local
+character it is a positive count, since \(1\) is a return.
+At a nontrivial local character the rational root-of-unity lemma
+applies: both masks have value zero at \(0\) and value one at \(1\),
+so neither is constant.
+
+Suppose \(\widehat F_{B,k}(h)=0\) and choose a carrier
+\(q\in\mathcal C(B,k)\). Assume \(q\nmid h\).
+The exponent \(q-1\) of \(\mathbb F_q^\times\) supplies a unit \(v\)
+with \(v^k\ne1\). CRT gives a unit \(t\) modulo \(B\) equal to \(v\)
+at \(q\) and to \(1\) at every other prime factor.
+Rational zero transport gives \(\widehat F_{B,k}(th)=0\).
+
+The unit mask is invariant under multiplication by every unit.
+Thus its entire product in (A) is unchanged by this dilation;
+all return factors away from \(q\) are also unchanged. Subtracting
+the two full signed equations gives exactly
+\[
+ 0=U\bigl(R_q(th)-R_q(h)\bigr)
+       \prod_{\substack{p\mid B\\p\ne q}}R_p(h).
+\]
+All canceled factors are nonzero, so \(R_q(th)=R_q(h)\).
+
+This last equality is impossible. Reindex multiplication by \(v\)
+in the first local sum. It becomes equality of the Fourier sums
+of two rational functions having the same value at \(0\).
+The prime-field root-of-unity lemma says their difference is
+constant; its value at \(0\) makes that constant zero.
+The functions would therefore coincide everywhere. But at \(v\)
+the reindexed mask has value one, while the original mask has value
+zero because \(v^k\ne1\). This contradiction proves \(q\mid h\).
+It applies to every carrier, and distinct prime divisors are
+coprime, so \(Q(B,k)\mid h\).
+
+Conversely suppose every carrier divides \(h\). For each \(p\mid B\),
+if \(p\mid h\), the local character is trivial at both \(h\) and \(0\).
+If \(p\nmid h\), then \(p\) is not a carrier, so \(p-1\mid k\)
+and the local return mask equals the unit mask.
+In either case the exact local cross identity is
+\[
+ R_p(h)V_p(0)=V_p(h)R_p(0).
+\]
+Multiplying these identities retains every coordinate and gives
+\[
+ \prod_p R_p(h)\prod_p V_p(0)
+   =\prod_p V_p(h)\prod_p R_p(0).
+\]
+By its intrinsic centering, \(\widehat F_{B,k}(0)=0\).
+Substitute this and the cross identity into (A) to obtain
+\[
+ \widehat F_{B,k}(h)\prod_p V_p(0)
+  =\prod_p V_p(h)\widehat F_{B,k}(0)=0.
+\]
+The product at \(0\) is nonzero, proving the converse.
+Finally \(Q(B,k)\) is a positive product of primes; its first
+positive multiple is itself.
+\end{proof}
+
+The maintained proof owners are
+\begin{quote}\small\ttfamily
+Helpers/RationalFourierOrbit.lean\\
+Helpers/PrimeReturnFourier.lean\\
+Helpers/CarmichaelAllCarrierReadout.lean
+\end{quote}
+and are exported through the public probability-profile grouping.
+They include both directions of the full zero-set classification
+and the first-positive-zero declaration. The minimal-polynomial
+identity is the existing Mathlib theorem
+\texttt{Polynomial.cyclotomic\_eq\_minpoly\_rat}; the prime-field
+nonvanishing input is the classical lemma credited above.
+Publication priority for this intrinsic inverse conclusion has not
+been established.
+
+In particular the theorem applies to every squarefree Carmichael
+modulus and every canonical shortened power, and to every squarefree
+auxiliary modulus \(B\) with \(k=\lambda(mB)/\ell\).
+The latter specialization no longer requires a near-minimal fixed-base
+fiber. For \(B=1\) or \(k=0\), the observable is zero and \(Q=1\),
+as required by the same statement. The physical prime \(2\) is never a
+carrier because its local unit period is \(1\); its unit-mask coordinate
+is nevertheless retained in (A). These are finite additive spectra.
+The external Carmichael infinitude and Nicolas RH-transfer formalizations
+remain open, and the certified zero-free boundary remains \(7/8\).
+
+\paragraph{Formalized prime-power support.}
+The squarefree theorem does not assert the same multiples-only zero set
+for a repeated-prime modulus. A supporting native classification is now
+proved for every prime \(p\), every \(a\ge0\), and every natural \(k,h\).
+Write \(n=p^{a+2}\), let
+\(K_{n,k}=\{u\in(\mathbb Z/n\mathbb Z)^\times:u^k=1\}\), and set
+\[
+ A_{n,k}(h)=\sum_{u\in K_{n,k}}\mathrm e_n(hu),\qquad
+ V_n(h)=\sum_{u\in(\mathbb Z/n\mathbb Z)^\times}\mathrm e_n(hu),
+\]
+\[
+ C_{n,k}(h)=\varphi(n)A_{n,k}(h)-|K_{n,k}|V_n(h).
+\]
+At every primitive frequency, the exact answer is
+\[
+ \gcd(h,n)=1\quad\Longrightarrow\quad
+ \boxed{\ C_{n,k}(h)=0\ \Longleftrightarrow\ p\mid k.\ }
+\]
+The full Ramanujan divisor identity gives \(V_n(h)=\mu(n)=0\).
+If \(p\nmid k\), a vanishing return sum at a primitive \(n\)-th root
+would make \(\Phi_n\) divide its integral counting polynomial.
+Evaluating at \(1\) forces \(p=\Phi_n(1)\) to divide \(|K_{n,k}|\).
+Cauchy's theorem would then give an element of order \(p\) in this
+actual power kernel, contradicting that every element is annihilated
+by \(k\). This argument includes the noncyclic \(2\)-power unit groups.
+
+For the reverse direction put \(\delta=p^{a+1}\) in \(\mathbb Z/n\mathbb Z\).
+Then \(\delta^2=p\delta=0\). If \(p\mid k\), all the actual units
+\(w_j=1+j\delta\), \(0\le j<p\), lie in \(K_{n,k}\), since
+\((1+j\delta)^k=1+kj\delta=1\).
+Multiplication by each \(w_j\) permutes the whole power kernel.
+For every return \(u\), the unit condition on \(hu\) makes
+\(\mathrm e_n(hu\delta)\ne1\), while its \(p\)-th power is \(1\).
+Thus, retaining every return phase,
+\[
+ \sum_{j=0}^{p-1}\mathrm e_n(hu w_j)
+   =\mathrm e_n(hu)\sum_{j=0}^{p-1}\mathrm e_n(hu\delta)^j=0.
+\]
+Summing over the full kernel and using all its permutations gives
+\(pA_{n,k}(h)=0\), hence \(C_{n,k}(h)=0\).
+At frequency \(0\), the centered transform is also exactly zero.
+
+The result includes \(p=2\), every odd small prime, and \(k=0\).
+Its centered statement explicitly requires conductor exponent at least
+\(2\); it does not replace the prime-conductor squarefree theorem.
+The full globally centered nonprimitive-frequency classification for
+arbitrary powers and prime-power exponents remains open. The next theorem
+resolves every frequency for modulus \(p^2\) and power \(p\).
+The maintained owners are
+\texttt{Helpers/PrimePowerReturnSpectrum.lean},
+\texttt{Helpers/PrimePowerReturnTrace.lean}, and
+\texttt{Helpers/PrimePowerReturnAllPrimes.lean}.
+The last owner proves the exact declaration
+\texttt{primitive\_centered\_zero\_iff\_all\_primes}; all three are
+exported by the public grouping. These are supporting consequences of
+classical cyclotomic, Cauchy, and finite-character identities, not a
+claimed new RH equivalence.
+
+The same full-orbit argument has now been formalized for arbitrary
+multiplicative subgroups, as needed for images under conductor
+reduction. Let \(p\) be odd prime, \(a\ge0\),
+\(n=p^{a+2}\), \(H\le(\mathbb Z/n\mathbb Z)^\times\), and
+\(\gcd(h,n)=1\). Then
+\[
+ T_H(h):=\sum_{u\in H}\mathrm e_n(hu)=0
+ \quad\Longleftrightarrow\quad p\mid |H|.
+\]
+For necessity, the integral cyclotomic weight obstruction forces
+\(p\mid|H|\) whenever this sum vanishes. Conversely, the cyclic unit
+group has a unique subgroup of order \(p\). If \(p\mid|H|\), this
+subgroup lies in \(H\) and contains all units
+\(1+jp^{a+1}\), \(0\le j<p\). Multiplication by every one of these
+units permutes \(H\). Summing all the preceding geometric orbit
+identities over \(H\) therefore gives \(pT_H(h)=0\).
+No orbit or compensation term is discarded.
+The owner \texttt{Helpers/PrimePowerSubgroupTrace.lean} proves both
+directions for the actual subgroup, rather than replacing its image
+by a power kernel with an unverified common exponent. This is
+supporting finite-group mathematics. The exact nonprimitive conductor
+reduction is proved below for every local subgroup at an odd prime power.
+The full globally centered odd-modulus inverse theorem remains open.
+
+\subsection{Prime-square intrinsic conductor shells}
+\label{sec:prime-square-intrinsic-shell}
+
+The common forced zeros at a repeated prime cannot be canceled from a
+centered product. The following complete specialization keeps both
+parts of the original intrinsic observable.
+
+\begin{theorem}[Prime-square intrinsic conductor shell]
+\label{thm:prime-square-intrinsic-shell}
+Let \(p\) be any prime and \(h\in\mathbb N\). For the original intrinsic
+observable \(F_{p^2,p}=U r_p-T_p u\), with its actual unit and return counts,
+\[
+ \widehat F_{p^2,p}(h)=
+ \begin{cases}
+  0,&p^2\mid h,\\
+  p^2\bigl((p-1)\mathrm e_{p^2}(h)+1\bigr),
+     &p\mid h,\ p^2\nmid h,\\
+  0,&p\nmid h.
+ \end{cases}
+\]
+Consequently,
+\[
+ \boxed{\ \widehat F_{p^2,p}(h)\ne0
+   \quad\Longleftrightarrow\quad
+   p\ne2,\quad p\mid h,\quad p^2\nmid h.\ }
+\]
+Equivalently its zero set is described by
+\[
+ \widehat F_{p^2,p}(h)=0
+ \quad\Longleftrightarrow\quad
+ p=2\ \text{or}\ p\nmid h\ \text{or}\ p^2\mid h.
+\]
+\end{theorem}
+
+\begin{proof}
+Let \(K=\{u\in(\mathbb Z/p^2\mathbb Z)^\times:u^p=1\}\).
+The unit group is cyclic for odd \(p\), and also for \(p=2\) at modulus \(4\).
+Thus the exact cyclic-kernel formula gives
+\[
+ U=p(p-1),\qquad
+ T_p=|K|=\gcd(p(p-1),p)=p.
+\]
+Put \(\delta=p\) in \(\mathbb Z/p^2\mathbb Z\). Since
+\(\delta^2=p\delta=0\), each \(w_j=1+j\delta\), \(0\le j<p\), is a unit
+with \(w_j^p=1\). These \(p\) units are distinct: cancel \(1\), use the
+canonical representatives \(0\le pj<p^2\), and cancel the positive integer
+\(p\). The cardinal identity therefore makes \(j\mapsto w_j\) an actual
+bijection onto the entire power kernel.
+
+Write \(A(h)=\sum_{u\in K}\mathrm e_{p^2}(hu)\) and
+\(V(h)=\sum_{u\text{ unit}}\mathrm e_{p^2}(hu)\).
+The bijection gives the complete return sum
+\[
+ A(h)=\mathrm e_{p^2}(h)
+       \sum_{j=0}^{p-1}\mathrm e_{p^2}(hp)^j
+   =\begin{cases}
+       p\,\mathrm e_{p^2}(h),&p\mid h,\\
+       0,&p\nmid h.
+     \end{cases}
+\]
+Here the ratio has \(p\)-th power \(1\), and equals \(1\) exactly when
+\(p\mid h\). The full signed Ramanujan divisor formula, with
+\(\mu(1)=1,\mu(p)=-1,\mu(p^2)=0\), gives
+\[
+ V(h)=p^2\boldsymbol1_{p^2\mid h}
+            -p\boldsymbol1_{p\mid h}.
+\]
+Finite bijections from all units and all power returns to their actual
+residue predicates identify the native centered sum with the original
+coefficient transform for every positive modulus. In particular,
+\[
+ \widehat F_{p^2,p}(h)=p(p-1)A(h)-pV(h).
+\]
+Substitution gives the displayed formula, including both compensation
+terms and the zero-frequency row.
+
+For odd \(p\), a shell value could vanish only if
+\((p-1)\mathrm e_{p^2}(h)=-1\). Taking norms and using the exact unit norm
+of the additive character gives \(p-1=1\), contradicting \(p\ne2\).
+For \(p=2\), the only remaining row has \(2\mid h\) and \(4\nmid h\);
+its phase has square \(1\) and is not \(1\), hence is \(-1\).
+Its displayed centered value is therefore zero too. This proves both
+directions and every exceptional case.
+\end{proof}
+
+The maintained owners are
+\texttt{Helpers/PrimePowerIntrinsicBridge.lean},
+\texttt{Helpers/PrimeSquareConductorShell.lean}, and
+\texttt{Helpers/PrimeSquareIntrinsicShell.lean}.
+The first proves the unit-to-residue identity without squarefreeness;
+the last proves the exact intrinsic formula and both zero-set directions.
+All are exported by the public probability-profile grouping.
+This resolves the failed multiples-only extension at \(p^2\) by locating
+the full conductor shell. The cyclic-group, geometric-sum, and Ramanujan
+inputs are classical; publication priority for the combined intrinsic
+statement has not been established. The general odd-modulus two-clock
+extension remains a separate unproved target.
+
+\subsection{Exact subgroup conductor reduction}
+\label{sec:subgroup-conductor-reduction}
+
+For a positive modulus \(n\) and an actual subgroup
+\(H\le(\mathbb Z/n\mathbb Z)^\times\), put
+\[
+ T_{n,H}(v)=\sum_{u\in H}\mathrm e_n(vu).
+\]
+The following statement retains the image subgroup and the full
+complex sum at each conductor, including the prime-conductor boundary.
+
+\begin{theorem}[Exact subgroup conductor reduction and zero shells]
+\label{thm:subgroup-conductor-shell}
+Let \(p\) be an odd prime, let \(a,b,h\) be natural numbers, and set
+\[
+ N=p^{a+b+1},\qquad M=p^{b+1}.
+\]
+Let \(\rho:(\mathbb Z/N\mathbb Z)^\times\to
+(\mathbb Z/M\mathbb Z)^\times\) be natural reduction. For any subgroup
+\(H\le(\mathbb Z/N\mathbb Z)^\times\), set
+\(r=|H|\) and \(m=\gcd(r,p^a)\). Then
+\[
+ |\ker\rho|=p^a,\qquad |\rho(H)|=\frac r m,\qquad
+ T_{N,H}(p^a h)=m\,T_{M,\rho(H)}(h).
+\]
+If \(\gcd(h,M)=1\), then the exact zero criterion is
+\[
+ T_{N,H}(p^a h)=0
+ \quad\Longleftrightarrow\quad p\mid\frac r m.
+\]
+For every natural \(t\), including \(0\), one also has
+\(T_{N,H}(Nt)=r\).
+\end{theorem}
+
+\begin{proof}
+Reduction on units is surjective. Comparing the unit-group
+cardinalities gives
+\[
+ |\ker\rho|=\frac{\varphi(p^{a+b+1})}{\varphi(p^{b+1})}=p^a.
+\]
+In any finite cyclic group, the intersection of subgroups of orders
+\(r,s\) has order \(\gcd(r,s)\). For completeness, the power-map
+kernel of exponent \(\gcd(r,s)\) has that order, since \(\gcd(r,s)\)
+divides the ambient group order. The cyclic subgroup-containment
+criterion places it in both subgroups. Conversely the order of the
+intersection divides both \(r\) and \(s\). The two divisibilities
+prove the equality.
+
+The unit group at \(N\) is cyclic because \(p\) is odd. Applying this
+intersection formula to \(H\) and \(\ker\rho\) shows that the kernel
+of the restricted map has order \(m\). Every fiber over \(\rho(H)\)
+is a translate of that kernel, so \(|\rho(H)|=r/m\). For any complex
+weight \(w\), exact fiber summation gives
+\[
+ \sum_{u\in H}w(\rho(u))
+   =m\sum_{v\in\rho(H)}w(v).
+\]
+The character identity
+\(\mathrm e_N(p^a x)=\mathrm e_M(\rho(x))\), first on integer
+representatives and then on all residues, now gives the stated
+Fourier reduction. In particular the identity is valid with signed
+complex weights; every phase and fiber is retained.
+
+It remains to classify the primitive trace of the image subgroup
+\(J=\rho(H)\). For \(M\) a proper prime power, the preceding full
+subgroup trace criterion says that this trace is zero exactly when
+\(p\mid|J|\). At the boundary \(M=p\), a vanishing trace would again
+force \(p\mid|J|\) by the integral cyclotomic weight obstruction.
+But \(|J|\mid p-1\), so that cannot occur; the same equivalence
+therefore holds at this boundary too, with both sides false.
+Since \(m>0\), multiplication by \(m\) preserves zero and nonzero
+values. Substituting \(|J|=r/m\) proves the exact zero criterion.
+Finally every phase at \(Nt\) is \(1\), so the last trace is \(r\).
+\end{proof}
+
+The maintained owners
+\texttt{Helpers/CyclicConductorReduction.lean},
+\texttt{Helpers/PrimePowerConductorReduction.lean}, and
+\texttt{Helpers/PrimePowerConductorShell.lean}
+prove the intersection and image masses, the actual modular
+character transport, and the exact nonprimitive zero criterion.
+The single declaration
+\texttt{conductor\_trace\_and\_zero\_shell}
+assembles all clauses above. The kernel-cardinality clause also
+holds at \(p=2\); oddness is retained in the image and zero-shell
+consumers. The theorem includes \(a=0\), \(b=0\), and every odd
+small prime. These are finite structural consequences of classical
+inputs; publication priority is unestablished.
+The globally centered product at an arbitrary odd modulus still
+requires its separate signed CRT argument.
+
+\subsection{Full compensated conductor transport}
+\label{sec:compensated-conductor-transport}
+
+The return trace and the unit reference have different fiber masses.
+Both masses are needed to transport the complete centering.
+
+\begin{theorem}[Full compensated conductor reduction]
+\label{thm:compensated-conductor-reduction}
+Let \(N,B,m\) be positive integers with \(N=mB\), and let \(k,j\)
+be natural numbers. Let \(\rho\) be reduction on modular units, and
+assume the actual root-lifting property
+\[
+ \rho(K_{N,k})=K_{B,k}.
+\]
+Put \(q=|\ker\rho|\) and
+\(r=|\ker(\rho|_{K_{N,k}})|\). Then \(q,r>0\), and
+\[
+ C_{N,k}(mj)=qr\,C_{B,k}(j),\qquad
+ C_{N,k}(mj)=0\ \Longleftrightarrow\ C_{B,k}(j)=0.
+\]
+The original intrinsic residue observable has the same zero equivalence:
+\[
+ \widehat F_{N,k}(mj)=0
+ \quad\Longleftrightarrow\quad \widehat F_{B,k}(j)=0.
+\]
+Moreover, for every odd prime \(p\) and all natural \(s,k,h\),
+\[
+ \widehat F_{p^{s+1},k}(p^s h)
+   =p^s\gcd(k,p^s)\,\widehat F_{p,k}(h).
+\]
+All these statements include exponent \(k=0\) and zero frequency.
+\end{theorem}
+
+\begin{proof}
+For a finite group \(G\), subgroup \(H\), and complex weight \(w\),
+define the complete centered functional
+\[
+ \mathcal C_{G,H}(w)
+   =|G|\sum_{u\in H}w(u)-|H|\sum_{u\in G}w(u).
+\]
+Let \(f:G\to Q\) be a surjective group homomorphism. Write
+\(q=|\ker f|\) and \(r=|\ker(f|_H)|\).
+Every fiber over \(Q\) has size \(q\), while every fiber over
+\(f(H)\) in the restricted map has size \(r\). Therefore
+\[
+ |G|=q|Q|,\quad |H|=r|f(H)|,\quad
+ \sum_{u\in G}w(f(u))=q\sum_{v\in Q}w(v),\quad
+ \sum_{u\in H}w(f(u))=r\sum_{v\in f(H)}w(v).
+\]
+Substituting these four exact identities, with both signs retained,
+gives
+\[
+ \mathcal C_{G,H}(w\circ f)=qr\,\mathcal C_{Q,f(H)}(w).
+\]
+Both kernels are nonempty finite groups, so their cardinalities
+\(q,r\) are strictly positive. The centered functional itself is
+allowed to vanish.
+
+Apply this identity to reduction on modular units and
+\(H=K_{N,k}\). Reduction is surjective, and the hypothesis identifies
+its actual root image with \(K_{B,k}\).
+The exact character identity
+\[
+ \mathrm e_N(mju)=\mathrm e_B(j\rho(u))
+\]
+transports every return and unit-reference phase. It proves the full
+native centered identity, and positivity of \(qr\) proves its zero
+equivalence. The unit-to-residue bridge then proves the stated
+equivalence for \(\widehat F\).
+
+For the final specialization, write \(N=p^{s+1}\). The finite cyclic
+unit group has root-kernel mass
+\[
+ |K_{N,k}|=\gcd(k,p^s)\gcd(k,p-1).
+\]
+Indeed \(p^s\) and \(p-1\) are coprime, and the order of a power-map
+kernel is the greatest common divisor of its exponent and the
+ambient group order. The restricted reduction kernel has size
+\(\gcd(k,p^s)\). Consequently its actual image has order
+\(\gcd(k,p-1)\). In the cyclic group of units at the prime conductor,
+this identifies the image with the complete \(k\)-th-power kernel;
+the exponent remains \(k\). The unrestricted unit reduction kernel
+has size \(p^s\). Substituting both fiber masses in the full centered
+identity proves
+\[
+ C_{p^{s+1},k}(p^s h)=p^s\gcd(k,p^s)C_{p,k}(h).
+\]
+Finally the checked dependent normalization \(p^{0+1}=p\) and the
+unit-to-residue bridge give the exact intrinsic formula above.
+\end{proof}
+
+The maintained owners are
+\texttt{Helpers/PrimePowerTameImage.lean} and
+\texttt{Helpers/CompensatedConductorReduction.lean}.
+The first proves the actual same-power root image. The second proves
+the signed finite-group pushforward, native identity, native and
+intrinsic zero equivalences, explicit prime-conductor normalization,
+and the exact intrinsic prime-power specialization.
+The relevant normalized declarations are
+\texttt{centered\_prime\_conductor\_normalization},
+\texttt{prime\_power\_centered\_reduction\_at\_prime}, and
+\texttt{prime\_power\_intrinsic\_reduction}.
+No RH or zero-free-strip hypothesis is used. The root-lifting
+hypothesis in the general statement is explicit; the odd prime-power
+specialization discharges it. This theorem is an exact finite
+transport, not an analytic estimate or zero exclusion.
+The full odd-modulus two-clock classification remains open.
+
+The following all-frequency nonvanishing statement is also maintained.
+For every odd prime \(p\) and all natural \(s,k,h\),
+\[
+ \gcd(k,p^s)\mid h
+ \quad\Longrightarrow\quad
+ \sum_{u\in K_{p^{s+1},k}}\mathrm e_{p^{s+1}}(hu)\ne0.
+\]
+There is no coprimality restriction on \(h\).
+To see the extra range, keep the primitive conductor root
+\(\zeta=\mathrm e_{p^{a+1}}(1)\) fixed and write a subgroup trace as
+\(\sum_{u\in H}\zeta^{h u}\), using integer representatives.
+The proved integral cyclotomic weight obstruction forces
+\(p\mid|H|\) whenever this sum vanishes, at any frequency.
+Thus every subgroup whose mass is prime to \(p\) has nonzero trace
+at every frequency, including zero.
+
+Now write \(\gcd(k,p^s)=p^t\) and \(s=t+b\). Reduction from
+\(p^{s+1}\) to \(p^{b+1}\) has restricted root-kernel mass \(p^t\)
+and actual image mass \(\gcd(k,p-1)\), which is prime to \(p\).
+The exact conductor identity transports every frequency \(p^t h\)
+to that image, with a nonzero scalar factor \(p^t\).
+This proves the displayed statement. The owner
+\texttt{Helpers/PrimePowerRootGrid.lean} proves it as
+\texttt{root\_trace\_nonzero\_of\_primary\_clock\_dvd}.
+It also proves the all-frequency subgroup input
+\texttt{subgroup\_trace\_nonzero\_of\_prime\_not\_dvd\_card}.
+This is the nonvanishing direction on the full primary grid;
+vanishing off that grid and the complete signed odd-modulus
+classification remain separate unproved steps.
+
 \subsection{Fibonacci carriers and the golden-ratio clock}
 \label{sec:fibonacci-golden-carriers}
 
@@ -14210,6 +15975,328 @@ otherwise the preceding estimate applies. Monotonicity of \(t^a\)
 and \(X^a\ge1\) give the displayed uniform constant.
 The independent signed-energy hypothesis is retained throughout.
 
+\begin{lemma}[Centered record energy on a long interval]
+\label{lem:centered-record-interval}
+Let $2\le Y\le X$, put $H=R(Y)$, and define
+\[
+ \mathcal C_Y(X)=\mathcal C_R(X)-\mathcal C_R(Y)
+                          -H\bigl(E(X)-E(Y)\bigr).
+\]
+Then the exact identity, including its terminal correction, is
+\[
+ (R(X)-H)^2=2\mathcal C_Y(X)
+       +2(R(X)-H)(R(X)-E(X))+Q_R(X)-Q_R(Y).
+\]
+At a record endpoint $E(X)=R(X)$ the terminal correction is zero.
+
+The finite-clock analogue gives the following explicit barrier.
+For any real error sequence $e_i$, write
+$r_0=0$, $r_{i+1}=\max(r_i,e_i)$,
+$e^-_0=0$, $e^-_{i+1}=e_i$, and
+\[
+ c_n=\sum_{0\le i<n}r_i(e_i-e^-_i),\qquad
+ c_{m,n}=c_n-c_m-r_m(e^-_n-e^-_m).
+\]
+Suppose $m\le n$, $W,A\ge0$, $e^-_n=r_n$,
+$r_{i+1}-r_i\le W$ for every $m\le i<n$, and
+$2c_{m,n}\le A^2$. Then
+\[
+                         r_n\le r_m+W+A.
+\]
+\end{lemma}
+
+\begin{proof}
+Subtract the two instances of \eqref{eq:prime-record-energy},
+expand the square, and collect the term $H(E(X)-E(Y))$.
+This proves the real-cutoff identity without discarding a signed term.
+The same algebra applies to the finite clock. At its record endpoint,
+put $k=r_n-r_m$ to obtain
+\[
+ k^2=2c_{m,n}+\sum_{m\le i<n}(r_{i+1}-r_i)^2.
+\]
+Since every record increment is nonnegative, the stated jump bound gives
+\[
+ \sum_{m\le i<n}(r_{i+1}-r_i)^2
+       \le W\sum_{m\le i<n}(r_{i+1}-r_i)=Wk.
+\]
+Thus $k^2\le A^2+Wk$. If $k>W+A$, then
+$(k-W-A)(k+A)>0$ and $WA\ge0$, contradicting this inequality.
+Hence $k\le W+A$.
+\end{proof}
+
+The maintained declarations
+\texttt{primeRecordCenteredEnergy\_identity} and
+\texttt{primeRecordCenteredEnergy\_at\_record} in
+\texttt{PrimeRecordEnergy.lean} prove the actual real-cutoff identities.
+\texttt{ClockRecordEnergy.lean} proves the corresponding clock identities,
+the interval quadratic-variation bound, and
+\texttt{clockRecordCenteredEnergy\_barrier}.
+The signed-energy upper bound is an explicit hypothesis of the barrier;
+this lemma does not establish that arithmetic estimate.
+
+\begin{lemma}[Balanced records for a sublinear clock]
+\label{lem:balanced-sublinear-records}
+Let $r:\mathbb N\to\mathbb R$ be nondecreasing and unbounded above.
+Suppose that, for every $c>0$, $r(n)\le cn$ for all sufficiently large $n$.
+Let $w(n)$ satisfy $r(n)-r(n-1)\le w(n)$ for $n>0$.
+Then, for every $N$, there is $p\ge N$ such that
+\[
+ r(p-1)<r(p),\qquad r(p)-w(p)\le2r(\lfloor p/2\rfloor).
+\]
+For the actual prime record, the following alternative is unconditional:
+either $R$ is bounded above, or there are arbitrarily large prime strict
+record endpoints $p$ satisfying
+\[
+                    R(p)-\log p\le2R(\lfloor p/2\rfloor).
+\]
+\end{lemma}
+
+\begin{proof}
+Suppose that every strict record $p\ge N$ violates the displayed bound.
+For any $n\ge N$, let $p$ be the first index with $r(p)>r(2n)$.
+Unboundedness makes it exist, monotonicity gives $p>2n$, and minimality
+gives $r(p-1)=r(2n)$. Therefore
+\[
+ 2r(n)\le2r(\lfloor p/2\rfloor)<r(p)-w(p)\le r(2n).
+\]
+Choose $n_0\ge\max(N,1)$ with $r(n_0)>0$ and iterate to obtain
+$r(2^kn_0)\ge2^kr(n_0)$. This contradicts the assumed eventual upper
+bound with $c=r(n_0)/(2n_0)>0$.
+
+For the actual record, the existing unconditional prime number theorem
+and $R(n)\le M(n)$ give $R(n)=o(n)$.
+Every strict record cutoff is prime, and its jump is at most $\log p$.
+If $R$ is unbounded, apply the first part with $w(n)$ equal to its actual
+one-step jump, then use the prime jump bound. The other case is exactly
+the bounded alternative.
+\end{proof}
+
+\texttt{sublinearClock\_balanced\_records} proves the general assertion.
+The maintained actual-prime declarations are
+\texttt{greedyPrimeRegulator\_balanced\_records} and
+\texttt{greedyPrimeRegulator\_balanced\_records\_or\_bounded}.
+They consume the existing unconditional mass limit and retain the
+logarithmic jump correction. They do not bound the signed energy in
+Lemma~\ref{lem:centered-record-interval}.
+
+\begin{lemma}[Signed psi work and complete midpoint compensation]
+\label{lem:signed-psi-record-work}
+Use the actual prime clock $p_i$, its errors
+\[
+ e_i=\theta(p_i)-p_i,\qquad
+ a_i=\psi(p_i)-p_i,\qquad b_i=\psi(p_i)-\theta(p_i),
+\]
+and records $r_i=\max(0,e_0,\ldots,e_{i-1})$.
+For any clock $v$, put $v^-_0=0$ and $v^-_{i+1}=v_i$.
+For $0\le m\le n$, define
+\[
+ \begin{split}
+ k&=r_n-r_m,\qquad d_i=r_{i+1}-r_i,\qquad
+       \Delta Q=\sum_{i<n}d_i^2-\sum_{i<m}d_i^2,\\
+ F_n(v)&=\sum_{i<n}r_i(v_i-v^-_i),\\
+ W_{m,n}(v)&=F_n(v)-F_m(v)-r_m(v^-_n-v^-_m),\\
+ \mathcal W&=W_{m,n}(a),\qquad \mathcal P=W_{m,n}(b).
+ \end{split}
+\]
+If $e^-_n=r_n$, then the complete signed identities are
+\[
+ \begin{split}
+ 2(\mathcal W-\mathcal P)&=k^2-\Delta Q,\\
+ \mathcal P&=kb^-_n-
+   \left(\sum_{i<n}b_i d_i-\sum_{i<m}b_i d_i\right),\\
+ 0\le\mathcal P&\le k(b^-_n-b^-_m).
+ \end{split}                                                   \tag{SW}
+\]
+If $d_i\le L$ for $m\le i<n$, then
+\[
+ \frac{k^2-Lk}{2}\le\mathcal W
+       \le\frac{k^2}{2}+k(b^-_n-b^-_m).
+\]
+If also $L\ge0$ and $k\ge2L$, then
+$\mathcal W-\mathcal P\ge k^2/4$.
+
+Finally set $\ell_i=\log p_i$ and $J_n=\sum_{i<n}\ell_i d_i$.
+The finite pairing made with the midpoint prime values is
+\[
+ \mathcal A=
+ k(a^-_n-\ell^-_n/2)-
+ \left(\sum_{i<n}(a_i-\ell_i/2)d_i
+              -\sum_{i<m}(a_i-\ell_i/2)d_i\right).
+\]
+It satisfies, with both boundary and jump corrections retained,
+\[
+ \begin{split}
+ \mathcal A&=\mathcal W-\tfrac12 k\ell^-_n+\tfrac12(J_n-J_m),\\
+ 2(\mathcal A-\mathcal P)
+      &=k^2-\Delta Q-k\ell^-_n+(J_n-J_m).
+ \end{split}                                                   \tag{MC}
+\]
+This finite assertion assumes no infinite zero-series limit.
+\end{lemma}
+
+\begin{proof}
+Finite summation by parts gives, for every $v$,
+\[
+ W_{m,n}(v)=kv^-_n-
+        \left(\sum_{i<n}v_i d_i-\sum_{i<m}v_i d_i\right).
+\]
+The map $v\mapsto W_{m,n}(v)$ is linear. Since $a=e+b$,
+subtracting the full $b$ work leaves $W_{m,n}(e)$.
+The centered record identity of
+Lemma~\ref{lem:centered-record-interval}, in its finite clock form,
+gives $2W_{m,n}(e)=k^2-\Delta Q$ at the stated endpoint.
+
+The exact coefficient identity
+\[
+ b_i=\sum_{1\le j\le p_i}
+       \left(\Lambda(j)-{\bf1}_{j\ {\rm prime}}\log j\right)
+\]
+has nonnegative summands, including all proper prime powers.
+Thus $b_i-b^-_i\ge0$. The centered sum is equivalently
+\[
+ W_{m,n}(b)=\sum_{m\le i<n}(r_i-r_m)(b_i-b^-_i).
+\]
+Every weight lies between $0$ and $k$; telescoping the increments of
+$b$ proves its two bounds. Also $0\le\Delta Q\le Lk$.
+Insert these inequalities in (SW). If $k\ge2L\ge0$, then
+$k^2-Lk\ge k^2/2$, proving the retained self-work bound.
+For (MC), expand every finite midpoint summand and collect the
+endpoint term and the two $J$ sums. Substitution in (SW) proves the
+second identity.
+\end{proof}
+
+The maintained declarations
+\texttt{primeRecordPsiWork\_compensated},
+\texttt{primeRecordPrimePowerWork\_product},
+\texttt{primeRecordPrimePowerWork\_bounds},
+\texttt{primeRecordPsiWork\_signed\_bounds},
+\texttt{primeRecordPsiWork\_retained\_self\_work}, and
+\texttt{primeRecordPsiMidpointPairing\_compensated}
+prove these assertions over the actual prime clock.
+
+At prime endpoints $Y=p_{m-1}$ and $X=p_{n-1}$, with $1\le m<n$,
+these finite work sums correspond to the centered weight
+$K(t)=R(t)-R(Y)$ on $(Y,X]$. In particular $\mathcal P$ retains the
+proper prime powers with that same weight. At a prime record endpoint
+the midpoint endpoint term in (MC) is $-k\log X/2$.
+Keeping only $J_n-J_m$ would omit this boundary contribution.
+
+As a quantitative consequence of (SW), the existing jump bound and
+$0\le\psi(X)-\theta(X)\le2\sqrt X\log X$ give, for $k>0$,
+\[
+ \frac12-\frac{\log X}{2k}
+ \ \le\ \frac{\mathcal W}{k^2}
+ \ \le\ \frac12+\frac{2\sqrt X\log X}{k}.
+\]
+Consequently, if $k\ge cX^{1/2+\eta}$ along any record sequence,
+where $c,\eta>0$ are fixed, then
+$\mathcal W/k^2\to1/2$ along that sequence.
+This bound includes every proper prime power through $\psi-\theta$.
+Squares alone supplied a lower bound; all higher powers are retained.
+Their full contribution is already present inside $\mathcal W$ and
+does not independently bound its self-work. Midpoint corrections are at most
+of order $k\log X$ and also leave this leading scale unchanged.
+These bounds concern growth at record endpoints. The separate question of
+wave control at a frozen deletion height over a long quiet interval remains open.
+
+
+\begin{lemma}[Complete retained-prime feedback]
+\label{lem:retained-prime-feedback}
+Let $p_i$ enumerate the actual primes, let $w_i=\log p_i$, and put
+$p_{-1}=0$, $a_i=p_i-p_{i-1}$.
+Let $M_i$ be the deleted logarithmic mass before $p_i$,
+$d_i=M_{i+1}-M_i$, and let $s_i$ be one or zero according as $p_i$
+is retained or deleted. With $e_i=\theta(p_i)-p_i$ and $e^-_0=0$,
+$e^-_{i+1}=e_i$, define
+\[
+ \begin{split}
+ g_i&=M_i-e^-_i,\qquad Q_n=\sum_{i<n}w_i d_i,\\
+ U_S(n)&=\sum_{i<n}M_i(s_iw_i-a_i),\\
+ U(n)&=\sum_{i<n}M_i(w_i-a_i),\qquad
+ T_n=\sum_{i<n}g_{i+1}d_i.
+ \end{split}
+\]
+Every retained prime and every elapsed prime gap occur in these sums.
+For every $n\ge0$ the signed identities and bounds are
+\[
+ \begin{split}
+ U_S(n)&=-M_ng_n+T_n,\qquad 0\le T_n\le Q_n,\\
+ 2U(n)&=M_n^2+2U_S(n)-Q_n,\\
+ -Q_n/2&\le U(n)-M_n^2/2+M_ng_n\le Q_n/2.
+ \end{split}                                                     \tag{RF}
+\]
+All sums have the stated finite prefix support.
+\end{lemma}
+
+\begin{proof}
+The exact greedy recursion gives $d_i=0$ at an accepted prime and
+$d_i=w_i$ at a deleted prime. The full-prime error increment is
+$e_i-e^-_i=w_i-a_i$. Hence
+\[
+ g_{i+1}-g_i=d_i-(w_i-a_i)=a_i-s_iw_i.
+\]
+Finite summation by parts, using $M_0=0$, now gives
+\[
+ U_S(n)=-M_ng_n+\sum_{i<n}g_{i+1}d_i.
+\]
+At a deleted prime the rejection test and the pre-deletion budget give
+$0\le g_{i+1}<w_i$; at an accepted prime $d_i=0$.
+Multiplying these inequalities by $d_i\ge0$ and summing proves
+$0\le T_n\le Q_n$.
+
+Also $d_i^2=w_id_i$. Telescoping the squares of the deleted mass gives
+\[
+ M_n^2=2\sum_{i<n}M_id_i+Q_n.
+\]
+The full source splits exactly as
+$U(n)=U_S(n)+\sum_{i<n}M_id_i$.
+These two equations prove the second identity in (RF).
+Its substitution into the first bounds gives the final two inequalities.
+No norm bound on the retained source is used.
+\end{proof}
+
+The maintained declarations
+\texttt{primeClock\_retained\_source\_step},
+\texttt{primeRetainedSignedWork\_feedback\_bounds}, and
+\texttt{primeFullSignedWork\_feedback\_bounds}
+compile the actual-prime specialization of (RF).
+At $X=p_{n-1}$, $n\ge1$, one has $g_n=X-\theta_S(X)$ and
+\[
+ Q_n=\sum_{\substack{p\le X\\p\in D}}(\log p)^2
+       \le M_n\log X.
+\]
+The sums in (RF) correspond to the exact finite pairings
+$\int_0^X M(t^-)\,d(\theta_S(t)-t)$ and
+$\int_0^X M(t^-)\,d(\theta(t)-t)$.
+The latter retains all prime powers when written as
+\[
+ \int_0^X M(t^-)\,d(\psi(t)-t)
+ -\int_0^X M(t^-)\,d(\psi(t)-\theta(t)).
+\]
+No infinite zero-series interchange is asserted.
+
+The feedback in (RF) bounds the retained source by
+$-M_ng_n+[0,Q_n]$. At a deleted endpoint, $0\le g_n<\log X$,
+so the retained source is of order $M_n\log X$.
+The complete source still contains $M_n^2/2$ from the deleted-prime
+diagonal. Subtracting this diagonal removes that leading quadratic
+response; it cannot be advertised as preserving that response while
+bounding it by a smaller power.
+
+For the first-passage question, freeze $h=M(Y)$ and put
+$g(Y)=Y-\theta_S(Y)$. Up to the first later deletion,
+\[
+ g(t)=g(Y)+(t-Y)-\sum_{\substack{Y<p\le t\\p\ {\rm prime}}}\log p.
+\]
+Thus all intervening retained primes enter the exact barrier.
+The absence of a deletion through $X$ requires this hypothetical
+unreflected gap to stay nonnegative at every prime through $X$.
+The cap of the actual reflected class alone does not prove that fact,
+since a deletion is precisely the step by which its cap is maintained.
+No long quiet window or new zero-free boundary follows from (RF).
+
+
+
 Consequently an independent estimate
 $\mathcal C_R(X)\ll_\epsilon X^{3/2+\epsilon}$ at all sufficiently
 large positive record primes would give
@@ -14255,6 +16342,654 @@ for recurring foundational-axiom checks.
 The separate zero-response theorems are required for the zero-free
 interpretation; no independent power-saving estimate for
 \(\mathcal C_R\) is supplied by these identities.
+
+\begin{lemma}[Prime-return overlap delay]
+\label{lem:prime-return-overlap-delay}
+Let $p$ be prime, let $p<n$ with $p\mid n$, and put
+\[
+ A_{n,p}=\prod_{\substack{q\mid n\\q\ {\rm prime},\,q<p}}q.
+\]
+If $n<p^2$, then the complete overlap corrections satisfy
+\[
+ \sum_{d\mid A_{n,p}}\mu(d)=0,
+ \qquad -\sum_{d\mid A_{n,p}}\mu(pd)=0.
+\]
+Moreover $\operatorname{minFac}(p^2)=p$: the first proper return
+owned by $p$, after every smaller-prime overlap is removed, is at $p^2$.
+\end{lemma}
+
+\begin{proof}
+If $p$ were the least prime factor of $n$, write $n=pm$.
+Since $p<n$, one has $m\ge2$. The least prime factor of $n$ is at
+most any divisor of $n$ greater than one, so $p\le m$ and $p^2\le n$.
+This contradicts $n<p^2$.
+The maintained least-owner identities identify both displayed sums
+with the indicator of $\operatorname{minFac}(n)=p$, retaining every
+smaller-prime divisor and the full product modulus $pd$.
+They therefore vanish. The only prime factor of $p^2$ is $p$,
+which proves the final assertion.
+\end{proof}
+
+The declarations \texttt{prime\_owner\_square\_le},
+\texttt{sum\_moebius\_primeFactors\_lt\_eq\_zero\_before\_square},
+\texttt{neg\_sum\_moebius\_mul\_primeFactors\_lt\_eq\_zero\_before\_square},
+and \texttt{prime\_square\_minFac} in the maintained least-owner module
+compile this finite overlap statement.
+This is elementary binary sieve bookkeeping, with no originality claim.
+It concerns the opening indicator, not the amplitudes in
+$W(x)=x-\theta(x)$. It does not say that a prime has no logarithmic
+return contribution before its square. Those contributions, beginning
+at the proper return $2p$, are retained in the following identity.
+
+\begin{lemma}[The logarithmic prime-return field]
+\label{lem:logarithmic-prime-return-field}
+Write $\Lambda$ for the von Mangoldt function and
+$B(n)=\mathbf 1_{\{n\ {\rm prime}\}}\log n$. For a positive integer $n$ set
+\[
+ R(n)=
+ \sum_{d\in\operatorname{divisors}(n)\setminus\{n\}}
+       \mathbf 1_{\{d\ {\rm prime}\}}\log d
+ +\sum_{\substack{d\mid n\\d\ {\rm not\ prime}}}\Lambda(d).
+\]
+The first sum retains all original proper prime returns, and the second
+retains the higher prime-power compensation. Then
+\[
+ B(n)+R(n)=\log n.
+\]
+For every integer $N\ge0$, with $W(x)=x-\theta(x)$, one has
+\[
+ W(N+1)-W(N)=1-\log(N+1)+R(N+1)
+\]
+and the complete compensated primitive is
+\[
+ W(N)=N-\log(N!)+\sum_{n=1}^{N}R(n).
+\]
+The diagonal-compensated squared increments retain the linear signal:
+\[
+ \sum_{n=1}^{N}
+ \left(\bigl[1-\log n+R(n)\bigr]^2-B(n)^2+1\right)=2W(N).
+\]
+This expression is signed; no positivity of its compensated summands
+is assumed.
+In particular $R(n)=0$ at a prime, and $R(n)=\log n$ at a positive
+nonprime. No overlap weight is assigned only to the smallest prime.
+\end{lemma}
+
+\begin{proof}
+The divisor identity $\sum_{d\mid n}\Lambda(d)=\log n$ splits into
+prime and nonprime divisors. On a prime divisor $d$,
+$\Lambda(d)=\log d$. The only omitted prime term in $R(n)$ is
+$d=n$ when $n$ itself is prime; this is exactly $B(n)$.
+This proves the first identity and its prime and nonprime cases.
+The jump of $\theta$ at the integer $N+1$ is $B(N+1)$, giving the
+displayed difference formula. Sum these differences from zero to $N$,
+using $\sum_{n=1}^{N}\log n=\log(N!)$, to obtain the primitive.
+For the last identity, substitute $1-\log n+R(n)=1-B(n)$.
+Each compensated summand is $2-2B(n)$; summing gives $2W(N)$.
+\end{proof}
+
+The maintained module \texttt{PrimeReturnWave} proves
+\texttt{primeWaveBirth\_add\_returns},
+\texttt{primeWaveHeadroom\_nat\_succ}, and
+\texttt{primeWaveHeadroom\_eq\_compensated\_returns}, and
+\texttt{primeWave\_compensated\_square\_readout}, with the prime and
+nonprime specializations and nonnegative power compensation.
+Its wave-assembly import also compiles.
+At an overlap $pq$, both logarithmic prime contributions are present;
+a binary least-owner rearrangement must redistribute the full weight
+$\log(pq)$ rather than erase the later prime's contribution.
+This repairs the model interpretation. It supplies no independent
+long-window suppression estimate or improved zero-free exponent.
+
+\paragraph{The retained class and every deletion cross term.}
+Here $\mathcal S$ is the actual fixed greedy class: retain a prime
+exactly when its inclusion preserves the prefix cap, and let
+$\mathcal D$ be the deleted primes. Write
+\[
+ M(N)=\theta_{\mathcal D}(N),\qquad
+ g(N)=N-\theta_{\mathcal S}(N)\ge0.
+\]
+For each positive integer $n$, put
+\[
+ s(n)=\mathbf1_{\mathcal S}(n)\log n,\quad
+ d(n)=\mathbf1_{\mathcal D}(n)\log n,\quad
+ F(n)=\sum_{\substack{p\mid n\\p\in\mathcal D}}v_p(n)\log p,\quad
+ R_{\mathcal S}(n)=
+   \sum_{\substack{p<n\\p\in\mathcal S}}v_p(n)\log p.
+\]
+All sums are finite; $v_p(n)$ retains repeated prime factors.
+Factorization gives $s(n)+R_{\mathcal S}(n)+F(n)=\log n$.
+The deleted factor field $F$ cannot be omitted when using the retained
+waves to reconstruct the original integer increments. With
+$A=1-\log n+R_{\mathcal S}(n)$ and $s=s(n),d=d(n),F=F(n)$,
+the complete signed expansion is
+\begin{align*}
+ &[A+F-d]^2-(s+d)^2+1\\
+ &\quad=A^2+2AF+F^2-s^2+1-2d(A+F+s)\\
+ &\quad=[A+F]^2-s^2+1-2d ,
+\end{align*}
+since $A+F+s=1$. In particular both the $d^2$ diagonal and every
+mixed term have been accounted for. At a deleted prime $p$, the
+retained summand is $2$ and the full summand is $2-2\log p$.
+
+\begin{lemma}[Retained-wave transfer and the uniform square-horizon obstruction]
+\label{lem:retained-wave-square-horizon}
+Let $E(N)$ be the complete signed square sum in
+Lemma~\ref{lem:logarithmic-prime-return-field}. Then for every integer
+$N\ge0$ and every real $h$,
+\[
+ E(N)=2g(N)-2M(N),\qquad
+ E(N)\ge-2h\quad\Longleftrightarrow\quad M(N)-h\le g(N).
+\]
+Index the primes increasingly by $p_0,p_1,\ldots$, and let $m_i$
+be the greedy deleted mass strictly before $p_i$.
+If, for some $n$,
+\[
+ \theta(p_n)-p_n>\sqrt{p_n}+\log p_n,
+\]
+there is an index $i\le n$ such that
+\[
+ p_i\le m_i^2,\qquad E(p_i)<-2m_i.
+\]
+Thus imposing $E(p_i)\ge-2m_i$ at every pre-prime frame with
+$p_i\le m_i^2$ forces
+$\theta(p_n)-p_n\le\sqrt{p_n}+\log p_n$ on that entire finite prefix.
+\end{lemma}
+
+\begin{proof}
+The partition $\theta=\theta_{\mathcal S}+\theta_{\mathcal D}$
+and $E(N)=2(N-\theta(N))$ give both identities.
+For the last assertion put $e_i=\theta(p_i)-p_i$.
+The exact greedy recursion is
+\[
+ m_0=0,\qquad
+ m_{i+1}=
+ \begin{cases}
+ m_i,&e_i\le m_i,\\
+ m_i+\log p_i,&e_i>m_i.
+ \end{cases}
+\]
+Suppose no claimed witness occurs through $n$. At each rejection,
+$e_i>m_i$ therefore implies $p_i>m_i^2$, so
+$m_i<\sqrt{p_i}$. Its new mass is less than
+$\sqrt{p_i}+\log p_i$. At acceptance the mass is unchanged,
+and $\sqrt{p_i}+\log p_i$ is increasing with $i$.
+Induction gives $m_{i+1}\le\sqrt{p_i}+\log p_i$.
+The proved greedy record sandwich also gives $e_i\le m_{i+1}$.
+Taking $i=n$ contradicts the stated crest.
+For the witness, $e_i>m_i$ and $E(p_i)=-2e_i$ give the strict
+signed failure with no discarded return or diagonal term.
+\end{proof}
+
+All finite statements of the lemma are maintained in
+\texttt{PrimeWaveFrozenBarrier}, including
+\texttt{primeWave\_square\_retained\_decomposition},
+\texttt{primeWave\_square\_frozen\_bound\_iff}, and
+\texttt{primeWave\_square\_failure\_of\_large\_crest}.
+The underlying finite rejection-barrier induction is also compiled.
+
+The universal assertion over starting frames is therefore too strong.
+Littlewood's unconditional positive oscillation for $\psi(x)-x$,
+together with $\psi(x)-\theta(x)=O(\sqrt x)$, gives
+\[
+ \limsup_{x\to\infty}\frac{\theta(x)-x}{\sqrt x}=+\infty .
+\]
+The needed inputs are stated in
+\href{https://arxiv.org/pdf/1407.1914}{Platt--Trudgian,
+equations (2)--(3)}. Positive crests can be moved to the preceding
+prime, so the finite obstruction supplies actual failures.
+This use of the classical oscillation theorem is an ordinary
+mathematical consequence, not a claim of a newly compiled Lean proof
+of Littlewood's theorem.
+
+This obstruction does not rule out a suitably selected unbounded
+sequence of quiet windows. Nor does it rule out a root bound with an
+arbitrary positive power allowance. For the deletion-count criterion,
+with $q=1/2+\varepsilon$, the sufficient horizon is
+\[
+ X\ge\max\!\left(Y,\left(\frac{M(Y)}{\log2}\right)^{1/q}\right).
+\]
+Proving suitable windows on that scale, or directly bounding the
+current deleted mass at a cofinal sequence, remains open.
+There is no unconditional square-root deletion bound or improved
+zero-free exponent asserted here.
+
+\begin{lemma}[The deterministic source fixed by the past prime waves]
+\label{lem:deterministic-past-prime-source}
+For natural numbers $p,n$ write
+$\delta_p(n)=\mathbf1_{\{p\mid n\}}$, and define
+\[
+ \Gamma_Y(n)=
+ \prod_{\substack{2\le p\le Y\\p\ {\rm prime}}}(1-\delta_p(n)).
+\]
+For $1\le Y<n\le Y^2$,
+\[
+ n\ {\rm prime}\quad\Longleftrightarrow\quad
+ \forall p\le Y,\ p\ {\rm prime}\Longrightarrow p\nmid n,
+ \qquad
+ \Gamma_Y(n)=\mathbf1_{\{n\ {\rm prime}\}}.
+\]
+For all natural $Y,n,m$, the exact two-time product is
+\[
+ \Gamma_Y(n)\Gamma_Y(m)=
+ \prod_{\substack{2\le p\le Y\\p\ {\rm prime}}}
+ \left(1-\delta_p(n)-\delta_p(m)+\delta_p(n)\delta_p(m)\right).
+\]
+To retain past births as well, define the proper-return support
+\[
+ \delta_p^{<}(a)=\mathbf1_{\{p<a\}}\delta_p(a),\qquad
+ O_Y(a)=\prod_{\substack{2\le p\le Y\\p\ {\rm prime}}}
+                       (1-\delta_p^{<}(a)).
+\]
+For $Y\ge1$ and $2\le a\le Y^2$,
+$O_Y(a)=\mathbf1_{\{a\ {\rm prime}\}}$. The full past--future product,
+with its unequal return supports, is
+\[
+ O_Y(a)\Gamma_Y(n)=
+ \prod_{\substack{2\le p\le Y\\p\ {\rm prime}}}
+ \left(1-\delta_p^{<}(a)-\delta_p(n)
+              +\delta_p^{<}(a)\delta_p(n)\right).
+\]
+At $p=a$, the past slot is a birth, while the future factor
+$1-\delta_a(n)$ remains present.
+For $1\le H\le Y<n\le H^2$ one also has
+\[
+ \Gamma_Y(n)=\Gamma_H(n).
+\]
+Thus the additional past primes $H<p\le Y$ have zero net effect on
+this future opening indicator through $H^2$: each of their proper
+multiples in this range is already suppressed by a prime at most $H$.
+This assertion concerns opening indicators; their logarithmic return
+weights in Lemma~\ref{lem:logarithmic-prime-return-field} remain present.
+For $1\le Y\le T\le Y^2$ the actual future source is
+\[
+ \theta(T)-\theta(Y)
+   =\sum_{Y<n\le T}\log n\,\Gamma_Y(n),
+\]
+and hence
+\[
+ W(T)-W(Y)=T-Y-\sum_{Y<n\le T}\log n\,\Gamma_Y(n).
+\]
+There is no random phase, independence hypothesis or periodic averaging
+in these finite identities.
+\end{lemma}
+
+\begin{proof}
+A prime $n>Y$ has no prime divisor at most $Y$.
+For a nonprime $n>Y\ge1$, its least prime divisor $p<n$ satisfies
+$p^2\le n\le Y^2$, so $p\le Y$. Its factor in the product is zero.
+This proves the equivalence and indicator formula.
+For the proper mask, a prime $a$ has no proper prime divisor,
+and the prime $p=a$ is excluded from its own return support.
+A composite $a\ge2$ still has a proper least prime divisor at most $Y$,
+so its proper mask is zero.
+Multiply the products prime by prime and retain the mixed terms
+$\delta_p(n)\delta_p(m)$ and $\delta_p^{<}(a)\delta_p(n)$.
+This proves both two-time identities, including the unequal supports.
+For the cutoff identity, both products equal the same prime indicator:
+$n>Y\ge H$ and $n\le H^2\le Y^2$. Equivalently, a proper multiple
+$n=pk$ with $p>H$ and $n\le H^2$ has $2\le k<H$ and a prime
+divisor at most $H$, so its opening was already zero.
+Summing the indicator formula with its actual logarithmic weight
+gives the $\theta$ increment. The $W$ identity follows from
+$W(x)=x-\theta(x)$.
+\end{proof}
+
+All clauses of this lemma are proved in the maintained module
+\texttt{PrimePastWave}, including
+\texttt{pastPrimeOpening\_eq\_prime\_indicator},
+\texttt{pastPrimeOpening\_two\_time},
+\texttt{pastProperPrimeOpening\_eq\_prime\_indicator},
+\texttt{pastBirth\_futureOpening\_two\_time},
+\texttt{pastPrimeOpening\_cutoff\_stability},
+\texttt{theta\_future\_eq\_past\_prime\_mask}, and
+\texttt{primeWaveHeadroom\_future\_past\_mask}.
+These are deterministic source adapters, not a new error estimate.
+
+The original prime prefix and the greedy retained prefix play different
+roles. Every past prime, including a prime deleted from the retained
+class, remains in $\Gamma_Y$. Deletion from $\mathcal S$ does not
+remove a prime's divisibility returns from the integer sequence.
+Let $b_Y=g(Y)$ and, for $Y<n\le Y^2$, put
+$a_n=\log n\,\Gamma_Y(n)$. The actual future greedy rule is
+\[
+ b_n=
+ \begin{cases}
+ b_{n-1}+1-a_n,&a_n\le b_{n-1}+1,\\
+ b_{n-1}+1,&a_n>b_{n-1}+1.
+ \end{cases}
+\]
+In the second case the prime birth is deleted and contributes $a_n$
+to the deleted mass. At a composite $a_n=0$, so the first case simply
+adds one unit of headroom. Thus the full past mask and starting
+headroom determine the entire greedy trajectory on this interval.
+
+For the cofinal research target the signed expression to estimate is
+therefore the actual fixed-phase sum
+\[
+ \sum_{Y<n\le T}\log n\,\Gamma_Y(n)-(T-Y),
+ \qquad Y<T\le X\le Y^2,
+\]
+together with the stated greedy recursion. Replacing this mask by an
+independent future arrival law, its full-period mean, or only the two
+scalars $M(Y),g(Y)$ discards information and needs a separate error
+estimate. No such replacement or cofinal root-scale estimate is
+asserted here.
+
+\subsection{Gap selection and root-scale headroom}
+\label{sec:gap-selection-buffer}
+
+The cap used to construct a prime class is a design parameter. Allowing
+root-scale headroom changes the deletion problem while preserving the
+zero criterion, provided that the deleted class satisfies the same
+cofinal count condition. All complements below are taken inside the
+primes, and all sums are over their displayed finite supports.
+
+\begin{theorem}[The short-gap deletion class]
+\label{thm:short-gap-prime-class}
+Write $p_1<p_2<\cdots$ for the primes, set $p_0=0$, and put
+$g_k=p_k-p_{k-1}$. Define
+\[
+ \mathcal T_{\rm gap}=\{p_k:g_k\ge\log p_k\},\qquad
+ \mathcal D_{\rm gap}=\{p_k:g_k<\log p_k\}.
+\]
+Then $\theta_{\mathcal T_{\rm gap}}(x)\le x$ for every real $x\ge0$,
+and the exact headroom at a prime is
+\[
+ p_n-\theta_{\mathcal T_{\rm gap}}(p_n)
+  =\sum_{\substack{1\le k\le n\\p_k\in\mathcal D_{\rm gap}}}g_k
+   +\sum_{\substack{1\le k\le n\\p_k\in\mathcal T_{\rm gap}}}
+                       (g_k-\log p_k).
+\]
+Every displayed summand is nonnegative. For the original error
+$E_k=\theta(p_k)-p_k$, with $E_0=0$, one has
+$E_k-E_{k-1}=\log p_k-g_k$. Thus the rule keeps exactly the
+nonincreasing steps of this original error.
+The original capped greedy class deletes no more primes than
+$\mathcal D_{\rm gap}$ at any natural cutoff.
+\end{theorem}
+
+\begin{proof}
+The gaps telescope to $p_n$. Subtracting precisely the logarithms of
+the retained primes gives the two finite sums. The retained gaps are
+at least their logarithms, so both sums are nonnegative. Between
+successive primes the retained theta function is constant, proving
+the real-cutoff cap as well. Subtract the two consecutive definitions
+of $E_k$ to obtain its increment. Finally apply the proved
+cardinality optimality of the original greedy class to
+$\mathcal T_{\rm gap}$, which satisfies its cap.
+\end{proof}
+
+The maintained module \texttt{ShortGapPrimeClass} proves the gap/error
+identity, the exact nonnegative headroom ledger, the natural and real
+caps, and the comparison with the actual greedy deleted-prime count.
+This cap alone does not make the deleted class sparse.
+
+\begin{theorem}[Buffered prime classes preserve the cofinal zero criterion]
+\label{thm:buffered-prime-class-zero-criterion}
+Let $\mathcal T$ be any fixed prime class and let
+\[
+ \mathcal D=\{p:p\ {\rm prime},\ p\notin\mathcal T\},\quad
+ M_{\mathcal D}(X)=\sum_{\substack{p\le X\\p\in\mathcal D}}\log p,\quad
+ N_{\mathcal D}(X)=\#\{p\le X:p\in\mathcal D\}.
+\]
+For a natural $X\ge2$, suppose $B\ge0$ and
+$\theta_{\mathcal T}(t)\le t+B$ at every integer $2\le t\le X$.
+For the original cap-$x$ greedy deletion class $\mathcal D_0$,
+\[
+ M_{\mathcal D_0}(X)\le M_{\mathcal D}(X)+B+\log X,
+\]
+and consequently
+\[
+ N_{\mathcal D_0}(X)\log 2
+ \le N_{\mathcal D}(X)\log X+B+\log X.
+\]
+Now fix $\eta\ge\tfrac12$. Suppose that for every $\delta>0$ there
+is a finite constant $C_\delta\ge0$ such that
+\[
+ \theta_{\mathcal T}(t)\le t+C_\delta t^{\eta+\delta}
+ \qquad(t\in\mathbb N,\ t\ge2),
+\]
+and that
+\[
+ \forall\varepsilon>0\ \forall X_0\in\mathbb N\
+ \exists X\in\mathbb N,\quad
+ X\ge\max(X_0,2),\qquad
+ N_{\mathcal D}(X)\le X^{\eta+\varepsilon}.
+\]
+Then every nontrivial zeta zero has real part at most $\eta$.
+In particular, the cap
+$\theta_{\mathcal T}(t)\le t+\sqrt t$, together with this cofinal
+count condition at $\eta=\tfrac12$, implies RH. A strict cap
+$\theta_{\mathcal T}(t)<t+\sqrt t$ also satisfies the hypothesis.
+\end{theorem}
+
+\begin{proof}
+For each prime $p\le X$, retain the exact complement partition:
+\[
+ \theta(p)-p
+   =\theta_{\mathcal T}(p)-p+M_{\mathcal D}(p)
+   \le B+M_{\mathcal D}(X).
+\]
+The right side is nonnegative. Hence it bounds the positive
+past-record regulator $R_0(X)$ of the full error. The proved
+whole-prime regulator sandwich gives
+$M_{\mathcal D_0}(X)\le R_0(X)+\log X$, proving the mass comparison.
+Every deleted prime through $X$ has logarithm between $\log2$
+and $\log X$. Applying these two inequalities to the respective
+finite deleted sets proves the count comparison.
+
+Fix $\varepsilon>0$ and put $a=\eta+\varepsilon/2$ and
+$b=\eta+\varepsilon$. At a cofinal sparse cutoff for exponent $a$,
+the cap at every preceding integer is at most
+$t+C_{\varepsilon/2}X^a$, since $a\ge0$. Thus the finite comparison
+implies
+\[
+ N_{\mathcal D_0}(X)\log2
+ \le X^a\log X+C_{\varepsilon/2}X^a+\log X=o(X^b).
+\]
+The constants are fixed before choosing the cutoff. Intersecting
+the cofinal set of sparse cutoffs with this eventual estimate gives
+cofinally many $X$ with $N_{\mathcal D_0}(X)\le X^b$. The existing
+unconditional cofinal greedy zero criterion excludes every zero
+with real part greater than $\eta$; it requires no RH hypothesis
+and no largest-zero assumption. At $\eta=\tfrac12$ it gives RH.
+For the square-root cap, $t^{1/2}\le t^{1/2+\delta}$ for
+$t\ge2$, so take $C_\delta=1$.
+\end{proof}
+
+The complete finite comparison, cofinal transfer, general zero-strip
+conclusion and square-root RH implication are proved in the maintained
+module \texttt{BufferedPrimeClass}. The declarations
+\texttt{bufferedPrimeClass\_cofinal\_power\_count\_transfer},
+\texttt{bufferedPrimeClass\_zero\_strip\_of\_sparse\_power\_count},
+and \texttt{riemannHypothesis\_of\_sqrt\_buffered\_primeClass}
+retain the stated quantifiers.
+
+The theorem permits any buffer $B(t)$ satisfying
+$B(t)=O_\delta(t^{1/2+\delta})$ for every $\delta>0$.
+For example, $\sqrt t(\log t)^A$ for fixed $A\ge0$, and
+$\sqrt t\exp(\sqrt{\log t})$, have this property.
+These examples are analytic specializations of the stated buffer
+hypothesis; no new sparse deletion estimate is asserted.
+There is no largest subpower buffer: extra logarithmic headroom can
+always be allowed without changing the exponent. A fixed larger
+power $t^{1/2+c}$, $c>0$, instead places this criterion at
+$\eta=1/2+c$.
+The cofinal root-scale deletion estimate for a suitable buffered
+class remains open; the certified unconditional boundary is unchanged.
+
+\begin{theorem}[Exact termination of the buffered greedy prime class]
+\label{thm:buffered-greedy-termination}
+Let $B:\mathbb N\to\mathbb R$ be any function. Starting with no
+selected primes, retain a prime $p$ exactly when the logarithmic
+mass retained before $p$, plus $\log p$, is at most $p+B(p)$.
+Write $\mathcal S_B$ for this fixed sequential class,
+$\mathcal D_B$ for its complement inside the primes, and
+\[
+ e_B(p)=\theta(p)-p-B(p),\qquad
+ N_B(X)=\#\{p\le X:p\in\mathcal D_B\}.
+\]
+For every natural cutoff $X$ and every $C\ge0$, if
+$e_B(p)\le C$ at every prime $p\le X$, then
+\[
+                         N_B(X)\log2\le C+\log2.
+\]
+Moreover,
+\[
+ \mathcal D_B\text{ is finite}
+ \quad\Longleftrightarrow\quad
+ \exists C\ge0\ \forall p\ {\rm prime},\quad
+                         \theta(p)-p\le B(p)+C.
+\]
+Neither assertion assumes RH or any distribution estimate.
+If $B$ is nonnegative and nondecreasing on $\mathbb N$, then
+$\theta_{\mathcal S_B}(X)\le X+B(X)$ at every natural cutoff $X$.
+\end{theorem}
+
+\begin{proof}
+Let $M^-$ be the mass deleted strictly before the current prime $p$.
+The complete complement identity makes the acceptance test exactly
+$e_B(p)\le M^-$. Thus the mass recursion is
+\[
+ M^+=
+ \begin{cases}
+ M^-,&e_B(p)\le M^-,\\
+ M^-+\log p,&e_B(p)>M^-.
+ \end{cases}
+\]
+All earlier deleted primes remain in $M^-$, and $\theta(p)$ includes
+all original primes. If $k$ deletions have occurred through $X$ and
+$k>0$, consider the last one. Its preceding deleted mass is at least
+$(k-1)\log2$, while rejection and the excess bound imply
+\[
+                    (k-1)\log2\le M^-<e_B(p)\le C.
+\]
+Adding $\log2$ proves the count bound. The case $k=0$ follows from
+$C\ge0$. A globally bounded excess therefore bounds the number of
+deletions uniformly at every cutoff, so only finitely many are possible.
+
+Conversely, after the last deletion the mass is one fixed number
+$M_\infty$. All later primes are accepted, so their excess is at most
+$M_\infty$. Taking the maximum with the finitely many earlier
+excesses and zero gives the asserted constant $C$.
+
+For the cap, the capacities $p+B(p)$ increase along the prime stream.
+At an accepted prime the new retained mass satisfies its capacity
+by definition. At a rejected prime the retained mass is unchanged,
+while the capacity has increased. Induction proves the cap at each
+prime; monotonicity of $X+B(X)$ extends it to every natural cutoff.
+\end{proof}
+
+This theorem is proved in the maintained modules
+\texttt{GreedyClockTermination} and \texttt{BufferedGreedyPrimeClass}.
+The latter proves finiteness of the literal prime set
+$\mathcal D_B$, not just boundedness of a proxy mass.
+Its declarations
+\texttt{bufferedGreedyDeletedPrimeClass\_count\_le\_excess\_bound}
+and \texttt{bufferedGreedyDeletedPrimeClass\_finite\_iff\_bounded\_excess}
+give the displayed count and equivalence.
+The generic proof needs only a fixed positive lower bound on every
+rejection weight; for primes this is $\log2$.
+The earlier mass-to-count overshoot allowance $\log X$ is absent
+from this count estimate because the last deletion's own weight
+need not be charged to its predecessors.
+
+The independent arithmetic problem is still to control the complete
+buffered excess. The equivalence does not assert its boundedness
+for any root-scale buffer. In particular, it is not a proof of the
+cofinal sparse deletion estimate or a new unconditional zero-free
+boundary. Larger subpower headroom can now be studied through this
+literal terminating-class criterion without changing the acceptance
+rule or discarding the previous deletions.
+
+\begin{theorem}[A fixed buffered finiteness criterion for RH]
+\label{thm:root-log-cube-finite-RH}
+For natural $n$ set
+\[
+ B_3(n)=\sqrt n(\log n)^3,
+\]
+with $B_3(0)=B_3(1)=0$. Let $\mathcal S_3$ be the sequential
+greedy class with capacity $p+B_3(p)$ from
+Theorem~\ref{thm:buffered-greedy-termination}, and let
+$\mathcal D_3$ be its complement inside the primes.
+The class is fixed independently of RH. Unconditionally,
+\[
+ \theta_{\mathcal S_3}(X)\le X+\sqrt X(\log X)^3
+ \qquad(X\in\mathbb N).
+\]
+Moreover,
+\[
+              \mathrm{RH}\quad\Longleftrightarrow\quad
+                         \mathcal D_3\text{ is finite}.
+\]
+\end{theorem}
+
+\begin{proof}
+The buffer is nonnegative and nondecreasing on the naturals.
+The cap therefore follows from the preceding theorem.
+
+Assume RH. The maintained RH estimate and the original greedy
+partition give finite constants $A\ge0$ and $C>0$ such that
+\[
+ \theta(p)-p\le
+     A+C\sqrt p(\log p)^2+\log p
+ \qquad(p\ {\rm prime}).
+\]
+For all sufficiently large primes one has
+$\log p\ge C+2$ and $\sqrt p\ge A+1$.
+Put $u=\log p$ and $s=\sqrt p$.
+Then $u\ge2$, $s\ge A+1$, and
+\[
+ s u^2\ge s(u+1)\ge u+A,\qquad
+ s u^3-C s u^2=s u^2(u-C)\ge s u^2.
+\]
+Consequently
+$A+C\sqrt p(\log p)^2+\log p\le B_3(p)$.
+Thus the buffered excess is nonpositive eventually. Its finitely
+many earlier values have a finite upper bound. The exact termination
+criterion proves that $\mathcal D_3$ is finite.
+
+Conversely, if $\mathcal D_3$ is finite, that same termination
+criterion supplies a fixed $K\ge0$ with
+\[
+                  \theta(p)-p\le B_3(p)+K
+                  \qquad(p\ {\rm prime}).
+\]
+Monotonicity of $B_3$ bounds the original positive record by
+$R_0(X)\le B_3(X)+K$. Keeping the whole-prime regulator allowance
+and both count-to-mass factors gives
+\[
+ N_{\mathcal D_0}(X)\log2
+       \le \sqrt X(\log X)^3+K+\log X
+       \qquad(X\in\mathbb N,\ X\ge2).
+\]
+For every $\varepsilon>0$ the right side is
+$o(X^{1/2+\varepsilon})$. To check the buffer term explicitly, put
+$\delta=\varepsilon/3$ and use
+\[
+ \frac{\sqrt X(\log X)^3}{X^{1/2+\varepsilon}}
+       =\left(\frac{\log X}{X^\delta}\right)^3\longrightarrow0.
+\]
+The constant and final logarithm also vanish after this normalization.
+The original deleted class therefore satisfies the proved cofinal
+root-power count criterion, which implies RH unconditionally.
+The reverse implication uses no RH-dependent reconstruction or
+largest-zero assumption.
+\end{proof}
+
+The maintained module \texttt{BufferedPrimeFiniteRH} proves all parts,
+including buffer monotonicity, the subpower limit, the explicit RH
+envelope dominance, both implications and the literal-set equivalence
+\texttt{riemannHypothesis\_iff\_rootLogCubeBuffered\_deleted\_finite}.
+The original cutoff cap and the complete finite count estimate are
+retained in the converse.
+
+This is a finiteness criterion for one explicitly defined prime class.
+Membership uses exact real comparisons; a terminating executable
+decision procedure or tie-exclusion theorem is not asserted here.
+No unconditional proof that $\mathcal D_3$ is finite is supplied,
+and the certified unconditional zero-free boundary is unchanged.
 
 \subsection{An extremal probability law among capped prime classes}
 \label{sec:capped-prime-probability-extremum}
@@ -22922,6 +25657,20 @@ occurrence probabilities and their application to the surname problem
 in Japan}, Ann. Inst. Statist. Math. \textbf{44} (1992), 479--499.
 Primary article, especially \S\S3--5.
 \url{https://www.ism.ac.jp/editsec/aism/pdf/044_3_0479.pdf}.
+
+\bibitem{LiPomeranceLambda}
+S. Li and C. Pomerance,
+\emph{A generalization of primitive roots},
+author manuscript dated April 2, 2025, Sections~1--2;
+earlier versions appeared in 2002 under the title
+\emph{Primitive roots: a survey}.
+\url{https://math.dartmouth.edu/~carlp/primrootsurvey.pdf}.
+
+\bibitem{MullerSchlagePuchtaLambda}
+T. W. M\"uller and J.-C. Schlage-Puchta,
+\emph{On the number of primitive \(\lambda\)-roots},
+author manuscript, Introduction, equation~(1) and its equality case.
+\url{https://www.mathematik.uni-rostock.de/storages/uni-rostock/Alle_MNF/Mathematik/Struktur/Lehrstuehle/Algebra/papers/Carmichael.pdf}.
 
 \end{thebibliography}
 

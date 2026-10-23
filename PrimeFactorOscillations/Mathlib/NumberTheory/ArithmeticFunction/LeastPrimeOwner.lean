@@ -90,4 +90,65 @@ theorem neg_sum_moebius_mul_primeFactors_lt (n p : Nat) (hn0 : Not (n = 0))
     _ = if n.minFac = p then (1 : Int) else 0 :=
       sum_moebius_primeFactors_lt n p hn0 hp hpn
 
+
+/-- A proper multiple first owned by p lies at or beyond the square of p. -/
+theorem prime_owner_square_le (n p : Nat)
+    (hpn : Dvd.dvd p n) (hproper : p < n) (howner : n.minFac = p) :
+    p * p <= n := by
+  choose m hm using hpn
+  have hm2 : 2 <= m := by
+    by_contra h
+    have hm1 : m <= 1 := by omega
+    have hnle : n <= p := by
+      rw [hm]
+      simpa using Nat.mul_le_mul_left p hm1
+    omega
+  have hmn : Dvd.dvd m n := by
+    apply Exists.intro p
+    simpa only [Nat.mul_comm] using hm
+  have hmin := Nat.minFac_le_of_dvd hm2 hmn
+  rw [howner] at hmin
+  calc
+    p * p <= p * m := Nat.mul_le_mul_left p hmin
+    _ = n := hm.symm
+
+/-- All earlier-wave overlaps cancel the new p-wave before its square. -/
+theorem sum_moebius_primeFactors_lt_eq_zero_before_square (n p : Nat)
+    (hn0 : Not (n = 0)) (hp : Nat.Prime p) (hpn : Dvd.dvd p n)
+    (hproper : p < n) (hbefore : n < p * p) :
+    Finset.sum ((n.primeFactors.filter (fun q => q < p)).prod (fun q => q)).divisors
+      (fun d => moebius d) = (0 : Int) := by
+  have howner : Not (n.minFac = p) := by
+    intro heq
+    exact Nat.not_lt_of_ge (prime_owner_square_le n p hpn hproper heq) hbefore
+  rw [sum_moebius_primeFactors_lt n p hn0 hp hpn]
+  simp only [howner, ite_false]
+
+/-- The full signed product-modulus packet has the same exact cancellation. -/
+theorem neg_sum_moebius_mul_primeFactors_lt_eq_zero_before_square (n p : Nat)
+    (hn0 : Not (n = 0)) (hp : Nat.Prime p) (hpn : Dvd.dvd p n)
+    (hproper : p < n) (hbefore : n < p * p) :
+    -Finset.sum ((n.primeFactors.filter (fun q => q < p)).prod (fun q => q)).divisors
+      (fun d => moebius (p * d)) = (0 : Int) := by
+  have howner : Not (n.minFac = p) := by
+    intro heq
+    exact Nat.not_lt_of_ge (prime_owner_square_le n p hpn hproper heq) hbefore
+  rw [neg_sum_moebius_mul_primeFactors_lt n p hn0 hp hpn]
+  simp only [howner, ite_false]
+
+/-- At the square of a prime, no earlier prime owns the return. -/
+theorem prime_square_minFac (p : Nat) (hp : Nat.Prime p) :
+    (p * p).minFac = p := by
+  have hfour : 2 * 2 <= p * p := Nat.mul_le_mul hp.two_le hp.two_le
+  have hn1 : Not (p * p = 1) := by omega
+  have hqprime := Nat.minFac_prime hn1
+  have hqdiv := Nat.minFac_dvd (p * p)
+  have hqp : Dvd.dvd (p * p).minFac p := by
+    cases hqprime.dvd_mul.mp hqdiv with
+    | inl h => exact h
+    | inr h => exact h
+  cases (Nat.dvd_prime hp).mp hqp with
+  | inl h => exact False.elim (hqprime.ne_one h)
+  | inr h => exact h
+
 end ArithmeticFunction
