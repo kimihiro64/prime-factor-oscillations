@@ -14,6 +14,7 @@ from scripts.completed_research_targets_11 import TARGETS as GROUP11
 from scripts.completed_research_targets_12 import TARGETS as GROUP12
 from scripts.completed_research_targets_13 import TARGETS as GROUP13
 from scripts.completed_research_targets_14 import TARGETS as GROUP14
+from scripts.completed_research_targets_15 import TARGETS as GROUP15
 
 COMPLETED_RESEARCH_THEOREMS = (
     GROUP01
@@ -30,4 +31,5 @@ COMPLETED_RESEARCH_THEOREMS = (
     + GROUP12
     + GROUP13
     + GROUP14
+    + GROUP15
 )

@@ -8363,6 +8363,69 @@ zero-free boundary remains \(7/8\).
 
 
 
+\subsection{Odd return packets have no quadratic character modes}
+\label{sec:odd-return-character-support}
+
+Here a label prime and a sampled prime base play different roles.
+The finite statement below concerns a function on all units of a fixed
+modulus. It precedes any limit over prime bases.
+
+\begin{theorem}[Quadratic cancellation with a retained principal coefficient]
+\label{thm:odd-return-character-support}
+Let \(G\) be a finite abelian group, let \(L\) annihilate \(G\), and
+let \(S\) be a finite set of odd prime divisors of \(L\). Write
+\[
+ F_S(g)=(g^{L/\ell})_{\ell\in S},\qquad
+ w_S(g)=\boldsymbol1_{\{g^{L/\ell}\ne1\text{ for every }\ell\in S\}}.
+\]
+For every function \(f\) on the actual image product
+\(\prod_{\ell\in S}H_\ell\), and every nonprincipal multiplicative
+character \(\chi:G\to\mathbb C^\times\) satisfying \(\chi^2=1\),
+\[
+ \sum_{g\in G}f(F_S(g))\chi(g)=0.
+\]
+In particular the same equality holds with \(f(F_S(g))=w_S(g)\).
+The principal coefficient is retained exactly:
+\[
+ \frac1{|G|}\sum_{g\in G}w_S(g)
+   =\prod_{\ell\in S}(1-d_\ell^{-1}).
+\]
+If \(L\) is the canonical group exponent, this coefficient is strictly
+positive, including for the empty packet.
+These assertions apply to every actual unit group
+\(G=(\mathbb Z/c\mathbb Z)^\times\), \(c\ge1\).
+\end{theorem}
+\begin{proof}
+Put \(P=\prod_{\ell\in S}\ell\), an odd integer. For any \(a,g\in G\)
+and \(\ell\in S\), the element \(a^{L/\ell}\) has \(\ell\)-th power
+one. Since \(\ell\mid P\),
+\[
+ (a^Pg)^{L/\ell}=g^{L/\ell},\qquad F_S(a^Pg)=F_S(g).
+\]
+Choose \(a\) with \(\chi(a)\ne1\). Since \(\chi(a)^2=1\) and \(P\)
+is odd, \(\chi(a^P)=\chi(a)\). Translation by \(a^P\) permutes the
+entire group. Thus the complete signed sum \(T\) in the statement
+satisfies \(T=\chi(a)T\), whence \(T=0\).
+No absolute value, termwise bound or discarded overlap is used.
+The principal coefficient is the exact full-group vacancy law of
+Theorem~\ref{thm:prime-order-return-law}. At the canonical exponent,
+\(d_\ell\ge\ell>1\), so every factor is positive; the empty product is one.
+\end{proof}
+
+The complete signed cancellation, the actual vacancy specialization,
+its normalized principal coefficient and positivity, and the modular-unit
+specialization are maintained in
+\begin{quote}\small\ttfamily
+Helpers/OddReturnCharacterSupport.lean
+\end{quote}
+and exported through the Carmichael probability grouping.
+A real character on a finite group takes values in \(\{1,-1\}\).
+Consequently odd packets have no nonprincipal real character component.
+This is an exact support statement; it uses no zero-free region.
+It does not remove the nonprincipal complex modes, and it supplies no
+new zero-free exponent. The finite character argument is an application
+of translation orthogonality; publication priority for the packet
+application is not claimed.
 \subsection{Intrinsic power-return spectra identify physical prime carriers}
 \label{sec:carmichael-intrinsic-spectrum}
 
@@ -9062,6 +9125,58 @@ This is the nonvanishing direction on the full primary grid;
 vanishing off that grid and the complete signed odd-modulus
 classification remain separate unproved steps.
 
+\subsection{The exact local primary root clock}
+\label{sec:exact-primary-root-clock}
+
+\begin{theorem}[Root-trace support at every odd prime-power frequency]
+\label{thm:exact-primary-root-clock}
+Let \(p\) be an odd prime and let \(s,k,h\) be natural numbers. For
+\[
+ K=\{u\in(\mathbb Z/p^{s+1}\mathbb Z)^\times:u^k=1\},\qquad
+ T(h)=\sum_{u\in K}\exp(2\pi i h u/p^{s+1}),
+\]
+one has the complete classification
+\[
+ T(h)=0\quad\Longleftrightarrow\quad
+                  \gcd(k,p^s)\nmid h.
+\]
+Exponent zero, frequency zero and \(s=0\) are included.
+\end{theorem}
+\begin{proof}
+Put \(r=\gcd(k,p^s)\). The on-grid nonvanishing theorem already
+proved in \texttt{PrimePowerRootGrid.lean} gives \(T(h)\ne0\) whenever
+\(r\mid h\).
+
+Suppose instead that \(r\nmid h\). Write
+\(\gcd(h,p^{s+1})=p^a\). Necessarily \(a\le s\); otherwise
+\(p^{s+1}\mid h\), which implies \(r\mid h\).
+Write \(h=p^a u\), with \(u\) coprime to \(p^{s+1-a}\).
+The exact subgroup conductor-shell theorem gives
+\[
+ T(h)=0
+ \quad\Longleftrightarrow\quad
+ p\mid\frac{|K|}{\gcd(|K|,p^a)}.
+\]
+The proved mass factors are
+\[
+ |K|=\gcd(k,p^s)\gcd(k,p-1)=r\,\gcd(k,p-1).
+\]
+Write \(r=p^v\), \(0\le v\le s\).
+The second factor is coprime to \(p\), and \(r\nmid h\) implies
+\(a<v\). Hence the displayed quotient is divisible by \(p\).
+This proves the missing off-grid vanishing direction.
+When \(k=0\), \(r=p^s\) and the argument remains unchanged.
+At \(h=0\), the trace is \(|K|>0\), consistently with \(r\mid0\).
+\end{proof}
+
+Both directions, including the all-frequency vanishing implication,
+are maintained in
+\begin{quote}\small\ttfamily
+Helpers/PrimePowerRootClock.lean
+\end{quote}
+and exported through the Carmichael probability grouping.
+This local theorem does not assert the still-unassembled classification
+for arbitrary odd composite moduli.
 \subsection{Fibonacci carriers and the golden-ratio clock}
 \label{sec:fibonacci-golden-carriers}
 
