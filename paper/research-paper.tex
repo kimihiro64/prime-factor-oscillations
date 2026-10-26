@@ -10439,6 +10439,142 @@ This theorem determines the correct conductor parameter for a future
 uniform analytic estimate.  It does not itself bound the signed
 principal RH wave or change the certified exponent \(7/8\).
 
+\subsection{Active local modes assemble with their true conductor}
+\label{sec:carmichael-conductor-assembly}
+
+A least simultaneous conductor does not by itself provide a character
+attaining a mixed product.  The following construction supplies that
+missing direction, using the original global period throughout.
+
+\begin{theorem}[Sharp active-divisor character assembly]
+\label{thm:carmichael-conductor-assembly}
+Let \(q\geq1\), let \(\ell\mid L=\lambda(q)\) be prime, and let \(S\)
+be any finite index set, including the empty set.
+For each \(i\in S\), let \(d_i\geq1\) divide \(q\), put
+\(E_i=\lambda(d_i)\), and assume the actual activity condition
+\[
+ E_i\nmid L/\ell.
+\]
+Let \(\chi_i\bmod d_i\) survive in the native label-\(\ell\) kernel,
+so its native coefficient is nonzero.  Assume their true conductors
+\(f_i=\operatorname{cond}(\chi_i)\) are pairwise coprime.
+Lift each character by actual change of level to \(q\), and put
+\[
+ \Phi=\prod_{i\in S}\operatorname{lift}_{d_i\mid q}\chi_i,
+ \qquad F=\prod_{i\in S}f_i,\qquad
+ D=[(\mathbb Z/q\mathbb Z)^\times:
+          \{u:u^{L/\ell}=1\}].
+\]
+Then \(\Phi\) survives in the original global kernel and
+\[
+ \operatorname{cond}(\Phi)=F,\qquad
+ F\mid M_{q,\ell}.
+\]
+Here \(M_{q,\ell}\) is the least spectral conductor from the preceding
+theorem.  If \(F\ne1\), the exact global coefficient is
+\[
+ c_\Phi=\frac1{(D-1)^2}.
+\]
+In particular, it is the original global coefficient, rather than a
+product of the local coefficients.  Empty products give the principal
+character and conductor \(1\).
+
+The exceptional level \(8\) supplies a genuine sharp local input:
+every nonprincipal character modulo \(8\) has native label-\(2\)
+coefficient \(1/9\), and there exists one of conductor exactly \(8\).
+\end{theorem}
+
+\begin{proof}
+First, for any positive \(E\mid L\) and prime \(\ell\mid L\), put
+\(m=L/E\).  Since \(L=Em\),
+\[
+ E\nmid L/\ell
+ \quad\Longleftrightarrow\quad
+ \ell\mid E\ \text{ and }\ \gcd(m,\ell)=1.
+\]
+Indeed, if \(\ell\mid m\), then
+\(L/\ell=E(m/\ell)\), contradicting activity.
+The prime divisor \(\ell\) of \(Em\) must consequently divide \(E\),
+and primality gives the asserted coprimality.
+Conversely, if \(E\mid L/\ell\), multiplication by \(\ell\) gives
+\(E\ell\mid L=Em\).  Cancelling the positive \(E\) forces
+\(\ell\mid m\), contrary to that coprimality.
+
+For a group element \(v\) with \(v^E=1\), under these hypotheses,
+\[
+ v^{L/\ell}=1\quad\Longleftrightarrow\quad v^{E/\ell}=1.
+\]
+To prove the nontrivial direction, set \(w=v^{E/\ell}\).
+Then \(w^\ell=1\) and \(w^m=1\).
+Its order divides both coprime integers, so it is \(1\).
+The reverse direction follows by raising to \(m\).
+
+Actual reduction from units modulo \(q\) to units modulo \(d_i\)
+is surjective; hence \(E_i\mid L\).
+The activity test therefore supplies all the preceding hypotheses
+automatically.
+If \(u^{L/\ell}=1\) modulo \(q\), reduce \(u\) modulo \(d_i\).
+The reduced unit has \(L/\ell\)-th power \(1\), and the period
+equivalence makes its \(E_i/\ell\)-th power \(1\).
+The exact local support theorem says that \(\chi_i\) is trivial
+on this local return subgroup.
+Its actual lift is consequently trivial on the global return subgroup,
+so the global support theorem proves survival.
+A product of such lifts remains trivial on that same subgroup and
+therefore survives as well.  No coefficient or character phase is
+estimated in this argument.
+
+For the conductor identity, recall that
+\[
+ \operatorname{cond}(\alpha\beta)
+ \mid \operatorname{lcm}(\operatorname{cond}\alpha,
+                         \operatorname{cond}\beta).
+\]
+If the two conductors are coprime, apply this divisibility also to
+\((\alpha\beta)\beta^{-1}=\alpha\).
+The conductor of \(\beta^{-1}\) equals that of \(\beta\).
+Thus \(\operatorname{cond}\alpha\) divides
+\(\operatorname{cond}(\alpha\beta)\operatorname{cond}\beta\),
+and coprimality cancels the latter factor.
+Interchanging \(\alpha,\beta\) proves that both coprime conductors
+divide the product character's conductor.
+Together with the initial upper divisibility, this proves
+\[
+ \operatorname{cond}(\alpha\beta)=
+     \operatorname{cond}\alpha\,\operatorname{cond}\beta.
+\]
+Induct over the arbitrary finite set \(S\); pairwise coprimality
+makes each next conductor coprime to the accumulated product.
+Change of level preserves each conductor exactly, giving
+\(\operatorname{cond}\Phi=F\).
+Since \(\Phi\) genuinely survives, its conductor divides the lcm
+\(M_{q,\ell}\).
+If \(F\ne1\), the character \(\Phi\) is nonprincipal.
+Apply the native flat-spectrum theorem at the original level \(q\)
+to obtain \(c_\Phi=1/(D-1)^2\).
+
+Finally, modulo \(8\) the exponent is \(2\), so the shortened power
+is \(1\) and the return subgroup consists only of the identity.
+Every character is trivial on it.
+The actual index is \(4\), giving every nonprincipal character
+coefficient \(1/(4-1)^2=1/9\).
+For the conductor-\(8\) witness, take the previously proved
+nonprincipal survivor modulo \(16\), whose conductor is \(8\).
+It factors through \(8\); choose the actual character downstairs.
+Conductor invariance under change of level makes its conductor \(8\),
+so it is nonprincipal and has the asserted native coefficient.
+\end{proof}
+
+The construction applies to arbitrarily many compatible active
+prime-power factors, using the proved tame \(p\), odd-wild \(p^2\),
+and exceptional two-power \(4\) or \(8\) local conductors.
+It supplies a genuine mixed mode and an exact lower divisibility
+for the least spectral conductor.  The full arbitrary-modulus
+upper carrier classification remains a separate step.
+The principal coefficient, global normalization and all masks remain.
+No independent signed principal estimate or new Riemann-zero exclusion
+is asserted; the certified exponent remains \(7/8\).
+
 \subsection{Intrinsic power-return spectra identify physical prime carriers}
 \label{sec:carmichael-intrinsic-spectrum}
 

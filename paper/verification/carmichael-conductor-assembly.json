@@ -1,0 +1,100 @@
+{
+  "date": "2026-10-26",
+  "lean_version": "4.34.0",
+  "focused_compile_exit_code": 0,
+  "focused_compile_chunk": "8ddf57",
+  "new_axiom_reports": 15,
+  "targets": [
+    "PrimeFactorOscillations.CarmichaelConductorAssembly.conductor_dvd_product_conductor",
+    "PrimeFactorOscillations.CarmichaelConductorAssembly.conductor_mul_eq_mul",
+    "PrimeFactorOscillations.CarmichaelConductorAssembly.conductor_finset_prod",
+    "PrimeFactorOscillations.CarmichaelConductorAssembly.coprime_power_preserves_return",
+    "PrimeFactorOscillations.CarmichaelConductorAssembly.inflated_period_return_iff",
+    "PrimeFactorOscillations.CarmichaelConductorAssembly.active_period_iff",
+    "PrimeFactorOscillations.CarmichaelConductorAssembly.active_lift_survives",
+    "PrimeFactorOscillations.CarmichaelConductorAssembly.active_divisor_lift_survives",
+    "PrimeFactorOscillations.CarmichaelConductorAssembly.multiply_survivors",
+    "PrimeFactorOscillations.CarmichaelConductorAssembly.prod_survives",
+    "PrimeFactorOscillations.CarmichaelConductorAssembly.active_local_product",
+    "PrimeFactorOscillations.CarmichaelConductorAssembly.active_divisor_product",
+    "PrimeFactorOscillations.CarmichaelConductorAssembly.active_product_conductor_dvd_spectral",
+    "PrimeFactorOscillations.CarmichaelConductorAssembly.level_eight_nonprincipal_coefficient",
+    "PrimeFactorOscillations.CarmichaelConductorAssembly.exists_level_eight_conductor_eight_survivor"
+  ],
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "reused_declarations": [
+    "DirichletCharacter.conductor_mul_dvd_lcm_conductor",
+    "DirichletCharacter.conductor_inv",
+    "DirichletCharacter.conductor_changeLevel",
+    "MonoidHom.exponent_dvd",
+    "ZMod.unitsMap_surjective",
+    "PrimeFactorOscillations.CarmichaelPrimePacketSpectrum.coefficient_nonzero_iff_trivial_return",
+    "PrimeFactorOscillations.CarmichaelPrimePacketSpectrum.coefficient_of_trivial_return",
+    "PrimeFactorOscillations.CarmichaelSpectralConductor.spectralConductor_dvd_iff",
+    "PrimeFactorOscillations.CarmichaelTwoPowerConductor.exists_large_conductor_eight_survivor"
+  ],
+  "certified_zero_free_boundary": "7/8 unchanged",
+  "benchmark_status": "Exact active-divisor lifting and arbitrary finite mixed-mode construction with product conductor; no analytic exponent gain",
+  "old_bound": "Least spectral conductor known; no assembled individual survivor with a mixed product conductor and original global coefficient",
+  "new_bound": "Every arbitrary finite collection of active local native survivors with pairwise coprime true conductors lifts and multiplies to a genuine global survivor of product conductor F; F divides the least spectral conductor, and nonprincipal coefficient is exactly1/(D_global-1)^2",
+  "components": {
+    "activity": "E_d not dividing L/ell automatically implies ell|E_d and gcd(L/E_d,ell)=1",
+    "lifting": "Actual unitsMap and actual changeLevel, with original global L fixed",
+    "composition": "Arbitrary finite support, including empty support; every local phase retained",
+    "conductor": "Pairwise coprime true conductors multiply exactly",
+    "coefficient": "One original global flat coefficient; never the product of local coefficients",
+    "exception": "Native modulus8 has every nonprincipal coefficient1/9 and a genuine conductor8 survivor",
+    "principal": "Principal coefficient1 retained and independently unestimated"
+  },
+  "actuals": "Universal symbolic Lean proof; modulus8 is a necessary exact exception, not an exponent diagnostic",
+  "first_nonpositive_domain": "No signed analytic RH positivity bound installed",
+  "detector_error": "Unchanged",
+  "family_adapter": "All positive native levels and arbitrary finite collections of active divisor probes, including prime-power factors",
+  "uncancelled_main_terms": "No analytic signed main term is estimated here",
+  "low_estimate_provenance": "No new signed low-divisor estimate",
+  "parameter_domain": "Every q>=1, prime ell|lambda(q), arbitrary finite S, positive d_i|q with E_i not dividing L/ell, local nonzero coefficients and pairwise coprime true conductors",
+  "attainable_endpoint": "7/8 unchanged",
+  "overlap_check": {
+    "completed_inputs": "Existing tame, odd-wild and two-power local classifications and generic support are reused. The least spectral-conductor theorem does not assert an individual mode attaining a mixed conductor.",
+    "distinct_conclusion": "Activity alone supplies global/local period compatibility, actual local survivors lift, arbitrary finite coprime-conductor products remain alive with exact global coefficient and product conductor dividing the least spectral conductor; the missing native modulus8 conductor8 witness is supplied.",
+    "existing_target": "Constructive sharpness direction of the existing full CRT active-carrier programme. Classical coprime-conductor algebra is supporting work, not an originality claim.",
+    "primary_sources": [
+      "https://leanprover-community.github.io/mathlib4_docs/Mathlib/NumberTheory/DirichletCharacter/Basic.html",
+      "https://leanprover-community.github.io/mathlib4_docs/Mathlib/GroupTheory/Exponent.html"
+    ],
+    "priority_scope": "Original native-kernel assembly consumer built from classical character facts and proved project local classifications. No exhaustive publication-priority claim."
+  },
+  "public_consumers_exit_code": 0,
+  "public_consumers_chunk": "4aed2d",
+  "owners": [
+    {
+      "module": "PrimeFactorOscillations.Assembly.CarmichaelConductorAssembly",
+      "source_sha256": "a8dbfe3f83529dfd2a63aef9bd77870318fe3458eb9f843b46333cfb2603bdb3",
+      "checked_source_sha256": "a8dbfe3f83529dfd2a63aef9bd77870318fe3458eb9f843b46333cfb2603bdb3",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelConductorAssembly.conductor_dvd_product_conductor",
+        "PrimeFactorOscillations.CarmichaelConductorAssembly.conductor_mul_eq_mul",
+        "PrimeFactorOscillations.CarmichaelConductorAssembly.conductor_finset_prod",
+        "PrimeFactorOscillations.CarmichaelConductorAssembly.coprime_power_preserves_return",
+        "PrimeFactorOscillations.CarmichaelConductorAssembly.inflated_period_return_iff",
+        "PrimeFactorOscillations.CarmichaelConductorAssembly.active_period_iff",
+        "PrimeFactorOscillations.CarmichaelConductorAssembly.active_lift_survives",
+        "PrimeFactorOscillations.CarmichaelConductorAssembly.active_divisor_lift_survives",
+        "PrimeFactorOscillations.CarmichaelConductorAssembly.multiply_survivors",
+        "PrimeFactorOscillations.CarmichaelConductorAssembly.prod_survives",
+        "PrimeFactorOscillations.CarmichaelConductorAssembly.active_local_product",
+        "PrimeFactorOscillations.CarmichaelConductorAssembly.active_divisor_product",
+        "PrimeFactorOscillations.CarmichaelConductorAssembly.active_product_conductor_dvd_spectral",
+        "PrimeFactorOscillations.CarmichaelConductorAssembly.level_eight_nonprincipal_coefficient",
+        "PrimeFactorOscillations.CarmichaelConductorAssembly.exists_level_eight_conductor_eight_survivor"
+      ],
+      "source_normalization": "unchanged",
+      "kernel_build": "passed",
+      "axiom_audit": "standard_foundations_only"
+    }
+  ]
+}
