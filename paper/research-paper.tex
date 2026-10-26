@@ -11238,6 +11238,125 @@ The fixed shape must also satisfy its elementary local admissibility
 conditions before recurrence can be expected.
 The certified zero-free boundary remains \(7/8\).
 
+\subsection{Zero-support rigidity of full native packets}
+\label{sec:carmichael-support-rigidity}
+
+The complete product formula gives a common structure for the prime
+classes retained by many different native probes.  The comparison below
+always keeps the same group and the same native period when labels are
+removed.
+
+\begin{theorem}[Full-packet zero-support rigidity and a uniform positive gap]
+\label{thm:carmichael-support-rigidity}
+Let \(G\) be a finite abelian group, \(L=\exp(G)\), and \(S\) a finite set
+of primes, each dividing \(L\).  Let \(K_S\) be the original normalized
+correlation kernel of the native vacancy seed with labels \(S\), and set
+\[
+ D_\ell=\bigl|\operatorname{im}(g\mapsto g^{L/\ell})\bigr|,
+ \qquad b_\ell(g)=\mathbf1_{\{g^{L/\ell}=1\}}.
+\]
+If \(2\notin S\), then \(K_S(g)\ge1/2\) for every \(g\).
+If \(2\in S\), the exact decomposition is
+\[
+ K_S(g)=F(D_2,b_2(g))K_{S\setminus\{2\}}(g),\qquad
+ K_{S\setminus\{2\}}(g)\ge\tfrac12,
+\]
+where
+\[
+ F(d,b)=1+\frac{db-1}{(d-1)^2}.
+\]
+In particular,
+\[
+ \boxed{\quad K_S(g)=0
+ \ \Longleftrightarrow\
+ 2\in S,\quad D_2=2,\quad g^{L/2}\ne1.\quad}
+\]
+For every active packet \(S\), including mixed even and odd labels,
+\[
+ K_S(g)\ne0\quad\Longrightarrow\quad K_S(g)\ge\tfrac38.
+\]
+When \(2\in S\), \(K_S\) and \(K_{\{2\}}\) therefore have exactly the
+same zero set at this same group and period.
+
+There are exact consumers for the existing scalar prime-weight function.
+Fix \(q\ge1\), take \(G=(\mathbb Z/q\mathbb Z)^\times\), and retain the
+same activity assumptions.  Write \(A_{q,S}(n)\) for the original kernel
+at the actual unit \(n\bmod q\) when \((n,q)=1\), extended by zero on
+nonunits.  Then, if \(2\in S\), for every natural \(n\),
+\[
+ A_{q,S}(n)=0\quad\Longleftrightarrow\quad A_{q,\{2\}}(n)=0.
+\]
+For all active \(S\), \(A_{q,S}(n)\ge0\), and every nonzero value is at
+least \(3/8\).
+
+For any finite index set \(T\) and natural samples \(n_i\), define the
+supported finite set explicitly by
+\[
+ R=\{i\in T:A_{q,S}(n_i)\ne0\}.
+\]
+Then
+\[
+ \frac38\,|R|\ \le\ \sum_{i\in T}A_{q,S}(n_i).
+\]
+Taking \(T\) to be a finite set of actual primes and \(n_p=p\) gives a
+bound for the number of retained primes, without multiplicity.
+\end{theorem}
+
+\begin{proof}
+The completed exact finite pushforward theorem gives the full product
+\[
+ K_S(g)=\prod_{\ell\in S}F(D_\ell,b_\ell(g)).
+\]
+Every active \(\ell\) satisfies \(D_\ell\ge\ell\).
+The existing all-odd packet theorem supplies the modulus-independent
+floor \(1/2\), including for the empty odd packet.
+If \(2\in S\), separate exactly its factor in this full product.
+The remaining factor is the original odd-label kernel at the same
+period \(L\), so it is at least \(1/2\) and cannot vanish.
+
+For every integer \(d\ge2\), direct algebra gives
+\[
+ F(d,b)=0\quad\Longleftrightarrow\quad d=2,\ b=0.
+\]
+Indeed \(F(2,0)=0\) and \(F(2,1)=2\).
+For \(d\ge3\),
+\[
+ F(d,b)\ge1-\frac1{(d-1)^2}\ge\frac34.
+\]
+Thus every nonzero local factor at the label \(2\) is at least \(3/4\).
+Multiplying by the odd-packet floor proves the full nonzero bound
+\(3/8\); the all-odd case retains its stronger \(1/2\) bound.
+This also proves both directions of the boxed zero classification.
+Applying it to \(S\) and to \(\{2\}\) gives their exact common zero set.
+
+For the scalar function, split according to \((n,q)=1\).
+At a unit, apply these group theorems to the actual
+\(\operatorname{unitOfCoprime}(n)\).
+At a nonunit, both original scalar functions are exactly zero.
+This preserves the exceptional nonunit domain rather than discarding it.
+
+Finally, each index in \(R\) contributes at least \(3/8\), and every
+index in the finite support \(T\setminus R\) contributes exactly zero.
+Sum the pointwise lower bound over \(R\) and use this exact zero
+extension to recover the complete sum over \(T\).
+\end{proof}
+
+For a fixed native modulus, adding any active odd labels changes the
+heights and character coefficients, but creates no additional deleted
+primes once label \(2\) is present.
+The statement remains valid pointwise when the modulus and packet vary
+with the cutoff, provided the two compared probes use that same modulus
+and period at each cutoff.
+Changing the modulus itself can change \(D_2\) and the zero set.
+
+This is rigidity of the support, not equality of the full spectra.
+The odd character contributions and the corresponding full
+\(L\)-function quotients remain in signed arithmetic estimates.
+The retained-count inequality is one-sided; it supplies neither a
+reverse count comparison with an absolute constant nor an independent
+upper estimate for the RH signal.
+The certified zero-free boundary remains \(7/8\).
+
 \subsection{Intrinsic power-return spectra identify physical prime carriers}
 \label{sec:carmichael-intrinsic-spectrum}
 
