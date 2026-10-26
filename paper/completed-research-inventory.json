@@ -5581,6 +5581,63 @@
       "source_normalization": "unchanged",
       "kernel_build": "passed",
       "axiom_audit": "standard_foundations_only"
+    },
+    {
+      "module": "PrimeFactorOscillations.Helpers.AscentModulusBudget",
+      "source_sha256": "131cab9804bcac8184229d4d9fc87fc5e405608a3f1936577ef9dd580df6579e",
+      "checked_source_sha256": "131cab9804bcac8184229d4d9fc87fc5e405608a3f1936577ef9dd580df6579e",
+      "declarations": [
+        "PrimeFactorOscillations.localAscent_nonunit_count_le",
+        "PrimeFactorOscillations.localAscent_unit_count_ge_half"
+      ],
+      "source_normalization": "unchanged",
+      "kernel_build": "passed",
+      "axiom_audit": "standard_foundations_only"
+    },
+    {
+      "module": "PrimeFactorOscillations.Helpers.LocalizedAscentPointwise",
+      "source_sha256": "7cc646e4cde83357e362692be9b5b0054f52de9c428fe530344b2eb6154783fd",
+      "checked_source_sha256": "7cc646e4cde83357e362692be9b5b0054f52de9c428fe530344b2eb6154783fd",
+      "declarations": [
+        "PrimeFactorOscillations.localAscentPairExcess_nonpos_eventually_of_RH",
+        "PrimeFactorOscillations.localAscentPairExcess_common_large_window_of_not_RH"
+      ],
+      "source_normalization": "unchanged",
+      "kernel_build": "passed",
+      "axiom_audit": "standard_foundations_only"
+    },
+    {
+      "module": "PrimeFactorOscillations.Helpers.WeightedLocalizedAscentCriterion",
+      "source_sha256": "c794baa158d200a4e80c5593d586a6a188ff9bd2b712adb12d5cee72dcff8042",
+      "checked_source_sha256": "c794baa158d200a4e80c5593d586a6a188ff9bd2b712adb12d5cee72dcff8042",
+      "declarations": [
+        "PrimeFactorOscillations.localAscent_unit_weight_mass_lower",
+        "PrimeFactorOscillations.weightedLocalAscentExcess_common_lower",
+        "PrimeFactorOscillations.weightedLocalAscentExcess_nonpos_eventually_of_RH",
+        "PrimeFactorOscillations.weightedLocalAscentExcess_unbounded_of_not_RH",
+        "PrimeFactorOscillations.riemannHypothesis_iff_eventually_weightedLocalAscentExcess_nonpos",
+        "PrimeFactorOscillations.riemannHypothesis_iff_eventually_weightedLocalAscentExcess_power_upper"
+      ],
+      "source_normalization": "unchanged",
+      "kernel_build": "passed",
+      "axiom_audit": "standard_foundations_only"
+    },
+    {
+      "module": "PrimeFactorOscillations.Assembly.CarmichaelAscentCriterion",
+      "source_sha256": "d84d2656af37853f1fbadf6cfb0326a1c48d002910b9280789f7d2ae731a11b4",
+      "checked_source_sha256": "d84d2656af37853f1fbadf6cfb0326a1c48d002910b9280789f7d2ae731a11b4",
+      "declarations": [
+        "PrimeFactorOscillations.carmichaelPrimeWeight_nonneg",
+        "PrimeFactorOscillations.carmichaelPrimeWeight_ge_half",
+        "PrimeFactorOscillations.carmichaelPrimeWeight_eq_zero_of_not_coprime",
+        "PrimeFactorOscillations.carmichaelLocalAscent_unit_weights",
+        "PrimeFactorOscillations.carmichaelLocalAscentExcess_unbounded_of_not_RH",
+        "PrimeFactorOscillations.riemannHypothesis_iff_eventually_carmichaelLocalAscentExcess_nonpos",
+        "PrimeFactorOscillations.riemannHypothesis_iff_eventually_carmichaelLocalAscentExcess_power_upper"
+      ],
+      "source_normalization": "unchanged",
+      "kernel_build": "passed",
+      "axiom_audit": "standard_foundations_only"
     }
   ],
   "newest_owners": [
@@ -5618,8 +5675,12 @@
     "PrimeFactorOscillations.Assembly.CarmichaelCorrelation",
     "PrimeFactorOscillations.Assembly.CarmichaelCorrelationLocal",
     "PrimeFactorOscillations.Assembly.CarmichaelCorrelationSpectrum",
-    "PrimeFactorOscillations.Assembly.CarmichaelCorrelationFloor"
+    "PrimeFactorOscillations.Assembly.CarmichaelCorrelationFloor",
+    "PrimeFactorOscillations.Helpers.AscentModulusBudget",
+    "PrimeFactorOscillations.Helpers.LocalizedAscentPointwise",
+    "PrimeFactorOscillations.Helpers.WeightedLocalizedAscentCriterion",
+    "PrimeFactorOscillations.Assembly.CarmichaelAscentCriterion"
   ],
   "certified_zero_free_boundary": "7/8",
-  "proof_target_count": 2774
+  "proof_target_count": 2791
 }

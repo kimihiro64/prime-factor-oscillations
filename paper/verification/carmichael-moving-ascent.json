@@ -1,0 +1,151 @@
+{
+  "date": "2026-10-25",
+  "lean_version": "4.34.0",
+  "budget_compile_exit_code": 0,
+  "budget_compile_chunk": "f5ff16",
+  "pointwise_compile_exit_code": 0,
+  "pointwise_compile_chunk": "bdd659",
+  "weighted_criterion_compile_exit_code": 0,
+  "weighted_criterion_compile_chunk": "fe018a",
+  "leaf_compile_exit_code": 0,
+  "leaf_compile_chunk": "c42d7c",
+  "public_consumers_exit_code": 0,
+  "public_consumers_chunk": "0541dd",
+  "new_axiom_reports": 17,
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "latex_compile": "success",
+  "targets": [
+    "PrimeFactorOscillations.localAscent_nonunit_count_le",
+    "PrimeFactorOscillations.localAscent_unit_count_ge_half",
+    "PrimeFactorOscillations.localAscentPairExcess_nonpos_eventually_of_RH",
+    "PrimeFactorOscillations.localAscentPairExcess_common_large_window_of_not_RH",
+    "PrimeFactorOscillations.localAscent_unit_weight_mass_lower",
+    "PrimeFactorOscillations.weightedLocalAscentExcess_common_lower",
+    "PrimeFactorOscillations.weightedLocalAscentExcess_nonpos_eventually_of_RH",
+    "PrimeFactorOscillations.weightedLocalAscentExcess_unbounded_of_not_RH",
+    "PrimeFactorOscillations.riemannHypothesis_iff_eventually_weightedLocalAscentExcess_nonpos",
+    "PrimeFactorOscillations.riemannHypothesis_iff_eventually_weightedLocalAscentExcess_power_upper",
+    "PrimeFactorOscillations.carmichaelPrimeWeight_nonneg",
+    "PrimeFactorOscillations.carmichaelPrimeWeight_ge_half",
+    "PrimeFactorOscillations.carmichaelPrimeWeight_eq_zero_of_not_coprime",
+    "PrimeFactorOscillations.carmichaelLocalAscent_unit_weights",
+    "PrimeFactorOscillations.carmichaelLocalAscentExcess_unbounded_of_not_RH",
+    "PrimeFactorOscillations.riemannHypothesis_iff_eventually_carmichaelLocalAscentExcess_nonpos",
+    "PrimeFactorOscillations.riemannHypothesis_iff_eventually_carmichaelLocalAscentExcess_power_upper"
+  ],
+  "reused_declarations": [
+    "PrimeFactorOscillations.exists_densityRatio_uniform_power_excess_of_not_RH",
+    "PrimeFactorOscillations.power_subpower_mesh_amplification",
+    "PrimeFactorOscillations.tiltAscentSet_signed_error_lt_one",
+    "PrimeFactorOscillations.CarmichaelCorrelationFloor.canonical_odd_kernel_ge_half",
+    "Nat.prod_primeFactors_dvd"
+  ],
+  "certified_zero_free_boundary": "7/8 unchanged",
+  "benchmark_status": "Proved complete moving-modulus RH criteria under the existing explicit LocalAscentSampling premise. No new independent arithmetic upper estimate or zero-free improvement.",
+  "old_bound": {
+    "family_scope": "Existing local ascent RH criteria have no native varying Carmichael weight consumer",
+    "excluded_witnesses": "Not transferred to the old weighted criterion",
+    "zero_free_boundary": "7/8"
+  },
+  "new_bound": {
+    "modulus_range": "0<c_X<=X^floor(m_X/2) eventually; arbitrary varying finite odd packets dividing lambda(c_X)",
+    "excluded_witnesses": "At most floor(m_X/2) distinct selected lower primes divide c_X",
+    "unit_mass": "At least m_X/2 unit witnesses, total native weight at least m_X/4",
+    "signed_signal": "If every actual grid difference d_i>=B>=0 then sum W_i*d_i>=m_X*B/4, with zero weight on nonunits",
+    "rh_equivalences": "RH iff D_K<=0 eventually iff exists C>0: D_K<=C*X^(7/10) eventually, retaining exactly LocalAscentSampling",
+    "bad_zero_response": "For every C>0 and real X0, false RH gives integer X>X0 with D_K(X)>C*X^(7/10)",
+    "zero_free_boundary": "7/8 unchanged"
+  },
+  "components": [
+    "Finite product divisibility on the actual distinct selected lower primes",
+    "Pointwise RH nonpositivity with the same rank, pair and inclusive grid",
+    "Common false-RH per-witness lower window with the complete one-unit rounding loss",
+    "Power-subpower amplification absorbs rounding and all source frequency/log losses",
+    "Full signed weighted sum retained, then pointwise nonnegative comparison",
+    "Actual Carmichael kernel on units and exact zero extension on nonunits",
+    "Both general-weight and native moving-packet RH equivalences"
+  ],
+  "actuals": "Exact symbolic finite arithmetic and the already compiled analytic window inputs. No finite experiment or unresolved-term numerical completion.",
+  "first_nonpositive_domain": "Under RH every weighted summand is eventually nonpositive. Under false RH the normalized excess is unbounded above. Initial cutoffs, empty selections and sampled prime 2 are outside the eventual regime; q=0 and return label 2 are excluded explicitly. No positivity is claimed for arbitrary cutoffs.",
+  "overlap_check": {
+    "scope": "Public Lean/paper and canonical private goal, obligation, current work, branch, proof and decision records searched for weighted ascent and growing-modulus variants.",
+    "matched_prior_work": "Old localized ascent criteria contain only the unweighted complete sum; the correlation theorem has a pointwise finite-unit floor but no RH consumer; only the immediately preceding next-action record proposed this connection.",
+    "distinct_conclusion": "A complete native Carmichael-weighted local ascent RH criterion permits arbitrary cutoff-varying moduli as large as X^floor(m_X/2), with explicit nonunit loss and preserved signed zero response.",
+    "closest_primary_sources": [
+      {
+        "title": "Alweiss and Luo, Bounded gaps between primes in short intervals",
+        "url": "https://arxiv.org/abs/1707.05437",
+        "difference": "Supplies the classical short-interval bounded-pair arithmetic source; does not give this Carmichael-weighted RH criterion."
+      },
+      {
+        "title": "Cameron and Preece, Notes on primitive lambda-roots",
+        "url": "https://maths.qmul.ac.uk/~pjc/csgnotes/lambda.pdf",
+        "difference": "Develops the classical finite unit-group maximal-order setting; the present conclusion is a moving weighted ascent RH transfer."
+      }
+    ],
+    "priority": "Publication priority is not asserted. Formal Lean statements retain the old explicit sampling premise; the external Alweiss-Luo source is not introduced as an axiom."
+  },
+  "owners": [
+    {
+      "module": "PrimeFactorOscillations.Helpers.AscentModulusBudget",
+      "source_sha256": "131cab9804bcac8184229d4d9fc87fc5e405608a3f1936577ef9dd580df6579e",
+      "checked_source_sha256": "131cab9804bcac8184229d4d9fc87fc5e405608a3f1936577ef9dd580df6579e",
+      "declarations": [
+        "PrimeFactorOscillations.localAscent_nonunit_count_le",
+        "PrimeFactorOscillations.localAscent_unit_count_ge_half"
+      ],
+      "source_normalization": "unchanged",
+      "kernel_build": "passed",
+      "axiom_audit": "standard_foundations_only"
+    },
+    {
+      "module": "PrimeFactorOscillations.Helpers.LocalizedAscentPointwise",
+      "source_sha256": "7cc646e4cde83357e362692be9b5b0054f52de9c428fe530344b2eb6154783fd",
+      "checked_source_sha256": "7cc646e4cde83357e362692be9b5b0054f52de9c428fe530344b2eb6154783fd",
+      "declarations": [
+        "PrimeFactorOscillations.localAscentPairExcess_nonpos_eventually_of_RH",
+        "PrimeFactorOscillations.localAscentPairExcess_common_large_window_of_not_RH"
+      ],
+      "source_normalization": "unchanged",
+      "kernel_build": "passed",
+      "axiom_audit": "standard_foundations_only"
+    },
+    {
+      "module": "PrimeFactorOscillations.Helpers.WeightedLocalizedAscentCriterion",
+      "source_sha256": "c794baa158d200a4e80c5593d586a6a188ff9bd2b712adb12d5cee72dcff8042",
+      "checked_source_sha256": "c794baa158d200a4e80c5593d586a6a188ff9bd2b712adb12d5cee72dcff8042",
+      "declarations": [
+        "PrimeFactorOscillations.localAscent_unit_weight_mass_lower",
+        "PrimeFactorOscillations.weightedLocalAscentExcess_common_lower",
+        "PrimeFactorOscillations.weightedLocalAscentExcess_nonpos_eventually_of_RH",
+        "PrimeFactorOscillations.weightedLocalAscentExcess_unbounded_of_not_RH",
+        "PrimeFactorOscillations.riemannHypothesis_iff_eventually_weightedLocalAscentExcess_nonpos",
+        "PrimeFactorOscillations.riemannHypothesis_iff_eventually_weightedLocalAscentExcess_power_upper"
+      ],
+      "source_normalization": "unchanged",
+      "kernel_build": "passed",
+      "axiom_audit": "standard_foundations_only"
+    },
+    {
+      "module": "PrimeFactorOscillations.Assembly.CarmichaelAscentCriterion",
+      "source_sha256": "d84d2656af37853f1fbadf6cfb0326a1c48d002910b9280789f7d2ae731a11b4",
+      "checked_source_sha256": "d84d2656af37853f1fbadf6cfb0326a1c48d002910b9280789f7d2ae731a11b4",
+      "declarations": [
+        "PrimeFactorOscillations.carmichaelPrimeWeight_nonneg",
+        "PrimeFactorOscillations.carmichaelPrimeWeight_ge_half",
+        "PrimeFactorOscillations.carmichaelPrimeWeight_eq_zero_of_not_coprime",
+        "PrimeFactorOscillations.carmichaelLocalAscent_unit_weights",
+        "PrimeFactorOscillations.carmichaelLocalAscentExcess_unbounded_of_not_RH",
+        "PrimeFactorOscillations.riemannHypothesis_iff_eventually_carmichaelLocalAscentExcess_nonpos",
+        "PrimeFactorOscillations.riemannHypothesis_iff_eventually_carmichaelLocalAscentExcess_power_upper"
+      ],
+      "source_normalization": "unchanged",
+      "kernel_build": "passed",
+      "axiom_audit": "standard_foundations_only"
+    }
+  ]
+}

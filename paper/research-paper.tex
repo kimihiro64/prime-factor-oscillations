@@ -9160,10 +9160,155 @@ are classical ingredients; publication priority for this arithmetic
 combination is not asserted. The conclusion relevant to the ascent
 criterion is pointwise: every coprime selected witness retains at least
 half its positive excursion, without a residue-class equidistribution
-premise. This finite theorem does not yet establish an RH equivalence
-with growing moduli. Nor does it control a signed sum whose individual
+premise. The finite theorem alone does not establish an RH equivalence
+with growing moduli; the next theorem supplies the ascent consumer.
+It does not control a signed sum whose individual
 excursions have different signs. The factor \(1/2\) is a weight floor,
 not a zero-free boundary; the certified boundary remains \(7/8\).
+
+\subsection{Moving Carmichael weights preserve the ascent RH criteria}
+\label{sec:carmichael-moving-ascent}
+
+The pointwise floor permits a varying arithmetic probe on the actual
+bounded-gap witnesses. There is no limit over prime bases at a fixed
+modulus that must subsequently be exchanged with a growing-modulus limit.
+
+\begin{theorem}[Moving-modulus Carmichael ascent criteria]
+\label{thm:carmichael-moving-ascent}
+Fix a natural width \(H\). At each integer \(X\), select \(m_X\)
+consecutive-prime pairs with distinct lower-prime indices \(a_{X,i}\).
+Write \(p_{X,i}=p_{a_{X,i}}\) and \(g_{X,i}=p_{a_{X,i}+1}-p_{a_{X,i}}\).
+Assume the existing local ascent sampling conditions: for every
+\(\varepsilon>0\), eventually \(m_X\ge X^{7/10-\varepsilon}\), and
+eventually all the selected pairs satisfy
+\[
+ 2\le g_{X,i}\le H,\qquad
+ X\le p_{X,i}-1\le X+X^{3/4}.
+\]
+Use exactly the preceding ascent grid and full-profile reference:
+\[
+ M_X=\lceil\sqrt X\rceil,\qquad r_X=\lfloor(H+2)L(X)\rfloor,
+ \qquad t_{X,j}=1+j/M_X,\quad 0\le j\le HM_X.
+\]
+Let \(A_{X,i}\) count actual strict tilted rank-\((r_X+1)\) ascents
+at the selected pair, and set
+\[
+ \overline A_{X,i}
+   =\#\{0\le j\le HM_X:
+       g_{X,i}+t_{X,j}<\mathcal R_{r_X}(L(p_{X,i}-1))\},
+ \qquad d_{X,i}=A_{X,i}-\overline A_{X,i}.
+\]
+Thus the rank, sampled pair, inclusive grid and entire reference are
+unchanged.
+
+Choose arbitrary positive integer moduli \(c_X\), and arbitrary finite
+odd prime-divisor packets \(S_X\) of \(\lambda(c_X)\). Let \(K_X\)
+be the actual unit correlation of
+Theorem~\ref{thm:carmichael-return-correlation}, and extend its prime
+weight by zero:
+\[
+ W_{X,i}=
+ \begin{cases}
+ K_X(p_{X,i}\bmod c_X),&\gcd(p_{X,i},c_X)=1,\\
+ 0,&\gcd(p_{X,i},c_X)>1.
+ \end{cases}
+ \qquad
+ D_K(X)=\sum_{i=0}^{m_X-1}W_{X,i}d_{X,i}.
+\]
+Suppose only that eventually
+\[
+                         c_X\le X^{\lfloor m_X/2\rfloor}.
+\]
+Then the following are equivalent:
+\[
+ \mathrm{RH},\qquad
+ D_K(X)\le0\ \text{eventually},\qquad
+ \exists C>0:\ D_K(X)\le C X^{7/10}\ \text{eventually}.
+\]
+More precisely, under false RH, for every \(C>0\) and real \(X_0\)
+there is an integer \(X>X_0\) with \(D_K(X)>CX^{7/10}\).
+The modulus and every label of the packet may vary at every cutoff.
+No distribution of the selected pairs in residue classes is assumed.
+\end{theorem}
+\begin{proof}
+We first bound the actual nonunit exceptions. If \(r\) distinct selected
+lower primes divide \(c_X\), their product divides \(c_X\), and every
+factor is at least \(X\). For \(X\ge2\),
+\[
+ X^r\le\prod_{\substack{i<m_X\\p_{X,i}\mid c_X}}p_{X,i}
+       \le c_X\le X^{\lfloor m_X/2\rfloor}.
+\]
+Strict monotonicity of the powers of \(X>1\) gives
+\(r\le\lfloor m_X/2\rfloor\). At least \(m_X/2\) selected witnesses
+are therefore units. Each has weight at least \(1/2\), and all other
+weights are zero, so
+\[
+                  \sum_{i<m_X}W_{X,i}\ge m_X/4.
+\]
+This is a finite product argument on the same selected primes;
+it uses neither a density heuristic nor an asymptotic in the modulus.
+
+Under RH, the established uniform coefficient sign gives
+\(d_{X,i}\le0\) at every selected pair for all sufficiently large \(X\).
+Multiplication by the nonnegative actual weights and summation prove
+the eventual nonpositive criterion, hence also its power upper bound.
+
+Under false RH, the established uniform power excursion supplies
+some \(0<b<1/2\) before the margin and cutoff are chosen.
+On arbitrarily late windows, the complete signed rounding estimate
+\eqref{eq:grid-rounding} gives, simultaneously for every selected pair,
+\[
+ d_{X,i}\ge B_X,\qquad B_X=M_XX^{-b}-1\ge0.
+\]
+The existing power-subpower amplification, using the stated sampling
+supply, lets us choose such a window beyond any prescribed cutoff with
+\[
+                       m_XB_X>4CX^{7/10}.
+\]
+Retain every signed pair difference before applying the common lower
+bound. Then
+\[
+ D_K(X)=\sum_{i<m_X}W_{X,i}d_{X,i}
+       \ge B_X\sum_{i<m_X}W_{X,i}
+       \ge m_XB_X/4>CX^{7/10}.
+\]
+The full unit rounding loss per pair is included in \(B_X\); no absolute
+value is taken on the signed main expression. This contradicts either
+proposed eventual upper criterion and proves both converses.
+\end{proof}
+
+The maintained proof owners are
+\begin{quote}\small\ttfamily
+Helpers/AscentModulusBudget.lean\\
+Helpers/LocalizedAscentPointwise.lean\\
+Helpers/WeightedLocalizedAscentCriterion.lean\\
+Assembly/CarmichaelAscentCriterion.lean
+\end{quote}
+The general weight theorem also applies to every nonnegative weight
+bounded below by \(1/2\) at coprime selected primes. The native
+specialization above proves those hypotheses from the actual correlation.
+
+The formal statement retains the explicit
+\texttt{LocalAscentSampling} premise of the previously compiled ascent
+criterion. For the canonical all-pairs selection, the existing adapter
+consumes \texttt{QuantitativeShortIntervalPairs}; the ordinary arithmetic
+source is Alweiss--Luo \cite{AL}. No formal proof of that external source
+is introduced by this theorem. The new conclusion is the moving
+arithmetic weighting and its complete signed consumer, not the
+classical short-interval source itself. Publication priority is not
+asserted.
+
+All positive moduli are allowed, including even and nonsquarefree
+moduli and \(c_X=1\). Packets may be empty. Label \(2\) is excluded
+from \(S_X\) exactly as in the correlation floor; sampled prime \(2\)
+and empty selections on a bounded initial range do not affect either
+eventual criterion. No quantitative conclusion is asserted at \(X<2\).
+The principal and quadratic-free character structure remains available
+at each cutoff, but no character-sum estimate or QRH input is required
+for this transfer. The theorem proves signal preservation under very
+large varying conductors. An independent upper estimate for \(D_K\)
+would still be required to prove RH; the certified zero-free boundary
+remains \(7/8\).
 
 \subsection{Intrinsic power-return spectra identify physical prime carriers}
 \label{sec:carmichael-intrinsic-spectrum}
