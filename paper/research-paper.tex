@@ -10347,6 +10347,98 @@ No new assertion about Riemann zeros, witness retention under a zero
 mask, or an independent signed principal bound follows from this
 identification alone.  The certified zero-free exponent remains \(7/8\).
 
+\subsection{The full kernel's exact spectral conductor}
+\label{sec:carmichael-spectral-conductor}
+
+The least-modulus assertion has a character-theoretic form that holds
+without squarefreeness.  It identifies the exact simultaneous conductor
+cost of the surviving spectrum, rather than charging the ambient level.
+
+\begin{theorem}[Spectral conductor equals the least kernel modulus]
+\label{thm:carmichael-spectral-conductor}
+Let \(q\geq1\), let \(\ell\) be prime with \(\ell\mid\lambda(q)\),
+and retain the original native kernel \(K=K_{q,\ell}\).
+Write its complete character expansion as
+\[
+ K(u)=\sum_{\chi\bmod q}c_\chi\,\chi(u^{-1}),\qquad
+ S=\{\chi\bmod q:c_\chi\ne0\},\qquad
+ M=\mathop{\rm lcm}_{\chi\in S}\operatorname{cond}(\chi).
+\]
+The equality is interpreted in \(\mathbb C\); \(K\) itself is real.
+Every sum and lcm here is over the finite character set modulo \(q\).
+Then \(M>0\), \(M\mid q\), and, for every positive divisor \(d\mid q\),
+the following are equivalent:
+\begin{enumerate}
+\item \(K\) is constant on the fibers of actual unit reduction modulo \(d\).
+\item Every \(\chi\in S\) factors through a character modulo \(d\).
+\item Every \(\chi\in S\) has conductor dividing \(d\).
+\item \(M\mid d\).
+\item Some function \(f:(\mathbb Z/d\mathbb Z)^\times\to\mathbb R\)
+satisfies \(K(u)=f(u\bmod d)\) for every unit \(u\bmod q\).
+\end{enumerate}
+Thus reduction to \(M\) is attained and \(M\) is the least such divisor
+modulus.  If \(q=B\) is squarefree, then
+\[
+ M=R_K=\prod_{\substack{p\mid B\\(p-1)\nmid\lambda(B)/\ell}}p,
+ \qquad
+ \widehat C_{B,\lambda(B)/\ell}(h)=0
+ \quad\Longleftrightarrow\quad M\mid h
+ \quad(h\in\mathbb N).
+\]
+\end{theorem}
+
+\begin{proof}
+Put \(k=\lambda(q)/\ell\) and \(H=\{u:u^k=1\}\).
+The previously proved exact support theorem says
+\[
+ c_\chi\ne0
+ \quad\Longleftrightarrow\quad \chi(u)=1\text{ for every }u\in H.
+\]
+Suppose \(K\) is constant on actual reduction fibers modulo \(d\).
+If \(u\) lies in the reduction kernel, then \(K(u)=K(1)\).
+The native kernel has distinct values on \(H\) and its complement,
+so \(u\in H\).  Every surviving character is therefore trivial on
+the entire reduction kernel.
+The character factorization criterion for the actual unit-reduction
+homomorphism now proves that every survivor factors through \(d\).
+This proves \(1\Rightarrow2\) without estimating or discarding
+any spectral term.
+
+Conversely, suppose every survivor factors through \(d\).
+If \(u,v\) have the same reduction, so do \(u^{-1},v^{-1}\).
+Every surviving character consequently has the same value on these
+two inverses.  Each vanished coefficient contributes zero on both sides.
+Termwise equality in the complete finite character expansion gives
+\(K(u)=K(v)\).  Thus \(2\Rightarrow1\), retaining every complex phase.
+
+For \(d\mid q\), a character factors through \(d\) exactly when its
+conductor divides \(d\).  This proves \(2\Leftrightarrow3\).
+The defining finite lcm gives \(3\Leftrightarrow4\).
+Every character conductor is positive and divides \(q\), hence the
+same is true of their lcm \(M\).
+Actual unit reduction is surjective.  Constancy on its fibers is
+therefore equivalent to existence of \(f\), by choosing lifts and
+evaluating \(K\); this proves \(1\Leftrightarrow5\).
+Taking \(d=M\) proves attainment of reduction to \(M\), and the
+divisibility criterion proves minimality.
+
+For squarefree \(B\), the preceding dual-carrier theorem gives exactly
+the same descent criterion with \(R_K\) in place of \(M\).
+The kernel descends to both \(M\) and \(R_K\); applying the two
+criteria gives \(M\mid R_K\) and \(R_K\mid M\).
+Thus \(M=R_K\), which gives both the explicit product and the
+complete signed additive zero criterion.
+\end{proof}
+
+Attainment here means that the original kernel descends to \(M\).
+It does not assert that an individual surviving character has conductor
+\(M\); sharp individual attainment for mixed prime-power carriers
+requires a separate construction.  No canonical kernel at the reduced
+modulus is substituted for the original one.
+This theorem determines the correct conductor parameter for a future
+uniform analytic estimate.  It does not itself bound the signed
+principal RH wave or change the certified exponent \(7/8\).
+
 \subsection{Intrinsic power-return spectra identify physical prime carriers}
 \label{sec:carmichael-intrinsic-spectrum}
 

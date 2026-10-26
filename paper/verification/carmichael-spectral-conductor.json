@@ -1,0 +1,90 @@
+{
+  "date": "2026-10-26",
+  "lean_version": "4.34.0",
+  "focused_compile_exit_code": 0,
+  "focused_compile_chunk": "a21914",
+  "new_axiom_reports": 11,
+  "targets": [
+    "PrimeFactorOscillations.CarmichaelSpectralConductor.kernel_reduction_iff_survivors_factor",
+    "PrimeFactorOscillations.CarmichaelSpectralConductor.kernel_reduction_iff_survivor_conductors",
+    "PrimeFactorOscillations.CarmichaelSpectralConductor.spectralConductor_dvd_iff",
+    "PrimeFactorOscillations.CarmichaelSpectralConductor.spectralConductor_dvd_level",
+    "PrimeFactorOscillations.CarmichaelSpectralConductor.spectralConductor_pos",
+    "PrimeFactorOscillations.CarmichaelSpectralConductor.kernel_reduction_iff_spectralConductor_dvd",
+    "PrimeFactorOscillations.CarmichaelSpectralConductor.spectralConductor_attained",
+    "PrimeFactorOscillations.CarmichaelSpectralConductor.exists_reduced_kernel_iff",
+    "PrimeFactorOscillations.CarmichaelSpectralConductor.spectralConductor_eq_kernelCarrierProduct",
+    "PrimeFactorOscillations.CarmichaelSpectralConductor.spectralConductor_eq_active_product",
+    "PrimeFactorOscillations.CarmichaelSpectralConductor.additive_zero_iff_spectralConductor_dvd"
+  ],
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "reused_declarations": [
+    "PrimeFactorOscillations.CarmichaelPrimePacketSpectrum.coefficient_nonzero_iff_trivial_return",
+    "PrimeFactorOscillations.CarmichaelDualCarrier.kernel_peak_iff_return",
+    "PrimeFactorOscillations.CarmichaelCorrelationSpectrum.kernel_expansion",
+    "DirichletCharacter.factorsThrough_iff_ker_unitsMap",
+    "DirichletCharacter.mem_conductorSet_iff_conductor_dvd",
+    "Finset.lcm_dvd_iff",
+    "PrimeFactorOscillations.CarmichaelDualCarrier.kernelCarrierProduct_minimal",
+    "PrimeFactorOscillations.CarmichaelDualCarrier.additive_zero_iff_kernelCarrier_dvd"
+  ],
+  "certified_zero_free_boundary": "7/8 unchanged",
+  "benchmark_status": "Exact spectral lcm equals least original-kernel modulus for every positive level; squarefree additive identification; no exponent gain",
+  "old_bound": "Least original-kernel modulus known only geometrically for squarefree levels; surviving-character conductor lcm not identified with it",
+  "new_bound": "Every positive level has an attained least reduction modulus M equal to the full surviving-character conductor lcm; squarefree M is exactly the active-prime product and additive zero spacing",
+  "components": {
+    "domain": "Every q>=1, prime ell|lambda(q), d>=1 with d|q; squarefree specialization includes every natural additive frequency h",
+    "necessity": "Full kernel descent forces reduction kernel inside the actual return subgroup, hence all surviving characters descend",
+    "sufficiency": "Full character expansion preserves equality on actual reduction fibers, including inverses and every phase",
+    "lcm": "Exact simultaneous conductor parameter, positive and dividing q; original kernel descends to it",
+    "attainment_limit": "No individual character of conductor M is asserted by this theorem",
+    "principal": "Coefficient1 retained; independent signed analytic estimate remains open"
+  },
+  "actuals": "Universal symbolic Lean proof, no finite diagnostic",
+  "first_nonpositive_domain": "No signed analytic RH positivity bound installed",
+  "detector_error": "Unchanged",
+  "family_adapter": "All original native singleton kernels, including nonsquarefree levels; exact squarefree probability/Dirichlet/additive bridge",
+  "uncancelled_main_terms": "No analytic signed main term is estimated here",
+  "low_estimate_provenance": "No new signed low-divisor estimate",
+  "parameter_domain": "Every positive q, every prime ell dividing actual lambda(q), every positive divisor d|q; squarefree B/h>=0 specialization",
+  "attainable_endpoint": "7/8 unchanged",
+  "overlap_check": {
+    "completed_inputs": "Generic finite character inversion and exact native support are reused. Claim129 identifies the squarefree least probability-kernel modulus with the additive carrier product. Local prime-power conductor classifications are already proved.",
+    "distinct_conclusion": "For every positive modulus, full original kernel descends iff every actual survivor descends iff the survivor-conductor lcm divides the target. This lcm is an attained least reduction modulus and, in the squarefree case, equals the additive zero spacing.",
+    "existing_target": "General spectral formulation and exact squarefree case within the existing full CRT active-carrier programme; individual mixed-conductor sharpness remains open.",
+    "primary_sources": [
+      "https://leanprover-community.github.io/mathlib4_docs/Mathlib/NumberTheory/DirichletCharacter/Basic.html",
+      "https://leanprover-community.github.io/mathlib4_docs/Mathlib/Algebra/GCDMonoid/Finset.html"
+    ],
+    "priority_scope": "Exact bridge for the original project kernel using established factorization and finite-lcm facts. No exhaustive publication-priority claim."
+  },
+  "public_consumers_exit_code": 0,
+  "public_consumers_chunk": "86028e",
+  "owners": [
+    {
+      "module": "PrimeFactorOscillations.Assembly.CarmichaelSpectralConductor",
+      "source_sha256": "4dbe7d6710230bec55e41727acee5bf8ec7c3d35170eb771f5a2a403df437c6c",
+      "checked_source_sha256": "4dbe7d6710230bec55e41727acee5bf8ec7c3d35170eb771f5a2a403df437c6c",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelSpectralConductor.kernel_reduction_iff_survivors_factor",
+        "PrimeFactorOscillations.CarmichaelSpectralConductor.kernel_reduction_iff_survivor_conductors",
+        "PrimeFactorOscillations.CarmichaelSpectralConductor.spectralConductor_dvd_iff",
+        "PrimeFactorOscillations.CarmichaelSpectralConductor.spectralConductor_dvd_level",
+        "PrimeFactorOscillations.CarmichaelSpectralConductor.spectralConductor_pos",
+        "PrimeFactorOscillations.CarmichaelSpectralConductor.kernel_reduction_iff_spectralConductor_dvd",
+        "PrimeFactorOscillations.CarmichaelSpectralConductor.spectralConductor_attained",
+        "PrimeFactorOscillations.CarmichaelSpectralConductor.exists_reduced_kernel_iff",
+        "PrimeFactorOscillations.CarmichaelSpectralConductor.spectralConductor_eq_kernelCarrierProduct",
+        "PrimeFactorOscillations.CarmichaelSpectralConductor.spectralConductor_eq_active_product",
+        "PrimeFactorOscillations.CarmichaelSpectralConductor.additive_zero_iff_spectralConductor_dvd"
+      ],
+      "source_normalization": "unchanged",
+      "kernel_build": "passed",
+      "axiom_audit": "standard_foundations_only"
+    }
+  ]
+}
