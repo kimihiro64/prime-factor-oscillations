@@ -8464,6 +8464,142 @@ asserted.
 These are exact finite full-unit laws. No estimate for empirical
 prime-base sampling with a simultaneously growing modulus is claimed,
 and the certified zero-free boundary remains \(7/8\).
+\subsection{Conditional stability without squarefree auxiliary moduli}
+\label{sec:carmichael-conditional-stability}
+
+The preceding full-profile comparison extends to actual reduction
+fibers. More significantly, feasibility itself replaces the squarefree
+hypothesis in the auxiliary image bound.
+
+\begin{theorem}[Conditional full-profile stability for coprime extensions]
+\label{thm:carmichael-conditional-stability}
+Let \(m,B\ge1\) be coprime, let \(a\in U(m)\), and write
+\[
+ E=\lambda(mB),\qquad L=\lambda(m),\qquad
+ S=\{\ell:\ell\text{ prime},\ \ell\mid E\}.
+\]
+Sample uniformly from the actual reduction fiber
+\[
+ \mathcal F_a=\{u\in U(mB):u\bmod m=a\}.
+\]
+Let \(P_a(b)\) be its return-pattern probability for
+\(b:S\to\{0,1\}\), where bit one means \(u^{E/\ell}=1\).
+Let \(P_0\) be the independent comparison law with success
+probabilities \(1/\ell\), and set
+\[
+ V_a=P_a(0),\qquad V_0=\prod_{\ell\in S}(1-\ell^{-1}).
+\]
+The following feasibility criterion is exact:
+\[
+ V_a>0
+ \quad\Longleftrightarrow\quad
+ \operatorname{lcm}(\operatorname{ord}(a),\lambda(B))=E.
+\]
+If it fails, \(V_a=0\). If it holds, then \(V_a\ge V_0>0\), and
+every set \(A\subseteq\{0,1\}^S\) satisfies
+\[
+ P_a(A)V_0\le P_0(A)V_a,\qquad
+ P_a(A)\le \frac{V_a}{V_0}P_0(A).
+\]
+Moreover,
+\[
+ \begin{split}
+ d_{\rm TV}(P_a,P_0)&\le1-\frac{V_0}{V_a},\\
+ \mathcal E(P_a,P_0)&\le2d_{\rm TV}(P_a,P_0)
+                    \le2\left(1-\frac{V_0}{V_a}\right),
+ \end{split}
+\]
+with the same full finite-sum definitions as in
+Theorem~\ref{thm:carmichael-profile-stability}.
+No squarefree assumption is imposed on either modulus. In particular,
+prime-power auxiliary factors, powers of \(2\), and the empty prime
+packet are included.
+\end{theorem}
+\begin{proof}
+CRT identifies \(\mathcal F_a\) with \(U(B)\), so it is nonempty.
+For \(\ell\in S\), put
+\[
+ H_\ell=\{b^{E/\ell}:b\in U(B)\},\qquad e_\ell=|H_\ell|,
+\]
+and use the exact old-coordinate gate
+\[
+ \gamma_\ell(a)=
+ \boldsymbol1_{\{\ell\mid E/L\ \text{or}\ a^{L/\ell}=1\}}.
+\]
+The maintained conditional kernel, valid for arbitrary coprime
+nonzero moduli, gives the independent success rates
+\[
+ r_\ell=
+ \begin{cases}e_\ell^{-1},&\gamma_\ell(a)=1,\\
+ 0,&\gamma_\ell(a)=0.
+ \end{cases}
+\]
+Both its full pattern mass and that of \(P_0\) equal one.
+
+Assume feasibility. The maximal-order lift criterion supplies
+\(u\in\mathcal F_a\) with \(\operatorname{ord}(u)=E\).
+Fix an open gate and write \(b=u\bmod B\).
+If \(b^{E/\ell}=1\), the old-coordinate gate together with the
+auxiliary return would imply \(u^{E/\ell}=1\), contradicting maximal
+order. Thus \(z=b^{E/\ell}\) is a nonidentity element of \(H_\ell\).
+Since \(E\) annihilates \(U(B)\) and \(\ell\mid E\), we have
+\(z^\ell=b^E=1\). Primality gives \(\operatorname{ord}(z)=\ell\).
+Its cyclic subgroup is contained in \(H_\ell\), proving
+\[
+ e_\ell\ge\ell.
+\]
+This argument does not require \(U(B)\) to be cyclic, and in
+particular applies unchanged to powers of \(2\).
+
+Consequently \(0\le r_\ell\le1/\ell<1\) at every label,
+including the closed gates. It follows directly that
+\(V_a=\prod_\ell(1-r_\ell)\ge V_0>0\).
+The same coordinate inequality used in the preceding theorem gives
+\[
+ q_\sigma(r_\ell)(1-\ell^{-1})
+ \le q_\sigma(\ell^{-1})(1-r_\ell),
+ \qquad q_1(t)=t,\quad q_0(t)=1-t.
+\]
+Multiplication and then summation prove both event comparisons.
+
+For completeness, write \(A_+=\{b:P_a(b)>P_0(b)\}\).
+The two exact normalizations imply
+\(d_{\rm TV}=P_a(A_+)-P_0(A_+)\).
+The event bound and \(P_a(A_+)\le1\) yield
+\(d_{\rm TV}\le1-V_0/V_a\).
+The signed repair--Hellinger ledger gives
+\[
+ \mathcal E(P_a,P_0)
+ \le2\sum_b(P_a(b)-P_0(b))_+
+       +\sum_bP_0(b)-\sum_bP_a(b)
+ =2d_{\rm TV}.
+\]
+Thus every compensation mass is retained until it cancels.
+
+Finally, if feasibility fails, the maximal-order lift criterion
+says that there is no maximal-order element in the fiber.
+The all-nonreturn pattern is exactly the maximal-order event, so
+\(V_a=0\). This proves the equivalence and the zero branch without
+using a normalized expression there. If \(S\) is empty, both laws
+are the same point mass and every displayed stability bound is zero.
+\end{proof}
+
+The arbitrary-modulus image bound, exact conditional product law,
+normalization, event comparisons, variation and Hellinger bounds,
+and positive-vacancy criterion are maintained in
+\begin{quote}\small\ttfamily
+Assembly/CarmichaelConditionalStability.lean
+\end{quote}
+and exported through the Carmichael probability grouping.
+This strengthens the earlier squarefree conditional vacancy floor
+and supplies a complete conditional law comparison. The underlying
+maximal-order density and likelihood principles are classical
+\cite[Section~2]{LiPomeranceLambda}; no publication-priority claim
+is made for this formulation.
+The statement concerns uniform full-unit fibers. It supplies no
+growing-modulus prime-base sampling estimate and no new zero-free
+exponent.
+
 \subsection{Odd return packets have no quadratic character modes}
 \label{sec:odd-return-character-support}
 
