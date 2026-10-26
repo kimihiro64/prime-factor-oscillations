@@ -8363,6 +8363,107 @@ zero-free boundary remains \(7/8\).
 
 
 
+\subsection{One vacancy atom controls the complete return profile}
+\label{sec:carmichael-profile-stability}
+
+The period-multiplicity budget controls which coordinates can be
+redundant. The following result controls all events of the joint law,
+with no factor depending on the number of binary patterns.
+
+\begin{theorem}[Uniform stability from a single vacancy probability]
+\label{thm:carmichael-profile-stability}
+Let \(G\) be a finite abelian group, let \(L\) be its canonical
+exponent, and let \(S\) be any finite set of prime divisors of \(L\).
+For a binary pattern \(b:S\to\{0,1\}\), let \(P_G(b)\) be the actual
+probability of that return pattern under uniform sampling of \(G\).
+Define the minimal comparison law by
+\[
+ P_0(b)=\prod_{\ell\in S}
+   \begin{cases}
+     1/\ell,&b_\ell=1,\\
+     1-1/\ell,&b_\ell=0.
+   \end{cases}
+\]
+Write
+\[
+ V=P_G(0)=\prod_{\ell\in S}(1-d_\ell^{-1}),\qquad
+ V_0=P_0(0)=\prod_{\ell\in S}(1-\ell^{-1}),\qquad R=V/V_0.
+\]
+Both \(V,V_0\) are positive and \(R\ge1\).
+For every set \(A\subseteq\{0,1\}^S\),
+\[
+ P_G(A)\le R P_0(A).
+\]
+Moreover, with the full finite sums over all binary patterns,
+\[
+ \begin{split}
+ d_{\rm TV}(P_G,P_0)
+   &:=\frac12\sum_b|P_G(b)-P_0(b)|
+       \le 1-\frac{V_0}{V},\\
+ \mathcal E(P_G,P_0)
+   &:=\sum_b\bigl(\sqrt{P_G(b)}-\sqrt{P_0(b)}\bigr)^2
+       \le 2d_{\rm TV}(P_G,P_0)
+       \le2\left(1-\frac{V_0}{V}\right).
+ \end{split}
+\]
+The prime \(2\) and the empty packet are included.
+In particular these conclusions hold for every actual modular-unit group.
+\end{theorem}
+\begin{proof}
+The full return law gives independent pattern factors with success
+parameters \(a_\ell=1/d_\ell\). The canonical image bound gives
+\(0<a_\ell\le t_\ell=1/\ell<1\).
+For either bit \(\sigma\), the corresponding factors satisfy
+\[
+ q_\sigma(a_\ell)(1-t_\ell)
+   \le q_\sigma(t_\ell)(1-a_\ell),\qquad
+ q_1(t)=t,\quad q_0(t)=1-t.
+\]
+For bit zero this is equality; for bit one it is exactly
+\(a_\ell\le t_\ell\). Multiplying all nonnegative factors gives
+\[
+ P_G(b)V_0\le P_0(b)V.
+\]
+Summing over \(A\) and dividing by \(V_0>0\) proves the event bound.
+
+Let \(A_+=\{b:P_G(b)>P_0(b)\}\).
+Both laws have total mass one, so their exact signed ledger gives
+\[
+ d_{\rm TV}(P_G,P_0)=P_G(A_+)-P_0(A_+).
+\]
+The event comparison implies
+\(P_0(A_+)\ge P_G(A_+)/R\). Since \(P_G(A_+)\le1\),
+the total-variation bound follows.
+
+Finally the maintained repair--Hellinger comparison, applied to these
+two probability vectors with regularization zero, gives
+\[
+ \mathcal E(P_G,P_0)
+ \le 2\sum_b(P_G(b)-P_0(b))_+
+       +\sum_bP_0(b)-\sum_bP_G(b).
+\]
+The two full masses cancel exactly. The positive-part sum is the total
+variation just computed, proving the energy bound.
+For an empty packet both laws are the same point mass.
+\end{proof}
+
+The native pattern and event comparisons, exact normalizations,
+total-variation bound, and the signed repair-energy consumer are
+maintained in
+\begin{quote}\small\ttfamily
+Assembly/CarmichaelProfileStability.lean
+\end{quote}
+and exported through the Carmichael probability grouping.
+Li and Pomerance's classical formula computes the maximal-order
+vacancy density \cite[Section~2]{LiPomeranceLambda}; the assertion here
+controls every event of an arbitrary finite return packet from its
+relative vacancy. The likelihood comparison principle is classical;
+publication priority for this arithmetic stability formulation is not
+asserted.
+
+These are exact finite full-unit laws. No estimate for empirical
+prime-base sampling with a simultaneously growing modulus is claimed,
+and the certified zero-free boundary remains \(7/8\).
 \subsection{Odd return packets have no quadratic character modes}
 \label{sec:odd-return-character-support}
 
