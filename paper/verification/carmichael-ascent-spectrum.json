@@ -1,0 +1,91 @@
+{
+  "date": "2026-10-26",
+  "lean_version": "4.34.0",
+  "focused_compile_exit_code": 0,
+  "focused_compile_chunk": "9114eb",
+  "new_axiom_reports": 8,
+  "new_axiom_chunk": "583e33",
+  "targets": [
+    "PrimeFactorOscillations.CarmichaelAscentSpectrum.scaled_excess_eq_packet",
+    "PrimeFactorOscillations.CarmichaelAscentSpectrum.normalizedExcess_eq_original",
+    "PrimeFactorOscillations.CarmichaelAscentSpectrum.riemannHypothesis_iff_packet_nonpos",
+    "PrimeFactorOscillations.CarmichaelAscentSpectrum.riemannHypothesis_iff_packet_power_upper",
+    "PrimeFactorOscillations.CarmichaelAscentSpectrum.packet_unbounded_of_not_RH",
+    "PrimeFactorOscillations.CarmichaelAscentSpectrum.packet_im_eq_zero",
+    "PrimeFactorOscillations.CarmichaelAscentSpectrum.packet_eq_principal_add",
+    "PrimeFactorOscillations.CarmichaelAscentSpectrum.odd_packet_eq_nonquadratic"
+  ],
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "reused_declarations": [
+    "PrimeFactorOscillations.CarmichaelIntegralSpectrum.natural_character_expansion",
+    "PrimeFactorOscillations.CarmichaelIntegralSpectrum.multiplicity_principal",
+    "PrimeFactorOscillations.CarmichaelIntegralSpectrum.odd_multiplicity_quadratic_zero",
+    "PrimeFactorOscillations.CarmichaelPermutationKernel.normalization_pos",
+    "PrimeFactorOscillations.riemannHypothesis_iff_eventually_carmichaelLocalAscentExcess_nonpos",
+    "PrimeFactorOscillations.riemannHypothesis_iff_eventually_carmichaelLocalAscentExcess_power_upper",
+    "PrimeFactorOscillations.carmichaelLocalAscentExcess_unbounded_of_not_RH"
+  ],
+  "certified_zero_free_boundary": "7/8 unchanged",
+  "benchmark_status": "Completed exact signed ascent-character criterion; no new arithmetic cancellation estimate",
+  "old_bound": "Integer native spectrum and analytic full-L-product readout were proved,but the original complete signed ascent RH criterion had not been resolved into those character coordinates.7/8 unchanged.",
+  "new_bound": "At every cutoff,P_X=M_X E_X is real and ReP_X/M_X equals the original complete weighted ascent excess. Principal row coefficientM_X and all other signed phases retained. Odd packets omit quadratic rows. Existing two RH criteria and NotRH excursions transfer under exactly the original sampler,activity,oddness and eventual NAT qbudget.7/8 unchanged.",
+  "components": {
+    "positive_supply": "Full principal row M_X*T_1,X retained explicitly; no bound on it is assumed.",
+    "signed_corrections": "Delta_X,i is the exact actual-minus-reference finite ascent count. Every compensating count and every sampled prime retained.",
+    "quadratic_cancellation": "Odd packet character sum restricts exactly to principal/nonquadratic set used by the actual native L-product.",
+    "normalization": "M_X>0 from activity; normalized real packet equals original excess pointwise,not merely asymptotically.",
+    "sampling": "Original LocalAscentSampling and eventual NAT q_X<=X^(m_X/2); no sampler existence or growing-q analytic limit asserted.",
+    "limits": "Arithmetic upper bound for the full joint packet remains unproved. Further criterion expansion is deferred in favor of estimates."
+  },
+  "actuals": "Universal Lean proof over variable moduli and packets,all finite cutoffs and complete signed counts. No finite numerical completion.",
+  "first_nonpositive_domain": "Eventual packet nonpositivity is the existing RH criterion under its explicit sampler and budget. No unconditional arithmetic nonpositivity established.",
+  "detector_error": "Exact character resolution,zero algebraic adapter error; no analytic error estimate asserted.",
+  "family_adapter": "Original sampled prime p_X,i=primeAt(a_X i),complete actual/reference ascent count difference and variable native q_X,S_X. No change of probability-law class.",
+  "uncancelled_main_terms": "P_X=M_X*T_1,X+sum over all nonprincipal characters mu_X,chi*T_chi,X. Only rigorously zero quadratic rows are omitted in odd packets.",
+  "low_estimate_provenance": "No new independent character estimate. This finishes the estimate consumer requested before arithmetic work.",
+  "parameter_domain": "All H,m,a,q_X>=1 and finite active S_X for the finite identity. RH consumers retain original LocalAscentSampling,all-odd S_X and eventual natural-number modulus budget.7/10 is the count normalization,not a zero-free boundary.",
+  "attainable_endpoint": "7/8 unchanged",
+  "overlap_check": {
+    "completed_inputs": "Read exact complete localAscentPairExcess and weightedLocalAscentExcess definitions,the existing native RH-equivalence signatures and the all-natural integer character expansion. Public provider search found no existing ascent-character resolution.",
+    "distinct_conclusion": "Exact full signed original ascent observable in native integer character coordinates,principal/nonprincipal split,reality,quadratic-free support and transfer of existing RH criteria with unchanged hypotheses.",
+    "existing_target": "Completes the explicitly requested criterion consumer after the native L-product theorem. It is a new character resolution of an existing RH criterion,not an independently new equivalence or an arithmetic estimate.",
+    "primary_sources": [
+      "https://www.jmilne.org/math/CourseNotes/CFT.pdf"
+    ],
+    "priority_scope": "Project-specific exact consumer; generic finite Fourier manipulations are classical. No broad priority claim or exponent gain."
+  },
+  "public_consumers_exit_code": 0,
+  "public_consumers_chunk": "74cf82",
+  "public_facade_chunk": "1365c4",
+  "focused_compiles": [
+    {
+      "owner": "PrimeFactorOscillations/Assembly/CarmichaelAscentSpectrum.lean",
+      "chunk": "9114eb",
+      "exit_code": 0
+    }
+  ],
+  "owners": [
+    {
+      "module": "PrimeFactorOscillations.Assembly.CarmichaelAscentSpectrum",
+      "source_sha256": "6f6ee7f64dd1212d9d477729e3563b346d4528585bdcca03015246a9bdefaa00",
+      "checked_source_sha256": "6f6ee7f64dd1212d9d477729e3563b346d4528585bdcca03015246a9bdefaa00",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelAscentSpectrum.scaled_excess_eq_packet",
+        "PrimeFactorOscillations.CarmichaelAscentSpectrum.normalizedExcess_eq_original",
+        "PrimeFactorOscillations.CarmichaelAscentSpectrum.riemannHypothesis_iff_packet_nonpos",
+        "PrimeFactorOscillations.CarmichaelAscentSpectrum.riemannHypothesis_iff_packet_power_upper",
+        "PrimeFactorOscillations.CarmichaelAscentSpectrum.packet_unbounded_of_not_RH",
+        "PrimeFactorOscillations.CarmichaelAscentSpectrum.packet_im_eq_zero",
+        "PrimeFactorOscillations.CarmichaelAscentSpectrum.packet_eq_principal_add",
+        "PrimeFactorOscillations.CarmichaelAscentSpectrum.odd_packet_eq_nonquadratic"
+      ],
+      "source_normalization": "unchanged",
+      "kernel_build": "passed",
+      "axiom_audit": "standard_foundations_only"
+    }
+  ]
+}

@@ -11992,6 +11992,134 @@ transferring estimates between them.  No independent arithmetic upper
 estimate or new zero-free boundary is asserted here; the certified
 boundary remains \(7/8\).
 
+\subsection{The complete signed ascent criterion in character coordinates}
+\label{sec:carmichael-ascent-spectrum}
+
+The character estimates must act on the actual signed ascent observable.
+The following theorem gives its exact character coordinates, with the
+reference count and principal row retained.
+
+\begin{theorem}[Character resolution of the signed ascent RH criterion]
+\label{thm:carmichael-ascent-spectrum}
+Let \(H\in\mathbb N\), \(m:\mathbb N\to\mathbb N\), and
+\(a_X:\operatorname{Fin}(m(X))\to\mathbb N\) be prime indices.
+Put \(p_{X,i}=\operatorname{primeAt}(a_X(i))\).
+At cutoff \(X\), retain exactly the existing actual-minus-reference count
+\[
+ \Delta_{X,i}
+ =|\mathcal A^{\mathrm{actual}}_{H,X,a_X(i)}|
+   -|\mathcal A^{\mathrm{reference}}_{H,X,a_X(i)}|.
+\]
+Here the actual set is
+\(\operatorname{localTiltAscentSet}
+ (H,\operatorname{localTiltMesh}(X),\operatorname{localTiltRank}(H,X),a_X(i))\);
+the reference set is
+\(\operatorname{tiltAscentSet}
+ (H,\operatorname{localTiltMesh}(X),
+ \operatorname{localTiltReference}(H,X,a_X(i)),
+ \operatorname{primeGap}(a_X(i)))\).
+Thus \(\Delta_{X,i}\) is precisely
+\(\operatorname{localAscentPairExcess}(H,X,a_X(i))\), with no omitted
+reference or compensation term.
+
+Let \(q_X\ge1\), and let \(S_X\) be an active native packet for
+\(G_X=(\mathbb Z/q_X\mathbb Z)^\times\), at its original period.
+Use the exact integer multiplicities and \(M_X>0\) from
+Theorem~\ref{thm:carmichael-integral-spectrum}, and define
+\[
+ T_{\chi,X}=\sum_{i\in\operatorname{Fin}(m(X))}
+                   \chi(p_{X,i})\Delta_{X,i},\qquad
+ P_X=\sum_{\chi\bmod q_X}\mu_{\chi,X}T_{\chi,X},\qquad
+ J_X=\frac{\operatorname{Re}P_X}{M_X}.
+\]
+Let \(E_X\) denote the original complete native weighted ascent excess.
+For every cutoff, without a sampling or RH hypothesis,
+\[
+ \boxed{\quad P_X=M_XE_X\in\mathbb R,\qquad J_X=E_X.\quad}
+\]
+The complete principal decomposition is
+\[
+ P_X=M_XT_{1,X}
+       +\sum_{\chi\in\mathcal X(q_X)\setminus\{1\}}
+                         \mu_{\chi,X}T_{\chi,X},
+\]
+where \(\mathcal X(q_X)\) is the entire finite set of characters modulo
+\(q_X\).
+If \(S_X\) is odd, the full sum defining \(P_X\) can be restricted exactly
+to \(\chi=1\) or \(\chi^2\ne1\), using the same character set as the
+actual \(L\)-product of Theorem~\ref{thm:carmichael-dirichlet-product}.
+
+For the RH criteria assume precisely
+\(\operatorname{LocalAscentSampling}(H,m,a)\): for every
+\(\varepsilon>0\), eventually \(m(X)\ge X^{7/10-\varepsilon}\);
+and eventually the maps \(a_X\) are injective and all their pairs obey
+\[
+ 2\le\operatorname{primeGap}(a_X(i))\le H,\qquad
+ X\le p_{X,i}-1\le X+X^{3/4}.
+\]
+Assume also that every \(S_X\) is odd and that eventually
+\[
+ q_X\le X^{\lfloor m(X)/2\rfloor},
+\]
+with the exponent coming from natural-number division.
+Then
+\[
+ \mathrm{RH}
+ \quad\Longleftrightarrow\quad J_X\le0\ \text{eventually}
+ \quad\Longleftrightarrow\quad
+ \exists C>0:\ J_X\le C X^{7/10}\ \text{eventually}.
+\]
+If RH fails, then for every \(C>0\) and real \(X_0\) there is a natural
+\(n>X_0\) with \(J_n>Cn^{7/10}\).
+No existence assertion for the sampler is included.
+\end{theorem}
+
+\begin{proof}
+At each actual sampled prime, apply the all-natural identity
+\[
+ M_X A_{q_X,S_X}(p_{X,i})
+       =\sum_{\chi\bmod q_X}\mu_{\chi,X}\chi(p_{X,i}).
+\]
+Multiply by the entire signed \(\Delta_{X,i}\) and sum over its original
+finite index set.  Interchange the two finite sums exactly.
+The left side is \(M_XE_X\), by the existing definition of the weighted
+ascent excess; the right side is \(P_X\).
+Since \(E_X\) is real, the imaginary part of \(P_X\) is zero.
+Activity gives \(M_X>0\), so division proves \(J_X=E_X\) pointwise,
+including every small cutoff.
+
+Isolate the principal term in the full finite character sum and apply
+\(\mu_{1,X}=M_X\).  This gives the displayed complete decomposition.
+For an odd packet, the established integer multiplicities of all
+nonprincipal quadratic characters are zero.  Removing those zero
+summands proves the exact restricted character sum.
+
+Finally substitute the pointwise equality \(J_X=E_X\) into the existing
+native signed ascent theorem.  Its sampler, oddness, activity and
+eventual natural-number modulus budget are unchanged.
+It gives both RH equivalences and the quantified excursions.
+There is no exchange of a fixed-modulus analytic limit with a growing
+cutoff.
+\end{proof}
+
+This is a character resolution of the existing RH criterion.
+It specifies the actual joint estimate to attack:
+\[
+ \operatorname{Re}\!\left(
+ M_XT_{1,X}+
+ \sum_{\chi\in\mathcal X(q_X)\setminus\{1\}}
+                  \mu_{\chi,X}T_{\chi,X}\right)
+ \ \le\ C M_X X^{7/10}\qquad\text{eventually}.
+\]
+Under the stated sampler and budget this estimate would imply RH.
+It is an unproved arithmetic target, not a consequence of the coordinate
+identity.  In particular the principal row is not bounded by removing
+quadratic rows, and the exponent \(7/10\) here is an observable count
+normalization, not a zero-free boundary.
+The certified boundary remains \(7/8\).
+Further criterion expansion is deferred while new joint character
+estimates for the displayed complete packet are investigated.
+
 \subsection{Intrinsic power-return spectra identify physical prime carriers}
 \label{sec:carmichael-intrinsic-spectrum}
 
