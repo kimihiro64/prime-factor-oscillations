@@ -11142,6 +11142,102 @@ Nor does exact cancellation give an independent upper estimate for the
 retained principal RH signal.
 The certified zero-free boundary remains \(7/8\).
 
+\subsection{Odd-wild balance on actual full prime cycles}
+\label{sec:carmichael-wild-prime-cycles}
+
+The finite progression average can be placed on the actual prime
+vertices used by the constellation transport, simultaneously at every
+native depth and unit phase.
+
+\begin{theorem}[Balanced odd-wild prime-cycle transport]
+\label{thm:carmichael-wild-prime-cycles}
+Fix an odd prime \(p\), a natural \(t\) coprime to \(p\), and \(\alpha>0\).
+Set
+\[
+ h(j)=jpt\quad(0\le j<p),\qquad W=(p-1)pt.
+\]
+For a natural \(q\), write \(\mathcal B(q)\) for the condition
+\[
+ (q,p)=1,\qquad
+ \forall a\ge0,\ \forall c\in G_{p^{a+2}},\quad
+ \sum_{j=0}^{p-1}K_{p^{a+2}}\bigl(c(q+jpt)\bigr)=p,
+\]
+with the original native kernels of
+Theorem~\ref{thm:carmichael-wild-averages}.
+Let \(\tau_0\) and \(\rho_0\) denote the original canonical reference
+clock and reference-ratio function.
+For a prime permutation \(\sigma\) of displacement at most \(W\),
+let \(\rho_\sigma\) be the density ratio of its original bounded
+prime-permutation law.
+
+Then RH together with recurrence of the full prime shape \(h\)
+is equivalent to the existence of such a \(\sigma\) satisfying:
+\begin{enumerate}
+ \item For every cutoff \(N\), there is \(q\ge N\) for which every
+       \(q+jpt\), \(0\le j<p\), is prime,
+       \[
+         \sigma(q+jpt)=q+((j+1)\bmod p)pt,
+       \]
+       and \(\mathcal B(q)\) holds.
+ \item For all sufficiently large \(N\), with
+       \(r=\lfloor\alpha\tau_0(N)\rfloor\),
+       \[
+          \rho_\sigma(N,r)<\rho_0(r,\tau_0(N)).
+       \]
+\end{enumerate}
+The displacement, moving rank, probability law and canonical comparison
+are exactly those of the completed full-shape transport theorem.
+\end{theorem}
+
+\begin{proof}
+Coprimality forces \(t>0\), so the offsets \(jpt\) are distinct.
+Each is at most \((p-1)pt=W\).
+The completed arbitrary-shape canonical transport theorem therefore
+applies to this precise shape.
+
+For the forward implication, keep its prime permutation and displacement
+certificate.  For each prescribed \(N\), choose one of its full labelled
+prime cycles beginning above \(\max\{N,p+1\}\).
+The full cycle word proves primality of its initial \(q\).
+Since \(q>p\), it is coprime to \(p\).
+The exact odd-wild progression theorem now gives \(\mathcal B(q)\)
+for every depth \(a\) and every original unit phase \(c\).
+These quantifiers are simultaneous in the witness condition:
+there is no growing-cutoff sampling limit or unproved uniform
+error estimate in this finite identity.
+The original eventual strict comparison is retained unchanged.
+
+Conversely, forget the added balance data.
+The same permutation, full prime-cycle witnesses, displacement bound
+and canonical comparison satisfy precisely the completed arbitrary-shape
+transport criterion.
+That criterion gives RH and recurrence of the full shape.
+\end{proof}
+
+Thus the Carmichael character filter and the prime-cycle RH transport
+are compatible on the actual prime vertices.
+By the preceding signed identity, a common signed signal on each
+selected cycle is retained exactly as \(pB\).
+This is a mathematical consequence of the compiled signed progression
+theorem; no independent upper bound on \(B\) is supplied.
+
+The recurrence retained here has the exact range
+\[
+ \forall N\ \exists q\ge N:\quad q+jpt\ \hbox{is prime for every }0\le j<p .
+\]
+It supplies no upper bound on that \(q\) in terms of \(N\).
+For a use requiring the earlier local ascent window, the stronger
+arithmetic supply would be
+\[
+ \forall X\ \hbox{sufficiently large}\ \exists
+ q\in[X,X+X^{3/4}]:\quad
+ q+jpt\ \hbox{is prime for every }0\le j<p .
+\]
+That supply is not asserted here.
+The fixed shape must also satisfy its elementary local admissibility
+conditions before recurrence can be expected.
+The certified zero-free boundary remains \(7/8\).
+
 \subsection{Intrinsic power-return spectra identify physical prime carriers}
 \label{sec:carmichael-intrinsic-spectrum}
 
