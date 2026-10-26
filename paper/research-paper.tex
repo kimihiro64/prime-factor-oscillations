@@ -12120,6 +12120,114 @@ The certified boundary remains \(7/8\).
 Further criterion expansion is deferred while new joint character
 estimates for the displayed complete packet are investigated.
 
+\subsection{Signed ramified factors before the Gram estimate}
+\label{sec:ramified-gram-comparison}
+
+The following estimates apply to the ramified Gauss component of the
+existing compensated probe. They preserve its negative correlation term.
+They do not estimate the complete inverse--Gauss pairing.
+
+\begin{theorem}[Signed ramified comparison]
+\label{thm:ramified-gram-comparison}
+Let \(\mathcal O=\mathbb Z[\omega]\), let \(P\) be a maximal ideal with
+\(\lambda\notin P\), put \(q=N(P)\), and write
+\(\chi=(\operatorname{actualSextic}(P))^c\) for \(c\in\mathbb N\).
+Use precisely the existing extended prime-power correlation
+\[
+ R_{P,c}(n_1,n_2;k)=
+ \begin{cases}
+ 0,&n_1,n_2\in P,\\
+ q^{c-1}\operatorname{localCorrelation}_{\chi}
+       (\bar n_1,\bar n_2;\bar k),&\text{otherwise},
+ \end{cases}
+\]
+where the exponent \(c-1\) is natural subtraction.
+For every \(d\notin P\), and arbitrary \(n_1,n_2,k\in\mathcal O\),
+\[
+ R_{P,c}(dn_1,dn_2;k)=R_{P,c}(n_1,n_2;k).
+\]
+If \(\chi\ne1\) and \(n_1,n_2\notin P\), then
+\[
+ \boxed{\quad
+ R_{P,c}(n_1,n_2;k)=
+ q^{c-1}\chi(\bar n_1/\bar n_2)
+             \bigl(q\,1_{\{k\in P\}}-1\bigr).
+ \quad}
+\]
+For arbitrary \(n_1,n_2\), if \(\chi\ne1\) and \(k\notin P\), then
+\[
+ |R_{P,c}(n_1,n_2;k)|\le q^{c-1}.
+\]
+Thus for positive \(c\) the nonresonant estimate saves a factor \(q\)
+against the existing bound \(q^c\).
+
+All three conclusions pass to any finite indexed product of these
+local factors, with every qualification imposed at every index.
+In particular, on the unit locus, the exact global formula is
+\[
+ \prod_i R_{P_i,c_i}(n_1,n_2;k)=
+ \left(\prod_i q_i^{c_i-1}\chi_i(\bar n_{1,i}/\bar n_{2,i})\right)
+ \prod_i\bigl(q_i1_{\{k\in P_i\}}-1\bigr).
+\]
+If every \(\chi_i\ne1\) and \(k\notin P_i\) for every index, its
+absolute value is at most \(\prod_iq_i^{c_i-1}\), for arbitrary
+\(n_1,n_2\). Common unit dilation preserves the entire product.
+No distinctness or coprimality of the indexed ideals is needed for
+these product statements.
+\end{theorem}
+
+\begin{proof}
+Work in the finite field \(\mathcal O/P\).
+If both arguments are nonzero, the already proved finite-field
+correlation formula is
+\[
+ \operatorname{localCorrelation}_{\chi}(x,y;z)
+ =\chi(x/y)
+ \begin{cases}
+ q-1,&z=0,\\
+ -1,&z\ne0,\ \chi\ne1,\\
+ q-2,&z\ne0,\ \chi=1.
+ \end{cases}
+\]
+For \(\chi\ne1\), its first two cases combine to
+\(\chi(x/y)(q1_{\{z=0\}}-1)\). Multiplication by \(q^{c-1}\)
+gives the displayed exact formula. If exactly one argument is zero,
+the established degenerate correlation is zero for a nonprincipal
+character; if both vanish, the extended correlation is zero by
+definition. In the remaining case \(|\chi(x/y)|\le1\).
+This proves the nonresonant bound for every pair of arguments.
+
+For a common nonzero dilation in the residue field, zero arguments
+remain zero and the unit ratio satisfies \((dx)/(dy)=x/y\).
+The same degenerate formulas show invariance when one argument is
+zero. The branch defining the extended correlation is also invariant,
+since \(dn\in P\) if and only if \(n\in P\).
+This proves dilation invariance without a unit hypothesis on either
+argument. Multiply the exact identities over the finite index set;
+multiplication of the nonnegative local bounds proves the product
+estimate.
+\end{proof}
+
+The nonprincipality qualification is essential. The excluded ideal
+above \(3\) remains excluded. Ideals above \(2\) are allowed when
+the actual powered local character is nonprincipal; no assertion
+that every such character has order six is made.
+At \(k\in P\), the retained factor is \(q-1\), rather than \(-1\);
+these resonant terms cannot be discarded.
+
+These are six maintained Lean theorems in
+\texttt{RamifiedGramComparison}. They specialize the source correlation
+formula and strengthen its local uniform norm bound.
+For the complete source energy, the empty ramified product \(C=1\)
+is exactly \(1\), so this refinement leaves that row unchanged.
+In particular it does not remove its sixth-power frequencies or
+the existing exceptional \(P^{1/6}\) contribution.
+The full probe still contains its actual completed inverse rows,
+all compensation cross terms, and the signed divisor sum.
+No estimate of those terms follows from the local comparison alone.
+The certified zero-free boundary therefore remains \(7/8\);
+the target remains at most \(3/4\).
+
 \subsection{Intrinsic power-return spectra identify physical prime carriers}
 \label{sec:carmichael-intrinsic-spectrum}
 

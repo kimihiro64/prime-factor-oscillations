@@ -1,0 +1,77 @@
+{
+  "date": "2026-10-26",
+  "lean_version": "4.34.0",
+  "focused_compile_exit_code": 0,
+  "focused_compile_chunk": "b0e10b",
+  "new_axiom_reports": 6,
+  "new_axiom_chunk": "9ef3f5",
+  "targets": [
+    "PrimeFactorOscillations.RamifiedGramComparison.localExtension_common_unit_dilation",
+    "PrimeFactorOscillations.RamifiedGramComparison.localExtension_nonprincipal_formula",
+    "PrimeFactorOscillations.RamifiedGramComparison.localExtension_nonprincipal_norm",
+    "PrimeFactorOscillations.RamifiedGramComparison.globalExtension_common_unit_dilation",
+    "PrimeFactorOscillations.RamifiedGramComparison.globalExtension_nonprincipal_product",
+    "PrimeFactorOscillations.RamifiedGramComparison.globalExtension_nonresonant_norm"
+  ],
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "reused_declarations": [
+    "OAI.SevenEighths.CenteredMomentCorrelation.localCorrelation_units",
+    "OAI.SevenEighths.CenteredMomentCorrelation.localCorrelation_first_zero",
+    "OAI.SevenEighths.CenteredMomentCorrelation.localCorrelation_second_zero",
+    "OAI.SevenEighths.FiniteRayExpansion.norm_char_le_one"
+  ],
+  "certified_zero_free_boundary": "7/8 unchanged",
+  "benchmark_status": "Proved local nonresonant factor saving; global bound unchanged",
+  "old_bound": "For c>=1 the source uniform ramified norm bound is q^c; global boundary7/8.",
+  "new_bound": "For nonprincipal powered local character and k notinP, q^(c-1), uniform in both numerator arguments; finite-product bound prod q_i^(c_i-1). C=1 row unchanged; global boundary7/8.",
+  "components": {
+    "signed_formula": "q^(c-1)*chi(n1/n2)*(q*1_(k in P)-1) on the unit locus; negative term retained.",
+    "common_dilation": "Exact invariance for all numerator arguments and every common dilation unit modulo each local ideal.",
+    "resonance": "Resonant q-1 retained; nonprincipality not inferred for every sextic power or prime2.",
+    "full_consumer": "Gauss energy refinement only, not the full inverse-Gauss pairing. C=1 has empty product1, so the exceptional P^(1/6) term survives."
+  },
+  "actuals": "Universal Lean proofs, not finite numerical diagnostics.",
+  "first_nonpositive_domain": "Not applicable: norm comparison; no new total signed lower/upper estimate installed.",
+  "detector_error": "No detector precision change.",
+  "family_adapter": "Existing source Eisenstein localExtension/globalExtension with exact actualSextic qualifications.",
+  "uncancelled_main_terms": "Full inverse rows and compensation terms retained in the original consumer; C=1 resonance unchanged.",
+  "low_estimate_provenance": "Existing finite-field exact correlation, then new qualified local bound. No new Mobius cancellation estimate.",
+  "parameter_domain": "All maximal ideals away from goodLambda, all natural c, all n1/n2/k, explicit local nonprincipality and nonresonance. Finite indexed products; no implicit pairwise-distinctness.",
+  "attainable_endpoint": "7/8 unchanged",
+  "overlap_check": {
+    "completed_inputs": "Exact source localCorrelation_units and degenerate cases read; localExtension/globalExtension providers read in full.",
+    "distinct_conclusion": "Qualified q^(c-1) bound uniform in both numerator arguments, exact signed product and common-unit dilation. A project-specific refinement of existing local correlation formulas.",
+    "existing_target": "Supporting estimate for the authorized signed packet programme; cannot change its unramified row.",
+    "primary_sources": [],
+    "priority_scope": "No general novelty/priority claim for classical finite-field character correlations."
+  },
+  "focused_compiles": [
+    {
+      "owner": "PrimeFactorOscillations/Assembly/DetectorPackets/RamifiedGramComparison.lean",
+      "chunk": "b0e10b",
+      "exit_code": 0
+    }
+  ],
+  "owners": [
+    {
+      "module": "PrimeFactorOscillations.Assembly.DetectorPackets.RamifiedGramComparison",
+      "source_sha256": "80e3e6b8b522fffd38a39fc264ce246b91677a40650ec536044cda78844f8fbf",
+      "checked_source_sha256": "80e3e6b8b522fffd38a39fc264ce246b91677a40650ec536044cda78844f8fbf",
+      "declarations": [
+        "PrimeFactorOscillations.RamifiedGramComparison.localExtension_common_unit_dilation",
+        "PrimeFactorOscillations.RamifiedGramComparison.localExtension_nonprincipal_formula",
+        "PrimeFactorOscillations.RamifiedGramComparison.localExtension_nonprincipal_norm",
+        "PrimeFactorOscillations.RamifiedGramComparison.globalExtension_common_unit_dilation",
+        "PrimeFactorOscillations.RamifiedGramComparison.globalExtension_nonprincipal_product",
+        "PrimeFactorOscillations.RamifiedGramComparison.globalExtension_nonresonant_norm"
+      ],
+      "source_normalization": "unchanged",
+      "kernel_build": "passed",
+      "axiom_audit": "standard_foundations_only"
+    }
+  ]
+}
