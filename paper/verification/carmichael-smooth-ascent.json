@@ -1,0 +1,138 @@
+{
+  "date": "2026-10-25",
+  "lean_version": "4.34.0",
+  "uniform_compile_exit_code": 0,
+  "uniform_compile_chunk": "43a137",
+  "smooth_compile_exit_code": 0,
+  "smooth_compile_chunk": "6c07af",
+  "families_compile_exit_code": 0,
+  "families_compile_chunk": "611830",
+  "public_consumers_exit_code": 0,
+  "public_consumers_chunk": "e401a9",
+  "new_axiom_reports": 16,
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "latex_compile": "success",
+  "targets": [
+    "PrimeFactorOscillations.weightedLocalAscentExcess_lower_of_half_le",
+    "PrimeFactorOscillations.positiveWeightedLocalAscentExcess_unbounded_of_not_RH",
+    "PrimeFactorOscillations.riemannHypothesis_iff_eventually_positiveWeightedAscent_nonpos",
+    "PrimeFactorOscillations.riemannHypothesis_iff_eventually_positiveWeightedAscent_power_upper",
+    "PrimeFactorOscillations.carmichaelLocalAscent_coprime_eventually_of_smooth",
+    "PrimeFactorOscillations.carmichaelLocalAscentWeight_ge_half_eventually_of_smooth",
+    "PrimeFactorOscillations.carmichaelSmoothAscentExcess_common_lower_eventually",
+    "PrimeFactorOscillations.carmichaelSmoothAscentExcess_unbounded_of_not_RH",
+    "PrimeFactorOscillations.riemannHypothesis_iff_eventually_carmichaelSmoothAscent_nonpos",
+    "PrimeFactorOscillations.riemannHypothesis_iff_eventually_carmichaelSmoothAscent_power_upper",
+    "PrimeFactorOscillations.carmichaelFactorialModulus_smooth_eventually",
+    "PrimeFactorOscillations.carmichaelPrimorialModulus_smooth_eventually",
+    "PrimeFactorOscillations.riemannHypothesis_iff_eventually_factorialCarmichaelAscent_nonpos",
+    "PrimeFactorOscillations.riemannHypothesis_iff_eventually_factorialCarmichaelAscent_power_upper",
+    "PrimeFactorOscillations.riemannHypothesis_iff_eventually_primorialCarmichaelAscent_nonpos",
+    "PrimeFactorOscillations.riemannHypothesis_iff_eventually_primorialCarmichaelAscent_power_upper"
+  ],
+  "reused_declarations": [
+    "Nat.isUnit_largestPrimeFactor_of_le_cutoff",
+    "Nat.largestPrimeFactor_of_prime",
+    "PrimeFactorOscillations.localAscentPairExcess_nonpos_eventually_of_RH",
+    "PrimeFactorOscillations.localAscentPairExcess_common_large_window_of_not_RH",
+    "PrimeFactorOscillations.carmichaelPrimeWeight_ge_half"
+  ],
+  "certified_zero_free_boundary": "7/8 unchanged",
+  "benchmark_status": "Complete native smooth-conductor RH criteria proved under exactly the existing LocalAscentSampling premise. No independent RH upper estimate or zero-free improvement.",
+  "old_bound": {
+    "domain": "Arbitrary prime support with 0<c_X<=X^floor(m_X/2) eventually",
+    "excluded_witnesses": "At most half the selected distinct primes",
+    "signed_signal": "D_K>=m_X*B_X/4 on common positive windows",
+    "zero_free_boundary": "7/8"
+  },
+  "new_bound": {
+    "domain": "Positive c_X with largestPrimeFactor(c_X)<=X eventually; no upper bound on c_X",
+    "excluded_witnesses": "Zero: every actual selected prime p_i>X is a unit",
+    "signed_signal": "D_K>=m_X*B_X/2 on the same common positive windows B_X>=0",
+    "rh_equivalences": "RH iff D_K<=0 eventually iff exists C>0: D_K<=C*X^(7/10) eventually",
+    "bad_zero_response": "Under false RH, for all C>0 and real X0 some integer X>X0 has D_K(X)>C*X^(7/10)",
+    "concrete_families": "c_X=(X!)^(e_X) and c_X=(primorial X)^(e_X), for arbitrary natural exponent schedules e_X, including zero",
+    "domain_comparison": "Replaces a size condition by a support condition; neither domain is claimed to contain the other",
+    "zero_free_boundary": "7/8 unchanged"
+  },
+  "components": [
+    "Existing LPF smooth-residue unit theorem applied to the actual selected lower primes",
+    "Eventual lower weight 1/2 on every witness; original normalized correlation and exact nonunit convention retained",
+    "Full signed sum and complete one-unit grid rounding loss",
+    "Unchanged pointwise RH sign and false-RH common lower window",
+    "Generic eventually positive-weight transfer without any native observable alteration",
+    "Factorial and primorial power examples, arbitrary exponent schedules, compiled directly"
+  ],
+  "actuals": "Universal symbolic statements and exact compiled analytic inputs; no finite diagnostic or numerical completion.",
+  "first_nonpositive_domain": "RH gives eventual nonpositivity; false RH gives arbitrarily large normalized positive excursions. No positive signal is asserted at every cutoff. Initial cutoffs are handled by the original total definitions. LPF(1)=1, exponent zero and empty packets are included; modulus zero and return label 2 excluded, physical prime 2 permitted.",
+  "overlap_check": {
+    "scope": "Public Lean/paper and canonical private goal, obligation, current-work, branch, proof and decision records searched for smooth-conductor and all-past-prime ascent formulations.",
+    "matched_prior_work": "Moving-modulus criterion has only a size cap and may lose half the witnesses. LPF residue-support theorem supplies coprimality without an RH ascent consumer. Previous next-action proposes this extension but contains no completed proof.",
+    "distinct_conclusion": "Original native ascent observable at unbounded smooth conductor; all selected primes retained, plus both unrestricted factorial and primorial power families.",
+    "closest_primary_sources": [
+      {
+        "title": "Alweiss and Luo, Bounded gaps between primes in short intervals",
+        "url": "https://arxiv.org/abs/1707.05437",
+        "difference": "Classical short-interval bounded-pair input; not this weighted RH transfer."
+      },
+      {
+        "title": "Cameron and Preece, Notes on primitive lambda-roots",
+        "url": "https://maths.qmul.ac.uk/~pjc/csgnotes/lambda.pdf",
+        "difference": "Classical finite unit-group setting; not an unrestricted smooth-conductor ascent RH criterion."
+      }
+    ],
+    "priority": "No publication priority asserted. External short-interval source is retained as an explicit premise, not introduced as an axiom."
+  },
+  "owners": [
+    {
+      "module": "PrimeFactorOscillations.Helpers.UniformWeightedAscentCriterion",
+      "source_sha256": "a2610bd1cbc8fda822a00c007a3515b19db290e1273fe183db4b271a56a5ce5a",
+      "checked_source_sha256": "a2610bd1cbc8fda822a00c007a3515b19db290e1273fe183db4b271a56a5ce5a",
+      "declarations": [
+        "PrimeFactorOscillations.weightedLocalAscentExcess_lower_of_half_le",
+        "PrimeFactorOscillations.positiveWeightedLocalAscentExcess_unbounded_of_not_RH",
+        "PrimeFactorOscillations.riemannHypothesis_iff_eventually_positiveWeightedAscent_nonpos",
+        "PrimeFactorOscillations.riemannHypothesis_iff_eventually_positiveWeightedAscent_power_upper"
+      ],
+      "source_normalization": "unchanged",
+      "kernel_build": "passed",
+      "axiom_audit": "standard_foundations_only"
+    },
+    {
+      "module": "PrimeFactorOscillations.Assembly.CarmichaelSmoothAscent",
+      "source_sha256": "6fcd132108bee3849a42f45a83fcb3d3c2384bba5525778eda7775d54267bb56",
+      "checked_source_sha256": "6fcd132108bee3849a42f45a83fcb3d3c2384bba5525778eda7775d54267bb56",
+      "declarations": [
+        "PrimeFactorOscillations.carmichaelLocalAscent_coprime_eventually_of_smooth",
+        "PrimeFactorOscillations.carmichaelLocalAscentWeight_ge_half_eventually_of_smooth",
+        "PrimeFactorOscillations.carmichaelSmoothAscentExcess_common_lower_eventually",
+        "PrimeFactorOscillations.carmichaelSmoothAscentExcess_unbounded_of_not_RH",
+        "PrimeFactorOscillations.riemannHypothesis_iff_eventually_carmichaelSmoothAscent_nonpos",
+        "PrimeFactorOscillations.riemannHypothesis_iff_eventually_carmichaelSmoothAscent_power_upper"
+      ],
+      "source_normalization": "unchanged",
+      "kernel_build": "passed",
+      "axiom_audit": "standard_foundations_only"
+    },
+    {
+      "module": "PrimeFactorOscillations.Assembly.CarmichaelPastPrimeModuli",
+      "source_sha256": "bb40eb2c11113c9a21d2fb07352a732e4e5256e4a2df3a619a1400a16ca41519",
+      "checked_source_sha256": "bb40eb2c11113c9a21d2fb07352a732e4e5256e4a2df3a619a1400a16ca41519",
+      "declarations": [
+        "PrimeFactorOscillations.carmichaelFactorialModulus_smooth_eventually",
+        "PrimeFactorOscillations.carmichaelPrimorialModulus_smooth_eventually",
+        "PrimeFactorOscillations.riemannHypothesis_iff_eventually_factorialCarmichaelAscent_nonpos",
+        "PrimeFactorOscillations.riemannHypothesis_iff_eventually_factorialCarmichaelAscent_power_upper",
+        "PrimeFactorOscillations.riemannHypothesis_iff_eventually_primorialCarmichaelAscent_nonpos",
+        "PrimeFactorOscillations.riemannHypothesis_iff_eventually_primorialCarmichaelAscent_power_upper"
+      ],
+      "source_normalization": "unchanged",
+      "kernel_build": "passed",
+      "axiom_audit": "standard_foundations_only"
+    }
+  ]
+}

@@ -9310,6 +9310,127 @@ large varying conductors. An independent upper estimate for \(D_K\)
 would still be required to prove RH; the certified zero-free boundary
 remains \(7/8\).
 
+\subsection{Prime-history conductors have no size ceiling}
+\label{sec:carmichael-smooth-ascent}
+
+The preceding size budget allows arbitrary prime support but loses
+some nonunit witnesses. A different arithmetic condition removes every
+such loss: build the conductor only from primes that precede the
+selected witness primes. Its powers can then grow without restriction.
+
+\begin{theorem}[RH criteria at unrestricted smooth conductors]
+\label{thm:carmichael-smooth-ascent}
+Retain the fixed width, local ascent sampling, rank, inclusive grid,
+full-profile reference, and actual signed observable \(D_K(X)\) of
+Theorem~\ref{thm:carmichael-moving-ascent}. Keep arbitrary positive
+integer moduli \(c_X\) and arbitrary finite odd prime-divisor packets
+\(S_X\) of \(\lambda(c_X)\). Replace the size hypothesis by
+\[
+ \text{every prime divisor of }c_X\text{ is at most }X
+                      \qquad\text{eventually}.
+\]
+Equivalently, on the eventual domain \(X\ge1\),
+\(\operatorname{LPF}(c_X)\le X\), with the convention
+\(\operatorname{LPF}(1)=1\). No upper bound on \(c_X\) is imposed.
+
+Then
+\[
+ \mathrm{RH}
+ \quad\Longleftrightarrow\quad D_K(X)\le0\ \text{eventually}
+ \quad\Longleftrightarrow\quad
+ \exists C>0:\ D_K(X)\le CX^{7/10}\ \text{eventually}.
+\]
+Under false RH, for every \(C>0\) and real \(X_0\) there is an
+integer \(X>X_0\) with \(D_K(X)>CX^{7/10}\).
+At every sufficiently large cutoff where all the individual signed
+grid differences satisfy \(d_{X,i}\ge B\ge0\), the sharper bound is
+\[
+                         D_K(X)\ge m_XB/2.
+\]
+
+In particular all these conclusions hold for either explicit family
+\[
+ c_X=(X!)^{e_X},
+ \qquad\text{or}\qquad
+ c_X=(X\#)^{e_X},\qquad X\#=\prod_{\substack{p\le X\\p\ {\rm prime}}}p,
+\]
+where \(e_X\) is an arbitrary natural-valued function with no growth
+restriction. Zero exponents are included.
+\end{theorem}
+\begin{proof}
+The sampling condition uses the actual lower prime with
+\(p_{X,i}-1\ge X\), hence \(p_{X,i}>X\).
+Every prime factor of \(c_X\) is at most \(X\), so
+\(\gcd(p_{X,i},c_X)=1\) for every selected pair.
+This is also a specialization of the maintained largest-prime-factor
+residue support theorem
+\(\texttt{Nat.isUnit\_largestPrimeFactor\_of\_le\_cutoff}\), applied
+to the prime integer \(p_{X,i}\). Thus every actual native weight,
+with its original modulus and packet, satisfies \(W_{X,i}\ge1/2\).
+There are no nonunit exceptions to estimate.
+
+For completeness, the signed transfer needs only this eventual
+pointwise floor. Under RH, the established pointwise comparison gives
+\(d_{X,i}\le0\) eventually, so summing
+\(W_{X,i}d_{X,i}\le0\) proves the forward criteria.
+Under false RH, choose the existing common positive window beyond
+the cutoff at which the weight floor holds. Its full grid rounding
+loss is retained in
+\[
+ d_{X,i}\ge B_X=M_XX^{-b}-1\ge0,\qquad 0<b<1/2.
+\]
+The proved amplification permits \(m_XB_X>2CX^{7/10}\).
+Keep each actual-minus-reference difference coupled. Then
+\[
+ D_K(X)=\sum_{i<m_X}W_{X,i}d_{X,i}
+       \ge\frac12\sum_{i<m_X}B_X
+       =m_XB_X/2>CX^{7/10}.
+\]
+This gives the stated unboundedness and both converse implications.
+The same finite inequality proves the displayed lower bound for
+every common \(B\ge0\).
+
+Finally a prime dividing a power of \(X!\), or a power of \(X\#\),
+already divides the base, hence is at most \(X\). Both bases and all
+their natural powers are positive. These facts prove the smoothness
+hypothesis for each explicit family; no estimate involving \(e_X\)
+is required.
+\end{proof}
+
+The maintained owners are
+\begin{quote}\small\ttfamily
+Helpers/UniformWeightedAscentCriterion.lean\\
+Assembly/CarmichaelSmoothAscent.lean\\
+Assembly/CarmichaelPastPrimeModuli.lean
+\end{quote}
+The exact eventual native observable is used throughout the formal
+proof. The uniform positive-weight theorem consumes the already
+proved pointwise signed window directly. Both factorial and primorial
+families have separate compiled eventual-sign and power-upper
+equivalences.
+
+For \(e_X\ge1\), either explicit modulus contains every physical
+prime at most \(X\). Their influence is recorded by the actual return
+carrier masks. Return label \(2\) remains excluded from \(S_X\);
+physical prime \(2\) is allowed in the modulus. Empty packets and
+\(e_X=0\), giving \(c_X=1\), are included. The two families are
+alternative modulus choices: coinciding moduli give the same kernel.
+The logarithms and reference ratios retain the preceding theorem's
+eventually positive domain and total initial-value conventions.
+
+This transfer combines the existing largest-factor residue support,
+the exact Carmichael probability kernel and the distinct local
+ascent RH criterion. The classical arithmetic facts about factorials
+and primorials are inputs; publication priority for this combined
+criterion is not asserted. The formal statement retains the same
+explicit local prime-pair sampling premise as before. No distribution
+of prime pairs in these residue classes, no growing-modulus explicit
+formula and no interchange of sampling limits is required.
+The conclusion permits unbounded conductor size while preserving
+the RH signal. An independent upper estimate for the resulting
+signed observable remains necessary to prove RH; the certified
+zero-free boundary remains \(7/8\).
+
 \subsection{Intrinsic power-return spectra identify physical prime carriers}
 \label{sec:carmichael-intrinsic-spectrum}
 

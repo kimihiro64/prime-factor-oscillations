@@ -5638,6 +5638,52 @@
       "source_normalization": "unchanged",
       "kernel_build": "passed",
       "axiom_audit": "standard_foundations_only"
+    },
+    {
+      "module": "PrimeFactorOscillations.Helpers.UniformWeightedAscentCriterion",
+      "source_sha256": "a2610bd1cbc8fda822a00c007a3515b19db290e1273fe183db4b271a56a5ce5a",
+      "checked_source_sha256": "a2610bd1cbc8fda822a00c007a3515b19db290e1273fe183db4b271a56a5ce5a",
+      "declarations": [
+        "PrimeFactorOscillations.weightedLocalAscentExcess_lower_of_half_le",
+        "PrimeFactorOscillations.positiveWeightedLocalAscentExcess_unbounded_of_not_RH",
+        "PrimeFactorOscillations.riemannHypothesis_iff_eventually_positiveWeightedAscent_nonpos",
+        "PrimeFactorOscillations.riemannHypothesis_iff_eventually_positiveWeightedAscent_power_upper"
+      ],
+      "source_normalization": "unchanged",
+      "kernel_build": "passed",
+      "axiom_audit": "standard_foundations_only"
+    },
+    {
+      "module": "PrimeFactorOscillations.Assembly.CarmichaelSmoothAscent",
+      "source_sha256": "6fcd132108bee3849a42f45a83fcb3d3c2384bba5525778eda7775d54267bb56",
+      "checked_source_sha256": "6fcd132108bee3849a42f45a83fcb3d3c2384bba5525778eda7775d54267bb56",
+      "declarations": [
+        "PrimeFactorOscillations.carmichaelLocalAscent_coprime_eventually_of_smooth",
+        "PrimeFactorOscillations.carmichaelLocalAscentWeight_ge_half_eventually_of_smooth",
+        "PrimeFactorOscillations.carmichaelSmoothAscentExcess_common_lower_eventually",
+        "PrimeFactorOscillations.carmichaelSmoothAscentExcess_unbounded_of_not_RH",
+        "PrimeFactorOscillations.riemannHypothesis_iff_eventually_carmichaelSmoothAscent_nonpos",
+        "PrimeFactorOscillations.riemannHypothesis_iff_eventually_carmichaelSmoothAscent_power_upper"
+      ],
+      "source_normalization": "unchanged",
+      "kernel_build": "passed",
+      "axiom_audit": "standard_foundations_only"
+    },
+    {
+      "module": "PrimeFactorOscillations.Assembly.CarmichaelPastPrimeModuli",
+      "source_sha256": "bb40eb2c11113c9a21d2fb07352a732e4e5256e4a2df3a619a1400a16ca41519",
+      "checked_source_sha256": "bb40eb2c11113c9a21d2fb07352a732e4e5256e4a2df3a619a1400a16ca41519",
+      "declarations": [
+        "PrimeFactorOscillations.carmichaelFactorialModulus_smooth_eventually",
+        "PrimeFactorOscillations.carmichaelPrimorialModulus_smooth_eventually",
+        "PrimeFactorOscillations.riemannHypothesis_iff_eventually_factorialCarmichaelAscent_nonpos",
+        "PrimeFactorOscillations.riemannHypothesis_iff_eventually_factorialCarmichaelAscent_power_upper",
+        "PrimeFactorOscillations.riemannHypothesis_iff_eventually_primorialCarmichaelAscent_nonpos",
+        "PrimeFactorOscillations.riemannHypothesis_iff_eventually_primorialCarmichaelAscent_power_upper"
+      ],
+      "source_normalization": "unchanged",
+      "kernel_build": "passed",
+      "axiom_audit": "standard_foundations_only"
     }
   ],
   "newest_owners": [
@@ -5679,8 +5725,11 @@
     "PrimeFactorOscillations.Helpers.AscentModulusBudget",
     "PrimeFactorOscillations.Helpers.LocalizedAscentPointwise",
     "PrimeFactorOscillations.Helpers.WeightedLocalizedAscentCriterion",
-    "PrimeFactorOscillations.Assembly.CarmichaelAscentCriterion"
+    "PrimeFactorOscillations.Assembly.CarmichaelAscentCriterion",
+    "PrimeFactorOscillations.Helpers.UniformWeightedAscentCriterion",
+    "PrimeFactorOscillations.Assembly.CarmichaelSmoothAscent",
+    "PrimeFactorOscillations.Assembly.CarmichaelPastPrimeModuli"
   ],
   "certified_zero_free_boundary": "7/8",
-  "proof_target_count": 2791
+  "proof_target_count": 2807
 }
