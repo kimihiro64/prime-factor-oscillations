@@ -6039,6 +6039,53 @@
       "source_normalization": "unchanged",
       "kernel_build": "passed",
       "axiom_audit": "standard_foundations_only"
+    },
+    {
+      "module": "PrimeFactorOscillations.Assembly.CarmichaelCRTKernel",
+      "source_sha256": "9b15726a508c6f85f48fa9556f54268d41cdee44ac700e2f30e632dc8642984a",
+      "checked_source_sha256": "9b15726a508c6f85f48fa9556f54268d41cdee44ac700e2f30e632dc8642984a",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelCRTKernel.primaryLevel_dvd",
+        "PrimeFactorOscillations.CarmichaelCRTKernel.coordinate_eq_actual_reduction",
+        "PrimeFactorOscillations.CarmichaelCRTKernel.return_iff_all_primary_returns",
+        "PrimeFactorOscillations.CarmichaelCRTKernel.kernel_eq_iff_return_iff",
+        "PrimeFactorOscillations.CarmichaelCRTKernel.reduction_fibers_compose",
+        "PrimeFactorOscillations.CarmichaelCRTKernel.kernel_reduction_of_active_local_reductions",
+        "PrimeFactorOscillations.CarmichaelCRTKernel.spectralConductor_dvd_of_active_local_reductions"
+      ],
+      "source_normalization": "unchanged",
+      "kernel_build": "passed",
+      "axiom_audit": "standard_foundations_only"
+    },
+    {
+      "module": "PrimeFactorOscillations.Assembly.CarmichaelLocalSharpness",
+      "source_sha256": "185d1cf0f978cc8e63fc53ecf7f95fb2e5080653625bbd45f0f61c306422414e",
+      "checked_source_sha256": "185d1cf0f978cc8e63fc53ecf7f95fb2e5080653625bbd45f0f61c306422414e",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelLocalSharpness.exists_nonprincipal_survivor",
+        "PrimeFactorOscillations.CarmichaelLocalSharpness.spectralConductor_ne_one",
+        "PrimeFactorOscillations.CarmichaelLocalSharpness.sharp_mode_of_common_conductor",
+        "PrimeFactorOscillations.CarmichaelLocalSharpness.two_power_has_sharp_mode",
+        "PrimeFactorOscillations.CarmichaelLocalSharpness.prime_power_has_sharp_mode"
+      ],
+      "source_normalization": "unchanged",
+      "kernel_build": "passed",
+      "axiom_audit": "standard_foundations_only"
+    },
+    {
+      "module": "PrimeFactorOscillations.Assembly.CarmichaelMaximalConductor",
+      "source_sha256": "8181eb3215fe55ed163d11674fa7e237763cd71bd4d205d059898081136f5a81",
+      "checked_source_sha256": "8181eb3215fe55ed163d11674fa7e237763cd71bd4d205d059898081136f5a81",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelMaximalConductor.primary_conductors_coprime",
+        "PrimeFactorOscillations.CarmichaelMaximalConductor.primary_has_sharp_mode",
+        "PrimeFactorOscillations.CarmichaelMaximalConductor.conductor_product_and_sharp_mode",
+        "PrimeFactorOscillations.CarmichaelMaximalConductor.spectralConductor_eq_active_primary_product",
+        "PrimeFactorOscillations.CarmichaelMaximalConductor.exists_maximal_conductor_survivor"
+      ],
+      "source_normalization": "unchanged",
+      "kernel_build": "passed",
+      "axiom_audit": "standard_foundations_only"
     }
   ],
   "newest_owners": [
@@ -6102,8 +6149,11 @@
     "PrimeFactorOscillations.Assembly.CarmichaelTwoPowerConductor",
     "PrimeFactorOscillations.Assembly.CarmichaelDualCarrier",
     "PrimeFactorOscillations.Assembly.CarmichaelSpectralConductor",
-    "PrimeFactorOscillations.Assembly.CarmichaelConductorAssembly"
+    "PrimeFactorOscillations.Assembly.CarmichaelConductorAssembly",
+    "PrimeFactorOscillations.Assembly.CarmichaelCRTKernel",
+    "PrimeFactorOscillations.Assembly.CarmichaelLocalSharpness",
+    "PrimeFactorOscillations.Assembly.CarmichaelMaximalConductor"
   ],
   "certified_zero_free_boundary": "7/8",
-  "proof_target_count": 2969
+  "proof_target_count": 2986
 }

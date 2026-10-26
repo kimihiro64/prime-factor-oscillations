@@ -10575,6 +10575,140 @@ The principal coefficient, global normalization and all masks remain.
 No independent signed principal estimate or new Riemann-zero exclusion
 is asserted; the certified exponent remains \(7/8\).
 
+\subsection{Complete native CRT conductors and a sharp global mode}
+\label{sec:carmichael-maximal-conductor}
+
+The local classifications and the exact mixed-mode construction now give
+a global product theorem.  The upper bound uses every original
+prime-power coordinate; the lower bound is realized by an actual
+surviving character.
+
+\begin{theorem}[Native conductor product and maximal-conductor survivor]
+\label{thm:carmichael-maximal-conductor}
+Let \(q\geq1\), let \(\ell\mid L=\lambda(q)\) be prime, and put
+\(k=L/\ell\).
+For each physical prime divisor \(p\mid q\), write
+\[
+ d_p=p^{v_p(q)},\qquad E_p=\lambda(d_p),\qquad
+ A=\{p\mid q:E_p\nmid k\}.
+\]
+Let \(M_{q,\ell}\) denote the lcm of the conductors of all nonzero
+character coefficients of the original native kernel.
+Then every \(p\in A\) has \(\ell\mid E_p\), and
+\[
+ M_{q,\ell}=\prod_{p\in A}M_{d_p,\ell}.
+\]
+There exists a nonprincipal character \(\chi\bmod q\) that genuinely
+survives and satisfies
+\[
+ \operatorname{cond}(\chi)=M_{q,\ell},\qquad
+ c_\chi=\frac1{(D_{q,\ell}-1)^2},
+ \qquad
+ D_{q,\ell}=[(\mathbb Z/q\mathbb Z)^\times:
+               \{u:u^{L/\ell}=1\}].
+\]
+All periods, return subgroups, coefficients and phases are those of the
+original level \(q\).
+\end{theorem}
+
+\begin{proof}
+The genuine prime-power CRT gives
+\[
+ (\mathbb Z/q\mathbb Z)^\times
+ \simeq\prod_{p\mid q}(\mathbb Z/d_p\mathbb Z)^\times.
+\]
+Its coordinates are the actual unit-reduction maps.
+Indeed, after coercing a unit into the ambient ring, both a CRT coordinate
+and actual reduction send every natural representative to its residue
+modulo \(d_p\); the two maps therefore agree.
+Consequently
+\[
+ u^k=1\quad\Longleftrightarrow\quad
+ (u\bmod d_p)^k=1\text{ for every }p\mid q.
+\]
+No coordinate has been removed in this equivalence.
+
+Surjectivity of actual reduction gives \(E_p\mid L\).
+For \(p\in A\), the proved activity criterion supplies
+\[
+ \ell\mid E_p,\qquad \gcd(L/E_p,\ell)=1.
+\]
+The exact period-inflation lemma thus identifies the \(k\)-return
+condition on this coordinate with its native \(E_p/\ell\)-return
+condition.  For \(p\notin A\), every local unit has \(k\)-th power \(1\).
+
+We next consume the completed local classifications.
+At a tame prime power, every nonprincipal survivor has the same sharp
+prime conductor.  At an odd wild prime power, every nonprincipal survivor
+has the same sharp prime-square conductor.
+In either case an actual nonprincipal survivor exists.
+When all nonprincipal surviving conductors equal \(f\), their lcm,
+including the principal conductor \(1\), is exactly \(f\); that survivor
+therefore attains the local least spectral conductor.
+The two-power cases require their separate treatment:
+level \(2\) is inadmissible, level \(4\) has sharp conductor \(4\),
+level \(8\) has the genuine conductor-\(8\) survivor constructed above,
+and every larger admissible native two-power level has its unique
+nonprincipal survivor of conductor \(8\).
+This proves, for every admissible native prime-power level, existence
+of a surviving character attaining its entire local spectral conductor.
+
+For each \(p\in A\), choose such a local character \(\chi_p\), and put
+\[
+ f_p=\operatorname{cond}(\chi_p)=M_{d_p,\ell},\qquad
+ F=\prod_{p\in A}f_p,\qquad
+ \Phi=\prod_{p\in A}\operatorname{lift}_{d_p\mid q}\chi_p .
+\]
+Each \(f_p\mid d_p\), so the \(f_p\) are pairwise coprime.
+The active-divisor assembly theorem gives genuine global survival,
+\[
+ \operatorname{cond}(\Phi)=F,\qquad F\mid M_{q,\ell}.
+\]
+Since a character conductor divides its level, also \(F\mid q\);
+it is positive.
+
+For the reverse divisibility, take units \(u,v\bmod q\) whose actual
+reductions modulo \(F\) agree.
+For every \(p\in A\), the further reductions of their \(d_p\)-coordinates
+modulo \(f_p\) agree.
+This is an equality of the actual composed reduction maps:
+reduction through \(F\) and through \(d_p\) both equal direct reduction
+from \(q\) to \(f_p\).
+The full local kernel descends modulo its least spectral conductor
+\(f_p=M_{d_p,\ell}\).
+It therefore has equal values on those two coordinates.
+The two native kernel values distinguish return from nonreturn,
+so the native local return conditions agree.
+Period compatibility makes their original \(k\)-return conditions agree.
+At each inactive coordinate both conditions are already true.
+The complete CRT return equivalence now makes
+\(u^k=1\) and \(v^k=1\) equivalent, and hence the original global
+kernel values agree.
+
+Thus the entire original kernel descends modulo \(F\).
+The least-conductor criterion proves \(M_{q,\ell}\mid F\).
+Combined with the constructed mode's lower divisibility, this gives
+\[
+ M_{q,\ell}=F=\prod_{p\in A}M_{d_p,\ell}.
+\]
+An admissible native kernel has a nonprincipal survivor, so its spectral
+conductor cannot be \(1\).
+Therefore \(\Phi\), whose conductor is this same integer, is nonprincipal.
+Apply the exact native flat-spectrum theorem at the original level \(q\)
+to obtain its coefficient \(1/(D_{q,\ell}-1)^2\), completing the proof.
+\end{proof}
+
+The primitive ancestor of this actual survivor has modulus
+\(M_{q,\ell}\).  The theorem therefore identifies a genuine primitive
+Dirichlet carrier at the least simultaneous kernel modulus.
+The full character expansion and the descended original subgroup remain
+part of the data; no new canonical kernel at the reduced modulus is
+substituted.
+The proof gives exact conductor geometry, including all active local
+interactions.  It supplies no independent estimate of the signed
+principal RH wave and leaves the certified zero-free exponent \(7/8\)
+unchanged.
+
 \subsection{Intrinsic power-return spectra identify physical prime carriers}
 \label{sec:carmichael-intrinsic-spectrum}
 

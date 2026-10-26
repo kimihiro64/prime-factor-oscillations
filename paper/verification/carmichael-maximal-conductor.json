@@ -1,0 +1,143 @@
+{
+  "date": "2026-10-26",
+  "lean_version": "4.34.0",
+  "focused_compile_exit_code": 0,
+  "focused_compile_chunk": "ab46a8",
+  "new_axiom_reports": 17,
+  "targets": [
+    "PrimeFactorOscillations.CarmichaelCRTKernel.primaryLevel_dvd",
+    "PrimeFactorOscillations.CarmichaelCRTKernel.coordinate_eq_actual_reduction",
+    "PrimeFactorOscillations.CarmichaelCRTKernel.return_iff_all_primary_returns",
+    "PrimeFactorOscillations.CarmichaelCRTKernel.kernel_eq_iff_return_iff",
+    "PrimeFactorOscillations.CarmichaelCRTKernel.reduction_fibers_compose",
+    "PrimeFactorOscillations.CarmichaelCRTKernel.kernel_reduction_of_active_local_reductions",
+    "PrimeFactorOscillations.CarmichaelCRTKernel.spectralConductor_dvd_of_active_local_reductions",
+    "PrimeFactorOscillations.CarmichaelLocalSharpness.exists_nonprincipal_survivor",
+    "PrimeFactorOscillations.CarmichaelLocalSharpness.spectralConductor_ne_one",
+    "PrimeFactorOscillations.CarmichaelLocalSharpness.sharp_mode_of_common_conductor",
+    "PrimeFactorOscillations.CarmichaelLocalSharpness.two_power_has_sharp_mode",
+    "PrimeFactorOscillations.CarmichaelLocalSharpness.prime_power_has_sharp_mode",
+    "PrimeFactorOscillations.CarmichaelMaximalConductor.primary_conductors_coprime",
+    "PrimeFactorOscillations.CarmichaelMaximalConductor.primary_has_sharp_mode",
+    "PrimeFactorOscillations.CarmichaelMaximalConductor.conductor_product_and_sharp_mode",
+    "PrimeFactorOscillations.CarmichaelMaximalConductor.spectralConductor_eq_active_primary_product",
+    "PrimeFactorOscillations.CarmichaelMaximalConductor.exists_maximal_conductor_survivor"
+  ],
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "reused_declarations": [
+    "ZMod.equivPi",
+    "ZMod.unitsMap_comp",
+    "Nat.pairwise_coprime_pow_primeFactors_factorization",
+    "PrimeFactorOscillations.CarmichaelConductorAssembly.active_period_iff",
+    "PrimeFactorOscillations.CarmichaelConductorAssembly.active_divisor_product",
+    "PrimeFactorOscillations.CarmichaelConductorAssembly.active_product_conductor_dvd_spectral",
+    "PrimeFactorOscillations.CarmichaelSpectralConductor.kernel_reduction_iff_survivor_conductors",
+    "PrimeFactorOscillations.CarmichaelPrimeConductor.tame_nonprincipal_survivor_conductor",
+    "PrimeFactorOscillations.CarmichaelWildConductor.wild_nonprincipal_survivor_conductor",
+    "PrimeFactorOscillations.CarmichaelTwoPowerConductor.large_nonprincipal_survivor_conductor",
+    "PrimeFactorOscillations.CarmichaelConductorAssembly.exists_level_eight_conductor_eight_survivor"
+  ],
+  "certified_zero_free_boundary": "7/8 unchanged",
+  "benchmark_status": "Exact arbitrary-modulus active prime-power conductor product and a genuine maximal-conductor mode; no analytic exponent gain",
+  "old_bound": "Least kernel modulus was the survivor-conductor lcm; arbitrary-modulus CRT upper compression and existence of a single mode attaining that lcm were open",
+  "new_bound": "For every positive native level, least conductor equals the product of all active local native conductors, and an actual nonprincipal survivor attains that entire product with global coefficient1/(D-1)^2",
+  "components": {
+    "CRT": "Actual prime-power unit equivalence and actual reduction-map composition, including every inactive coordinate",
+    "activity": "Original E_p not dividing lambda(q)/ell; original global period fixed",
+    "local_sharpness": "Every admissible prime-power level: tame, odd wild, and all2/4/8/large two-power exceptions",
+    "upper": "Full original kernel descends to the active local-conductor product",
+    "lower": "Genuine mixed survivor has exactly that product conductor",
+    "coefficient": "Original global flat coefficient; every phase retained",
+    "principal": "Independent signed analytic bound still open"
+  },
+  "actuals": "Universal symbolic Lean proof for every q and prime label; no finite family diagnostic",
+  "first_nonpositive_domain": "No signed analytic RH positivity bound installed",
+  "detector_error": "Unchanged",
+  "family_adapter": "All positive native modular-unit singleton kernels, including arbitrary nonsquarefree mixed levels",
+  "uncancelled_main_terms": "No analytic signed main term is estimated here",
+  "low_estimate_provenance": "No new signed low-divisor estimate",
+  "parameter_domain": "Every q>=1, every prime ell|lambda(q), every original prime-power coordinate p^v_p(q); active set exactly E_p not dividing lambda(q)/ell",
+  "attainable_endpoint": "7/8 unchanged",
+  "overlap_check": {
+    "completed_inputs": "Claims129-131 supply squarefree dual carriers, general least spectral lcm, and mixed-mode lower construction. The maintained local conductor classifications are reused, with the exceptional native modulus8 witness from claim131.",
+    "distinct_conclusion": "Complete all-prime-power CRT upper compression, multiplicative exact least-conductor formula, and an actual nonprincipal survivor attaining the entire least conductor for every positive native level.",
+    "existing_target": "Completes the qualitative full native CRT active-carrier and individual-attainment programme already recorded as open. It is not presented as a different new research target.",
+    "primary_sources": [
+      "https://leanprover-community.github.io/mathlib4_docs/Mathlib/Data/ZMod/QuotientRing.html",
+      "https://leanprover-community.github.io/mathlib4_docs/Mathlib/NumberTheory/DirichletCharacter/Basic.html"
+    ],
+    "priority_scope": "Exact project probability-kernel theorem assembled from classical CRT/conductor facts and proved native local classifications. No exhaustive publication-priority claim."
+  },
+  "leaf_compiles": [
+    {
+      "owner": "PrimeFactorOscillations/Assembly/CarmichaelCRTKernel.lean",
+      "exit_code": 0,
+      "chunk": "1ebbee"
+    },
+    {
+      "owner": "PrimeFactorOscillations/Assembly/CarmichaelLocalSharpness.lean",
+      "exit_code": 0,
+      "chunk": "f2a478"
+    },
+    {
+      "owner": "PrimeFactorOscillations/Assembly/CarmichaelMaximalConductor.lean",
+      "exit_code": 0,
+      "chunk": "ab46a8"
+    }
+  ],
+  "public_consumers_exit_code": 0,
+  "public_consumers_chunk": "b3012b",
+  "owners": [
+    {
+      "module": "PrimeFactorOscillations.Assembly.CarmichaelCRTKernel",
+      "source_sha256": "9b15726a508c6f85f48fa9556f54268d41cdee44ac700e2f30e632dc8642984a",
+      "checked_source_sha256": "9b15726a508c6f85f48fa9556f54268d41cdee44ac700e2f30e632dc8642984a",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelCRTKernel.primaryLevel_dvd",
+        "PrimeFactorOscillations.CarmichaelCRTKernel.coordinate_eq_actual_reduction",
+        "PrimeFactorOscillations.CarmichaelCRTKernel.return_iff_all_primary_returns",
+        "PrimeFactorOscillations.CarmichaelCRTKernel.kernel_eq_iff_return_iff",
+        "PrimeFactorOscillations.CarmichaelCRTKernel.reduction_fibers_compose",
+        "PrimeFactorOscillations.CarmichaelCRTKernel.kernel_reduction_of_active_local_reductions",
+        "PrimeFactorOscillations.CarmichaelCRTKernel.spectralConductor_dvd_of_active_local_reductions"
+      ],
+      "source_normalization": "unchanged",
+      "kernel_build": "passed",
+      "axiom_audit": "standard_foundations_only"
+    },
+    {
+      "module": "PrimeFactorOscillations.Assembly.CarmichaelLocalSharpness",
+      "source_sha256": "185d1cf0f978cc8e63fc53ecf7f95fb2e5080653625bbd45f0f61c306422414e",
+      "checked_source_sha256": "185d1cf0f978cc8e63fc53ecf7f95fb2e5080653625bbd45f0f61c306422414e",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelLocalSharpness.exists_nonprincipal_survivor",
+        "PrimeFactorOscillations.CarmichaelLocalSharpness.spectralConductor_ne_one",
+        "PrimeFactorOscillations.CarmichaelLocalSharpness.sharp_mode_of_common_conductor",
+        "PrimeFactorOscillations.CarmichaelLocalSharpness.two_power_has_sharp_mode",
+        "PrimeFactorOscillations.CarmichaelLocalSharpness.prime_power_has_sharp_mode"
+      ],
+      "source_normalization": "unchanged",
+      "kernel_build": "passed",
+      "axiom_audit": "standard_foundations_only"
+    },
+    {
+      "module": "PrimeFactorOscillations.Assembly.CarmichaelMaximalConductor",
+      "source_sha256": "8181eb3215fe55ed163d11674fa7e237763cd71bd4d205d059898081136f5a81",
+      "checked_source_sha256": "8181eb3215fe55ed163d11674fa7e237763cd71bd4d205d059898081136f5a81",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelMaximalConductor.primary_conductors_coprime",
+        "PrimeFactorOscillations.CarmichaelMaximalConductor.primary_has_sharp_mode",
+        "PrimeFactorOscillations.CarmichaelMaximalConductor.conductor_product_and_sharp_mode",
+        "PrimeFactorOscillations.CarmichaelMaximalConductor.spectralConductor_eq_active_primary_product",
+        "PrimeFactorOscillations.CarmichaelMaximalConductor.exists_maximal_conductor_survivor"
+      ],
+      "source_normalization": "unchanged",
+      "kernel_build": "passed",
+      "axiom_audit": "standard_foundations_only"
+    }
+  ]
+}
