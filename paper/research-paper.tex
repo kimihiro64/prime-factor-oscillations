@@ -11777,6 +11777,115 @@ above.  Its analytic transport into the existing compensated
 \(L\)-function probe is the next open step.
 The certified zero-free boundary remains \(7/8\).
 
+\subsection{An integral Dirichlet spectrum for every native packet}
+\label{sec:carmichael-integral-spectrum}
+
+The fixed-point model has an explicit integer spectrum.  This connects
+the native Carmichael return construction with ordinary Dirichlet
+coefficients while retaining the original prime weights.
+
+\begin{theorem}[Integral native Dirichlet packet]
+\label{thm:carmichael-integral-spectrum}
+Let \(q\ge1\), \(G=(\mathbb Z/q\mathbb Z)^\times\),
+\(L=\exp(G)\), and let \(S\) be a finite set of prime divisors of \(L\).
+For \(p\in S\), put
+\[
+ D_p=|\operatorname{im}(g\mapsto g^{L/p})|,\qquad
+ \kappa_p=D_p(D_p-2),\qquad
+ M_S=\prod_{p\in S}(D_p-1)^2>0.
+\]
+For \(T\subseteq S\), let \(\pi_T\) be the full simultaneous return
+projection in the original group and period, and set
+\[
+ w_{S,T}=\prod_{p\in S\setminus T}\kappa_p,\qquad
+ \mu_\chi=\sum_{\substack{T\subseteq S\\
+                   \chi|_{\ker\pi_T}=1}}w_{S,T}\ \in\mathbb N .
+\]
+Then the existing normalized Fourier coefficient \(c_{S,\chi}\)
+satisfies
+\[
+ \boxed{\quad M_Sc_{S,\chi}=\mu_\chi,\qquad
+ \mu_1=M_S,\qquad
+ M_SK_S(g)=\sum_{\chi\bmod q}\mu_\chi\chi(g).\quad}
+\]
+In particular, every nonzero \(c_{S,\chi}\) is at least \(1/M_S\).
+If \(S\) is all odd, then \(\mu_\chi=0\) for every nonprincipal
+quadratic character.
+
+Write \(A_{q,S}(n)\) for the existing kernel evaluated at the actual
+unit \(n\bmod q\), extended by zero at nonunits.  For every natural \(n\),
+including zero and all prime powers,
+\[
+ M_S A_{q,S}(n)=\sum_{\chi\bmod q}\mu_\chi\chi(n),\qquad
+ M_S A_{q,S}(n)\Lambda(n)=
+       \sum_{\chi\bmod q}\mu_\chi\,\chi(n)\Lambda(n).
+\]
+More generally, for every finite support \(U\subseteq\mathbb N\)
+and arbitrary complex \(f(n)\),
+\[
+ \sum_{n\in U}M_S A_{q,S}(n)f(n)
+ =\sum_{\chi\bmod q}\mu_\chi
+          \sum_{n\in U}\chi(n)f(n).
+\]
+All signs and complex phases in \(f\) are retained.
+The statements include \(S=\varnothing\), \(q=1\), and binary
+return index \(2\).
+\end{theorem}
+
+\begin{proof}
+The fixed-point cardinality theorem and its exact local formula give
+\[
+ |\operatorname{Fix}_{X_S}(g)|
+ =\prod_{p\in S}
+       \bigl(\kappa_p+D_p\mathbf1_{\{g^{L/p}=1\}}\bigr)
+ =\sum_{T\subseteq S}
+       w_{S,T}\Bigl(\prod_{p\in T}D_p\Bigr)
+            \mathbf1_{\{\pi_T(g)=1\}}.
+\]
+This is an equality on the entire powerset; no overlap is dropped.
+Every \(\pi_T\) is surjective by the established simultaneous return
+theorem.  The exact source-cardinality identity therefore gives
+\[
+ |G|=\Bigl(\prod_{p\in T}D_p\Bigr)|\ker\pi_T|.
+\]
+The sum of \(\chi\) on \(\ker\pi_T\) is its cardinality when the
+restriction is principal and is zero otherwise.  Consequently the
+normalized character sum of the complete fixed-point trace is exactly
+\(\mu_\chi\), with the stated nonnegative integer formula.
+The existing identity
+\(|\operatorname{Fix}_{X_S}(g)|=M_SK_S(g)\) and the existing kernel
+Fourier-coefficient theorem give \(M_Sc_{S,\chi}=\mu_\chi\).
+The established principal coefficient is \(1\), so \(\mu_1=M_S\).
+The established full odd-kernel quadratic cancellation gives the
+quadratic specialization.  A nonzero integer \(\mu_\chi\) is at least
+one, and \(M_S>0\), proving the coefficient floor.
+
+Each return condition is invariant under \(g\mapsto g^{-1}\), so the
+complete kernel is invariant as well.  Apply the existing Fourier
+inversion at \(g^{-1}\), multiply by \(M_S\), and insert the integer
+coefficient identity.  This proves the character expansion with
+\(\chi(g)\).
+
+At a coprime natural input, evaluate this expansion at the actual unit
+\(n\bmod q\).  At a nonunit, the original weight and every Dirichlet
+character value are zero.  This proves the all-natural identity.
+Multiplication by \(\Lambda(n)\) gives exactly the coefficients in
+the existing Dirichlet-packet Mellin theorem.  Multiplication by any
+signed complex \(f(n)\), followed by interchange of the two finite
+sums, gives the final identity.
+\end{proof}
+
+The formula now provides explicit nonnegative integer exponents for
+the proposed finite \(L\)-function product.  Its analytic continuation
+and zero-order consumer are separate from the finite theorem just
+proved.  In particular, the theorem does not average nonlinear
+Euler quotients or construct a local-ascent sampler.  For an odd
+packet, the nonprincipal quadratic factors have zero exponent already;
+no-Siegel information cannot be counted again as an estimate of those
+absent terms.  The principal coefficient remains exactly \(1\), and
+the independent signed upper estimate is still required.
+The certified zero-free boundary remains \(7/8\).
+
 \subsection{Intrinsic power-return spectra identify physical prime carriers}
 \label{sec:carmichael-intrinsic-spectrum}
 

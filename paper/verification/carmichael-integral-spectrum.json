@@ -1,0 +1,112 @@
+{
+  "date": "2026-10-26",
+  "lean_version": "4.34.0",
+  "focused_compile_exit_code": 0,
+  "focused_compile_chunk": "71543d",
+  "new_axiom_reports": 16,
+  "new_axiom_chunk": "eb3385",
+  "targets": [
+    "PrimeFactorOscillations.CarmichaelIntegralSpectrum.return_product",
+    "PrimeFactorOscillations.CarmichaelIntegralSpectrum.fixed_card_powerset",
+    "PrimeFactorOscillations.CarmichaelIntegralSpectrum.source_card",
+    "PrimeFactorOscillations.CarmichaelIntegralSpectrum.kernel_character_sum",
+    "PrimeFactorOscillations.CarmichaelIntegralSpectrum.regular_character_sum",
+    "PrimeFactorOscillations.CarmichaelIntegralSpectrum.fixed_card_character_sum",
+    "PrimeFactorOscillations.CarmichaelIntegralSpectrum.normalization_mul_coefficient",
+    "PrimeFactorOscillations.CarmichaelIntegralSpectrum.multiplicity_principal",
+    "PrimeFactorOscillations.CarmichaelIntegralSpectrum.odd_multiplicity_quadratic_zero",
+    "PrimeFactorOscillations.CarmichaelIntegralSpectrum.coefficient_eq_multiplicity_div",
+    "PrimeFactorOscillations.CarmichaelIntegralSpectrum.nonzero_coefficient_lower",
+    "PrimeFactorOscillations.CarmichaelIntegralSpectrum.kernel_inverse",
+    "PrimeFactorOscillations.CarmichaelIntegralSpectrum.integer_character_expansion",
+    "PrimeFactorOscillations.CarmichaelIntegralSpectrum.natural_character_expansion",
+    "PrimeFactorOscillations.CarmichaelIntegralSpectrum.mangoldt_coefficient_expansion",
+    "PrimeFactorOscillations.CarmichaelIntegralSpectrum.signed_finite_packet"
+  ],
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "reused_declarations": [
+    "PrimeFactorOscillations.PrimeOrderReturnLaw.packetProjection_surjective",
+    "PrimeFactorOscillations.FiniteHomProbability.source_card",
+    "PrimeFactorOscillations.CarmichaelPermutationKernel.packetFixed_card",
+    "PrimeFactorOscillations.CarmichaelPermutationKernel.localFixed_card",
+    "PrimeFactorOscillations.CarmichaelPermutationKernel.scaled_kernel_eq_fixed_card",
+    "PrimeFactorOscillations.CarmichaelKernelCoset.restriction_sum_zero",
+    "PrimeFactorOscillations.CarmichaelCorrelation.kernel_coefficient_eq",
+    "PrimeFactorOscillations.CarmichaelCorrelationSpectrum.kernel_expansion",
+    "PrimeFactorOscillations.CarmichaelCorrelationSpectrum.coefficient_principal",
+    "PrimeFactorOscillations.CarmichaelCorrelationSpectrum.odd_vacancy_coefficient_zero",
+    "PrimeFactorOscillations.CarmichaelSupportRigidity.canonical_product_over_labels",
+    "PrimeFactorOscillations.DirichletPacketMellin.coefficient"
+  ],
+  "certified_zero_free_boundary": "7/8 unchanged",
+  "benchmark_status": "Exact integer character spectrum and all-natural signed packet adapter; no analytic exponent gain",
+  "old_bound": "Full native kernel already had nonnegative Fourier coefficients,principal coefficient1,odd quadratic cancellation and a concrete scaled permutation character. Explicit integer multiplicities,coefficient quantization and all-natural integer Dirichlet packet had not been derived.7/8 unchanged.",
+  "new_bound": "For all active finite S,q>=1,mu_chi is the full powerset sum of nonnegative integer cofactors on trivial kernel restrictions. M*c_chi=mu_chi,mu_1=M,and nonzero c_chi>=1/M. Original all-natural weight and Mangoldt coefficients equal the integer Dirichlet packet; arbitrary finite signed complex sums retain all phases.7/8 unchanged.",
+  "components": {
+    "positive_supply": "Principal multiplicity exactlyM>0,normalized coefficient exactly1",
+    "signed_corrections": "Full powerset and every kernel multiplicity retained. All phases of arbitrary finite complex f remain; no main-term absolute values.",
+    "quadratic_cancellation": "Existing full odd-kernel cancellation implies zero integer multiplicity for nonprincipal quadratic characters.",
+    "prime_powers": "Exact all-natural scalar identity and exact DirichletPacketMellin.coefficient adapter,including all n=p^k and nonunits.",
+    "denominators": "M=prod(D_p-1)^2>0 under native activity,D_p>=p>=2; emptyS hasM1.",
+    "limits": "Analytic finite-L-product,zero-order consumer,sampler existence and independent signed upper estimates remain separate."
+  },
+  "actuals": "Universal Lean proof; no numerical completion or finite-family testing.",
+  "first_nonpositive_domain": "Integer coefficients are nonnegative for all q,S,chi. No arithmetic nonpositivity or new zero-free region is established.",
+  "detector_error": "Exact finite identity; positive nonzero coefficient floor1/M",
+  "family_adapter": "Original modular native kernel at each actual natural input,zero extension,full Mangoldt coefficients and every finite signed sample.",
+  "uncancelled_main_terms": "Principal coefficient1 retained. Odd nonprincipal quadratic coefficients zero. All other supported complex-character phases retained.",
+  "low_estimate_provenance": "No new independent arithmetic upper estimate; this is an exact adapter.",
+  "parameter_domain": "Every q>=1,original Units(ZMod q),L=exponentG,finite active S,all characters,all units/all naturals and arbitrary finite supported complex samples. No growing-q analytic limit asserted.",
+  "attainable_endpoint": "7/8 unchanged",
+  "overlap_check": {
+    "completed_inputs": "Read definition and spectrum owners and exact provider signatures. Reused finite hom cardinality,simultaneous projection,full permutation trace,existing subgroup orthogonality and Fourier coefficient identity. Public native search and private literal/canonical state searches found no exact integer native spectrum provider.",
+    "distinct_conclusion": "Explicit native powerset formula for nonnegative integer Fourier multiplicities,coefficient lattice/floor,and exact original all-natural signed Dirichlet/Mangoldt adapter.",
+    "existing_target": "The previous permutation result supplied the concrete action only. Sparse positive integer prime compression concerns selected prime carriers,not these fixed native Fourier multiplicities. Existing odd quadratic cancellation is an input,not claimed new.",
+    "primary_sources": [
+      "https://www.jmilne.org/math/CourseNotes/CFT.pdf"
+    ],
+    "priority_scope": "Explicit theorem for the project's native kernels. Finite permutation-character decomposition and abelian Artin-to-Dirichlet theory are classical; no general literature-priority or zero-free gain claim."
+  },
+  "public_consumers_exit_code": 0,
+  "public_consumers_chunk": "5898d3",
+  "public_facade_chunk": "3a233b",
+  "focused_compiles": [
+    {
+      "owner": "PrimeFactorOscillations/Assembly/CarmichaelIntegralSpectrum.lean",
+      "chunk": "71543d",
+      "exit_code": 0
+    }
+  ],
+  "owners": [
+    {
+      "module": "PrimeFactorOscillations.Assembly.CarmichaelIntegralSpectrum",
+      "source_sha256": "844ba0497af3d5ce6ff81b26721aad6dd782e304a89c9cc14e9d6e3c4d43b580",
+      "checked_source_sha256": "844ba0497af3d5ce6ff81b26721aad6dd782e304a89c9cc14e9d6e3c4d43b580",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelIntegralSpectrum.return_product",
+        "PrimeFactorOscillations.CarmichaelIntegralSpectrum.fixed_card_powerset",
+        "PrimeFactorOscillations.CarmichaelIntegralSpectrum.source_card",
+        "PrimeFactorOscillations.CarmichaelIntegralSpectrum.kernel_character_sum",
+        "PrimeFactorOscillations.CarmichaelIntegralSpectrum.regular_character_sum",
+        "PrimeFactorOscillations.CarmichaelIntegralSpectrum.fixed_card_character_sum",
+        "PrimeFactorOscillations.CarmichaelIntegralSpectrum.normalization_mul_coefficient",
+        "PrimeFactorOscillations.CarmichaelIntegralSpectrum.multiplicity_principal",
+        "PrimeFactorOscillations.CarmichaelIntegralSpectrum.odd_multiplicity_quadratic_zero",
+        "PrimeFactorOscillations.CarmichaelIntegralSpectrum.coefficient_eq_multiplicity_div",
+        "PrimeFactorOscillations.CarmichaelIntegralSpectrum.nonzero_coefficient_lower",
+        "PrimeFactorOscillations.CarmichaelIntegralSpectrum.kernel_inverse",
+        "PrimeFactorOscillations.CarmichaelIntegralSpectrum.integer_character_expansion",
+        "PrimeFactorOscillations.CarmichaelIntegralSpectrum.natural_character_expansion",
+        "PrimeFactorOscillations.CarmichaelIntegralSpectrum.mangoldt_coefficient_expansion",
+        "PrimeFactorOscillations.CarmichaelIntegralSpectrum.signed_finite_packet"
+      ],
+      "source_normalization": "unchanged",
+      "kernel_build": "passed",
+      "axiom_audit": "standard_foundations_only"
+    }
+  ]
+}
