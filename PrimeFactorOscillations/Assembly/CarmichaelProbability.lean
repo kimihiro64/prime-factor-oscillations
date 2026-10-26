@@ -3,7 +3,6 @@ Copyright (c) 2026 Prime Factor Oscillations contributors.
 Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Prime Factor Oscillations contributors
 -/
-import PrimeFactorOscillations.Assembly.CarmichaelComplementaryAscent
 import PrimeFactorOscillations.Assembly.CarmichaelConditionalStability
 import PrimeFactorOscillations.Assembly.CarmichaelCorrelationSpectrum
 import PrimeFactorOscillations.Assembly.CarmichaelFiberGeometry
@@ -11,6 +10,7 @@ import PrimeFactorOscillations.Assembly.CarmichaelMaximalConductor
 import PrimeFactorOscillations.Assembly.CarmichaelPrimePacketAscent
 import PrimeFactorOscillations.Assembly.CarmichaelProfileStability
 import PrimeFactorOscillations.Assembly.CarmichaelRedundantTail
+import PrimeFactorOscillations.Assembly.CarmichaelResidueAscent
 import PrimeFactorOscillations.Assembly.CarmichaelTailProjection
 import PrimeFactorOscillations.Helpers.OddReturnCharacterSupport
 import PrimeFactorOscillations.Helpers.PrimePowerRootClock

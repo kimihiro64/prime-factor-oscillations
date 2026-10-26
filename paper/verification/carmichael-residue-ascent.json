@@ -1,0 +1,89 @@
+{
+  "date": "2026-10-26",
+  "lean_version": "4.34.0",
+  "focused_compile_exit_code": 0,
+  "focused_compile_chunk": "b662e4",
+  "new_axiom_reports": 12,
+  "targets": [
+    "PrimeFactorOscillations.CarmichaelResidueAscent.kernel_eq_actual_eight_residues",
+    "PrimeFactorOscillations.CarmichaelResidueAscent.primeMask_false_eq_mod_eight",
+    "PrimeFactorOscillations.CarmichaelResidueAscent.primeMask_true_eq_mod_eight",
+    "PrimeFactorOscillations.CarmichaelResidueAscent.primeMask_eq_residueWeight",
+    "PrimeFactorOscillations.CarmichaelResidueAscent.residueWeight_nonneg",
+    "PrimeFactorOscillations.CarmichaelResidueAscent.selected_prime_coprime_two_eventually",
+    "PrimeFactorOscillations.CarmichaelResidueAscent.arbitrary_modulus_excess_eq_fixed_eventually",
+    "PrimeFactorOscillations.CarmichaelResidueAscent.residue_cover_eventually",
+    "PrimeFactorOscillations.CarmichaelResidueAscent.riemannHypothesis_iff_fixed_residue_channels_bounded",
+    "PrimeFactorOscillations.CarmichaelResidueAscent.riemannHypothesis_iff_fixed_residue_channels_nonpos",
+    "PrimeFactorOscillations.CarmichaelResidueAscent.fixed_residue_channel_unbounded_of_not_RH",
+    "PrimeFactorOscillations.CarmichaelResidueAscent.not_canonical_eight_reduction"
+  ],
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "reused_declarations": [
+    "PrimeFactorOscillations.CarmichaelTwoPowerConductor.large_kernel_two_modes",
+    "PrimeFactorOscillations.CarmichaelTwoPowerConductor.large_survivor_factorsThrough_eight",
+    "PrimeFactorOscillations.CarmichaelTwoPowerConductor.large_survivor_even",
+    "PrimeFactorOscillations.CarmichaelComplementaryAscent.five_kernel_zero",
+    "PrimeFactorOscillations.CarmichaelComplementaryAscent.riemannHypothesis_iff_joint_bounded",
+    "PrimeFactorOscillations.CarmichaelComplementaryAscent.fixed_channel_unbounded_of_not_RH",
+    "DirichletCharacter.changeLevel_eq_cast_of_dvd"
+  ],
+  "certified_zero_free_boundary": "7/8 unchanged",
+  "benchmark_status": "Exact physical residue support, conductor elimination and fixed-class joint RH criterion; no analytic exponent gain",
+  "old_bound": "Joint native zero-mask criterion allowed arbitrary two-power moduli but its actual prime residue supports were not identified",
+  "new_bound": "Every large native two-power mask is exactly the same modulo8 class weight. The arbitrary conductor family reduces to two fixed class-union signed ascent excesses, jointly RH-equivalent. Canonical reconstruction at8 is disproved.",
+  "components": {
+    "support": "Channel0 selects1,7mod8; channel1 selects3,5mod8; weights exactly0/2",
+    "actual_map": "Full original kernel evaluated through actual reduction to8, with all character phases retained",
+    "signed_consumer": "E_j(X)=F_j(X) eventually for every arbitrary r(X), with full B_X retained",
+    "principal": "No independent signed upper estimate",
+    "nonclosure": "Original kernel value2 at identity differs from canonical native8 value4/3"
+  },
+  "actuals": "Universal symbolic Lean proof; finite unit8 classification is exhaustive and internal to the kernel proof",
+  "first_nonpositive_domain": "No unconditional analytic upper bound for either retained fixed-class excess installed",
+  "detector_error": "Unchanged full signed grid correction",
+  "family_adapter": "Every original native singleton-label2 at q=2^(r+4), both actual residue phases",
+  "uncancelled_main_terms": "Full signed ascent B retained in the fixed residue-class split",
+  "low_estimate_provenance": "No new low-divisor or selected-ascent upper estimate",
+  "parameter_domain": "Every r>=0; every odd natural p; every LocalAscentLocator H a and arbitrary varying r(X)",
+  "attainable_endpoint": "7/8 unchanged",
+  "overlap_check": {
+    "completed_inputs": "Claim133 supplies complementary actual masks and the full signed witness-transfer consumer. The completed conductor8 classification, parity and character factorization are reused.",
+    "distinct_conclusion": "Exact fixed physical residue supports; arbitrary-conductor observables equal two fixed class-union observables; joint fixed-class RH criterion; proof of canonical reduced-kernel nonclosure",
+    "existing_target": "Completes the explicit residue-support next action recorded after claim133; not a renamed signed exponent estimate or a fresh claim that conductor growth creates independent samples",
+    "primary_sources": [
+      "https://leanprover-community.github.io/mathlib4_docs/Mathlib/NumberTheory/DirichletCharacter/Basic.html"
+    ],
+    "priority_scope": "Exact project-kernel/ascent connection; underlying conductor8 quadratic character and finite residue classification are classical. No exhaustive publication-priority claim."
+  },
+  "public_consumers_exit_code": 0,
+  "public_consumers_chunk": "a253da",
+  "owners": [
+    {
+      "module": "PrimeFactorOscillations.Assembly.CarmichaelResidueAscent",
+      "source_sha256": "c17a568c0397c6da7a48dc89e08c73c7c25b2a25e2cfbe4f49339d0ea20c3554",
+      "checked_source_sha256": "c17a568c0397c6da7a48dc89e08c73c7c25b2a25e2cfbe4f49339d0ea20c3554",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelResidueAscent.kernel_eq_actual_eight_residues",
+        "PrimeFactorOscillations.CarmichaelResidueAscent.primeMask_false_eq_mod_eight",
+        "PrimeFactorOscillations.CarmichaelResidueAscent.primeMask_true_eq_mod_eight",
+        "PrimeFactorOscillations.CarmichaelResidueAscent.primeMask_eq_residueWeight",
+        "PrimeFactorOscillations.CarmichaelResidueAscent.residueWeight_nonneg",
+        "PrimeFactorOscillations.CarmichaelResidueAscent.selected_prime_coprime_two_eventually",
+        "PrimeFactorOscillations.CarmichaelResidueAscent.arbitrary_modulus_excess_eq_fixed_eventually",
+        "PrimeFactorOscillations.CarmichaelResidueAscent.residue_cover_eventually",
+        "PrimeFactorOscillations.CarmichaelResidueAscent.riemannHypothesis_iff_fixed_residue_channels_bounded",
+        "PrimeFactorOscillations.CarmichaelResidueAscent.riemannHypothesis_iff_fixed_residue_channels_nonpos",
+        "PrimeFactorOscillations.CarmichaelResidueAscent.fixed_residue_channel_unbounded_of_not_RH",
+        "PrimeFactorOscillations.CarmichaelResidueAscent.not_canonical_eight_reduction"
+      ],
+      "source_normalization": "unchanged",
+      "kernel_build": "passed",
+      "axiom_audit": "standard_foundations_only"
+    }
+  ]
+}

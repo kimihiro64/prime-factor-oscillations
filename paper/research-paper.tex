@@ -10823,6 +10823,93 @@ bound these selected, signed ascent excesses.
 No independent upper bound for either retained channel has been proved
 here, and the certified zero-free boundary remains \(7/8\).
 
+\subsection{Fixed residue classes behind the native zero masks}
+\label{sec:carmichael-residue-ascent}
+
+The complementary channels admit an exact physical prime-class description.
+In this family, increasing the displayed two-power modulus does not create
+additional independent masks.
+
+\begin{theorem}[Fixed residue support and the ascent RH criterion]
+\label{thm:carmichael-residue-ascent}
+For every \(r\ge0\) and every odd natural number \(p\), the original
+native weights of Theorem~\ref{thm:carmichael-complementary-ascent} satisfy
+\[
+ w_0(r,p)=2\,\mathbf 1_{\{p\equiv1,7\pmod8\}},\qquad
+ w_1(r,p)=2\,\mathbf 1_{\{p\equiv3,5\pmod8\}}.
+\]
+More intrinsically, if \(u\) is a unit modulo \(2^{r+4}\) and
+\(\bar u\) is its actual reduction modulo \(8\), then
+\[
+ K_r(u)=
+ \begin{cases}
+  2,&\bar u=1\text{ or }-1,\\
+  0,&\text{otherwise}.
+ \end{cases}
+\]
+Fix \(H,a(X),p_X,B_X\) as in the preceding localized bounded-gap
+ascent theorem.  Define the two fixed-class excesses
+\[
+ F_0(X)=2\,\mathbf 1_{\{p_X\equiv1,7\pmod8\}}B_X,\qquad
+ F_1(X)=2\,\mathbf 1_{\{p_X\equiv3,5\pmod8\}}B_X .
+\]
+For every choice of \(r(X)\), both original native excesses satisfy
+\(E_j(X)=F_j(X)\) eventually.
+RH is equivalent to eventual constant upper bounds for both fixed-class
+excesses, and also to their joint eventual nonpositivity.
+If RH fails, one fixed class union, either \(\{1,7\}\) or \(\{3,5\}\)
+modulo \(8\), has arbitrarily large positive \(F_j(X)\) at arbitrarily
+large cutoffs.
+Nevertheless, the descended kernel is not the canonical native
+singleton-label-\(2\) kernel at modulus \(8\).
+\end{theorem}
+
+\begin{proof}
+Choose the genuine nonprincipal surviving character \(\chi_r\) and its
+actual factorization through a character \(\psi\bmod8\).
+Let \(\rho\) denote the actual unit-reduction map.
+The full native expansion and this factorization give
+\[
+ K_r(u)=1+\psi(\rho(u^{-1})).
+\]
+Every unit modulo \(8\) is its own inverse, so this equals
+\(1+\psi(\rho(u))\).
+The proved evenness of \(\chi_r\), together with
+\(\rho(-1)=-1\), gives \(\psi(-1)=1\).
+The actual unit \(5\) reduces to \(5\bmod8\).
+Since \(K_r(5)=0\), the same expansion gives \(\psi(5)=-1\),
+and multiplicativity gives \(\psi(-5)=-1\).
+The four unit residues modulo \(8\) are precisely \(1,-1,5,-5\).
+Thus the original kernel is \(2\) on \(1,-1\) and zero on \(5,-5\),
+which proves the intrinsic formula.
+
+For odd \(p\), reduction of its actual unit representative is its
+natural residue modulo \(8\).  This gives the formula for \(w_0\).
+The exact complementary identity \(w_0+w_1=2\), and the four possible
+odd residues \(1,3,5,7\), give the formula for \(w_1\).
+At every sufficiently large locator cutoff the selected prime is odd.
+The original excesses therefore equal \(F_j(X)\), even when \(r(X)\)
+changes without restriction.
+The complementary-channel RH equivalences and fixed-channel
+unboundedness now apply directly to these fixed residue weights.
+All statements retain the full signed \(B_X\).
+
+Finally evaluate a putative equality with the canonical native kernel
+at modulus \(8\) on the identity unit.
+The original index-two kernel has value \(2\) there, while the
+canonical modulus-\(8\) kernel has return index \(4\) and value \(4/3\).
+Actual reduction maps identity to identity, so the two functions
+cannot agree.
+\end{proof}
+
+This removes the arbitrary two-power conductor from the witness-selection
+problem for these channels.  The original subgroup and probability profile
+are still essential: the correct descended \(0/2\) kernel is not a newly
+constructed canonical kernel at its least modulus.
+No separate RH equivalence for either fixed class union, no independent
+upper estimate for either signed excess, and no improvement of the
+certified \(7/8\) boundary is asserted.
+
 \subsection{Intrinsic power-return spectra identify physical prime carriers}
 \label{sec:carmichael-intrinsic-spectrum}
 
