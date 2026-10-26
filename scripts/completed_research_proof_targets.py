@@ -34,6 +34,7 @@ from scripts.completed_research_targets_31 import TARGETS as GROUP31
 from scripts.completed_research_targets_32 import TARGETS as GROUP32
 from scripts.completed_research_targets_33 import TARGETS as GROUP33
 from scripts.completed_research_targets_34 import TARGETS as GROUP34
+from scripts.completed_research_targets_35 import TARGETS as GROUP35
 
 COMPLETED_RESEARCH_THEOREMS = (
     GROUP01
@@ -70,4 +71,5 @@ COMPLETED_RESEARCH_THEOREMS = (
     + GROUP32
     + GROUP33
     + GROUP34
+    + GROUP35
 )

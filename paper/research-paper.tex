@@ -10709,6 +10709,120 @@ interactions.  It supplies no independent estimate of the signed
 principal RH wave and leaves the certified zero-free exponent \(7/8\)
 unchanged.
 
+\subsection{Complementary native zero masks preserve ascent witnesses}
+\label{sec:carmichael-complementary-ascent}
+
+The preceding conductor classification identifies a genuine zero mask,
+rather than a uniformly positive change of normalization.  Its complementary
+residue translate supplies the missing witness channel.
+
+\begin{theorem}[Complementary native masks and the bounded-gap ascent criterion]
+\label{thm:carmichael-complementary-ascent}
+Fix \(H\) and a localized bounded-gap pair locator \(a(X)\):
+eventually the consecutive prime pair beginning at
+\(p_X=p_{a(X)}\) has gap in \([2,H]\), and
+\[
+ X\le p_X-1\le X+X^{3/4}.
+\]
+Write \(B_X\) for the full signed localized ascent excess
+\(\operatorname{localAscentPairExcess}(H,X,a(X))\).
+Let \(r:\mathbb N\to\mathbb N\) be arbitrary, with no growth restriction,
+and put \(q_X=2^{r(X)+4}\).
+Let \(K_r\) be the original native singleton-label-\(2\) kernel
+at modulus \(2^{r+4}\), with its original period and normalization.
+For a prime \(p\) coprime to this modulus define
+\[
+ w_0(r,p)=K_r(p),\qquad w_1(r,p)=K_r(5p),
+\]
+where both arguments mean actual unit residues.
+Extend both weights by zero on nonunits, and set
+\(E_j(X)=w_j(r(X),p_X)B_X\), for \(j\in\{0,1\}\).
+Then, eventually,
+\[
+ \{w_0(r(X),p_X),w_1(r(X),p_X)\}=\{0,2\},
+ \qquad E_0(X)+E_1(X)=2B_X.
+\]
+More precisely, at each such cutoff the ordered pair of signed excesses
+is either \((0,2B_X)\) or \((2B_X,0)\).
+Furthermore
+\[
+ \mathrm{RH}\quad\Longleftrightarrow\quad
+ \forall j\in\{0,1\}\ \exists C_j\in\mathbb R\
+       \forall X\text{ sufficiently large},\ E_j(X)\le C_j,
+\]
+and this is also equivalent to both excesses being eventually nonpositive.
+If RH fails, one fixed channel \(j\) satisfies
+\[
+ \forall C,X_0\in\mathbb R\ \exists X\in\mathbb N:
+       X>X_0,\qquad E_j(X)>C.
+\]
+The \(j=0\) observable is exactly the original Carmichael single-pair
+ascent excess at modulus \(q_X\), not a replacement kernel.
+\end{theorem}
+
+\begin{proof}
+At level \(2^{r+4}\) the actual return index is two, so the proved
+Boolean kernel formula gives only the values \(0\) and \(2\).
+The unit \(5\) has order \(2^{r+2}\), whereas the shortened native
+period is \(2^{r+1}\).  Consequently it is a nonreturn and \(K_r(5)=0\).
+
+Use the proved unique nonprincipal surviving character \(\chi_r\).
+It has primitive conductor \(8\), coefficient \(1\), and the complete
+two-mode expansion is
+\[
+ K_r(u)=1+\chi_r(u^{-1}).
+\]
+This is the full expansion at the original level.
+Substitution of \(u=5\) gives \(\chi_r(5^{-1})=-1\).
+Multiplicativity, with the inverse phase retained, therefore gives
+\[
+ \begin{split}
+ K_r(u)+K_r(5u)
+ &=1+\chi_r(u^{-1})
+   +1+\chi_r(u^{-1})\chi_r(5^{-1})\\
+ &=2 .
+ \end{split}
+\]
+Together with the Boolean formula, this proves the exact ordered
+alternatives \((0,2)\) and \((2,0)\).
+For every sufficiently large locator cutoff, \(p_X>X\ge2\);
+the selected prime is odd and hence coprime to every \(q_X\), regardless
+of the size of \(r(X)\).
+Thus the same alternatives hold on the actual selected primes.
+Multiplying by the full signed \(B_X\) proves all stated identities.
+
+Under RH, the proved single-pair criterion gives \(B_X\le0\) eventually.
+Both native channel weights are nonnegative, so both \(E_j(X)\le0\).
+Conversely, if \(E_j(X)\le C_j\) eventually for both channels, their exact
+signed sum gives
+\[
+ B_X\le (C_0+C_1)/2
+\]
+eventually.  The proved unweighted bounded-error ascent criterion implies RH.
+This also proves the joint nonpositivity criterion.
+
+Finally suppose RH fails.
+If neither fixed channel had arbitrarily large positive values at
+arbitrarily large cutoffs, each would have an eventual constant upper
+bound.  The just-proved equivalence would imply RH, a contradiction.
+Thus a single fixed channel is unbounded in the stated sense.
+The zero-phase equality with the original Carmichael observable follows
+directly from the native singleton weight definition, including its
+zero extension on nonunits.
+\end{proof}
+
+This is a joint criterion for two actual zero-masked residue channels.
+It asserts neither a positive floor for either channel nor that either
+one separately is an RH criterion.  Translation is applied to the
+residue weight on the original selected prime; \(5p\) is never required
+to be prime.
+The conductor-\(8\) mode cancels exactly in the sum while the principal
+ascent signal remains \(2B_X\).
+An estimate for the unweighted twisted Chebyshev sum alone does not
+bound these selected, signed ascent excesses.
+No independent upper bound for either retained channel has been proved
+here, and the certified zero-free boundary remains \(7/8\).
+
 \subsection{Intrinsic power-return spectra identify physical prime carriers}
 \label{sec:carmichael-intrinsic-spectrum}
 

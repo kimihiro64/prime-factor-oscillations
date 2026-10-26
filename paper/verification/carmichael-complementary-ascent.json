@@ -1,0 +1,106 @@
+{
+  "date": "2026-10-26",
+  "lean_version": "4.34.0",
+  "focused_compile_exit_code": 0,
+  "focused_compile_chunk": "ccfe91",
+  "new_axiom_reports": 20,
+  "targets": [
+    "PrimeFactorOscillations.CarmichaelComplementaryAscent.five_kernel_zero",
+    "PrimeFactorOscillations.CarmichaelComplementaryAscent.mask_sum",
+    "PrimeFactorOscillations.CarmichaelComplementaryAscent.mask_nonneg",
+    "PrimeFactorOscillations.CarmichaelComplementaryAscent.mask_false_zero_or_two",
+    "PrimeFactorOscillations.CarmichaelComplementaryAscent.signed_channel_alternative",
+    "PrimeFactorOscillations.CarmichaelComplementaryAscent.channel_sum",
+    "PrimeFactorOscillations.CarmichaelComplementaryAscent.riemannHypothesis_iff_joint_bounded",
+    "PrimeFactorOscillations.CarmichaelComplementaryAscent.riemannHypothesis_iff_joint_nonpos",
+    "PrimeFactorOscillations.CarmichaelComplementaryAscent.fixed_channel_unbounded_of_not_RH",
+    "PrimeFactorOscillations.CarmichaelComplementaryAscent.primeMask_nonneg",
+    "PrimeFactorOscillations.CarmichaelComplementaryAscent.primeMask_sum",
+    "PrimeFactorOscillations.CarmichaelComplementaryAscent.primeMask_false_eq_original",
+    "PrimeFactorOscillations.CarmichaelComplementaryAscent.selected_prime_coprime_eventually",
+    "PrimeFactorOscillations.CarmichaelComplementaryAscent.prime_cover_eventually",
+    "PrimeFactorOscillations.CarmichaelComplementaryAscent.prime_signed_sum_eventually",
+    "PrimeFactorOscillations.CarmichaelComplementaryAscent.prime_signed_alternative_eventually",
+    "PrimeFactorOscillations.CarmichaelComplementaryAscent.prime_false_eq_original",
+    "PrimeFactorOscillations.CarmichaelComplementaryAscent.riemannHypothesis_iff_prime_channels_bounded",
+    "PrimeFactorOscillations.CarmichaelComplementaryAscent.riemannHypothesis_iff_prime_channels_nonpos",
+    "PrimeFactorOscillations.CarmichaelComplementaryAscent.prime_fixed_channel_unbounded_of_not_RH"
+  ],
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "reused_declarations": [
+    "PrimeFactorOscillations.CarmichaelTwoPowerConductor.large_kernel_boolean",
+    "PrimeFactorOscillations.CarmichaelTwoPowerConductor.large_kernel_two_modes",
+    "PrimeFactorOscillations.CarmichaelTwoPowerConductor.exists_large_conductor_eight_survivor",
+    "PrimeFactorOscillations.TwoPowerCharacterConductor.fiveUnit_order",
+    "PrimeFactorOscillations.riemannHypothesis_iff_eventually_singleAscent_bounded",
+    "PrimeFactorOscillations.singleAscentPairExcess_nonpos_eventually_of_RH"
+  ],
+  "certified_zero_free_boundary": "7/8 unchanged",
+  "benchmark_status": "Exact complementary zero-mask witness retention and joint RH equivalence; no analytic exponent gain",
+  "old_bound": "Single-channel positive-floor criterion did not apply to native index-two 0/2 masks",
+  "new_bound": "Two actual residue translates form an exact 0/2 cover, retain the full signed excess as2B, and jointly detect RH; failure of RH forces one fixed channel unbounded at arbitrarily large cutoffs",
+  "components": {
+    "kernel": "Original large two-power native kernel; original global period and normalization",
+    "phase": "Actual unit translate by five; full inverse character phase retained",
+    "signed_consumer": "E0+E1=2B exactly, with ordered alternatives(0,2B)or(2B,0)",
+    "witnesses": "Original selected consecutive bounded-gap prime pair in[X,X+X^(3/4)]",
+    "modulus": "q_X=2^(r(X)+4), every r:Nat->Nat without growth restriction",
+    "principal": "Retained exactly; no independent signed upper estimate supplied"
+  },
+  "actuals": "Universal symbolic Lean proof; no finite diagnostic",
+  "first_nonpositive_domain": "No unconditional signed upper bound for the retained channels installed",
+  "detector_error": "Full existing single-pair grid correction and signed excess unchanged",
+  "family_adapter": "Native two-power singleton-label2 at every level>=16 and two actual residue phases0/5",
+  "uncancelled_main_terms": "Principal ascent B retained with coefficient2; conductor8 character cancels exactly in the sum",
+  "low_estimate_provenance": "No new analytic low-divisor or selected-ascent upper estimate",
+  "parameter_domain": "Every H, every LocalAscentLocator H a, every r:Nat->Nat; both Bool channels",
+  "attainable_endpoint": "7/8 unchanged",
+  "overlap_check": {
+    "completed_inputs": "Existing single-pair and positive-floor ascent criteria, native two-power conductor8/Boolean kernel classification, and exact character expansion. FiberGeometry and ReturnAttainment were read and concern conditional laws and separated seeds, not this witness transfer.",
+    "distinct_conclusion": "Actual translate-by-five complement identity, exact signed prime-channel alternatives, joint RH equivalence with vanishing individual weights, and one fixed unbounded channel under failure of RH",
+    "existing_target": "Completes the complementary-mask witness-transfer frontier explicitly recorded after claim132; not a renamed blocked exponent estimate or a claimed different new target",
+    "source_search": "Public Lean and private state/graph/decision overlap searches completed; private references record the open witness-transfer next action. No maintained complementary-ascent provider found.",
+    "primary_sources": [
+      "https://leanprover-community.github.io/mathlib4_docs/Mathlib/NumberTheory/DirichletCharacter/Basic.html"
+    ],
+    "priority_scope": "Project-specific connection of already proved native kernels and localized ascent RH criterion. The two-channel algebra and finite alternative are elementary; no exhaustive publication-priority claim."
+  },
+  "public_consumers_exit_code": 0,
+  "public_consumers_chunk": "7f93c5",
+  "owners": [
+    {
+      "module": "PrimeFactorOscillations.Assembly.CarmichaelComplementaryAscent",
+      "source_sha256": "34bffd3857e20aba2227324abf831cfa8a32b499641af001a6f2f7d287f1d128",
+      "checked_source_sha256": "34bffd3857e20aba2227324abf831cfa8a32b499641af001a6f2f7d287f1d128",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelComplementaryAscent.five_kernel_zero",
+        "PrimeFactorOscillations.CarmichaelComplementaryAscent.mask_sum",
+        "PrimeFactorOscillations.CarmichaelComplementaryAscent.mask_nonneg",
+        "PrimeFactorOscillations.CarmichaelComplementaryAscent.mask_false_zero_or_two",
+        "PrimeFactorOscillations.CarmichaelComplementaryAscent.signed_channel_alternative",
+        "PrimeFactorOscillations.CarmichaelComplementaryAscent.channel_sum",
+        "PrimeFactorOscillations.CarmichaelComplementaryAscent.riemannHypothesis_iff_joint_bounded",
+        "PrimeFactorOscillations.CarmichaelComplementaryAscent.riemannHypothesis_iff_joint_nonpos",
+        "PrimeFactorOscillations.CarmichaelComplementaryAscent.fixed_channel_unbounded_of_not_RH",
+        "PrimeFactorOscillations.CarmichaelComplementaryAscent.primeMask_nonneg",
+        "PrimeFactorOscillations.CarmichaelComplementaryAscent.primeMask_sum",
+        "PrimeFactorOscillations.CarmichaelComplementaryAscent.primeMask_false_eq_original",
+        "PrimeFactorOscillations.CarmichaelComplementaryAscent.selected_prime_coprime_eventually",
+        "PrimeFactorOscillations.CarmichaelComplementaryAscent.prime_cover_eventually",
+        "PrimeFactorOscillations.CarmichaelComplementaryAscent.prime_signed_sum_eventually",
+        "PrimeFactorOscillations.CarmichaelComplementaryAscent.prime_signed_alternative_eventually",
+        "PrimeFactorOscillations.CarmichaelComplementaryAscent.prime_false_eq_original",
+        "PrimeFactorOscillations.CarmichaelComplementaryAscent.riemannHypothesis_iff_prime_channels_bounded",
+        "PrimeFactorOscillations.CarmichaelComplementaryAscent.riemannHypothesis_iff_prime_channels_nonpos",
+        "PrimeFactorOscillations.CarmichaelComplementaryAscent.prime_fixed_channel_unbounded_of_not_RH"
+      ],
+      "source_normalization": "unchanged",
+      "kernel_build": "passed",
+      "axiom_audit": "standard_foundations_only"
+    }
+  ]
+}
