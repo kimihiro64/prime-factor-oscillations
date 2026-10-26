@@ -9040,6 +9040,131 @@ It does not remove the nonprincipal complex modes, and it supplies no
 new zero-free exponent. The finite character argument is an application
 of translation orthogonality; publication priority for the packet
 application is not claimed.
+\subsection{A uniformly positive correlation with no quadratic modes}
+\label{sec:carmichael-return-correlation}
+
+The return law also gives a probe that can weight a prescribed collection
+of unit residues without deleting any of them. Its two observations use
+the same sampled group element; their dependence is kept exactly.
+
+\begin{theorem}[Uniformly positive, quadratic-free return correlation]
+\label{thm:carmichael-return-correlation}
+Let \(G\) be a finite abelian group with canonical exponent \(E\).
+Let \(S\) be any finite set of odd prime divisors of \(E\), and put
+\[
+ w(h)=\boldsymbol1_{\{h^{E/\ell}\ne1\text{ for all }\ell\in S\}},
+ \qquad
+ \delta=\frac1{|G|}\sum_{h\in G}w(h)
+        =\prod_{\ell\in S}(1-d_\ell^{-1})>0.
+\]
+Here \(d_\ell=|\{h^{E/\ell}:h\in G\}|\). Define the actual two-base
+correlation by
+\[
+ K(g)=\frac{|G|^{-1}\sum_{h\in G}w(h)w(hg)}{\delta^2}.
+\]
+Writing \(\nu_\ell(g)=1\) if \(g^{E/\ell}=1\), and \(2\) otherwise,
+one has the exact product and uniform bounds
+\[
+ K(g)=\prod_{\ell\in S}
+       \frac{1-\nu_\ell(g)/d_\ell}{(1-1/d_\ell)^2},
+ \qquad
+ \frac12\le K(g)\le\delta^{-1},\qquad
+ \frac1{|G|}\sum_{g\in G}K(g)=1,\qquad K(1)=\delta^{-1}.
+\]
+For \(G=(\mathbb Z/c\mathbb Z)^\times\), \(c\ge1\), let the sum below
+run over all complex Dirichlet characters modulo \(c\). Then
+\[
+ K(u)=\sum_\chi b_\chi\chi(u^{-1}),\qquad
+ b_\chi=\frac{\left|\sum_{h\in G}w(h)\chi(h)\right|^2}
+                  {\left(\sum_{h\in G}w(h)\right)^2}\ge0,
+\]
+\[
+ b_{\boldsymbol1}=1,\qquad
+ \sum_\chi b_\chi=\delta^{-1},\qquad
+ \sum_{\chi\ne\boldsymbol1}b_\chi=\delta^{-1}-1.
+\]
+Every nonprincipal character with \(\chi^2=\boldsymbol1\), in particular
+every nonprincipal real character, has \(b_\chi=0\).
+
+Consequently, for every finite indexed sample \((u_i)_{i\in T}\) in \(G\),
+allowing repetitions,
+\[
+ \sum_{i\in T}K(u_i)\ge |T|/2.
+\]
+If real numbers \(z_i\) satisfy \(z_i\ge B\ge0\) throughout \(T\), then
+\[
+ \sum_{i\in T}K(u_i)z_i\ge B|T|/2.
+\]
+All assertions are uniform over finite groups, odd packets and samples;
+the empty packet gives \(K=1\).
+\end{theorem}
+\begin{proof}
+The simultaneous return map onto
+\(\prod_{\ell\in S}\{h^{E/\ell}:h\in G\}\) is surjective and has uniform
+fibers by Theorem~\ref{thm:prime-order-return-law}.
+For a fixed \(g\), the two conditions at coordinate \(\ell\) exclude
+exactly \(1\) and \(g^{-E/\ell}\). These exclusions coincide precisely
+when \(g^{E/\ell}=1\). Hence exactly \(d_\ell-\nu_\ell(g)\) coordinate
+values are allowed. Uniform fibers give the displayed product,
+including all overlaps between the two observations.
+
+The \(\ell\)-factor can also be written
+\[
+ 1+\frac{d_\ell\boldsymbol1_{\{g^{E/\ell}=1\}}-1}{(d_\ell-1)^2}
+ \ \ge\ 1-\frac1{(d_\ell-1)^2}
+ \ \ge\ 1-\frac1{(\ell-1)^2}.
+\]
+The last inequality uses \(d_\ell\ge\ell\ge3\).
+For any finite set \(S\) of odd primes, embed the distinct indices
+\(\ell-3\) into an initial interval of nonnegative integers.
+Since all the factors lie in \([0,1]\), adding the missing factors
+can only decrease the product. The complete interval telescopes:
+\[
+ \prod_{k=0}^{n-1}\left(1-\frac1{(k+2)^2}\right)
+   =\frac{n+2}{2(n+1)}\ge\frac12.
+\]
+This proves the modulus-independent lower floor. The upper bound follows
+from \(0\le w(h)w(hg)\le w(h)\); averaging first over \(g\) gives mean
+one, and \(w^2=w\) gives the value at the identity.
+
+For a character \(\chi\), preserve both factors in the complete signed
+sum and substitute \(y=hg\):
+\[
+ \sum_g\sum_h w(h)w(hg)\chi(g)
+   =\left|\sum_h w(h)\chi(h)\right|^2.
+\]
+Finite Fourier inversion on the actual unit group now gives the
+expansion and nonnegative coefficients. The principal coefficient
+follows by taking \(\chi=\boldsymbol1\), and evaluating the expansion
+at the identity gives their total mass. Theorem~\ref{thm:odd-return-character-support}
+sets every nonprincipal quadratic coefficient to zero before taking
+its square. Finally sum the pointwise floor over \(T\); for the weighted
+assertion first use \(K(u_i)z_i\ge B K(u_i)\).
+\end{proof}
+
+The four maintained owners are
+\begin{quote}\small\ttfamily
+Assembly/CarmichaelCorrelation.lean\\
+Assembly/CarmichaelCorrelationLocal.lean\\
+Assembly/CarmichaelCorrelationSpectrum.lean\\
+Assembly/CarmichaelCorrelationFloor.lean
+\end{quote}
+and are exported through the Carmichael probability grouping.
+The local product remains valid if label \(2\) is included, but then
+\(d_2=2\) can make a local factor zero. Thus label \(2\) is excluded
+from the uniform half-floor and quadratic-free assertion, not silently
+absorbed into their hypotheses.
+
+Autocorrelation, character orthogonality and maximal-order counting
+are classical ingredients; publication priority for this arithmetic
+combination is not asserted. The conclusion relevant to the ascent
+criterion is pointwise: every coprime selected witness retains at least
+half its positive excursion, without a residue-class equidistribution
+premise. This finite theorem does not yet establish an RH equivalence
+with growing moduli. Nor does it control a signed sum whose individual
+excursions have different signs. The factor \(1/2\) is a weight floor,
+not a zero-free boundary; the certified boundary remains \(7/8\).
+
 \subsection{Intrinsic power-return spectra identify physical prime carriers}
 \label{sec:carmichael-intrinsic-spectrum}
 
