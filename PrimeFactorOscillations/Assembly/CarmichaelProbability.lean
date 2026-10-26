@@ -5,6 +5,7 @@ Authors: Prime Factor Oscillations contributors
 -/
 import PrimeFactorOscillations.Assembly.CarmichaelConditionalStability
 import PrimeFactorOscillations.Assembly.CarmichaelCorrelationSpectrum
+import PrimeFactorOscillations.Assembly.CarmichaelDualCarrier
 import PrimeFactorOscillations.Assembly.CarmichaelFiberGeometry
 import PrimeFactorOscillations.Assembly.CarmichaelPrimePacketAscent
 import PrimeFactorOscillations.Assembly.CarmichaelProfileStability

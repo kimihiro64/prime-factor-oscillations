@@ -10229,6 +10229,124 @@ from the conductor classification.  The principal coefficient remains
 \(1\); its independent signed arithmetic estimate is still open, and
 the certified zero-free exponent remains \(7/8\).
 
+\subsection{One carrier set in probability and additive spectra}
+\label{sec:carmichael-dual-carrier}
+
+The following bridge identifies exactly which physical prime factors the
+original probability kernel retains.  The same factors were previously
+recovered from the full signed additive spectrum.  The assertion concerns
+the original kernel, with its original global period and normalization.
+
+\begin{theorem}[Dual carriers and the least reduction modulus]
+\label{thm:carmichael-dual-carrier}
+Let \(B\geq1\) be squarefree, let \(\ell\) be prime with
+\(\ell\mid L=\lambda(B)\), and put \(k=L/\ell\).  On
+\(G=(\mathbb Z/B\mathbb Z)^\times\), write
+\[
+ H=\{u\in G:u^k=1\},\qquad D=[G:H],\qquad
+ K(u)=1+\frac{D\boldsymbol 1_H(u)-1}{(D-1)^2}.
+\]
+Here \(D\geq2\), and \(K\) is the original native singleton kernel.
+For \(p\mid B\) and \(v\in(\mathbb Z/p\mathbb Z)^\times\), let
+\(i_p(v)\) be the genuine CRT unit whose \(p\)-coordinate is \(v\)
+and whose other coordinates are \(1\).  Define the carriers intrinsically by
+\[
+ A_K=\{p\mid B:\text{some }v\text{ has }K(i_p(v))\ne K(1)\},
+ \qquad R_K=\prod_{p\in A_K}p.
+\]
+Then
+\[
+ A_K=\{p\mid B:(p-1)\nmid k\},\qquad
+ R_K=\prod_{\substack{p\mid B\\(p-1)\nmid k}}p.
+\]
+For every subset \(J\) of the prime divisors of \(B\), the kernel is
+determined by the CRT coordinates in \(J\) if and only if \(A_K\subseteq J\).
+Equivalently, for every positive divisor \(d\mid B\), there exists
+\(f:(\mathbb Z/d\mathbb Z)^\times\to\mathbb R\) with
+\[
+ K(u)=f(u\bmod d)\quad(u\in G)
+ \qquad\Longleftrightarrow\qquad R_K\mid d.
+\]
+In particular, \(R_K>0\), \(R_K\mid B\), and \(R_K\) is the least
+actual reduction modulus among the divisors of \(B\).
+
+To compare with the additive observable, on \(\mathbb Z/B\mathbb Z\) put
+\[
+ u_B(a)=\boldsymbol 1_{a\text{ is a unit}},\quad
+ r_k(a)=\boldsymbol 1_{a\text{ is a unit and }a^k=1},\quad
+ U=\sum_a u_B(a),\quad T=\sum_a r_k(a),\quad
+ C_{B,k}=U r_k-Tu_B.
+\]
+For its full additive Fourier transform and every natural frequency \(h\),
+\[
+ \widehat C_{B,k}(h)=0\quad\Longleftrightarrow\quad R_K\mid h.
+\]
+Thus the same \(R_K\), defined from the native probability kernel alone,
+is the first positive zero frequency of the signed additive spectrum.
+\end{theorem}
+
+\begin{proof}
+The two possible values of the original kernel are
+\[
+ K(1)=1+\frac1{D-1},\qquad
+ K(u)=1-\frac1{(D-1)^2}\quad(u\notin H).
+\]
+Their difference is \(D/(D-1)^2>0\).  Consequently
+\(K(u)=K(1)\) exactly when \(u^k=1\).
+
+The genuine CRT equivalence carries \(i_p(v)^k=1\) to \(v^k=1\):
+every other coordinate is already \(1\).  The exponent of the unit group
+modulo the prime \(p\) is \(p-1\).  Therefore
+\[
+ \bigl(\forall v,\ K(i_p(v))=K(1)\bigr)
+ \quad\Longleftrightarrow\quad (p-1)\mid k.
+\]
+Negating this equivalence identifies \(A_K\) and proves the product formula.
+
+Suppose two units agree at every active coordinate.
+At every inactive coordinate all units have \(k\)-th power \(1\).
+At each active coordinate the two \(k\)-th powers agree.
+Their global \(k\)-th powers are therefore \(1\) simultaneously, so the
+two original kernel values agree.  This proves sufficiency of any
+coordinate set containing \(A_K\).
+Conversely, if \(J\) omits an active prime \(p\), choose \(v\) with
+\(K(i_p(v))\ne K(1)\).  The units \(i_p(v)\) and \(1\) agree on every
+coordinate of \(J\), disproving dependence on \(J\).  This proves necessity.
+
+For a positive divisor \(d\mid B\), actual reduction of units modulo
+\(B\) to units modulo \(d\) retains exactly the prime coordinates dividing
+\(d\).  This follows by applying the genuine CRT equivalences on both
+sides to the actual reduction homomorphism; each coordinate is ordinary
+reduction modulo that same prime.  Since \(B\) is squarefree,
+all active coordinates divide \(d\) exactly when their product divides
+\(d\).  The preceding coordinate criterion therefore says that the
+kernel is constant on reduction fibers exactly when \(R_K\mid d\).
+Reduction on units is surjective, so fiber constancy is equivalent to
+existence of the displayed function \(f\): choose one lift of each unit
+modulo \(d\), evaluate \(K\) on it, and use fiber constancy to show
+independence of the lift.
+The product consists of distinct prime divisors of \(B\), proving
+\(R_K>0\) and \(R_K\mid B\).  Taking \(d=R_K\) proves attainment,
+and the divisibility criterion proves minimality.
+
+Finally, apply the previously proved complete signed all-carrier
+additive readout to the same \(B\) and the same \(k=L/\ell\).
+It states, with the centering \(U r_k-Tu_B\) intact, that
+\(\widehat C_{B,k}(h)=0\) exactly when
+\(\prod_{p\mid B,\,(p-1)\nmid k}p\) divides \(h\).
+The intrinsic product just identified is exactly that product.
+Its positivity makes \(R_K\) itself a zero frequency and excludes every
+positive frequency below it.
+\end{proof}
+
+This is an exact squarefree bridge between two different observables.
+It is not an identification of the descended kernel with a newly
+canonical kernel at \(R_K\): the original \(L,k,D\) remain fixed.
+The Fourier zeros here are finite additive spectral zeros.
+No new assertion about Riemann zeros, witness retention under a zero
+mask, or an independent signed principal bound follows from this
+identification alone.  The certified zero-free exponent remains \(7/8\).
+
 \subsection{Intrinsic power-return spectra identify physical prime carriers}
 \label{sec:carmichael-intrinsic-spectrum}
 

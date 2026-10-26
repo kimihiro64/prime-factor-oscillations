@@ -1,0 +1,103 @@
+{
+  "date": "2026-10-26",
+  "lean_version": "4.34.0",
+  "focused_compile_exit_code": 0,
+  "focused_compile_chunk": "31a46b",
+  "new_axiom_reports": 17,
+  "targets": [
+    "PrimeFactorOscillations.CarmichaelDualCarrier.coordinateUnit_apply",
+    "PrimeFactorOscillations.CarmichaelDualCarrier.coordinateUnit_power_iff",
+    "PrimeFactorOscillations.CarmichaelDualCarrier.kernel_peak_iff_return",
+    "PrimeFactorOscillations.CarmichaelDualCarrier.coordinate_kernel_flat_iff",
+    "PrimeFactorOscillations.CarmichaelDualCarrier.kernel_eq_of_active_coordinates",
+    "PrimeFactorOscillations.CarmichaelDualCarrier.coordinate_support_iff",
+    "PrimeFactorOscillations.CarmichaelDualCarrier.kernelCarrierPrimes_eq",
+    "PrimeFactorOscillations.CarmichaelDualCarrier.kernelCarrierProduct_eq",
+    "PrimeFactorOscillations.CarmichaelDualCarrier.additive_zero_iff_kernelCarrier_dvd",
+    "PrimeFactorOscillations.CarmichaelDualCarrier.kernelCarrierProduct_pos",
+    "PrimeFactorOscillations.CarmichaelDualCarrier.first_positive_zero_kernelCarrier",
+    "PrimeFactorOscillations.CarmichaelDualCarrier.coordinate_reduction_val",
+    "PrimeFactorOscillations.CarmichaelDualCarrier.reduction_eq_iff_prime_coordinates",
+    "PrimeFactorOscillations.CarmichaelDualCarrier.kernel_reduction_iff",
+    "PrimeFactorOscillations.CarmichaelDualCarrier.kernelCarrierProduct_dvd_level",
+    "PrimeFactorOscillations.CarmichaelDualCarrier.kernelCarrierProduct_minimal",
+    "PrimeFactorOscillations.CarmichaelDualCarrier.exists_reduced_kernel_iff"
+  ],
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "reused_declarations": [
+    "PrimeFactorOscillations.CarmichaelPrimePacket.kernel_closed",
+    "PrimeFactorOscillations.CarmichaelPrimePacket.index_ge_two",
+    "PrimeFactorOscillations.PrimeOrderReturnIndex.squarefreeUnitEquiv",
+    "PrimeFactorOscillations.PrimeOrderReturnIndex.prime_unit_exponent",
+    "PrimeFactorOscillations.CarmichaelAllCarrierReadout.carrier_product_dvd_iff",
+    "PrimeFactorOscillations.CarmichaelAllCarrierReadout.all_carriers_intrinsic_readout",
+    "PrimeFactorOscillations.CarmichaelAllCarrierReadout.first_positive_zero_all_carriers",
+    "ZMod.unitsMap_surjective"
+  ],
+  "certified_zero_free_boundary": "7/8 unchanged",
+  "benchmark_status": "Exact squarefree probability/additive carrier bridge and least actual reduction modulus; no analytic exponent gain",
+  "old_bound": "Additive carrier zero lattice known; least modulus retaining the original native probability kernel not identified",
+  "new_bound": "Same positive R is least actual unit reduction modulus, exact active-coordinate support, and first positive additive zero frequency",
+  "components": {
+    "domain": "Every positive squarefree B, every prime ell dividing lambda(B), every natural frequency h, every positive divisor d of B",
+    "kernel": "Original global L, shortened power k, index D, normalization and masks retained",
+    "necessity": "Each omitted active coordinate supplies a genuine CRT counter-witness",
+    "sufficiency": "Inactive coordinate powers are identically one; active coordinate equality preserves the full return predicate",
+    "descent": "Actual unitsMap reduction; function exists iff R divides d; minimum attained",
+    "additive": "Full signed centered observable, not separate unsigned estimates",
+    "principal": "Independent analytic bound still open"
+  },
+  "actuals": "Universal symbolic Lean proof, no finite diagnostic",
+  "first_nonpositive_domain": "No signed analytic RH positivity bound installed",
+  "detector_error": "Unchanged",
+  "family_adapter": "Exact squarefree native probability kernel and centered additive power-return observable",
+  "uncancelled_main_terms": "No analytic signed main term is estimated here",
+  "low_estimate_provenance": "No new signed low-divisor estimate",
+  "parameter_domain": "All B>=1 squarefree; prime ell dividing lambda(B); h>=0; d>=1 with d|B",
+  "attainable_endpoint": "7/8 unchanged",
+  "overlap_check": {
+    "completed_inputs": "Existing all-carrier theorem gives the full signed additive zero lattice. Existing tame/wild/two-power results concern prime-power Dirichlet conductors, not the least squarefree original-kernel reduction modulus.",
+    "distinct_conclusion": "Intrinsic probability-coordinate carrier set, necessary and sufficient coordinate support, actual divisor-reduction function criterion and attained least modulus; identifies its product with the additive zero spacing.",
+    "existing_target": "A squarefree exact case and bridge within the already open full CRT active-carrier programme, not a renamed new research target.",
+    "primary_sources": [
+      "https://leanprover-community.github.io/mathlib4_docs/Mathlib/Data/ZMod/Basic.html",
+      "https://leanprover-community.github.io/mathlib4_docs/Mathlib/GroupTheory/Exponent.html"
+    ],
+    "priority_scope": "Project kernel bridge from established CRT/exponent facts; no exhaustive publication-priority claim."
+  },
+  "public_consumers_exit_code": 0,
+  "public_consumers_chunk": "8ed616",
+  "owners": [
+    {
+      "module": "PrimeFactorOscillations.Assembly.CarmichaelDualCarrier",
+      "source_sha256": "2c56c4dcff9764157e31ea58e85bb09b59e95e04240d12237a06460a5a386e9b",
+      "checked_source_sha256": "2c56c4dcff9764157e31ea58e85bb09b59e95e04240d12237a06460a5a386e9b",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelDualCarrier.coordinateUnit_apply",
+        "PrimeFactorOscillations.CarmichaelDualCarrier.coordinateUnit_power_iff",
+        "PrimeFactorOscillations.CarmichaelDualCarrier.kernel_peak_iff_return",
+        "PrimeFactorOscillations.CarmichaelDualCarrier.coordinate_kernel_flat_iff",
+        "PrimeFactorOscillations.CarmichaelDualCarrier.kernel_eq_of_active_coordinates",
+        "PrimeFactorOscillations.CarmichaelDualCarrier.coordinate_support_iff",
+        "PrimeFactorOscillations.CarmichaelDualCarrier.kernelCarrierPrimes_eq",
+        "PrimeFactorOscillations.CarmichaelDualCarrier.kernelCarrierProduct_eq",
+        "PrimeFactorOscillations.CarmichaelDualCarrier.additive_zero_iff_kernelCarrier_dvd",
+        "PrimeFactorOscillations.CarmichaelDualCarrier.kernelCarrierProduct_pos",
+        "PrimeFactorOscillations.CarmichaelDualCarrier.first_positive_zero_kernelCarrier",
+        "PrimeFactorOscillations.CarmichaelDualCarrier.coordinate_reduction_val",
+        "PrimeFactorOscillations.CarmichaelDualCarrier.reduction_eq_iff_prime_coordinates",
+        "PrimeFactorOscillations.CarmichaelDualCarrier.kernel_reduction_iff",
+        "PrimeFactorOscillations.CarmichaelDualCarrier.kernelCarrierProduct_dvd_level",
+        "PrimeFactorOscillations.CarmichaelDualCarrier.kernelCarrierProduct_minimal",
+        "PrimeFactorOscillations.CarmichaelDualCarrier.exists_reduced_kernel_iff"
+      ],
+      "source_normalization": "unchanged",
+      "kernel_build": "passed",
+      "axiom_audit": "standard_foundations_only"
+    }
+  ]
+}
