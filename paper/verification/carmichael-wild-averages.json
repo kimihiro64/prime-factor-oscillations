@@ -1,0 +1,145 @@
+{
+  "date": "2026-10-26",
+  "lean_version": "4.34.0",
+  "focused_compile_exit_code": 0,
+  "focused_compile_chunk": "d9ddbf",
+  "leaf_compile_chunks": {
+    "kernel_coset": "e4f410",
+    "progression_fiber": "d13073",
+    "wild_averages": "d9ddbf"
+  },
+  "new_axiom_reports": 24,
+  "new_axiom_chunk": "495817",
+  "targets": [
+    "PrimeFactorOscillations.CarmichaelKernelCoset.restriction_sum_zero",
+    "PrimeFactorOscillations.CarmichaelKernelCoset.inverse_restriction_sum_zero",
+    "PrimeFactorOscillations.CarmichaelKernelCoset.coset_character_sum_zero",
+    "PrimeFactorOscillations.CarmichaelKernelCoset.kernel_coset_sum",
+    "PrimeFactorOscillations.PrimeSquareProgressionFiber.position_coprime",
+    "PrimeFactorOscillations.PrimeSquareProgressionFiber.position_reduction",
+    "PrimeFactorOscillations.PrimeSquareProgressionFiber.point_injective",
+    "PrimeFactorOscillations.PrimeSquareProgressionFiber.point_bijective",
+    "PrimeFactorOscillations.PrimeSquareProgressionFiber.progression_sum_eq_coset",
+    "PrimeFactorOscillations.CarmichaelWildAverages.coarse_kernel_card",
+    "PrimeFactorOscillations.CarmichaelWildAverages.native_nonprincipal_coarse_nontrivial",
+    "PrimeFactorOscillations.CarmichaelWildAverages.native_coarse_sum",
+    "PrimeFactorOscillations.CarmichaelWildAverages.native_coarse_average",
+    "PrimeFactorOscillations.CarmichaelWildAverages.native_signed_coarse_sum",
+    "PrimeFactorOscillations.CarmichaelWildAverages.native_coarse_probability_mass",
+    "PrimeFactorOscillations.CarmichaelWildAverages.squareLift_spec",
+    "PrimeFactorOscillations.CarmichaelWildAverages.kernel_eq_reducedKernel",
+    "PrimeFactorOscillations.CarmichaelWildAverages.coarse_reduction_comp",
+    "PrimeFactorOscillations.CarmichaelWildAverages.coarseKernel_map_square",
+    "PrimeFactorOscillations.CarmichaelWildAverages.reduced_kernel_coarse_sum",
+    "PrimeFactorOscillations.CarmichaelWildAverages.nativePositionUnit_reduction",
+    "PrimeFactorOscillations.CarmichaelWildAverages.native_progression_sum",
+    "PrimeFactorOscillations.CarmichaelWildAverages.native_progression_average",
+    "PrimeFactorOscillations.CarmichaelWildAverages.native_signed_progression_sum"
+  ],
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "reused_declarations": [
+    "PrimeFactorOscillations.ReturnPacketPowerSupport.packet_sum_eq_zero_of_not_power",
+    "PrimeFactorOscillations.PrimePowerWildCharacterConductor.nonprincipal_not_factorsThrough_prime",
+    "PrimeFactorOscillations.CarmichaelWildConductor.wild_kernel_eq_of_reduction_eq",
+    "PrimeFactorOscillations.PrimePowerReturnSpectrum.conductor_kernel_card",
+    "PrimeFactorOscillations.CyclicConductorReduction.cyclic_subgroup_sum_pushforward"
+  ],
+  "certified_zero_free_boundary": "7/8 unchanged",
+  "benchmark_status": "Exact native signed probability averages over all prime-power coarse fibers and odd-prime p-term progressions; no analytic exponent gain",
+  "old_bound": "Native conductor support and reduction were proved; no exact original-kernel coarse-fiber mass or arbitrary-phase p-term progression cancellation consumer was installed. Global7/8.",
+  "new_bound": "All primes: each coarse unit fiber has exact probability mass1/(p-1) and original kernel average1. Odd primes: p actual positions n+jpt have exact original-kernel sum p at every depth and unit phase; a common signed B is exactly pB. Global7/8 unchanged.",
+  "components": {
+    "positive_supply": "Original normalized principal coefficient1; coarse sum p^(a+1) and odd short sum p",
+    "signed_corrections": "All surviving nonprincipal phases cancel in the same finite signed coset sum; no main-term norm or coefficient mass bound",
+    "multiplicity": "Actual reduction to p² retains full p^a fiber multiplicity before cancellation",
+    "actual_progression": "A compiled finite bijection enumerates the actual p² unit fiber using n+jpt with p coprime to n,t",
+    "exceptions": "All-prime coarse formula includes2; short p-term original-kernel formula is explicitly odd-prime only",
+    "principal": "Retained exactly, without an independent arithmetic upper estimate"
+  },
+  "actuals": "Universal Lean proof for all primes, depths, unit phases and stated coprime parameters; no finite-family analytic score.",
+  "first_nonpositive_domain": "No short progression claim at p=2 or nonunit n,t; no asserted prime recurrence or principal-wave upper bound",
+  "detector_error": "Existing detector unchanged; exact finite identities introduce no remainder",
+  "family_adapter": "Original native singleton-p Carmichael kernel at q=p^(a+2), all coarse unit fibers; odd-prime p-term actual progressions and every unit phase",
+  "uncancelled_main_terms": "Principal retained as p^(a+1)B on full fiber and pB on short progression",
+  "low_estimate_provenance": "No independent signed low-divisor or principal arithmetic estimate",
+  "parameter_domain": "All prime p,a>=0,u units for coarse identities; odd p,p coprime n,t,c any actual q-unit for short progression",
+  "attainable_endpoint": "7/8 unchanged",
+  "overlap_check": {
+    "completed_inputs": "Claims126-135 native wild conductor support, exact reductions, original kernel Fourier expansion, coarse cardinalities and two-power progression masks.",
+    "distinct_conclusion": "Full original native probability pushforward is uniform modulo p for every prime, and for every odd p all surviving modes cancel over p actual progression positions at all native depths and unit phases.",
+    "existing_target": "Completes exactly the odd-wild principal-unit and actual progression frontier recorded after claim135; existing fiber and CRT conditional theorems were inspected and their coprime-extension hypotheses distinguished.",
+    "primary_sources": [
+      "https://leanprover-community.github.io/mathlib4_docs/Mathlib/NumberTheory/DirichletCharacter/Basic.html"
+    ],
+    "priority_scope": "Project-specific native-kernel and actual-progression result based on classical finite character orthogonality. No broad literature priority claim."
+  },
+  "public_consumers_exit_code": 0,
+  "public_consumers_chunk": "dfeacd",
+  "public_facade_chunk": "4e533d",
+  "owners": [
+    {
+      "module": "PrimeFactorOscillations.Assembly.CarmichaelKernelCoset",
+      "source_sha256": "eb9396912bea1455c5b0ee2618380e7fcaa10af908dd32deb54fc3ad5b29cfe9",
+      "checked_source_sha256": "eb9396912bea1455c5b0ee2618380e7fcaa10af908dd32deb54fc3ad5b29cfe9",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelKernelCoset.restriction_sum_zero",
+        "PrimeFactorOscillations.CarmichaelKernelCoset.inverse_restriction_sum_zero",
+        "PrimeFactorOscillations.CarmichaelKernelCoset.coset_character_sum_zero",
+        "PrimeFactorOscillations.CarmichaelKernelCoset.kernel_coset_sum"
+      ],
+      "source_normalization": "unchanged",
+      "kernel_build": "passed",
+      "axiom_audit": "standard_foundations_only"
+    },
+    {
+      "module": "PrimeFactorOscillations.Assembly.CarmichaelWildAverages",
+      "source_sha256": "025c99b3cf75c6924d0f540fed9a7f58b62980d0e6d2b9f3efe5cae4a21e97d8",
+      "checked_source_sha256": "025c99b3cf75c6924d0f540fed9a7f58b62980d0e6d2b9f3efe5cae4a21e97d8",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelWildAverages.coarse_kernel_card",
+        "PrimeFactorOscillations.CarmichaelWildAverages.native_nonprincipal_coarse_nontrivial",
+        "PrimeFactorOscillations.CarmichaelWildAverages.native_coarse_sum",
+        "PrimeFactorOscillations.CarmichaelWildAverages.native_coarse_average",
+        "PrimeFactorOscillations.CarmichaelWildAverages.native_signed_coarse_sum",
+        "PrimeFactorOscillations.CarmichaelWildAverages.native_coarse_probability_mass",
+        "PrimeFactorOscillations.CarmichaelWildAverages.squareLift_spec",
+        "PrimeFactorOscillations.CarmichaelWildAverages.kernel_eq_reducedKernel",
+        "PrimeFactorOscillations.CarmichaelWildAverages.coarse_reduction_comp",
+        "PrimeFactorOscillations.CarmichaelWildAverages.coarseKernel_map_square",
+        "PrimeFactorOscillations.CarmichaelWildAverages.reduced_kernel_coarse_sum",
+        "PrimeFactorOscillations.CarmichaelWildAverages.nativePositionUnit_reduction",
+        "PrimeFactorOscillations.CarmichaelWildAverages.native_progression_sum",
+        "PrimeFactorOscillations.CarmichaelWildAverages.native_progression_average",
+        "PrimeFactorOscillations.CarmichaelWildAverages.native_signed_progression_sum"
+      ],
+      "source_normalization": "unchanged",
+      "kernel_build": "passed",
+      "axiom_audit": "standard_foundations_only"
+    },
+    {
+      "module": "PrimeFactorOscillations.Helpers.PrimeSquareProgressionFiber",
+      "source_sha256": "0d82d3d1bb001b6dfc530ec0a5ae74aa5ec655e1216a61656dc6c518239f18ff",
+      "checked_source_sha256": "0d82d3d1bb001b6dfc530ec0a5ae74aa5ec655e1216a61656dc6c518239f18ff",
+      "declarations": [
+        "PrimeFactorOscillations.PrimeSquareProgressionFiber.position_coprime",
+        "PrimeFactorOscillations.PrimeSquareProgressionFiber.position_reduction",
+        "PrimeFactorOscillations.PrimeSquareProgressionFiber.point_injective",
+        "PrimeFactorOscillations.PrimeSquareProgressionFiber.point_bijective",
+        "PrimeFactorOscillations.PrimeSquareProgressionFiber.progression_sum_eq_coset"
+      ],
+      "source_normalization": "unchanged",
+      "kernel_build": "passed",
+      "axiom_audit": "standard_foundations_only"
+    }
+  ],
+  "architecture_repair": {
+    "failure": "Helpers owner imported Assembly spectrum",
+    "correction": "Coset owner moved to Assembly; actual owners and public consumers recompiled",
+    "proof_bodies": "unchanged",
+    "axiom_policy": "Original24 new-declaration reports retained; no unchanged closure reaudit"
+  }
+}

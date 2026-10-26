@@ -11018,6 +11018,130 @@ Nor does exact mask balance give an independent upper bound on the
 retained principal signal.  The certified zero-free boundary is still
 \(7/8\).
 
+\subsection{Exact native coarse-fiber and wild progression cancellation}
+\label{sec:carmichael-wild-averages}
+
+The complementary two-power masks extend to a full family of exact
+averages.  These averages use the original native seed and its complete
+correlation, so the principal signal and every surviving character phase
+remain in the calculation.
+
+\begin{theorem}[Native coarse uniformity and odd-wild progression balance]
+\label{thm:carmichael-wild-averages}
+Let \(p\) be any prime, \(a\ge0\), \(q=p^{a+2}\), and
+\(G_q=(\mathbb Z/q\mathbb Z)^\times\).
+Let \(w=w_{q,\{p\}}\) be the original native Carmichael vacancy seed, and put
+\[
+ K_q(u)=
+ \frac{|G_q|\sum_{x\in G_q}w(x)w(xu)}
+      {(\sum_{x\in G_q}w(x))^2},\qquad
+ H_q=\ker(G_q\longrightarrow G_p).
+\]
+For every \(u\in G_q\),
+\[
+ |H_q|=p^{a+1},\qquad
+ \sum_{h\in H_q}K_q(uh)=p^{a+1},\qquad
+ \frac1{|G_q|}\sum_{h\in H_q}K_q(uh)=\frac1{p-1}.
+\]
+Thus the probability measure \(K_q(u)/|G_q|\) has exactly uniform
+pushforward onto the nonzero residues modulo \(p\).
+These assertions include \(p=2\).
+
+If \(p\) is odd, \(p\nmid n t\), and \(c\in G_q\), then the shorter
+progression identity holds:
+\[
+ \boxed{\quad
+ \sum_{j=0}^{p-1}K_q\bigl(c(n+jpt)\bigr)=p .
+ \quad}
+\]
+Every \(n+jpt\) is interpreted as its actual unit modulo \(q\).
+The average is exactly \(1\), independently of \(a,n,t,c\).
+For every signed \(B\in\mathbb R\),
+\[
+ \sum_{h\in H_q}K_q(uh)B=p^{a+1}B,\qquad
+ \sum_{j=0}^{p-1}K_q\bigl(c(n+jpt)\bigr)B=pB
+\]
+in their respective domains.  No sign hypothesis on \(B\) is needed.
+\end{theorem}
+
+\begin{proof}
+The completed native spectral theorem expands the full kernel as
+\[
+ K_q(u)=\sum_{\chi\bmod q}b_\chi\chi(u^{-1}),\qquad b_1=1.
+\]
+A nonprincipal survivor has \(\chi^p=1\), and the completed
+prime-power conductor theorem proves that it cannot factor through \(p\).
+This last statement holds for every prime, including \(2\).
+By the actual reduction-kernel criterion, its restriction to \(H_q\)
+is nontrivial.  Finite character orthogonality therefore gives
+\[
+ \sum_{h\in H_q}\chi((uh)^{-1})=0
+\]
+for every such survivor and every \(u\).
+The principal term contributes \(|H_q|\).
+Interchanging the complete finite sums proves the first sum identity;
+no coefficient or character phase is discarded.
+The completed reduction-cardinality theorem gives \(|H_q|=p^{a+1}\),
+while \(|G_q|=p^{a+1}(p-1)\).
+The stated probability mass follows, with nonzero denominators.
+The existing normalization and nonnegativity of the native kernel make
+this a probability pushforward.
+
+Now suppose \(p\) is odd.
+The completed native conductor theorem makes \(K_q\) constant on actual
+reduction fibers modulo \(p^2\).
+Choose any lift of a unit \(v\bmod p^2\), and define
+\(\widetilde K_q(v)\) to be \(K_q\) at that lift.
+The same fiber theorem proves
+\(K_q(u)=\widetilde K_q(u\bmod p^2)\), independently of the chosen lift.
+This is the descended original kernel; it is not a newly defined
+canonical seed at a smaller period.
+
+Reduction maps \(H_q\) onto
+\(H_2=\ker(G_{p^2}\to G_p)\).
+Its kernel has size \(p^a\), so the full signed finite pushforward gives
+\[
+ p^a\sum_{h\in H_2}\widetilde K_q(vh)=p^{a+1},
+ \qquad
+ \sum_{h\in H_2}\widetilde K_q(vh)=p.
+\]
+In Lean the pushforward is obtained from the existing cyclic-subgroup
+sum theorem, retaining its exact multiplicity \(p^a\).
+
+It remains to identify the actual progression.
+Every \(n+jpt\) is coprime to \(p\).
+The \(p\) quotients
+\[
+ h_j=(n+jpt)n^{-1}\pmod {p^2},\qquad 0\le j<p,
+\]
+belong to \(H_2\).
+If \(h_j=h_k\), cancellation of the unit \(t\) gives
+\(jp\equiv kp\pmod {p^2}\).
+Both \(jp\) and \(kp\) lie in \([0,p^2)\), so \(j=k\).
+Since \(|H_2|=p\), this is a bijection onto the whole fiber.
+Reindex its exact finite sum, taking
+\(v=(c\bmod p^2)(n\bmod p^2)\).
+The result is the boxed identity at the original level \(q\).
+Finally distribute the common signed \(B\) through each finite sum.
+\end{proof}
+
+The odd-prime short identity cancels all surviving nonprincipal
+conductor-\(p^2\) modes simultaneously, for every unit phase; the
+principal common signal is retained exactly.
+The all-prime coarse-fiber statement and the odd-prime short progression
+statement have different domains.
+In particular, the short statement has not been extended to the
+exceptional two-power kernels, whose actual reductions were treated
+separately above.
+
+The progression positions in this theorem need not be primes.
+Using the identity on actual prime constellations requires a separate
+prime-shape or recurrence argument; the bounded-gap ascent locator does
+not by itself supply these particular progressions.
+Nor does exact cancellation give an independent upper estimate for the
+retained principal RH signal.
+The certified zero-free boundary remains \(7/8\).
+
 \subsection{Intrinsic power-return spectra identify physical prime carriers}
 \label{sec:carmichael-intrinsic-spectrum}
 

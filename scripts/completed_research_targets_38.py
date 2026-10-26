@@ -1,0 +1,28 @@
+"""Original native coarse-fiber and odd-wild progression cancellation targets."""
+
+TARGETS = (
+    "PrimeFactorOscillations.CarmichaelKernelCoset.restriction_sum_zero",
+    "PrimeFactorOscillations.CarmichaelKernelCoset.inverse_restriction_sum_zero",
+    "PrimeFactorOscillations.CarmichaelKernelCoset.coset_character_sum_zero",
+    "PrimeFactorOscillations.CarmichaelKernelCoset.kernel_coset_sum",
+    "PrimeFactorOscillations.PrimeSquareProgressionFiber.position_coprime",
+    "PrimeFactorOscillations.PrimeSquareProgressionFiber.position_reduction",
+    "PrimeFactorOscillations.PrimeSquareProgressionFiber.point_injective",
+    "PrimeFactorOscillations.PrimeSquareProgressionFiber.point_bijective",
+    "PrimeFactorOscillations.PrimeSquareProgressionFiber.progression_sum_eq_coset",
+    "PrimeFactorOscillations.CarmichaelWildAverages.coarse_kernel_card",
+    "PrimeFactorOscillations.CarmichaelWildAverages.native_nonprincipal_coarse_nontrivial",
+    "PrimeFactorOscillations.CarmichaelWildAverages.native_coarse_sum",
+    "PrimeFactorOscillations.CarmichaelWildAverages.native_coarse_average",
+    "PrimeFactorOscillations.CarmichaelWildAverages.native_signed_coarse_sum",
+    "PrimeFactorOscillations.CarmichaelWildAverages.native_coarse_probability_mass",
+    "PrimeFactorOscillations.CarmichaelWildAverages.squareLift_spec",
+    "PrimeFactorOscillations.CarmichaelWildAverages.kernel_eq_reducedKernel",
+    "PrimeFactorOscillations.CarmichaelWildAverages.coarse_reduction_comp",
+    "PrimeFactorOscillations.CarmichaelWildAverages.coarseKernel_map_square",
+    "PrimeFactorOscillations.CarmichaelWildAverages.reduced_kernel_coarse_sum",
+    "PrimeFactorOscillations.CarmichaelWildAverages.nativePositionUnit_reduction",
+    "PrimeFactorOscillations.CarmichaelWildAverages.native_progression_sum",
+    "PrimeFactorOscillations.CarmichaelWildAverages.native_progression_average",
+    "PrimeFactorOscillations.CarmichaelWildAverages.native_signed_progression_sum",
+)

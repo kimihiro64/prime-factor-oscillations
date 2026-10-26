@@ -6166,6 +6166,60 @@
       "source_normalization": "unchanged",
       "kernel_build": "passed",
       "axiom_audit": "standard_foundations_only"
+    },
+    {
+      "module": "PrimeFactorOscillations.Assembly.CarmichaelKernelCoset",
+      "source_sha256": "eb9396912bea1455c5b0ee2618380e7fcaa10af908dd32deb54fc3ad5b29cfe9",
+      "checked_source_sha256": "eb9396912bea1455c5b0ee2618380e7fcaa10af908dd32deb54fc3ad5b29cfe9",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelKernelCoset.restriction_sum_zero",
+        "PrimeFactorOscillations.CarmichaelKernelCoset.inverse_restriction_sum_zero",
+        "PrimeFactorOscillations.CarmichaelKernelCoset.coset_character_sum_zero",
+        "PrimeFactorOscillations.CarmichaelKernelCoset.kernel_coset_sum"
+      ],
+      "source_normalization": "unchanged",
+      "kernel_build": "passed",
+      "axiom_audit": "standard_foundations_only"
+    },
+    {
+      "module": "PrimeFactorOscillations.Assembly.CarmichaelWildAverages",
+      "source_sha256": "025c99b3cf75c6924d0f540fed9a7f58b62980d0e6d2b9f3efe5cae4a21e97d8",
+      "checked_source_sha256": "025c99b3cf75c6924d0f540fed9a7f58b62980d0e6d2b9f3efe5cae4a21e97d8",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelWildAverages.coarse_kernel_card",
+        "PrimeFactorOscillations.CarmichaelWildAverages.native_nonprincipal_coarse_nontrivial",
+        "PrimeFactorOscillations.CarmichaelWildAverages.native_coarse_sum",
+        "PrimeFactorOscillations.CarmichaelWildAverages.native_coarse_average",
+        "PrimeFactorOscillations.CarmichaelWildAverages.native_signed_coarse_sum",
+        "PrimeFactorOscillations.CarmichaelWildAverages.native_coarse_probability_mass",
+        "PrimeFactorOscillations.CarmichaelWildAverages.squareLift_spec",
+        "PrimeFactorOscillations.CarmichaelWildAverages.kernel_eq_reducedKernel",
+        "PrimeFactorOscillations.CarmichaelWildAverages.coarse_reduction_comp",
+        "PrimeFactorOscillations.CarmichaelWildAverages.coarseKernel_map_square",
+        "PrimeFactorOscillations.CarmichaelWildAverages.reduced_kernel_coarse_sum",
+        "PrimeFactorOscillations.CarmichaelWildAverages.nativePositionUnit_reduction",
+        "PrimeFactorOscillations.CarmichaelWildAverages.native_progression_sum",
+        "PrimeFactorOscillations.CarmichaelWildAverages.native_progression_average",
+        "PrimeFactorOscillations.CarmichaelWildAverages.native_signed_progression_sum"
+      ],
+      "source_normalization": "unchanged",
+      "kernel_build": "passed",
+      "axiom_audit": "standard_foundations_only"
+    },
+    {
+      "module": "PrimeFactorOscillations.Helpers.PrimeSquareProgressionFiber",
+      "source_sha256": "0d82d3d1bb001b6dfc530ec0a5ae74aa5ec655e1216a61656dc6c518239f18ff",
+      "checked_source_sha256": "0d82d3d1bb001b6dfc530ec0a5ae74aa5ec655e1216a61656dc6c518239f18ff",
+      "declarations": [
+        "PrimeFactorOscillations.PrimeSquareProgressionFiber.position_coprime",
+        "PrimeFactorOscillations.PrimeSquareProgressionFiber.position_reduction",
+        "PrimeFactorOscillations.PrimeSquareProgressionFiber.point_injective",
+        "PrimeFactorOscillations.PrimeSquareProgressionFiber.point_bijective",
+        "PrimeFactorOscillations.PrimeSquareProgressionFiber.progression_sum_eq_coset"
+      ],
+      "source_normalization": "unchanged",
+      "kernel_build": "passed",
+      "axiom_audit": "standard_foundations_only"
     }
   ],
   "newest_owners": [
@@ -6235,8 +6289,11 @@
     "PrimeFactorOscillations.Assembly.CarmichaelMaximalConductor",
     "PrimeFactorOscillations.Assembly.CarmichaelComplementaryAscent",
     "PrimeFactorOscillations.Assembly.CarmichaelResidueAscent",
-    "PrimeFactorOscillations.Assembly.CarmichaelProgressionMasks"
+    "PrimeFactorOscillations.Assembly.CarmichaelProgressionMasks",
+    "PrimeFactorOscillations.Assembly.CarmichaelKernelCoset",
+    "PrimeFactorOscillations.Assembly.CarmichaelWildAverages",
+    "PrimeFactorOscillations.Helpers.PrimeSquareProgressionFiber"
   ],
   "certified_zero_free_boundary": "7/8",
-  "proof_target_count": 3036
+  "proof_target_count": 3060
 }
