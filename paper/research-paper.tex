@@ -9839,6 +9839,77 @@ nor an improvement of the certified \(7/8\) zero-free boundary is asserted.
 The finite-group descent principle is classical; the result here applies
 it to the exact native return spectrum and its ascent-facing kernel.
 
+\subsection{Exact primitive transfer and inflation-independent QRH bounds}
+\label{sec:carmichael-tame-chebyshev}
+
+The conductor classification has an analytic consumer with no residual
+imprimitive correction.  Here the prime-power presentation adds no new
+excluded primes to the Euler product.
+
+\begin{theorem}[Exact primitive transfer for native tame modes]
+\label{thm:carmichael-tame-chebyshev}
+Let \(p\) be a prime, \(a\geq0\), \(q=p^{a+1}\), and let \(\chi\)
+be a Dirichlet character modulo \(q\) with conductor \(p\).  Write
+\(\chi^\ast\) for its associated primitive character.  Then
+\[
+  \chi(n)=\chi^\ast(n)\quad(n\in\mathbb N),
+  \qquad
+  \psi(x,\chi)=\psi(x,\chi^\ast)\quad(x\in\mathbb N),
+\]
+where
+\(\psi(x,\chi)=\sum_{1\leq n\leq x}\Lambda(n)\chi(n)\).
+The equality includes \(n=0\) and all nonunits.
+
+There is a universal real constant \(A>0\), chosen before \(p,a,\ell,\chi\)
+and \(x\), such that the following holds.  If \(\ell\mid\lambda(q)\)
+is a prime label coprime to \(p\), and \(\chi\ne1\) is a surviving
+character of the original native singleton kernel, then, for every
+integer \(x\geq2\),
+\[
+  |\psi(x,\chi)|
+    \leq A x^{7/8}
+      \bigl(1+\log p+\log(x+2)\bigr)^2.
+\]
+The constant and the logarithmic factor are independent of the
+inflation exponent \(a\).
+\end{theorem}
+
+\begin{proof}
+If \(\gcd(n,p)=1\), then \(\gcd(n,p^{a+1})=1\), so the standard
+primitive-character agreement at inputs coprime to the level gives
+\(\chi(n)=\chi^\ast(n)\).
+If \(\gcd(n,p)\ne1\), then \(n\) is not coprime to either the level
+\(p^{a+1}\) or the conductor \(p\).  Both character values are therefore
+exactly zero.  These cases also cover \(n=0\).
+Substitute this equality in every term of the defining finite
+Chebyshev sum.  This proves the sum identity before any inequality.
+
+For a nonprincipal surviving native tame mode,
+Theorem~\ref{thm:carmichael-tame-conductor} gives
+\(\operatorname{cond}(\chi)=p\).
+Its associated primitive character remains nonprincipal and has level
+at least \(3\).  Apply the already proved unconditional QRH
+primitive-character Chebyshev bound, whose universal constant is chosen
+before the conductor, character and argument:
+\[
+ |\psi(x,\chi^\ast)|
+ \leq A x^{7/8}
+    \bigl(1+\log\operatorname{cond}(\chi)+\log(x+2)\bigr)^2.
+\]
+Use the exact sum identity and then the exact equality
+\(\operatorname{cond}(\chi)=p\).  No Euler correction, growing
+multiplicity, or discarded phase is absorbed into the constant.
+\end{proof}
+
+The generic imprimitive estimate uses \(\log q=(a+1)\log p\); this
+consumer uses \(\log p\) even when \(a\) grows without bound.
+The constant \(A\) is universal and positive but is not assigned a
+numerical value here.  This is a genuine improvement in family
+uniformity, with the certified power \(7/8\) unchanged.
+The theorem bounds individual nonprincipal modes.  The principal
+coefficient of the native kernel is still \(1\), and its signed
+RH-detecting wave has not acquired an independent upper bound.
+
 \subsection{Intrinsic power-return spectra identify physical prime carriers}
 \label{sec:carmichael-intrinsic-spectrum}
 

@@ -1,0 +1,61 @@
+{
+  "date": "2026-10-26",
+  "lean_version": "4.34.0",
+  "native_compile_exit_code": 0,
+  "native_compile_chunk": "4160c1",
+  "public_consumers_exit_code": 0,
+  "public_consumers_chunk": "9f5619",
+  "new_axiom_reports": 3,
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "targets": [
+    "PrimeFactorOscillations.CarmichaelTameChebyshev.character_eq_primitive_on_nat",
+    "PrimeFactorOscillations.CarmichaelTameChebyshev.characterChebyshevSum_eq_primitive",
+    "PrimeFactorOscillations.CarmichaelTameChebyshev.exists_tame_survivor_chebyshev_bound"
+  ],
+  "reused_declarations": [
+    "PrimeFactorOscillations.CarmichaelPrimeConductor.tame_nonprincipal_survivor_conductor",
+    "PrimeFactorOscillations.QRH.exists_primitive_characterChebyshevSum_le_seven_eighths",
+    "DirichletCharacter.primitiveCharacter_apply_of_isCoprime",
+    "DirichletCharacter.apply_eq_zero_iff",
+    "BombieriVinogradov.DirichletCharacter.primitiveCharacter_ne_one_of_ne_one",
+    "BombieriVinogradov.DirichletCharacter.three_le_level_of_ne_one"
+  ],
+  "certified_zero_free_boundary": "7/8 unchanged",
+  "benchmark_status": "exact primitive transfer and improved parameter uniformity; exponent unchanged",
+  "old_bound": "A' x^(7/8)*(1+(a+1)*log(p)+log(x+2))^2 from the generic imprimitive estimate",
+  "new_bound": "A x^(7/8)*(1+log(p)+log(x+2))^2 for every surviving nonprincipal native tame mode, uniformly in a",
+  "components": {
+    "constant": "A>0 universal from the proved primitive QRH theorem; no numerical value assigned",
+    "primitive_transfer": "Exact equality at every natural input, including0 and nonunits, hence exact Chebyshev equality",
+    "Euler_correction": "Exactly zero in this prime-power/prime-conductor case",
+    "principal_wave": "Not bounded by this theorem",
+    "family_domain": "All primep, a>=0, prime labell coprime to p with l|lambda(p^(a+1)), all nonprincipal surviving chi, all naturalx>=2"
+  },
+  "actuals": "Symbolic uniform theorem, not a numerical sweep",
+  "first_nonpositive_domain": "Not applicable; this is a bound on individual nonprincipal character sums, not a signed RH positivity bound",
+  "overlap_check": {
+    "completed_inputs": "Generic imprimitive QRH bound in QRHCharacterChebyshev uses log(level); newly proved native tame conductor theorem identifies the actual primitive conductorp.",
+    "distinct_conclusion": "Exact removal of the imprimitive Euler correction and a uniform native tame-mode bound independent of arbitrarily growing prime-power inflation.",
+    "primary_source": "https://leanprover-community.github.io/mathlib4_docs/Mathlib/NumberTheory/DirichletCharacter/Basic.html",
+    "priority_scope": "Classical primitive-character facts and the installed QRH theorem are reused; no new QRH exponent or exhaustive publication-priority claim."
+  },
+  "owners": [
+    {
+      "module": "PrimeFactorOscillations.Assembly.CarmichaelTameChebyshev",
+      "source_sha256": "6b298fd9a5df18ce7a48f60d7665d252ab7348b1c2fd34d404d9020e6ce87dd7",
+      "checked_source_sha256": "6b298fd9a5df18ce7a48f60d7665d252ab7348b1c2fd34d404d9020e6ce87dd7",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelTameChebyshev.character_eq_primitive_on_nat",
+        "PrimeFactorOscillations.CarmichaelTameChebyshev.characterChebyshevSum_eq_primitive",
+        "PrimeFactorOscillations.CarmichaelTameChebyshev.exists_tame_survivor_chebyshev_bound"
+      ],
+      "source_normalization": "unchanged",
+      "kernel_build": "passed",
+      "axiom_audit": "standard_foundations_only"
+    }
+  ]
+}
