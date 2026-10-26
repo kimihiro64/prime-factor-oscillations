@@ -8849,6 +8849,134 @@ publication priority for this formulation is not asserted.
 Prime-base applications still require a uniform sampling estimate.
 The certified zero-free boundary remains \(7/8\).
 
+\subsection{Uniform erasure with the principal mass preserved}
+\label{sec:carmichael-tail-projection}
+
+The preceding tail theorem compares two fibers whose small gates agree.
+A different operation retains the small gates themselves and erases
+only large redundant coordinates. It applies to arbitrary pairs of old
+units, with no agreement hypothesis.
+
+\begin{theorem}[Uniform projection of the actual return law]
+\label{thm:carmichael-tail-projection}
+Let \(m,B\ge1\) be coprime, put \(E=\lambda(mB)\), and let
+\(S\) be the prime divisors of \(E\). For \(\ell\in S\), set
+\[
+ e_\ell=\bigl|\{v^{E/\ell}:v\in(\mathbb Z/B\mathbb Z)^\times\}\bigr|,
+ \qquad
+ K_Y=\{\ell\in S:\ell\le Y\ \text{or}\ e_\ell<\ell^2\},
+ \quad Y\in\mathbb N.
+\]
+For an old unit \(a\bmod m\), let \(P_a\) be its actual conditional
+return-pattern law under uniform sampling of the auxiliary unit.
+Let \(\pi_Y\) keep the bits in \(K_Y\) and replace every other bit by
+zero, and define the actual pushforward
+\[
+ P_a^Y(z)=\sum_{\substack{u\in\{0,1\}^{S}\\\pi_Y(u)=z}}P_a(u).
+\]
+For any old units \(a,b\), write \(d,d_Y\) for the total variation
+distances between the full and projected laws, and
+\(\mathcal E,\mathcal E_Y\) for their squared Hellinger distances
+in the convention \(\sum_z(\sqrt{P(z)}-\sqrt{Q(z)})^2\).
+Then, uniformly over \(m,B,a,b\) and the entire packet,
+\[
+ 0\le d-d_Y\le T(Y),\qquad
+ 0\le\mathcal E-\mathcal E_Y\le\Phi(Y),
+ \quad
+ T(Y)=\sum_{\substack{\ell>Y\\\ell\ {\rm prime}}}\ell^{-2},
+ \quad
+ \Phi(Y)=2\bigl(1-\sqrt{1-T(Y)}\bigr).
+\]
+Both majorants, multiplied by \(Y\log Y\), tend to one.
+
+Let \(g_a(\ell)=\boldsymbol1_{\{a^{E/\ell}=1\bmod m\}}\).
+The principal vacancy has the exact factorization
+\[
+ V_a=V_a^Y R_a,\qquad
+ R_a=\prod_{\substack{\ell\in S\setminus K_Y\\g_a(\ell)=1}}
+                  (1-e_\ell^{-1}),\qquad
+ 0<R_a\le1,\qquad 1-T(Y)\le R_a.
+\]
+Thus \(V_a=0\) if and only if \(V_a^Y=0\), and \(V_a>0\) if and
+only if \(V_a^Y>0\). For \(Y\ge3\), the uniform positive floor
+\(0<1-2/Y\le R_a\) also holds.
+If \(B\) is squarefree, write \(r_\ell\) for the auxiliary carrier
+rank. The retained set has the exact physical description
+\[
+ K_Y=\{\ell\in S:\ell\le Y\ \text{or}\ r_\ell\le1\}.
+\]
+\end{theorem}
+
+\begin{proof}
+The actual product law has coordinate success rate \(e_\ell^{-1}\)
+when \(g_a(\ell)=1\), and deterministic zero otherwise.
+Summing over all preimages of \(\pi_Y\) replaces its gate by
+\(\boldsymbol1_{K_Y}g_a\); each erased coordinate sums to one.
+This proves the pushforward identity, rather than assigning an
+unproved new arithmetic family to the altered gates.
+
+Keep both directed overlap products. They factor exactly as
+\(A=A_YA_{\rm tail}\) and \(B=B_YB_{\rm tail}\).
+Their factors lie in \([0,1]\). Consequently
+\[
+ \min(A_Y,B_Y)\min(A_{\rm tail},B_{\rm tail})
+ \le\min(A,B)\le\min(A_Y,B_Y).
+\]
+Using the exact total variation formula gives the stronger comparison
+\[
+ 0\le d-d_Y\le(1-d_Y)d_{\rm tail}\le d_{\rm tail}.
+\]
+The corresponding exact Hellinger identity is
+\[
+ \mathcal E=\mathcal E_Y+\mathcal E_{\rm tail}
+             -\frac12\mathcal E_Y\mathcal E_{\rm tail}.
+\]
+Since \(0\le\mathcal E_Y\le2\), it implies
+\(0\le\mathcal E-\mathcal E_Y\le\mathcal E_{\rm tail}\).
+The compensation term has not been discarded in deriving either bound.
+
+Every discarded label satisfies \(\ell>Y\) and
+\(e_\ell^{-1}\le\ell^{-2}\).
+The sum of success rates over the discarded gate disagreements is
+therefore at most \(T(Y)\), by the existing finite-prime-tail
+embedding. The earlier mismatch-cost bounds now give
+\(d_{\rm tail}\le T(Y)\) and
+\(\mathcal E_{\rm tail}\le\Phi(Y)\).
+The previously proved asymptotics of \(T\) and \(\Phi\) supply
+the stated uniform information scale.
+
+At the all-zero pattern, the full product separates into the
+retained vacancy and precisely the displayed factor \(R_a\).
+The one-fiber erasure formula gives
+\(1-R_a=d_{\rm TV}(P_a,P_a^Y)\le T(Y)\), and \(R_a\le1\).
+Each erased factor is strictly positive because
+\(e_\ell\ge\ell^2>1\); hence \(R_a>0\) even at cutoffs where
+the tail bound alone would not imply positivity.
+The zero and positive branches follow without dividing by a vacancy.
+For \(Y\ge3\), use \(T(Y)\le2/Y<1\).
+
+Finally, for squarefree \(B\) the already proved identity
+\(e_\ell=\ell^{r_\ell}\) makes \(e_\ell<\ell^2\) equivalent to
+\(r_\ell\le1\). This includes the frozen rank-zero branch.
+\end{proof}
+
+The maintained owners are
+\texttt{Assembly/CarmichaelProfileProjection.lean} and
+\texttt{Assembly/CarmichaelTailProjection.lean}.
+They prove the actual zero-padded pushforward, both directed overlap
+factorizations, the joint distance comparisons and exact Hellinger
+chain, the arithmetic tail consumer, the exact principal multiplier,
+its zero and positive branches and uniform floor, and the squarefree
+rank classification. No feasibility assumption is imposed.
+The label \(2\) is included; for \(Y\ge2\) it is retained automatically.
+The theorem allows nonsquarefree auxiliary moduli, including powers of
+two; squarefreeness is used only for the final carrier-rank description.
+The product-measure identities are classical in origin; publication
+priority for this arithmetic projection formulation is not asserted.
+This is a uniform finite-unit probability theorem. A simultaneous
+growing-modulus prime-base application still needs its own sampling
+estimate. The certified zero-free boundary remains \(7/8\).
+
 \subsection{Odd return packets have no quadratic character modes}
 \label{sec:odd-return-character-support}
 

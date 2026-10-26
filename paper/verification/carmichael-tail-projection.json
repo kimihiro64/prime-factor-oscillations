@@ -1,0 +1,129 @@
+{
+  "date": "2026-10-25",
+  "lean_version": "4.34.0",
+  "core_compile_exit_code": 0,
+  "core_compile_chunk": "4ed0d9",
+  "leaf_compile_exit_code": 0,
+  "leaf_compile_chunk": "dd0c50",
+  "public_consumers_exit_code": 0,
+  "public_consumers_chunk": "d3d3d7",
+  "new_axiom_reports": 24,
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "latex_compile": "success",
+  "targets": [
+    "PrimeFactorOscillations.CarmichaelProfileProjection.erasedLaw_eq_gatedLaw",
+    "PrimeFactorOscillations.CarmichaelProfileProjection.overlapMass_split",
+    "PrimeFactorOscillations.CarmichaelProfileProjection.reverse_projection_overlap_one",
+    "PrimeFactorOscillations.CarmichaelProfileProjection.vacancy_projection_factor",
+    "PrimeFactorOscillations.CarmichaelProfileProjection.projection_variation_eq",
+    "PrimeFactorOscillations.CarmichaelProfileProjection.projection_energy_eq",
+    "PrimeFactorOscillations.CarmichaelProfileProjection.projection_cost_eq_removed",
+    "PrimeFactorOscillations.CarmichaelProfileProjection.variation_projection_bounds",
+    "PrimeFactorOscillations.CarmichaelProfileProjection.energy_projection_chain",
+    "PrimeFactorOscillations.CarmichaelProfileProjection.energy_nonneg",
+    "PrimeFactorOscillations.CarmichaelProfileProjection.energy_le_two",
+    "PrimeFactorOscillations.CarmichaelProfileProjection.energy_projection_bounds",
+    "PrimeFactorOscillations.CarmichaelTailProjection.retained_profile_eq_gatedLaw",
+    "PrimeFactorOscillations.CarmichaelTailProjection.discarded_label_bounds",
+    "PrimeFactorOscillations.CarmichaelTailProjection.removed_cost_le_prime_tail",
+    "PrimeFactorOscillations.CarmichaelTailProjection.removed_packet_cost_le_tail",
+    "PrimeFactorOscillations.CarmichaelTailProjection.fiber_projection_distortion",
+    "PrimeFactorOscillations.CarmichaelTailProjection.vacancy_projection_identity",
+    "PrimeFactorOscillations.CarmichaelTailProjection.erased_vacancy_factor_bounds",
+    "PrimeFactorOscillations.CarmichaelTailProjection.erased_vacancy_uniform_floor",
+    "PrimeFactorOscillations.CarmichaelTailProjection.erased_vacancy_factor_pos",
+    "PrimeFactorOscillations.CarmichaelTailProjection.retained_vacancy_zero_iff",
+    "PrimeFactorOscillations.CarmichaelTailProjection.retained_vacancy_pos_iff",
+    "PrimeFactorOscillations.CarmichaelTailProjection.squarefree_retention_iff"
+  ],
+  "reused_declarations": [
+    "PrimeFactorOscillations.CarmichaelRedundantTail.finite_reciprocal_square_tail_le",
+    "PrimeFactorOscillations.CarmichaelRedundantTail.gated_variation_le_mismatch_cost",
+    "PrimeFactorOscillations.CarmichaelRedundantTail.gated_energy_le_mismatch_cost",
+    "PrimeFactorOscillations.tendsto_primeReciprocalSquareTail_scaled",
+    "PrimeFactorOscillations.CarmichaelRedundantTail.tendsto_redundantEnergyTail_scaled",
+    "PrimeFactorOscillations.CarmichaelConditionalRigidity.auxiliary_index_prime_pow",
+    "PrimeFactorOscillations.CarmichaelConditionalRigidity.auxiliary_power_le_index"
+  ],
+  "certified_zero_free_boundary": "7/8 unchanged",
+  "benchmark_status": "Proved uniform distortion bound for actual full-unit conditional laws; no analytic zero-free gain.",
+  "old_bound": {
+    "variation_distortion": "1 without low-gate agreement",
+    "energy_distortion": "2 without low-gate agreement",
+    "principal_multiplier": "No exact actual-law erasure consumer in the preceding result",
+    "zero_free_boundary": "7/8"
+  },
+  "new_bound": {
+    "variation_distortion": "0 <= full-retained <= T(Y)",
+    "energy_distortion": "0 <= full-retained <= Phi(Y)",
+    "principal_multiplier": "full_vacancy=retained_vacancy*R; 0<R<=1 and 1-T(Y)<=R; Y>=3 gives 0<1-2/Y<=R",
+    "zero_free_boundary": "7/8 unchanged"
+  },
+  "components": [
+    "Actual zero-padded pushforward of every conditional fiber law",
+    "Both directed overlap products split into retained and removed factors",
+    "TV gap <= (1-TV_retained)*TV_removed",
+    "Energy_full=Energy_retained+Energy_removed-Energy_retained*Energy_removed/2",
+    "Only primes above Y with image index >= prime squared are removed",
+    "Exact positive principal vacancy multiplier and both zero and positive branches",
+    "Squarefree auxiliary retention iff label<=Y or auxiliary rank<=1"
+  ],
+  "actuals": "Exact arithmetic laws and identities used symbolically. No numerical replacement of an unresolved remainder.",
+  "first_nonpositive_domain": "No failure domain for these distance upper bounds. The explicit lower floor 1-2/Y is positive for Y>=3; finite-product positivity of R holds at every natural cutoff.",
+  "overlap_check": {
+    "scope": "Public sources and plans and canonical private goal, branch, decision and proof records; bounded selected-field reads.",
+    "matched_prior_work": "Existing rank/vacancy budgets, redundant-tail bounds requiring original low-gate agreement, and the older coefficient-ratio coordinate-removal programme.",
+    "distinct_conclusion": "Uniform full-versus-actual-marginal distance distortion for arbitrary two fibers, with exact strictly positive principal multiplier and squarefree physical classification.",
+    "priority": "Product-measure identities are classical; publication priority for this arithmetic projection formulation is not asserted."
+  },
+  "owners": [
+    {
+      "module": "PrimeFactorOscillations.Assembly.CarmichaelProfileProjection",
+      "source_sha256": "e9079c45a7494659ae4dc9ba24651740c1b5564b60685b9301f40222e079de94",
+      "checked_source_sha256": "e9079c45a7494659ae4dc9ba24651740c1b5564b60685b9301f40222e079de94",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelProfileProjection.erasedLaw_eq_gatedLaw",
+        "PrimeFactorOscillations.CarmichaelProfileProjection.overlapMass_split",
+        "PrimeFactorOscillations.CarmichaelProfileProjection.reverse_projection_overlap_one",
+        "PrimeFactorOscillations.CarmichaelProfileProjection.vacancy_projection_factor",
+        "PrimeFactorOscillations.CarmichaelProfileProjection.projection_variation_eq",
+        "PrimeFactorOscillations.CarmichaelProfileProjection.projection_energy_eq",
+        "PrimeFactorOscillations.CarmichaelProfileProjection.projection_cost_eq_removed",
+        "PrimeFactorOscillations.CarmichaelProfileProjection.variation_projection_bounds",
+        "PrimeFactorOscillations.CarmichaelProfileProjection.energy_projection_chain",
+        "PrimeFactorOscillations.CarmichaelProfileProjection.energy_nonneg",
+        "PrimeFactorOscillations.CarmichaelProfileProjection.energy_le_two",
+        "PrimeFactorOscillations.CarmichaelProfileProjection.energy_projection_bounds"
+      ],
+      "source_normalization": "unchanged",
+      "kernel_build": "passed",
+      "axiom_audit": "standard_foundations_only"
+    },
+    {
+      "module": "PrimeFactorOscillations.Assembly.CarmichaelTailProjection",
+      "source_sha256": "0cb38caf7bc3d358cf6c330a9eb97d0d6962e6057e2891290d28aef33f718ae8",
+      "checked_source_sha256": "0cb38caf7bc3d358cf6c330a9eb97d0d6962e6057e2891290d28aef33f718ae8",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelTailProjection.retained_profile_eq_gatedLaw",
+        "PrimeFactorOscillations.CarmichaelTailProjection.discarded_label_bounds",
+        "PrimeFactorOscillations.CarmichaelTailProjection.removed_cost_le_prime_tail",
+        "PrimeFactorOscillations.CarmichaelTailProjection.removed_packet_cost_le_tail",
+        "PrimeFactorOscillations.CarmichaelTailProjection.fiber_projection_distortion",
+        "PrimeFactorOscillations.CarmichaelTailProjection.vacancy_projection_identity",
+        "PrimeFactorOscillations.CarmichaelTailProjection.erased_vacancy_factor_bounds",
+        "PrimeFactorOscillations.CarmichaelTailProjection.erased_vacancy_uniform_floor",
+        "PrimeFactorOscillations.CarmichaelTailProjection.erased_vacancy_factor_pos",
+        "PrimeFactorOscillations.CarmichaelTailProjection.retained_vacancy_zero_iff",
+        "PrimeFactorOscillations.CarmichaelTailProjection.retained_vacancy_pos_iff",
+        "PrimeFactorOscillations.CarmichaelTailProjection.squarefree_retention_iff"
+      ],
+      "source_normalization": "unchanged",
+      "kernel_build": "passed",
+      "axiom_audit": "standard_foundations_only"
+    }
+  ]
+}

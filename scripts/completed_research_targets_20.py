@@ -1,0 +1,28 @@
+"""Exact projection and uniform truncation of conditional return profiles."""
+
+TARGETS = (
+    "PrimeFactorOscillations.CarmichaelProfileProjection.erasedLaw_eq_gatedLaw",
+    "PrimeFactorOscillations.CarmichaelProfileProjection.overlapMass_split",
+    "PrimeFactorOscillations.CarmichaelProfileProjection.reverse_projection_overlap_one",
+    "PrimeFactorOscillations.CarmichaelProfileProjection.vacancy_projection_factor",
+    "PrimeFactorOscillations.CarmichaelProfileProjection.projection_variation_eq",
+    "PrimeFactorOscillations.CarmichaelProfileProjection.projection_energy_eq",
+    "PrimeFactorOscillations.CarmichaelProfileProjection.projection_cost_eq_removed",
+    "PrimeFactorOscillations.CarmichaelProfileProjection.variation_projection_bounds",
+    "PrimeFactorOscillations.CarmichaelProfileProjection.energy_projection_chain",
+    "PrimeFactorOscillations.CarmichaelProfileProjection.energy_nonneg",
+    "PrimeFactorOscillations.CarmichaelProfileProjection.energy_le_two",
+    "PrimeFactorOscillations.CarmichaelProfileProjection.energy_projection_bounds",
+    "PrimeFactorOscillations.CarmichaelTailProjection.retained_profile_eq_gatedLaw",
+    "PrimeFactorOscillations.CarmichaelTailProjection.discarded_label_bounds",
+    "PrimeFactorOscillations.CarmichaelTailProjection.removed_cost_le_prime_tail",
+    "PrimeFactorOscillations.CarmichaelTailProjection.removed_packet_cost_le_tail",
+    "PrimeFactorOscillations.CarmichaelTailProjection.fiber_projection_distortion",
+    "PrimeFactorOscillations.CarmichaelTailProjection.vacancy_projection_identity",
+    "PrimeFactorOscillations.CarmichaelTailProjection.erased_vacancy_factor_bounds",
+    "PrimeFactorOscillations.CarmichaelTailProjection.erased_vacancy_uniform_floor",
+    "PrimeFactorOscillations.CarmichaelTailProjection.erased_vacancy_factor_pos",
+    "PrimeFactorOscillations.CarmichaelTailProjection.retained_vacancy_zero_iff",
+    "PrimeFactorOscillations.CarmichaelTailProjection.retained_vacancy_pos_iff",
+    "PrimeFactorOscillations.CarmichaelTailProjection.squarefree_retention_iff",
+)
