@@ -1,0 +1,98 @@
+{
+  "date": "2026-10-26",
+  "lean_version": "4.34.0",
+  "focused_compile_exit_code": 0,
+  "focused_compile_chunk": "1b4c3a",
+  "new_axiom_reports": 18,
+  "targets": [
+    "PrimeFactorOscillations.CarmichaelProgressionMasks.odd_progression_position",
+    "PrimeFactorOscillations.CarmichaelProgressionMasks.progressionWeight_eq_residue",
+    "PrimeFactorOscillations.CarmichaelProgressionMasks.odd_start_residues",
+    "PrimeFactorOscillations.CarmichaelProgressionMasks.nonzero_even_step_residues",
+    "PrimeFactorOscillations.CarmichaelProgressionMasks.three_term_two_or_four",
+    "PrimeFactorOscillations.CarmichaelProgressionMasks.three_term_weight_bounds",
+    "PrimeFactorOscillations.CarmichaelProgressionMasks.two_term_exact_balance_of_four_step",
+    "PrimeFactorOscillations.CarmichaelProgressionMasks.four_term_exact_balance",
+    "PrimeFactorOscillations.CarmichaelProgressionMasks.four_term_signed_identity",
+    "PrimeFactorOscillations.CarmichaelProgressionMasks.blindStart_prime",
+    "PrimeFactorOscillations.CarmichaelProgressionMasks.blindStart_coprime",
+    "PrimeFactorOscillations.CarmichaelProgressionMasks.eight_step_blind",
+    "PrimeFactorOscillations.CarmichaelProgressionMasks.three_term_uniform_cover_iff",
+    "PrimeFactorOscillations.CarmichaelProgressionMasks.two_terms_can_be_blind",
+    "PrimeFactorOscillations.CarmichaelProgressionMasks.fourProgressionShape_injective",
+    "PrimeFactorOscillations.CarmichaelProgressionMasks.fourProgressionShape_bound",
+    "PrimeFactorOscillations.CarmichaelProgressionMasks.actual_four_prime_cycle_balanced",
+    "PrimeFactorOscillations.CarmichaelProgressionMasks.recurrent_four_prime_progression_and_rh_iff_balanced_transport"
+  ],
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "reused_declarations": [
+    "PrimeFactorOscillations.CarmichaelResidueAscent.primeMask_eq_residueWeight",
+    "PrimeFactorOscillations.recurrent_prime_shape_and_rh_iff_canonical_cycle_transport",
+    "PrimeFactorOscillations.PrimeShapeCycleAt.prime_offsets"
+  ],
+  "certified_zero_free_boundary": "7/8 unchanged",
+  "benchmark_status": "Sharp universal progression mask cover, exact signed balance and actual prime-cycle RH consumer; no analytic exponent gain",
+  "old_bound": "Individual original native weights can vanish; no cover or exact balance across actual progression vertices was installed. Global boundary7/8.",
+  "new_bound": "For odd starts and even steps not divisible by8, every three-term channel sum lies in{2,4}and every four-term sum is4; signed common signal is retained exactly as4B. The actual full-prime-cycle RH transport retains this balance. Global boundary7/8.",
+  "components": {
+    "positive_supply": "Three-term native sum>=2, average>=2/3; four-term original native sum=4",
+    "signed_corrections": "Full common signed B multiplies every retained vertex; sum is exactly4B without sign assumptions",
+    "sharpness": "Two terms may both vanish; any length can vanish if8divides the step",
+    "actual_prime_consumer": "Exact full-labelled four-prime shape cycles, same bounded permutation and canonical moving-rank inequality",
+    "recurrence": "Retained explicitly as RH AND RecurrentPrimeShape; not supplied by RH",
+    "principal": "Preserved, not independently bounded"
+  },
+  "actuals": "Universal Lean proof over all r,n,d; exact finite residue quotient handles all odd starts and all admissible even steps. No finite-family analytic diagnostic.",
+  "first_nonpositive_domain": "All steps divisible by8 admit blind prime starts for every length; no analytic upper bound on the principal RH signal installed",
+  "detector_error": "Original canonical coefficient comparison and signed excess retained unchanged",
+  "family_adapter": "Original native singleton2 kernels at all2^(r+4), both channels, arbitrary progression lengths and actual four-prime cycle witnesses",
+  "uncancelled_main_terms": "Common principal signal retained exactly as4B; native conductor8 nonprincipal contribution cancels in balanced four-vertex sum",
+  "low_estimate_provenance": "No independent signed low-divisor or principal-wave upper estimate",
+  "parameter_domain": "Every r>=0, Bool channel, odd n and even d; complete distinction8|d versus8notdividingd; actual shape transport for alpha>0",
+  "attainable_endpoint": "7/8 unchanged",
+  "overlap_check": {
+    "completed_inputs": "Claims133-134 give actual complementary masks and their exact physical residue supports. The original arbitrary-shape canonical RH transport and full cycle-word prime decoding are consumed unchanged.",
+    "distinct_conclusion": "Sharp necessary-and-sufficient three-term cover condition, exact four-term signed balance at every native level, and its retention on actual recurring full prime-shape cycles in the canonical RH equivalence",
+    "existing_target": "Develops the actual-constellation-mask-cover frontier recorded after claim134. Public/private overlap search found only that newly recorded frontier and no maintained AP-mask cover provider.",
+    "primary_sources": [
+      "https://leanprover-community.github.io/mathlib4_docs/Mathlib/NumberTheory/DirichletCharacter/Basic.html"
+    ],
+    "priority_scope": "Project-specific native probability-kernel and full-prime-cycle connection; finite modulo8 orbit arithmetic is elementary. No exhaustive publication-priority claim."
+  },
+  "public_consumers_exit_code": 0,
+  "public_consumers_chunk": "97862b",
+  "owners": [
+    {
+      "module": "PrimeFactorOscillations.Assembly.CarmichaelProgressionMasks",
+      "source_sha256": "2d10aed44502d63e6afac06852a5fbf35c2baf8b02383cbf6e44663975bbb1c7",
+      "checked_source_sha256": "2d10aed44502d63e6afac06852a5fbf35c2baf8b02383cbf6e44663975bbb1c7",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelProgressionMasks.odd_progression_position",
+        "PrimeFactorOscillations.CarmichaelProgressionMasks.progressionWeight_eq_residue",
+        "PrimeFactorOscillations.CarmichaelProgressionMasks.odd_start_residues",
+        "PrimeFactorOscillations.CarmichaelProgressionMasks.nonzero_even_step_residues",
+        "PrimeFactorOscillations.CarmichaelProgressionMasks.three_term_two_or_four",
+        "PrimeFactorOscillations.CarmichaelProgressionMasks.three_term_weight_bounds",
+        "PrimeFactorOscillations.CarmichaelProgressionMasks.two_term_exact_balance_of_four_step",
+        "PrimeFactorOscillations.CarmichaelProgressionMasks.four_term_exact_balance",
+        "PrimeFactorOscillations.CarmichaelProgressionMasks.four_term_signed_identity",
+        "PrimeFactorOscillations.CarmichaelProgressionMasks.blindStart_prime",
+        "PrimeFactorOscillations.CarmichaelProgressionMasks.blindStart_coprime",
+        "PrimeFactorOscillations.CarmichaelProgressionMasks.eight_step_blind",
+        "PrimeFactorOscillations.CarmichaelProgressionMasks.three_term_uniform_cover_iff",
+        "PrimeFactorOscillations.CarmichaelProgressionMasks.two_terms_can_be_blind",
+        "PrimeFactorOscillations.CarmichaelProgressionMasks.fourProgressionShape_injective",
+        "PrimeFactorOscillations.CarmichaelProgressionMasks.fourProgressionShape_bound",
+        "PrimeFactorOscillations.CarmichaelProgressionMasks.actual_four_prime_cycle_balanced",
+        "PrimeFactorOscillations.CarmichaelProgressionMasks.recurrent_four_prime_progression_and_rh_iff_balanced_transport"
+      ],
+      "source_normalization": "unchanged",
+      "kernel_build": "passed",
+      "axiom_audit": "standard_foundations_only"
+    }
+  ]
+}

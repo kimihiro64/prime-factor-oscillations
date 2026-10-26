@@ -10910,6 +10910,114 @@ No separate RH equivalence for either fixed class union, no independent
 upper estimate for either signed excess, and no improvement of the
 certified \(7/8\) boundary is asserted.
 
+\subsection{Native mask covers on actual prime progression cycles}
+\label{sec:carmichael-progression-masks}
+
+The fixed residue description makes it possible to compensate using
+constellation vertices themselves, rather than a residue translate of one
+sampled prime.
+
+\begin{theorem}[Sharp progression covers and balanced prime-cycle transport]
+\label{thm:carmichael-progression-masks}
+For \(r\ge0\), channel \(j\in\{0,1\}\), and natural \(n,d,m\), define
+\[
+ W_{r,j}(n,d;m)=\sum_{i=0}^{m-1}w_j(r,n+id),
+\]
+using the original zero-extended native weights.
+Suppose \(n\) is odd, \(d\) is even, and \(8\nmid d\).  Then
+\[
+ W_{r,j}(n,d;3)\in\{2,4\},\qquad
+ W_{r,j}(n,d;4)=4.
+\]
+If \(d\equiv4\pmod8\), already \(W_{r,j}(n,d;2)=2\).
+Three positions are necessary for a uniform positive cover over all even
+steps not divisible by \(8\): the first channel gives
+\(W_{r,0}(3,2;2)=0\).
+If \(8\mid d\), the first channel at the prime start \(3\), and the second
+channel at the prime start \(7\), have weight sum zero for every length.
+Consequently, for even \(d\),
+\[
+ \bigl[\forall j,\ \forall n\text{ odd},\
+            W_{r,j}(n,d;3)\ge2\bigr]\quad\Longleftrightarrow\quad8\nmid d.
+\]
+For any signed real common signal \(B\), without a sign assumption,
+\[
+ \sum_{i=0}^{3}w_j(r,n+id)\,B=4B.
+\]
+
+There is an exact consumer in the prime-constellation RH theorem.
+Fix even \(d\) with \(8\nmid d\), set
+\(h(i)=id\) for \(i\in\{0,1,2,3\}\), and fix \(\alpha>0\).
+Then RH together with recurrence of the full prime shape \(h\) is
+equivalent to the existence of a prime permutation \(\sigma\), displaced
+by at most \(3d\), with both of the following properties:
+\begin{enumerate}
+ \item It realizes the recurring full labelled \(h\)-cycles, and at
+       arbitrarily large such copies beginning at \(q\),
+       \(W_{r,j}(q,d;4)=4\) for every \(r\) and both channels.
+ \item Its original bounded-permutation density ratio satisfies the
+       eventual canonical upper-sign inequality at moving rank
+       \(\lfloor\alpha\tau_0(N)\rfloor\), with the same canonical
+       reference clock \(\tau_0\) and reference ratio as the
+       arbitrary-shape cycle-transport theorem.
+\end{enumerate}
+The canonical comparison is unchanged; the added condition identifies
+exact balance on the actual prime vertices of every selected cycle.
+\end{theorem}
+
+\begin{proof}
+Even steps preserve oddness, so every summand is evaluated at a unit
+and the proved modulo-\(8\) weight formulas apply.
+The nonzero even step residues are \(2,4,6\bmod8\).
+For step \(2\) or \(6\), four consecutive progression positions visit
+all four odd residues once, exactly two in each channel.
+The first three positions visit three distinct odd residues, so exactly
+one or two belong to either channel.
+For step \(4\), the positions alternate between two opposite residues;
+exactly one of each consecutive pair belongs to either channel.
+This proves the three-term alternatives, four-term balance and the
+two-term assertion at step \(4\).
+
+At step \(2\), both \(3\) and \(5\) lie outside the first channel.
+At steps divisible by \(8\), the residue is constant:
+the first channel vanishes at all \(3+id\), and the second at all
+\(7+id\).
+These starts are primes and are odd.
+This proves failure for every length in that step class, the stated
+sharpness, and both directions of the three-term cover criterion.
+Distributing the common signed \(B\) through the finite sum gives
+the exact identity \(4B\).  No absolute values or discarded terms occur.
+
+For the transport assertion, \(8\nmid d\) implies \(d>0\).
+Thus \(h\) is injective and its offsets are bounded by \(3d\).
+Apply the completed arbitrary-shape canonical cycle-transport
+equivalence to this exact shape.
+In the forward direction, its recurring cycle copies can be chosen
+above any prescribed cutoff and above \(3\).
+The cycle word proves primality of all four offsets, including its
+initial prime \(q\).
+Since \(q\ge3\), it is odd.
+The four-term identity therefore balances the native kernel at every
+large two-power level, simultaneously for both channels, on those
+actual prime vertices.
+The same permutation, displacement certificate, moving rank and
+canonical upper-sign comparison are retained.
+In the reverse direction, forgetting the additional balance data
+recovers exactly the old full-shape transport witness.
+Its canonical comparison implies RH and its full cycle word implies
+recurrence of the prime shape.
+\end{proof}
+
+The three-term average has the uniform positive floor \(2/3\), although
+each individual native weight can be zero.
+A four-term prime progression cancels the entire conductor-\(8\)
+nonprincipal mode exactly and retains the principal common signal.
+The recurrence of a fixed four-prime shape remains a separate arithmetic
+hypothesis; this theorem does not supply it from RH.
+Nor does exact mask balance give an independent upper bound on the
+retained principal signal.  The certified zero-free boundary is still
+\(7/8\).
+
 \subsection{Intrinsic power-return spectra identify physical prime carriers}
 \label{sec:carmichael-intrinsic-spectrum}
 
