@@ -9910,6 +9910,120 @@ The theorem bounds individual nonprincipal modes.  The principal
 coefficient of the native kernel is still \(1\), and its signed
 RH-detecting wave has not acquired an independent upper bound.
 
+\subsection{Odd-wild prime-square spectral rigidity}
+\label{sec:carmichael-wild-conductor}
+
+The return label may equal the residue prime.  This produces a sharp
+conductor jump from the tame prime \(p\) to the wild prime square \(p^2\),
+without any further growth with the presentation exponent.
+
+\begin{theorem}[Odd-wild native conductor classification]
+\label{thm:carmichael-wild-conductor}
+For every prime \(p\) and every \(a\geq0\), the label \(p\) divides
+\(\lambda(p^{a+2})\), so it is admissible for the native return law.
+Assume now that \(p\) is odd and put
+\[
+ q=p^{a+2},\qquad U=(\mathbb Z/q\mathbb Z)^\times,\qquad
+ H=\{u\in U:u^{\lambda(q)/p}=1\}.
+\]
+Every Dirichlet character \(\chi\) modulo \(q\) satisfying
+\(\chi(u)^p=1\) on \(U\) factors through modulus \(p^2\).
+If \(\chi\ne1\), its conductor is exactly \(p^2\).
+
+For the original native singleton kernel with label \(p\), the actual
+return-image index is exactly \(D=p\), and
+\[
+ K_{q,p}(u)
+   =1+\frac{p\,1_H(u)-1}{(p-1)^2},
+ \qquad
+ \frac34\leq K_{q,p}(u)\leq\frac32\quad(u\in U).
+\]
+Every surviving character factors through \(p^2\), and every nonprincipal
+survivor has conductor exactly \(p^2\).  The complete original kernel
+descends along the actual reduction map
+\(\pi:U\to(\mathbb Z/p^2\mathbb Z)^\times\):
+\[
+  K_{q,p}(u)=k(\pi u)
+\]
+for some real function \(k\) on the reduced unit group.
+An actual nonprincipal survivor exists with the exact coefficient
+\[
+ c_{q,p}(\chi)=\frac1{(p-1)^2}.
+\]
+All these conclusions hold uniformly for arbitrary \(a\geq0\);
+no label-admissibility or image-index premise remains to be supplied.
+\end{theorem}
+
+\begin{proof}
+The unit group has cardinality \(p^{a+1}(p-1)\), which is divisible
+by \(p\).  Cauchy's theorem supplies a unit of order \(p\).
+Its order divides the actual exponent, proving
+\(p\mid\lambda(p^{a+2})\).  This argument includes \(p=2\).
+
+For the conductor assertion suppose that \(p\) is odd.  Then \(U\) is
+cyclic.  Let \(J=U^p\) be the actual subgroup of \(p\)-th powers.
+The cyclic power-image formula gives
+\[
+ |J|
+   =\frac{|U|}{\gcd(|U|,p)}
+   =p^a(p-1).
+\]
+The genuine reduction map to units modulo \(p^2\) has kernel of
+cardinality \(p^a\).  In a finite cyclic group, subgroup containment
+is equivalent to divisibility of subgroup cardinalities.  Consequently
+\(\ker\pi\subseteq J\).
+A character killed by \(p\) is trivial on \(J\), hence on
+\(\ker\pi\), and therefore factors through \(p^2\).  Its conductor
+divides \(p^2\).
+
+A nonprincipal character of this kind cannot factor through \(p\).
+Indeed, factorization through the unit group modulo \(p\) would give
+\(\chi(u)^{p-1}=1\) for every original unit \(u\), while the hypothesis
+gives \(\chi(u)^p=1\).  Coprimality of \(p\) and \(p-1\) forces
+\(\chi(u)=1\) on every unit, making \(\chi\) principal.
+The divisors of \(p^2\) are \(1,p,p^2\); the first two possibilities
+have thus been excluded.  Hence the conductor is exactly \(p^2\).
+
+Cyclicity also identifies the actual exponent with \(|U|\).
+The proved cyclic return-index formula, with its divisibility hypotheses
+discharged, now gives
+\[
+ D=\frac{|U|}{\gcd(|U|,|U|/p)}=p.
+\]
+Substitute this identity into the original singleton-kernel formula.
+Since \(p\geq3\), the existing native index bound supplies the stated
+uniform pointwise bounds.
+
+Every surviving native mode is killed by the label \(p\), by the exact
+coefficient-support theorem.  Apply the conductor result to each mode.
+In the complete Fourier expansion, equal reductions of \(u\) and \(v\)
+give equal reductions of their inverses.  Every surviving character
+therefore has the same phase at \(u^{-1}\) and \(v^{-1}\); the other
+terms are exactly zero.  This proves equality of the original kernels
+on each reduction fiber.  Surjectivity of \(\pi\) then defines \(k\)
+by choosing a lift of each reduced unit.
+
+Finally, the previously proved nonprincipal-survivor theorem supplies
+a genuine character with coefficient \(1/(D-1)^2\).  The new conductor
+classification and \(D=p\) give the last assertion.
+\end{proof}
+
+The two local regimes can now be compared directly:
+\[
+\begin{array}{c|c|c}
+\text{presentation level}&\text{prime return label}
+  &\text{conductor of every nonprincipal survivor}\\ \hline
+p^{a+1}&\ell\ne p\text{, admissible}&p\\
+p^{a+2}\text{ with }p\text{ odd}&\ell=p&p^2
+\end{array}
+\]
+The kernel descent preserves the original function and every phase.
+It does not identify a compressed mixed-carrier kernel with a newly
+constructed canonical kernel.  The two-power wild conductor
+classification and the full active-carrier CRT formula remain open.
+This theorem adds no independent signed upper estimate for the principal
+RH wave and leaves the certified zero-free exponent \(7/8\) unchanged.
+
 \subsection{Intrinsic power-return spectra identify physical prime carriers}
 \label{sec:carmichael-intrinsic-spectrum}
 

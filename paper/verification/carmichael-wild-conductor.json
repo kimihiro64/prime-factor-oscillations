@@ -1,0 +1,111 @@
+{
+  "date": "2026-10-26",
+  "lean_version": "4.34.0",
+  "helper_compile_exit_code": 0,
+  "helper_compile_chunk": "2bfcca",
+  "native_compile_exit_code": 0,
+  "native_compile_chunk": "3b82ec",
+  "public_consumers_exit_code": 0,
+  "public_consumers_chunk": "dd98ab",
+  "new_axiom_reports": 14,
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "targets": [
+    "PrimeFactorOscillations.PrimePowerWildCharacterConductor.primeSquare_dvd_level",
+    "PrimeFactorOscillations.PrimePowerWildCharacterConductor.prime_dvd_exponent",
+    "PrimeFactorOscillations.PrimePowerWildCharacterConductor.odd_wild_factorsThrough",
+    "PrimeFactorOscillations.PrimePowerWildCharacterConductor.odd_wild_conductor_dvd",
+    "PrimeFactorOscillations.PrimePowerWildCharacterConductor.nonprincipal_not_factorsThrough_prime",
+    "PrimeFactorOscillations.PrimePowerWildCharacterConductor.odd_wild_nonprincipal_conductor",
+    "PrimeFactorOscillations.CarmichaelWildConductor.wild_index_eq_label",
+    "PrimeFactorOscillations.CarmichaelWildConductor.wild_kernel_closed",
+    "PrimeFactorOscillations.CarmichaelWildConductor.wild_survivor_factorsThrough",
+    "PrimeFactorOscillations.CarmichaelWildConductor.wild_nonprincipal_survivor_conductor",
+    "PrimeFactorOscillations.CarmichaelWildConductor.wild_kernel_eq_of_reduction_eq",
+    "PrimeFactorOscillations.CarmichaelWildConductor.wild_kernel_descends_to_primeSquare",
+    "PrimeFactorOscillations.CarmichaelWildConductor.exists_wild_primeSquare_conductor_survivor",
+    "PrimeFactorOscillations.CarmichaelWildConductor.wild_native_weight_bounds"
+  ],
+  "reused_declarations": [
+    "exists_prime_orderOf_dvd_card",
+    "IsCyclic.card_powMonoidHom_range",
+    "IsCyclic.subgroup_le_iff_card_dvd",
+    "PrimeFactorOscillations.PrimePowerReturnSpectrum.conductor_kernel_card",
+    "DirichletCharacter.factorsThrough_iff_ker_unitsMap",
+    "PrimeFactorOscillations.PrimeOrderReturnIndex.returnIndex_cyclic",
+    "PrimeFactorOscillations.PrimeOrderReturnIndex.local_period_ratio",
+    "PrimeFactorOscillations.CarmichaelPrimePacketSpectrum.nonzero_coefficient_prime_power",
+    "PrimeFactorOscillations.CarmichaelPrimePacketSpectrum.exists_nonprincipal_prime_character",
+    "PrimeFactorOscillations.CarmichaelPrimePacket.kernel_closed",
+    "PrimeFactorOscillations.CarmichaelPrimePacket.kernel_bounds_of_index_ge_three",
+    "PrimeFactorOscillations.CarmichaelCorrelationSpectrum.kernel_expansion"
+  ],
+  "certified_zero_free_boundary": "7/8 unchanged",
+  "benchmark_status": "exact odd-wild conductor and kernel classification; no analytic exponent gain",
+  "old_bound": "Native wild characters had only the ambient-level conductor bound dividing p^(a+2) in this comparison",
+  "new_bound": "Every nonprincipal native odd-wild survivor has conductor exactlyp^2, image indexp, flat coefficient1/(p-1)^2 and kernel weights in[3/4,3/2], uniformly in a",
+  "components": {
+    "admissibility": "p divides the actual unit-group exponent for every primep, including2, at levelp^(a+2)",
+    "odd_wild": "All odd primep and a>=0; no unproved admissibility/index premise",
+    "native_kernel": "Exact1+(p*1_H-1)/(p-1)^2; full Fourier phases retained",
+    "primitive_conductor": "Exactlyp^2 for every nonprincipal survivor; a survivor exists",
+    "even_wild": "Not classified here",
+    "principal_wave": "No independent signed upper bound"
+  },
+  "actuals": "Universal symbolic theorem, not a finite test",
+  "first_nonpositive_domain": "Not applicable; no signed RH positivity bound installed",
+  "detector_error": "Unchanged; original native kernel retained",
+  "family_adapter": "q=p^(a+2), prime labelp, every odd primep and every naturala",
+  "uncancelled_main_terms": "Principal coefficient1 retained and independently unestimated",
+  "low_estimate_provenance": "No new low-divisor or signed arithmetic estimate",
+  "parameter_domain": "All primep for admissibility; odd primep and a>=0 for the conductor/kernel classification",
+  "attainable_endpoint": "Certified7/8 unchanged",
+  "overlap_check": {
+    "completed_inputs": "Existing PrimePowerConductorShell classifies additive subgroup-trace shells. Existing PrimeOrderReturnIndex supplies native cyclic image formulas. These are reused, not re-counted.",
+    "distinct_conclusion": "Exact multiplicative Dirichlet conductorp^2 and full native-kernel descent, with unconditional label admissibility, exact image indexp, nonprincipal survivor and positive kernel bounds.",
+    "primary_sources": [
+      "https://leanprover-community.github.io/mathlib4_docs/Mathlib/GroupTheory/SpecificGroups/Cyclic.html",
+      "https://leanprover-community.github.io/mathlib4_docs/Mathlib/NumberTheory/DirichletCharacter/Basic.html"
+    ],
+    "priority_scope": "Classical cyclic-group and conductor facts are reused; the native probability-kernel application is the project conclusion. No exhaustive publication-priority claim."
+  },
+  "owners": [
+    {
+      "module": "PrimeFactorOscillations.Helpers.PrimePowerWildCharacterConductor",
+      "source_sha256": "7ae1840fbdbb0bc800e9a697cdc288a11330fd9a331093bdb19ff3287ceda14c",
+      "checked_source_sha256": "7ae1840fbdbb0bc800e9a697cdc288a11330fd9a331093bdb19ff3287ceda14c",
+      "declarations": [
+        "PrimeFactorOscillations.PrimePowerWildCharacterConductor.primeSquare_dvd_level",
+        "PrimeFactorOscillations.PrimePowerWildCharacterConductor.prime_dvd_exponent",
+        "PrimeFactorOscillations.PrimePowerWildCharacterConductor.odd_wild_factorsThrough",
+        "PrimeFactorOscillations.PrimePowerWildCharacterConductor.odd_wild_conductor_dvd",
+        "PrimeFactorOscillations.PrimePowerWildCharacterConductor.nonprincipal_not_factorsThrough_prime",
+        "PrimeFactorOscillations.PrimePowerWildCharacterConductor.odd_wild_nonprincipal_conductor"
+      ],
+      "source_normalization": "unchanged",
+      "kernel_build": "passed",
+      "axiom_audit": "standard_foundations_only"
+    },
+    {
+      "module": "PrimeFactorOscillations.Assembly.CarmichaelWildConductor",
+      "source_sha256": "3daa058b4435415eb2cfd1adc432069ea741bb689a92f71186728b0ac623716d",
+      "checked_source_sha256": "3daa058b4435415eb2cfd1adc432069ea741bb689a92f71186728b0ac623716d",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelWildConductor.wild_index_eq_label",
+        "PrimeFactorOscillations.CarmichaelWildConductor.wild_kernel_closed",
+        "PrimeFactorOscillations.CarmichaelWildConductor.wild_survivor_factorsThrough",
+        "PrimeFactorOscillations.CarmichaelWildConductor.wild_nonprincipal_survivor_conductor",
+        "PrimeFactorOscillations.CarmichaelWildConductor.wild_kernel_eq_of_reduction_eq",
+        "PrimeFactorOscillations.CarmichaelWildConductor.wild_kernel_descends_to_primeSquare",
+        "PrimeFactorOscillations.CarmichaelWildConductor.exists_wild_primeSquare_conductor_survivor",
+        "PrimeFactorOscillations.CarmichaelWildConductor.wild_native_weight_bounds"
+      ],
+      "source_normalization": "unchanged",
+      "kernel_build": "passed",
+      "axiom_audit": "standard_foundations_only"
+    }
+  ]
+}
