@@ -12228,6 +12228,87 @@ No estimate of those terms follows from the local comparison alone.
 The certified zero-free boundary therefore remains \(7/8\);
 the target remains at most \(3/4\).
 
+\subsection{A signed estimate for the actual native profile packet}
+\label{sec:carmichael-ascent-estimate}
+
+We now apply the existing probability-profile and count estimates to the
+completed native criterion, keeping its signed arithmetic term.
+
+\begin{theorem}[Native signed profile estimate]
+\label{thm:carmichael-ascent-estimate}
+Use the notation and active native packets of
+Theorem~\ref{thm:carmichael-ascent-spectrum}. Put
+\[
+ r_X=\operatorname{localTiltRank}(H,X),\qquad
+ b_X=\operatorname{localTiltMesh}(X),\qquad
+ R_{X,i}=\operatorname{densityRatio}(\operatorname{primesBelow}(p_{X,i}),r_X),
+ \qquad U_{X,i}=\operatorname{localTiltReference}(H,X,a_X(i)).
+\]
+Retain the original zero-extended native weight
+\(K_{X,i}=A_{q_X,S_X}(p_{X,i})\), and define
+\[
+ V_X=\sum_{i\in\operatorname{Fin}(m(X))}
+                    K_{X,i}(R_{X,i}-U_{X,i}),\qquad
+ W_X=\sum_{i\in\operatorname{Fin}(m(X))}K_{X,i}.
+\]
+For every cutoff, the complete character expansion is
+\[
+ M_X V_X=
+ \sum_{\chi\bmod q_X}\mu_{\chi,X}
+       \sum_{i\in\operatorname{Fin}(m(X))}
+                     \chi(p_{X,i})(R_{X,i}-U_{X,i}).
+\]
+Assume the original \(\operatorname{LocalAscentSampling}(H,m,a)\),
+activity and oddness of every \(S_X\). Then, without assuming RH,
+\[
+ \boxed{\qquad |J_X-b_XV_X|\le W_X
+                         \quad\text{eventually}.\qquad}
+\]
+Here \(J_X\) is the original normalized signed character packet.
+No modulus-budget assumption is needed for this estimate; that
+assumption remains necessary when applying the stated RH criterion.
+\end{theorem}
+
+\begin{proof}
+For the character identity, multiply the existing exact all-natural
+character expansion of \(M_XK_{X,i}\) by the entire real difference
+\(R_{X,i}-U_{X,i}\), then interchange the two finite sums.
+This retains the principal row and every other character phase.
+
+The original sampling and proved uniform rank bands put both profiles
+inside the finite tilt grid eventually. The existing scalar
+representation of the actual ascent set and the signed ceiling estimate
+then give, at every sampled actual prime pair,
+\[
+ \Delta_{X,i}=b_X(R_{X,i}-U_{X,i})+\varepsilon_{X,i},
+ \qquad |\varepsilon_{X,i}|<1.
+\]
+This uses the same integer rank, inclusive grid, prime gap and reference
+as the criterion; no asymptotic replacement of its counts is made.
+The proved odd native kernel floor and zero extension give
+\(K_{X,i}\ge0\), including primes dividing \(q_X\).
+The completed criterion identifies
+\(J_X=\sum_iK_{X,i}\Delta_{X,i}\). Hence
+\[
+ J_X-b_XV_X=\sum_i K_{X,i}\varepsilon_{X,i},
+ \qquad
+ \left|\sum_iK_{X,i}\varepsilon_{X,i}\right|
+ \le\sum_iK_{X,i}|\varepsilon_{X,i}|\le W_X .
+\]
+Only the rounding remainder has been bounded in absolute value.
+\end{proof}
+
+This installs the signed bounds
+\(b_XV_X-W_X\le J_X\le b_XV_X+W_X\) on the actual native packet.
+The main term \(V_X\) remains a signed sum of the actual probability
+profile differences. Its character expansion has exactly the existing
+native integer multiplicities; nonprincipal quadratic coefficients
+vanish for odd packets. These statements follow from the displayed
+identities and the previously proved multiplicity theorem.
+This estimate removes the discontinuous grid counts from the next
+arithmetic calculation. It does not bound \(V_X\), supply a sampler,
+or improve the certified \(7/8\) boundary.
+
 \subsection{Intrinsic power-return spectra identify physical prime carriers}
 \label{sec:carmichael-intrinsic-spectrum}
 

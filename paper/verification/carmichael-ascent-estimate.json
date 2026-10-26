@@ -1,0 +1,74 @@
+{
+  "date": "2026-10-26",
+  "lean_version": "4.34.0",
+  "focused_compile_exit_code": 0,
+  "focused_compile_chunk": "3a5700",
+  "new_axiom_reports": 2,
+  "new_axiom_chunk": "65f458",
+  "targets": [
+    "PrimeFactorOscillations.CarmichaelAscentEstimate.scaled_profile_eq_character_rows",
+    "PrimeFactorOscillations.CarmichaelAscentEstimate.eventually_signed_profile_error"
+  ],
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "reused_declarations": [
+    "PrimeFactorOscillations.CarmichaelAscentSpectrum.normalizedExcess_eq_original",
+    "PrimeFactorOscillations.CarmichaelIntegralSpectrum.natural_character_expansion",
+    "PrimeFactorOscillations.localTiltAscentSet_eq_scalar",
+    "PrimeFactorOscillations.tiltAscentSet_signed_error_lt_one",
+    "PrimeFactorOscillations.carmichaelPrimeWeight_nonneg",
+    "PrimeFactorOscillations.eventually_primeProfile_fixed_window_bands"
+  ],
+  "certified_zero_free_boundary": "7/8 unchanged",
+  "benchmark_status": "Actual native signed profile main retained; grid remainder universally bounded. No independent bound on the signed profile main yet.",
+  "old_bound": "The completed native character criterion retained finite grid counts; only unweighted signed grid error was maintained. No new arithmetic exponent.",
+  "new_bound": "For the original actual sampled primes, |J_X-b_X*V_X|<=W_X eventually, and M_X*V_X equals the full native character-weighted signed profile sum at every cutoff. V_X remains signed; certified7/8 unchanged.",
+  "components": {
+    "signed_main": "b_X*sum_i K_X(p_i)*(actual density ratio-original full-profile reference), with the same rank and sampled actual primes.",
+    "rounding": "Only the true per-pair ceiling remainder is bounded in absolute value; |error|<=sum_i K_X(p_i).",
+    "native_spectrum": "All nonnegative integer multiplicities retained; principal coefficientM_X; previous odd quadratic-row cancellation still applies.",
+    "zero_extension": "Weights at nonunits remain exactlyzero,not replaced by unit representatives.",
+    "quantifiers": "Original LocalAscentSampling,activity and oddness; variableq_X andS_X. No RH assumption or modulus budget needed for the estimate."
+  },
+  "actuals": "Universal maintained Lean proof,not finite diagnostics.",
+  "first_nonpositive_domain": "Unavailable: no new bound on the signed V_X main term.",
+  "detector_error": "Grid remainder W_X explicitly accounted for; no assertion that it bounds the signed profile main.",
+  "family_adapter": "Actual ascent observable,original integer rank,original full-profile reference and inclusive tilt grid; no legacy Gauss route.",
+  "uncancelled_main_terms": "Full signed native profile main,b_X*V_X,principal and all nonquadratic phases retained.",
+  "low_estimate_provenance": "Existing exact grid comparison,uniform probability bands and native positive kernel applied to the same actual packet. No independent new Nicolas/character cancellation estimate yet.",
+  "parameter_domain": "All positive modulus sequences and active odd native packets under original LocalAscentSampling. Pointwise spectrum identity requires activity only. Eventual estimate has no RH or qbudget premise.",
+  "attainable_endpoint": "7/8 unchanged",
+  "overlap_check": {
+    "completed_inputs": "Read exact integer spectrum,original signed criterion,uniform probability bands,actual scalar ascent identity,existing unweighted grid error and kernel floor. Provider reuse: existing grid estimate consumed rather than rebuilt.",
+    "distinct_conclusion": "Maintained signed error estimate on the actual normalized native character packet and exact native spectrum of its nonlinear profile main.",
+    "existing_target": "Direct estimate adapter for the user-requested completed criterion; no new RH equivalence or generic Gram refinement.",
+    "primary_sources": [],
+    "priority_scope": "Project-specific quantitative consumer; finite Fourier and weighted error aggregation are classical."
+  },
+  "public_facade_chunk": "65f458",
+  "public_consumers_exit_code": 0,
+  "focused_compiles": [
+    {
+      "owner": "PrimeFactorOscillations/Assembly/CarmichaelAscentEstimate.lean",
+      "chunk": "3a5700",
+      "exit_code": 0
+    }
+  ],
+  "owners": [
+    {
+      "module": "PrimeFactorOscillations.Assembly.CarmichaelAscentEstimate",
+      "source_sha256": "4d05db380f544602a9fa48d169ffa7f59e87ead5f736a66e27d78721394fc49c",
+      "checked_source_sha256": "4d05db380f544602a9fa48d169ffa7f59e87ead5f736a66e27d78721394fc49c",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelAscentEstimate.scaled_profile_eq_character_rows",
+        "PrimeFactorOscillations.CarmichaelAscentEstimate.eventually_signed_profile_error"
+      ],
+      "source_normalization": "unchanged",
+      "kernel_build": "passed",
+      "axiom_audit": "standard_foundations_only"
+    }
+  ]
+}
