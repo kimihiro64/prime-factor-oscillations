@@ -9537,6 +9537,212 @@ The three maintained owners are
 \texttt{CarmichaelProbability}.
 
 
+\subsection{Prime-order spectra preserve the one-pair RH signal}
+\label{sec:carmichael-prime-packet}
+
+The native return kernel can select much more than the absence of
+quadratic modes. Its precise character support is determined by the
+actual return subgroup. For a single prime label the complete spectrum
+is flat away from the principal character. This also identifies when
+quadratic modes can be retained without losing the RH signal.
+
+\begin{theorem}[Prime-order spectral filters with a native RH criterion]
+\label{thm:carmichael-prime-packet}
+Let \(q\ge1\), \(U=(\mathbb Z/q\mathbb Z)^\times\),
+\(\Lambda=\lambda(q)\), and let \(\ell\) be a prime dividing
+\(\Lambda\). Put
+\[
+ T_\ell(u)=u^{\Lambda/\ell},\qquad
+ H_\ell=\ker T_\ell,\qquad D=|\operatorname{im}T_\ell|\ge\ell,
+ \qquad w_\ell=\mathbf 1_{U\setminus H_\ell}.
+\]
+The actual normalized same-base correlation and its character
+coefficients are
+\[
+ K_\ell(u)=
+ \frac{|U|^{-1}\sum_{a\in U}w_\ell(a)w_\ell(au)}
+      {(1-1/D)^2},\qquad
+ A_\ell(\chi)=
+ \frac{\left|\sum_{a\in U}w_\ell(a)\chi(a)\right|^2}
+      {\left(\sum_{a\in U}w_\ell(a)\right)^2}.
+\]
+Here characters are Dirichlet characters modulo \(q\), evaluated on
+units, and \(\chi_0\) denotes the principal character.
+
+The complete pointwise and spectral formulas are
+\[
+ K_\ell(u)=1+\frac{D\mathbf 1_{H_\ell}(u)-1}{(D-1)^2},
+ \qquad A_\ell(\chi_0)=1,
+\]
+and, for every \(\chi\ne\chi_0\),
+\[
+ A_\ell(\chi)=
+ \begin{cases}
+ (D-1)^{-2},&\chi|_{H_\ell}=1,\\
+ 0,&\chi|_{H_\ell}\ne1.
+ \end{cases}
+\]
+Moreover
+\[
+ \sum_{\substack{\chi\ ({\rm mod}\ q)\\\chi\ne\chi_0}}
+       A_\ell(\chi)=\frac1{D-1},\qquad
+ A_\ell(\chi)\ne0\ \Longrightarrow\
+       \chi(u)^\ell=1\quad(u\in U).
+\]
+There is at least one nonprincipal surviving character. If \(D\ge3\),
+\[
+                  \frac34\le K_\ell(u)\le\frac32\qquad(u\in U).
+\]
+If \(D=2\), necessarily \(\ell=2\), and \(K_\ell\) equals \(2\)
+on \(H_\ell\) and \(0\) on \(U\setminus H_\ell\); the latter set
+is nonempty.
+
+More generally, take any finite prime-label packet \(S\) dividing
+\(\Lambda\), with
+\[
+ P=\prod_{\ell\in S}\ell,\qquad
+ \Phi_S(u)=(u^{\Lambda/\ell})_{\ell\in S}.
+\]
+For the original packet kernel \(K_S\) and its original nonnegative
+coefficients \(A_S\), every coefficient outside either of the sets
+\[
+ \mathcal A_S=\{\chi:\chi|_{\ker\Phi_S}=1\},\qquad
+ \mathcal P_P=\{\chi:\chi(u)^P=1\text{ for all }u\in U\}
+\]
+is exactly zero, and the full inversions are
+\[
+ K_S(u)=\sum_{\chi\in\mathcal A_S}A_S(\chi)\chi(u^{-1})
+       =\sum_{\chi\in\mathcal P_P}A_S(\chi)\chi(u^{-1}).
+\]
+The principal coefficient remains one. Empty packets are included,
+with \(P=1\). The condition \(\chi\in\mathcal P_P\) alone is not
+asserted sufficient for a coefficient to survive.
+
+Finally, let \(q_X\) be positive integer moduli and \(\ell_X\) prime
+labels, varying arbitrarily with the integer cutoff. Assume eventually
+\[
+ \ell_X\mid\lambda(q_X),\qquad
+ D_X=|\operatorname{im}(u\mapsto
+ u^{\lambda(q_X)/\ell_X})|\ge3,\qquad
+ \text{every prime divisor of }q_X\text{ is at most }X.
+\]
+Choose one genuine local bounded-gap pair at every sufficiently large
+cutoff as in Theorem~\ref{thm:carmichael-single-ascent}. For its
+unchanged signed grid excess \(d_X\), set
+\[
+ E(X)=K_{\ell_X}(p_X\bmod q_X)d_X.
+\]
+Use the original zero extension on nonunits at initial cutoffs.
+Then
+\[
+ \mathrm{RH}
+ \ \Longleftrightarrow\ E(X)\le0\text{ eventually}
+ \ \Longleftrightarrow\
+ \exists C\in\mathbb R:\ E(X)\le C\text{ eventually}.
+\]
+Under false RH, for all real \(C,X_0\) some integer \(X>X_0\)
+has \(E(X)>C\). No conductor-size bound or quantitative pair-count
+hypothesis is required. Label two is permitted when the stated
+index condition holds.
+\end{theorem}
+\begin{proof}
+The proved uniform pushforward to the shortened-period image gives
+\(\mathbb P(a\in H_\ell)=1/D\), and therefore
+\(\delta=\mathbb E w_\ell=1-1/D>0\).
+Keep the two events at the same sampled base. The exact signed expansion is
+\[
+ \mathbb E[w_\ell(a)w_\ell(au)]
+ =1-\mathbb P(a\in H_\ell)-\mathbb P(au\in H_\ell)
+   +\mathbb P(a\in H_\ell,\ au\in H_\ell)
+ =1-\frac2D+\frac{\mathbf 1_{H_\ell}(u)}D.
+\]
+The last intersection is the same subgroup if \(u\in H_\ell\);
+otherwise the relevant cosets are disjoint. Division by \(\delta^2\)
+gives the displayed kernel formula, including its subtraction term.
+
+For nonprincipal \(\chi\), the sum of \(\chi\) over \(U\) is zero.
+If \(\chi\) is trivial on \(H_\ell\), then
+\[
+ \sum_{a\in U}w_\ell(a)\chi(a)=-|H_\ell|,
+ \qquad
+ \sum_{a\in U}w_\ell(a)=|U|(1-1/D),
+\]
+so the complete character coefficient is \((D-1)^{-2}\).
+If \(\chi\) is nontrivial on \(H_\ell\), choose \(h\in H_\ell\)
+with \(\chi(h)\ne1\). Translation by \(h\) fixes the complete
+vacancy event and multiplies its signed character sum by \(\chi(h)\).
+The sum is therefore exactly zero. This proves both directions
+of the support classification. The principal coefficient is one
+by its defining normalization.
+
+The already proved full inversion and idempotence of the vacancy
+indicator give total nonprincipal mass
+\[
+       \delta^{-1}-1=(D-1)^{-1}>0.
+\]
+Hence a nonprincipal coefficient is positive. Also
+\(a^\ell\in H_\ell\) for every \(a\in U\), because
+\((a^\ell)^{\Lambda/\ell}=a^\Lambda=1\). Thus every character
+trivial on \(H_\ell\) satisfies \(\chi(a)^\ell=1\).
+The kernel formula puts its values between
+\(1-(D-1)^{-2}\) and \(1+(D-1)^{-1}\), proving the uniform
+bounds when \(D\ge3\). At \(D=2\), the inequality \(D\ge\ell\)
+forces \(\ell=2\), and the exact values are \(2\) and \(0\).
+The positive vacancy mass supplies a unit outside \(H_\ell\),
+so the zero case really occurs.
+
+For the general packet, translation by any element of
+\(\ker\Phi_S\) fixes every return coordinate simultaneously.
+The same signed-sum argument removes every character nontrivial on
+that kernel. In addition \(a^P\in\ker\Phi_S\) for every \(a\in U\):
+each label divides \(P\), and \(a^\Lambda=1\).
+Translation by \(a^P\) therefore forces the weighted character sum
+to vanish whenever \(\chi(a)^P\ne1\). The correlation coefficients
+are exact squared magnitudes of those complete signed sums.
+Consequently the coefficients outside either displayed support
+are zero. Restricting the full inversion discards only zero terms;
+all surviving phases and the principal coefficient are unchanged.
+
+For the final assertion, every selected lower prime satisfies
+\(p_X>X\). Smoothness makes it a unit modulo \(q_X\), while
+eventual admissibility and \(D_X\ge3\) give its actual weight
+between \(3/4\) and \(3/2\). In particular the weight is at least
+\(1/2\), so the compiled single-pair criterion applies to exactly
+the original observable \(E\). Its uniform false-RH excursion
+retains the same growing rank, square-root mesh and full unit
+rounding error; multiplying its positive per-pair excess by the
+actual weight preserves unboundedness. This proves both equivalences
+and the stated false-RH response.
+\end{proof}
+
+The cubic case \(\ell=3\) is automatically in the positive regime.
+Its nonprincipal spectrum consists of precisely the cubic
+characters trivial on the actual return subgroup. In the quadratic
+case, the index condition permits real nonprincipal modes to
+remain while retaining the same RH criterion. The subgroup
+\(H_\ell\) must be used throughout: replacing it by the subgroup
+of \(\ell\)-th powers can change the support when hidden lower-order
+carriers are present.
+
+The divisibility, index and smoothness conditions in the cutoff
+criterion are eventual conditions. No singleton packet is claimed
+admissible at modulus one; any finitely many inadmissible initial
+cutoffs use the existing total definitions. The return-image condition
+handles even and nonsquarefree moduli without an odd-label assumption.
+The two numbers \(3/4\) and \(3/2\) here are kernel bounds.
+The independent arithmetic upper estimate remains open, and the
+certified zero-free boundary remains \(7/8\). Applying QRH's
+character-specific estimates still requires a proved match of
+phases, conductors and height ranges.
+
+The maintained owners are
+\texttt{ReturnPacketPowerSupport},
+\texttt{CarmichaelPacketSpectrum},
+\texttt{CarmichaelPrimePacket},
+\texttt{CarmichaelPrimePacketSpectrum}, and
+\texttt{CarmichaelPrimePacketAscent}. Their complete proof closure
+is exported through \texttt{CarmichaelProbability}.
+
 \subsection{Intrinsic power-return spectra identify physical prime carriers}
 \label{sec:carmichael-intrinsic-spectrum}
 
