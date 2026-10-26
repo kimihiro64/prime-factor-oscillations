@@ -1,0 +1,72 @@
+{
+  "date": "2026-10-26",
+  "lean_version": "4.34.0",
+  "focused_compile_exit_code": 0,
+  "focused_compile_chunk": "582f23",
+  "public_consumers_exit_code": 0,
+  "public_consumers_chunk": "759b22",
+  "new_axiom_reports": 4,
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "targets": [
+    "PrimeFactorOscillations.CarmichaelPrimePowerChebyshev.character_eq_primitive_on_nat",
+    "PrimeFactorOscillations.CarmichaelPrimePowerChebyshev.characterChebyshevSum_eq_primitive",
+    "PrimeFactorOscillations.CarmichaelPrimePowerChebyshev.exists_primePower_chebyshev_bound",
+    "PrimeFactorOscillations.CarmichaelPrimePowerChebyshev.exists_wild_survivor_chebyshev_bound"
+  ],
+  "reused_declarations": [
+    "PrimeFactorOscillations.CarmichaelWildConductor.wild_nonprincipal_survivor_conductor",
+    "PrimeFactorOscillations.PrimePowerCharacterConductor.prime_dvd_level",
+    "DirichletCharacter.primitiveCharacter_apply_of_isCoprime",
+    "DirichletCharacter.apply_eq_zero_iff",
+    "PrimeFactorOscillations.QRH.exists_primitive_characterChebyshevSum_le_seven_eighths",
+    "BombieriVinogradov.DirichletCharacter.primitiveCharacter_ne_one_of_ne_one"
+  ],
+  "certified_zero_free_boundary": "7/8 unchanged",
+  "benchmark_status": "Exact primitive transfer and inflation-independent native wild QRH bound; no exponent gain",
+  "old_bound": "Generic wild estimate A*x^(7/8)*(1+(a+2)*log(p)+log(x+2))^2",
+  "new_bound": "Native wild estimate A*x^(7/8)*(1+2*log(p)+log(x+2))^2, uniform for all a>=0; Euler correction exactly zero",
+  "components": {
+    "exact_values": "All natural inputs, including zero and nonunits",
+    "exact_sums": "Complete complex Chebyshev sum equality before estimating",
+    "generic_conductor": "Any positive basep, conductor p^(b+1), level p^(a+b+1)",
+    "wild": "Every odd prime labelp, every naturala, every surviving nonprincipal mode",
+    "constant": "One universal positive A; not numerically specified",
+    "principal_wave": "Independently unestimated"
+  },
+  "actuals": "Universal symbolic Lean proof; no finite diagnostic",
+  "first_nonpositive_domain": "Not applicable; no signed RH positivity bound installed",
+  "detector_error": "Unchanged",
+  "family_adapter": "Exact all-input primitive transfer at equal prime-power support",
+  "uncancelled_main_terms": "Principal RH wave retained and independently unestimated",
+  "low_estimate_provenance": "No new signed low-divisor estimate",
+  "parameter_domain": "All positive basesp and natural a,b; native odd-prime wild specialization for all a",
+  "attainable_endpoint": "7/8 unchanged",
+  "overlap_check": {
+    "completed_inputs": "The tame all-input transfer previously covered conductorp at levelp^(a+1). The odd-wild conductor theorem supplies exactlyp^2 but did not prove its all-input analytic transfer.",
+    "distinct_conclusion": "General conductor exponent b+1 and exact native wild Chebyshev bound, removing arbitrary inflation a from its logarithmic cost.",
+    "primary_sources": [
+      "https://leanprover-community.github.io/mathlib4_docs/Mathlib/NumberTheory/DirichletCharacter/Basic.html"
+    ],
+    "priority_scope": "Exact project consumer of established character/conductor facts; no exhaustive publication-priority claim."
+  },
+  "owners": [
+    {
+      "module": "PrimeFactorOscillations.Assembly.CarmichaelPrimePowerChebyshev",
+      "source_sha256": "950e9a3a34267030ea000e8d110b2ad7f1815c135a8ac35498c61298a36f6eb0",
+      "checked_source_sha256": "950e9a3a34267030ea000e8d110b2ad7f1815c135a8ac35498c61298a36f6eb0",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelPrimePowerChebyshev.character_eq_primitive_on_nat",
+        "PrimeFactorOscillations.CarmichaelPrimePowerChebyshev.characterChebyshevSum_eq_primitive",
+        "PrimeFactorOscillations.CarmichaelPrimePowerChebyshev.exists_primePower_chebyshev_bound",
+        "PrimeFactorOscillations.CarmichaelPrimePowerChebyshev.exists_wild_survivor_chebyshev_bound"
+      ],
+      "source_normalization": "unchanged",
+      "kernel_build": "passed",
+      "axiom_audit": "standard_foundations_only"
+    }
+  ]
+}

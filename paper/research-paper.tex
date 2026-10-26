@@ -10024,6 +10024,83 @@ classification and the full active-carrier CRT formula remain open.
 This theorem adds no independent signed upper estimate for the principal
 RH wave and leaves the certified zero-free exponent \(7/8\) unchanged.
 
+\subsection{Exact primitive transfer without presentation loss}
+\label{sec:carmichael-prime-power-chebyshev}
+
+The conductor classification can be used before estimating the character
+wave.  For prime-power presentations it eliminates the finite Euler
+correction exactly, including its possible dependence on the inflated level.
+
+\begin{theorem}[Conductor-exact prime-power character waves]
+\label{thm:carmichael-prime-power-chebyshev}
+Let \(p\) be any positive integer, let \(a,b\geq0\), and let \(\chi\)
+be a Dirichlet character modulo \(q=p^{a+b+1}\) with conductor
+\(f=p^{b+1}\).  Write \(\chi^*\) for its primitive ancestor.
+For every natural number \(n\), including \(n=0\),
+\[
+ \chi(n)=\chi^*(n).
+\]
+Consequently, with the usual von Mangoldt weights,
+\[
+ \psi(x,\chi)=\sum_{n\leq x}\Lambda(n)\chi(n)
+            =\psi(x,\chi^*)
+\]
+for every natural cutoff \(x\).
+There is one universal constant \(A>0\), chosen before
+\(p,a,b,\chi,x\), such that every nonprincipal character in this
+statement satisfies, for every natural \(x\geq2\),
+\[
+ |\psi(x,\chi)|
+ \leq A x^{7/8}
+       \bigl(1+(b+1)\log p+\log(x+2)\bigr)^2.
+\]
+In particular, for every odd prime \(p\), every \(a\geq0\), and every
+nonprincipal surviving mode of the original native kernel with level
+\(p^{a+2}\) and label \(p\),
+\[
+ |\psi(x,\chi)|
+ \leq A x^{7/8}
+       \bigl(1+2\log p+\log(x+2)\bigr)^2 .
+\]
+Neither the constant nor the logarithmic factor depends on the
+presentation inflation \(a\).
+\end{theorem}
+
+\begin{proof}
+If \(\gcd(n,p)=1\), then \(n\) is coprime to \(q\).  The defining
+primitive-character agreement on units gives
+\(\chi(n)=\chi^*(n)\).
+If \(\gcd(n,p)>1\), then \(n\) is coprime to neither \(q\) nor \(f\):
+both are positive powers of \(p\).  Both character values are therefore
+zero.  This includes the nonunit case \(n=0\); when \(p=1\), the unit
+case applies instead.  Thus the character equality holds at every
+natural input, without deleting any terms from either sum.
+Multiplying by \(\Lambda(n)\) and summing proves the exact Chebyshev
+identity.
+
+For a nonprincipal \(\chi\), its primitive ancestor is nonprincipal
+and has modulus at least \(3\).  Apply the previously verified uniform
+primitive QRH estimate to \(\chi^*\):
+\[
+ |\psi(x,\chi^*)|
+ \leq A x^{7/8}\bigl(1+\log f+\log(x+2)\bigr)^2 .
+\]
+The exact sum identity and
+\(\log f=(b+1)\log p\) give the general bound.
+For an odd-wild native survivor, the preceding conductor theorem gives
+\(f=p^2\) unconditionally.  Substitute \(b=1\).
+\end{proof}
+
+The generic imprimitive estimate used the ambient logarithm
+\(\log q=(a+b+1)\log p\).  The new bound uses the true logarithm
+\(\log f=(b+1)\log p\), with no finite Euler correction.
+All complex phases are retained in the exact identity before the
+primitive estimate is applied.  The universal constant is positive
+but is not numerically specified.  This controls individual
+nonprincipal character waves; it supplies no independent estimate for
+the signed principal RH wave and leaves the certified exponent \(7/8\)
+unchanged.
+
 \subsection{Intrinsic power-return spectra identify physical prime carriers}
 \label{sec:carmichael-intrinsic-spectrum}
 
