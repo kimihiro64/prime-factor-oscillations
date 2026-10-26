@@ -9743,6 +9743,102 @@ The maintained owners are
 \texttt{CarmichaelPrimePacketAscent}. Their complete proof closure
 is exported through \texttt{CarmichaelProbability}.
 
+\subsection{Tame prime-power inflation adds no character conductors}
+\label{sec:carmichael-tame-conductor}
+
+The preceding spectrum distinguishes a genuinely new character sector from
+a larger presentation modulus.  In the tame prime-power case the distinction
+is exact: the native kernel sees the residue prime, while arbitrary further
+prime-power precision is invisible to every surviving mode.
+
+\begin{theorem}[Exact tame conductor compression]
+\label{thm:carmichael-tame-conductor}
+Let \(p\) be a prime, \(a\geq0\), and \(q=p^{a+1}\).  If a Dirichlet
+character \(\chi\) modulo \(q\) satisfies
+\[
+  \chi(u)^m=1\quad(u\in(\mathbb Z/q\mathbb Z)^\times),
+  \qquad \gcd(m,p)=1,
+\]
+then \(\chi\) factors through reduction to modulus \(p\), and
+\(\operatorname{cond}(\chi)\mid p\).  If \(\chi\ne1\), then
+\(\operatorname{cond}(\chi)=p\).  Its values on units are constant on
+the fibers of the actual reduction map.
+
+In particular, let \(\ell\mid\lambda(q)\) be a prime label with
+\(\gcd(\ell,p)=1\), and let \(K_{q,\ell}\), \(c_{q,\ell}(\chi)\), and
+\(D_{q,\ell}\) be the original singleton kernel, its coefficients, and
+its return-image index from Theorem~\ref{thm:carmichael-prime-packet}.
+Every character with \(c_{q,\ell}(\chi)\ne0\) factors through modulus \(p\).
+Every nonprincipal such character has conductor exactly \(p\).
+There exists a function \(k:(\mathbb Z/p\mathbb Z)^\times\to\mathbb R\)
+such that
+\[
+  K_{q,\ell}(u)=k(\pi u)
+  \quad\text{for every }u\in(\mathbb Z/q\mathbb Z)^\times,
+\]
+where \(\pi\) is the actual unit-reduction homomorphism.
+Moreover, a nonprincipal character of conductor \(p\) is present with
+the exact positive coefficient
+\[
+  c_{q,\ell}(\chi)=\frac{1}{(D_{q,\ell}-1)^2}.
+\]
+Thus the surviving spectrum is nontrivial at modulus \(p\), independently
+of the inflation exponent \(a\).
+\end{theorem}
+
+\begin{proof}
+The reduction homomorphism
+\(\pi:(\mathbb Z/p^{a+1}\mathbb Z)^\times
+\to(\mathbb Z/p\mathbb Z)^\times\) is surjective and has kernel of
+cardinality \(p^a\).  This is the existing exact conductor-kernel
+cardinality theorem, specialized by transporting the complete dependent
+family of reduction maps to the prime target.
+
+For \(u\in\ker\pi\), Lagrange's theorem gives \(u^{p^a}=1\).
+Consequently \(\chi(u)^{p^a}=1\), while the hypothesis gives
+\(\chi(u)^m=1\).  The order of the unit \(\chi(u)\) divides both \(m\)
+and \(p^a\).  Since these integers are coprime, \(\chi(u)=1\).
+The standard kernel criterion for Dirichlet-character descent therefore
+shows that \(\chi\) factors through \(p\), and its conductor divides \(p\).
+A nonprincipal character has conductor different from \(1\), so primality
+of \(p\) forces conductor exactly \(p\).  The factorization also shows
+that equal reductions give equal character values.
+
+For a native surviving mode, the proved coefficient-support theorem gives
+\(\chi(u)^\ell=1\) on every unit.  Apply the preceding argument with
+\(m=\ell\).  To descend the whole kernel, retain its complete inversion:
+\[
+  K_{q,\ell}(u)
+    =\sum_{\chi\bmod q}c_{q,\ell}(\chi)\chi(u^{-1}).
+\]
+If \(\pi u=\pi v\), their inverse reductions agree.  Every surviving
+summand has identical values at \(u^{-1}\) and \(v^{-1}\), and each
+remaining summand is exactly zero.  Hence \(K_{q,\ell}(u)=K_{q,\ell}(v)\),
+with every original phase and coefficient retained.  Choose one lift of
+each unit modulo \(p\) and evaluate the original kernel there; the fiber
+identity makes this a well-defined descended function \(k\).
+
+Finally, Theorem~\ref{thm:carmichael-prime-packet} supplies an actual
+nonprincipal survivor with coefficient \(1/(D_{q,\ell}-1)^2\).
+Its conductor is exactly \(p\) by the first part.
+\end{proof}
+
+The argument includes \(a=0\) and the residue prime \(2\); it does not
+assert the tame conclusion when the return label equals the residue prime.
+It preserves the original kernel rather than identifying the descended
+function with a newly constructed canonical kernel at a smaller modulus.
+The earlier index-two zero-mask exception also remains in force.
+
+For an analytic theorem stated in terms of the primitive conductor,
+the conductor of each nonprincipal surviving mode is therefore \(p\),
+rather than \(p^{a+1}\).  Transferring a modulus-dependent estimate still
+requires its exact imprimitive Euler correction and any multiplicities;
+those terms are not removed by changing a symbol.  The principal
+coefficient remains \(1\), and neither an independent signed upper bound
+nor an improvement of the certified \(7/8\) zero-free boundary is asserted.
+The finite-group descent principle is classical; the result here applies
+it to the exact native return spectrum and its ascent-facing kernel.
+
 \subsection{Intrinsic power-return spectra identify physical prime carriers}
 \label{sec:carmichael-intrinsic-spectrum}
 

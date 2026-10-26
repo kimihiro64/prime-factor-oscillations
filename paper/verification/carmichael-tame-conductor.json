@@ -1,0 +1,88 @@
+{
+  "date": "2026-10-25",
+  "lean_version": "4.34.0",
+  "helper_compile_exit_code": 0,
+  "helper_compile_chunk": "25c646",
+  "native_compile_exit_code": 0,
+  "native_compile_chunk": "bcfdfc",
+  "public_consumers_exit_code": 0,
+  "public_consumers_chunk": "dc8239",
+  "new_axiom_reports": 11,
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "targets": [
+    "PrimeFactorOscillations.PrimePowerCharacterConductor.prime_dvd_level",
+    "PrimeFactorOscillations.PrimePowerCharacterConductor.tame_factorsThrough",
+    "PrimeFactorOscillations.PrimePowerCharacterConductor.tame_conductor_dvd",
+    "PrimeFactorOscillations.PrimePowerCharacterConductor.tame_nonprincipal_conductor",
+    "PrimeFactorOscillations.PrimePowerCharacterConductor.tame_values_eq_of_reduction_eq",
+    "PrimeFactorOscillations.CarmichaelPrimeConductor.tame_survivor_factorsThrough",
+    "PrimeFactorOscillations.CarmichaelPrimeConductor.tame_survivor_conductor_dvd",
+    "PrimeFactorOscillations.CarmichaelPrimeConductor.tame_nonprincipal_survivor_conductor",
+    "PrimeFactorOscillations.CarmichaelPrimeConductor.tame_kernel_eq_of_reduction_eq",
+    "PrimeFactorOscillations.CarmichaelPrimeConductor.tame_kernel_descends_to_prime",
+    "PrimeFactorOscillations.CarmichaelPrimeConductor.exists_tame_prime_conductor_survivor"
+  ],
+  "reused_declarations": [
+    "PrimeFactorOscillations.PrimePowerReturnSpectrum.conductor_kernel_card",
+    "DirichletCharacter.factorsThrough_iff_ker_unitsMap",
+    "DirichletCharacter.conductor_dvd_of_mem_conductorSet",
+    "PrimeFactorOscillations.CarmichaelPrimePacketSpectrum.nonzero_coefficient_prime_power",
+    "PrimeFactorOscillations.CarmichaelCorrelationSpectrum.kernel_expansion",
+    "PrimeFactorOscillations.CarmichaelPrimePacketSpectrum.exists_nonprincipal_prime_character"
+  ],
+  "certified_zero_free_boundary": "7/8 unchanged",
+  "benchmark_status": "exact_structural_conductor_compression; no new signed arithmetic upper bound",
+  "old_bound": "Certified exponent7/8; presentation modulus p^(a+1)",
+  "new_bound": "Certified exponent7/8; every surviving nonprincipal primitive conductor exactlyp",
+  "components": {
+    "kernel": "Original same-base correlation and every phase retained",
+    "conductor": "Exact p, independent of a, under label coprime to p",
+    "principal": "Coefficient1 unchanged",
+    "signed_arithmetic_upper": "Not established"
+  },
+  "actuals": "Uniform symbolic proof for every primep, a>=0 and coprime label; no finite diagnostic substituted",
+  "first_nonpositive_domain": "Not applicable to the exact conductor classification; no analytic positivity estimate installed",
+  "overlap_check": {
+    "completed_inputs": "Existing prime-power reductions concern subgroup/additive traces; the newly proved prime packet gives exact multiplicative support.",
+    "distinct_conclusion": "Full original native kernel descends to prime reduction, with conductor exactlyp for all nonprincipal survivors and a proved survivor.",
+    "primary_source": "https://leanprover-community.github.io/mathlib4_docs/Mathlib/NumberTheory/DirichletCharacter/Basic.html",
+    "priority_scope": "Finite-group character descent is classical. No exhaustive publication-priority claim; native spectral consumer is the new project conclusion."
+  },
+  "owners": [
+    {
+      "module": "PrimeFactorOscillations.Helpers.PrimePowerCharacterConductor",
+      "source_sha256": "8a786e9ef838a8d48d438f81e3cbc9e8c21d38fdfa1d6bb36f3392b5cbb796cf",
+      "checked_source_sha256": "8a786e9ef838a8d48d438f81e3cbc9e8c21d38fdfa1d6bb36f3392b5cbb796cf",
+      "declarations": [
+        "PrimeFactorOscillations.PrimePowerCharacterConductor.prime_dvd_level",
+        "PrimeFactorOscillations.PrimePowerCharacterConductor.tame_factorsThrough",
+        "PrimeFactorOscillations.PrimePowerCharacterConductor.tame_conductor_dvd",
+        "PrimeFactorOscillations.PrimePowerCharacterConductor.tame_nonprincipal_conductor",
+        "PrimeFactorOscillations.PrimePowerCharacterConductor.tame_values_eq_of_reduction_eq"
+      ],
+      "source_normalization": "unchanged",
+      "kernel_build": "passed",
+      "axiom_audit": "standard_foundations_only"
+    },
+    {
+      "module": "PrimeFactorOscillations.Assembly.CarmichaelPrimeConductor",
+      "source_sha256": "d10439ddd9da7d23177d78c378fd10972c4bee0a1adfdf2afe333511a9578f4b",
+      "checked_source_sha256": "d10439ddd9da7d23177d78c378fd10972c4bee0a1adfdf2afe333511a9578f4b",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelPrimeConductor.tame_survivor_factorsThrough",
+        "PrimeFactorOscillations.CarmichaelPrimeConductor.tame_survivor_conductor_dvd",
+        "PrimeFactorOscillations.CarmichaelPrimeConductor.tame_nonprincipal_survivor_conductor",
+        "PrimeFactorOscillations.CarmichaelPrimeConductor.tame_kernel_eq_of_reduction_eq",
+        "PrimeFactorOscillations.CarmichaelPrimeConductor.tame_kernel_descends_to_prime",
+        "PrimeFactorOscillations.CarmichaelPrimeConductor.exists_tame_prime_conductor_survivor"
+      ],
+      "source_normalization": "unchanged",
+      "kernel_build": "passed",
+      "axiom_audit": "standard_foundations_only"
+    }
+  ]
+}
