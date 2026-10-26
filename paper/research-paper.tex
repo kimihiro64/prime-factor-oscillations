@@ -8714,6 +8714,141 @@ violate that hypothesis. Publication priority for the arithmetic
 formulation is not asserted. No new prime-base sampling estimate or
 zero-free exponent follows from this finite identity alone.
 
+\subsection{Large redundant labels carry uniformly little information}
+\label{sec:carmichael-redundant-tail}
+
+The exact fiber geometry has a uniform arithmetic consequence.
+Its error depends on the reciprocal image sizes at the labels that
+actually disagree, rather than on the total number of coordinates.
+
+\begin{theorem}[Uniform information bound for redundant prime labels]
+\label{thm:carmichael-redundant-tail}
+Let \(m,B\ge1\) be coprime, let \(a,b\in U(m)\), and use the complete
+packet, image sizes, and gates of
+Theorem~\ref{thm:carmichael-fiber-geometry}. Put
+\[
+ \Delta=\{\ell\in S:\gamma_\ell(a)\ne\gamma_\ell(b)\},\qquad
+ C=\sum_{\ell\in\Delta}e_\ell^{-1}.
+\]
+For all such extensions, with no feasibility or squarefree
+assumption,
+\[
+ d_{\rm TV}(P_a,P_b)\le C,\qquad
+ \mathcal E(P_a,P_b)\le2(1-\sqrt{1-C}),
+\]
+where the real square root is zero on negative arguments.
+The more precise signed error is
+\[
+ -\frac{C^2}{2}\le\mathcal E(P_a,P_b)-C\le C^2.
+\]
+
+Suppose now that \(Y\ge2\) is an integer, the gates agree at every
+label \(\ell\le Y\), and \(e_\ell\ge\ell^2\) at every disagreement.
+Define
+\[
+ T(Y)=\sum_{\substack{p\text{ prime}\\p>Y}}p^{-2},\qquad
+ \Phi(Y)=2(1-\sqrt{1-T(Y)}).
+\]
+Then, uniformly in both moduli, both old units, and the complete
+finite packet,
+\[
+ C\le T(Y),\qquad
+ d_{\rm TV}(P_a,P_b)\le T(Y),\qquad
+ \mathcal E(P_a,P_b)\le\Phi(Y).
+\]
+The majorants have the unconditional limits
+\[
+ T(Y)\,Y\log Y\longrightarrow1,\qquad
+ \Phi(Y)\,Y\log Y\longrightarrow1.
+\]
+Thus both distance bounds are at most
+\((1+o(1))/(Y\log Y)\), with majorants independent of the extension.
+
+If \(B\) is squarefree, it suffices that each mismatched label
+have auxiliary carrier rank at least two. The gate at label \(2\),
+when present, is among the required agreeing low labels.
+Empty packets and empty disagreement sets are included.
+\end{theorem}
+\begin{proof}
+Write \(A=A_{ab}\), \(B'=A_{ba}\) for the two directed overlap
+products. A label belongs to at most one direction, so the full
+coupled product is
+\[
+ P:=AB'=\prod_{\ell\in\Delta}(1-e_\ell^{-1}).
+\]
+Every reciprocal image size belongs to \([0,1]\).
+Apply the maintained quadratic product-error theorem to these
+complete factors:
+\[
+ 0\le P-1+C\le C^2/2.                         \tag{*}
+\]
+In particular \(1-P\le C\).
+Since \(0\le A,B'\le1\), we have \(P\le\min(A,B')\).
+The exact total-variation formula therefore gives
+\(d_{\rm TV}\le1-P\le C\).
+Also \(P\ge1-C\); monotonicity of the square root and the exact
+energy formula give
+\(\mathcal E=2(1-\sqrt P)\le2(1-\sqrt{1-C})\).
+
+For the signed linear error put \(H=2(1-\sqrt P)\).
+Because \(0\le P\le1\), one has
+\[
+ 0\le H\le2C,\qquad
+ H-(1-P)=\frac{H^2}{4}.
+\]
+Combining this identity with both sides of (*) yields
+\[
+ -C^2/2\le H-C\le H^2/4\le C^2.
+\]
+Thus every overlap and quadratic correction is retained before
+taking the final bounds.
+
+Under the additional gate and image hypotheses, every member of
+\(\Delta\) exceeds \(Y\), and
+\[
+ C=\sum_{\ell\in\Delta}e_\ell^{-1}
+ \le\sum_{\ell\in\Delta}\ell^{-2}
+ \le T(Y).
+\]
+The last step embeds the actual finite disagreement set into the
+prime tail; no unsupported infinite complement is used.
+Monotonicity gives both asserted distance bounds.
+
+The existing prime reciprocal-square tail theorem gives
+\(T(Y)Y\log Y\to1\).
+Its maintained nonasymptotic estimate
+\(0\le T(Y)\le2/Y\), \(Y\ge1\), also gives \(T(Y)\to0\) and
+\(T(Y)\le1\) for \(Y\ge2\).
+Rationalizing the exact energy majorant gives
+\[
+ \Phi(Y)=\frac{2T(Y)}{1+\sqrt{1-T(Y)}}.
+\]
+The denominator tends to \(2\), proving the second limit with
+leading constant one. These are limits of the universal majorants,
+not assertions that the actual distances must attain them.
+
+Finally, for squarefree \(B\) the proved auxiliary index formula is
+\(e_\ell=\ell^{r_\ell}\), where \(r_\ell\) is the actual auxiliary
+carrier rank. Its existing power-to-index bound with exponent two
+supplies \(e_\ell\ge\ell^2\) whenever \(r_\ell\ge2\).
+No new rank estimate is assumed.
+\end{proof}
+
+The complete signed product-error consumer, actual finite
+disagreement sum, uniform two-fiber distance bounds, energy
+linearization, asymptotic energy majorant, and squarefree
+carrier-count specialization are maintained in
+\begin{quote}\small\ttfamily
+Assembly/CarmichaelRedundantTail.lean
+\end{quote}
+The proof reuses the already maintained prime-tail asymptotic in
+\texttt{Helpers/PrimeReciprocalSquareTail.lean}, the quadratic
+product bound, and the auxiliary rank formula.
+The new conclusion concerns the full conditional arithmetic law;
+publication priority for this formulation is not asserted.
+Prime-base applications still require a uniform sampling estimate.
+The certified zero-free boundary remains \(7/8\).
+
 \subsection{Odd return packets have no quadratic character modes}
 \label{sec:odd-return-character-support}
 

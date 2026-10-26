@@ -6,6 +6,7 @@ Authors: Prime Factor Oscillations contributors
 import PrimeFactorOscillations.Assembly.CarmichaelConditionalStability
 import PrimeFactorOscillations.Assembly.CarmichaelFiberGeometry
 import PrimeFactorOscillations.Assembly.CarmichaelProfileStability
+import PrimeFactorOscillations.Assembly.CarmichaelRedundantTail
 import PrimeFactorOscillations.Helpers.OddReturnCharacterSupport
 import PrimeFactorOscillations.Helpers.PrimePowerRootClock
 import PrimeFactorOscillations.Helpers.PrimeSquareIntrinsicShell
