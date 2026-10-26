@@ -11625,21 +11625,18 @@ For \(\ell=2\), the remaining packet is all odd, so its existing
 uniform floor is \(1/2\).  Multiplying its nonnegative weights by
 \(z_i\ge B\ge0\) proves the displayed lower bound.
 
-For clarity, quadratic cancellation applies to the full remaining
-kernel, not merely to its vacancy seed.
-That kernel is a function of the simultaneous odd return coordinates.
-Let \(P\) be the product of these odd labels.
-Translation by \(a^P\) fixes every coordinate and hence the kernel.
-For a nonprincipal quadratic \(\chi\), choose \(a\) with
-\(\chi(a)\ne1\).  Since \(P\) is odd,
-\(\chi(a^P)=\chi(a)\).
-Translating the complete signed character sum gives
+Quadratic cancellation for the full odd kernel was already established
+by the existing odd-kernel character theorem, not merely for its vacancy
+seed.  Apply that theorem to the erased packet in the original group
+and period.  It gives
 \[
- T=\chi(a)T,\qquad
- T=\sum_g K_{S\setminus\{2\}}(g)\chi(g).
+ \sum_g K_{S\setminus\{2\}}(g)\chi(g)=0
 \]
-Therefore \(T=0\).  The mean-one identity gives the retained principal
-sum \(|G|\).  No character phase or absolute-value estimate is used.
+for every nonprincipal quadratic character.  The new phase-projection
+identity transfers this existing cancellation to the original mixed
+packet averaged over its actual modular phases.  Its mean-one identity
+retains the principal sum \(|G|\).  No character phase or
+absolute-value estimate is used.
 
 At actual modular-unit inputs, the boxed identity is pointwise.
 At a nonunit, both scalar functions are exactly zero by definition.

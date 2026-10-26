@@ -39,11 +39,12 @@
     "PrimeFactorOscillations.CarmichaelCorrelationFloor.localFactor_closed",
     "PrimeFactorOscillations.OddReturnCharacterSupport.odd_packet_quadratic_sum_eq_zero",
     "PrimeFactorOscillations.CarmichaelCorrelationFloor.weighted_signal_lower",
-    "PrimeFactorOscillations.riemannHypothesis_iff_eventually_carmichaelLocalAscentExcess_nonpos"
+    "PrimeFactorOscillations.riemannHypothesis_iff_eventually_carmichaelLocalAscentExcess_nonpos",
+    "PrimeFactorOscillations.CarmichaelCorrelation.odd_vacancy_kernel_quadratic_sum_eq_zero"
   ],
   "certified_zero_free_boundary": "7/8 unchanged",
   "benchmark_status": "Exact internal label-erasure operator,full-kernel quadratic annihilation and actual-prime RH consumer; no zero-free gain",
-  "old_bound": "Common q-only2-phase coverage gave mean-one floor3/16 but no exact label erasure. Odd vacancy quadratic cancellation and observed-bit projection existed; full original kernel phase projection and actual signed ascent equality were absent.7/8 unchanged.",
+  "old_bound": "Common q-only2-phase coverage gave mean-one floor3/16 but no exact label erasure. Odd-seed and full odd-kernel quadratic cancellation, and observed-bit projection, already existed. Exact original mixed-kernel phase projection and actual signed ascent equality were absent.7/8 unchanged.",
   "new_bound": "D_l actual phase lifts erase any active label exactly while fixing all other coordinates. Binary phase average equals original odd kernel,mean1,floor1/2,and no nonprincipal quadratic mode. Full signed finite sums and zero-extended actual-prime excess transfer exactly; both RH criteria retain original sampler/budget.7/8 unchanged.",
   "components": {
     "positive_supply": "Principal mean1 retained exactly; binary projected unit density>=1/2",
@@ -62,8 +63,8 @@
   "parameter_domain": "Gfiniteabelian,L=exponentG,Sfiniteactive,l inS,D_l>=2; all finite supported signed samples. q>=1all n scalar. RH consumer exact LocalAscentSampling,variable active S with2inS,and eventual NAT q(X)<=X^(m(X)/2).",
   "attainable_endpoint": "7/8 unchanged",
   "overlap_check": {
-    "completed_inputs": "Read existing observed-bit profile erasure,conditional/tail projection,simultaneous return surjectivity,full kernel product,odd packet quadratic cancellation and signed odd ascent criterion. Existing profile erasure acts on observed bits/fibers,not this translation average of original kernel.",
-    "distinct_conclusion": "Actual native phase sections erase any active local kernel factor exactly; binary average cancels all full-kernel nonprincipal quadratic modes with principal1,and equals old odd actual-prime signed ascent observable at every cutoff.",
+    "completed_inputs": "Existing inputs include full odd-kernel quadratic cancellation in CarmichaelCorrelation.odd_vacancy_kernel_quadratic_sum_eq_zero, observed-bit profile erasure, simultaneous return surjectivity, full kernel product and signed odd ascent criterion. The canonical-period odd-kernel helper is a specialization of the existing provider, not new mathematics.",
+    "distinct_conclusion": "Actual native phase sections erase any active local kernel factor exactly and transfer existing odd-kernel cancellation to arbitrary mixed packets. The phase-averaged actual-prime signed ascent observable equals the original erased-packet observable at every cutoff.",
     "existing_target": "Extends the Fourier-cancellation frontier after claim139. General arbitrary-label exact same-clock phase projection and full signed actual-prime equality were not matched to previous bit-projection or special prime-power progression providers.",
     "primary_sources": [
       "https://leanprover-community.github.io/mathlib4_docs/Mathlib/NumberTheory/DirichletCharacter/Basic.html"
@@ -72,16 +73,16 @@
   },
   "public_consumers_exit_code": 0,
   "public_consumers_chunk": "63be8d",
-  "public_facade_chunk": "0c6b77",
+  "public_facade_chunk": "db2385",
   "focused_compiles": [
     {
       "owner": "PrimeFactorOscillations/Assembly/CarmichaelLabelAverage.lean",
-      "chunk": "b0c4ba",
+      "chunk": "90f75f",
       "exit_code": 0
     },
     {
       "owner": "PrimeFactorOscillations/Assembly/CarmichaelLabelAscent.lean",
-      "chunk": "1f1dd5",
+      "chunk": "b3bb26",
       "exit_code": 0
     }
   ],
@@ -92,8 +93,8 @@
   "owners": [
     {
       "module": "PrimeFactorOscillations.Assembly.CarmichaelLabelAverage",
-      "source_sha256": "56067238eefe80c98724541dedc3ad3c7db91806e49a874d7f60a2dbc8ba0536",
-      "checked_source_sha256": "56067238eefe80c98724541dedc3ad3c7db91806e49a874d7f60a2dbc8ba0536",
+      "source_sha256": "c5f6b9302f0d383a23a605b0e489c8a2fbbb8e3c581985755184ebe8290e6566",
+      "checked_source_sha256": "c5f6b9302f0d383a23a605b0e489c8a2fbbb8e3c581985755184ebe8290e6566",
       "declarations": [
         "PrimeFactorOscillations.CarmichaelLabelAverage.exists_label_phase_section",
         "PrimeFactorOscillations.CarmichaelLabelAverage.kernel_split_label",
@@ -110,7 +111,7 @@
         "PrimeFactorOscillations.CarmichaelLabelAverage.binary_phaseAverage_signed_lower",
         "PrimeFactorOscillations.CarmichaelLabelAverage.averagedPrimeWeight_eq_erased"
       ],
-      "source_normalization": "trailing_blank_lines_only_proofs_unchanged",
+      "source_normalization": "existing_full_kernel_provider_reused_proof_checked",
       "kernel_build": "passed",
       "axiom_audit": "standard_foundations_only"
     },
@@ -129,5 +130,23 @@
       "kernel_build": "passed",
       "axiom_audit": "standard_foundations_only"
     }
-  ]
+  ],
+  "provider_reuse_correction": {
+    "date": "2026-10-26",
+    "provider": "PrimeFactorOscillations.CarmichaelCorrelation.odd_vacancy_kernel_quadratic_sum_eq_zero",
+    "scope": "Replace duplicated canonical-period helper proof by the existing arbitrary-period full-kernel theorem; correct provenance only. No new claim or target.",
+    "changed_owner": "PrimeFactorOscillations/Assembly/CarmichaelLabelAverage.lean",
+    "source_sha256": "c5f6b9302f0d383a23a605b0e489c8a2fbbb8e3c581985755184ebe8290e6566",
+    "focused_compile_chunk": "90f75f",
+    "direct_consumer_chunk": "b3bb26",
+    "affected_axiom_reports": 2,
+    "affected_axiom_chunk": "1dc28d",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "facade_chunk": "db2385",
+    "zero_free_boundary": "7/8 unchanged"
+  }
 }

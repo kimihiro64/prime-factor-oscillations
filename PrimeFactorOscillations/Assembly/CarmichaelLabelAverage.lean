@@ -260,39 +260,10 @@ theorem odd_kernel_quadratic_sum_zero (S : Finset Nat.Primes)
     (hSquare : forall g : G, (chi g) ^ 2 = 1) :
     Finset.univ.sum (fun g : G =>
       (kernel (vacancyWeight (G := G) (Monoid.exponent G) S) g : Complex) * chi g) = 0 := by
-  classical
-  let L := Monoid.exponent G
-  let f (y : (p : S) -> returnImage (G := G) L (p.val : Nat)) : Complex :=
-    ((Finset.univ.prod (fun p : S =>
-      localFactor (returnIndex (G := G) L (p.val : Nat)) (decide (y p = 1)))) : Real)
-  have hPoint (g : G) : f (packetProjection L S g) =
-      (kernel (vacancyWeight (G := G) L S) g : Complex) := by
-    unfold f
-    rw [canonical_kernel_eq_product S hDiv]
-    apply congrArg (fun x : Real => (x : Complex))
-    apply Finset.prod_congr rfl
-    intro p _
-    have hReturn : packetProjection L S g p = 1 <-> g ^ (L / (p.val : Nat)) = 1 := by
-      constructor
-      . intro h
-        exact congrArg Subtype.val h
-      . intro h
-        exact Subtype.ext h
-    change localFactor (returnIndex (G := G) L (p.val : Nat))
-        (decide (packetProjection L S g p = 1)) =
-      localFactor (returnIndex (G := G) L (p.val : Nat)) (returnBit L (p.val : Nat) g)
-    by_cases h : g ^ (L / (p.val : Nat)) = 1
-    . have hP := hReturn.mpr h
-      simp [returnBit, h, hP]
-    . have hP : Not (packetProjection L S g p = 1) := fun hp => h (hReturn.mp hp)
-      simp [returnBit, h, hP]
-  calc
-    _ = Finset.univ.sum (fun g : G => f (packetProjection L S g) * chi g) := by
-      apply Finset.sum_congr rfl
-      intro g _
-      rw [hPoint]
-    _ = 0 := OddReturnCharacterSupport.odd_packet_quadratic_sum_eq_zero L S hDiv hOdd
-      (fun g => Monoid.pow_exponent_eq_one g) chi hChi hSquare f
+  simpa only [CarmichaelCorrelation.characterSum] using
+    CarmichaelCorrelation.odd_vacancy_kernel_quadratic_sum_eq_zero
+      (Monoid.exponent G) S hDiv hOdd
+      (fun g => Monoid.pow_exponent_eq_one g) chi hChi hSquare
 
 theorem binary_phaseAverage_floor (S : Finset Nat.Primes)
     (hDiv : forall p : S, Dvd.dvd (p.val : Nat) (Monoid.exponent G))
