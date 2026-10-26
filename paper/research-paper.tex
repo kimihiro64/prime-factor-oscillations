@@ -11505,6 +11505,174 @@ remain explicit burdens.  Odd character phases and full
 follows merely from this finite phase completion.
 The certified zero-free boundary remains \(7/8\).
 
+\subsection{Exact label erasure by modular phases}
+\label{sec:carmichael-label-average}
+
+The common phase from the previous theorem supplies coverage uniformly
+over all packets.  A packet-dependent family of phases gives a stronger
+exact identity: an entire return coordinate can be averaged away inside
+the original kernel.
+
+\begin{theorem}[Exact native phase projection and quadratic-free ascent criteria]
+\label{thm:carmichael-label-average}
+Let \(G\) be a finite abelian group, \(L=\exp(G)\), and \(S\) a finite
+set of primes dividing \(L\).  Fix \(\ell\in S\), and set
+\[
+ R_\ell=\operatorname{im}(g\mapsto g^{L/\ell}),\qquad
+ D_\ell=|R_\ell|.
+\]
+There is a family of actual group phases \(v_r\), indexed by
+\(r\in R_\ell\), chosen before \(g\), such that
+\[
+ v_r^{L/\ell}=r,\qquad
+ v_r^{L/p}=1\quad(p\in S\setminus\{\ell\}).
+\]
+Every such family satisfies the exact identity
+\[
+ \boxed{\quad
+ \mathcal P_\ell K_S(g):=
+ \frac1{D_\ell}\sum_{r\in R_\ell}K_S(v_rg)
+       =K_{S\setminus\{\ell\}}(g).
+ \quad}
+\]
+All kernels retain the original group and period \(L\).
+Here \(D_\ell\ge\ell\ge2\), so the normalization is nonzero.
+The projected density has mean \(1\).
+
+For every finite support \(T\), units \(u_i\in G\), and arbitrary
+signed real numbers \(z_i\),
+\[
+ \sum_{i\in T}\mathcal P_\ell K_S(u_i)z_i
+ =\sum_{i\in T}K_{S\setminus\{\ell\}}(u_i)z_i.
+\]
+If \(\ell=2\), then \(\mathcal P_2K_S(g)\ge1/2\).
+For every nonprincipal character \(\chi:G\to\mathbb C^\times\)
+with \(\chi(g)^2=1\) for all \(g\),
+\[
+ \sum_{g\in G}\mathcal P_2K_S(g)\chi(g)=0.
+\]
+The principal sum remains \(|G|\).
+If \(z_i\ge B\ge0\) on \(T\), the full signed sum therefore obeys
+\[
+ \sum_{i\in T}\mathcal P_2K_S(u_i)z_i\ge \frac B2\,|T|.
+\]
+
+For \(G=(\mathbb Z/q\mathbb Z)^\times\), \(q\ge1\), evaluate the
+projected density at the actual unit \(n\bmod q\) and extend by zero
+on nonunits.  For every natural \(n\), this scalar weight equals
+\(A_{q,S\setminus\{\ell\}}(n)\) exactly, including on nonunits.
+
+There is a corresponding actual-prime RH criterion.
+Take \(H,m,a\) satisfying precisely the local-ascent sampling hypothesis
+of Theorem~\ref{thm:carmichael-binary-probability}, and take
+\(q(X)\ge1\), active packets \(S_X\) containing \(2\), and the same
+eventual integer budget \(q(X)\le X^{\lfloor m(X)/2\rfloor}\).
+Choose a phase family at each cutoff as above; such families exist
+simultaneously.  Let \(E_{\mathcal P}(X)\) be the complete original
+signed ascent excess using their zero-extended projected weights.
+At every cutoff,
+\[
+ E_{\mathcal P}(X)=E_{q,S\setminus\{2\}}(X),
+\]
+where the right side is the existing odd-packet ascent excess with
+the same sampled primes and compensation.  Consequently
+\[
+ \mathrm{RH}\ \Longleftrightarrow\
+ E_{\mathcal P}(X)\le0\text{ eventually}
+ \ \Longleftrightarrow\
+ \exists C>0:\ E_{\mathcal P}(X)\le C X^{7/10}\text{ eventually}.
+\]
+If RH fails, then for every \(C>0\) and real \(X_0\) there is a
+natural \(n>X_0\) with \(E_{\mathcal P}(n)>C n^{7/10}\).
+No existence assertion for the local-ascent sampler is included.
+\end{theorem}
+
+\begin{proof}
+Use the established simultaneous surjectivity of the full return
+projection
+\[
+ G\longrightarrow\prod_{p\in S}\operatorname{im}(g\mapsto g^{L/p}).
+\]
+For each \(r\in R_\ell\), prescribe \(r\) in coordinate \(\ell\)
+and the identity in every other coordinate.  A lift is the required
+actual phase \(v_r\).
+
+Separate exactly the \(\ell\)-factor in the original full product:
+\[
+ K_S(g)=F(D_\ell,b_\ell(g))K_{S\setminus\{\ell\}}(g),\qquad
+ F(d,b)=1+\frac{db-1}{(d-1)^2}.
+\]
+The prescribed identity coordinates make the entire remaining kernel
+invariant under every translation by \(v_r\).
+If \(t=g^{L/\ell}\in R_\ell\), then the retained factor at \(v_rg\)
+is \(F(D_\ell,\mathbf1_{\{rt=1\}})\).
+Multiplication by \(t\) permutes the complete finite image, and
+\[
+ \sum_{r\in R_\ell}
+ F(D_\ell,\mathbf1_{\{rt=1\}})
+ =
+ D_\ell+
+ \frac{D_\ell\cdot1-D_\ell}{(D_\ell-1)^2}
+ =D_\ell.
+\]
+Thus the boxed equality is exact, with every other local factor kept.
+The completed return-image lower bound gives \(D_\ell\ge\ell\);
+all divisions are valid.  The remaining native kernel has mean \(1\).
+
+Multiply the pointwise identity by each signed \(z_i\) and sum on
+the stated finite support to obtain the full signed consumer.
+For \(\ell=2\), the remaining packet is all odd, so its existing
+uniform floor is \(1/2\).  Multiplying its nonnegative weights by
+\(z_i\ge B\ge0\) proves the displayed lower bound.
+
+For clarity, quadratic cancellation applies to the full remaining
+kernel, not merely to its vacancy seed.
+That kernel is a function of the simultaneous odd return coordinates.
+Let \(P\) be the product of these odd labels.
+Translation by \(a^P\) fixes every coordinate and hence the kernel.
+For a nonprincipal quadratic \(\chi\), choose \(a\) with
+\(\chi(a)\ne1\).  Since \(P\) is odd,
+\(\chi(a^P)=\chi(a)\).
+Translating the complete signed character sum gives
+\[
+ T=\chi(a)T,\qquad
+ T=\sum_g K_{S\setminus\{2\}}(g)\chi(g).
+\]
+Therefore \(T=0\).  The mean-one identity gives the retained principal
+sum \(|G|\).  No character phase or absolute-value estimate is used.
+
+At actual modular-unit inputs, the boxed identity is pointwise.
+At a nonunit, both scalar functions are exactly zero by definition.
+This proves the scalar equality on the entire natural domain.
+Apply it separately to every actual sampled prime, keeping its
+complete signed pair excess, to obtain the exact equality of the
+two ascent excesses at every cutoff.
+The phase sections exist at each cutoff by the first part; choosing
+them simultaneously adds no arithmetic hypothesis.
+The erased packets are active and all odd, so the existing odd-packet
+ascent theorem applies with the original sampler and modulus budget.
+It supplies both RH equivalences and the stated excursions.
+\end{proof}
+
+For the binary label, this removes every nonprincipal quadratic mode
+from the finite character expansion while preserving the principal
+signal and the original signed ascent criterion.
+When the binary return index is \(2\), only two phases are needed;
+larger return images use all \(D_2\) indexed phases.
+The phases here may depend on the packet, unlike the common phase
+in the preceding theorem.
+If label \(2\) is absent, the existing all-odd criterion applies
+directly.  In particular, moduli with no active binary label require
+no binary normalization.
+
+This separates quadratic noise from the principal arithmetic burden.
+No-Siegel information cannot supply a second gain from quadratic
+terms that this projected observable already cancels exactly.
+The remaining complex-character terms and principal signed estimate
+must still be analyzed.  This linear finite identity is not a license
+to remove factors from nonlinear \(L\)-function quotients.
+The certified zero-free boundary remains \(7/8\).
+
 \subsection{Intrinsic power-return spectra identify physical prime carriers}
 \label{sec:carmichael-intrinsic-spectrum}
 
