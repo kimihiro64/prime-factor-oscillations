@@ -1,0 +1,25 @@
+"""Exact geometry of conditional modular-unit return profiles."""
+
+TARGETS = (
+    "PrimeFactorOscillations.CarmichaelFiberGeometry.gatedFactor_nonneg",
+    "PrimeFactorOscillations.CarmichaelFiberGeometry.gatedLaw_nonneg",
+    "PrimeFactorOscillations.CarmichaelFiberGeometry.commonLaw_nonneg",
+    "PrimeFactorOscillations.CarmichaelFiberGeometry.gatedLaw_sum_one",
+    "PrimeFactorOscillations.CarmichaelFiberGeometry.commonLaw_sum_one",
+    "PrimeFactorOscillations.CarmichaelFiberGeometry.gatedLaw_eq_common_on_quiet",
+    "PrimeFactorOscillations.CarmichaelFiberGeometry.commonLaw_symm",
+    "PrimeFactorOscillations.CarmichaelFiberGeometry.gatedLaw_min_eq_common",
+    "PrimeFactorOscillations.CarmichaelFiberGeometry.gatedLaw_overlap_sum",
+    "PrimeFactorOscillations.CarmichaelFiberGeometry.gatedTotalVariation_eq",
+    "PrimeFactorOscillations.CarmichaelFiberGeometry.overlapMass_nonneg",
+    "PrimeFactorOscillations.CarmichaelFiberGeometry.gatedLaw_product_eq",
+    "PrimeFactorOscillations.CarmichaelFiberGeometry.gatedLaw_affinity_eq",
+    "PrimeFactorOscillations.CarmichaelFiberGeometry.gatedHellingerEnergy_eq",
+    "PrimeFactorOscillations.CarmichaelFiberGeometry.auxiliaryReturnRate_bounds",
+    "PrimeFactorOscillations.CarmichaelFiberGeometry.fiber_profile_eq_gatedLaw",
+    "PrimeFactorOscillations.CarmichaelFiberGeometry.fiberTotalVariation_eq",
+    "PrimeFactorOscillations.CarmichaelFiberGeometry.fiberHellingerEnergy_eq",
+    "PrimeFactorOscillations.CarmichaelFiberGeometry.fiberOverlapMass_nonneg",
+    "PrimeFactorOscillations.CarmichaelFiberGeometry.fiberOverlapMass_zero_of_frozen_gate",
+    "PrimeFactorOscillations.CarmichaelFiberGeometry.fiber_distances_of_frozen_gate",
+)

@@ -8600,6 +8600,120 @@ The statement concerns uniform full-unit fibers. It supplies no
 growing-modulus prime-base sampling estimate and no new zero-free
 exponent.
 
+\subsection{Exact geometry between conditional fibers}
+\label{sec:carmichael-fiber-geometry}
+
+The vacancy comparison can be sharpened to an exact distance formula
+when comparing two fibers of the same extension. The auxiliary
+probabilities agree, so only disagreement of the old-coordinate
+gates can distinguish the full profiles.
+
+\begin{theorem}[Exact overlap of conditional return profiles]
+\label{thm:carmichael-fiber-geometry}
+Let \(m,B\ge1\) be coprime and let \(a,b\in U(m)\).
+Use the complete prime packet \(S\) and the conditional laws
+\(P_a,P_b\) of Theorem~\ref{thm:carmichael-conditional-stability}.
+Write
+\[
+ e_\ell=
+ \bigl|\{v^{\lambda(mB)/\ell}:v\in U(B)\}\bigr|,\qquad
+ D_{ab}=\{\ell\in S:\gamma_\ell(a)=1,\ \gamma_\ell(b)=0\},
+\]
+and define the two directed overlap masses by
+\[
+ A_{ab}=\prod_{\ell\in D_{ab}}(1-e_\ell^{-1}),\qquad
+ A_{ba}=\prod_{\ell\in D_{ba}}(1-e_\ell^{-1}).
+\]
+Then the exact full-profile distances are
+\[
+ \boxed{\quad
+ d_{\rm TV}(P_a,P_b)=1-\min(A_{ab},A_{ba}),\qquad
+ \mathcal E(P_a,P_b)=2\bigl(1-\sqrt{A_{ab}A_{ba}}\bigr).
+ \quad}
+\]
+Neither fiber is required to admit a maximal-order lift.
+There is no squarefree restriction, and no vacancy is divided out.
+If some \(\ell\in D_{ab}\) has \(e_\ell=1\), then
+\[
+ A_{ab}=0,\qquad d_{\rm TV}(P_a,P_b)=1,\qquad
+ \mathcal E(P_a,P_b)=2.
+\]
+The same conclusion holds with \(a,b\) interchanged.
+Empty packets and identical gates give zero distance.
+\end{theorem}
+\begin{proof}
+Put \(r_\ell=e_\ell^{-1}\), so \(0<r_\ell\le1\), including
+the deterministic case \(e_\ell=1\).
+The exact conditional kernel gives independent factors
+\[
+ f_\ell^a(\sigma)=
+ \begin{cases}
+ r_\ell,&\gamma_\ell(a)=1,\ \sigma=1,\\
+ 1-r_\ell,&\gamma_\ell(a)=1,\ \sigma=0,\\
+ 0,&\gamma_\ell(a)=0,\ \sigma=1,\\
+ 1,&\gamma_\ell(a)=0,\ \sigma=0.
+ \end{cases}
+\]
+At a label where the gates agree, retain their common factor.
+Where they disagree, use the deterministic factor
+\(\boldsymbol1_{\{\sigma=0\}}\).
+The product of these factors is a normalized probability law \(Q\).
+
+Let \(C\) be the event that every mismatched label has bit zero.
+On \(C\), the complete products satisfy
+\[
+ P_a(\omega)=A_{ab}Q(\omega),\qquad
+ P_b(\omega)=A_{ba}Q(\omega).
+\]
+Outside \(C\), \(Q(\omega)=0\), and at least one of the two
+conditional probabilities is zero. Thus, pointwise on all patterns,
+\[
+ \min(P_a(\omega),P_b(\omega))
+   =\min(A_{ab},A_{ba})Q(\omega).
+\]
+Summing this identity and using both exact mass-one normalizations
+in
+\[
+ |x-y|=x+y-2\min(x,y)
+\]
+proves the total-variation formula.
+
+The same complete coordinate products give
+\[
+ P_a(\omega)P_b(\omega)
+   =A_{ab}A_{ba}Q(\omega)^2.
+\]
+All factors are nonnegative. Taking square roots and summing yields
+the exact affinity
+\[
+ \sum_\omega\sqrt{P_a(\omega)P_b(\omega)}
+   =\sqrt{A_{ab}A_{ba}}.
+\]
+Expanding the squared square-root differences, with both complete
+masses retained, proves the energy formula.
+A frozen mismatched coordinate contributes the factor
+\(1-e_\ell^{-1}=0\) to the appropriate directed overlap product,
+which proves the singular case. If no labels disagree, both
+directed products are one.
+\end{proof}
+
+The normalized common law, pointwise minimum and product identities,
+exact total variation and affinity, actual modular-unit consumers,
+and deterministic singularity theorem are maintained in
+\begin{quote}\small\ttfamily
+Assembly/CarmichaelFiberGeometry.lean
+\end{quote}
+and exported through the Carmichael probability grouping.
+The product-affinity principle is classical; see the Hellinger
+integral in Kud\=o~\cite{KudoKakutani}. The conclusion here is an
+explicit finite geometry for actual conditional arithmetic fibers,
+including unequal supports caused by their gates.
+No infinite-product equivalence is inferred from a theorem requiring
+coordinatewise mutual absolute continuity: mismatched gates can
+violate that hypothesis. Publication priority for the arithmetic
+formulation is not asserted. No new prime-base sampling estimate or
+zero-free exponent follows from this finite identity alone.
+
 \subsection{Odd return packets have no quadratic character modes}
 \label{sec:odd-return-character-support}
 
