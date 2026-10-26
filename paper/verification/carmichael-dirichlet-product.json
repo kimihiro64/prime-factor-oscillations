@@ -1,0 +1,101 @@
+{
+  "date": "2026-10-26",
+  "lean_version": "4.34.0",
+  "focused_compile_exit_code": 0,
+  "focused_compile_chunk": "9cc16d",
+  "new_axiom_reports": 12,
+  "new_axiom_chunk": "20a9a3",
+  "targets": [
+    "PrimeFactorOscillations.CarmichaelDirichletProduct.product_ne_zero_two",
+    "PrimeFactorOscillations.CarmichaelDirichletProduct.analyticOnNhd_product_off_one",
+    "PrimeFactorOscillations.CarmichaelDirichletProduct.product_zero_iff",
+    "PrimeFactorOscillations.CarmichaelDirichletProduct.principal_zero_imp_product_zero",
+    "PrimeFactorOscillations.CarmichaelDirichletProduct.product_order_formula",
+    "PrimeFactorOscillations.CarmichaelDirichletProduct.product_order_ne_top",
+    "PrimeFactorOscillations.CarmichaelDirichletProduct.principal_order_le_product_order",
+    "PrimeFactorOscillations.CarmichaelDirichletProduct.product_logDeriv_order",
+    "PrimeFactorOscillations.CarmichaelDirichletProduct.readout_order_iff_product_zero",
+    "PrimeFactorOscillations.CarmichaelDirichletProduct.readout_order_iff_supported_zero",
+    "PrimeFactorOscillations.CarmichaelDirichletProduct.principal_zero_readout_order",
+    "PrimeFactorOscillations.CarmichaelDirichletProduct.odd_product_eq_nonquadratic"
+  ],
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "reused_declarations": [
+    "PrimeFactorOscillations.CarmichaelIntegralSpectrum.multiplicity_principal",
+    "PrimeFactorOscillations.CarmichaelIntegralSpectrum.odd_multiplicity_quadratic_zero",
+    "PrimeFactorOscillations.CarmichaelPermutationKernel.normalization_pos",
+    "PrimeFactorOscillations.DirichletZeroReadout.analyticOnNhd_LFunction_off_one",
+    "DirichletCharacter.LFunction_ne_zero_of_one_le_re",
+    "meromorphicOrderAt_prod",
+    "meromorphicOrderAt_pow",
+    "meromorphicOrderAt_logDeriv_eq_neg_one",
+    "MeromorphicOn.meromorphicOrderAt_ne_top_of_isPreconnected"
+  ],
+  "certified_zero_free_boundary": "7/8 unchanged",
+  "benchmark_status": "Full native L-product and shared-zero multiplicity/readout theorem; no arithmetic exponent gain",
+  "old_bound": "Native integer Fourier multiplicities and all-natural Dirichlet/Mangoldt coefficient identity were proved; unconditional analytic zero readout existed for one Dirichlet character. Actual full native L-product,shared-zero order sum/principal lower bound and supportedzero readout were not assembled.7/8 unchanged.",
+  "new_bound": "Full product F_S=prod L_chi^mu_chi is analytic off1,nonzeroat2 and has finite local order equal to every weighted factor order. ordF>=M*ordL1 retains principal and shared zeros. Negative log derivative plus any analytic error has order-1 iff a positive-weight factor vanishes. Odd product omits nonprincipal quadratic factors exactly.7/8 unchanged.",
+  "components": {
+    "positive_supply": "Principal multiplicityM>0 retained; local product order>=M times principal-character L order.",
+    "signed_corrections": "Every full L-function and every shared zero retained. No norm,triangle or quotient-factor deletion.",
+    "quadratic_cancellation": "Zero exponents rigorously remove nonprincipal quadratic factors from the actual odd-packet product,not by an asserted average of Euler quotients.",
+    "analytic_scope": "Analytic off1,nonidentity certified at2 and finite local orders by the connected-domain meromorphic identity theorem.",
+    "readout": "All supportedzeros,including shared/multiple zeros,are detected after every reconstruction error analytic at the tested point.",
+    "limits": "Direct Mellin identity of this product and complete ascent-character consumer remain to be proved. No independent sampler or arithmetic upper estimate."
+  },
+  "actuals": "Universal Lean proof for all fixed finite native packets and every tested complex point off1; no numerical completion.",
+  "first_nonpositive_domain": "Analytic powers have nonnegative local orders; all nonprincipal quadratic powers are0 for oddS. No arithmetic nonpositivity or new zero-free region established.",
+  "detector_error": "Arbitrary reconstruction error analytic at rho cannot conceal or create a pole. No claimed estimate or construction of that error.",
+  "family_adapter": "Actual finite full Dirichlet L-product built from the exact native integer spectrum. Direct Mellin/ascent transfer is not asserted.",
+  "uncancelled_main_terms": "Principal multiplicityM and all remaining complex-character factors retained; shared zeros add their orders.",
+  "low_estimate_provenance": "No independent arithmetic upper estimate; only exact analytic noncancellation.",
+  "parameter_domain": "Every q>=1,original native G,L and finite active S; rho any complex number except1; reconstruction E analytic at rho. All functions finite products,with no growing-q limit.",
+  "attainable_endpoint": "7/8 unchanged",
+  "overlap_check": {
+    "completed_inputs": "Read exact native integer-spectrum,existing single-character unconditional readout and Nicolas/Landau pole-order signatures. Reused Mathlib product/power order laws and the existing connected-domain identity theorem. Native product owner path was absent; no existing native shared-zero product consumer was identified.",
+    "distinct_conclusion": "Actual full native L-product with exact complete shared-zero order formula,principal multiplicity lower bound,supportedzero readout under arbitrary analytic reconstruction error,and exact removal of nonprincipal quadratic factors for odd packets.",
+    "existing_target": "This completes the analytic product consumer explicitly opened after the new integer-spectrum theorem. Existing single-character readout and integer spectrum remain inputs; no old quadratic cancellation or generic product rule is counted as new mathematics.",
+    "primary_sources": [
+      "https://www.jmilne.org/math/CourseNotes/CFT.pdf"
+    ],
+    "priority_scope": "Explicit analytic consumer of the project's native spectrum. Generic finite L-product theory is classical; no broad priority claim or zero-free exponent improvement."
+  },
+  "public_consumers_exit_code": 0,
+  "public_consumers_chunk": "c3a400",
+  "public_facade_chunk": "c50f6f",
+  "focused_compiles": [
+    {
+      "owner": "PrimeFactorOscillations/Assembly/CarmichaelDirichletProduct.lean",
+      "chunk": "9cc16d",
+      "exit_code": 0
+    }
+  ],
+  "owners": [
+    {
+      "module": "PrimeFactorOscillations.Assembly.CarmichaelDirichletProduct",
+      "source_sha256": "5a2af4fb4267d7a773ebbfc4b9233e8ed194cc90b7cd58dfe783408a31cb649d",
+      "checked_source_sha256": "5a2af4fb4267d7a773ebbfc4b9233e8ed194cc90b7cd58dfe783408a31cb649d",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelDirichletProduct.product_ne_zero_two",
+        "PrimeFactorOscillations.CarmichaelDirichletProduct.analyticOnNhd_product_off_one",
+        "PrimeFactorOscillations.CarmichaelDirichletProduct.product_zero_iff",
+        "PrimeFactorOscillations.CarmichaelDirichletProduct.principal_zero_imp_product_zero",
+        "PrimeFactorOscillations.CarmichaelDirichletProduct.product_order_formula",
+        "PrimeFactorOscillations.CarmichaelDirichletProduct.product_order_ne_top",
+        "PrimeFactorOscillations.CarmichaelDirichletProduct.principal_order_le_product_order",
+        "PrimeFactorOscillations.CarmichaelDirichletProduct.product_logDeriv_order",
+        "PrimeFactorOscillations.CarmichaelDirichletProduct.readout_order_iff_product_zero",
+        "PrimeFactorOscillations.CarmichaelDirichletProduct.readout_order_iff_supported_zero",
+        "PrimeFactorOscillations.CarmichaelDirichletProduct.principal_zero_readout_order",
+        "PrimeFactorOscillations.CarmichaelDirichletProduct.odd_product_eq_nonquadratic"
+      ],
+      "source_normalization": "unchanged",
+      "kernel_build": "passed",
+      "axiom_audit": "standard_foundations_only"
+    }
+  ]
+}

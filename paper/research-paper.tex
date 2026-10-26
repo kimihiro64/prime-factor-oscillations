@@ -11886,6 +11886,112 @@ absent terms.  The principal coefficient remains exactly \(1\), and
 the independent signed upper estimate is still required.
 The certified zero-free boundary remains \(7/8\).
 
+\subsection{Full native L-products preserve shared zeros}
+\label{sec:carmichael-dirichlet-product}
+
+The integer spectrum yields an actual analytic object, rather than an
+asserted average of nonlinear Euler quotients.
+
+\begin{theorem}[Native L-products preserve supported zeros and multiplicities]
+\label{thm:carmichael-dirichlet-product}
+Use the original \(q,G,L,S,M_S,\mu_\chi\) of
+Theorem~\ref{thm:carmichael-integral-spectrum}, and define
+\[
+ F_S(s)=\prod_{\chi\bmod q}L(s,\chi)^{\mu_\chi}.
+\]
+Then \(F_S\) is analytic on \(\mathbb C\setminus\{1\}\) and
+\(F_S(2)\ne0\).  For every \(\rho\ne1\), its meromorphic order is
+finite and satisfies
+\[
+ \boxed{\quad
+ \operatorname{ord}_\rho F_S
+ =\sum_{\chi\bmod q}\mu_\chi\operatorname{ord}_\rho L(s,\chi)
+ \ \ge\ M_S\operatorname{ord}_\rho L(s,1).
+ \quad}
+\]
+Here the sum retains every shared zero and its full order.
+Moreover,
+\[
+ F_S(\rho)=0
+ \quad\Longleftrightarrow\quad
+ \exists\chi:\ \mu_\chi>0,\ L(\rho,\chi)=0.
+\]
+Thus every principal-character zero is retained.
+
+For any function \(E\) analytic near \(\rho\), let
+\[
+ R_{S,E}(s)=-\frac{F_S'(s)}{F_S(s)}+E(s)
+\]
+as a meromorphic germ.  Then
+\[
+ \operatorname{ord}_\rho R_{S,E}=-1
+ \quad\Longleftrightarrow\quad
+ \exists\chi:\ \mu_\chi>0,\ L(\rho,\chi)=0.
+\]
+This detects shared and multiple zeros without assuming simplicity,
+RH, GRH, or a zero-free strip.
+
+If \(S\) is all odd, the actual product can be restricted exactly to
+the principal character and the nonquadratic characters:
+\[
+ F_S(s)=
+ \prod_{\substack{\chi\bmod q\\
+          \chi=1\ \text{or}\ \chi^2\ne1}}
+          L(s,\chi)^{\mu_\chi}.
+\]
+In particular, every nonprincipal quadratic factor has exponent zero.
+These assertions retain \(q=1\), the empty packet, and the exceptional
+binary return index.
+\end{theorem}
+
+\begin{proof}
+Every Dirichlet \(L\)-function is analytic away from \(1\), and its
+value at \(2\) is nonzero by the existing unconditional nonvanishing
+theorem.  Finite products of the indicated nonnegative integer powers
+are therefore analytic there and nonzero at \(2\).
+The punctured plane \(\mathbb C\setminus\{1\}\) is connected.
+The established meromorphic identity principle, using the value at
+\(2\), shows that the local order of \(F_S\) is never infinite on this
+domain.
+
+Apply the existing exact product and power laws for meromorphic
+orders.  They give the boxed equality with every character retained.
+For each character, \(L(s,\chi)^{\mu_\chi}\) is analytic near \(\rho\),
+so its order is nonnegative.  Keep the principal term in this same
+sum and use \(\mu_1=M_S\) to obtain the inequality.
+This argument retains all common zeros; it does not estimate their
+contributions separately by absolute values.
+
+A finite product of nonnegative integer powers vanishes exactly when
+one factor with positive exponent vanishes.  Since \(M_S>0\), the
+principal factor has positive exponent.
+At every such zero the finite local order is positive.  The existing
+logarithmic-derivative order theorem then gives a simple pole of
+\(\log F_S\)'.
+An analytic summand has nonnegative meromorphic order and cannot
+cancel this order-\(-1\) term.  Conversely, if \(F_S(\rho)\ne0\),
+its logarithmic derivative and \(E\) are both analytic near \(\rho\),
+so their sum has no pole.
+Finally, the existing odd-packet quadratic cancellation gives
+\(\mu_\chi=0\) for every nonprincipal quadratic \(\chi\).
+Every such factor is exactly \(L(s,\chi)^0=1\), proving the restricted
+product identity.
+\end{proof}
+
+This is unconditional shared-zero noncancellation for the full native
+product.  It includes all full \(L\)-functions, with no reciprocal or
+Euler factor discarded.  For odd packets, the quadratic factors are
+already absent, so no-Siegel information is not an additional estimate
+of those factors.
+
+The all-natural coefficient identity from the preceding theorem and
+the signed ascent criterion still have different arithmetic test
+functions.  A direct Mellin identity for this product and a character
+resolution of the complete signed ascent excess must be proved before
+transferring estimates between them.  No independent arithmetic upper
+estimate or new zero-free boundary is asserted here; the certified
+boundary remains \(7/8\).
+
 \subsection{Intrinsic power-return spectra identify physical prime carriers}
 \label{sec:carmichael-intrinsic-spectrum}
 
