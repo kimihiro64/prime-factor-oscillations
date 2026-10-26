@@ -11357,6 +11357,154 @@ reverse count comparison with an absolute constant nor an independent
 upper estimate for the RH signal.
 The certified zero-free boundary remains \(7/8\).
 
+\subsection{One phase completes every native probability packet}
+\label{sec:carmichael-binary-probability}
+
+The ascent and Carmichael constructions can be combined without an
+all-odd restriction.  The phase below acts on the residue of an actual
+sampled prime; no phase multiple is asserted to be prime.
+
+\begin{theorem}[Uniform phase completion and a mean-one ascent RH criterion]
+\label{thm:carmichael-binary-probability}
+For every \(q\ge1\), put \(G_q=(\mathbb Z/q\mathbb Z)^\times\) and
+\(L_q=\exp(G_q)\).  There exists a unit \(v_q\), chosen from \(q\) alone,
+such that for every finite prime-label packet \(S\) whose labels divide
+\(L_q\), and every \(g\in G_q\),
+\[
+ K_{q,S}(g)+K_{q,S}(v_qg)\ge\frac38.
+\]
+The original native period \(L_q\) is retained throughout.  Define
+\[
+ \overline K_{q,S}(g)=\frac{K_{q,S}(g)+K_{q,S}(v_qg)}2.
+\]
+Then
+\[
+ \frac1{|G_q|}\sum_{g\in G_q}\overline K_{q,S}(g)=1,
+ \qquad \overline K_{q,S}(g)\ge\frac3{16}.
+\]
+Thus \(\overline K_{q,S}/|G_q|\) is a probability mass function.
+Let \(\overline A_{q,S}(n)\) be the density at the actual unit
+\(n\bmod q\), extended by zero on nonunits.
+
+For its signed arithmetic consumer, fix \(H\in\mathbb N\),
+\(m:\mathbb N\to\mathbb N\), and
+\(a_X:\operatorname{Fin}(m(X))\to\mathbb N\), satisfying precisely the
+existing \(\mathrm{LocalAscentSampling}(H,m,a)\) hypothesis:
+for every \(\varepsilon>0\), eventually
+\(X^{7/10-\varepsilon}\le m(X)\); and eventually \(a_X\) is injective
+and all its sampled positions satisfy
+\[
+ 2\le p_{a_X(i)+1}-p_{a_X(i)}\le H,\qquad
+ X\le p_{a_X(i)}-1\le X+X^{3/4},
+ \qquad p_j=\mathrm{primeAt}(j).
+\]
+Let \(q(X)\ge1\), let every label in \(S_X\) divide \(L_{q(X)}\),
+and assume the eventual integer budget
+\[
+ q(X)\le X^{\lfloor m(X)/2\rfloor}.
+\]
+Write \(B_{H,X}(a_X(i))\) for the original signed
+\(\mathrm{localAscentPairExcess}\), including its compensation, and set
+\[
+ \overline E(X)=\sum_{i<m(X)}
+ \overline A_{q(X),S_X}(p_{a_X(i)})B_{H,X}(a_X(i)).
+\]
+Then
+\[
+ \mathrm{RH}\ \Longleftrightarrow\
+ \overline E(X)\le0\text{ eventually}
+ \ \Longleftrightarrow\
+ \exists C>0:\ \overline E(X)\le C X^{7/10}\text{ eventually}.
+\]
+If RH fails, then for every \(C>0\) and every real \(X_0\)
+there is a natural \(n>X_0\) with
+\(\overline E(n)>C n^{7/10}\).
+At any cutoff \(X\), if at least \(m(X)/2\) of the actual sampled
+primes are units modulo \(q(X)\), and every complete signed pair
+excess is at least \(B\ge0\), then
+\[
+ \overline E(X)\ge\frac3{32}m(X)B.
+\]
+The existence of a sampler satisfying these hypotheses is not asserted.
+\end{theorem}
+
+\begin{proof}
+Suppose first that label \(2\) is active and its return index is \(2\).
+The flat singleton spectrum supplies a nonprincipal quadratic character
+\(\chi_*\) with coefficient \(1\).
+The total nonprincipal coefficient mass is also \(1\).
+Coefficient nonnegativity forces every other nonprincipal coefficient
+to vanish.  The full character expansion therefore gives exactly
+\[
+ K_{q,\{2\}}(g)=1+\chi_*(g^{-1}).
+\]
+Take the existing nonreturn witness \(v\) at which this kernel is zero.
+The same identity gives \(\chi_*(v^{-1})=-1\), so multiplicativity
+proves
+\[
+ K_{q,\{2\}}(g)+K_{q,\{2\}}(vg)=2
+ \quad\text{for every }g.
+\]
+This phase is selected before any full packet.
+
+For any active full packet containing \(2\), zero-support rigidity
+identifies its zeros with those of the singleton at this same period.
+Consequently its values at \(g\) and \(vg\) cannot both vanish.
+Both are nonnegative, and every nonzero value is at least \(3/8\);
+their sum is at least \(3/8\).
+Packets omitting \(2\) have the existing stronger pointwise floor
+\(1/2\) at each argument.
+If the binary label is inactive or its index is not \(2\), instead
+take \(v=1\).  Zero-support rigidity then makes every active full
+packet nonzero, and the same nonzero gap proves coverage.
+This also covers small moduli and trivial unit groups.
+Thus one \(v_q\) works simultaneously for every active \(S\) and \(g\).
+
+Left multiplication by \(v_q\) permutes \(G_q\).
+Each original kernel has sum \(|G_q|\), hence their half-sum has
+mean \(1\).  Dividing the coverage by \(2\) proves its \(3/16\)
+density floor.  The probability mass at a unit is this density
+divided by \(|G_q|\).
+
+For the complete signed consumer, use the auxiliary scalar weight
+\[
+ W_{q,S}(n)=\frac43\bigl(A_{q,S}(n)+A^{v_q}_{q,S}(n)\bigr)
+          =\frac83\,\overline A_{q,S}(n).
+\]
+Here \(A^{v_q}\) evaluates the original kernel at
+\(v_q(n\bmod q)\) on units and is exactly zero on nonunits.
+Coverage gives \(W\ge1/2\) on units and \(W\ge0\) everywhere,
+which is precisely the existing local-ascent unit-weight hypothesis.
+If at least half the actual sampled primes are units, the sum of
+these weights is at least \(m(X)/4\).
+Multiplying the full signed pointwise lower bound \(B\ge0\) by
+these nonnegative weights gives the auxiliary excess at least
+\(m(X)B/4\).  The normalized excess is exactly \(3/8\) times that
+full auxiliary sum, yielding \(3m(X)B/32\).
+
+Apply the existing weighted local-ascent theorem with the stated
+sampler and integer modulus budget.  Under RH it gives eventual
+nonpositivity.  If RH fails it gives arbitrarily large excursions
+above every constant times \(X^{7/10}\).
+Both statements transfer through the exact positive factor \(3/8\);
+for the excursion with coefficient \(C\), use auxiliary coefficient
+\((8/3)C\).
+This proves the first equivalence and the explicit excursion.
+Eventual nonpositivity implies the power upper bound, for example
+with \(C=1\).  Conversely an eventual power upper bound contradicts
+the excursion with that same \(C>0\) if RH fails.
+\end{proof}
+
+This gives a common mean-one probability density for mixed-packet
+Carmichael and bounded-ascent criteria.  Its principal mean is exactly
+\(1\).  The exponent \(7/10\) is the existing ascent normalization;
+it is not a new zero-free boundary.
+The sampler and the independent signed arithmetic upper estimate
+remain explicit burdens.  Odd character phases and full
+\(L\)-function quotients are retained, and no estimate for them
+follows merely from this finite phase completion.
+The certified zero-free boundary remains \(7/8\).
+
 \subsection{Intrinsic power-return spectra identify physical prime carriers}
 \label{sec:carmichael-intrinsic-spectrum}
 

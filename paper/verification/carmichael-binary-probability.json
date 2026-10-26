@@ -1,0 +1,143 @@
+{
+  "date": "2026-10-26",
+  "lean_version": "4.34.0",
+  "focused_compile_exit_code": 0,
+  "focused_compile_chunk": "67a427",
+  "new_axiom_reports": 24,
+  "new_axiom_chunk": "3bbf8c",
+  "targets": [
+    "PrimeFactorOscillations.CarmichaelBinaryCompletion.index_two_other_coefficient_zero",
+    "PrimeFactorOscillations.CarmichaelBinaryCompletion.index_two_kernel_two_modes",
+    "PrimeFactorOscillations.CarmichaelBinaryCompletion.exists_index_two_complement",
+    "PrimeFactorOscillations.CarmichaelBinaryCompletion.full_kernel_nonneg",
+    "PrimeFactorOscillations.CarmichaelBinaryCompletion.exists_uniform_full_packet_complement",
+    "PrimeFactorOscillations.CarmichaelBinaryCompletion.completionPhase_cover",
+    "PrimeFactorOscillations.CarmichaelBinaryCompletion.completionPhase_signed_cover",
+    "PrimeFactorOscillations.CarmichaelBinaryCompletion.phasePrimeWeight_nonneg",
+    "PrimeFactorOscillations.CarmichaelBinaryCompletion.completedPrimeWeight_bounds",
+    "PrimeFactorOscillations.CarmichaelBinaryCompletion.completedLocalAscent_unit_weights",
+    "PrimeFactorOscillations.CarmichaelBinaryCompletion.completedLocalAscentExcess_common_lower",
+    "PrimeFactorOscillations.CarmichaelBinaryCompletion.completedLocalAscentExcess_unbounded_of_not_RH",
+    "PrimeFactorOscillations.CarmichaelBinaryCompletion.riemannHypothesis_iff_completedLocalAscentExcess_nonpos",
+    "PrimeFactorOscillations.CarmichaelBinaryCompletion.riemannHypothesis_iff_completedLocalAscentExcess_power_upper",
+    "PrimeFactorOscillations.CarmichaelBinaryProbability.normalizedKernel_sum",
+    "PrimeFactorOscillations.CarmichaelBinaryProbability.normalizedKernel_mean_one",
+    "PrimeFactorOscillations.CarmichaelBinaryProbability.normalizedKernel_floor",
+    "PrimeFactorOscillations.CarmichaelBinaryProbability.normalizedPrimeWeight_eq_average",
+    "PrimeFactorOscillations.CarmichaelBinaryProbability.normalizedPrimeWeight_eq_kernel_of_coprime",
+    "PrimeFactorOscillations.CarmichaelBinaryProbability.normalizedLocalAscentExcess_eq_scaled",
+    "PrimeFactorOscillations.CarmichaelBinaryProbability.normalizedLocalAscentExcess_common_lower",
+    "PrimeFactorOscillations.CarmichaelBinaryProbability.normalizedLocalAscentExcess_unbounded_of_not_RH",
+    "PrimeFactorOscillations.CarmichaelBinaryProbability.riemannHypothesis_iff_normalizedLocalAscentExcess_nonpos",
+    "PrimeFactorOscillations.CarmichaelBinaryProbability.riemannHypothesis_iff_normalizedLocalAscentExcess_power_upper"
+  ],
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "reused_declarations": [
+    "PrimeFactorOscillations.CarmichaelPrimePacketSpectrum.exists_nonprincipal_prime_character",
+    "PrimeFactorOscillations.CarmichaelPrimePacket.nonprincipal_coefficient_mass",
+    "PrimeFactorOscillations.CarmichaelCorrelationSpectrum.kernel_expansion",
+    "PrimeFactorOscillations.CarmichaelPrimePacketAscent.exists_kernel_zero_of_index_two",
+    "PrimeFactorOscillations.CarmichaelSupportRigidity.canonical_kernel_nonzero_gap",
+    "PrimeFactorOscillations.CarmichaelSupportRigidity.canonical_kernel_same_zero_set",
+    "PrimeFactorOscillations.CarmichaelCorrelation.kernel_mean_one",
+    "PrimeFactorOscillations.riemannHypothesis_iff_weightedLocalAscentExcess_nonpos"
+  ],
+  "certified_zero_free_boundary": "7/8 unchanged",
+  "benchmark_status": "Universal q-only phase completion and mean-one full signed mixed-packet ascent RH consumer; no zero-free gain",
+  "old_bound": "All-odd packets had floor1/2; mixed packets could vanish. Special2-power phases existed but no q-only all-packet phase at every modulus. Existing generic weighted ascent required unitfloor1/2.7/8 unchanged.",
+  "new_bound": "One phase per q gives all-packet pair sum>=3/8,mean-one density>=3/16. Auxiliary(8/3)density satisfies old unitfloor1/2. Normalized complete signed consumer>=3mB/32 and both RH criteria plus excursions under original sampler/budget.7/8 unchanged.",
+  "components": {
+    "positive_supply": "Exact binary complementary identity and universal nonzero gap3/8; mean-one unitdensity>=3/16",
+    "signed_corrections": "Full compensated pair excess retained; normalized whole sum=(3/8)auxiliary whole sum",
+    "principal": "Mean1 exactly; probability mass=density/|G|",
+    "unit_budget": "At leastm/2actual prime units plus common signed B>=0 yield3mB/32. Original eventual q(X)<=X^(NATfloor(m(X)/2))",
+    "scope": "q-only phase before S,g; all mixed labels; modular phase need not be a prime multiple",
+    "limits": "No sampler construction,independent principal upper estimate,or nonlinear L-quotient filter transfer"
+  },
+  "actuals": "Universal Lean proof for all q>=1,active finite packets and units. Actual prime signed consumer for every original sampler and admissible variable q,S. No finite diagnostic completion.",
+  "first_nonpositive_domain": "Completed density never vanishes on units; scalar nonunits remain exact zeros. Independent signed ascent nonpositivity is not proved.",
+  "detector_error": "Exact finite phase average and exact positive scaling; no approximation",
+  "family_adapter": "All native mixed active packets,original q,L and actual prime residues,zero extension retained",
+  "uncancelled_main_terms": "Principal mean1 and all odd/full-character contributions retained. No full L-quotient or low-divisor term dropped.",
+  "low_estimate_provenance": "Existing weighted local-ascent excursion theorem; no independent arithmetic upper estimate",
+  "parameter_domain": "q>=1; all finite active S; q-onlyphase before S,g. Exact LocalAscentSampling(H,m,a) and eventual NAT modulus budget; fixed-cutoff lower B>=0 and unitcount>=m/2.",
+  "attainable_endpoint": "7/8 unchanged",
+  "overlap_check": {
+    "completed_inputs": "Exact flat positive singleton spectrum,total nonprincipal mass,index2 zero witness,full support rigidity,odd floor and generic weighted signed ascent theorem read and consumed.",
+    "distinct_conclusion": "One phase per arbitrary modulus completes all mixed packets; normalized mean-one actual-prime signed RH criterion with3mB/32lower bound.",
+    "existing_target": "Completes the uniform phase frontier after claim138. Old special2-power phases did not cover arbitrary moduli/packets; no earlier mean-one arbitrary mixed-packet ascent consumer was matched.",
+    "primary_sources": [
+      "https://leanprover-community.github.io/mathlib4_docs/Mathlib/NumberTheory/DirichletCharacter/Basic.html"
+    ],
+    "priority_scope": "Theorem for original project native probability kernels and signed prime ascent observable; no broad literature priority or exponent claim."
+  },
+  "public_consumers_exit_code": 0,
+  "public_consumers_chunk": "ed5013",
+  "public_facade_chunk": "0ff7d7",
+  "focused_compiles": [
+    {
+      "owner": "PrimeFactorOscillations/Assembly/CarmichaelBinaryCompletion.lean",
+      "chunk": "2b9c19",
+      "exit_code": 0
+    },
+    {
+      "owner": "PrimeFactorOscillations/Assembly/CarmichaelBinaryProbability.lean",
+      "chunk": "67a427",
+      "exit_code": 0
+    }
+  ],
+  "new_axiom_chunks": [
+    "783579",
+    "3bbf8c"
+  ],
+  "owners": [
+    {
+      "module": "PrimeFactorOscillations.Assembly.CarmichaelBinaryCompletion",
+      "source_sha256": "d4bf7c1d911d1ec97689ad6da7bdd3519fa44a714a6484ce8fdfcb81a0d07ee9",
+      "checked_source_sha256": "d4bf7c1d911d1ec97689ad6da7bdd3519fa44a714a6484ce8fdfcb81a0d07ee9",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelBinaryCompletion.index_two_other_coefficient_zero",
+        "PrimeFactorOscillations.CarmichaelBinaryCompletion.index_two_kernel_two_modes",
+        "PrimeFactorOscillations.CarmichaelBinaryCompletion.exists_index_two_complement",
+        "PrimeFactorOscillations.CarmichaelBinaryCompletion.full_kernel_nonneg",
+        "PrimeFactorOscillations.CarmichaelBinaryCompletion.exists_uniform_full_packet_complement",
+        "PrimeFactorOscillations.CarmichaelBinaryCompletion.completionPhase_cover",
+        "PrimeFactorOscillations.CarmichaelBinaryCompletion.completionPhase_signed_cover",
+        "PrimeFactorOscillations.CarmichaelBinaryCompletion.phasePrimeWeight_nonneg",
+        "PrimeFactorOscillations.CarmichaelBinaryCompletion.completedPrimeWeight_bounds",
+        "PrimeFactorOscillations.CarmichaelBinaryCompletion.completedLocalAscent_unit_weights",
+        "PrimeFactorOscillations.CarmichaelBinaryCompletion.completedLocalAscentExcess_common_lower",
+        "PrimeFactorOscillations.CarmichaelBinaryCompletion.completedLocalAscentExcess_unbounded_of_not_RH",
+        "PrimeFactorOscillations.CarmichaelBinaryCompletion.riemannHypothesis_iff_completedLocalAscentExcess_nonpos",
+        "PrimeFactorOscillations.CarmichaelBinaryCompletion.riemannHypothesis_iff_completedLocalAscentExcess_power_upper"
+      ],
+      "source_normalization": "unchanged",
+      "kernel_build": "passed",
+      "axiom_audit": "standard_foundations_only"
+    },
+    {
+      "module": "PrimeFactorOscillations.Assembly.CarmichaelBinaryProbability",
+      "source_sha256": "9c7534fe9c3bb1e2c61ca521ef6a2181b18936b32631111bf119ed02c983ef2c",
+      "checked_source_sha256": "9c7534fe9c3bb1e2c61ca521ef6a2181b18936b32631111bf119ed02c983ef2c",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelBinaryProbability.normalizedKernel_sum",
+        "PrimeFactorOscillations.CarmichaelBinaryProbability.normalizedKernel_mean_one",
+        "PrimeFactorOscillations.CarmichaelBinaryProbability.normalizedKernel_floor",
+        "PrimeFactorOscillations.CarmichaelBinaryProbability.normalizedPrimeWeight_eq_average",
+        "PrimeFactorOscillations.CarmichaelBinaryProbability.normalizedPrimeWeight_eq_kernel_of_coprime",
+        "PrimeFactorOscillations.CarmichaelBinaryProbability.normalizedLocalAscentExcess_eq_scaled",
+        "PrimeFactorOscillations.CarmichaelBinaryProbability.normalizedLocalAscentExcess_common_lower",
+        "PrimeFactorOscillations.CarmichaelBinaryProbability.normalizedLocalAscentExcess_unbounded_of_not_RH",
+        "PrimeFactorOscillations.CarmichaelBinaryProbability.riemannHypothesis_iff_normalizedLocalAscentExcess_nonpos",
+        "PrimeFactorOscillations.CarmichaelBinaryProbability.riemannHypothesis_iff_normalizedLocalAscentExcess_power_upper"
+      ],
+      "source_normalization": "unchanged",
+      "kernel_build": "passed",
+      "axiom_audit": "standard_foundations_only"
+    }
+  ]
+}

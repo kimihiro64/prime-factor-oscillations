@@ -1,0 +1,28 @@
+"""One modulus phase completes all active native packets in the ascent RH criterion."""
+
+TARGETS = (
+    "PrimeFactorOscillations.CarmichaelBinaryCompletion.index_two_other_coefficient_zero",
+    "PrimeFactorOscillations.CarmichaelBinaryCompletion.index_two_kernel_two_modes",
+    "PrimeFactorOscillations.CarmichaelBinaryCompletion.exists_index_two_complement",
+    "PrimeFactorOscillations.CarmichaelBinaryCompletion.full_kernel_nonneg",
+    "PrimeFactorOscillations.CarmichaelBinaryCompletion.exists_uniform_full_packet_complement",
+    "PrimeFactorOscillations.CarmichaelBinaryCompletion.completionPhase_cover",
+    "PrimeFactorOscillations.CarmichaelBinaryCompletion.completionPhase_signed_cover",
+    "PrimeFactorOscillations.CarmichaelBinaryCompletion.phasePrimeWeight_nonneg",
+    "PrimeFactorOscillations.CarmichaelBinaryCompletion.completedPrimeWeight_bounds",
+    "PrimeFactorOscillations.CarmichaelBinaryCompletion.completedLocalAscent_unit_weights",
+    "PrimeFactorOscillations.CarmichaelBinaryCompletion.completedLocalAscentExcess_common_lower",
+    "PrimeFactorOscillations.CarmichaelBinaryCompletion.completedLocalAscentExcess_unbounded_of_not_RH",
+    "PrimeFactorOscillations.CarmichaelBinaryCompletion.riemannHypothesis_iff_completedLocalAscentExcess_nonpos",
+    "PrimeFactorOscillations.CarmichaelBinaryCompletion.riemannHypothesis_iff_completedLocalAscentExcess_power_upper",
+    "PrimeFactorOscillations.CarmichaelBinaryProbability.normalizedKernel_sum",
+    "PrimeFactorOscillations.CarmichaelBinaryProbability.normalizedKernel_mean_one",
+    "PrimeFactorOscillations.CarmichaelBinaryProbability.normalizedKernel_floor",
+    "PrimeFactorOscillations.CarmichaelBinaryProbability.normalizedPrimeWeight_eq_average",
+    "PrimeFactorOscillations.CarmichaelBinaryProbability.normalizedPrimeWeight_eq_kernel_of_coprime",
+    "PrimeFactorOscillations.CarmichaelBinaryProbability.normalizedLocalAscentExcess_eq_scaled",
+    "PrimeFactorOscillations.CarmichaelBinaryProbability.normalizedLocalAscentExcess_common_lower",
+    "PrimeFactorOscillations.CarmichaelBinaryProbability.normalizedLocalAscentExcess_unbounded_of_not_RH",
+    "PrimeFactorOscillations.CarmichaelBinaryProbability.riemannHypothesis_iff_normalizedLocalAscentExcess_nonpos",
+    "PrimeFactorOscillations.CarmichaelBinaryProbability.riemannHypothesis_iff_normalizedLocalAscentExcess_power_upper",
+)
