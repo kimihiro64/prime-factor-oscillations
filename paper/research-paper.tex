@@ -11673,6 +11673,113 @@ must still be analyzed.  This linear finite identity is not a license
 to remove factors from nonlinear \(L\)-function quotients.
 The certified zero-free boundary remains \(7/8\).
 
+\subsection{An integral permutation model of the native kernel}
+\label{sec:carmichael-permutation-kernel}
+
+The complete native kernel admits an exact finite group-action model.
+The model retains the original return-image groups and makes its
+normalizing integer explicit.
+
+\begin{theorem}[Native kernels are normalized permutation characters]
+\label{thm:carmichael-permutation-kernel}
+Let \(G\) be a finite abelian group, let \(L=\exp(G)\), and let \(S\)
+be a finite set of primes dividing \(L\).  For \(p\in S\), put
+\[
+ R_p=\operatorname{im}(g\mapsto g^{L/p}),\qquad
+ D_p=|R_p|,\qquad \kappa_p=D_p(D_p-2).
+\]
+Define finite sets and an integer by
+\[
+ X_p=\operatorname{Fin}(\kappa_p)\sqcup R_p,\qquad
+ X_S=\prod_{p\in S}X_p,\qquad
+ M_S=\prod_{p\in S}(D_p-1)^2.
+\]
+The action of \(g\in G\) on \(X_p\) fixes every state in
+\(\operatorname{Fin}(\kappa_p)\) and sends
+\(r\in R_p\) to \(g^{L/p}r\).
+These coordinate actions define an actual homomorphism
+\[
+ G\longrightarrow\operatorname{Perm}(X_S).
+\]
+Write \(\operatorname{Fix}_{X_S}(g)\) for the complete fixed-point
+set of this action.  Then \(M_S>0\), and for every \(g\in G\),
+\[
+ \boxed{\qquad
+ M_S K_S(g)=|\operatorname{Fix}_{X_S}(g)|,\qquad
+ K_S(g)=\frac{|\operatorname{Fix}_{X_S}(g)|}{M_S}.
+ \qquad}
+\]
+Moreover,
+\[
+ \frac1{|G|}\sum_{g\in G}|\operatorname{Fix}_{X_S}(g)|=M_S.
+\]
+All kernels and shortened-period maps use the same original \(G,L\).
+The empty packet is included: \(X_S\) is a singleton and \(M_S=1\).
+\end{theorem}
+
+\begin{proof}
+Every active label satisfies \(D_p\ge p\ge2\).
+Thus \(\kappa_p\) is a natural number and every factor of \(M_S\)
+is positive.
+
+For any integer \(d\ge2\) and \(b\in\{0,1\}\), the exact closed
+local factor gives
+\[
+ (d-1)^2F(d,b)
+ =(d-1)^2+db-1
+ =d(d-2)+db.
+\]
+In the \(R_p\) summand, the equation
+\(g^{L/p}r=r\) is equivalent to \(g^{L/p}=1\), by cancellation
+inside the actual image group.
+Consequently this summand has \(D_p\) fixed points if the return
+condition holds, and none otherwise.
+The trivial summand always contributes \(\kappa_p\) fixed points.
+With \(b_p(g)=\mathbf1_{\{g^{L/p}=1\}}\), this proves exactly
+\[
+ |\operatorname{Fix}_{X_p}(g)|
+ =D_p(D_p-2)+D_pb_p(g)
+ =(D_p-1)^2F(D_p,b_p(g)).
+\]
+The shortened-period map is a homomorphism because \(G\) is abelian.
+The coordinate maps therefore satisfy the identity and multiplication
+laws, and their inverses are supplied by the maps for \(g^{-1}\).
+Their product is the displayed permutation action on \(X_S\).
+
+A state of \(X_S\) is fixed precisely when every coordinate is fixed.
+The finite fixed-point set is therefore in bijection with
+\(\prod_{p\in S}\operatorname{Fix}_{X_p}(g)\).
+Multiplying the preceding exact identities gives
+\[
+ |\operatorname{Fix}_{X_S}(g)|
+ =\prod_{p\in S}(D_p-1)^2F(D_p,b_p(g))
+ =M_SK_S(g),
+\]
+where the final equality uses the established complete native product
+formula.  No local factor or overlap is omitted.
+The positivity of \(M_S\) permits division.
+
+Finally sum this exact scaled identity over the full finite group.
+The original kernel has mean \(1\), so its complete fixed-point mean
+is \(M_S\).  For the empty packet the products and action reduce to
+their singleton and unit values.
+\end{proof}
+
+At the exceptional local index \(D_p=2\), the trivial summand has
+size zero.  The remaining two-state regular action has no fixed
+point exactly at a nonreturn.  For every \(D_p\ge3\), the trivial
+summand has positive size.  This supplies a finite-action interpretation
+of the previously proved binary zero-support rigidity.
+
+Permutation representations and their abelian \(L\)-series are
+classical; see J.S.~Milne, \emph{Class Field Theory} (2020),
+Section~VIII.10.\footnote{\texttt{www.jmilne.org/math/CourseNotes/CFT.pdf}}
+The result here identifies the original native correlation kernel
+with the normalized fixed-point character of the explicit action
+above.  Its analytic transport into the existing compensated
+\(L\)-function probe is the next open step.
+The certified zero-free boundary remains \(7/8\).
+
 \subsection{Intrinsic power-return spectra identify physical prime carriers}
 \label{sec:carmichael-intrinsic-spectrum}
 
