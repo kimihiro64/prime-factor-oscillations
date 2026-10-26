@@ -1,0 +1,141 @@
+{
+  "date": "2026-10-25",
+  "lean_version": "4.34.0",
+  "window_compile_exit_code": 0,
+  "window_compile_chunk": "6b677e",
+  "criterion_compile_exit_code": 0,
+  "criterion_compile_chunk": "7e174f",
+  "native_compile_exit_code": 0,
+  "native_compile_chunk": "371450",
+  "public_consumers_exit_code": 0,
+  "public_consumers_chunk": "a55efc",
+  "new_axiom_reports": 13,
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "latex_compile": "success",
+  "targets": [
+    "PrimeFactorOscillations.singleAscentMesh_power_unbounded",
+    "PrimeFactorOscillations.singleAscentPairExcess_nonpos_eventually_of_RH",
+    "PrimeFactorOscillations.singleAscentPairExcess_unbounded_of_not_RH",
+    "PrimeFactorOscillations.singleWeightedAscent_nonpos_eventually_of_RH",
+    "PrimeFactorOscillations.singleWeightedAscent_unbounded_of_not_RH",
+    "PrimeFactorOscillations.riemannHypothesis_iff_eventually_singleWeightedAscent_bounded",
+    "PrimeFactorOscillations.riemannHypothesis_iff_eventually_singleWeightedAscent_nonpos",
+    "PrimeFactorOscillations.riemannHypothesis_iff_eventually_singleAscent_bounded",
+    "PrimeFactorOscillations.riemannHypothesis_iff_eventually_singleAscent_nonpos",
+    "PrimeFactorOscillations.carmichaelSingleAscentWeight_ge_half_eventually",
+    "PrimeFactorOscillations.carmichaelSingleAscentExcess_unbounded_of_not_RH",
+    "PrimeFactorOscillations.riemannHypothesis_iff_eventually_carmichaelSingleAscent_bounded",
+    "PrimeFactorOscillations.riemannHypothesis_iff_eventually_carmichaelSingleAscent_nonpos"
+  ],
+  "reused_declarations": [
+    "PrimeFactorOscillations.exists_densityRatio_uniform_power_excess_of_not_RH",
+    "PrimeFactorOscillations.eventually_primeProfile_fixed_window_bands",
+    "PrimeFactorOscillations.tiltAscentSet_signed_error_lt_one",
+    "PrimeFactorOscillations.localAscentPairExcess",
+    "PrimeFactorOscillations.carmichaelPrimeWeight_ge_half",
+    "Nat.isUnit_largestPrimeFactor_of_le_cutoff"
+  ],
+  "certified_zero_free_boundary": "7/8 unchanged",
+  "benchmark_status": "Complete one-pair bounded-error RH criteria under the explicit weaker locator premise. Thirteen real Lean proofs compiled; no independent RH upper estimate or zero-free improvement.",
+  "old_bound": {
+    "sampling": "LocalAscentSampling requires quantitative count m_X>=X^(7/10-epsilon) eventually for every epsilon>0, plus injective selected pairs in each cutoff",
+    "criterion": "Upper bound C*X^(7/10) on the full weighted sum, or eventual nonpositivity",
+    "zero_free_boundary": "7/8"
+  },
+  "new_bound": {
+    "sampling": "One actual bounded-gap consecutive-prime pair per sufficiently large integer cutoff, with lower-prime prefix in [X,X+X^(3/4)]; no quantitative count or cross-cutoff injectivity",
+    "weights": "Any actual real schedule w_X>=1/2 eventually; no upper weight bound",
+    "signed_signal": "d_X>=ceil(sqrt X)*X^(-b)-1>=X^(1/2-b)-1 on arbitrarily late common false-RH windows for a fixed b<1/2; full one-unit rounding retained",
+    "criterion": "RH iff weighted single-pair excess<=0 eventually iff there exists an eventual constant upper bound C in Real",
+    "bad_zero_response": "For every real C and X0, false RH gives an integer X>X0 with w_X*d_X>C",
+    "native_scope": "Original Carmichael kernel, arbitrary varying odd lambda-divisor packets and positive X-smooth moduli with no conductor-size bound",
+    "concrete_family_scope": "Earlier compiled factorial/primorial smoothness certificates specialize the general theorem; no additional named family wrapper is claimed",
+    "zero_free_boundary": "7/8 unchanged"
+  },
+  "components": [
+    "Uniform false-RH density excursion at every eligible prefix in a local window",
+    "Original moving rank, full-profile reference and square-root tilt mesh",
+    "Complete signed strict-grid error less than one",
+    "Scalar power growth with exponent1/2-b>0, without pair-count amplification",
+    "Signed weight comparison only after positivity of the same actual per-pair excursion",
+    "Existing LPF unit support and actual Carmichael correlation floor"
+  ],
+  "actuals": "Universal symbolic comparison and compiled analytic providers; no finite tests or numerical completion.",
+  "first_nonpositive_domain": "RH implies eventual nonpositivity for every admitted locator/weight. False RH implies arbitrarily late excess above every real constant, not positivity at all cutoffs. Total definitions at initial cutoffs unchanged.",
+  "overlap_check": {
+    "scope": "Public Lean/paper and canonical private goal, obligation, branch, proof graph, decisions and current work searched for single-pair, one-pair, constant-upper-bound, locator and one-survivor formulations.",
+    "matched_prior_work": "Old pointwise window lemmas retain LocalAscentSampling and use count amplification. Previous one-coprime-survivor proposal concerned sign within the old sampling regime; the new result removes quantitative sampling altogether and proves the constant-bound criterion. Current next-action proposed the present candidate without a proof.",
+    "distinct_conclusion": "A complete RH criterion for any one-pair locator, with eventual O(1) error and the original native smooth-conductor weight.",
+    "closest_primary_sources": [
+      {
+        "title": "Alweiss and Luo, Bounded gaps between primes in short intervals",
+        "url": "https://arxiv.org/abs/1707.05437",
+        "difference": "Classical arithmetic source for local pair availability; does not state the present single-pair weighted RH criterion."
+      },
+      {
+        "title": "Cameron and Preece, Notes on primitive lambda-roots",
+        "url": "https://maths.qmul.ac.uk/~pjc/csgnotes/lambda.pdf",
+        "difference": "Classical finite unit-group framework; no single-pair ascent RH consumer."
+      }
+    ],
+    "priority": "No publication-priority assertion; source availability remains an explicit locator premise, with no external theorem axiom."
+  },
+  "owners": [
+    {
+      "module": "PrimeFactorOscillations.Helpers.SinglePairAscentWindow",
+      "source_sha256": "5d609a2ba3f8f2985965a021eeccb007fe309a07044d428d4e231548bf54a995",
+      "checked_source_sha256": "5d609a2ba3f8f2985965a021eeccb007fe309a07044d428d4e231548bf54a995",
+      "declarations": [
+        "PrimeFactorOscillations.singleAscentMesh_power_unbounded",
+        "PrimeFactorOscillations.singleAscentPairExcess_nonpos_eventually_of_RH",
+        "PrimeFactorOscillations.singleAscentPairExcess_unbounded_of_not_RH"
+      ],
+      "source_normalization": "Removed only one trailing blank line from each new Lean owner",
+      "kernel_build": "passed",
+      "axiom_audit": "standard_foundations_only",
+      "axiom_checked_source_sha256": "f34380939d2809123ac16a456551482044cb5f056aef9c9a5b1752c4e9dfe236"
+    },
+    {
+      "module": "PrimeFactorOscillations.Helpers.SinglePairAscentCriterion",
+      "source_sha256": "5ea8d8c10c7a9c84aed05d6644824ec13551b75148a3a627ee6efa88a2de9c30",
+      "checked_source_sha256": "5ea8d8c10c7a9c84aed05d6644824ec13551b75148a3a627ee6efa88a2de9c30",
+      "declarations": [
+        "PrimeFactorOscillations.singleWeightedAscent_nonpos_eventually_of_RH",
+        "PrimeFactorOscillations.singleWeightedAscent_unbounded_of_not_RH",
+        "PrimeFactorOscillations.riemannHypothesis_iff_eventually_singleWeightedAscent_bounded",
+        "PrimeFactorOscillations.riemannHypothesis_iff_eventually_singleWeightedAscent_nonpos",
+        "PrimeFactorOscillations.riemannHypothesis_iff_eventually_singleAscent_bounded",
+        "PrimeFactorOscillations.riemannHypothesis_iff_eventually_singleAscent_nonpos"
+      ],
+      "source_normalization": "Removed only one trailing blank line from each new Lean owner",
+      "kernel_build": "passed",
+      "axiom_audit": "standard_foundations_only",
+      "axiom_checked_source_sha256": "89410c1d80bf68e22c1176609f8465b128e7cd25019797280db323a271241232"
+    },
+    {
+      "module": "PrimeFactorOscillations.Assembly.CarmichaelSingleAscent",
+      "source_sha256": "0faff41f605fa0db3765ae765fa0ef5748e3e32287893009b60d9f3ea99d1d4c",
+      "checked_source_sha256": "0faff41f605fa0db3765ae765fa0ef5748e3e32287893009b60d9f3ea99d1d4c",
+      "declarations": [
+        "PrimeFactorOscillations.carmichaelSingleAscentWeight_ge_half_eventually",
+        "PrimeFactorOscillations.carmichaelSingleAscentExcess_unbounded_of_not_RH",
+        "PrimeFactorOscillations.riemannHypothesis_iff_eventually_carmichaelSingleAscent_bounded",
+        "PrimeFactorOscillations.riemannHypothesis_iff_eventually_carmichaelSingleAscent_nonpos"
+      ],
+      "source_normalization": "Removed only one trailing blank line from each new Lean owner",
+      "kernel_build": "passed",
+      "axiom_audit": "standard_foundations_only",
+      "axiom_checked_source_sha256": "1ab88d08252ab01a23f5abbae062dceeddd316cec4f79ddc0b86ff32da568b63"
+    }
+  ],
+  "source_normalization": {
+    "kind": "Removed only one trailing blank line from each new Lean owner",
+    "normalized_source_compile_exit_code": 0,
+    "normalized_source_compile_chunk": "8eba64",
+    "axiom_audit": "The13 previously audited theorem texts are byte-identical; no unchanged proof-term audits repeated."
+  }
+}

@@ -5684,6 +5684,52 @@
       "source_normalization": "unchanged",
       "kernel_build": "passed",
       "axiom_audit": "standard_foundations_only"
+    },
+    {
+      "module": "PrimeFactorOscillations.Helpers.SinglePairAscentWindow",
+      "source_sha256": "5d609a2ba3f8f2985965a021eeccb007fe309a07044d428d4e231548bf54a995",
+      "checked_source_sha256": "5d609a2ba3f8f2985965a021eeccb007fe309a07044d428d4e231548bf54a995",
+      "declarations": [
+        "PrimeFactorOscillations.singleAscentMesh_power_unbounded",
+        "PrimeFactorOscillations.singleAscentPairExcess_nonpos_eventually_of_RH",
+        "PrimeFactorOscillations.singleAscentPairExcess_unbounded_of_not_RH"
+      ],
+      "source_normalization": "Removed only one trailing blank line from each new Lean owner",
+      "kernel_build": "passed",
+      "axiom_audit": "standard_foundations_only",
+      "axiom_checked_source_sha256": "f34380939d2809123ac16a456551482044cb5f056aef9c9a5b1752c4e9dfe236"
+    },
+    {
+      "module": "PrimeFactorOscillations.Helpers.SinglePairAscentCriterion",
+      "source_sha256": "5ea8d8c10c7a9c84aed05d6644824ec13551b75148a3a627ee6efa88a2de9c30",
+      "checked_source_sha256": "5ea8d8c10c7a9c84aed05d6644824ec13551b75148a3a627ee6efa88a2de9c30",
+      "declarations": [
+        "PrimeFactorOscillations.singleWeightedAscent_nonpos_eventually_of_RH",
+        "PrimeFactorOscillations.singleWeightedAscent_unbounded_of_not_RH",
+        "PrimeFactorOscillations.riemannHypothesis_iff_eventually_singleWeightedAscent_bounded",
+        "PrimeFactorOscillations.riemannHypothesis_iff_eventually_singleWeightedAscent_nonpos",
+        "PrimeFactorOscillations.riemannHypothesis_iff_eventually_singleAscent_bounded",
+        "PrimeFactorOscillations.riemannHypothesis_iff_eventually_singleAscent_nonpos"
+      ],
+      "source_normalization": "Removed only one trailing blank line from each new Lean owner",
+      "kernel_build": "passed",
+      "axiom_audit": "standard_foundations_only",
+      "axiom_checked_source_sha256": "89410c1d80bf68e22c1176609f8465b128e7cd25019797280db323a271241232"
+    },
+    {
+      "module": "PrimeFactorOscillations.Assembly.CarmichaelSingleAscent",
+      "source_sha256": "0faff41f605fa0db3765ae765fa0ef5748e3e32287893009b60d9f3ea99d1d4c",
+      "checked_source_sha256": "0faff41f605fa0db3765ae765fa0ef5748e3e32287893009b60d9f3ea99d1d4c",
+      "declarations": [
+        "PrimeFactorOscillations.carmichaelSingleAscentWeight_ge_half_eventually",
+        "PrimeFactorOscillations.carmichaelSingleAscentExcess_unbounded_of_not_RH",
+        "PrimeFactorOscillations.riemannHypothesis_iff_eventually_carmichaelSingleAscent_bounded",
+        "PrimeFactorOscillations.riemannHypothesis_iff_eventually_carmichaelSingleAscent_nonpos"
+      ],
+      "source_normalization": "Removed only one trailing blank line from each new Lean owner",
+      "kernel_build": "passed",
+      "axiom_audit": "standard_foundations_only",
+      "axiom_checked_source_sha256": "1ab88d08252ab01a23f5abbae062dceeddd316cec4f79ddc0b86ff32da568b63"
     }
   ],
   "newest_owners": [
@@ -5728,8 +5774,11 @@
     "PrimeFactorOscillations.Assembly.CarmichaelAscentCriterion",
     "PrimeFactorOscillations.Helpers.UniformWeightedAscentCriterion",
     "PrimeFactorOscillations.Assembly.CarmichaelSmoothAscent",
-    "PrimeFactorOscillations.Assembly.CarmichaelPastPrimeModuli"
+    "PrimeFactorOscillations.Assembly.CarmichaelPastPrimeModuli",
+    "PrimeFactorOscillations.Helpers.SinglePairAscentWindow",
+    "PrimeFactorOscillations.Helpers.SinglePairAscentCriterion",
+    "PrimeFactorOscillations.Assembly.CarmichaelSingleAscent"
   ],
   "certified_zero_free_boundary": "7/8",
-  "proof_target_count": 2807
+  "proof_target_count": 2820
 }

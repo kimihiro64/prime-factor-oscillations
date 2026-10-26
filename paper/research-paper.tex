@@ -9431,6 +9431,112 @@ the RH signal. An independent upper estimate for the resulting
 signed observable remains necessary to prove RH; the certified
 zero-free boundary remains \(7/8\).
 
+\subsection{A single bounded-gap pair gives a bounded-error criterion}
+\label{sec:carmichael-single-ascent}
+
+The preceding weighted sums retain a large supply of local prime pairs.
+The pointwise excursion actually permits a stronger reduction: one
+genuine pair in each local window suffices, provided we test a constant
+upper bound rather than an upper bound growing like \(X^{7/10}\).
+
+\begin{theorem}[Single-pair bounded-error RH criteria]
+\label{thm:carmichael-single-ascent}
+Fix \(H\in\mathbb N\). For every sufficiently large integer \(X\),
+choose one actual consecutive prime pair \(p_X<p_X^+\) such that
+\[
+ 2\le p_X^+-p_X\le H,\qquad
+ X\le p_X-1\le X+X^{3/4}.
+\]
+No quantitative pair count or injectivity between different cutoffs
+is assumed. Let \(d_X\) be the actual strict-grid ascent count for
+this pair minus its full-profile reference count, using exactly the
+rank and inclusive tilt grid of
+Theorem~\ref{thm:carmichael-moving-ascent}; in particular the mesh
+is \(M_X=\lceil X^{1/2}\rceil\) and the rank still grows with \(X\).
+For any real weight schedule with \(w_X\ge1/2\) eventually, set
+\(G(X)=w_Xd_X\). Then
+\[
+ \mathrm{RH}
+ \quad\Longleftrightarrow\quad G(X)\le0\ \text{eventually}
+ \quad\Longleftrightarrow\quad
+ \exists C\in\mathbb R:\ G(X)\le C\ \text{eventually}.
+\]
+If RH is false, for every \(C,X_0\in\mathbb R\) there is an
+integer \(X>X_0\) with \(G(X)>C\). The same statements hold
+unweighted, with \(w_X=1\).
+
+In particular take positive moduli \(c_X\) with every prime divisor
+at most \(X\) eventually, and arbitrary finite odd prime-divisor
+packets \(S_X\) of \(\lambda(c_X)\). With the original normalized
+Carmichael return-correlation weight
+\[
+ w_X=K_{c_X,S_X}(p_X\bmod c_X),\qquad
+ G(X)=K_{c_X,S_X}(p_X\bmod c_X)d_X,
+\]
+both equivalences and the unboundedness conclusion hold without
+any conductor-size upper bound.
+\end{theorem}
+\begin{proof}
+The existing uniform RH comparison applies to the moving rank at
+every lower-prime prefix in the stated window. The strict grid-count
+comparison therefore gives \(d_X\le0\) eventually. The eventual
+weight floor implies \(w_X\ge0\), hence \(G(X)\le0\) eventually;
+this is itself a constant upper bound.
+
+Suppose RH is false. The unconditional false-RH uniform excursion
+theorem supplies one fixed \(b\) with \(0<b<1/2\) and arbitrarily
+large integer windows \([X,X+X^{3/4}]\) on which, at the required
+rank, every eligible actual density \(R_X\) and its reference \(U_X\)
+satisfy \(R_X-U_X\ge X^{-b}\). The eventual profile bands put both
+thresholds inside the same tilt grid. The signed grid estimate,
+with its complete one-unit rounding error, gives
+\[
+ d_X\ge M_X(R_X-U_X)-1
+      \ge M_XX^{-b}-1
+      \ge X^{1/2-b}-1.
+\]
+The last expression tends to infinity. Uniformity across the entire
+window means that this lower bound applies to whichever genuine
+pair the locator selects. Neither pair multiplicity nor statistical
+independence is required.
+
+For a prescribed \(C\), choose such a sufficiently large window
+after the weight floor has begun, with
+\(d_X>2\max(C,0)+1>0\). Keeping the actual signed product gives
+\[
+ G(X)=w_Xd_X\ge d_X/2>\max(C,0)+1/2>C.
+\]
+This contradicts any eventual constant upper bound. It also
+contradicts eventual nonpositivity, proving both reverse implications.
+
+For the native Carmichael specialization, \(p_X>X\) and every
+prime divisor of \(c_X\) is at most \(X\). Thus \(p_X\) is a unit
+modulo \(c_X\); the already proved correlation floor gives exactly
+\(w_X\ge1/2\) for the original weight. No altered observable,
+clamping, limiting interchange or character-average bound is used.
+\end{proof}
+
+The unrestricted factorial and primorial power schedules in
+Theorem~\ref{thm:carmichael-smooth-ascent} consequently apply here
+as well, by their compiled smoothness certificates. Empty return
+packets, exponent zero and modulus one are included; return label
+two remains excluded. These are consequences of the general
+single-pair theorem and the earlier family certificates.
+
+The maintained proof replaces \texttt{LocalAscentSampling} by the
+weaker \texttt{LocalAscentLocator}: only the displayed
+eventual pair conditions occur in that premise. It does not
+formalize an external prime-gap theorem or assert an unconditional
+upper bound on \(G\). The reduction changes the necessary sampling
+burden and the allowable error from a growing power to a constant;
+the certified zero-free boundary remains \(7/8\).
+The three maintained owners are
+\texttt{SinglePairAscentWindow},
+\texttt{SinglePairAscentCriterion}, and
+\texttt{CarmichaelSingleAscent}, exported through
+\texttt{CarmichaelProbability}.
+
+
 \subsection{Intrinsic power-return spectra identify physical prime carriers}
 \label{sec:carmichael-intrinsic-spectrum}
 
