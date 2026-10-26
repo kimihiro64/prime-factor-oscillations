@@ -12309,6 +12309,103 @@ This estimate removes the discontinuous grid counts from the next
 arithmetic calculation. It does not bound \(V_X\), supply a sampler,
 or improve the certified \(7/8\) boundary.
 
+\subsection{The complete signed Nicolas bound for the native packet}
+\label{sec:carmichael-clock-estimate}
+
+The existing unconditional coefficient comparison can now be applied
+to the signed main term of Theorem~\ref{thm:carmichael-ascent-estimate}.
+This application retains both signs of the arithmetic oscillation.
+
+\begin{theorem}[Complete signed native clock bound]
+\label{thm:carmichael-clock-estimate}
+Under the sampling, activity and oddness hypotheses of
+Theorem~\ref{thm:carmichael-ascent-estimate}, put \(x_i=p_{X,i}-1\) and
+\[
+ L_i=\gamma+\log\log\theta(x_i),\qquad
+ F_i=\operatorname{nicolasLogMertensOscillation}(x_i)
+ =\log\!\left(e^\gamma\log\theta(x_i)
+             \prod_{\substack{p\le x_i\\p\ \mathrm{prime}}}(1-1/p)\right).
+\]
+Use its original rank \(r_X\), mesh \(b_X\), weights \(K_{X,i}\),
+signed profile sum \(V_X\), weight mass \(W_X\) and normalized packet \(J_X\).
+There is a constant \(K\ge0\) such that, eventually,
+\[
+ \left|V_X-A_X\right|\le E_X(K),
+\]
+where
+\[
+ A_X=\sum_{i\in\operatorname{Fin}(m(X))}
+                K_{X,i}\frac{r_X}{L_i^2}F_i,\qquad
+ E_X(K)=K\sum_{i\in\operatorname{Fin}(m(X))}
+       K_{X,i}\left(\frac{|F_i|}{L_i^2}+\frac1{r_Xx_i}\right).
+\]
+Define
+\[
+ c_K(r,F)=
+ \begin{cases}r+K,&F\ge0,\\r-K,&F<0,\end{cases}
+ \qquad
+ U_X(K)=\sum_{i\in\operatorname{Fin}(m(X))}
+       K_{X,i}\left(\frac{c_K(r_X,F_i)F_i}{L_i^2}
+                           +\frac{K}{r_Xx_i}\right).
+\]
+For a constant \(K\ge0\), the same hypotheses give
+\(V_X\le U_X(K)\) eventually, and also give the complete estimate
+\[
+ \boxed{\quad r_X\ge2K,\qquad
+ J_X\le b_XU_X(K)+W_X\quad\text{eventually}.\quad}
+\]
+In particular \(r_X-K\ge0\): every negative \(F_i\) remains negative
+in this upper bound. The denominators are positive for the sufficiently
+large cutoffs supplied by the original sampling and uniform rank bands.
+No RH or modulus-budget hypothesis is used in these estimates.
+\end{theorem}
+
+\begin{proof}
+Apply the existing unconditional real theta-clock linearization with
+upper rank-band endpoint \(2(H+2)\). It supplies \(r_0>0\), \(K\ge0\)
+and an eventual comparison, uniform over all ranks \(r\ge r_0\)
+in that band:
+\[
+ \left|R_{X,i}-U_{X,i}-\frac{r_X}{L_i^2}F_i\right|
+ \le K\left(\frac{|F_i|}{L_i^2}+\frac1{r_Xx_i}\right).
+\]
+The original rank is the floor of
+\((H+2)(\gamma+\log\log\theta(X))\), so it tends to infinity.
+All \(x_i\) lie in \([X,X+X^{3/4}]\) eventually.
+Consequently one cutoff puts every actual sampled pair inside this
+same proved comparison. Multiply its remainder bound by the native
+weight \(K_{X,i}\ge0\) and sum over the original finite sample.
+The signed main terms sum to \(A_X\); only their linearization
+remainders are bounded in absolute value. This proves
+\(|V_X-A_X|\le E_X(K)\).
+
+The upper side of this inequality is \(V_X\le A_X+E_X(K)\).
+For \(F_i\ge0\), combine its two coefficients as \(r_X+K\).
+For \(F_i<0\), use \(|F_i|=-F_i\), giving \(r_X-K\).
+Thus \(A_X+E_X(K)=U_X(K)\), with the reciprocal term retained.
+Finally the rank tends to infinity, so eventually \(r_X\ge2K\).
+Combine \(V_X\le U_X(K)\) with the already proved finite-grid
+estimate \(J_X\le b_XV_X+W_X\), multiplying by the nonnegative
+mesh. This proves the complete stated bound.
+\end{proof}
+
+Equivalently, its signed arithmetic term is
+\[
+ \sum_{i\in\operatorname{Fin}(m(X))}
+ \frac{K_{X,i}}{L_i^2}
+       \bigl((r_X+K)F_i^+ +(r_X-K)F_i^-\bigr),
+ \qquad F_i^+=\max(F_i,0),\quad F_i^-=\min(F_i,0).
+\]
+The upper estimate keeps this entire sum, the reciprocal allowance,
+and the grid allowance \(W_X\). There is no separate absolute-value
+estimate on a character row or on this signed main term.
+The existing native character expansion and quadratic-row removal
+remain available on the original packet.
+An independent arithmetic bound on the displayed signed sum remains
+unproved. These three maintained Lean theorems apply the completed
+criterion and coefficient comparisons; they do not establish a new
+zero-free exponent. The certified boundary remains \(7/8\).
+
 \subsection{Intrinsic power-return spectra identify physical prime carriers}
 \label{sec:carmichael-intrinsic-spectrum}
 

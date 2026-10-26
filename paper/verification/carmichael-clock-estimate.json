@@ -1,0 +1,107 @@
+{
+  "date": "2026-10-26",
+  "lean_version": "4.34.0",
+  "focused_compile_exit_code": 0,
+  "focused_compile_chunk": "848c91",
+  "new_axiom_reports": 3,
+  "new_axiom_chunk": "3629ee",
+  "targets": [
+    "PrimeFactorOscillations.CarmichaelAscentEstimate.exists_eventually_signed_clock_error",
+    "PrimeFactorOscillations.CarmichaelAscentEstimate.exists_eventually_profile_signed_upper",
+    "PrimeFactorOscillations.CarmichaelAscentEstimate.exists_eventually_packet_signed_upper"
+  ],
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "reused_declarations": [
+    "PrimeFactorOscillations.exists_eventually_densityRatio_real_thetaClock_linearization",
+    "PrimeFactorOscillations.eventually_primeProfile_fixed_window_bands",
+    "PrimeFactorOscillations.tendsto_primeProfile_thetaClock_atTop",
+    "PrimeFactorOscillations.CarmichaelAscentEstimate.eventually_signed_profile_error",
+    "PrimeFactorOscillations.carmichaelPrimeWeight_nonneg"
+  ],
+  "certified_zero_free_boundary": "7/8 unchanged",
+  "benchmark_status": "Complete actual native signed clock consumer installed; signed arithmetic main remains unestimated.",
+  "old_bound": "Exact full native character criterion and signed grid remainder were proved; its nonlinear profile main had not been assembled with the existing unconditional coefficient comparison.",
+  "new_bound": "There is K>=0 with eventual r_X>=2K and J_X<=b_X*sum_i w_i[(r_X+K)*F_i^+/L_i^2+(r_X-K)*F_i^-/L_i^2+K/(r_X*x_i)]+W_X. Both signs,reciprocal and grid allowances retained. Certified7/8 unchanged.",
+  "components": {
+    "positive_signed_terms": "sum_i w_i*(r+K)*F_i^+/L_i^2 retained,not bounded here.",
+    "negative_signed_terms": "sum_i w_i*(r-K)*F_i^-/L_i^2 retained; eventualr>=2K means nonnegative coefficient. No lower bound on negative mass assumed.",
+    "profile_error": "Uniform coefficient error K*(|F|/L^2+1/(r*x)); its |F| part is absorbed into r+K/r-K coefficients rather than replacing the signed main.",
+    "grid_error": "W_X from the proved actual native grid bound.",
+    "principal": "Original normalized packetJ,with exact native principal multiplicityM and previous quadratic removal. Not a legacy Gauss component."
+  },
+  "actuals": "Universal Lean proofs on the actual sampled primes and original rank/reference. No finite scans.",
+  "first_nonpositive_domain": "Unavailable: the complete signed main has no new independent upper bound.",
+  "detector_error": "Both proved remainders installed in the same full signed consumer.",
+  "family_adapter": "Original native packet,actual selected primesp_i,x_i=p_i-1,exact Nicolas log,original integer rank and theta-clock reference.",
+  "uncancelled_main_terms": "Full positive and negative Nicolas terms retained,with r+K and r-K respectively. No purported main-term cancellation is inferred from the identity.",
+  "low_estimate_provenance": "Existing unconditional uniform probability coefficient comparison applied on its actual rank band,plus the maintained native grid estimate. No new arithmetic saving on F_i is asserted.",
+  "parameter_domain": "All H,m,a under originalLocalAscentSampling,variable positiveq_X and active oddS_X. Eventual x_i in[X,X+X^(3/4)],r_Xlarge,L_i>=2;K exists from the source comparison. No RH or qbudget hypothesis in these bounds.",
+  "attainable_endpoint": "Unchanged7/8; target<=3/4 still requires an independent estimate on this same signed arithmetic main.",
+  "provider_application_matrix": [
+    {
+      "provider": "Original native integer spectrum and signed ascent identity",
+      "hypotheses": "Activity at everyX; same actualp_i and complete countdifference",
+      "effect": "J is exactly the original signed packet; no principal erasure."
+    },
+    {
+      "provider": "Uniform real theta-clock linearization",
+      "hypotheses": "b=2(H+2)>0,r_X>=r0,r_X/L_i<=b,x_ilarge",
+      "effect": "Actual profile difference equals r_X*F_i/L_i^2 with the displayed controlled remainder."
+    },
+    {
+      "provider": "Uniform probability window bands",
+      "hypotheses": "H+2>0 and originalsample window",
+      "effect": "All ranks,referenceprofiles and actualprimes enter the same source estimate after one cutoff."
+    },
+    {
+      "provider": "Odd native kernel floor and zero extension",
+      "hypotheses": "All labels active andodd",
+      "effect": "w_i>=0 includingexactzero at nonunits,so remainder estimates transfer without changing main signs."
+    },
+    {
+      "provider": "Native signed profile error",
+      "hypotheses": "Originalsampling/activity/oddness",
+      "effect": "J_X<=b_X*V_X+W_X; supplies the full finite-grid allowance."
+    },
+    {
+      "provider": "UniformCarrier.exists_real_carrier (inspected supporting capability)",
+      "hypotheses": "Boundedrealmarks,supportTsubset(P,2P],cardT<=P/100,newanchoredpositive/negative law andbaseline rank",
+      "effect": "Represents marked harmonic sums with errorC*cardT/P^2; it supplies no independent upper bound on the inverse-clock difference. It is not substituted for an arithmetic estimate on this signed main."
+    }
+  ],
+  "overlap_check": {
+    "completed_inputs": "Read exact native spectrum/criterion,actual countgeometry,realcarrier andunconditional canonical coefficient comparison. Search of current Assembly providers found no native weighted signed-clock assembly.",
+    "distinct_conclusion": "Actual native signed profile error is assembled with the unconditional coefficient comparison,negative Nicolas contribution retained,through the full normalizedpacketupperbound.",
+    "existing_target": "Completes the current arithmetic consumer rather than creating another RH criterion. The subsequent task is its independent signed estimate.",
+    "primary_sources": [],
+    "priority_scope": "Project-specific consumer; error aggregation and sign absorption are algebraic,not a claim of a new general analytic exponent theorem."
+  },
+  "focused_compiles": [
+    {
+      "owner": "PrimeFactorOscillations/Assembly/CarmichaelClockEstimate.lean",
+      "chunk": "848c91",
+      "exit_code": 0
+    }
+  ],
+  "public_facade_chunk": "3629ee",
+  "public_consumers_exit_code": 0,
+  "owners": [
+    {
+      "module": "PrimeFactorOscillations.Assembly.CarmichaelClockEstimate",
+      "source_sha256": "0ced773b6459c1bc00f0cf3064a5dd3f28fbd8a5a143a30684de0ea69a0f8db2",
+      "checked_source_sha256": "0ced773b6459c1bc00f0cf3064a5dd3f28fbd8a5a143a30684de0ea69a0f8db2",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelAscentEstimate.exists_eventually_signed_clock_error",
+        "PrimeFactorOscillations.CarmichaelAscentEstimate.exists_eventually_profile_signed_upper",
+        "PrimeFactorOscillations.CarmichaelAscentEstimate.exists_eventually_packet_signed_upper"
+      ],
+      "source_normalization": "unchanged",
+      "kernel_build": "passed",
+      "axiom_audit": "standard_foundations_only"
+    }
+  ]
+}
