@@ -403,20 +403,32 @@ Historical claims and current source versions are recorded separately in
 [SOURCE_REVIEW.md](SOURCE_REVIEW.md). The expanded paper does not incorporate
 the unfinished independent-ascent-supply work.
 
-## Cubic pair windows: maintained status, 28 October 2026
+## Cubic pair windows and the signed native packet: maintained status, 28 October 2026
 
 | Claim | Status and maintained owner |
 |---|---|
-| Weighted C1 scale estimate and absolute lattice summation | Proved in [CubicPairRadius](../PrimeFactorOscillations/Helpers/CubicPairRadius.lean); explicit finite Schwartz seminorm constant, uniform over coefficient functions bounded by one. |
-| Uniform normalized-kernel scale difference | Proved: `radiusKernel_difference_bound`, for $X\ge1$ and both radii in $[X,2X]$. |
-| Exact pair reflection and self-dual vanishing | Proved in [CubicPairReflection](../PrimeFactorOscillations/Helpers/CubicPairReflection.lean), with Fourier, Gauss-phase and symmetry hypotheses explicit. |
-| $|K_{X^2}|\le L_W XH$ | Proved: `near_selfdual_uniform_bound`, for $0\le H\le X$ and $X^2\le C\le(X+H)^2$, under those same hypotheses. |
-| Multiplication of quartic readout by $s-1/2$ | Proved to preserve off-critical Dirichlet poles; no identification with the physical carrier window is claimed. |
-| Inert-prime realization and full detector-to-kernel transfer | Unfinished; no maintained theorem discharges these for the live packet. |
-| Proposed anti-Fourier window as an improved positive norm bound | Unsupported transfer rejected: the window changes sign, and its rational-line square-root mass vanishes. The Gaussian diagnostic is ordinary mathematics, not a newly formalized detector application. |
-| New zero-free boundary | None. Installed unconditional $7/8$ remains unchanged; target remains at most $3/4$. |
+| Weighted C1 scale estimate and uniform normalized-radius difference | Proved in [CubicPairRadius](../PrimeFactorOscillations/Helpers/CubicPairRadius.lean), with explicit finite Schwartz seminorm constants. |
+| General pair reflection and conditional self-dual vanishing | Proved in [CubicPairReflection](../PrimeFactorOscillations/Helpers/CubicPairReflection.lean). Its original phase and symmetry premises are discharged for actual inert prime rows below. |
+| Finite physical Mellin transfer, including the full quartic reference | Proved in [CarmichaelPhysicalPacket](../PrimeFactorOscillations/Assembly/CarmichaelPhysicalPacket.lean): each reference retains its shifted window multiplier and the factor $1/4$. Fixed finite support and positive sampled indices are explicit. |
+| Physical affine reference and inverse-multiplicity symmetry | Proved in [CarmichaelWindowTransfer](../PrimeFactorOscillations/Assembly/CarmichaelWindowTransfer.lean), including $m_S(\chi^{-1})=m_S(\chi)$. |
+| Explicit compensated Gaussian polynomial window | Proved in [CubicCompensatedWindow](../PrimeFactorOscillations/Helpers/CubicCompensatedWindow.lean): Mellin transform $\tfrac12P_d(s)\Gamma(s/2)$, convergence, moments at 1 and 2, affine scaling, and polynomial nonvanishing in $1/2<\Re s<1$. |
+| Native principal Dirichlet character | Proved: `native_principal_separation`. The normalized coefficient is exactly one on the actual finite unit support. |
+| Input conjugation and native pair-kernel symmetry | Proved in [CubicRationalRows](../PrimeFactorOscillations/Helpers/CubicRationalRows.lean). No reality assumption on the window is needed. |
+| Inert-prime and twin-starter qualification | Proved in [CubicInertArithmetic](../PrimeFactorOscillations/Helpers/CubicInertArithmetic.lean): maximality, avoidance of lambda and actual row symmetry for primes $p\equiv2\bmod3$; twin starters other than 3 satisfy that congruence. |
+| Actual normalized Gauss phase | Proved in [CubicInertPhase](../PrimeFactorOscillations/Helpers/CubicInertPhase.lean): the primary generator is $-p$ and the exact native `gaussTwo` has cube one. Its character, primitive trace and normalization are identified with the canonical Gauss theorem. |
+| Actual inert-pair self-dual cancellation and $XH$ bound | Proved: `inert_selfdual_zero`, `inert_near_selfdual_uniform`, and `twin_near_selfdual_uniform`. No assumed phase, symmetry, maximality, admissibility or coprimality remains; distinct primes and the anti-Fourier window condition remain explicit. The pair scale is $pq$. |
+| Exceptional small primes | Proved domains include inert prime 2. The exceptional twin starter 3 is excluded explicitly, and is absent from frames $X>3$. The two indices are twin starters, not both members of one twin pair. |
+| Unit lattice row and all four compensation terms | Proved in [CubicUnitWindow](../PrimeFactorOscillations/Helpers/CubicUnitWindow.lean): $K_M(1,1)=-MW(0)+R_W(M)$, $|R_W(M)|\le C_W/M$ for $M\ge1$, and the full signed four-scale zero-mode identity. This is separate from the principal Dirichlet character and the arithmetic Abel-endpoint unit. |
+| Anti-Fourier realization of the explicit Gaussian profile | Unfinished. Its polynomial reflection identity and zero moments do not alone establish this Fourier assertion or its Schwartz extension. |
+| Infinite/growing-support physical transfer, prime-carrier insertion and full Abel limit | Unfinished. The finite physical transfer is not promoted to these stronger statements. |
+| Full signed arithmetic saving | Unproved: $I_{D,G}\ll_\varepsilon D^{3/2+\varepsilon}$ uniformly in the stated packet domain. Both reciprocal L-factors, the derivative terms, physical mask and compensation cross terms remain in the target. |
+| New zero-free boundary | None. Installed unconditional $7/8$ remains unchanged; target remains at most $3/4$. The $XH$ carrier estimate is a component estimate, not an assembled exponent gain. |
 
-The [verification receipt](verification/cubic-pair-window.json) covers only
-the new theorem closures. Unchanged theorem files were not re-audited.
-Paper labels `thm:cubic-scale-difference` and `thm:cubic-selfdual-window`
-map to the two maintained modules above.
+The [earlier kernel receipt](verification/cubic-pair-window.json),
+[finite physical-transfer receipt](verification/carmichael-physical-window.json),
+and [actual inert and unit-row receipt](verification/cubic-inert-unit-window.json)
+record the corresponding focused theorem closures. Unchanged theorem files
+were not re-audited. Paper labels include
+`thm:carmichael-physical-window`, `thm:compensated-gaussian-window`,
+`thm:rational-cubic-row-conjugation`, `prop:native-principal-window`,
+`thm:actual-inert-cubic-window`, and `thm:cubic-unit-zero-mode`.

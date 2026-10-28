@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-28",
+  "status": "compiled-and-focused-audited",
+  "scope": "Actual inert cubic rows, nonresonant native Gauss phase, and the unit lattice row with complete compensation",
+  "compiler": "Lean 4.34.0",
+  "toolchain_options": [
+    "-j1",
+    "-s65536",
+    "-M8192",
+    "autoImplicit false",
+    "Elab.async false"
+  ],
+  "modules": [
+    {
+      "object_sha256": "b8a30dde7c45d431f54cf21a296c25f644d57a96742da4eee2c9c0d47be696b1",
+      "path": "PrimeFactorOscillations/Helpers/CubicInertArithmetic.lean",
+      "source_sha256": "1d296fc9852360e198cbfc91b2a3f031fab92b25b4ade963fb1d9722636dc845"
+    },
+    {
+      "object_sha256": "4df9a7722fbd3aad4a8ed65cc025f23e621f92162bb02207380eb35231ecc811",
+      "path": "PrimeFactorOscillations/Helpers/CubicInertPhase.lean",
+      "source_sha256": "56790325afb76b23f9d5665ad1290b387ccf9f57e5616fb7b6fa21fa89d4bd37"
+    },
+    {
+      "object_sha256": "89fecabce18fd247b0f9f42c0f8c810bd0ad1dce3ebbf223715195af930a406a",
+      "path": "PrimeFactorOscillations/Helpers/CubicUnitWindow.lean",
+      "source_sha256": "b71aba50e802fc6706510c7479239b268d8314a46ec5d442dea2a37bd26bbf09"
+    }
+  ],
+  "declarations": [
+    "PrimeFactorOscillations.CubicInertArithmetic.lambda_qNat",
+    "PrimeFactorOscillations.CubicInertArithmetic.prime_norm_avoids_lambda",
+    "PrimeFactorOscillations.CubicInertArithmetic.rational_prime_isMaximal",
+    "PrimeFactorOscillations.CubicInertArithmetic.rational_prime_avoids_lambda",
+    "PrimeFactorOscillations.CubicInertArithmetic.rational_cubicRow_conjugation",
+    "PrimeFactorOscillations.CubicInertArithmetic.rational_kernel_symmetric",
+    "PrimeFactorOscillations.CubicInertArithmetic.twin_start_mod_three",
+    "PrimeFactorOscillations.CubicInertArithmetic.twin_cubicRow_conjugation",
+    "PrimeFactorOscillations.CubicInertArithmetic.twin_kernel_symmetric",
+    "PrimeFactorOscillations.CubicInertPhase.negative_prime_primary",
+    "PrimeFactorOscillations.CubicInertPhase.rational_primaryGenerator",
+    "PrimeFactorOscillations.CubicInertPhase.eisLam_star",
+    "PrimeFactorOscillations.CubicInertPhase.breveE_conjugate",
+    "PrimeFactorOscillations.CubicInertPhase.breveE_star",
+    "PrimeFactorOscillations.CubicInertPhase.anti_reflection_with_phase",
+    "PrimeFactorOscillations.CubicInertPhase.selfdual_zero_of_phase_cube",
+    "PrimeFactorOscillations.CubicInertPhase.near_selfdual_uniform_of_phase_cube",
+    "PrimeFactorOscillations.CubicInertPhase.primary_prime_gaussTwo_cube",
+    "PrimeFactorOscillations.CubicInertPhase.inert_gaussTwo_cube",
+    "PrimeFactorOscillations.CubicInertPhase.inert_admissible",
+    "PrimeFactorOscillations.CubicInertPhase.inert_pairScale",
+    "PrimeFactorOscillations.CubicInertPhase.inert_coprime",
+    "PrimeFactorOscillations.CubicInertPhase.inert_selfdual_zero",
+    "PrimeFactorOscillations.CubicInertPhase.inert_near_selfdual_uniform",
+    "PrimeFactorOscillations.CubicInertPhase.twin_near_selfdual_uniform",
+    "PrimeFactorOscillations.CubicUnitWindow.unit_kernel_eq",
+    "PrimeFactorOscillations.CubicUnitWindow.unit_kernel_poisson",
+    "PrimeFactorOscillations.CubicUnitWindow.unit_kernel_anti_reflection",
+    "PrimeFactorOscillations.CubicUnitWindow.windowSize3_nonneg",
+    "PrimeFactorOscillations.CubicUnitWindow.window_weight3",
+    "PrimeFactorOscillations.CubicUnitWindow.nonzero_tail_bound",
+    "PrimeFactorOscillations.CubicUnitWindow.unit_zero_mode",
+    "PrimeFactorOscillations.CubicUnitWindow.unit_remainder_bound",
+    "PrimeFactorOscillations.CubicUnitWindow.unit_kernel_bound_of_zero",
+    "PrimeFactorOscillations.CubicUnitWindow.compensated_unit_zero_mode"
+  ],
+  "axioms": [
+    "Classical.choice",
+    "propext",
+    "Quot.sound"
+  ],
+  "focused_audit_log_sha256": {
+    "CubicInertArithmetic": "0660325342d6cbe61e24758befa17a344f0ecc03334446c790744885c1518ee4",
+    "CubicInertPhase": "850adfb1d8c32bfbee3cdc8084ecf394af8fb146e9c6e2b276cf32063a292a46",
+    "CubicUnitWindow": "e72e9881820b30088413241a269d86939945e56b854ac6d260496c2123e028e0"
+  },
+  "paper_labels": [
+    "thm:actual-inert-cubic-window",
+    "thm:cubic-unit-zero-mode"
+  ],
+  "proved_scope": [
+    "For every rational prime p = 2 mod 3, the actual ideal (p) is admissible, avoids lambda, has primary generator -p, and native gaussTwo cubed equals one.",
+    "Actual input conjugation discharges kernel symmetry. For distinct inert primes, no phase, symmetry, maximality, admissibility or coprimality premises remain in the XH theorem; the anti-Fourier window premise remains explicit.",
+    "For fixed anti-Fourier Schwartz W and M >= 1, the unit lattice row equals -M W(0) plus an explicitly bounded remainder E_lattice * windowSize3(W) / M.",
+    "The complete four-scale compensation identity retains both mixed terms and the unit zero mode.",
+    "Inert prime 2 is included; twin starter 3 is explicitly exceptional. Infinite twins do not imply the local sampling hypothesis."
+  ],
+  "unfinished": [
+    "Anti-Fourier Schwartz realization of the explicit compensated Gaussian profile.",
+    "Infinite/growing-support physical Mellin transfer and identification with the Eisenstein carrier variable.",
+    "Prime-carrier insertion, full Abel limit and the signed arithmetic unit C_G contribution.",
+    "Independent universal estimate I_(D,G) <= C_epsilon D^(3/2+epsilon) and its complete signed consumer."
+  ],
+  "benchmark_status": "carrier-component estimate proved; full signed arithmetic estimate unavailable",
+  "old_bound": "Installed zero-free boundary 7/8; signed I-envelope D^(7/4+epsilon)",
+  "new_bound": "Global boundary remains 7/8; required full I-bound D^(3/2+epsilon) is unproved",
+  "required_endpoint": "unconditional boundary <= 3/4",
+  "components": {
+    "inert_off_diagonal": "|K_(X^2)| <= 4 windowSize1(W) (1+E_lattice) X H; X>=1, 0<=H<=X, distinct inert primes p,q in [X,X+H], anti-Fourier Schwartz W",
+    "unit_lattice": "K_M = -M W(0) + R_M; |R_M| <= E_lattice windowSize3(W)/M for M>=1",
+    "principal_native_character": "normalized coefficient exactly one; see finite physical-transfer receipt",
+    "arithmetic_abel_unit": "not bounded by the lattice-unit calculation; full quotients retained"
+  },
+  "actuals": "No finite numerical experiments substituted for analytic estimates.",
+  "first_nonpositive_domain": "Not applicable: no complete improved signed arithmetic estimate installed.",
+  "unchanged_closures_reaudited": false
+}

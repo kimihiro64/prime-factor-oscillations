@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-28",
+  "status": "maintained_compiled_and_axiom_audited",
+  "scope": "Finite signed physical Mellin transfer, shifted quartic compensation, native principal separation, explicit window moments and rational maximal-ideal input conjugation. This is not a completed prime-carrier or zero-free-boundary application.",
+  "compiler": "Lean 4.34.0",
+  "toolchain_options": [
+    "-j1",
+    "-s65536",
+    "-M8192",
+    "autoImplicit false",
+    "Elab.async false"
+  ],
+  "modules": [
+    {
+      "module": "PrimeFactorOscillations.Assembly.CarmichaelWindowTransfer",
+      "source_sha256": "c7af421815e661bbc9d2268b721e791364bb679ab17bdaf3b2ac7aeaf90e946e",
+      "object_sha256": "f63b018a97ac8199a5424309fe4aa7aabd87bd854259fee3bcd6e5cc0d78761e",
+      "kernel_build": "passed"
+    },
+    {
+      "module": "PrimeFactorOscillations.Helpers.CubicCompensatedWindow",
+      "source_sha256": "243b626256d3f660f33e3a7ab0e1601bfff716f1da783cb72b3c65000f51eaa8",
+      "object_sha256": "6190d5855e128a84416c2bb7bb02b9b68151e457814f8041b709e64e47ea3f19",
+      "kernel_build": "passed"
+    },
+    {
+      "module": "PrimeFactorOscillations.Assembly.CarmichaelPhysicalPacket",
+      "source_sha256": "fd50023bed5384593ed99fa40dbd9baedecb3da5973877f34a8f50931db7dcfa",
+      "object_sha256": "8cb3862a4c2e90e1e58e5dead04419c879c2d92a39e7aee272af903f6fd74099",
+      "kernel_build": "passed"
+    },
+    {
+      "module": "PrimeFactorOscillations.Helpers.CubicRationalRows",
+      "source_sha256": "6cef85c472db5d576f393e82d7be58de4ad9768f2ac10e8c3342492644110839",
+      "object_sha256": "a88950f535c8e2243a52b7a301c49ca68f3051a163234367c40e87247fa5aa4d",
+      "kernel_build": "passed"
+    }
+  ],
+  "declarations": [
+    "PrimeFactorOscillations.CarmichaelWindowTransfer.trivialOnKernel_inv_iff",
+    "PrimeFactorOscillations.CarmichaelWindowTransfer.multiplicity_inv",
+    "PrimeFactorOscillations.CarmichaelWindowTransfer.quarticPhysicalReference_mellin",
+    "PrimeFactorOscillations.CarmichaelWindowTransfer.quarticPhysicalReference_convergent",
+    "PrimeFactorOscillations.CarmichaelWindowTransfer.quarticPhysicalProbe_mellin",
+    "PrimeFactorOscillations.CubicCompensatedWindow.rootPolynomial_reflection",
+    "PrimeFactorOscillations.CubicCompensatedWindow.rootPolynomial_affine_endpoints",
+    "PrimeFactorOscillations.CubicCompensatedWindow.rootPolynomial_ne_zero",
+    "PrimeFactorOscillations.CubicCompensatedWindow.expWindow_convergent",
+    "PrimeFactorOscillations.CubicCompensatedWindow.expWindow_mellin",
+    "PrimeFactorOscillations.CubicCompensatedWindow.monomialWindow_convergent",
+    "PrimeFactorOscillations.CubicCompensatedWindow.monomialWindow_mellin",
+    "PrimeFactorOscillations.CubicCompensatedWindow.gamma_polynomial",
+    "PrimeFactorOscillations.CubicCompensatedWindow.radialWindow_hasMellin",
+    "PrimeFactorOscillations.CubicCompensatedWindow.primeWindow_hasMellin",
+    "PrimeFactorOscillations.CubicCompensatedWindow.radialWindow_zero",
+    "PrimeFactorOscillations.CubicCompensatedWindow.primeWindow_mellin_one",
+    "PrimeFactorOscillations.CubicCompensatedWindow.primeWindow_mellin_two",
+    "PrimeFactorOscillations.CubicCompensatedWindow.rootPolynomial_affine_scale",
+    "PrimeFactorOscillations.CubicCompensatedWindow.quarticPolynomial_reference",
+    "PrimeFactorOscillations.CarmichaelPhysicalPacket.scaledWindow_hasMellin",
+    "PrimeFactorOscillations.CarmichaelPhysicalPacket.physicalPacket_hasMellin",
+    "PrimeFactorOscillations.CarmichaelPhysicalPacket.primeWindow_packet_hasMellin",
+    "PrimeFactorOscillations.CarmichaelPhysicalPacket.quartic_packet_mellin",
+    "PrimeFactorOscillations.CarmichaelPhysicalPacket.primeWindow_quartic_packet_mellin",
+    "PrimeFactorOscillations.CarmichaelPhysicalPacket.native_dirichlet_expansion",
+    "PrimeFactorOscillations.CarmichaelPhysicalPacket.native_principal_separation",
+    "PrimeFactorOscillations.CubicRationalRows.cubicChar_input_conjugation",
+    "PrimeFactorOscillations.CubicRationalRows.rational_span_conjugation",
+    "PrimeFactorOscillations.CubicRationalRows.rational_cubicRow_conjugation",
+    "PrimeFactorOscillations.CubicRationalRows.rational_kernel_symmetric"
+  ],
+  "axioms": [
+    "Classical.choice",
+    "propext",
+    "Quot.sound"
+  ],
+  "focused_audit_log_sha256": "4c7d696a2c711b585571c6a9765c42f7a6b7c69b28b9d3711d13400596069f2a",
+  "paper_labels": [
+    "thm:carmichael-physical-window",
+    "thm:compensated-gaussian-window",
+    "thm:rational-cubic-row-conjugation",
+    "prop:native-principal-window"
+  ],
+  "proved_scope": [
+    "Finite sample support contains only positive coefficient indices; arbitrary complex coefficients remain signed.",
+    "Mellin window convergence at s and at(s+3)/4 is explicit; for the polynomial Gaussian windows it is proved for Re(s)>0.",
+    "Native principal separation retains its coefficient equal to the positive normalization and requires unit-supported samples.",
+    "Input conjugation and lattice-kernel symmetry hold for maximal rational principal ideals away from lambda.",
+    "Polynomial Mellin reflection is not asserted to be the physical anti-Fourier identity."
+  ],
+  "unfinished": [
+    "The normalized Gauss phase for the actual inert realization.",
+    "The physical prime-carrier dictionary, including separate sampled-prime, conductor, carrier and Mellin variables.",
+    "Growing-cutoff and full Abel-limit transfer of the complete Euler quotients.",
+    "Independent signed principal/unit and compensation estimate I<=D^(3/2+epsilon)."
+  ],
+  "benchmark_status": "unavailable: no new independent full signed arithmetic estimate",
+  "old_bound": "7/8",
+  "new_bound": "7/8",
+  "required_endpoint": "<=3/4; ideally1/2",
+  "components": "Finite transform and exact native row decomposition; retained I power remains7/4 against required3/2.",
+  "actuals": "No finite numerical sweep used.",
+  "first_nonpositive_domain": null,
+  "unchanged_closures_reaudited": false
+}
