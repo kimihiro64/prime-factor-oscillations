@@ -612,4 +612,21 @@ theorem native_compensated_physical_reflection (q : Nat) [NeZero q]
   exact compensated_physical_reflection q l hLabel hDiv r s hrs hSum hProd
     c MAA MAB MBA MBB hAA hAB hBA hBB
 
+theorem windowPacket_hasSum (q : Nat) [NeZero q]
+    (P : residueRing q -> Complex) (M : Real) (hM : 0 < M) :
+    HasSum (fun z : Eis =>
+      P (Ideal.Quotient.mk (Ideal.span {(q : Eis)}) z) *
+        carrierProfile (norm (eisEmbedding z) ^ 2 / M))
+      (windowPacket q P M) :=
+  (periodic_window_hasSum q P M hM).summable.hasSum
+
+theorem windowPacket_eq_gaussian_sum (q : Nat) [NeZero q]
+    (P : residueRing q -> Complex) (M : Real) (hM : 0 < M) :
+    windowPacket q P M =
+      Finset.univ.sum (fun i : Fin 4 => coefficients i *
+        tsum (fun z : Eis =>
+          P (Ideal.Quotient.mk (Ideal.span {(q : Eis)}) z) *
+            gaussian (scales i / M) (eisEmbedding z))) :=
+  (periodic_window_hasSum q P M hM).tsum_eq
+
 end PrimeFactorOscillations.CarmichaelNormPhysical

@@ -31669,8 +31669,9 @@ lemmas are maintained in
 \texttt{Assembly/CarmichaelNormPhysical.lean}.
 The public claims are exported and individually focused-audited.
 The unmarked native physical transfer is now proved under the original
-cubic divisibility hypothesis. The full inducing modulus \(N=qB\)
-still requires its extra Euler mask and simultaneous marked-row transfer.
+cubic divisibility hypothesis. Simultaneous marked-row transfer and the
+complete finite divisor packet are proved in the next section. Identifying
+that packet with the full inducing-modulus coprime mask remains necessary.
 Prime-weighted logarithmic packets also retain their full
 M\"obius inverse factors and compensation terms.
 The logarithmic zero readout and the theta sum \(K_P\) are distinct
@@ -31681,6 +31682,162 @@ The remaining arithmetic target is still
 The installed exponent remains \(7/4\); the certified zero-free boundary
 is \(7/8\), with target at most \(3/4\). No new arithmetic exponent
 is claimed from the physical identities alone.
+
+\subsection{Marked transfer and the complete finite divisor packet}
+\label{sec:carmichael-marked-window}
+Retain the native quotient \(R_q=\mathcal O/q\mathcal O\), the
+canonical trace character, and the original cubic divisibility hypothesis
+of the preceding section. For every unit \(A\in R_q^\times\), define
+\[
+ P_A(x)=P(Ax),\qquad
+ \Theta_A(a)=\sum_{z\in\mathcal O}P_A([z])e^{-\alpha a|z|^2},
+ \qquad
+ K_A(M)=\sum_{z\in\mathcal O}P_A([z])V(|z|^2/M).
+\]
+All marks are actual units of the quotient ring; that ring is not
+assumed to be a field. In particular, no scalar inverse is substituted
+for the inverse of a quotient-ring unit.
+
+\paragraph{The dual mark is proved, not assumed symmetric.}
+The bijection \(x\mapsto Ax\), whose inverse is multiplication by
+\(A^{-1}\), gives
+\begin{align*}
+ \sum_{x\in R_q}P_A(x)\operatorname{TrChar}_q(wx)
+ &=\sum_{y\in R_q}P(y)\operatorname{TrChar}_q(A^{-1}wy)\\
+ &=qP(A^{-1}w)=qP_{A^{-1}}(w).
+\end{align*}
+The middle equality is the already proved native finite transform.
+The split roots needed there are supplied by cubic exponent
+divisibility. Thus there is no new phase-one or symmetry assumption
+on \(P_A\). Periodic Gaussian Poisson summation consequently gives
+\[
+ \Theta_A(a)=\frac1{aq}\Theta_{A^{-1}}(1/(aq^2)).
+\]
+Finite periodicity bounds every marked profile, so the same Gaussian
+convergence proof applies to each actual infinite sum. Expanding all
+four terms of \(V\), applying this identity, and permuting the reciprocal
+Gaussian scales proves
+\[
+ \boxed{\quad K_A(M)=-\frac Mq K_{A^{-1}}(q^2/M),\qquad M>0.\quad}
+\]
+The mark inversion is retained even when \(A\ne A^{-1}\).
+
+For four arbitrary unit marks \(A_{AA},A_{AB},A_{BA},A_{BB}\) and
+positive scales, write
+\[
+ C_c=K_{A_{AA}}(M_{AA})-\bar cK_{A_{AB}}(M_{AB})
+          -cK_{A_{BA}}(M_{BA})+c\bar cK_{A_{BB}}(M_{BB}).
+\]
+The exact reflection is
+\begin{align*}
+ C_c={}&-\frac{M_{AA}}q K_{A_{AA}^{-1}}(q^2/M_{AA})
+ +\bar c\,\frac{M_{AB}}q K_{A_{AB}^{-1}}(q^2/M_{AB})\\
+ &+c\,\frac{M_{BA}}q K_{A_{BA}^{-1}}(q^2/M_{BA})
+ -c\bar c\,\frac{M_{BB}}q K_{A_{BB}^{-1}}(q^2/M_{BB}).
+\end{align*}
+No equality of marks or scales, and no separate estimate of either
+mixed term, is used.
+
+\paragraph{All signed rows and the unit normalization.}
+For an arbitrary finite support \(S\), complex weights \(w_i\), unit marks
+\(A_i\), and positive scales \(M_i\), the actual convergent lattice sum
+of \(\sum_{i\in S}w_iP_{A_i}([z])V(|z|^2/M_i)\) is
+\[
+ \sum_{i\in S}w_iK_{A_i}(M_i)
+ =-\sum_{i\in S}\frac{w_iM_i}{q}
+       K_{A_i^{-1}}(q^2/M_i).
+\]
+This is a signed identity on the entire finite support. An absolute
+majorant is used only for convergence and finite interchange.
+
+Set
+\[
+ U_A(M)=K_{P_{\rm norm}(A\,\cdot)}(M),\qquad
+ J_A(M)=K_{J_q(A\,\cdot)}(M).
+\]
+The complete pointwise normalization
+\(qP_A(x)=P_{\rm norm}(Ax)-(q-1)J_q(Ax)\) gives
+\[
+ \boxed{\quad qK_A(M)=U_A(M)-(q-1)J_A(M).\quad}
+\]
+It therefore holds for every weighted finite packet, and for the
+four compensated rows with coefficients
+\(1,-\bar c,-c,c\bar c\). In the latter formula both \(U\) and \(J\)
+retain those same four marks, scales and coefficients. The isotropic
+correction is not restricted to the spatial origin.
+
+\paragraph{Actual rational marks and every divisor.}
+For \((d,q)=1\), Bezout gives integers \(u,v\) with \(du+qv=1\).
+Since \(q=0\) in \(R_q\), the class \([d]\) is a unit with inverse
+\([u]\). This constructs the mark without an additional
+unit-existence or field hypothesis.
+
+Let \(B\) be any natural number with \((B,q)=1\). Every positive
+divisor \(d\mid B\) gives this actual unit mark. Define the full finite
+divisor packet
+\[
+ \mathcal K_B(M)=\sum_{d\mid B}\mu(d)K_{[d]}(M/d^2).
+\]
+The summation domain is exactly the finite divisor set of \(B\).
+All its terms, including \(d=1\), occur; squarefreeness is unnecessary
+for this identity because the Mobius coefficient itself vanishes on
+nonsquarefree divisors. Reflection and the exact change of scale give
+\[
+ \boxed{\quad
+ \mathcal K_B(M)=-\frac Mq
+       \sum_{d\mid B}\frac{\mu(d)}{d^2}
+          K_{[d]^{-1}}(q^2d^2/M).
+ \quad}
+\]
+The finite signed sum is also proved equal to its actual convergent
+lattice sum. Its unit normalization retains the full divisor sum of
+\(U_{[d]}(M/d^2)-(q-1)J_{[d]}(M/d^2)\).
+Applying the displayed reflection to each of the four compensated
+scales gives, with the dual divisor sum denoted by \(\mathcal D_B(M)\),
+\[
+ \mathcal C_c[\mathcal K_B]
+ =-\frac{M_{AA}}q\mathcal D_B(M_{AA})
+   +\bar c\frac{M_{AB}}q\mathcal D_B(M_{AB})
+   +c\frac{M_{BA}}q\mathcal D_B(M_{BA})
+   -c\bar c\frac{M_{BB}}q\mathcal D_B(M_{BB}).
+\]
+For \(B\ne0\), the unit divisor is explicitly separated:
+\[
+ \mathcal K_B(M)=K_1(M)
+       +\sum_{\substack{d\mid B\\d\ne1}}\mu(d)K_{[d]}(M/d^2).
+\]
+Here \(K_1\) is the original unmarked native kernel. No assertion
+that the arithmetic Abel coefficient \(C_G\) vanishes follows from
+the geometric identity \(K_1(q)=0\).
+
+\paragraph{The actual seed congruences.}
+The seed conditions \(3\mid q-1\) and \(q-1\mid p+1\) imply
+\(3\mid p+1\), hence \(p\equiv2\pmod3\).
+Likewise \(4\mid q-1\) gives \(p\equiv3\pmod4\); together these yield
+\(p\equiv11\pmod{12}\). Finally the positive multiple \(p+1\) of
+\(q-1\) is at least \(q-1\), so \(p\ge q-2\).
+These conclusions use the actual seed's \(p+1\) condition.
+
+The twenty-six claims in
+\texttt{Assembly/CarmichaelMarkedWindow.lean}, and two reusable
+convergence/expansion APIs in \texttt{CarmichaelNormPhysical.lean},
+are compiled and individually focused-audited. The complete finite
+divisor packet is proved as defined above. Its identification with
+the full inducing-modulus coprime mask, the infinite norm-to-\(L\)
+identification and prime-weighted reciprocal-\(L\) packet, and the
+unbounded Abel passage are additional obligations.
+Individual marked character weights need not have nonnegative real
+parts; the unmarked zero-readout positivity theorem cannot be applied
+to them without reassembling the full arithmetic packet.
+The signed arithmetic estimate remains
+\[
+ I_{D,G}(\lceil D^2\rceil)\ll_\epsilon D^{3/2+\epsilon}
+ \quad\hbox{required, versus installed }D^{7/4+\epsilon}.
+\]
+The native \(q^{-1}\) factor and the divisor \(d^{-2}\) factor are
+retained identities, not an independent bound on this full quotient
+sum. The certified zero-free boundary remains \(7/8\), and the
+research target remains at most \(3/4\).
 
 \begin{thebibliography}{99}
 \small\raggedright

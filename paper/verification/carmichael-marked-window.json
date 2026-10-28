@@ -1,0 +1,89 @@
+{
+  "date": "2026-10-28",
+  "status": "compiled_and_focused_audited",
+  "owners": [
+    "PrimeFactorOscillations/Assembly/CarmichaelMarkedWindow.lean",
+    "PrimeFactorOscillations/Assembly/CarmichaelNormPhysical.lean"
+  ],
+  "theorem_count": 28,
+  "declarations": [
+    "PrimeFactorOscillations.CarmichaelNormPhysical.windowPacket_hasSum",
+    "PrimeFactorOscillations.CarmichaelNormPhysical.windowPacket_eq_gaussian_sum",
+    "PrimeFactorOscillations.CarmichaelMarkedWindow.markedProfile_one",
+    "PrimeFactorOscillations.CarmichaelMarkedWindow.markedProfile_mul",
+    "PrimeFactorOscillations.CarmichaelMarkedWindow.marked_quotient_transform",
+    "PrimeFactorOscillations.CarmichaelMarkedWindow.theta_one",
+    "PrimeFactorOscillations.CarmichaelMarkedWindow.gaussian_poisson",
+    "PrimeFactorOscillations.CarmichaelMarkedWindow.physical_one",
+    "PrimeFactorOscillations.CarmichaelMarkedWindow.physical_eq_gaussian_sum",
+    "PrimeFactorOscillations.CarmichaelMarkedWindow.physical_reflection",
+    "PrimeFactorOscillations.CarmichaelMarkedWindow.compensated_reflection",
+    "PrimeFactorOscillations.CarmichaelMarkedWindow.finitePacket_reflection",
+    "PrimeFactorOscillations.CarmichaelMarkedWindow.finitePacket_hasSum",
+    "PrimeFactorOscillations.CarmichaelMarkedWindow.marked_profile_normalization",
+    "PrimeFactorOscillations.CarmichaelMarkedWindow.physical_unit_normalization",
+    "PrimeFactorOscillations.CarmichaelMarkedWindow.finitePacket_unit_normalization",
+    "PrimeFactorOscillations.CarmichaelMarkedWindow.compensated_unit_normalization",
+    "PrimeFactorOscillations.CarmichaelMarkedWindow.seed_auxiliary_inert",
+    "PrimeFactorOscillations.CarmichaelMarkedWindow.seed_auxiliary_lower_bound",
+    "PrimeFactorOscillations.CarmichaelMarkedWindow.seed_auxiliary_mod_twelve",
+    "PrimeFactorOscillations.CarmichaelMarkedWindow.scalar_cast_q_zero",
+    "PrimeFactorOscillations.CarmichaelMarkedWindow.scalarUnit_val",
+    "PrimeFactorOscillations.CarmichaelMarkedWindow.rational_finite_reflection",
+    "PrimeFactorOscillations.CarmichaelMarkedWindow.depleted_reflection",
+    "PrimeFactorOscillations.CarmichaelMarkedWindow.depleted_hasSum",
+    "PrimeFactorOscillations.CarmichaelMarkedWindow.depleted_unit_normalization",
+    "PrimeFactorOscillations.CarmichaelMarkedWindow.depleted_compensated_reflection",
+    "PrimeFactorOscillations.CarmichaelMarkedWindow.depleted_split_unit"
+  ],
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "domain": "Primeq with original cubic ell=3 dividing exponent Units(ZModq); every actual quotient-ring unit mark; all positive window scales; arbitrary complex finite weights and compensators. Complete divisor packet for every naturalB coprime toq. No RH or individual marked-row positivity premise.",
+  "proved": {
+    "marked_fourier": "Exact native trace Fourier transform sends markedProfile(A) to q*markedProfile(inverseA).",
+    "gaussian_window": "Actual convergent Gaussian and four-Gaussian window transfer retain inverseA and conductorq^2.",
+    "compensation": "All4 marks, all4 scales and coefficients1,-barc,-c,c*barc retained.",
+    "unit": "q*K_A=U_A-(q-1)*J_A on entire isotropic locus, through convergent infinite sums, every finite support and all4 compensated rows.",
+    "scalar_marks": "Bezout constructs actual scalar unit[d] whenever gcd(d,q)=1; no characteristic or field-instance assumption.",
+    "full_divisors": "All d|B with mu(d), inverse[d], d^-2 and dual q^2*d^2/M. All4 compensation terms and full isotropic normalization remain.",
+    "unit_divisor": "d=1 explicitly equals original unmarked K; complement is exactly the finite divisor support minus1.",
+    "seed": "Actual q-1|p+1 conditions imply p%3=2, p>=q-2 and with4|q-1, p%12=11."
+  },
+  "open": [
+    "Identify full inducing coprime mask with the actual complete divisor lattice packet and norm L-series.",
+    "Prime-weighted logarithmic packet with all reciprocal L factors and compensation terms.",
+    "Complete unbounded Abel passage, resonant/nonresonant and even/mismatched supports.",
+    "Independent signed I_DG bound D^(3/2+epsilon), including arithmetic Abel C_G."
+  ],
+  "benchmark_status": "exact_marked_physical_and_finite_divisor_transfer_only",
+  "old_bound": "I7/4; retained physical31/4; certified boundary7/8",
+  "new_bound": "unchanged",
+  "components": {
+    "native_marked_transfer": "proved with actual inverse mark",
+    "full_compensation": "all terms retained",
+    "unit": "complete spatial correction and d=1 row retained; arithmetic C_G unestimated",
+    "arithmetic_saving": "none established"
+  },
+  "actuals": "No numerical experiment used.",
+  "first_nonpositive_domain": "unavailable; no improved total analytic bound.",
+  "target_boundary": "at most3/4",
+  "detector_error": "Existing proved coefficient/Mellin precision unchanged.",
+  "family_adapter": "Actual native norm carrier, every finite marked/divisor window packet; full prime-weighted infinite norm/L identification not yet installed.",
+  "uncancelled_main_terms": "Full reciprocal-L packet; arithmetic unit C_G, principal supply, resonant/nonresonant, even/mismatched supports and all AA-barcAB-cBA+|c|^2BB cross terms. Individual marked weights may have negative real part; unmarked weighted-residue positivity is not applied to them.",
+  "low_estimate_provenance": "Installed I7/4 only; no independent quarter-power saving.",
+  "parameter_domain": "Original admissible family/character/window, fixed physicalG, every epsilon>0 and sufficiently largeD. Structural identities additionally hold pointwise for every positive scale and all finite divisor supports with gcd(B,q)=1. No growing-G estimate asserted.",
+  "attainable_endpoint": "Certified7/8; <=3/4 requires independent full signed I3/2 and remaining physical/arithmetic bridges.",
+  "verification": {
+    "prototype": "all26 compiled in exact destination namespace at default heartbeat limit",
+    "maintained": "all26 compiled without warnings; generic2 API proofs compiled",
+    "focused_axioms": "new26 names plus2 APIs only; standard axioms; prior27 bodies unchanged and not re-audited",
+    "source_policy": "passed",
+    "facade": "compiled successfully",
+    "root": "compiled successfully",
+    "final_staged_checks": "fast profile passed on complete9-file staged surface",
+    "paper": "saved source compiled successfully with built-in editor compiler"
+  }
+}

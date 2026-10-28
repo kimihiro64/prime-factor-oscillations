@@ -793,10 +793,62 @@ The original3-divides-exponent hypothesis now supplies the split roots.
 The actual Eisenstein quotient, canonical trace, squared conductor, Gauss phase,
 conjugation and complete infinite four-Gaussian transfer are proved. All four
 AA-barcAB-cBA+|c|^2BB scales and the entire isotropic unit correction remain.
-The full inducing B mask and marked-row inversion, prime-weighted inverse-L
-packet and complete Abel passage remain unfinished. K(q)=0 is the native
+Marked-row inversion and the complete finite divisor packet are proved below.
+Full inducing-mask identification, prime-weighted reciprocal-L transfer and
+complete Abel passage remain unfinished. K(q)=0 is the native
 geometric theta cancellation, not a vanishing arithmetic C_G or zero signal.
 The installed I exponent7/4 and boundary7/8 are unchanged; the target remains
 I exponent3/2 and zero-free boundary at most3/4.
 Paper label: `sec:carmichael-native-physical`.
 Receipt: [native physical window](verification/carmichael-norm-physical.json).
+
+## Marked physical and full finite divisor packet (2026-10-28)
+
+Owner: `Assembly/CarmichaelMarkedWindow.lean`; namespace `CarmichaelMarkedWindow`.
+All26 claims below, plus two new generic APIs in `CarmichaelNormPhysical`,
+are compiled and individually focused-audited. Earlier27 physical proofs are
+unchanged and were not re-audited for these API additions.
+
+| Lean declaration | Claim | Status |
+| --- | --- | --- |
+| `CarmichaelNormPhysical.windowPacket_hasSum` | Generic periodic window HasSum API. | Proved; focused axiom audit passed. |
+| `CarmichaelNormPhysical.windowPacket_eq_gaussian_sum` | Generic periodic four-Gaussian expansion API. | Proved; focused axiom audit passed. |
+| `markedProfile_one` | Identity mark recovers the original quotient profile. | Proved; focused axiom audit passed. |
+| `markedProfile_mul` | Unit marks compose by actual quotient-ring multiplication. | Proved; focused axiom audit passed. |
+| `marked_quotient_transform` | Actual native finite transform inverts every unit mark. | Proved; focused axiom audit passed. |
+| `theta_one` | Identity mark recovers the native Gaussian theta sum. | Proved; focused axiom audit passed. |
+| `gaussian_poisson` | Actual marked Gaussian transfer with inverse mark and conductor square. | Proved; focused axiom audit passed. |
+| `physical_one` | Identity mark recovers the native physical window. | Proved; focused axiom audit passed. |
+| `physical_eq_gaussian_sum` | Actual marked infinite window equals its convergent four Gaussian sums. | Proved; focused axiom audit passed. |
+| `physical_reflection` | Full physical reflection carries A to inverse A with factor -M/q. | Proved; focused axiom audit passed. |
+| `compensated_reflection` | All four marks, scales and complex compensation cross terms retained. | Proved; focused axiom audit passed. |
+| `finitePacket_reflection` | Exact reflection on the entire arbitrary finite signed support. | Proved; focused axiom audit passed. |
+| `finitePacket_hasSum` | Entire finite signed packet equals its actual convergent lattice sum. | Proved; focused axiom audit passed. |
+| `marked_profile_normalization` | Marked spatial normalization retains the whole isotropic subtraction. | Proved; focused axiom audit passed. |
+| `physical_unit_normalization` | Marked infinite window retains complete principal/isotropic normalization. | Proved; focused axiom audit passed. |
+| `finitePacket_unit_normalization` | Every weighted finite row retains its isotropic unit correction. | Proved; focused axiom audit passed. |
+| `compensated_unit_normalization` | All four compensation terms retained in both normalized and isotropic parts. | Proved; focused axiom audit passed. |
+| `seed_auxiliary_inert` | Actual seed p+1 divisibility implies p mod3 equals2. | Proved; focused axiom audit passed. |
+| `seed_auxiliary_lower_bound` | Actual seed p+1 divisibility implies p at least q-2. | Proved; focused axiom audit passed. |
+| `seed_auxiliary_mod_twelve` | Actual cubic and fourfold seed conditions imply p mod12 equals11. | Proved; focused axiom audit passed. |
+| `scalar_cast_q_zero` | The actual quotient kills the rational period q. | Proved; focused axiom audit passed. |
+| `scalarUnit_val` | Bezout constructs each coprime rational mark with its actual scalar value. | Proved; focused axiom audit passed. |
+| `rational_finite_reflection` | All rational dilations retain inverse marks, d^-2 and dual q^2*d^2/M. | Proved; focused axiom audit passed. |
+| `depleted_reflection` | Full mu-weighted divisor packet has exact signed dual transfer. | Proved; focused axiom audit passed. |
+| `depleted_hasSum` | Full mu-weighted divisor packet equals its actual convergent lattice sum. | Proved; focused axiom audit passed. |
+| `depleted_unit_normalization` | Every divisor retains its complete normalized/isotropic correction. | Proved; focused axiom audit passed. |
+| `depleted_compensated_reflection` | All divisors and all four compensation terms remain in the dual packet. | Proved; focused axiom audit passed. |
+| `depleted_split_unit` | Explicit d=1 row and exactly the finite support of remaining divisors. | Proved; focused axiom audit passed. |
+
+The actual unit marks need no phase or symmetry matching premise. Fourier
+reflection inverts each mark. Every finite signed support, all divisors of B,
+mu signs, d^-2 factors, four scales, both mixed terms and the full isotropic
+subtraction survive. The d=1 divisor is explicitly retained. These are actual
+convergent native window identities, with no RH premise. Identification of the
+full inducing-modulus coprime mask and infinite norm L-series, the prime-weighted
+full reciprocal-L packet, and the unbounded Abel limit remain unfinished.
+Individual marked weights need not satisfy nonnegative-real-part positivity.
+The installed arithmetic I exponent7/4 and certified boundary7/8 are unchanged;
+required I exponent3/2 and target boundary at most3/4 remain active.
+Paper label: `sec:carmichael-marked-window`.
+Receipt: [marked and complete divisor packet](verification/carmichael-marked-window.json).

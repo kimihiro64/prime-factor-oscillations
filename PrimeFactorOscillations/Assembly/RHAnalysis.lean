@@ -4,7 +4,7 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Prime Factor Oscillations contributors
 -/
 import PrimeFactorOscillations.Assembly.CarmichaelCarrierWindow
-import PrimeFactorOscillations.Assembly.CarmichaelNormPhysical
+import PrimeFactorOscillations.Assembly.CarmichaelMarkedWindow
 import PrimeFactorOscillations.Assembly.CarmichaelPhaseAscent
 import PrimeFactorOscillations.Assembly.CompletedDetectorPackets
 import PrimeFactorOscillations.Assembly.CompletedLegacyResearch
