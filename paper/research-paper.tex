@@ -31145,6 +31145,108 @@ supports and compensation cross terms. Its installed estimate remains
 \(15/2\), subject to the other physical obligations. The certified boundary
 remains \(7/8\), and the target remains at most \(3/4\).
 
+\section{The actual phase kernel on moving local ascent samples}
+\label{sec:actual-phase-ascent}
+The prime conductor and the inducing modulus have different roles.
+For each integer cutoff \(X\), let \(N_X\ge1\), let \(q_X\) be a prime
+dividing \(N_X\), and let \(\psi_X\) be a primitive additive character
+modulo \(q_X\). Let \(\ell_X\) be a prime return label dividing the exponent
+of the unit group modulo \(q_X\), with actual return index \(d_X\ge3\).
+No upper bound on the variation of \(q_X,\ell_X,\psi_X\) is imposed by
+the finite kernel theorem. Define an actual prime weight by
+\[
+ w_X(p)=
+ \begin{cases}
+ K_{g_X}(p\bmod q_X),&\gcd(p,N_X)=1,\\
+ 0,&\gcd(p,N_X)>1.
+ \end{cases}
+\]
+The reduction from units modulo \(N_X\) to units modulo \(q_X\) is the
+canonical map induced by \(q_X\mid N_X\).
+Section~\ref{sec:actual-phase-kernel} proves, for these actual Gauss phases,
+\[
+ w_X(p)\ge0,\qquad
+ \gcd(p,N_X)=1\ \Longrightarrow\ w_X(p)\ge\tfrac12.
+\]
+All prime factors of \(N_X\), including those other than \(q_X\), stay
+in the nonunit mask.
+
+Fix \(H\), a sample size \(m(X)\), and selected prime indices
+\(a_X(i)\), \(0\le i<m(X)\). Assume the exact existing
+\texttt{LocalAscentSampling} condition for \(H,m,a\).
+In particular the eventual samples are distinct actual bounded-gap
+prime pairs in the stipulated local window; the quantitative growth
+condition of that sampling hypothesis is retained.
+Infinitely many twin prime pairs by itself is not a substitute for this
+hypothesis. Write \(A_{H,X}(a)\) for
+\texttt{localAscentPairExcess}: the cardinality of the actual local tilt
+ascent set minus that of its reference tilt ascent set, with the same
+rank, inclusive grid and actual prime gap. Thus the full signed observable is
+\[
+ E(X)=\sum_{i<m(X)}
+       w_X\bigl(p_{a_X(i)}\bigr)A_{H,X}\bigl(a_X(i)\bigr).
+\]
+Assume, eventually,
+\[
+                         N_X\le X^{\lfloor m(X)/2\rfloor}.
+\]
+Then the following two equivalences hold:
+\[
+ \mathrm{RH}\quad\Longleftrightarrow\quad E(X)\le0
+                 \text{ for all sufficiently large }X,
+\]
+\[
+ \mathrm{RH}\quad\Longleftrightarrow\quad
+ \exists C>0\ \ E(X)\le C X^{7/10}
+                 \text{ for all sufficiently large }X.
+\]
+More precisely, if RH fails, then for every \(C>0\) and every real \(X_0\)
+there is an integer \(X>X_0\) with \(E(X)>CX^{7/10}\).
+These are statements about the complete signed grid excess, with no
+replacement of its reference subtraction by a separate norm.
+
+Here is the proof. The established local sampling theorem gives distinct
+witness primes at least \(X\). If more than half divided \(N_X\), their
+product would divide \(N_X\) and would be at least
+\(X^{\lfloor m(X)/2\rfloor+1}>N_X\), once \(X\ge2\).
+Consequently at least \(m(X)/2\) witnesses are units modulo \(N_X\).
+The proved kernel floor, including zero weights on every nonunit, gives
+\[
+                         \sum_{i<m(X)} w_X(p_{a_X(i)})\ge m(X)/4.
+\]
+Under RH the existing pointwise local ascent theorem makes every
+\(A_{H,X}(a_X(i))\le0\) eventually. Nonnegative weights therefore give
+\(E(X)\le0\), which also gives the displayed power upper bound.
+
+If RH fails, the existing common-window theorem supplies arbitrarily
+large \(X\) and \(B\ge0\) such that every selected
+\(A_{H,X}(a_X(i))\ge B\), and
+\[
+                         m(X)B>4CX^{7/10}.
+\]
+Choose \(X\) beyond the modulus-budget and sampling thresholds as well.
+The complete weighted sum then satisfies
+\[
+ E(X)\ge B\sum_{i<m(X)}w_X(p_{a_X(i)})
+       \ge m(X)B/4>CX^{7/10}.
+\]
+This proves unboundedness and contradicts either proposed eventual upper
+bound. It proves both reverse implications without assuming RH in a
+detector reconstruction.
+
+All six declarations, including the two weight bounds and the precise
+unboundedness statement, are maintained in
+\texttt{Assembly/CarmichaelPhaseAscent.lean}.
+The exponent \(7/10\) is the established local ascent normalization,
+not a new zero-free boundary. This transfer discharges the nonunit-mask
+and witness-budget application for the phase kernel; it does not
+identify its finite-field additive character with an Eisenstein physical
+row, match the induced Euler factors, or estimate the complete signed
+reciprocal-\(L\) packet. That packet retains its unit row, every overlap
+and all four compensation terms. Its installed power remains \(7/4\);
+the required independent power is \(3/2\). The certified zero-free
+boundary remains \(7/8\), with target at most \(3/4\).
+
 \begin{thebibliography}{99}
 \small\raggedright
 \setlength{\itemsep}{3pt}

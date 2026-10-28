@@ -1,5 +1,16 @@
 # Paper theorem and provenance ledger
 
+## Actual Gauss-phase ascent transfer — 28 October 2026
+
+**Fully matched: six declarations in one maintained owner.** The actual phase-balanced kernel gives nonnegative prime weights and a floor of one half on primes coprime to the full inducing modulus `N`. The same `N`, rather than only the prime conductor `q`, controls the witness-deletion budget. Under the explicit existing `LocalAscentSampling` hypothesis and eventual `N(X)<=X^(m(X)/2)`, the complete signed weighted local ascent excess is eventually nonpositive if and only if RH; equivalently it has an eventual `C*X^(7/10)` upper bound. Failure of RH makes that normalized excess unbounded. Infinite twins alone do not discharge the sampling hypothesis. This is a criterion transfer, with no new prime-character estimate: the certified boundary remains **7/8**, and the target remains **at most 3/4**.
+
+- `PrimeFactorOscillations.CarmichaelPhaseAscent.primeWeight_nonneg` — compiled and focused-audited.
+- `PrimeFactorOscillations.CarmichaelPhaseAscent.primeWeight_ge_half` — compiled and focused-audited.
+- `PrimeFactorOscillations.CarmichaelPhaseAscent.unit_weights` — compiled and focused-audited.
+- `PrimeFactorOscillations.CarmichaelPhaseAscent.unbounded_of_not_RH` — compiled and focused-audited.
+- `PrimeFactorOscillations.CarmichaelPhaseAscent.rh_iff_eventually_nonpos` — compiled and focused-audited.
+- `PrimeFactorOscillations.CarmichaelPhaseAscent.rh_iff_eventually_power_upper` — compiled and focused-audited.
+
 ## Actual Gauss phases and the positive phase-balanced kernel — 28 October 2026
 
 **Fully matched: 30 declarations in three maintained owners.** Primitive additive characters at prime conductor give actual unit Gauss phases compatible with character inversion. Complete finite Fourier matching gives the actual cross coefficients `k_chi=c_chi*(1+g_chi)/2`, with principal coefficient one, nonnegative real parts and exact phase balance. Their native coefficient budget proves the kernel floor `1-1/(d-1)`, hence **at least 1/2 for d>=3**. The actual weighted readout retains principal zeros of arbitrary shared multiplicity. No RH assumption is used. The full native carrier map and signed reciprocal-L arithmetic estimate remain open; the certified boundary is **7/8**, with target **at most 3/4**.
