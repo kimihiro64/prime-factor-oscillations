@@ -1,0 +1,51 @@
+{
+  "date": "2026-10-28",
+  "status": "compiled_and_focused_audited",
+  "owners": [
+    "PrimeFactorOscillations/Assembly/CarmichaelWeightedSignal.lean"
+  ],
+  "theorem_count": 5,
+  "declarations": [
+    "PrimeFactorOscillations.CarmichaelWeightedSignal.L_factor_exists",
+    "PrimeFactorOscillations.CarmichaelWeightedSignal.weighted_limit",
+    "PrimeFactorOscillations.CarmichaelWeightedSignal.residue_re_bound",
+    "PrimeFactorOscillations.CarmichaelWeightedSignal.principal_zero_scaled_residue",
+    "PrimeFactorOscillations.CarmichaelWeightedSignal.principal_zero_not_analytic"
+  ],
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "domain": "all nonzero Dirichlet moduli; all character weights with nonnegative real parts and principal coefficient one; every principal L zero rho different from one; every analytic correction; arbitrary shared-zero multiplicities",
+  "proved": {
+    "factorization": "local finite order for every L character away from one, without RH",
+    "full_residue": "(s-rho)R(s) tends to -A, A=sum k_chi*n_chi",
+    "principal_signal": "Re(A)>=n_principal>0",
+    "nonanalytic": "the complete weighted readout is not analytic at a principal zero"
+  },
+  "open": [
+    "actual prescribed filtered Fourier matching and native Gauss conjugate compatibility",
+    "full prime-sampled dictionary with conductor, height, local masks and overlapping supports",
+    "independent signed estimate with reciprocal L factors and every compensation term",
+    "arithmetic Abel unit C_G"
+  ],
+  "benchmark_status": "signal_retention_only",
+  "old_bound": "I7/4; physical31/4; certified boundary7/8",
+  "new_bound": "unchanged",
+  "components": {
+    "detector": "principal signal cannot cancel even at shared zeros",
+    "arithmetic_saving": "not established",
+    "compensation": "analytic corrections included; full arithmetic cross terms remain required"
+  },
+  "actuals": "no finite numerical experiment",
+  "first_nonpositive_domain": "unavailable; no improved total arithmetic estimate",
+  "target_boundary": "at most3/4",
+  "verification": {
+    "maintained": "compiled",
+    "focused_axioms": "5 exact names, standard axioms only",
+    "source_policy": "passed",
+    "final_consumer_staged_checks": "required before commit",
+    "paper": "built-in compile required before commit"
+  }
+}

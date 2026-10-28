@@ -1,8 +1,19 @@
 # Paper theorem and provenance ledger
 
+## Weighted principal-zero signal — 28 October 2026
+
+**Fully matched: five declarations in one maintained owner.** For every nonzero Dirichlet modulus, principal coefficient one and nonnegative real parts of all other character weights preserve every principal zero away from one. Arbitrary shared-zero multiplicities are retained: the full scaled logarithmic derivative tends to `-A`, with `Re(A)>0`, and is not analytic at that zero. No RH, zero-free-strip or simple-zero assumption is used. This proves signal retention, not an independent arithmetic bound. The certified boundary remains **7/8**; the target remains **at most 3/4**.
+
+- `PrimeFactorOscillations.CarmichaelWeightedSignal.L_factor_exists` — compiled and focused-audited.
+- `PrimeFactorOscillations.CarmichaelWeightedSignal.weighted_limit` — compiled and focused-audited.
+- `PrimeFactorOscillations.CarmichaelWeightedSignal.residue_re_bound` — compiled and focused-audited.
+- `PrimeFactorOscillations.CarmichaelWeightedSignal.principal_zero_scaled_residue` — compiled and focused-audited.
+- `PrimeFactorOscillations.CarmichaelWeightedSignal.principal_zero_not_analytic` — compiled and focused-audited.
+
+
 ## Actual Gaussian physical transfer and unit row — 28 October 2026
 
-**Fully matched: 16 declarations in four maintained owners.** The actual infinite four-Gaussian physical sum is convergent and satisfies exact cubic pair anti-reflection. Projected coprime transpose pairs cancel at their own self-dual scale with no phase-one, kernel-symmetry or Schwartz-profile hypothesis. The actual unit-to-primitive row has the explicit bound `sqrt(q)*B_V*(1+E_O)`. All four compensation scales are retained. The local logarithmic-derivative limit handles arbitrary multiplicity. The full filtered character residue and independent reciprocal-L prime estimate remain open; the certified boundary is **7/8**, with target **at most 3/4**.
+**Fully matched: 16 declarations in four maintained owners.** The actual infinite four-Gaussian physical sum is convergent and satisfies exact cubic pair anti-reflection. Projected coprime transpose pairs cancel at their own self-dual scale with no phase-one, kernel-symmetry or Schwartz-profile hypothesis. The actual unit-to-primitive row has the explicit bound `sqrt(q)*B_V*(1+E_O)`. All four compensation scales are retained. The local logarithmic-derivative limit handles arbitrary multiplicity. The finite weighted residue is now proved in the section above. Actual filtered Fourier matching and the independent reciprocal-L prime estimate remain open; the certified boundary is **7/8**, with target **at most 3/4**.
 
 - `PrimeFactorOscillations.CubicGaussianPair.gaussian_rescale` — compiled and focused-audited.
 - `PrimeFactorOscillations.CubicGaussianPair.periodic_gaussian` — compiled and focused-audited.

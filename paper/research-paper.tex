@@ -30940,8 +30940,9 @@ neighborhood
 The proof differentiates the local identity, uses nonvanishing of \(g\)
 near \(\rho\), and applies continuity to the second term.
 The compiled statement allows every natural multiplicity \(n\).
-Its application to the full filtered finite character residue remains
-a separate consumer.
+Its application to arbitrary finite complex character weights is proved
+in the following section. Matching a separately prescribed filtered
+profile to its actual Fourier coefficients remains a distinct requirement.
 
 These actual-window results complete the geometric transfers stated here.
 The arithmetic prime-sampled packet still contains full numerator and
@@ -30950,6 +30951,70 @@ the original compensation cross terms. Its required independent estimate
 remains \(I_{D,G}\ll_\epsilon D^{3/2+\epsilon}\); the installed estimate
 has power \(7/4\). The certified zero-free boundary remains \(7/8\);
 the target remains at most \(3/4\).
+
+\section{The principal-zero signal with complex character weights}
+Let \(q\ne0\), let \(k_\chi\in\mathbb C\) for every Dirichlet character
+modulo \(q\), and suppose
+\[
+ k_1=1,\qquad \operatorname{Re}k_\chi\ge0.
+\]
+Let \(E\) be analytic at \(\rho\ne1\), and retain the complete readout
+\[
+ R(s)=-\sum_{\chi\bmod q}k_\chi
+             \frac{L'(s,\chi)}{L(s,\chi)}+E(s).
+\]
+If \(L(\rho,1)=0\), then there is \(A\in\mathbb C\) such that
+\[
+ \operatorname{Re}A>0,\qquad
+ (s-\rho)R(s)\longrightarrow-A\quad(s\longrightarrow\rho,\ s\ne\rho).
+\]
+Consequently \(R\) is not analytic at \(\rho\).
+All characters and every shared-zero multiplicity remain in this statement.
+
+Here is the full proof. Each \(L(s,\chi)\) is analytic away from one
+and has a nonzero value at \(s=2\). The complement of one in
+\(\mathbb C\) is connected. The identity theorem therefore excludes
+local identical vanishing anywhere in that domain. Analytic
+factorization supplies a natural number \(n_\chi\) and an analytic
+function \(g_\chi\), nonzero at \(\rho\), such that locally
+\[
+ L(s,\chi)=(s-\rho)^{n_\chi}g_\chi(s).
+\]
+If \(L(\rho,\chi)=0\), evaluation at \(\rho\) shows \(n_\chi>0\);
+otherwise a putative \(n_\chi=0\) would give the nonzero value
+\(g_\chi(\rho)\).
+
+Apply the preceding local logarithmic-derivative theorem separately
+to each factor, retaining its exact multiplicity. Finite linearity gives
+\[
+ (s-\rho)R(s)\longrightarrow-A,\qquad
+ A=\sum_{\chi\bmod q}k_\chi n_\chi.
+\]
+The analytic correction contributes zero to this limit. Since each
+\(n_\chi\) is a nonnegative integer,
+\[
+ \operatorname{Re}A
+   =\sum_{\chi\bmod q}(\operatorname{Re}k_\chi)n_\chi
+   \ge n_1>0.
+\]
+Thus shared zeros cannot cancel the principal response. Finally, if
+\(R\) were analytic at \(\rho\), continuity would instead make its
+scaled limit zero. The punctured neighborhood filter is nontrivial,
+because \(\mathbb C\) has no isolated points, so uniqueness of limits
+would force \(A=0\), contradicting its positive real part.
+
+All five declarations, including factor existence and the nonanalytic
+conclusion, are maintained in
+\texttt{Assembly/CarmichaelWeightedSignal.lean}.
+No RH, zero-free strip or simple-zero hypothesis is used.
+For an actual filtered probability profile its full Fourier coefficients
+must still be identified before applying this theorem. The result does
+not estimate the complete signed prime packet or its reciprocal
+\(L\)-factors. In particular the arithmetic Abel unit \(C_G\) has not
+been bounded by the separate geometric unit-row estimate. The installed
+bound remains \(I_{D,G}\ll_\epsilon D^{7/4+\epsilon}\);
+the required \(D^{3/2+\epsilon}\) estimate and the target boundary
+at most \(3/4\) remain the active arithmetic problem.
 
 \begin{thebibliography}{99}
 \small\raggedright

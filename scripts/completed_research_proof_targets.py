@@ -58,6 +58,7 @@ from scripts.completed_research_targets_55 import TARGETS as GROUP55
 from scripts.completed_research_targets_56 import TARGETS as GROUP56
 from scripts.completed_research_targets_57 import TARGETS as GROUP57
 from scripts.completed_research_targets_58 import TARGETS as GROUP58
+from scripts.completed_research_targets_59 import TARGETS as GROUP59
 
 COMPLETED_RESEARCH_THEOREMS = (
     GROUP01
@@ -118,4 +119,5 @@ COMPLETED_RESEARCH_THEOREMS = (
     + GROUP56
     + GROUP57
     + GROUP58
+    + GROUP59
 )
