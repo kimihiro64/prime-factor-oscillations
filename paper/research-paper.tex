@@ -31361,6 +31361,153 @@ The installed bound remains \(I_{D,G}\ll_\epsilon D^{7/4+\epsilon}\);
 the active target is \(D^{3/2+\epsilon}\), with certified boundary \(7/8\)
 and required boundary at most \(3/4\).
 
+\section{The actual norm phase and the full centered Carmichael packet}
+\label{sec:carmichael-native-norm-packet}
+Let \(q\) be prime, let \(F=\mathbb Z/q\mathbb Z\), and retain the two
+distinct roots \(r+s=-1,\ rs=1\) and the forms \(N,B\) of the preceding
+section. Let \(\psi\) be primitive. The roots imply \(3\ne0\).
+Take the prime label \(\ell=3\) with
+\(\ell\mid\exp(F^\times)\), and let \(\kappa_\chi\) denote the
+phase-filtered Carmichael coefficient below. Every character is extended
+by zero at zero, including the principal character \(\chi_0\).
+
+\paragraph{The actual phase and its orientation.}
+Use the established even Gauss phase \(\gamma_\chi\), with principal
+value \(1\), and set
+\[
+ G_\chi=\chi(3)\gamma_\chi^2,\qquad g_\chi=\overline{G_\chi}.
+\]
+For nonprincipal cubic characters,
+\[
+ G_\chi=\frac{\chi(3)\tau(\chi,\psi)^2}{q}.
+\]
+Primitivity gives \(|\gamma_\chi|=1\), and character values at the unit
+\(3\) have modulus \(1\); hence \(|G_\chi|=1\).
+The inverse-character Gauss identity gives
+\[
+ G_{\chi^{-1}}=\overline{G_\chi},\qquad G_{\chi_0}=1.
+\]
+These statements include the principal convention; the principal
+\emph{Fourier transform} is still its separate complete formula above.
+The kernel's exact coefficient identity is
+\[
+ \kappa_\chi=\alpha_\chi(1+g_\chi)/2,\qquad
+ \kappa_\chi\overline{g_\chi}=\overline{\kappa_\chi},
+ \qquad\alpha_\chi\ge0.
+\]
+Consequently the required orientation is \(g_\chi=\overline{G_\chi}\),
+so that
+\[
+ \kappa_{\chi_0}=1,\qquad
+ \Re\kappa_\chi\ge0,\qquad
+ \kappa_\chi G_\chi=\overline{\kappa_\chi},\qquad
+ \kappa_{\chi^{-1}}=\overline{\kappa_\chi}.
+\]
+The earlier kernel theorem therefore gives its actual unit floor
+\(K_g(u)\ge1/2\) when the Carmichael index is at least \(3\).
+No phase-one or separately assumed conjugation symmetry is used.
+
+\paragraph{Full Fourier identity, including the unit row.}
+Define
+\[
+ f(c,d)=\sum_{\chi\bmod q}\kappa_\chi\chi(N(c,d)),\qquad
+ \widehat f(c,d)=
+ \sum_{a,b\in F}f(a,b)\psi(B((a,b),(c,d))).
+\]
+The cubic support theorem says that a nonzero original coefficient
+forces \(\chi^3=1\); the filtered coefficient is zero when that
+original coefficient is zero. Thus every nonprincipal summand is
+covered by the exact norm Fourier formula. Its contribution is
+\[
+ \kappa_\chi\widehat{\chi\circ N}(c,d)
+       =q\,\overline{\kappa_\chi}\chi^{-1}(N(c,d)).
+\]
+Inverse conjugacy also gives \(\overline{f(c,d)}=f(c,d)\):
+at \(N(c,d)=0\) every character is zero; otherwise this is the complete
+Hermitian character expansion at the unit \(N(c,d)\).
+Hence the sum of the nonprincipal transforms is
+\(q(f(c,d)-\chi_0(N(c,d)))\).
+Adding the principal transform from the preceding section gives
+\[
+ \widehat f(c,d)=qf(c,d)
+   +1-q1_{N(c,d)=0}-q\chi_0(N(c,d))
+   +q(q-1)1_{(c,d)=(0,0)}.
+\]
+Since \(\chi_0(N)=1-1_{N=0}\), the two isotropic-line terms cancel
+jointly, leaving the exact identity
+\[
+ \boxed{\quad
+ \widehat f=qf+(q-1)(q1_0-1).
+ \quad}
+\]
+This uses every character and both isotropic lines, rather than a
+termwise magnitude bound.
+
+\paragraph{Centering and the retained principal signal.}
+Primitive additive orthogonality gives
+\[
+ \sum_{a,b\in F}\psi(ad+bc-bd)=q^2\,1_{(c,d)=(0,0)}.
+\]
+Indeed the sum factors into the two one-dimensional sums with
+frequencies \(d\) and \(c-d\); both vanish unless \(c=d=0\).
+It follows by complex-linear subtraction that
+\[
+ f^\circ=f-\frac{q-1}{q},\qquad
+                   \widehat{f^\circ}=q f^\circ .
+\]
+The principal normalization is charged explicitly. Define
+\[
+ k_{\chi_0}=1,\qquad k_\chi=q\kappa_\chi\quad(\chi\ne\chi_0).
+\]
+Finite distributivity gives, for every \(n\in F\),
+\[
+ \sum_\chi k_\chi\chi(n)
+   =q\sum_\chi\kappa_\chi\chi(n)-(q-1)\chi_0(n).
+\]
+Therefore the exact spatial identity is
+\[
+ \boxed{\quad
+ qf^\circ(c,d)=\sum_\chi k_\chi\chi(N(c,d))
+                  -(q-1)1_{N(c,d)=0}.
+ \quad}
+\]
+The nonunit correction is retained on the entire isotropic locus.
+It cannot be dropped at zero or replaced by an origin correction.
+
+We have \(k_{\chi_0}=1\) and \(\Re k_\chi\ge0\).
+Apply the already proved weighted residue theorem to these actual
+coefficients. For every \(\rho\ne1\) with \(L(\chi_0,\rho)=0\) and
+every correction \(E\) analytic at \(\rho\),
+\[
+ -\sum_\chi k_\chi\frac{L'(\chi,s)}{L(\chi,s)}+E(s)
+\]
+is not analytic at \(\rho\).
+To see why, factor every \(L(\chi,s)\) locally as
+\((s-\rho)^{m_\chi}h_\chi(s)\), with \(h_\chi(\rho)\ne0\).
+The scaled residue is \(-A\), where
+\[
+ A=\sum_\chi k_\chi m_\chi,\qquad
+ \Re A\ge m_{\chi_0}>0.
+\]
+Thus shared zeros of any multiplicity cannot cancel the principal
+signal. No RH hypothesis or simplicity hypothesis enters this argument.
+
+All twenty-six declarations are maintained in
+\texttt{Assembly/CarmichaelNormPacket.lean}, exported, and separately
+focused-audited. This closes the native phase, inverse symmetry, complete
+finite unit correction, centering and normalized signal claims.
+The modulus here is the prime \(q\), not a silently substituted full
+inducing modulus. The Eisenstein quotient and trace identification,
+the resulting physical Gaussian transfer, the full inducing mask and
+its Euler factors, and the infinite Abel passage remain separate
+application obligations. Linear centering rescales nonprincipal
+coefficients by \(q\); it proves no arithmetic power saving by itself.
+The signed arithmetic target retains
+\(AA-\bar c\,AB-c\,BA+|c|^2BB\), all reciprocal \(L\)-factors and
+the Abel unit \(C_G\). Its installed exponent remains \(7/4\), the
+required exponent is \(3/2\), and the certified zero-free boundary
+remains \(7/8\), with target at most \(3/4\).
+
 \begin{thebibliography}{99}
 \small\raggedright
 \setlength{\itemsep}{3pt}

@@ -704,3 +704,49 @@ $I_{D,G}(\lceil D^2\rceil)\ll D^{3/2+\varepsilon}$; the installed exponent is
 $7/4$ and the zero-free boundary remains $7/8$, with target at most $3/4$.
 Paper label: `thm:actual-gaussian-unit`.
 Receipt: [actual Gaussian unit and holomorphy](verification/actual-gaussian-unit-window.json).
+
+
+## Actual norm phase and centered Carmichael packet (2026-10-28)
+
+Owner: `Assembly/CarmichaelNormPacket.lean`; namespace `CarmichaelNormPacket`.
+All26 declarations below are compiled, exported and individually focused-audited.
+
+| Lean declaration | Claim | Status |
+| --- | --- | --- |
+| `normPhase_principal` | Native norm phase has principal value1. | Proved; focused axiom audit passed. |
+| `normPhase_norm` | Primitive additive character gives unit modulus for every native phase. | Proved; focused axiom audit passed. |
+| `normPhase_inverse` | Native phase is conjugated by character inversion. | Proved; focused axiom audit passed. |
+| `normPhase_cubic` | Nonprincipal cubic phase is chi(3)*tau^2/q. | Proved; focused axiom audit passed. |
+| `cubic_norm_fourier` | Actual nonprincipal cubic norm transform with its squared Gauss phase. | Proved; focused axiom audit passed. |
+| `filterPhase_principal` | Conjugate native filter retains principal value1. | Proved; focused axiom audit passed. |
+| `filterPhase_norm` | Actual conjugate filter has unit modulus. | Proved; focused axiom audit passed. |
+| `filterPhase_inverse` | Actual conjugate filter satisfies inverse conjugacy. | Proved; focused axiom audit passed. |
+| `native_coefficient_balance` | Actual coefficient obeys k*G=conj(k). | Proved; focused axiom audit passed. |
+| `native_coefficient_re_nonneg` | Actual filtered coefficients have nonnegative real parts. | Proved; focused axiom audit passed. |
+| `native_kernel_ge_half` | Actual probability kernel has floor1/2 at index>=3. | Proved; focused axiom audit passed. |
+| `coefficient_cubic_support` | Original nonzero coefficient forces chi^3=1 on the full field. | Proved; focused axiom audit passed. |
+| `native_coefficient_inverse` | Actual filtered coefficients satisfy inverse conjugacy. | Proved; focused axiom audit passed. |
+| `native_profile_real` | Complete norm profile is real, including the isotropic locus. | Proved; focused axiom audit passed. |
+| `native_profile_transform_sum` | Full finite transform commutes with the character expansion. | Proved; focused axiom audit passed. |
+| `native_nonprincipal_transform` | Every nonprincipal weighted summand has exact phase cancellation. | Proved; focused axiom audit passed. |
+| `native_profile_transform` | Full transform is q*f+(q-1)*(q*delta0-1). | Proved; focused axiom audit passed. |
+| `constant_trace_transform` | Constant profile transforms to q^2*delta0. | Proved; focused axiom audit passed. |
+| `centered_profile_transform_split` | Centering retains the complete constant Fourier correction. | Proved; focused axiom audit passed. |
+| `centered_profile_transform` | Centered native profile is an exact eigenfunction with eigenvalueq. | Proved; focused axiom audit passed. |
+| `centered_coefficient_principal` | Signal-normalized centered coefficient has principal value1. | Proved; focused axiom audit passed. |
+| `centered_coefficient_re_nonneg` | Signal-normalized centered coefficients retain nonnegative real parts. | Proved; focused axiom audit passed. |
+| `centered_coefficient_formula` | Exact coefficient normalization and principal subtraction. | Proved; focused axiom audit passed. |
+| `normalized_profile_split` | Full normalized character sum with its principal correction. | Proved; focused axiom audit passed. |
+| `centered_profile_normalization` | q*fcentered equals normalized sum minus(q-1)*1_(N=0). | Proved; focused axiom audit passed. |
+| `centered_principal_zero_not_analytic` | Actual normalized coefficients detect every principal zero away from1. | Proved; focused axiom audit passed. |
+
+The actual filter is the conjugate of G=chi(3)*tau^2/q. The principal finite
+correction and both isotropic lines are retained. Centering gives an exact
+Fourier eigenfunction; restoring principal coefficient1 costs the factorq and
+retains -(q-1)*1_(N=0). Shared-zero multiplicities cannot erase its signal.
+The Eisenstein quotient/trace specialization, physical lift, full inducing
+Euler factors and infinite Abel passage remain unfinished. The arithmetic
+I exponent7/4 and zero-free boundary7/8 are unchanged; required I exponent3/2
+and target boundary at most3/4 remain live. No new arithmetic saving is claimed.
+Paper label: `sec:carmichael-native-norm-packet`.
+Receipt: [native norm packet](verification/carmichael-norm-packet.json).

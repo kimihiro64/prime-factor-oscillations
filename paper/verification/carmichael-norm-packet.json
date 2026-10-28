@@ -1,0 +1,86 @@
+{
+  "date": "2026-10-28",
+  "status": "compiled_and_focused_audited",
+  "owners": [
+    "PrimeFactorOscillations/Assembly/CarmichaelNormPacket.lean"
+  ],
+  "theorem_count": 26,
+  "declarations": [
+    "PrimeFactorOscillations.CarmichaelNormPacket.normPhase_principal",
+    "PrimeFactorOscillations.CarmichaelNormPacket.normPhase_norm",
+    "PrimeFactorOscillations.CarmichaelNormPacket.normPhase_inverse",
+    "PrimeFactorOscillations.CarmichaelNormPacket.normPhase_cubic",
+    "PrimeFactorOscillations.CarmichaelNormPacket.cubic_norm_fourier",
+    "PrimeFactorOscillations.CarmichaelNormPacket.filterPhase_principal",
+    "PrimeFactorOscillations.CarmichaelNormPacket.filterPhase_norm",
+    "PrimeFactorOscillations.CarmichaelNormPacket.filterPhase_inverse",
+    "PrimeFactorOscillations.CarmichaelNormPacket.native_coefficient_balance",
+    "PrimeFactorOscillations.CarmichaelNormPacket.native_coefficient_re_nonneg",
+    "PrimeFactorOscillations.CarmichaelNormPacket.native_kernel_ge_half",
+    "PrimeFactorOscillations.CarmichaelNormPacket.coefficient_cubic_support",
+    "PrimeFactorOscillations.CarmichaelNormPacket.native_coefficient_inverse",
+    "PrimeFactorOscillations.CarmichaelNormPacket.native_profile_real",
+    "PrimeFactorOscillations.CarmichaelNormPacket.native_profile_transform_sum",
+    "PrimeFactorOscillations.CarmichaelNormPacket.native_nonprincipal_transform",
+    "PrimeFactorOscillations.CarmichaelNormPacket.native_profile_transform",
+    "PrimeFactorOscillations.CarmichaelNormPacket.constant_trace_transform",
+    "PrimeFactorOscillations.CarmichaelNormPacket.centered_profile_transform_split",
+    "PrimeFactorOscillations.CarmichaelNormPacket.centered_profile_transform",
+    "PrimeFactorOscillations.CarmichaelNormPacket.centered_coefficient_principal",
+    "PrimeFactorOscillations.CarmichaelNormPacket.centered_coefficient_re_nonneg",
+    "PrimeFactorOscillations.CarmichaelNormPacket.centered_coefficient_formula",
+    "PrimeFactorOscillations.CarmichaelNormPacket.normalized_profile_split",
+    "PrimeFactorOscillations.CarmichaelNormPacket.centered_profile_normalization",
+    "PrimeFactorOscillations.CarmichaelNormPacket.centered_principal_zero_not_analytic"
+  ],
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "domain": "prime q, primitive additive psi; native norm phase requires3 nonzero; exact Fourier assembly assumes distinct roots r+s=-1,rs=1, prime label3 dividing exponent Units(ZModq). Kernel floor additionally index>=3. Zero readout any principal zero rho!=1, all shared multiplicities, arbitrary analytic correction.",
+  "proved": {
+    "actual_phase": "G=chi(3)*tau^2/q on nonprincipal cubic support; G1=1, normG=1 and inverse conjugacy",
+    "filter": "g=starG; k*G=stark; Rek>=0; principal1; native profile real",
+    "full_unit": "Ff=qf+(q-1)*(q*delta0-1); both isotropic lines retained and canceled jointly",
+    "centering": "F(f-(q-1)/q)=q*(f-(q-1)/q)",
+    "normalization": "kcentered1=1, kcenteredchi=q*kchi off principal, nonnegative real parts; q*fcentered=sum kcenteredchi chi(N)-(q-1)*1_(N=0)",
+    "signal": "weighted logarithmic derivative not analytic at any principal zero away from1; no RH or simple-zero premise"
+  },
+  "open": [
+    "assembled split-prime root existence and exact Eisenstein quotient/trace physical specialization",
+    "physical Gaussian and full four-term compensation transfer for actual native profile",
+    "full inducing nonunit mask and its finite Euler corrections",
+    "unbounded prime selector and full Abel passage",
+    "independent full signed I_DG power3/2, with arithmetic Abel C_G, even/mismatched supports, reciprocalL and all compensation cross terms"
+  ],
+  "benchmark_status": "exact_native_packet_and_normalized_signal_only",
+  "old_bound": "I7/4; physical31/4; certified boundary7/8",
+  "new_bound": "unchanged",
+  "components": {
+    "native_phase": "discharged",
+    "finite_symmetry": "discharged",
+    "finite_unit": "complete exact correction and centering proved",
+    "principal_signal": "preserved with explicitly charged q scaling and isotropic correction",
+    "arithmetic_saving": "not established"
+  },
+  "actuals": "No finite numerical experiment used.",
+  "first_nonpositive_domain": "unavailable; no improved total arithmetic estimate",
+  "target_boundary": "at most3/4",
+  "detector_error": "Existing uniform coefficient/Mellin precision unchanged.",
+  "family_adapter": "Exact cubic norm finite field packet; Eisenstein quotient and full reciprocal-L arithmetic remain separate.",
+  "uncancelled_main_terms": "Complete inverseL packet, arithmetic Abel unit, even/mismatched supports and AA-barcAB-cBA+|c|^2BB.",
+  "low_estimate_provenance": "Installed I7/4 only; no new power saving.",
+  "parameter_domain": "Original admissible family/character/window, fixed physical G, every epsilon>0 and all sufficiently large D.",
+  "attainable_endpoint": "Certified7/8; <=3/4 requires independent signed I3/2 plus remaining physical obligations.",
+  "verification": {
+    "prototype": "all26 compiled in exact destination namespace, no warnings",
+    "maintained": "all26 compiled",
+    "focused_axioms": "all26 exact new names; standard axioms only",
+    "source_policy": "passed",
+    "ruff": "two changed catalogues passed lint and format checks",
+    "facade_and_root": "both compiled successfully",
+    "final_staged_checks": "fast profile passed on the complete seven-file staged surface; final metadata replay required before commit",
+    "paper": "saved paper compiled successfully with built-in editor compiler"
+  }
+}
