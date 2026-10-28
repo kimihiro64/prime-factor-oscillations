@@ -1,0 +1,89 @@
+{
+  "date": "2026-10-28",
+  "status": "compiled_and_focused_audited",
+  "owners": [
+    "PrimeFactorOscillations/Assembly/CarmichaelNormPhysical.lean"
+  ],
+  "theorem_count": 27,
+  "declarations": [
+    "PrimeFactorOscillations.CarmichaelNormPhysical.coords_eval",
+    "PrimeFactorOscillations.CarmichaelNormPhysical.eval_sub",
+    "PrimeFactorOscillations.CarmichaelNormPhysical.eval_nat_mul",
+    "PrimeFactorOscillations.CarmichaelNormPhysical.omega_conj",
+    "PrimeFactorOscillations.CarmichaelNormPhysical.lambda_conj",
+    "PrimeFactorOscillations.CarmichaelNormPhysical.trace_coordinate_fraction",
+    "PrimeFactorOscillations.CarmichaelNormPhysical.trace_coordinate_character",
+    "PrimeFactorOscillations.CarmichaelNormPhysical.trace_quotient_eval",
+    "PrimeFactorOscillations.CarmichaelNormPhysical.quotient_eval_eq_iff",
+    "PrimeFactorOscillations.CarmichaelNormPhysical.pairResidue_injective",
+    "PrimeFactorOscillations.CarmichaelNormPhysical.pairResidue_surjective",
+    "PrimeFactorOscillations.CarmichaelNormPhysical.trace_pairResidue",
+    "PrimeFactorOscillations.CarmichaelNormPhysical.quotientProfile_pairResidue",
+    "PrimeFactorOscillations.CarmichaelNormPhysical.quotient_profile_transform",
+    "PrimeFactorOscillations.CarmichaelNormPhysical.gaussian_poisson",
+    "PrimeFactorOscillations.CarmichaelNormPhysical.compensated_gaussian_poisson",
+    "PrimeFactorOscillations.CarmichaelNormPhysical.physical_eq_gaussian_sum",
+    "PrimeFactorOscillations.CarmichaelNormPhysical.physical_anti_reflection",
+    "PrimeFactorOscillations.CarmichaelNormPhysical.physical_selfdual_zero",
+    "PrimeFactorOscillations.CarmichaelNormPhysical.compensated_physical_reflection",
+    "PrimeFactorOscillations.CarmichaelNormPhysical.quotient_profile_unit_normalization",
+    "PrimeFactorOscillations.CarmichaelNormPhysical.physical_unit_normalization",
+    "PrimeFactorOscillations.CarmichaelNormPhysical.compensated_unit_normalization",
+    "PrimeFactorOscillations.CarmichaelNormPhysical.split_roots_of_three_dvd",
+    "PrimeFactorOscillations.CarmichaelNormPhysical.native_gaussian_poisson",
+    "PrimeFactorOscillations.CarmichaelNormPhysical.native_physical_anti_reflection",
+    "PrimeFactorOscillations.CarmichaelNormPhysical.native_compensated_physical_reflection"
+  ],
+  "private_convergence_lemmas": 2,
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "domain": "primeq and original cubic label ell=3 dividing exponent Units(ZModq); every positive Gaussian/window scale and every complex compensatorc. Native consumers derive split roots, primitive canonical trace and all phase/symmetry matching. No RH premise.",
+  "proved": {
+    "quotient": "Fq^2 equiv actual O/(q) with exact coordinate congruence, every class included",
+    "trace": "native trace on[a+bomega] is stdAddChar(b); product trace is ad+bc-bd",
+    "roots": "3|exponent implies an actual unit of order3 and rootsr,r^2 with r+s=-1,rs=1,r!=s",
+    "gaussian": "theta(a)=1/(a*q)*theta(1/(a*q^2))",
+    "window": "actual convergent signed4-Gaussian K(M)=-M/q*K(q^2/M); K(q)=0",
+    "compensation": "all4 independent positive scales with AA-barcAB-cBA+|c|^2BB retained, including both mixed terms",
+    "unit": "q*Kcentered=Knormalized-(q-1)*Kisotropic through actual infinite sums; exact same normalization for full4 compensated packet"
+  },
+  "open": [
+    "full inducing B Euler mask and simultaneous marked-row physical transfer",
+    "prime-weighted logarithmic packet with every Mobius inverse factor retained",
+    "full unbounded Abel limit",
+    "independent signed I_DG power3/2, with arithmetic C_G, even/mismatched supports and all compensation cross terms"
+  ],
+  "benchmark_status": "native_physical_transfer_and_unit_normalization_only",
+  "old_bound": "I7/4; physical31/4; certified boundary7/8",
+  "new_bound": "unchanged",
+  "components": {
+    "native_quotient_trace": "discharged",
+    "phase_symmetry_roots": "discharged by actual cubic seed divisibility",
+    "native_infinite_window": "complete exact transfer",
+    "unit": "entire spatial isotropic correction retained; arithmetic Abel C_G still unestimated",
+    "arithmetic_saving": "not established"
+  },
+  "actuals": "No numerical experiment used.",
+  "first_nonpositive_domain": "unavailable; no improved total arithmetic estimate",
+  "target_boundary": "at most3/4",
+  "detector_error": "Existing uniform coefficient and Mellin precision unchanged.",
+  "family_adapter": "Actual canonical Eisenstein norm packet at cubic seedq, including conductorq^2 and all4 Gaussian/window scales. Full inducing N=qB and prime-weighted inverseL transfer remain.",
+  "uncancelled_main_terms": "Full reciprocal-L signed packet, arithmetic Abel C_G, even/mismatched supports and AA-barcAB-cBA+|c|^2BB. Geometric K(q)=0 does not set C_G or the logarithmic zero signal tozero.",
+  "low_estimate_provenance": "Installed I7/4 only; no new independent arithmetic power bound.",
+  "parameter_domain": "Original admissible family/character/window, fixed physicalG, every epsilon>0 and all sufficiently largeD; native physical identities additionally hold pointwise at every positive scale.",
+  "attainable_endpoint": "Certified7/8; <=3/4 still needs independent signed I3/2 and remaining physical/arithmetic transfer obligations.",
+  "verification": {
+    "prototype": "23 physical and4 root/native-consumer proofs compiled in exact destination namespace",
+    "maintained": "all27 compiled together without warnings",
+    "focused_axioms": "all27 exact new names; standard axioms only; unchanged earlier proofs not re-audited",
+    "source_policy": "passed",
+    "ruff": "two changed catalogues passed lint and format checks",
+    "facade": "compiled",
+    "root": "compiled successfully",
+    "final_staged_checks": "fast profile passed on complete eight-file staged surface; final metadata replay required before commit",
+    "paper": "saved paper compiled successfully with built-in editor compiler"
+  }
+}

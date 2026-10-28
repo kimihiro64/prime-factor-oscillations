@@ -744,9 +744,59 @@ The actual filter is the conjugate of G=chi(3)*tau^2/q. The principal finite
 correction and both isotropic lines are retained. Centering gives an exact
 Fourier eigenfunction; restoring principal coefficient1 costs the factorq and
 retains -(q-1)*1_(N=0). Shared-zero multiplicities cannot erase its signal.
-The Eisenstein quotient/trace specialization, physical lift, full inducing
-Euler factors and infinite Abel passage remain unfinished. The arithmetic
+The native Eisenstein quotient/trace specialization and physical lift are
+proved below. Full inducing Euler factors and infinite Abel passage remain
+unfinished. The arithmetic
 I exponent7/4 and zero-free boundary7/8 are unchanged; required I exponent3/2
 and target boundary at most3/4 remain live. No new arithmetic saving is claimed.
 Paper label: `sec:carmichael-native-norm-packet`.
 Receipt: [native norm packet](verification/carmichael-norm-packet.json).
+
+
+## Native physical Carmichael norm packet (2026-10-28)
+
+Owner: `Assembly/CarmichaelNormPhysical.lean`; namespace `CarmichaelNormPhysical`.
+All27 public claims below are compiled, exported and individually focused-audited.
+Two private convergence lemmas are included in those checked proof closures.
+
+| Lean declaration | Claim | Status |
+| --- | --- | --- |
+| `coords_eval` | Native integer coordinates recover both coefficients of eval(a,b). | Proved; focused axiom audit passed. |
+| `eval_sub` | Exact subtraction in the native Eisenstein basis. | Proved; focused axiom audit passed. |
+| `eval_nat_mul` | Exact rational-integer dilation of both native coordinates. | Proved; focused axiom audit passed. |
+| `omega_conj` | Actual complex conjugation of the native cubic root. | Proved; focused axiom audit passed. |
+| `lambda_conj` | Actual conjugation reverses the native trace denominator. | Proved; focused axiom audit passed. |
+| `trace_coordinate_fraction` | The native complex trace of (a+b*omega)/(q*lambda) is b/q. | Proved; focused axiom audit passed. |
+| `trace_coordinate_character` | Actual exponential trace equals canonical stdAddChar(b modq). | Proved; focused axiom audit passed. |
+| `trace_quotient_eval` | Actual quotient trace on every integer-coordinate representative. | Proved; focused axiom audit passed. |
+| `quotient_eval_eq_iff` | Quotient equality is equivalent to congruence of both coordinates. | Proved; focused axiom audit passed. |
+| `pairResidue_injective` | All field-coordinate pairs have distinct quotient classes. | Proved; focused axiom audit passed. |
+| `pairResidue_surjective` | Every native quotient class is represented by a field-coordinate pair. | Proved; focused axiom audit passed. |
+| `trace_pairResidue` | Actual product trace is exactly ad+bc-bd moduloq. | Proved; focused axiom audit passed. |
+| `quotientProfile_pairResidue` | Transported profile agrees with the complete centered finite profile. | Proved; focused axiom audit passed. |
+| `quotient_profile_transform` | Full native quotient Fourier transform has exact eigenvalueq. | Proved; focused axiom audit passed. |
+| `gaussian_poisson` | Actual Gaussian Poisson transfer at dual rate1/(a*q^2). | Proved; focused axiom audit passed. |
+| `compensated_gaussian_poisson` | All four arbitrary Gaussian scales and compensation cross terms. | Proved; focused axiom audit passed. |
+| `physical_eq_gaussian_sum` | Actual infinite signed window equals its convergent four Gaussian sums. | Proved; focused axiom audit passed. |
+| `physical_anti_reflection` | Actual four-Gaussian window satisfies K(M)=-M/q*K(q^2/M). | Proved; focused axiom audit passed. |
+| `physical_selfdual_zero` | Exact cancellation at M=q for the native centered theta window. | Proved; focused axiom audit passed. |
+| `compensated_physical_reflection` | Complete signed physical reflection at four arbitrary positive scales. | Proved; focused axiom audit passed. |
+| `quotient_profile_unit_normalization` | Full spatial normalization includes the entire isotropic correction. | Proved; focused axiom audit passed. |
+| `physical_unit_normalization` | Entire isotropic correction retained after actual infinite summation. | Proved; focused axiom audit passed. |
+| `compensated_unit_normalization` | Unit normalization retains both mixed terms and all four scales. | Proved; focused axiom audit passed. |
+| `split_roots_of_three_dvd` | Cubic exponent divisibility itself supplies both distinct split roots. | Proved; focused axiom audit passed. |
+| `native_gaussian_poisson` | Actual Gaussian transfer without an extra root, phase or symmetry premise. | Proved; focused axiom audit passed. |
+| `native_physical_anti_reflection` | Actual infinite window reflection under original cubic divisibility only. | Proved; focused axiom audit passed. |
+| `native_compensated_physical_reflection` | Full compensated physical transfer with no extra matching hypotheses. | Proved; focused axiom audit passed. |
+
+The original3-divides-exponent hypothesis now supplies the split roots.
+The actual Eisenstein quotient, canonical trace, squared conductor, Gauss phase,
+conjugation and complete infinite four-Gaussian transfer are proved. All four
+AA-barcAB-cBA+|c|^2BB scales and the entire isotropic unit correction remain.
+The full inducing B mask and marked-row inversion, prime-weighted inverse-L
+packet and complete Abel passage remain unfinished. K(q)=0 is the native
+geometric theta cancellation, not a vanishing arithmetic C_G or zero signal.
+The installed I exponent7/4 and boundary7/8 are unchanged; the target remains
+I exponent3/2 and zero-free boundary at most3/4.
+Paper label: `sec:carmichael-native-physical`.
+Receipt: [native physical window](verification/carmichael-norm-physical.json).

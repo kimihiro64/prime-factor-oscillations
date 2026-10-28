@@ -31497,16 +31497,190 @@ All twenty-six declarations are maintained in
 focused-audited. This closes the native phase, inverse symmetry, complete
 finite unit correction, centering and normalized signal claims.
 The modulus here is the prime \(q\), not a silently substituted full
-inducing modulus. The Eisenstein quotient and trace identification,
-the resulting physical Gaussian transfer, the full inducing mask and
-its Euler factors, and the infinite Abel passage remain separate
-application obligations. Linear centering rescales nonprincipal
+inducing modulus. The following section proves the native Eisenstein
+quotient, trace and physical Gaussian transfer for the cubic seed modulus.
+The full inducing mask, its extra Euler factors and the infinite Abel
+passage remain application obligations. Linear centering rescales nonprincipal
 coefficients by \(q\); it proves no arithmetic power saving by itself.
 The signed arithmetic target retains
 \(AA-\bar c\,AB-c\,BA+|c|^2BB\), all reciprocal \(L\)-factors and
 the Abel unit \(C_G\). Its installed exponent remains \(7/4\), the
 required exponent is \(3/2\), and the certified zero-free boundary
 remains \(7/8\), with target at most \(3/4\).
+
+\section{The native physical window with all compensation terms}
+\label{sec:carmichael-native-physical}
+We now discharge the rational Eisenstein quotient, actual additive trace,
+split-root and physical-window hypotheses for the cubic seed modulus.
+Let \(q\) be prime and assume
+\[
+              3\mid\exp((\mathbb Z/q\mathbb Z)^\times).
+\]
+Equivalently for the native consumers, the prime label is \(\ell=3\)
+with the original exponent-divisibility hypothesis.
+Let \(\mathcal O=\mathbb Z[\omega]\), where
+\(\omega=(-1+i\sqrt3)/2\), and put \(\lambda=1+2\omega\).
+Use the canonical primitive additive character
+\(\psi_q(t)=\exp(2\pi i\,t/q)\), interpreted modulo \(q\).
+Let \(P\) be the centered profile \(f^\circ\) from the preceding section,
+transported to \(\mathcal O/q\mathcal O\).
+
+\paragraph{The quotient and trace are the actual native ones.}
+The native integer basis gives
+\[
+ [a+b\omega]=[c+d\omega]\pmod{q\mathcal O}
+ \quad\Longleftrightarrow\quad
+ a\equiv c\pmod q,\quad b\equiv d\pmod q.
+\]
+Indeed an equality modulo \(q\mathcal O\) expresses the difference as
+\(q(u+v\omega)\); uniqueness of both integer coordinates gives the
+two divisibilities. Conversely those divisibilities explicitly produce
+that multiple of \(q\). Consequently
+\[
+ F_q^2\longrightarrow\mathcal O/q\mathcal O,\qquad
+ (a,b)\longmapsto[a+b\omega]
+\]
+is a bijection, with no missing residue classes.
+Conjugation gives \(\bar\omega=-1-\omega\) and
+\(\bar\lambda=-\lambda\), whence, for integers \(a,b\),
+\[
+ \frac{a+b\omega}{q\lambda}
+   +\overline{\frac{a+b\omega}{q\lambda}}=\frac bq.
+\]
+The native additive trace character on the quotient therefore evaluates
+to \(\psi_q(b)\). Since
+\[
+ (a+b\omega)(c+d\omega)
+       =(ac-bd)+(ad+bc-bd)\omega,
+\]
+its value on a product is exactly
+\(\psi_q(ad+bc-bd)\). This identifies the sign and normalization of
+the physical trace with the finite Fourier pairing already proved.
+
+The split roots also follow from the displayed divisibility, rather
+than from an extra hypothesis. The finite-group exponent divides the
+group cardinality. Cauchy's theorem supplies a unit \(r\) of order \(3\).
+Thus \(r^3=1\) and \(r\ne1\), so
+\((r-1)(r^2+r+1)=0\) implies \(r^2+r+1=0\).
+Set \(s=r^2\). Then \(r+s=-1\), \(rs=1\), and \(r\ne s\):
+otherwise \(r(r-1)=0\), contradicting the two unit properties.
+The native field, quotient and trace consumers consequently need no
+separately supplied roots, phase-one condition or symmetry premise.
+The incompatible small primes are excluded by the original divisibility
+itself; none is silently used as a cubic seed.
+
+\paragraph{Exact Gaussian transfer.}
+Write \(\alpha=2\pi/\sqrt3\) and
+\(g_a(z)=\exp(-\alpha a|z|^2)\). For every \(a>0\), set
+\[
+ \Theta_P(a)=\sum_{z\in\mathcal O}P([z])g_a(z).
+\]
+Finite periodicity bounds \(P\); the established Gaussian lattice
+summability theorem therefore proves absolute convergence.
+Reindexing the finite quotient sum through the proved bijection gives
+\[
+ \sum_{x\in\mathcal O/q\mathcal O}P(x)\,
+      \operatorname{TrChar}_q([h]x)=qP([h]).
+\]
+Here the phase and inverse symmetry are the actual ones from the
+preceding section. Native periodic Gaussian Poisson summation now yields
+\[
+ \boxed{\quad
+ \Theta_P(a)=\frac1{aq}\,
+       \Theta_P\!\left(\frac1{aq^2}\right).
+ \quad}
+\]
+The period is the rational Eisenstein integer \(q\), whose squared
+embedding norm is \(q^2\). Thus the initial Poisson factor is
+\(1/(aq^2)\); the finite eigenvalue \(q\) gives the displayed factor
+\(1/(aq)\). No conductor square is discarded.
+
+\paragraph{The convergent signed four-Gaussian window.}
+Use the actual previously established profile
+\[
+ V(t)=\sum_{i=0}^3 c_i e^{-\alpha a_i t},\qquad
+ (a_0,a_1,a_2,a_3)=(4,1/4,16,1/16),
+ \quad(c_0,c_1,c_2,c_3)=(5/4,-5/16,-1,1/16).
+\]
+Define
+\[
+ K_P(M)=\sum_{z\in\mathcal O}P([z])V(|z|^2/M),\qquad M>0.
+\]
+The finite signed Gaussian expansion and the preceding absolute
+convergence prove
+\[
+ K_P(M)=\sum_i c_i\Theta_P(a_i/M).
+\]
+The coefficients satisfy \(c_i/a_i=-c_{i^*}\) when
+\(a_{i^*}=1/a_i\). Applying Gaussian Poisson to every term and then
+performing this exact signed permutation gives
+\[
+ \boxed{\quad
+ K_P(M)=-\frac Mq K_P(q^2/M),\qquad K_P(q)=0 .
+ \quad}
+\]
+All four Gaussian terms remain until this cancellation.
+The convergence argument uses an absolute majorant only to justify the
+infinite sums; it is not an estimate of their signed arithmetic main term.
+
+For any complex \(c\) and four arbitrary positive scales, write
+\[
+ \mathcal C_c[H]=H(M_{AA})-\bar cH(M_{AB})
+                  -cH(M_{BA})+c\bar cH(M_{BB}).
+\]
+Termwise use of the proved reflection, followed by signed algebra,
+gives the complete physical formula
+\begin{align*}
+ \mathcal C_c[K_P]
+  ={}&-\frac{M_{AA}}qK_P(q^2/M_{AA})
+     +\bar c\,\frac{M_{AB}}qK_P(q^2/M_{AB})\\
+    &+c\,\frac{M_{BA}}qK_P(q^2/M_{BA})
+     -c\bar c\,\frac{M_{BB}}qK_P(q^2/M_{BB}).
+\end{align*}
+Here \(c\bar c=|c|^2\). Both mixed terms retain their own dual scales
+and coefficients; neither is replaced by a separate norm.
+
+\paragraph{The entire nonunit correction survives summation.}
+For \(x=[a+b\omega]\), let \(N(x)=a^2-ab+b^2\) in \(F_q\), and set
+\[
+ P_{\rm norm}(x)=\sum_\chi k_\chi\chi(N(x)),\qquad
+ J_q(x)=1_{N(x)=0}.
+\]
+The preceding exact coefficient normalization says
+\(qP=P_{\rm norm}-(q-1)J_q\).
+Each periodic profile has the same Gaussian summability argument.
+Linearity of their actual convergent infinite sums therefore proves
+\[
+ qK_P(M)=K_{P_{\rm norm}}(M)-(q-1)K_{J_q}(M),
+\]
+and, without deleting any cross term,
+\[
+ \boxed{\quad
+ q\,\mathcal C_c[K_P]
+    =\mathcal C_c[K_{P_{\rm norm}}]
+       -(q-1)\mathcal C_c[K_{J_q}].
+ \quad}
+\]
+The correction is supported on the full isotropic locus modulo \(q\),
+not solely at the spatial origin.
+
+These twenty-seven public declarations and two private convergence
+lemmas are maintained in
+\texttt{Assembly/CarmichaelNormPhysical.lean}.
+The public claims are exported and individually focused-audited.
+The unmarked native physical transfer is now proved under the original
+cubic divisibility hypothesis. The full inducing modulus \(N=qB\)
+still requires its extra Euler mask and simultaneous marked-row transfer.
+Prime-weighted logarithmic packets also retain their full
+M\"obius inverse factors and compensation terms.
+The logarithmic zero readout and the theta sum \(K_P\) are distinct
+observables: \(K_P(q)=0\) does not assert that their zero signal, or the
+arithmetic Abel coefficient \(C_G\), vanishes.
+The remaining arithmetic target is still
+\(I_{D,G}(\lceil D^2\rceil)\ll_\epsilon D^{3/2+\epsilon}\).
+The installed exponent remains \(7/4\); the certified zero-free boundary
+is \(7/8\), with target at most \(3/4\). No new arithmetic exponent
+is claimed from the physical identities alone.
 
 \begin{thebibliography}{99}
 \small\raggedright
