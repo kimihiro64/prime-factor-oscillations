@@ -1,0 +1,101 @@
+{
+  "date": "2026-10-28",
+  "status": "Proved in maintained Lean owners; focused foundational audits and paper compilation passed. The arithmetic exponent target remains open.",
+  "maintained_modules": [
+    {
+      "path": "PrimeFactorOscillations/Helpers/CubicCarrierAnalytic.lean",
+      "sha256": "9f52d90751c6840e013ee590727d078b47b4a49e2b114e718826446ceda8cdb5"
+    },
+    {
+      "path": "PrimeFactorOscillations/Helpers/CubicGaussianUnit.lean",
+      "sha256": "44d28bc5dc0d62618760ee458a3f133e4a5eb77b98d1daa3bf47a7b7fd8a8160"
+    }
+  ],
+  "declarations": [
+    "PrimeFactorOscillations.CubicCarrierAnalytic.const_cpow_analyticAt",
+    "PrimeFactorOscillations.CubicCarrierAnalytic.gamma_analyticAt_of_re_pos",
+    "PrimeFactorOscillations.CubicCarrierAnalytic.baseMultiplier_analyticAt",
+    "PrimeFactorOscillations.CubicCarrierAnalytic.scaleMultiplier_analyticAt",
+    "PrimeFactorOscillations.CubicCarrierAnalytic.carrierMultiplier_analyticAt",
+    "PrimeFactorOscillations.CubicGaussianUnit.exp_weight_bound",
+    "PrimeFactorOscillations.CubicGaussianUnit.gaussian_lattice_summable",
+    "PrimeFactorOscillations.CubicGaussianUnit.poisson_prefactor",
+    "PrimeFactorOscillations.CubicGaussianUnit.gaussian_coordinates",
+    "PrimeFactorOscillations.CubicGaussianUnit.gaussian_theta_poisson",
+    "PrimeFactorOscillations.CubicGaussianUnit.window_lattice_hasSum",
+    "PrimeFactorOscillations.CubicGaussianUnit.unitPacket_eq_theta",
+    "PrimeFactorOscillations.CubicGaussianUnit.unitPacket_anti_reflection",
+    "PrimeFactorOscillations.CubicGaussianUnit.exp_weight3_bound",
+    "PrimeFactorOscillations.CubicGaussianUnit.scaled_exp_weight3_bound",
+    "PrimeFactorOscillations.CubicGaussianUnit.windowConstant_nonneg",
+    "PrimeFactorOscillations.CubicGaussianUnit.carrierProfile_weight3",
+    "PrimeFactorOscillations.CubicGaussianUnit.nonzero_tail_bound",
+    "PrimeFactorOscillations.CubicGaussianUnit.unit_zero_mode",
+    "PrimeFactorOscillations.CubicGaussianUnit.unitPacket_bound",
+    "PrimeFactorOscillations.CubicGaussianUnit.compensated_unit_identity"
+  ],
+  "audit_evidence": [
+    {
+      "module": "PrimeFactorOscillations.Helpers.CubicCarrierAnalytic",
+      "declarations": 5,
+      "log": ".research/generated/carrier-analytic-audit-20261028.log",
+      "sha256": "86fe30bead0cf099ec2a0739ca42a286482fb8296c6e6334ab608bb0077a3316",
+      "exit_code": 0
+    },
+    {
+      "module": "PrimeFactorOscillations.Helpers.CubicGaussianUnit",
+      "declarations": 16,
+      "log": ".research/generated/gaussian-unit-audit-20261028.log",
+      "sha256": "ed7041cc6d3de30bf5d861525942d9cd56a83a007094da71041b29a9581c766f",
+      "exit_code": 0
+    }
+  ],
+  "foundational_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "unchanged_audits": "Earlier 26 reciprocal-Gaussian declarations retain the evidence in reciprocal-gaussian-carrier-window.json; their unchanged closures were not audited again.",
+  "mathematical_statement": {
+    "domain": "a>0; M>0 for reflection and exact compensated identity; M>=1 for the remainder bounds; arbitrary c in Complex and four positive physical scales.",
+    "window": "V(v)=5/4 exp(-4 alpha v)-5/16 exp(-alpha v/4)-exp(-16 alpha v)+1/16 exp(-alpha v/16), alpha=2*pi/sqrt(3).",
+    "constant": "B_V=16 sum_i |c_i|*(1+1/(alpha*a_i))^3. E_O is the existing nonzero Eisenstein lattice-envelope constant. Both are fixed independently of cutoff and conductor.",
+    "convergence": "Actual Gaussian lattice and the four-scale signed lattice sum converge absolutely.",
+    "reflection": "Theta(a)=a^(-1)*Theta(a^(-1)); K_V(M)=-M*K_V(M^(-1))=-M*T_V(M).",
+    "tail": "|T_V(M)|<=E_O*B_V/M^2 and |K_V(M)|<=E_O*B_V/M for every M>=1.",
+    "compensation": "K_aa-conj(c)K_ab-c K_ba+c conj(c)K_bb=-M_aa T_aa+conj(c)M_ab T_ab+c M_ba T_ba-c conj(c)M_bb T_bb. Every cross term is retained.",
+    "holomorphy": "The actual carrierMultiplier M_V is analytic at every s with Re(s)>0."
+  },
+  "paper": {
+    "path": "paper/research-paper.tex",
+    "label": "thm:actual-gaussian-unit",
+    "built_in_compile": "success",
+    "claim_ledger": "paper/THEOREM_STATUS.md"
+  },
+  "scope_limits": [
+    "The actual unit lattice bound does not estimate the arithmetic Abel-endpoint coefficient C_G.",
+    "The general paired-coset adapter for the actual Gaussian profile remains unfinished.",
+    "Infinite prime selection, growing support and the full Abel limit are not inferred from these lattice identities.",
+    "No finite numerical experiment or unchanged closure re-audit is counted as an arithmetic saving."
+  ],
+  "benchmark_status": "structural_theorem_only; no certified analytic exponent improvement",
+  "old_bound": {
+    "I_DG": "D^(7/4+epsilon)",
+    "physical_consumer": "D^(31/4+epsilon) plus all retained remainders",
+    "zero_free_boundary": "7/8"
+  },
+  "new_bound": {
+    "I_DG": "D^(7/4+epsilon), unchanged",
+    "physical_consumer": "D^(31/4+epsilon), unchanged",
+    "zero_free_boundary": "7/8"
+  },
+  "components": {
+    "new_unit_lattice_remainder": "E_O*B_V/M",
+    "unestimated_arithmetic_Abel_unit": "C_G",
+    "required_signed_estimate": "I_D,G(ceil(D^2)) << D^(3/2+epsilon) for fixed admissible G with all full quotients and compensation terms"
+  },
+  "actuals": "Not applicable: no finite exact-completion diagnostic was used.",
+  "first_nonpositive_domain": "Unavailable: no new total signed arithmetic estimate has been proved.",
+  "commit_gate": "Run the final staged fast profile, public boundary/source/architecture/Comparator checks, focused facade/root builds and diff whitespace check before commit.",
+  "research_continuation": "Continue the actual infinite physical Mellin transfer and the coupled signed arithmetic estimate; do not stop the active goal at this promotion."
+}

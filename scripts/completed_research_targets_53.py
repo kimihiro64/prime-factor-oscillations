@@ -1,4 +1,4 @@
-"""Reciprocal Gaussian Fourier window and its nonvanishing Mellin transform."""
+"""Actual reciprocal Gaussian window, Mellin multiplier, and unit-lattice tail."""
 
 TARGETS = (
     "PrimeFactorOscillations.CubicReciprocalGaussian.gaussian_integrable",
@@ -27,4 +27,25 @@ TARGETS = (
     "PrimeFactorOscillations.CarmichaelCarrierWindow.physicalCarrierPacket_hasMellin",
     "PrimeFactorOscillations.CarmichaelCarrierWindow.quartic_physicalCarrierPacket_mellin",
     "PrimeFactorOscillations.CarmichaelCarrierWindow.both_multipliers_ne_zero",
+    "PrimeFactorOscillations.CubicCarrierAnalytic.const_cpow_analyticAt",
+    "PrimeFactorOscillations.CubicCarrierAnalytic.gamma_analyticAt_of_re_pos",
+    "PrimeFactorOscillations.CubicCarrierAnalytic.baseMultiplier_analyticAt",
+    "PrimeFactorOscillations.CubicCarrierAnalytic.scaleMultiplier_analyticAt",
+    "PrimeFactorOscillations.CubicCarrierAnalytic.carrierMultiplier_analyticAt",
+    "PrimeFactorOscillations.CubicGaussianUnit.exp_weight_bound",
+    "PrimeFactorOscillations.CubicGaussianUnit.gaussian_lattice_summable",
+    "PrimeFactorOscillations.CubicGaussianUnit.poisson_prefactor",
+    "PrimeFactorOscillations.CubicGaussianUnit.gaussian_coordinates",
+    "PrimeFactorOscillations.CubicGaussianUnit.gaussian_theta_poisson",
+    "PrimeFactorOscillations.CubicGaussianUnit.window_lattice_hasSum",
+    "PrimeFactorOscillations.CubicGaussianUnit.unitPacket_eq_theta",
+    "PrimeFactorOscillations.CubicGaussianUnit.unitPacket_anti_reflection",
+    "PrimeFactorOscillations.CubicGaussianUnit.exp_weight3_bound",
+    "PrimeFactorOscillations.CubicGaussianUnit.scaled_exp_weight3_bound",
+    "PrimeFactorOscillations.CubicGaussianUnit.windowConstant_nonneg",
+    "PrimeFactorOscillations.CubicGaussianUnit.carrierProfile_weight3",
+    "PrimeFactorOscillations.CubicGaussianUnit.nonzero_tail_bound",
+    "PrimeFactorOscillations.CubicGaussianUnit.unit_zero_mode",
+    "PrimeFactorOscillations.CubicGaussianUnit.unitPacket_bound",
+    "PrimeFactorOscillations.CubicGaussianUnit.compensated_unit_identity",
 )

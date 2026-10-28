@@ -445,7 +445,7 @@ foundational checks. The saved paper compiles. The exact claim ledger is:
 | Exact scale factorization and radius nonvanishing / `Helpers/CubicReciprocalNonzero.lean` | Proved and audited: 5 declarations, in namespace `CubicReciprocalMellin`. |
 | Norm-coordinate Mellin transform and nonvanishing / `Helpers/CubicCarrierMellin.lean` | Proved and audited: 4 declarations. Multiplier is $M_V(s)=2M_W(2s)$ and is nonzero on $1/2<\Re s<1$. |
 | Arbitrary signed finite Eisenstein carrier transfer, full quartic reference, both multipliers nonzero / `Assembly/CarmichaelCarrierWindow.lean` | Proved and audited: 3 declarations. The input is the positive integer norm of each nonzero carrier. |
-| Schwartz realization for the earlier bundled pair Poisson API | Unfinished. The actual plane anti-Fourier identity is proved, but the displayed profile grows on the unused negative axis. |
+| Actual Gaussian lattice and unit Poisson transfer | Proved below, without a negative-axis Schwartz-profile premise. The general paired-coset adapter remains unfinished. |
 | Infinite prime selector, growing support and full Abel passage | Unfinished. Neither finite support nor an all-lattice identity supplies this transfer. |
 | Restored arithmetic unit $C_G$ and full signed estimate | Unproved. Every quotient, derivative term, physical mask and compensation term remains. |
 | Zero-free boundary | $7/8$ unchanged; target remains at most $3/4$. |
@@ -455,3 +455,48 @@ The rational carrier $p$ has norm $p^2$ and contributes $p^{-2s}$.
 The [focused receipt](verification/reciprocal-gaussian-carrier-window.json)
 records every declaration and its actual namespace.
 Paper label: `thm:reciprocal-gaussian-carrier`.
+
+## Actual Gaussian unit and multiplier holomorphy (2026-10-28)
+
+These 21 additional claims are maintained, exported and individually focused-audited.
+The previous 26 claims are unchanged and retain their earlier audit evidence.
+
+Owner: `Helpers/CubicCarrierAnalytic.lean`, namespace `CubicCarrierAnalytic`.
+
+| Lean declaration | Claim | Status |
+| --- | --- | --- |
+| `const_cpow_analyticAt` | Positive-base complex power is analytic at every complex point. | Proved; focused axiom audit passed. |
+| `gamma_analyticAt_of_re_pos` | Native gamma function is analytic when Re(s)>0. | Proved; focused axiom audit passed. |
+| `baseMultiplier_analyticAt` | Actual radius base multiplier is analytic when Re(s)>0. | Proved; focused axiom audit passed. |
+| `scaleMultiplier_analyticAt` | Actual finite scale multiplier is entire. | Proved; focused axiom audit passed. |
+| `carrierMultiplier_analyticAt` | Actual norm-coordinate carrier multiplier is analytic when Re(s)>0. | Proved; focused axiom audit passed. |
+
+Owner: `Helpers/CubicGaussianUnit.lean`, namespace `CubicGaussianUnit`.
+
+| Lean declaration | Claim | Status |
+| --- | --- | --- |
+| `exp_weight_bound` | Quadratic exponential envelope with constant 5. | Proved; focused axiom audit passed. |
+| `gaussian_lattice_summable` | Absolute convergence of the actual scaled Gaussian lattice sum. | Proved; focused axiom audit passed. |
+| `poisson_prefactor` | Exact positive-base binary Poisson prefactor. | Proved; focused axiom audit passed. |
+| `gaussian_coordinates` | Actual integer-coordinate Gaussian identity. | Proved; focused axiom audit passed. |
+| `gaussian_theta_poisson` | Actual Gaussian theta reciprocity. | Proved; focused axiom audit passed. |
+| `window_lattice_hasSum` | Convergent four-scale lattice sum with its signed coefficients. | Proved; focused axiom audit passed. |
+| `unitPacket_eq_theta` | Actual window lattice sum equals its four theta terms. | Proved; focused axiom audit passed. |
+| `unitPacket_anti_reflection` | Actual window reciprocal-scale anti-reflection. | Proved; focused axiom audit passed. |
+| `exp_weight3_bound` | Cubic exponential envelope with constant 16. | Proved; focused axiom audit passed. |
+| `scaled_exp_weight3_bound` | Scaled cubic exponential envelope. | Proved; focused axiom audit passed. |
+| `windowConstant_nonneg` | Explicit fixed window constant is nonnegative. | Proved; focused axiom audit passed. |
+| `carrierProfile_weight3` | Actual positive-axis window has the explicit cubic envelope. | Proved; focused axiom audit passed. |
+| `nonzero_tail_bound` | Actual nonzero lattice tail is O(M^(-2)), M>=1. | Proved; focused axiom audit passed. |
+| `unit_zero_mode` | Actual unit row equals -M times its nonzero dual tail. | Proved; focused axiom audit passed. |
+| `unitPacket_bound` | Actual unit row is O(M^(-1)), M>=1. | Proved; focused axiom audit passed. |
+| `compensated_unit_identity` | All four compensation tails, including both mixed terms, with exact signs. | Proved; focused axiom audit passed. |
+
+The unit estimate uses the actual four-Gaussian profile and has no negative-axis
+Schwartz-profile premise. It does not bound the arithmetic Abel coefficient
+$C_G$. The general paired-coset adapter, infinite prime selector and full Abel
+passage are unfinished. The full signed target remains
+$I_{D,G}(\lceil D^2\rceil)\ll D^{3/2+\varepsilon}$; the installed exponent is
+$7/4$ and the zero-free boundary remains $7/8$, with target at most $3/4$.
+Paper label: `thm:actual-gaussian-unit`.
+Receipt: [actual Gaussian unit and holomorphy](verification/actual-gaussian-unit-window.json).

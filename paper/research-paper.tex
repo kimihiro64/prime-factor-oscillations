@@ -30230,12 +30230,13 @@ coefficients, including all original phases and compensation coefficients.
 The Fourier identity is for the actual radial plane function.
 The displayed expression \(V(v)\) grows as \(v\to-\infty\), so it is not
 itself a Schwartz function on the whole real line.
-To invoke the earlier bundled radial Poisson theorem one must still
-supply a Schwartz extension agreeing on \(v\ge0\), or prove the corresponding
-Gaussian Poisson formula directly.  The finite carrier theorem also
-does not justify insertion of an infinite prime selector or passage to an
-Abel endpoint.  Its nonzero multiplier preserves a possible off-critical
-signal; an independent signed arithmetic estimate is still required.
+The next theorem proves the Gaussian lattice Poisson formula and the actual
+unit-row remainder directly.  The general coset-to-paired-kernel adapter still
+requires its own proof; no negative-axis extension is assumed here.
+The finite carrier theorem does not justify insertion of an infinite prime
+selector or passage to an Abel endpoint.  Its nonzero multiplier preserves a
+possible off-critical signal; an independent signed arithmetic estimate is
+still required.
 
 The proofs are maintained in
 \texttt{Helpers/CubicReciprocalGaussian.lean},
@@ -30246,6 +30247,127 @@ The proofs are maintained in
 The complete signed consumer and the distinctions among its three unit
 objects remain as in the preceding section.  No term of that consumer
 has been removed, and its certified zero-free boundary remains \(7/8\).
+
+\section{The actual Gaussian unit row and holomorphic multiplier}
+\label{sec:actual-gaussian-unit}
+Retain \(V\), the four positive scales \(a_i\), and their signed coefficients
+\(c_i\) from Theorem~\ref{thm:reciprocal-gaussian-carrier}.  Define
+\[
+ \Theta(a)=\sum_{z\in\mathcal O}e^{-\alpha a N(z)},\quad
+ K_V(M)=\sum_{z\in\mathcal O}V(N(z)/M),\quad
+ T_V(M)=\sum_{\substack{z\in\mathcal O\\z\ne0}}V(MN(z)),
+\]
+and the explicit fixed constant
+\[
+ B_V=16\sum_{i=1}^{4}|c_i|
+             \left(1+\frac1{\alpha a_i}\right)^3.
+\]
+Here \(\mathcal O=\mathbb Z[\omega]\), \(N(z)=|\iota z|^2\), and
+\(E_{\mathcal O}\) is the previously established nonzero lattice-envelope
+constant.  It is independent of every cutoff, coefficient packet and conductor.
+
+\begin{theorem}[Actual unit reflection and complete compensated tail]
+\label{thm:actual-gaussian-unit}
+For \(a>0\), the Gaussian lattice sum converges absolutely and
+\(\Theta(a)=a^{-1}\Theta(a^{-1})\).
+For \(M>0\), the actual window lattice sum converges absolutely and
+\[
+ K_V(M)=\sum_i c_i\Theta(a_i/M)
+       =-M K_V(M^{-1})=-M T_V(M).
+\]
+For \(M\ge1\),
+\[
+ |T_V(M)|\le E_{\mathcal O}B_V M^{-2},
+ \qquad |K_V(M)|\le E_{\mathcal O}B_V M^{-1}.
+\]
+For arbitrary \(c\in\mathbb C\) and positive \(M_{aa},M_{ab},M_{ba},M_{bb}\),
+the full compensated unit row is exactly
+\begin{align*}
+ &K_V(M_{aa})-\bar c K_V(M_{ab})-cK_V(M_{ba})
+                              +c\bar c K_V(M_{bb})\\
+ &\quad=-M_{aa}T_V(M_{aa})+\bar c M_{ab}T_V(M_{ab})
+           +cM_{ba}T_V(M_{ba})-c\bar c M_{bb}T_V(M_{bb}).
+\end{align*}
+No cross term is omitted.  Independently, the actual norm-coordinate
+multiplier \(M_V(s)\) is holomorphic throughout \(\Re s>0\).
+\end{theorem}
+\begin{proof}
+For \(u\ge0\), the exponential series gives
+\(u^j e^{-u}\le j!\) for \(j=0,1,2,3\).  Consequently
+\[
+ (1+u)^2e^{-u}\le5,\qquad (1+u)^3e^{-u}\le16.
+\]
+The first inequality, with \(u=\alpha a N(z)\), and the existing scaled
+Cauchy lattice majorant prove absolute Gaussian summability.
+
+The actual lattice-coordinate equivalence sends \((m,n)\) to \(m+n\omega\)
+and gives \(N(m+n\omega)=m^2-mn+n^2\).
+Apply the native binary Gaussian Poisson formula with \(t=2a/\sqrt3\).
+Its prefactor is
+\[
+ t^{-1/2}(3t/4)^{-1/2}=a^{-1},
+\]
+since \(t(3t/4)=a^2\) and all real bases are positive.
+The dual parameter is \(4/(3t)=2/(\sqrt3\,a)\).
+Thus this is the asserted identity for \(\Theta\), with the branch choices
+justified by positive real complex powers.
+
+Absolute summability permits the four signed Gaussian sums to be interchanged
+with the lattice sum.  Applying the reciprocal identity at each of the four
+scales gives \(K_V(M)=-M K_V(M^{-1})\) with the original coefficients.
+Since \(V(0)=0\), removing the zero lattice point from the reciprocal sum
+gives the exact identity \(K_V(M)=-M T_V(M)\).
+
+For \(k>0\), \(v\ge0\), put \(u=kv\).
+The inequality \(1+v\le(1+1/k)(1+u)\) and the cubic exponential bound give
+\[
+ (1+v)^3e^{-kv}\le16(1+1/k)^3.
+\]
+Apply this only to the four analytic window terms, with
+\(k=\alpha a_i\).  It proves
+\((1+v)^3|V(v)|\le B_V\); this estimate controls the nonzero lattice
+remainder, rather than replacing the signed arithmetic packet.
+
+For \(z\ne0\), the integer norm satisfies \(N(z)\ge1\).
+If \(M\ge1\), set \(u=MN(z)\ge M\).
+Then
+\[
+ (1+u)^2|V(u)|\le B_V/M.
+\]
+The existing nonzero lattice-envelope theorem therefore yields
+\[
+ M\sum_{z\ne0}|V(MN(z))|\le E_{\mathcal O}B_V/M.
+\]
+This proves both tail bounds.  Substituting the exact identity
+\(K_V(M)=-M T_V(M)\) into all four compensated terms proves the displayed
+signed formula before estimating any term.
+
+Finally a positive real base to a complex power is entire.
+The gamma function is holomorphic in the positive half-plane, and each
+term in the finite scale multiplier is entire.  Their product
+\(M_V(s)=2M_W(2s)\) is therefore holomorphic for \(\Re s>0\).
+The Lean proof uses the native gamma differentiability theorem and the
+actual definitions of both multipliers.
+\end{proof}
+
+These statements are maintained in
+\texttt{Helpers/CubicGaussianUnit.lean} and
+\texttt{Helpers/CubicCarrierAnalytic.lean}.
+They discharge the actual unit lattice calculation without a global
+Schwartz assumption on the unused negative half-line.
+The general paired-coset transfer, infinite prime selector and full Abel
+passage remain separate obligations.
+In particular this unit lattice tail is not an estimate of the arithmetic
+Abel coefficient \(C_G\).
+The decisive signed target remains
+\[
+ I_{D,G}(\lceil D^2\rceil)\ll_\varepsilon D^{3/2+\varepsilon},
+\]
+against the installed exponent \(7/4\).
+The consumer \(B_1^*=m_G A_0 I_{D,G}+O_\varepsilon(D^{7+\varepsilon})+E_G\),
+with \(A_0=O(D^6)\), would then have exponent \(15/2\) in place of \(31/4\),
+provided its other stated hypotheses and remainders are retained.
+No such arithmetic improvement is asserted by the unit theorem.
 
 \begin{thebibliography}{99}
 \small\raggedright
