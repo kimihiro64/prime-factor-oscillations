@@ -432,3 +432,26 @@ were not re-audited. Paper labels include
 `thm:carmichael-physical-window`, `thm:compensated-gaussian-window`,
 `thm:rational-cubic-row-conjugation`, `prop:native-principal-window`,
 `thm:actual-inert-cubic-window`, and `thm:cubic-unit-zero-mode`.
+
+## Reciprocal Gaussian and norm-coordinate transfer (2026-10-28)
+
+The alternative four-Gaussian window has 26 compiled declarations with focused
+foundational checks. The saved paper compiles. The exact claim ledger is:
+
+| Claim / owner | Status |
+| --- | --- |
+| Actual integrable plane Fourier anti-invariance and zero origin / `Helpers/CubicReciprocalGaussian.lean` | Proved and audited: 9 declarations. |
+| Convergent four-scale radius Mellin transform / `Helpers/CubicReciprocalMellin.lean` | Proved and audited: 5 declarations. |
+| Exact scale factorization and radius nonvanishing / `Helpers/CubicReciprocalNonzero.lean` | Proved and audited: 5 declarations, in namespace `CubicReciprocalMellin`. |
+| Norm-coordinate Mellin transform and nonvanishing / `Helpers/CubicCarrierMellin.lean` | Proved and audited: 4 declarations. Multiplier is $M_V(s)=2M_W(2s)$ and is nonzero on $1/2<\Re s<1$. |
+| Arbitrary signed finite Eisenstein carrier transfer, full quartic reference, both multipliers nonzero / `Assembly/CarmichaelCarrierWindow.lean` | Proved and audited: 3 declarations. The input is the positive integer norm of each nonzero carrier. |
+| Schwartz realization for the earlier bundled pair Poisson API | Unfinished. The actual plane anti-Fourier identity is proved, but the displayed profile grows on the unused negative axis. |
+| Infinite prime selector, growing support and full Abel passage | Unfinished. Neither finite support nor an all-lattice identity supplies this transfer. |
+| Restored arithmetic unit $C_G$ and full signed estimate | Unproved. Every quotient, derivative term, physical mask and compensation term remains. |
+| Zero-free boundary | $7/8$ unchanged; target remains at most $3/4$. |
+
+A split Eisenstein prime above $p$ has norm $p$ and contributes $p^{-s}$.
+The rational carrier $p$ has norm $p^2$ and contributes $p^{-2s}$.
+The [focused receipt](verification/reciprocal-gaussian-carrier-window.json)
+records every declaration and its actual namespace.
+Paper label: `thm:reciprocal-gaussian-carrier`.

@@ -30144,6 +30144,109 @@ a transfer from infinitely many twin primes to uniform short-interval
 twin density.  The unconditional boundary remains \(7/8\), and the target
 remains at most \(3/4\).
 
+\section{An explicit reciprocal Gaussian carrier window}
+\label{sec:reciprocal-gaussian-carrier}
+The following alternative to the polynomial window has an exact native
+Fourier identity.  Its carrier coordinate must be distinguished from the
+radius coordinate when reading a Dirichlet zero.
+
+\begin{theorem}[Reciprocal Gaussian and actual carrier Mellin transfer]
+\label{thm:reciprocal-gaussian-carrier}
+Put \(\alpha=2\pi/\sqrt3\), and set
+\[
+ V(v)=\tfrac54 e^{-4\alpha v}-\tfrac5{16}e^{-\alpha v/4}
+       -e^{-16\alpha v}+\tfrac1{16}e^{-\alpha v/16},
+ \qquad W(u)=V(u^2).
+\]
+The plane function \(f(z)=V(|z|^2)\) is integrable and satisfies
+\(\widehat f_{\rm paper}=-f\); also \(V(0)=0\).
+For \(\Re s>0\) both Mellin integrals converge, and, writing \(u_s=2^s\),
+\begin{align*}
+ A(s)&=\frac{(u_s-1)(u_s-2)(u_s-4)(u_s+2)}{16u_s^2},\\
+ M_W(s)&=\tfrac12\alpha^{-s/2}\Gamma(s/2)A(s),\\
+ M_V(s)&=\alpha^{-s}\Gamma(s)A(2s)=2M_W(2s).
+\end{align*}
+In particular \(M_V(s)\ne0\) whenever \(1/2<\Re s<1\).
+
+For a finite set \(Z\) of nonzero Eisenstein integers and arbitrary complex
+coefficients \(a_z\), put \(N(z)=|\iota z|^2\), its positive integer norm,
+and
+\[
+ P_Z(t)=\sum_{z\in Z}a_z V(N(z)/t),\qquad
+ H_Z(s)=\sum_{z\in Z}a_z N(z)^{-s}.
+\]
+Then for \(\Re s>0\),
+\begin{align*}
+ \mathcal M P_Z(-s)&=M_V(s)H_Z(s),\\
+ \mathcal M\bigl[P_Z(t)-t^{-3}P_Z(t^4)\bigr](-s)
+  &=M_V(s)H_Z(s)-\tfrac14M_V(q_4(s))H_Z(q_4(s)).
+\end{align*}
+Both displayed window multipliers are nonzero for \(1/2<\Re s<1\).
+\end{theorem}
+\begin{proof}
+The native Gaussian Fourier formula, with the paper normalization, gives
+\(\widehat G_a=a^{-1}G_{1/a}\) for
+\(G_a(z)=e^{-\alpha a|z|^2}\), \(a>0\).
+Every Gaussian and its Fourier-phase product are integrable.
+Finite integral linearity therefore applies with all four signed
+coefficients.  The coefficient pairs at scales \(4,1/4\) and \(16,1/16\)
+are exchanged with their negatives.  This proves the asserted
+anti-Fourier identity.  The coefficients sum to zero, proving \(V(0)=0\).
+
+The convergent gamma integral, the substitution \(u\mapsto\sqrt\alpha\,u\),
+and the substitutions at radii \(2,1/2,4,1/4\) give
+\[
+ M_W(s)=\tfrac12\alpha^{-s/2}\Gamma(s/2)
+ \left(\tfrac54\,2^{-s}-\tfrac5{16}\,2^s
+                  -2^{-2s}+\tfrac1{16}\,2^{2s}\right).
+\]
+Positive real bases justify every complex-power product here.
+Multiplying the parenthesis by \(16u_s^2\) and factoring gives \(A(s)\).
+The substitution \(v=u^2\) gives \(M_V(s)=2M_W(2s)\), with convergence
+transferred by the same change of variables.
+
+For \(1/2<\Re s<1\), one has \(2<|2^{2s}|<4\).
+Thus \(2^{2s}\) cannot equal any of \(1,2,4,-2\).
+Its denominator is nonzero, as are \(\alpha^{-s}\) and \(\Gamma(s)\)
+in the positive half-plane.  This proves nonvanishing without a zero-free
+hypothesis on an \(L\)-function.
+
+For each \(z\in Z\), substitute \(u=N(z)/t\) in its Mellin integral.
+It gives \(N(z)^{-s}M_V(s)\).  Sum this finite family with its original
+coefficients.  For the reference substitute \(u=t^4\); the Jacobian and
+the factor \(t^{-3}\) give \(\frac14\mathcal M P_Z(-q_4(s))\).
+Finally \(7/8<\Re q_4(s)<1\) in the stated strip, so the same nonvanishing
+argument applies to the shifted multiplier.
+\end{proof}
+
+For a split prime carrier of norm \(p\), the physical term is \(V(p/t)\)
+and the Dirichlet term is \(p^{-s}\).
+For the rational carrier \(z=p\), its norm is \(p^2\) and the Dirichlet
+term is \(p^{-2s}\).
+Replacing one carrier by the other would change the zero-readout variable.
+The theorem retains this distinction, and permits arbitrary signed
+coefficients, including all original phases and compensation coefficients.
+
+The Fourier identity is for the actual radial plane function.
+The displayed expression \(V(v)\) grows as \(v\to-\infty\), so it is not
+itself a Schwartz function on the whole real line.
+To invoke the earlier bundled radial Poisson theorem one must still
+supply a Schwartz extension agreeing on \(v\ge0\), or prove the corresponding
+Gaussian Poisson formula directly.  The finite carrier theorem also
+does not justify insertion of an infinite prime selector or passage to an
+Abel endpoint.  Its nonzero multiplier preserves a possible off-critical
+signal; an independent signed arithmetic estimate is still required.
+
+The proofs are maintained in
+\texttt{Helpers/CubicReciprocalGaussian.lean},
+\texttt{Helpers/CubicReciprocalMellin.lean},
+\texttt{Helpers/CubicReciprocalNonzero.lean},
+\texttt{Helpers/CubicCarrierMellin.lean}, and
+\texttt{Assembly/CarmichaelCarrierWindow.lean}.
+The complete signed consumer and the distinctions among its three unit
+objects remain as in the preceding section.  No term of that consumer
+has been removed, and its certified zero-free boundary remains \(7/8\).
+
 \begin{thebibliography}{99}
 \small\raggedright
 \setlength{\itemsep}{3pt}

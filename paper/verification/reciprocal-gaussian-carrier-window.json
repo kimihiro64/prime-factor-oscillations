@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-28",
+  "status": "compiled-and-focused-audited",
+  "scope": "Actual reciprocal Gaussian Fourier window, Mellin nonvanishing in radius and norm coordinates, and finite signed Eisenstein carrier transfer",
+  "compiler": "Lean 4.34.0",
+  "toolchain_options": [
+    "-j1",
+    "-s65536",
+    "-M8192",
+    "autoImplicit false",
+    "Elab.async false"
+  ],
+  "modules": [
+    {
+      "object_sha256": "31ef498142e162ea8b01a894fdea2caba2bde14f9d9b608585d1c3f37488d703",
+      "source_sha256": "344e4823338eb51a107e6e4751d484f96b49806fd358e5c89cce74069940b333",
+      "path": "PrimeFactorOscillations/Helpers/CubicReciprocalGaussian.lean"
+    },
+    {
+      "object_sha256": "c0d6df8dbeefb9dff8e83be1cc7c95b086030c743e1340cae0abbe9c61995015",
+      "source_sha256": "39d4da52149181854d5bdcaa42342a1fa19ade1c9e1746166413a267de7bb6ec",
+      "path": "PrimeFactorOscillations/Helpers/CubicReciprocalMellin.lean"
+    },
+    {
+      "object_sha256": "be82a1752fd3e035afcb2a37ae668a754537279685aa338e7e09d2499a2975cd",
+      "source_sha256": "339d8af031b7b9f352f323d7cbad3388ef7639b96b4fba481dc0a02fd78e5392",
+      "path": "PrimeFactorOscillations/Helpers/CubicReciprocalNonzero.lean"
+    },
+    {
+      "object_sha256": "9a386ebe51fd1836fc544c279640b1aa66e552247ae52c3f61524b9a91ff3fc7",
+      "source_sha256": "d7119fd8f2a99add9fff040e3edf6cb2c93767ee6efb00c54b447ac645a1388d",
+      "path": "PrimeFactorOscillations/Helpers/CubicCarrierMellin.lean"
+    },
+    {
+      "object_sha256": "b77b294721f67063575215f91c8bac36671c241eb74f25a6a20ecf02c89ffc2a",
+      "source_sha256": "b28c9f93b6cfbce88ab6122dea8b394a25a2cd69ad5efc32f02579d81d4c2ab0",
+      "path": "PrimeFactorOscillations/Assembly/CarmichaelCarrierWindow.lean"
+    }
+  ],
+  "declarations": [
+    "PrimeFactorOscillations.CubicReciprocalGaussian.gaussian_integrable",
+    "PrimeFactorOscillations.CubicReciprocalGaussian.phase_integrable",
+    "PrimeFactorOscillations.CubicReciprocalGaussian.paperFourier_finite_linear",
+    "PrimeFactorOscillations.CubicReciprocalGaussian.gaussian_fourier",
+    "PrimeFactorOscillations.CubicReciprocalGaussian.scales_pos",
+    "PrimeFactorOscillations.CubicReciprocalGaussian.plane_eq_profile",
+    "PrimeFactorOscillations.CubicReciprocalGaussian.planeWindow_anti",
+    "PrimeFactorOscillations.CubicReciprocalGaussian.carrierProfile_zero",
+    "PrimeFactorOscillations.CubicReciprocalGaussian.carrierProfile_anti",
+    "PrimeFactorOscillations.CubicReciprocalMellin.radii_pos",
+    "PrimeFactorOscillations.CubicReciprocalMellin.radii_sq",
+    "PrimeFactorOscillations.CubicReciprocalMellin.baseProfile_hasMellin",
+    "PrimeFactorOscillations.CubicReciprocalMellin.primeProfile_eq_scaled",
+    "PrimeFactorOscillations.CubicReciprocalMellin.primeProfile_hasMellin",
+    "PrimeFactorOscillations.CubicReciprocalMellin.base_two_cpow_ne_zero",
+    "PrimeFactorOscillations.CubicReciprocalMellin.scaleMultiplier_factor",
+    "PrimeFactorOscillations.CubicReciprocalMellin.baseMultiplier_ne_zero",
+    "PrimeFactorOscillations.CubicReciprocalMellin.scaleMultiplier_ne_zero",
+    "PrimeFactorOscillations.CubicReciprocalMellin.primeProfile_mellin_ne_zero",
+    "PrimeFactorOscillations.CubicCarrierMellin.scaleMultiplier_ne_zero_above_one",
+    "PrimeFactorOscillations.CubicCarrierMellin.carrierProfile_hasMellin",
+    "PrimeFactorOscillations.CubicCarrierMellin.carrierMultiplier_ne_zero",
+    "PrimeFactorOscillations.CubicCarrierMellin.carrierProfile_mellin_ne_zero",
+    "PrimeFactorOscillations.CarmichaelCarrierWindow.physicalCarrierPacket_hasMellin",
+    "PrimeFactorOscillations.CarmichaelCarrierWindow.quartic_physicalCarrierPacket_mellin",
+    "PrimeFactorOscillations.CarmichaelCarrierWindow.both_multipliers_ne_zero"
+  ],
+  "axioms": [
+    "Classical.choice",
+    "propext",
+    "Quot.sound"
+  ],
+  "focused_audit_log_sha256": {
+    "reciprocal-gaussian-audit-20261028.log": "5d93142da0dc8203b5835978fe235a3a8798a5b01498b609b125dc7b8b9fa8e7",
+    "reciprocal-nonzero-audit-20261028.log": "1858a6927c5ebbd5b84bdd6ed585866eb112f7bc6c8d92ac5a65e5e2f81f243c",
+    "carmichael-carrier-window-audit-20261028.log": "bd2b56cb358daa794a4dad98936211dbc0fb6aa825bf6aaf36e38902866def36"
+  },
+  "audit_scope_note": "The first log printed 14 valid foundational closures before an audit-name error in five subsequent commands. Those five actual names were then audited successfully in the second log. The third log successfully audited the seven carrier-coordinate declarations. No source proof was changed to repair the audit names.",
+  "paper_labels": [
+    "thm:reciprocal-gaussian-carrier"
+  ],
+  "paper_compilation": "Built-in compiler success on the saved updated source.",
+  "proved_scope": [
+    "Native paperFourier of the actual integrable four-Gaussian plane function is its negative; carrierProfile(0)=0.",
+    "Exact convergent four-scale Mellin transform and factorization; radius multiplier nonzero for 0<Re(s)<1 and 1<Re(s)<2.",
+    "Actual norm-coordinate Mellin multiplier is 2*M_radius(2*s), nonzero for 1/2<Re(s)<1.",
+    "Arbitrary signed finite nonzero Eisenstein supports, positive integer norms, and both quartic reference multipliers are retained in the physical transfer.",
+    "Both main and shifted carrier multipliers are nonzero in the off-critical strip without assuming RH."
+  ],
+  "unfinished": [
+    "Schwartz extension agreeing with the carrier profile on the nonnegative axis, or a direct Gaussian pair Poisson realization.",
+    "Infinite/growing-support prime-selector transfer and uniform passage to the Abel limit.",
+    "Independent signed arithmetic estimate including the restored arithmetic unit C_G and every compensation cross term.",
+    "Complete unconditional zero-free boundary at most 3/4."
+  ],
+  "benchmark_status": "Window and finite physical transfer proved; full signed arithmetic bound unavailable.",
+  "old_bound": "Certified 7/8; original signed I-envelope D^(7/4+epsilon).",
+  "new_bound": "Certified 7/8 unchanged. No full D^(3/2+epsilon) estimate proved.",
+  "required_endpoint": "Unconditional boundary <=3/4.",
+  "components": {
+    "fourier": "All four signed Gaussians retained.",
+    "mellin": "Gamma factor and all four scale terms retained.",
+    "carrier_dictionary": "A split prime carrier of norm p contributes p^(-s); a rational carrier p contributes p^(-2*s).",
+    "compensation": "Both distinct window factors at s and q4(s) retained.",
+    "unit": "V(0)=0 is not a bound on the arithmetic Abel unit C_G."
+  },
+  "actuals": "No finite numerical diagnostics substituted for analytic estimates.",
+  "first_nonpositive_domain": "Unavailable: no complete improved signed estimate installed.",
+  "unchanged_closures_reaudited": false
+}
