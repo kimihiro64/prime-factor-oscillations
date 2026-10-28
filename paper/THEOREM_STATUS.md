@@ -1,5 +1,23 @@
 # Paper theorem and provenance ledger
 
+## Coupled cubic phases — 28 October 2026
+
+**Fully matched: 13 declarations** in [CubicCoupledPhase.lean](../PrimeFactorOscillations/Helpers/CubicCoupledPhase.lean). For arbitrary admissible coprime ideals, phase-projected coefficients cancel with their transpose at the actual pair-specific self-dual scale. Individual phase-one and kernel-symmetry assumptions are absent. The anti-Fourier Schwartz-window premise remains. Recovering the original coefficients retains the exact mixed-quadrature residual; no signed exponent improvement is claimed.
+
+- `PrimeFactorOscillations.CubicCoupledPhase.project_balance` — compiled and focused-audited.
+- `PrimeFactorOscillations.CubicCoupledPhase.quadrature_recovery` — compiled and focused-audited.
+- `PrimeFactorOscillations.CubicCoupledPhase.coefficient_phase_swap` — compiled and focused-audited.
+- `PrimeFactorOscillations.CubicCoupledPhase.phase_unit_of_norm` — compiled and focused-audited.
+- `PrimeFactorOscillations.CubicCoupledPhase.gauss_phase_unit` — compiled and focused-audited.
+- `PrimeFactorOscillations.CubicCoupledPhase.balanced_pair_zero` — compiled and focused-audited.
+- `PrimeFactorOscillations.CubicCoupledPhase.projected_pair_zero` — compiled and focused-audited.
+- `PrimeFactorOscillations.CubicCoupledPhase.four_term_projection` — compiled and focused-audited.
+- `PrimeFactorOscillations.CubicCoupledPhase.four_term_pair_assembly` — compiled and focused-audited.
+- `PrimeFactorOscillations.CubicCoupledPhase.selfdual_full_residual` — compiled and focused-audited.
+- `PrimeFactorOscillations.CubicCoupledPhase.project_compensation` — compiled and focused-audited.
+- `PrimeFactorOscillations.CubicCoupledPhase.project_one_real` — compiled and focused-audited.
+- `PrimeFactorOscillations.CubicCoupledPhase.phase_weight_re_nonneg` — compiled and focused-audited.
+
 ## Infinite physical Carmichael window — 28 October 2026
 
 **Fully matched: 33 declarations in four maintained owners.** Initial Mellin convergence is proved on `Re(s)>1`; the complete quartic readout preserves supported zero poles on `1/2<Re(s)<1`, using the installed unconditional seven-eighths theorem for its reference. The principal character and all prime-power coefficients remain present. These are structural results: the certified boundary remains **7/8**, and the target is **at most 3/4**.

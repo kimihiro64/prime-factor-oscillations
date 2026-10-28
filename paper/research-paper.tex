@@ -30542,6 +30542,96 @@ required \(15/2\). Thus the certified zero-free boundary remains
 \(7/8\); these transfer theorems do not assert an improvement toward
 \(3/4\) without an independent signed estimate.
 
+\section{Coupled cancellation of general cubic Gauss phases}
+\label{sec:coupled-cubic-phase}
+
+The native phase need not equal one. Nor does a split-conductor pair
+supply the individual symmetry used for inert rational ideals.
+The following coupled statement avoids both assumptions.
+
+For admissible coprime ideals \(I,J\), write \(C=C_{IJ}\),
+\(g_I=G(I)\), \(g_J=G(J)\) for the actual normalized cubic Gauss phases,
+and \(K_{IJ}=K_C(I,J)\). The proved native norm theorem gives
+\(|g_I|=|g_J|=1\), and pair Poisson gives
+\[
+ K_{IJ}=-\overline{g_I}g_JK_{JI}.                    \tag{CP1}
+\]
+The window is assumed to be a Schwartz radial profile with the stated
+anti-Fourier identity. This hypothesis is not silently discharged by the
+integer-index physical transfer of the preceding section.
+
+Put \(P_g(a)=a+g\overline a\).
+\begin{theorem}[Phase-balanced transpose cancellation]
+\label{thm:coupled-cubic-phase}
+For arbitrary complex \(a,b\), put
+\(B_I=P_{g_I}(a)\), \(B_J=P_{g_J}(b)\). Then
+\[
+ B_I\overline{B_J}K_{IJ}
+       +B_J\overline{B_I}K_{JI}=0.                  \tag{CP2}
+\]
+This holds for every admissible coprime ideal pair, without a
+phase-cube or individual kernel-symmetry hypothesis.
+\end{theorem}
+\begin{proof}
+Since \(g\overline g=1\),
+\(P_g(a)\overline g=\overline{P_g(a)}\).
+Consequently
+\[
+ B_I\overline{B_J}\,\overline{g_I}g_J
+       =B_J\overline{B_I}.
+\]
+Substitution in (CP1) proves (CP2) with its signs unchanged.
+\end{proof}
+
+The original coefficient is not lost: define also
+\(C_I=P_{g_I}(ia)\), \(C_J=P_{g_J}(ib)\). Then
+\[
+ a=(B_I-iC_I)/2,\qquad b=(B_J-iC_J)/2.
+\]
+For two row vectors \(u=(u_I,u_J)\), \(v=(v_I,v_J)\), define
+\[
+ T(u,v)=u_I\overline{v_J}K_{IJ}
+               +u_J\overline{v_I}K_{JI}.
+\]
+\begin{theorem}[The full residual after coupled phase cancellation]
+\label{thm:coupled-cubic-full-residual}
+With \(A=(a,b)\), \(B=(B_I,B_J)\) and \(C=(C_I,C_J)\),
+\[
+ 4T(A,A)=T(B,B)+T(C,C)+iT(B,C)-iT(C,B)
+        =iT(B,C)-iT(C,B).                          \tag{CP3}
+\]
+\end{theorem}
+\begin{proof}
+Expand the two recovered coefficients and their conjugates.
+This gives all four terms in the first equality. Both \(B\) and \(C\)
+satisfy the phase-balance identity, so the preceding theorem makes
+\(T(B,B)=T(C,C)=0\). The two mixed terms remain.
+\end{proof}
+
+This is a signed identity, not a Gram or absolute-value estimate.
+It neither sets the original quadratic packet to zero nor bounds its
+mixed residual. Every compensation coefficient is retained through
+\[
+ P_g(A-cB)=P_g(A)-cB-g\overline c\,\overline B .
+ \tag{CP4}
+\]
+In particular the projection is real-linear, and cannot be commuted
+through a complex compensation scalar.
+For a real principal coefficient \(x\),
+\(P_1(x)=2x\); furthermore
+\(\Re(1+g)\ge0\) whenever \(|g|=1\).
+These algebraic facts do not by themselves prove a zero readout for a
+new phase-filtered arithmetic observable.
+
+The thirteen named declarations are maintained in
+\texttt{Helpers/CubicCoupledPhase.lean}.
+They concern the actual pair-specific scale \(C_{IJ}\).
+The common-scale displacement, the complete mixed residual, the actual
+Gaussian paired-coset adapter, and the arithmetic Abel unit coefficient
+remain in the full signed consumer. Neither replacing that residual by
+zero nor applying (CP2) at an arbitrary common scale is justified.
+The unconditional boundary remains \(7/8\), against the target \(3/4\).
+
 \begin{thebibliography}{99}
 \small\raggedright
 \setlength{\itemsep}{3pt}

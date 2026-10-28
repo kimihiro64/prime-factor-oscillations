@@ -1,0 +1,61 @@
+{
+  "date": "2026-10-28",
+  "status": "compiled_and_focused_audited",
+  "owner": "PrimeFactorOscillations/Helpers/CubicCoupledPhase.lean",
+  "theorem_count": 13,
+  "declarations": [
+    "PrimeFactorOscillations.CubicCoupledPhase.project_balance",
+    "PrimeFactorOscillations.CubicCoupledPhase.quadrature_recovery",
+    "PrimeFactorOscillations.CubicCoupledPhase.coefficient_phase_swap",
+    "PrimeFactorOscillations.CubicCoupledPhase.phase_unit_of_norm",
+    "PrimeFactorOscillations.CubicCoupledPhase.gauss_phase_unit",
+    "PrimeFactorOscillations.CubicCoupledPhase.balanced_pair_zero",
+    "PrimeFactorOscillations.CubicCoupledPhase.projected_pair_zero",
+    "PrimeFactorOscillations.CubicCoupledPhase.four_term_projection",
+    "PrimeFactorOscillations.CubicCoupledPhase.four_term_pair_assembly",
+    "PrimeFactorOscillations.CubicCoupledPhase.selfdual_full_residual",
+    "PrimeFactorOscillations.CubicCoupledPhase.project_compensation",
+    "PrimeFactorOscillations.CubicCoupledPhase.project_one_real",
+    "PrimeFactorOscillations.CubicCoupledPhase.phase_weight_re_nonneg"
+  ],
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "hypotheses": [
+    "actual admissible coprime ideal pair",
+    "Schwartz radial window with explicit anti-Fourier identity",
+    "actual pair-specific scale C_IJ"
+  ],
+  "discharged": [
+    "phase-one premise",
+    "individual kernel-symmetry premise",
+    "inert rational-prime restriction"
+  ],
+  "retained": [
+    "mixed quadrature residual",
+    "all complex compensation terms",
+    "common-scale displacement",
+    "actual Gaussian paired-coset qualification",
+    "arithmetic Abel unit coefficient"
+  ],
+  "benchmark_status": "structural_signed_identity_only",
+  "old_bound": "I=O(D^(7/4+epsilon)); physical retained power31/4; boundary7/8",
+  "new_bound": "unchanged; full mixed residual has no improved arithmetic estimate",
+  "components": {
+    "projected_transpose_pair": "exactly zero at pair-specific selfdual scale",
+    "original_full_pair": "i/4 times both retained mixed cross terms",
+    "principal_real_coefficient": "doubled by phase1 projection; not a complete new detector theorem"
+  },
+  "actuals": "not numerically evaluated",
+  "first_nonpositive_domain": "unavailable; no new universal arithmetic bound",
+  "target_boundary": "at most3/4",
+  "verification": {
+    "maintained": "compiled",
+    "focused_axioms": "13 named declarations, standard axioms only",
+    "source_policy": "passed",
+    "facade_root_and_staged_checks": "required before commit",
+    "paper": "built-in compile required before commit"
+  }
+}
