@@ -1,5 +1,26 @@
 # Paper theorem and provenance ledger
 
+## Native phase-filter probability profiles — 28 October 2026
+
+**Fully matched: 16 declarations** in [CarmichaelPhaseFilter.lean](../PrimeFactorOscillations/Assembly/CarmichaelPhaseFilter.lean). The actual single-return spectrum gives an exact unit amplitude budget. Every contractive phase function produces a profile between zero and two of mean one. Dividing it by two gives an acceptance weight between zero and one, of mean one half, with actual principal correlation coefficient one. Prescribed unit-phase amplitudes satisfy phase balance. Their identification with the new profile's complete Fourier spectrum still requires conjugate compatibility; no new zero readout, uniform prime sampling theorem or arithmetic exponent bound is claimed.
+
+- `PrimeFactorOscillations.CarmichaelPhaseFilter.amplitude_nonprincipal_norm` — compiled and focused-audited.
+- `PrimeFactorOscillations.CarmichaelPhaseFilter.amplitude_norm_sum` — compiled and focused-audited.
+- `PrimeFactorOscillations.CarmichaelPhaseFilter.filteredAmplitude_norm_le` — compiled and focused-audited.
+- `PrimeFactorOscillations.CarmichaelPhaseFilter.filteredAmplitude_norm_sum_le` — compiled and focused-audited.
+- `PrimeFactorOscillations.CarmichaelPhaseFilter.filteredProfile_nonneg` — compiled and focused-audited.
+- `PrimeFactorOscillations.CarmichaelPhaseFilter.filtered_principal` — compiled and focused-audited.
+- `PrimeFactorOscillations.CarmichaelPhaseFilter.filtered_amplitude_balance` — compiled and focused-audited.
+- `PrimeFactorOscillations.CarmichaelPhaseFilter.amplitude_sq_eq_coefficient` — compiled and focused-audited.
+- `PrimeFactorOscillations.CarmichaelPhaseFilter.unit_character_inverse_sum_zero` — compiled and focused-audited.
+- `PrimeFactorOscillations.CarmichaelPhaseFilter.filteredProfile_weightSum` — compiled and focused-audited.
+- `PrimeFactorOscillations.CarmichaelPhaseFilter.filteredProfile_mean` — compiled and focused-audited.
+- `PrimeFactorOscillations.CarmichaelPhaseFilter.filteredProfile_le_two` — compiled and focused-audited.
+- `PrimeFactorOscillations.CarmichaelPhaseFilter.probabilityWeight_bounds` — compiled and focused-audited.
+- `PrimeFactorOscillations.CarmichaelPhaseFilter.probabilityWeight_mean` — compiled and focused-audited.
+- `PrimeFactorOscillations.CarmichaelPhaseFilter.probabilityWeight_sum_pos` — compiled and focused-audited.
+- `PrimeFactorOscillations.CarmichaelPhaseFilter.probabilityWeight_principal` — compiled and focused-audited.
+
 ## Coupled cubic phases — 28 October 2026
 
 **Fully matched: 13 declarations** in [CubicCoupledPhase.lean](../PrimeFactorOscillations/Helpers/CubicCoupledPhase.lean). For arbitrary admissible coprime ideals, phase-projected coefficients cancel with their transpose at the actual pair-specific self-dual scale. Individual phase-one and kernel-symmetry assumptions are absent. The anti-Fourier Schwartz-window premise remains. Recovering the original coefficients retains the exact mixed-quadrature residual; no signed exponent improvement is claimed.

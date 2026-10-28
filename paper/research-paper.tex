@@ -30632,6 +30632,101 @@ remain in the full signed consumer. Neither replacing that residual by
 zero nor applying (CP2) at an arbitrary common scale is justified.
 The unconditional boundary remains \(7/8\), against the target \(3/4\).
 
+\section{Native probability profiles for phase projection}
+\label{sec:native-phase-probability}
+
+The phase projection can be tested within an actual finite probability
+profile, using the flat spectrum already proved for a single return label.
+This step does not assume an estimate of a character sum.
+
+Fix a nonzero modulus \(q\), a prime return label \(\ell\) dividing the
+exponent of \(G=(\mathbb Z/q\mathbb Z)^\times\), and let \(d\ge2\) be the
+actual return-image index. Denote the original native spectral coefficients
+by \(c_\chi\). The proved single-return results give
+\[
+ c_1=1,\qquad
+ c_\chi\in\{0,(d-1)^{-2}\}\quad(\chi\ne1),\qquad
+ \sum_{\chi\ne1}c_\chi=(d-1)^{-1}.
+\]
+Every sum here is over the finite group of characters modulo \(q\).
+Define real prescribed amplitudes
+\[
+ \alpha_1=1,\qquad \alpha_\chi=-(d-1)c_\chi\quad(\chi\ne1).
+\]
+Consequently
+\[
+ \alpha_\chi^2=c_\chi,\qquad
+ \sum_{\chi\ne1}|\alpha_\chi|=1.                    \tag{PF1}
+\]
+For an arbitrary function \(g\) on the characters with \(|g_\chi|\le1\),
+put
+\[
+ \beta_\chi=\tfrac12P_{g_\chi}(\alpha_\chi),\qquad
+ \nu_g(u)=1+\sum_{\chi\ne1}\Re\{\beta_\chi\chi(u^{-1})\}.
+\]
+
+\begin{theorem}[Uniform phase-filter probability construction]
+\label{thm:native-phase-filter-probability}
+For every such \(q,\ell,g\),
+\[
+ 0\le\nu_g(u)\le2,\qquad
+ \frac1{|G|}\sum_{u\in G}\nu_g(u)=1.
+\]
+Thus \(w_g(u)=\nu_g(u)/2\) is a Bernoulli acceptance weight in
+\([0,1]\), of mean \(1/2\). The normalized native correlation coefficient
+of \(w_g\) at the principal character is exactly one.
+If \(|g_\chi|=1\), the prescribed amplitude satisfies
+\[
+ \beta_\chi\overline{g_\chi}=\overline{\beta_\chi}.
+\]
+If also \(g_1=1\), then \(\beta_1=1\).
+\end{theorem}
+
+\begin{proof}
+For every nonprincipal character, \(|\alpha_\chi|=(d-1)c_\chi\);
+summing the exact native mass proves (PF1). The two possible values of
+\(c_\chi\) prove the squared-amplitude identity, including the zero modes.
+
+The filter satisfies
+\(|\beta_\chi|\le|\alpha_\chi|\), since \(|g_\chi|\le1\).
+Hence the sum of its nonprincipal amplitude magnitudes is at most one.
+Each unit character has modulus one, so the real perturbation defining
+\(\nu_g(u)\) lies between minus one and one. This proves both pointwise
+bounds. This norm calculation concerns admissibility of a finite
+probability profile; it is not an absolute-value estimate of the signed
+arithmetic main term.
+
+Every nonprincipal unit character has zero group average. Taking the
+finite sums in the opposite order proves
+\(\sum_u\nu_g(u)=|G|\), including all zero spectral modes. Scaling by
+one half gives the stated acceptance probability and a strictly positive
+total weight. The existing native correlation theorem then makes its
+actual principal coefficient one.
+
+Finally \(P_g(a)\overline g=\overline{P_g(a)}\) when \(|g|=1\).
+Multiplication by the real scalar \(1/2\) proves the balance identity.
+The principal specialization uses the real amplitude \(\alpha_1=1\).
+\end{proof}
+
+All sixteen declarations are maintained in
+\texttt{Assembly/CarmichaelPhaseFilter.lean}.
+The construction is uniform in the modulus and actual return index;
+it uses the proved native spectrum, not a finite numerical test or a
+substitute cube subgroup.
+
+The \(\beta_\chi\) above are prescribed amplitudes. Proving that they
+are exactly the complete Fourier amplitudes of the real profile requires
+the corresponding conjugate-character compatibility. That matching,
+its realization by the actual Gauss phases, and the weighted
+logarithmic-derivative zero readout remain to be proved.
+In particular a nonnegative finite acceptance weight does not itself
+establish the uniform prime-sampling or growing-conductor hypotheses of
+a zero-free argument.
+The original signed consumer, with every reciprocal \(L\)-factor and
+compensation cross term retained, still requires
+\(I_{D,G}\ll_\varepsilon D^{3/2+\varepsilon}\); its installed exponent is
+\(7/4\), and the certified boundary remains \(7/8\).
+
 \begin{thebibliography}{99}
 \small\raggedright
 \setlength{\itemsep}{3pt}

@@ -1,0 +1,62 @@
+{
+  "date": "2026-10-28",
+  "status": "compiled_and_focused_audited",
+  "owner": "PrimeFactorOscillations/Assembly/CarmichaelPhaseFilter.lean",
+  "theorem_count": 16,
+  "declarations": [
+    "PrimeFactorOscillations.CarmichaelPhaseFilter.amplitude_nonprincipal_norm",
+    "PrimeFactorOscillations.CarmichaelPhaseFilter.amplitude_norm_sum",
+    "PrimeFactorOscillations.CarmichaelPhaseFilter.filteredAmplitude_norm_le",
+    "PrimeFactorOscillations.CarmichaelPhaseFilter.filteredAmplitude_norm_sum_le",
+    "PrimeFactorOscillations.CarmichaelPhaseFilter.filteredProfile_nonneg",
+    "PrimeFactorOscillations.CarmichaelPhaseFilter.filtered_principal",
+    "PrimeFactorOscillations.CarmichaelPhaseFilter.filtered_amplitude_balance",
+    "PrimeFactorOscillations.CarmichaelPhaseFilter.amplitude_sq_eq_coefficient",
+    "PrimeFactorOscillations.CarmichaelPhaseFilter.unit_character_inverse_sum_zero",
+    "PrimeFactorOscillations.CarmichaelPhaseFilter.filteredProfile_weightSum",
+    "PrimeFactorOscillations.CarmichaelPhaseFilter.filteredProfile_mean",
+    "PrimeFactorOscillations.CarmichaelPhaseFilter.filteredProfile_le_two",
+    "PrimeFactorOscillations.CarmichaelPhaseFilter.probabilityWeight_bounds",
+    "PrimeFactorOscillations.CarmichaelPhaseFilter.probabilityWeight_mean",
+    "PrimeFactorOscillations.CarmichaelPhaseFilter.probabilityWeight_sum_pos",
+    "PrimeFactorOscillations.CarmichaelPhaseFilter.probabilityWeight_principal"
+  ],
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "domain": "every nonzero q; actual return prime l dividing exponent; every contractive phase function g",
+  "proved": {
+    "native_amplitude_budget": "exactly1 on nonprincipal support",
+    "profile": "0<=nu<=2,mean1",
+    "acceptance_weight": "0<=nu/2<=1,mean1/2",
+    "principal_correlation_coefficient": "exactly1",
+    "prescribed_unit_phase_amplitudes": "balanced"
+  },
+  "open": [
+    "actual complete Fourier-amplitude matching with conjugate phases",
+    "actual cubic Dirichlet Gauss conjugate compatibility",
+    "weighted meromorphic zero readout",
+    "actual Gaussian paired-coset and unit-cross adapter",
+    "uniform prime sampling and full arithmetic signed bound"
+  ],
+  "benchmark_status": "finite_probability_construction_only",
+  "old_bound": "I7/4; physical31/4; certified boundary7/8",
+  "new_bound": "unchanged",
+  "components": {
+    "flat_native_spectrum": "used exactly",
+    "probability_admissibility": "proved for all contractive phase functions",
+    "arithmetic_saving": "not established"
+  },
+  "actuals": "not numerically evaluated",
+  "first_nonpositive_domain": "unavailable; no new arithmetic bound",
+  "target_boundary": "at most3/4",
+  "verification": {
+    "maintained": "compiled",
+    "focused_axioms": "16 exact names, only standard axioms",
+    "source_policy": "passed",
+    "final_consumer_and_staged_checks": "required before commit",
+    "paper": "built-in compile required before commit"
+  }
+}
