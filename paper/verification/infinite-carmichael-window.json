@@ -1,0 +1,95 @@
+{
+  "date": "2026-10-28",
+  "status": "compiled_and_focused_audited",
+  "theorem_count": 33,
+  "owners": [
+    {
+      "lines": 274,
+      "path": "PrimeFactorOscillations/Helpers/CubicInfiniteLaplace.lean",
+      "sha256": "b873a739f05b8fc99d6dd08d5c816d41d25e8d991ca0d4a5adb9cf8d4b11a438"
+    },
+    {
+      "lines": 168,
+      "path": "PrimeFactorOscillations/Helpers/CubicInfiniteWindow.lean",
+      "sha256": "50721ef7044fb55365fee9e8a0a9cadee78f2a9c3d61a625cb4e76d16c9e04ca"
+    },
+    {
+      "lines": 175,
+      "path": "PrimeFactorOscillations/Assembly/CarmichaelInfiniteWindow.lean",
+      "sha256": "d3503e9750d3aaf6aa7af6dacd5bf55cfaac0720943da8e574350b712ea38780"
+    },
+    {
+      "lines": 409,
+      "path": "PrimeFactorOscillations/Assembly/CarmichaelNativeWindow.lean",
+      "sha256": "7c60bda54a86b63ee861d48bf0c6da6fd10d023c2a1cff0f8f39a6981cf01ac0"
+    }
+  ],
+  "declarations": [
+    "PrimeFactorOscillations.CubicInfiniteLaplace.lseries_summable",
+    "PrimeFactorOscillations.CubicInfiniteLaplace.norm_weights_summable",
+    "PrimeFactorOscillations.CubicInfiniteLaplace.laplace_summable",
+    "PrimeFactorOscillations.CubicInfiniteLaplace.scaled_norm_weights_summable",
+    "PrimeFactorOscillations.CubicInfiniteLaplace.mellin_term_integrable",
+    "PrimeFactorOscillations.CubicInfiniteLaplace.integral_norm_mellin_term",
+    "PrimeFactorOscillations.CubicInfiniteLaplace.laplace_convergent",
+    "PrimeFactorOscillations.CubicInfiniteLaplace.laplace_hasMellin",
+    "PrimeFactorOscillations.CubicInfiniteWindow.rate_pos",
+    "PrimeFactorOscillations.CubicInfiniteWindow.directMultiplier_eq_carrierMultiplier",
+    "PrimeFactorOscillations.CubicInfiniteWindow.windowLaplace_hasSum",
+    "PrimeFactorOscillations.CubicInfiniteWindow.windowLaplace_hasMellin",
+    "PrimeFactorOscillations.CubicInfiniteWindow.carrierMultiplier_order_mul",
+    "PrimeFactorOscillations.CarmichaelInfiniteWindow.physicalPacket_hasSum",
+    "PrimeFactorOscillations.CarmichaelInfiniteWindow.physicalPacket_hasMellin",
+    "PrimeFactorOscillations.CarmichaelInfiniteWindow.quartic_physical_mellin",
+    "PrimeFactorOscillations.CarmichaelInfiniteWindow.comparison_physical_hasMellin",
+    "PrimeFactorOscillations.CarmichaelInfiniteWindow.comparison_quartic_mellin",
+    "PrimeFactorOscillations.CarmichaelInfiniteWindow.windowReadout_order_iff_zero",
+    "PrimeFactorOscillations.CarmichaelInfiniteWindow.nativeWindowReadout_order_iff_product_zero",
+    "PrimeFactorOscillations.CarmichaelInfiniteWindow.native_principal_zero_signal",
+    "PrimeFactorOscillations.CarmichaelNativeWindow.native_product_logDeriv",
+    "PrimeFactorOscillations.CarmichaelNativeWindow.nativeCorrection_analyticAt",
+    "PrimeFactorOscillations.CarmichaelNativeWindow.nativePacket_hasMellin",
+    "PrimeFactorOscillations.CarmichaelNativeWindow.nativePacket_hasSum",
+    "PrimeFactorOscillations.CarmichaelNativeWindow.native_lambda_hasSum",
+    "PrimeFactorOscillations.CarmichaelNativeWindow.native_quartic_mellin",
+    "PrimeFactorOscillations.CarmichaelNativeWindow.native_observed_zero_readout",
+    "PrimeFactorOscillations.CarmichaelNativeWindow.native_reference_analyticAt",
+    "PrimeFactorOscillations.CarmichaelNativeWindow.native_compensated_order_iff_product_zero",
+    "PrimeFactorOscillations.CarmichaelNativeWindow.native_compensated_observed_zero",
+    "PrimeFactorOscillations.CarmichaelNativeWindow.native_compensated_principal_signal",
+    "PrimeFactorOscillations.CarmichaelNativeWindow.native_quartic_mellin_eq_compensated"
+  ],
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "scope": {
+    "initial_mellin": "Re(s)>1, a_chi(0)=0, coefficient error C_chi/n",
+    "zero_readout": "1/2<Re(rho)<1; native multiplicities; analytic correction",
+    "reference": "Re((rho+3)/4)>7/8; installed unconditional QRH",
+    "principal": "positive multiplicity under native exponent divisibility",
+    "uniformity": "fixed modulus, return set and comparison constants; no growing-conductor moment estimate"
+  },
+  "benchmark_status": "no_new_arithmetic_exponent",
+  "old_bound": "I=O(D^(7/4+epsilon)); B1*=O(D^(31/4+epsilon)) plus retained E_G",
+  "new_bound": "unchanged; no independent signed saving proved",
+  "components": {
+    "physical_transfer": "proved for actual infinite coefficient series",
+    "unit_lattice": "proved in previous receipt, O(M^-1), all compensation cross terms",
+    "prime_selected_coset_adapter": "open",
+    "signed_abel_endpoint": "open; target I=O(D^(3/2+epsilon))"
+  },
+  "actuals": "not numerically evaluated",
+  "first_nonpositive_domain": "unavailable; no new universal signed bound installed",
+  "certified_boundary": "7/8",
+  "target_boundary": "at most 3/4",
+  "verification": {
+    "focused_builds": "four maintained owners compiled successfully",
+    "focused_axiom_audits": "8+5+8+12 declarations, standard axioms only",
+    "unchanged_audits": "reused",
+    "facade_and_root": "both focused consumers compiled successfully",
+    "staged_fast": "final staged fast profile passed; metadata Ruby check skipped because Ruby is absent",
+    "paper": "saved research-paper.tex compiled successfully with built-in desktop compiler"
+  }
+}

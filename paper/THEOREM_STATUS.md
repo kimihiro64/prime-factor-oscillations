@@ -1,5 +1,56 @@
 # Paper theorem and provenance ledger
 
+## Infinite physical Carmichael window — 28 October 2026
+
+**Fully matched: 33 declarations in four maintained owners.** Initial Mellin convergence is proved on `Re(s)>1`; the complete quartic readout preserves supported zero poles on `1/2<Re(s)<1`, using the installed unconditional seven-eighths theorem for its reference. The principal character and all prime-power coefficients remain present. These are structural results: the certified boundary remains **7/8**, and the target is **at most 3/4**.
+
+[CubicInfiniteLaplace.lean](../PrimeFactorOscillations/Helpers/CubicInfiniteLaplace.lean) — **compiled and audited**:
+
+- `PrimeFactorOscillations.CubicInfiniteLaplace.lseries_summable` — fully matched.
+- `PrimeFactorOscillations.CubicInfiniteLaplace.norm_weights_summable` — fully matched.
+- `PrimeFactorOscillations.CubicInfiniteLaplace.laplace_summable` — fully matched.
+- `PrimeFactorOscillations.CubicInfiniteLaplace.scaled_norm_weights_summable` — fully matched.
+- `PrimeFactorOscillations.CubicInfiniteLaplace.mellin_term_integrable` — fully matched.
+- `PrimeFactorOscillations.CubicInfiniteLaplace.integral_norm_mellin_term` — fully matched.
+- `PrimeFactorOscillations.CubicInfiniteLaplace.laplace_convergent` — fully matched.
+- `PrimeFactorOscillations.CubicInfiniteLaplace.laplace_hasMellin` — fully matched.
+
+[CubicInfiniteWindow.lean](../PrimeFactorOscillations/Helpers/CubicInfiniteWindow.lean) — **compiled and audited**:
+
+- `PrimeFactorOscillations.CubicInfiniteWindow.rate_pos` — fully matched.
+- `PrimeFactorOscillations.CubicInfiniteWindow.directMultiplier_eq_carrierMultiplier` — fully matched.
+- `PrimeFactorOscillations.CubicInfiniteWindow.windowLaplace_hasSum` — fully matched.
+- `PrimeFactorOscillations.CubicInfiniteWindow.windowLaplace_hasMellin` — fully matched.
+- `PrimeFactorOscillations.CubicInfiniteWindow.carrierMultiplier_order_mul` — fully matched.
+
+[CarmichaelInfiniteWindow.lean](../PrimeFactorOscillations/Assembly/CarmichaelInfiniteWindow.lean) — **compiled and audited**:
+
+- `PrimeFactorOscillations.CarmichaelInfiniteWindow.physicalPacket_hasSum` — fully matched.
+- `PrimeFactorOscillations.CarmichaelInfiniteWindow.physicalPacket_hasMellin` — fully matched.
+- `PrimeFactorOscillations.CarmichaelInfiniteWindow.quartic_physical_mellin` — fully matched.
+- `PrimeFactorOscillations.CarmichaelInfiniteWindow.comparison_physical_hasMellin` — fully matched.
+- `PrimeFactorOscillations.CarmichaelInfiniteWindow.comparison_quartic_mellin` — fully matched.
+- `PrimeFactorOscillations.CarmichaelInfiniteWindow.windowReadout_order_iff_zero` — fully matched.
+- `PrimeFactorOscillations.CarmichaelInfiniteWindow.nativeWindowReadout_order_iff_product_zero` — fully matched.
+- `PrimeFactorOscillations.CarmichaelInfiniteWindow.native_principal_zero_signal` — fully matched.
+
+[CarmichaelNativeWindow.lean](../PrimeFactorOscillations/Assembly/CarmichaelNativeWindow.lean) — **compiled and audited**:
+
+- `PrimeFactorOscillations.CarmichaelNativeWindow.native_product_logDeriv` — fully matched.
+- `PrimeFactorOscillations.CarmichaelNativeWindow.nativeCorrection_analyticAt` — fully matched.
+- `PrimeFactorOscillations.CarmichaelNativeWindow.nativePacket_hasMellin` — fully matched.
+- `PrimeFactorOscillations.CarmichaelNativeWindow.nativePacket_hasSum` — fully matched.
+- `PrimeFactorOscillations.CarmichaelNativeWindow.native_lambda_hasSum` — fully matched.
+- `PrimeFactorOscillations.CarmichaelNativeWindow.native_quartic_mellin` — fully matched.
+- `PrimeFactorOscillations.CarmichaelNativeWindow.native_observed_zero_readout` — fully matched.
+- `PrimeFactorOscillations.CarmichaelNativeWindow.native_reference_analyticAt` — fully matched.
+- `PrimeFactorOscillations.CarmichaelNativeWindow.native_compensated_order_iff_product_zero` — fully matched.
+- `PrimeFactorOscillations.CarmichaelNativeWindow.native_compensated_observed_zero` — fully matched.
+- `PrimeFactorOscillations.CarmichaelNativeWindow.native_compensated_principal_signal` — fully matched.
+- `PrimeFactorOscillations.CarmichaelNativeWindow.native_quartic_mellin_eq_compensated` — fully matched.
+
+Still open: the actual prime-selected paired-coset adapter and the signed Abel-endpoint estimate `I_(D,G) << D^(3/2+epsilon)`. The proved unit-lattice tail is not a bound on the arithmetic coefficient `C_G`. No strengthened character estimate is claimed.
+
 ## Recent paper claims — reconciliation of 25 October 2026
 
 All **147 labelled claims in the recent-paper repair ledger** have explicit current statuses: **90 fully matched, 13 partially matched, and 44 with no exact maintained full-statement match identified**. There are **zero default pending matches** and **zero completed proofs awaiting promotion**. The formalization backlog is not complete; the separate review of unlabelled paper assertions remains open.

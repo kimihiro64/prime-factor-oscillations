@@ -4,12 +4,11 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Prime Factor Oscillations contributors
 -/
 import PrimeFactorOscillations.Assembly.CarmichaelCarrierWindow
+import PrimeFactorOscillations.Assembly.CarmichaelNativeWindow
 import PrimeFactorOscillations.Assembly.CompletedDetectorPackets
 import PrimeFactorOscillations.Assembly.CompletedLegacyResearch
 import PrimeFactorOscillations.Assembly.PrimeProfileRigidity
 import PrimeFactorOscillations.Assembly.RHResults
-import PrimeFactorOscillations.Helpers.CubicCarrierAnalytic
-import PrimeFactorOscillations.Helpers.CubicGaussianUnit
 import PrimeFactorOscillations.Helpers.CubicInertPhase
 import PrimeFactorOscillations.Helpers.CubicUnitWindow
 import PrimeFactorOscillations.Helpers.XiMultiplicityBudget

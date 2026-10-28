@@ -30369,6 +30369,179 @@ with \(A_0=O(D^6)\), would then have exponent \(15/2\) in place of \(31/4\),
 provided its other stated hypotheses and remainders are retained.
 No such arithmetic improvement is asserted by the unit theorem.
 
+\section{The infinite physical Carmichael window and its full quartic signal}
+\label{sec:infinite-native-window}
+
+Fix a nonzero modulus \(q\), a finite return-prime set \(S\), and the
+nonnegative integer multiplicities \(m_\chi\) of the native Carmichael
+spectrum. Put \(N_S=m_1\) and
+\[
+ F_S(s)=\prod_{\chi\bmod q}L(s,\chi)^{m_\chi}.
+\]
+For the physical coefficient comparison, suppose \(a_\chi(0)=0\) and
+\[
+ |a_\chi(n)-\chi(n)\Lambda(n)|\le C_\chi/n\qquad(n\ge1).
+\]
+The constants are fixed for this statement; no uniform bound in a growing
+modulus or character portfolio is asserted. Write
+\[
+ E_\chi(s)=\sum_{n\ge1}
+       (a_\chi(n)-\chi(n)\Lambda(n))n^{-s},\qquad
+ E_S(s)=\sum_\chi m_\chi E_\chi(s).
+\]
+The comparison makes every \(E_\chi\), and hence \(E_S\), analytic on
+\(\Re s>0\). The full product, including its principal factor and every
+imprimitive Euler factor, is used throughout.
+
+Let \(V\) be the actual four-Gaussian carrier profile of the preceding
+section, and write \(M_V(s)\) for its convergent Mellin transform.
+For \(t>0\), define
+\[
+ P_S(t)=\sum_\chi m_\chi\sum_{n\ge1}a_\chi(n)V(n/t).
+\]
+
+\begin{theorem}[Convergent native physical transfer]
+\label{thm:infinite-native-physical-window}
+Every displayed physical series converges absolutely. On \(\Re s>1\),
+\[
+ \mathcal M[P_S](-s)
+   =M_V(s)\left(-\frac{F_S'(s)}{F_S(s)}+E_S(s)\right).
+ \tag{PW1}
+\]
+If every return prime in \(S\) divides the exponent of
+\((\mathbb Z/q\mathbb Z)^\times\), the exact model
+\(a_\chi(n)=\chi(n)\Lambda(n)\) satisfies
+\[
+ P_S(t)=N_S\sum_{n\ge1}w_S(n)\Lambda(n)V(n/t).
+ \tag{PW2}
+\]
+Here \(w_S\) is the original native Carmichael weight, extended by zero
+on nonunits. In particular all prime powers and the exceptional primes
+dividing \(q\) are treated by the actual coefficients.
+\end{theorem}
+
+\begin{proof}
+For \(K>0\), put \(H_K(t)=\sum_n a_\chi(n)e^{-Knt}\).
+The coefficient comparison gives absolute Dirichlet convergence on
+\(\Re s>1\), including at \(s=2\).
+The elementary inequality \(u^2e^{-u}\le2\) gives pointwise convergence
+of \(H_K(t)\) for every \(t>0\), with the zero coefficient at \(n=0\)
+removed explicitly.
+For \(\sigma=\Re s>0\), the exact norm integral is
+\[
+ \int_0^\infty
+ |t^{s-1}a_\chi(n)e^{-Knt}|\,dt
+ =\Gamma(\sigma)\frac{|a_\chi(n)|}{(Kn)^\sigma}\qquad(n\ge1).
+\]
+Its sum is finite wherever the corresponding Dirichlet series is
+absolutely convergent. Tonelli applied to these nonnegative norms and
+the proved \(L^1\) summation lemma justify both integrability and
+interchanging the complex sum and integral. Consequently
+\[
+ \mathcal M[H_K](s)
+   =K^{-s}\Gamma(s)\sum_n a_\chi(n)n^{-s}.
+\]
+Take the finite signed combination at rates
+\(\alpha a_j\), with
+\[
+ (a_j)=(4,1/4,16,1/16),\qquad
+ (c_j)=(5/4,-5/16,-1,1/16).
+\]
+Its multiplier is the actual \(M_V(s)\), by uniqueness of the convergent
+Mellin integral. Changing \(t\) to \(1/t\) supplies the argument \(-s\)
+in (PW1). These operations retain the signs of all four coefficients.
+
+For \(\Re s>1\), each \(L(s,\chi)\) is nonzero and differentiable.
+Finite-product differentiation therefore gives
+\[
+ F_S'/F_S=\sum_\chi m_\chi L'(s,\chi)/L(s,\chi).
+\]
+The existing Dirichlet coefficient identity
+\(\sum_n a_\chi(n)n^{-s}=-L'(s,\chi)/L(s,\chi)+E_\chi(s)\)
+now proves (PW1), including its Mellin convergence.
+The exact native spectral identity
+\(\sum_\chi m_\chi\chi(n)=N_Sw_S(n)\), applied pointwise and multiplied
+by \(\Lambda(n)V(n/t)\), proves (PW2) using the already convergent
+series. No prime-power term is discarded.
+\end{proof}
+
+Define \(r(s)=(s+3)/4\) and the full physical compensation
+\[
+ Q_S(t)=P_S(t)-t^{-3}P_S(t^4),\qquad
+ D_S(s)=M_V(s)(-F_S'/F_S+E_S)(s).
+\]
+Then the actual Mellin identity is
+\[
+ \mathcal M[Q_S](-s)=D_S(s)-\tfrac14D_S(r(s))
+       \qquad(\Re s>1).
+ \tag{PW3}
+\]
+Both multipliers, \(M_V(s)\) and \(M_V(r(s))\), remain in this formula.
+
+\begin{theorem}[Complete quartic zero readout]
+\label{thm:complete-native-quartic-readout}
+For \(1/2<\Re\rho<1\), the meromorphic function
+\[
+ \mathcal D_S(s)=D_S(s)-\tfrac14D_S(r(s))
+\]
+has order \(-1\) at \(\rho\) if and only if some character with
+\(m_\chi>0\) satisfies \(L(\rho,\chi)=0\).
+Under the divisibility assumption in the preceding theorem, every
+principal-character zero in this strip produces such a pole.
+\end{theorem}
+
+\begin{proof}
+The affine change of variables in the second integral gives (PW3),
+with factor \(1/4\) and exponent \(r(s)\).
+Now \(\Re r(\rho)>7/8\) and \(r(\rho)\ne1\).
+The installed unconditional Dirichlet seven-eighths theorem makes
+every factor \(L(r(\rho),\chi)\) nonzero. Since \(E_S\) and \(M_V\)
+are analytic on the positive half-plane, the entire reference
+\(\tfrac14D_S\circ r\) is analytic at \(\rho\).
+
+The multiplier \(M_V\) is analytic and nonzero on the target strip.
+The native product has a zero exactly when a positive-multiplicity
+factor has a zero. Its logarithmic derivative then has a simple pole;
+shared zeros add their positive orders. Multiplication by \(M_V\) and
+addition of \(E_S\) preserve this pole, and the analytic quartic
+reference cannot cancel it. If the product is nonzero, both the main
+readout and the reference are analytic, proving the converse.
+Finally \(m_1=N_S>0\) under the native divisibility hypothesis, so a
+principal zero is never lost.
+\end{proof}
+
+The named proofs are maintained in
+\texttt{Helpers/CubicInfiniteLaplace.lean},
+\texttt{Helpers/CubicInfiniteWindow.lean},
+\texttt{Assembly/CarmichaelInfiniteWindow.lean} and
+\texttt{Assembly/CarmichaelNativeWindow.lean}.
+The statements concern detection of supported Dirichlet zeros, not
+an equivalence between RH and simultaneous GRH for those characters.
+
+For a quadratic signed consumer, the compensation must still be
+expanded as
+\[
+ (A-cB)(\overline A-\overline c\,\overline B)
+ =A\overline A-\overline c\,A\overline B
+       -cB\overline A+|c|^2B\overline B .
+\]
+Neither cross term is an error allowance. The previously proved actual
+unit-lattice identity treats all four corresponding scales; its
+\(O(M^{-1})\) lattice tail does not estimate the arithmetic Abel
+coefficient \(C_G\). The infinite coefficient transfer above likewise
+does not identify a rational prime of norm \(p^2\) with a split
+Eisenstein carrier of norm \(p\).
+The paired-coset adapter and the uniform signed arithmetic bound
+\[
+ I_{D,G}(\lceil D^2\rceil)\ll_\varepsilon D^{3/2+\varepsilon}
+ \quad\hbox{for every sufficiently large \(D\)}
+\]
+remain open. For fixed admissible \(G\), the available exponent is
+\(7/4\), and the full consumer still has \(31/4\) in place of the
+required \(15/2\). Thus the certified zero-free boundary remains
+\(7/8\); these transfer theorems do not assert an improvement toward
+\(3/4\) without an independent signed estimate.
+
 \begin{thebibliography}{99}
 \small\raggedright
 \setlength{\itemsep}{3pt}
