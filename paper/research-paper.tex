@@ -30824,6 +30824,133 @@ with retained physical power \(31/4\). The required
 subject to the other physical obligations. The certified boundary remains
 \(7/8\), and the research target remains at most \(3/4\).
 
+\section{Actual Gaussian transfer without a Schwartz-profile premise}
+The previously proved Schwartz-profile versions now have actual-window
+counterparts. Write
+\[
+ G_a(z)=e^{-\alpha a|z|^2},\quad \alpha=2\pi/\sqrt3,\qquad
+ (a_i)=(4,1/4,16,1/16),\quad (c_i)=(5/4,-5/16,-1,1/16),
+\]
+and \(V(v)=\sum_i c_i e^{-\alpha a_i v}\).
+For admissible coprime Eisenstein ideals \(I,J\), set
+\[
+ \Theta_{IJ}(a)=\sum_{z\in\mathcal O}
+       \overline{\chi_I(z)}\chi_J(z)G_a(\iota z),
+ \qquad C=|\iota(\operatorname{gen}I\operatorname{gen}J)|,\qquad
+ \phi=\overline{g_I}g_J.
+\]
+The exact native periodic Gaussian Poisson theorem applies to every
+residue-class weight. Its Gaussian rate is \(2a/\sqrt3\). At this rate its
+scalar prefactor becomes \(1/(aC^2)\), and its dual rate becomes
+\(2/(\sqrt3 aC^2)\).
+The finite primitive row transform gives the transposed cubic row times
+its complete Gauss sum. Native Gauss separation identifies that sum as
+\(C\phi\). Consequently
+\[
+ \Theta_{IJ}(a)=\frac{\phi}{aC}\Theta_{JI}(1/(aC^2)),
+ \qquad a>0.                                      \tag{G}
+\]
+All residue phases are retained in this calculation. In particular it
+does not assume a real-line Schwartz extension of \(V\).
+
+The lattice row coefficients have modulus at most one. Gaussian lattice
+summability therefore gives absolute convergence of each of the four
+rows. Finite linearity, applied to their \(\operatorname{HasSum}\)
+statements, proves convergence and the actual identity
+\[
+ K^V_{IJ}(M):=\sum_{z\in\mathcal O}
+ \overline{\chi_I(z)}\chi_J(z)V(Nz/M)
+ =\sum_i c_i\Theta_{IJ}(a_i/M),\qquad M>0.
+\]
+Substitute (G) in this finite sum. Exchanging the reciprocal pairs
+\(4\leftrightarrow1/4\) and \(16\leftrightarrow1/16\), with their exact
+coefficients, gives
+\[
+ K^V_{IJ}(M)=-\frac{M}{C}\phi K^V_{JI}(C^2/M).       \tag{V}
+\]
+This proves the physical anti-reflection for the actual window;
+no unproved Schwartz qualification remains.
+
+For a unit complex \(g\), define \(P_g(a)=a+g\bar a\).
+Then \(P_g(a)\bar g=\overline{P_g(a)}\).
+If \(a\bar g_I=\bar a\) and \(b\bar g_J=\bar b\), direct multiplication
+gives
+\[
+ a\bar b\,\phi=b\bar a.
+\]
+At \(M=C\), (V) therefore proves
+\[
+ a\bar b K^V_{IJ}(C)+b\bar a K^V_{JI}(C)=0.
+\]
+Taking \(a=P_{g_I}(A)\) and \(b=P_{g_J}(B)\) discharges both balance
+premises using the proved native identities \(|g_I|=|g_J|=1\).
+There is no phase-one or ordered-kernel symmetry premise.
+Projection does not assert that the original unprojected pair vanishes.
+In particular complex compensation obeys the full identity
+\[
+ P_g(A-cB)=P_g(A)-cB-g\bar c\,\bar B.
+\]
+
+For the unit row, let \(B_V\) be the previously proved explicit Gaussian
+constant satisfying
+\((1+v)^3|V(v)|\le B_V\) for \(v\ge0\).
+The row modulus bound and the lattice envelope give
+\[
+ |K^V_{JI}(1)|\le B_V(1+E_O).
+\]
+Apply (V) at \(M=C^2\), then bound only its isolated dual remainder.
+This yields
+\[
+ |K^V_{IJ}(C^2)|\le C B_V(1+E_O).
+\]
+The unit ideal is admissible and \(C_{1J}=|\iota(\operatorname{gen}J)|\).
+Hence the actual unit-to-primitive estimate, with
+\(q=|\iota(\operatorname{gen}J)|^2\), is
+\[
+ |K^V_{1J}(q)|\le \sqrt q\,B_V(1+E_O).
+\]
+The geometric unit row here is distinct from the arithmetic Abel unit
+\(C_G\); no estimate for \(C_G\) follows solely from this identity.
+
+For arbitrary positive \(M_{AA},M_{AB},M_{BA},M_{BB}\), define the full packet
+\[
+ \mathcal K^V=K^V_{IJ}(M_{AA})-\bar cK^V_{IJ}(M_{AB})
+ -cK^V_{IJ}(M_{BA})+c\bar cK^V_{IJ}(M_{BB}).
+\]
+Four applications of (V), before any estimate, prove
+\[
+\begin{split}
+ \mathcal K^V=-\frac{\phi}{C}\bigl[
+ &M_{AA}K^V_{JI}(C^2/M_{AA})
+ -\bar c M_{AB}K^V_{JI}(C^2/M_{AB})\\
+ &-cM_{BA}K^V_{JI}(C^2/M_{BA})
+ +c\bar c M_{BB}K^V_{JI}(C^2/M_{BB})\bigr].
+\end{split}
+\]
+Every compensation term and its own dual scale remains present.
+
+A separate local theorem removes any need to assume simple zeros.
+If \(g\) is analytic at \(\rho\), \(g(\rho)\ne0\), and
+\(f(s)=(s-\rho)^n g(s)\) in a neighborhood of \(\rho\), then in a punctured
+neighborhood
+\[
+ (s-\rho)\frac{f'(s)}{f(s)}
+   =n+(s-\rho)\frac{g'(s)}{g(s)}\longrightarrow n.
+\]
+The proof differentiates the local identity, uses nonvanishing of \(g\)
+near \(\rho\), and applies continuity to the second term.
+The compiled statement allows every natural multiplicity \(n\).
+Its application to the full filtered finite character residue remains
+a separate consumer.
+
+These actual-window results complete the geometric transfers stated here.
+The arithmetic prime-sampled packet still contains full numerator and
+reciprocal \(L\)-factors, their derivatives, overlapping row supports and
+the original compensation cross terms. Its required independent estimate
+remains \(I_{D,G}\ll_\epsilon D^{3/2+\epsilon}\); the installed estimate
+has power \(7/4\). The certified zero-free boundary remains \(7/8\);
+the target remains at most \(3/4\).
+
 \begin{thebibliography}{99}
 \small\raggedright
 \setlength{\itemsep}{3pt}

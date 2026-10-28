@@ -1,8 +1,29 @@
 # Paper theorem and provenance ledger
 
+## Actual Gaussian physical transfer and unit row — 28 October 2026
+
+**Fully matched: 16 declarations in four maintained owners.** The actual infinite four-Gaussian physical sum is convergent and satisfies exact cubic pair anti-reflection. Projected coprime transpose pairs cancel at their own self-dual scale with no phase-one, kernel-symmetry or Schwartz-profile hypothesis. The actual unit-to-primitive row has the explicit bound `sqrt(q)*B_V*(1+E_O)`. All four compensation scales are retained. The local logarithmic-derivative limit handles arbitrary multiplicity. The full filtered character residue and independent reciprocal-L prime estimate remain open; the certified boundary is **7/8**, with target **at most 3/4**.
+
+- `PrimeFactorOscillations.CubicGaussianPair.gaussian_rescale` — compiled and focused-audited.
+- `PrimeFactorOscillations.CubicGaussianPair.periodic_gaussian` — compiled and focused-audited.
+- `PrimeFactorOscillations.CubicGaussianPair.gaussian_pair_poisson` — compiled and focused-audited.
+- `PrimeFactorOscillations.CubicGaussianWindow.profile_eq_gaussian_sum` — compiled and focused-audited.
+- `PrimeFactorOscillations.CubicGaussianWindow.pair_gaussian_summable` — compiled and focused-audited.
+- `PrimeFactorOscillations.CubicGaussianWindow.physical_hasSum` — compiled and focused-audited.
+- `PrimeFactorOscillations.CubicGaussianWindow.physical_eq_gaussian_sum` — compiled and focused-audited.
+- `PrimeFactorOscillations.CubicGaussianWindow.reciprocal_four_sum` — compiled and focused-audited.
+- `PrimeFactorOscillations.CubicGaussianWindow.physical_anti_reflection` — compiled and focused-audited.
+- `PrimeFactorOscillations.CubicGaussianCancellation.physical_at_one_bound` — compiled and focused-audited.
+- `PrimeFactorOscillations.CubicGaussianCancellation.physical_at_conductor_bound` — compiled and focused-audited.
+- `PrimeFactorOscillations.CubicGaussianCancellation.physical_unit_primitive_bound` — compiled and focused-audited.
+- `PrimeFactorOscillations.CubicGaussianCancellation.physical_balanced_pair_zero` — compiled and focused-audited.
+- `PrimeFactorOscillations.CubicGaussianCancellation.physical_projected_pair_zero` — compiled and focused-audited.
+- `PrimeFactorOscillations.CubicGaussianCancellation.physical_four_reflection` — compiled and focused-audited.
+- `PrimeFactorOscillations.CarmichaelWeightedResidue.factor_logDeriv_limit` — compiled and focused-audited.
+
 ## Cross profiles and unit-to-primitive rows — 28 October 2026
 
-**Fully matched: 13 declarations in two maintained owners.** The actual nonnegative cross-correlation retains relative Fourier phase, has mean one, and has principal coefficient one. The cubic unit-to-primitive kernel at conductor norm `q` is bounded by `sqrt(q)` times an explicit window constant. Exact dual reflection keeps all four compensation terms at independent positive scales. These kernel bounds retain the anti-Fourier Schwartz-window premise. Matching the physical Gaussian window in the general paired-coset formula and estimating the full prime-weighted reciprocal-L packet remain open. The certified boundary is **7/8**, with target **at most 3/4**.
+**Fully matched: 13 declarations in two maintained owners.** The actual nonnegative cross-correlation retains relative Fourier phase, has mean one, and has principal coefficient one. These earlier cubic kernel bounds retain the anti-Fourier Schwartz-profile premise. The actual Gaussian transfer and unit bound are now proved without that premise in the section above. Estimating the full prime-weighted reciprocal-L packet remains open. The certified boundary is **7/8**, with target **at most 3/4**.
 
 - `PrimeFactorOscillations.CarmichaelCrossCorrelation.rawCross_character_sum` — compiled and focused-audited.
 - `PrimeFactorOscillations.CarmichaelCrossCorrelation.rawCross_sum` — compiled and focused-audited.

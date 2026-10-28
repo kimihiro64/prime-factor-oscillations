@@ -5,13 +5,13 @@ Authors: Prime Factor Oscillations contributors
 -/
 import PrimeFactorOscillations.Assembly.CarmichaelCarrierWindow
 import PrimeFactorOscillations.Assembly.CarmichaelCrossCorrelation
-import PrimeFactorOscillations.Assembly.CarmichaelNativeWindow
 import PrimeFactorOscillations.Assembly.CarmichaelPhaseFilter
+import PrimeFactorOscillations.Assembly.CarmichaelWeightedResidue
 import PrimeFactorOscillations.Assembly.CompletedDetectorPackets
 import PrimeFactorOscillations.Assembly.CompletedLegacyResearch
 import PrimeFactorOscillations.Assembly.PrimeProfileRigidity
 import PrimeFactorOscillations.Assembly.RHResults
-import PrimeFactorOscillations.Helpers.CubicUnitMixed
+import PrimeFactorOscillations.Helpers.CubicGaussianCancellation
 import PrimeFactorOscillations.Helpers.XiMultiplicityBudget
 import PrimeFactorOscillations.Proof.ProbeEuler
 

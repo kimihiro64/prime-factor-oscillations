@@ -1,0 +1,67 @@
+{
+  "date": "2026-10-28",
+  "status": "compiled_and_focused_audited",
+  "owners": [
+    "PrimeFactorOscillations/Helpers/CubicGaussianPair.lean",
+    "PrimeFactorOscillations/Helpers/CubicGaussianWindow.lean",
+    "PrimeFactorOscillations/Helpers/CubicGaussianCancellation.lean",
+    "PrimeFactorOscillations/Assembly/CarmichaelWeightedResidue.lean"
+  ],
+  "theorem_count": 16,
+  "declarations": [
+    "PrimeFactorOscillations.CubicGaussianPair.gaussian_rescale",
+    "PrimeFactorOscillations.CubicGaussianPair.periodic_gaussian",
+    "PrimeFactorOscillations.CubicGaussianPair.gaussian_pair_poisson",
+    "PrimeFactorOscillations.CubicGaussianWindow.profile_eq_gaussian_sum",
+    "PrimeFactorOscillations.CubicGaussianWindow.pair_gaussian_summable",
+    "PrimeFactorOscillations.CubicGaussianWindow.physical_hasSum",
+    "PrimeFactorOscillations.CubicGaussianWindow.physical_eq_gaussian_sum",
+    "PrimeFactorOscillations.CubicGaussianWindow.reciprocal_four_sum",
+    "PrimeFactorOscillations.CubicGaussianWindow.physical_anti_reflection",
+    "PrimeFactorOscillations.CubicGaussianCancellation.physical_at_one_bound",
+    "PrimeFactorOscillations.CubicGaussianCancellation.physical_at_conductor_bound",
+    "PrimeFactorOscillations.CubicGaussianCancellation.physical_unit_primitive_bound",
+    "PrimeFactorOscillations.CubicGaussianCancellation.physical_balanced_pair_zero",
+    "PrimeFactorOscillations.CubicGaussianCancellation.physical_projected_pair_zero",
+    "PrimeFactorOscillations.CubicGaussianCancellation.physical_four_reflection",
+    "PrimeFactorOscillations.CarmichaelWeightedResidue.factor_logDeriv_limit"
+  ],
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "domain": "all admissible coprime Eisenstein ideal pairs; actual infinite four-Gaussian profile; every positive scale; arbitrary complex compensated amplitudes; every natural local zero multiplicity",
+  "proved": {
+    "actual_periodic_Gaussian": "native rate and trace matched exactly",
+    "actual_window": "convergent infinite physical sum and exact anti-reflection; no Schwartz-profile premise",
+    "phase_symmetry": "projected transpose cancellation; no phase-one or kernel-symmetry hypothesis",
+    "actual_unit_row": "|K_1J(q)|<=sqrt(q)*B_V*(1+E_O)",
+    "compensation": "all four independent positive scales retained",
+    "local_residue": "scaled log derivative tends to arbitrary multiplicity n"
+  },
+  "open": [
+    "full filtered finite-character residue",
+    "native Gauss conjugate compatibility and exact profile phase matching",
+    "overlapping row and moving conductor/height arithmetic consumer",
+    "independent signed I_DG bound including full reciprocal L factors"
+  ],
+  "benchmark_status": "actual_geometric_transfer_and_kernel_estimate_only",
+  "old_bound": "I7/4; physical31/4; certified boundary7/8",
+  "new_bound": "unchanged",
+  "components": {
+    "unit_geometric_estimate": "proved with explicit B_V",
+    "arithmetic_Abel_unit_CG": "not bounded by this geometric result",
+    "arithmetic_saving": "not established"
+  },
+  "actuals": "no finite numerical experiment",
+  "first_nonpositive_domain": "unavailable; no improved total arithmetic estimate",
+  "target_boundary": "at most3/4",
+  "verification": {
+    "maintained": "compiled",
+    "focused_axioms": "16 exact names, standard axioms only",
+    "source_policy": "passed",
+    "final_consumer_staged_checks": "required before commit",
+    "paper": "built-in compile required before commit"
+  }
+}
