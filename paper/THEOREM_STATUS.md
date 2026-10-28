@@ -1,5 +1,40 @@
 # Paper theorem and provenance ledger
 
+## Actual Gauss phases and the positive phase-balanced kernel — 28 October 2026
+
+**Fully matched: 30 declarations in three maintained owners.** Primitive additive characters at prime conductor give actual unit Gauss phases compatible with character inversion. Complete finite Fourier matching gives the actual cross coefficients `k_chi=c_chi*(1+g_chi)/2`, with principal coefficient one, nonnegative real parts and exact phase balance. Their native coefficient budget proves the kernel floor `1-1/(d-1)`, hence **at least 1/2 for d>=3**. The actual weighted readout retains principal zeros of arbitrary shared multiplicity. No RH assumption is used. The full native carrier map and signed reciprocal-L arithmetic estimate remain open; the certified boundary is **7/8**, with target **at most 3/4**.
+
+- `PrimeFactorOscillations.DirichletEvenGaussPhase.phase_principal` — compiled and focused-audited.
+- `PrimeFactorOscillations.DirichletEvenGaussPhase.phase_norm` — compiled and focused-audited.
+- `PrimeFactorOscillations.DirichletEvenGaussPhase.phase_inverse` — compiled and focused-audited.
+- `PrimeFactorOscillations.DirichletEvenGaussPhase.cubic_even` — compiled and focused-audited.
+- `PrimeFactorOscillations.DirichletEvenGaussPhase.phase_cubic` — compiled and focused-audited.
+- `PrimeFactorOscillations.CarmichaelFilteredSpectrum.unit_inverse_value` — compiled and focused-audited.
+- `PrimeFactorOscillations.CarmichaelFilteredSpectrum.unit_inverse_input` — compiled and focused-audited.
+- `PrimeFactorOscillations.CarmichaelFilteredSpectrum.unit_mixed_sum` — compiled and focused-audited.
+- `PrimeFactorOscillations.CarmichaelFilteredSpectrum.characterSum_inverse` — compiled and focused-audited.
+- `PrimeFactorOscillations.CarmichaelFilteredSpectrum.hermitian_series` — compiled and focused-audited.
+- `PrimeFactorOscillations.CarmichaelFilteredSpectrum.real_series_cast` — compiled and focused-audited.
+- `PrimeFactorOscillations.CarmichaelFilteredSpectrum.real_series_characterSum` — compiled and focused-audited.
+- `PrimeFactorOscillations.CarmichaelFilteredSpectrum.coefficient_inverse` — compiled and focused-audited.
+- `PrimeFactorOscillations.CarmichaelFilteredSpectrum.amplitude_inverse` — compiled and focused-audited.
+- `PrimeFactorOscillations.CarmichaelFilteredSpectrum.filteredAmplitude_formula` — compiled and focused-audited.
+- `PrimeFactorOscillations.CarmichaelFilteredSpectrum.filteredAmplitude_inverse` — compiled and focused-audited.
+- `PrimeFactorOscillations.CarmichaelFilteredSpectrum.filteredProfile_realSeries` — compiled and focused-audited.
+- `PrimeFactorOscillations.CarmichaelFilteredSpectrum.filteredProfile_characterSum` — compiled and focused-audited.
+- `PrimeFactorOscillations.CarmichaelPhaseKernel.principal` — compiled and focused-audited.
+- `PrimeFactorOscillations.CarmichaelPhaseKernel.expansion` — compiled and focused-audited.
+- `PrimeFactorOscillations.CarmichaelPhaseKernel.coefficient_amplitude` — compiled and focused-audited.
+- `PrimeFactorOscillations.CarmichaelPhaseKernel.coefficient_formula` — compiled and focused-audited.
+- `PrimeFactorOscillations.CarmichaelPhaseKernel.coefficient_re_nonneg` — compiled and focused-audited.
+- `PrimeFactorOscillations.CarmichaelPhaseKernel.coefficient_phase_balance` — compiled and focused-audited.
+- `PrimeFactorOscillations.CarmichaelPhaseKernel.coefficient_norm_le` — compiled and focused-audited.
+- `PrimeFactorOscillations.CarmichaelPhaseKernel.real_expansion` — compiled and focused-audited.
+- `PrimeFactorOscillations.CarmichaelPhaseKernel.kernel_ge_mass` — compiled and focused-audited.
+- `PrimeFactorOscillations.CarmichaelPhaseKernel.kernel_ge_half` — compiled and focused-audited.
+- `PrimeFactorOscillations.CarmichaelPhaseKernel.actual_gauss_kernel_ge_half` — compiled and focused-audited.
+- `PrimeFactorOscillations.CarmichaelPhaseKernel.actual_gauss_principal_signal` — compiled and focused-audited.
+
 ## Weighted principal-zero signal — 28 October 2026
 
 **Fully matched: five declarations in one maintained owner.** For every nonzero Dirichlet modulus, principal coefficient one and nonnegative real parts of all other character weights preserve every principal zero away from one. Arbitrary shared-zero multiplicities are retained: the full scaled logarithmic derivative tends to `-A`, with `Re(A)>0`, and is not analytic at that zero. No RH, zero-free-strip or simple-zero assumption is used. This proves signal retention, not an independent arithmetic bound. The certified boundary remains **7/8**; the target remains **at most 3/4**.
@@ -13,7 +48,7 @@
 
 ## Actual Gaussian physical transfer and unit row — 28 October 2026
 
-**Fully matched: 16 declarations in four maintained owners.** The actual infinite four-Gaussian physical sum is convergent and satisfies exact cubic pair anti-reflection. Projected coprime transpose pairs cancel at their own self-dual scale with no phase-one, kernel-symmetry or Schwartz-profile hypothesis. The actual unit-to-primitive row has the explicit bound `sqrt(q)*B_V*(1+E_O)`. All four compensation scales are retained. The local logarithmic-derivative limit handles arbitrary multiplicity. The finite weighted residue is now proved in the section above. Actual filtered Fourier matching and the independent reciprocal-L prime estimate remain open; the certified boundary is **7/8**, with target **at most 3/4**.
+**Fully matched: 16 declarations in four maintained owners.** The actual infinite four-Gaussian physical sum is convergent and satisfies exact cubic pair anti-reflection. Projected coprime transpose pairs cancel at their own self-dual scale with no phase-one, kernel-symmetry or Schwartz-profile hypothesis. The actual unit-to-primitive row has the explicit bound `sqrt(q)*B_V*(1+E_O)`. All four compensation scales are retained. The local logarithmic-derivative limit handles arbitrary multiplicity. The finite weighted residue is now proved in the section above. Filtered Fourier matching at prime conductor is now proved above. The complete native carrier map and independent reciprocal-L prime estimate remain open; the certified boundary is **7/8**, with target **at most 3/4**.
 
 - `PrimeFactorOscillations.CubicGaussianPair.gaussian_rescale` — compiled and focused-audited.
 - `PrimeFactorOscillations.CubicGaussianPair.periodic_gaussian` — compiled and focused-audited.
@@ -52,7 +87,7 @@
 
 ## Native phase-filter probability profiles — 28 October 2026
 
-**Fully matched: 16 declarations** in [CarmichaelPhaseFilter.lean](../PrimeFactorOscillations/Assembly/CarmichaelPhaseFilter.lean). The actual single-return spectrum gives an exact unit amplitude budget. Every contractive phase function produces a profile between zero and two of mean one. Dividing it by two gives an acceptance weight between zero and one, of mean one half, with actual principal correlation coefficient one. Prescribed unit-phase amplitudes satisfy phase balance. Their identification with the new profile's complete Fourier spectrum still requires conjugate compatibility; no new zero readout, uniform prime sampling theorem or arithmetic exponent bound is claimed.
+**Fully matched: 16 declarations** in [CarmichaelPhaseFilter.lean](../PrimeFactorOscillations/Assembly/CarmichaelPhaseFilter.lean). The actual single-return spectrum gives an exact unit amplitude budget. Every contractive phase function produces a profile between zero and two of mean one. Dividing it by two gives an acceptance weight between zero and one, of mean one half, with actual principal correlation coefficient one. Prescribed unit-phase amplitudes satisfy phase balance. The actual Gauss phases at prime conductor and their complete Fourier spectrum are now matched in the phase-kernel section above, including its kernel floor and principal-zero readout. Uniform prime sampling and an arithmetic exponent improvement remain separate.
 
 - `PrimeFactorOscillations.CarmichaelPhaseFilter.amplitude_nonprincipal_norm` — compiled and focused-audited.
 - `PrimeFactorOscillations.CarmichaelPhaseFilter.amplitude_norm_sum` — compiled and focused-audited.

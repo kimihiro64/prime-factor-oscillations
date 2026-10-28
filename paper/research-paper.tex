@@ -30714,11 +30714,11 @@ The construction is uniform in the modulus and actual return index;
 it uses the proved native spectrum, not a finite numerical test or a
 substitute cube subgroup.
 
-The \(\beta_\chi\) above are prescribed amplitudes. Proving that they
-are exactly the complete Fourier amplitudes of the real profile requires
-the corresponding conjugate-character compatibility. That matching,
-its realization by the actual Gauss phases, and the weighted
-logarithmic-derivative zero readout remain to be proved.
+The prescribed amplitudes now have a complete Fourier matching theorem.
+For actual Gauss phases at prime conductor, conjugate-character compatibility
+and the weighted principal-zero readout are proved in
+Section~\ref{sec:actual-phase-kernel}. The remaining physical application
+must identify the native carrier, additive trace and true conductor.
 In particular a nonnegative finite acceptance weight does not itself
 establish the uniform prime-sampling or growing-conductor hypotheses of
 a zero-free argument.
@@ -30941,8 +30941,9 @@ The proof differentiates the local identity, uses nonvanishing of \(g\)
 near \(\rho\), and applies continuity to the second term.
 The compiled statement allows every natural multiplicity \(n\).
 Its application to arbitrary finite complex character weights is proved
-in the following section. Matching a separately prescribed filtered
-profile to its actual Fourier coefficients remains a distinct requirement.
+in the following section. The filtered Fourier coefficients and actual
+prime-conductor Gauss phases are identified in
+Section~\ref{sec:actual-phase-kernel}.
 
 These actual-window results complete the geometric transfers stated here.
 The arithmetic prime-sampled packet still contains full numerator and
@@ -31007,14 +31008,142 @@ All five declarations, including factor existence and the nonanalytic
 conclusion, are maintained in
 \texttt{Assembly/CarmichaelWeightedSignal.lean}.
 No RH, zero-free strip or simple-zero hypothesis is used.
-For an actual filtered probability profile its full Fourier coefficients
-must still be identified before applying this theorem. The result does
+For the actual filtered probability profile at prime conductor, the
+required Fourier matching and the application of this theorem are proved
+in Section~\ref{sec:actual-phase-kernel}. The result does
 not estimate the complete signed prime packet or its reciprocal
 \(L\)-factors. In particular the arithmetic Abel unit \(C_G\) has not
 been bounded by the separate geometric unit-row estimate. The installed
 bound remains \(I_{D,G}\ll_\epsilon D^{7/4+\epsilon}\);
 the required \(D^{3/2+\epsilon}\) estimate and the target boundary
 at most \(3/4\) remain the active arithmetic problem.
+
+\section{Actual Gauss phases and a positive phase-balanced kernel}
+\label{sec:actual-phase-kernel}
+Let \(q\) be prime and let \(\psi\) be any primitive additive character
+of \(\mathbb Z/q\mathbb Z\). For each Dirichlet character modulo \(q\), set
+\[
+ g_\chi=
+ \begin{cases}
+ q^{-1/2}\displaystyle\sum_{x\bmod q}\chi(x)\psi(x),
+     &\chi\ne1,\ \chi(-1)=1,\\
+ 1,&\text{otherwise}.
+ \end{cases}
+\]
+The normalized finite-field Gauss theorem gives \(|g_\chi|=1\).
+The complete even-character Gauss inversion identity gives
+\(g_{\chi^{-1}}=\overline{g_\chi}\): for an even nonprincipal character,
+the inverse Gauss sum is the conjugate Gauss sum with the same additive
+character. Inversion preserves the principal and odd cases, where both
+assigned phases are one. In particular \(g_1=1\).
+For a cubic character, putting \(z=\chi(-1)\) gives both \(z^2=1\)
+and \(z^3=1\), hence \(z=1\). Its nonprincipal phase is therefore the
+actual normalized Gauss sum. These statements use no zero hypothesis.
+The Lean normalization uses \(\sqrt{|\mathbb Z/q\mathbb Z|}\), which equals
+\(\sqrt q\).
+
+Let \(\ell\) be a prime return label dividing the unit-group exponent,
+let \(d\) be its actual return index, and let \(c_\chi\) be the original
+normalized correlation coefficients. The previously proved spectrum gives
+\[
+ c_1=1,\quad c_\chi\ge0,\quad
+ \sum_{\chi\ne1}c_\chi=\frac1{d-1}.
+\]
+Use the actual root amplitudes
+\[
+ \alpha_1=1,\qquad \alpha_\chi=-(d-1)c_\chi\quad(\chi\ne1).
+\]
+Their established identities are
+\(\alpha_\chi^2=c_\chi\) and
+\(\sum_{\chi\ne1}|\alpha_\chi|=1\).
+They satisfy \(\alpha_{\chi^{-1}}=\alpha_\chi\), because the original
+profile is real and its inverse-character sum is the conjugate sum.
+
+Define
+\[
+ \beta_\chi=\frac{\alpha_\chi}{2}(1+g_\chi),\qquad
+ \nu_g(u)=1+\sum_{\chi\ne1}
+        \operatorname{Re}\bigl(\beta_\chi\chi(u^{-1})\bigr).
+\]
+The phase identity proves
+\(\beta_{\chi^{-1}}=\overline{\beta_\chi}\).
+Thus the complete complex Fourier sum is real: conjugating it and
+reindexing by character inversion returns the same sum.
+Finite unit-character orthogonality then proves the actual identity
+\[
+ \sum_u\nu_g(u)\chi(u)=|(\mathbb Z/q\mathbb Z)^\times|\beta_\chi.
+\]
+This discharges the earlier Fourier-matching requirement, including
+the principal character. The established profile bounds give
+\(0\le\nu_g\le2\) and mean one; \(\nu_g/2\) is an acceptance weight
+with mean one half.
+
+Let \(\nu_0\) denote the same construction with constant phase one.
+Form their actual normalized cross-correlation
+\[
+ K_g(u)=\frac{|G|\sum_h\nu_0(h)\nu_g(hu)}
+                  {(\sum_h\nu_0(h))(\sum_h\nu_g(h))},
+ \qquad G=(\mathbb Z/q\mathbb Z)^\times .
+\]
+Apply the previously proved cross-correlation formula to the two exact
+Fourier sums. Their sums are both \(|G|\), so their complete coefficients are
+\[
+ k_\chi=\overline{\alpha_\chi}\beta_\chi
+       =\frac{c_\chi}{2}(1+g_\chi),\qquad k_1=1.
+\]
+Every character remains present in
+\(K_g(u)=\sum_\chi k_\chi\chi(u^{-1})\).
+The same formula proves
+\[
+ \operatorname{Re}k_\chi\ge0,\qquad |k_\chi|\le c_\chi,\qquad
+ k_\chi\overline{g_\chi}=\overline{k_\chi}.
+\]
+For the last equality use \(|g_\chi|=1\) and the reality of \(c_\chi\).
+The finite coefficient estimate supplies a probability-kernel floor:
+\[
+ K_g(u)
+ =1+\sum_{\chi\ne1}\operatorname{Re}\bigl(k_\chi\chi(u^{-1})\bigr)
+ \ge1-\sum_{\chi\ne1}c_\chi
+ =1-\frac1{d-1}.
+\]
+The return-index theorem gives \(d\ge2\), so its denominator is positive.
+For \(d\ge3\), and in particular the certified cubic index \(d=3\),
+this is the uniform bound
+\[
+                         K_g(u)\ge\frac12 .
+\]
+This estimate concerns the finite probability kernel. The signed arithmetic
+packet is retained for its separate estimate.
+
+For any principal \(L\)-zero \(\rho\ne1\), apply the preceding weighted
+signal theorem to these actual \(k_\chi\). Since \(k_1=1\) and every
+real part is nonnegative, the complete readout
+\[
+ -\sum_{\chi\bmod q}k_\chi\,\frac{L'(s,\chi)}{L(s,\chi)}+E(s)
+\]
+is nonanalytic at \(\rho\) whenever \(E\) is analytic there.
+Shared zeros retain their full multiplicities. Neither RH nor a
+simple-zero assumption is used. Both this application and the actual
+Gauss-kernel floor are named compiled theorems.
+
+The maintained owners are
+\texttt{Helpers/DirichletEvenGaussPhase.lean},
+\texttt{Assembly/CarmichaelFilteredSpectrum.lean}, and
+\texttt{Assembly/CarmichaelPhaseKernel.lean}.
+Here \(q\) is the prime conductor. An inducing Carmichael modulus and its
+nonunit mask and finite Euler factors remain separate parameters in the
+arithmetic application. Matching these phases to an Eisenstein physical
+row still requires the exact carrier, additive trace and conductor map.
+Complex compensation retains the complete identity
+\[
+ P_g(A-cB)=P_g(A)-cB-g\bar c\,\bar B.
+\]
+The full prime packet retains its reciprocal \(L\)-factors, overlapping
+supports and compensation cross terms. Its installed estimate remains
+\(I_{D,G}\ll_\epsilon D^{7/4+\epsilon}\), with retained physical power
+\(31/4\). The required \(D^{3/2+\epsilon}\) estimate would give power
+\(15/2\), subject to the other physical obligations. The certified boundary
+remains \(7/8\), and the target remains at most \(3/4\).
 
 \begin{thebibliography}{99}
 \small\raggedright

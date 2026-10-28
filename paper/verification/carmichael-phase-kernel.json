@@ -1,0 +1,88 @@
+{
+  "date": "2026-10-28",
+  "status": "compiled_and_focused_audited",
+  "owners": [
+    "PrimeFactorOscillations/Helpers/DirichletEvenGaussPhase.lean",
+    "PrimeFactorOscillations/Assembly/CarmichaelFilteredSpectrum.lean",
+    "PrimeFactorOscillations/Assembly/CarmichaelPhaseKernel.lean"
+  ],
+  "theorem_count": 30,
+  "declarations": [
+    "PrimeFactorOscillations.DirichletEvenGaussPhase.phase_principal",
+    "PrimeFactorOscillations.DirichletEvenGaussPhase.phase_norm",
+    "PrimeFactorOscillations.DirichletEvenGaussPhase.phase_inverse",
+    "PrimeFactorOscillations.DirichletEvenGaussPhase.cubic_even",
+    "PrimeFactorOscillations.DirichletEvenGaussPhase.phase_cubic",
+    "PrimeFactorOscillations.CarmichaelFilteredSpectrum.unit_inverse_value",
+    "PrimeFactorOscillations.CarmichaelFilteredSpectrum.unit_inverse_input",
+    "PrimeFactorOscillations.CarmichaelFilteredSpectrum.unit_mixed_sum",
+    "PrimeFactorOscillations.CarmichaelFilteredSpectrum.characterSum_inverse",
+    "PrimeFactorOscillations.CarmichaelFilteredSpectrum.hermitian_series",
+    "PrimeFactorOscillations.CarmichaelFilteredSpectrum.real_series_cast",
+    "PrimeFactorOscillations.CarmichaelFilteredSpectrum.real_series_characterSum",
+    "PrimeFactorOscillations.CarmichaelFilteredSpectrum.coefficient_inverse",
+    "PrimeFactorOscillations.CarmichaelFilteredSpectrum.amplitude_inverse",
+    "PrimeFactorOscillations.CarmichaelFilteredSpectrum.filteredAmplitude_formula",
+    "PrimeFactorOscillations.CarmichaelFilteredSpectrum.filteredAmplitude_inverse",
+    "PrimeFactorOscillations.CarmichaelFilteredSpectrum.filteredProfile_realSeries",
+    "PrimeFactorOscillations.CarmichaelFilteredSpectrum.filteredProfile_characterSum",
+    "PrimeFactorOscillations.CarmichaelPhaseKernel.principal",
+    "PrimeFactorOscillations.CarmichaelPhaseKernel.expansion",
+    "PrimeFactorOscillations.CarmichaelPhaseKernel.coefficient_amplitude",
+    "PrimeFactorOscillations.CarmichaelPhaseKernel.coefficient_formula",
+    "PrimeFactorOscillations.CarmichaelPhaseKernel.coefficient_re_nonneg",
+    "PrimeFactorOscillations.CarmichaelPhaseKernel.coefficient_phase_balance",
+    "PrimeFactorOscillations.CarmichaelPhaseKernel.coefficient_norm_le",
+    "PrimeFactorOscillations.CarmichaelPhaseKernel.real_expansion",
+    "PrimeFactorOscillations.CarmichaelPhaseKernel.kernel_ge_mass",
+    "PrimeFactorOscillations.CarmichaelPhaseKernel.kernel_ge_half",
+    "PrimeFactorOscillations.CarmichaelPhaseKernel.actual_gauss_kernel_ge_half",
+    "PrimeFactorOscillations.CarmichaelPhaseKernel.actual_gauss_principal_signal"
+  ],
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "domain": "all finite unit-group Fourier profiles with the stated inversion compatibility; actual Gauss phases at every prime conductor and every primitive additive character; a prime return label dividing the unit exponent; kernel floor for actual return index>=3; every principal L zero rho different from one and every analytic correction",
+  "proved": {
+    "actual_phase": "unit norm, inverse-character conjugacy, principal phase1; cubic characters are even and use the actual normalized Gauss sum",
+    "full_Fourier": "actual Hermitian profile amplitudes matched on the complete Dirichlet character group",
+    "cross_coefficients": "k_chi=c_chi*(1+g_chi)/2; actual principal coefficient1; Re(k)>=0; k*conj(g)=conj(k)",
+    "kernel_floor": "K>=1-1/(d-1), hence K>=1/2 for d>=3",
+    "actual_signal": "complete weighted logarithmic derivative is nonanalytic at any principal zero; arbitrary shared multiplicities retained; no RH premise"
+  },
+  "open": [
+    "exact map from this true-conductor phase to the original Eisenstein physical row and additive trace",
+    "full inducing Carmichael modulus nonunit mask and induced Euler factors in the arithmetic application",
+    "application of the new kernel floor to the existing varying-modulus ascent criterion",
+    "overlapping row supports, arithmetic Abel unit C_G and full compensation cross terms",
+    "independent signed reciprocal-L I_DG estimate at power3/2"
+  ],
+  "benchmark_status": "finite_phase_kernel_floor_and_signal_retention_only",
+  "old_bound": "I7/4; physical31/4; certified boundary7/8",
+  "new_bound": "unchanged",
+  "components": {
+    "kernel_floor": "proved cutoff-independent1/2 for d>=3",
+    "detector": "actual phase-filtered principal response retained",
+    "arithmetic_saving": "not established",
+    "arithmetic_Abel_unit": "not estimated by the geometric unit-row bound"
+  },
+  "actuals": "no finite numerical experiment",
+  "first_nonpositive_domain": "unavailable; no improved total arithmetic estimate",
+  "target_boundary": "at most3/4",
+  "detector_error": "existing uniform coefficient and Mellin detector precision unchanged",
+  "family_adapter": "complete finite actual Fourier/cross-profile adapter; full original physical-row adapter remains required",
+  "uncancelled_main_terms": "full resonant/nonresonant reciprocal-L row, overlapping masks, Abel unit and all AA-barcAB-cBA+|c|^2BB terms",
+  "low_estimate_provenance": "installed source power7/4 only; no independent new low estimate",
+  "parameter_domain": "fixed admissible original family/character/window and physical mask G; every epsilon>0, all D>=D0; conductor and sampling uniformity cannot be inferred from the finite phase identities",
+  "attainable_endpoint": "certified7/8; completion requires independent signed I power3/2 and all remaining physical obligations for<=3/4",
+  "verification": {
+    "maintained": "all30 compiled",
+    "focused_axioms": "30 exact new names, standard axioms only",
+    "source_policy": "passed",
+    "facade": "compiled",
+    "root_and_final_staged_checks": "required before commit",
+    "paper": "built-in compile required before commit"
+  }
+}
