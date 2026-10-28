@@ -356,3 +356,40 @@ The improvement is small. Increasing the prime-slot length indefinitely is
 not justified by this calculation. A route to RH would require stronger
 control of the exact signed nonresonant higher moments or another substantive
 analytic improvement.
+
+## 7. Cubic pair windows and signal retention (28 October 2026)
+
+The maintained Lean modules [CubicPairRadius](../PrimeFactorOscillations/Helpers/CubicPairRadius.lean)
+and [CubicPairReflection](../PrimeFactorOscillations/Helpers/CubicPairReflection.lean)
+prove a uniform scale-difference estimate and a conditional self-dual estimate.
+For a fixed Schwartz window, bounded cubic coefficients, $X\ge1$,
+$0\le H\le X$, and pair scale $C\in[X^2,(X+H)^2]$, the latter gives
+$|K_{X^2}(I,J)|\le L_W XH$ provided the anti-Fourier identity, Gauss phase
+and kernel symmetry in its theorem type hold. The analytic Lipschitz
+estimate is proved, rather than assumed.
+
+At $H=X^{3/4}$ this is a conditional $X^{7/4}$ kernel bound.
+It is not an estimate of the full compensated prime-sampled packet.
+The unit/principal row, diagonal, mismatched supports and compensation
+cross terms remain required.
+
+The proposed profile $W_b(v)=(v-1/(2b))e^{-bv}$ has carrier Mellin transform
+$(z-1/2)\Gamma(z)/b^{z+1}$. Its unit-weight rational-line mass is exactly
+
+\[
+ \sum_n W_b(n^2/M)=-(\pi/b)^{5/2}M^{3/2}
+                    \sum_k k^2e^{-\pi^2Mk^2/b}.
+\]
+
+Thus its square-root leading mass vanishes. This is an ordinary Gaussian
+diagnostic; the finite mass is exponentially small, not zero. A separate
+proved nonvanishing multiplier in the Dirichlet variable does not identify
+the carrier variable or preserve the full detector residue automatically.
+A signed kernel bound also does not majorize the original positive norm.
+
+The unsupported transfer is recorded as a failed step. The existing
+detector and its pole readout remain unchanged. The actual inert-prime
+hypotheses and the complete signal-preserving arithmetic application are
+unfinished. No unconditional improvement of $7/8$ is asserted.
+See [the focused verification receipt](verification/cubic-pair-window.json)
+and Section `sec:cubic-pair-windows` of the paper.

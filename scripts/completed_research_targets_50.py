@@ -1,0 +1,27 @@
+"""Uniform cubic pair-window estimates with explicit application hypotheses."""
+
+TARGETS = (
+    "PrimeFactorOscillations.CubicPairRadius.radiusTerm_hasDerivAt",
+    "PrimeFactorOscillations.CubicPairRadius.radiusDeriv_weighted_bound",
+    "PrimeFactorOscillations.CubicPairRadius.radiusTerm_weighted_lipschitz",
+    "PrimeFactorOscillations.CubicPairRadius.windowSize0_nonneg",
+    "PrimeFactorOscillations.CubicPairRadius.windowSize1_nonneg",
+    "PrimeFactorOscillations.CubicPairRadius.window_bound0",
+    "PrimeFactorOscillations.CubicPairRadius.window_bound1",
+    "PrimeFactorOscillations.CubicPairRadius.scaled_all_cauchy_mass",
+    "PrimeFactorOscillations.CubicPairRadius.dominated_lattice_sum",
+    "PrimeFactorOscillations.CubicPairRadius.latticeScaleDifference_bound",
+    "PrimeFactorOscillations.CubicPairRadius.radiusTerm_summable",
+    "PrimeFactorOscillations.CubicPairRadius.radiusKernel_difference_bound",
+    "PrimeFactorOscillations.CubicPairReflection.pairScale_pos",
+    "PrimeFactorOscillations.CubicPairReflection.anti_reflection",
+    "PrimeFactorOscillations.CubicPairReflection.selfdual_zero",
+    "PrimeFactorOscillations.CubicPairReflection.kernel_symmetric_of_conjugation",
+    "PrimeFactorOscillations.CubicPairReflection.near_selfdual_bound",
+    "PrimeFactorOscillations.CubicPairReflection.antiWeight_ne_zero",
+    "PrimeFactorOscillations.CubicPairReflection.antiWeightedQuarticProbe_order_iff_zero",
+    "PrimeFactorOscillations.CubicPairReflection.cubicRow_norm_le_one",
+    "PrimeFactorOscillations.CubicPairReflection.pairedCoefficient_norm_le_one",
+    "PrimeFactorOscillations.CubicPairReflection.pairedKernel_div_radius",
+    "PrimeFactorOscillations.CubicPairReflection.near_selfdual_uniform_bound",
+)

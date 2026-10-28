@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-28",
+  "status": "maintained_compiled_and_axiom_audited",
+  "scope": "Uniform analytic scale estimate and conditional cubic pair reflection; not a completed Carmichael detector application.",
+  "compiler": "Lean 4.34.0",
+  "toolchain_options": [
+    "-j1",
+    "-s65536",
+    "-M8192",
+    "autoImplicit false",
+    "Elab.async false"
+  ],
+  "modules": [
+    {
+      "module": "PrimeFactorOscillations.Helpers.CubicPairRadius",
+      "source_sha256": "adc310a961220448fce29ba2b46edf5adf53eed8f0e6a38d1fe8aa77593e5b66",
+      "object_sha256": "5b963b337fa81f8acb327d1d3bacfbd455f88c33dfe55135c808b4baf5b962ca",
+      "kernel_build": "passed"
+    },
+    {
+      "module": "PrimeFactorOscillations.Helpers.CubicPairReflection",
+      "source_sha256": "0a75a0919de1c626f94b96e96dba83d90056d7402d5aa50e5ac8caa887e0f868",
+      "object_sha256": "f77a9a20a86525e62c9a888ce3096409af420fc615ded5288c7fabd2f6677922",
+      "kernel_build": "passed"
+    }
+  ],
+  "declarations": [
+    "PrimeFactorOscillations.CubicPairRadius.radiusTerm_hasDerivAt",
+    "PrimeFactorOscillations.CubicPairRadius.radiusDeriv_weighted_bound",
+    "PrimeFactorOscillations.CubicPairRadius.radiusTerm_weighted_lipschitz",
+    "PrimeFactorOscillations.CubicPairRadius.windowSize0_nonneg",
+    "PrimeFactorOscillations.CubicPairRadius.windowSize1_nonneg",
+    "PrimeFactorOscillations.CubicPairRadius.window_bound0",
+    "PrimeFactorOscillations.CubicPairRadius.window_bound1",
+    "PrimeFactorOscillations.CubicPairRadius.scaled_all_cauchy_mass",
+    "PrimeFactorOscillations.CubicPairRadius.dominated_lattice_sum",
+    "PrimeFactorOscillations.CubicPairRadius.latticeScaleDifference_bound",
+    "PrimeFactorOscillations.CubicPairRadius.radiusTerm_summable",
+    "PrimeFactorOscillations.CubicPairRadius.radiusKernel_difference_bound",
+    "PrimeFactorOscillations.CubicPairReflection.pairScale_pos",
+    "PrimeFactorOscillations.CubicPairReflection.anti_reflection",
+    "PrimeFactorOscillations.CubicPairReflection.selfdual_zero",
+    "PrimeFactorOscillations.CubicPairReflection.kernel_symmetric_of_conjugation",
+    "PrimeFactorOscillations.CubicPairReflection.near_selfdual_bound",
+    "PrimeFactorOscillations.CubicPairReflection.antiWeight_ne_zero",
+    "PrimeFactorOscillations.CubicPairReflection.antiWeightedQuarticProbe_order_iff_zero",
+    "PrimeFactorOscillations.CubicPairReflection.cubicRow_norm_le_one",
+    "PrimeFactorOscillations.CubicPairReflection.pairedCoefficient_norm_le_one",
+    "PrimeFactorOscillations.CubicPairReflection.pairedKernel_div_radius",
+    "PrimeFactorOscillations.CubicPairReflection.near_selfdual_uniform_bound"
+  ],
+  "axioms": [
+    "Classical.choice",
+    "propext",
+    "Quot.sound"
+  ],
+  "focused_audit_log_sha256": "28f9481f45c5e4b4066a6dae4c3342d4db6d4391fcf3f7a45e55ad801803719b",
+  "paper_labels": [
+    "thm:cubic-scale-difference",
+    "thm:cubic-selfdual-window"
+  ],
+  "explicit_application_hypotheses": [
+    "Anti-Fourier identity on nonnegative inputs",
+    "Normalized Gauss phase equals one",
+    "Kernel symmetry at the pair scale",
+    "X>=1, 0<=H<=X, X^2<=pairScale<=(X+H)^2"
+  ],
+  "unfinished": [
+    "Actual inert-prime realization",
+    "Physical carrier Mellin coordinate and full readout transfer",
+    "Full signed principal row and compensation estimate"
+  ],
+  "signal_diagnostic_status": "Ordinary Gaussian calculation only; rational-line leading mass vanishes, finite mass exponentially small.",
+  "benchmark_status": "unavailable: no full independent arithmetic estimate installed",
+  "old_bound": "7/8",
+  "new_bound": "7/8",
+  "required_endpoint": "<=3/4; ideally1/2",
+  "components": "Conditional XH pair-kernel estimate; all application hypotheses retained.",
+  "actuals": "No finite numerical sweep used.",
+  "first_nonpositive_domain": null,
+  "unchanged_closures_reaudited": false
+}

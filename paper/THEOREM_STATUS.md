@@ -402,3 +402,21 @@ created by the editorial revision.
 Historical claims and current source versions are recorded separately in
 [SOURCE_REVIEW.md](SOURCE_REVIEW.md). The expanded paper does not incorporate
 the unfinished independent-ascent-supply work.
+
+## Cubic pair windows: maintained status, 28 October 2026
+
+| Claim | Status and maintained owner |
+|---|---|
+| Weighted C1 scale estimate and absolute lattice summation | Proved in [CubicPairRadius](../PrimeFactorOscillations/Helpers/CubicPairRadius.lean); explicit finite Schwartz seminorm constant, uniform over coefficient functions bounded by one. |
+| Uniform normalized-kernel scale difference | Proved: `radiusKernel_difference_bound`, for $X\ge1$ and both radii in $[X,2X]$. |
+| Exact pair reflection and self-dual vanishing | Proved in [CubicPairReflection](../PrimeFactorOscillations/Helpers/CubicPairReflection.lean), with Fourier, Gauss-phase and symmetry hypotheses explicit. |
+| $|K_{X^2}|\le L_W XH$ | Proved: `near_selfdual_uniform_bound`, for $0\le H\le X$ and $X^2\le C\le(X+H)^2$, under those same hypotheses. |
+| Multiplication of quartic readout by $s-1/2$ | Proved to preserve off-critical Dirichlet poles; no identification with the physical carrier window is claimed. |
+| Inert-prime realization and full detector-to-kernel transfer | Unfinished; no maintained theorem discharges these for the live packet. |
+| Proposed anti-Fourier window as an improved positive norm bound | Unsupported transfer rejected: the window changes sign, and its rational-line square-root mass vanishes. The Gaussian diagnostic is ordinary mathematics, not a newly formalized detector application. |
+| New zero-free boundary | None. Installed unconditional $7/8$ remains unchanged; target remains at most $3/4$. |
+
+The [verification receipt](verification/cubic-pair-window.json) covers only
+the new theorem closures. Unchanged theorem files were not re-audited.
+Paper labels `thm:cubic-scale-difference` and `thm:cubic-selfdual-window`
+map to the two maintained modules above.

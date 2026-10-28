@@ -13,7 +13,7 @@
 \newcommand{\N}{\mathbb N}
 \title{Prime-factor densities:\\ gap spectra, zeta-zero criteria,\\ and generalized Robin inequalities}
 \author{Jonas Whidden}
-\date{Research draft, 21 October 2026}
+\date{Research draft, 28 October 2026}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -29607,6 +29607,159 @@ and smaller separate remainders are recorded as structural results;
 the certified unconditional boundary remains $7/8$.
 Failed absolute-value reductions and restricted-range attempts retain
 their failure records and are not counted as improvements of that boundary.
+
+\section{Cubic pair windows and the retained principal signal}
+\label{sec:cubic-pair-windows}
+This section records a conditional kernel estimate and its exact analytic
+input.  Its character and Fourier hypotheses remain visible.  It does not
+supply a new bound for the complete compensated prime-sampled packet.
+
+Write $\mathcal O=\mathbb Z[\omega]$, with its complex embedding $\iota$,
+and $Q(z)=|\iota(z)|^2$.  Fix the maintained nonnegative lattice constant
+$C_{\rm lat}$ for which
+\[
+ a\sum_{z\in\mathcal O,\ z\ne0}(1+aQ(z))^{-2}\le C_{\rm lat}
+ \qquad(a>0).
+\]
+For a Schwartz window $W:\mathbb R\to\mathbb C$, let $s_{kn}(W)$ be its
+Schwartz seminorm with polynomial order $k$ and derivative order $n$, and set
+\[
+ A_W=s_{00}+2s_{10}+s_{20}+2s_{11}+4s_{21}+2s_{31},
+ \qquad L_W=4A_W(1+C_{\rm lat}).
+\]
+These are the constants in the maintained declarations
+\texttt{windowSize1} and \texttt{radiusKernel\_difference\_bound}.
+In particular,
+\[
+ (1+v)^2\,|-W(v)-2vW'(v)|\le A_W\qquad(v\ge0).
+\]
+
+\begin{theorem}[Uniform signed scale difference]
+\label{thm:cubic-scale-difference}
+Let $|c(z)|\le1$ for every $z\in\mathcal O$.  If $X\ge1$ and
+$t,u\in[X,2X]$, then the sums below converge absolutely and
+\[
+ \left|\sum_{z\in\mathcal O}c(z)
+ \left\{\frac{W(Q(z)/t^2)}{t}-\frac{W(Q(z)/u^2)}{u}\right\}\right|
+ \le L_W|t-u|.
+\]
+The bound is uniform in the complete coefficient function $c$.
+\end{theorem}
+\begin{proof}
+For $q\ge0$ put $f_q(r)=r^{-1}W(q/r^2)$.  Direct differentiation gives
+\[
+ f_q'(r)=r^{-2}\{-W(q/r^2)-2(q/r^2)W'(q/r^2)\}.
+\]
+For $X\le r\le2X$, the seminorm bound therefore implies
+\[
+ (1+q/(4X^2))^2|f_q'(r)|\le A_W/X^2.
+\]
+The mean-value inequality gives the same weighted bound for
+$|f_q(t)-f_q(u)|$, multiplied by $|t-u|$.
+Set $a=(4X^2)^{-1}$ and $B=A_W|t-u|/X^2$.
+The point $z=0$ contributes one to the Cauchy majorant, so
+\[
+ a\sum_{z\in\mathcal O}(1+aQ(z))^{-2}\le a+C_{\rm lat}.
+\]
+It follows, with absolute convergence justified by this majorant, that the
+left side of the asserted estimate is at most
+\[
+ \frac{B}{a}(a+C_{\rm lat})
+ =4A_W|t-u|(a+C_{\rm lat})
+ \le L_W|t-u|.
+\]
+The same majorant applied to $W$ proves absolute convergence of each
+normalized kernel separately.
+\end{proof}
+
+For admissible coprime ideals $I,J$, write $R_I$ for the source cubic row,
+$g_I$ for its normalized Gauss sum, and
+$C=|\iota(\pi_I\pi_J)|>0$.  Define
+\[
+ K_M(I,J)=\sum_{z\in\mathcal O}
+       \overline{R_I(z)}R_J(z)W(Q(z)/M).
+\]
+The identity $R_I(z)^2=\overline{R_I(z)}$ implies $|R_I(z)|\le1$.
+
+\begin{theorem}[Conditional self-dual cancellation and localization]
+\label{thm:cubic-selfdual-window}
+Suppose the source radial Fourier transform satisfies
+$\mathcal TW=-W$ on $[0,\infty)$, and suppose
+\[
+ \overline{g_I}g_J=1,\qquad K_C(J,I)=K_C(I,J).
+\]
+Then $K_C(I,J)=0$.  More quantitatively, if
+\[
+ X\ge1,\qquad 0\le H\le X,\qquad X^2\le C\le(X+H)^2,
+\]
+then
+\[
+ |K_{X^2}(I,J)|\le L_W XH.
+\]
+\end{theorem}
+\begin{proof}
+The complete source pair-Poisson identity, including both Gauss factors, gives
+\[
+ K_M(I,J)=-\frac{M}{C}K_{C^2/M}(J,I).
+\]
+At $M=C$, the symmetry hypothesis makes the right side $-K_C(I,J)$;
+hence $K_C(I,J)=0$.  Also $\sqrt C\in[X,X+H]$.  Apply
+Theorem~\ref{thm:cubic-scale-difference} with
+$c(z)=\overline{R_I(z)}R_J(z)$, $t=X$ and $u=\sqrt C$.
+Its left side is $|K_{X^2}(I,J)/X|$, which proves the estimate.
+Conjugating the lattice variable supplies the kernel symmetry whenever
+$R_I(\overline z)=\overline{R_I(z)}$ and the corresponding identity for $J$.
+\end{proof}
+
+For $H=X^{3/4}$, the displayed kernel estimate has size $O_W(X^{7/4})$.
+Its explicit hypotheses have not been discharged for the complete
+Carmichael packet.  A finite compensated application must also retain the
+unit row, diagonal, mismatched supports and all four terms of
+$\overline{(A_i-cB_i)}(A_j-cB_j)$.
+
+\paragraph{Signal diagnostic and failed transfer.}
+The following ordinary Gaussian calculation documents why an additional
+detector identity is necessary; it is not a formalized application of the
+preceding theorem to the prime-sampled row.  For
+$b=2\pi/\sqrt3$, consider the proposed positive-half-line profile
+\[
+ W_b(v)=(v-1/(2b))e^{-bv}\qquad(v\ge0).
+\]
+Its carrier Mellin transform is
+\[
+ \mathcal M W_b(z)=\frac{(z-\tfrac12)\Gamma(z)}{b^{z+1}}
+ \qquad(\Re z>0).
+\]
+In particular, the unit-weight rational-line test has no $\sqrt M$
+leading mass.  Gaussian Poisson summation gives the sharper exact identity
+\[
+ \sum_{n\in\mathbb Z}W_b(n^2/M)
+ =-\left(\frac{\pi}{b}\right)^{5/2}M^{3/2}
+       \sum_{k\in\mathbb Z}k^2e^{-\pi^2Mk^2/b}\qquad(M>0).
+\]
+Indeed, differentiate
+$\sum_ne^{-bn^2/M}=\sqrt{\pi M/b}\sum_ke^{-\pi^2Mk^2/b}$
+and subtract $1/(2b)$ times that identity.  The mass is exponentially
+small, rather than identically zero.
+
+Separately, multiplying the maintained quartic Dirichlet readout by
+$s-\tfrac12$ preserves its poles at $\Re s>1/2$.
+That Lean declaration concerns the Dirichlet variable $s$.
+An exact map from $s$ to the carrier coordinate $z$, with the full affine
+reference term retained, has not been established for this window.
+Moreover, a sign-changing window does not give an upper bound for the
+original positive large-sieve norm.  The original detector is unchanged.
+Neither this diagnostic nor Theorem~\ref{thm:cubic-selfdual-window}
+establishes an improved zero-free boundary.
+
+\paragraph{Formalization status.}
+The two displayed kernel theorems are maintained in
+\texttt{Helpers/CubicPairRadius.lean} and
+\texttt{Helpers/CubicPairReflection.lean}.
+Their new theorem closures have been checked against standard Lean
+foundations.  The inert-prime realization, the physical-to-readout
+identification and the full signed arithmetic estimate remain open.
+The installed unconditional boundary remains $7/8$.
 
 \begin{thebibliography}{99}
 \small\raggedright

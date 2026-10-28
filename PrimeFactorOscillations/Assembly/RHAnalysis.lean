@@ -7,6 +7,8 @@ import PrimeFactorOscillations.Assembly.CompletedDetectorPackets
 import PrimeFactorOscillations.Assembly.CompletedLegacyResearch
 import PrimeFactorOscillations.Assembly.PrimeProfileRigidity
 import PrimeFactorOscillations.Assembly.RHResults
+import PrimeFactorOscillations.Helpers.CubicPairRadius
+import PrimeFactorOscillations.Helpers.CubicPairReflection
 import PrimeFactorOscillations.Helpers.XiMultiplicityBudget
 import PrimeFactorOscillations.Proof.ProbeEuler
 
