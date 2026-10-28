@@ -3,8 +3,9 @@ Copyright (c) 2026 Prime Factor Oscillations contributors.
 Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Prime Factor Oscillations contributors
 -/
+import PrimeFactorOscillations.Assembly.CarmichaelBalancedMask
 import PrimeFactorOscillations.Assembly.CarmichaelCarrierWindow
-import PrimeFactorOscillations.Assembly.CarmichaelMarkedWindow
+import PrimeFactorOscillations.Assembly.CarmichaelMovingWindow
 import PrimeFactorOscillations.Assembly.CarmichaelPhaseAscent
 import PrimeFactorOscillations.Assembly.CompletedDetectorPackets
 import PrimeFactorOscillations.Assembly.CompletedLegacyResearch

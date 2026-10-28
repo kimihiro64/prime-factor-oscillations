@@ -31839,6 +31839,185 @@ retained identities, not an independent bound on this full quotient
 sum. The certified zero-free boundary remains \(7/8\), and the
 research target remains at most \(3/4\).
 
+\section{The complete moving Carmichael window}
+\label{sec:carmichael-moving-window}
+
+The fixed Dirichlet conductor and the moving Fourier period are distinct.
+We now transfer the actual compensated finite ideal row at its moving
+period, including overlapping supports. No phase-one, transpose-symmetry,
+characteristic-two exclusion or real-line Schwartz extension is assumed.
+
+\paragraph{An arbitrary native periodic profile.}
+Let \(\mathcal O=\mathbb Z[\omega]\), let \(c\ne0\), put \(Q=|c|^2\),
+and let \(P:\mathcal O/(c)\to\mathbb C\) be arbitrary. Use the actual
+native trace character \(e_c\) and its unnormalized finite transform
+\[
+ \widehat P(w)=\sum_{r\in\mathcal O/(c)}P(r)e_c(wr).
+\]
+For the previously defined Gaussian and four-Gaussian carrier, write
+\[
+ \Theta_P(a)=\sum_{z\in\mathcal O}P([z])\,g_a(z),\qquad
+ K_P(M)=\sum_{z\in\mathcal O}P([z])V(|z|^2/M).
+\]
+For every \(a,M>0\), these series converge absolutely and
+\[
+ \Theta_P(a)=\frac1{aQ}\,
+       \Theta_{\widehat P}\!\left(\frac1{aQ}\right),\qquad
+ \boxed{\quad K_P(M)=-\frac M Q K_{\widehat P}(Q/M).\quad}                 \tag{MW}
+\]
+To prove convergence, bound \(P\) on the finite quotient and apply the
+proved native Gaussian lattice summability at each of the four positive
+scales. Finite summation then gives the actual carrier series, rather
+than a formal combination of divergent sums. The native periodic
+Gaussian Poisson theorem gives the first identity with this exact trace
+and the full finite transform. Substitute it into all four Gaussian
+summands of \(K_P\). The proved reciprocal four-scale identity reindexes
+those four summands, with the prefactor \(1/Q\) retained, and gives
+\((\mathrm{MW})\). No phase has been replaced by its magnitude or by one.
+
+\paragraph{The actual full-support quotient.}
+Let \(\mathcal F\) be any finite set of nonzero ideals, all of whose
+normalized prime factors exclude \(\lambda\). For each ideal \(I\), let
+\(S_I\) be its support in the finite pool of all these prime ideals, and
+let
+\[
+ \rho_I(z)=\prod_{\mathfrak p\in S_I}
+       \chi_{\mathfrak p}([z]_{\mathfrak p}),
+\]
+using the actual canonical sextic characters. For \(I,J\), define
+\[
+ c_{IJ}=\operatorname{generator}
+          \left(\prod_{\mathfrak p\in S_I\cup S_J}\mathfrak p\right),
+ \qquad
+ Q_{IJ}=|c_{IJ}|^2
+       =N\left(\prod_{\mathfrak p\in S_I\cup S_J}\mathfrak p\right).
+\]
+Every factor ideal contains \(c_{IJ}\), so the quotient
+\(\mathcal O/(c_{IJ})\) maps canonically to every residue field occurring
+in either row. These maps send \([z]\) to the actual \([z]_{\mathfrak p}\).
+Consequently they define an actual quotient profile
+\(P_{IJ}([z])=\overline{\rho_I(z)}\rho_J(z)\).
+Nonzero maximal ideals have nonzero product; the proved native generator
+and norm identities give \(c_{IJ}\ne0\) and the displayed \(Q_{IJ}\).
+This establishes all periodicity and scale hypotheses of \((\mathrm{MW})\).
+The union retains every common prime once in the period. It does not
+assume that \(I,J\) have disjoint supports.
+
+Fix a Dirichlet character \(\chi\), complex \(c\), and arbitrary weights
+\(W_A,W_B:\mathbb N\to\mathbb C\). Set
+\[
+ a_I=\mu_{\mathcal O}(I)\chi(NI)
+            \bigl(W_A(NI)-cW_B(NI)\bigr),\qquad
+ R_A(z)=\sum_{I\in\mathcal F}\mu_{\mathcal O}(I)\chi(NI)W_A(NI)\rho_I(z),
+\]
+and define \(R_B\) similarly. Then for every \(M>0\),
+\[
+ \boxed{\quad
+ \sum_{z\in\mathcal O}V(|z|^2/M)|R_A(z)-cR_B(z)|^2
+ =\sum_{I,J\in\mathcal F}\overline{a_I}a_J
+       \left[-\frac M{Q_{IJ}}\,
+          K_{\widehat P_{IJ}}(Q_{IJ}/M)\right].\quad}                     \tag{CP}
+\]
+Indeed \(R_A-cR_B=\sum_Ia_I\rho_I\). Expand its squared norm as the
+finite double sum
+\(\sum_{I,J}\overline{a_I}a_J\overline{\rho_I}\rho_J\).
+Each row has the convergent carrier sum just proved, so finite
+interchange is justified. Apply \((\mathrm{MW})\) separately to each
+actual \(P_{IJ}\). This proves both the exact HasSum statement and
+\((\mathrm{CP})\), without a Gram estimate.
+
+In particular its coefficient is exactly
+\[
+ \overline{a_A-ca_B}(b_A-cb_B)
+ =\bar a_A b_A-c\bar a_A b_B-\bar c\bar a_B b_A
+       +c\bar c\bar a_B b_B.
+\]
+All mixed terms, all common-prime inclusion--exclusion terms, all spatial
+and dual frequencies, and every even row survive. The ideal Mobius
+function remains the ideal Mobius function; prime-power norms of
+squarefree inert ideals are not discarded. The full finite Fourier
+profile replaces the need for scalar phase and symmetry matching
+premises. No assertion that those individual scalar phases equal one
+is made.
+
+\paragraph{The geometric unit in the entire signed packet.}
+The ideal \(1\) has empty normalized-factor support. Hence
+\(P_{11}=1\), its actual row window is the native unit packet
+\(U(M)=\sum_z V(|z|^2/M)\), and its dual window in \((\mathrm{CP})\)
+is also \(U(M)\). With
+\(\mathcal F^\circ=\mathcal F\setminus\{1\}\) and
+\(\mathcal D_{IJ}(M)=-M K_{\widehat P_{IJ}}(Q_{IJ}/M)/Q_{IJ}\),
+if \(1\in\mathcal F\) the complete identity is
+\[
+\begin{split}
+ \mathcal P(M)={}&\overline{a_1}a_1U(M)\\
+ &+\sum_{J\in\mathcal F^\circ}
+       \bigl(\overline{a_1}a_J\mathcal D_{1J}(M)
+             +\overline{a_J}a_1\mathcal D_{J1}(M)\bigr)\\
+ &+\sum_{I,J\in\mathcal F^\circ}
+       \overline{a_I}a_J\mathcal D_{IJ}(M).
+\end{split}                                                            \tag{US}
+\]
+This follows by applying the finite erase-and-unit decomposition to
+both indices in \((\mathrm{CP})\). It retains both mixed unit rows.
+The previously proved zero-mode identity gives
+\(U(M)=-M\sum_{z\ne0}V(M|z|^2)\); its weighted Gaussian tail bound yields
+\[
+ |U(M)|\le B_V/M\qquad(M\ge1),
+ \quad
+ B_V=C_{\mathcal O}\,\texttt{windowConstant}.
+\]
+Both constants are explicit, nonnegative and independent of the cutoff.
+Thus the isolated diagonal in \((\mathrm{US})\) is at most
+\(|a_1|^2B_V/M\) in magnitude. This last weighted bound is a direct
+mathematical consequence of the compiled native unit bound.
+Neither mixed row is separately normed. If \(a_1=0\), all three
+terms containing the geometric unit vanish by their coefficients.
+
+\paragraph{A local balanced compensation.}
+A separate proved finite identity on \(\mathbb F_p^2\) is
+\[
+ H_p=1-p\,1_{\{0\}},\qquad \widehat H_p=-pH_p.
+\]
+Indeed \(\widehat{1_{\{0\}}}=1\) and
+\(\widehat1=p^2 1_{\{0\}}\). This keeps the entire origin subtraction;
+it supplies no estimate for an untransferred infinite Euler packet.
+
+\paragraph{The signed arithmetic consumer.}
+The thirty declarations in the two maintained owners
+\texttt{CarmichaelBalancedMask} and \texttt{CarmichaelMovingWindow}
+are compiled and individually focused-audited. The above results
+remove the physical periodicity, convergence and phase/symmetry
+premises for every finite native compensated ideal packet.
+They do not identify the geometric ideal \(1\), spatial origin,
+additive zero frequency, auxiliary divisor \(1\), and the arithmetic
+Abel coefficient \(C_G\); these are different terms.
+
+The remaining arithmetic quantity keeps its complete quotient:
+\[
+ F_P(w)=\frac{\zeta_P(2w)}{\zeta(2w)}
+   \sum_{\substack{n,m\in S\\(n,m)=1}}
+       b_n\overline{b_m}\frac{L(w,\psi_{nm})}{L_P(w,\psi_{nm})},
+ \qquad I_{D,G}=\int_{1/2}^{3/2}F'_P(w)\,dw .
+\]
+Its full derivative contains both \(L'/L_P-LL'_P/L_P^2\) and
+\(2(\zeta'_P/\zeta_P-\zeta'/\zeta)(2w)\) times the original row.
+The prime-weighted norm-to-\(L\) identification and uniform unbounded
+Abel passage must preserve every one of these terms.
+For fixed admissible family, character, window and physical mask \(G\),
+the required estimate remains, for every \(\epsilon>0\) and all
+sufficiently large \(D\),
+\[
+ I_{D,G}(\lceil D^2\rceil)\ll_\epsilon D^{3/2+\epsilon}.
+\]
+The installed exponent is \(7/4\). In the existing complete consumer
+\(B_1^*=m_GA_0I_{D,G}+O_\epsilon(D^{7+\epsilon})+E_G\), with
+\(A_0=O(D^6)\) and the fixed-mask \(E_G=O_G(D^{6+\epsilon})\) only in
+its proved domain, these give retained powers \(31/4\) and \(15/2\),
+respectively. No new independent estimate for the signed arithmetic
+\(C_G\) or this full quotient is claimed. The certified boundary stays
+\(7/8\); the target stays at most \(3/4\).
+
 \begin{thebibliography}{99}
 \small\raggedright
 \setlength{\itemsep}{3pt}

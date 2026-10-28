@@ -852,3 +852,59 @@ The installed arithmetic I exponent7/4 and certified boundary7/8 are unchanged;
 required I exponent3/2 and target boundary at most3/4 remain active.
 Paper label: `sec:carmichael-marked-window`.
 Receipt: [marked and complete divisor packet](verification/carmichael-marked-window.json).
+
+## Complete moving compensated physical packet (2026-10-28)
+
+Owners: `Assembly/CarmichaelBalancedMask.lean` and
+`Assembly/CarmichaelMovingWindow.lean`. All30 public claims compile in their
+maintained owners and have individual focused standard-only axiom checks.
+The earlier21 new proofs were not re-audited for the final9 additions.
+
+| Lean declaration | Claim | Status |
+| --- | --- | --- |
+| `CarmichaelBalancedMask.origin_transform` | Finite trace transform of the spatial origin indicator. | Proved; focused axiom audit passed. |
+| `CarmichaelBalancedMask.constant_transform` | Finite trace transform of the constant profile. | Proved; focused axiom audit passed. |
+| `CarmichaelBalancedMask.balanced_pair_transform` | Full local profile 1-p*delta_0 has eigenvalue -p. | Proved; focused axiom audit passed. |
+| `CarmichaelMovingWindow.idealRowSum_compensation` | Exact native row equals RA-c*RB before any norm. | Proved; focused axiom audit passed. |
+| `CarmichaelMovingWindow.compensated_mobius_packet` | Full supported common-prime Mobius overlap with compensated weights. | Proved; focused axiom audit passed. |
+| `CarmichaelMovingWindow.compensation_cross_terms` | Both complex mixed terms and c*bar(c) term retained. | Proved; focused axiom audit passed. |
+| `CarmichaelMovingWindow.periodic_gaussian_summable` | Actual arbitrary-period profile Gaussian series converges. | Proved; focused axiom audit passed. |
+| `CarmichaelMovingWindow.periodic_window_hasSum` | Actual infinite four-Gaussian carrier HasSum. | Proved; focused axiom audit passed. |
+| `CarmichaelMovingWindow.periodic_window_gaussian_expansion` | Window equals its four convergent Gaussian sums. | Proved; focused axiom audit passed. |
+| `CarmichaelMovingWindow.periodic_gaussian_transfer` | Native trace transfer for every nonzero Eisenstein period. | Proved; focused axiom audit passed. |
+| `CarmichaelMovingWindow.periodic_window_transfer` | Full arbitrary-profile moving-window transfer, all Fourier terms retained. | Proved; focused axiom audit passed. |
+| `CarmichaelMovingWindow.fullModulus_ne_zero` | Union-product period is nonzero under proved local maximality. | Proved; focused axiom audit passed. |
+| `CarmichaelMovingWindow.fullModulus_mem` | Union generator belongs to every supported local ideal. | Proved; focused axiom audit passed. |
+| `CarmichaelMovingWindow.fullModulus_norm_sq` | Exact period norm equals norm of the union ideal product. | Proved; focused axiom audit passed. |
+| `CarmichaelMovingWindow.residueFactor_mk` | Actual quotient maps send native z to its local residue. | Proved; focused axiom audit passed. |
+| `CarmichaelMovingWindow.pairProfile_mk` | Full quotient profile equals the actual two squarefree rows, including overlaps. | Proved; focused axiom audit passed. |
+| `CarmichaelMovingWindow.full_pair_window_hasSum` | Actual overlapping native pair carrier HasSum. | Proved; focused axiom audit passed. |
+| `CarmichaelMovingWindow.full_pair_window_transfer` | Actual overlapping pair transfer with no phase/symmetry/even-row exclusion. | Proved; focused axiom audit passed. |
+| `CarmichaelMovingWindow.finiteRowSum_norm_square` | Exact complex double expansion of the entire finite row. | Proved; focused axiom audit passed. |
+| `CarmichaelMovingWindow.finite_packet_window_hasSum` | Entire signed finite packet converges with all cross terms. | Proved; focused axiom audit passed. |
+| `CarmichaelMovingWindow.finite_packet_window_transfer` | Entire signed finite packet transfers at each exact union period. | Proved; focused axiom audit passed. |
+| `CarmichaelMovingWindow.pairWindow_unit` | Empty-support physical row is the actual unit packet. | Proved; focused axiom audit passed. |
+| `CarmichaelMovingWindow.dualPairWindow_unit` | Dual empty-support row is the same actual unit packet. | Proved; focused axiom audit passed. |
+| `CarmichaelMovingWindow.dualPairWindow_unit_bound` | Explicit O(1/M) geometric unit bound, every M>=1. | Proved; focused axiom audit passed. |
+| `CarmichaelMovingWindow.native_compensated_window_hasSum` | Actual native idealRowSum compensated packet HasSum, original hypotheses only. | Proved; focused axiom audit passed. |
+| `CarmichaelMovingWindow.native_compensated_window_transfer` | Actual native compensated ideal packet, every phase and cross term retained. | Proved; focused axiom audit passed. |
+| `CarmichaelMovingWindow.idealSupport_one` | Actual ideal1 has empty normalized-factor support. | Proved; focused axiom audit passed. |
+| `CarmichaelMovingWindow.native_unit_window` | Native ideal1 dual diagonal equals actual unit packet. | Proved; focused axiom audit passed. |
+| `CarmichaelMovingWindow.native_unit_window_bound` | Native ideal1 diagonal has explicit cutoff-independent O(1/M) bound. | Proved; focused axiom audit passed. |
+| `CarmichaelMovingWindow.native_compensated_unit_split` | Full native packet splits into unit diagonal, both mixed sums and exact nonunit support. | Proved; focused axiom audit passed. |
+
+The native compensated HasSum and window transfer now use the actual moving
+union-product period. No new phase-one, transpose-symmetry, primitive-row,
+characteristic-two exclusion or real-line Schwartz hypothesis is present.
+Every overlap, ideal Mobius sign, inert prime-power norm and all four
+compensation terms remain. The full finite Fourier transform is retained;
+individual scalar phases are not asserted to equal one.
+
+The native ideal1 row is identified and bounded by B_V/M for M>=1. Its exact
+split retains both mixed rows and the entire finite complement F.erase(1).
+This geometric unit is distinct from arithmetic Abel C_G. No new estimate of
+that arithmetic term, the prime-weighted reciprocal-L packet, or its uniform
+unbounded Abel passage has been proved. I7/4 and the certified boundary7/8 are
+unchanged. I3/2 and boundary at most3/4 remain the active target.
+Paper label: `sec:carmichael-moving-window`.
+Receipt: [complete moving window](verification/carmichael-moving-window.json).
