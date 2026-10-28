@@ -1,0 +1,59 @@
+{
+  "date": "2026-10-28",
+  "status": "compiled_and_focused_audited",
+  "owners": [
+    "PrimeFactorOscillations/Assembly/CarmichaelCrossCorrelation.lean",
+    "PrimeFactorOscillations/Helpers/CubicUnitMixed.lean"
+  ],
+  "theorem_count": 13,
+  "declarations": [
+    "PrimeFactorOscillations.CarmichaelCrossCorrelation.rawCross_character_sum",
+    "PrimeFactorOscillations.CarmichaelCrossCorrelation.rawCross_sum",
+    "PrimeFactorOscillations.CarmichaelCrossCorrelation.crossKernel_character_sum",
+    "PrimeFactorOscillations.CarmichaelCrossCorrelation.crossKernel_nonneg",
+    "PrimeFactorOscillations.CarmichaelCrossCorrelation.crossKernel_mean",
+    "PrimeFactorOscillations.CarmichaelCrossCorrelation.crossCoefficient_principal",
+    "PrimeFactorOscillations.CarmichaelCrossCorrelation.crossKernel_expansion",
+    "PrimeFactorOscillations.CubicUnitMixed.pair_at_one_bound",
+    "PrimeFactorOscillations.CubicUnitMixed.pair_at_conductor_bound",
+    "PrimeFactorOscillations.CubicUnitMixed.unit_admissible",
+    "PrimeFactorOscillations.CubicUnitMixed.unit_pairScale",
+    "PrimeFactorOscillations.CubicUnitMixed.unit_primitive_bound",
+    "PrimeFactorOscillations.CubicUnitMixed.fourPacket_reflection"
+  ],
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "domain": "finite commutative groups; nonzero moduli; admissible coprime Eisenstein ideals; Schwartz anti-Fourier radial profiles; arbitrary positive four compensation scales",
+  "proved": {
+    "crossKernel": "nonnegative, mean one, principal coefficient one; exact complex Fourier spectrum",
+    "unitPrimitive": "|K_1J(q)|<=sqrt(q)*windowSize0(W)*(1+E_O)",
+    "compensation": "full signed four-scale exact dual reflection"
+  },
+  "open": [
+    "actual Gaussian paired-coset qualification",
+    "native Gauss conjugate compatibility for full filtered amplitudes",
+    "weighted meromorphic zero readout",
+    "full reciprocal-L prime-sampled arithmetic estimate"
+  ],
+  "benchmark_status": "structural_kernel_bound_only",
+  "old_bound": "I7/4; physical31/4; certified boundary7/8",
+  "new_bound": "unchanged",
+  "components": {
+    "exact_relative_phase": "retained",
+    "unit_kernel": "square-root conductor bound",
+    "arithmetic_saving": "not established"
+  },
+  "actuals": "not numerically evaluated",
+  "first_nonpositive_domain": "unavailable; no new total arithmetic estimate",
+  "target_boundary": "at most3/4",
+  "verification": {
+    "maintained": "compiled",
+    "focused_axioms": "13 exact names; standard axioms only",
+    "source_policy": "passed",
+    "final_consumer_and_staged_checks": "required before commit",
+    "paper": "built-in compile required before commit"
+  }
+}

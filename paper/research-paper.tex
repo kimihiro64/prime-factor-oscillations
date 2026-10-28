@@ -30727,6 +30727,103 @@ compensation cross term retained, still requires
 \(I_{D,G}\ll_\varepsilon D^{3/2+\varepsilon}\); its installed exponent is
 \(7/4\), and the certified boundary remains \(7/8\).
 
+\section{Phase-preserving cross profiles and the unit-to-primitive row}
+Let \(G\) be a finite commutative group and \(w,v:G\to\mathbb R_{\ge0}\)
+have positive sums \(S_w,S_v\). Write
+\[
+ R_{w,v}(u)=\sum_{h\in G}w(h)v(hu),\qquad
+ C_{w,v}(u)=\frac{|G|R_{w,v}(u)}{S_wS_v},\qquad
+ F_w(\chi)=\sum_{h\in G}w(h)\chi(h).
+\]
+Then \(C_{w,v}\ge0\), its mean is one, and its exact character coefficients are
+\[
+ k_\chi=\frac{\overline{F_w(\chi)}F_v(\chi)}{S_wS_v},
+ \qquad k_1=1.
+\]
+Indeed, changing variables \(y=hu\) and using
+\(\chi(h)^{-1}=\overline{\chi(h)}\) gives
+\[
+ \sum_u R_{w,v}(u)\chi(u)
+ =\sum_h w(h)\overline{\chi(h)}
+       \sum_y v(y)\chi(y)
+ =\overline{F_w(\chi)}F_v(\chi).
+\]
+With the principal character this proves
+\(\sum_u R_{w,v}(u)=S_wS_v\), which gives the claimed mean and
+principal coefficient after division. Each summand in \(R_{w,v}\) is
+nonnegative. On \(G=(\mathbb Z/q\mathbb Z)^\times\), finite Fourier
+inversion gives the full, untruncated identity
+\[
+ C_{w,v}(u)=\sum_{\chi\bmod q} k_\chi\chi(u^{-1}).
+\]
+This construction retains relative phase; autocorrelation would replace
+the numerator by \(|F_w(\chi)|^2\).
+No conjugate-compatibility assertion for a separately prescribed amplitude
+is needed for this identity.
+
+Next let \(I,J\) be admissible coprime Eisenstein ideals, put
+\(C=C_{IJ}>0\), and let \(W\) be a Schwartz radial profile satisfying
+\(\widehat W_{\rm rad}=-W\) on the nonnegative axis.
+The native normalized Gauss factors satisfy \(|g_I|=|g_J|=1\).
+Exact pair reflection is
+\[
+ K_{IJ}(M)=-\frac{M}{C}\overline{g_I}g_J K_{JI}(C^2/M).
+\]
+Define \(B_W=\operatorname{windowSize}_0(W)(1+E_O)\), where \(E_O\)
+is the existing Eisenstein lattice-envelope constant.
+The pointwise Schwartz estimate and the native row bound give
+\[
+ (1+N(z))^2\,
+ \left|\overline{\chi_J(z)}\chi_I(z)W(N(z))\right|
+ \le \operatorname{windowSize}_0(W).
+\]
+The proved lattice-envelope theorem therefore yields
+\(|K_{JI}(1)|\le B_W\). Applying the exact reflection first, at \(M=C^2\),
+and only then bounding this isolated dual remainder gives
+\[
+ |K_{IJ}(C^2)|\le C B_W.
+\]
+The unit ideal is admissible: it is squarefree and its primary generator
+is one. Also \(C_{1J}=|\iota(\operatorname{gen}J)|\) and
+\((1,J)=1\). Thus, with \(q=|\iota(\operatorname{gen}J)|^2\),
+\[
+ |K_{1J}(q)|\le \sqrt q\,B_W.
+\]
+No assumption that either native Gauss phase is one, and no symmetry
+assumption on the two ordered kernels, is used.
+
+For arbitrary positive \(M_{AA},M_{AB},M_{BA},M_{BB}\), the complete
+compensated expression is
+\[
+ \mathcal K=K_{IJ}(M_{AA})-\bar cK_{IJ}(M_{AB})
+             -cK_{IJ}(M_{BA})+c\bar cK_{IJ}(M_{BB}).
+\]
+Substituting the exact reflection in each term, with no estimate between
+substitutions, gives
+\[
+\begin{split}
+ \mathcal K=-\frac{\overline{g_I}g_J}{C}\bigl[
+ &M_{AA}K_{JI}(C^2/M_{AA})
+ -\bar c M_{AB}K_{JI}(C^2/M_{AB})\\
+ &-c M_{BA}K_{JI}(C^2/M_{BA})
+ +c\bar c M_{BB}K_{JI}(C^2/M_{BB})\bigr].
+\end{split}
+\]
+This proves the complete four-scale transfer without imposing artificial
+relations between the scales.
+
+These finite identities and theta-kernel bounds do not establish a bound
+for the full prime-sampled logarithmic derivative. In that consumer the
+reciprocal \(L\)-factors, their derivatives, the common principal term and
+every compensation term must still be retained. The general paired
+Poisson application also retains its Schwartz anti-Fourier premise;
+the previously proved Gaussian Mellin transfer alone does not discharge it.
+The installed signed bound remains \(I_{D,G}\ll D^{7/4+\epsilon}\),
+with retained physical power \(31/4\). The required
+\(I_{D,G}\ll D^{3/2+\epsilon}\) would give retained physical power \(15/2\),
+subject to the other physical obligations. The certified boundary remains
+\(7/8\), and the research target remains at most \(3/4\).
+
 \begin{thebibliography}{99}
 \small\raggedright
 \setlength{\itemsep}{3pt}

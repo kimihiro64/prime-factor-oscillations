@@ -1,5 +1,23 @@
 # Paper theorem and provenance ledger
 
+## Cross profiles and unit-to-primitive rows — 28 October 2026
+
+**Fully matched: 13 declarations in two maintained owners.** The actual nonnegative cross-correlation retains relative Fourier phase, has mean one, and has principal coefficient one. The cubic unit-to-primitive kernel at conductor norm `q` is bounded by `sqrt(q)` times an explicit window constant. Exact dual reflection keeps all four compensation terms at independent positive scales. These kernel bounds retain the anti-Fourier Schwartz-window premise. Matching the physical Gaussian window in the general paired-coset formula and estimating the full prime-weighted reciprocal-L packet remain open. The certified boundary is **7/8**, with target **at most 3/4**.
+
+- `PrimeFactorOscillations.CarmichaelCrossCorrelation.rawCross_character_sum` — compiled and focused-audited.
+- `PrimeFactorOscillations.CarmichaelCrossCorrelation.rawCross_sum` — compiled and focused-audited.
+- `PrimeFactorOscillations.CarmichaelCrossCorrelation.crossKernel_character_sum` — compiled and focused-audited.
+- `PrimeFactorOscillations.CarmichaelCrossCorrelation.crossKernel_nonneg` — compiled and focused-audited.
+- `PrimeFactorOscillations.CarmichaelCrossCorrelation.crossKernel_mean` — compiled and focused-audited.
+- `PrimeFactorOscillations.CarmichaelCrossCorrelation.crossCoefficient_principal` — compiled and focused-audited.
+- `PrimeFactorOscillations.CarmichaelCrossCorrelation.crossKernel_expansion` — compiled and focused-audited.
+- `PrimeFactorOscillations.CubicUnitMixed.pair_at_one_bound` — compiled and focused-audited.
+- `PrimeFactorOscillations.CubicUnitMixed.pair_at_conductor_bound` — compiled and focused-audited.
+- `PrimeFactorOscillations.CubicUnitMixed.unit_admissible` — compiled and focused-audited.
+- `PrimeFactorOscillations.CubicUnitMixed.unit_pairScale` — compiled and focused-audited.
+- `PrimeFactorOscillations.CubicUnitMixed.unit_primitive_bound` — compiled and focused-audited.
+- `PrimeFactorOscillations.CubicUnitMixed.fourPacket_reflection` — compiled and focused-audited.
+
 ## Native phase-filter probability profiles — 28 October 2026
 
 **Fully matched: 16 declarations** in [CarmichaelPhaseFilter.lean](../PrimeFactorOscillations/Assembly/CarmichaelPhaseFilter.lean). The actual single-return spectrum gives an exact unit amplitude budget. Every contractive phase function produces a profile between zero and two of mean one. Dividing it by two gives an acceptance weight between zero and one, of mean one half, with actual principal correlation coefficient one. Prescribed unit-phase amplitudes satisfy phase balance. Their identification with the new profile's complete Fourier spectrum still requires conjugate compatibility; no new zero readout, uniform prime sampling theorem or arithmetic exponent bound is claimed.
