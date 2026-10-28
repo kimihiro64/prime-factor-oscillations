@@ -31247,6 +31247,120 @@ and all four compensation terms. Its installed power remains \(7/4\);
 the required independent power is \(3/2\). The certified zero-free
 boundary remains \(7/8\), with target at most \(3/4\).
 
+\section{The complete finite Fourier packet in split norm coordinates}
+\label{sec:split-norm-fourier}
+Let \(F\) be a finite field of cardinality \(q\), let \(r,s\in F\) satisfy
+\[
+                    r+s=-1,\qquad rs=1,\qquad r\ne s,
+\]
+and let \(\psi:F\longrightarrow\mathbb C^\times\) be an additive character.
+Write
+\[
+ N(a,b)=a^2-ab+b^2,\qquad
+ B((a,b),(c,d))=ad+bc-bd,
+\]
+and extend every multiplicative character by zero at zero.
+For a nonprincipal multiplicative character \(\chi\), the exact identity is
+\[
+ \sum_{a,b\in F}\chi(N(a,b))\psi(B((a,b),(c,d)))
+   =\chi(3)\tau(\chi,\psi)^2\chi^{-1}(N(c,d)),
+ \qquad
+ \tau(\chi,\psi)=\sum_{x\in F}\chi(x)\psi(x).
+\]
+This identity allows every additive character \(\psi\).
+If \(\psi\) is primitive, the principal character has the different formula
+\[
+ \sum_{a,b\in F}\chi_0(N(a,b))\psi(B((a,b),(c,d)))
+  =1-q\,1_{N(c,d)=0}+q(q-1)\,1_{(c,d)=(0,0)}.
+\]
+Thus the principal transform retains both isotropic lines and their
+intersection. It is not replaced by a single origin term.
+The hypotheses themselves imply \(3\ne0\) in \(F\).
+
+Here is the full proof. Put \(\Delta=r-s\). Polynomial expansion gives
+\[
+ N(a,b)=(a+br)(a+bs),\qquad \Delta^2=-3,
+\]
+\[
+ (a+br)(c+dr)-(a+bs)(c+ds)
+        =\Delta B((a,b),(c,d)).
+\]
+Since \(\Delta\ne0\), its square is nonzero; hence \(3\ne0\).
+The linear change of variables
+\[
+ x=a+br,\quad y=a+bs,\qquad
+ a=\frac{ry-sx}{\Delta},\quad b=\frac{x-y}{\Delta}
+\]
+is a bijection of \(F^2\). Under it the Fourier sum becomes
+\[
+ H_\chi(U,V)=\sum_{x,y\in F}\chi(xy)\psi(Ux+Vy),
+ \qquad U=\frac{c+dr}{\Delta},\quad V=-\frac{c+ds}{\Delta}.
+\]
+Multiplicativity of \(\chi\), the additive-character identity
+\(\psi(x+y)=\psi(x)\psi(y)\), and finite distributivity give
+\[
+ H_\chi(U,V)
+   =\tau(\chi,\psi(U\,\cdot))\,
+      \tau(\chi,\psi(V\,\cdot)).
+\]
+For nonprincipal \(\chi\), the Gauss shift identity holds at every \(U\),
+including \(U=0\):
+\[
+ \tau(\chi,\psi(U\,\cdot))=\chi^{-1}(U)\tau(\chi,\psi).
+\]
+At zero this uses the vanishing of the nonprincipal character sum;
+at nonzero \(U\) it is the unit change of variables.
+Consequently
+\[
+ H_\chi(U,V)=\tau(\chi,\psi)^2\chi^{-1}(UV).
+\]
+The displayed polynomial identities give
+\[
+ UV=-\frac{(c+dr)(c+ds)}{\Delta^2}=\frac{N(c,d)}3.
+\]
+The character-group inverse and the fact that \(3\) is a unit then yield
+\(\chi^{-1}(N(c,d)/3)=\chi(3)\chi^{-1}(N(c,d))\), proving the
+nonprincipal formula without dropping any frequency.
+
+For the principal character, primitivity of \(\psi\) instead gives
+\[
+ \tau(\chi_0,\psi(U\,\cdot))
+   =\begin{cases}q-1,&U=0,\\-1,&U\ne0.\end{cases}
+\]
+Multiply the two exact factors, keeping all four zero/nonzero cases:
+\[
+ H_{\chi_0}(U,V)
+   =1-q\,1_{UV=0}+q(q-1)\,1_{U=V=0}.
+\]
+The change of variables gives \(UV=0\) exactly when \(N(c,d)=0\).
+If \(U=V=0\), subtraction gives \(d\Delta=0\), so \(d=0\) and then
+\(c=0\). The converse is immediate. This proves the complete principal
+formula and its two line corrections.
+
+All thirteen declarations, including the explicit coordinate bijection,
+the nonprincipal transform and the principal formula, are maintained in
+\texttt{Helpers/CubicNormFourier.lean}. The formal statements retain the
+displayed algebraic root hypotheses. For the intended split-prime setting,
+the usual choice is \(F=\mathbb Z/q\mathbb Z\) with the two distinct
+primitive cube roots. Its assembled root-existence, Eisenstein quotient
+and additive-trace identification are separate from the general theorem
+proved here.
+
+The actual normalized nonprincipal norm-transform coefficient is
+\[
+                         G_\chi=\chi(3)\tau(\chi,\psi)^2/q.
+\]
+This is the coefficient to match in a cubic/sextic physical transfer.
+No identification with a single one-dimensional Gauss factor is assumed.
+The complete principal row is retained in that application, together with
+the full inducing nonunit mask and finite Euler factors. The inverse
+\(L\)-function quotients and all four compensation terms also remain in
+the arithmetic packet. Neither the finite identity nor its unit formula
+estimates the arithmetic Abel unit \(C_G\).
+The installed bound remains \(I_{D,G}\ll_\epsilon D^{7/4+\epsilon}\);
+the active target is \(D^{3/2+\epsilon}\), with certified boundary \(7/8\)
+and required boundary at most \(3/4\).
+
 \begin{thebibliography}{99}
 \small\raggedright
 \setlength{\itemsep}{3pt}

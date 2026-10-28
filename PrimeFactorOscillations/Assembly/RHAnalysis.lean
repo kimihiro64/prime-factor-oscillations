@@ -10,6 +10,7 @@ import PrimeFactorOscillations.Assembly.CompletedLegacyResearch
 import PrimeFactorOscillations.Assembly.PrimeProfileRigidity
 import PrimeFactorOscillations.Assembly.RHResults
 import PrimeFactorOscillations.Helpers.CubicGaussianCancellation
+import PrimeFactorOscillations.Helpers.CubicNormFourier
 import PrimeFactorOscillations.Helpers.XiMultiplicityBudget
 import PrimeFactorOscillations.Proof.ProbeEuler
 

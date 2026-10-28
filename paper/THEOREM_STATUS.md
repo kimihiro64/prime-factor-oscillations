@@ -1,5 +1,23 @@
 # Paper theorem and provenance ledger
 
+## Exact split-norm Fourier packet and principal row — 28 October 2026
+
+**Fully matched: 13 declarations in one maintained owner.** Over every finite field with distinct roots `r+s=-1`, `r*s=1`, the complete norm-coordinate Fourier sum is `chi(3)*tau(chi)^2*chi^-1(N(w))` for every nonprincipal multiplicative character. No primitive additive-character assumption is needed for that identity. For primitive additive characters the full principal row is exactly `1-q*1_(N(w)=0)+q*(q-1)*1_(w=0)`. Both isotropic lines, their intersection and all nonzero frequencies remain. Characteristic three is excluded by the root hypotheses themselves. The actual Eisenstein quotient/trace specialization, assembled phase-centering consumer and full signed reciprocal-L estimate remain open. No arithmetic power improvement is claimed: the certified boundary is **7/8**, with target **at most 3/4**.
+
+- `PrimeFactorOscillations.CubicNormFourier.hyperbolic_factor` — compiled and focused-audited.
+- `PrimeFactorOscillations.CubicNormFourier.hyperbolic_nonprincipal` — compiled and focused-audited.
+- `PrimeFactorOscillations.CubicNormFourier.principal_gauss_shift` — compiled and focused-audited.
+- `PrimeFactorOscillations.CubicNormFourier.hyperbolic_principal` — compiled and focused-audited.
+- `PrimeFactorOscillations.CubicNormFourier.norm_split` — compiled and focused-audited.
+- `PrimeFactorOscillations.CubicNormFourier.trace_split` — compiled and focused-audited.
+- `PrimeFactorOscillations.CubicNormFourier.norm_hyperbolic` — compiled and focused-audited.
+- `PrimeFactorOscillations.CubicNormFourier.difference_sq` — compiled and focused-audited.
+- `PrimeFactorOscillations.CubicNormFourier.three_ne_zero` — compiled and focused-audited.
+- `PrimeFactorOscillations.CubicNormFourier.split_dual_norm` — compiled and focused-audited.
+- `PrimeFactorOscillations.CubicNormFourier.inverse_norm_div_three` — compiled and focused-audited.
+- `PrimeFactorOscillations.CubicNormFourier.norm_nonprincipal` — compiled and focused-audited.
+- `PrimeFactorOscillations.CubicNormFourier.norm_principal` — compiled and focused-audited.
+
 ## Actual Gauss-phase ascent transfer — 28 October 2026
 
 **Fully matched: six declarations in one maintained owner.** The actual phase-balanced kernel gives nonnegative prime weights and a floor of one half on primes coprime to the full inducing modulus `N`. The same `N`, rather than only the prime conductor `q`, controls the witness-deletion budget. Under the explicit existing `LocalAscentSampling` hypothesis and eventual `N(X)<=X^(m(X)/2)`, the complete signed weighted local ascent excess is eventually nonpositive if and only if RH; equivalently it has an eventual `C*X^(7/10)` upper bound. Failure of RH makes that normalized excess unbounded. Infinite twins alone do not discharge the sampling hypothesis. This is a criterion transfer, with no new prime-character estimate: the certified boundary remains **7/8**, and the target remains **at most 3/4**.

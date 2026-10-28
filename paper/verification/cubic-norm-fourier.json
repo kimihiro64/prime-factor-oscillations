@@ -1,0 +1,66 @@
+{
+  "date": "2026-10-28",
+  "status": "compiled_and_focused_audited",
+  "owners": [
+    "PrimeFactorOscillations/Helpers/CubicNormFourier.lean"
+  ],
+  "theorem_count": 13,
+  "declarations": [
+    "PrimeFactorOscillations.CubicNormFourier.hyperbolic_factor",
+    "PrimeFactorOscillations.CubicNormFourier.hyperbolic_nonprincipal",
+    "PrimeFactorOscillations.CubicNormFourier.principal_gauss_shift",
+    "PrimeFactorOscillations.CubicNormFourier.hyperbolic_principal",
+    "PrimeFactorOscillations.CubicNormFourier.norm_split",
+    "PrimeFactorOscillations.CubicNormFourier.trace_split",
+    "PrimeFactorOscillations.CubicNormFourier.norm_hyperbolic",
+    "PrimeFactorOscillations.CubicNormFourier.difference_sq",
+    "PrimeFactorOscillations.CubicNormFourier.three_ne_zero",
+    "PrimeFactorOscillations.CubicNormFourier.split_dual_norm",
+    "PrimeFactorOscillations.CubicNormFourier.inverse_norm_div_three",
+    "PrimeFactorOscillations.CubicNormFourier.norm_nonprincipal",
+    "PrimeFactorOscillations.CubicNormFourier.norm_principal"
+  ],
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "domain": "every finite field F and r,s with r+s=-1,r*s=1,r!=s; arbitrary additive psi for the nonprincipal formula; primitive psi for the exact principal row",
+  "proved": {
+    "nonprincipal": "sum chi(Nz)*psi(B(z,w))=chi(3)*tau(chi,psi)^2*chi^-1(Nw)",
+    "principal": "1-q*1_(Nw=0)+q*(q-1)*1_(w=0); every isotropic line and the origin retained",
+    "characteristic": "3!=0 follows from the split-root assumptions"
+  },
+  "open": [
+    "assembled split-prime root-existence and actual Eisenstein quotient/trace specialization",
+    "unit normalization and inverse compatibility of the exact paired Gauss phase in the native kernel consumer",
+    "complete linear centering and physical Gaussian transfer with all compensation terms",
+    "full signed reciprocal-L I_DG power3/2, including arithmetic Abel C_G, overlapping and mismatched supports"
+  ],
+  "benchmark_status": "exact_native_finite_transform_only",
+  "old_bound": "I7/4; physical31/4; certified boundary7/8",
+  "new_bound": "unchanged",
+  "components": {
+    "native_phase": "exact chi(3)*tau^2/q identified",
+    "principal_unit": "full finite correction proved",
+    "arithmetic_saving": "not established"
+  },
+  "actuals": "no numerical experiment",
+  "first_nonpositive_domain": "unavailable; no improved total arithmetic estimate",
+  "target_boundary": "at most3/4",
+  "detector_error": "existing uniform coefficient and Mellin precision unchanged",
+  "family_adapter": "split norm-coordinate finite Fourier transform; the actual Eisenstein quotient and full inverse-L arithmetic map remain to be assembled",
+  "uncancelled_main_terms": "full reciprocal-L row, arithmetic Abel unit, overlaps, even/mismatched supports and AA-barcAB-cBA+|c|^2BB",
+  "low_estimate_provenance": "installed power7/4 only",
+  "parameter_domain": "original admissible family/character/window and fixed physical mask G; every epsilon>0 and all sufficiently large D",
+  "attainable_endpoint": "certified7/8; <=3/4 requires an independent full signed power3/2 and remaining physical obligations",
+  "verification": {
+    "prototype": "all13 compiled in the exact destination namespace with no warnings",
+    "maintained": "all13 compiled",
+    "focused_axioms": "13 exact new names; standard axioms only",
+    "source_policy": "passed",
+    "facade_and_root": "required before commit",
+    "final_staged_checks": "required before commit",
+    "paper": "built-in compile required before commit"
+  }
+}
