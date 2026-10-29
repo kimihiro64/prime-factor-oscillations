@@ -32278,6 +32278,133 @@ estimate alone. The installed exponent is \(7/4\), the certified
 zero-free boundary remains \(7/8\), and the active endpoint is
 at most \(3/4\).
 
+\section{Uniform prime masks in the signed companion}
+\label{sec:carmichael-companion-masks}
+
+The product weight in the native reconstruction is \(A_G(ab)\),
+not \(A_G(a)A_G(b)\): the latter equality would require an
+additional coprimality condition within the column. We retain the
+former weight for every finite set \(G\) of primes, including \(2\).
+Write
+\[
+ A_G(n)=\prod_{\substack{p\in G\\p\mid n}}\frac p{p-1},
+ \qquad h_B=\sum_{1\le j\le B}\frac1j .
+\]
+There is no bound on the cardinality or product of \(G\).
+
+\begin{theorem}[Uniform amplified companion estimate]
+\label{thm:carmichael-amplified-companion}
+Let \(\psi\ne1\) be a Dirichlet character modulo \(q>0\).
+For positive \(a,c,H,K,B,C\) and arbitrary complex windows \(u,v\),
+\[
+ \begin{split}
+ &\left|\mathcal C_{\psi;H,K}
+   (B,C; A_G(a\,\cdot)u,A_G(c\,\cdot)v)\right|\\
+ &\quad\le
+ (\min(B,C)+1)\,q^2\,\tau(a)\tau(c)\tau(H)\tau(K)
+   h_B^2h_C^2\,V_B(u)V_C(v).
+ \end{split}
+\]
+The same finite statement includes a zero cutoff, when its packet
+is empty. Every constant displayed is explicit; in particular the
+right side is independent of \(G\).
+\end{theorem}
+
+\begin{proof}
+For a set \(T\) of distinct primes put
+\[
+ d_T=\prod_{p\in T}p,\qquad
+ \kappa_T=\prod_{p\in T}\frac1{p-1}\ge0.
+\]
+Primality gives the exact factorization
+\[
+ A_G(ab)=A_G(a)A_{\{p\in G:p\nmid a\}}(b).
+\]
+Expanding the second product as a sum over subsets gives
+\[
+ A_G(ab)=A_G(a)
+  \sum_{\substack{T\subseteq\{p\in G:p\nmid a\}\\d_T\mid b}}
+       \kappa_T .
+\]
+This identity permits arbitrary common prime factors of \(a,b\).
+For \(1\le b\le B\), a term can contribute only if \(d_T\le B\).
+Thus the sum is truncated by the actual companion cutoff, rather
+than by the product of all primes in \(G\).
+
+For every such subset,
+\[
+ d_T\kappa_T=A_T(d_T)\le\tau(d_T).
+\]
+Here the last inequality is the previously proved uniform amplifier
+bound; it does not depend on the number of tags. Unique prime
+factorization makes \(T\mapsto d_T\) injective. Therefore
+\[
+ \sum_{\substack{T\subseteq G\\d_T\le B}}\kappa_T
+ \le\sum_{1\le d\le B}\frac{\tau(d)}d
+ =\sum_{\substack{r,s\ge1\\rs\le B}}\frac1{rs}
+ \le\left(\sum_{1\le r\le B}\frac1r\right)^2=h_B^2.
+\]
+The middle equality and the final inequality are finite
+divisor-antidiagonal identities, with every positive pair retained.
+They also hold at \(B=0\).
+
+In a progression \(k\mid b\), each tag condition \(d_T\mid b\)
+is exactly the condition \(\operatorname{lcm}(k,d_T)\mid b\).
+Apply the complete-period character cancellation of
+Theorem~\ref{thm:carmichael-companion-bound} to each such progression,
+with the original smooth weight \(u\) unchanged. The coefficient
+mass above gives, uniformly in \(k\ge0\),
+\[
+ \left|
+ \sum_{\substack{1\le b\le B\\k\mid b,\ (b,H)=1}}
+       \psi(b) A_G(ab)u(b)
+ \right|
+ \le A_G(a)h_B^2 q\tau(H)V_B(u)
+ \le \tau(a)h_B^2 q\tau(H)V_B(u).
+\]
+The discontinuous Euler mask has entered the progression conditions
+before the variation estimate; its jumps are not assigned to
+\(V_B(u)\).
+
+Finally insert these bounds into the exact signed coprimality
+expansion of the full companion packet. Its complete-period main
+terms have already vanished; the displayed bounds estimate their
+finite remainders. Keeping all \(\mu(k)\) terms gives the estimate
+with \(B+1\). Conjugation exchanges both windows, masks, native
+indices and cutoffs, giving the estimate with \(C+1\).
+The smaller bound is the stated one.
+\end{proof}
+
+For the actual cubic companion, the nonprincipal hypothesis is
+discharged in the preceding section. Compensation remains within
+the smooth windows: the bound applies directly to
+\(u=u_A-z u_B\) and \(v=v_A-z v_B\).
+The separately compiled exact identity is
+\[
+ \begin{split}
+ \mathcal C(A_G(a\,\cdot)(u_A-z u_B),
+            A_G(c\,\cdot)(v_A-z v_B))
+  ={}&\mathcal C(A_G(a\,\cdot)u_A,A_G(c\,\cdot)v_A)\\
+   &-\bar z\,\mathcal C(A_G(a\,\cdot)u_A,A_G(c\,\cdot)v_B)\\
+   &-z\,\mathcal C(A_G(a\,\cdot)u_B,A_G(c\,\cdot)v_A)\\
+   &+z\bar z\,\mathcal C(A_G(a\,\cdot)u_B,A_G(c\,\cdot)v_B).
+ \end{split}
+\]
+No prime-power norm, overlapping divisor condition or mixed
+compensation term has been removed.
+
+This proves a uniform bound for the actual amplified companion
+factor. The full native hyperbola reindexing, the sampled-window
+variation bounds and the remaining signed native sum are separate
+analytic consumers still under development. In particular this
+theorem alone does not estimate the native sector with both
+companion indices equal to \(1\), nor the complete reciprocal-\(L\)
+packet or its unbounded Abel limit.
+The global installed exponent remains \(I_{D,G}\ll D^{7/4+\epsilon}\)
+and the certified zero-free boundary remains \(7/8\).
+The active target remains \(I_{D,G}\ll D^{3/2+\epsilon}\) and a
+boundary at most \(3/4\).
+
 \begin{thebibliography}{99}
 \small\raggedright
 \setlength{\itemsep}{3pt}

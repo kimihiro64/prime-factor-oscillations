@@ -1,0 +1,25 @@
+"""Uniform prime-amplifier transfer for signed Carmichael companion packets."""
+
+TARGETS = (
+    "PrimeFactorOscillations.CarmichaelCompanionMasks.progression_divisor_window",
+    "PrimeFactorOscillations.CarmichaelCompanionMasks.progression_divisor_sum",
+    "PrimeFactorOscillations.CarmichaelCompanionMasks.divisor_sum_progression_bound",
+    "PrimeFactorOscillations.CarmichaelCompanionMasks.divisor_sum_packet_bound",
+    "PrimeFactorOscillations.CarmichaelCompanionMasks.tag_product_pos",
+    "PrimeFactorOscillations.CarmichaelCompanionMasks.tag_product_dvd_iff",
+    "PrimeFactorOscillations.CarmichaelCompanionMasks.amplifier_product_split",
+    "PrimeFactorOscillations.CarmichaelCompanionMasks.amplifier_tag_expansion",
+    "PrimeFactorOscillations.CarmichaelCompanionMasks.tag_coefficient_nonneg",
+    "PrimeFactorOscillations.CarmichaelCompanionMasks.tag_coefficient_identity",
+    "PrimeFactorOscillations.CarmichaelCompanionMasks.tag_coefficient_le",
+    "PrimeFactorOscillations.CarmichaelCompanionMasks.tag_mass_le_divisor_harmonic",
+    "PrimeFactorOscillations.CarmichaelCompanionMasks.divisor_harmonic_le_square",
+    "PrimeFactorOscillations.CarmichaelCompanionMasks.amplifier_truncated_tag_expansion",
+    "PrimeFactorOscillations.CarmichaelCompanionMasks.progression_tag_window",
+    "PrimeFactorOscillations.CarmichaelCompanionMasks.tag_window_progression_bound",
+    "PrimeFactorOscillations.CarmichaelCompanionMasks.amplified_window_eq",
+    "PrimeFactorOscillations.CarmichaelCompanionMasks.amplified_progression_identity",
+    "PrimeFactorOscillations.CarmichaelCompanionMasks.amplified_progression_bound",
+    "PrimeFactorOscillations.CarmichaelCompanionMasks.amplified_packet_bound",
+    "PrimeFactorOscillations.CarmichaelCompanionMasks.amplified_compensation_expansion",
+)

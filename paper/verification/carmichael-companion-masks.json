@@ -1,0 +1,65 @@
+{
+  "date": "2026-10-29",
+  "status": "compiled_and_focused_audited",
+  "owners": [
+    "PrimeFactorOscillations/Assembly/CarmichaelCompanionMasks.lean"
+  ],
+  "theorem_count": 21,
+  "declarations": [
+    "PrimeFactorOscillations.CarmichaelCompanionMasks.progression_divisor_window",
+    "PrimeFactorOscillations.CarmichaelCompanionMasks.progression_divisor_sum",
+    "PrimeFactorOscillations.CarmichaelCompanionMasks.divisor_sum_progression_bound",
+    "PrimeFactorOscillations.CarmichaelCompanionMasks.divisor_sum_packet_bound",
+    "PrimeFactorOscillations.CarmichaelCompanionMasks.tag_product_pos",
+    "PrimeFactorOscillations.CarmichaelCompanionMasks.tag_product_dvd_iff",
+    "PrimeFactorOscillations.CarmichaelCompanionMasks.amplifier_product_split",
+    "PrimeFactorOscillations.CarmichaelCompanionMasks.amplifier_tag_expansion",
+    "PrimeFactorOscillations.CarmichaelCompanionMasks.tag_coefficient_nonneg",
+    "PrimeFactorOscillations.CarmichaelCompanionMasks.tag_coefficient_identity",
+    "PrimeFactorOscillations.CarmichaelCompanionMasks.tag_coefficient_le",
+    "PrimeFactorOscillations.CarmichaelCompanionMasks.tag_mass_le_divisor_harmonic",
+    "PrimeFactorOscillations.CarmichaelCompanionMasks.divisor_harmonic_le_square",
+    "PrimeFactorOscillations.CarmichaelCompanionMasks.amplifier_truncated_tag_expansion",
+    "PrimeFactorOscillations.CarmichaelCompanionMasks.progression_tag_window",
+    "PrimeFactorOscillations.CarmichaelCompanionMasks.tag_window_progression_bound",
+    "PrimeFactorOscillations.CarmichaelCompanionMasks.amplified_window_eq",
+    "PrimeFactorOscillations.CarmichaelCompanionMasks.amplified_progression_identity",
+    "PrimeFactorOscillations.CarmichaelCompanionMasks.amplified_progression_bound",
+    "PrimeFactorOscillations.CarmichaelCompanionMasks.amplified_packet_bound",
+    "PrimeFactorOscillations.CarmichaelCompanionMasks.amplified_compensation_expansion"
+  ],
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "domain": "Every positive q, nonprincipal Dirichlet psi modq, positive native indices a,c and masks H,K, arbitrary finite companion cutoffs B,C, every finite set G of primes including2, and arbitrary complex combined windows. No RH, zero-free strip, primitivity, or within-column coprimality hypothesis.",
+  "proved": [
+    "Exact product amplifier A_G(ab), squarefree prime-tag expansion and truncation by the actual companion cutoff.",
+    "Tag coefficient <=tau(d)/d and total effective mass <=h_B^2 uniformly in all finiteG.",
+    "Every divisor tag becomes an lcm progression before the actual smooth-window variation is bounded.",
+    "Complete amplified signed coprime companion bound with explicit q^2,tau(a),tau(c),tau(H),tau(K),h_B^2,h_C^2 and both combined-window variations.",
+    "Exact all-four-term amplified compensation expansion; all original prime-power norms retained."
+  ],
+  "open": [
+    "Full native hyperbola reindexing and actual sampled-window variation consumer.",
+    "The complete signed native product sum, in particular the high-product sector and companion indices b=d=1.",
+    "The prime-sampled packet with all reciprocal-L factors and the uniform unbounded Abel limit.",
+    "Unconditional I(D,G)<=D^(3/2+epsilon) and zero-free boundary<=3/4."
+  ],
+  "benchmark_status": "universal_finite_component_bound_proved; global_exponent_unchanged",
+  "old_bound": "The plain-companion estimate uses variation of the full supplied weight. Applying it directly to the discontinuous product amplifier has no supplied uniform smooth-variation bound.",
+  "new_bound": "Full amplified companion <=(min(B,C)+1)*q^2*tau(a)*tau(c)*tau(H)*tau(K)*h_B^2*h_C^2*V(w,B)*V(v,C), uniform over all finiteG.",
+  "components": {
+    "independent_input": "Complete-period nonprincipal character cancellation followed by exact finite coprimality Mobius and prime-tag identities.",
+    "mask_mass": "<=sum_(1<=d<=B)tau(d)/d<=h_B^2",
+    "compensation": "AA-conj(z)AB-zBA+z*conj(z)BB; combined windows stay inside variation.",
+    "conductor": "q^2 retained, including growing q."
+  },
+  "actuals": "No finite diagnostics used; statements hold universally on the displayed finite domains.",
+  "first_nonpositive_domain": "Not applicable to this norm upper bound; global analytic gain unavailable.",
+  "certified_global_boundary": "7/8",
+  "target_global_boundary": "<=3/4",
+  "certified_global_I_exponent": "7/4",
+  "target_global_I_exponent": "3/2"
+}

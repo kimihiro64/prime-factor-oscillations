@@ -963,9 +963,51 @@ nonprincipal hypothesis is discharged; a principal companion remains an
 explicit exceptional case outside this cancellation estimate.
 
 This is an independent character estimate. Its complete native reindexing,
-fixed-G mask application, growing-parameter costs and the remaining long
+growing-parameter costs and the remaining long
 native sector still need their signed consumer. No I3/2 or improved global
 zero-free boundary is claimed. Installed I7/4 and boundary7/8 remain;
 the active endpoint remains at most3/4.
 Paper label: `sec:carmichael-companion-cancellation`.
 Receipt: [signed companion estimate](verification/carmichael-companion-cancellation.json).
+
+## Uniform prime-mask companion transfer (2026-10-29)
+
+Owner: `Assembly/CarmichaelCompanionMasks.lean`.
+
+| Lean declaration | Claim | Status |
+| --- | --- | --- |
+| `progression_divisor_window` | A divisibility window becomes the exact lcm progression, including zero indices. | Proved; focused axiom audit passed. |
+| `progression_divisor_sum` | Every finite divisor coefficient is retained in the progression identity. | Proved; focused axiom audit passed. |
+| `divisor_sum_progression_bound` | Weighted progression cancellation pays coefficient mass and the original window variation. | Proved; focused axiom audit passed. |
+| `divisor_sum_packet_bound` | Both finite divisor masks are retained in the full coprime packet bound. | Proved; focused axiom audit passed. |
+| `tag_product_pos` | Every finite prime-tag product is positive. | Proved; focused axiom audit passed. |
+| `tag_product_dvd_iff` | Prime-tag divisibility is equivalent to all its individual prime conditions. | Proved; focused axiom audit passed. |
+| `amplifier_product_split` | Exact A_G(ab) splitting requires no coprimality of a,b. | Proved; focused axiom audit passed. |
+| `amplifier_tag_expansion` | Exact nonnegative squarefree-tag expansion of the amplifier. | Proved; focused axiom audit passed. |
+| `tag_coefficient_nonneg` | All prime-tag expansion coefficients are nonnegative. | Proved; focused axiom audit passed. |
+| `tag_coefficient_identity` | d times its tag coefficient equals its exact amplifier. | Proved; focused axiom audit passed. |
+| `tag_coefficient_le` | Each coefficient is at most tau(d)/d. | Proved; focused axiom audit passed. |
+| `tag_mass_le_divisor_harmonic` | Truncated tag mass is at most the divisor harmonic prefix, uniformly in G. | Proved; focused axiom audit passed. |
+| `divisor_harmonic_le_square` | The divisor harmonic prefix is at most the square of the harmonic prefix. | Proved; focused axiom audit passed. |
+| `amplifier_truncated_tag_expansion` | The exact product amplifier uses only tags below the companion cutoff. | Proved; focused axiom audit passed. |
+| `progression_tag_window` | All tags become lcm progression conditions before variation. | Proved; focused axiom audit passed. |
+| `tag_window_progression_bound` | Character cancellation estimates the actual truncated tag window. | Proved; focused axiom audit passed. |
+| `amplified_window_eq` | Exact finite tag expansion of A_G(a*b) times the smooth window. | Proved; focused axiom audit passed. |
+| `amplified_progression_identity` | The original amplified progression equals its full tag progression sum. | Proved; focused axiom audit passed. |
+| `amplified_progression_bound` | Progression bound uniform in every finite prime mask, with explicit harmonic and conductor costs. | Proved; focused axiom audit passed. |
+| `amplified_packet_bound` | Complete amplified packet bound with min(B,C)+1 and all q/divisor/harmonic/window costs. | Proved; focused axiom audit passed. |
+| `amplified_compensation_expansion` | Exact AA, both mixed terms, and z*conj(z)*BB after amplification. | Proved; focused axiom audit passed. |
+
+For every finite set G of primes, including 2, the full amplified packet is at most
+`(min(B,C)+1)*q^2*tau(a)*tau(c)*tau(H)*tau(K)*h_B^2*h_C^2*V(w,B)*V(v,C)`.
+The exact amplifier is A_G(a*b). Its mask conditions enter the progression
+before variation; no coprimality within a column is imposed. All prime powers,
+all supported tag conditions and all four compensation terms remain.
+The estimate is uniform in the size and product of G.
+
+The full native hyperbola reindexing, sampled-window variation bounds,
+remaining signed native sector and uniform reciprocal-L/Abel consumer are
+still open. No bound for the complete arithmetic unit or I3/2 is claimed.
+Installed global I7/4 and boundary7/8 are unchanged; the target remains <=3/4.
+Paper label: `sec:carmichael-companion-masks`.
+Receipt: [uniform amplified companion](verification/carmichael-companion-masks.json).
