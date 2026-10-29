@@ -1366,14 +1366,17 @@ proofs received fresh standard-only axiom checks.
 | `CarmichaelSexticTransfer` | `neutral_mask_support` | Even neutral rows retain their exact nonunit-mask support. | Proved; focused axiom audit passed. |
 | `CarmichaelSexticTransfer` | `gauss_neutral_exponents` | The unrestricted Gauss row permits sixth powers under the actual local support conditions. | Proved; focused axiom audit passed. |
 | `CarmichaelSexticTransfer` | `gauss_neutral_factorization` | All prime valuations have s=c*v^6, n=h^2 and the required disjointness. | Proved; focused axiom audit passed. |
-| `CarmichaelSexticTransfer` | `gauss_neutral_mask_support` | Imprimitive sixth powers keep their complete prime support in the zero mask. | Proved; focused axiom audit passed. |
+| `CarmichaelSexticTransfer` | `gauss_neutral_mask_support` | The abstract neutral character product retains sixth-power prime support; full Gauss support has separate Ramanujan terms. | Proved; focused axiom audit passed. |
 | `CarmichaelEisensteinUnitMean` | `periodic_zero_mean_uniform` | The full zero mode cancels before a scale-uniform signed Eisenstein frequency bound. | Proved; focused axiom audit passed. |
 | `CarmichaelEisensteinUnitMean` | `nonprincipal_character_uniform` | Nonprincipal residue characters discharge mean zero without reality or primitivity. | Proved; focused axiom audit passed. |
 
 The full Gauss classification assumes the displayed frequency-support
 and character zero-mask conditions; it does not assert that they suffice
 for a nonzero Gauss sum. Only the coefficient index c is squarefree.
-The modulus index s is unrestricted and its sixth-power support remains.
+The modulus index s is unrestricted. The character-product support is
+c+v+h; the full imprimitive Gauss summand instead keeps the original
+c*h coprimality mask and the separate Ramanujan divisibilities on v^6.
+No v-coprimality mask is imposed on those nonunit frequency terms.
 The signed frequency bound is uniform at every positive physical scale;
 its conductor cost is the explicit sum of absolute residue weights.
 Nonprincipality, rather than a reality or primitivity assumption,
@@ -1394,3 +1397,42 @@ Certified zero-free boundary unchanged at7/8 (target<=3/4).
 No finite numerical diagnostics were used.
 Paper label:`sec:carmichael-sextic-unit-mean`.
 Receipt:[sextic phases and signed unit means](verification/carmichael-sextic-unit-mean.json).
+
+
+## Full masked and forced-ideal frequency estimates (2026-10-29)
+
+Maintained owner: `CarmichaelEisensteinMaskedMean.lean`.
+All7 declarations compiled. Four unchanged proof audits were reused;
+the norm lemma and both strengthened signed bounds received fresh
+standard-only axiom checks.
+
+| Declaration | Exact scope | Status |
+| --- | --- | --- |
+| `ideal_moebius_norm_le_one` | Every exact ideal Mobius coefficient has modulus at most one. | Proved; focused axiom audit passed. |
+| `residue_character_norm_le_one` | Every finite residue character has modulus at most one, including nonunit zeros. | Proved; focused axiom audit passed. |
+| `masked_nonprincipal_character_uniform` | The full masked signed mean is bounded by C*p(W)*B_xi*2^card(S) at every positive scale. | Proved; focused axiom audit passed. |
+| `row_mask_norm_le_one` | The actual complete prime-ideal mask has modulus at most one. | Proved; focused axiom audit passed. |
+| `row_mask_multiplicative` | Prime-mask multiplicativity is exact, including every nonunit. | Proved; focused axiom audit passed. |
+| `ideal_masked_frequency_dilation` | Every nonzero forced frequency ideal transfers with its actual mask scalar, character phase and rescaled norm argument. | Proved; focused axiom audit passed. |
+| `ideal_divisible_masked_character_bound` | The same linear residue-mass bound holds uniformly for every nonzero forced ideal and every positive scale. | Proved; focused axiom audit passed. |
+
+The exact dilation keeps M_S(g_D)*xi(g_D) and applies to every nonzero
+ideal D, including all overlaps with the mask. Both signed estimates
+are uniform for K>0 with explicit cost B_xi*2^card(S); neither an extra
+residue-mass power nor an unstated conductor constant is introduced.
+The character-product support c+v+h is distinct from the original
+imprimitive Gauss mask c*h and the Ramanujan divisibilities on v^6.
+The earlier paper, ledger and receipt now explicitly record this distinction;
+no Lean theorem statement was invalidated by the wording correction.
+
+Open: full source Gauss-to-Ramanujan identification and general-frequency
+unit transport, all source-row sums and height bounds, moving Hecke/norm
+adapter, independent signed small-square estimate, and the uniform Abel
+limit with every compensation term. This is a proved signed frequency
+estimate, not a complete source-unit or rational C_G estimate.
+
+Benchmark status: full finite mask and all forced ideals handled at the
+frequency-row level. Complete I exponent remains7/4 (target3/2); certified
+boundary remains7/8 (target<=3/4). No finite numerical diagnostics used.
+Paper label:`sec:carmichael-masked-frequency-dilation`.
+Receipt:[full masked and forced-ideal means](verification/carmichael-masked-frequency-dilation.json).

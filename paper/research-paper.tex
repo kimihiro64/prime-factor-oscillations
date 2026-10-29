@@ -33791,11 +33791,13 @@ every prime is equivalent to
  v_{\mathfrak p}>0\Longrightarrow c_{\mathfrak p}+h_{\mathfrak p}=0.
 \]
 Thus the multiplicative neutral form is
-\(s=c\,v^6,\ n=h^2,\ (v,ch)=1\). Its full zero-mask support is
+\(s=c\,v^6,\ n=h^2,\ (v,ch)=1\). The associated character product has zero-mask support
 \[
  \operatorname{supp}(c+3n+s)=\operatorname{supp}(c+v+h).
 \]
-The prime support of a sixth power is not erased.
+This retains the sixth-power prime support in the multiplicative
+character product. It is not a support formula for the complete
+imprimitive Gauss summand on nonunit frequencies.
 \end{theorem}
 \begin{proof}
 If \(c+3n>0\), \((G)\) gives \(m=0\), hence \(s\le1\).
@@ -33871,6 +33873,10 @@ prime power \(\mathfrak p^e\), the signed Ramanujan pair
  \bigl[-\mathbf1_{\mathfrak p^{e-1}\mid m}
        +N(\mathfrak p)\mathbf1_{\mathfrak p^e\mid m}\bigr].
 \]
+Here the original \(\chi_A\) factor gives the \(ch\) coprimality
+mask. The primes in \(v\), disjoint from \(ch\), instead force the
+frequency divisibilities in the displayed Ramanujan pair. Applying an
+additional \(v\)-coprimality mask would incorrectly erase those terms.
 The masked dilation, the complete source-unit summation, its adapter to
 the rational \(C_G\) packet, and the uniform Abel limit are not concluded
 by \((U)\). Nor does the finite base-character ratio identity by itself
@@ -33879,6 +33885,117 @@ These are retained analytic consumers, with every compensation term.
 The complete certified \(I_{D,G}\) exponent remains \(7/4\), its required
 target is \(3/2\), and the complete zero-free boundary remains \(7/8\)
 with target at most \(3/4\).
+
+\section{Full coprime masks and forced frequency ideals}
+\label{sec:carmichael-masked-frequency-dilation}
+Let \(c\ne0\) in the Eisenstein integers \(\mathcal O\), and let
+\(\xi:\mathcal O/(c)\to\mathbb C\) be a nonprincipal multiplicative
+character. Write
+\[
+ B_\xi=\sum_{r\bmod c}|\xi(r)|.
+\]
+Let \(\{\mathfrak p_i:i\in S\}\) be any finite collection of distinct
+maximal ideals and put
+\[
+ M_S(u)=\mathbf1_{\forall i\in S,\ u\notin\mathfrak p_i},\qquad
+ S_S(K)=\sum_{u\in\mathcal O}M_S(u)\xi(u\bmod c)W(N(u)/K).
+\]
+The original \(ch\) mask in the imprimitive neutral row is one such mask.
+No coprimality with the sixth-power factor is added.
+
+\begin{theorem}[Complete masked signed frequency estimate]
+\label{thm:carmichael-full-masked-frequency}
+There are fixed \(C>0\) and a finite Schwartz seminorm \(p\), independent
+of \(S,c,\xi,K\), such that for all \(K>0\),
+\[
+ |S_S(K)|\le C p(W)B_\xi\,2^{|S|}.                   \tag{M}
+\]
+All prime-mask inclusion-exclusion terms, their ideal M\"obius signs,
+and their character phases are retained in the exact transfer used
+to prove this bound.
+\end{theorem}
+\begin{proof}
+A finite residue character has modulus at most one: on units its
+norm squared is one, and on nonunits its value is zero.
+For \(E\subseteq S\), let \(g_E\ne0\) be the existing generator of
+\(\prod_{i\in E}\mathfrak p_i\). The proved masked radial dilation
+identity is
+\[
+ S_S(K)=\sum_{E\subseteq S}
+ \mu\!\left(\prod_{i\in E}\mathfrak p_i\right)\xi(g_E)
+ \sum_{z\in\mathcal O}\xi(z)
+       W\!\left(\frac{N(z)}{K/N(g_E)}\right).
+\]
+The original Schwartz periodic sum is summable, so this finite
+inclusion-exclusion identity has no unaccounted limiting term.
+Every new scale \(K/N(g_E)\) is positive.
+Apply Theorem~\ref{thm:carmichael-signed-eisenstein-unit-mean}
+to each inner sum. Its zero dual frequency cancels exactly because
+\(\xi\) is nonprincipal. Only afterwards use
+\(|\mu|\le1\), \(|\xi(g_E)|\le1\), and
+\(|\{E:E\subseteq S\}|=2^{|S|}\).
+This gives \((M)\), with precisely one residue-mass factor.
+\end{proof}
+
+\begin{theorem}[Exact forced-ideal transfer]
+\label{thm:carmichael-forced-ideal-frequency}
+Let \(D\ne0\) be any ideal, with the existing generator \(g_D\).
+For every multiplicative character, Schwartz window
+\(W\), and \(K>0\), the exact identity is
+\[
+ \begin{split}
+ &\sum_{u\in D} M_S(u)\xi(u)W(N(u)/K)\\
+ &\quad=M_S(g_D)\xi(g_D)
+   \sum_{z\in\mathcal O}M_S(z)\xi(z)
+         W\!\left(\frac{N(z)}{K/N(g_D)}\right).
+ \end{split}                                                   \tag{D}
+\]
+For the nonprincipal character and Schwartz window above, there are
+fixed \(C,p\) giving, uniformly for every nonzero \(D\) and \(K>0\),
+\[
+ \left|\sum_{u\in D}M_S(u)\xi(u)W(N(u)/K)\right|
+ \le C p(W)B_\xi\,2^{|S|}.                          \tag{F}
+\]
+No disjointness assumption between \(D\) and the mask is needed.
+\end{theorem}
+\begin{proof}
+Primality gives
+\(ab\in\mathfrak p_i\) if and only if
+\(a\in\mathfrak p_i\) or \(b\in\mathfrak p_i\).
+Consequently \(M_S(ab)=M_S(a)M_S(b)\), including zero values.
+The existing exact ideal-to-generator series identity replaces
+\(u\in D\) by \(u=g_Dz\). Multiplicativity of the mask and character
+then keeps the scalar \(M_S(g_D)\xi(g_D)\).
+The norm argument is exactly
+\[
+ \frac{N(g_Dz)}{K}=\frac{N(z)}{K/N(g_D)};
+\]
+this proves \((D)\). The Schwartz frequency series are summable.
+For \((F)\), the actual generator is nonzero, so the new scale is
+positive. Apply \((M)\) at this scale and use
+\(|M_S(g_D)\xi(g_D)|\le1\). If the generator meets a forbidden prime,
+the retained mask scalar is zero and the full restricted row vanishes.
+\end{proof}
+
+The maintained Lean owner proves the seven individual declarations for
+the M\"obius norm, residue-character norm, complete masked bound, mask
+norm and multiplicativity, exact ideal dilation, and forced-ideal bound.
+The seminorm here acts on the frequency window; it does not assert that
+the four-Gaussian carrier is Schwartz on the negative half-line.
+The cost \(B_\xi 2^{|S|}\) is explicit and must still be charged when the
+conductor or mask grows. In particular, this estimate alone is not
+uniform in an unbounded collection of masks.
+
+The two signed terms of each imprimitive Ramanujan factor can now be
+transferred to their actual frequency ideals without removing a
+nonunit contribution. Identifying the full source Gauss factor with
+that expansion, summing the remaining source rows, controlling the
+required height seminorms, and passing the full compensated rational
+packet through its unbounded Abel limit remain separate consumers.
+The complete certified exponent is still \(7/4\) for \(I_{D,G}\),
+with target \(3/2\); the certified boundary remains \(7/8\), with
+target at most \(3/4\). The phase scalar in \((D)\) has not been
+replaced by its norm in the identity.
 
 \begin{thebibliography}{99}
 \small\raggedright

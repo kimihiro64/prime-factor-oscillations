@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-29",
+  "paper_label": "sec:carmichael-masked-frequency-dilation",
+  "status": "proved_and_focused_axiom_audited",
+  "new_targets": [
+    "PrimeFactorOscillations.CarmichaelEisensteinMaskedMean.ideal_moebius_norm_le_one",
+    "PrimeFactorOscillations.CarmichaelEisensteinMaskedMean.residue_character_norm_le_one",
+    "PrimeFactorOscillations.CarmichaelEisensteinMaskedMean.masked_nonprincipal_character_uniform",
+    "PrimeFactorOscillations.CarmichaelEisensteinMaskedMean.row_mask_norm_le_one",
+    "PrimeFactorOscillations.CarmichaelEisensteinMaskedMean.row_mask_multiplicative",
+    "PrimeFactorOscillations.CarmichaelEisensteinMaskedMean.ideal_masked_frequency_dilation",
+    "PrimeFactorOscillations.CarmichaelEisensteinMaskedMean.ideal_divisible_masked_character_bound"
+  ],
+  "new_target_count": 7,
+  "owners": [
+    {
+      "path": "PrimeFactorOscillations/Assembly/CarmichaelEisensteinMaskedMean.lean",
+      "sha256": "31783f71587151dc56017f236e3dfacbfdf876e037c085d6376723343aa9b35e"
+    }
+  ],
+  "axiom_checks": {
+    "standard_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "new_or_changed_checked": 3,
+    "reused_unchanged": 4,
+    "logs": [
+      {
+        "path": ".research/generated/carmichael-eisenstein-masked-mean-axioms2-20261029.log",
+        "sha256": "c9c18cf41371f04a53a34035be07a06f50b05cb0add5abfd3e449bd48738a1a4",
+        "targets": [
+          "PrimeFactorOscillations.CarmichaelEisensteinMaskedMean.ideal_moebius_norm_le_one"
+        ],
+        "reused_unchanged": true
+      },
+      {
+        "path": ".research/generated/carmichael-eisenstein-masked-dilation-axioms4-20261029.log",
+        "sha256": "b46faa5ec2057766907562f094d1fbffeab19002aac84cb8289d3a1a92070005",
+        "targets": [
+          "PrimeFactorOscillations.CarmichaelEisensteinMaskedMean.row_mask_norm_le_one",
+          "PrimeFactorOscillations.CarmichaelEisensteinMaskedMean.row_mask_multiplicative",
+          "PrimeFactorOscillations.CarmichaelEisensteinMaskedMean.ideal_masked_frequency_dilation"
+        ],
+        "reused_unchanged": true
+      },
+      {
+        "path": ".research/generated/carmichael-eisenstein-masked-sharp-axioms3-20261029.log",
+        "sha256": "70883b8dbee12edd279fad792a3c3b9c86c783347810493c483105aeb2b38bdc",
+        "targets": [
+          "PrimeFactorOscillations.CarmichaelEisensteinMaskedMean.residue_character_norm_le_one",
+          "PrimeFactorOscillations.CarmichaelEisensteinMaskedMean.masked_nonprincipal_character_uniform",
+          "PrimeFactorOscillations.CarmichaelEisensteinMaskedMean.ideal_divisible_masked_character_bound"
+        ],
+        "reused_unchanged": false
+      }
+    ]
+  },
+  "proved_scope": {
+    "mask": "Every finite set of distinct maximal Eisenstein ideals; exact ideal Mobius dilation retained until zero modes cancel.",
+    "character": "Every nonprincipal residue character on O/(c), including imprimitive and nonreal characters. Pointwise norm <=1 includes nonunits.",
+    "uniform_mean": "Signed masked frequency sum <=C*p(W)*B_xi*2^card(S), every K>0.",
+    "forced_ideal": "Every nonzero ideal D has the same uniform bound, no disjointness hypothesis and no extra residue-mass power.",
+    "exact_dilation": "The arbitrary-window identity retains M_S(g_D)*xi(g_D) and scale K/norm(embed(g_D))^2; the paper uses its summable Schwartz specialization."
+  },
+  "parameter_domain": "All nonzero Eisenstein moduli with their finite residue quotients, every positive physical scale, every finite injectively indexed maximal-ideal mask, every nonzero forced ideal. The exact identity allows every character and arbitrary windows; the signed bounds require a Schwartz window and nonprincipal character.",
+  "explicit_costs": {
+    "residue_mass": "B_xi=sum_{r mod c} norm(xi(r)), exactly one factor in both signed bounds",
+    "mask": "2^card(S)",
+    "constant": "Universal positive C and finite Schwartz seminorm p; existential, no numerical value asserted",
+    "forced_ideal": "No factor depending on D beyond the retained exact phase and rescaled argument"
+  },
+  "source_mask_correction": {
+    "abstract_character_product": "support(c+3n+s)=support(c+v+h)",
+    "full_imprimitive_gauss": "Original chi_A mask is on c*h; sixth-power v contributes the separate signed Ramanujan divisibilities. No v-coprimality mask is imposed.",
+    "previous_theorems": "All earlier Lean statements remain valid; paper/ledger/receipt wording clarified."
+  },
+  "detector_error": "Unchanged certified detector; no RH-dependent frequency input used.",
+  "family_adapter": "Previously compiled carrier/base-character adapters retained. The full moving Hecke phase and source-to-rational adapter are not inferred from the frequency mean.",
+  "uncancelled_main_terms": "Full signed small-square core and rational C_G remain unestimated at the required scale.",
+  "low_estimate_provenance": "Actual Eisenstein Poisson, exact complete-mask and ideal-generator dilation, finite-character norms and the uniform nonzero lattice tail.",
+  "attainable_endpoint": "No complete new endpoint derived. Certified boundary7/8 and target<=3/4 retained.",
+  "benchmark_status": "All finite coprime masks and all forced frequency ideals now have a proved scale-uniform signed mean; full packet exponent unchanged",
+  "old_bound": {
+    "complete_I_exponent": "7/4",
+    "zero_free_boundary": "7/8",
+    "frequency_component": "Unmasked signed mean proved; no installed full-mask/forced-ideal adapter"
+  },
+  "new_bound": {
+    "complete_I_exponent": "7/4",
+    "zero_free_boundary": "7/8",
+    "frequency_component": "C*p(W)*B_xi*2^card(S), uniformly for every K>0 and every nonzero forced ideal D"
+  },
+  "target": {
+    "I_exponent": "3/2",
+    "zero_free_boundary": "at most3/4"
+  },
+  "components": [
+    "Complete ideal-Mobius mask identity",
+    "Norm-one residue-character control",
+    "All mask and forced-ideal phases retained",
+    "Zero-mode cancellation precedes nonzero-frequency norm estimates"
+  ],
+  "actuals": "No numerical diagnostics; universal Lean results only",
+  "first_nonpositive_domain": "Not applicable to the proved norm bound; no new complete signed positivity bound installed",
+  "open_edges": [
+    "General-frequency unit transport and trace qualification for the available source principal prime-power Gauss evaluation",
+    "Exact complete Gauss-to-Ramanujan source collection",
+    "Remaining outer source-row sums and Mellin-height seminorm control",
+    "Growing conductor and mask costs including the unbounded Abel limit",
+    "Moving Hecke/norm and source-to-rational C_G adapters",
+    "Independent signed small-square estimate with every compensation term"
+  ]
+}
