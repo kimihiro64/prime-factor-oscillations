@@ -32018,6 +32018,132 @@ respectively. No new independent estimate for the signed arithmetic
 \(C_G\) or this full quotient is claimed. The certified boundary stays
 \(7/8\); the target stays at most \(3/4\).
 
+\section{Reconstructing the signed arithmetic unit}
+\label{sec:carmichael-arithmetic-unit}
+
+The spatial argument \(u=1\) is distinct from the ideal index \(I=1\),
+the spatial origin and the additive zero frequency. For every original
+admissible finite ideal set \(\mathcal F\), the canonical sextic character
+takes the value one at the residue of one. Therefore the actual native row
+satisfies the compiled identity
+\[
+ R_A(1)-cR_B(1)=
+ \sum_{I\in\mathcal F}\mu_{\mathcal O}(I)\chi(NI)
+       \bigl(W_A(NI)-cW_B(NI)\bigr).                                    \tag{AU1}
+\]
+The proof unfolds the finite product defining each native sextic row,
+applies its character's map-one identity at every supported prime,
+and then uses the proved compensation identity before summation.
+There is no bound by the geometric ideal-\(1\) theta packet in this step.
+
+\paragraph{The exact plain companion.}
+Write
+\[
+ a_\chi(k)=\sum_{NI=k}\mu_{\mathcal O}(I)\chi(NI),\qquad
+ \psi_\chi=\operatorname{baseChangeChar}(\chi)
+\]
+with the finite norm fibers and their zero-index convention from the
+native library. The companion has modulus \(3q\) and is the product of the
+level-changed \(\chi\) and \(\chi_{-3}\). The existing proved provider gives
+\[
+ a_\chi=(\mu\chi)*(\mu\psi_\chi)
+\]
+at every positive integer. The new finite reconstruction theorem proves,
+including index zero,
+\[
+ \boxed{\quad
+   \sum_{ab=n}a_\chi(a)\psi_\chi(b)=\mu(n)\chi(n).
+ \quad}                                                               \tag{AU2}
+\]
+Here \(*\) denotes finite Dirichlet convolution; every displayed
+factorization sum is over the finite divisor antidiagonal of \(n\).
+
+For completeness, the proof first establishes
+\((\mu\psi_\chi)*\psi_\chi=\delta_1\).
+For \(ab=n\ne0\), multiplicativity gives
+\(\psi_\chi(a)\psi_\chi(b)=\psi_\chi(n)\), and the remaining divisor
+sum is the proved Mobius--zeta identity. At \(n=0\) the divisor
+antidiagonal is empty and the Mobius coefficient is zero. Associativity
+then proves
+\[
+ [(\mu\chi)*(\mu\psi_\chi)]*\psi_\chi=\mu\chi.
+\]
+The Lean proof uses arithmetic functions for this associativity and the
+actual norm-fiber coefficient theorem, rather than identifying rational
+and ideal Mobius functions.
+
+In particular prime-power terms are retained until they cancel.
+For an unramified inert prime with \(\chi(p)\ne0\), for example,
+\(a_\chi(p)=0\), \(a_\chi(p^2)=-\chi(p)^2\), and
+\(\psi_\chi(p)=-\chi(p)\). The three terms at \(n=p^2\) are
+\(\chi(p)^2+0-\chi(p)^2=0\), as required by rational \(\mu(p^2)=0\).
+Deleting the inert norm-\(p^2\) term would destroy the reconstruction.
+The universal convolution theorem also covers ramified primes and
+characters that vanish at a prime.
+
+For \(\Re s>1\), with both character moduli nonzero, the existing Euler
+identity is
+\[
+ L(s,\chi)L(s,\psi_\chi)
+     \sum_{k\ge1}\frac{a_\chi(k)}{k^s}=1.
+\]
+Thus the native inverse series contains both reciprocal factors.
+Equation \((\mathrm{AU2})\) restores the original rational inverse
+coefficient by the \emph{plain} companion. No zero-free-strip
+hypothesis is used in this finite reconstruction.
+
+\paragraph{Every rational coprimality correction and every mixed term.}
+Let \(S\subset\{1,\ldots,N\}\) be any finite support and put
+\(W_c=W_A-cW_B\). Define the finite native amplitude
+\[
+ \mathcal A_d=
+ \sum_{\substack{n\in S\\d\mid n}}\ \sum_{ab=n}
+       a_\chi(a)\psi_\chi(b)W_c(n).
+\]
+The compiled signed unit theorem is
+\[
+ \boxed{\quad
+ \operatorname{Re}
+ \sum_{\substack{n,m\in S\\(n,m)=1}}
+   \mu(n)\chi(n)W_c(n)\,
+       \overline{\mu(m)\chi(m)W_c(m)}
+ =\sum_{d=0}^{N}\mu(d)|\mathcal A_d|^2 .
+ \quad}                                                               \tag{AU3}
+\]
+The term \(d=0\) is zero; its inclusion records the exact finite Lean
+summation domain. All other common-divisor terms, including \(d=1\),
+remain.
+
+To prove \((\mathrm{AU3})\), substitute \((\mathrm{AU2})\) in each
+divisibility-filtered column of the existing exact coprime-energy
+identity. Finite distributivity gives precisely \(\mathcal A_d\);
+no analytic interchange is required. In particular each squared
+amplitude still contains
+\(AA-\bar c\,AB-c\,BA+|c|^2BB\), with the same signed \(\mu(d)\)
+outside the entire expression. Rational coprimality is never replaced
+by coprimality of ideals: conjugate prime ideals can have the same
+rational prime norm.
+
+Taking \(\chi=\eta\) and putting the previously proved amplifier
+\(A_G(n)\) into both \(W_A,W_B\) specializes \((\mathrm{AU3})\) to the
+normalized original arithmetic unit \(C_G/m_G\). This is a mathematical
+specialization of the compiled arbitrary-weight statement.
+It changes neither its coefficients nor its zero response.
+The three maintained declarations in
+\texttt{Assembly/CarmichaelArithmeticUnit.lean} are compiled and
+individually focused-audited.
+
+The new formulas identify the arithmetic unit; they do not bound it.
+Folding the companion leaves the sector \(NI\asymp D,\ b=1\), and the
+two outer columns still have lengths at most \(4D\), with product at
+most \(16D^2\). No quarter-power saving follows from folding alone.
+The full prime-weighted spatial/frequency identification and uniform
+Abel estimates must still be applied to this signed native expression.
+The independent target remains
+\(I_{D,G}\ll_\epsilon D^{3/2+\epsilon}\), versus the installed
+\(D^{7/4+\epsilon}\); the certified zero-free boundary remains \(7/8\)
+and the research endpoint remains at most \(3/4\).
+
 \begin{thebibliography}{99}
 \small\raggedright
 \setlength{\itemsep}{3pt}

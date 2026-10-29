@@ -908,3 +908,24 @@ unbounded Abel passage has been proved. I7/4 and the certified boundary7/8 are
 unchanged. I3/2 and boundary at most3/4 remain the active target.
 Paper label: `sec:carmichael-moving-window`.
 Receipt: [complete moving window](verification/carmichael-moving-window.json).
+
+## Arithmetic unit and finite native companion reconstruction (2026-10-28)
+
+Owner: `Assembly/CarmichaelArithmeticUnit.lean`.
+
+| Lean declaration | Claim | Status |
+| --- | --- | --- |
+| `compensated_native_unit_value` | Actual spatial u=1 row is the full compensated ideal-Mobius coefficient sum. | Proved; focused axiom audit passed. |
+| `normFiber_companion_recovery` | Finite convolution of actual norm-fiber inverse-pair coefficients with the plain companion recovers rational mu*chi, including n=0. | Proved; focused axiom audit passed. |
+| `compensated_coprime_unit` | Exact signed rational coprime unit form becomes the full Mobius-weighted sum of native companion amplitudes; all four compensation terms retained. | Proved; focused axiom audit passed. |
+
+This closes the finite arithmetic-unit coefficient dictionary with no RH,
+zero-free-strip or primitivity assumption. Ideal and rational Mobius functions
+are related by the proved convolution, and rational coprimality remains
+explicit. The existing norm-fiber Euler identity for Re(s)>1 retains both
+inverse L factors. The spatial unit u=1 is distinct from the ideal1 theta bound.
+No new I power or zero-free exponent is proved: the full signed amplitude sum,
+prime-weighted frequency transfer and uniform Abel estimates remain open.
+Installed I7/4 and boundary7/8 are unchanged; I3/2 and boundary<=3/4 remain active.
+Paper label: `sec:carmichael-arithmetic-unit`.
+Receipt: [arithmetic unit reconstruction](verification/carmichael-arithmetic-unit.json).
