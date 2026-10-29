@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-29",
+  "paper_label": "sec:carmichael-power-compensation",
+  "status": "proved_and_focused_axiom_audited",
+  "new_targets": [
+    "PrimeFactorOscillations.CarmichaelPowerCompensation.character_power_compensation_bound",
+    "PrimeFactorOscillations.CarmichaelPowerCompensation.portfolio_power_compensation_bound",
+    "PrimeFactorOscillations.CarmichaelPowerCompensation.portfolio_quartic_compensation_subpower",
+    "PrimeFactorOscillations.CarmichaelPowerCompensation.portfolio_octic_compensation_subpower"
+  ],
+  "new_target_count": 4,
+  "owners": [
+    {
+      "path": "PrimeFactorOscillations/Assembly/CarmichaelPowerCompensation.lean",
+      "sha256": "e6ddcf4de5d58769a4c8696c58826a3a37e043bab8fab0616947f61e03c2bdd5"
+    }
+  ],
+  "axiom_checks": {
+    "standard_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "new_or_changed_checked": 4,
+    "reused_unchanged": 0,
+    "logs": [
+      {
+        "path": ".research/generated/carmichael-power-compensation-axioms-20261029.log",
+        "sha256": "eacdc85c3554eebceffaf912483c718d8e0000cc4cc9711c9858a6d3e93199bd",
+        "targets": [
+          "PrimeFactorOscillations.CarmichaelPowerCompensation.character_power_compensation_bound",
+          "PrimeFactorOscillations.CarmichaelPowerCompensation.portfolio_power_compensation_bound",
+          "PrimeFactorOscillations.CarmichaelPowerCompensation.portfolio_quartic_compensation_subpower",
+          "PrimeFactorOscillations.CarmichaelPowerCompensation.portfolio_octic_compensation_subpower"
+        ],
+        "reused_unchanged": false
+      }
+    ]
+  },
+  "proved_scope": {
+    "rows": "Actual smoothMultipleMasked with every mu(h*m), character phase and fixed coprimality mask retained.",
+    "portfolio": "Arbitrary finite complex character portfolio at one fixed positive modulus. The portfolio is combined before compensation and squaring, so all mixed-character terms remain.",
+    "general_power": "One K controls all natural d,N and all real D>0 with exponents(15-d)/8+(d+1)u and(8-d)/4+2du.",
+    "subpower": "For every eps>0, quartic remainder O(D^(11/8+eps)) and octic remainder O(D^(7/8+eps)), uniformly in N>=0,D>=1.",
+    "edge_cases": "q=1, N=0, arbitrary nonunits and every positive divisor row included. No primitivity or character-order restriction."
+  },
+  "parameter_domain": "Fixed q,r>0, finite S, Dirichlet characters chi_i modulo q, arbitrary complex weights, C-infinity W supported in[lo,hi] with lo>0 and hi>=0. K depends on these data and positive u with7/8+u<=2, independently of d,N,D.",
+  "explicit_costs": {
+    "portfolio": "K=sum_i norm(weight_i)*K_i, where each K_i is supplied by the actual character smooth-row theorem.",
+    "main_term": "AA stays signed. No unsigned or Gram estimate is installed for the main packet.",
+    "scope": "No noncompact radial carrier, product-amplifier, growing-conductor, prime-sampled quotient or full physical/Abel transfer is inferred."
+  },
+  "detector_error": "Unchanged. This is an arithmetic reference-remainder estimate, not an additional detector theorem.",
+  "family_adapter": "Uses the actual maintained depleted smooth rows. The exponent d changes only the reference cutoff D^d, with the arithmetic family and divisor variable fixed.",
+  "uncancelled_main_terms": "The complete signed uncompensated AA portfolio packet, plus all still-unmatched source/native/prime-sampled consumers.",
+  "low_estimate_provenance": "Installed Dirichlet7/8 supplies bounds only for the isolated AB/BA/BB remainder. It is not reused as an improved independent bound on AA.",
+  "attainable_endpoint": "For this compact packet, quartic references are below the3/2 energy target and octic references below the1 energy target. Independent AA estimates and the required source transfers remain open; no zero-free endpoint changes.",
+  "benchmark_status": "Unconditional complete reference-remainder estimates on the specified compact-window character packet; complete I exponent unchanged.",
+  "old_bound": "Complete I exponent7/4 and boundary7/8. Quartic cross-term exponents were only a conditional source-transfer calculation, not a maintained full-cutoff packet bound.",
+  "new_bound": "Uniform in every divisor cutoff: quartic remainder O(D^(11/8+eps)); eighth-power remainder O(D^(7/8+eps)), including every mixed-character compensation term. Complete I exponent7/4 and boundary7/8 unchanged.",
+  "components": [
+    "Actual unnormalized depleted character row bound from installed Dirichlet7/8",
+    "Complete signed AA-AB-BA+BB expansion before isolating the reference remainder",
+    "Full reciprocal-power divisor prefix bounded by7/3",
+    "Fixed finite complex portfolio combined before compensation and squaring"
+  ],
+  "actuals": "No numerical experiments, finite interval diagnostics or exact completion of unresolved sums.",
+  "first_nonpositive_domain": "Unavailable: no complete improved I estimate is asserted.",
+  "open_consumers": [
+    "Independent signed AA/squarefree high estimate at the required power",
+    "Noncompact actual radial-window transfer",
+    "Additional product-amplifier adapter",
+    "Uniform growing-conductor estimates when those parameters vary",
+    "Full original prime-sampled quotient and unbounded physical/Abel consumer"
+  ]
+}

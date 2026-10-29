@@ -1595,3 +1595,35 @@ No numerical diagnostics or completed unknown sums are used; no new
 complete-bound failure domain can be asserted.
 Paper label:`sec:carmichael-squarefree-high-remainder`.
 Receipt:[squarefree high remainder](verification/carmichael-squarefree-high-remainder.json).
+
+## Power compensation in complete compact character portfolios (2026-10-29)
+
+Maintained owner: `CarmichaelPowerCompensation.lean`.
+All four public declarations compiled and received focused standard-only axiom checks.
+
+| Declaration | Exact scope | Status |
+| --- | --- | --- |
+| `character_power_compensation_bound` | Complete reference/cross remainder for one actual depleted smooth character row; uniform in every power d, divisor cutoff N and D>0. | Proved; focused axiom audit passed. |
+| `portfolio_power_compensation_bound` | Same estimate for the full complex finite character portfolio; all mixed-character terms retained. | Proved; focused axiom audit passed. |
+| `portfolio_quartic_compensation_subpower` | Complete AB+BA+BB remainder is O(D^(11/8+eps)), uniformly in N and D>=1. | Proved; focused axiom audit passed. |
+| `portfolio_octic_compensation_subpower` | Complete eighth-power reference remainder is O(D^(7/8+eps)), uniformly in N and D>=1. | Proved; focused axiom audit passed. |
+
+Rows retain mu(h*m), chi(h*m), the fixed coprimality mask and the actual
+complex window. Every positive divisor h<=N is included. The portfolio is
+combined before compensation and squaring. Only the exact reference
+remainder is bounded; AA remains signed and unestimated at the target.
+
+Constants depend on the fixed modulus, characters, complex weights,
+depletion mask, smooth compact window and exponent slack, independently
+of d,N,D. The statement includes q=1, all nonunits and N=0. It assumes
+q,r>0 and smooth support in [lo,hi] with lo>0 and hi>=0.
+No noncompact-carrier, product-amplifier, growing-conductor or full
+prime-sampled/Abel adapter is asserted.
+
+Benchmark status: new unconditional complete reference-remainder estimate
+on this specified compact-window packet. Quartic exponent11/8 and
+octic exponent7/8 are proved; full I exponent7/4 and boundary7/8 remain
+unchanged. No numerical experiments or completions of unknown sums.
+No complete improved-bound failure domain is available.
+Paper label:`sec:carmichael-power-compensation`.
+Receipt:[power-compensation estimates](verification/carmichael-power-compensation.json).

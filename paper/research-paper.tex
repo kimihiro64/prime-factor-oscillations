@@ -34459,6 +34459,141 @@ and the uniform unbounded Abel passage remain open.
 The complete \(I_{D,G}\) exponent remains \(7/4\), with target \(3/2\);
 the certified boundary remains \(7/8\), with target at most \(3/4\).
 
+\section{Power compensation in complete compact character portfolios}
+\label{sec:carmichael-power-compensation}
+
+This estimate uses the installed unconditional Dirichlet \(7/8\) theorem
+on the reference terms only. It leaves the original signed main packet
+intact. The power below changes the reference cutoff, with the arithmetic
+family and divisor variable fixed.
+
+Fix \(q,r\ge1\), a finite index set \(S\), characters \(\chi_i\bmod q\),
+complex weights \(w_i\), and a smooth function \(W:\mathbb R\to\mathbb C\)
+supported in \([a,b]\), where \(a>0\) and \(b\ge0\). Define the actual rows
+\[
+ \begin{gathered}
+ A_{i,h}(D)=
+ \sum_{\substack{1\le m\le\lfloor bD/h\rfloor\\(hm,r)=1}}
+       \mu(hm)\chi_i(hm)W(hm/D),\\
+ A_h(D)=\sum_{i\in S}w_i A_{i,h}(D)
+ \quad(h\ge1,\ D>0).
+ \end{gathered}
+\]
+Thus the fixed depletion mask, all nonunit character zeros and the full
+complex window are retained. Put
+\[
+ \begin{gathered}
+ P_N(D)=\sum_{h=1}^N\mu(h)|A_h(D)|^2,\\
+ P_N^{(d)}(D)=\sum_{h=1}^N\mu(h)
+       |A_h(D)-D^{1-d}A_h(D^d)|^2 .
+ \end{gathered}
+\]
+These sums include every positive divisor row through the inclusive
+cutoff \(N\), including the empty case \(N=0\).
+
+\begin{theorem}[Uniform power-compensation remainder]
+\label{thm:carmichael-power-compensation}
+For \(u>0\) with \(7/8+u\le2\), a constant \(K\ge0\), depending on the
+fixed data and \(u\), satisfies for every integer \(d\ge0\), every
+\(N\ge0\), and every \(D>0\),
+\[
+ |P_N^{(d)}(D)-P_N(D)|
+ \le \frac73 K^2\left(
+  2D^{(15-d)/8+(d+1)u}
+      +D^{(8-d)/4+2du}\right).                 \tag{PC1}
+\]
+The same \(K\) works for all three varying parameters \(d,N,D\).
+Consequently, for every \(\varepsilon>0\), uniformly in \(N\ge0,D\ge1\),
+\[
+ |P_N^{(4)}(D)-P_N(D)|
+       \ll D^{11/8+\varepsilon},\qquad
+ |P_N^{(8)}(D)-P_N(D)|
+       \ll D^{7/8+\varepsilon}.                \tag{PC2}
+\]
+The constants in \((PC2)\) retain the fixed character portfolio,
+depletion mask and window. Neither primitivity nor a restriction to
+cubic characters is required.
+\end{theorem}
+\begin{proof}
+The maintained smooth multiple-row estimate gives
+\[
+ |A_{i,h}(D)|\le K_iD^{7/8+u}h^{-7/8}
+ \quad(h\ge1,\ D>0).
+\]
+This is the existing normalized row estimate multiplied by \(D^{1/2}\);
+its normalization is removed before the scales are compared.
+Take \(K=\sum_{i\in S}|w_i|K_i\). Then
+\[
+ |A_h(D)|\le KD^\alpha h^{-7/8},\qquad \alpha=7/8+u.
+                                                        \tag{PC3}
+\]
+This step controls the rows used in the separate compensation remainder.
+No norm estimate on \(P_N\) is made.
+
+Write \(c=D^{1-d}\), \(x_h=A_h(D)\), \(y_h=A_h(D^d)\).
+Before any inequality the complete signed difference is
+\[
+ P_N^{(d)}-P_N
+ =\sum_{h=1}^N\mu(h)
+   \left(-c\,y_h\overline{x_h}
+         -c\,x_h\overline{y_h}
+         +c^2 y_h\overline{y_h}\right).          \tag{PC4}
+\]
+In particular both cross terms, their phases and their exact signs
+are retained. Applying the norm only to this displayed remainder,
+using \((PC3)\) at both scales, gives
+\[
+ \begin{split}
+ |P_N^{(d)}-P_N|
+ &\le K^2\left(2D^{1-d}D^\alpha(D^d)^\alpha
+          +D^{2(1-d)}(D^d)^{2\alpha}\right)
+           \sum_{h=1}^N h^{-7/4}\\
+ &\le \frac73K^2\left(
+          2D^{1+\alpha+d(\alpha-1)}
+           +D^{2+2d(\alpha-1)}\right).
+ \end{split}
+\]
+The prefix bound is uniform: the first term is at most one and
+\(\sum_{h=2}^N h^{-7/4}\le\int_1^\infty t^{-7/4}\,dt=4/3\).
+Substituting \(\alpha=7/8+u\) proves \((PC1)\).
+
+For \(d=4\), choose \(u=\min(\varepsilon/10,1/100)\).
+The exponents are \(11/8+5u\) and \(1+8u\), each at most
+\(11/8+\varepsilon\). For \(d=8\), choose
+\(u=\min(\varepsilon/18,1/100)\).
+The exponents are \(7/8+9u\) and \(16u\), each at most
+\(7/8+\varepsilon\). Since \(D\ge1\), both bounds follow with
+constant \(7K^2\), using the appropriate \(K\) for each choice of \(u\).
+\end{proof}
+
+The mixed terms between distinct characters are included because the
+entire portfolio is combined before compensation and squaring.
+The positive native Carmichael multiplicities are a special case of
+the permitted complex weights.
+Taking \(\varepsilon=1/16\) in \((PC2)\) gives, as mathematical
+consequences, a fourth-power remainder \(O(D^{23/16})=o(D^{3/2})\)
+and an eighth-power remainder \(O(D^{15/16})=o(D)\).
+Thus for this packet compensation need not consume the exponent
+room required at either energy threshold.
+
+The four maintained and focused-axiom-audited declarations are
+\texttt{character\_power\_compensation\_bound},
+\texttt{portfolio\_power\_compensation\_bound},
+\texttt{portfolio\_quartic\_compensation\_subpower} and
+\texttt{portfolio\_octic\_compensation\_subpower}, in
+\texttt{CarmichaelPowerCompensation.lean}.
+The support hypothesis is smooth compact support away from zero.
+Applying these estimates to a noncompact radial carrier, additional
+product amplifiers, or moving conductors requires the corresponding
+uniform transfer. No such transfer is inferred from \((PC1)\).
+In particular \(P_N\) is not silently identified with the full
+prime-sampled quotient or the rational squarefree high core.
+
+The signed \(AA\) packet remains the main arithmetic quantity.
+The complete \(I_{D,G}\) exponent is still \(7/4\), against \(3/2\);
+the certified zero-free boundary remains \(7/8\), against at most \(3/4\).
+These are proved reference-remainder estimates, not a new zero exclusion.
+
 \begin{thebibliography}{99}
 \small\raggedright
 \setlength{\itemsep}{3pt}

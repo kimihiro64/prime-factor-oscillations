@@ -27,4 +27,8 @@ TARGETS = (
     "PrimeFactorOscillations.CarmichaelSquarefreeHighRemainder.schwartz_low_squarefree_native_packet_subpower",
     "PrimeFactorOscillations.CarmichaelSquarefreeHighRemainder.rational_unit_squarefree_high_remainder",
     "PrimeFactorOscillations.CarmichaelSquarefreeHighRemainder.nonsquarefree_high_subpower",
+    "PrimeFactorOscillations.CarmichaelPowerCompensation.character_power_compensation_bound",
+    "PrimeFactorOscillations.CarmichaelPowerCompensation.portfolio_power_compensation_bound",
+    "PrimeFactorOscillations.CarmichaelPowerCompensation.portfolio_quartic_compensation_subpower",
+    "PrimeFactorOscillations.CarmichaelPowerCompensation.portfolio_octic_compensation_subpower",
 )
