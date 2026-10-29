@@ -33084,6 +33084,199 @@ consumer is still required. The complete certified exponent of
 quarter power there. The certified global zero-free boundary remains
 \(7/8\), with target at most \(3/4\).
 
+
+\section{Physical windows in the complete signed square-part packet}
+\label{sec:carmichael-squarepart-physical}
+
+Write \(\psi=\chi\chi_{-3}\), \(\kappa=\chi^2\chi_{-3}\), and
+\(b_\chi(r,s)=1_{(r,s)=1}a_\chi(r)\mu(s)^2\kappa(s)\).
+All sums below are finite, over positive integer indices within the
+displayed bounds. A square root in a summation bound means its floor.
+The character modulus \(q\) is positive. The finite set \(G\) consists of
+primes, and \(A_G\) is the full amplifier already defined above.
+
+\begin{theorem}[Physical reordering of the complete unit]
+\label{thm:carmichael-physical-unit-rows}
+For every natural \(N\) and every complex kernel \(K\),
+\[
+\begin{split}
+ &\sum_{n\le N}\mu(n)\chi(n)
+       \sum_{j\le N}\overline{\mu(j)\chi(j)}K(n,j)\\
+ &=\sum_{\substack{r,u\le N\\r,u\ {\rm squarefree}}}
+   \sum_{b\le N/r}\sum_{d\le N/u}\psi(b)\overline{\psi(d)}
+   \sum_{s\le\sqrt{N/(rb)}}\sum_{t\le\sqrt{N/(ud)}}
+    b_\chi(r,s)\overline{b_\chi(u,t)}
+                 K(rs^2b,ut^2d).
+\end{split}
+\]
+There is no symmetry, reality or positivity assumption on \(K\).
+The identity includes \(N=0\).
+\end{theorem}
+
+\begin{proof}
+The native convolution and the finite square-part dictionary give, for
+every complex \(W\),
+\[
+ \sum_{n\le N}\mu(n)\chi(n)W(n)
+ =\sum_{\substack{r\le N\\r\ {\rm squarefree}}}
+    \sum_{s\le\sqrt{N/r}}b_\chi(r,s)
+       \sum_{b\le N/(rs^2)}\psi(b)W(rs^2b).
+\]
+For fixed positive \(r\), the conditions on the last two indices are
+equivalent to
+\[
+ b\le N/r,\qquad s\le\sqrt{N/(rb)}.
+\]
+Indeed both are the positive integer condition \(rs^2b\le N\).
+Swapping the two finite indices proves the one-column physical formula.
+Apply it to the first column of the displayed bilinear expression.
+For the second column apply the conjugate of the same identity, with
+conjugated test weight. Conjugation reverses multiplication order; complex
+commutativity then places the factors in the displayed order. Finally
+permute the six finite indices from \(r,b,s,u,d,t\) to \(r,u,b,d,s,t\).
+At each swap the moved cutoff depends only on the indices kept outside
+it. No infinite interchange, estimate or phase replacement is involved.
+\end{proof}
+
+Put \(W_D(n)=f(n/D)\), with \(D>0\). Let
+\[
+ K_D(v,w)=1_{(v,w)=(v,H)=(w,H)=1}
+        A_G(v)W_D(v)\overline{A_G(w)W_D(w)}.
+\]
+For positive lower endpoints \(R,T\), define the actual coupled row
+\[
+ {\cal R}^{R,T}_{r,u;b,d}(B,C)=
+ \sum_{s=R}^{B}\sum_{t=T}^{C}
+ b_\chi(r,s)\overline{b_\chi(u,t)}K_D(rs^2b,ut^2d).
+\]
+An interval with its lower endpoint greater than its upper endpoint is
+empty. Set \(m=rb\), \(n=ud\), and
+\[
+ H_L=Hrn,\qquad H_R=Hum,\qquad
+ {\cal S}_2(f)=\|f\|_{0,0}+8\|f\|_{0,1}.
+\]
+
+\begin{theorem}[Exact cross masks and the physical rectangle]
+\label{thm:carmichael-physical-rectangle}
+The row is zero unless \((m,n)=(m,H)=(n,H)=1\).
+When these three equalities hold, it equals
+\(a_\chi(r)\overline{a_\chi(u)}\) times the squarefree coprime
+rectangle with summand
+\[
+ \begin{split}
+ &1_{(s,t)=1}1_{(s,H_L)=1}1_{(t,H_R)=1}\mu(s)^2\mu(t)^2
+          \kappa(s)\overline{\kappa(t)}\\
+ &\qquad {}\cdot A_G(ms)f(ms^2/D)
+                   \overline{A_G(nt)f(nt^2/D)} .
+ \end{split}
+\]
+The rectangle has precisely \(R\le s\le B\), \(T\le t\le C\).
+There is no additional condition \((s,b)=(t,d)=1\).
+\end{theorem}
+
+\begin{proof}
+For every prime \(p\), \(p\mid ms^2\) if and only if \(p\mid ms\).
+The individual amplifier factors are consequently equal and
+\(A_G(ms^2)=A_G(ms)\). This includes every prime of \(G\), including
+two and any primes dividing the other parameters.
+
+The complete joint support condition is
+\[
+\begin{split}
+ &(r,s)=(u,t)=1,\quad
+ (ms^2,nt^2)=(ms^2,H)=(nt^2,H)=1\\
+ &\quad\Longleftrightarrow\quad
+ (m,n)=(m,H)=(n,H)=1,\quad
+ (s,t)=(s,Hrn)=(t,Hum)=1.
+\end{split}
+\]
+Expand coprimality of a product and use that coprimality with a square
+is equivalent to coprimality with its base. This proves both directions,
+including every overlap between columns. On this exact support substitute
+the native coefficient formulas and amplifier equality; off it both
+summands are zero. Summing the resulting pointwise identity proves the
+claim. All conjugates and masks remain attached to their original factors.
+\end{proof}
+
+\begin{theorem}[Uniform physical row bound at the actual cutoffs]
+\label{thm:carmichael-physical-row-bound}
+For every \(\varepsilon>0\) there is \(C_\varepsilon>0\), independent of
+all parameters below and of \(G\), such that for all positive
+\(q,H,r,u,b,d,D,R,T\), every character \(\chi\) modulo \(q\), and every
+complex Schwartz function \(f\), the following holds. Set
+\[
+ B=\left\lfloor\sqrt{4D/(rb)}\right\rfloor,\qquad
+ C=\left\lfloor\sqrt{4D/(ud)}\right\rfloor,\qquad
+ X=(Hrn+Hum+m+n+1)(B+C+1).
+\]
+Then
+\[
+ |{\cal R}^{R,T}_{r,u;b,d}(B,C)|
+ \le |a_\chi(r)a_\chi(u)|\,C_\varepsilon(3q)^2
+        {\cal S}_2(f)^2 X^\varepsilon\sqrt{BC}.
+\]
+Zero upper cutoffs are allowed; the estimate also holds at any natural
+\(B,C\) satisfying \(mB^2,nC^2\le4D\).
+\end{theorem}
+
+\begin{proof}
+First pass from prefix means to an arbitrary lower rectangle without
+changing the Schwartz function. If \(P(B,C)\) denotes the already proved
+squarefree prefix packet with the same two masks and weights, the exact
+finite identity is
+\[
+ \begin{split}
+ \operatorname{Rect}_{R,T}(B,C)
+ ={}&P(B,C)-P(\min(B,R-1),C)\\
+   &-P(B,\min(C,T-1))
+     +P(\min(B,R-1),\min(C,T-1)).
+ \end{split}
+\]
+It is just subtraction of the two initial intervals in each column.
+In particular it remains valid when a lower endpoint exceeds the upper
+cutoff. Each of these four prefix packets has the same squared Schwartz
+weights. Their upper cutoffs are smaller than \(B,C\), so their physical
+support inequalities remain valid, their mask-size argument is at most
+\(X\), and their square-root cutoff factor is at most \(\sqrt{BC}\).
+
+The previously proved uniform squarefree companion estimate applies:
+its character is the actual \(\kappa\), whose value at minus one is
+\(\chi(-1)^2\chi_{-3}(-1)=-1\). It is therefore nonprincipal for every
+\(\chi\), including principal or imprimitive characters and the small
+positive moduli. No RH hypothesis or extra cubic-order assumption is
+needed. Its physical variation hypotheses are already discharged by the
+squared-window seminorm estimates. Apply that estimate to all four
+prefixes and add their bounds. This only multiplies its constant by four;
+it adds no cutoff, conductor or amplifier power.
+
+Now use the exact row identity, taking the magnitude of the extracted
+constant \(a_\chi(r)\overline{a_\chi(u)}\). When the outer support fails,
+the row is exactly zero. Otherwise the just-proved rectangle estimate
+gives the displayed inequality with the two exact masks \(Hrn,Hum\).
+Finally \(m\lfloor\sqrt{4D/m}\rfloor^2\le4D\) and its \(n\)-analogue
+follow from the defining integer division and square-root inequalities.
+Thus the actual cutoffs discharge the two support premises.
+\end{proof}
+
+Taking \(K=K_D\) in
+Theorem~\ref{thm:carmichael-physical-unit-rows} gives the original full
+rational unit as the signed sum of
+\(\psi(b)\overline{\psi(d)}{\cal R}^{1,1}_{r,u;b,d}\)
+at its actual cutoffs with \(N\) in place of \(4D\).
+The common-divisor unit row, the square-part terms \(s=t=1\), and the
+original companion terms \(b=d=1\) are distinct indices and all remain.
+For a compensated weight \(W_A-zW_B\), the arbitrary-kernel identity
+retains \(AA-\bar z\,AB-z\,BA+|z|^2BB\) before any estimate.
+
+These results transfer the physical square-part mean into the actual
+finite unit; they do not bound the signed outer native sum or justify an
+unbounded Abel passage. The complete certified \(I_{D,G}\) exponent is
+still \(7/4\), with target \(3/2\); the certified global boundary is still
+\(7/8\), with active target at most \(3/4\). A norm bound for an extracted
+large-square remainder is compatible with this transfer. Replacing the
+remaining signed native core by its unsigned mass would lose precisely
+the cancellation still needed.
+
 \begin{thebibliography}{99}
 \small\raggedright
 \setlength{\itemsep}{3pt}

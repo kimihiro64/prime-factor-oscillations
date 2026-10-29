@@ -1,0 +1,91 @@
+{
+  "date": "2026-10-29",
+  "status": "compiled_and_focused_audited",
+  "owners": [
+    "PrimeFactorOscillations/Assembly/CarmichaelSquarepartPhysical.lean"
+  ],
+  "theorem_count": 12,
+  "new_theorem_proofs": 12,
+  "public_definition_count": 2,
+  "declarations": [
+    "PrimeFactorOscillations.CarmichaelSquarepartPhysical.native_companion_range_swap",
+    "PrimeFactorOscillations.CarmichaelSquarepartPhysical.squarefree_rectangle_identity",
+    "PrimeFactorOscillations.CarmichaelSquarepartPhysical.squared_rectangle_subpower",
+    "PrimeFactorOscillations.CarmichaelSquarepartPhysical.native_squarepart_hyperbola",
+    "PrimeFactorOscillations.CarmichaelSquarepartPhysical.rational_column_squarepart_rows",
+    "PrimeFactorOscillations.CarmichaelSquarepartPhysical.amplifier_square_argument",
+    "PrimeFactorOscillations.CarmichaelSquarepartPhysical.unit_good_squarepart_masks",
+    "PrimeFactorOscillations.CarmichaelSquarepartPhysical.physical_squarepart_rectangle",
+    "PrimeFactorOscillations.CarmichaelSquarepartPhysical.physical_squarepart_rectangle_bound",
+    "PrimeFactorOscillations.CarmichaelSquarepartPhysical.rational_bilinear_squarepart_rows",
+    "PrimeFactorOscillations.CarmichaelSquarepartPhysical.rational_unit_physical_squarepart_rows",
+    "PrimeFactorOscillations.CarmichaelSquarepartPhysical.physical_rows_actual_cutoff_bound"
+  ],
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "domain": "Identities: every finite natural cutoff, arbitrary complex kernel; physical rectangle identity has positive lower endpoints and finite prime G. Estimate: eps>0; positive q,H,r,u,b,d,D,R,T; any Dirichlet chi mod q, finite prime G, complex Schwartz f; natural B,C with (rb)B^2,(ud)C^2<=4D, including B or C zero. Actual cutoffs discharge these two premises.",
+  "proved": [
+    "Permute every supported companion/square-part pair at its exact product cutoff.",
+    "Express an arbitrary lower rectangle as its four signed prefix packets.",
+    "Transfer the uniform squared-window mean to every positive lower rectangle.",
+    "Write the native finite sum with its exact hyperbola cutoff.",
+    "Reorder the original rational convolution into physical square-part rows.",
+    "Retain the full amplifier under its exact square-support identity.",
+    "Derive both complete cross masks, including every column overlap.",
+    "Identify the actual coupled physical row with the squarefree rectangle.",
+    "Bound that physical row uniformly with explicit conductor and seminorm costs.",
+    "Transfer both columns for arbitrary complex kernels without a symmetry premise.",
+    "Identify the full original rational unit with all signed physical rows.",
+    "Discharge both window support premises at the actual square-root cutoffs."
+  ],
+  "checks": {
+    "maintained_owner": true,
+    "focused_axiom_targets": 12,
+    "focused_axiom_batches": [
+      7,
+      5
+    ],
+    "unchanged_theorems_reaudited": 0,
+    "changed_source_policy": true,
+    "facade_compile": true,
+    "root_consumer_compile": true,
+    "catalogue_ruff_and_strict_mypy": true,
+    "saved_paper_compile": true
+  },
+  "closed_prior_edges": [
+    "Regroup the full companion products as m=r*b,n=u*d with their actual floor cutoffs.",
+    "Discharge full cross-mask, phase and physical-window support hypotheses on each coupled row.",
+    "Transfer the uniform squarefree mean to arbitrary lower physical rectangles with constant factor4.",
+    "Full finite signed two-column transfer; no symmetry premise."
+  ],
+  "open": [
+    "Sum an extracted large-square remainder with its full conductor/frequency and seminorm costs.",
+    "Bound the retained signed small-square core, including all unit contributions and compensation.",
+    "Complete the prime-sampled full reciprocal-L assembly and uniform unbounded Abel passage.",
+    "Unconditional complete I exponent3/2 and global zero-free boundary<=3/4."
+  ],
+  "benchmark_status": "uniform_physical_row_cancellation_in_the_actual_finite_unit; complete_exponent_unchanged",
+  "old_bound": "Auxiliary uniform prefix mean and exact native square-part dictionary; physical row transfer open.",
+  "new_bound": "Physical row <= |a(r)a(u)| C_eps (3q)^2 S2(f)^2 X^eps sqrt(B*C), at actual B=sqrt(4D/(rb)), C=sqrt(4D/(ud)). Complete signed outer sum retained; no full I bound improved.",
+  "components": {
+    "phase": "kappa=chi^2*chi_-3 is odd and nonprincipal for every chi, with small and imprimitive moduli included.",
+    "rectangle": "Exact four-prefix inclusion-exclusion, then four previously cancelled means; no lower-endpoint power loss.",
+    "window": "S2(f)=seminorm00(f)+8*seminorm01(f); support inequalities discharged at actual floor cutoffs.",
+    "masks": "H*r*(u*d), H*u*(r*b); no same-column gcd(s,b) or gcd(t,d) restriction.",
+    "conductor": "Explicit (3q)^2; every mask and row cutoff remains inside X^eps. No claim of uniformity for other growing frequency factors.",
+    "unit_rows": "Common divisor k=1, square parts s=t=1 and companions b=d=1 are distinct and all retained.",
+    "compensation": "Full AA-bar(z)*AB-z*BA+|z|^2*BB remains in the arbitrary complex kernel and combined window.",
+    "remaining": "Summed native remainder, signed small-square core and global full reciprocal-L/Abel consumer."
+  },
+  "actuals": "No numerical experiments or diagnostic completions used.",
+  "first_nonpositive_domain": "No complete new exponent estimate is available; exact transfer and row bound do not by themselves bound the signed outer core.",
+  "certified_global_boundary": "7/8",
+  "target_global_boundary": "<=3/4",
+  "certified_global_I_exponent": "7/4",
+  "target_global_I_exponent": "3/2",
+  "paper_label": "sec:carmichael-squarepart-physical",
+  "catalogue": "scripts/completed_research_targets_74.py"
+}

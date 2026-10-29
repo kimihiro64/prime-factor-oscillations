@@ -1121,9 +1121,9 @@ The phase and physical variation hypotheses of this square-part estimate
 are discharged. The exact signed common-divisor row k=1 and combined
 compensated window remain. This is an auxiliary square-part packet:
 its native coefficient and full finite-unit reindexing are proved in the
-following section. The rectangular inner-mean transfer, remaining small-square
-native core, prime-sampled reciprocal-L consumer and uniform Abel passage
-remain open.
+following section. The rectangular inner-mean and physical-row transfer is
+proved below. The remaining signed small-square native core, prime-sampled
+reciprocal-L consumer and uniform Abel passage remain open.
 No bound for the complete native high core or I_{D,G} is asserted.
 Global boundary7/8 is unchanged; the active complete target remains <=3/4.
 Paper label: `sec:carmichael-squarepart-cancellation`.
@@ -1162,8 +1162,9 @@ square-part s=t=1 and all four compensation terms remain. No signed main
 term was replaced by an unsigned coefficient mass or a Gram estimate.
 
 The native coefficient and finite full-unit dictionary obligations are closed.
-The rectangular regrouping m=r*b,n=u*d remains in progress. The native
-large-square remainder estimate, signed small-square core, original
+The rectangular regrouping m=r*b,n=u*d and its uniform physical-row estimate
+are proved below. The summed native large-square remainder, signed
+small-square core, original
 prime-sampled reciprocal-L consumer and uniform unbounded Abel passage
 remain unproved. No complete I bound follows just from these identities.
 
@@ -1173,3 +1174,56 @@ Target complete I exponent: 3/2. No numerical diagnostics used.
 Certified global boundary: 7/8. Active target: <=3/4.
 Paper label: `sec:carmichael-native-squarepart`.
 Receipt: [native square-part transfer](verification/carmichael-native-squarepart.json).
+
+## Physical windows and full signed square-part rows (2026-10-29)
+
+Owner: `Assembly/CarmichaelSquarepartPhysical.lean`.
+
+| Lean declaration | Claim | Status |
+| --- | --- | --- |
+| `native_companion_range_swap` | Permute every supported companion/square-part pair at its exact product cutoff. | Proved; focused axiom audit passed. |
+| `squarefree_rectangle_identity` | Express an arbitrary lower rectangle as its four signed prefix packets. | Proved; focused axiom audit passed. |
+| `squared_rectangle_subpower` | Transfer the uniform squared-window mean to every positive lower rectangle. | Proved; focused axiom audit passed. |
+| `native_squarepart_hyperbola` | Write the native finite sum with its exact hyperbola cutoff. | Proved; focused axiom audit passed. |
+| `rational_column_squarepart_rows` | Reorder the original rational convolution into physical square-part rows. | Proved; focused axiom audit passed. |
+| `amplifier_square_argument` | Retain the full amplifier under its exact square-support identity. | Proved; focused axiom audit passed. |
+| `unit_good_squarepart_masks` | Derive both complete cross masks, including every column overlap. | Proved; focused axiom audit passed. |
+| `physical_squarepart_rectangle` | Identify the actual coupled physical row with the squarefree rectangle. | Proved; focused axiom audit passed. |
+| `physical_squarepart_rectangle_bound` | Bound that physical row uniformly with explicit conductor and seminorm costs. | Proved; focused axiom audit passed. |
+| `rational_bilinear_squarepart_rows` | Transfer both columns for arbitrary complex kernels without a symmetry premise. | Proved; focused axiom audit passed. |
+| `rational_unit_physical_squarepart_rows` | Identify the full original rational unit with all signed physical rows. | Proved; focused axiom audit passed. |
+| `physical_rows_actual_cutoff_bound` | Discharge both window support premises at the actual square-root cutoffs. | Proved; focused axiom audit passed. |
+
+The twelve new public theorem proofs and two definitions are maintained in the
+owner and exported through RHAnalysis. The first seven focused axiom results
+are retained; only the five subsequent declarations were newly audited.
+No unchanged earlier theorem was reaudited.
+
+For every eps>0, positive q,H,r,u,b,d,D,R,T, any Dirichlet chi modulo q,
+any finite prime G and Schwartz f, set m=r*b,n=u*d,
+B=floor(sqrt(4D/m)), C=floor(sqrt(4D/n)),
+X=(H*r*n+H*u*m+m+n+1)*(B+C+1). The actual physical rectangle is bounded by
+`|a_chi(r)|*|a_chi(u)|*C_eps*(3q)^2*S2(f)^2*X^eps*sqrt(B*C)`.
+C_eps is independent of all displayed parameters and G. B or C may be zero.
+The constant is four times the proved prefix constant. The actual phase
+chi^2*chi_-3 is nonprincipal for every chi; no symmetry, RH or cubic-order
+premise is introduced. The exact row uses masks H*r*n and H*u*m.
+
+The full rational unit is the finite signed outer sum of these physical rows.
+The common-divisor unit k=1, square parts s=t=1 and companions b=d=1 all
+remain, as do AA-bar(z)*AB-z*BA+|z|^2*BB and every original character phase.
+The complete signed native core has not been replaced by unsigned mass.
+
+Closed: exact physical range transfer, both cross-mask hypotheses, arbitrary
+lower rectangles, the actual window-support premises, and full two-column
+finite-unit reordering without a symmetry assumption.
+Open: summing an extracted large-square remainder with all frequency costs;
+the retained signed small-square core; the prime-sampled full reciprocal-L
+consumer; and a uniform unbounded Abel passage.
+
+Benchmark status: uniform row cancellation transferred to the actual finite
+unit; no complete exponent gain claimed. Old complete I exponent: 7/4.
+New complete I exponent: 7/4. Target: 3/2. No numerical diagnostics used.
+Certified global boundary: 7/8. Active target: <=3/4.
+Paper label: `sec:carmichael-squarepart-physical`.
+Receipt: [physical square-part transfer](verification/carmichael-squarepart-physical.json).
