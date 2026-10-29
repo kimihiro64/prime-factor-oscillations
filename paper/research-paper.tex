@@ -33277,6 +33277,167 @@ large-square remainder is compatible with this transfer. Replacing the
 remaining signed native core by its unsigned mass would lose precisely
 the cancellation still needed.
 
+
+\section{Summing the full large-square sector}
+\label{sec:carmichael-large-square-remainder}
+
+This section estimates an explicitly extracted sector after the coupled
+physical rows have been cancelled. It retains the complementary signed
+small-square core. Put \(N=4D\), with \(D>0\), and retain the previous
+notation for the full physical row \({\cal R}^{R,T}_{r,u;b,d}\).
+For \(R,T>0\), let
+\[
+ {\cal P}_{R,T}=
+ \sum_{\substack{r,u\le N\\r,u\ {\rm squarefree}}}
+ \sum_{b\le N/r}\sum_{d\le N/u}
+ \psi(b)\overline{\psi(d)}
+ {\cal R}^{R,T}_{r,u;b,d}
+   \left(\left\lfloor\sqrt{N/(rb)}\right\rfloor,
+         \left\lfloor\sqrt{N/(ud)}\right\rfloor\right).
+\]
+All indices are positive integers within these finite bounds. In particular
+\({\cal P}_{1,1}\) is exactly the original rational unit
+\({\cal V}_{4D}(W_D)\), with its full amplifier and compensation.
+
+For the positive outer cost define, for every natural \(M\),
+\[
+ {\cal H}_\chi(M)=
+ \sum_{r\le M}\sum_{b\le M/r}
+ |a_\chi(r)|\,\frac{(rb)^{3/4}}{rb}.
+\]
+No squarefree filter is imposed in this positive auxiliary cost.
+
+\begin{theorem}[Uniform three-quarter hyperbola cost]
+\label{thm:carmichael-three-quarter-hyperbola}
+If \(|a_\chi(r)|\le A\) for \(1\le r\le M\), with \(A\ge0\), then
+\[
+ {\cal H}_\chi(M)\le A M^{3/4} H_M^2,
+ \qquad H_M=\sum_{1\le n\le M}\frac1n.
+\]
+Consequently, for every \(\varepsilon>0\) there is \(B_\varepsilon>0\)
+independent of the modulus and character such that
+\[
+ {\cal H}_\chi(M)\le B_\varepsilon M^{3/4+\varepsilon}.
+\]
+Both statements include \(M=0\), when the sums vanish.
+\end{theorem}
+
+\begin{proof}
+For every supported pair \(r,b\), one has \(rb\le M\), and hence
+\[
+ |a_\chi(r)|\,\frac{(rb)^{3/4}}{rb}
+ \le A M^{3/4}\frac1r\frac1b.
+\]
+Summing first over \(b\le M/r\), using \(H_{\lfloor M/r\rfloor}\le H_M\),
+and then over \(r\le M\) proves the first bound.
+
+The existing native coefficient estimate gives
+\(|a_\chi(r)|\le\tau(r)\), uniformly in \(\chi\). Use the proved divisor
+bound with exponent \(\varepsilon/2\) to take
+\(A=A_\varepsilon M^{\varepsilon/2}\), for positive \(M\).
+The proved harmonic subpower bound with exponent \(\varepsilon/4\)
+gives \(H_M\le B'_\varepsilon M^{\varepsilon/4}\).
+Substitution in the first inequality yields
+\[
+ A_\varepsilon(B'_\varepsilon)^2
+ M^{3/4+\varepsilon/2+2\varepsilon/4}.
+\]
+This is the asserted estimate. The empty case is immediate.
+\end{proof}
+
+Set
+\[
+ M_R=\left\lfloor N/R^2\right\rfloor,\qquad
+ M_T=\left\lfloor N/T^2\right\rfloor,\qquad
+ {\cal X}=(2HN^2+2N+1)(2N+1).
+\]
+\begin{theorem}[Complete large-square sector bound]
+\label{thm:carmichael-full-large-square}
+For every \(\varepsilon>0\) there is \(C_\varepsilon>0\), independent
+of all parameters below, such that for every positive \(q,H,D,R,T\),
+every Dirichlet character \(\chi\) modulo \(q\), every finite set of
+primes \(G\), and every complex Schwartz function \(f\),
+\[
+ |{\cal P}_{R,T}|
+ \le C_\varepsilon(3q)^2{\cal S}_2(f)^2
+       {\cal X}^{\varepsilon}N^{1/2}
+       M_R^{3/4+\varepsilon}M_T^{3/4+\varepsilon}.
+\]
+The claim includes zero values of either \(M_R\) or \(M_T\).
+All original nonzero rows occur in this bound.
+\end{theorem}
+
+\begin{proof}
+We first prove the exact support restriction. If the left inner interval
+contains an integer, then \(R\le\sqrt{N/(rb)}\), so
+\[
+ (rb)R^2\le N,\qquad rb\le M_R.
+\]
+Thus every row with \(rb>M_R\) is identically zero. Similarly a row with
+\(ud>M_T\) is identically zero. These conclusions follow from an empty
+inner interval, without using cancellation, a norm estimate or a character
+phase. Consequently the full four-index sum equals exactly the sum with
+\[
+ r\le M_R,\quad b\le M_R/r,\quad
+ u\le M_T,\quad d\le M_T/u.
+\]
+For completeness, to restrict a finite hyperbola from cutoff \(N\) to
+\(M\le N\), first remove \(r>M\): every positive \(b\) then gives \(rb>M\).
+For \(r\le M\), remove \(b>M/r\): positivity of \(r\) again gives \(rb>M\).
+The summands in both removed parts are zero. Applying this argument to
+each column proves the exact reindexing, including empty cutoffs.
+
+Write \(m=rb\), \(n=ud\) on the remaining support, and let \(B,C\) be
+the actual inner square-root cutoffs. Since \(mB^2,nC^2\le N\),
+\[
+ \sqrt{BC}\le N^{1/2}m^{-1/4}n^{-1/4}.
+\]
+One way to verify this without a range approximation is to raise
+\(mB^2\le N\) to the power \(1/4\), obtaining
+\(m^{1/4}\sqrt B\le N^{1/4}\), and do the same in the other column.
+All bases are nonnegative and \(m,n>0\).
+
+The exact row-size parameter satisfies
+\[
+ (Hrn+Hum+m+n+1)(B+C+1)\le{\cal X}.
+\]
+Indeed \(r\le m\le N\), \(u\le n\le N\), and \(B,C\le N\);
+each of \(Hrn,Hum\) is at most \(HN^2\).
+The physical row theorem therefore bounds the complete cancelled row by
+\[
+ C'_\varepsilon(3q)^2{\cal S}_2(f)^2{\cal X}^{\varepsilon}N^{1/2}
+ \left(|a_\chi(r)|m^{-1/4}\right)
+ \left(|a_\chi(u)|n^{-1/4}\right).
+\]
+Only now take magnitudes in the explicitly extracted remainder.
+The two outer character magnitudes are at most one. The squarefree
+filters can be removed from this positive auxiliary upper bound.
+Summing the displayed product factors the cost as
+\({\cal H}_\chi(M_R){\cal H}_\chi(M_T)\).
+Apply Theorem~\ref{thm:carmichael-three-quarter-hyperbola} to both
+factors and absorb its two constants in \(C_\varepsilon\).
+
+The equality \({\cal P}_{1,1}={\cal V}_{4D}(W_D)\) follows from the
+previous full signed physical transfer by swapping the finite \(b,u\)
+indices and moving the two squarefree indicators back to their original
+outer filters. It requires no symmetry premise.
+\end{proof}
+
+The theorem is uniform in \(G\); its explicit conductor cost is
+\((3q)^2\), and the actual window cost is \({\cal S}_2(f)^2\).
+For a compensated window \(f_A-zf_B\), this is the seminorm of that
+actual combined window. The exact finite sector retains the four
+\(AA-\bar z\,AB-z\,BA+|z|^2BB\) terms before its coupled rows are
+estimated. The magnitude estimate applies to the separated remainder;
+the complementary signed core remains unestimated here.
+
+The displayed estimate supplies the large-square sector cost. It does
+not supply the signed small-square estimate, the cost of summing every
+moving prime frequency in the original full L-function quotient, or a
+uniform unbounded Abel passage. The complete certified exponent is still
+\(7/4\) for \(I_{D,G}\), and the global boundary is still \(7/8\).
+The active complete targets remain \(3/2\) and at most \(3/4\), respectively.
+
 \begin{thebibliography}{99}
 \small\raggedright
 \setlength{\itemsep}{3pt}

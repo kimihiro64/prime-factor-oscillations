@@ -1,0 +1,78 @@
+{
+  "date": "2026-10-29",
+  "status": "compiled_and_focused_audited",
+  "owners": [
+    "PrimeFactorOscillations/Assembly/CarmichaelLargeSquareRemainder.lean"
+  ],
+  "theorem_count": 8,
+  "new_theorem_proofs": 8,
+  "public_definition_count": 3,
+  "declarations": [
+    "PrimeFactorOscillations.CarmichaelLargeSquareRemainder.hyperbola_mass_cap",
+    "PrimeFactorOscillations.CarmichaelLargeSquareRemainder.hyperbola_mass_subpower",
+    "PrimeFactorOscillations.CarmichaelLargeSquareRemainder.physical_row_outer_cost",
+    "PrimeFactorOscillations.CarmichaelLargeSquareRemainder.large_square_packet_subpower",
+    "PrimeFactorOscillations.CarmichaelLargeSquareRemainder.physical_row_zero_outside_square_cutoffs",
+    "PrimeFactorOscillations.CarmichaelLargeSquareRemainder.large_square_packet_full_support",
+    "PrimeFactorOscillations.CarmichaelLargeSquareRemainder.full_large_square_packet_subpower",
+    "PrimeFactorOscillations.CarmichaelLargeSquareRemainder.rational_unit_full_sector"
+  ],
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "domain": "Every eps>0, positive q,H,D,R,T, arbitrary Dirichlet chi mod q, finite prime G, complex Schwartz f. N=4D, M_R=floor(N/R^2), M_T=floor(N/T^2), Xcal=(2HN^2+2N+1)(2N+1). Zero outer cutoffs are included. Exact identities need no RH, symmetry or cubic-order premise.",
+  "proved": [
+    "The weighted native hyperbola has exact cap A*M^(3/4)*H_M^2.",
+    "The positive outer cost is O_eps(M^(3/4+eps)), uniformly in the modulus and character.",
+    "The full cancelled row factors into two explicit three-quarter outer weights.",
+    "The restricted large-square aggregate has its complete conductor, mask and seminorm bound.",
+    "Every omitted product row is exactly zero because an inner interval is empty.",
+    "The restricted aggregate equals the full original large-square sector, with every nonzero row.",
+    "The full large-square sector has the same uniform power estimate.",
+    "At R=T=1 the full sector is exactly the original full signed rational unit."
+  ],
+  "checks": {
+    "maintained_owner": true,
+    "focused_axiom_targets": 8,
+    "unchanged_theorems_reaudited": 0,
+    "changed_source_policy": true,
+    "facade_compile": true,
+    "root_consumer_compile": true,
+    "catalogue_ruff_and_strict_mypy": true,
+    "saved_paper_compile": true
+  },
+  "closed_prior_edges": [
+    "Sum the character-cancelled physical rectangles over the native outer hyperbolas.",
+    "Identify all removed rows as exact zeros, preserving every nonzero outer row.",
+    "Retain the full rational unit at R=T=1."
+  ],
+  "open": [
+    "The signed small-square native core with all compensation.",
+    "Complete moving prime-frequency and full reciprocal-L assembly, charging every growing conductor and window cost.",
+    "Uniform unbounded Abel passage.",
+    "Complete I exponent3/2 and unconditional global boundary<=3/4."
+  ],
+  "benchmark_status": "new_uniform_analytic_large_square_sector_bound; complete_exponent_unchanged",
+  "old_bound": "A uniform physical rectangle bound was installed; its native outer hyperbola aggregate was not yet bounded.",
+  "new_bound": "Full large-square sector <= C_eps*(3q)^2*S2(f)^2*Xcal^eps*N^(1/2)*M_R^(3/4+eps)*M_T^(3/4+eps).",
+  "components": {
+    "native_hyperbola": "|a_chi(r)|<=tau(r), then exact cap A*M^(3/4)*H_M^2 and uniform M^(3/4+eps).",
+    "window": "Complete coupled row cancelled first; sqrt(B*C)<=N^(1/2)*(rb)^(-1/4)*(ud)^(-1/4).",
+    "support": "Rows outside rb<=floor(N/R^2),ud<=floor(N/T^2) are exactly zero; full-domain equality proved.",
+    "phase": "Outer psi(b)*conj(psi(d)) retained exactly until this explicitly separated remainder is estimated.",
+    "compensation": "Actual combined Schwartz f, all AA/AB/BA/BB terms retained in the finite packet.",
+    "costs": "Explicit (3q)^2*S2(f)^2; Xcal keeps H and N. No frequency conductor or window seminorm is treated as free.",
+    "unit": "R=T=1 is the full original rational unit, including k=1,s=t=1,b=d=1.",
+    "remaining": "Signed small-square core and complete prime-frequency/quotient/Abel consumer."
+  },
+  "actuals": "No numerical experiments or diagnostic completions used.",
+  "first_nonpositive_domain": "No complete new global signed estimate installed; this upper bound concerns the extracted sector only.",
+  "certified_global_boundary": "7/8",
+  "target_global_boundary": "<=3/4",
+  "certified_global_I_exponent": "7/4",
+  "target_global_I_exponent": "3/2",
+  "paper_label": "sec:carmichael-large-square-remainder",
+  "catalogue": "scripts/completed_research_targets_75.py"
+}

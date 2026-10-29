@@ -5,8 +5,8 @@ Authors: Prime Factor Oscillations contributors
 -/
 import PrimeFactorOscillations.Assembly.CarmichaelBalancedMask
 import PrimeFactorOscillations.Assembly.CarmichaelCarrierWindow
+import PrimeFactorOscillations.Assembly.CarmichaelLargeSquareRemainder
 import PrimeFactorOscillations.Assembly.CarmichaelPhaseAscent
-import PrimeFactorOscillations.Assembly.CarmichaelSquarepartPhysical
 import PrimeFactorOscillations.Assembly.CompletedDetectorPackets
 import PrimeFactorOscillations.Assembly.CompletedLegacyResearch
 import PrimeFactorOscillations.Assembly.PrimeProfileRigidity

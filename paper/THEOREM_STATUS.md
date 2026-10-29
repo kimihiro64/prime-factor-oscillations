@@ -1162,11 +1162,10 @@ square-part s=t=1 and all four compensation terms remain. No signed main
 term was replaced by an unsigned coefficient mass or a Gram estimate.
 
 The native coefficient and finite full-unit dictionary obligations are closed.
-The rectangular regrouping m=r*b,n=u*d and its uniform physical-row estimate
-are proved below. The summed native large-square remainder, signed
-small-square core, original
-prime-sampled reciprocal-L consumer and uniform unbounded Abel passage
-remain unproved. No complete I bound follows just from these identities.
+The rectangular regrouping and its uniform physical-row estimate are proved
+below. The later aggregate section also proves the finite large-square
+remainder bound. The signed small-square core, prime-sampled full reciprocal-L
+consumer and uniform unbounded Abel passage remain open.
 
 Benchmark status: exact structural transfer to the original finite unit.
 Old complete I exponent: 7/4. New complete I exponent: 7/4.
@@ -1217,9 +1216,10 @@ The complete signed native core has not been replaced by unsigned mass.
 Closed: exact physical range transfer, both cross-mask hypotheses, arbitrary
 lower rectangles, the actual window-support premises, and full two-column
 finite-unit reordering without a symmetry assumption.
-Open: summing an extracted large-square remainder with all frequency costs;
-the retained signed small-square core; the prime-sampled full reciprocal-L
-consumer; and a uniform unbounded Abel passage.
+The later aggregate section proves the finite large-square sector bound.
+Open: the retained signed small-square core, summation over every moving
+prime frequency with its full conductor and window costs, the full
+reciprocal-L consumer, and a uniform unbounded Abel passage.
 
 Benchmark status: uniform row cancellation transferred to the actual finite
 unit; no complete exponent gain claimed. Old complete I exponent: 7/4.
@@ -1227,3 +1227,50 @@ New complete I exponent: 7/4. Target: 3/2. No numerical diagnostics used.
 Certified global boundary: 7/8. Active target: <=3/4.
 Paper label: `sec:carmichael-squarepart-physical`.
 Receipt: [physical square-part transfer](verification/carmichael-squarepart-physical.json).
+
+## Complete large-square sector estimate (2026-10-29)
+
+Owner: `Assembly/CarmichaelLargeSquareRemainder.lean`.
+
+| Lean declaration | Claim | Status |
+| --- | --- | --- |
+| `hyperbola_mass_cap` | The weighted native hyperbola has exact cap A*M^(3/4)*H_M^2. | Proved; focused axiom audit passed. |
+| `hyperbola_mass_subpower` | The positive outer cost is O_eps(M^(3/4+eps)), uniformly in the modulus and character. | Proved; focused axiom audit passed. |
+| `physical_row_outer_cost` | The full cancelled row factors into two explicit three-quarter outer weights. | Proved; focused axiom audit passed. |
+| `large_square_packet_subpower` | The restricted large-square aggregate has its complete conductor, mask and seminorm bound. | Proved; focused axiom audit passed. |
+| `physical_row_zero_outside_square_cutoffs` | Every omitted product row is exactly zero because an inner interval is empty. | Proved; focused axiom audit passed. |
+| `large_square_packet_full_support` | The restricted aggregate equals the full original large-square sector, with every nonzero row. | Proved; focused axiom audit passed. |
+| `full_large_square_packet_subpower` | The full large-square sector has the same uniform power estimate. | Proved; focused axiom audit passed. |
+| `rational_unit_full_sector` | At R=T=1 the full sector is exactly the original full signed rational unit. | Proved; focused axiom audit passed. |
+
+All eight new public theorem proofs and three definitions are maintained and
+exported through RHAnalysis. The focused audit covers only these eight;
+no unchanged theorem was reaudited.
+
+For every eps>0, positive q,H,D,R,T, every Dirichlet chi modulo q, finite
+prime G and Schwartz f, put N=4D, M_R=floor(N/R^2), M_T=floor(N/T^2),
+Xcal=(2*H*N^2+2*N+1)*(2*N+1). The complete large-square sector satisfies
+`|P_(R,T)| <= C_eps*(3q)^2*S2(f)^2*Xcal^eps*N^(1/2)*M_R^(3/4+eps)*M_T^(3/4+eps)`.
+C_eps is independent of all displayed parameters and G. Either M may be
+zero. Both support truncations are proved identities: each removed row is
+zero. The full sector includes all originally supported outer products.
+R=T=1 recovers the entire original rational unit exactly.
+
+The proof applies the actual character-cancelled rectangle bound first,
+then estimates only the extracted remainder by positive hyperbola costs.
+The retained small-square core is not assigned an unsigned mass bound.
+All cross masks, actual floor cutoffs, all character phases and combined
+compensation remain in the exact finite packet. The cost (3q)^2 and the
+actual S2(f)^2 are explicit and must be charged for growing families.
+
+Closed: the finite native large-square remainder estimate, including every
+nonzero supported row and both actual outer cutoffs. Open: the retained
+signed small-square estimate, the complete moving prime-frequency/full
+reciprocal-L assembly and uniform unbounded Abel passage.
+
+Benchmark status: a new uniform analytic estimate for the extracted sector;
+the complete signed bound is not yet improved. Old complete I exponent: 7/4.
+New complete I exponent: 7/4. Target: 3/2. No numerical diagnostics used.
+Certified global boundary: 7/8. Active target: <=3/4.
+Paper label: `sec:carmichael-large-square-remainder`.
+Receipt: [complete large-square estimate](verification/carmichael-large-square-remainder.json).
