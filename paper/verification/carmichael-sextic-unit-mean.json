@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-29",
+  "paper_label": "sec:carmichael-sextic-unit-mean",
+  "status": "proved_and_focused_axiom_audited",
+  "new_targets": [
+    "PrimeFactorOscillations.CarmichaelSexticTransfer.residual_as_cube",
+    "PrimeFactorOscillations.CarmichaelSexticTransfer.sextic_residual_quadratic",
+    "PrimeFactorOscillations.CarmichaelSexticTransfer.sextic_residual_real",
+    "PrimeFactorOscillations.CarmichaelSexticTransfer.general_companion_ratio",
+    "PrimeFactorOscillations.CarmichaelSexticTransfer.general_ratio_pair",
+    "PrimeFactorOscillations.CarmichaelSexticTransfer.shifted_norm_clock_monotone",
+    "PrimeFactorOscillations.CarmichaelSexticTransfer.shifted_norm_clock_input",
+    "PrimeFactorOscillations.CarmichaelSexticTransfer.shifted_norm_clock_nonpositive",
+    "PrimeFactorOscillations.CarmichaelSexticTransfer.shifted_carrier_zero_nonpositive",
+    "PrimeFactorOscillations.CarmichaelSexticTransfer.shifted_carrier_rescaled_variation",
+    "PrimeFactorOscillations.CarmichaelSexticTransfer.residual_nonprincipal_of_odd",
+    "PrimeFactorOscillations.CarmichaelSexticTransfer.neutral_exponents",
+    "PrimeFactorOscillations.CarmichaelSexticTransfer.neutral_factorization",
+    "PrimeFactorOscillations.CarmichaelSexticTransfer.neutral_mask_support",
+    "PrimeFactorOscillations.CarmichaelSexticTransfer.gauss_neutral_exponents",
+    "PrimeFactorOscillations.CarmichaelSexticTransfer.gauss_neutral_factorization",
+    "PrimeFactorOscillations.CarmichaelSexticTransfer.gauss_neutral_mask_support",
+    "PrimeFactorOscillations.CarmichaelEisensteinUnitMean.periodic_zero_mean_uniform",
+    "PrimeFactorOscillations.CarmichaelEisensteinUnitMean.nonprincipal_character_uniform"
+  ],
+  "new_target_count": 19,
+  "owners": [
+    {
+      "path": "PrimeFactorOscillations/Assembly/CarmichaelSexticTransfer.lean",
+      "sha256": "f3c2facdb9c0ac7a45656294e994d0428189c4f33e2e28b715eaf0faa1046cb0"
+    },
+    {
+      "path": "PrimeFactorOscillations/Assembly/CarmichaelEisensteinUnitMean.lean",
+      "sha256": "9626ce36e8a5f7859a745afc6254748ae7eb3602aeedc1b309c9d526fffbd11c"
+    }
+  ],
+  "axiom_checks": {
+    "standard_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "newly_checked": 5,
+    "reused_unchanged": 14,
+    "logs": [
+      {
+        "path": ".research/generated/carmichael-sextic-transfer-axioms14-20261029.log",
+        "sha256": "536973a25894dea5df2c667aced0b33dddc1aa6322258290ed4727f53d908352"
+      },
+      {
+        "path": ".research/generated/carmichael-sextic-gauss-axioms3-20261029.log",
+        "sha256": "5453eacb46c77f29b0a6167bc05761f4ef1093135421beaf76c39cbb5df95d34"
+      },
+      {
+        "path": ".research/generated/carmichael-eisenstein-unit-mean-axioms2-20261029.log",
+        "sha256": "8b7af349530dabe0893ebca61295adfe96ae157ea78f194c83948bbe7d73c4fb"
+      }
+    ]
+  },
+  "proved_scope": {
+    "residual_phase": "R_chi=changeLevel(chi^3); sextic implies quadratic and real; odd implies nonprincipal; cubic principal retained",
+    "paired_ratio": "Both complete coefficients and arbitrary complex kernel retained for all residue ratios",
+    "physical_window": "All signed integer shifts and nonnegative dilations; actual compensated-carrier variation <=21/4 for D>=1",
+    "gauss_neutrality": "Under c<=1, s-1<=m and (c+3n>0 -> m=0), neutrality is exactly s=c+6v,n=2h,(v,ch)=1; full support c+v+h",
+    "signed_frequency": "For all positive physical scales K, zero-mean periodic P on O/(c) has signed smoothed sum <=C*p(W)*sum_r norm(P(r)); every nonprincipal multiplicative character has zero mean"
+  },
+  "parameter_domain": "All nonzero Dirichlet levels; arbitrary base characters; all integer shifts; unrestricted Gauss-modulus valuations subject to the stated support conditions; all nonzero Eisenstein moduli and every K>0",
+  "explicit_costs": {
+    "window": "21/4",
+    "frequency_conductor": "sum_r norm(P(r)), never silently absorbed uniformly in a varying conductor",
+    "frequency_constant": "Existential universal positive C and finite Schwartz seminorm supplied by the proved nonzero lattice theorem"
+  },
+  "detector_error": "Unchanged existing certified detector",
+  "family_adapter": "Existing admissible-family adapters retained; no new family-uniform arithmetic bound is inferred from a row identity",
+  "uncancelled_main_terms": "The independent signed small-square core and full rational C_G remain unestimated at the target scale",
+  "low_estimate_provenance": "Actual Eisenstein Poisson and nonzero-lattice summability/uniform estimates prove the signed frequency bound; no use of installed 7/8 as an improved estimate",
+  "attainable_endpoint": "No improved complete boundary derived; certified 7/8 retained and required endpoint <=3/4 retained",
+  "benchmark_status": "Signed frequency cancellation proved, complete exponent unchanged",
+  "old_bound": {
+    "I_exponent": "7/4",
+    "zero_free_boundary": "7/8"
+  },
+  "new_bound": {
+    "I_exponent": "7/4",
+    "zero_free_boundary": "7/8"
+  },
+  "target": {
+    "I_exponent": "3/2",
+    "zero_free_boundary": "at most 3/4"
+  },
+  "components": [
+    "Residual phase and complete ratio pairing",
+    "All signed positive-input clocks",
+    "Unrestricted neutral Gauss valuation classification",
+    "Exact zero-mode cancellation followed by a uniform nonzero-frequency bound"
+  ],
+  "actuals": "No finite numerical diagnostics used; universal Lean results only",
+  "first_nonpositive_domain": "Not applicable to the proved norm bound; no new complete signed positivity estimate installed",
+  "open_edges": [
+    "Full masked character dilation estimate",
+    "Both terms of every imprimitive Ramanujan factor",
+    "Complete source-unit summation and its rational C_G adapter",
+    "Moving Hecke sextic/norm identification",
+    "Independent signed small-square estimate",
+    "Uniform unbounded Abel limit"
+  ],
+  "excluded_inferences": [
+    "No claim that Gauss support conditions suffice for nonzero Gauss sums",
+    "No squarefree restriction on the Gauss modulus",
+    "No erasure of sixth-power prime support",
+    "No application of the nonprincipal theorem to the cubic principal residual without its separate source twist",
+    "No D-to-Z scaling inferred",
+    "No improved boundary or completed goal claimed"
+  ]
+}

@@ -1339,3 +1339,58 @@ New complete I exponent:7/4. Target:3/2. No numerical diagnostics used.
 Certified boundary:7/8. Active boundary target:<=3/4.
 Paper label:`sec:carmichael-actual-carrier-transfer`.
 Receipt:[actual carrier and phase transfer](verification/carmichael-actual-carrier-transfer.json).
+
+
+## Sextic phases and signed unit means (2026-10-29)
+
+Maintained owners: `CarmichaelSexticTransfer.lean` and
+`CarmichaelEisensteinUnitMean.lean`. All19 declarations below compiled;
+the14 earlier focused axiom outputs were reused unchanged and the5 new
+proofs received fresh standard-only axiom checks.
+
+| Owner namespace | Declaration | Exact claim scope | Status |
+| --- | --- | --- | --- |
+| `CarmichaelSexticTransfer` | `residual_as_cube` | The complete residual character is the level change of the cube. | Proved; focused axiom audit passed. |
+| `CarmichaelSexticTransfer` | `sextic_residual_quadratic` | Every sextic base character has quadratic residual, including the principal case. | Proved; focused axiom audit passed. |
+| `CarmichaelSexticTransfer` | `sextic_residual_real` | The quadratic residual equals its conjugate, including nonunit zeros. | Proved; focused axiom audit passed. |
+| `CarmichaelSexticTransfer` | `general_companion_ratio` | Every residue ratio retains the exact residual coefficient. | Proved; focused axiom audit passed. |
+| `CarmichaelSexticTransfer` | `general_ratio_pair` | Both phase rows and every complex kernel stay coupled in the exact ratio identity. | Proved; focused axiom audit passed. |
+| `CarmichaelSexticTransfer` | `shifted_norm_clock_monotone` | The positive-part norm clock is monotone for every signed integer shift. | Proved; focused axiom audit passed. |
+| `CarmichaelSexticTransfer` | `shifted_norm_clock_input` | Each admissible affine input gives the exact cubic norm clock. | Proved; focused axiom audit passed. |
+| `CarmichaelSexticTransfer` | `shifted_norm_clock_nonpositive` | Every invalid affine input has zero extended clock. | Proved; focused axiom audit passed. |
+| `CarmichaelSexticTransfer` | `shifted_carrier_zero_nonpositive` | The actual compensated carrier vanishes on the invalid-input extension. | Proved; focused axiom audit passed. |
+| `CarmichaelSexticTransfer` | `shifted_carrier_rescaled_variation` | The actual shifted/dilated carrier has uniform variation at most 21/4. | Proved; focused axiom audit passed. |
+| `CarmichaelSexticTransfer` | `residual_nonprincipal_of_odd` | Odd base characters have nonprincipal residual without an added phase assumption. | Proved; focused axiom audit passed. |
+| `CarmichaelSexticTransfer` | `neutral_exponents` | The squarefree preliminary neutral classification is exact under both bit bounds. | Proved; focused axiom audit passed. |
+| `CarmichaelSexticTransfer` | `neutral_factorization` | The preliminary all-prime squarefree valuation classification retains finite support. | Proved; focused axiom audit passed. |
+| `CarmichaelSexticTransfer` | `neutral_mask_support` | Even neutral rows retain their exact nonunit-mask support. | Proved; focused axiom audit passed. |
+| `CarmichaelSexticTransfer` | `gauss_neutral_exponents` | The unrestricted Gauss row permits sixth powers under the actual local support conditions. | Proved; focused axiom audit passed. |
+| `CarmichaelSexticTransfer` | `gauss_neutral_factorization` | All prime valuations have s=c*v^6, n=h^2 and the required disjointness. | Proved; focused axiom audit passed. |
+| `CarmichaelSexticTransfer` | `gauss_neutral_mask_support` | Imprimitive sixth powers keep their complete prime support in the zero mask. | Proved; focused axiom audit passed. |
+| `CarmichaelEisensteinUnitMean` | `periodic_zero_mean_uniform` | The full zero mode cancels before a scale-uniform signed Eisenstein frequency bound. | Proved; focused axiom audit passed. |
+| `CarmichaelEisensteinUnitMean` | `nonprincipal_character_uniform` | Nonprincipal residue characters discharge mean zero without reality or primitivity. | Proved; focused axiom audit passed. |
+
+The full Gauss classification assumes the displayed frequency-support
+and character zero-mask conditions; it does not assert that they suffice
+for a nonzero Gauss sum. Only the coefficient index c is squarefree.
+The modulus index s is unrestricted and its sixth-power support remains.
+The signed frequency bound is uniform at every positive physical scale;
+its conductor cost is the explicit sum of absolute residue weights.
+Nonprincipality, rather than a reality or primitivity assumption,
+discharges the zero mean. The cubic residual itself is principal and
+is not passed to the nonprincipal theorem without the separate source
+twist.
+
+Open consumers: the full masked dilation, imprimitive Ramanujan pairs,
+source-unit summation, moving Hecke/norm adapter, independent signed
+small-square core estimate, and unbounded uniform Abel limit. The
+fixed-support physical transfer and all compensation cross terms remain
+in force. No source-unit or rational C_G estimate is inferred solely
+from the frequency-row bound.
+
+Benchmark status: exact phase/window qualifications and a signed uniform
+frequency estimate proved; complete I exponent unchanged at7/4 (target3/2).
+Certified zero-free boundary unchanged at7/8 (target<=3/4).
+No finite numerical diagnostics were used.
+Paper label:`sec:carmichael-sextic-unit-mean`.
+Receipt:[sextic phases and signed unit means](verification/carmichael-sextic-unit-mean.json).
