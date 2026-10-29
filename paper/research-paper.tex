@@ -34594,6 +34594,156 @@ The complete \(I_{D,G}\) exponent is still \(7/4\), against \(3/2\);
 the certified zero-free boundary remains \(7/8\), against at most \(3/4\).
 These are proved reference-remainder estimates, not a new zero exclusion.
 
+
+\section{A nonvanishing remainder after extracting the angular Euler factor}
+\label{sec:carmichael-unit-euler-renormalization}
+
+This result concerns the exact unramified slice \(v=w=1\).
+It separates explicit Euler factors before estimating the remaining
+correction. The angular phase is retained throughout. It neither identifies
+this slice with the complete exceptional-frequency packet nor estimates
+the surviving squarefree high main term.
+
+Put
+\[
+ t=Q^{-1},\qquad V=Q^{-6z},\qquad D=\eta Q^{-s},\qquad
+ R=AQ^{4-6s-6z},
+\]
+where \(Q>0\) and \(A,\eta,s,z\) are complex, with powers of the
+positive real number \(Q\) taken using its real logarithm.
+Let \(F_Q(A,\eta;s,z)\) be the maintained
+\texttt{unramifiedClosed} factor at \(v=w=1\), and define
+\[
+ J_Q(A,\eta;s,z)=1+\frac{Q^{-1}(D-R)}{1-D}.
+ \tag{UE1}
+\]
+
+\begin{theorem}[Angular-factor extraction and a uniform nonvanishing remainder]
+\label{thm:carmichael-unit-euler-renormalization}
+The following statements hold without RH.
+\begin{enumerate}
+\item If \(1-V\), \(1-D\) and \(1-R\) are nonzero, then
+\[
+ F_Q(A,\eta;s,z)=
+ \frac{1-Q^{-1}V}{1-R}\,J_Q(A,\eta;s,z).
+ \tag{UE2}
+\]
+The corresponding factorization holds at every finite product cutoff.
+\item If \(Q\ge4\), \(|A|,|\eta|\le1\), and
+\[
+ \Re s\ge\frac34,\qquad \Re(s+z)\ge\frac34,
+ \tag{UE3}
+\]
+then
+\[
+ |J_Q-1|\le4Q^{-3/2},\qquad |J_Q|\ge\frac12.
+ \tag{UE4}
+\]
+No positive lower bound on \(\Re z\) is required separately.
+\item Let \(Q_i\ge4\), \(|A_i|,|\eta_i|\le1\), and
+\(\sum_iQ_i^{-3/2}<\infty\).
+The product \(\prod_iJ_{Q_i}(A_i,\eta_i;s,z)\) is nonzero at every
+point satisfying \((UE3)\).
+It is analytic along every analytic parameter path \(s=s(u),z=z(u)\)
+on an open set on which \((UE3)\) holds.
+\item These conclusions apply to the actual source phases on
+\[
+ \mathcal P_S=\{\mathfrak p:\ N\mathfrak p\ge e^2,\
+                         \mathfrak p\notin S\},
+\]
+for every finite set \(S\) of source prime ideals and every source
+character \(\eta_0\), with
+\[
+ \begin{gathered}
+ Q_{\mathfrak p}=N\mathfrak p,\qquad
+ \eta_{\mathfrak p}=\operatorname{idealCoeff}(\eta_0,\mathfrak p),\\
+ A_{\mathfrak p}=
+ \overline{\operatorname{angularFactor}
+              (\operatorname{primaryGenerator}\mathfrak p)}^{\,6}
+ \operatorname{elementCoeff}
+              (\eta_0,\operatorname{primaryGenerator}\mathfrak p)^6.
+ \end{gathered}
+\]
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+At this slice the coordinate identities give
+\(W=t\) and \(K=(1-t)D\). Retaining the marked term and its correction,
+their exact common numerator is
+\[
+ P=\frac{(R-D)(1-tV)}{(1-V)(1-R)}.
+\]
+The full factor is
+\[
+ F_Q=\frac{1-tV+(1-V)(1-t)P}{1-D}
+     =\frac{1-tV}{1-R}
+       \left(1+\frac{t(D-R)}{1-D}\right).
+\]
+This proves \((UE2)\), including its signs and both rational factors.
+Multiplication proves the finite-cutoff assertion; no independent
+prime factors are omitted.
+
+Under \((UE3)\), the exact coordinate norm bounds give
+\[
+ |D|\le Q^{-\Re s}\le\frac12,\qquad
+ |tD|\le Q^{-1-\Re s}\le Q^{-3/2},\qquad
+ |tR|\le Q^{3-6\Re(s+z)}\le Q^{-3/2}.
+\]
+Consequently \(|(1-D)^{-1}|\le2\), and only now do we estimate
+the isolated remainder:
+\[
+ |J_Q-1|\le2(|tD|+|tR|)\le4Q^{-3/2}.
+\]
+Since \(4Q^{-3/2}\le Q^{-1/2}\le1/2\) for \(Q\ge4\),
+the reverse triangle inequality proves the second part of \((UE4)\).
+
+For the product, \((UE4)\) makes \(\sum_i|J_i-1|\) summable.
+It also gives \(|J_i^{-1}|\le2\) and
+\[
+ |J_i^{-1}-1|\le2|J_i-1|.
+\]
+Thus both the product of \(J_i\) and the product of \(J_i^{-1}\)
+converge. Multiplying these convergent products yields \(1\), proving
+nonvanishing without assuming it.
+Along an analytic parameter path, each local denominator \(1-D_i\)
+is nonzero. The powers are analytic because
+\(Q_i^a=\exp(a\log Q_i)\).
+The same summable bound is uniform on each compact neighborhood
+contained in the given open set. Uniform convergence of the finite
+analytic products proves analyticity of the limit.
+
+For the actual source, the maintained phase estimates give
+\(|A_{\mathfrak p}|,|\eta_{\mathfrak p}|\le1\).
+Summability of \((N\mathfrak p)^{-3/2}\) follows from the proved
+ideal-norm majorant at exponent \(149/100<3/2\), by restriction and
+comparison. The source cutoff \(N\mathfrak p\ge e^2\) implies
+\(Q_{\mathfrak p}\ge4\), so the preceding conclusions apply.
+\end{proof}
+
+The source phase \(A_{\mathfrak p}\) is an angular sixth-power phase;
+it has not been replaced by \(1\). In particular, the extracted
+\(1-R\) factors must retain that phase in any subsequent global
+\(L\)-function identification. The product in the theorem is the
+explicitly renormalized remainder, not the original full correction.
+Prime ideals outside \(\mathcal P_S\), ramified factors, selected-slot
+replacements, the outside reciprocal \(L(s,\eta_0)\), and physical
+compensation terms remain separate parts of the complete consumer.
+No nonvanishing assertion for their product is inferred here.
+
+The maintained owner is
+\texttt{CarmichaelUnitEulerRenormalization.lean}.
+Its ten public declarations cover the rational and coordinate
+factorizations, finite cutoffs, the uniform defect and lower bounds,
+local and product analyticity, and generic and actual-source product
+nonvanishing.
+The new estimate is \((UE4)\) for \(J_Q\) on \((UE3)\).
+It is not a comparison claiming that the unextracted factor has the
+same bound. The full \(I_{D,G}\) bound remains \(D^{7/4+\varepsilon}\),
+against the required \(D^{3/2+\varepsilon}\), and the certified
+zero-free boundary remains \(7/8\), against at most \(3/4\).
+No numerical experiment or completion of an unknown signed sum is used.
+
 \begin{thebibliography}{99}
 \small\raggedright
 \setlength{\itemsep}{3pt}

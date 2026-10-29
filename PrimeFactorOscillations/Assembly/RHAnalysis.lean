@@ -8,13 +8,13 @@ import PrimeFactorOscillations.Assembly.CarmichaelCoprimeSignedWave
 import PrimeFactorOscillations.Assembly.CarmichaelPhaseAscent
 import PrimeFactorOscillations.Assembly.CarmichaelPowerCompensation
 import PrimeFactorOscillations.Assembly.CarmichaelSquarefreeHighRemainder
+import PrimeFactorOscillations.Assembly.CarmichaelUnitEulerRenormalization
 import PrimeFactorOscillations.Assembly.CompletedDetectorPackets
 import PrimeFactorOscillations.Assembly.CompletedLegacyResearch
 import PrimeFactorOscillations.Assembly.PrimeProfileRigidity
 import PrimeFactorOscillations.Assembly.RHResults
 import PrimeFactorOscillations.Helpers.CubicGaussianCancellation
 import PrimeFactorOscillations.Helpers.XiMultiplicityBudget
-import PrimeFactorOscillations.Proof.ProbeEuler
 
 /-!
 # RH comparisons and Euler continuation inputs

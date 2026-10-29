@@ -1627,3 +1627,44 @@ unchanged. No numerical experiments or completions of unknown sums.
 No complete improved-bound failure domain is available.
 Paper label:`sec:carmichael-power-compensation`.
 Receipt:[power-compensation estimates](verification/carmichael-power-compensation.json).
+
+
+## Unit Euler remainder after exact angular-factor extraction (2026-10-29)
+
+Maintained owner: `CarmichaelUnitEulerRenormalization.lean`.
+All ten public declarations compiled and received focused standard-only axiom checks.
+
+| Declaration | Exact scope | Status |
+| --- | --- | --- |
+| `rational_slice_factorization` | Exact signed rational factorization at v=w=1; every denominator hypothesis explicit. | Proved; focused axiom audit passed. |
+| `unramified_slice_factorization` | Factorization of the actual unramifiedClosed coordinates; angular A retained. | Proved; focused axiom audit passed. |
+| `local_remainder_defect` | Uniform remainder defect <=4 Q^(-3/2) for Q>=4, Re(s)>=3/4 and Re(s+z)>=3/4. | Proved; focused axiom audit passed. |
+| `local_remainder_lower` | Uniform local remainder norm >=1/2 on the same full domain. | Proved; focused axiom audit passed. |
+| `local_remainder_analyticAt` | Analyticity along analytic s,z paths; actual denominator nonvanishing discharged. | Proved; focused axiom audit passed. |
+| `remainderProduct_ne_zero` | Nonvanishing infinite remainder product from summable defects and inverse defects. | Proved; focused axiom audit passed. |
+| `analyticOnNhd_remainderProduct` | Analytic infinite product along every admissible analytic path, by normal convergence. | Proved; focused axiom audit passed. |
+| `finite_slice_factorization` | Exact factorization at every finite cutoff, with extracted factors retained. | Proved; focused axiom audit passed. |
+| `source_remainderProduct_ne_zero` | Nonvanishing for actual source angular/character phases outside arbitrary finite S and norm<exp(2). | Proved; focused axiom audit passed. |
+| `analyticOnNhd_sourceRemainderProduct` | Analyticity for that actual-source remainder product on the enlarged path region. | Proved; focused axiom audit passed. |
+
+The exact factor is F=(1-Q^(-1)*V)/(1-R)*J, with
+J=1+Q^(-1)*(D-R)/(1-D), D=eta*Q^(-s), V=Q^(-6*z),
+and R=A*Q^(4-6*s-6*z). The actual A retains the angular sixth-power
+phase and the source character. It is not set to one.
+
+The local defect/lower bounds require Q>=4 and |A|,|eta|<=1.
+The generic infinite-product results require sum Q^(-3/2)<infinity.
+That summability is discharged for the actual source prime ideals with
+norm>=exp(2), outside any finite S. Smaller norms and ramified factors
+remain explicit outside this product. No independent restriction Re(z)>0
+is needed for J when Re(s)>=3/4 and Re(s+z)>=3/4.
+
+Benchmark status: new proved estimate and nonvanishing for the explicitly
+renormalized remainder; the extracted angular Euler block and full source
+reciprocal L factor remain. This is not a bound for the unextracted factor,
+the complete exceptional-frequency row, or its physical/Abel consumer.
+Full I exponent7/4 and certified boundary7/8 remain unchanged; required
+exponents are3/2 and at most3/4. No finite diagnostics or completed unknown
+signed sums are used. A complete improved-bound failure domain is unavailable.
+Paper label:`sec:carmichael-unit-euler-renormalization`.
+Receipt:[unit Euler renormalization](verification/carmichael-unit-euler-renormalization.json).

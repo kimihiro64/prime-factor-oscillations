@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-29",
+  "title": "Exact angular-factor extraction and a nonvanishing unit-slice Euler remainder",
+  "status": "proved; maintained Lean, focused axiom checks, paper compilation",
+  "new_targets": [
+    "PrimeFactorOscillations.CarmichaelUnitEulerRenormalization.rational_slice_factorization",
+    "PrimeFactorOscillations.CarmichaelUnitEulerRenormalization.unramified_slice_factorization",
+    "PrimeFactorOscillations.CarmichaelUnitEulerRenormalization.local_remainder_defect",
+    "PrimeFactorOscillations.CarmichaelUnitEulerRenormalization.local_remainder_lower",
+    "PrimeFactorOscillations.CarmichaelUnitEulerRenormalization.local_remainder_analyticAt",
+    "PrimeFactorOscillations.CarmichaelUnitEulerRenormalization.remainderProduct_ne_zero",
+    "PrimeFactorOscillations.CarmichaelUnitEulerRenormalization.analyticOnNhd_remainderProduct",
+    "PrimeFactorOscillations.CarmichaelUnitEulerRenormalization.finite_slice_factorization",
+    "PrimeFactorOscillations.CarmichaelUnitEulerRenormalization.source_remainderProduct_ne_zero",
+    "PrimeFactorOscillations.CarmichaelUnitEulerRenormalization.analyticOnNhd_sourceRemainderProduct"
+  ],
+  "new_target_count": 10,
+  "owners": [
+    {
+      "path": "PrimeFactorOscillations/Assembly/CarmichaelUnitEulerRenormalization.lean",
+      "sha256": "413ef49d5b034c0ca2d830527102a28752d7f4a688b846c326c11f11c82e294a",
+      "compiled": true
+    }
+  ],
+  "axiom_checks": {
+    "new_or_changed": 10,
+    "reused_unchanged": 0,
+    "standard_only": true,
+    "allowed_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "logs": [
+      {
+        "path": ".research/generated/carmichael-unit-euler-axioms-20261029.log",
+        "sha256": "bf658b465182aad39c49b25079d3cbeb22102468f390f1a44538f66f7eefe1d9",
+        "targets": [
+          "PrimeFactorOscillations.CarmichaelUnitEulerRenormalization.rational_slice_factorization",
+          "PrimeFactorOscillations.CarmichaelUnitEulerRenormalization.unramified_slice_factorization",
+          "PrimeFactorOscillations.CarmichaelUnitEulerRenormalization.local_remainder_defect",
+          "PrimeFactorOscillations.CarmichaelUnitEulerRenormalization.local_remainder_lower",
+          "PrimeFactorOscillations.CarmichaelUnitEulerRenormalization.local_remainder_analyticAt",
+          "PrimeFactorOscillations.CarmichaelUnitEulerRenormalization.remainderProduct_ne_zero",
+          "PrimeFactorOscillations.CarmichaelUnitEulerRenormalization.analyticOnNhd_remainderProduct",
+          "PrimeFactorOscillations.CarmichaelUnitEulerRenormalization.finite_slice_factorization",
+          "PrimeFactorOscillations.CarmichaelUnitEulerRenormalization.source_remainderProduct_ne_zero",
+          "PrimeFactorOscillations.CarmichaelUnitEulerRenormalization.analyticOnNhd_sourceRemainderProduct"
+        ]
+      }
+    ]
+  },
+  "checks": {
+    "maintained_leaf": true,
+    "assembly_facade": true,
+    "root_facade": true,
+    "latex_compilation": true
+  },
+  "exact_scope": {
+    "slice": "unramifiedClosed Q A eta 1 s 1 z",
+    "generic_domain": "Q>=4, |A|,|eta|<=1, Re(s)>=3/4, Re(s+z)>=3/4",
+    "local_factorization": "F=(1-Q^(-1)*V)/(1-R)*J, with V=Q^(-6*z), D=eta*Q^(-s), R=A*Q^(4-6*s-6*z), J=1+Q^(-1)*(D-R)/(1-D)",
+    "identity_hypotheses": "The exact original rational identity retains nonvanishing of 1-V,1-D,1-R; no such V or R denominator is needed to define J.",
+    "infinite_product": "Any index family with sum Q_i^(-3/2)<infinity; analytic along analytic s,z paths on an open set satisfying the domain; nonzero pointwise throughout it.",
+    "actual_source": "Arbitrary actual source character, arbitrary finite S, all high source prime ideals outside S with norm>=exp(2).",
+    "actual_angular_phase": "star(angularFactor(primaryGenerator P))^6 * elementCoeff(eta,primaryGenerator P)^6",
+    "small_factors": "Norms below exp(2), ramified factors and all selected-slot corrections remain outside the actual-source product stated here.",
+    "forbidden_transfers": "No automatic full u=1 row identification, angular L-factor continuation, physical window/compensation transfer, or full Abel estimate."
+  },
+  "proved_bounds": {
+    "defect": "|J_Q-1|<=4 Q^(-3/2)",
+    "lower": "|J_Q|>=1/2",
+    "source_product": "analytic along admissible paths and nonzero; no RH hypothesis"
+  },
+  "source_consumer": "The complete source multiplier retains 1/L(s,eta), the extracted angular R factors, finite/selected corrections and every physical compensation component. Only the explicit renormalized Euler remainder is bounded here.",
+  "benchmark_status": "New uniform analytic remainder estimate after exact extraction; no improved complete signed bound",
+  "old_bound": "Existing unextracted-factor bounds use a region including Re(z)>=4/25. Complete I exponent7/4; boundary7/8.",
+  "new_bound": "Renormalized defect <=4Q^(-3/2), nonzero product on Re(s)>=3/4,Re(s+z)>=3/4; complete I exponent7/4 and boundary7/8 unchanged.",
+  "components": [
+    "Exact signed rational and coordinate factorization",
+    "Exact all-finite-cutoff product factorization",
+    "Uniform local defect and local lower bound",
+    "Normal convergence and inverse-product nonvanishing",
+    "Actual angular/source-character phase application"
+  ],
+  "actuals": "No numerical experiments or substitutions of exact counts for unknown remainders",
+  "first_nonpositive_domain": "Unavailable: no complete improved I positivity bound has been installed",
+  "required_endpoint": "I exponent<=3/2 and unconditional zero-free boundary<=3/4 remain unproved",
+  "paper_section": "sec:carmichael-unit-euler-renormalization"
+}
