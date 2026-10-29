@@ -32534,14 +32534,156 @@ separate estimates for its two pieces. The exact inner packet
 identity still contains \(AA-\bar z AB-zBA+z\bar z BB\).
 
 This estimates the explicitly defined low native sector.
-The complete finite hyperbola identification with the original
-rational unit packet remains a formalization edge to close.
+The complete finite hyperbola identification and its target-sized
+remainder are proved in the following section.
 The complementary sector \(ac>D\), including short companions
 and \(b=d=1\), remains signed and is not bounded here.
 The joint Gauss identity must be applied to that surviving core.
 The complete reciprocal-\(L\) packet and uniform unbounded Abel
 consumer also remain open. The certified global boundary is still
 \(7/8\); a global boundary at most \(3/4\) is not claimed.
+
+\section{The full unit and its retained high native core}
+\label{sec:carmichael-native-hyperbola}
+
+Here \(N\) bounds the finite divisor indices; it is not the
+prime-sampling parameter of the probability law.
+For any complex sequence \(W\), put
+\[
+ \begin{split}
+ b_n&=\chi(n)\mu(n)A_G(n)W(n),\\
+ \mathcal V_N(W)&=
+  \sum_{\substack{1\le n,m\le N\\(n,m)=(n,H)=(m,H)=1}}
+       b_n\overline{b_m}.
+ \end{split}
+\]
+All the finite identities below hold for every Dirichlet character
+\(\chi\), without the cubic hypothesis or an assumption about zeros.
+They retain the full complex kernel, rather than requiring a
+symmetric real surrogate.
+
+Define \(\mathcal N_N(W)\) by summing the native expression of
+Section~\ref{sec:carmichael-native-low-sector} over every
+\(1\le a,c\le N\), with \(u_a(b)=W(ab)\), keeping all three outer
+coprimality conditions. Let \(\mathcal H_{>T}(W)\) be the same
+signed native expression restricted by \(ac>T\).
+In particular this core retains short companions and \(b=d=1\).
+
+\begin{theorem}[Exact full native reconstruction]
+\label{thm:carmichael-native-hyperbola}
+With the full product amplifiers and both cross masks,
+\[
+ \mathcal V_N(W)=\mathcal N_N(W)
+  =\mathcal U_{\le T}(W)+\mathcal H_{>T}(W).
+\]
+For every \(\epsilon>0\), the original finite rational unit therefore
+satisfies, for \(q,H,D>0\), \(\chi^3=1\), and every Schwartz \(f\),
+\[
+ \begin{split}
+ &\left|\mathcal V_{4D}
+       \bigl(n\mapsto f(n/D)\bigr)
+         -\mathcal H_{>D}\bigl(n\mapsto f(n/D)\bigr)\right|\\
+ &\quad\le
+ C_\epsilon(3q)^2S(f)^2(4HD)^\epsilon
+                         (4D)\lfloor\sqrt D\rfloor .
+ \end{split}
+\]
+The constant is uniform over every finite prime set \(G\), with
+\(S(f)\) defined in the preceding theorem.
+No estimate for \(\mathcal H_{>D}\) is part of this assertion.
+\end{theorem}
+
+\begin{proof}
+The existing coefficient dictionary is the finite identity
+\[
+ \sum_{\substack{a,b\ge1\\ab=n}}a_\chi(a)\psi_\chi(b)=\mu(n)\chi(n).
+\]
+Insert it into the first column of an arbitrary finite weighted
+sum. For \(1\le n\le N\), each factor pair satisfies
+\(1\le a,b\le N\); after swapping the finite sums, the product
+condition \(ab\le N\) is precisely
+\(b\le\lfloor N/a\rfloor\). Consequently,
+\[
+ \sum_{1\le n\le N}\mu(n)\chi(n)W(n)
+ =\sum_{1\le a\le N}a_\chi(a)
+    \sum_{1\le b\le\lfloor N/a\rfloor}\psi_\chi(b)W(ab).
+\]
+The Lean proof uses the complete divisor antidiagonal, its exact
+finite Cartesian-product filter and the actual floor cutoff.
+It also includes the empty cutoff \(N=0\).
+
+Conjugation proves the corresponding second-column identity.
+Applying the two identities to an arbitrary complex kernel
+\(K(n,m)\) gives exactly
+\[
+ \begin{split}
+ &\sum_{1\le n,m\le N}\mu(n)\chi(n)
+                 \overline{\mu(m)\chi(m)}K(n,m)\\
+ &\quad=
+ \sum_{1\le a,c\le N}a_\chi(a)\overline{a_\chi(c)}
+   \sum_{\substack{1\le b\le\lfloor N/a\rfloor\\
+                   1\le d\le\lfloor N/c\rfloor}}
+       \psi_\chi(b)\overline{\psi_\chi(d)}K(ab,cd),
+ \end{split}
+\]
+where every displayed outer index is positive.
+No phase, support or symmetry assumption is introduced.
+
+Use the actual rational kernel
+\[
+ K(n,m)=
+  1_{(n,m)=(n,H)=(m,H)=1}
+    A_G(n)W(n)\overline{A_G(m)W(m)}.
+\]
+The exact product-coprimality equivalence is
+\[
+ \begin{split}
+ &(ab,cd)=(ab,H)=(cd,H)=1\\
+ &\quad\Longleftrightarrow\
+ (a,c)=(a,H)=(c,H)=1,\quad
+ (b,d)=(b,Hc)=(d,Ha)=1.
+ \end{split}
+\]
+Indeed, expanding the product gcd conditions gives all eight
+pairwise conditions, with \((a,d)=1\) replaced by the identical
+condition \((d,a)=1\). The forward and reverse implications are
+proved explicitly. Substitution in the kernel leaves exactly the
+two original amplifiers \(A_G(ab),A_G(cd)\), the two cross masks
+\(Hc,Ha\), and the plain-companion packet in the definition of
+\(\mathcal N_N\). There is no within-column coprimality restriction.
+This proves the first equality.
+
+The disjoint alternatives \(ac\le T\) and \(ac>T\) partition every
+supported native pair. Splitting the complete finite sum proves
+the second equality, without an estimate or a discarded term.
+At \(N=4D,T=D\), subtract the full high core and apply the compiled
+Schwartz low-sector bound. This gives the claimed remainder.
+All operations are finite; no reciprocal \(L\)-series is expanded
+on a moved contour and no Abel limit is exchanged.
+\end{proof}
+
+For \(W(n)=f_A(n/D)-z f_B(n/D)\), the original rational form
+and every native term retain the exact
+\(AA-\bar z AB-zBA+z\bar z BB\) compensation.
+The full complex reconstruction supplies the phase and
+coprimality dictionary for the same signed object that is estimated.
+
+This closes the previously open finite hyperbola edge.
+The remaining native core is the actual region \(ac>D\), with all
+prime-power norms and overlapping masks retained.
+Its joint arithmetic cancellation remains to be estimated.
+On its squarefree ideal support away from its fixed exceptional set,
+the source identity is
+\(\gamma_1(\mathfrak c)\gamma_2(\mathfrak c)=
+\mu_K(\mathfrak c)\alpha(\mathfrak c)G_{\rm ray}(\mathfrak c)\).
+It concerns both Gauss factors together; a moment bound for one
+factor with an arbitrary extra mark does not supply the required
+core bound. Here \(G_{\rm ray}\) is the fixed ray phase, distinct
+from the finite prime mask \(G\).
+The complete prime-sampled reciprocal-\(L\) assembly and uniform
+unbounded Abel passage also remain open.
+Thus the certified global boundary remains \(7/8\), and the
+complete endpoint at most \(3/4\) remains the active objective.
 
 \begin{thebibliography}{99}
 \small\raggedright

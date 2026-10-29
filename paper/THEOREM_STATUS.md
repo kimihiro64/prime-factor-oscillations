@@ -1042,10 +1042,41 @@ This gives unconditional D^(3/2+eps) for this defined low sector with fixed
 q,H,f and uniformly in G. It retains every native prime-power norm, both
 cross masks, rational outer coprimality and the combined compensated window.
 
-The complete hyperbola equality with the original rational unit packet
-remains to be compiled. The high-product sector ac>D remains signed,
+The complete hyperbola equality is proved in the following section.
+The high-product sector ac>D remains signed,
 including b=d=1. The complete unit packet, reciprocal-L assembly and uniform
 Abel limit are not bounded here. Global I7/4 and boundary7/8 are unchanged;
 the active complete target remains <=3/4.
 Paper label: `sec:carmichael-native-low-sector`.
 Receipt: [low native product bound](verification/carmichael-native-low-sector.json).
+
+## Full rational unit and target-sized high-core remainder (2026-10-29)
+
+Owner: `Assembly/CarmichaelNativeHyperbola.lean`.
+
+| Lean declaration | Claim | Status |
+| --- | --- | --- |
+| `native_weighted_hyperbola` | Exact one-column native reconstruction with every norm prime power and the true floor cutoff. | Proved; focused axiom audit passed. |
+| `native_weighted_hyperbola_star` | The conjugated column reconstructs with its full character phase. | Proved; focused axiom audit passed. |
+| `native_bilinear_hyperbola` | Reconstruct both columns for an arbitrary complex kernel without a symmetry hypothesis. | Proved; focused axiom audit passed. |
+| `coprime_product_kernel` | Rational product coprimality is exactly the outer conditions and both inner cross masks. | Proved; focused axiom audit passed. |
+| `rational_unit_actual_weights` | The factored unit is the original compensated coefficient form with the full product amplifier. | Proved; focused axiom audit passed. |
+| `rational_unit_native_packet` | The entire finite rational unit equals the complete signed native packet. | Proved; focused axiom audit passed. |
+| `full_native_low_high_split` | Partition the native packet exactly at ac<=T, preserving every supported term. | Proved; focused axiom audit passed. |
+| `rational_unit_high_core_remainder` | The actual rational unit differs from its retained high native core by the proved target-sized low remainder. | Proved; focused axiom audit passed. |
+
+The full finite rational unit equals the complete signed native packet.
+For N=4D,T=D, subtracting the retained high core ac>D leaves exactly the
+proved low native sector. The compiled remainder is at most
+`C_eps*(3q)^2*S(f)^2*(4*H*D)^eps*(4*D)*floor(sqrt(D))`, every positive
+q,H,D, cubicchi, Schwartzf and finite primeG. All phases, norm prime powers,
+original amplifiers A_G(a*b), masksH*c,H*a and four compensation terms remain.
+The exact reconstruction holds for every character, arbitrary complex
+kernel and finite cutoff, including the empty cutoff; no symmetry premise.
+
+The finite hyperbola edge is closed. No estimate of the signed high main
+term ac>D is claimed. Its joint Gauss cancellation, original reciprocal-L
+prime-sampled consumer and uniform unbounded Abel passage remain open.
+Global I7/4 and boundary7/8 are unchanged; the target remains <=3/4.
+Paper label: `sec:carmichael-native-hyperbola`.
+Receipt: [full unit reconstruction](verification/carmichael-native-hyperbola.json).
