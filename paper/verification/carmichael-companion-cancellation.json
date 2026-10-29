@@ -1,0 +1,85 @@
+{
+  "date": "2026-10-29",
+  "status": "compiled_and_focused_audited",
+  "owners": [
+    "PrimeFactorOscillations/Assembly/CarmichaelCompanionCancellation.lean"
+  ],
+  "theorem_count": 17,
+  "declarations": [
+    "PrimeFactorOscillations.CarmichaelCompanionCancellation.nonprincipal_prefix_bound",
+    "PrimeFactorOscillations.CarmichaelCompanionCancellation.progression_eq",
+    "PrimeFactorOscillations.CarmichaelCompanionCancellation.progression_bound",
+    "PrimeFactorOscillations.CarmichaelCompanionCancellation.masked_progression_identity",
+    "PrimeFactorOscillations.CarmichaelCompanionCancellation.masked_progression_bound",
+    "PrimeFactorOscillations.CarmichaelCompanionCancellation.coprime_companion_identity",
+    "PrimeFactorOscillations.CarmichaelCompanionCancellation.coprime_companion_bound_left",
+    "PrimeFactorOscillations.CarmichaelCompanionCancellation.companionPacket_star",
+    "PrimeFactorOscillations.CarmichaelCompanionCancellation.coprime_companion_bound",
+    "PrimeFactorOscillations.CarmichaelCompanionCancellation.weighted_masked_progression_bound",
+    "PrimeFactorOscillations.CarmichaelCompanionCancellation.weighted_coprime_companion_identity",
+    "PrimeFactorOscillations.CarmichaelCompanionCancellation.weighted_companion_bound_left",
+    "PrimeFactorOscillations.CarmichaelCompanionCancellation.weightedCompanionPacket_star",
+    "PrimeFactorOscillations.CarmichaelCompanionCancellation.weighted_coprime_companion_bound",
+    "PrimeFactorOscillations.CarmichaelCompanionCancellation.cubic_companion_ne_one",
+    "PrimeFactorOscillations.CarmichaelCompanionCancellation.compensated_companion_expansion",
+    "PrimeFactorOscillations.CarmichaelCompanionCancellation.pair_inverse_coeff_divisor_bound"
+  ],
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "domain": "For every positive character modulus q, every nonprincipal Dirichlet character psi modq, every positive coprimality mask H,K, all finite cutoffs B,C and arbitrary complex windows. Costs q^2, tau(H), tau(K) and both actual combined-window variations remain explicit. Cubic companion nonprincipality additionally holds for every natural modulus q and chi^3=1.",
+  "proved": [
+    "Complete-period character cancellation and exact multiplier parametrization, including zero progression index and every prime power.",
+    "Exact Mobius-lcm expansion of the coprimality mask; uniform masked progression remainder q*tau(H).",
+    "Full signed rectangular coprime companion identity and symmetric bound (min(B,C)+1)*q^2*tau(H)*tau(K).",
+    "Arbitrary complex weighted version with the actual combined-window variations, using the existing finite Abel variation theorem.",
+    "Conjugation exchanges both masks, supports and complex weights.",
+    "The actual base-change companion of every cubic chi is odd and nonprincipal, including principal chi; no RH or primitivity premise.",
+    "Exact AA-barcAB-cBA+c*barc*BB compensation expansion.",
+    "Actual inverse-pair coefficient bound tau(n), including the zero-index convention."
+  ],
+  "open": [
+    "Full native hyperbola reindexing and fixed-G amplifier application to the original arithmetic unit.",
+    "The signed native sector with short companions, including companion indices b=d=1.",
+    "The complete prime-sampled packet, all reciprocal-L factors and the uniform unbounded Abel limit.",
+    "Independent whole-packet I_DG << D^(3/2+epsilon), hence a certified boundary at most3/4."
+  ],
+  "benchmark_status": "Independent universal character estimate proved; no improved global zero-free exponent.",
+  "old_bound": "Unweighted unit-bounded companion rectangle: trivial B*C. Installed whole I exponent7/4 and global boundary7/8.",
+  "new_bound": "Companion rectangle: (min(B,C)+1)*q^2*tau(H)*tau(K)*V(w,B)*V(v,C). Whole I exponent7/4 and boundary7/8 unchanged.",
+  "components": {
+    "character_prefix": "q",
+    "coprime_masks": "tau(H)*tau(K)",
+    "joint_row_count": "min(B,C)+1",
+    "windows": "V(w,B)*V(v,C), with WA-c*WB kept inside each variation",
+    "inverse_coefficients": "tau(n)",
+    "growing_conductor_cost": "q^2; it is not an absolute constant when q grows",
+    "fixed_G_amplifier": "A_G(a*b) stays a function of the product; no factorization into A_G(a)*A_G(b) is assumed on shared-prime columns",
+    "native_remaining": "Full signed native long-index core, including b=d=1"
+  },
+  "actuals": "No finite numerical experiment. The 98 existing Python tests validate repository tooling separately from the analytic theorem.",
+  "first_nonpositive_domain": "Not applicable to this norm inequality; no improved total exponent bound installed.",
+  "target_boundary": "<=3/4",
+  "detector_error": "The detector and its proved uniform coefficient errors are unchanged; no exponent gain is inferred from detector precision.",
+  "family_adapter": "Actual native inverse-pair/plain-companion reconstruction. The fixed target companion modulus and the moving residual quadratic conductor remain distinct; this bound is not substituted for the prime-sampled residual estimate.",
+  "uncancelled_main_terms": [
+    "Arithmetic Abel C_G",
+    "Remaining signed native coefficient core",
+    "Both compensation mixed terms",
+    "Every original L numerator, reciprocal and finite Euler factor in the prime-sampled consumer"
+  ],
+  "low_estimate_provenance": "Independent finite character-period cancellation, Mobius coprimality inversion, and the maintained finite Abel variation theorem; no use of the installed7/8 bound as an improved low estimate.",
+  "parameter_domain": "Universal in positive q,H,K, all natural B,C, and arbitrary finite complex windows with explicit finite variations. Uniform growing-parameter costs are displayed in the theorem.",
+  "attainable_endpoint": "No new global endpoint certified by this component alone; installed7/8, target<=3/4.",
+  "verification": {
+    "source_policy": "Focused existing source-policy validator passed for the changed owner and facade before maintained consumer builds.",
+    "maintained": "All17 public proofs and private implementation lemmas compiled cleanly at the actual maintained owner.",
+    "focused_axioms": "Exactly17 new declaration names checked standard-only; unchanged owners were not re-audited.",
+    "facade": "Updated ordinally sorted facade compiled successfully.",
+    "root": "Focused root compiled after the updated facade.",
+    "python": "Both changed catalogue files passed Ruff format/lint and strict MyPy; all98 existing Python tests passed.",
+    "paper": "Saved paper compiled successfully with the built-in desktop compiler after an unambiguous lcm-line-break repair."
+  }
+}

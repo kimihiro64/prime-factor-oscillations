@@ -929,3 +929,43 @@ prime-weighted frequency transfer and uniform Abel estimates remain open.
 Installed I7/4 and boundary7/8 are unchanged; I3/2 and boundary<=3/4 remain active.
 Paper label: `sec:carmichael-arithmetic-unit`.
 Receipt: [arithmetic unit reconstruction](verification/carmichael-arithmetic-unit.json).
+
+## Signed plain-companion character cancellation (2026-10-29)
+
+Owner: `Assembly/CarmichaelCompanionCancellation.lean`.
+
+| Lean declaration | Claim | Status |
+| --- | --- | --- |
+| `nonprincipal_prefix_bound` | Every positive prefix of a nonprincipal Dirichlet character is bounded by its modulus. | Proved; focused axiom audit passed. |
+| `progression_eq` | Exact multiplier parametrization, including k=0 and every prime power. | Proved; focused axiom audit passed. |
+| `progression_bound` | Uniform complete-period cancellation on every divisibility progression. | Proved; focused axiom audit passed. |
+| `masked_progression_identity` | All coprimality Mobius corrections become exact lcm progressions. | Proved; focused axiom audit passed. |
+| `masked_progression_bound` | The whole progression remainder is bounded by q*tau(H). | Proved; focused axiom audit passed. |
+| `coprime_companion_identity` | Exact rectangular signed Mobius bilinear assembly. | Proved; focused axiom audit passed. |
+| `coprime_companion_bound_left` | Joint unweighted character remainder is at most (B+1)*q^2*tau(H)*tau(K). | Proved; focused axiom audit passed. |
+| `companionPacket_star` | Complex conjugation exchanges both supports and both masks. | Proved; focused axiom audit passed. |
+| `coprime_companion_bound` | Symmetric joint remainder uses min(B,C)+1. | Proved; focused axiom audit passed. |
+| `weighted_masked_progression_bound` | The actual combined complex window enters through its finite variation. | Proved; focused axiom audit passed. |
+| `weighted_coprime_companion_identity` | All weighted coprimality rows remain in one exact signed sum. | Proved; focused axiom audit passed. |
+| `weighted_companion_bound_left` | Joint weighted companion estimate, with both variations charged. | Proved; focused axiom audit passed. |
+| `weightedCompanionPacket_star` | Weighted support and phase symmetry is proved. | Proved; focused axiom audit passed. |
+| `weighted_coprime_companion_bound` | Full weighted joint estimate uses min(B,C)+1 and explicit conductor q^2. | Proved; focused axiom audit passed. |
+| `cubic_companion_ne_one` | Every actual cubic companion is odd and nonprincipal; no additional phase hypothesis. | Proved; focused axiom audit passed. |
+| `compensated_companion_expansion` | Both mixed terms and c*conj(c)*BB remain exactly. | Proved; focused axiom audit passed. |
+| `pair_inverse_coeff_divisor_bound` | Actual inverse-pair coefficients are bounded by tau(n), including n=0. | Proved; focused axiom audit passed. |
+
+The arbitrary-window bound retains the full signed coprimality expression
+before complete-period cancellation. Its cost is
+`(min(B,C)+1)*q^2*tau(H)*tau(K)*V(w,B)*V(v,C)`.
+The variation uses the combined compensated windows. No prime-power norm
+is discarded. For chi^3=1 the actual base-change companion is odd, so the
+nonprincipal hypothesis is discharged; a principal companion remains an
+explicit exceptional case outside this cancellation estimate.
+
+This is an independent character estimate. Its complete native reindexing,
+fixed-G mask application, growing-parameter costs and the remaining long
+native sector still need their signed consumer. No I3/2 or improved global
+zero-free boundary is claimed. Installed I7/4 and boundary7/8 remain;
+the active endpoint remains at most3/4.
+Paper label: `sec:carmichael-companion-cancellation`.
+Receipt: [signed companion estimate](verification/carmichael-companion-cancellation.json).

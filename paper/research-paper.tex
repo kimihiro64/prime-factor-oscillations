@@ -32144,6 +32144,140 @@ The independent target remains
 \(D^{7/4+\epsilon}\); the certified zero-free boundary remains \(7/8\)
 and the research endpoint remains at most \(3/4\).
 
+\section{Signed cancellation in the plain companion}
+\label{sec:carmichael-companion-cancellation}
+
+The finite reconstruction \((\mathrm{AU2})\) is
+used with its original prime-power terms. In the notation of
+Section~\ref{sec:carmichael-arithmetic-unit}, its plain companion is
+\(\psi_\chi=\chi\,\chi_{-3}\) at the common level \(3q\).
+We now estimate that companion jointly with rational coprimality.
+The native inverse coefficients remain outside this estimate.
+
+For a nonprincipal Dirichlet character \(\psi\) modulo \(q\), positive
+integers \(H,K,B,C\), and complex weights \(u,v\), put
+\[
+ \begin{split}
+ \mathcal C_{\psi;H,K}(B,C;u,v)
+  =\sum_{\substack{1\le b\le B,\ 1\le d\le C\\
+                    (b,d)=(b,H)=(d,K)=1}}
+       \psi(b)\overline{\psi(d)}u(b)\overline{v(d)},\\
+ V_B(u)=|u(B)|+\sum_{b=1}^{B-1}|u(b+1)-u(b)|.
+ \end{split}
+\]
+The weights are arbitrary; the displayed variation is an explicit
+cost. The Lean implementation stores the value at the positive
+integer \(b\) as the zero-based sequence value \(w(b-1)\).
+
+\begin{theorem}[Joint plain-companion bound]
+\label{thm:carmichael-companion-bound}
+With the notation above,
+\[
+ \boxed{\quad
+ |\mathcal C_{\psi;H,K}(B,C;u,v)|
+ \le (\min(B,C)+1)\,q^2\,\tau(H)\tau(K)\,V_B(u)V_C(v).
+ \quad}
+\]
+No primitivity or zero-free-strip hypothesis is required.
+The conductor factor \(q^2\) is retained explicitly.
+\end{theorem}
+
+\begin{proof}
+The sum of \(\psi\) over one complete period is zero, and its values
+have modulus at most one. Removing complete periods therefore gives
+\[
+ \left|\sum_{1\le n\le T}\psi(n)\right|\le q
+ \qquad(T\ge0).
+\]
+For every positive multiplier \(\ell\), multiplicativity gives
+\[
+ \sum_{\substack{1\le n\le T\\\ell\mid n}}\psi(n)
+   =\psi(\ell)\sum_{1\le t\le\lfloor T/\ell\rfloor}\psi(t).
+\]
+At \(\ell=0\) both progression sums are zero, so the same bound
+holds with the finite-sum conventions of the implementation.
+
+For \(k\ge0\), retain every coprimality correction in
+\[
+ A_{H,k}(T)=
+   \sum_{\substack{1\le n\le T\\k\mid n,\ (n,H)=1}}\psi(n)
+   =\sum_{e\mid H}\mu(e)
+       \sum_{\substack{1\le n\le T\\ \operatorname{lcm}(k,e)\mid n}}\psi(n).
+\]
+Each progression has a zero complete-period main term.
+The remaining finite remainders give
+\(|A_{H,k}(T)|\le q\tau(H)\), uniformly in \(k,T\).
+Finite summation by parts then proves
+\[
+ \left|
+ \sum_{\substack{1\le n\le B\\k\mid n,\ (n,H)=1}}\psi(n)u(n)
+ \right|\le q\tau(H)V_B(u).
+\]
+In Lean this step consumes the maintained finite variation theorem;
+the weight is kept intact throughout summation by parts.
+
+Next use the exact rational coprimality expansion
+\[
+ \mathcal C_{\psi;H,K}(B,C;u,v)=
+ \sum_{k=0}^{B}\mu(k)
+   \left(\sum_{\substack{1\le b\le B\\k\mid b,\ (b,H)=1}}
+                \psi(b)u(b)\right)
+   \overline{
+   \left(\sum_{\substack{1\le d\le C\\k\mid d,\ (d,K)=1}}
+                \psi(d)v(d)\right)}.
+\]
+The zero-index term vanishes. All other signed \(\mu(k)\) terms
+occur in this identity. Applying the proved progression-remainder
+bound to this complete finite expression gives the stated bound
+with \(B+1\). Complex conjugation exchanges
+\((H,B,u)\) and \((K,C,v)\), and gives the bound with \(C+1\).
+Taking the smaller endpoint proves the theorem.
+\end{proof}
+
+\paragraph{The actual cubic companion is nonprincipal.}
+Suppose \(\chi^3=1\). A multiplicative character of odd order
+takes the value \(1\) at \(-1\). Since
+\(\chi_{-3}(-1)=-1\), level change on the unit \(-1\) gives
+\[
+ \psi_\chi(-1)=\chi(-1)\chi_{-3}(-1)=-1.
+\]
+Thus \(\psi_\chi\ne1\), discharging the theorem's nonprincipal
+hypothesis for every cubic \(\chi\), including the principal
+character. This is a finite character argument with no assumption
+about zeros. For arbitrary \(\chi\), nonprincipality remains an
+explicit condition; a principal companion has no zero-period
+cancellation of this kind.
+
+\paragraph{Compensation and inverse-coefficient costs.}
+The compiled bilinear identity retains
+\[
+ \begin{split}
+ \mathcal C(u_A-cu_B,v_A-cv_B)
+   ={}&\mathcal C(u_A,v_A)-\bar c\,\mathcal C(u_A,v_B)\\
+     &-c\,\mathcal C(u_B,v_A)+|c|^2\mathcal C(u_B,v_B).
+ \end{split}
+\]
+The bound uses \(V_B(u_A-cu_B)V_C(v_A-cv_B)\), so compensation
+remains inside each variation. For the inverse-pair coefficient,
+the finite divisor-antidiagonal formula also gives
+\[
+ \left|\sum_{ab=n}\mu(a)\chi(a)\mu(b)\psi(b)\right|\le\tau(n).
+\]
+Indeed, every factor has modulus at most one and there are exactly
+\(\tau(n)\) factorizations. The coefficient at zero is zero.
+This sharpens the existing coarse bound by \(n\) and prevents
+that coarse bound from introducing an extra power in a native
+companion calculation.
+
+These results supply an independent character cancellation estimate.
+The full signed native sum, its prime-sampled transfer and uniform
+Abel passage remain to be estimated. In particular the native
+sector with a short plain companion remains present. No bound
+\(I_{D,G}\ll D^{3/2+\varepsilon}\) follows from the companion
+estimate alone. The installed exponent is \(7/4\), the certified
+zero-free boundary remains \(7/8\), and the active endpoint is
+at most \(3/4\).
+
 \begin{thebibliography}{99}
 \small\raggedright
 \setlength{\itemsep}{3pt}
