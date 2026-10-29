@@ -189,7 +189,8 @@ def lowNativePacket {q : Nat} (chi : DirichletCharacter Complex q)
     if a * c <= T /\ Nat.Coprime a c /\ Nat.Coprime a H /\ Nat.Coprime c H
     then nativeTerm chi G H N W a c else 0))
 
-private theorem cap_bound (q H a B N : Nat) (w : Nat -> Complex)
+/-- Reuse the explicit companion cap after bounding divisor and window factors. -/
+theorem cap_bound (q H a B N : Nat) (w : Nat -> Complex)
     (M V : Real) (hM : 0 <= M) (hV : 0 <= V) (hBN : B <= N)
     (ha : (a.divisors.card : Real) <= M)
     (hH : (H.divisors.card : Real) <= M)
@@ -306,7 +307,8 @@ theorem low_native_packet_bound {q : Nat} [NeZero q]
       mul_le_mul_of_nonneg_left (low_companion_cost_bound N T) hK
     _ = _ := by dsimp only [K]; ring
 
-private theorem harmonic_subpower (eps : Real) (heps : 0 < eps) :
+/-- The existing p-series estimate controls every harmonic prefix by any positive power. -/
+theorem harmonic_subpower (eps : Real) (heps : 0 < eps) :
     exists C : Real, 0 < C /\
       forall N : Nat, harmonicPrefix N <= C * (N : Real) ^ eps := by
   let f : Nat -> Real := fun n => (n : Real) ^ (-1 - eps)

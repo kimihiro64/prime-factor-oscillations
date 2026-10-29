@@ -1,0 +1,91 @@
+{
+  "date": "2026-10-29",
+  "status": "compiled_and_focused_audited",
+  "owners": [
+    "PrimeFactorOscillations/Assembly/CarmichaelSquarepartCancellation.lean",
+    "PrimeFactorOscillations/Assembly/CarmichaelNativeLowSector.lean"
+  ],
+  "theorem_count": 16,
+  "new_theorem_proofs": 14,
+  "unchanged_supporting_proof_exports": 2,
+  "public_definition_count": 6,
+  "declarations": [
+    "PrimeFactorOscillations.CarmichaelSquarepartCancellation.squarefree_progression_expansion",
+    "PrimeFactorOscillations.CarmichaelSquarepartCancellation.squarefree_amplified_progression_bound",
+    "PrimeFactorOscillations.CarmichaelSquarepartCancellation.squarefree_progression_rescale",
+    "PrimeFactorOscillations.CarmichaelSquarepartCancellation.squarefree_amplified_rescaled_bound",
+    "PrimeFactorOscillations.CarmichaelSquarepartCancellation.squarefree_coprime_identity",
+    "PrimeFactorOscillations.CarmichaelSquarepartCancellation.squarefree_coprime_row_bound",
+    "PrimeFactorOscillations.CarmichaelSquarepartCancellation.cubic_squarepart_row_bound",
+    "PrimeFactorOscillations.CarmichaelSquarepartCancellation.squarefree_divisor_cost_bound",
+    "PrimeFactorOscillations.CarmichaelSquarepartCancellation.squarefree_coprime_harmonic_bound",
+    "PrimeFactorOscillations.CarmichaelSquarepartCancellation.squared_window_variation",
+    "PrimeFactorOscillations.CarmichaelSquarepartCancellation.squared_window_dilate",
+    "PrimeFactorOscillations.CarmichaelSquarepartCancellation.squared_window_rescaled_variation",
+    "PrimeFactorOscillations.CarmichaelSquarepartCancellation.squarepart_companion_ne_one",
+    "PrimeFactorOscillations.CarmichaelSquarepartCancellation.squared_squarepart_subpower",
+    "PrimeFactorOscillations.CarmichaelNativeLowSector.cap_bound",
+    "PrimeFactorOscillations.CarmichaelNativeLowSector.harmonic_subpower"
+  ],
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "domain": "For every eps>0, one Ceps>0, all positive q,H,K,a,c,D, all Dirichlet characters chi modulo q, all finite prime sets G, all natural A,E,B,C with A*B^2<=4D and E*C^2<=4D, all Schwartz f,g. B or C may be zero. No RH or cubic-order hypothesis.",
+  "proved": [
+    "Finite Mobius square-divisor expansion, full amplified progression cancellation and exact shortened rescaling with H*k and a*k.",
+    "Full signed common-divisor identity retaining k=1, and complete supported row cost <=sqrt(B*C)*H_B.",
+    "Actual squared Schwartz windows and every shortened dilation have variation <=S2(f).",
+    "For every Dirichlet chi, kappa=chi^2*chi_-3 at level3q is odd and nonprincipal, including small moduli.",
+    "All cap hypotheses discharged uniformly: norm(squarefreeCompanionPacket)<=Ceps*(3q)^2*S2(f)*S2(g)*X^eps*sqrt(B*C)."
+  ],
+  "constant_construction": {
+    "X": "(H+K+a+c+1)*(B+C+1)",
+    "S2": "Schwartz seminorm(0,0)+8*Schwartz seminorm(0,1)",
+    "Ceps": "Cd(eps/8)^4*Ch(eps/10)^5",
+    "power_ledger": "4*(eps/8)+5*(eps/10)=eps",
+    "explicit_costs": "(3q)^2, S2(f)*S2(g), X^eps",
+    "uniform_G": true
+  },
+  "checks": {
+    "maintained_owner": true,
+    "supporting_owner": true,
+    "focused_axiom_targets": 16,
+    "unchanged_theorems_reaudited": 0,
+    "changed_lean_source_policy": true,
+    "facade_compile": true,
+    "root_consumer_compile": true,
+    "catalogue_ruff_and_strict_mypy": true,
+    "saved_paper_compile": true
+  },
+  "independent_of_installed_7_8": true,
+  "closed_prior_edges": [
+    "Nonprincipal phase for every character in the square-part packet.",
+    "Physical squared-window and rescaled-window variation caps."
+  ],
+  "open": [
+    "Exact native coefficient square-part dictionary and its full packet reindexing.",
+    "Native small-square signed high core, including unit contributions.",
+    "Complete prime-sampled reciprocal-L assembly with every compensation cross term.",
+    "Uniform unbounded Abel passage and unconditional global boundary<=3/4."
+  ],
+  "benchmark_status": "independent_uniform_auxiliary_squarepart_estimate_proved; native_high_core_and_global_consumer_open",
+  "old_bound": "No installed parameter-uniform squared-window squarefree companion subpower estimate in this owner. The certified complete I exponent was7/4 and remains7/4.",
+  "new_bound": "Auxiliary norm <=Ceps*(3q)^2*S2(f)*S2(g)*X^eps*sqrt(B*C); no bound for the complete native high core or I_{D,G} is inferred.",
+  "components": {
+    "independent_estimate": "Nonprincipal complete-period cancellation after the exact finite mu^2 expansion, with shortened common-divisor progressions.",
+    "range_sum": "sqrt(B*C)*H_B, all supported k including1.",
+    "compensation": "The combined Schwartz window f=fA-z*fB is retained; no separate main-term estimates of AA,AB,BA,BB.",
+    "amplifier": "Original A_G(a*s), A_G(c*t), uniform over every finite prime setG; no within-column coprimality.",
+    "remaining": "Native coefficient transfer and small-square core, full reciprocal-L and Abel consumer."
+  },
+  "actuals": "No numerical experiments or diagnostic completions used.",
+  "first_nonpositive_domain": "Not applicable to this auxiliary norm upper bound; no global endpoint claimed.",
+  "certified_global_boundary": "7/8",
+  "target_global_boundary": "<=3/4",
+  "certified_global_I_exponent": "7/4",
+  "target_global_I_exponent": "3/2",
+  "paper_label": "sec:carmichael-squarepart-cancellation",
+  "catalogue": "scripts/completed_research_targets_72.py"
+}

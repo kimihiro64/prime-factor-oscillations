@@ -1080,3 +1080,49 @@ prime-sampled consumer and uniform unbounded Abel passage remain open.
 Global I7/4 and boundary7/8 are unchanged; the target remains <=3/4.
 Paper label: `sec:carmichael-native-hyperbola`.
 Receipt: [full unit reconstruction](verification/carmichael-native-hyperbola.json).
+
+## Uniform square-part cancellation and physical windows (2026-10-29)
+
+Owner: `Assembly/CarmichaelSquarepartCancellation.lean`.
+
+| Lean declaration | Claim | Status |
+| --- | --- | --- |
+| `squarefree_progression_expansion` | Exact finite square-divisor expansion of an amplified squarefree progression. | Proved; focused axiom audit passed. |
+| `squarefree_amplified_progression_bound` | Nonprincipal complete-period cancellation with the full finite prime amplifier. | Proved; focused axiom audit passed. |
+| `squarefree_progression_rescale` | Exact shortened progression with both mask H*k and amplifier base a*k. | Proved; focused axiom audit passed. |
+| `squarefree_amplified_rescaled_bound` | Cancellation on the actual shortened cutoff, including empty cutoffs. | Proved; focused axiom audit passed. |
+| `squarefree_coprime_identity` | Full signed common-divisor identity, retaining k=1. | Proved; focused axiom audit passed. |
+| `squarefree_coprime_row_bound` | Coupled row estimate after both column progression cancellations. | Proved; focused axiom audit passed. |
+| `cubic_squarepart_row_bound` | Square-part specialization with the stated nonprincipal companion. | Proved; focused axiom audit passed. |
+| `squarefree_divisor_cost_bound` | The complete supported square-root row cost is at most sqrt(B*C)*H_B. | Proved; focused axiom audit passed. |
+| `squarefree_coprime_harmonic_bound` | Aggregate every supported row with explicit cap bounds. | Proved; focused axiom audit passed. |
+| `squared_window_variation` | Physical squared Schwartz windows have a scale-independent seminorm budget. | Proved; focused axiom audit passed. |
+| `squared_window_dilate` | Dilation changes A to A*k^2 exactly, with positive-index conventions preserved. | Proved; focused axiom audit passed. |
+| `squared_window_rescaled_variation` | Discharge variation at every true floor cutoff B/k. | Proved; focused axiom audit passed. |
+| `squarepart_companion_ne_one` | For every Dirichlet character, chi^2*chi_-3 is odd and nonprincipal. | Proved; focused axiom audit passed. |
+| `squared_squarepart_subpower` | Uniform unconditional physical square-part mean with all caps discharged. | Proved; focused axiom audit passed. |
+
+Supporting exports from `Assembly/CarmichaelNativeLowSector.lean`:
+`cap_bound` and `harmonic_subpower`. Their existing proofs are unchanged and now
+reusable publicly; both focused axiom checks passed. The six new public
+definitions are tracked separately from the fourteen new theorem proofs.
+
+For every eps>0 the final estimate is
+`C_eps*(3q)^2*S2(f)*S2(g)*X^eps*sqrt(B*C)`,
+where `X=(H+K+a+c+1)*(B+C+1)` and
+`S2(f)=seminorm_Real_0_0(f)+8*seminorm_Real_0_1(f)`.
+It holds for positive q,H,K,a,c,D, natural A,E,B,C with
+A*B^2<=4D and E*C^2<=4D, all Dirichlet chi and Schwartz f,g.
+B or C may be zero. C_eps is independent of every displayed parameter
+and every finite prime G. Conductor, mask growth and seminorm costs
+remain explicit. No RH hypothesis or installed 7/8 estimate is used.
+
+The phase and physical variation hypotheses of this square-part estimate
+are discharged. The exact signed common-divisor row k=1 and combined
+compensated window remain. This is an auxiliary square-part packet:
+its native coefficient reindexing, the remaining small-square native core,
+the prime-sampled reciprocal-L consumer and uniform Abel passage remain open.
+No bound for the complete native high core or I_{D,G} is asserted.
+Global boundary7/8 is unchanged; the active complete target remains <=3/4.
+Paper label: `sec:carmichael-squarepart-cancellation`.
+Receipt: [uniform square-part estimate](verification/carmichael-squarepart-cancellation.json).

@@ -32685,6 +32685,214 @@ unbounded Abel passage also remain open.
 Thus the certified global boundary remains \(7/8\), and the
 complete endpoint at most \(3/4\) remains the active objective.
 
+\section{Uniform cancellation in the square-part companion packet}
+\label{sec:carmichael-squarepart-cancellation}
+
+This section supplies an independent arithmetic estimate for a square-part
+packet. It does not assume RH, a zero-free strip, or the installed \(7/8\)
+boundary. The native coefficient reindexing needed to apply it to the
+remaining high core is not asserted here.
+
+Write \(\varepsilon_3=\chi_{-3}\), and let
+\(\kappa=\chi^2\varepsilon_3\), interpreted at level \(Q=3q\).
+Here \(\chi\) is any Dirichlet character modulo a positive integer \(q\);
+no cubic-order assumption is needed in this section. For positive
+\(H,K,a,c\), natural cutoffs \(B,C\), and a finite set of primes \(G\), define
+\[
+ \mathcal C_{\rm sf}(\kappa;G,H,K,a,c;B,C;w,v)
+ =\sum_{\substack{1\le s\le B,\ 1\le t\le C\\
+        s,t\ {\rm squarefree}\\
+        (s,t)=(s,H)=(t,K)=1}}
+ \kappa(s)\overline{\kappa(t)}
+ A_G(as)A_G(ct)w(s)\overline{v(t)}.
+\]
+Both product amplifiers are the original \(A_G\). No coprimality condition
+within either column is imposed. In Lean a positive-index window \(w(n)\)
+is stored at index \(n-1\); the displayed formulas use positive indices.
+
+For a Schwartz function \(f:\mathbb R\to\mathbb C\), put
+\[
+ S_2(f)=\|f\|_{0,0}+8\|f\|_{0,1},
+ \qquad w_{A,D,f}(n)=f(An^2/D).
+\]
+The seminorms are the actual Schwartz seminorms used in the preceding
+window proofs.
+
+\begin{theorem}[Uniform physical square-part estimate]
+\label{thm:carmichael-squarepart-subpower}
+For every \(\epsilon>0\) there is a constant \(C_\epsilon>0\) such that,
+simultaneously for every positive \(q,H,K,a,c,D\), every Dirichlet
+character \(\chi\) modulo \(q\), every finite prime set \(G\), natural
+\(B,C,A,E\) satisfying
+\[
+ AB^2\le4D,\qquad EC^2\le4D,
+\]
+and Schwartz functions \(f,g\), one has, with
+\(X=(H+K+a+c+1)(B+C+1)\),
+\[
+ \left|\mathcal C_{\rm sf}
+  (\chi^2\varepsilon_3;G,H,K,a,c;B,C;
+     w_{A,D,f},w_{E,D,g})\right|
+ \le C_\epsilon(3q)^2 S_2(f)S_2(g)X^\epsilon\sqrt{BC}.
+\]
+The assertion includes \(B=0\) or \(C=0\). The constant is independent
+of all displayed parameters and of \(G\). Growing conductor, masks,
+and window seminorms retain the explicit costs in this formula.
+\end{theorem}
+
+\begin{proof}
+First, the phase hypothesis is automatic. Multiplicativity gives
+\(\chi(-1)^2=\chi(1)=1\), including the imprimitive case, whereas
+\(\varepsilon_3(-1)=-1\). The change-of-level maps agree at the unit
+\(-1\), so \(\kappa(-1)=-1\). Thus \(\kappa\) is nonprincipal at level
+\(Q=3q\). This argument also treats the small moduli; it does not remove
+an exceptional character by assumption.
+
+Here is the finite squarefree expansion used below:
+\[
+ \mu(n)^2=\sum_{\substack{1\le e\le\lfloor\sqrt N\rfloor\\e^2\mid n}}\mu(e)
+ \qquad(1\le n\le N).
+\]
+It follows prime by prime, or by summing the M\"obius function over
+the divisors of the square part of \(n\). The indicated cutoff is exact:
+\(e^2\mid n\) and \(n\le N\) imply \(e\le\lfloor\sqrt N\rfloor\).
+All expansions here are finite.
+
+For a nonprincipal character \(\psi\) at level \(Q\), write
+\[
+ P_H(k;N;a,w)=
+ \sum_{\substack{1\le n\le N\\ k\mid n,\ (n,H)=1}}
+       \mu(n)^2\psi(n)A_G(an)w(n).
+\]
+Let \(H_N=\sum_{1\le j\le N}j^{-1}\), with \(H_0=0\), and let \(V_N(w)\)
+denote the endpoint-plus-total-variation functional used for the
+companion windows. The already proved complete-period estimate,
+with the full amplifier expansion, has cap
+\[
+ {\rm cap}(Q,H,a,N,w)=
+      \tau(a)H_N^2 V_N(w)\tau(H)Q.
+\]
+Inserting the square-divisor expansion and applying that estimate
+on each retained progression gives
+\[
+ |P_H(k;N;a,w)|\le
+       \lfloor\sqrt N\rfloor\,{\rm cap}(Q,H,a,N,w).
+\]
+This is cancellation of the nonprincipal character on its actual
+progressions, rather than a bound by the unsigned mass of the original
+summands. The full finite prime amplifier is retained in this step.
+
+For the summation over common divisors, its shortened form matters.
+If \(k>0\) is squarefree and \((k,H)=1\), the exact substitution \(n=kj\)
+gives
+\[
+ P_H(k;N;a,w)
+  =\psi(k)\,
+    P_{Hk}(1;\lfloor N/k\rfloor;ak,w_k),
+ \qquad w_k(j)=w(kj).
+\]
+If either condition fails, the left side is zero. Indeed, a squarefree
+multiple of \(k\) forces \(k\) squarefree, and
+\(\mu(kj)^2=\mu(j)^2\,1_{(j,k)=1}\) in that case. The new mask is
+therefore exactly \(Hk\); the amplifier base is exactly \(ak\).
+As \(|\psi(k)|\le1\), this proves
+\[
+ |P_H(k;N;a,w)|
+ \le\left\lfloor\sqrt{\lfloor N/k\rfloor}\right\rfloor
+ {\rm cap}(Q,Hk,ak,\lfloor N/k\rfloor,w_k).
+\]
+Zero shortened cutoffs give empty sums and are included.
+
+Next use the exact finite identity
+\(1_{(s,t)=1}=\sum_{k\mid s,\ k\mid t}\mu(k)\). It gives
+\[
+ \mathcal C_{\rm sf}(\psi;\ldots;w,v)
+  =\sum_{1\le k\le B}\mu(k)
+        P_H(k;B;a,w)\,
+        \overline{P_K(k;C;c,v)}.
+\]
+The unit row \(k=1\) is present. A possible zero index has coefficient
+\(\mu(0)=0\); no positive row is dropped.
+
+If every shortened left cap is at most \(L\ge0\), and every shortened
+right cap at most \(R\ge0\), the preceding cancelled progression bounds
+give
+\[
+ |\mathcal C_{\rm sf}|
+ \le LR\sum_{1\le k\le B}
+  \left\lfloor\sqrt{\lfloor B/k\rfloor}\right\rfloor
+  \left\lfloor\sqrt{\lfloor C/k\rfloor}\right\rfloor
+ \le LR\sqrt{BC}\,H_B .
+\]
+For the last inequality, if the two square-root floors are \(u,v\),
+then \(ku^2\le B\) and \(kv^2\le C\), hence
+\(uv\le\sqrt{BC}/k\). This is a pointwise scalar inequality, not a
+Gram or Cauchy--Schwarz estimate on the native main term.
+
+It remains to discharge all the caps for the physical windows.
+The global derivative bound for \(f\) gives
+\[
+ |f(x)-f(y)|\le\|f\|_{0,1}|x-y|.
+\]
+Along \(An^2/D\), the consecutive argument increments telescope.
+When \(AN^2\le4D\), the deliberately uniform bound for their contribution
+is \(8\|f\|_{0,1}\), while the endpoint is at most \(\|f\|_{0,0}\).
+Consequently
+\[
+ V_N(w_{A,D,f})\le S_2(f).
+\]
+The endpoint estimate also handles \(N=0\). Moreover, for \(k>0\),
+\[
+ (w_{A,D,f})_k=w_{Ak^2,D,f},
+ \qquad Ak^2\lfloor B/k\rfloor^2\le AB^2\le4D.
+\]
+Thus every shortened variation is bounded by the same \(S_2(f)\);
+the right column has the corresponding bound \(S_2(g)\).
+
+Choose the existing divisor and harmonic constants \(C_d,C_h>0\) so that
+\[
+ \tau(n)\le C_d n^{\epsilon/8}\quad(n>0),
+ \qquad H_n\le C_h n^{\epsilon/10}\quad(n\ge0).
+\]
+For \(1\le k\le B\), all four divisor arguments
+\(ak,Hk,ck,Kk\) are positive and at most \(X\), and both shortened
+cutoffs are at most \(X\). Put \(M=C_dX^{\epsilon/8}\) and \(h=H_X\).
+The discharged caps are
+\[
+ L=M^2h^2QS_2(f),\qquad R=M^2h^2QS_2(g).
+\]
+As \(H_B\le h\), substitution in the same complete row bound yields
+\[
+ |\mathcal C_{\rm sf}|
+ \le Q^2M^4h^5S_2(f)S_2(g)\sqrt{BC}
+ \le C_d^4 C_h^5 Q^2S_2(f)S_2(g)X^\epsilon\sqrt{BC},
+\]
+because \(4(\epsilon/8)+5(\epsilon/10)=\epsilon\).
+Take \(C_\epsilon=C_d^4C_h^5\). All estimates used the actual masks,
+amplifier bases and shortened cutoffs; no parameter-uniformity premise
+remains to be supplied.
+\end{proof}
+
+For a combined compensated Schwartz window \(f=f_A-zf_B\), the theorem
+applies to \(f\) itself. Its packet therefore retains
+\(AA-\bar z AB-zBA+|z|^2BB\) together. The theorem does not separately
+estimate and reassemble those four main terms.
+
+The maintained Lean owner
+\texttt{CarmichaelSquarepartCancellation} proves the finite identities,
+the shortened progression bound, the square-root range sum, the physical
+variation bounds, the nonprincipal phase for every \(\chi\), and the final
+uniform estimate. Its fourteen new public theorem proofs and the two
+reused cap/harmonic proof exports have passed focused axiom inspection.
+
+This controls the defined square-part companion packet, including its
+unit common-divisor row. It does not yet identify that packet with the
+complete native unit. That application must retain native prime-square
+norms, both cross masks and every compensation term. The small-square
+native core and the full prime-sampled reciprocal-\(L\) assembly, including
+the uniform unbounded Abel passage, remain open. The certified global
+boundary is still \(7/8\); the active target remains at most \(3/4\).
+
 \begin{thebibliography}{99}
 \small\raggedright
 \setlength{\itemsep}{3pt}
