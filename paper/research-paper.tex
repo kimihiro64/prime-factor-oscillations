@@ -34317,6 +34317,148 @@ The complete \(I_{D,G}\) exponent remains \(7/4\), with target \(3/2\);
 the certified zero-free boundary remains \(7/8\), with target at most \(3/4\).
 
 
+\section{A target-sized nonsquarefree high remainder}
+\label{sec:carmichael-squarefree-high-remainder}
+
+The following is an arithmetic estimate on an entire part of the native
+high packet.  The remaining squarefree high core stays signed.
+Fix a nonzero modulus \(q\), a character \(\chi\bmod q\) with
+\(\chi^3=1\), a finite prime amplifier \(G\), and \(H>0\).
+Write \(\nu_\chi(a)\) for the maintained native norm-fiber coefficient
+and \(\psi\) for its plain base-change companion of modulus \(3q\).
+For \(S_N=\{1,\ldots,N\}\), put
+\[
+ b_W(n)=\mu(n)\chi(n)A_G(n)W(n)\mathbf1_{(n,H)=1},\qquad
+ Q_N(W)=\sum_{\substack{n,m\in S_N\\(n,m)=1}}
+                  b_W(n)\overline{b_W(m)} .
+\]
+Let \(K_W(n,m)\) denote the original rational kernel: it includes
+\((n,m)=(n,H)=(m,H)=1\), both product amplifiers and both complex
+window values.  The squarefree projected high packet is
+\[
+\begin{split}
+ U^{\rm sf}_{N,T}(W)
+ ={}&\sum_{\substack{a,c\in S_N\\ac>T}}\nu_\chi(a)\overline{\nu_\chi(c)}
+ \sum_{b\le N/a}\sum_{d\le N/c}\psi(b)\overline{\psi(d)}\\
+ &\hspace{18mm}\cdot
+ \mathbf1_{\operatorname{sf}(ab)}\mathbf1_{\operatorname{sf}(cd)}
+ K_W(ab,cd).
+\end{split}
+\]
+Every inner index is positive.  Removing the two squarefree indicators
+gives the original maintained high packet \(U_{N,T}(W)\).
+The indicators concern the full rational inputs \(ab,cd\).
+
+For a complex Schwartz function \(f\), let
+\(\mathcal S(f)=p_{0,0}(f)+8L_f\), where \(p_{0,0}\) is its
+maintained supremum seminorm and \(L_f\) its maintained global
+Lipschitz constant.
+
+\begin{theorem}[Uniform nonsquarefree high bound]
+\label{thm:carmichael-nonsquarefree-high-bound}
+For every \(\varepsilon>0\), each of the following bounds has a
+constant depending only on \(\varepsilon\), uniformly in all the
+data above and in \(H,D\ge1\) and \(f\):
+\[
+\begin{split}
+ |Q_{4D}(W_D)-U^{\rm sf}_{4D,D}(W_D)|
+ &\ll_\varepsilon (3q)^2\mathcal S(f)^2(4HD)^\varepsilon
+                         (4D)\sqrt D,\\
+ |U_{4D,D}(W_D)-U^{\rm sf}_{4D,D}(W_D)|
+ &\ll_\varepsilon (3q)^2\mathcal S(f)^2(4HD)^\varepsilon
+                         (4D)\sqrt D,
+ \qquad W_D(n)=f(n/D).
+\end{split}
+\]
+No primitivity condition or exclusion of the primes \(2,3\) is needed.
+\end{theorem}
+\begin{proof}
+The exact native convolution reconstructs \(\mu(n)\chi(n)\).
+Multiplication by the squarefree indicator of \(n\) changes nothing,
+since \(\mu(n)=0\) otherwise.  Apply this in both columns, before
+taking any norm.  If \(L,L^{\rm sf}\) denote the corresponding
+regions \(ac\le T\), the exact identities are
+\[
+ Q_N=L+U=L^{\rm sf}+U^{\rm sf},\qquad
+ U-U^{\rm sf}=L^{\rm sf}-L.                    \tag{SF1}
+\]
+Thus cancellation between the nonsquarefree low and high contributions
+is retained jointly.
+
+We estimate \(L^{\rm sf}\).  Squarefreeness of \(ab,cd\) requires
+squarefreeness of \(a,c,b,d\) and the within-column coprimalities.
+Together with the original cross conditions, the exact companion
+masks are \(Hac\) in both columns, with \((b,d)=1\).
+The squarefree companion estimate therefore applies to these same
+objects.  The cubic companion is nonprincipal: \(\chi\) is even and
+its quadratic factor modulo \(3\) is odd.
+
+Let \(M\) bound every divisor count at integers at most \(HN^2\),
+and let \(V\) bound the actual rescaled window variations.
+The existing squarefree character estimate, including the common
+divisor rows, gives for one projected native term
+\[
+ |\text{term}_{a,c}|
+ \le (3q)^2M^6V^2 H_N^5
+       \sqrt{\lfloor N/a\rfloor\lfloor N/c\rfloor}
+ \le (3q)^2M^6V^2 H_N^5\,\frac{N}{\sqrt{ac}},
+ \qquad H_N=\sum_{j=1}^N\frac1j .
+\]
+The larger divisor range \(HN^2\) includes the full masks
+\(Hac\,k\); no moving coprimality factor is omitted.
+The elementary bounds
+\[
+ \sum_{j=1}^B j^{-1/2}\le2\sqrt B,\qquad
+ \sum_{\substack{a,c\le N\\ac\le T}}(ac)^{-1/2}
+       \le2\sqrt T\,H_N
+\]
+follow respectively by telescoping square-root increments and by
+summing first over \(c\le T/a\).  Hence
+\[
+ |L^{\rm sf}|
+ \le2(3q)^2M^6V^2H_N^6\,N\sqrt T
+ \ll_\varepsilon(3q)^2V^2(HN)^\varepsilon N\sqrt T. \tag{SF2}
+\]
+The last step uses the proved divisor subpower bound and harmonic
+subpower bound; \(HN^2\le(HN)^2\) keeps their parameter costs explicit.
+
+At \(N=4D\), all rescaled variations are at most \(\mathcal S(f)\).
+If a dilation \(ak\le4D\), this is the existing sampled-window
+variation estimate and \(p_{0,0}(f)\ge|f(0)|\).
+If \(ak>4D\), its prefix is empty; the remaining endpoint value is
+bounded by \(p_{0,0}(f)\).  This also handles the larger dilation
+range required by the second companion column.
+Equation \((SF2)\) proves the first bound using \((SF1)\).
+The previously proved original low bound is no larger than
+\(C_\varepsilon(3q)^2\mathcal S(f)^2(4HD)^\varepsilon(4D)\sqrt D\).
+The second identity in \((SF1)\) then proves the second bound.
+Norm inequalities have been applied only to these isolated low
+remainders, not to the retained squarefree high main term.
+\end{proof}
+
+The two bounds are individually formalized as
+\texttt{rational\_unit\_squarefree\_high\_remainder} and
+\texttt{nonsquarefree\_high\_subpower} in
+\texttt{CarmichaelSquarefreeHighRemainder.lean}.
+All ten public declarations have focused standard-only axiom checks.
+
+An arbitrary complex window remains intact throughout \((SF1)\).
+In particular no AA, AB, BA or BB term is discarded when that window
+is compensated.  For a varying Schwartz window \(f_D\), the displayed
+bound retains \(\mathcal S(f_D)^2\); using a uniform power estimate
+requires a uniform bound for this budget.
+For fixed \(q,H\) and bounded budgets, a response of order \(D^{2\beta}\)
+with \(\beta>3/4\) cannot be confined to this remainder.
+Its survival in the projected high core is a mathematical consequence
+of the two bounds, not a new zero-exclusion theorem.
+
+This projection of rational inputs does not restrict the separate
+dual Gauss frequency \(m=a^6\).  The independent signed estimate of
+\(U^{\rm sf}_{4D,D}\), the complete prime-sampled quotient adapter
+and the uniform unbounded Abel passage remain open.
+The complete \(I_{D,G}\) exponent remains \(7/4\), with target \(3/2\);
+the certified boundary remains \(7/8\), with target at most \(3/4\).
+
 \begin{thebibliography}{99}
 \small\raggedright
 \setlength{\itemsep}{3pt}

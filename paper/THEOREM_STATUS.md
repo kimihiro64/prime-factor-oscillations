@@ -1556,3 +1556,42 @@ power improvement. Complete I exponent7/4 remains (target3/2), and
 boundary7/8 remains (target<=3/4). No numerical diagnostics used.
 Paper label:`sec:carmichael-coprime-signed-wave`.
 Receipt:[signed Euler-coordinate comparison](verification/carmichael-coprime-signed-wave.json).
+
+## Target-sized nonsquarefree rational high remainder (2026-10-29)
+
+Maintained owner: `CarmichaelSquarefreeHighRemainder.lean`.
+All10 public declarations compiled and received fresh standard-only axiom checks.
+
+| Declaration | Exact scope | Status |
+| --- | --- | --- |
+| `rational_unit_squarefree_native` | Exact reconstruction with squarefree full rational inputs; all original Mobius weights retained. | Proved; focused axiom audit passed. |
+| `squarefree_low_high_split` | Complete supported partition at ac<=T. | Proved; focused axiom audit passed. |
+| `nonsquarefree_high_cancellation` | High minus projected high equals projected low minus original low, with signs intact. | Proved; focused axiom audit passed. |
+| `squarefree_native_term_factorization` | Exact squarefree companion row with both full H*a*c masks. | Proved; focused axiom audit passed. |
+| `squarefree_native_term_bound` | Actual cubic companion cancellation with explicit divisor and rescaled-variation caps. | Proved; focused axiom audit passed. |
+| `low_squarefree_native_packet_bound` | Complete low projected region bounded by 2*(3q)^2*M^6*V^2*H_N^6*N*sqrt(T). | Proved; focused axiom audit passed. |
+| `low_squarefree_native_packet_subpower` | Uniform subpower mask dependence; no divisor cap remains. | Proved; focused axiom audit passed. |
+| `schwartz_low_squarefree_native_packet_subpower` | Physical N=4D,T=D; all rescaled variations discharged, including empty prefixes. | Proved; focused axiom audit passed. |
+| `rational_unit_squarefree_high_remainder` | Rational unit minus signed squarefree high core is O_eps((3q)^2*S(f)^2*(4HD)^eps*D^(3/2)). | Proved; focused axiom audit passed. |
+| `nonsquarefree_high_subpower` | Entire nonsquarefree rational high contribution has the same target-sized bound. | Proved; focused axiom audit passed. |
+
+The arithmetic estimates are unconditional, for every nonzero modulus q,
+chi^3=1, finite prime amplifier G, positive H,D and complex Schwartz f.
+No primitivity assumption or exclusion of 2 or 3 is made.
+The exact coefficient, amplifier, both masks and compensation cross terms
+are retained. S(f) is seminorm(0,0)(f)+8*schwartzLipschitzConstant(f).
+For changing compensated windows, S(f_D)^2 remains an explicit cost.
+
+The projection concerns rational inputs a*b,c*d. It does not make the
+separate dual Gauss frequency m=a^6 squarefree or nonprincipal.
+The signed projected high core, actual prime-sampled quotient transfer
+and uniform unbounded Abel passage remain open.
+
+Benchmark status: new unconditional component estimate at exponent3/2;
+complete I exponent stays7/4 and certified boundary stays7/8.
+Previously no separate maintained target-sized nonsquarefree-high bound
+was available. The surviving squarefree high core remains unestimated.
+No numerical diagnostics or completed unknown sums are used; no new
+complete-bound failure domain can be asserted.
+Paper label:`sec:carmichael-squarefree-high-remainder`.
+Receipt:[squarefree high remainder](verification/carmichael-squarefree-high-remainder.json).

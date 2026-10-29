@@ -1,4 +1,4 @@
-"""Signed coprime Euler gaps and compensation-preserved negative phases."""
+"""Signed Euler phases and target-sized squarefree native-core remainders."""
 
 TARGETS = (
     "PrimeFactorOscillations.CarmichaelCoprimeSignedWave.local_signed_factorization",
@@ -17,4 +17,14 @@ TARGETS = (
     "PrimeFactorOscillations.CarmichaelCoprimeSignedWave.compensatedResponse_upper_remainder",
     "PrimeFactorOscillations.CarmichaelCoprimeSignedWave.compensatedResponse_negative",
     "PrimeFactorOscillations.CarmichaelCoprimeSignedWave.finite_product_compensated_negative",
+    "PrimeFactorOscillations.CarmichaelSquarefreeHighRemainder.rational_unit_squarefree_native",
+    "PrimeFactorOscillations.CarmichaelSquarefreeHighRemainder.squarefree_low_high_split",
+    "PrimeFactorOscillations.CarmichaelSquarefreeHighRemainder.nonsquarefree_high_cancellation",
+    "PrimeFactorOscillations.CarmichaelSquarefreeHighRemainder.squarefree_native_term_factorization",
+    "PrimeFactorOscillations.CarmichaelSquarefreeHighRemainder.squarefree_native_term_bound",
+    "PrimeFactorOscillations.CarmichaelSquarefreeHighRemainder.low_squarefree_native_packet_bound",
+    "PrimeFactorOscillations.CarmichaelSquarefreeHighRemainder.low_squarefree_native_packet_subpower",
+    "PrimeFactorOscillations.CarmichaelSquarefreeHighRemainder.schwartz_low_squarefree_native_packet_subpower",
+    "PrimeFactorOscillations.CarmichaelSquarefreeHighRemainder.rational_unit_squarefree_high_remainder",
+    "PrimeFactorOscillations.CarmichaelSquarefreeHighRemainder.nonsquarefree_high_subpower",
 )

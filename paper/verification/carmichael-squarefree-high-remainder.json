@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-29",
+  "paper_label": "sec:carmichael-squarefree-high-remainder",
+  "status": "proved_and_focused_axiom_audited",
+  "new_targets": [
+    "PrimeFactorOscillations.CarmichaelSquarefreeHighRemainder.rational_unit_squarefree_native",
+    "PrimeFactorOscillations.CarmichaelSquarefreeHighRemainder.squarefree_low_high_split",
+    "PrimeFactorOscillations.CarmichaelSquarefreeHighRemainder.nonsquarefree_high_cancellation",
+    "PrimeFactorOscillations.CarmichaelSquarefreeHighRemainder.squarefree_native_term_factorization",
+    "PrimeFactorOscillations.CarmichaelSquarefreeHighRemainder.squarefree_native_term_bound",
+    "PrimeFactorOscillations.CarmichaelSquarefreeHighRemainder.low_squarefree_native_packet_bound",
+    "PrimeFactorOscillations.CarmichaelSquarefreeHighRemainder.low_squarefree_native_packet_subpower",
+    "PrimeFactorOscillations.CarmichaelSquarefreeHighRemainder.schwartz_low_squarefree_native_packet_subpower",
+    "PrimeFactorOscillations.CarmichaelSquarefreeHighRemainder.rational_unit_squarefree_high_remainder",
+    "PrimeFactorOscillations.CarmichaelSquarefreeHighRemainder.nonsquarefree_high_subpower"
+  ],
+  "new_target_count": 10,
+  "owners": [
+    {
+      "path": "PrimeFactorOscillations/Assembly/CarmichaelSquarefreeHighRemainder.lean",
+      "sha256": "5dc88269ae251f9264af49ea312fa935879ee3305897b6ef30903b3320d6be15"
+    }
+  ],
+  "axiom_checks": {
+    "standard_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "new_or_changed_checked": 10,
+    "reused_unchanged": 0,
+    "logs": [
+      {
+        "path": ".research/generated/carmichael-squarefree-high-axioms-20261029.log",
+        "sha256": "56eee93c1d9d76775da5fef899c0a6d57a1a3a3b439e2afd522e4d6a1c98a347",
+        "targets": [
+          "PrimeFactorOscillations.CarmichaelSquarefreeHighRemainder.rational_unit_squarefree_native",
+          "PrimeFactorOscillations.CarmichaelSquarefreeHighRemainder.squarefree_low_high_split",
+          "PrimeFactorOscillations.CarmichaelSquarefreeHighRemainder.nonsquarefree_high_cancellation",
+          "PrimeFactorOscillations.CarmichaelSquarefreeHighRemainder.squarefree_native_term_factorization",
+          "PrimeFactorOscillations.CarmichaelSquarefreeHighRemainder.squarefree_native_term_bound",
+          "PrimeFactorOscillations.CarmichaelSquarefreeHighRemainder.low_squarefree_native_packet_bound",
+          "PrimeFactorOscillations.CarmichaelSquarefreeHighRemainder.low_squarefree_native_packet_subpower",
+          "PrimeFactorOscillations.CarmichaelSquarefreeHighRemainder.schwartz_low_squarefree_native_packet_subpower",
+          "PrimeFactorOscillations.CarmichaelSquarefreeHighRemainder.rational_unit_squarefree_high_remainder",
+          "PrimeFactorOscillations.CarmichaelSquarefreeHighRemainder.nonsquarefree_high_subpower"
+        ],
+        "reused_unchanged": false
+      }
+    ]
+  },
+  "proved_scope": {
+    "exact_cancellation": "The full native squarefree rational projection equals the original rational Mobius unit. High minus projected high equals projected low minus original low.",
+    "projected_low": "Every finite N,T with H>0, cubic chi and all finite prime amplifiers; explicit divisor and rescaled-variation budgets, then a uniform subpower bound.",
+    "physical": "N=4D,T=D, every H,D>0 and Schwartz f. Both rational unit minus projected high and original high minus projected high have the displayed target-sized norm bound.",
+    "small_cases": "D=1, empty companion sums and all positive dilations retained. Empty rescaled prefixes are controlled by the Schwartz supremum seminorm.",
+    "exceptional_primes": "No exclusion of 2 or 3 and no primitivity hypothesis. Character zeros at nonunits, all primes in G and all depletion masks remain in the exact formulas."
+  },
+  "parameter_domain": "For every eps>0 an absolute C_eps>0, all nonzero q, all Dirichlet chi modulo q with chi^3=1, every finite prime set G, every H,D>0 and every complex Schwartz f. Explicit factor (3q)^2*S(f)^2*(4HD)^eps.",
+  "explicit_costs": {
+    "window": "S(f)=Schwartz seminorm(0,0)(f)+8*schwartzLipschitzConstant(f). A varying compensated f_D retains S(f_D)^2; uniformity in that budget must be checked before a scale-uniform specialization.",
+    "main_term": "The signed projected high core is never replaced by a norm or unsigned coefficient mass.",
+    "low_remainder": "Squarefree character cancellation is applied only to the isolated low remainder; tau(n) caps include every n<=H*N^2.",
+    "scope": "Finite rational-input cutoff. This does not constrain the separate dual Gauss frequency m=a^6 or establish the full unbounded Abel passage."
+  },
+  "detector_error": "Unchanged; exact finite coefficient recovery preserves the original rational observable.",
+  "family_adapter": "The actual rational Mobius/native hyperbola dictionary and complete original product amplifier are used. No new prime-sampled or growing-cutoff family transfer is asserted.",
+  "uncancelled_main_terms": "The squarefree projected high packet, including both signed native coefficients, all character phases and compensation cross terms.",
+  "low_estimate_provenance": "Existing nonprincipal squarefree companion harmonic estimate, the actual nonprincipal cubic companion, divisor-card subpowers, and a newly proved reciprocal-square-root hyperbola sum.",
+  "attainable_endpoint": "This component is at exponent3/2. A response D^(2beta) with beta>3/4 survives it for fixed q,H and bounded window budget. The remaining projected high estimate and physical/Abel consumers are still required for any boundary improvement.",
+  "benchmark_status": "Unconditional finite-packet component estimate compiled and focused-axiom-audited; complete exponent unchanged.",
+  "old_bound": "Complete I exponent 7/4 and boundary 7/8; no maintained separate target-sized bound for the nonsquarefree rational high contribution.",
+  "new_bound": "Norm of the nonsquarefree rational high contribution is at most C_eps*(3q)^2*S(f)^2*(4HD)^eps*(4D)*sqrt(D). Complete I exponent remains 7/4 and boundary 7/8.",
+  "components": [
+    "Exact nonsquarefree high = projected low - original low",
+    "Uniform squarefree-companion low estimate of size N*sqrt(T) up to subpowers",
+    "The signed squarefree high core is retained and unestimated"
+  ],
+  "actuals": "No numerical experiments or exact completions of unresolved sums.",
+  "first_nonpositive_domain": "Unavailable: no complete improved signed I bound is asserted.",
+  "open_consumers": [
+    "Independent one-sided estimate for the retained squarefree rational high core",
+    "Complete original prime-sampled quotient transfer with every reciprocal factor",
+    "Uniform unbounded Abel passage",
+    "Scale-uniform budget for any changing compensated window before applying the physical corollary"
+  ]
+}
