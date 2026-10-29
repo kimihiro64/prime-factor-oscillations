@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-29",
+  "paper_label": "sec:carmichael-ramanujan-frequency",
+  "status": "proved_and_focused_axiom_audited",
+  "new_targets": [
+    "PrimeFactorOscillations.CarmichaelRamanujanFrequency.prime_power_frequency_lift",
+    "PrimeFactorOscillations.CarmichaelRamanujanFrequency.prime_power_zero_eq_prime",
+    "PrimeFactorOscillations.CarmichaelRamanujanFrequency.principal_prime_gauss_general",
+    "PrimeFactorOscillations.CarmichaelRamanujanFrequency.principal_prime_power_ramanujan",
+    "PrimeFactorOscillations.CarmichaelRamanujanFrequency.ramanujan_weighted_tsum"
+  ],
+  "new_target_count": 5,
+  "owners": [
+    {
+      "path": "PrimeFactorOscillations/Assembly/CarmichaelRamanujanFrequency.lean",
+      "sha256": "ce0627c6a091cb4e827f04c50f71799307767e3ef7910e2c8983e6366f1b40ed"
+    }
+  ],
+  "axiom_checks": {
+    "standard_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "new_or_changed_checked": 5,
+    "reused_unchanged": 0,
+    "logs": [
+      {
+        "path": ".research/generated/carmichael-ramanujan-frequency-axioms5-20261029.log",
+        "sha256": "87c0cf203a0abac6cff9ab44dea72fb3582fe3c4fff3f1f65861fecf9bc49a43",
+        "targets": [
+          "PrimeFactorOscillations.CarmichaelRamanujanFrequency.prime_power_frequency_lift",
+          "PrimeFactorOscillations.CarmichaelRamanujanFrequency.prime_power_zero_eq_prime",
+          "PrimeFactorOscillations.CarmichaelRamanujanFrequency.principal_prime_gauss_general",
+          "PrimeFactorOscillations.CarmichaelRamanujanFrequency.principal_prime_power_ramanujan",
+          "PrimeFactorOscillations.CarmichaelRamanujanFrequency.ramanujan_weighted_tsum"
+        ],
+        "reused_unchanged": false
+      }
+    ]
+  },
+  "proved_scope": {
+    "lift": "Every nonzero p and residue character; exact conductorFourier fiber count at H=p^n*k.",
+    "principal": "Prime p with maximal span, every n>=0 and every frequency H including zero.",
+    "rank_shift": "Gauss modulus is p^(n+1); n=0 is the actual base Gauss sum.",
+    "ramanujan": "N((p^n))*(N((p))*1_(p^(n+1)|H)-1_(p^n|H)), with both signed terms.",
+    "infinite_transfer": "Every summable complex weight; no norm or separate term estimate in the equality.",
+    "small_primes": "No good-lambda or characteristic-not2 condition needed for the principal identity; separate nonprincipal sextic results not extended."
+  },
+  "parameter_domain": "All displayed indices and frequencies universally quantified; principal formulas require Prime p and maximal span. Tsum formula requires Summable f. No RH hypothesis.",
+  "explicit_costs": {
+    "conductor": "Exact ideal norm, not an unproved uniform arithmetic saving",
+    "compensation": "Complex weight unrestricted beyond summability; all signs kept",
+    "abel": "Summable regularized identity proved; uniform unbounded Abel limit not inferred"
+  },
+  "power_character_gate": "All-element xi mean is not a theorem about xi(a^6) unless the power character is qualified. For xi^6=1 the source unit row is principal on units.",
+  "detector_error": "Unchanged; no RH-dependent frequency theorem consumed.",
+  "family_adapter": "Actual prime-power Gauss support and trace qualification discharged. Full CRT/source-to-rational adapter remains open.",
+  "uncancelled_main_terms": "Source exceptional unit row and signed rational C_G remain at the same unresolved arithmetic scale.",
+  "low_estimate_provenance": "Exact existing conductor Fourier lift, actual prime trace, finite Gauss orthogonality, source support, summable indicator linearity.",
+  "attainable_endpoint": "No complete new endpoint derived; certified7/8 and required<=3/4 retained.",
+  "benchmark_status": "Exact local and infinite signed transfer proved; no complete exponent improvement",
+  "old_bound": "I exponent7/4; boundary7/8",
+  "new_bound": "I exponent7/4; boundary7/8",
+  "components": [
+    "Every frequency including nonunits",
+    "Both neighboring divisibility masks",
+    "Actual trace qualification",
+    "Every summable complex weight"
+  ],
+  "actuals": "No finite numerical diagnostics or exact unresolved-term completions used.",
+  "first_nonpositive_domain": "Unavailable: no new complete signed I bound installed.",
+  "open_consumers": [
+    "Full supported CRT/ray collection",
+    "Original unit m=a^6 row with xi^6 qualification",
+    "Outer signed sums and height seminorms",
+    "Moving Hecke/norm source-to-rational adapter",
+    "Independent signed small-square bound",
+    "Uniform unbounded Abel limit preserving all compensation terms"
+  ]
+}

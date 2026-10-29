@@ -4,8 +4,8 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Prime Factor Oscillations contributors
 -/
 import PrimeFactorOscillations.Assembly.CarmichaelBalancedMask
-import PrimeFactorOscillations.Assembly.CarmichaelEisensteinPrimeMean
 import PrimeFactorOscillations.Assembly.CarmichaelPhaseAscent
+import PrimeFactorOscillations.Assembly.CarmichaelRamanujanFrequency
 import PrimeFactorOscillations.Assembly.CompletedDetectorPackets
 import PrimeFactorOscillations.Assembly.CompletedLegacyResearch
 import PrimeFactorOscillations.Assembly.PrimeProfileRigidity

@@ -1473,3 +1473,43 @@ to sqrt(q); complete I exponent remains7/4 (target3/2), and certified
 zero-free boundary remains7/8 (target<=3/4). No finite numerical diagnostics.
 Paper label:`sec:carmichael-primitive-frequency-mean`.
 Receipt:[primitive conductor frequency estimate](verification/carmichael-primitive-frequency-mean.json).
+
+
+## General-frequency principal Gauss and signed Ramanujan transfer (2026-10-29)
+
+Maintained owner: `CarmichaelRamanujanFrequency.lean`.
+All5 declarations compiled and received fresh standard-only axiom checks.
+
+| Declaration | Exact scope | Status |
+| --- | --- | --- |
+| `prime_power_frequency_lift` | Every character and divisible frequency; exact norm fiber count at modulus p^(n+1). | Proved; focused axiom audit passed. |
+| `prime_power_zero_eq_prime` | Level n=0 is the actual base Gauss sum. | Proved; focused axiom audit passed. |
+| `principal_prime_gauss_general` | All frequencies, including zero; actual nontrivial trace condition discharged. | Proved; focused axiom audit passed. |
+| `principal_prime_power_ramanujan` | Both neighboring divisibility indicators at every frequency; no prime-over2/3 exclusion needed for this principal identity. | Proved; focused axiom audit passed. |
+| `ramanujan_weighted_tsum` | Every summable complex weight; full infinite sum transferred with both signs and without a norm inequality. | Proved; focused axiom audit passed. |
+
+The Gauss modulus is p^(n+1). The exact principal factor is
+N((p^n))*(N((p))*1_(p^(n+1)|H)-1_(p^n|H)); neither term is dropped.
+The actual trace is nontrivial at every prime maximal modulus. This
+principal statement does not assume good-lambda or residue characteristic
+not2; separate nonprincipal sextic qualifications remain separate.
+The infinite identity retains arbitrary complex weights and so does not
+require a positivity or reality premise on compensation terms.
+
+The full source unit frequency domain m=a^6*u (u=1 for the unit row)
+is distinct from the local neutral-character sector. If xi^6=1 then
+xi(a^6) is principal on units, even when xi itself is nonprincipal.
+The previously compiled all-element nonprincipal mean is not applied to
+that restricted row without the actual power-character qualification.
+Any higher-order auxiliary twist must preserve the complete Euler quotient
+and a nonzero zero-signal normalizer before an exponent is claimed.
+
+Open: full supported CRT/ray collection, source outer signed sums and
+height costs, the moving Hecke/norm adapter, independent signed low core,
+and uniform unbounded Abel passage with all AA-AB-BA+BB terms.
+
+Benchmark status: exact general-frequency and summable signed transfers
+proved; no new complete I estimate. I exponent7/4 remains (target3/2),
+and boundary7/8 remains (target<=3/4). No numerical diagnostics used.
+Paper label:`sec:carmichael-ramanujan-frequency`.
+Receipt:[general-frequency Ramanujan transfer](verification/carmichael-ramanujan-frequency.json).

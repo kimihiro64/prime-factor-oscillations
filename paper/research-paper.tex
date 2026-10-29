@@ -34099,6 +34099,116 @@ The complete certified estimate for \(I_{D,G}\) remains
 \(D^{3/2+\varepsilon}\); the certified boundary remains \(7/8\),
 with target at most \(3/4\).
 
+\section{General-frequency Ramanujan transfer with both signed terms}
+\label{sec:carmichael-ramanujan-frequency}
+Write \(G_{p,n,\chi}(H)\) for the existing conductor Fourier sum:
+its modulus is \(p^{n+1}\), and its multiplicative character is
+induced from the residue character \(\chi\) modulo \(p\).
+Thus \(n=0\) is the base Gauss sum \(g_{p,\chi}(H)\).
+Let \(Q_p=N((p))\).
+
+\begin{theorem}[Exact prime-power transport at every frequency]
+\label{thm:carmichael-general-ramanujan}
+For \(p\ne0\), every residue character \(\chi\), every \(n\ge0\),
+and every \(k\in\mathcal O\),
+\[
+ G_{p,n,\chi}(p^n k)=N((p^n))g_{p,\chi}(k).          \tag{L}
+\]
+If \(p\) is prime and \((p)\) is maximal, then for every
+\(H\in\mathcal O\),
+\[
+ g_{p,1}(H)=Q_p\mathbf1_{p\mid H}-1,
+\]
+and
+\[
+ G_{p,n,1}(H)=N((p^n))
+ \bigl(Q_p\mathbf1_{p^{n+1}\mid H}
+             -\mathbf1_{p^n\mid H}\bigr).           \tag{R}
+\]
+All these are exact identities, including \(H=0\).
+The principal identities need no exclusion of the primes over
+\(2\) or \(3\). The separate nonprincipal sextic-character
+qualifications are not asserted by this statement.
+\end{theorem}
+\begin{proof}
+Apply the existing conductor Fourier lift with base modulus \(p\)
+and dilation \(p^n\). The induced phase reduces exactly to the base
+trace and the fiber count is \(N((p^n))\); this gives \((L)\).
+At \(n=0\), the dilation is one, so it is the actual base Gauss sum.
+
+For the principal base sum, the actual prime trace is nontrivial
+by the existing trace theorem. If \(p\nmid H\), its residue is a
+unit and shifting the trace by that unit preserves nontriviality.
+Finite-field Gauss orthogonality gives \(g_{p,1}(H)=-1\).
+If \(p\mid H\), the trace is trivial on every summand; equivalently
+reduce to the existing prime-power evaluation at \(n=0,H=p\).
+This gives \(Q_p-1\).
+
+If \(p^n\nmid H\), the existing exact support theorem gives zero;
+both indicators on the right of \((R)\) are zero.
+Otherwise choose \(k\) with \(H=p^nk\). Cancellation in the
+integral domain gives
+\[
+ p\mid k\quad\Longleftrightarrow\quad p^{n+1}\mid H.
+\]
+Substitute the base formula into \((L)\). The lower indicator
+equals one, proving \((R)\). The Lean proof branches on the
+actual divisibility predicates and retains both decisions.
+\end{proof}
+
+\begin{theorem}[Full signed infinite-weight transfer]
+\label{thm:carmichael-ramanujan-tsum}
+For every summable complex weight \(f:\mathcal O\to\mathbb C\),
+\[
+ \begin{split}
+ \sum_H G_{p,n,1}(H)f(H)
+ =N((p^n))\bigg(
+  Q_p\sum_{p^{n+1}\mid H}f(H)
+       -\sum_{p^n\mid H}f(H)\bigg).
+ \end{split}\tag{T}
+\]
+The weight need not be real or nonnegative.
+\end{theorem}
+\begin{proof}
+Multiply \((R)\) by \(f(H)\) pointwise. Each restricted weight
+is a set indicator times \(f\), hence summable.
+Linearity of the two summable series gives \((T)\).
+No norm, triangle inequality or independent estimate of the two
+signed terms enters this transfer.
+\end{proof}
+
+For an exponent \(e\ge1\), taking \(n=e-1\) gives the two actual
+frequency divisibilities in a principal factor at \(p^e\).
+In particular this treats the nonunit frequencies of a sixth-power
+factor. All prime factors of the actual finite support, their
+CRT/ray phases and every compensation cross term must still be
+collected in the full source identity; \((T)\) does not remove them.
+It applies directly at a summable Abel regularization.
+A uniform bound for the subsequent unbounded Abel limit is
+a separate assertion and has not been inferred from linearity.
+
+There is a further scope distinction in the arithmetic unit row.
+The unmasked frequency mean in
+Theorem~\ref{thm:carmichael-primitive-frequency-mean} sums over every
+Eisenstein element. The source exceptional row instead has frequencies
+\(m=a^6u\), with \(u=1\) for its unit row.
+Nonprincipality of an auxiliary \(\xi\) does not imply
+nonprincipality of \(a\mapsto\xi(a^6)\):
+if \(\xi^6=1\), that character is principal on units.
+The full local neutral-character classification is not a
+replacement for this exceptional-frequency domain.
+A different auxiliary twist would require a new check of the
+complete Euler quotient and of its nonzero zero-signal normalizer.
+Neither \((R)\), \((T)\), nor the square-root conductor estimate
+alone provides that check.
+
+The five maintained declarations for the lift, base level,
+principal base sum, general-frequency Ramanujan factor and
+signed infinite transfer are individually compiled and axiom-audited.
+The complete \(I_{D,G}\) bound remains
+\(D^{7/4+\varepsilon}\), with target \(D^{3/2+\varepsilon}\).
+The certified boundary remains \(7/8\), with target at most \(3/4\).
+
 \begin{thebibliography}{99}
 \small\raggedright
 \setlength{\itemsep}{3pt}
