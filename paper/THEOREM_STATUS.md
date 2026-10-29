@@ -1436,3 +1436,40 @@ frequency-row level. Complete I exponent remains7/4 (target3/2); certified
 boundary remains7/8 (target<=3/4). No finite numerical diagnostics used.
 Paper label:`sec:carmichael-masked-frequency-dilation`.
 Receipt:[full masked and forced-ideal means](verification/carmichael-masked-frequency-dilation.json).
+
+
+## Primitive conductor saving in the signed frequency row (2026-10-29)
+
+Maintained owner: `CarmichaelEisensteinPrimeMean.lean`.
+All5 declarations compiled and received fresh standard-only axiom checks.
+
+| Declaration | Exact scope | Status |
+| --- | --- | --- |
+| `primitive_conductor_signed_mean` | All nonzero primitive conductors; actual trace primitivity discharged; signed mean bounded by C*p(W)*sqrt(q). | Proved; focused axiom audit passed. |
+| `primitive_conductor_masked_mean` | All finite distinct maximal-ideal masks; explicit factor 2^card(S), every K>0. | Proved; focused axiom audit passed. |
+| `primitive_conductor_forced_ideal_mean` | Every nonzero forced frequency ideal; all mask overlaps and dilation phases retained. | Proved; focused axiom audit passed. |
+| `primitive_source_unit_forced_ideal_mean` | Exact source normalizer sqrt(q*X*Y); conductor cancels, with every positive denominator proved. | Proved; focused axiom audit passed. |
+| `prime_conductor_signed_mean` | At maximal conductors, nonprincipality discharges multiplicative primitivity. | Proved; focused axiom audit passed. |
+
+The conductor may be composite when the multiplicative character is
+primitive on ideals. The actual additive trace is primitive for every
+nonzero conductor, by the existing general trace provider. No RH
+hypothesis is used. At maximal conductors only nonprincipality is needed.
+
+The earlier residue-mass cost B_xi is replaced by sqrt(q). With source
+Q=q*X*Y, its normalizer cancels this conductor cost exactly. The remaining
+frequency-row bound is C*p(W)*2^card(S)/sqrt(X*Y), uniform in all K>0
+and all nonzero forced ideals. Constants/seminorms are existential;
+mask and window-height costs remain explicit.
+
+Open consumers: exact full imprimitive Gauss-to-Ramanujan source transfer,
+general-frequency unit transport, source outer sums and height seminorms,
+moving Hecke/norm adapter, independent signed small-square core, and the
+uniform Abel limit with every compensation term. No complete source-unit
+or rational C_G bound is inferred from this frequency-row improvement.
+
+Benchmark status: certified frequency coefficient cap improves from B_xi
+to sqrt(q); complete I exponent remains7/4 (target3/2), and certified
+zero-free boundary remains7/8 (target<=3/4). No finite numerical diagnostics.
+Paper label:`sec:carmichael-primitive-frequency-mean`.
+Receipt:[primitive conductor frequency estimate](verification/carmichael-primitive-frequency-mean.json).

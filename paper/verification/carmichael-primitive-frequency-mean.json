@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-29",
+  "paper_label": "sec:carmichael-primitive-frequency-mean",
+  "status": "proved_and_focused_axiom_audited",
+  "new_targets": [
+    "PrimeFactorOscillations.CarmichaelEisensteinPrimeMean.primitive_conductor_signed_mean",
+    "PrimeFactorOscillations.CarmichaelEisensteinPrimeMean.primitive_conductor_masked_mean",
+    "PrimeFactorOscillations.CarmichaelEisensteinPrimeMean.primitive_conductor_forced_ideal_mean",
+    "PrimeFactorOscillations.CarmichaelEisensteinPrimeMean.primitive_source_unit_forced_ideal_mean",
+    "PrimeFactorOscillations.CarmichaelEisensteinPrimeMean.prime_conductor_signed_mean"
+  ],
+  "new_target_count": 5,
+  "owners": [
+    {
+      "path": "PrimeFactorOscillations/Assembly/CarmichaelEisensteinPrimeMean.lean",
+      "sha256": "e27969962a92cc015c3739bfd7c52dbbb47c0ad201f0c5b372524c02e8e3ca3f"
+    }
+  ],
+  "axiom_checks": {
+    "standard_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "new_or_changed_checked": 5,
+    "reused_unchanged": 0,
+    "logs": [
+      {
+        "path": ".research/generated/carmichael-primitive-frequency-axioms5-20261029.log",
+        "sha256": "6d06aa0d36ba6c139e44196eea9d1827a4cb7a979732970d9622b3ff6d9b1c53",
+        "targets": [
+          "PrimeFactorOscillations.CarmichaelEisensteinPrimeMean.primitive_conductor_signed_mean",
+          "PrimeFactorOscillations.CarmichaelEisensteinPrimeMean.primitive_conductor_masked_mean",
+          "PrimeFactorOscillations.CarmichaelEisensteinPrimeMean.primitive_conductor_forced_ideal_mean",
+          "PrimeFactorOscillations.CarmichaelEisensteinPrimeMean.primitive_source_unit_forced_ideal_mean",
+          "PrimeFactorOscillations.CarmichaelEisensteinPrimeMean.prime_conductor_signed_mean"
+        ],
+        "reused_unchanged": false
+      }
+    ]
+  },
+  "proved_scope": {
+    "character": "Every nonprincipal character primitive on ideals at any nonzero Eisenstein conductor, including composite conductors.",
+    "trace": "Actual breveE trace primitivity discharged by GeneralPrimitiveTrace at every nonzero conductor.",
+    "prime_specialization": "Nonprincipality discharges multiplicative primitivity at maximal conductors.",
+    "signed_mean": "C*p(W)*sqrt(q), uniform in K>0, exact zero mode cancelled before tail norms.",
+    "mask_and_forced_ideal": "C*p(W)*sqrt(q)*2^card(S), every finite injectively indexed maximal-ideal mask and every nonzero ideal D, including overlaps.",
+    "source_normalization": "Division by sqrt(q*X*Y) yields C*p(W)*2^card(S)/sqrt(X*Y) for X,Y>0; all denominator conditions proved."
+  },
+  "explicit_costs": {
+    "conductor": "sqrt(q) before normalization, no conductor factor after source normalization",
+    "mask": "2^card(S)",
+    "constant": "Existential universal positive C and finite Schwartz seminorm; no numerical value asserted",
+    "height": "Window seminorm remains explicit and must be estimated for source height families"
+  },
+  "parameter_domain": "All nonzero Eisenstein conductors with finite residue quotients, primitive nonprincipal multiplicative characters, all K,X,Y>0, all finite distinct maximal-ideal masks, all nonzero forced ideals.",
+  "detector_error": "Unchanged; no RH-dependent Fourier limit consumed.",
+  "family_adapter": "Maintained carrier and phase/symmetry proofs retained; full moving Hecke/norm and source-to-rational adapters remain separate.",
+  "uncancelled_main_terms": "Independent signed small-square core and rational C_G are not estimated at target scale.",
+  "low_estimate_provenance": "Actual radial Poisson, general primitive trace, exact primitive Gauss phases and norm, proved nonzero lattice tail, exact masked and ideal-generator dilations.",
+  "attainable_endpoint": "No complete new endpoint derived. Certified boundary7/8; required endpoint<=3/4.",
+  "benchmark_status": "Certified component improvement, complete endpoint unchanged",
+  "old_bound": "Frequency-row cap C*p(W)*B_xi*2^card(S); full I exponent7/4; boundary7/8",
+  "new_bound": "Frequency-row cap C*p(W)*sqrt(q)*2^card(S), normalized C*p(W)*2^card(S)/sqrt(X*Y); full I exponent7/4; boundary7/8",
+  "components": [
+    "Exact zero-mode cancellation",
+    "Gauss coefficient cap sqrt(q) including nonunit zero phases",
+    "Complete finite ideal masks",
+    "Every forced frequency ideal",
+    "Positive source normalizer cancellation"
+  ],
+  "actuals": "No finite numerical diagnostics or exact unresolved-term completions used.",
+  "first_nonpositive_domain": "Unavailable: no complete new analytic I bound assembled.",
+  "open_consumers": [
+    "General-frequency principal Gauss/Ramanujan source identity",
+    "Full CRT source phases and all imprimitive corrections",
+    "Outer source sums and height seminorms",
+    "Moving Hecke/norm source-to-rational adapter",
+    "Independent signed small-square core bound",
+    "Uniform unbounded Abel limit retaining AA-AB-BA+BB"
+  ],
+  "compensation": "Every AA-conj(z)AB-zBA+|z|^2BB term retained in the full packet; no complete packet bound asserted."
+}

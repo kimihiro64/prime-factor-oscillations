@@ -33997,6 +33997,108 @@ with target \(3/2\); the certified boundary remains \(7/8\), with
 target at most \(3/4\). The phase scalar in \((D)\) has not been
 replaced by its norm in the identity.
 
+\section{Square-root conductor control of the signed frequency row}
+\label{sec:carmichael-primitive-frequency-mean}
+Retain the full masks and forced frequency ideals from
+Section~\ref{sec:carmichael-masked-frequency-dilation}. Put
+\(q=|\mathcal O/(c)|\). Multiplicative primitivity below means
+primitivity on ideals of the residue ring, as in the existing finite
+Fourier Gauss-sum theorem. The conductor may be composite.
+
+\begin{theorem}[Primitive signed frequency estimate]
+\label{thm:carmichael-primitive-frequency-mean}
+There exist a universal \(C>0\) and a finite Schwartz seminorm \(p\)
+such that, for every nonzero \(c\), every primitive nonprincipal
+\(\xi:\mathcal O/(c)\to\mathbb C\), every Schwartz window \(W\),
+every \(K>0\), every finite set \(S\) of distinct maximal ideals,
+and every nonzero ideal \(D\),
+\[
+ \left|\sum_{u\in D}M_S(u)\xi(u)W(N(u)/K)\right|
+ \le C p(W)\sqrt q\,2^{|S|}.                         \tag{P}
+\]
+The unmasked sum has the same estimate without \(2^{|S|}\).
+At a maximal conductor, nonprincipality alone implies the required
+multiplicative primitivity. Additive primitivity of the actual trace
+is proved for every nonzero \(c\); it is not an additional assumption.
+\end{theorem}
+\begin{proof}
+Let \(\psi_c\) be the actual trace used in the established radial
+Poisson formula, and set
+\[
+ A(h)=\sum_{r\bmod c}\xi(r)\psi_c(hr).
+\]
+The existing general trace theorem proves that \(\psi_c\) is primitive
+for every \(c\ne0\). The exact primitive Gauss identities give
+\[
+ A(h)=\xi^{-1}(h)\tau(\xi,\psi_c),\qquad
+ |\tau(\xi,\psi_c)|=\sqrt q.
+\]
+They apply also at nonunit frequencies, with their zero values retained.
+Thus \(|A(h)|\le\sqrt q\). Independently, nonprincipality gives
+\(A(0)=\sum_r\xi(r)=0\).
+
+Write \(L=K/N(c)>0\). The actual Poisson identity is
+\[
+ \sum_{z\in\mathcal O}\xi(z)W(N(z)/K)
+   =L\sum_{h\in\mathcal O}A(h)\widehat W_{\rm rad}(L N(h)).
+\]
+The zero term is exactly zero before any norm estimate.
+The proved nonzero-lattice estimate and its summability theorem imply
+\[
+ L\sum_{h\ne0}|\widehat W_{\rm rad}(L N(h))|\le C p(W),
+\]
+uniformly for all \(L>0\). This proves the unmasked estimate.
+
+For masks, use the exact finite ideal M\"obius dilation identity
+displayed in Section~\ref{sec:carmichael-masked-frequency-dilation}.
+Each inner row has the same primitive character and a positive scale
+\(K/N(g_E)\). Cancel its zero mode before estimating its nonzero tail.
+The remaining scalar has modulus at most one, and there are
+\(2^{|S|}\) subsets. For \(D\), use the exact transfer with scalar
+\(M_S(g_D)\xi(g_D)\) and scale \(K/N(g_D)\). This keeps every overlap
+with the mask; an overlap may make the scalar exactly zero.
+The scalar has modulus at most one and \(g_D\ne0\), giving \((P)\).
+Finally, over a residue field a nonprincipal character is primitive
+on ideals, which discharges the multiplicative qualification in the
+maximal-conductor specialization.
+\end{proof}
+
+\begin{corollary}[Cancellation of the source conductor normalizer]
+\label{cor:carmichael-unit-frequency-normalized}
+For \(X,Y>0\), the same forced-ideal row satisfies
+\[
+ \frac{\left|\sum_{u\in D}M_S(u)\xi(u)W(N(u)/K)\right|}
+ {\sqrt{qXY}}
+ \le \frac{C p(W)\,2^{|S|}}{\sqrt{XY}}.               \tag{N}
+\]
+\end{corollary}
+\begin{proof}
+Here \(q>0\). Substitute \((P)\) and use
+\(\sqrt{qXY}=\sqrt q\sqrt{XY}\). Both denominators are positive.
+The maintained Lean declaration proves this normalized consumer,
+including all of its parameter and denominator conditions.
+\end{proof}
+
+The improvement from the earlier residue mass \(B_\xi\) to
+\(\sqrt q\) is an actual signed finite-frequency estimate.
+It uses neither a Gram bound nor Cauchy--Schwarz.
+Its constant and seminorm are existential, not numerically evaluated.
+The mask cost \(2^{|S|}\) and the window seminorm still have to be
+charged in growing families.
+
+This does not identify an imprimitive source Gauss sum with a
+primitive character at nonunit frequencies. In the neutral sector,
+the original \(ch\) mask and both signed divisibility terms from each
+\(v^6\) Ramanujan factor must still be transferred through the exact
+source identity. The remaining outer row sums, height seminorms,
+moving Hecke/norm adapter, and the complete Abel limit are not
+asserted by \((N)\). Every compensation term
+\(AA-\overline z\,AB-z\,BA+|z|^2BB\) remains in the full packet.
+The complete certified estimate for \(I_{D,G}\) remains
+\(D^{7/4+\varepsilon}\), with required target
+\(D^{3/2+\varepsilon}\); the certified boundary remains \(7/8\),
+with target at most \(3/4\).
+
 \begin{thebibliography}{99}
 \small\raggedright
 \setlength{\itemsep}{3pt}
