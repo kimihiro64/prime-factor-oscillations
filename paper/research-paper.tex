@@ -33438,6 +33438,235 @@ uniform unbounded Abel passage. The complete certified exponent is still
 \(7/4\) for \(I_{D,G}\), and the global boundary is still \(7/8\).
 The active complete targets remain \(3/2\) and at most \(3/4\), respectively.
 
+
+\section{Actual carrier transfer and cubic phase symmetry}
+\label{sec:carmichael-actual-carrier-transfer}
+
+This section qualifies the unchanged four-Gaussian carrier for the physical
+square-part mean. It also resolves the finite kernel's symmetry and plain
+companion phases. These are transfer theorems, not a claim of a new complete
+zero-free boundary.
+
+Put
+\[
+ (c_i)=(5/4,-5/16,-1,1/16),\qquad
+ (\lambda_i)=(4,1/4,16,1/16),\qquad
+ V(v)=\sum_{i=0}^3c_i e^{-a_0\lambda_i v},\quad a_0>0.
+\]
+Here \(a_0\) is the paper's fixed Gaussian constant. The physical coordinate
+is the Eisenstein norm, not its square. For \(D\ge1\), define
+\[
+ f_D(x)=V(x)-D^{-3}V(x/D^3),\qquad
+ W_D(n)=f_D(n/D)=V(n/D)-D^{-3}V(n/D^4).
+\]
+The coefficient \(D^{-3}\) is physical. The factor \(1/4\) occurs only after
+the quartic change of variables in the Mellin integral.
+
+For a complex sequence \(w\), including the empty-prefix case, write
+\[
+ {\cal V}_B(w)=|w(B-1)|+
+       \sum_{0\le j<B-1}|w(j+1)-w(j)|,
+\]
+where natural subtraction is truncated at zero.
+
+\begin{theorem}[The actual positive-clock window budget]
+\label{thm:carmichael-actual-carrier-variation}
+If \(P,Q:\mathbb N\to[0,\infty)\) are increasing, then for every \(B\ge0\)
+and \(z\in\mathbb C\),
+\[
+ {\cal V}_B(V\circ P)\le21/8,\qquad
+ {\cal V}_B(V\circ P-zV\circ Q)\le(21/8)(1+|z|).
+\]
+Consequently every positive square-part dilation of \(f_D\), at every
+prefix cutoff, has variation at most \(21/4\), uniformly in \(D\ge1\).
+There is no growing-cutoff or square-support condition in this assertion.
+\end{theorem}
+\begin{proof}
+For a nonnegative decreasing real sequence \(g\), each increment has
+absolute value \(g(j)-g(j+1)\). Telescoping therefore gives
+\({\cal V}_B(g)=g(0)\), also when \(B=0\) or \(B=1\).
+The sequence \(e^{-aP(j)}\), \(a>0\), has these properties and initial
+value at most one. For any finite family of complex coefficients and
+sequences, apply the triangle inequality separately to the endpoint and
+to each increment, and interchange the two finite sums. This proves
+\[
+ {\cal V}_B\Bigl(\sum_i c_iw_i\Bigr)
+ \le\sum_i|c_i|{\cal V}_B(w_i).
+\]
+Apply this to the four Gaussians and use
+\(\sum_i|c_i|=21/8\). Applying the same inequality to the two actual
+clocks gives the compensated assertion.
+
+Explicitly, the dilation \(j\mapsto k(j+1)-1\), \(k\ge1\), changes
+\(V(A(j+1)^2/D)\) into \(V(Ak^2(j+1)^2/D)\).
+The two arguments of \(f_D\) are increasing nonnegative clocks, the
+second being the first divided by \(D^3\). Since
+\[
+ |(D:\mathbb C)^{-3}|=D^{-3}\le1,
+\]
+their joint budget is at most \((21/8)(1+1)=21/4\).
+This bounds an auxiliary window variation; no signed arithmetic
+summand or compensation cross term has been replaced.
+\end{proof}
+
+\begin{theorem}[Variation-budget physical transfer]
+\label{thm:carmichael-actual-carrier-row}
+Fix \(\varepsilon>0\). The squarefree companion prefix mean and its
+four-prefix rectangle version remain valid for arbitrary complex
+windows \(w,v\) with nonnegative budgets \(F,J\), provided every
+positive dilation at every required prefix has variation at most
+\(F,J\), respectively. The window factor is \(FJ\).
+For the actual compensated windows it is therefore \((21/4)^2\).
+
+In particular let \(q,H,r,u,b,d,D,R,T\) be positive integers, let
+\(\chi\) be any character modulo \(q\), and let \(G\) be any finite set
+of primes. For any nonnegative upper cutoffs \(B,C\), put
+\(m=rb,n=ud\). The complete physical rectangle satisfies
+\[
+ \left|{\cal R}^{R,T}_{r,u;b,d}(B,C;f_D)\right|
+ \le |a_\chi(r)a_\chi(u)|\,C_\varepsilon(3q)^2(21/4)^2
+ \bigl[(Hrn+Hum+m+n+1)(B+C+1)\bigr]^\varepsilon\sqrt{BC}.
+\]
+The constant is independent of all displayed arithmetic parameters,
+including \(G\). Neither a Schwartz extension of \(V\) to the negative
+half-line nor the restrictions \(mB^2,nC^2\le4D\) are required here.
+The statement includes \(q=1\), principal and imprimitive characters,
+and all unit square-part and companion indices.
+\end{theorem}
+\begin{proof}
+In the existing complete-period proof of the squarefree prefix mean,
+the window enters only through
+\({\cal V}_{B/k}(w(k(\,\cdot+1)-1))\) and
+\({\cal V}_{C/k}(v(k(\,\cdot+1)-1))\), for \(1\le k\le B\).
+Keep that proof unchanged and replace those two bounds by \(F,J\).
+The divisor and harmonic subpower bounds give the same constant
+\(C_d(\varepsilon/8)^4C_h(\varepsilon/10)^5\).
+The companion \(\chi^2\chi_{-3}\) is odd, hence nonprincipal, for every
+\(\chi\); there is no exceptional principal companion.
+
+Every lower rectangle is exactly its four signed prefixes, with
+lower-prefix endpoints \(\min(B,R-1)\), \(\min(C,T-1)\).
+Apply the prefix estimate to each of these four terms. Their size
+parameter and square-root factor are bounded by the full rectangle's
+parameters; thus only the constant is multiplied by four. This
+argument uses the stated budgets at each smaller prefix.
+
+Now use the exact physical row identity, before any estimate. If
+\((m,n)=(m,H)=(n,H)=1\), the row equals
+\(a_\chi(r)\overline{a_\chi(u)}\) times this squarefree rectangle with
+left mask \(Hrn\), right mask \(Hum\), amplifier inputs \(m,n\), and
+windows \(f_D(ms^2/D),f_D(nt^2/D)\). Otherwise the row is zero.
+Theorem~\ref{thm:carmichael-actual-carrier-variation} supplies both
+budgets. This proves the displayed assertion, retaining every cross
+mask and every term of the original combined window.
+\end{proof}
+
+For a fixed finite set \(Z\) of Eisenstein integers and arbitrary complex
+coefficients \(a_z\), write
+\[
+ F_Z(T)=\sum_{z\in Z}a_zV(Nz/T).
+\]
+Finite distributivity and \((x/D)/D^3=x/D^4\) give the exact transfer
+\[
+ F_Z(D)-D^{-3}F_Z(D^4)
+   =\sum_{z\in Z}a_z f_D(Nz/D).
+\]
+Thus the qualified window is the same one in the already proved
+compensated Mellin formula. For a nonzero finite carrier support and
+\(\Re s>0\), that formula is
+\[
+ \phi(s)\sum_{z\in Z}a_z(Nz)^{-s}
+ -\frac14\phi((s+3)/4)\sum_{z\in Z}a_z(Nz)^{-(s+3)/4}.
+\]
+Both multipliers are nonzero when \(1/2<\Re s<1\). The support is fixed
+in this Mellin assertion: substituting a moving cutoff \(Z=Z(D)\)
+requires a separate uniform passage and is not justified by finite
+distributivity.
+
+\begin{theorem}[Finite phase and symmetry, with compensation intact]
+\label{thm:carmichael-cubic-companion-phase}
+Let \(\epsilon=\chi_{-3}\), \(\psi=\chi\epsilon\), and
+\(\kappa=\chi^2\epsilon\), with both characters at level \(Q=3q\).
+For \(\chi^3=1\),
+\[
+ \kappa=\overline\psi,\qquad \psi\kappa={\bf1}_Q.
+\]
+The right side is the principal character, including its zeros at
+nonunits. Put
+\[
+ C_\chi(r,s)=
+ {\bf1}_{(r,s)=1}a_\chi(r)\mu(s)^2{\bf1}_{(s,Q)=1}.
+\]
+Then \(b_\chi(r,s)\psi(s)=C_\chi(r,s)\). More generally,
+\[
+ b\equiv as\pmod Q
+ \quad\Longrightarrow\quad
+ b_\chi(r,s)\psi(b)=\psi(a)C_\chi(r,s).
+\]
+The analogous two-column identity retains
+\(\psi(a)\overline{\psi(c)}\), both coefficient factors, and any
+complex coupled kernel. If \((s,Q)=1\), every integer \(b\) has unique
+parameters \(0\le a<Q\), \(k\in\mathbb Z\) with \(b=as+kQ\), and
+\[
+ rs^2b=ra\,s^3+rkQ\,s^2.
+\]
+Negative shifts are included.
+
+Independently of \(\chi^3=1\), the full masked physical kernel, its
+rectangles, and the rectangles with their actual plain-companion phases
+are Hermitian under exchange of the two columns. These assertions hold
+for arbitrary complex windows.
+\end{theorem}
+\begin{proof}
+The identity \(\chi^3=1\) gives \(\chi^2=\chi^{-1}=\overline\chi\).
+Since \(\epsilon\) is real quadratic, it is fixed by conjugation and
+equals its inverse. Change of level preserves these identities, proving
+both character formulas on units and their common zero values elsewhere.
+Insert the native formula
+\(b_\chi(r,s)={\bf1}_{(r,s)=1}a_\chi(r)\mu(s)^2\kappa(s)\).
+The first identity follows from \(\psi(s)\kappa(s)={\bf1}_Q(s)\).
+Multiplicativity gives \(\psi(b)=\psi(a)\psi(s)\) under the stated
+congruence, proving the ratio identity. Multiply it by the conjugate
+second-column identity without changing the kernel.
+When \(s\) is invertible modulo \(Q\), the class of \(a\) is forced to
+be \(bs^{-1}\); its unique least nonnegative representative determines
+the integer \(k=(b-as)/Q\). This proves existence, uniqueness, and the
+displayed cubic-plus-quadratic physical input.
+
+For symmetry write the full rational kernel as
+\[
+ K(n,m)={\bf1}_{(n,m)=(n,H)=(m,H)=1}
+    [A_G(n)W(n)]\,\overline{[A_G(m)W(m)]}.
+\]
+The mask is unchanged by exchange, so
+\(\overline{K(n,m)}=K(m,n)\) for every complex \(W\).
+Conjugate the exact two finite sums and interchange their indices.
+The coefficient factors exchange, giving
+\[
+ \overline{{\cal R}_{r,u;b,d}^{R,T}(B,C;f)}
+  ={\cal R}_{u,r;d,b}^{T,R}(C,B;f).
+\]
+The additional phase
+\(\psi(b)\overline{\psi(d)}\) exchanges in exactly the same way.
+This proves the phased statement without a unit-modulus hypothesis,
+including nonunit zeros and unit indices.
+\end{proof}
+
+All four terms
+\(AA-\overline z\,AB-z\,BA+|z|^2BB\) remain inside the exact kernel.
+No symmetry assumption is needed for its finite transfer.
+The cubic Dirichlet identities above do not identify an integer cubic
+input with an Eisenstein norm cube, or discharge the original moving
+sextic Hecke phase \(\chi_A(m)\). That source adapter remains separate.
+
+The closed obligation is the actual carrier's physical-row
+qualification, including the finite unit rows and their full
+compensation. The retained signed small-square estimate, the complete
+moving-frequency quotient assembly, and the uniform unbounded Abel
+passage remain open. In particular the complete certified bounds are
+still \(I_{D,G}\ll D^{7/4+\varepsilon}\) and boundary \(7/8\).
+The targets remain \(D^{3/2+\varepsilon}\) and boundary at most \(3/4\).
+
 \begin{thebibliography}{99}
 \small\raggedright
 \setlength{\itemsep}{3pt}

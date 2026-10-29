@@ -1,0 +1,167 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-29",
+  "title": "Actual compensated carrier transfer and cubic phase symmetry",
+  "paper_label": "sec:carmichael-actual-carrier-transfer",
+  "status": "proved_and_focused_axiom_audited",
+  "new_public_theorems": [
+    "PrimeFactorOscillations.CarmichaelCubicResonance.cubic_squarepart_conjugacy",
+    "PrimeFactorOscillations.CarmichaelCubicResonance.cubic_phase_product",
+    "PrimeFactorOscillations.CarmichaelCubicResonance.cubic_companion_resonance",
+    "PrimeFactorOscillations.CarmichaelCubicResonance.cubic_resonance_pair",
+    "PrimeFactorOscillations.CarmichaelCubicResonance.cubic_companion_ratio",
+    "PrimeFactorOscillations.CarmichaelCubicResonance.cubic_ratio_pair",
+    "PrimeFactorOscillations.CarmichaelCubicResonance.shifted_cubic_input",
+    "PrimeFactorOscillations.CarmichaelCubicResonance.shifted_cubic_companion",
+    "PrimeFactorOscillations.CarmichaelCubicResonance.shifted_cubic_parameters_exist",
+    "PrimeFactorOscillations.CarmichaelCubicResonance.shifted_cubic_parameters_unique",
+    "PrimeFactorOscillations.CarmichaelSquarepartCancellation.squarefree_packet_subpower_of_variation",
+    "PrimeFactorOscillations.CarmichaelSquarepartPhysical.rectangle_subpower_of_variation",
+    "PrimeFactorOscillations.CarmichaelCarrierVariation.antitone_positive_variation",
+    "PrimeFactorOscillations.CarmichaelCarrierVariation.variation_finite_linear",
+    "PrimeFactorOscillations.CarmichaelCarrierVariation.gaussian_positive_clock_variation",
+    "PrimeFactorOscillations.CarmichaelCarrierVariation.carrier_positive_clock_variation",
+    "PrimeFactorOscillations.CarmichaelCarrierVariation.compensated_carrier_clock_variation",
+    "PrimeFactorOscillations.CarmichaelCarrierVariation.carrier_rescaled_variation",
+    "PrimeFactorOscillations.CarmichaelCarrierVariation.quartic_compensation_norm_le_one",
+    "PrimeFactorOscillations.CarmichaelCarrierVariation.quartic_carrier_rescaled_variation",
+    "PrimeFactorOscillations.CarmichaelCarrierVariation.quartic_carrier_rectangle_subpower",
+    "PrimeFactorOscillations.CarmichaelCarrierVariation.quartic_window_norm_coordinate",
+    "PrimeFactorOscillations.CarmichaelCarrierVariation.quartic_physical_packet_transfer",
+    "PrimeFactorOscillations.CarmichaelCarrierVariation.rational_kernel_star_swap",
+    "PrimeFactorOscillations.CarmichaelCarrierVariation.physical_rectangle_star_swap",
+    "PrimeFactorOscillations.CarmichaelCarrierVariation.phased_physical_rectangle_star_swap",
+    "PrimeFactorOscillations.CarmichaelCarrierVariation.quartic_carrier_physical_row_bound"
+  ],
+  "changed_existing_theorems": [
+    "PrimeFactorOscillations.CarmichaelSquarepartCancellation.squared_squarepart_subpower",
+    "PrimeFactorOscillations.CarmichaelSquarepartPhysical.squared_rectangle_subpower"
+  ],
+  "definition_count": 2,
+  "benchmark_status": "actual_window_and_finite_phase_transfer_proved; complete_exponent_unchanged",
+  "old_bound": {
+    "complete_I_exponent": "7/4",
+    "global_boundary": "7/8",
+    "actual_carrier_row": "Schwartz-only wrapper did not qualify the unchanged positive carrier"
+  },
+  "new_bound": {
+    "complete_I_exponent": "7/4",
+    "global_boundary": "7/8",
+    "actual_carrier_row": "C_eps*(3q)^2*(21/4)^2*|a_chi(r)a_chi(u)|*X^eps*sqrt(B*C)",
+    "X": "(H*r*(u*d)+H*u*(r*b)+r*b+u*d+1)*(B+C+1)"
+  },
+  "target": {
+    "complete_I_exponent": "3/2",
+    "global_boundary": "<=3/4",
+    "unconditional": true
+  },
+  "components": {
+    "positive_clock_variation": "21/8",
+    "two_clock_variation": "(21/8)*(1+|z|)",
+    "quartic_variation": "21/4",
+    "full_masked_row": "all cross masks, native coefficients and compensation retained",
+    "cubic_phase": "chi^3=1 implies kappa=star(psi); all residue ratios and signed shifts included",
+    "finite_symmetry": "Hermitian for arbitrary complex windows and arbitrary Dirichlet chi, including nonunit zeros",
+    "complete_signed_core": "unestimated; no new main-term magnitude envelope installed"
+  },
+  "actuals": {
+    "numerical_experiments": "none",
+    "compiled_new_declarations": 27,
+    "checked_changed_existing": 2
+  },
+  "first_nonpositive_domain": {
+    "status": "unavailable",
+    "reason": "No new complete analytic bound or consecutive numerical benchmark is asserted."
+  },
+  "parameter_domain": {
+    "eps": "all eps>0",
+    "q": "all positive q; arbitrary chi modulo q",
+    "G": "any finite set of primes, including2",
+    "row_parameters": "H,r,u,b,d,D,R,T positive; B,C arbitrary natural",
+    "clock_domain": "all monotone nonnegative clocks, all prefix cutoffs and positive dilations",
+    "constant_uniformity": "C_eps independent of all arithmetic parameters and G",
+    "explicit_costs": [
+      "(3q)^2",
+      "(21/4)^2",
+      "|a_chi(r)a_chi(u)|",
+      "X^eps"
+    ],
+    "cubic_normal_form": "requires chi^3=1; unique residue a in[0,3q) and k in Z when s is a unit modulo3q"
+  },
+  "physical_normalization": {
+    "coordinate": "integer Eisenstein norm",
+    "coefficient": "D^(-3)",
+    "reference_scale": "D^4",
+    "normalized_window": "V(x)-D^(-3)*V(x/D^3)",
+    "mellin_factor": "1/4 only after change of variables",
+    "support_order": "fixed finite Z before Mellin; moving Z(D) not justified by this transfer"
+  },
+  "detector_error": "Unchanged; no zero-exclusion bound is inferred from detector precision.",
+  "family_adapter": "Actual finite norm-carrier and rational square-part rows; cubic Dirichlet companion ratios. No identification with a moving sextic Hecke phase is assumed.",
+  "uncancelled_main_terms": [
+    "common off-critical zero signal",
+    "retained signed small-square core",
+    "full principal/reciprocal L-function quotient terms"
+  ],
+  "low_estimate_provenance": "Uniform complete-period cancellation for the odd nonprincipal companion, divisor/harmonic subpower bounds and exact four-prefix identity; no7/8 input.",
+  "attainable_endpoint": "No new complete endpoint certified. Boundary7/8 retained; target<=3/4.",
+  "closed_prior_edges": [
+    "actual carrier physical-row variation qualification",
+    "exact fixed-finite-support quartic physical transfer",
+    "finite rational-kernel and plain-companion phase symmetry"
+  ],
+  "open_edges": [
+    "independent signed small-square estimate",
+    "original moving sextic Hecke phase and Eisenstein norm-cube adapter",
+    "complete moving-prime frequency sum with full reciprocal L-factors",
+    "uniform unbounded Abel limit"
+  ],
+  "foundations": {
+    "allowed_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "new_theorems_checked": 27,
+    "changed_existing_checked": 2,
+    "unchanged_reaudits": 0,
+    "cubic_check_reused": 10
+  },
+  "validation": {
+    "maintained_leaf_compilation": "passed",
+    "focused_axioms": "passed",
+    "facade_compilation": "passed",
+    "saved_paper_compilation": "success",
+    "catalogue_format_lint_and_strict_typing": "passed"
+  },
+  "source_and_audit_sha256": [
+    {
+      "path": "PrimeFactorOscillations/Assembly/CarmichaelCubicResonance.lean",
+      "sha256": "CDDB9C3B1C78D58A0A747BAE2FD04A13FA64AAE27B0A8AED6CEB24A171F7D9DC"
+    },
+    {
+      "path": "PrimeFactorOscillations/Assembly/CarmichaelCarrierVariation.lean",
+      "sha256": "ED0B053AAD93FB2FB760635C49C4ADF270016FC255349A276DD1C33B748E255D"
+    },
+    {
+      "path": "PrimeFactorOscillations/Assembly/CarmichaelSquarepartCancellation.lean",
+      "sha256": "8782515717EE0C3A178FD11ADE84932C7C903F216CAF34554773564F6594FFB2"
+    },
+    {
+      "path": "PrimeFactorOscillations/Assembly/CarmichaelSquarepartPhysical.lean",
+      "sha256": "121377435D17B3506CFEBA63D12152002E343FC5F866108FF26EB42592F5166C"
+    },
+    {
+      "path": "PrimeFactorOscillations/Assembly/RHAnalysis.lean",
+      "sha256": "C3CAC6EB2D1E323BD80B4A05B255D66F5C99A2E40402E6A907C1FB9DB0A739EA"
+    },
+    {
+      "path": ".research/generated/carmichael-cubic-resonance-axioms10-20261029.log",
+      "sha256": "BF1E9F4A1EB055D7D9C542A81B14F879F3BC85AD43C29431B965DEB2981E4F95"
+    },
+    {
+      "path": ".research/generated/carmichael-carrier-variation-axioms19-20261029.log",
+      "sha256": "D015C96E875ED81C9CAE0C6318841EA3B5F5193700DF614F2E4AE410BA31317B"
+    }
+  ]
+}

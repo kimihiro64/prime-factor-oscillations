@@ -183,39 +183,39 @@ private theorem norm_four_prefix_le (a b c d : Complex) (M : Real)
     _ = _ := by ring
 
 set_option maxHeartbeats 800000 in
-/-- Every positive lower rectangle has the same physical square-root mean, with no cutoff power loss. -/
-theorem squared_rectangle_subpower (eps : Real) (heps : 0 < eps) :
+/-- The exact four-prefix rectangle uses only the two actual dilation-variation budgets. -/
+theorem rectangle_subpower_of_variation (eps : Real) (heps : 0 < eps) :
     exists Ceps : Real, 0 < Ceps /\
       forall {q : Nat} [NeZero q] (chi : DirichletCharacter Complex q)
       (G : Finset Nat), (forall p, Membership.mem G p -> Nat.Prime p) ->
-      forall (H K a c B C A E D R T : Nat), 0 < H -> 0 < K -> 0 < a -> 0 < c ->
-      0 < D -> A * B ^ 2 <= 4 * D -> E * C ^ 2 <= 4 * D ->
-      0 < R -> 0 < T -> forall (f g : SchwartzMap Real Complex),
+      forall (H K a c B C R T : Nat), 0 < H -> 0 < K -> 0 < a -> 0 < c ->
+      0 < R -> 0 < T -> forall (w v : Nat -> Complex) (Vf Vg : Real),
+      0 <= Vf -> 0 <= Vg ->
+      (forall B1, B1 <= B -> forall k, 0 < k ->
+        windowVariation (dilatedWindow k w) (B1 / k) <= Vf) ->
+      (forall C1, C1 <= C -> forall k, 0 < k ->
+        windowVariation (dilatedWindow k v) (C1 / k) <= Vg) ->
       norm (squarefreeRectanglePacket
         (OAI.ShortDraftHeckeBridge.baseChangeChar (chi ^ 2))
-        G H K a c B C R T (squaredWindow f A D) (squaredWindow g E D)) <=
-        Ceps * (((q * 3 : Nat) : Real) ^ 2) * squareWindowBudget f * squareWindowBudget g *
+        G H K a c B C R T w v) <=
+        Ceps * (((q * 3 : Nat) : Real) ^ 2) * Vf * Vg *
           (((H + K + a + c + 1) * (B + C + 1) : Nat) : Real) ^ eps *
             Real.sqrt ((B : Real) * (C : Real)) := by
-  choose C0 hC0 hmain using squared_squarepart_subpower eps heps
+  choose C0 hC0 hmain using squarefree_packet_subpower_of_variation eps heps
   refine Exists.intro (4 * C0) (And.intro (by positivity) ?_)
-  intro q inst chi G hG H K a c B C A E D R T hH hK ha hc hD hAB hEC hR hT f g
+  intro q inst chi G hG H K a c B C R T hH hK ha hc hR hT w v Vf Vg hf0 hg0 hvarf hvarg
   let X : Nat := (H + K + a + c + 1) * (B + C + 1)
   let Z : Real := C0 * (((q * 3 : Nat) : Real) ^ 2) *
-    squareWindowBudget f * squareWindowBudget g
+    Vf * Vg
   let M : Real := Z * (X : Real) ^ eps * Real.sqrt ((B : Real) * (C : Real))
-  have hf0 := square_budget_nonneg f
-  have hg0 := square_budget_nonneg g
   have hZ : 0 <= Z := by dsimp only [Z]; positivity
   have hprefix (B1 C1 : Nat) (hB : B1 <= B) (hC : C1 <= C) :
       norm (squarefreeCompanionPacket
         (OAI.ShortDraftHeckeBridge.baseChangeChar (chi ^ 2))
-        G H K a c B1 C1 (squaredWindow f A D) (squaredWindow g E D)) <= M := by
-    have hBsq : B1 ^ 2 <= B ^ 2 := by nlinarith
-    have hCsq : C1 ^ 2 <= C ^ 2 := by nlinarith
-    have hraw := hmain chi G hG H K a c B1 C1 A E D hH hK ha hc hD
-      ((Nat.mul_le_mul_left A hBsq).trans hAB)
-      ((Nat.mul_le_mul_left E hCsq).trans hEC) f g
+        G H K a c B1 C1 w v) <= M := by
+    have hraw := hmain chi G hG H K a c B1 C1 hH hK ha hc w v Vf Vg hf0 hg0
+      (fun k hk _ => hvarf B1 hB k hk)
+      (fun k hk _ => hvarg C1 hC k hk)
     have hX :
         (((H + K + a + c + 1) * (B1 + C1 + 1) : Nat) : Real) <= (X : Real) :=
       Nat.cast_le.mpr (Nat.mul_le_mul_left _ (by omega))
@@ -235,6 +235,36 @@ theorem squared_rectangle_subpower (eps : Real) (heps : 0 < eps) :
       (hprefix B (min C (T - 1)) (le_refl _) (min_le_left _ _))
       (hprefix (min B (R - 1)) (min C (T - 1)) (min_le_left _ _) (min_le_left _ _))
     _ = _ := by dsimp only [M, Z, X]; ring
+
+set_option maxHeartbeats 800000 in
+/-- Every positive lower rectangle has the same physical square-root mean, with no cutoff power loss. -/
+theorem squared_rectangle_subpower (eps : Real) (heps : 0 < eps) :
+    exists Ceps : Real, 0 < Ceps /\
+      forall {q : Nat} [NeZero q] (chi : DirichletCharacter Complex q)
+      (G : Finset Nat), (forall p, Membership.mem G p -> Nat.Prime p) ->
+      forall (H K a c B C A E D R T : Nat), 0 < H -> 0 < K -> 0 < a -> 0 < c ->
+      0 < D -> A * B ^ 2 <= 4 * D -> E * C ^ 2 <= 4 * D ->
+      0 < R -> 0 < T -> forall (f g : SchwartzMap Real Complex),
+      norm (squarefreeRectanglePacket
+        (OAI.ShortDraftHeckeBridge.baseChangeChar (chi ^ 2))
+        G H K a c B C R T (squaredWindow f A D) (squaredWindow g E D)) <=
+        Ceps * (((q * 3 : Nat) : Real) ^ 2) * squareWindowBudget f * squareWindowBudget g *
+          (((H + K + a + c + 1) * (B + C + 1) : Nat) : Real) ^ eps *
+            Real.sqrt ((B : Real) * (C : Real)) := by
+  choose Ceps hCeps hmain using rectangle_subpower_of_variation eps heps
+  refine Exists.intro Ceps (And.intro hCeps ?_)
+  intro q inst chi G hG H K a c B C A E D R T hH hK ha hc hD hAB hEC hR hT f g
+  exact hmain chi G hG H K a c B C R T hH hK ha hc hR hT
+    (squaredWindow f A D) (squaredWindow g E D) (squareWindowBudget f) (squareWindowBudget g)
+    (square_budget_nonneg f) (square_budget_nonneg g)
+    (by
+      intro B1 hB k hk
+      exact squared_window_rescaled_variation f A D B1 k hD hk
+        ((Nat.mul_le_mul_left A (show B1 ^ 2 <= B ^ 2 by nlinarith)).trans hAB))
+    (by
+      intro C1 hC k hk
+      exact squared_window_rescaled_variation g E D C1 k hD hk
+        ((Nat.mul_le_mul_left E (show C1 ^ 2 <= C ^ 2 by nlinarith)).trans hEC))
 
 private theorem square_product_cutoff (N r s : Nat) (hr : 0 < r) :
     r * s ^ 2 <= N <-> s <= Nat.sqrt (N / r) := by

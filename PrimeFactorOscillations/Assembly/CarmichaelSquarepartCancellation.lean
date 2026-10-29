@@ -726,17 +726,20 @@ theorem squarepart_companion_ne_one {q : Nat} (chi : DirichletCharacter Complex 
   norm_num at hvalue
 
 set_option maxHeartbeats 800000 in
-/-- An unconditional square-root companion mean with all physical and subpower costs discharged. -/
-theorem squared_squarepart_subpower (eps : Real) (heps : 0 < eps) :
+/-- The existing uniform squarefree mean depends only on the two actual dilation-variation budgets. -/
+theorem squarefree_packet_subpower_of_variation (eps : Real) (heps : 0 < eps) :
     exists Ceps : Real, 0 < Ceps /\
       forall {q : Nat} [NeZero q] (chi : DirichletCharacter Complex q)
       (G : Finset Nat), (forall p, Membership.mem G p -> Nat.Prime p) ->
-      forall (H K a c B C A E D : Nat), 0 < H -> 0 < K -> 0 < a -> 0 < c -> 0 < D ->
-      A * B ^ 2 <= 4 * D -> E * C ^ 2 <= 4 * D ->
-      forall (f g : SchwartzMap Real Complex),
+      forall (H K a c B C : Nat), 0 < H -> 0 < K -> 0 < a -> 0 < c ->
+      forall (w v : Nat -> Complex) (Vf Vg : Real), 0 <= Vf -> 0 <= Vg ->
+      (forall k, 0 < k -> k <= B ->
+        windowVariation (dilatedWindow k w) (B / k) <= Vf) ->
+      (forall k, 0 < k -> k <= B ->
+        windowVariation (dilatedWindow k v) (C / k) <= Vg) ->
       norm (squarefreeCompanionPacket (OAI.ShortDraftHeckeBridge.baseChangeChar (chi ^ 2))
-        G H K a c B C (squaredWindow f A D) (squaredWindow g E D)) <=
-        Ceps * (((q * 3 : Nat) : Real) ^ 2) * squareWindowBudget f * squareWindowBudget g *
+        G H K a c B C w v) <=
+        Ceps * (((q * 3 : Nat) : Real) ^ 2) * Vf * Vg *
           (((H + K + a + c + 1) * (B + C + 1) : Nat) : Real) ^ eps *
             Real.sqrt ((B : Real) * (C : Real)) := by
   choose Cd hCd hd using QuadraticDivisorMean.divisor_card_subpower
@@ -744,7 +747,7 @@ theorem squared_squarepart_subpower (eps : Real) (heps : 0 < eps) :
   choose Ch hCh hh using CarmichaelNativeLowSector.harmonic_subpower
     (eps / 10) (by linarith)
   refine Exists.intro (Cd ^ 4 * Ch ^ 5) (And.intro (by positivity) ?_)
-  intro q inst chi G hG H K a c B C A E D hH hK ha hc hD hAB hEC f g
+  intro q inst chi G hG H K a c B C hH hK ha hc w v Vf Vg hf0 hg0 hvarf hvarg
   have hq : 0 < q := Nat.pos_of_ne_zero (NeZero.ne q)
   let : NeZero (q * 3) := NeZero.mk (by omega)
   let X : Nat := (H + K + a + c + 1) * (B + C + 1)
@@ -771,55 +774,45 @@ theorem squared_squarepart_subpower (eps : Real) (heps : 0 < eps) :
   have ht : t <= Ch * (X : Real) ^ (eps / 10) := hh X
   have ht0 : 0 <= t :=
     Finset.sum_nonneg (fun _ _ => div_nonneg (by norm_num) (Nat.cast_nonneg _))
-  have hf0 : 0 <= squareWindowBudget f := by
-    unfold squareWindowBudget
-    exact add_nonneg (NonnegHomClass.apply_nonneg _ _)
-      (mul_nonneg (by norm_num)
-        (CarmichaelNativeLowSector.schwartzLipschitzConstant f).coe_nonneg)
-  have hg0 : 0 <= squareWindowBudget g := by
-    unfold squareWindowBudget
-    exact add_nonneg (NonnegHomClass.apply_nonneg _ _)
-      (mul_nonneg (by norm_num)
-        (CarmichaelNativeLowSector.schwartzLipschitzConstant g).coe_nonneg)
-  let Lcap : Real := M * t ^ 2 * squareWindowBudget f * (M * Q)
-  let Rcap : Real := M * t ^ 2 * squareWindowBudget g * (M * Q)
+  let Lcap : Real := M * t ^ 2 * Vf * (M * Q)
+  let Rcap : Real := M * t ^ 2 * Vg * (M * Q)
   have hLcap : 0 <= Lcap := by dsimp only [Lcap, Q]; positivity
   have hRcap : 0 <= Rcap := by dsimp only [Rcap, Q]; positivity
   have hleft : forall k, Membership.mem (Finset.Ioc 0 B) k ->
       companionCap (q * 3) (H * k) (a * k) (B / k)
-        (dilatedWindow k (squaredWindow f A D)) <= Lcap := by
+        (dilatedWindow k w) <= Lcap := by
     intro k hk
     have hkpos := (Finset.mem_Ioc.mp hk).1
     have hkB := (Finset.mem_Ioc.mp hk).2
     exact CarmichaelNativeLowSector.cap_bound (q * 3) (H * k) (a * k) (B / k) X
-      (dilatedWindow k (squaredWindow f A D)) M (squareWindowBudget f) hM hf0
+      (dilatedWindow k w) M (Vf) hM hf0
       ((Nat.div_le_self B k).trans hBX)
       (hdiv (a * k) (Nat.mul_pos ha hkpos) (hnk a k (by omega) hkB))
       (hdiv (H * k) (Nat.mul_pos hH hkpos) (hnk H k (by omega) hkB))
-      (squared_window_rescaled_variation f A D B k hD hkpos hAB)
+      (hvarf k hkpos hkB)
   have hright : forall k, Membership.mem (Finset.Ioc 0 B) k ->
       companionCap (q * 3) (K * k) (c * k) (C / k)
-        (dilatedWindow k (squaredWindow g E D)) <= Rcap := by
+        (dilatedWindow k v) <= Rcap := by
     intro k hk
     have hkpos := (Finset.mem_Ioc.mp hk).1
     have hkB := (Finset.mem_Ioc.mp hk).2
     exact CarmichaelNativeLowSector.cap_bound (q * 3) (K * k) (c * k) (C / k) X
-      (dilatedWindow k (squaredWindow g E D)) M (squareWindowBudget g) hM hg0
+      (dilatedWindow k v) M (Vg) hM hg0
       ((Nat.div_le_self C k).trans hCX)
       (hdiv (c * k) (Nat.mul_pos hc hkpos) (hnk c k (by omega) hkB))
       (hdiv (K * k) (Nat.mul_pos hK hkpos) (hnk K k (by omega) hkB))
-      (squared_window_rescaled_variation g E D C k hD hkpos hEC)
+      (hvarg k hkpos hkB)
   have hpacket := squarefree_coprime_harmonic_bound
     (OAI.ShortDraftHeckeBridge.baseChangeChar (chi ^ 2)) (squarepart_companion_ne_one chi)
     G hG H K a c B C hH hK ha hc
-    (squaredWindow f A D) (squaredWindow g E D)
+    w v
     Lcap Rcap hLcap hRcap hleft hright
   have hHB : harmonicPrefix B <= t :=
     CarmichaelNativeLowSector.harmonic_prefix_mono hBX
   have hbase : norm (squarefreeCompanionPacket
       (OAI.ShortDraftHeckeBridge.baseChangeChar (chi ^ 2))
-      G H K a c B C (squaredWindow f A D) (squaredWindow g E D)) <=
-      Q ^ 2 * M ^ 4 * squareWindowBudget f * squareWindowBudget g *
+      G H K a c B C w v) <=
+      Q ^ 2 * M ^ 4 * Vf * Vg *
         t ^ 5 * Real.sqrt ((B : Real) * (C : Real)) := by
     calc
       _ <= Lcap * Rcap * Real.sqrt ((B : Real) * (C : Real)) * harmonicPrefix B := hpacket
@@ -847,14 +840,47 @@ theorem squared_squarepart_subpower (eps : Real) (heps : 0 < eps) :
       _ = _ := by
         rw [<- Real.rpow_add hXR, show eps / 2 + eps / 2 = eps by ring]
   calc
-    _ <= Q ^ 2 * M ^ 4 * squareWindowBudget f * squareWindowBudget g *
+    _ <= Q ^ 2 * M ^ 4 * Vf * Vg *
         t ^ 5 * Real.sqrt ((B : Real) * (C : Real)) := hbase
-    _ = (Q ^ 2 * squareWindowBudget f * squareWindowBudget g *
+    _ = (Q ^ 2 * Vf * Vg *
         Real.sqrt ((B : Real) * (C : Real))) * (M ^ 4 * t ^ 5) := by ring
-    _ <= (Q ^ 2 * squareWindowBudget f * squareWindowBudget g *
+    _ <= (Q ^ 2 * Vf * Vg *
         Real.sqrt ((B : Real) * (C : Real))) *
         (Cd ^ 4 * Ch ^ 5 * (X : Real) ^ eps) :=
       mul_le_mul_of_nonneg_left hmass (by positivity)
     _ = _ := by dsimp only [Q, X]; ring
+
+set_option maxHeartbeats 800000 in
+/-- An unconditional square-root companion mean with all physical and subpower costs discharged. -/
+theorem squared_squarepart_subpower (eps : Real) (heps : 0 < eps) :
+    exists Ceps : Real, 0 < Ceps /\
+      forall {q : Nat} [NeZero q] (chi : DirichletCharacter Complex q)
+      (G : Finset Nat), (forall p, Membership.mem G p -> Nat.Prime p) ->
+      forall (H K a c B C A E D : Nat), 0 < H -> 0 < K -> 0 < a -> 0 < c -> 0 < D ->
+      A * B ^ 2 <= 4 * D -> E * C ^ 2 <= 4 * D ->
+      forall (f g : SchwartzMap Real Complex),
+      norm (squarefreeCompanionPacket (OAI.ShortDraftHeckeBridge.baseChangeChar (chi ^ 2))
+        G H K a c B C (squaredWindow f A D) (squaredWindow g E D)) <=
+        Ceps * (((q * 3 : Nat) : Real) ^ 2) * squareWindowBudget f * squareWindowBudget g *
+          (((H + K + a + c + 1) * (B + C + 1) : Nat) : Real) ^ eps *
+            Real.sqrt ((B : Real) * (C : Real)) := by
+  choose Ceps hCeps hpacket using squarefree_packet_subpower_of_variation eps heps
+  refine Exists.intro Ceps (And.intro hCeps ?_)
+  intro q inst chi G hG H K a c B C A E D hH hK ha hc hD hAB hEC f g
+  have hf0 : 0 <= squareWindowBudget f := by
+    unfold squareWindowBudget
+    exact add_nonneg (NonnegHomClass.apply_nonneg _ _)
+      (mul_nonneg (by norm_num)
+        (CarmichaelNativeLowSector.schwartzLipschitzConstant f).coe_nonneg)
+  have hg0 : 0 <= squareWindowBudget g := by
+    unfold squareWindowBudget
+    exact add_nonneg (NonnegHomClass.apply_nonneg _ _)
+      (mul_nonneg (by norm_num)
+        (CarmichaelNativeLowSector.schwartzLipschitzConstant g).coe_nonneg)
+  exact hpacket chi G hG H K a c B C hH hK ha hc
+    (squaredWindow f A D) (squaredWindow g E D) (squareWindowBudget f) (squareWindowBudget g)
+    hf0 hg0
+    (fun k hk _ => squared_window_rescaled_variation f A D B k hD hk hAB)
+    (fun k hk _ => squared_window_rescaled_variation g E D C k hD hk hEC)
 
 end PrimeFactorOscillations.CarmichaelSquarepartCancellation

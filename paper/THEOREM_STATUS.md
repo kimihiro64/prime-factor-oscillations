@@ -1274,3 +1274,68 @@ New complete I exponent: 7/4. Target: 3/2. No numerical diagnostics used.
 Certified global boundary: 7/8. Active target: <=3/4.
 Paper label: `sec:carmichael-large-square-remainder`.
 Receipt: [complete large-square estimate](verification/carmichael-large-square-remainder.json).
+
+## Actual carrier window and cubic phase transfer (October29)
+
+Each declaration below is maintained in the named public namespace under
+`PrimeFactorOscillations`. Definitions are excluded from the theorem count.
+
+| Namespace | Claim | Mathematical content | Status |
+| --- | --- | --- | --- |
+| `CarmichaelCubicResonance` | `cubic_squarepart_conjugacy` | The cubic square-part companion is the conjugate plain companion, including nonunits. | Proved; focused axiom audit passed. |
+| `CarmichaelCubicResonance` | `cubic_phase_product` | The two characters multiply to the actual principal character. | Proved; focused axiom audit passed. |
+| `CarmichaelCubicResonance` | `cubic_companion_resonance` | The resonant phase cancels exactly against the square-part companion. | Proved; focused axiom audit passed. |
+| `CarmichaelCubicResonance` | `cubic_resonance_pair` | Both resonant columns retain the arbitrary complex coupled kernel. | Proved; focused axiom audit passed. |
+| `CarmichaelCubicResonance` | `cubic_companion_ratio` | Every congruence ratio retains its complete character coefficient. | Proved; focused axiom audit passed. |
+| `CarmichaelCubicResonance` | `cubic_ratio_pair` | The two ratio classes retain both phases and every kernel term. | Proved; focused axiom audit passed. |
+| `CarmichaelCubicResonance` | `shifted_cubic_input` | The exact physical input is cubic plus its signed quadratic shift. | Proved; focused axiom audit passed. |
+| `CarmichaelCubicResonance` | `shifted_cubic_companion` | The shifted input has the same exact companion-phase coefficient. | Proved; focused axiom audit passed. |
+| `CarmichaelCubicResonance` | `shifted_cubic_parameters_exist` | Every unit square-part index has residue and signed integer shift parameters. | Proved; focused axiom audit passed. |
+| `CarmichaelCubicResonance` | `shifted_cubic_parameters_unique` | Those parameters are unique with the residue in [0,3q). | Proved; focused axiom audit passed. |
+| `CarmichaelSquarepartCancellation` | `squarefree_packet_subpower_of_variation` | The uniform prefix mean needs only the actual dilation-variation budgets. | Proved; focused axiom audit passed. |
+| `CarmichaelSquarepartPhysical` | `rectangle_subpower_of_variation` | All four exact prefixes give the same rectangle bound with arbitrary budgeted windows. | Proved; focused axiom audit passed. |
+| `CarmichaelCarrierVariation` | `antitone_positive_variation` | A positive decreasing sequence has exactly its initial-value endpoint variation. | Proved; focused axiom audit passed. |
+| `CarmichaelCarrierVariation` | `variation_finite_linear` | Finite complex window compensation has the explicit coefficient-weighted variation bound. | Proved; focused axiom audit passed. |
+| `CarmichaelCarrierVariation` | `gaussian_positive_clock_variation` | Every increasing positive Gaussian clock has variation at most one. | Proved; focused axiom audit passed. |
+| `CarmichaelCarrierVariation` | `carrier_positive_clock_variation` | The unchanged four-Gaussian carrier has uniform budget21/8. | Proved; focused axiom audit passed. |
+| `CarmichaelCarrierVariation` | `compensated_carrier_clock_variation` | The actual two-window compensation has budget(21/8)*(1+|z|). | Proved; focused axiom audit passed. |
+| `CarmichaelCarrierVariation` | `carrier_rescaled_variation` | Every square-part dilation retains budget21/8 without a growing support condition. | Proved; focused axiom audit passed. |
+| `CarmichaelCarrierVariation` | `quartic_compensation_norm_le_one` | The exact D^(-3) physical coefficient has modulus at most one for D>=1. | Proved; focused axiom audit passed. |
+| `CarmichaelCarrierVariation` | `quartic_carrier_rescaled_variation` | Every actual compensated square-part dilation has uniform budget21/4. | Proved; focused axiom audit passed. |
+| `CarmichaelCarrierVariation` | `quartic_carrier_rectangle_subpower` | The actual carrier satisfies the squarefree rectangle mean with explicit(21/4)^2 cost. | Proved; focused axiom audit passed. |
+| `CarmichaelCarrierVariation` | `quartic_window_norm_coordinate` | The normalized window is exactly V(n/D)-D^(-3)V(n/D^4). | Proved; focused axiom audit passed. |
+| `CarmichaelCarrierVariation` | `quartic_physical_packet_transfer` | The fixed finite physical carrier transfers to that exact compensated window. | Proved; focused axiom audit passed. |
+| `CarmichaelCarrierVariation` | `rational_kernel_star_swap` | The full coprimality-masked kernel is Hermitian for every complex window. | Proved; focused axiom audit passed. |
+| `CarmichaelCarrierVariation` | `physical_rectangle_star_swap` | Every return and compensation cross term obeys the exact row-exchange symmetry. | Proved; focused axiom audit passed. |
+| `CarmichaelCarrierVariation` | `phased_physical_rectangle_star_swap` | The actual plain-companion phase preserves symmetry without character-order exceptions. | Proved; focused axiom audit passed. |
+| `CarmichaelCarrierVariation` | `quartic_carrier_physical_row_bound` | The actual compensated physical row has the uniform conductor-squared square-root mean, including unit indices. | Proved; focused axiom audit passed. |
+
+The existing `squared_squarepart_subpower` and `squared_rectangle_subpower`
+statements are unchanged. Their proofs now consume the more general
+variation-budget providers; both changed proofs were freshly compiled and
+axiom checked. The focused new check covers17 new and2 changed proofs.
+The successful earlier check for the10 cubic phase proofs was reused;
+no unchanged proof was reaudited.
+
+Closed: the actual four-Gaussian carrier's physical-row qualification,
+its exact fixed-support quartic transfer, the finite masked-kernel
+symmetry, and the plain-companion phase symmetry. The cubic normal form
+retains every residue ratio, nonunit zero and negative integer shift.
+The actual profile is not asserted to be Schwartz on the negative
+half-line. The proved positive-clock budget replaces that unnecessary
+qualification. The physical coefficient is D^(-3), the reference scale
+is D^4, and1/4 belongs only to the Mellin change of variables.
+
+Open: the independent signed small-square core estimate; the original
+moving sextic Hecke phase/norm-cube adapter; the complete prime-frequency
+sum with both reciprocal L-factors; and the uniform unbounded Abel limit.
+The fixed-support Mellin formula does not justify a simultaneous moving
+carrier cutoff. The full rational unit is not reduced to its outer
+r=u=b=d=1 subrow or claimed to satisfy the target bound.
+
+Benchmark status: structural and actual-window transfer completed;
+no complete exponent improvement. Old complete I exponent:7/4.
+New complete I exponent:7/4. Target:3/2. No numerical diagnostics used.
+Certified boundary:7/8. Active boundary target:<=3/4.
+Paper label:`sec:carmichael-actual-carrier-transfer`.
+Receipt:[actual carrier and phase transfer](verification/carmichael-actual-carrier-transfer.json).
