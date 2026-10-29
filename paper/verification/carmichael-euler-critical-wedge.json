@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-29",
+  "title": "Convex noncancellation in the critical Euler wedge",
+  "status": "proved; maintained Lean, focused axiom checks, paper compilation",
+  "new_targets": [
+    "PrimeFactorOscillations.CarmichaelEulerCriticalWedge.convex_numerator_re_lower",
+    "PrimeFactorOscillations.CarmichaelEulerCriticalWedge.convex_numerator_re_pos",
+    "PrimeFactorOscillations.CarmichaelEulerCriticalWedge.local_remainder_lower_wedge",
+    "PrimeFactorOscillations.CarmichaelEulerCriticalWedge.local_remainder_defect_wedge",
+    "PrimeFactorOscillations.CarmichaelEulerCriticalWedge.local_remainder_analyticAt_wedge",
+    "PrimeFactorOscillations.CarmichaelEulerCriticalWedge.remainderProduct_ne_zero_wedge",
+    "PrimeFactorOscillations.CarmichaelEulerCriticalWedge.analyticOnNhd_remainderProduct_wedge",
+    "PrimeFactorOscillations.CarmichaelEulerCriticalWedge.source_remainderProduct_ne_zero_wedge",
+    "PrimeFactorOscillations.CarmichaelEulerCriticalWedge.analyticOnNhd_sourceRemainderProduct_wedge",
+    "PrimeFactorOscillations.CarmichaelEulerCriticalWedge.source_principal_remainder_analytic",
+    "PrimeFactorOscillations.CarmichaelEulerCriticalWedge.source_principal_remainder_ne_zero",
+    "PrimeFactorOscillations.CarmichaelEulerCriticalWedge.principal_factor_ne_zero_critical",
+    "PrimeFactorOscillations.CarmichaelEulerCriticalWedge.source_principal_factor_ne_zero_critical"
+  ],
+  "new_target_count": 13,
+  "owners": [
+    {
+      "path": "PrimeFactorOscillations/Assembly/CarmichaelEulerCriticalWedge.lean",
+      "sha256": "bd1b0839e4310e877c85d4073c20122b4e21272c9a235a82f0d807109d4399fe",
+      "compiled": true
+    }
+  ],
+  "axiom_checks": {
+    "new_or_changed": 13,
+    "reused_unchanged": 0,
+    "standard_only": true,
+    "allowed_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "logs": [
+      {
+        "path": ".research/generated/carmichael-euler-critical-wedge-axioms-20261029.log",
+        "sha256": "afb1b8087125a17a2cc9abea91d3af1b701542ec792a8154325eaa80b0eb4af4",
+        "targets": [
+          "PrimeFactorOscillations.CarmichaelEulerCriticalWedge.convex_numerator_re_lower",
+          "PrimeFactorOscillations.CarmichaelEulerCriticalWedge.convex_numerator_re_pos",
+          "PrimeFactorOscillations.CarmichaelEulerCriticalWedge.local_remainder_lower_wedge",
+          "PrimeFactorOscillations.CarmichaelEulerCriticalWedge.local_remainder_defect_wedge",
+          "PrimeFactorOscillations.CarmichaelEulerCriticalWedge.local_remainder_analyticAt_wedge",
+          "PrimeFactorOscillations.CarmichaelEulerCriticalWedge.remainderProduct_ne_zero_wedge",
+          "PrimeFactorOscillations.CarmichaelEulerCriticalWedge.analyticOnNhd_remainderProduct_wedge",
+          "PrimeFactorOscillations.CarmichaelEulerCriticalWedge.source_remainderProduct_ne_zero_wedge",
+          "PrimeFactorOscillations.CarmichaelEulerCriticalWedge.analyticOnNhd_sourceRemainderProduct_wedge",
+          "PrimeFactorOscillations.CarmichaelEulerCriticalWedge.source_principal_remainder_analytic",
+          "PrimeFactorOscillations.CarmichaelEulerCriticalWedge.source_principal_remainder_ne_zero",
+          "PrimeFactorOscillations.CarmichaelEulerCriticalWedge.principal_factor_ne_zero_critical",
+          "PrimeFactorOscillations.CarmichaelEulerCriticalWedge.source_principal_factor_ne_zero_critical"
+        ]
+      }
+    ]
+  },
+  "checks": {
+    "maintained_leaf": true,
+    "assembly_facade": true,
+    "root_facade": true,
+    "latex_compilation": true
+  },
+  "exact_scope": {
+    "generic_domain": "Q>=2, |A|,|eta|<=1, delta>0, delta<=Re(s), delta<=6Re(s+z)-4",
+    "margin": "c_delta=1-2^(-delta)>0; no uniform constant as delta tends to zero",
+    "joint_numerator": "(1-D)J=1-(1-Q^(-1))D-Q^(-1)R; its real part is positive when |D|,|R|<1. No positivity claim for J or the full readout.",
+    "local_coordinates": "D=eta*Q^(-s); R=A*Q^(4-6s-6z); J=1+Q^(-1)*(D-R)/(1-D)",
+    "generic_product": "Any index family with summable Q_i^(-1-delta), analytic along analytic s,z paths with a fixed positive margin on an open set.",
+    "actual_source": "All high source prime ideals outside arbitrary finite S, norm>=exp(2), with actual character and angular phases. Summability discharged for all delta>0.",
+    "actual_domain": "Re(s)>0 and Re(s+z)>2/3",
+    "principal_slice": "z=1/6; actual normalized remainder product analytic and nonzero throughout Re(s)>1/2",
+    "small_primes": "Every actual unramified principal local correction of source norm>=2 is nonzero on Re(s)>1/2. Separate ramified replacements are not covered.",
+    "extracted_block": "At z=1/6 the angular block has factors (1-A_P*(NP)^(3-6s))^(-1); direct absolute estimate supplies convergence on Re(s)>2/3.",
+    "retained_open_terms": "Outside reciprocal L(s,eta), angular block, selected and ramified corrections, all physical compensation terms and full Abel-limit consumer."
+  },
+  "proved_bounds": {
+    "local_lower": "|J_Q|>=c_delta/2",
+    "local_defect": "|J_Q-1|<=(2/c_delta)Q^(-1-delta)",
+    "source_product": "Analytic and nonzero on the stated wedge, unconditionally"
+  },
+  "source_consumer": "The normalization is controlled without deleting any angular or character phase. No independent estimate of the signed squarefree high AA term is proved.",
+  "benchmark_status": "Expanded analytic and nonvanishing domain; complete signed bound unchanged",
+  "old_bound": "Renormalized remainder on Q>=4, Re(s)>=3/4, Re(s+z)>=3/4; local defect<=4Q^(-3/2). Complete I exponent7/4; boundary7/8.",
+  "new_bound": "Full fixed-margin wedge on Q>=2 with explicit delta constants; principal source remainder analytic and nonzero on Re(s)>1/2. Complete I exponent7/4 and boundary7/8 unchanged.",
+  "components": [
+    "Joint convex numerator preserving D and R",
+    "Explicit delta-dependent lower and defect bounds",
+    "Analytic product and inverse nonvanishing",
+    "Actual angular and character source application",
+    "All-norm>=2 nonvanishing of unramified principal local corrections"
+  ],
+  "actuals": "No numerical experiments or unresolved-count substitutions",
+  "first_nonpositive_domain": "Unavailable: no complete improved I bound has been installed",
+  "required_endpoint": "Complete I exponent<=3/2 and unconditional boundary<=3/4 remain open",
+  "paper_section": "sec:carmichael-euler-critical-wedge"
+}

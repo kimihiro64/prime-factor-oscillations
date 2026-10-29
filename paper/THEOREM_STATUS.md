@@ -1668,3 +1668,48 @@ exponents are3/2 and at most3/4. No finite diagnostics or completed unknown
 signed sums are used. A complete improved-bound failure domain is unavailable.
 Paper label:`sec:carmichael-unit-euler-renormalization`.
 Receipt:[unit Euler renormalization](verification/carmichael-unit-euler-renormalization.json).
+
+
+## Convex noncancellation in the critical Euler wedge (2026-10-29)
+
+Maintained owner: `CarmichaelEulerCriticalWedge.lean`.
+All thirteen public declarations compiled and received focused standard-only axiom checks.
+
+| Declaration | Exact scope | Status |
+| --- | --- | --- |
+| `convex_numerator_re_lower` | Exact lower bound for the real part of the complete convex numerator, retaining both coordinates. | Proved; focused axiom audit passed. |
+| `convex_numerator_re_pos` | Strict positive real part when both coordinates lie in the open unit disk. | Proved; focused axiom audit passed. |
+| `local_remainder_lower_wedge` | Uniform norm(J)>=c_delta/2 for Q>=2 on the full fixed-margin wedge. | Proved; focused axiom audit passed. |
+| `local_remainder_defect_wedge` | Uniform norm(J-1)<=(2/c_delta) Q^(-1-delta), with all constants explicit. | Proved; focused axiom audit passed. |
+| `local_remainder_analyticAt_wedge` | Analyticity of the actual local remainder along admissible analytic paths. | Proved; focused axiom audit passed. |
+| `remainderProduct_ne_zero_wedge` | Nonzero infinite product from summable defects and inverse defects on that wedge. | Proved; focused axiom audit passed. |
+| `analyticOnNhd_remainderProduct_wedge` | Normal convergence and analytic infinite product on each fixed-margin open path region. | Proved; focused axiom audit passed. |
+| `source_remainderProduct_ne_zero_wedge` | Actual-source remainder product nonzero for Re(s)>0 and Re(s+z)>2/3. | Proved; focused axiom audit passed. |
+| `analyticOnNhd_sourceRemainderProduct_wedge` | Actual-source analytic product along fixed-margin analytic paths. | Proved; focused axiom audit passed. |
+| `source_principal_remainder_analytic` | Principal-residue actual-source remainder analytic on the full half-plane Re(s)>1/2. | Proved; focused axiom audit passed. |
+| `source_principal_remainder_ne_zero` | Principal-residue actual-source remainder nonzero on that same full half-plane. | Proved; focused axiom audit passed. |
+| `principal_factor_ne_zero_critical` | Full rational principal local factor nonzero for every Q>=2, Re(s)>1/2 and unit-bounded phases. | Proved; focused axiom audit passed. |
+| `source_principal_factor_ne_zero_critical` | Every actual idealClosedCorrection local principal factor nonzero for Re(s)>1/2; small norms included. | Proved; focused axiom audit passed. |
+
+Here c_delta=1-2^(-delta)>0 and delta is any positive real with
+delta<=Re(s) and delta<=6*Re(s+z)-4. Bounds include Q=2 and all
+unit-bounded phases. The positive-real-part claim is for
+N=1-(1-t)D-tR; it is not a positivity claim about J or the readout.
+The generic product requires sum Q^(-1-delta)<infinity; this is
+discharged for actual high source prime ideals and every delta>0.
+That product uses the existing norm>=exp(2) family outside arbitrary
+finite S. The separate local correction theorem covers every source
+prime norm>=2, without adding any small-prime deletion.
+
+Benchmark status: the same actual source remainder is now analytic and
+nonzero throughout the principal half-plane Re(s)>1/2, extending the
+former fixed3/4 remainder region. Constants depend on the positive
+margin and are not uniform as delta tends to zero. The extracted angular
+block and reciprocal L function remain. No nonvanishing of their full
+infinite product below its proved convergence region, signed high AA
+estimate, physical-window transfer or Abel estimate is asserted.
+Full I exponent7/4 and boundary7/8 remain unchanged; required3/2 and
+at most3/4 remain open. No finite diagnostics or unknown-sum completions
+are used; an improved complete-bound failure domain is unavailable.
+Paper label:`sec:carmichael-euler-critical-wedge`.
+Receipt:[critical Euler wedge](verification/carmichael-euler-critical-wedge.json).

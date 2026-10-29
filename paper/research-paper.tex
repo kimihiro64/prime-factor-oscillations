@@ -34744,6 +34744,188 @@ against the required \(D^{3/2+\varepsilon}\), and the certified
 zero-free boundary remains \(7/8\), against at most \(3/4\).
 No numerical experiment or completion of an unknown signed sum is used.
 
+
+\section{Convex noncancellation in the critical Euler wedge}
+\label{sec:carmichael-euler-critical-wedge}
+
+The numerator in Section~\ref{sec:carmichael-unit-euler-renormalization}
+has a useful joint geometry. It is not necessary to bound its two
+coordinates separately by \(1/2\). Their unit-disk constraints already
+give strict noncancellation, and yield a summable estimate arbitrarily
+close to the natural boundary of the renormalized product.
+
+Keep \(t=Q^{-1}\), \(D=\eta Q^{-s}\),
+\(R=AQ^{4-6s-6z}\), and
+\[
+ J_Q=1+\frac{t(D-R)}{1-D}.
+\]
+Its exact numerator is
+\[
+ (1-D)J_Q=N_Q,\qquad
+ N_Q=1-(1-t)D-tR.
+ \tag{CW1}
+\]
+The positive-real-part statement below concerns \(N_Q\), not \(J_Q\)
+or the full compensated readout.
+
+\begin{theorem}[Convex critical wedge]
+\label{thm:carmichael-euler-critical-wedge}
+Let \(Q\ge2\) and \(|A|,|\eta|\le1\).
+For every \(\delta>0\), put
+\[
+ c_\delta=1-2^{-\delta}>0.
+\]
+If
+\[
+ \delta\le\Re s,\qquad
+ \delta\le6\Re(s+z)-4,
+ \tag{CW2}
+\]
+then the following uniform estimates hold:
+\[
+ \Re N_Q\ge c_\delta,\qquad
+ |J_Q|\ge\frac{c_\delta}{2},\qquad
+ |J_Q-1|\le\frac{2}{c_\delta}Q^{-1-\delta}.
+ \tag{CW3}
+\]
+Consequently, for any indexed family with
+\(\sum_iQ_i^{-1-\delta}<\infty\), the product of these \(J_{Q_i}\)
+is nonzero on \((CW2)\) and analytic along analytic parameter paths
+on open sets satisfying that fixed margin.
+
+For the actual source phases and the high source prime family
+\(\mathcal P_S\) of the preceding section, summability is discharged
+for every \(\delta>0\). The actual remainder product is therefore
+nonzero at every point of
+\[
+ \Re s>0,\qquad \Re(s+z)>\frac23.
+ \tag{CW4}
+\]
+In particular its principal-residue slice \(z=1/6\) is analytic and
+nonzero throughout \(\Re s>1/2\).
+
+Moreover every actual local unramified principal correction
+\[
+ \operatorname{idealClosedCorrection}
+       (\eta_0,\mathfrak p;s,1,1/6)
+\]
+is nonzero for \(\Re s>1/2\). This local assertion includes every source
+prime norm, with no large-norm threshold.
+\end{theorem}
+
+\begin{proof}
+For \(0\le t\le1\) and real bounds \(\Re D,\Re R\le b\),
+\[
+ \begin{split}
+ \Re\{1-(1-t)D-tR\}-(1-b)
+   &=(1-t)(b-\Re D)+t(b-\Re R)\\
+   &\ge0.
+ \end{split}
+ \tag{CW5}
+\]
+Thus if \(|D|,|R|<1\), take
+\(b=\max(|D|,|R|)<1\) to get a strictly positive real part.
+This retains both coordinates and their phases in one numerator.
+
+Under \((CW2)\), the exact coordinate bounds imply
+\[
+ |D|,|R|\le Q^{-\delta}\le2^{-\delta}.
+\]
+Apply \((CW5)\) with \(b=2^{-\delta}\).
+Since \(|1-D|\le1+|D|\le2\), the identity \((CW1)\) gives
+\[
+ c_\delta\le |N_Q|=|1-D|\,|J_Q|\le2|J_Q|.
+\]
+Also \(|1-D|\ge1-|D|\ge c_\delta\). Only after the exact
+numerator identity has been used do we bound the isolated defect:
+\[
+ |J_Q-1|
+ \le\frac{Q^{-1}(|D|+|R|)}{c_\delta}
+ \le\frac{2}{c_\delta}Q^{-1-\delta}.
+\]
+These estimates hold for every \(Q\ge2\); small norms have not been
+discarded to obtain denominator control.
+
+For a summable family, both
+\(\sum_i|J_i-1|\) and
+\[
+ \sum_i|J_i^{-1}-1|
+ \le\frac{2}{c_\delta}\sum_i|J_i-1|
+\]
+converge. The two corresponding products multiply to \(1\).
+This proves nonvanishing of the infinite product, rather than inferring
+it merely from nonvanishing of the individual factors.
+Each factor is analytic along the given paths because \(1-D\ne0\).
+The summable defect bound is uniform on compact neighborhoods, proving
+normal convergence and analyticity.
+
+For every \(\delta>0\), the maintained ideal-norm theorem gives
+\(\sum_{\mathfrak p}(N\mathfrak p)^{-1-\delta}<\infty\);
+restriction gives the actual-source summability used here.
+At a point satisfying \((CW4)\), choose
+\[
+ 0<\delta\le\min\{\Re s,\ 6\Re(s+z)-4\}.
+\]
+This proves actual-source nonvanishing.
+At \(z=1/6\), both upper bounds are positive precisely when
+\(\Re s>1/2\). For analyticity at such a point \(s_0\), the Lean proof
+chooses
+\[
+ \delta=\min\{\Re s_0/2,\ (6\Re s_0-3)/2\},\qquad
+ \sigma=\max\{\delta,\ (\delta+3)/6\}<\Re s_0.
+\]
+The open half-plane \(\Re s>\sigma\) satisfies the same fixed positive
+margin, so the preceding analytic-product theorem applies there.
+
+Finally, at the principal residue, \(V=Q^{-1}\) and
+\(R=AQ^{3-6s}\). For \(\Re s>1/2\), both \(D\) and \(R\) lie
+strictly inside the unit disk. The numerator in \((CW1)\) has positive
+real part, both moving denominators are nonzero, and \(1-Q^{-2}\ne0\).
+The exact rational identity
+\[
+ F_Q=\frac{1-Q^{-2}}{1-R}\,J_Q
+\]
+therefore proves nonvanishing of every local principal factor.
+The maintained source identity transfers this to the actual
+\(\operatorname{idealClosedCorrection}\), using
+\(N\mathfrak p\ge2\) and the proved actual phase norm bounds.
+\end{proof}
+
+There is no uniform estimate at \(\delta=0\):
+\(c_\delta\) tends to zero as \(\delta\) tends to zero.
+The local bound has nevertheless removed the former fixed \(3/4\)
+restriction from the renormalized noncancellation theorem.
+As a mathematical consequence of the compiled parameter theorem, on the
+principal slice with \(\Re s\ge3/4\) one may take \(\delta=3/4\);
+the defect is then \(O(Q^{-7/4})\).
+This is an estimate for the same local remainder on that specified slice,
+not a power saving in the physical scale of the complete packet.
+
+Nonvanishing of the full infinite principal correction on the whole
+critical half-plane has not been inferred from its local factors.
+Its extracted angular block still contains
+\[
+ \prod_{\mathfrak p}
+ \left(1-A_{\mathfrak p}(N\mathfrak p)^{3-6s}\right)^{-1}.
+\]
+The direct estimate from \(|A_{\mathfrak p}|\le1\) supplies absolute
+convergence on \(\Re s>2/3\). Continuation or zero analysis below that
+line is separate.
+The outside reciprocal \(L(s,\eta_0)\), all ramified and selected
+corrections, and the signed physical compensation packet are retained
+in the complete problem. In particular the theorem does not bound
+the squarefree high \(AA\) contribution.
+
+The thirteen maintained and focused-axiom-audited declarations are in
+\texttt{CarmichaelEulerCriticalWedge.lean}.
+They cover the signed convex numerator, explicit margin estimates,
+normal products, the actual-source critical slice, and all local
+principal factors.
+The complete \(I_{D,G}\) exponent remains \(7/4\), against \(3/2\);
+the certified zero-free boundary remains \(7/8\), against at most \(3/4\).
+No numerical experiment or exact completion of an unknown signed sum
+is used in this result.
+
 \begin{thebibliography}{99}
 \small\raggedright
 \setlength{\itemsep}{3pt}
