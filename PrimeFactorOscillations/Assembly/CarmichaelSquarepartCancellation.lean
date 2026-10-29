@@ -33,7 +33,8 @@ noncomputable section
 
 namespace PrimeFactorOscillations.CarmichaelSquarepartCancellation
 
-private theorem square_dvd_square_mul_squarefree_iff (a b d : Nat)
+/-- A square divisor is entirely absorbed by the square part of a squarefree decomposition. -/
+theorem square_dvd_square_mul_squarefree_iff (a b d : Nat)
     (ha : Not (a = 0)) (hb : Not (b = 0)) (hsf : Squarefree b) :
     Dvd.dvd (d ^ 2) (a ^ 2 * b) <-> Dvd.dvd d a := by
   constructor

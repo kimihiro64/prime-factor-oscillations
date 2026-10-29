@@ -1120,9 +1120,56 @@ remain explicit. No RH hypothesis or installed 7/8 estimate is used.
 The phase and physical variation hypotheses of this square-part estimate
 are discharged. The exact signed common-divisor row k=1 and combined
 compensated window remain. This is an auxiliary square-part packet:
-its native coefficient reindexing, the remaining small-square native core,
-the prime-sampled reciprocal-L consumer and uniform Abel passage remain open.
+its native coefficient and full finite-unit reindexing are proved in the
+following section. The rectangular inner-mean transfer, remaining small-square
+native core, prime-sampled reciprocal-L consumer and uniform Abel passage
+remain open.
 No bound for the complete native high core or I_{D,G} is asserted.
 Global boundary7/8 is unchanged; the active complete target remains <=3/4.
 Paper label: `sec:carmichael-squarepart-cancellation`.
 Receipt: [uniform square-part estimate](verification/carmichael-squarepart-cancellation.json).
+
+## Exact native square-part dictionary and full unit (2026-10-29)
+
+Owner: `Assembly/CarmichaelNativeSquarepart.lean`.
+
+| Lean declaration | Claim | Status |
+| --- | --- | --- |
+| `native_square_coeff` | Every positive rational square norm has coefficient mu(n)^2*(chi^2*chi_-3)(n), including all exceptional local factors. | Proved; focused axiom audit passed. |
+| `native_coprime_squarepart` | Extract a coprime square part with its complete character phase. | Proved; focused axiom audit passed. |
+| `native_zero_of_cube_dvd` | A prime cube divisor annihilates the native coefficient. | Proved; focused axiom audit passed. |
+| `native_squarepart_formula` | The full pointwise formula treats every noncoprime overlap as an exact zero. | Proved; focused axiom audit passed. |
+| `native_squarepart_sum` | Exact finite square-part transfer for every complex weight, including N=0. | Proved; focused axiom audit passed. |
+| `native_squarepart_bilinear` | Transfer both columns for arbitrary complex kernels without a symmetry premise. | Proved; focused axiom audit passed. |
+| `full_native_squarepart_packet` | Reconstruct the entire native packet with all companion rows and cross masks. | Proved; focused axiom audit passed. |
+| `rational_unit_squarepart_packet` | The original full rational unit equals the complete square-part packet. | Proved; focused axiom audit passed. |
+
+Shared export from `Assembly/CarmichaelSquarepartCancellation.lean`:
+`square_dvd_square_mul_squarefree_iff`. Its existing proof is unchanged
+and its focused axiom audit passed. Three new public definitions are
+counted separately from the eight new theorem proofs.
+
+The exact domain consists of positive pairs (r,s) with squarefree r,
+r<=N, s<=floor(sqrt(N)), and r*s^2<=N. The map to r*s^2 is bijective.
+Only r is filtered in this domain; mu(s)^2 retains the exact second-column
+squarefree support. The pointwise coefficient formula itself requires only
+r,s>0 and handles all overlaps by cube vanishing. It has no RH, cubic-order,
+symmetry or extra phase hypothesis.
+
+The full rational unit, every native norm prime power, the full amplifiers,
+both masks H*c,H*a, the actual floors N/a,N/c, companion b=d=1,
+square-part s=t=1 and all four compensation terms remain. No signed main
+term was replaced by an unsigned coefficient mass or a Gram estimate.
+
+The native coefficient and finite full-unit dictionary obligations are closed.
+The rectangular regrouping m=r*b,n=u*d remains in progress. The native
+large-square remainder estimate, signed small-square core, original
+prime-sampled reciprocal-L consumer and uniform unbounded Abel passage
+remain unproved. No complete I bound follows just from these identities.
+
+Benchmark status: exact structural transfer to the original finite unit.
+Old complete I exponent: 7/4. New complete I exponent: 7/4.
+Target complete I exponent: 3/2. No numerical diagnostics used.
+Certified global boundary: 7/8. Active target: <=3/4.
+Paper label: `sec:carmichael-native-squarepart`.
+Receipt: [native square-part transfer](verification/carmichael-native-squarepart.json).

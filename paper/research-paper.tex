@@ -32893,6 +32893,197 @@ native core and the full prime-sampled reciprocal-\(L\) assembly, including
 the uniform unbounded Abel passage, remain open. The certified global
 boundary is still \(7/8\); the active target remains at most \(3/4\).
 
+\section{Exact square-part transfer of the full native unit}
+\label{sec:carmichael-native-squarepart}
+
+Retain the native coefficient \(a_\chi(n)\) from the preceding sections.
+There are two distinct companion characters at level \(3q\):
+\[
+ \psi_\chi=\chi\chi_{-3},\qquad
+ \kappa_\chi=\chi^2\chi_{-3}.
+\]
+The first accompanies the original native convolution. The second is the
+actual phase of its rational square norms.
+
+\begin{theorem}[Complete native square-part coefficients]
+\label{thm:carmichael-native-squarepart}
+For every Dirichlet character \(\chi\) and positive integers \(n,r,s\),
+\[
+ a_\chi(n^2)=\mu(n)^2\kappa_\chi(n),\qquad
+ a_\chi(rs^2)=
+ \begin{cases}
+ a_\chi(r)\mu(s)^2\kappa_\chi(s),&(r,s)=1,\\
+ 0,&(r,s)>1.
+ \end{cases}
+\]
+In addition, \(p^3\mid n\), with \(p\) prime and \(n>0\), implies
+\(a_\chi(n)=0\). No squarefree assumption on \(r\) or \(s\) is required
+for the pointwise formulas.
+\end{theorem}
+
+\begin{proof}
+The native coefficient is multiplicative on coprime integers. Its existing
+prime-power formulas give
+\[
+ a_\chi(1)=1,\qquad
+ a_\chi(p^2)=\chi(p)\psi_\chi(p)=\kappa_\chi(p),\qquad
+ a_\chi(p^j)=0\quad(j\ge3).
+\]
+The middle equality uses the actual change-of-level prime formula
+\(\psi_\chi(p)=\chi(p)\chi_{-3}(p)\), including the ramified prime and
+primes dividing the modulus.
+
+Consider the arithmetic functions obtained from \(n\mapsto a_\chi(n^2)\)
+and \(n\mapsto\mu(n)^2\kappa_\chi(n)\), setting their value at zero to
+zero. Both are multiplicative: the first uses coprimality of the two
+squares, and the second uses multiplicativity of the M\"obius function
+and the character. At \(p^i\), their values agree for every \(i\).
+For \(i=0\) both equal one; for \(i=1\) use the prime-square formula;
+for \(i\ge2\), the first vanishes because \(2i\ge3\), and the second
+because \(\mu(p^i)=0\). Multiplicative factorization now proves equality
+at every positive integer. This proves the square formula, with the
+exceptional local factors included.
+
+For \(p^3\mid n>0\), the exponent of \(p\) in \(n\) is at least three.
+The factorization product for \(a_\chi(n)\) therefore has the zero
+factor \(a_\chi(p^{v_p(n)})\). Thus \(a_\chi(n)=0\).
+If \((r,s)=1\), multiplicativity and the square formula give the asserted
+value at \(rs^2\). Otherwise a prime dividing \((r,s)\) has its cube
+dividing \(rs^2\); the just-proved vanishing gives the other case.
+\end{proof}
+
+For the finite transfer define the full supported pair set
+\[
+ \mathcal P_N=
+ \{(r,s):1\le r\le N,\ r\ {\rm squarefree},\
+              1\le s\le\lfloor\sqrt N\rfloor,\ rs^2\le N\}
+\]
+and
+\[
+ b_\chi(r,s)=
+ 1_{(r,s)=1}\,a_\chi(r)\mu(s)^2\kappa_\chi(s).
+\]
+Only the first index is filtered squarefree in \(\mathcal P_N\).
+The exact coefficient \(\mu(s)^2\) supplies the second restriction.
+
+\begin{theorem}[Finite one- and two-column transfer]
+\label{thm:carmichael-native-squarepart-transfer}
+For every finite cutoff \(N\) and complex weight \(W\),
+\[
+ \sum_{1\le n\le N}a_\chi(n)W(n)
+ =\sum_{(r,s)\in\mathcal P_N}b_\chi(r,s)W(rs^2).
+\]
+More generally, for all natural \(N,M\) and every complex kernel \(K\),
+\[
+ \begin{split}
+ &\sum_{\substack{1\le n\le N\\1\le m\le M}}
+       a_\chi(n)\overline{a_\chi(m)}K(n,m)\\
+ &\quad=
+ \sum_{\substack{(r,s)\in\mathcal P_N\\(u,t)\in\mathcal P_M}}
+       b_\chi(r,s)\overline{b_\chi(u,t)}K(rs^2,ut^2).
+ \end{split}
+\]
+Both identities include empty cutoffs. No symmetry or positivity
+hypothesis on \(K\) is needed.
+\end{theorem}
+
+\begin{proof}
+Every positive integer has a factorization \(n=rs^2\) with \(r\)
+squarefree and \(r,s>0\). If \(n\le N\), positivity gives \(r\le N\)
+and \(s^2\le N\), so \((r,s)\in\mathcal P_N\).
+
+This parametrization is unique. If \(rs^2=uv^2\) with \(r,u\)
+squarefree and all four indices positive, the square-divisor lemma
+\[
+ d^2\mid a^2b\ \Longleftrightarrow\ d\mid a
+ \quad(a,b>0,\ b\ {\rm squarefree})
+\]
+gives \(s\mid v\) and \(v\mid s\). Hence \(s=v\), and cancellation of
+the positive square gives \(r=u\). The lemma itself follows by comparing
+prime exponents: \(2v_p(d)\le2v_p(a)+v_p(b)\) and \(v_p(b)\le1\)
+force \(v_p(d)\le v_p(a)\). The converse is immediate.
+
+Thus \((r,s)\mapsto rs^2\) is a bijection from the actual finite
+set \(\mathcal P_N\) onto \(\{1,\ldots,N\}\). Finite sum reindexing,
+followed by the pointwise coefficient formula, proves the first identity.
+For the second, apply the same bijection separately to both columns and
+substitute the coefficient formulas with the conjugation intact.
+There is no estimate or interchange of infinite limits in either step.
+\end{proof}
+
+To state the full unit consumer, let
+\[
+ \begin{split}
+ \mathcal K_N(a,c)=&
+ 1_{(a,c)=(a,H)=(c,H)=1}\\
+ &{}\cdot\mathcal C_{\psi_\chi;Hc,Ha}
+ \bigl(\lfloor N/a\rfloor,\lfloor N/c\rfloor;
+      b\mapsto A_G(ab)W(ab),\
+      d\mapsto A_G(cd)W(cd)\bigr).
+ \end{split}
+\]
+Here \(\mathcal C\) is the plain weighted coprime companion packet
+from the native reconstruction, with its two indicated cross masks.
+Its two positive companion indices run from one through the displayed
+floor cutoffs.
+
+\begin{theorem}[The original unit with every square-part term]
+\label{thm:carmichael-rational-unit-squarepart}
+For every finite \(N,G\), every \(H\), every Dirichlet character \(\chi\),
+and arbitrary complex \(W\), the original rational unit satisfies
+\[
+ \mathcal V_N(W)
+ =\sum_{\substack{(r,s)\in\mathcal P_N\\(u,t)\in\mathcal P_N}}
+     b_\chi(r,s)\overline{b_\chi(u,t)}
+                  \mathcal K_N(rs^2,ut^2).
+\]
+In particular the cross masks are exactly \(Hut^2,Hrs^2\), and the
+companion cutoffs are exactly
+\(\lfloor N/(rs^2)\rfloor,\lfloor N/(ut^2)\rfloor\).
+\end{theorem}
+
+\begin{proof}
+The previously proved full native reconstruction is
+\[
+ \mathcal V_N(W)=
+ \sum_{1\le a,c\le N}a_\chi(a)\overline{a_\chi(c)}
+                       \mathcal K_N(a,c).
+\]
+The two-column transfer applies to this actual complex kernel.
+Substitution gives the displayed identity directly. In Lean the
+factorization of the outer coefficient past the conditional kernel is
+proved explicitly; both cross masks, both full product amplifiers
+and the actual floor cutoffs remain unchanged. The same argument also
+proves the corresponding identity for an arbitrary family of native
+windows before specializing it to \(W(ab)\).
+\end{proof}
+
+All companion indices \(b=d=1\) remain in the last theorem.
+The square-part indices \(s=t=1\) also remain, with their original native
+coefficients. These are separate from the common-divisor index \(k=1\)
+retained in the squarefree companion estimate. The exact reconstruction
+keeps all three kinds of unit contribution.
+
+Taking \(W=W_A-zW_B\) retains
+\(AA-\bar z AB-zBA+|z|^2BB\) throughout the original unit and its
+square-part reconstruction. No triangle inequality has been applied
+to this signed main expression.
+
+The maintained owner \texttt{CarmichaelNativeSquarepart} now proves the
+pointwise dictionary, both finite transfers and the complete rational-unit
+consumer. Its eight new public theorem proofs and the shared square-divisor
+proof export have passed focused axiom inspection. The former native
+coefficient reindexing obligation is closed.
+
+To apply the squarefree physical mean to a rectangular inner sum, the
+companion products must next be regrouped as \(m=rb\), \(n=ud\), with
+their exact masks and support. An estimate for the remaining signed
+small-square core and the complete reciprocal-\(L\) and uniform Abel
+consumer is still required. The complete certified exponent of
+\(I_{D,G}\) remains \(7/4\); the desired \(3/2\) estimate would save a
+quarter power there. The certified global zero-free boundary remains
+\(7/8\), with target at most \(3/4\).
+
 \begin{thebibliography}{99}
 \small\raggedright
 \setlength{\itemsep}{3pt}

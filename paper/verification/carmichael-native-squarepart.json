@@ -1,0 +1,79 @@
+{
+  "date": "2026-10-29",
+  "status": "compiled_and_focused_audited",
+  "owners": [
+    "PrimeFactorOscillations/Assembly/CarmichaelNativeSquarepart.lean",
+    "PrimeFactorOscillations/Assembly/CarmichaelSquarepartCancellation.lean"
+  ],
+  "theorem_count": 9,
+  "new_theorem_proofs": 8,
+  "unchanged_supporting_proof_exports": 1,
+  "public_definition_count": 3,
+  "declarations": [
+    "PrimeFactorOscillations.CarmichaelNativeSquarepart.native_square_coeff",
+    "PrimeFactorOscillations.CarmichaelNativeSquarepart.native_coprime_squarepart",
+    "PrimeFactorOscillations.CarmichaelNativeSquarepart.native_zero_of_cube_dvd",
+    "PrimeFactorOscillations.CarmichaelNativeSquarepart.native_squarepart_formula",
+    "PrimeFactorOscillations.CarmichaelNativeSquarepart.native_squarepart_sum",
+    "PrimeFactorOscillations.CarmichaelNativeSquarepart.native_squarepart_bilinear",
+    "PrimeFactorOscillations.CarmichaelNativeSquarepart.full_native_squarepart_packet",
+    "PrimeFactorOscillations.CarmichaelNativeSquarepart.rational_unit_squarepart_packet",
+    "PrimeFactorOscillations.CarmichaelSquarepartCancellation.square_dvd_square_mul_squarefree_iff"
+  ],
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "domain": "Pointwise formulas: every natural modulus q, every Dirichlet character chi, positive n,r,s. Finite identities: every natural q,H,N,M, arbitrary finite G, arbitrary complex weight/window family and kernel, including zero cutoffs. No RH, cubic-order, nonprincipal-phase, symmetry or positivity premise.",
+  "proved": [
+    "native coefficient at n^2 equals mu(n)^2*baseChangeChar(chi^2)(n), with every exceptional local factor.",
+    "A prime cube divisor forces the native coefficient to vanish.",
+    "Complete pointwise coefficient at r*s^2 equals the coprime square-part expression and is zero on overlaps.",
+    "Exact positive finite square-part pair domain, bijective onto1..N, with only r filtered squarefree and mu(s)^2 retained.",
+    "Finite arbitrary-weight one-column and arbitrary-complex-kernel two-column transfers.",
+    "Exact full native and original rational-unit square-part reconstruction, with every companion row, actual floor cutoff, phase, full amplifier, cross mask and compensation retained."
+  ],
+  "checks": {
+    "maintained_owner": true,
+    "shared_helper_export": true,
+    "focused_axiom_targets": 9,
+    "unchanged_theorems_reaudited": 0,
+    "changed_source_policy": true,
+    "facade_compile": true,
+    "root_consumer_compile": true,
+    "catalogue_ruff_and_strict_mypy": true,
+    "saved_paper_compile": true
+  },
+  "closed_prior_edges": [
+    "Native coefficient square-part dictionary listed open in carmichael-squarepart-cancellation.json.",
+    "Finite full-unit square-part reconstruction; all overlaps treated exactly."
+  ],
+  "open": [
+    "Regroup the full companion products as m=r*b and n=u*d with the exact square-part cutoffs and cross masks.",
+    "Apply the uniform squarefree physical mean to explicitly extracted native large-square remainders.",
+    "Bound the retained signed small-square core, including its unit contributions.",
+    "Complete prime-sampled reciprocal-L assembly and uniform unbounded Abel passage.",
+    "Unconditional complete I exponent3/2 and global zero-free boundary<=3/4."
+  ],
+  "benchmark_status": "exact_structural_transfer_to_the_original_finite_unit; no_complete_exponent_gain_claimed",
+  "old_bound": "Full native hyperbola identity and auxiliary uniform squarefree companion mean were proved separately; no finite native square-part transfer had been compiled.",
+  "new_bound": "The full rational unit equals squarepartNativePacket exactly. All phases and compensation remain. No complete signed packet norm estimate is asserted.",
+  "components": {
+    "pointwise": "native a(r*s^2)=1_coprime*a(r)*mu(s)^2*kappa(s); cubes vanish.",
+    "finite_support": "squarefree r, positive r,s, r<=N, s<=sqrt(N), r*s^2<=N; exact bijection, including empty cutoff.",
+    "companion": "Original plain psi=chi*chi_-3 remains, distinct from kappa=chi^2*chi_-3 on the square part.",
+    "masks": "H*c,H*a at a=r*s^2,c=u*t^2; no within-column gcd(a,b) restriction.",
+    "unit_rows": "Common divisor k=1, square parts s=t=1 and original companions b=d=1 are all retained; these are distinct indices.",
+    "compensation": "Combined W=WA-z*WB retained; all AA,AB,BA,BB stay coupled.",
+    "remaining": "Rectangular physical mean application and the signed small-square/global Abel consumer."
+  },
+  "actuals": "No numerical experiments or diagnostic completions used.",
+  "first_nonpositive_domain": "Not applicable to an exact identity; the complete target exponent is still open.",
+  "certified_global_boundary": "7/8",
+  "target_global_boundary": "<=3/4",
+  "certified_global_I_exponent": "7/4",
+  "target_global_I_exponent": "3/2",
+  "paper_label": "sec:carmichael-native-squarepart",
+  "catalogue": "scripts/completed_research_targets_73.py"
+}
