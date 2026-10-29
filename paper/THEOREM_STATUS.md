@@ -1513,3 +1513,46 @@ proved; no new complete I estimate. I exponent7/4 remains (target3/2),
 and boundary7/8 remains (target<=3/4). No numerical diagnostics used.
 Paper label:`sec:carmichael-ramanujan-frequency`.
 Receipt:[general-frequency Ramanujan transfer](verification/carmichael-ramanujan-frequency.json).
+
+
+## Signed coprime Euler coordinates and damped negative phases (2026-10-29)
+
+Maintained owner: `CarmichaelCoprimeSignedWave.lean`.
+All16 declarations compiled and received fresh standard-only axiom checks.
+
+| Declaration | Exact scope | Status |
+| --- | --- | --- |
+| `local_signed_factorization` | Exact local factor, with uv, both reciprocal factors and amplifier correction retained. | Proved; focused axiom audit passed. |
+| `numerator_norm_square` | Exact real and imaginary phase-square identity. | Proved; focused axiom audit passed. |
+| `local_gap_square` | Exact squared gap with both denominators. | Proved; focused axiom audit passed. |
+| `local_reverse_comparison` | Weak comparison of a nonnegative diagonal and the off-diagonal modulus. | Proved; focused axiom audit passed. |
+| `local_reverse_comparison_strict` | Strict gap at a nonzero local phase. | Proved; focused axiom audit passed. |
+| `localDiagonal_pos_of_bounds` | Positive diagonal for 0<=a<=5/4 and norm(z)<=3/10. | Proved; focused axiom audit passed. |
+| `finite_product_reverse_comparison` | Every finite supported product with nonnegative diagonals. | Proved; focused axiom audit passed. |
+| `finite_product_reverse_comparison_strict` | Strict full finite product, retaining every coordinate. | Proved; focused axiom audit passed. |
+| `cancellingPhase_properties` | Exact unit phase -conj(c)/norm(c) and real value -norm(c). | Proved; focused axiom audit passed. |
+| `norm_one_sub_square` | Exact diagonal damping identity. | Proved; focused axiom audit passed. |
+| `compensatedResponse_expand` | All AA, AB, BA and BB terms before estimation. | Proved; focused axiom audit passed. |
+| `compensatedResponse_zero` | Exact undamped response. | Proved; focused axiom audit passed. |
+| `damping_remainder_bound` | Norm estimate only on the explicit quadratic damping remainder. | Proved; focused axiom audit passed. |
+| `compensatedResponse_upper_remainder` | Complete signed response with an explicit upper error. | Proved; focused axiom audit passed. |
+| `compensatedResponse_negative` | Negative phase survives norm(w)<=1 and 6*(d+norm(c))*norm(w)<=norm(c)-d. | Proved; focused axiom audit passed. |
+| `finite_product_compensated_negative` | Complete finite signed-product theorem with every compensation term. | Proved; focused axiom audit passed. |
+
+The off-diagonal Euler correction has modulus strictly larger than the
+positive diagonal product when one retained local phase is nonreal.
+Choosing its opposite unit phase gives a negative response. The full
+AA-AB-BA+BB expression remains negative under the stated explicit damping
+condition. A norm is applied only to this separate damping remainder.
+
+The finite Euler-coordinate products are not identified with the physical
+Abel C_G. Infinite-product nonvanishing, the zero-isolating test-window
+transfer, the actual prime-sampled adapter and the independent signed
+high-native estimate remain open. This theorem alone does not establish
+negative excursions of the full arithmetic packet.
+
+Benchmark status: finite signed sign-control proved; no complete arithmetic
+power improvement. Complete I exponent7/4 remains (target3/2), and
+boundary7/8 remains (target<=3/4). No numerical diagnostics used.
+Paper label:`sec:carmichael-coprime-signed-wave`.
+Receipt:[signed Euler-coordinate comparison](verification/carmichael-coprime-signed-wave.json).

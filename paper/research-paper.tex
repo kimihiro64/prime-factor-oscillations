@@ -34209,6 +34209,114 @@ The complete \(I_{D,G}\) bound remains
 \(D^{7/4+\varepsilon}\), with target \(D^{3/2+\varepsilon}\).
 The certified boundary remains \(7/8\), with target at most \(3/4\).
 
+\section{Signed Euler-coordinate comparison and damped negative phases}
+\label{sec:carmichael-coprime-signed-wave}
+
+This finite result applies to the signed local factor of the rational
+coprime unit.  It keeps the reciprocal denominators and all four
+compensation terms.  The passage from these coordinates to the full
+arithmetic Mellin and Abel response remains a separate open consumer.
+
+For a real number \(a\) and a complex number \(z\), put
+\[
+ d_a(z)=\frac{1-2a\Re z}{|1-z|^2},
+ \qquad
+ c_a(z)=\frac{1-2az}{(1-z)^2}.
+\]
+The underlying signed factorization is
+\[
+ 1-au-av=(1-u)(1-v)
+       -\{uv+(a-1)(u+v)\}.
+ \tag{S}
+\]
+Thus the cross term \(uv\), both reciprocal factors and the amplifier
+correction \(a-1\) are all retained.
+
+\begin{theorem}[Finite signed comparison with full compensation]
+\label{thm:carmichael-coprime-negative-phase}
+Let \(P\) be a finite set.  For each \(j\in P\), let \(a_j\in\mathbb R\)
+and \(z_j\in\mathbb C\), with \(d_{a_j}(z_j)>0\).
+Suppose \(a_p\Im z_p\ne0\) for some \(p\in P\).  Write
+\[
+ B=\prod_{j\in P}d_{a_j}(z_j),\qquad
+ C=\prod_{j\in P}c_{a_j}(z_j),\qquad
+ \Delta=|C|-B.
+\]
+There is a complex number \(u\), with \(|u|=1\), such that every
+\(w\in\mathbb C\) satisfying
+\[
+ |w|\le1,\qquad 6(B+|C|)|w|\le\Delta
+\]
+also satisfies the signed estimate
+\[
+ 2B|1-w|^2+2\Re\{Cu(1-w)^2\}\le-\Delta.
+ \tag{N}
+\]
+\end{theorem}
+\begin{proof}
+The exact local identity is
+\[
+ |c_a(z)|^2-d_a(z)^2
+   =\left(\frac{2a\Im z}{|1-z|^2}\right)^2.
+ \tag{G}
+\]
+It follows by expanding the real and imaginary parts of \(1-2az\);
+the denominators on both sides are unchanged.
+Each local modulus is therefore at least the positive diagonal factor,
+and the factor at \(p\) is strictly larger.  Multiplication gives
+\(|C|>B>0\), hence \(\Delta>0\).
+
+Choose \(u=-\overline C/|C|\).  Then \(|u|=1\) and
+\(\Re(Cu)=-|C|\).  At \(w=0\) the left side of \((N)\) is
+\(-2\Delta\).  Define that left side at general \(w\) as \(R(w)\).
+Before estimating the damping remainder, the full expansion is
+\[
+\begin{split}
+ R(w)={}&2B+2\Re(Cu)
+       -4B\Re w-4\Re(Cuw)\\
+       &+2B|w|^2+2\Re(Cuw^2).
+\end{split}
+\]
+This retains the AA, AB, BA and BB contributions.
+Only the explicit remainder is now estimated:
+\[
+ R(w)\le R(0)+2(B+|C|)(2|w|+|w|^2).
+ \tag{E}
+\]
+Indeed,
+\[
+ |(1-w)^2-1|\le2|w|+|w|^2,\qquad
+ |1-w|^2-1\le2|w|+|w|^2.
+\]
+Since \(|w|\le1\), the error in \((E)\) is at most
+\(6(B+|C|)|w|\le\Delta\).  This proves \((N)\).
+No triangle inequality is applied to the retained AA response.
+\end{proof}
+
+The maintained module also proves the useful sufficient local domain
+\[
+ 0\le a\le5/4,\quad |z|\le3/10
+ \quad\Longrightarrow\quad d_a(z)>0.
+\]
+The strict product comparison and Theorem~\ref{thm:carmichael-coprime-negative-phase}
+are compiled as
+\texttt{finite\_product\_reverse\_comparison\_strict} and
+\texttt{finite\_product\_compensated\_negative}.
+All sixteen declarations of
+\texttt{CarmichaelCoprimeSignedWave.lean} have focused standard-only
+axiom checks.  The complete expansion and the remainder estimate are
+separate checked declarations.
+
+Here \(B,C\) are finite Euler-coordinate products.  An identification
+with the physical Abel unit \(C_G\), an infinite-product lower bound,
+and a test-window transfer isolating an actual zeta zero have not been
+asserted by this theorem.  Those are needed before its negative phase
+can be used to replace an absolute arithmetic estimate by a one-sided
+estimate.  The independent signed high-native estimate is still open.
+The complete \(I_{D,G}\) exponent remains \(7/4\), with target \(3/2\);
+the certified zero-free boundary remains \(7/8\), with target at most \(3/4\).
+
+
 \begin{thebibliography}{99}
 \small\raggedright
 \setlength{\itemsep}{3pt}

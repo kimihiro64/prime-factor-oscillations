@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-29",
+  "paper_label": "sec:carmichael-coprime-signed-wave",
+  "status": "proved_and_focused_axiom_audited",
+  "new_targets": [
+    "PrimeFactorOscillations.CarmichaelCoprimeSignedWave.local_signed_factorization",
+    "PrimeFactorOscillations.CarmichaelCoprimeSignedWave.numerator_norm_square",
+    "PrimeFactorOscillations.CarmichaelCoprimeSignedWave.local_gap_square",
+    "PrimeFactorOscillations.CarmichaelCoprimeSignedWave.local_reverse_comparison",
+    "PrimeFactorOscillations.CarmichaelCoprimeSignedWave.local_reverse_comparison_strict",
+    "PrimeFactorOscillations.CarmichaelCoprimeSignedWave.localDiagonal_pos_of_bounds",
+    "PrimeFactorOscillations.CarmichaelCoprimeSignedWave.finite_product_reverse_comparison",
+    "PrimeFactorOscillations.CarmichaelCoprimeSignedWave.finite_product_reverse_comparison_strict",
+    "PrimeFactorOscillations.CarmichaelCoprimeSignedWave.cancellingPhase_properties",
+    "PrimeFactorOscillations.CarmichaelCoprimeSignedWave.norm_one_sub_square",
+    "PrimeFactorOscillations.CarmichaelCoprimeSignedWave.compensatedResponse_expand",
+    "PrimeFactorOscillations.CarmichaelCoprimeSignedWave.compensatedResponse_zero",
+    "PrimeFactorOscillations.CarmichaelCoprimeSignedWave.damping_remainder_bound",
+    "PrimeFactorOscillations.CarmichaelCoprimeSignedWave.compensatedResponse_upper_remainder",
+    "PrimeFactorOscillations.CarmichaelCoprimeSignedWave.compensatedResponse_negative",
+    "PrimeFactorOscillations.CarmichaelCoprimeSignedWave.finite_product_compensated_negative"
+  ],
+  "new_target_count": 16,
+  "owners": [
+    {
+      "path": "PrimeFactorOscillations/Assembly/CarmichaelCoprimeSignedWave.lean",
+      "sha256": "fc1846be8117e6e6409d08bc1f642a6b9a1b1f8dbf286ff468690cef3b3fba76"
+    }
+  ],
+  "axiom_checks": {
+    "standard_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "new_or_changed_checked": 16,
+    "reused_unchanged": 0,
+    "logs": [
+      {
+        "path": ".research/generated/carmichael-coprime-signed-wave-axioms-20261029.log",
+        "sha256": "797c1067237b517fd50867c2bdb38d1cd6516b188c064a7551cb76822523a2c2",
+        "targets": [
+          "PrimeFactorOscillations.CarmichaelCoprimeSignedWave.local_signed_factorization",
+          "PrimeFactorOscillations.CarmichaelCoprimeSignedWave.numerator_norm_square",
+          "PrimeFactorOscillations.CarmichaelCoprimeSignedWave.local_gap_square",
+          "PrimeFactorOscillations.CarmichaelCoprimeSignedWave.local_reverse_comparison",
+          "PrimeFactorOscillations.CarmichaelCoprimeSignedWave.local_reverse_comparison_strict",
+          "PrimeFactorOscillations.CarmichaelCoprimeSignedWave.localDiagonal_pos_of_bounds",
+          "PrimeFactorOscillations.CarmichaelCoprimeSignedWave.finite_product_reverse_comparison",
+          "PrimeFactorOscillations.CarmichaelCoprimeSignedWave.finite_product_reverse_comparison_strict",
+          "PrimeFactorOscillations.CarmichaelCoprimeSignedWave.cancellingPhase_properties",
+          "PrimeFactorOscillations.CarmichaelCoprimeSignedWave.norm_one_sub_square",
+          "PrimeFactorOscillations.CarmichaelCoprimeSignedWave.compensatedResponse_expand",
+          "PrimeFactorOscillations.CarmichaelCoprimeSignedWave.compensatedResponse_zero",
+          "PrimeFactorOscillations.CarmichaelCoprimeSignedWave.damping_remainder_bound",
+          "PrimeFactorOscillations.CarmichaelCoprimeSignedWave.compensatedResponse_upper_remainder",
+          "PrimeFactorOscillations.CarmichaelCoprimeSignedWave.compensatedResponse_negative",
+          "PrimeFactorOscillations.CarmichaelCoprimeSignedWave.finite_product_compensated_negative"
+        ],
+        "reused_unchanged": false
+      }
+    ]
+  },
+  "proved_scope": {
+    "local": "Exact signed factor 1-a*u-a*v and exact off-diagonal modulus-square gap, including reciprocal denominators.",
+    "positive_domain": "0<=a<=5/4 and norm(z)<=3/10 imply a positive diagonal.",
+    "finite_product": "Every finite supported coordinate set with positive diagonals and at least one nonzero a*Im(z).",
+    "phase": "An exact unit phase achieves the negative undamped response.",
+    "compensation": "All AA, AB, BA and BB terms retained. Full response remains <=-(norm(c)-d) if norm(w)<=1 and 6*(d+norm(c))*norm(w)<=norm(c)-d."
+  },
+  "parameter_domain": "Finite P; arbitrary real a_i and complex z_i with stated positive diagonals. Strictness needs a nonzero retained local phase. No RH or zero-free hypothesis.",
+  "explicit_costs": {
+    "damping": "Explicit factor 6*(d+norm(c)); gap norm(c)-d is positive under the product hypotheses.",
+    "main_term": "No triangle or unsigned coefficient mass estimate applied to the retained response.",
+    "infinite_limit": "Not claimed; finite products alone do not prove a positive gap at the infinite Abel limit."
+  },
+  "detector_error": "Unchanged; no RH-dependent reconstruction used.",
+  "family_adapter": "Exact local rational coprime factor. The physical Abel C_G and source exceptional unit are not identified with these finite products.",
+  "uncancelled_main_terms": "Actual signed Mobius high packet and its full prime-sampled and Abel consumer remain open.",
+  "low_estimate_provenance": "Exact complex norm-square identity, nonnegative finite product multiplication, exact negative unit phase, and a norm bound only on the separate quadratic damping error.",
+  "attainable_endpoint": "No complete new endpoint derived. A prospective one-sided arithmetic application still needs the infinite product and zero-isolating window transfer.",
+  "benchmark_status": "Finite signed negative-phase theorem proved; no complete arithmetic power improvement",
+  "old_bound": "I exponent7/4; boundary7/8",
+  "new_bound": "I exponent7/4; boundary7/8",
+  "components": [
+    "Strict finite signed-coordinate product comparison",
+    "Exact negative-phase witness",
+    "All compensation cross terms",
+    "Explicit damping threshold"
+  ],
+  "actuals": "No finite numerical diagnostics or exact completions of unresolved sums.",
+  "first_nonpositive_domain": "Unavailable: no new complete signed I bound installed.",
+  "open_consumers": [
+    "Infinite product nonvanishing and uniform strict gap",
+    "Zero-isolating test window compatible with the actual probe",
+    "Full signed Mobius and prime-sampled packet identification",
+    "Independent one-sided high-native arithmetic estimate",
+    "Uniform unbounded Abel passage"
+  ]
+}
