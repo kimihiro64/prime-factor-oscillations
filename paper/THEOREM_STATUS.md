@@ -1005,9 +1005,47 @@ before variation; no coprimality within a column is imposed. All prime powers,
 all supported tag conditions and all four compensation terms remain.
 The estimate is uniform in the size and product of G.
 
-The full native hyperbola reindexing, sampled-window variation bounds,
-remaining signed native sector and uniform reciprocal-L/Abel consumer are
-still open. No bound for the complete arithmetic unit or I3/2 is claimed.
+The sampled-window and low-product estimates are proved below.
+The full native hyperbola reindexing, remaining signed high-product sector
+and uniform reciprocal-L/Abel consumer are still open.
+No bound for the complete arithmetic unit or I3/2 is claimed.
 Installed global I7/4 and boundary7/8 are unchanged; the target remains <=3/4.
 Paper label: `sec:carmichael-companion-masks`.
 Receipt: [uniform amplified companion](verification/carmichael-companion-masks.json).
+
+## Target-sized low native product sector (2026-10-29)
+
+Owner: `Assembly/CarmichaelNativeLowSector.lean`.
+
+| Lean declaration | Claim | Status |
+| --- | --- | --- |
+| `harmonic_prefix_mono` | The positive harmonic prefix is monotone in its actual inclusive cutoff. | Proved; focused axiom audit passed. |
+| `product_region_kernel_bound` | The full ac<=T reciprocal-maximum kernel has a square-root product cost. | Proved; focused axiom audit passed. |
+| `companion_cutoff_cost` | The exact two companion cutoffs cost at most 2N/max(a,c). | Proved; focused axiom audit passed. |
+| `low_companion_cost_bound` | Aggregate every retained companion cutoff on the full low-product region. | Proved; focused axiom audit passed. |
+| `native_term_bound` | Apply the proved companion cancellation to the actual native coefficients and both cross masks. | Proved; focused axiom audit passed. |
+| `low_native_packet_bound` | A complete finite bound for the signed low native packet with explicit divisor and variation caps. | Proved; focused axiom audit passed. |
+| `low_native_packet_subpower` | Discharge all divisor and harmonic growth costs uniformly in q,H,N,T and finite prime masks. | Proved; focused axiom audit passed. |
+| `scaled_window_variation` | The actual sampled fixed window has a variation bound independent of its native index and scale. | Proved; focused axiom audit passed. |
+| `scaled_low_native_packet_subpower` | Apply the low-product estimate at N=4D,T=D with the sampled-window variation discharged. | Proved; focused axiom audit passed. |
+| `schwartz_lipschitz` | The first Schwartz seminorm supplies the required global Lipschitz constant. | Proved; focused axiom audit passed. |
+| `schwartz_low_native_packet_subpower` | An unconditional target-sized bound for the actual Schwartz-window low native sector, uniform in G. | Proved; focused axiom audit passed. |
+
+The defined low native sector is bounded by
+`C_eps*(3q)^2*V^2*(H*N)^eps*N*floor(sqrt(T))`, uniformly over all finite G.
+All divisor and harmonic growth costs are discharged. For N=4D,T=D and a
+Schwartz combined window f, its actual variation is at most
+`S(f)=norm(f(0))+8*seminorm_Real_0_1(f)`, independently of a,D.
+The compiled specialization is at most
+`C_eps*(3q)^2*S(f)^2*(4*H*D)^eps*(4*D)*floor(sqrt(D))`.
+This gives unconditional D^(3/2+eps) for this defined low sector with fixed
+q,H,f and uniformly in G. It retains every native prime-power norm, both
+cross masks, rational outer coprimality and the combined compensated window.
+
+The complete hyperbola equality with the original rational unit packet
+remains to be compiled. The high-product sector ac>D remains signed,
+including b=d=1. The complete unit packet, reciprocal-L assembly and uniform
+Abel limit are not bounded here. Global I7/4 and boundary7/8 are unchanged;
+the active complete target remains <=3/4.
+Paper label: `sec:carmichael-native-low-sector`.
+Receipt: [low native product bound](verification/carmichael-native-low-sector.json).

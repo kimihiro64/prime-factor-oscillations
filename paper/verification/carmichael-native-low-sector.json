@@ -1,0 +1,59 @@
+{
+  "date": "2026-10-29",
+  "status": "compiled_and_focused_audited",
+  "owners": [
+    "PrimeFactorOscillations/Assembly/CarmichaelNativeLowSector.lean"
+  ],
+  "theorem_count": 11,
+  "declarations": [
+    "PrimeFactorOscillations.CarmichaelNativeLowSector.harmonic_prefix_mono",
+    "PrimeFactorOscillations.CarmichaelNativeLowSector.product_region_kernel_bound",
+    "PrimeFactorOscillations.CarmichaelNativeLowSector.companion_cutoff_cost",
+    "PrimeFactorOscillations.CarmichaelNativeLowSector.low_companion_cost_bound",
+    "PrimeFactorOscillations.CarmichaelNativeLowSector.native_term_bound",
+    "PrimeFactorOscillations.CarmichaelNativeLowSector.low_native_packet_bound",
+    "PrimeFactorOscillations.CarmichaelNativeLowSector.low_native_packet_subpower",
+    "PrimeFactorOscillations.CarmichaelNativeLowSector.scaled_window_variation",
+    "PrimeFactorOscillations.CarmichaelNativeLowSector.scaled_low_native_packet_subpower",
+    "PrimeFactorOscillations.CarmichaelNativeLowSector.schwartz_lipschitz",
+    "PrimeFactorOscillations.CarmichaelNativeLowSector.schwartz_low_native_packet_subpower"
+  ],
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "domain": "Every eps>0, one positive C_eps, every positive q, cubic chi modq, finite prime setG including2, positive H,N, natural T, arbitrary window families with displayed V. Schwartz specialization holds for every H,D>0 and SchwartzMap Real Complex without an additional variation premise. Charge(3q)^2 and the actual combined Schwartz seminorm explicitly.",
+  "proved": [
+    "Full product-region kernel<=2*floor(sqrt(T))*h_N and actual companion cutoff aggregate<=4*N*floor(sqrt(T))*h_N.",
+    "Actual norm-fiber coefficients and masks H*c,H*a yield4*(3q)^2*M^6*V^2*h_N^5*N*sqrt(T).",
+    "Existing divisor subpower and a positive convergent p-series remove all divisor/harmonic losses into(H*N)^eps.",
+    "Actual samples f(a*b/D),N4D have variation<=norm(f0)+8*L for every Lipschitz window.",
+    "The first real Schwartz seminorm supplies L and discharges the variation condition, giving the compiled D^(3/2+eps) low-sector specialization uniformly in G."
+  ],
+  "open": [
+    "Complete finite native hyperbola identification with the original rational unit packet.",
+    "Full signed high native sectorac>D, including b=d=1.",
+    "The joint Gauss-product estimate for that high core.",
+    "Original prime-sampled reciprocal-L packet and complete uniform Abel consumer.",
+    "Unconditional global boundary<=3/4."
+  ],
+  "benchmark_status": "universal_native_low_sector_power_bound_proved; full_global_consumer_open",
+  "old_bound": "No separately assembled certified bound for this exact low sector was installed. The full-rectangle specialization of the geometric envelope has N^2 times harmonic cost; it is not the installed global I bound.",
+  "new_bound": "norm(lowNativePacket)<=C_eps*(3q)^2*S(f)^2*(4*H*D)^eps*(4*D)*floor(sqrt(D)), everyD>0, cubicchi, positiveH and finiteG; unconditional for Schwartz f.",
+  "components": {
+    "character": "Actual cubic companion nonprincipal; complete-period main cancellation precedes the isolated remainder norm.",
+    "mask": "Original A_G(a*b), every prime tag, both H*c,H*a masks; all finiteG uniform.",
+    "native": "Actual norm-fiber coefficient boundtau(a); every prime-power norm retained.",
+    "divisors": "Six tau factors on1..HN, supplied by the existing proved subpower theorem.",
+    "window": "S(f)=norm(f0)+8*seminorm_Real_0_1(f), actual combinedf.",
+    "geometry": "Every ac<=T pair; total cutoff cost4*N*sqrt(T)*h_N.",
+    "compensation": "All four terms retained by the inner amplified identity; no replacement of the combined window."
+  },
+  "actuals": "No finite diagnostics or exact-completion substitutions used.",
+  "first_nonpositive_domain": "Not applicable to a norm upper bound; the requested global endpoint is still unproved.",
+  "certified_global_boundary": "7/8",
+  "target_global_boundary": "<=3/4",
+  "certified_global_I_exponent": "7/4",
+  "target_global_I_exponent": "3/2"
+}

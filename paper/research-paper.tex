@@ -32394,9 +32394,10 @@ No prime-power norm, overlapping divisor condition or mixed
 compensation term has been removed.
 
 This proves a uniform bound for the actual amplified companion
-factor. The full native hyperbola reindexing, the sampled-window
-variation bounds and the remaining signed native sum are separate
-analytic consumers still under development. In particular this
+factor. The sampled-window variation and low-product consumers are
+proved in the following section. The full native hyperbola reindexing
+and remaining signed high-product sum are still under development.
+In particular this
 theorem alone does not estimate the native sector with both
 companion indices equal to \(1\), nor the complete reciprocal-\(L\)
 packet or its unbounded Abel limit.
@@ -32404,6 +32405,143 @@ The global installed exponent remains \(I_{D,G}\ll D^{7/4+\epsilon}\)
 and the certified zero-free boundary remains \(7/8\).
 The active target remains \(I_{D,G}\ll D^{3/2+\epsilon}\) and a
 boundary at most \(3/4\).
+
+\section{A target-sized low native product sector}
+\label{sec:carmichael-native-low-sector}
+
+Let \(q>0\), \(\chi^3=1\), and let
+\(\psi_\chi=\operatorname{baseChangeChar}(\chi)\) have level \(3q\).
+Write \(a_\chi(r)\) for the actual norm-fiber inverse coefficient
+of Section~\ref{sec:carmichael-arithmetic-unit}; its full finite
+formula gives \(|a_\chi(r)|\le\tau(r)\).
+No inert prime-square norm is removed.
+
+For \(H>0\), put \(B_a=\lfloor N/a\rfloor\). For positive-index
+windows \(u_a\), define
+\[
+ \begin{split}
+ \mathcal U_{\le T}={}&
+ \sum_{\substack{1\le a,c\le N,\ ac\le T\\
+                  (a,c)=(a,H)=(c,H)=1}}
+ a_\chi(a)\overline{a_\chi(c)}\\
+ &\quad\cdot\mathcal C_{\psi_\chi;Hc,Ha}
+  (B_a,B_c;A_G(a\,\cdot)u_a,A_G(c\,\cdot)u_c).
+ \end{split}
+\]
+Both cross masks and the inner condition \((b,d)=1\) are retained.
+No within-column conditions \((a,b)=1\) or \((c,d)=1\) are imposed.
+
+\begin{theorem}[Uniform low native product estimate]
+\label{thm:carmichael-native-low}
+For every \(\epsilon>0\) there is \(C_\epsilon>0\), independent
+of \(q,\chi,G,H,N,T\) and the windows, such that, if \(H,N>0\),
+\(V\ge0\), and \(V_{B_a}(u_a)\le V\) for \(1\le a\le N\), then
+\[
+ |\mathcal U_{\le T}|
+ \le C_\epsilon(3q)^2V^2(HN)^\epsilon
+                     N\lfloor\sqrt T\rfloor.
+\]
+Here \(G\) is any finite set of primes. For every Schwartz window
+\(f:\mathbb R\to\mathbb C\), the actual samples \(u_a(b)=f(ab/D)\),
+\(N=4D\), satisfy the compiled specialization
+\[
+ \boxed{\quad
+ |\mathcal U_{\le D}|
+ \le C_\epsilon(3q)^2S(f)^2(4HD)^\epsilon
+                      (4D)\lfloor\sqrt D\rfloor,\qquad
+ S(f)=|f(0)|+8\|f\|_{0,1}.
+ \quad}
+\]
+The first real derivative is bounded by the Schwartz seminorm
+\(\|f\|_{0,1}\). Thus this sector is
+\(O_{\epsilon,q,H,f}(D^{3/2+\epsilon})\), uniformly in \(G\),
+without RH or a zero-free-strip hypothesis.
+\end{theorem}
+
+\begin{proof}
+For \(1\le a,c\le N\), writing \(m=\max(a,c)\), one has
+\[
+ \min(\lfloor N/a\rfloor,\lfloor N/c\rfloor)+1
+ \le\lfloor N/m\rfloor+1\le2N/m,
+\]
+since \((\lfloor N/m\rfloor+1)m\le N+m\le2N\).
+If \(ac\le T\) and \(c\le a\), then \(c^2\le T\), hence
+\(c\le\lfloor\sqrt T\rfloor\). The opposite ordering gives
+the symmetric assertion for \(a\). Covering both regions by
+their complete positive rectangles gives
+\[
+ \sum_{\substack{1\le a,c\le N\\ac\le T}}\frac1{\max(a,c)}
+ \le2\lfloor\sqrt T\rfloor h_N.
+\]
+The overlap is allowed only in this nonnegative remainder bound.
+Consequently,
+\begin{equation}
+ \sum_{\substack{1\le a,c\le N\\ac\le T}}
+  \left(\min(\lfloor N/a\rfloor,\lfloor N/c\rfloor)+1\right)
+ \le4N\lfloor\sqrt T\rfloor h_N.
+ \label{eq:carmichael-native-low-cost}
+\end{equation}
+
+For an explicit finite intermediate estimate, suppose
+\(\tau(n)\le M\) for \(1\le n\le HN\).
+The amplified companion theorem and \(h_{B_a}\le h_N\)
+give a cost \((3q)^2M^6V^2h_N^4\) times the summand of
+Equation~\ref{eq:carmichael-native-low-cost}.
+The six divisor factors are precisely the two native coefficient
+bounds, the two amplifier bounds, and the masks \(Hc,Ha\).
+All are controlled because \(H\ge1\).
+The companion's complete-period main terms have already vanished.
+Estimating their finite remainders over this isolated sector yields
+the compiled inequality
+\begin{equation}
+ |\mathcal U_{\le T}|
+ \le4(3q)^2M^6V^2h_N^5N\lfloor\sqrt T\rfloor.
+ \label{eq:carmichael-native-low-finite}
+\end{equation}
+
+Apply the existing uniform divisor theorem with exponent
+\(\epsilon/12\). Also, for every \(\eta>0\),
+\[
+ h_N\le N^\eta\sum_{n=1}^{\infty}n^{-1-\eta},
+\]
+by the identity \(1/n=n^\eta n^{-1-\eta}\) and convergence
+of the positive series. The implementation chooses one plus the
+natural-index series as its positive constant; the zero term is
+zero. Choose \(\eta=\epsilon/10\).
+The six divisor factors contribute \((HN)^{\epsilon/2}\),
+and the five harmonic factors contribute at most another
+\((HN)^{\epsilon/2}\). Substitution into
+Equation~\ref{eq:carmichael-native-low-finite} proves the first bound.
+
+For the actual samples, suppose first that \(f\) is Lipschitz
+with constant \(L\). Consecutive arguments are \(a/D\) apart.
+Through \(B_a=\lfloor4D/a\rfloor\) their total travel is at most
+\(4\), and the last argument belongs to \([0,4]\). Hence
+\[
+ |u_a(B_a)|\le |f(0)|+4L,\qquad
+ \sum_{b=1}^{B_a-1}|u_a(b+1)-u_a(b)|\le4L.
+\]
+The full variation is at most \(|f(0)|+8L\), independently of
+\(a,D\). For a Schwartz map its first derivative is bounded by
+\(\|f\|_{0,1}\), so the real mean-value inequality supplies
+\(L=\|f\|_{0,1}\). The variation, Schwartz bridge and specialization
+are each compiled consumers.
+\end{proof}
+
+The theorem applies to the full Schwartz combination \(f_A-zf_B\).
+Its actual combined seminorm is retained; it is not replaced by
+separate estimates for its two pieces. The exact inner packet
+identity still contains \(AA-\bar z AB-zBA+z\bar z BB\).
+
+This estimates the explicitly defined low native sector.
+The complete finite hyperbola identification with the original
+rational unit packet remains a formalization edge to close.
+The complementary sector \(ac>D\), including short companions
+and \(b=d=1\), remains signed and is not bounded here.
+The joint Gauss identity must be applied to that surviving core.
+The complete reciprocal-\(L\) packet and uniform unbounded Abel
+consumer also remain open. The certified global boundary is still
+\(7/8\); a global boundary at most \(3/4\) is not claimed.
 
 \begin{thebibliography}{99}
 \small\raggedright
