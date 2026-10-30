@@ -4640,6 +4640,220 @@ already-established additive sieve and reciprocal-prime estimates.
 External priority for this particular positive-model statement
 has not been established.
 
+\section{Uniform integer progression transfer with exact frozen rows}
+\label{sec:affineIntegerTransfer}
+
+Fix the same integer shift \(h\); for the prime-gap application \(h\)
+is positive and even. We now sample actual integers
+\[
+                 n_t=a+bt,\qquad M<t\leq M+N,
+\]
+where \(a,b,M\) are arbitrary nonnegative integers and \(N\geq1\).
+The finite-field data are evaluated at these integer residues,
+simultaneously at every prime up to \(Q\). This is a joint integer
+sampling statement, rather than a passage from one field to another.
+
+Write \(u_p(c)\) for the full local weight already used in \(U_Q\),
+and \(v_{K,p}(c)\) for its hybrid counterpart. Define
+\[
+ v^b_{K,p}(c)=
+ \begin{cases}
+  u_p(c),&p\mid b,\\
+  v_{K,p}(c),&p\nmid b,
+ \end{cases}
+ \qquad
+ V^b_{K,Q}(n)=\prod_{\substack{p\leq Q\\p\ {\rm prime}}}
+                         v^b_{K,p}(n\bmod p).
+\]
+Thus small rows \(p\leq K\), rows dividing the shift, and rows dividing
+the progression step retain their exact prescribed factors.
+In particular the rows at \(2,3,5\) are retained when \(K\geq6\).
+The convention \(p\mid0\) is included: when \(b=0\) the compensated
+packet is exactly the original packet.
+
+For \(p>K\), \(p\nmid h\), put
+\[
+ a_p(c)=(1-2/p)u_p(c)
+             -{\bf1}_{c\ne0,\ c+h\ne0}.
+\]
+As before, the correction is zero outside these rows.
+Define the moving and frozen logarithmic terms by
+\[
+ \begin{split}
+ T^{a,b}_{K,Q}(t)
+   &=\sum_{\substack{K<p\leq Q\\p\ {\rm prime}\\p\nmid bh}}
+                    \log(1+a_p(a+bt)),\\
+ F_{K,Q}(a,b)
+   &=\sum_{\substack{K<p\leq Q\\p\ {\rm prime}\\p\mid b,\ p\nmid h}}
+                    \log(1+a_p(a)).
+ \end{split}
+\]
+All evaluations inside these sums are in the indicated residue field.
+These finite sums include every relevant prime, with no omitted
+compensation or exceptional residue.
+
+\begin{theorem}[Uniform affine integer comparison]
+\label{thm:affineIntegerComparison}
+Let \(6\leq K\leq Q\). For every \(a,b,M\geq0\) and \(N\geq1\),
+\[
+ \sum_{M<t\leq M+N}
+   |U_Q(a+bt)-V^b_{K,Q}(a+bt)|
+ \leq C_0(\log Q)^4
+             \sqrt{\frac{500N(N+Q^2)}K}.
+\]
+The same right side bounds the absolute difference of the two
+total masses. Moreover, for every \(t\geq0\),
+\[
+ \begin{split}
+ U_Q(a+bt)&=V^b_{K,Q}(a+bt)\exp(T^{a,b}_{K,Q}(t)),\\
+ V^b_{K,Q}(a+bt)&=V_{K,Q}(a+bt)\exp(F_{K,Q}(a,b)).
+ \end{split}
+\]
+If \(Q^2\leq3N\) and \((\log Q)^{10}\leq K\), the L1 error is at most
+\(45C_0N/\log Q\). The constant \(C_0\) is the same unconditional,
+explicit constant as in the preceding integer theorem.
+\end{theorem}
+
+\begin{proof}
+For \(p\nmid b\), the map \(x\mapsto a+bx\) permutes \(\mathbb F_p\).
+Pulling back \(a_p\) along this permutation preserves its zero mean,
+its variance, and its amplitude bound. For \(p\mid b\), set the moving
+correction to zero; that row is already retained in \(V^b\).
+Consequently the complete pulled-back correction has zero mean,
+absolute value at most \(3/p\), total normalized variance at most
+\(5/K\), and pointwise sum of squares at most \(9/K\).
+These are statements about the actual joint residue model; no
+independence of the integer samples is assumed.
+
+Apply the existing periodic prime-family interval energy theorem to
+these pulled-back functions, with interval origin \(M+1\).
+Writing \(L(t)\) for their linear sum gives
+\[
+            \sum_{M<t\leq M+N}L(t)^2
+                         \leq\frac{180(N+Q^2)}K.
+\]
+The correction amplitude is at most \(1/2\), so
+\[
+ |T^{a,b}_{K,Q}(t)-L(t)|
+ \leq2\sum_{\substack{K<p\leq Q\\p\ {\rm prime}\\p\nmid bh}}
+                                  a_p(a+bt)^2
+ \leq18/K.
+\]
+Keeping the entire linear sum in the square yields
+\[
+ \sum_{M<t\leq M+N}(T^{a,b}_{K,Q}(t))^2
+ \leq\frac{360(N+Q^2)}K+\frac{648N}{K^2}
+ \leq\frac{500(N+Q^2)}K.
+\]
+For a frozen row the local ratio is exactly one; on every moving row
+the original local factorization applies. Their product proves the
+first exponential identity, including all zero masks.
+Each compensated factor obeys the same local envelope as either its
+actual or hybrid choice. Hence both packets are nonnegative and at most
+\(C_0(\log Q)^4\). The coupled exponential inequality and
+Cauchy--Schwarz now give the asserted L1 bound.
+The triangle inequality gives the total-mass statement.
+The numerical cutoff argument is the preceding logarithmic-cutoff
+calculation with the same constants.
+
+Finally split the original tail logarithm according to \(p\mid b\).
+At every such prime \(a+bt=a\) in \(\mathbb F_p\), so this is the exact
+identity
+\[
+ T_{K,Q}(a+bt)=T^{a,b}_{K,Q}(t)+F_{K,Q}(a,b).
+\]
+Compare the two full exponential factorizations and cancel only the
+strictly positive moving exponential. This proves the second identity
+even when the packet itself vanishes.
+\end{proof}
+
+\begin{theorem}[A positive local crest and a nontrivial frozen factor]
+\label{thm:positiveFrozenFactor}
+In every odd finite field of cardinality \(q\geq7\), for every nonzero
+shift \(h\),
+\[
+ \frac1q\sum_{c\in\mathbb F_q}a_q(c)^2\geq\frac1{q^2},
+ \qquad
+          \exists c\in\mathbb F_q:\quad a_q(c)\geq\frac1{4q}.
+\]
+In particular, if \(p\geq7\) is a rational prime and \(p\nmid h\),
+there is an integer \(0\leq a<p\) for which the integer progression
+of step \(p\) has
+\[
+ F_{p-1,p}(a,p)
+ \geq\log(1+1/(4p))>0.
+\]
+Thus the frozen multiplier cannot generally be replaced by one.
+\end{theorem}
+
+\begin{proof}
+Put \(\epsilon=\chi_q(-1)\leq1\) and
+\[
+ m(q,\epsilon)=1+\frac2{q-3}
+                   -\frac{2(1+\epsilon)}{q(q-3)^2},
+ \qquad D(q,\epsilon)=(1-2/q)m(q,\epsilon).
+\]
+The established exact signed second moment gives
+\[
+ \frac1q\sum_c a_q(c)^2
+                  =(1-2/q)(D(q,\epsilon)-1).
+\]
+Subtracting \(q^{-2}\) gives precisely
+\[
+ \frac{(q-7)^3+13(q-7)^2+54(q-7)+68
+                    +2(1-\epsilon)(q-2)^2}
+                    {q^3(q-3)^2}\geq0.
+\]
+This proves the variance bound with the original masks and cross
+terms intact.
+
+For the positive crest let \(A=1/(4q)\), \(B=3/q\).
+If all corrections were less than \(A\), then
+\((A-a_q(c))(a_q(c)+B)\geq0\), since \(|a_q(c)|\leq B\).
+Expanding, averaging, and using the exact zero mean gives
+\[
+ \frac1q\sum_c a_q(c)^2\leq AB=\frac3{4q^2},
+\]
+contradicting the lower bound. This argument works for every odd
+field of cardinality at least seven, with no assertion at \(q=3,5\)
+or in characteristic two.
+
+For the integer assertion take the least nonnegative representative
+of the positive-crest residue in \(\mathbb F_p\). With \(K=p-1\),
+\(Q=p\), and \(b=p\), the only nonzero frozen summand is the \(p\)-row:
+\[
+                 F_{p-1,p}(a,p)=\log(1+a_p(a)).
+\]
+Monotonicity of the logarithm proves both claims.
+\end{proof}
+
+\paragraph{Formal status and the integer recurrence question.}
+The maintained owner \texttt{Assembly/FiniteFieldIntegerAffine}
+contains the affine residue permutation, moving energy bounds,
+compensated packet and exact frozen decomposition.
+The displayed consumers are
+\texttt{affine\_packet\_l1\_replacement},
+\texttt{affine\_packet\_mass\_replacement},
+\texttt{affine\_logarithmic\_cutoff\_l1\_replacement},
+\texttt{compensated\_frozen\_factor}, and
+\texttt{exists\_prime\_step\_positive\_frozen\_log}.
+The reusable candidate
+\texttt{LegendreSymbol/QuadraticPairTwistResonance} proves the lower
+variance and positive-crest statements over all odd finite fields.
+
+This is an integer transfer theorem for the common fixed shift,
+not an integer prime-pair recurrence theorem. A positive lower
+bound for the compensated mass at the required height is still
+unproved. The error depends on the number \(N\) of progression samples.
+For candidates of size \(X\), actual primality requires a divisor
+cutoff of order \(\sqrt X\); here \(X\) may be of order \(a+bN+|h|\).
+Thus \(Q^2/N\) grows with an unrestricted step \(b\), and the critical
+cutoff corollary cannot silently be imposed in that growing-step
+regime. Compatibility of many finite-field cases is retained in
+the integer model; a height-uniform positive mass estimate remains
+the step needed to establish infinitely recurring integer gaps.
+No QRH exponent improvement is claimed.
+
 \section{Arithmetic transfers and the next ascent investigation}
 \paragraph{Existing ingredients.}
 The generic greedy record sandwich and the maintained periodic and
