@@ -5357,14 +5357,14 @@ On an admissible row \(p\geq5\), \(p\nmid h\), the exact local law already gives
 \]
 The previously proved two-character Euler factorization retains its
 opening masks and a uniformly summable \(O(p^{-2})\) correction.
-Thus the next integer adapter must identify these two Legendre-symbol
+The character adapter below now identifies these two Legendre-symbol
 rows with nonprincipal Dirichlet characters of modulus at most
 \(4hQ^2\), on the nonzero packet branch
 \(Q<n\), \(n+h\leq Q^2\), \(Q>h>0\).
-The proved prime-pair extraction makes \(n\) and \(n+h\) prime there;
-hence \(-hn\) is negative and \(h(n+h)\) is nonsquare.
-The conductor, reciprocity, exceptional-prime and Euler-product consumers
-must still be assembled formally.
+The proved prime-pair extraction makes \(n\) and \(n+h\) prime there.
+Reciprocity, nonprincipality, the level bounds and the signed joint
+character estimate are formalized. The remaining Euler-product consumer
+must retain every exceptional prime and opening mask.
 
 The displayed harmonic-tail theorem is proved for actual integer primes.
 It supplies the required bounded signed character tail after a
@@ -5372,8 +5372,8 @@ polylogarithmic cutoff. The prospective packet envelope
 \[
                 U_Q(n)\ll_h(\log Q)^2(\log\log Q)^2
 \]
-is not yet a theorem of this paper: its full character adapter and
-product consumer remain open. No positive short-height packet mass,
+is not yet a theorem of this paper: its product consumer and finite
+exceptional-row assembly remain open. No positive short-height packet mass,
 integer prime-pair recurrence, change to \(H_1\), or new zero-free
 exponent follows from the harmonic estimate alone.
 
@@ -5387,6 +5387,96 @@ together with their scalar and summability consumers.
 The constant precedes every modulus, character and both cutoffs.
 These are quantitative consequences of the installed QRH input and
 finite Abel summation; no independent novelty is claimed for them.
+
+\section{The actual integer characters and their joint tail}
+For a nonzero integer \(D\), put
+\[
+ \kappa_D(a)=
+ \begin{cases}
+  \left(\dfrac{D}{a}\right),&a\text{ odd},\\
+  0,&a\text{ even},
+ \end{cases}
+\]
+where the first symbol is the Jacobi symbol.
+This is a Dirichlet character modulo \(4|D|\), with no claim of
+primitivity. Periodicity follows from numerator-Jacobi reciprocity.
+Multiplicativity includes the even arguments. At nonunits, either the
+argument is even or its gcd with \(D\) is not one, so the value is zero.
+For every odd rational prime \(p\), its value is exactly
+\(\kappa_D(p)=\left(\frac Dp\right)\), including the zero case \(p\mid D\).
+
+\begin{lemma}[A common nonprincipal witness]\label{lem:integer-character-prime-factor}
+Let \(h\geq1\) and let \(P>\max(h,2)\) be prime. Both characters
+\(\kappa_{hP}\) and \(\kappa_{-hP}\) are nonprincipal.
+\end{lemma}
+\begin{proof}
+Choose a quadratic nonresidue \(a\bmod P\).
+Since \(P\) is odd and \(P>h\), CRT supplies \(u\) with
+\[
+                     u\equiv1\pmod{4h},\qquad u\equiv a\pmod P.
+\]
+Then \(u\equiv1\pmod4\), so the negative sign contributes one.
+Numerator periodicity gives \(\left(\frac hu\right)=1\), and
+quadratic reciprocity gives
+\(\left(\frac Pu\right)=\left(\frac uP\right)=-1\).
+Thus both characters take the value \(-1\) at \(u\), whereas a principal
+character takes only the values zero and one.
+\end{proof}
+
+\begin{theorem}[Uniform signed tail on the natural integer-height branch]
+\label{thm:integer-character-natural-height}
+There is an absolute \(C>0\), chosen before \(h,Q,n,Y,X\), with the
+following property. Suppose
+\[
+ h\geq1,\quad Q\geq2,\quad h<Q<n,\quad n+h\leq Q^2,\quad U_Q(n)>0,
+ \qquad H=3+\log(4hQ^2).
+\]
+For every pair of integer cutoffs \(Y\geq1\), \(X\geq0\),
+\[
+ \left|\sum_{\substack{Y\leq p<X\\p\ {\rm prime}}}
+       \frac{\kappa_{-hn}(p)+\kappa_{h(n+h)}(p)}p\right|
+       \leq 2CH^2Y^{-1/32}.
+\]
+In particular the signed tail is at most \(2C\) when \(Y\geq H^{64}\).
+\end{theorem}
+\begin{proof}
+The proved deterministic prime-pair extraction makes \(n\) and \(n+h\)
+prime. Each exceeds \(\max(h,2)\). The preceding lemma discharges
+nonprincipality for the two actual parameters; their character moduli are
+\[
+                     4hn\leq4hQ^2,\qquad4h(n+h)\leq4hQ^2.
+\]
+Apply Theorem~\ref{thm:integer-character-harmonic-tail} to each character.
+The modulus logarithm is at most \(\log(4hQ^2)\).
+Adding the two estimates proves the displayed joint bound, with the
+original signs inside each character sum. The final assertion follows
+from \(H^2Y^{-1/32}\leq1\).
+\end{proof}
+
+This theorem has no assumed nonprincipality or moving-character estimate:
+both are discharged for the actual integer parameters.
+The two finite-field Euler coordinates are identified pointwise with
+\(\kappa_{-hn}(p)\) and \(\kappa_{h(n+h)}(p)\) at every odd prime.
+Their zero values are retained. The row at \(2\), the small rows, and
+the rows dividing \(h\) remain in the exact finite core of the packet.
+To use the joint estimate for the likelihood tail, the still-pending
+product consumer must keep those rows and the summable local correction.
+
+\paragraph{Formal status.}
+The maintained owner \texttt{Assembly/DetectorPackets/IntegerQuadraticCharacter}
+now constructs \texttt{numeratorCharacter}, proves its periodicity,
+multiplicativity, nonunit mask and prime evaluation, and supplies
+\texttt{exists\_prime\_factor\_numerator\_witness} and
+\texttt{numerator\_character\_ne\_one\_at\_prime\_factor}.
+The maintained owner \texttt{Assembly/FiniteFieldIntegerCharacter}
+proves the exact two-coordinate dictionary,
+\texttt{exists\_prime\_factor\_numerator\_tail\_bound},
+\texttt{exists\_natural\_height\_joint\_tail\_bound}, and its bounded-tail
+corollary \texttt{exists\_natural\_height\_joint\_tail\_bounded}.
+These results are exported through \texttt{Assembly/ProbabilityProfiles}.
+The packet envelope, independent positive packet mass and integer
+recurrence remain open. This is an application of the installed QRH
+estimate; no new zero-free exponent or independent priority claim is made.
 
 \section{Arithmetic transfers and the next ascent investigation}
 \paragraph{Existing ingredients.}
