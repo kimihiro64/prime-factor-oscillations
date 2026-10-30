@@ -3497,6 +3497,124 @@ statement is the model-specific contribution proposed here.
 Its external priority is not established. Related actual polynomial
 counting is discussed by Bary-Soroker--Stix~\cite{BarySorokerStix}.
 
+\section{Exact signed distribution across all triple shapes}
+
+The preceding theorem uses two fixed shapes. We now vary the third
+shift through its full admissible domain while keeping the gap \(h\)
+fixed. Let
+\[
+ \mathcal D_h=\{(k,x)\in F^2:k\ne0,\ k\ne h,\
+                         x(x+h)(x+k)\ne0\},\qquad
+ \mathcal R=F\setminus\{0,-1\}.
+\]
+Keep the same nonsquare tag \(t\) and exact compensated count
+\(\Delta_{h,k}(x)=4S_{h,k}(x)-q-1+R_{h,k}(x)\).
+Write \(a=q-3\) and \(T_z=T(z,z+1)\).
+
+\begin{theorem}[Full-shape fluctuation law]\label{thm:tripleFluctuation}
+For every odd finite field, every \(h\ne0\), and every
+integer-valued function \(\Phi\) on the integers,
+\[
+ 2\sum_{(k,x)\in\mathcal D_h}\Phi(\Delta_{h,k}(x))
+  =\sum_{z\in\mathcal R}
+       \{(a-T_z)\Phi(T_z)+(a+T_z)\Phi(-T_z)\}.
+ \tag{TF}
+\]
+In particular,
+\[
+ \begin{split}
+ \sum_{\mathcal D_h}\Delta_{h,k}(x)&=-(q-3)(q+1),\\
+ \sum_{\mathcal D_h}\Delta_{h,k}(x)^2&=(q-3)^2(q+1).
+ \end{split}
+\]
+For every integer \(m\ge0\), the complete odd moment satisfies
+\[
+ \sum_{(k,x)\in\mathcal D_h}\Delta_{h,k}(x)^{2m+1}
+       =-\sum_{z\in\mathcal R}T_z^{2m+2}\le0.
+ \tag{TO}
+\]
+\end{theorem}
+
+\begin{proof}
+Use the full two-variable parametrization
+\[
+ x=\frac{h(y+1)}z,\qquad
+ k=\frac{h(y+1)(z+1)}{zy},
+ \qquad z\in\mathcal R,\quad y(y+1)(y+z+1)\ne0.
+ \tag{TP}
+\]
+Its inverse is
+\[
+ z=\frac{h(x+k)}{(k-h)x},\qquad y=\frac{zx}{h}-1.
+\]
+All denominators are nonzero on the displayed domains.
+For example,
+\[
+ k-h=\frac{h(y+z+1)}{zy},\quad
+ x+h=\frac{h(y+z+1)}z,\quad
+ x+k=\frac{h(y+1)(y+z+1)}{zy}.
+\]
+These identities verify admissibility in both directions and prove
+that (TP) counts every pair in \(\mathcal D_h\) exactly once.
+
+Put \(\gamma_z(y)=\chi(y(y+1)(y+z+1))\). The exact scaling phase
+is preserved, since
+\[
+ (k-h)x=y(y+1)(y+z+1)\left(\frac h{zy}\right)^2.
+\]
+The previously proved trace identity therefore gives
+\[
+                 \Delta_{h,k}(x)=\gamma_z(y)T_z.
+\]
+The three excluded roots are distinct because \(z\in\mathcal R\).
+On the other \(q-3\) arguments, \(\gamma_z(y)\) is \(1\) or \(-1\).
+Translation by \(z+1\) in the cubic character sum gives
+\[
+              \sum_{y\in F}\gamma_z(y)=-T_z.
+\]
+Thus the two signs occur exactly
+\((q-3-T_z)/2\) and \((q-3+T_z)/2\) times.
+Their contributions give (TF), including every excluded root.
+
+For \(\Phi(w)=w\), the summand on the right of (TF) is
+\(-2T_z^2\); for \(\Phi(w)=w^2\), it is \(2aT_z^2\).
+The exact regular second moment
+\(\sum_{z\in\mathcal R}T_z^2=(q-3)(q+1)\) proves the two
+closed formulas. For \(\Phi(w)=w^{2m+1}\), it is
+\(-2T_z^{2m+2}\). Every retained even power is nonnegative,
+which proves (TO).
+\end{proof}
+
+\paragraph{Interpretation and formalization.}
+The signs are coupled to the trace: a positive trace receives fewer
+positive-phase parameters, and a negative trace receives fewer
+negative-phase parameters. Their products favor negative compensated
+waves. This exact counting mechanism explains all the odd-moment
+signs without assuming independent phases or using a Hasse bound.
+The complete finite supports are \(\mathcal D_h\) and \(\mathcal R\);
+no growing-cutoff or Euler-product limit is involved.
+
+All parts of (TF) and (TO), the rational bijection and phase identity,
+and the two closed moment formulas are formalized in
+\texttt{QuadraticTripleFluctuation}. Its main declarations are
+\texttt{full\_shape\_fluctuation} and
+\texttt{full\_shape\_odd\_moment\_nonpos}.
+The theorem concerns uniform sampling of admissible parameter pairs.
+The success-weighted count density \(u_{h,k}\) has a different measure.
+The raw identities apply also in the small odd fields; no positive
+triple-density normalizer is required here.
+
+Katz studies signed occurrence ratios for traces in Legendre and
+torsion-moduli families~\cite{KatzTraceRatios}, and
+Kane--Zindulka study lower-order biases of unweighted Legendre
+moments~\cite{KaneZindulka}. Our observable is the compensated actual
+quadratic-triple count, with its exact parameter-dependent phase.
+The proposed model-specific contribution is its full finite signed
+distribution and complete odd-moment sign law. External priority
+for that conclusion is not established.
+These identities provide no bound on integer short-window mass and
+no improvement of a rational zeta zero-free boundary.
+
 \section{Arithmetic transfers and the next ascent investigation}
 \paragraph{Existing ingredients.}
 The generic greedy record sandwich and the maintained periodic and
@@ -3615,5 +3733,9 @@ arXiv:1711.05564. \url{https://arxiv.org/abs/1711.05564}.
 \bibitem{GaoKuttnerWang} Z. Gao, S. Kuttner, Q. Wang,
 \emph{Counting irreducible polynomials with prescribed coefficients over a finite field},
 arXiv:2109.02000. \url{https://arxiv.org/abs/2109.02000}.
+\bibitem{KatzTraceRatios} N. M. Katz,
+\emph{2, 3, 5, Legendre: \(\pm\)-Trace Ratios in Families of Elliptic Curves},
+Experimental Mathematics 19 (2010), 267--277.
+\url{https://web.math.princeton.edu/~nmk/newratio30.pdf}.
 \end{thebibliography}
 \end{document}
