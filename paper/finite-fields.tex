@@ -2025,6 +2025,10 @@ supported finite-tail comparison are also proved in maintained Lean.
 The independent-tag synthesis below proves the exact flat conditional
 law and unique optimal energy for arbitrary labelled shapes over every
 odd finite field with nonempty admissible support.
+The exact common-scale classification below proves the optimal energy
+among arbitrary finite signed mixtures, a positive attaining law, and
+strict separation from the independent-tag flat law, with the small
+fields treated separately.
 The classical Hasse input, Artin--Schreier coverage, finite Fourier
 and CRT assertions, and integer short-interval consumer still have
 ordinary proofs here. These are separate statuses.
@@ -2740,6 +2744,156 @@ external priority for that combination has not been established.
 No integer short-window mass bound, analytic continuation of the
 character factors, or zero exclusion is inferred from this finite
 comparison.
+
+\subsection{Exact optimal common-scale mixtures}
+
+The number of common tags is not the number of independent count
+profiles. Let \(F\) have odd cardinality \(q\), fix \(h\ne0\), and
+choose \(t\ne0\) with \(\chi(t)=-1\). Write
+\[
+ C_+(c)=w_q(c;h),\qquad C_-(c)=w_q(tc;th),\qquad
+ S=C_++C_-,\quad D=C_+-C_-,
+\]
+where \(w_q\) is the actual monic quadratic-pair count.
+Put \(e=\chi(h)\), \(f=\chi(-h)\), \(s=e+f\),
+\(\epsilon=ef=\chi(-1)\), and \(d=q-3\).
+Here \(e,f\in\{-1,1\}\).
+For functions on \(F\), write
+\(\mathbb E g=q^{-1}\sum_{c\in F}g(c)\).
+
+\begin{theorem}[Sharp common-scale energy and separation]
+\label{thm:commonScaleOptimum}
+Every nonzero common scale \(u\) gives exactly one of the two
+profiles \(C_+\), \(C_-\), according as \(\chi(u)=1\) or \(-1\).
+Consequently every finite real linear combination of common-scale
+counts has the form
+\[
+             v=\alpha S+\beta D.
+\]
+Assume \(q>5\) and \(\mathbb E v=1\), equivalently
+\(\alpha d+\beta s=2\). Define
+\[
+ \alpha_*=\frac{2(q+3)}{q^2-9+s^2},\qquad
+ \beta_*=\frac{2s}{q^2-9+s^2}.
+\]
+Then the complete squared-defect identity is
+\[
+ \mathbb E v^2=m_\epsilon(q)
+                    +k_\epsilon(q)(\beta-\beta_*)^2,
+\]
+where
+\[
+\begin{array}{c|c|c}
+ \epsilon&m_\epsilon(q)&k_\epsilon(q)\\ \hline
+ -1&\dfrac{q-1}{q-3}&\dfrac{q^2-9}{4q}\\[5pt]
+ 1&\dfrac{(q+1)^2}{q^2-5}&
+ \dfrac{(q^2-5)(q-5)(q-1)}{4q(q-3)^2}.
+\end{array}
+\]
+Both defect coefficients are positive. The unique minimizing
+coefficients are \(\alpha_*,\beta_*\), and the minimizing profile
+is the nonnegative mean-one law
+\[
+ v_*(c)=
+ \frac{2(q+3+s)C_+(c)+2(q+3-s)C_-(c)}{q^2-9+s^2}.
+\]
+Thus positive raw weights in the ratio
+\((q+3+s):(q+3-s)\) attain the minimum even among signed mixtures.
+
+The gap above the flat two-forbidden-residue energy is exactly
+\[
+ m_\epsilon(q)-\frac{q}{q-2}
+ =
+ \begin{cases}
+ \dfrac{2}{(q-3)(q-2)},&\epsilon=-1,\\[5pt]
+ \dfrac{2(q-1)}{(q^2-5)(q-2)},&\epsilon=1.
+ \end{cases}
+\]
+In particular no mean-one signed common-scale mixture attains the
+flat energy for \(q>5\).
+\end{theorem}
+
+\begin{proof}
+If \(a\ne0\), changing \(b\) to \(ab\) in the discriminants proves
+\[
+ w_q(a^2c;a^2h)=w_q(c;h).
+\]
+Two nonzero scales with the same character differ by a square.
+This proves the exact two-profile reduction, including the constants
+where a count vanishes. For a finite labelled combination
+\(\sum_{j\in J}\lambda_jw_q(u_jc;u_jh)\), the corresponding coefficients
+are explicitly
+\[
+ \alpha=\frac12\sum_{j\in J}\lambda_j,\qquad
+ \beta=\frac12\sum_{j\in J}\lambda_j\chi(u_j).
+\]
+There is no restriction on the signs of \(\lambda_j\).
+
+The first moments give
+\(\mathbb ES=d/2\), \(\mathbb ED=s/2\).
+Retaining the mixed term, the exact second moments are
+\begin{align*}
+ A:=\mathbb ES^2&=
+       \frac{q^2-4q+3-2(1+\epsilon)/q}{4},\\
+ B:=\mathbb E(SD)&=\frac{s(q^2-2q+3)}{4q},\\
+ C:=\mathbb ED^2&=
+       \frac{q+s^2-(7+s^2-2\epsilon)/q}{4}.
+\end{align*}
+For completeness these follow from the previously proved actual
+count-square identities together with
+\(SD=C_+^2-C_-^2\) and
+\(D^2=2C_+^2+2C_-^2-S^2\).
+The nonsquare twist changes \(s\) to \(-s\), and
+\(s^2=2+2\epsilon\). No cross term is discarded.
+
+Now
+\(\mathbb Ev^2=\alpha^2A+2\alpha\beta B+\beta^2C\).
+Substitute \(\alpha=(2-\beta s)/d\) and complete the square;
+the four possibilities \(e,f=\pm1\) give the displayed identity.
+All denominators are positive when \(q>5\).
+The mean constraint and the positive defect coefficient prove
+uniqueness. Direct substitution gives
+\(\alpha_*d+\beta_*s=2\);
+also \(\alpha_*\pm\beta_*>0\).
+Since both counts are nonnegative, this proves the asserted
+nonnegative attaining law. Subtracting \(q/(q-2)\) gives the two
+positive gaps.
+\end{proof}
+
+\paragraph{Small fields and repeated shifts.}
+For \(q=3\) and \(h\ne0\), every actual common-scale pair count is
+zero, so no such conditional law exists.
+For \(q=5\), integrality of the total count forces \(s=\pm2\).
+Every mean-one signed common-scale profile then has energy \(9/5\);
+the coefficient minimum is degenerate, so the uniqueness assertion
+for \(q>5\) must not be extended to this case.
+When \(h=0\), there is only one distinct forbidden residue; the
+nonzero-shift moment formulas above are not applied.
+The independent-tag theorem below treats that rank change directly
+through the number of distinct forbidden residues.
+
+\paragraph{Meaning for accumulation.}
+The independent-tag construction below attains the smaller flat
+energy \(q/(q-2)\) for the two-point shape.
+This is an exact distinction between two classes of local laws,
+including all signed common-scale combinations.
+It is not an obstruction theorem for integer prime pairs.
+Neither optimized local law supplies the incomplete integer mass
+estimate at height \(X\asymp Y^2\) in
+Proposition~\ref{prop:integerAccumulation}.
+The excess energy here is of order \(q^{-2}\);
+no zero-free exponent improvement is inferred from it.
+
+\paragraph{Formal status.}
+The maintained module
+\texttt{LegendreSymbol.QuadraticPairTwistOptimum}
+proves the square-class collapse, all three actual mixed moments,
+the complete signed-span deficit identity and its strict minimum,
+the actual nonnegative attaining law, the arbitrary finite signed
+mixture consumer, the strict flat-energy comparison, and the
+separate \(q=3\) and \(q=5\) statements.
+The repeated-shift sentence invokes the distinct-residue theorem
+below, rather than the nonzero-shift moments.
 
 \subsection{Exact optimal laws for arbitrary finite constellations}
 
