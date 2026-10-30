@@ -2011,13 +2011,193 @@ Estimating this signed incomplete packet remains open here.
 These identities do not establish a new integer gap bound.
 
 \paragraph{Verification status for this section.}
-The Artin--Schreier coverage, conditional quadratic count, and
-integer accumulation statements are ordinary proofs, not newly
-Lean-compiled declarations. Formalization still needs the finite-field
-nonsquare-indicator and elliptic point-count adapters used in the
-count, followed by the finite Fourier and CRT consumer.
-The earlier compiled coefficient-response and signed packet lemmas
-remain unchanged.
+The exact quadratic count, total count, exceptional constants,
+normalization, and its rational Euler factorization have maintained
+Lean proofs. The scalar comparison and finite-product estimates below
+are formalized with their explicit numerical trace bounds.
+The classical Hasse input, Artin--Schreier coverage, finite Fourier
+and CRT assertions, and integer short-interval consumer still have
+ordinary proofs here. These are separate statuses.
+
+\subsection{A uniform elliptic--Dirichlet factorization}
+Fix positive integers \(n,h\), with \(h\) even. All products indexed
+by \(p\) in this subsection are over rational primes. At a prime
+\(p\geq17\) not dividing \(hn(n+h)\), put
+\[
+ a=a_p(E_{n,h}),\qquad
+ A_p=1-\frac ap+\frac1p,
+\]
+and, with \(\chi=\chi_p\), define
+\[
+ Q_p=\frac{(1-\chi(n)/p)(1-\chi(n+h)/p)}
+ {(1-1/p)(1-\chi(-hn)/p)(1-\chi(h(n+h))/p)}.
+\]
+For each of the seven integer labels
+\(1,n,n+h,h,-h,-hn,h(n+h)\), write
+\[
+ B_{\xi,p}=1-\frac{\chi(\xi)a}{p^2}+\frac1{p^3},\qquad
+ T_p=\frac{B_{1,p}^{\,2}B_{n,p}B_{n+h,p}}
+ {B_{h,p}B_{-h,p}B_{-hn,p}B_{h(n+h),p}}.
+\]
+Labels representing the same quadratic character retain their
+displayed multiplicities. The factor \(A_p\) is the inverse elliptic
+Euler factor at \(s=1\); \(B_{\xi,p}\) is the inverse factor of its
+quadratic twist at \(s=2\). The factor \(Q_p\) retains the displayed
+quadratic Dirichlet and zeta factors. All formulas here use finite
+Euler products, including at \(s=1\).
+
+\begin{theorem}[Uniform seven-twist comparison]
+\label{thm:sevenTwistComparison}
+At every such prime there is an explicitly defined \(G_p(n,h)>0\)
+such that
+\[
+ u_p(n\bmod p)=A_pQ_pT_pG_p(n,h),\qquad
+ |G_p(n,h)-1|\leq\frac{32832}{p^2}.
+\]
+For all integer cutoffs \(256\leq Y\leq Z\),
+\[
+ \exp\left(-\frac{65664}{Y}\right)
+ \leq
+ \prod_{\substack{Y<p\leq Z\\p\nmid hn(n+h)}}G_p(n,h)
+ \leq
+ \exp\left(\frac{65664}{Y}\right).
+\]
+The constants are independent of \(n,h,Y,Z\).
+\end{theorem}
+\begin{proof}
+Write
+\[
+ e=\chi(h),\quad f=\chi(-h),\quad x=\chi(n),\quad y=\chi(n+h),
+ \quad d=3-e-f,
+\]
+and retain the entire zero-discriminant correction
+\[
+ Z_p=(1+x)(1-f)+(1+y)(1-e).
+\]
+Each sign is \(1\) or \(-1\), and \(Z_p\in\{0,4,8\}\).
+The exact count and total count give
+\[
+ u_p(n)=\frac{p+1-a-Z_p}{p-d}.
+\]
+Hasse gives \(a^2\leq4p\), hence \(|a|\leq p/2\) for \(p\geq16\).
+Define
+\begin{align*}
+ N&=(p+1-a-Z_p)(p-1)(p-fx)(p-ey),\\
+ D&=(p-d)(p+1-a)(p-x)(p-y),\qquad R=N/D.
+\end{align*}
+Then \(u_p=A_pQ_pR\), \(N,D>0\), and \(D\geq p^4/16\).
+
+Here is an explicit bound on the signed defect. Put
+\[
+ U=fx+ey,\quad V=efxy,\quad
+ H=U+V-d(x+y)-xy,\quad J=xy(d-ef).
+\]
+Expansion, before estimating any term, gives
+\begin{align*}
+ N-D+Z_pa p^2
+  ={}&[Z_p(2+U)+H]p^2\\
+    &+[-Z_p(U+V)+(1-a)H+J]p+Z_pV+(1-a)J.
+\end{align*}
+Using \(|Z_p|\leq8\), \(|U|\leq2\), \(|V|\leq1\),
+\(|H|\leq14\), and \(|J|\leq6\), its absolute value is at most
+\[
+ 46p^2+(44+14|a|)p+14+6|a|
+ \leq53p^2+47p+14\leq56p^2.
+\]
+The exact four-factor subtraction for \(D-p^4\) gives
+\[
+ |D-p^4|\leq(47+4|a|)p^3.
+\]
+Consequently, retaining the compensation cross term,
+\begin{align*}
+ |(N-D)p^2+Z_paD|
+ &\leq56p^4+8|a|(47+4|a|)p^3\\
+ &\leq372p^4\leq1024p^4.
+\end{align*}
+Division by \(Dp^2\), which is positive, proves
+\[
+ \left|R-1+\frac{Z_pa}{p^2}\right|\leq\frac{16384}{p^2}.
+\]
+
+For the shifted factors put \(r=a/p^2\), \(s=p^{-3}\), and
+\(k=Z_p/2\in\{0,2,4\}\). Character multiplication gives the exact identity
+\[
+ T_p=\left(\frac{1-r+s}{1+r+s}\right)^k.
+\]
+In particular all seven labelled factors, with their signs and
+multiplicities, occur in this simplification.
+If \(v=(1-r+s)/(1+r+s)-1\), then
+\[
+ |v|\leq3|r|\leq\frac{3}{2p}\leq\frac18,\qquad
+ |v+2r|\leq\frac3{p^2}.
+\]
+For \(k=0,2,4\), expansion gives
+\[
+ |(1+v)^k-1-kv|\leq8v^2.
+\]
+It follows that
+\[
+ \left|T_p-1+\frac{Z_pa}{p^2}\right|\leq\frac{32}{p^2},
+ \qquad T_p\geq(7/8)^4>\frac12.
+\]
+Thus \(G_p=R/T_p>0\), and the two retained trace terms cancel:
+\[
+ |G_p-1|\leq
+ 2\left(\frac{16384}{p^2}+\frac{32}{p^2}\right)
+ =\frac{32832}{p^2}.
+\]
+Only these already compensated remainders were estimated separately.
+
+For \(p>Y\geq256\), the error is at most \(1/2\).
+For every \(t\geq1/2\), \(|\log t|\leq2|t-1|\), so
+\[
+ \left|\log\prod_{\substack{Y<p\leq Z\\p\nmid hn(n+h)}}G_p\right|
+ \leq65664\sum_{m=Y+1}^{Z}\frac1{m^2}
+ \leq\frac{65664}{Y}.
+\]
+The last inequality follows by telescoping
+\(m^{-2}\leq(m-1)^{-1}-m^{-1}\).
+Exponentiating proves the stated finite-tail comparison.
+\end{proof}
+
+The general Euler-factor extraction method is classical;
+see Alberts~\cite{Alberts}. Here the specified conditional-count packet,
+both exceptional discriminant rows, all seven twist labels, and constants
+uniform in the integer lift are retained in one comparison.
+
+The complete integer packet still contains its exact opening mask:
+\[
+ \Gamma_{Y,h}(n)=\mathbf1_{\gcd(n(n+h),M_Y)=1}.
+\]
+With
+\[
+ B_h(Y)=\prod_{\substack{p\leq Y\\p<17\ {\rm or}\ p\mid h}}
+             \frac p{p-\nu_p(h)},\qquad
+ {\cal P}_Y(n,h)=\{p\text{ prime}:17\leq p\leq Y,\ p\nmid hn(n+h)\},
+\]
+the full product identity is
+\[
+ U_Y(n)=\Gamma_{Y,h}(n)B_h(Y)
+           \prod_{p\in{\cal P}_Y(n,h)}A_pQ_pT_pG_p(n,h).
+\]
+At a prime dividing \(n(n+h)\), its actual local count is zero.
+At a small prime or a prime dividing \(h\), the previously defined
+admissible fallback is used. This preserves every support restriction
+in the signed short-interval consumer. In particular, the new
+comparison supplies a uniform finite-cutoff reference for that consumer;
+its short-interval mass remains the arithmetic quantity to estimate.
+
+\paragraph{Formal status of the comparison.}
+The maintained modules \texttt{QuadraticPairEuler},
+\texttt{QuadraticPairEulerCount}, \texttt{QuadraticPairTwists}, and
+\texttt{QuadraticPairProduct} prove the scalar bounds, the exact
+seven-factor identity, the actual count factorization, and the finite-tail
+comparison. Their arithmetic application uses the explicitly stated
+numerical hypothesis \(a^2\leq4p\). The classical Hasse theorem supplies
+it in the ordinary finite-field argument above; a Lean proof of Hasse's
+theorem is not supplied by these modules. The new declaration closures
+use only Lean's foundational axioms.
+
 
 \section{Unconditional transfer to quadratic number fields}
 
@@ -2267,6 +2447,10 @@ arXiv:2101.08038. \url{https://arxiv.org/abs/2101.08038}.
 \emph{The variance of the number of prime polynomials in short intervals
 and in residue classes}, arXiv:1204.0708.
 \url{https://arxiv.org/abs/1204.0708}.
+\bibitem{Alberts} B. Alberts,
+\emph{Explicit Analytic Continuation of Euler Products},
+Essential Number Theory 5 (2026), 49--112.
+\url{https://arxiv.org/abs/2406.18190}.
 \bibitem{BarySorokerStix} L. Bary-Soroker, J. Stix,
 \emph{Cubic twin prime polynomials are counted by a modular form},
 arXiv:1711.05564. \url{https://arxiv.org/abs/1711.05564}.
