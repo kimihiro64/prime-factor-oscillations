@@ -2020,6 +2020,8 @@ variance and finite product-space energy theorems below are formalized
 without any trace-bound hypothesis.
 The positive tagged construction below also has exact support over odd
 fields with \(q\geq5\) and near-minimal packet energy, without Hasse's theorem.
+Its full two-character reference, sharp uniform correction and complete
+supported finite-tail comparison are also proved in maintained Lean.
 The independent-tag synthesis below proves the exact flat conditional
 law and unique optimal energy for arbitrary labelled shapes over every
 odd finite field with nonempty admissible support.
@@ -2594,6 +2596,150 @@ positive actual-count construction, its small-field treatment and
 its uniform comparison with every admissible mean-one competitor.
 External priority for that combination has not been established.
 No new integer recurrence or zero-free exponent is asserted.
+
+\subsection{A sharp two-character reference after positive averaging}
+
+Fix an odd finite field \(F\) of cardinality \(q\geq5\) and
+\(h\in F^\times\). For \(c\in F\), write
+\[
+ a_c=\chi(-hc),\qquad b_c=\chi(h(c+h)),\qquad
+ \gamma_h(c)=1_{\{c\ne0,\ c+h\ne0\}}.
+\]
+For real \(q\geq5\) and \(a,b\leq1\), define the positive reference
+\[
+ {\cal D}(q,a,b)=
+       \frac1{(1-1/q)^2(1-a/q)(1-b/q)}.
+\]
+Every denominator is strictly positive on this domain.
+
+\begin{theorem}[The complete two-character comparison]
+\label{thm:twistTwoCharacter}
+The actual two-tag conditional weight from
+Theorem~\ref{thm:positiveTwistLaw} satisfies, at every \(c\in F\),
+\[
+       v_h(c)=\gamma_h(c)\,{\cal D}(q,a_c,b_c)\,R_h(c),
+\]
+where \(R_h(c)=1\) at \(c=0,-h\), while at an admissible constant
+\[
+ R_h(c)=
+ \frac{q-1+a_c+b_c}{q-3}
+            (1-1/q)^2(1-a_c/q)(1-b_c/q).
+\]
+The completed correction obeys the uniform estimates
+\[
+                 R_h(c)>0,\qquad
+                 |R_h(c)-1|\leq\frac{143}{25q^2}.
+\]
+On the admissible support it has only two possible values:
+\[
+ R_h(c)=
+ \begin{cases}
+ (1-q^{-2})^2,&a_c=b_c=-1,\\[2pt]
+ \displaystyle\frac{(q+1)(q-1)^4}{q^4(q-3)},&\text{otherwise}.
+ \end{cases}
+\]
+The constant \(143/25\) is sharp on the scalar sign domain:
+equality occurs at \(q=5,\ a=1,\ b=-1\).
+No Hasse estimate is assumed.
+\end{theorem}
+
+\begin{proof}
+At the two forbidden constants the actual weight and its opening mask
+both vanish. At every other constant, the exact signed count identity gives
+\[
+                     v_h(c)=\frac{q-1+a_c+b_c}{q-3}.
+\]
+Both characters are then signs. Multiplying by the full reference
+denominator gives the displayed correction. Checking the four sign
+pairs gives the two values stated above, before applying any estimate.
+
+The first value is positive and its distance from one is
+\(2/q^2-1/q^4\leq2/q^2\).
+For the second, put
+\[
+ P(q)=2q^3+2q^2-3q+1
+              =(q-1)(2q^2+4q+1)+2>0.
+\]
+Its distance from one is exactly \(P(q)/(q^4(q-3))\), and
+\[
+ \frac{143}{25}q^2(q-3)-P(q)
+       =\frac{(q-5)(93q^2-14q+5)}{25}\geq0.
+\]
+This proves the uniform bound. At \(q=5\), the nonnegative error is
+\(143/625=(143/25)/5^2\), proving scalar sharpness.
+At a forbidden constant the completed correction is one, so the same
+bounds hold there. Strict positivity of the reference follows from
+\(a,b\leq1\) and \(q\geq5\).
+\end{proof}
+
+\begin{theorem}[Uniform complete finite tails]
+\label{thm:twistTwoCharacterTail}
+Let \(4\leq Y\leq M\) be integers and
+\(T\subseteq\{Y+1,\ldots,M\}\). For each \(n\in T\), choose an odd finite
+field \(F_n\) with cardinality \(n\), a nonzero \(h_n\in F_n\), and any
+\(c_n\in F_n\). Let \(R_n,\gamma_n,{\cal D}_n\) be the completed correction,
+opening mask and full reference at that field and those inputs.
+Then
+\[
+ e^{-286/(25Y)}\leq\prod_{n\in T}R_n\leq e^{286/(25Y)}.
+\]
+Writing \(P_T=\prod_{n\in T}\gamma_n{\cal D}_n\), the full packet satisfies
+\[
+ P_Te^{-286/(25Y)}
+       \leq\prod_{n\in T}v_{h_n}(c_n)
+       \leq P_Te^{286/(25Y)}.
+\]
+These statements include empty \(T\) and packets containing forbidden
+residues. No division by \(P_T\) is made.
+\end{theorem}
+
+\begin{proof}
+The exact finite product of the local identities is
+\[
+                \prod_{n\in T}v_{h_n}(c_n)
+                       =P_T\prod_{n\in T}R_n.
+\]
+For every \(n\in T\), the correction is positive and
+\[
+ |R_n-1|\leq\frac{143}{25n^2}<\frac12,\qquad
+ |\log R_n|\leq\frac{286}{25n^2}.
+\]
+The existing inverse-square tail estimate gives
+\[
+ \left|\log\prod_{n\in T}R_n\right|
+       \leq\frac{286}{25}\sum_{n\in T}\frac1{n^2}
+       \leq\frac{286}{25Y}.
+\]
+Exponentiate and multiply by \(P_T\geq0\). All character factors
+and masks remain in the complete consumer.
+\end{proof}
+
+\paragraph{Prime characteristics and exceptions.}
+For the fixed positive even integer shift \(h\) and integer input \(m\), the two
+retained local characters at a good prime are evaluated at
+\(-hm\) and \(h(m+h)\), respectively. The prime-indexed version of the
+finite-tail comparison is a specialization of the displayed field-valued
+theorem. At \(p=2,3\), and at primes dividing \(h\), retain the stated flat
+admissibility fallback; these finitely many factors are not absorbed into
+the correction. At primes dividing \(m(m+h)\), the opening mask is zero,
+and the full packet comparison remains valid. Neither character row is
+discarded when it happens to take the value \(+1\).
+
+\paragraph{Formal status and scope.}
+The maintained module \texttt{QuadraticPairTwistEuler} proves the sharp
+scalar table and error bound, positivity of every reference denominator,
+the all-constant masked identity, its actual tagged-count normalization,
+the complete field-valued product identity and the two finite-tail
+comparisons. All named real proofs compile with only foundational axioms.
+The construction applies to the positive two-tag law; the earlier
+seven-factor comparison concerns the original conditional-pair law.
+The extraction of first-order Euler factors is a standard
+method~\cite{Alberts}. The specific trace-cancelled actual-count law,
+sharp constant and complete finite consumers are the result here;
+external priority for that combination has not been established.
+No integer short-window mass bound, analytic continuation of the
+character factors, or zero exclusion is inferred from this finite
+comparison.
 
 \subsection{Exact optimal laws for arbitrary finite constellations}
 
