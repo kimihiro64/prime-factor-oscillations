@@ -5363,8 +5363,8 @@ rows with nonprincipal Dirichlet characters of modulus at most
 \(Q<n\), \(n+h\leq Q^2\), \(Q>h>0\).
 The proved prime-pair extraction makes \(n\) and \(n+h\) prime there.
 Reciprocity, nonprincipality, the level bounds and the signed joint
-character estimate are formalized. The remaining Euler-product consumer
-must retain every exceptional prime and opening mask.
+character estimate are formalized. The packet comparison below now
+consumes that estimate while retaining every exceptional prime and opening mask.
 
 The displayed harmonic-tail theorem is proved for actual integer primes.
 It supplies the required bounded signed character tail after a
@@ -5372,8 +5372,9 @@ polylogarithmic cutoff. The prospective packet envelope
 \[
                 U_Q(n)\ll_h(\log Q)^2(\log\log Q)^2
 \]
-is not yet a theorem of this paper: its product consumer and finite
-exceptional-row assembly remain open. No positive short-height packet mass,
+is not yet a theorem of this paper: its sharper hybrid amplitude envelope
+and final core choice remain open. The masked product comparison is proved below.
+No positive short-height packet mass,
 integer prime-pair recurrence, change to \(H_1\), or new zero-free
 exponent follows from the harmonic estimate alone.
 
@@ -5459,8 +5460,8 @@ The two finite-field Euler coordinates are identified pointwise with
 \(\kappa_{-hn}(p)\) and \(\kappa_{h(n+h)}(p)\) at every odd prime.
 Their zero values are retained. The row at \(2\), the small rows, and
 the rows dividing \(h\) remain in the exact finite core of the packet.
-To use the joint estimate for the likelihood tail, the still-pending
-product consumer must keep those rows and the summable local correction.
+The following packet comparison keeps those rows and carries the signed
+joint estimate through the summable local correction.
 
 \paragraph{Formal status.}
 The maintained owner \texttt{Assembly/DetectorPackets/IntegerQuadraticCharacter}
@@ -5477,6 +5478,168 @@ These results are exported through \texttt{Assembly/ProbabilityProfiles}.
 The packet envelope, independent positive packet mass and integer
 recurrence remain open. This is an application of the installed QRH
 estimate; no new zero-free exponent or independent priority claim is made.
+
+\section{Pointwise comparison at natural integer height}
+The signed character estimate now passes through the complete masked
+packet factorization. The result is uniform in the shift, the integer
+sample and both divisor cutoffs.
+
+\begin{theorem}[Natural-height packet comparison]\label{thm:natural-height-packet-comparison}
+There is an absolute constant \(C>0\) such that, for natural numbers
+\(K,h,Q,n\) satisfying
+\[
+ 6\leq K\leq Q,\qquad 1\leq h\leq K,\qquad h<Q<n,\qquad n+h\leq Q^2,
+\]
+and
+\[
+             K+1\geq\bigl(3+\log(4hQ^2)\bigr)^{64},
+\]
+the actual and flat-tail hybrid packets, with the same shift \(h\), obey
+\[
+ e^{-2C-18/K}V_{K,Q}(n)\leq U_Q(n)
+          \leq e^{\,2C+8/K}V_{K,Q}(n).
+\]
+The constant is chosen before all four natural parameters. The conclusion
+includes their common zero branch.
+\end{theorem}
+
+\begin{proof}
+First suppose \(U_Q(n)>0\). The deterministic extraction theorem makes
+\(n\) and \(n+h\) prime. For each tail prime \(K<p\leq Q\), neither opening
+vanishes. Also \(p\nmid h\), since \(p>K\geq h\).
+Write
+\[
+ s_p=\kappa_{-hn}(p)+\kappa_{h(n+h)}(p),\qquad
+ a_p=(1-2/p)u_p(n)-1.
+\]
+Both character values are retained. The exact local law gives
+\[
+ a_p=\frac{s_p}{p}+\frac{2+s_p}{p(p-3)},\qquad -2\leq s_p\leq2.
+\]
+For \(p\geq7\), it follows that
+\[
+                    0\leq a_p-\frac{s_p}{p}\leq\frac8{p^2}.
+\]
+Indeed \(p(p-3)\geq p^2/2\). The existing likelihood bound gives
+\(|a_p|\leq3/p\leq1/2\). The proved logarithm estimate is
+\[
+                    |\log(1+a_p)-a_p|\leq2a_p^2.
+\]
+For the lower bound, retain the nonnegative residue
+\(a_p-s_p/p\); for the upper bound, use \(\log(1+a_p)\leq a_p\).
+Thus
+\[
+ -\frac{18}{p^2}\leq\log(1+a_p)-\frac{s_p}{p}\leq\frac8{p^2}.
+\]
+
+Let \(L_{K,Q}(n)\) denote the exact \texttt{tailLogSum}, and let
+\[
+                      S_{K,Q}(n)=\sum_{\substack{K<p\leq Q\\p\ {\rm prime}}}
+                                      \frac{s_p}{p}.
+\]
+The supported row sum, including its nonprime zero terms, and the existing
+inverse-square tail estimate give
+\[
+ -\frac{18}{K}\leq L_{K,Q}(n)-S_{K,Q}(n)\leq\frac8K.
+\]
+Theorem~\ref{thm:integer-character-natural-height}, applied at
+\(Y=K+1\) and \(X=Q+1\), gives \(|S_{K,Q}(n)|\leq2C\). Therefore
+\[
+ -2C-\frac{18}{K}\leq L_{K,Q}(n)\leq2C+\frac8K.
+\]
+The complete factorization
+\(U_Q(n)=V_{K,Q}(n)\exp(L_{K,Q}(n))\), with \(V_{K,Q}(n)\geq0\),
+now proves both inequalities.
+If \(U_Q(n)=0\), the same factorization and the strict positivity of the
+exponential imply \(V_{K,Q}(n)=0\), and both inequalities still hold.
+All small-prime and prime-dividing-shift factors stay in the core.
+\end{proof}
+
+\paragraph{What the estimate changes.}
+The unrestricted CRT construction attains likelihood growth of order
+\((\log Q/\log K)^2\). On positive packets, the natural-height theorem bounds the ratio
+by the displayed exponential factors throughout the stated core range. It supplies a pointwise arithmetic constraint on the
+finite-field packet at integer height. A positive lower bound for its
+mass on unbounded integer windows is still a separate problem.
+The sharper hybrid amplitude envelope and the eventual choice of a
+polylogarithmic core remain to be assembled before asserting the
+prospective \((\log Q)^2(\log\log Q)^2\) packet bound.
+
+\paragraph{Formal status and literature.}
+The maintained owner \texttt{Assembly/FiniteFieldIntegerHeight} proves
+\texttt{local\_correction\_character\_identity},
+\texttt{local\_correction\_character\_bounds},
+\texttt{local\_log\_character\_bounds}, the exact supported signal
+identities, \texttt{tail\_row\_log\_character\_bounds},
+\texttt{tail\_log\_character\_band}, and
+\texttt{exists\_natural\_height\_packet\_comparison}.
+The formal signed-band observable is \texttt{tailLogSum}; the final
+consumer uses multiplication inequalities and covers zero packets.
+The result is exported through \texttt{Assembly/ProbabilityProfiles}.
+
+Character-based Euler-product truncation is classical; related tools
+appear in Section~4 and Lemma~6.1 of
+David--Koukoulopoulos--Smith~\cite{DavidKoukoulopoulosSmith}.
+The conclusion here is a pointwise height comparison for the particular
+masked quadratic-pair law, using the installed uniform QRH input.
+No general Euler-product method or independent external priority is claimed.
+
+\subsection{Crest exclusion from the natural prime-pair window}
+
+\begin{theorem}[The same crest retains its height exclusion]
+\label{thm:crest-height-exclusion}
+There is an absolute \(C>0\) with the following property.
+For each positive even \(h\) and each \(Q\geq12\), one can select
+\(0\leq a<P_Q\) retaining all the positive-packet, exact frozen-factor
+and two-sided crest inequalities of Theorem~\ref{thm:sharpTwoCutoffGrowth}.
+This same \(a\), selected before \(K\), also has the following property.
+
+Suppose
+\[
+ 12\leq K\leq Q,\qquad h\leq K,\qquad h<Q,\qquad
+ K+1\geq\bigl(3+\log(4hQ^2)\bigr)^{64},
+\]
+and
+\[
+                 e^{\,2C+8/K}<\gamma_h
+                        \left(\frac{\log Q}{\log K}\right)^2.
+\]
+Then every lift \(n_t=a+P_Qt\), \(t\geq0\), satisfies
+\[
+                         n_t\leq Q\quad\hbox{or}\quad n_t+h>Q^2.
+\]
+In particular, this crest class has no lift in the natural prime-pair
+window \(Q<n\), \(n+h\leq Q^2\) under the stated parameter condition.
+\end{theorem}
+\begin{proof}
+Take \(C\) from the natural-height packet comparison and choose \(a\)
+from the simultaneous sharp-attainment theorem. Keep its full crest
+properties as part of the same existential conclusion.
+If a lift lay in the natural window, the comparison would give
+\[
+                    U_Q(n_t)\leq e^{\,2C+8/K}V_{K,Q}(n_t).
+\]
+The retained crest lower bound gives
+\[
+               \gamma_hR_{K,Q}V_{K,Q}(n_t)\leq U_Q(n_t).
+\]
+Since \(V_{K,Q}(n_t)>0\), the strict parameter inequality makes these
+two inequalities incompatible. This proves the stated alternative
+for every lift, while preserving the original crest properties.
+\end{proof}
+
+The condition is the displayed inequality involving the universal QRH
+constant and \(\gamma_h\); no numerical first cutoff is asserted.
+To establish integer recurrence, one still needs an independent supply
+of compatible lifts inside the natural windows. This theorem controls
+where the maximizing lifts can occur under its criterion.
+
+The maintained owner \texttt{Assembly/FiniteFieldIntegerCrestHeight}
+defines \texttt{crestClass} with the full positive-packet, frozen-factor
+and two-sided amplification properties, and proves
+\texttt{exists\_crest\_outside\_natural\_height}. Its statement returns
+those properties on the same integer as the height exclusion.
+It is exported through \texttt{Assembly/ProbabilityProfiles}.
 
 \section{Arithmetic transfers and the next ascent investigation}
 \paragraph{Existing ingredients.}
