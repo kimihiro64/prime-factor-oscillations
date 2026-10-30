@@ -1,0 +1,2274 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\setlength{\textwidth}{6.5in}
+\setlength{\textheight}{9in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\evensidemargin}{0in}
+\setlength{\topmargin}{-0.5in}
+\newcommand{\url}[1]{\texttt{\detokenize{#1}}}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\F}{\mathbf F}
+\newcommand{\T}{\mathbf T}
+\newcommand{\Z}{\mathbf Z}
+\newcommand{\Real}{\operatorname{Re}}
+\newcommand{\cl}{\operatorname{cl}}
+\title{Prime Profiles and Oscillation over Finite Fields\\
+\large Optimal deletion, Frobenius waves, and ascent geometry}
+\author{Research working draft}
+\date{29 October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We study the minimum deletion of closed points needed to keep a cumulative
+degree-weighted prime count below its geometric main term. For a smooth
+projective geometrically connected curve over a fixed finite field, the
+greedy deletion process has a full asymptotic description by a damped
+envelope of its Frobenius phases. Either the greedy deletion set is finite,
+or its count through degree \(n\) is of order \(q^{n/2}/n\). In the second
+case its count is asymptotically optimal among all admissible retained sets.
+Prime squares determine a parity bias; prime cubes settle the boundary
+where the leading phase function has maximum zero. For elliptic curves
+we classify every case, including the fields with two and three elements.
+We also transfer the exact factor-density ascent identity to
+\(\F_q[T]\), classify all unimodal ranks, and determine the eventual
+number of modes as \(q\) grows at fixed rank. Quadratic polynomial
+sampling supplies character-sensitive profiles with an explicit
+square-root-accurate reference clock. At fixed odd \(q\) and rank
+\(k\geq2\), these quadratic profiles realize every finite ascent word;
+their maximal peak count among \(\deg D\leq H\) is of sharp order
+\(\log H\), although their Galois group is always the same.
+\end{abstract}
+
+\paragraph{Status.}
+This is a new finite-field manuscript containing ordinary mathematical
+arguments, not yet Lean formalizations. Existing maintained proofs supply
+the abstract greedy record mechanism and damped-wave method; their
+integer-prime consumers do not automatically constitute finite-field
+adapters. The curve zeta formula and Hasse--Weil theorem are classical
+inputs. Contributions under investigation are the optimal deletion
+problem, its full past-wave law, its elliptic classification, and the
+complete factor-profile unimodality and large-field mode classifications,
+finite-word realization, and logarithmic quadratic-profile complexity.
+The character-clock estimate below is an application of classical
+finite-field RH, not an independent novelty claim.
+Priority and publishability remain under review. The finite computations
+below are diagnostics rather than universal proofs. No new number-field
+zero-free exponent is claimed.
+
+\section{The retained set and its optimality problem}
+Fix a prime power \(q\geq2\) and a smooth projective geometrically connected
+curve \(C/\F_q\) of genus \(g\). Primes mean closed points. Let \(B_d\)
+count its degree-\(d\) closed points, and put
+\[
+ N_m=\#C(\F_{q^m}),\quad
+ \Theta(n)=\sum_{d=1}^n dB_d,\quad
+ T(n)=\sum_{j=1}^nq^j=\frac{q^{n+1}-q}{q-1}.
+\]
+All cumulative quantities are zero at \(n=0\). A prime of degree \(d\)
+has norm \(q^d\), so the weight \(d\) is log norm divided by \(\log q\).
+A retained set \(S\) is admissible when
+\[
+ \Theta_S(n)=\sum_{\substack{P\in S\\\deg P\leq n}}\deg P\leq T(n)
+ \quad\text{for every }n\geq1.
+\]
+Its deleted mass and count are
+\[
+ D_S(n)=\sum_{\substack{P\notin S\\\deg P\leq n}}\deg P,\qquad
+ K_S(n)=\#\{P\notin S:\deg P\leq n\}.
+\]
+Process points in increasing degree, retaining a degree-\(d\) point
+exactly when its addition preserves the budget \(T(d)\). Any order
+within one degree gives the same number retained there. Write \(D,K\)
+for the greedy deleted mass and count.
+
+\begin{lemma}[Exact record sandwich]\label{lem:record}
+For \(E(n)=\Theta(n)-T(n)\) and
+\(R(n)=\max(0,E(1),\ldots,E(n))\), one has
+\[
+ R(n)\leq D(n)\leq R(n)+n.                         \tag{1}
+\]
+Every admissible \(S\) satisfies \(D_S(n)\geq R(n)\).
+\end{lemma}
+\begin{proof}
+Admissibility gives \(D_S(j)\geq E(j)\), and deleted mass is
+nondecreasing. This proves the lower bounds. If the greedy rule has
+made no rejection, \(D=R=0\). Otherwise its last rejection through
+degree \(n\) is at a point of degree \(d\leq n\). If \(m\) is deleted
+mass before rejection and \(e\) the full mass up to that point minus
+\(T(d)\), rejection says \(m<e\). Afterwards the mass is \(m+d<e+d\).
+The full excess increases within a degree, so \(e\leq E(d)\leq R(n)\).
+There is no subsequent increase of deleted mass, proving the upper bound.
+\end{proof}
+The generic mechanism is the one already proved by
+\texttt{clockDeletedMass\_record\_bounds} in the maintained
+\texttt{GreedyRegulator.lean}; this application uses degree weights.
+
+\section{All prime powers and the Frobenius wave}
+The classical zeta formula and finite-field RH give, with multiplicities,
+\[
+ N_m=q^m+1-\sum_{i=1}^{2g}\alpha_i^m,\qquad
+ |\alpha_i|=\sqrt q.                              \tag{2}\label{eq:weil}
+\]
+The roots are conjugate-paired; for genus zero the sum is empty.
+See Milne~\cite{Milne}. Write \(A(m)=\sum_{j=1}^mN_j\).
+
+\begin{lemma}[Exact inversion]\label{lem:mobius}
+\[
+ N_m=\sum_{d\mid m}dB_d,\qquad
+ \Theta(n)=\sum_{k=1}^n\mu(k)A(\lfloor n/k\rfloor). \tag{3}\label{eq:mobius}
+\]
+\end{lemma}
+\begin{proof}
+A degree-\(d\) closed point contributes \(d\) rational points over
+\(\F_{q^m}\) if \(d\mid m\), and none otherwise. In the second expression
+the coefficient of \(dB_d\) is
+\(\sum_{v\leq n/d}\sum_{k\mid v}\mu(k)=1\).
+\end{proof}
+
+Put \(r=\sqrt q,\ z_i=\alpha_i/r,\ c_i=\alpha_i/(\alpha_i-1)\).
+All denominators are nonzero because \(r>1\). For \(n\in\Z\), put
+\[
+ b_n=\begin{cases}q/(q-1)&n\text{ even},\\
+ r/(q-1)&n\text{ odd},\end{cases}
+ \qquad a_n=-\Real\sum_i c_i z_i^n-b_n.             \tag{4}\label{eq:wave}
+\]
+
+\begin{proposition}[The boundary retains prime cubes]\label{prop:expansion}
+For fixed \(q,g\),
+\[
+ E(n)=q^{n/2}a_n-T(\lfloor n/3\rfloor)
+       +O_{q,g}(n^2q^{n/4}),                      \tag{5}\label{eq:cubes}
+\]
+and consequently \(E(n)=q^{n/2}a_n+O_{q,g}(q^{n/3})\).
+\end{proposition}
+\begin{proof}
+Geometric summation in (2) gives the exact identity
+\[
+ A(m)=T(m)+m-\sum_i c_i(\alpha_i^m-1).
+\]
+In (3) keep \(k=1,2,3\) with signs \(+,-,-\).
+The fourth term vanishes since \(\mu(4)=0\). The entire remaining
+sum is \(\sum_{k=5}^n\mu(k)A(\lfloor n/k\rfloor)\). Since
+\(A(m)=O_{q,g}(q^m)\), that remainder is \(O_{q,g}(nq^{n/5})\).
+The nonconstant Frobenius terms from \(k=2,3\) are
+\(O_{q,g}(q^{n/4}+q^{n/6})\); linear and constant contributions are
+\(O_{q,g}(n)\). Finally
+\(T(\lfloor n/2\rfloor)=b_nq^{n/2}-q/(q-1)\).
+These identities prove (5), retaining the square bias, every leading
+zero phase, and the negative cube term. The last assertion follows
+because \(n^2q^{n/4}=O_q(q^{n/3})\).
+\end{proof}
+
+\section{A full past-wave law}
+Let
+\[
+ H=\cl\{(z_1^n,\ldots,z_{2g}^n,(-1)^n):n\in\Z\}
+       \subseteq\T^{2g}\times\{1,-1\}.
+\]
+This is a compact group. Let \(h_n=(z_1^n,\ldots,z_{2g}^n,(-1)^n)\),
+and let \(\tau\) be translation by \(h_1\). Define on \(H\)
+\[
+ b(\eta)=\frac{q+r}{2(q-1)}
+              +\eta\,\frac{q-r}{2(q-1)},\quad
+ a(w,\eta)=-\Real\sum_i c_iw_i-b(\eta),
+\]
+so \(a(h_n)=a_n\), and define
+\[
+ F(h)=\sup_{\ell\geq0}r^{-\ell}
+             \max(0,a(\tau^{-\ell}h)).            \tag{6}\label{eq:envelope}
+\]
+This formula keeps every lag of the past wave.
+
+\begin{theorem}[Envelope and count law]\label{thm:wave}
+The function \(F\) is continuous, and
+\[
+ \frac{D(n)}{q^{n/2}}=F(h_n)+O_{q,g}(q^{-n/6}),\qquad
+ \frac{nK(n)}{q^{n/2}}=F(h_n)+O_{q,g}(1/n).       \tag{7}\label{eq:law}
+\]
+No linear independence hypothesis is needed.
+\end{theorem}
+\begin{proof}
+Truncating (6) to \(0\leq\ell\leq L\) changes it by at most
+\(\|a\|_\infty r^{-L-1}\), uniformly. A uniform limit of these
+continuous finite maxima is continuous.
+Proposition~\ref{prop:expansion} gives
+\[
+ \left|\frac{R(n)}{r^n}
+  -\max_{1\leq j\leq n}r^{j-n}(a_j)_+\right|
+       =O_{q,g}(q^{-n/6}).
+\]
+The additional terms \(\ell\geq n\) in (6) contribute
+\(O_{q,g}(r^{-n})\). Lemma~\ref{lem:record} changes normalized mass
+by at most \(n/r^n=O_q(q^{-n/6})\), proving the first formula.
+Finite summation by parts gives
+\[
+ K(n)=\frac{D(n)}n+
+        \sum_{j=1}^{n-1}\frac{D(j)}{j(j+1)}.       \tag{8}\label{eq:Abel}
+\]
+Since \(D(j)=O_{q,g}(r^j)\), splitting at \(n/2\) bounds the sum
+by \(O_{q,g}(r^n/n^2)\). This proves the count formula.
+\end{proof}
+
+\begin{theorem}[Finite or square-root, with no intermediate case]\label{thm:dichotomy}
+If \(\max_H a\leq0\), the greedy deletion set is finite.
+If \(\max_H a>0\), there exist \(c,C>0,n_0\), depending on the curve
+and field, such that for every \(n\geq n_0\),
+\[
+ c\,q^{n/2}/n\leq K(n)\leq C\,q^{n/2}/n.          \tag{9}
+\]
+Every admissible retained set satisfies the same lower bound,
+possibly with a different positive \(c\).
+\end{theorem}
+\begin{proof}
+When \(\max_Ha\leq0\), (5) gives
+\(E(n)\leq-T(\lfloor n/3\rfloor)+O_{q,g}(n^2q^{n/4})<0\)
+eventually, because \(q^{n/3}\) dominates \(n^2q^{n/4}\).
+All within-degree excesses are at most the negative endpoint excess,
+so no later rejection is possible. This includes the boundary
+\(\max_Ha=0\).
+
+Otherwise choose \(\delta>0\) so \(U=\{h:a(h)>\delta\}\) is nonempty.
+Translation by \(\tau\) is minimal on \(H\): its cyclic subgroup
+is dense by the definition of \(H\). Every backward orbit meets \(U\),
+so the open sets \(\tau^\ell U\), \(\ell\geq0\), cover \(H\).
+Compactness yields a finite subcover with indices at most \(L\).
+Thus \(F(h)\geq r^{-L}\delta>0\) for all \(h\), and (7) proves (9).
+For arbitrary admissible \(S\),
+\(D_S(n)\geq R(n)\gg q^{n/2}\) by the same record formula.
+Each deletion through degree \(n\) has weight at most \(n\), hence
+\(K_S(n)\geq D_S(n)/n\).
+\end{proof}
+
+\begin{corollary}[Asymptotically optimal number of deletions]\label{cor:optimal}
+In the positive case let \(M(n)=\min_S K_S(n)\), with the minimum over
+all admissible retained sets. Then
+\[
+ 0\leq K(n)-M(n)=O_{q,g}(q^{n/2}/n^2),\qquad
+ K(n)/M(n)=1+O_{q,g}(1/n).
+\]
+\end{corollary}
+\begin{proof}
+The minimum exists: the family contains the greedy set and counts
+are nonnegative integers. Every \(S\) has \(K_S(n)\geq R(n)/n\).
+Equations (1) and (8) give
+\(K(n)=R(n)/n+O_{q,g}(q^{n/2}/n^2)\).
+The positive case has \(M(n)\gg q^{n/2}/n\), allowing division.
+\end{proof}
+
+\begin{corollary}[Distribution with dependent phases]
+For every continuous \(G:\mathbb R\to\mathbb R\),
+\[
+ \lim_{N\to\infty}\frac1N\sum_{n=1}^N
+ G(nK(n)/q^{n/2})=\int_HG(F(h))\,dm_H(h),
+\]
+where \(m_H\) is normalized Haar measure.
+\end{corollary}
+\begin{proof}
+The averages of each nontrivial character along powers of \(h_1\)
+are geometric sums tending to zero. Characters approximate continuous
+functions on the compact abelian group \(H\), proving equidistribution.
+Apply this to \(G\circ F\), then use (7) and uniform continuity on
+a compact interval containing all normalized counts.
+\end{proof}
+
+\section{Complete classification for elliptic curves}
+Let \(t=q+1-\#E(\F_q)\) and let \(\alpha,\bar\alpha\) be the roots of
+\(X^2-tX+q\). Put \(z=\alpha/r,\ c=\alpha/(\alpha-1)\). Then
+\[
+ a_n=-2\Real(cz^n)-b_n,\qquad
+ |c|^2=\frac q{q+1-t},\quad
+ \Real c=\frac{q-t/2}{q+1-t}.                     \tag{10}\label{eq:elliptic}
+\]
+
+\begin{theorem}[Every field, including the small exceptions]\label{thm:elliptic}
+There exists an admissible retained set with finite complement
+if and only if
+\[
+ \boxed{\,t=2\sqrt q\quad\text{or}\quad
+ (q,t)\in\{(2,-2),(2,-1),(2,0),(3,0)\}.\,}         \tag{11}
+\]
+The first case requires \(q\) to be a square. In all other cases
+the optimal deletion count is of order \(q^{n/2}/n\), with
+the asymptotic optimality in Corollary~\ref{cor:optimal}.
+\end{theorem}
+\begin{proof}
+By density and continuity, \(\max_Ha\leq0\) means exactly
+\(a_n\leq0\) for every \(n\).
+Suppose first \(q\geq4\), so \(r\geq2\).
+If \(z=1\), then \(t=2r\) and \(c=r/(r-1)>0\), making every
+\(a_n\) negative. If \(z=-1\), an odd \(n\) gives
+\[
+ a_n=\frac{2r}{r+1}-\frac r{q-1}
+       =\frac{r(2r-3)}{(r-1)(r+1)}>0.
+\]
+If \(z\) has order four, take \(z=i\); direct calculation yields
+\[
+ a_2=\frac{q(q-3)}{(q-1)(q+1)}>0.
+\]
+
+For every remaining nonreal \(z\), odd powers either are dense on the
+circle, run over all roots of an odd order \(h\geq3\), or run over a
+rotated regular \(h/2\)-gon for even \(h\geq6\). The nearest point to
+a prescribed angle is within \(\pi/3\). Thus some odd \(n\), or an
+arbitrarily close approximation in the dense case, has
+\(-2\Real(cz^n)\geq |c|\).
+For nonreal \(\alpha\), \(|\alpha-1|<r+1\) strictly, so
+\[
+ |c|>\frac r{r+1}\geq\frac r{q-1}=b_n
+ \quad(n\text{ odd}).
+\]
+This produces a positive phase, finishing all \(q\geq4\).
+
+For \(q=2\), Hasse's bound leaves traces \(-2,-1,0,1,2\).
+At \(t=-2\), \(2|c|=2\sqrt{2/5}<\sqrt2=\min b_n\);
+at \(t=-1\), \(2|c|=\sqrt2=\min b_n\). These give nonpositive
+waves. At \(t=0\), \(z=i\); the four classes of \(n\bmod4\) give
+negative values, since classes zero and one are negative and
+\[
+ a_2=\frac{q(q-3)}{(q-1)(q+1)},\qquad
+ a_3=\frac{\sqrt q(q-3)}{(q-1)(q+1)}.
+\]
+For \((q,t)=(2,1)\), \(z\) has infinite order. Otherwise
+\(z+z^{-1}\) would be an algebraic integer, making its square
+\(t^2/q=1/2\) a rational algebraic integer, a contradiction.
+Odd powers are dense, and \(2|c|=2>\sqrt2\) gives a positive phase.
+For \((2,2)\), \(\alpha=1+i,\ c=1-i\); explicitly \(a_5=\sqrt2>0\).
+
+For \(q=3\), the possible integer traces are \(-3,-2,-1,0,1,2,3\).
+When \(t=0\) the preceding four-class calculation gives \(a_n\leq0\),
+with equality in classes two and three. At \(t=-2,-1,1,2\), the
+rational number \(t^2/3\) is not an integer, proving infinite order
+of \(z\) as above; moreover
+\(2|c|\geq\sqrt2>\sqrt3/2=\min b_n\).
+The odd orbit supplies a positive phase. For the two remaining
+traces, direct evaluation gives
+\[
+ a_5=\sqrt3/2>0\ (t=3),\qquad
+ a_{11}=3\sqrt3/14>0\ (t=-3).
+\]
+The dichotomy now proves all assertions, including the nonpositive
+boundary cases.
+\end{proof}
+
+\section{Exact ascent transfer for irreducible polynomials}
+
+This section concerns \(\F_q[T]\), with its affine irreducible polynomials,
+rather than all closed points of a projective curve. Enumerate the monic
+irreducibles \(P_1,P_2,\ldots\) in nondecreasing degree, with arbitrary
+tie breaking, and write \(Q_i=q^{\deg P_i}\), \(w_i=(Q_i-1)^{-1}\).
+For \(k\geq1\), let \(d_{q,k}(i)\) be the limiting probability that
+\(P_i\) is the \(k\)-th distinct irreducible factor of a uniformly
+sampled monic polynomial of degree \(M\), as \(M\to\infty\).
+A polynomial with fewer than \(k\) distinct factors contributes to none
+of these events. Multiplicity does not change the position of a factor.
+
+\begin{lemma}[Actual sampling and the exact ascent identity]\label{lem:polyAscent}
+With \(e_j\) the elementary symmetric polynomial,
+\[
+ d_{q,k}(i)=\frac1{Q_i}\prod_{j<i}(1-Q_j^{-1})
+                  e_{k-1}(w_1,\ldots,w_{i-1}).       \tag{12}
+\]
+This probability is already exact whenever
+\(M\geq\sum_{j=1}^i\deg P_j\). The numerical sequence does not depend
+on the tie breaking. For \(k\geq2,\ i\geq k\), put
+\[
+ R_{k-1}(i)=
+ \frac{e_{k-2}(w_1,\ldots,w_{i-1})}
+      {e_{k-1}(w_1,\ldots,w_{i-1})}.
+\]
+All denominators are positive, and
+\[
+ \frac{d_{q,k}(i+1)}{d_{q,k}(i)}
+   =\frac{Q_i-1+R_{k-1}(i)}{Q_{i+1}}.
+\]
+Consequently
+\[
+ d_{q,k}(i+1)>d_{q,k}(i)
+ \quad\Longleftrightarrow\quad
+ R_{k-1}(i)>Q_{i+1}-Q_i+1.                          \tag{13}\label{eq:polyStep}
+\]
+\end{lemma}
+\begin{proof}
+CRT gives independence of the divisibility indicators for the first
+\(i\) irreducibles, with probabilities \(1/Q_j\). Every residue class
+modulo \(\prod_{j\leq i}P_j\) occurs equally often among monic
+degree-\(M\) polynomials when \(M\) is at least its degree. Extracting
+the probability of exactly \(k-1\) earlier divisors proves (12).
+Only the ordered norms enter the formula, proving tie invariance.
+Finally \(e_r(w_1,\ldots,w_i)=e_r(w_1,\ldots,w_{i-1})
++w_i e_{r-1}(w_1,\ldots,w_{i-1})\); division of (12) at successive
+indices proves (13).
+\end{proof}
+
+Equation (13) is the literal counterpart of the maintained rational-prime
+ratio-versus-gap criterion. Inside a degree block its threshold is one.
+At a jump from degree \(n\) to \(n+1\), the threshold is
+\((q-1)q^n+1\). Equal norm does not erase the ordinary density ascent;
+it changes the threshold and creates a block structure.
+
+\begin{lemma}[Two coefficient bounds]\label{lem:ratioBounds}
+For \(m\geq r\geq1\) positive weights, total weight \(\mu\), and
+minimum weight \(w_{\min}\),
+\[
+ \frac r\mu\leq\frac{e_{r-1}}{e_r}
+      \leq\frac r{(m-r+1)w_{\min}}.                 \tag{14}
+\]
+Writing \(I_q(d)\) for the number of monic irreducibles of degree \(d\),
+and \(M_n=\sum_{d\leq n}I_q(d)\), one has
+\[
+ \mu_n:=\sum_{d\leq n}\frac{I_q(d)}{q^d-1}
+      \leq H_n+\frac1{q-1}\leq H_n+1,\qquad
+ M_n\geq2n\quad(n\geq4).                           \tag{15}
+\]
+Also \(I_q(d)\geq2\) for \(d\geq3\).
+\end{lemma}
+\begin{proof}
+The exact identity
+\[
+ r e_r=\sum_{|J|=r-1}w_J\sum_{j\notin J}w_j
+\]
+bounds the inner sum between \((m-r+1)w_{\min}\) and \(\mu\),
+giving (14). The identity \(q^d=\sum_{e\mid d}eI_q(e)\) gives
+\(I_q(1)=q\), and \(I_q(d)\leq(q^d-q)/d\) for \(d\geq2\).
+Hence \(I_q(d)/(q^d-1)<1/d\) for \(d\geq2\), proving the
+weight bound.
+
+For completeness, subtracting all possible proper subfield contributions
+gives
+\[
+ d I_q(d)\geq q^d-\sum_{e=1}^{\lfloor d/2\rfloor}q^e
+            \geq q^d-2q^{d/2}.
+\]
+For \(d\geq4\), \(2^d-2^{d/2+1}\geq2d\): check \(d=4,5\)
+and then increase \(d\) by two. The expression \(x^2-2x\) increases
+for \(x\geq1\), so \(I_q(d)\geq2\) for \(d\geq4\).
+The formula \(I_q(3)=(q^3-q)/3\) gives the remaining degree.
+Finally
+\[
+ I_q(1)\geq2,\quad I_q(2)=(q^2-q)/2\geq1,
+ I_q(3)\geq2,\ I_q(4)=(q^4-q^2)/4\geq3
+\]
+give \(M_4\geq8\); each further degree adds at least two.
+\end{proof}
+
+\begin{theorem}[Complete finite-field unimodality classification]\label{thm:polyUnimodal}
+For every prime power \(q\geq2\) and every integer \(k\geq1\),
+the sequence \(i\mapsto d_{q,k}(i)\) is unimodal if and only if
+\[
+                         k\leq2.                 \tag{16}
+\]
+For \(k=1\) it is strictly decreasing. For \(k=2\) it increases
+strictly to the last linear irreducible, then decreases strictly.
+For every \(k\geq3\) there is an explicit strict drop followed by
+a strict rise.
+\end{theorem}
+\begin{proof}
+Unimodal means nondecreasing up to one index and nonincreasing
+afterwards; a strict drop followed later by a strict rise rules this out.
+The first \(k-1\) entries are zero, and all later entries are positive.
+
+For \(k=1\), the step ratio is \((Q_i-1)/Q_{i+1}<1\).
+For \(k=2\), the \(j\)-th linear irreducible has, for \(2\leq j\leq q\),
+\[
+ d_{q,2}(j)=\frac{j-1}{q^2}(1-1/q)^{j-2}.
+\]
+Successive linear entries increase exactly when \(j<q\).
+At the last linear irreducible the ratio to the first quadratic
+is \(1/q<1\). Every subsequent prefix has total weight greater than
+one, so \(R_1=1/\mu<1\), and (13) forces strict decrease forever.
+
+Take \(k\geq5\), put \(r=k-1\), and choose degree \(n=r\geq4\).
+At the last degree-\(n\) irreducible, the preceding prefix has
+\(m=M_n-1\) weights and minimum weight at least \((q^n-1)^{-1}\).
+Since \(M_n\geq2r\), (14) gives \(R_r\leq q^n-1\).
+The next norm is \(q^{n+1}\), so (13) gives a strict drop.
+Before the first degree-\(n+1\) irreducible, (15) and
+\(H_n+1<n\) for \(n\geq3\) give
+\(R_r\geq r/\mu_n>1\).
+There are at least two irreducibles of degree \(n+1\), so the
+next step is a strict rise. The harmonic inequality follows from
+\(H_3+1=17/6<3\) and induction.
+
+For \(k=4,\ q\geq3\), the same proof uses \(n=r=3\):
+\(M_3\geq3+3+8=14\geq6\), and \(\mu_3<3\).
+For \(k=4,\ q=2\), use the degree-three boundary. Before its
+last point the weights are \(1,1,1/3,1/7\), giving
+\(R_3=e_2/e_3=7/2<9=16-8+1\), a strict drop.
+After completing that block, \(\mu_3=55/21<3\); (14) gives
+a rise between the first two degree-four points.
+
+For \(k=3,\ q\geq3\), the ratio before the last linear
+irreducible is \(2(q-1)/(q-2)\leq4\), below the jump threshold
+\(q^2-q+1\geq7\). After all \(q\) linear points,
+\(R_2=e_1/e_2=2>1\), giving a rise between the first two
+quadratic points. For \(k=3,\ q=2\), the ratio before the unique
+quadratic is \(2<5=8-4+1\), giving a drop. The prefix after that
+quadratic has weights \(1,1,1/3\) and \(R_2=7/5>1\).
+The two cubic points give the subsequent rise. All cases are covered.
+\end{proof}
+
+This is a complete statement for all fields and all ranks, with no
+unresolved large-rank range or omitted small field. It differs from
+the rational-prime classification, whose unimodal ranks are
+\(1,2,3\). Its proof uses exact finite-field factor counts and the
+coefficient step identity, rather than a new zero-free estimate.
+
+\section{How many modes: an exact large-field limit}
+
+A positive peak plateau means a maximal run of equal positive entries
+preceded by a strict increase and followed by a strict decrease.
+Endpoint peaks are included. This convention ignores the initial
+zero run and counts a two-entry flat maximum as one peak.
+
+\begin{theorem}[Harmonic mode count]\label{thm:modeCount}
+Fix \(k\geq3\), put \(r=k-1\), and let \(m_k\) be the unique integer with
+\[
+                       H_{m_k-1}<r<H_{m_k}.
+\]
+For all sufficiently large prime powers \(q\), the sequence
+\(d_{q,k}\) has exactly \(m_k\) positive peak plateaus.
+There is one at the last irreducible of each degree below \(m_k\),
+and one in degree \(m_k\). If \(j\) is the position of this last peak
+within its degree block, then
+\[
+ j=q^{m_k}(r-H_{m_k-1})+O_k(q^{m_k-1}).             \tag{17}
+\]
+Thus \(m_3=4,\ m_4=11\), and \(m_k\sim e^{k-1-\gamma}\) as \(k\to\infty\).
+The order of quantifiers is fixed \(k\), then \(q\to\infty\);
+no simultaneous growing-rank estimate is asserted.
+\end{theorem}
+\begin{proof}
+For \(s\geq2\), \(H_s\) is not an integer: among \(1,\ldots,s\)
+the denominator with largest power of two occurs exactly once,
+so that power survives in the reduced denominator of the harmonic sum.
+Harmonic divergence gives existence and uniqueness of \(m_k\).
+
+The coefficient ratio \(R_r\) strictly decreases as a positive weight
+is appended. Indeed its difference has the sign of
+\(e_{r-2}e_r-e_{r-1}^2<0\), by Newton's inequalities; for \(r=1\)
+use \(R_1=1/e_1\). Thus there is at most one peak plateau in a degree
+block, and once \(R_r<1\), no later step can be an ascent.
+
+Here are explicit bounds sufficient for the required approximation.
+If \(\mu=\sum w_i\) and \(\nu=\sum w_i^2\), expansion of \(\mu^r\)
+and a union bound over colliding positions give
+\[
+ 0\leq\mu^r-r!e_r\leq\binom r2\nu\mu^{r-2}.
+\]
+For all irreducible prefixes,
+\[
+ \nu\leq\sum_{d\geq1}\frac{I_q(d)}{(q^d-1)^2}
+       \leq4\sum_{d\geq1}\frac{q^{-d}}d\leq8/q.
+\]
+For fixed \(r\) and \(\mu\) in a fixed positive compact interval,
+these inequalities imply \(R_r=r/\mu+O_r(1/q)\).
+For each fixed degree \(n\),
+\(I_q(n)=q^n/n+O_n(q^{n/2})\) when \(n\geq2\), while \(I_q(1)=q\).
+Consequently the prefix after \(j\) points of degree \(n\) has
+\[
+ \mu=H_{n-1}+j/q^n+O_n(1/q)
+\]
+uniformly over that block.
+
+At the end of degree \(m_k-1\) this gives \(R_r>1\);
+monotonicity makes every earlier supported within-block step an
+ascent. At the beginning and end of degree \(m_k\), the ratios
+lie respectively above and below one. Monotonicity gives exactly
+one positive peak plateau in that block and no later ascent.
+
+For \(q\geq2r\), every degree boundary is a strict drop once the
+density is positive: \(M_n\geq q\geq2r\), so (14) gives
+\(R_r\leq q^n-1\) before the last point of degree \(n\).
+This proves the stated number of peaks. At the final crossing,
+\(R_r=1+O_k(q^{-m_k})\), since adjacent prefix means differ by
+\(O(q^{-m_k})\); the same bound follows directly from the ratio
+recursion and the uniform positive lower bound for \(e_r\).
+Thus \(\mu=r+O_k(1/q)\), yielding (17); a one-position ambiguity
+at a flat peak is absorbed by the error. Finally
+\(H_n=\log n+\gamma+O(1/n)\) gives the asymptotic for \(m_k\).
+\end{proof}
+
+\paragraph{The constellation transfer must preserve the right information.}
+A polynomial shift \(P\mapsto P+h\) with \(\deg h<\deg P\) preserves norm.
+Any permutation made of such same-degree cycles leaves every univariate
+norm-only prefix coefficient unchanged, because \(Q_{\sigma(i)}=Q_i\).
+This observation concerns transported profiles; ordinary within-block
+ascents still satisfy (13). The integer constellation theorem explicitly
+has conclusion RH \emph{and} recurrence of the prescribed shape.
+It does not assert that RH supplies prime-tuple recurrence.
+
+\subsection{A character-sensitive family and its exact reference clock}
+
+Fix odd \(q\) and a monic, nonconstant, squarefree
+\(D\in\F_q[T]\) of degree \(d\). Extend the quadratic symbol by
+\(\chi_D(P)=0\) at \(P\mid D\). Uniformly sample a monic polynomial
+\(a\) of degree \(M\), and factor \(a^2-D\). Its local divisibility
+probability is
+\[
+ \eta_D(P)=\frac{1+\chi_D(P)}{|P|}.
+\]
+Indeed, there are two, zero, or one roots of \(a^2=D\) modulo \(P\),
+according as \(P\) splits, is inert, or divides \(D\). Thus ramified
+factors have probability \(1/|P|\); split factors have probability
+\(2/|P|\). These lie strictly below one because \(q\geq3\).
+
+For every finite set of distinct \(P\)'s the divisibility indicators
+are exactly independent once \(M\geq\sum_P\deg P\), by CRT. This is a
+fixed-cutoff statement; no simultaneous growing-cutoff limit is used.
+On any ordered list of positive-probability factors put
+\(v_i=\eta_i/(1-\eta_i)\). Their \(k\)-th-factor density is exactly
+\[
+ b_{D,k}(i)=\eta_i\prod_{j<i}(1-\eta_j)
+                        e_{k-1}(v_1,\ldots,v_{i-1}).
+\]
+When \(i\geq k\), with \(R=e_{k-2}/e_{k-1}\) on the preceding prefix,
+\[
+ \frac{b_{D,k}(i+1)}{b_{D,k}(i)}
+  =\frac{\eta_{i+1}}{\eta_i}(1-\eta_i+\eta_i R).       \tag{18}
+\]
+If ramified factors are excluded and only split factors are indexed,
+this specializes to
+\[
+ \frac{b_{D,k}(i+1)}{b_{D,k}(i)}
+       =\frac{Q_i-2+2R}{Q_{i+1}},\qquad
+ b_{D,k}(i+1)>b_{D,k}(i)
+ \ \Longleftrightarrow\
+ R>\frac{Q_{i+1}-Q_i+2}{2}.                         \tag{19}
+\]
+The ramified factors must either be retained with (18), or explicitly
+excluded as in (19).
+
+\begin{proposition}[Finite-field RH supplies the marked clock]
+\label{prop:markedClock}
+Let \(L_D(u)=\prod_P(1-\chi_D(P)u^{\deg P})^{-1}\).
+This is a polynomial of degree \(A=d-1\); write
+\(L_D(u)=\prod_{j=1}^{A}(1-\beta_j u)\).
+Every \(|\beta_j|\leq\sqrt q\). Define the absolutely convergent constant
+\[
+ C_D=\log L_D(q^{-1})-
+       \sum_P\sum_{\ell\geq2}
+         \frac{1+\chi_D(P)^\ell}{\ell |P|^\ell}.
+\]
+For every integer \(n\geq1\),
+\[
+ \left|\sum_{\deg P\leq n}\eta_D(P)-H_n-C_D\right|
+ \leq \frac{(A+4)q^{-(n+1)/2}}
+              {(n+1)(1-q^{-1/2})}.                \tag{20}
+\]
+All Frobenius phases and all higher prime powers occur in the exact
+signed identity
+\[
+\begin{split}
+ \sum_{\deg P\leq n}\eta_D(P)-H_n
+ ={}&-\sum_{m=1}^n\frac{\sum_{j=1}^{A}\beta_j^m}{m q^m}\\
+ &-\sum_{m=1}^n\frac1{m q^m}
+     \sum_{\substack{e\mid m\\e<m}}e
+          \sum_{\deg P=e}(1+\chi_D(P)^{m/e}).
+\end{split}\tag{21}
+\]
+\end{proposition}
+\begin{proof}
+The smooth projective model of \(y^2=D(T)\) has genus
+\(\lfloor(d-1)/2\rfloor\). If \(d\) is odd it has one rational
+point at infinity; if \(d\) is even, monicity gives two. Its point-count
+formula and the Euler product show that \(L_D\) is the curve's
+zeta numerator when \(d\) is odd, and \((1-u)\) times that numerator
+when \(d\) is even. Thus its reciprocal roots are the curve's
+Frobenius roots, and, in the even case, one additional root \(1\).
+This proves the asserted degree and root bound using
+finite-field RH~\cite{Milne}. The statement includes \(d=1\), for which
+\(L_D=1\) and the reciprocal-root sum is empty.
+
+For \(S_m=\sum_{\deg P=m}\chi_D(P)\), logarithmic differentiation gives
+\[
+ \sum_{e\mid m}e\sum_{\deg P=e}\chi_D(P)^{m/e}
+      =-\sum_j\beta_j^m.
+\]
+Add \(q^m=\sum_{e\mid m}eI_q(e)\), isolate the \(e=m\) terms,
+and divide by \(m q^m\). Since
+\(\sum_{\deg P=m}\eta_D(P)=q^{-m}(I_q(m)+S_m)\),
+summing proves (21), with no omitted compensation or prime-power terms.
+
+The proper-divisor contribution to each of the two degree identities
+has magnitude at most
+\(\sum_{e\leq m/2}q^e\leq2q^{m/2}\).
+Consequently
+\[
+ \left|q^{-m}(I_q(m)+S_m)-\frac1m\right|
+       \leq\frac{(A+4)q^{-m/2}}m.
+\]
+For \(m=1\) the proper-divisor sums are empty and the same bound holds.
+This proves absolute convergence of the degree errors. In (21), the
+first infinite sum is \(\log L_D(q^{-1})\), defined by its convergent
+real power series. The second infinite sum, after writing \(m=e\ell\),
+is the displayed prime-power sum defining \(C_D\).
+The latter is absolutely convergent since its summands are bounded
+by \(2/(\ell |P|^\ell)\), \(\ell\geq2\).
+Finally the tail of the degree errors is bounded by
+\[
+ (A+4)\sum_{m>n}\frac{q^{-m/2}}m
+ \leq\frac{(A+4)q^{-(n+1)/2}}{(n+1)(1-q^{-1/2})},
+\]
+which proves (20).
+\end{proof}
+
+For the split-only profile, subtract
+\(\sum_{P\mid D,\ \deg P\leq n}|P|^{-1}\) from the clock.
+For \(n\geq d\) this simply replaces \(C_D\) by
+\(C_D-\sum_{P\mid D}|P|^{-1}\).
+To obtain the coefficient clock of (18), use the exact odds identity
+\[
+ \sum_{\deg P\leq n}\frac{\eta_D(P)}{1-\eta_D(P)}
+  =\sum_{\deg P\leq n}\eta_D(P)
+       +\sum_{\deg P\leq n}\frac{\eta_D(P)^2}{1-\eta_D(P)}.
+\]
+The second sum converges absolutely, with tail \(O_q(q^{-n}/n)\):
+use \(\eta_D(P)\leq2q^{-\deg P}\), \(1-\eta_D(P)\geq1/3\),
+and \(I_q(m)\leq q^m/m\).
+Thus the actual character-sensitive coefficient mean has a
+square-root-accurate harmonic reference as well.
+
+This gives a concrete analytic input for transferring the ascent
+comparison: the reference clock, every local sampling weight, the exact
+step ratio, and a uniform error are available. Transport by a
+same-degree prime cycle can now change the marked coefficients, since
+it can exchange primes with different \(\chi_D\)-values.
+Supply of the required shifted irreducible tuples remains a separate
+hypothesis; the integer theorem also states RH and shape recurrence as
+a conjunction. No tuple-count estimate is deduced from RH alone.
+
+\section{Quadratic Galois profiles: finite words and sharp mode complexity}
+
+Throughout this section \(q\) is a fixed odd prime power and
+\(D\in\F_q[T]\) is monic, nonconstant and squarefree. Order the
+unramified split primes of \(\F_q(T)(\sqrt D)\) by degree, breaking
+ties arbitrarily. Write \(b_{D,k}\) for the limiting density of the
+\(k\)-th distinct prime on this list dividing \(a^2-D\), where \(a\)
+is sampled uniformly among monic polynomials of degree \(M\) and
+\(M\to\infty\) at each fixed prime cutoff. Ramified factors are
+excluded from this rank. The local probabilities are \(2/|P|\),
+so (19) applies. These are actual arithmetic sampling profiles,
+not freely assigned Bernoulli weights.
+
+\begin{lemma}[Squarefree realization of prescribed splitting]
+\label{lem:splittingPrescription}
+Let \(U\) be a nonconstant monic squarefree polynomial of degree \(m\),
+and let \(c\) be a unit modulo \(U\). There exists a monic squarefree
+\(D\equiv c\pmod U\) of degree \(3m+2\).
+Consequently any assignment of split or inert status to finitely many
+primes can be realized by a geometric quadratic extension.
+\end{lemma}
+\begin{proof}
+There are \(q^{\ell-m}\) monic degree-\(\ell\) representatives of the
+class, where \(\ell=3m+2\). No prime dividing \(U\) divides a representative.
+For a prime \(P\nmid U\) of degree \(e\leq m+1\), CRT says the fraction
+divisible by \(P^2\) is \(q^{-2e}\). The union bound for these primes is
+less than
+\(\sum_{e\geq1}q^{-e}=1/(q-1)\), since \(I_q(e)\leq q^e\).
+For \(m+2\leq e\leq\ell/2\), ignore the congruence condition:
+there are at most \(I_q(e)q^{\ell-2e}\leq q^{\ell-e}\)
+monic degree-\(\ell\) polynomials divisible by such a square.
+Their fraction in our class is at most
+\[
+ q^m\sum_{e\geq m+2}q^{-e}=\frac1{q(q-1)}.
+\]
+The total is less than
+\((q+1)/(q(q-1))\leq2/3<1\). A squarefree representative therefore exists.
+
+For the last assertion take \(U\) to be the product of the prescribed
+primes. At each prime prescribe a nonzero square residue for splitting,
+or a nonsquare residue for inertia; both exist in its odd residue field.
+CRT produces a unit \(c\), and the first part gives \(D\).
+Its positive-degree squarefreeness makes \(D\) nonsquare even over
+\(\overline{\F}_q(T)\), so the geometric and arithmetic Galois groups
+are both the two-element group.
+\end{proof}
+
+\begin{theorem}[Every finite ascent word occurs]\label{thm:quadraticWords}
+Fix \(q\) odd, \(k\geq2\), and a finite word
+\(\epsilon_1,\ldots,\epsilon_t\in\{+,-\}\).
+There is a monic squarefree \(D\) for which a contiguous segment of the
+positive profile \(b_{D,k}\) has exactly these strict comparison signs.
+The field \(q\), rank \(k\), and quadratic Galois group stay fixed.
+\end{theorem}
+\begin{proof}
+Put \(r=k-1\) and \(s=2r+1+t\). Choose \(N\) large enough that every
+degree \(n\in[N,N+t]\) has at least \(s\) primes, and
+\(2s/(q^N-2)<r\). Such \(N\) exists by the irreducible count formula;
+\(N\geq\max(4,4s)\) suffices using
+\(I_q(n)\geq q^n/(2n)\geq n/2\) for \(n\geq4\).
+The first inequality follows from the proper-subfield bound above,
+and the second from \(q^n\geq3^n\geq n^2\).
+
+Start with \(2r+1\) selected split primes of degree \(N\).
+Read the word in order. For a plus, choose the next selected prime
+in the same degree; for a minus, choose it in the next degree.
+Declare all other primes through degree \(N+t\) inert.
+Lemma~\ref{lem:splittingPrescription} realizes this finite prescription.
+There are \(s\) selected primes, and the sum of all their odds
+\(w=2/(q^{\deg P}-2)\) is less than \(r\).
+
+For every supported comparison in the prescribed word,
+(14) gives \(R_r\geq r/\mu>1\); equal-degree steps are therefore
+strict ascents by (19). At a degree jump the preceding prefix has
+at least \(2r\) weights. If the current norm is \(Q\), (14) gives
+\[
+ R_r\leq\frac{r(Q-2)}{2(m-r+1)}
+       \leq\frac{r(Q-2)}{2(r+1)}
+       <\frac{Q-2}{2},
+\]
+where \(m\geq2r\) is the prefix size. This is below the threshold
+\(((q-1)Q+2)/2\), so the jump is a strict descent.
+The initial \(2r+1\) entries ensure positive density throughout the
+recorded segment. Every letter is realized, completing the proof.
+\end{proof}
+
+Let \(\mathcal N_{q,k}(D)\) count the positive peak plateaus of
+\(b_{D,k}\), with the convention used above. For integers \(H\geq1\),
+put
+\[
+ \mathcal N_{q,k}^{*}(H)=
+ \max_{\substack{D\ {\rm monic,\ squarefree}\\1\leq\deg D\leq H}}
+                    \mathcal N_{q,k}(D).
+\]
+The maximum is over a finite, nonempty set.
+
+\begin{theorem}[Sharp logarithmic order in the conductor degree]
+\label{thm:quadraticModeComplexity}
+For fixed odd \(q\), one has \(\mathcal N_{q,1}^{*}(H)=1\).
+For every fixed \(k\geq2\),
+\[
+                    \mathcal N_{q,k}^{*}(H)
+                         \asymp_{q,k}\log H
+                    \qquad(H\to\infty).          \tag{22}
+\]
+In particular, each quadratic profile has finitely many peaks, but
+there is no bound depending only on \(q,k\) and its two-element
+Galois group.
+
+More explicitly, let \(r=k-1\) and
+\(C_{q,k}=3q^{4r+7}/(q-1)+2\). For
+\(H\geq C_{q,k}q^7\),
+\[
+ \mathcal N_{q,k}^{*}(H)\geq
+ \left\lfloor\frac{\log_q H-\log_q C_{q,k}}7\right\rfloor.   \tag{23}
+\]
+For every individual \(D\) of degree \(d\geq1\), set
+\[
+ L=\left\lceil2\log_q(4(d+3))\right\rceil,\qquad
+ B=\left\lceil e^{4r+2}L\right\rceil.
+\]
+Then
+\[
+                         \mathcal N_{q,k}(D)\leq B.        \tag{24}
+\]
+\end{theorem}
+\begin{proof}
+For \(k=1\), the split-prime step ratio is
+\((Q_i-2)/Q_{i+1}<1\), so the first entry is the unique endpoint peak.
+
+For the upper bound write \(s_D(n)\) for the number of unramified
+split primes of degree \(n\), \(j_D(n)\) for the number dividing \(D\),
+and \(S_n=\sum_{\deg P=n}\chi_D(P)\). Then
+\[
+ 2s_D(n)=I_q(n)+S_n-j_D(n),\qquad j_D(n)\leq d/n.
+\]
+The logarithmic-derivative argument in
+Proposition~\ref{prop:markedClock} gives
+\[
+ \left|I_q(n)+S_n-\frac{q^n}{n}\right|
+       \leq\frac{(d+3)q^{n/2}}n .
+\]
+For every \(n\geq L\), therefore,
+\[
+ 2s_D(n)\geq\frac{q^n}{n}
+       \bigl(1-(d+3)q^{-n/2}-d q^{-n}\bigr)
+       \geq\frac{q^n}{2n}.
+\]
+Here \(q^{n/2}\geq4(d+3)\), so the two subtractions are at most
+\(1/4\) and \(1/16\). In particular there are split primes in each
+such degree. The total odds of split primes in degrees \(L,\ldots,B\)
+are at least
+\[
+ \sum_{n=L}^B\frac{2s_D(n)}{q^n}
+ \geq\frac12\sum_{n=L}^B\frac1n
+ \geq\frac12\log\frac{B+1}{L}\geq2r+1.
+\]
+Each of these odds is at most one, since
+\(q^L\geq16(d+3)^2\geq256\).
+In the prefix before the last degree-\(B\) split prime, their total
+is still at least \(2r\).
+
+For any positive weights of mean sum \(\mu\) and largest weight
+\(w_{\max}\), the coefficient identity used in (14) also gives
+\[
+ \frac{e_{r-1}}{e_r}
+       \leq\frac{r}{\mu-(r-1)w_{\max}}
+ \quad\hbox{when the denominator is positive}.             \tag{25}
+\]
+Indeed, after choosing \(r-1\) weights their removal leaves sum
+at least \(\mu-(r-1)w_{\max}\).
+Applied just to the tail weights in that prefix, (25) is at most
+\(r/(r+1)<1\). Appending the earlier weights can only decrease
+the ratio, by Newton's inequality as in the mode-count proof.
+Thus the outgoing step from the last degree-\(B\) prime, and every
+later step, is strictly decreasing by (19).
+
+Within each degree block, consecutive step ratios strictly decrease
+because \(R_r\) strictly decreases. A block contributes at most one
+positive peak plateau; the initial zero run contributes none.
+All peaks have degree at most \(B\), proving (24).
+Since \(B=O_{q,k}(\log(d+2))\), this proves the upper order in (22).
+
+For the lower bound fix any desired number \(v\geq1\) of strict peaks.
+Put
+\[
+ N=\max(4,4r,6(v+1)),\qquad b=N+v.
+\]
+Prescribe every prime of degree less than \(N\) inert and every
+prime of degree \(N,\ldots,b\) split.
+For \(n\geq N\), \(I_q(n)\geq n/2\geq2r\).
+The total odds in the prescribed split range are bounded by
+\[
+ \sum_{n=N}^{b}\frac{2I_q(n)}{q^n-2}
+       \leq\sum_{n=N}^{b}\frac3n
+       \leq\frac{3(v+1)}N\leq\frac12<r.
+\]
+Every supported within-block step is therefore a strict ascent.
+Before the last prime of each degree \(n=N,\ldots,b-1\), the
+prefix has at least \(I_q(n)-1\geq2r-1\) weights, and (14) gives
+\(R_r\leq(q^n-2)/2\). The next degree is a strict descent by (19).
+Hence the last prime of each of these \(v\) blocks is a strict peak.
+
+Apply Lemma~\ref{lem:splittingPrescription} with the product \(U\)
+of all primes through degree \(b\). Since
+\[
+ \deg U=\sum_{n\leq b}nI_q(n)
+     \leq\sum_{n\leq b}q^n<\frac{q^{b+1}}{q-1},
+ \qquad b\leq4r+7v+6,
+\]
+the realizing squarefree \(D\) has
+\[
+ \deg D=3\deg U+2
+       \leq C_{q,k}q^{7v}.
+\]
+Taking
+\(v=\lfloor(\log_q H-\log_q C_{q,k})/7\rfloor\)
+proves (23) and the lower order in (22).
+\end{proof}
+
+\paragraph{What the Galois connection contributes.}
+The group determines the possible local types, but the conductor can
+program a long initial pattern of those types. The coefficient comparisons
+turn that arithmetic pattern into actual ascents and descents.
+Finite-field RH then controls how long this freedom can persist:
+the maximal peak count is logarithmic in \(\deg D\), the degree
+of the finite quadratic conductor. The lower bound is an elementary
+CRT and squarefree-counting construction; the upper bound uses
+the proved finite-field RH character estimate. Both directions concern
+fixed \(q\), not a large-field limit.
+
+\paragraph{Scope, closest literature, and formalization status.}
+The existing unmarked classification and fixed-rank large-\(q\) mode
+law above do not imply these fixed-\(q\), varying-conductor statements.
+Cambie~\cite{Cambie} studies integer divisor and prime-factor profiles,
+including many extrema for the interval-divisor statistic.
+Jung~\cite{Jung} supplies function-field Mertens asymptotics in residue
+classes. Neither statement is the finite-word realization or the sharp
+logarithmic peak complexity of the quadratic sampling profile considered
+here. A targeted search of the main repository's public and private
+plans found no matching unfinished target; a complete cross-repository
+priority audit has not been performed. No matching theorem was identified
+in the literature search, which does not establish priority.
+
+These are ordinary proofs, not newly compiled Lean declarations.
+The concrete formalization gaps are the finite-field CRT sampling adapter,
+the quadratic character degree-count estimate from the curve zeta formula,
+and the squarefree residue-class realization lemma. The numerical companion
+\texttt{quadratic\_profile\_word\_probe.py} independently checks the
+coefficient consumer for \(q\in\{3,5,7\}\), \(2\leq k\leq6\),
+and every sign word of length at most six: 1905 words and 9630 signed
+steps pass in exact rational arithmetic. It does not construct the
+large CRT polynomial or replace any of the universal proofs.
+
+\section{Transferring the H1-dependent ascent scale}
+\label{sec:gapScaleTransfer}
+
+The relevant integer input is the maintained exact critical-threshold
+theorem, not merely an analogy with twin primes. If
+\(H_1=\liminf(p_{j+1}-p_j)\), its ordinary canonical late-ascent
+coefficient is
+\[
+                         \beta_{\mathbf Z}=\frac1{H_1+1}.
+                                                               \tag{29}
+\]
+The maintained moving-rank RH criterion compares the actual coefficient
+ratio with its canonical reference at every fixed positive rank-to-clock
+ratio. These are two connected statements, and their arithmetic
+hypotheses must be transported separately. The sources are
+\texttt{GapRecurrence.lean}, \texttt{PrimeProfileMinimax.lean}, and
+the moving-rank criterion in the maintained integer paper.
+Equation (29) states the threshold property: smaller coefficients have
+unbounded late-ascent supply, while larger coefficients force terminal
+descent. No endpoint assertion or new integer gap bound is assumed.
+
+\subsection{The actual probability law on a curve}
+Let \(C/\F_q\) be as above and enumerate its closed points
+\(P_1,P_2,\ldots\) in nondecreasing degree. Put \(Q_i=q^{\deg P_i}\).
+Sample uniformly from the effective divisors of degree \(M\), and
+then let \(M\to\infty\) at a fixed finite closed-point cutoff.
+Let \(d_{C,k}(i)\) denote the limiting probability that \(P_i\) is
+the \(k\)-th distinct point in the divisor's support.
+
+This is a genuine sampling law. If \(a_M\) counts effective divisors
+of degree \(M\), the curve zeta identity gives
+\[
+ \sum_{M\geq0}a_M u^M
+       =\frac{P_C(u)}{(1-u)(1-qu)}.
+\]
+For \(M\geq2g\), coefficient extraction yields the exact expression
+\[
+ a_M=\frac{q^{M+1}P_C(1/q)-P_C(1)}{q-1}.
+\]
+The leading constant is positive: in the conjugate-paired product
+\(P_C(1/q)=\prod_i(1-\alpha_i/q)\), each conjugate pair is positive,
+and any real reciprocal root is \(\pm\sqrt q\).
+For any fixed effective divisor \(E\),
+\(\Pr(E\leq\mathcal D_M)=a_{M-\deg E}/a_M\to q^{-\deg E}\).
+Inclusion-exclusion therefore gives independent limiting divisibility
+indicators on every fixed finite set of points.
+There is no simultaneous growing-cutoff limit here.
+
+Consequently, with \(w_i=(Q_i-1)^{-1}\),
+\[
+ d_{C,k}(i)=\frac1{Q_i}\prod_{j<i}(1-Q_j^{-1})e_{k-1}(w_j:j<i).
+\]
+For \(i\geq k\geq2\), writing \(R_r=e_{r-1}/e_r,\ r=k-1\),
+\[
+ \frac{d_{C,k}(i+1)}{d_{C,k}(i)}
+      =\frac{Q_i-1+R_r(i)}{Q_{i+1}}.               \tag{30}
+\]
+In \(\F_q[T]\), sampling monic polynomials gives the affine version
+already used above. The finitely many points at infinity change
+constants but not the critical coefficient below.
+
+\begin{theorem}[Fixed-field, growing-rank critical scale]
+\label{thm:fixedFieldCritical}
+Fix \(C/\F_q\) and any ordering within its degree blocks.
+For every \(0<b<1\) and all sufficiently large \(k\), there is
+an ascent \(d_{C,k}(i)<d_{C,k}(i+1)\) with
+\[
+                         b k\leq\log\log Q_i.
+\]
+Their degrees tend to infinity as \(k\to\infty\).
+For every \(b>1\), all sufficiently large \(k\) satisfy
+\[
+ b k\leq\log\log Q_i
+       \quad\Longrightarrow\quad
+ d_{C,k}(i+1)<d_{C,k}(i).
+\]
+The rank and point cutoffs in this assertion are uniform.
+Thus the critical coefficient is exactly \(1\).
+For all sufficiently large \(k\), a last ascent exists; if \(Q_k^{\rm last}\)
+is its starting norm, then
+\[
+                 \lim_{k\to\infty}
+                    \frac{\log\log Q_k^{\rm last}}k=1.          \tag{31}
+\]
+This is a fixed-field, growing-rank theorem, separate from the earlier
+fixed-rank, growing-field mode count.
+\end{theorem}
+\begin{proof}
+Weil's point count and the exact closed-point inversion give
+\(B_n=q^n/n+O_{C,q}(q^{n/2}/n)\).
+It follows that
+\[
+ \mu_n:=\sum_{d\leq n}\frac{B_d}{q^d-1}
+       =H_n+\kappa_C+O_{C,q}(q^{-n/2}/n)
+       =\log n+c_C+O_{C,q}(1/n).                  \tag{32}
+\]
+Indeed each summand minus \(1/d\) is \(O_{C,q}(q^{-d/2}/d)\),
+so its error series converges absolutely.
+Every prefix before a degree-\(n\) point lies between the full
+degree-\((n-1)\) and degree-\(n\) prefixes. Their mean difference
+is \(O_{C,q}(1/n)\), so (32) is uniform within each block.
+Also \(B_n\geq2\) for all sufficiently large \(n\).
+
+Fix \(0<b<a<1\). For each large \(k\), take
+\(n=\lceil e^{ak}/\log q\rceil\).
+Then \(\log\log(q^n)=ak+o(1)\geq bk\), while
+\(\mu_{n-1}=ak+O_{C,q}(1)<k-1\).
+There are more than \(k\) points in earlier degrees.
+Before the first point of degree \(n\), (14) gives
+\(R_{k-1}\geq(k-1)/\mu_{n-1}>1\).
+The first two points in that block therefore form an ascent by (30).
+This proves the lower statement for every sufficiently large rank.
+
+For the upper statement fix \(b>1\), put
+\(\delta=(b-1)/4\), and remove all points through a fixed degree \(D_0\)
+large enough that every remaining weight is at most \(\delta\).
+If \(bk\leq\log\log(q^n)\), (32) gives a tail-prefix mean
+at least \(bk-A\), for a constant \(A=A(C,q,b)\) independent
+of \(k,n\) and of position inside the block.
+For all sufficiently large \(k\), this exceeds
+\((k-1)+(k-2)\delta\), since \(b-\delta>1\).
+There are at least \(k-1\) tail weights; otherwise their total
+would be at most \((k-2)\delta\).
+Apply (25) just to those weights:
+\[
+ R_{k-1}^{\rm tail}
+       \leq\frac{k-1}{\mu_{\rm tail}-(k-2)\delta}<1.
+\]
+Appending the removed earlier weights can only decrease this ratio,
+by Newton's inequality. Hence the actual \(R_{k-1}<1\).
+Since \(Q_{i+1}\geq Q_i\), (30) forces strict descent.
+This argument is uniform over all indices in the stated region
+and does not use a fixed-rank coefficient approximation.
+
+Taking any \(b>1\) leaves only finitely many possible ascent indices.
+The lower statement supplies at least one for every large \(k\).
+Applying the two statements for coefficients arbitrarily close to one
+proves (31).
+\end{proof}
+
+\subsection{Which gap has the unmarked transfer recovered?}
+The exact integer step compares \(R_r\) with \(p_{i+1}-p_i+1\).
+Equation (30) compares it with
+\[
+                         Q_{i+1}-Q_i+1.
+\]
+Distinct closed points of the same degree have \(Q_{i+1}-Q_i=0\).
+Consequently the least recurring \emph{norm difference} is zero,
+and the transferred threshold is \(1/(0+1)=1\), exactly as the
+theorem proves. This is not the polynomial distance
+\(|P_{i+1}-P_i|=q^{\deg(P_{i+1}-P_i)}\).
+A permutation within a degree block leaves the complete unmarked
+probability profile unchanged, even when it changes the polynomial
+differences of adjacent labels.
+
+The distinction holds at every large degree, not merely in a finite
+test. Over \(\F_2[T]\), no pair \(f,f+1\) of degree greater than one
+can both be irreducible: one has constant coefficient zero, and is
+divisible by \(T\). Nonetheless Theorem~\ref{thm:fixedFieldCritical}
+gives critical coefficient \(1\) for the ordinary polynomial profile.
+Over \(\F_7[T]\), by contrast,
+\[
+                         T^{3^m}-2,\qquad T^{3^m}-4
+\]
+are both irreducible for every \(m\geq0\), by the binomial
+irreducibility criterion: \(2\) and \(4\) are noncubes in \(\F_7\);
+see also Burrin--Issac~\cite{BurrinIssac}.
+The ordinary critical coefficient is still \(1\).
+The unmarked threshold therefore does not distinguish these
+different geometric recurrence situations.
+
+\begin{proposition}[The shift-marked recurrence transfer]
+\label{prop:shiftMarkedTransfer}
+Fix \(0\ne h\in\F_q[T]\) and \(0<b<1\).
+The following are equivalent:
+\begin{enumerate}
+\item For every \(N\), there is a monic \(P\) with
+\(\deg P\geq N\) such that \(P,P+h\) are irreducible.
+\item There is a degree-compatible ordering \(P_1,P_2,\ldots\) of
+the monic irreducibles such that for every \(K,N\), there are
+\(k\geq K\) and \(i\) with
+\[
+ \deg P_i\geq N,\quad P_{i+1}=P_i+h,\quad
+ bk\leq\log\log|P_i|,\quad
+ d_{q,k}(i)<d_{q,k}(i+1).
+\]
+\end{enumerate}
+For \(b>1\), the second property is false for every ordering.
+\end{proposition}
+\begin{proof}
+The second property immediately supplies the pairs in the first.
+Conversely, choose one pair in each of an unbounded sequence of distinct
+degrees \(n>\deg h\), and place its two elements consecutively,
+in the displayed orientation, within that degree block.
+This defines one fixed global ordering.
+
+Choose \(b<a<1\). For any such large degree \(n\), set
+\(k=\lfloor\log\log(q^n)/a\rfloor\).
+Then \(k\to\infty\), \(bk\leq\log\log(q^n)\), and the mean of
+every prefix in that block is
+\(\log n+O_q(1)<k-1\).
+There are more than \(k\) earlier-degree primes.
+Thus (14) gives \(R_{k-1}>1\) before the selected pair,
+and (30) gives its strict ascent.
+Arbitrarily large selected degrees accommodate both \(K\) and \(N\).
+The upper statement follows from
+Theorem~\ref{thm:fixedFieldCritical}, whose proof also applies to the
+affine polynomial prime set.
+\end{proof}
+
+This proposition retains the geometric shift, rather than relabelling
+zero norm difference as a polynomial gap. Its marked critical coefficient
+is one whenever the selected shift recurs. We now transfer the canonical
+moving-rank reference as well, retaining the zero signal and a genuine
+shift response in the same positive probability model.
+
+\subsection{Positive laws and the uniform reference comparison}
+For local probabilities \(0<\eta_P<1\), put \(w_P=\eta_P/(1-\eta_P)\).
+For a finite prime prefix \(S\), write \(e_j(S)=e_j((w_P)_{P\in S})\),
+and \(R_r(S)=e_{r-1}(S)/e_r(S)\). This is an actual adjacent-rank
+density ratio: at the next prime, the common factor
+\(\eta_P\prod_{Q\in S}(1-\eta_Q)\) cancels from \(d_r/d_{r+1}\).
+There is no division by a density at a prime with zero local probability.
+
+Suppose \(\eta_P\ll|P|^{-1}\). Define
+\[
+ {\cal E}(z)=\prod_P(1+w_Pz)e^{-\eta_Pz},\qquad
+ F_r(L)=[z^r]e^{Lz}{\cal E}(z),\qquad
+ {\cal R}_r(L)=\frac{F_{r-1}(L)}{F_r(L)}.
+\]
+The product converges absolutely, locally uniformly, since
+\(w_P-\eta_P=O(|P|^{-2})\) and \(\sum_P|P|^{-2}<\infty\).
+It is strictly positive for real \(z\geq0\).
+Absolute convergence makes it invariant under degree-compatible
+permutations, so the original and swapped orders use the same reference.
+Put \(B(S)=\sum_{P\in S}\eta_P\).
+The maintained uniform coefficient comparison gives, on each fixed band
+\(0<\alpha_0\leq r/L\leq\alpha_1<\infty\), when \(|B(S)-L|\leq1\),
+\begin{align}
+ R_r(S)-{\cal R}_r(L)
+ &=-\frac r{L^2}(B(S)-L)
+   +O\left(\frac{|B(S)-L|}{L^2}+\frac1{r q^n}\right),
+ \label{eq:markedLinearization}\\
+ {\cal R}'_r(L)&=-\frac r{L^2}+O(L^{-2}).
+ \label{eq:markedSlope}
+\end{align}
+Here \(S\) consists of the primes through degree \(n\), with at most two
+specified primes removed. Constants may depend on the law, \(q\), and the
+band, but not on \(n,r,L\). All ranks in this subsection tend to infinity.
+
+For completeness, the application of the integer-indexed provider is
+legitimate without assuming integer RH. Enumerate the polynomial primes
+by degree and label the \(j\)-th one by the \(j\)-th rational prime.
+The prime polynomial formula and the ordinary prime number theorem give
+\(p_j\asymp_q |P_j|\). Thus \(w_{P_j}\ll1/(p_j-1)\),
+\(\eta_{P_j}\ll1/(p_j-1)\), and
+\(|w_{P_j}-\eta_{P_j}|\ll1/(p_j-1)^2\), exactly the hypotheses of
+\texttt{PrimeClockLaw}. A prefix ending in degree \(n\) has rational cutoff
+comparable to \(q^n\). Removing finitely many terminal weights is also
+handled by their exact coefficient identities. The reference positivity,
+slope bound, and error in \eqref{eq:markedLinearization} are precisely the
+maintained providers \texttt{exists\_densityRatio\_linearization} and
+\texttt{exists\_profile\_reference\_slope\_bound}.
+
+The probability limit here always takes the sampling degree to infinity
+at a fixed finite divisor-prime cutoff first. The growing variable \(n\)
+is the divisor cutoff degree, not a substitution into the sampled family.
+
+\begin{lemma}[Coupled replacement response]\label{lem:coupledResponse}
+On a common background put \(e_0=e_r\), \(e_1=e_{r-1}\), and
+\(e_2=e_{r-2}\). Inserting a weight \(a\) or \(b\) gives
+\begin{equation}\label{eq:exactCoupledResponse}
+ \frac{e_1+be_2}{e_0+be_1}
+ -\frac{e_1+ae_2}{e_0+ae_1}
+ =\frac{(a-b)(e_1^2-e_0e_2)}
+ {(e_0+ae_1)(e_0+be_1)}.
+\end{equation}
+If the background has at least \(r\) positive weights, \(r\geq2\),
+and \(a>b\geq0\), this response is strictly positive.
+If \(r/L\) stays in a fixed positive compact band, the clock is
+\(L+O(1)\), and \(a,b=O(q^{-n})\), then
+\begin{equation}\label{eq:coupledAsymptotic}
+ R_r(S\cup\{b\})-R_r(S\cup\{a\})
+ =(a-b)\frac r{L^2}(1+o(1)).
+\end{equation}
+\end{lemma}
+\begin{proof}
+Cross multiplication proves \eqref{eq:exactCoupledResponse}, including
+every background cross term. Newton's strict inequality gives
+\(e_1^2-e_0e_2>0\).
+
+Here are the error estimates needed for the asymptotic, rather than a
+subtraction of the two separate reference errors. Let \(U\) be the
+arithmetic clock of the full prefix. The exact identities
+\(F'_r=F_{r-1}\) give
+\[
+ {\cal R}'_r(U)=\frac{F_{r-2}(U)}{F_r(U)}
+                     -{\cal R}_r(U)^2.
+\]
+At its own clock \(U\), the finite-prefix ratios of ranks \(r,r-1\)
+differ from their infinite-reference ratios by \(O(1/(r q^n))\).
+These ratios are uniformly bounded on the entire claimed band.
+To check the denominator in (25), remove a fixed finite prefix until
+each remaining odds weight is at most
+\(\delta=1/(4(1+\alpha_1))\).
+The tail odds sum is \(L+O(1)\), because
+\(\sum_P(w_P-\eta_P)\) converges. Thus
+\(\mu_{\rm tail}-(r-1)\delta\geq L/2\) for all sufficiently large
+\(L\). The tail has at least \(r\) weights, since otherwise its mean
+would be at most \((r-1)\delta<L/2\).
+Formula (25) bounds its ratios through rank \(r\) by \(2\alpha_1+1\).
+Newton monotonicity bounds the full-prefix ratios by these tail
+ratios. The same argument applies to the common background after
+the two terminal weights are removed.
+Apply \eqref{eq:markedSlope} to conclude that for the full prefix
+\[
+ \left(\frac{e_{r-1}}{e_r}\right)^2-\frac{e_{r-2}}{e_r}
+       =\frac r{L^2}+O(L^{-2})+O(q^{-n}).
+\]
+Removing either of the last two weights changes each of the needed
+bounded ratios by \(O(q^{-n})\): this follows directly by writing
+\(e_j(S\cup\{a\})=e_j(S)+a e_{j-1}(S)\), with all denominators
+positive. Use the uniform background bounds just proved; its clock
+differs by \(O(q^{-n})\). Therefore the same determinant estimate
+holds on the common background. Divide \eqref{eq:exactCoupledResponse}
+by \(e_0^2\). Its two denominator factors become
+\(1+a e_1/e_0\) and \(1+b e_1/e_0\), both \(1+O(q^{-n})\).
+The relative error is
+\(O(1/r)+O(L^2/(r q^n))=o(1)\). This proves the assertion with the
+common zero-clock error still coupled.
+
+The uniformity over the terminal pair does not assume a new
+family-uniform theorem for arbitrarily relabelled laws. Apply the
+maintained provider at full degree cutoffs in one fixed ordering.
+For a single deleted weight \(w=\eta/(1-\eta)=O(q^{-n})\), the exact
+response with the replacement weight zero gives
+\[
+ R_r(S_n\setminus\{P\})-R_r(S_n)
+       =\eta\,\frac r{L^2}
+          +O\left(\frac1{q^nL^2}+q^{-2n}\right).
+\]
+The slope estimate and the mean value theorem give, for the same rank,
+\[
+ {\cal R}_r(L)-{\cal R}_r(L+\eta)
+       =\eta\,\frac r{L^2}+O(1/(q^nL^2)).
+\]
+Apply the full-prefix comparison at reference clock \(L+\eta\).
+The two displayed leading terms cancel, and
+\(B(S_n\setminus\{P\})-L=B(S_n)-(L+\eta)\) exactly.
+The remaining deletion error is \(O(1/(r q^n))\), since
+\(r\asymp L=O(\log n)\). Repeating at most twice establishes
+\eqref{eq:markedLinearization} for all the partial prefixes used here
+with constants independent of which terminal primes were removed.
+\end{proof}
+
+\begin{lemma}[Signed packet stability from only two coordinates]
+\label{lem:packetSignedStability}
+Let \(a\ne b\) belong to a finite class set \(G\), and write
+\(v_c=\mathbf1_{c=a}-\mathbf1_{c=b}\).
+For arbitrary real errors \(g_c\), retaining every cross term gives
+\[
+ \sum_{c\in G}(v_c+g_c)^2
+    =2+2(g_a-g_b)+\sum_{c\in G}g_c^2.
+\]
+In particular, the two one-sided bounds \(g_a\geq-\varepsilon\) and
+\(g_b\leq\varepsilon\) imply
+\[
+                  \sum_{c\in G}(v_c+g_c)^2\geq2-4\varepsilon.
+\]
+There is no hypothesis on any other error coordinate and no loss
+proportional to the packet size in this lower bound.
+\end{lemma}
+\begin{proof}
+Expand the square before estimating. The exact identities
+\(\sum_c v_c^2=2\) and \(\sum_c g_cv_c=g_a-g_b\) give the formula.
+Now \(g_a-g_b\geq-2\varepsilon\), and every retained error square
+is nonnegative. The three identities and this lower bound are
+compiled as \texttt{class\_packet\_unit\_energy},
+\texttt{class\_packet\_cross\_sum},
+\texttt{class\_packet\_energy\_expansion}, and
+\texttt{class\_packet\_energy\_lower}.
+\end{proof}
+
+\subsection{A complete finite packet with no shift blind spot}
+Fix \(0\ne h\in\F_q[T]\). Choose a monic irreducible modulus
+\(\mathfrak r\nmid h\) of degree \(d\geq2\), and put
+\[
+ G=(\F_q[T]/\mathfrak r)^\times,\qquad
+ \phi=q^d-1,\qquad \kappa=1+\phi^{-1}.
+\]
+For a polynomial \(b\), let
+\(b_c=\prod_{P\bmod\mathfrak r=c}P^{v_P(b)}\), for each \(c\in G\).
+Sample independent uniform monic \(a,b\) of degree \(M\), and use the
+computable arithmetic family \(F_c(a,b)=a b_c\). This family uses a
+factorization filter; it is not asserted to be a fixed polynomial
+expression in \(a,b\). At each fixed finite cutoff CRT gives independent
+local divisibility indicators, exactly once \(M\) exceeds the degree
+of the product of the cutoff primes, with
+\begin{equation}\label{eq:classCarrierProbability}
+ \eta_c(P)=\frac1{|P|}
+       +\mathbf1_{[P]=c}\left(\frac1{|P|}-\frac1{|P|^2}\right).
+\end{equation}
+The indicator is zero at \(P=\mathfrak r\).
+Indeed, the extra event is \(P\mid b\) in the marked class, overlapping
+\(P\mid a\) with probability \(|P|^{-2}\). In particular
+\(0<\eta_c(P)<1\) at every prime, including the small and ramified ones.
+
+\begin{theorem}[Zero-preserving marked reference packet]
+\label{thm:completeMarkedPacket}
+For these \(\phi\) positive laws the following assertions hold.
+\begin{enumerate}
+\item Their clocks have constants \(C_c\) such that
+\[
+ B_c(n)=\sum_{\deg P\leq n}\eta_c(P)
+       =\kappa H_n+C_c+E_c(n),\qquad
+ E_c(n)=O_{q,d}(q^{-n/2}/n),
+\]
+uniformly over the finite packet.
+After explicitly removing the prime-power, ramification, and overlap
+tails from \(E_c(n)\), its finite Fourier transform recovers every
+nonprincipal Dirichlet \(L(u,\chi)\) modulo \(\mathfrak r\), including
+all of its inverse roots and their multiplicities.
+\item Suppose \(P,Q=P+h\) are actual irreducibles of degree \(n>d\).
+Place them last in that degree block, \(P\) followed by \(Q\), and
+compare this prefix cut with the cut in the swapped ordering.
+Use in each class
+\[
+ L_c(n)=\kappa H_n+C_c-\eta_c(Q),\qquad
+ r_c=\lfloor\alpha L_c(n)\rfloor,\qquad \alpha>0.
+\]
+Then along any unbounded sequence of such pairs
+\begin{equation}\label{eq:packetResponse}
+ \frac{q^n L_c(n)^2}{r_c}
+       \bigl(R_c^{\rm swapped}-R_c^{\rm original}\bigr)
+ \longrightarrow \mathbf1_{[P]=c}-\mathbf1_{[Q]=c}
+\end{equation}
+in the sense that the difference from the displayed, possibly varying,
+right side tends uniformly to zero. Consequently the sum of the
+squared normalized responses tends to \(2\).
+\item At all full degree cutoffs, with \(L_c=\kappa H_n+C_c\) and
+\(r_c=\lfloor\alpha L_c\rfloor\), the same reference obeys
+\[
+ nq^{n/2}\frac{L_c^2}{r_c}
+       (R_c-{\cal R}_{c,r_c}(L_c))
+       =-nq^{n/2}E_c(n)+o(1).
+\]
+Thus the packet retains the critical-scale zero response as well as
+the marked replacement response.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+Write
+\(L(u,\chi)=\prod_j(1-\beta_{\chi,j}u)\) for \(\chi\ne1\).
+For an irreducible modulus these characters are primitive.
+The finite-field RH gives \(|\beta_{\chi,j}|\leq\sqrt q\);
+even characters retain their root \(1\), rather than silently dropping
+it. These standard facts and the explicit formula are recorded in
+Keating--Rudnick~\cite{KeatingRudnick}, Section 3.
+The principal factor is \((1-u^d)/(1-qu)\).
+
+Define the exact proper-power packet
+\[
+ V_c(m)=\sum_{\substack{e\mid m\\e<m}}e
+       \sum_{\deg P=e}\left(1+
+             \mathbf1_{[P^{m/e}]=c}\right).
+\]
+Orthogonality, with characters extended by zero at \(\mathfrak r\),
+and the logarithmic derivative of each \(L\)-factor give
+\begin{equation}\label{eq:carrierTrace}
+ m\sum_{\deg P=m}(1+\mathbf1_{[P]=c})
+ =\kappa q^m-\frac d\phi\mathbf1_{d\mid m}
+ -\frac1\phi\sum_{\chi\ne1}\overline{\chi(c)}
+           \sum_j\beta_{\chi,j}^{\,m}-V_c(m).
+\end{equation}
+In particular the proper-power indicator is
+\(\mathbf1_{[P^{m/e}]=c}\); replacing it by an indicator of \(P\)
+would change the identity.
+
+The degree-\(m\) discrepancy from \(\kappa/m\) is absolutely summable:
+the trace term is \(O_d(q^{-m/2}/m)\), the proper-power term has
+\(e\leq m/2\), and the overlap correction is \(O(q^{-m}/m)\).
+Define \(C_c\) by that convergent full series. Summing its tail gives
+the exact identity
+\begin{align}
+ E_c(n)&=\sum_{m>n}\frac1{m q^m}
+ \left\{\frac d\phi\mathbf1_{d\mid m}
+ +\frac1\phi\sum_{\chi\ne1}\overline{\chi(c)}
+                   \sum_j\beta_{\chi,j}^{\,m}
+ +V_c(m)\right\}\nonumber\\
+ &\hspace{8mm}+
+ \sum_{\substack{\deg P>n\\{[P]=c}}}q^{-2\deg P}.
+ \label{eq:carrierClockTail}
+\end{align}
+For example, its absolute value is at most
+\[
+ (2d+4)\frac{q^{-(n+1)/2}}{(n+1)(1-q^{-1/2})}
+ +\frac{q^{-(n+1)}}{(n+1)(1-q^{-1})}.
+\]
+Indeed \(\sum_{\deg P=e}e\leq q^e\), and
+\(V_c(m)\leq2\sum_{e\leq m/2}q^e\leq4q^{m/2}\).
+This proves the uniform clock estimate, retaining every correction.
+
+Subtract the ramification term, \(V_c\) tail, and final overlap tail
+in \eqref{eq:carrierClockTail}; call the result \({\cal Z}_c(n)\).
+For every \(\chi\ne1\), orthogonality gives exactly
+\[
+ {\cal F}_\chi(n):=\sum_{c\in G}\chi(c){\cal Z}_c(n)
+       =\sum_j\sum_{m>n}\frac{\beta_{\chi,j}^{\,m}}{m q^m}.
+\]
+Thus
+\[
+ nq^n\bigl({\cal F}_\chi(n-1)-{\cal F}_\chi(n)\bigr)
+       =\sum_j\beta_{\chi,j}^{\,n}.
+\]
+Newton identities recover the finite \(L\)-polynomial, with multiplicity.
+There is no RH hypothesis about the integers in this argument.
+The clocks themselves are observables of the full density law:
+\(\eta_i=d_1(i)/(1-\sum_{j<i}d_1(j))\).
+This uses the existing inverse-recovery mechanism; it is not an
+additional zero-recovery assertion about approximate data.
+
+For the marked part, \([P]\ne[Q]\), because \(\mathfrak r\nmid h\).
+Their odds in each class are \(O(q^{-n})\). Formula
+\eqref{eq:classCarrierProbability} gives
+\[
+ q^n(w_c(P)-w_c(Q))
+ =\mathbf1_{[P]=c}-\mathbf1_{[Q]=c}+O(q^{-n}).
+\]
+Apply Lemma~\ref{lem:coupledResponse} on the common prefix without
+either terminal prime. This proves \eqref{eq:packetResponse} without
+subtracting two independent errors on the zero scale.
+There are exactly two nonzero coordinates in the limiting class
+contrast, equal to \(1,-1\); its squared energy is exactly \(2\).
+
+Finally substitute \(B_c-L_c=E_c(n)\) into
+\eqref{eq:markedLinearization}. After the stated normalization its
+error is \(O(1/r_c)+O(nq^{-n/2})=o(1)\).
+The same calculation applies to the pair cut after subtracting
+\(\eta_c(Q)\) from both clocks. The two observations therefore use
+one canonical reference, with the geometric labels still attached.
+\end{proof}
+
+The theorem separates all existing \(h\)-edges using finitely many
+laws with no character blind spot. Its zero readout uses all degree
+cutoffs; no assertion is made that an arbitrary sparse subsequence of
+edge degrees resolves every Frobenius phase. The vector of residue
+contrasts is not, by itself, a unique recovery of the polynomial \(h\);
+the exact equation \(Q=P+h\) is retained in the prime labels.
+
+\begin{corollary}[The geometric gap limit from one finite packet]
+\label{cor:packetGapLimit}
+Fix \(H\geq0\) and choose the modulus above with \(d>H\), \(d\geq2\).
+Let \({\cal P}_n\) be the finite set of monic irreducibles of degree \(n\),
+\(S_n={\cal P}_1\cup\cdots\cup{\cal P}_n\), and
+\[
+ {\cal B}_{n,H}=\{(P,Q)\in{\cal P}_n^2:
+                   P\ne Q,\ \deg(Q-P)\leq H\}.
+\]
+For each such pair use
+\(L_{c,Q}=\kappa H_n+C_c-\eta_c(Q)\),
+\(r_{c,Q}=\lfloor\alpha L_{c,Q}\rfloor\), and define
+\[
+ U_c(P,Q;n)=\frac{q^n L_{c,Q}^2}{r_{c,Q}}
+ \left(R_{c,r_{c,Q}}(S_n\setminus\{P\})
+             -R_{c,r_{c,Q}}(S_n\setminus\{Q\})\right).
+\]
+These quantities are defined for all sufficiently large \(n\).
+Set the empty-edge value explicitly by
+\[
+ {\cal A}_{n,H}=\max\left(\{0\}\cup
+       \left\{\sum_{c\in G}U_c(P,Q;n)^2:
+                              (P,Q)\in{\cal B}_{n,H}\right\}\right).
+\]
+If \({\cal B}_{n,H}\) is empty, \({\cal A}_{n,H}=0\).
+Otherwise, uniformly in every pair in the finite domain,
+\[
+ {\cal A}_{n,H}=2+
+ O_{q,d,\alpha}\left(\frac1{\log n}+\frac{\log n}{q^n}\right).
+\]
+Consequently
+\[
+ \limsup_{n\to\infty}{\cal A}_{n,H}=2
+ \quad\Longleftrightarrow\quad
+ \text{some fixed nonzero \(h\), \(\deg h\leq H\), recurs infinitely often}.
+\]
+Equivalently, if
+\[
+ {\mathfrak H}_q=
+ \liminf_{n\to\infty}
+     \min_{\substack{P,Q\in{\cal P}_n\\P\ne Q}}\deg(Q-P)
+       \ \in\ \mathbb Z_{\geq0}\cup\{\infty\},
+\]
+where the minimum is needed only at sufficiently large degrees,
+then \({\mathfrak H}_q\leq H\) if and only if this limsup is \(2\).
+The corresponding least recurring polynomial norm distance is
+\(q^{{\mathfrak H}_q}\) when \({\mathfrak H}_q\) is finite.
+\end{corollary}
+\begin{proof}
+A nonzero polynomial of degree at most \(H<d\) cannot be divisible
+by \(\mathfrak r\). Thus the same fixed packet separates every pair
+in \({\cal B}_{n,H}\), without selecting a different modulus for
+each shift. The bounds in Lemma~\ref{lem:coupledResponse} are uniform
+over the deleted terminal pair: both odds are \(O(q^{-n})\), the
+background clock changes by \(O(q^{-n})\), and all ratio bounds use
+the same fixed small-weight tail. Since \(r_{c,Q}\asymp L_{c,Q}
+\asymp\log n\), the normalized coordinate error is
+\(O(1/\log n+(\log n)/q^n)\). Summing the finitely many squared
+coordinates gives the displayed uniform energy estimate and hence
+the maximum estimate.
+
+Infinitely many nonempty \({\cal B}_{n,H}\) are equivalent to an
+infinite-degree sequence of pairs. There are only
+\(q^{H+1}-1\) possible nonzero differences of degree at most \(H\);
+one fixed difference therefore occurs on an unbounded sequence.
+Conversely, such a recurring difference makes \({\cal B}_{n,H}\)
+nonempty infinitely often. The uniform energy estimate proves both
+directions of the limsup criterion. The characterization of
+\({\mathfrak H}_q\) follows because degrees are nonnegative integers.
+\end{proof}
+
+This is a gap-limit criterion using the zero-sensitive packet itself;
+it is not a relabelling of the unmarked norm-gap threshold.
+For comparison, \({\mathfrak H}_2\geq2\): every irreducible of degree
+greater than one takes value \(1\) at both \(0\) and \(1\), so every
+difference of two such primes is divisible by \(T(T+1)\).
+The next example gives \({\mathfrak H}_7=0\), the least possible value.
+The unmarked critical ascent coefficient is nevertheless \(1\) in
+both fields. No independence between the different class laws is
+used; they can all be sampled from the same pair \((a,b)\).
+
+\subsection{An explicit recurring pair with a surviving elliptic wave}
+There is also a fixed polynomial family, with no factorization filter,
+in which both channels can be evaluated completely.
+Take \(q=7\), \(D=T^3-T\), and sample independent monic \(a,b\) of
+degree \(M\) in the norm form
+\[
+                              F(a,b)=a^2-Db^2.
+\]
+For a prime of norm \(Q\), put \(\chi=\chi_D(P)\), with
+\(\chi=0\) at \(P\mid D\). Direct counting over the residue field gives
+\begin{equation}\label{eq:normFormProbability}
+                    \eta_F(P)=\frac{1+\chi}{Q}-\frac{\chi}{Q^2}.
+\end{equation}
+At a split prime the two lines have \(2Q-1\) points in total; at an
+inert prime only \((0,0)\) is a zero; at a ramified prime \(a=0\)
+and \(b\) is arbitrary. Thus the respective probabilities are
+\(2/Q-1/Q^2,\ 1/Q^2,\ 1/Q\), all strictly between zero and one.
+CRT again proves the fixed-cutoff independent law before \(M\to\infty\).
+
+The elliptic curve \(y^2=T^3-T\) has trace zero over \(\F_7\):
+\(x\) and \(-x\) cancel in the quadratic sum since
+\(\chi_7(-1)=-1\). Hence
+\[
+              L_D(u)=1+7u^2,\qquad \beta_\pm=\pm i\sqrt7.
+\]
+Let \(C_D\) and \(E_D(n)=B_D(n)-H_n-C_D\) be the quadratic clock
+constant and error already defined above. Put
+\[
+ C_F=C_D-\sum_P\frac{\chi_D(P)}{|P|^2},\qquad
+ E_F(n)=B_F(n)-H_n-C_F.
+\]
+The absolutely convergent overlap correction gives exactly
+\[
+ E_F(n)=E_D(n)+\sum_{\deg P>n}\frac{\chi_D(P)}{|P|^2}.
+\]
+
+\begin{theorem}[Simultaneous gap mark and elliptic zero wave]
+\label{thm:explicitMarkedWave}
+Put \(n=3^m\), \(Q=7^n\), and
+\[
+                  A_n=T^n-4,\qquad B_n=T^n-2.
+\]
+These are irreducible, \(B_n-A_n=2\), and
+\(\chi_D(A_n)=1,\ \chi_D(B_n)=-1\).
+Place them last in their degree block in this orientation and compare
+the intervening prefix with the swapped prefix.
+For \(L_n=H_n+C_F-Q^{-2}\),
+\(r_n=\lfloor\alpha L_n\rfloor\), and fixed \(\alpha>0\), one has
+\begin{align}
+ \frac{Q L_n^2}{r_n}(R^{\rm swapped}-R^{\rm original})&\longrightarrow2,
+ \label{eq:explicitEdgeLimit}\\
+ \frac{n\sqrt Q\,L_n^2}{r_n}
+       (R^{\rm original}-{\cal R}_{r_n}(L_n))
+       +\frac{\sqrt7}{3}
+ &=(-1)^m\frac{\sqrt7}{4}+o(1).
+ \label{eq:explicitZeroLimit}
+\end{align}
+\end{theorem}
+\begin{proof}
+The binomial irreducibility criterion applies for every \(m\), since
+\(2,4\) have order \(3\) in \(\F_7^\times\), and \(n\) is a power
+of \(3\). This is the constant-shift construction of
+Burrin--Issac~\cite{BurrinIssac}.
+Since \(n\) is odd, \(T^n\equiv T\bmod D\).
+Quadratic reciprocity, including its odd-degree sign, gives
+\(\chi_D(T^n-a)=\chi_7(a^3-a)\).
+The values at \(a=4,2\) are respectively
+\(\chi_7(4)=1,\chi_7(6)=-1\).
+
+The original prefix clock is \(B_F(n)-Q^{-2}=L_n+E_F(n)\).
+The swapped prefix clock is
+\(B_F(n)-(2/Q-Q^{-2})=L_n+E_F(n)-2/Q+2/Q^2\).
+Their common background is exactly the same. Their inserted odds are
+\[
+ a=\frac{2Q-1}{(Q-1)^2},\qquad b=\frac1{Q^2-1},\qquad
+ a-b=\frac{2Q^2}{(Q-1)^2(Q+1)}.
+\]
+All denominators are positive, including at the smallest norm \(Q=7\).
+Lemma~\ref{lem:coupledResponse} proves \eqref{eq:explicitEdgeLimit}.
+
+To evaluate the other channel, retain the exact prime-power tail.
+For odd \(n\), the Frobenius tail is
+\(\sum_{j>n/2}(-1)^j/(j7^j)\). The prime-square tail is
+\(\sum_{j>n/2}1/(j7^j)+O(7^{-3n/4}/n)\), by the exact prime
+polynomial formula. All powers at least three contribute
+\(O(7^{-2n/3}/n)\); the finitely many ramified corrections and the
+norm-form overlap tail are smaller. Consequently
+\[
+ E_F(n)=\sum_{j>n/2}\frac{1+(-1)^j}{j7^j}
+                     +O(7^{-2n/3}/n).
+\]
+In particular the cancellations at odd \(j\) have not been discarded.
+Write \(j_0=(n+1)/2\). Summing the two geometric tails, using
+\(n/(j_0+k)\to2\) with a summable geometric majorant, gives
+\[
+ n7^{n/2}E_F(n)
+   =\frac2{\sqrt7}\left(\frac7{6}
+                   +(-1)^{j_0}\frac7{8}\right)+o(1)
+   =\frac{\sqrt7}{3}+(-1)^{m+1}\frac{\sqrt7}{4}+o(1).
+\]
+Now apply \eqref{eq:markedLinearization} with the original clock.
+Its normalized error is \(O(1/r_n)+O(n7^{-n/2})\), proving
+\eqref{eq:explicitZeroLimit}. The constant \(\sqrt7/3\) is the
+retained prime-square bias; the alternating term is the elliptic
+Frobenius wave. The change from the two original ratios to their
+reference deviation and coupled difference is invertible, so neither
+channel is erased.
+\end{proof}
+
+\paragraph{What this transfers, and the remaining arithmetic question.}
+The canonical reference now coexists with a nonzero geometric shift
+response, uniformly in growing rank, in an actual positive law.
+The complete finite packet prevents losing an existing edge merely
+because one chosen character takes equal values at its endpoints.
+The number \(2\) in \eqref{eq:explicitEdgeLimit} is the local odds
+contrast, not a deduction that the integer \(H_1\) is \(2\).
+For \(\F_7[T]\) this example does prove infinitely many constant
+gap-\(2\) pairs, already known arithmetically; their polynomial
+norm distance is \(1\), rather than the difference of their norms.
+The reference transfer does not assert new priority for this pair
+construction or for Fourier inversion.
+
+The full integer ascent equivalence uses the actual recurring-edge
+supply as well as its zero-sensitive reference. In the finite-field
+model RH proves the clock estimate, and the theorem above preserves
+both pieces of information; edge supply is not a consequence of
+discarding the proper-power packet. Inferring an integer bound for
+\(H_1\) would additionally require an arithmetic comparison of those
+joint edge counts across the two settings. No such specialization
+or characteristic-zero limit is asserted.
+
+\paragraph{Formalization and verification status.}
+The exact scalar and elementary-symmetric coupled responses, strict
+positivity, the norm-form odds identity, and the complete packet energy,
+signed cross-term expansion and two-coordinate lower bound have
+real proofs compiled in
+\texttt{Helpers/MarkedCoefficientResponse.lean}, exported by the
+maintained project facade. The uniform reference and slope providers
+used above were already proved in Lean. The new finite-field sampling
+adapters, the analytic reindexing application, the Dirichlet tail
+identity, the asymptotic transfer theorems and the geometric gap-limit
+corollary are ordinary proofs, not newly compiled Lean theorems. Their concrete
+formalization dependencies are polynomial-prime CRT counting,
+finite-field Dirichlet explicit formulas, and the polynomial-to-rational
+prime index growth comparison. The earlier effective-divisor adapter
+and fixed-field critical-scale result also remain ordinary proofs.
+No new integer zero-free exponent or bound on the integer \(H_1\)
+is claimed.
+
+\section{Coherent accumulation across prime characteristics}
+Fix a positive even integer \(h\). We retain this same integer shift
+throughout, reducing it modulo each rational prime \(p\).
+The integer conclusion sought is infinitely many pairs \(n,n+h\)
+of rational primes. It would give \(H_1\leq h\); for \(h=2\) it gives
+\(H_1=2\). This is distinct from the degree bound used for
+\({\mathfrak H}_q\) above.
+
+\begin{lemma}[Every admissible local residue has a monic lift]
+\label{lem:artinSchreierCoverage}
+For every prime \(p\) and \(a\in\F_p\) with \(a(a+h)\ne0\),
+the monic polynomials
+\[
+                 T^p-T+a,\qquad T^p-T+a+h
+\]
+are irreducible over \(\F_p\).
+Thus all admissible constant terms can be covered in every prime
+characteristic. When \(p\mid h\), the two reductions coincide;
+this is the required local overlap, not a distinct-pair assertion.
+\end{lemma}
+\begin{proof}
+If \(\alpha\) is a root of the first polynomial, then
+\(\alpha^p=\alpha-a\). Its successive Frobenius images are
+\(\alpha-ka\). For \(a\ne0\) their orbit has exactly \(p\) elements,
+so the minimal polynomial has degree \(p\).
+Apply the same argument to \(a+h\).
+\end{proof}
+
+This establishes a genuine compatibility step for a correctly
+paritied shift. It does not replace the earlier growing-degree
+recurrence and reference information by a parity test.
+For a finite prime set, CRT can join whole coefficient lists of
+these polynomials, padding with zero coefficients where degrees
+differ; it gives a common integer polynomial with the prescribed
+reductions. Such a lift need not be monic over the integers when
+the local degrees differ. More importantly, CRT alone gives no
+small-height bound for the lift or its values.
+
+\subsection{An elliptic curve linking the characteristic-wise counts}
+There is a richer local packet than one existence witness.
+For an odd prime \(p\), \(h\ne0\) in \(\F_p\), and
+\(c(c+h)\ne0\), let \(w_p(c;h)\) count all \(b\in\F_p\) for which
+\[
+                 T^2+bT+c,\qquad T^2+bT+c+h
+\]
+are both irreducible. Write \(\chi=\chi_p\), extended by zero,
+and let \(a_p(c,h)\) be the Frobenius trace of
+\[
+                       E_{c,h}:y^2=x(x-c)(x-c-h).
+\]
+The curve is nonsingular under the stated hypotheses.
+
+\begin{proposition}[The conditional quadratic count]
+\label{prop:quadraticEllipticCount}
+One has the exact identity
+\begin{align}
+4w_p(c;h)={}&p+1-a_p(c,h)\nonumber\\
+ &-(1+\chi(c))(1-\chi(-h))
+  -(1+\chi(c+h))(1-\chi(h)).
+ \label{eq:quadraticEllipticCount}
+\end{align}
+In particular, \(w_p(c;h)>0\) for every admissible \(c\) when
+\(p\geq17\).
+The total count is
+\[
+ \sum_{c\in\F_p}w_p(c;h)
+       =\frac p4\bigl(p-3+\chi(h)+\chi(-h)\bigr).
+\]
+Here \(w_p(0;h)=w_p(-h;h)=0\).
+\end{proposition}
+\begin{proof}
+The discriminants are \(b^2-4c\) and \(b^2-4(c+h)\).
+First expand the product of their nonsquare indicators with the
+zero-discriminant corrections still separate. The two individual
+character sums equal \(-1\).
+The coupled character sum is
+\[
+ \sum_b\chi((b^2-4c)(b^2-4(c+h)))
+ =\sum_x(1+\chi(x))\chi((x-c)(x-c-h))
+ =-1-a_p(c,h).
+\]
+The substitution uses that \(b^2=4x\) has \(1+\chi(x)\) solutions.
+The first term in the last sum is \(-1\), while the second is the
+negative elliptic Frobenius trace.
+
+The uncorrected count is therefore
+\((p+1-a_p(c,h))/4\).
+There are \(1+\chi(c)\) roots with first discriminant zero, and at
+each of them the other discriminant has character \(\chi(-h)\).
+The other zero-discriminant row similarly contributes
+\((1+\chi(c+h))(1-\chi(h))/4\).
+The two rows do not intersect because \(h\ne0\).
+This proves the full formula, including every overlap correction.
+
+Hasse's bound gives the uniform lower estimate
+\[
+ w_p(c;h)\geq\frac{p-7-2\sqrt p}{4}>0\qquad(p\geq17).
+\]
+For the total count, put \(u=b^2-4c\).
+For each \(b\), varying \(c\) varies \(u\) bijectively.
+Counting \(u,u-4h\) both nonzero nonsquares gives
+\((p-3+\chi(h)+\chi(-h))/4\); there are \(p\) choices of \(b\).
+\end{proof}
+
+\paragraph{Formal status of this packet.}
+The exact count identity, its total over all constants, and the vanishing
+at \(c=0,-h\) are proved in maintained Lean over every odd finite field.
+The declarations
+\texttt{monicQuadraticPairCount\_eq\_trace} and
+\texttt{sum\_monicQuadraticPairCount\_eq} in the candidate module
+\texttt{LegendreSymbol.QuadraticPolynomialPairs}
+use the actual irreducibility predicate and actual cubic point counts.
+Their checked axiom closures contain only the foundational Lean axioms.
+The Hasse deduction of positivity and the subsequent CRT and
+short-interval accumulation assertions still have ordinary proofs here;
+they are not claimed as formalized integer prime-pair estimates.
+
+For fixed positive integers \(n,h\), the traces in this proposition
+at all primes not dividing \(2hn(n+h)\) are reductions of one
+elliptic curve over \(\mathbb Q\):
+\[
+                         E_{n,h}:y^2=x(x-n)(x-n-h).
+\]
+Thus these are arithmetically linked field cases.
+Their exact count is not just the Boolean statement that a local
+pair exists. Elliptic and modular information in finite-field
+prime-pair counts also occurs in the cubic computation of
+Bary-Soroker--Stix~\cite{BarySorokerStix}; no novelty claim for that
+general connection is made here.
+
+\subsection{A concrete integer-side accumulation packet}
+For each \(p\geq17\) with \(p\nmid h\), define
+\[
+ u_p(c)=\frac{p\,w_p(c;h)}{\sum_{a\in\F_p}w_p(a;h)}.
+\]
+For the finitely many other primes, use the Artin--Schreier packet:
+\[
+ u_p(c)=\frac{p}{p-\nu_p(h)}\,\mathbf1_{c(c+h)\ne0},
+ \qquad
+ \nu_p(h)=\begin{cases}1,&p\mid h,\\2,&p\nmid h.\end{cases}
+\]
+Evenness of \(h\) ensures \(p-\nu_p(h)>0\) also at \(p=2\).
+For every prime,
+\[
+ \frac1p\sum_{c\in\F_p}u_p(c)=1,\qquad
+ u_p(c)>0\ \Longleftrightarrow\ c(c+h)\ne0.
+\]
+The positivity assertion uses the preceding proposition at large
+primes and the explicit construction at every exceptional prime.
+
+For good \(p\) and admissible \(c\), the exact signed form is
+\[
+ u_p(c)=1+
+ \frac{2-a_p(c,h)-\chi(c)(1-\chi(-h))
+                   -\chi(c+h)(1-\chi(h))}
+      {p-3+\chi(h)+\chi(-h)}.
+\]
+Equivalently, writing
+\(Z_p(c,h)=(1+\chi(c))(1-\chi(-h))
+ +(1+\chi(c+h))(1-\chi(h))\), it is the finite local quotient
+\[
+ \frac{1-a_p(c,h)/p+1/p}{1-(3-\chi(h)-\chi(-h))/p}
+        \left(1-\frac{Z_p(c,h)}{p+1-a_p(c,h)}\right).
+\]
+The first numerator is the inverse good-prime Euler factor of
+\(L(E_{n,h},s)\) at \(s=1\), when \(c=n\bmod p\).
+All products below are finite. No central Euler-product limit or
+zero-recovery theorem for elliptic \(L\)-functions is assumed.
+Hasse's bound is used to certify local positivity; the proposed
+global estimate retains the signed traces and compensation factors.
+
+\begin{proposition}[Exact accumulation and its required height scale]
+\label{prop:integerAccumulation}
+For real \(Y\geq2\), set
+\[
+ M_Y=\prod_{p\leq Y}p,\qquad
+ U_Y(n)=\prod_{p\leq Y}u_p(n\bmod p).
+\]
+Then
+\[
+ \sum_{n=1}^{M_Y}U_Y(n)=M_Y,\qquad
+ U_Y(n)>0\ \Longleftrightarrow\
+                \gcd(n(n+h),M_Y)=1.
+\]
+For an integer \(X\geq h+3\), put \(Y=\sqrt{2X+h}\).
+There is a prime pair \(n,n+h\) with \(X<n\leq2X\) if and only if
+\[
+                         S_h(X):=\sum_{X<n\leq2X}U_Y(n)>0.
+\]
+Consequently integer recurrence follows if this positivity is
+established along any unbounded sequence of \(X\).
+\end{proposition}
+\begin{proof}
+CRT, not an independence assumption, gives
+\[
+ \sum_{n\bmod M_Y}\prod_{p\leq Y}u_p(n\bmod p)
+       =\prod_{p\leq Y}\sum_{c\bmod p}u_p(c)
+       =\prod_{p\leq Y}p=M_Y.
+\]
+The support statement follows from the exact local support in
+each factor. In the specified interval, \(n,n+h>Y\) and both
+are at most \(Y^2\). A composite value would have a prime divisor
+at most its square root, hence at most \(Y\).
+Thus positive weight forces both values prime; conversely each
+prime pair has positive weight. Nonnegativity proves the equivalence.
+\end{proof}
+
+This gives a precise meaning to accumulating enough field cases:
+they must control the joint integer mass at \(X\) of order \(Y^2\),
+rather than only over the complete period
+\(M_Y=\exp((1+o(1))Y)\).
+The full-period identity is proved; no critical short-interval
+lower bound is being inferred from it.
+
+To retain every phase, define
+\[
+ \widehat u_p(k)=\frac1p\sum_{a\bmod p}u_p(a)e^{-2\pi i ka/p},
+ \qquad D_X(t)=\sum_{X<n\leq2X}e^{2\pi i nt}.
+\]
+Fourier expansion gives the exact finite signed consumer
+\[
+ S_h(X)=X+
+ \sum_{\substack{k\in\prod_{p\leq Y}\F_p\\
+                  k\ne0}}
+ \left(\prod_{p\leq Y}\widehat u_p(k_p)\right)
+ D_X\left(\sum_{p\leq Y}\frac{k_p}{p}\right).
+\]
+Representatives \(0,\ldots,p-1\) may be used for each \(k_p\).
+The sum is real by conjugate pairing. Positivity requires only that
+its retained nonprincipal contribution exceed \(-X\), along
+unbounded cutoffs; neither a triangle bound on its terms nor a
+prime-pair asymptotic is assumed. The characteristic-wise traces
+come from the same global curve for a fixed integer \(n\), so the
+additional arithmetic information is available in this packet.
+Estimating this signed incomplete packet remains open here.
+These identities do not establish a new integer gap bound.
+
+\paragraph{Verification status for this section.}
+The Artin--Schreier coverage, conditional quadratic count, and
+integer accumulation statements are ordinary proofs, not newly
+Lean-compiled declarations. Formalization still needs the finite-field
+nonsquare-indicator and elliptic point-count adapters used in the
+count, followed by the finite Fourier and CRT consumer.
+The earlier compiled coefficient-response and signed packet lemmas
+remain unchanged.
+
+\section{Unconditional transfer to quadratic number fields}
+
+There is a direct arithmetic counterpart of finite-word realization.
+Let \(\Delta\) be a fundamental quadratic discriminant. Enumerate in
+increasing order the odd, unramified rational primes
+\(p_1<p_2<\cdots\) splitting in \(\mathbf Q(\sqrt\Delta)\).
+For \(c=1\), let \(b_{\Delta,k}^{(1)}(i)\) be the natural density of
+integers \(n\) whose \(k\)-th distinct prime factor on this split list
+is \(p_i\). For \(c=2\), let \(b_{\Delta,k}^{(2)}(i)\) be the density
+of positive integers \(a\) for which \(p_i\) is the \(k\)-th distinct
+factor on this list of \(|a^2-\Delta|\). Factors outside the list
+do not enter either rank. The prime \(2\) and all ramified primes
+are excluded, including from the \(c=2\) root-count formula.
+
+CRT gives the local probabilities \(c/p_i\), and hence the exact formula
+\[
+ b_{\Delta,k}^{(c)}(i)=\frac c{p_i}
+       \prod_{j<i}\left(1-\frac c{p_j}\right)
+       e_{k-1}\left(\frac c{p_1-c},\ldots,\frac c{p_{i-1}-c}\right).
+                                                               \tag{26}
+\]
+For \(c=2\) the two residue roots exist precisely because \(p_i\)
+splits and is odd and unramified. All local probabilities are less
+than one. For \(k\geq2\) and \(i\geq k\), writing \(r=k-1\) and
+\(R_r=e_{r-1}/e_r\) on the prefix before \(p_i\), the exact step is
+\[
+ \frac{b_{\Delta,k}^{(c)}(i+1)}{b_{\Delta,k}^{(c)}(i)}
+       =\frac{p_i-c+cR_r}{p_{i+1}},\qquad
+ \text{strict ascent}\ \Longleftrightarrow\
+       R_r>\frac{p_{i+1}-p_i+c}{c}.                 \tag{27}
+\]
+
+\begin{theorem}[Simultaneous number-field word realization]
+\label{thm:numberFieldWords}
+Fix \(k\geq2\) and a finite word in \(\{+,-\}\).
+There are infinitely many real quadratic fields and infinitely many
+imaginary quadratic fields such that both integer profiles
+\(b_{\Delta,k}^{(1)}\) and \(b_{\Delta,k}^{(2)}\) realize that word
+on the same contiguous prime-index segment. This is unconditional.
+
+For each fixed quadratic field both profiles eventually strictly
+decrease. Thus their number of positive peak plateaus is finite for
+each field and unbounded across either the real or imaginary families.
+For \(k=1\) both profiles are strictly decreasing in every field.
+\end{theorem}
+\begin{proof}
+Let the word have length \(t\), put \(r=k-1\), \(s=2r+1+t\),
+and \(\varepsilon=r/(8s)\). For all sufficiently large \(Y\geq32s\),
+every interval
+\[
+ J_j(Y)=[4^jY,\,4^jY+\varepsilon Y],
+                   \qquad 0\leq j\leq t,
+\]
+contains at least \(s\) primes, by the ordinary prime number theorem
+with \(r,t\) fixed. Choose \(2r+1\) initial primes from \(J_0(Y)\).
+For each successive plus select another prime in the current interval;
+for each minus select one in the next interval. There are \(s\)
+selected primes in total; enough are available in each interval.
+
+For both \(c=1,2\), every selected prefix has total odds at most
+\(cs/(Y-c)\), and therefore
+\[
+ R_r\geq\frac{r(Y-c)}{cs}.
+\]
+Within a plus step the gap is at most \(\varepsilon Y\).
+The choice \(Y\geq32s\) ensures
+\[
+ \frac{r(Y-c)}s>\varepsilon Y+c \qquad(c=1,2),
+\]
+so (27) gives a strict ascent in both profiles. At a minus step,
+the next prime \(q\) is at least twice the current prime \(p\).
+There are at least \(2r\) preceding selected primes. Since their
+smallest odds are at least \(c/(p-c)\), (14) gives
+\[
+ R_r\leq\frac{r(p-c)}{c(m-r+1)}
+       \leq\frac{r(p-c)}{c(r+1)}
+       <\frac{p-c}{c}<\frac{q-p+c}{c}.
+\]
+Thus both profiles strictly descend. The initial \(2r+1\) entries
+put the entire specified segment inside the positive support.
+
+It remains to realize exactly this list of split primes through its
+last element \(B\). For every odd prime \(p\leq B\), prescribe
+\(\sigma_p=+1\) on the selected list and \(-1\) elsewhere.
+CRT gives a reduced residue class of integers \(\ell\), modulo
+\(8\prod_{\substack{p\leq B\\p\ {\rm odd\ prime}}}p\), such that
+\[
+ \ell\equiv5\pmod8,\qquad (\ell/p)=\sigma_p .
+\]
+Dirichlet's theorem supplies infinitely many primes \(\ell>B\)
+in this class~\cite{Sutherland}. Then \(\Delta=\ell\) is a positive
+fundamental discriminant with the prescribed splitting pattern.
+
+For imaginary fields instead prescribe
+\[
+ \ell\equiv3\pmod8,\qquad
+       (\ell/p)=\sigma_p(-1/p).
+\]
+Again Dirichlet gives infinitely many primes in this reduced class,
+and \(\Delta=-\ell\) is a negative fundamental discriminant with
+\((\Delta/p)=\sigma_p\). In both constructions \(\Delta\equiv5\pmod8\);
+the prime \(2\) remains excluded from the sampling rank. The finite
+density formula (26) depends only on the prescribed initial split list,
+so every resulting field realizes the same word in both profiles.
+
+Finally the unconditional Mertens theorem for Chebotarev prime sets
+gives, for each fixed \(\Delta\),
+\[
+ \mu_c(x):=
+ \sum_{\substack{p\leq x,\ p\ {\rm odd}\\\chi_\Delta(p)=1}}
+          \frac c{p-c}
+       =\frac c2\log\log x+C_{\Delta,c}+o_\Delta(1).
+                                                               \tag{28}
+\]
+Indeed the split class has density \(1/2\), and replacing \(c/p\)
+by \(c/(p-c)\) changes the sum by an absolutely convergent
+correction~\cite{AKK}. Hence \(\mu_c\to\infty\).
+Since every individual odds weight is at most two, (25) gives
+\(R_r\leq r/(\mu_c-2(r-1))\to0\) on sufficiently long prefixes.
+Equation (27) forces strict decrease thereafter.
+Alternating words \(+,-,+,-,\ldots\) give arbitrarily many strict
+peaks across either family. For \(k=1\), the exact ratio is
+\((p_i-c)/p_{i+1}<1\).
+\end{proof}
+
+\paragraph{Relation to zeta functions and the finite-field result.}
+For \(K=\mathbf Q(\sqrt\Delta)\), the standard factorization
+\(\zeta_K(s)=\zeta(s)L(s,\chi_\Delta)\) identifies the quadratic
+character controlling these splitting profiles with the quadratic
+field's zeta factor. The finite-word theorem itself uses only CRT,
+the prime number theorem, Dirichlet's theorem, and the coefficient
+comparisons; it assumes neither RH nor GRH.
+
+The sharp function-field peak bound above is expressed in the
+conductor degree \(\deg D\). That corresponds to a logarithmic
+conductor scale, since its finite norm is \(q^{\deg D}\).
+An analogous sharp discriminant-uniform bound over \(\mathbf Q\)
+has not been proved here. The integer step (27) retains the actual
+rational-prime gaps, whereas a fixed polynomial degree block has
+equal norms. The fixed-field asymptotic (28) has a field-dependent
+constant and remainder; it is not a uniform square-root estimate.
+These transfer statements have ordinary proofs, not new Lean
+formalizations; no new bound on number-field zeta zeros is claimed.
+
+\section{Arithmetic transfers and the next ascent investigation}
+\paragraph{Existing ingredients.}
+The generic greedy record sandwich and the maintained periodic and
+joint-wave results motivate this argument. The new arithmetic input
+in this setting is the established finite-field RH, which supplies
+actual bounded Frobenius phases. The prime-power inversion identifies
+the reference correction before the signed record consumer is used.
+Integer-prime sampling and probability laws still require explicit
+closed-point or polynomial adapters.
+
+\paragraph{Why positive genus matters.}
+The rational function field has trivial zeta numerator. Nontrivial
+zero signals require a positive-genus curve, or a nontrivial polynomial
+Dirichlet \(L\)-function. Merely replacing integers by \(\F_q[T]\)
+would discard the nontrivial spectral information.
+
+\paragraph{Character and Carmichael structure.}
+For squarefree \(f=\prod P_i\in\F_q[T]\), CRT gives
+\[
+ (\F_q[T]/(f))^\times\simeq
+ \prod_i\F_{q^{\deg P_i}}^\times,\qquad
+ \operatorname{exponent}((\F_q[T]/(f))^\times)
+       =\operatorname{lcm}_i(q^{\deg P_i}-1).
+\]
+This is the correct counterpart of the integer Carmichael exponent.
+Polynomial Carmichael objects already have a literature~\cite{BaeHuSha};
+their existence and their Korselt criterion are not new here.
+
+\paragraph{Ascent and constellation status.}
+The exact ordinary-density ascent identity, complete unimodality
+classification, fixed-rank large-field mode count, quadratic finite-word
+realization, and sharp logarithmic conductor-degree mode complexity
+have ordinary proofs above. A general marked RH ascent equivalence
+and a prime-constellation recurrence transfer are not proved here.
+Fixed \(q\) with growing degree and growing \(q\) at fixed degree remain
+different limits. The exact quadratic-pair count and total are now
+formalized as described above. The full Frobenius sampling and
+probability-law adapters remain to be implemented.
+
+\paragraph{Novelty boundary.}
+Frobenius-wave descriptions of function-field prime races are established
+in the literature~\cite{CFJ,BDKL}. The object here is the minimum irreversible
+deletion enforcing every past one-sided cutoff, with its full backward
+envelope and elliptic classification. No matching theorem has yet been
+identified, but this is not an established priority claim.
+
+\section{Exact diagnostic checks}
+The companion script \texttt{finite\_field\_greedy\_probe.py} checks all
+general Weierstrass equations over \(\F_2,\F_3\), all short Weierstrass
+equations over \(\F_5,\F_7,\F_{11}\), and base extensions of degrees
+two and four of the first two families. Singular curves are excluded
+by their discriminant. Extension traces satisfy
+\(s_0=2,\ s_1=t,\ s_m=ts_{m-1}-qs_{m-2}\).
+
+The domain contains 350 nonsingular equations and 59 realized
+\((q,t)\) pairs. Every degree \(1\leq n\leq192\) is checked for
+closed-point integrality and nonnegativity, the full identity (3),
+and the greedy record sandwich (1).
+\begin{center}
+\begin{tabular}{c|r|r|r|r}
+\(q\)&\(t\)&last deletion through degree 192&deleted mass&deleted count\\ \hline
+2&-2&1&3&3\\
+2&-1&1&2&2\\
+2&0&2&3&2\\
+3&0&2&5&3\\
+16&8&none&0&0\\
+81&18&none&0&0
+\end{tabular}
+\end{center}
+In the other 53 tested pairs, the last observed deletion is at degree
+at least 183. These observations neither prove infinite deletion nor
+certify a final deletion degree. Universal conclusions above come from
+the ordinary proofs, not this finite computation.
+
+\begin{thebibliography}{9}
+\bibitem{Milne} J. S. Milne, \emph{Elliptic Curves}, second edition.
+\url{https://www.jmilne.org/math/Books/EC2.pdf}.
+\bibitem{CFJ} B. Cha, D. Fiorilli, F. Jouve,
+\emph{Prime number races for elliptic curves over function fields},
+arXiv:1502.05295. \url{https://arxiv.org/abs/1502.05295}.
+\bibitem{BDKL} A. Bailleul, L. Devin, D. Keliher, W. Li,
+\emph{Exceptional biases in counting primes over function fields},
+arXiv:2302.13665. \url{https://arxiv.org/abs/2302.13665}.
+\bibitem{BaeHuSha} S. Bae, S. Hu, M. Sha,
+\emph{On the Carmichael rings, Carmichael ideals and Carmichael polynomials},
+arXiv:1809.05432. \url{https://arxiv.org/abs/1809.05432}.
+\bibitem{Cambie} S. Cambie,
+\emph{Resolution of Erdos' problems about unimodularity},
+arXiv:2501.10333. \url{https://arxiv.org/abs/2501.10333}.
+\bibitem{Jung} H. Jung,
+\emph{Mertens products in arithmetic progressions over function fields},
+arXiv:2602.05788v2. \url{https://arxiv.org/abs/2602.05788}.
+\bibitem{Sutherland} A. V. Sutherland,
+\emph{Number Theory I}, MIT 18.785, Fall 2021 lecture notes.
+\bibitem{AKK} S. Arango-Pineros, D. Keliher, C. Keyes,
+\emph{Mertens' theorem for Chebotarev sets},
+arXiv:2103.14747. \url{https://arxiv.org/abs/2103.14747}.
+\bibitem{BurrinIssac} C. Burrin, M. Issac,
+\emph{Infinitely many twin prime polynomials of odd degree},
+arXiv:2101.08038. \url{https://arxiv.org/abs/2101.08038}.
+\bibitem{KeatingRudnick} J. P. Keating, Z. Rudnick,
+\emph{The variance of the number of prime polynomials in short intervals
+and in residue classes}, arXiv:1204.0708.
+\url{https://arxiv.org/abs/1204.0708}.
+\bibitem{BarySorokerStix} L. Bary-Soroker, J. Stix,
+\emph{Cubic twin prime polynomials are counted by a modular form},
+arXiv:1711.05564. \url{https://arxiv.org/abs/1711.05564}.
+\end{thebibliography}
+\end{document}

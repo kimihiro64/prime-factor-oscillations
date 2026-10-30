@@ -5,6 +5,13 @@ Reusable mathematics intended for possible upstreaming lives under
 The child generator replaces `PrimeFactorOscillations` with the configured project
 namespace.
 
+## Finite-field quadratic discriminant pairs
+
+| Module | Proposed destination | Readiness | Scope |
+| --- | --- | --- | --- |
+| `PrimeFactorOscillations.Mathlib.NumberTheory.LegendreSymbol.QuadraticPairs` | `Mathlib/NumberTheory/LegendreSymbol/QuadraticPairs.lean` | project-verified | Exact common nonsquare-discriminant count in every odd finite field, with its split cubic point trace and both zero-discriminant correction rows; no Hasse or integer prime-pair estimate assumed. |
+| `PrimeFactorOscillations.Mathlib.NumberTheory.LegendreSymbol.QuadraticPolynomialPairs` | `Mathlib/NumberTheory/LegendreSymbol/QuadraticPolynomialPairs.lean` | project-verified | Actual monic-quadratic irreducibility via nonsquare discriminants, square-scaled cubic trace invariance, the full conditional pair count, both inadmissible constants, and its exact total over all constants in every odd finite field; maintained builds and foundational-axiom audits passed. |
+
 ## Polynomial sign intervals
 
 | Module | Proposed destination | Readiness | Scope |

@@ -8,6 +8,8 @@ import PrimeFactorOscillations.Mathlib.NumberTheory.GaussSum.PrimitiveTransform
 import PrimeFactorOscillations.Mathlib.NumberTheory.GaussSum.RamifiedPermutation
 import PrimeFactorOscillations.Mathlib.NumberTheory.GaussSum.RootCusp
 import PrimeFactorOscillations.Mathlib.NumberTheory.GaussSum.TorsionCovariance
+import PrimeFactorOscillations.Mathlib.NumberTheory.LegendreSymbol.QuadraticPairs
+import PrimeFactorOscillations.Mathlib.NumberTheory.LegendreSymbol.QuadraticPolynomialPairs
 
 /-!
 # Gauss-sum candidate exports

@@ -1,3 +1,4 @@
+import PrimeFactorOscillations.Helpers.MarkedCoefficientResponse
 import PrimeFactorOscillations.Helpers.PeakDensityComparison
 import PrimeFactorOscillations.Helpers.PeakLocalization
 
