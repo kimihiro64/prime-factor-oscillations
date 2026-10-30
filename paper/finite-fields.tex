@@ -4024,6 +4024,112 @@ The deleted objects here are finite-field parameter pairs.
 No size estimate for an integer prime deletion class or transfer
 of prime-gap recurrence is claimed.
 
+\subsection{An inverse theorem for near-threshold deletion sets}
+The preceding bound also has an exact structural remainder.
+For each regular fibre, let
+\[
+ p_z=|\{y\in D_z:\gamma_z(y)=1\}|,\qquad
+ n_z=|\{y\in D_z:\gamma_z(y)=-1\}|,\qquad
+ e_z=\sum_{y\in\mathcal Y_z\setminus D_z}\gamma_z(y).
+\]
+Thus \(p_z,n_z\) count the two deleted character signs, while \(e_z\)
+is the actual signed retained count. Define the integer slacks
+\[
+ B_D=(m-a)^2-4a-2R_D,\qquad
+ C_D=a^2+(m-a)^2-\sum_{z\in\mathcal R}c_z^2.
+\]
+
+\begin{theorem}[Deletion stability and inverse structure]
+\label{thm:tripleDeletionStability}
+For every odd finite field, nonzero \(h\), fixed nonzero nonsquare
+tag \(t\), and deleted set \(D\subseteq\mathcal D_h\),
+\[
+ \boxed{\quad
+ B_D=C_D+4\sum_{z\in\mathcal R}p_zn_z+
+                   \sum_{z\in\mathcal R}e_z^2 .
+ \quad} \tag{SC}
+\]
+Every term on the right is a nonnegative integer. In particular,
+\[
+ |\{z\in\mathcal R:e_z\ne0\}|\le B_D,\qquad
+ 4\sum_{z\in\mathcal R}p_zn_z\le B_D,\qquad C_D\le B_D.
+\]
+If \(B_D<4\), then every fibre deletes at most one character sign:
+\(p_z=0\) or \(n_z=0\) for every \(z\).
+Moreover
+\[
+ B_D=0
+ \quad\Longleftrightarrow\quad
+ C_D=0,\quad \sum_{z\in\mathcal R}p_zn_z=0,\quad
+ e_z=0\ \text{for every }z\in\mathcal R.
+\]
+Zero slack forces \(R_D=0\); consequently \(R_D>0\) forces \(B_D\ge1\).
+These assertions require no large-cardinality assumption.
+\end{theorem}
+
+\begin{proof}
+Every admissible \(y\) has \(\gamma_z(y)\in\{-1,1\}\). The deleted
+counts therefore satisfy the exact identities
+\[
+ c_z=p_z+n_z,\qquad d_z=n_z-p_z,\qquad
+ c_z^2=d_z^2+4p_zn_z. \tag{MP}
+\]
+The complete fibre sum is \(\sum_{y\in\mathcal Y_z}\gamma_z(y)=-T_z\).
+Subtracting the deleted sum \(-d_z\) gives
+\[
+ e_z=d_z-T_z. \tag{RP}
+\]
+Both identities use the full fibre and all deleted and retained points.
+
+The capped-count estimate (CCS) gives \(C_D\ge0\).
+Sum (MP) over the regular fibres and use (DP) and (RP):
+\[
+ \sum_z c_z^2
+   =a(q+1)+2R_D+\sum_z e_z^2+4\sum_zp_zn_z.
+\]
+Since \(a(q+1)=a^2+4a\), rearrangement is exactly (SC).
+The other terms are nonnegative because the counts are nonnegative
+integers and the retained contributions are squares.
+
+For each fibre with \(e_z\ne0\), integrality gives \(e_z^2\ge1\).
+Summing these indicators and using (SC) proves the bound on
+unbalanced fibres. The mixed-pair and capped-count budgets follow
+by dropping the other nonnegative terms.
+If \(B_D<4\), then \(\sum_zp_zn_z<1\).
+This is a nonnegative integer, so it is zero. Each nonnegative
+summand is then zero, hence \(p_z=0\) or \(n_z=0\).
+
+A sum of the three nonnegative terms in (SC) is zero exactly when
+each is zero. A sum of integer squares is zero exactly when every
+square is zero, proving the stated equivalence.
+In that case (RP) gives \(d_z=T_z\) for every fibre.
+Substitution in (DP), together with
+\(\sum_zT_z^2=a(q+1)\), gives \(2R_D=0\).
+Finally \(B_D\ge0\) is an integer; if \(R_D>0\), its zero value has
+just been excluded, so \(B_D\ge1\).
+\end{proof}
+
+\paragraph{Meaning and formal status.}
+The square-root bound alone constrains the number of deleted
+parameter pairs. The inverse theorem also constrains their arrangement:
+each unbalanced retained fibre costs at least one slack unit,
+and each mixed-sign deleted pair costs four.
+It does not assert attainability of zero slack.
+The maintained module
+\texttt{QuadraticTripleDeletionStability} proves the certificate as
+\texttt{signed\_deletion\_slack\_certificate}, the budgets as
+\texttt{deletion\_slack\_budgets}, and the inverse consequences as
+\texttt{unbalanced\_fibre\_count\_bound},
+\texttt{small\_slack\_phase\_purity},
+\texttt{deletion\_zero\_slack\_iff},
+\texttt{zero\_slack\_retainedWave}, and
+\texttt{positive\_retained\_slack\_ge\_one}.
+The sign-count identity and square expansion are elementary;
+the specific conclusion couples them to the complete compensated
+triple-count family. External priority is not established.
+These are finite-field parameter subsets, with no integer
+prime-pair recurrence or RH implication inferred.
+
 \section{Arithmetic transfers and the next ascent investigation}
 \paragraph{Existing ingredients.}
 The generic greedy record sandwich and the maintained periodic and
