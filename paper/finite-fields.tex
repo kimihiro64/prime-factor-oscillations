@@ -3333,6 +3333,170 @@ constant and remainder; it is not a uniform square-root estimate.
 These transfer statements have ordinary proofs, not new Lean
 formalizations; no new bound on number-field zeta zeros is claimed.
 
+\section{A surviving wave for common-scale quadratic triples}
+
+The two-tag average in Theorem~\ref{thm:commonScaleOptimum} concerns
+pairs. A third distinct constant changes its character expansion:
+the same positive averaging retains an elliptic trace. We now quantify
+that surviving term in the actual normalized count, without a Hasse
+estimate.
+
+Let \(F\) be an odd finite field of cardinality \(q\), write
+\(\chi\) for its quadratic character extended by \(\chi(0)=0\), and set
+\[
+ C_3(a,b,c)=\#\{z\in F:T^2+zT+a,\ T^2+zT+b,\ T^2+zT+c
+                       \text{ are all irreducible}\}.
+\]
+Fix a nonsquare \(t\ne0\). Define
+\[
+ \begin{split}
+ S_{h,k}(x)&=C_3(x,x+h,x+k)
+       +C_3(tx,t(x+h),t(x+k)),\\
+ A_{h,k}&=\{x\in F:x(x+h)(x+k)\ne0\},\\
+ r(a;b,c)&=1+\chi(a-b)\chi(a-c)
+                    -\chi(a)\{\chi(a-b)+\chi(a-c)\},\\
+ R(a,b,c)&=r(a;b,c)+r(b;a,c)+r(c;a,b),\\
+ R_{h,k}(x)&=R(x,x+h,x+k),\\
+ \sigma_{h,k}&=\chi(hk)+\chi(h(h-k))+\chi(k(k-h)),\\
+ D_{h,k}&=q-6-\sigma_{h,k}.
+ \end{split}
+\]
+When \(D_{h,k}>0\), the mean-one density and its explicit background are
+\[
+ u_{h,k}(x)=\frac{4S_{h,k}(x)}{D_{h,k}},\qquad
+ B_{h,k}(x)=\frac{q+1-R_{h,k}(x)}{D_{h,k}}.
+\]
+The probability mass at \(x\) is \(u_{h,k}(x)/q\).
+
+\begin{theorem}[Two-shape triple-wave floor]\label{thm:tripleWaveFloor}
+Suppose \(q\ge11\), \(h\ne0\), and \(k_1,k_2\) are distinct elements
+of \(F\setminus\{0,h\}\). For each \(i\in\{1,2\}\),
+\[
+ 0<D_{h,k_i}\le q-3,\qquad
+ u_{h,k_i}(x)\ge0,\qquad
+ \frac1q\sum_{x\in F}u_{h,k_i}(x)=1.
+\]
+For at least one \(i\) there is \(x\in A_{h,k_i}\) such that
+\[
+ 2(q-3)^2\{u_{h,k_i}(x)-B_{h,k_i}(x)\}^2\ge q+1.
+ \tag{TW}
+\]
+Equivalently, at that point
+\[
+ |u_{h,k_i}(x)-B_{h,k_i}(x)|
+       \ge\frac{\sqrt{(q+1)/2}}{q-3}.
+\]
+\end{theorem}
+
+\begin{proof}
+Put \(m_\epsilon(y,d)=1-\epsilon\chi(y-d)-1_{y=d}\).
+The exact nonsquare indicator is
+\(2\,1_{\text{nonsquare}}(v)=1-\chi(v)-1_{v=0}\);
+its zero correction cannot be omitted. For every \(u\ne0\),
+summing first over the constant and changing variables
+\(x=z^2/(4u)-y\), for each fixed shared coefficient \(z\), gives
+\[
+ 8\sum_{x\in F}C_3(ux,u(x+h),u(x+k))
+ =q\sum_{y\in F}
+       m_{\chi(u)}(y,0)m_{\chi(u)}(y,h)m_{\chi(u)}(y,k).
+ \tag{T1}
+\]
+Here the three discriminants become \(4u(y-d)\), for \(d=0,h,k\).
+Add the cases \(u=1,t\). Expanding the paired products cancels the
+odd character monomials. The three distinct root rows \(y=0,h,k\)
+contribute their exact corrections, while every remaining two-character
+correlation has sum \(-1\). The resulting identity is
+\[
+ 4\sum_{x\in F}S_{h,k}(x)=qD_{h,k}.
+ \tag{T2}
+\]
+This includes inadmissible constants, whose actual counts vanish.
+Each character in \(\sigma_{h,k}\) is \(1\) or \(-1\).
+Thus \(q-9\le D_{h,k}\le q-3\), proving positivity when \(q\ge11\).
+Nonnegativity follows from the two actual counts; (T2) proves the mean.
+
+For distinct nonzero \(a,b,c\), the same exact character expansion,
+this time summing the shared coefficient through its square fibers,
+gives
+\[
+ 4\{C_3(a,b,c)+C_3(ta,tb,tc)\}
+ =q+1+T(c(b-a),b(c-a))-R(a,b,c).
+ \tag{T3}
+\]
+The trace \(T(A,B)\) is the split-cubic point trace already defined
+in this paper. To verify its sign and constant in (T3), the reciprocal
+substitution \(U=-abc/y\), extended by \(0\mapsto0\), followed by
+\(X=U+bc\), gives the exact identity
+\[
+ \sum_{y\in F}\chi(y(y-a)(y-b)(y-c))
+       =-1-T(c(b-a),b(c-a)).
+\]
+The three zero rows in the mask expansion give exactly \(R(a,b,c)\).
+This proves (T3), including its constant term.
+
+Write
+\(\Delta_{h,k}(x)=4S_{h,k}(x)-q-1+R_{h,k}(x)\).
+For \(x\in A_{h,k}\), (T3) identifies it with
+\(T(h(x+k),k(x+h))\).
+Set
+\[
+ \alpha_k=\frac{h}{k-h},\qquad
+ z_k(x)=\alpha_k+\frac{hk}{(k-h)x}.
+\]
+Assign \(z_k(0)=\alpha_k\). The resulting field equivalence maps
+\(A_{h,k}\) bijectively onto \(F\setminus\{0,-1,\alpha_k\}\).
+Scaling the cubic by \((k-h)x\ne0\) changes its trace by the sign
+\(\chi((k-h)x)\); consequently
+\[
+ \Delta_{h,k}(x)^2=T(z_k(x),z_k(x)+1)^2.
+ \tag{T4}
+\]
+The proved exact second moment is
+\[
+ \sum_{z\in F}T(z,z+1)^2=q^2-2q-1.
+\]
+The two singular rows \(z=0,-1\) each have trace-square \(1\), so
+the regular sum is \((q-3)(q+1)\).
+Because \(k_1\ne k_2\), the omitted parameters
+\(\alpha_{k_1}\ne\alpha_{k_2}\). Every regular parameter therefore
+appears in at least one of the two images in (T4). Hence
+\[
+ \sum_{x\in A_{h,k_1}}\Delta_{h,k_1}(x)^2+
+ \sum_{x\in A_{h,k_2}}\Delta_{h,k_2}(x)^2
+       \ge(q-3)(q+1).
+ \tag{T5}
+\]
+Each domain has exactly \(q-3\) elements. Thus one of its summands
+satisfies \(2\Delta_{h,k_i}(x)^2\ge q+1\).
+Finally \(u_{h,k}-B_{h,k}=\Delta_{h,k}/D_{h,k}\), with
+\(0<D_{h,k}\le q-3\), which proves (TW).
+\end{proof}
+
+\paragraph{Scope and formalization.}
+The exact masks, reciprocal trace identity, parameter equivalence,
+normalizer, mean-one density, two-shape energy, and squared conclusion
+(TW), named \texttt{two\_shape\_density\_wave}, are maintained Lean theorems in
+\texttt{QuadraticTripleTwist}, \texttt{QuadraticTripleLaw}, and
+\texttt{QuadraticTripleWave}. The displayed absolute-value version is
+the elementary real consequence of (TW).
+For prime fields, the fixed shapes \(\{0,2,6\}\) and \(\{0,2,8\}\)
+satisfy the hypotheses for every prime \(p\ge11\). They degenerate
+in characteristic \(3\), even over large extension fields; the
+parameter theorem itself applies in every odd characteristic whenever
+its distinctness hypotheses hold. No positive normalizer is asserted
+for the excluded cardinalities \(3,5,7,9\), and no strictly positive
+support is asserted at every admissible constant.
+
+The lower bound is of order \(q^{-1/2}\) for a mean-one density.
+It rules out a uniform \(O(q^{-2})\) approximation by this explicit
+background. It is not an obstruction for arbitrary character models
+and does not imply integer prime-constellation recurrence.
+The character expansions, reciprocal curve relation, and moment
+ingredients are classical; the specific compensated two-shape density
+statement is the model-specific contribution proposed here.
+Its external priority is not established. Related actual polynomial
+counting is discussed by Bary-Soroker--Stix~\cite{BarySorokerStix}.
+
 \section{Arithmetic transfers and the next ascent investigation}
 \paragraph{Existing ingredients.}
 The generic greedy record sandwich and the maintained periodic and
