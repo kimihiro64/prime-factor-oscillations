@@ -2020,6 +2020,9 @@ variance and finite product-space energy theorems below are formalized
 without any trace-bound hypothesis.
 The positive tagged construction below also has exact support over odd
 fields with \(q\geq5\) and near-minimal packet energy, without Hasse's theorem.
+The independent-tag synthesis below proves the exact flat conditional
+law and unique optimal energy for arbitrary labelled shapes over every
+odd finite field with nonempty admissible support.
 The classical Hasse input, Artin--Schreier coverage, finite Fourier
 and CRT assertions, and integer short-interval consumer still have
 ordinary proofs here. These are separate statuses.
@@ -2592,6 +2595,177 @@ its uniform comparison with every admissible mean-one competitor.
 External priority for that combination has not been established.
 No new integer recurrence or zero-free exponent is asserted.
 
+\subsection{Exact optimal laws for arbitrary finite constellations}
+
+Let \(F\) be a finite field of odd cardinality \(q\), let \(J\) be
+a finite label set of size \(r\), and fix a labelled shape
+\(H=(h_j)_{j\in J}\in F^J\).
+Repeated entries are allowed. Put
+\[
+ A_H=\{c\in F:\ c+h_j\ne0\text{ for every }j\in J\},\qquad
+ \nu_H=\#\{-h_j:j\in J\},\qquad s_H=|A_H|=q-\nu_H.
+\]
+Thus \(\nu_H\) counts distinct residues, whereas \(r\) counts labels.
+For independent tags \(t=(t_j)_{j\in J}\in F^J\), use the actual
+monic polynomials
+\[
+                 P_j(T;b,c,t)=T^2+bT+t_j(c+h_j).
+\]
+All members share the same \(b\). The tags range over all of \(F\),
+including zero; zero-tag polynomials are reducible and contribute zero
+to the joint irreducibility event. Samples retain their labels even
+when they describe coincident polynomials.
+
+\begin{theorem}[Exact synthesis of the optimal admissibility law]
+\label{thm:constellationFlatLaw}
+Define
+\[
+ C_H(c)=\#\{(b,t)\in F\times F^J:
+                     P_j(T;b,c,t)\text{ is irreducible for all }j\in J\}.
+\]
+Then, without a point-trace estimate,
+\begin{align}
+ C_H(c)&=q\left(\frac{q-1}{2}\right)^r1_{A_H}(c),\\
+ \sum_{c\in F}C_H(c)&=s_Hq\left(\frac{q-1}{2}\right)^r.
+\end{align}
+The joint conditioning event under the uniform law on
+\(F\times F\times F^J\) is nonempty if and only if \(s_H>0\).
+When \(s_H>0\), its normalized conditional density in \(c\) is
+\[
+ u_H(c)=\frac{qC_H(c)}{\sum_{z\in F}C_H(z)}
+                   =\frac{q}{s_H}1_{A_H}(c).
+\]
+It is nonnegative, has mean one, and has positive support exactly
+\(A_H\). For every real function \(w:F\to\mathbb R\) supported on
+\(A_H\), with \(q^{-1}\sum_{c\in F}w(c)=1\), the exact identity
+\[
+ \frac1q\sum_{c\in F}w(c)^2
+   =\frac{q}{s_H}
+       +\frac1q\sum_{c\in A_H}\left(w(c)-\frac{q}{s_H}\right)^2
+\]
+holds. In particular, \(u_H\) is the unique minimizer of the second
+moment among all such \(w\); nonnegativity of the competitor is unnecessary.
+\end{theorem}
+
+\begin{proof}
+Write \(\chi\) for the quadratic character of \(F\).
+Exactly \(N=(q-1)/2>0\) elements of \(F\) are nonsquares:
+the pointwise nonsquare indicator is
+\[
+             2\,1_{\{\chi(x)=-1\}}=1-\chi(x)-1_{\{0\}}(x),
+\]
+and summation uses \(\sum_{x\in F}\chi(x)=0\).
+A monic quadratic over \(F\) is irreducible exactly when its
+discriminant is a nonsquare.
+For fixed \(b\) and a nonzero \(d\), the map
+\[
+                         t\longmapsto b^2-4td
+\]
+is a bijection of \(F\), so exactly \(N\) tags make
+\(T^2+bT+td\) irreducible. At \(d=0\) its discriminant is the square
+\(b^2\), and no tag succeeds. Therefore if \(c\in A_H\), the independent
+tag coordinates give exactly \(N^r\) successful tags for each of
+the \(q\) choices of the shared \(b\). If \(c\notin A_H\), one required
+polynomial is reducible for every tag. This proves the raw count,
+its total and the conditional-density formula. All zero-discriminant
+and zero-tag samples are included in this count.
+
+For the energy identity, support and mean one give
+\(\sum_{c\in A_H}w(c)=q\). Expanding the entire supported square gives
+\[
+ \sum_{c\in A_H}\left(w(c)-\frac q{s_H}\right)^2
+       =\sum_{c\in F}w(c)^2-\frac{q^2}{s_H}.
+\]
+No mixed term has been omitted. Each squared deviation is nonnegative,
+and their sum vanishes precisely when \(w(c)=q/s_H\) at every
+\(c\in A_H\). The support condition fixes the other values at zero.
+\end{proof}
+
+\begin{theorem}[Exact finite packets]\label{thm:constellationFlatPacket}
+Let \(I\) be a finite set of fields and shapes as above, with
+\(s_i>0\) for every \(i\in I\). Their ranks and fields may vary.
+On the full product space, put
+\(U(z)=\prod_{i\in I}u_{H_i}(z_i)\). Then
+\begin{align}
+ U(z)&=\left(\prod_{i\in I}\frac{q_i}{s_i}\right)
+              1_{\{z_i\in A_{H_i}\text{ for every }i\in I\}},\\
+ \left(\prod_{i\in I}\frac1{q_i}\right)
+       \sum_{z\in\prod_{i\in I}F_i}U(z)&=1,\\
+ \left(\prod_{i\in I}\frac1{q_i}\right)
+       \sum_{z\in\prod_{i\in I}F_i}U(z)^2
+                   &=\prod_{i\in I}\frac{q_i}{q_i-\nu_i}.
+\end{align}
+\end{theorem}
+
+\begin{proof}
+The first identity is pointwise, including the zero values.
+For the other two, distribute the finite sum over the finite product
+and apply the local mean and second-moment identities. This retains
+the complete packet; no independence of later integer prime openings
+is asserted.
+\end{proof}
+
+\paragraph{Small fields, repeated shifts, and rank zero.}
+There is no \(q\geq5\) restriction here: \(q=3\) is allowed whenever
+\(s_H>0\). If \(\nu_H=q\), the actual conditioning event is empty,
+so there is no mean-one conditional law; the formal real quotient
+takes the zero value rather than asserting a probability law.
+Different integer shifts can coincide after reduction modulo a prime:
+the successful-tag count uses the full label count \(r\), while the
+conditional support and energy depend only on the distinct-residue
+count \(\nu_H\). For \(J=\varnothing\), the joint event is vacuous,
+\(A_H=F\), and \(u_H=1\). Characteristic two is excluded from the
+quadratic-discriminant construction; its normalized admissibility
+mask remains an explicit fallback in integer packets.
+
+\paragraph{What this does and does not transfer.}
+For an admissible integer constellation, reducing the same shape modulo
+each odd prime and using these actual-count laws produces exactly the
+normalized local sieve mask. At \(p=2\), use the flat admissibility
+fallback. Consequently the complete coherent packet is
+\[
+ U_Y(n)=
+ \left(\prod_{\substack{p\leq Y\\p\ {\rm prime}}}
+           (1-\nu_p(H)/p)^{-1}\right)
+ \prod_{\substack{p\leq Y\\p\ {\rm prime}}}
+           1_{\{p\nmid n+h_j\ {\rm for\ every}\ j\in J\}}.
+\]
+This is a pointwise consequence of the local synthesis, with the full
+prime support written explicitly. It involves an average of the
+displayed affine constant-coefficient families, rather than claiming
+that all tags define one fixed translate family.
+
+For \(H=\{0,h\}\) with fixed positive even \(h\), the original
+short-window criterion uses \(Y=\lfloor\sqrt{2X+h}\rfloor\) and
+\(X\geq h+3\). In that window the mask selects precisely the integer
+prime pairs \(n,n+h\). Hence local synthesis removes all energy above
+the optimal admissibility floor, but proving positive packet mass
+along unbounded such integer windows is still required for recurrence.
+No transfer of a full-period mean to that shorter window is made.
+The original conditional-pair law has local energy \(1+3/p+O(p^{-2})\),
+the two-tag nonsquare-twist law has \(1+2/p+O(p^{-2})\), and the full
+tag synthesis attains exactly \(p/(p-2)\) at primes not dividing \(2h\).
+Their integer short-window masses remain unestimated.
+
+\paragraph{Formal status and originality scope.}
+The maintained module \texttt{QuadraticConstellationAverage} proves
+the actual shared-coefficient count, its positive-normalizer equivalence,
+the exact conditional law and support, the distinct-residue support
+cardinality, the sharp squared-deviation identity and unique minimum,
+and all three finite-packet identities. These named real proofs compile
+with only foundational axioms. The integer-window application uses the
+earlier ordinary support criterion and is not a newly formalized
+integer prime-count estimate.
+
+Enumeration with prescribed coefficients is classical; compare the
+general framework of Gao--Kuttner--Wang~\cite{GaoKuttnerWang}.
+The specific construction here uses independently tagged affine constant
+coefficients to synthesize the exact optimal conditional law for every
+labelled shape, including local collisions and empty conditioning events.
+External priority for this construction has not been established.
+Neither integer constellation recurrence nor an RH improvement follows
+from the local and full-product-space identities alone.
+
 \section{Unconditional transfer to quadratic number fields}
 
 There is a direct arithmetic counterpart of finite-word realization.
@@ -2851,5 +3025,8 @@ Essential Number Theory 5 (2026), 49--112.
 \bibitem{BarySorokerStix} L. Bary-Soroker, J. Stix,
 \emph{Cubic twin prime polynomials are counted by a modular form},
 arXiv:1711.05564. \url{https://arxiv.org/abs/1711.05564}.
+\bibitem{GaoKuttnerWang} Z. Gao, S. Kuttner, Q. Wang,
+\emph{Counting irreducible polynomials with prescribed coefficients over a finite field},
+arXiv:2109.02000. \url{https://arxiv.org/abs/2109.02000}.
 \end{thebibliography}
 \end{document}
