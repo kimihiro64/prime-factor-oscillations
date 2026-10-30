@@ -4449,14 +4449,13 @@ small primes and all exceptional local fallbacks. The support is
 therefore the exact integer opening mask of the earlier coherent
 model.
 
-This does not by itself establish that this mask opens infinitely
-often. The exceptional-set count cannot replace
-\(\sum_{n\in E}V(n)\) by an unweighted count: the surviving sieve mass
-could be concentrated there. Nor does the comparison provide a
-positive lower bound for the flat reference mass. Those are genuine
-integer arithmetic questions still present in the full inequality.
-The old QRH exponent programme is not resumed or improved by this
-result.
+This comparison alone does not establish that the integer mask opens
+infinitely often. An exceptional-set count needs an envelope for the
+actual weights before it gives a weighted mass estimate. The next
+subsection supplies that envelope and controls the full absolute
+replacement error at the critical cutoff. A positive lower bound for
+the remaining hybrid reference mass is still an integer arithmetic
+question. The old QRH exponent programme remains unchanged.
 
 \paragraph{Formal status and provenance.}
 The maintained candidate \texttt{QuadraticPairTwistLikelihood}
@@ -4476,6 +4475,169 @@ The interval is represented by \(M+1+j\), \(j\in\operatorname{Fin}(N)\),
 so its endpoints agree exactly with the displayed sums.
 The large sieve and Fourier principles are established inputs;
 external priority for this particular positive-model transfer
+has not been established.
+
+\subsection{Weighted replacement at a logarithmic correction cutoff}
+\label{sec:integerWeightedReplacement}
+
+We can now control the weighted loss, rather than only the number
+of exceptional integers. Fix a positive even shift \(h\). Let
+\[
+ \nu_p(h)=\begin{cases}1,&p\mid h,\\2,&p\nmid h,\end{cases}
+ \qquad
+ f_{p,h}(n)=\frac{p}{p-\nu_p(h)}
+          1_{\{p\nmid n,\ p\nmid n+h\}}.
+\]
+Write \(w_{p,h}(n)\) for the actual trace-free pair weight \(u_p(n)\)
+when \(p\geq5\) and \(p\nmid h\), and for \(f_{p,h}(n)\) otherwise.
+Thus the complete coherent model and its hybrid are
+\[
+ U_Q(n)=\prod_{p\leq Q}w_{p,h}(n),\qquad
+ V_{K,Q}(n)=\prod_{p\leq K}w_{p,h}(n)
+                    \prod_{K<p\leq Q}f_{p,h}(n).
+\]
+All product indices here are rational primes. The hybrid keeps every
+original factor through \(K\), and every admissibility mask through
+\(Q\). In particular primes dividing \(h\) retain their one-point
+fallback even if they exceed \(K\). The preceding local factorization
+gives the exact identity
+\[
+                         U_Q(n)=V_{K,Q}(n)\exp(T_{K,Q}(n)).
+\]
+
+Let \(\mathfrak M\) and \(C_{\mathfrak M}\geq0\) be the constants in
+the installed unconditional reciprocal-prime Mertens estimate
+\[
+ H_Q:=\sum_{p\leq Q}\frac1p
+ \leq\log\log Q+\mathfrak M+\frac{C_{\mathfrak M}}{\log Q}
+ \quad(Q\geq2).
+\]
+Define fixed, unconditional constants
+\[
+ B_0=|\mathfrak M|+\frac{C_{\mathfrak M}}{\log2},
+ \qquad C_0=18\exp(4+4B_0)>0.
+\]
+Their definitions do not use RH or a zero-free hypothesis.
+
+\begin{theorem}[Full weighted integer replacement]
+\label{thm:integerWeightedReplacement}
+For \(6\leq K\leq Q\), \(N\geq1\) and \(M\geq0\),
+\[
+ \sum_{M<n\leq M+N}|U_Q(n)-V_{K,Q}(n)|
+ \leq C_0(\log Q)^4
+                    \sqrt{\frac{500N(N+Q^2)}K}.
+\]
+The same bound holds for
+\(\left|\sum_{M<n\leq M+N}U_Q(n)-\sum_{M<n\leq M+N}V_{K,Q}(n)\right|\).
+The constants are uniform in the interval origin and the shift.
+If \(E\) is the exceptional set in
+Theorem~\ref{thm:integerTailStability}, its actual hybrid-weighted mass
+also satisfies
+\[
+ \sum_{n\in E}V_{K,Q}(n)
+ \leq\frac{500C_0(\log Q)^4(N+Q^2)}{K\varepsilon^2}.
+\]
+\end{theorem}
+
+\begin{proof}
+We first bound both complete packets by one common envelope.
+At \(p=2,3,5\) every coherent or hybrid local factor is at most
+\(2,3,3\), respectively. For \(p\geq7\) the actual factor is at most
+\((p+1)/(p-3)\), including its zero residues. The flat fallback is
+at most \(p/(p-2)\leq(p+1)/(p-3)\).
+Furthermore
+\[
+ \frac{p+1}{p-3}=1+\frac4{p-3}
+ \leq \exp\left(\frac4p+\frac{21}{p^2}\right),
+\]
+because
+\[
+ \frac4p+\frac{21}{p^2}-\frac4{p-3}
+                 =\frac{9(p-7)}{p^2(p-3)}\geq0
+\]
+and \(1+x\leq e^x\). Retaining the three small-prime factors explicitly,
+and using \(\sum_{m\geq7}m^{-2}\leq1/6\), gives
+\[
+ 0\leq U_Q(n),V_{K,Q}(n)
+ \leq18\exp(4H_Q+4)
+ \leq C_0(\log Q)^4.
+\]
+This estimate also covers the prime-dividing-shift factors.
+
+For nonnegative \(u,v\) with \(u=ve^t\), \(u\leq B\) and \(v\leq B\),
+\[
+                            |u-v|\leq B|t|.
+\]
+For \(t\geq0\), the inequality \(e^{-t}\geq1-t\), multiplied by \(u\),
+gives \(u-v\leq ut\leq Bt\). For \(t\leq0\), multiply
+\(e^t\geq1+t\) by \(v\) to obtain \(v-u\leq-vt\leq B|t|\).
+This argument remains valid when both weights vanish.
+
+Apply this inequality to the exact full-packet factorization.
+Cauchy--Schwarz and the proved integer log-energy estimate give
+\[
+ \begin{split}
+ \sum_{M<n\leq M+N}|U_Q(n)-V_{K,Q}(n)|
+ &\leq C_0(\log Q)^4\sum_{M<n\leq M+N}|T_{K,Q}(n)|\\
+ &\leq C_0(\log Q)^4
+             \sqrt{N\sum_{M<n\leq M+N}T_{K,Q}(n)^2}\\
+ &\leq C_0(\log Q)^4\sqrt{\frac{500N(N+Q^2)}K}.
+ \end{split}
+\]
+The total-mass comparison follows by the triangle inequality.
+Finally the common envelope gives
+\(\sum_{n\in E}V_{K,Q}(n)\leq C_0(\log Q)^4|E|\);
+insert the established exceptional-set count.
+\end{proof}
+
+\begin{corollary}[An explicit vanishing mean error at the prime-pair scale]
+\label{cor:integerLogarithmicCutoff}
+If in addition \(Q^2\leq3N\) and \((\log Q)^{10}\leq K\), then
+\[
+ \sum_{M<n\leq M+N}|U_Q(n)-V_{K,Q}(n)|
+                      \leq \frac{45C_0N}{\log Q}.
+\]
+\end{corollary}
+
+\begin{proof}
+The radicand in the theorem is at most
+\(2000N^2/(\log Q)^{10}\). Its square root is at most
+\(45N/(\log Q)^5\), since \(2000<45^2\) and \(\log Q>0\).
+Multiplication by \(C_0(\log Q)^4\) proves the assertion.
+\end{proof}
+
+Thus along admissible growing cutoffs the mean absolute replacement
+error tends to zero. The nonflat finite-field factors above a
+logarithmic-power cutoff can be removed with a controlled error even
+while the full rational-prime sieve cutoff remains of order \(\sqrt N\).
+Every large-prime opening constraint is still present in the hybrid.
+A positive lower bound for that hybrid's integer mass is a separate
+arithmetic question; no rational-prime recurrence or improved QRH
+boundary is claimed here.
+
+\paragraph{Formal status and comparison with existing methods.}
+The maintained owner \texttt{Assembly/FiniteFieldIntegerMass} implements
+the full coherent and hybrid local weights, their small-prime and
+prime-dividing-shift cases, nonnegativity, the exact exponential
+factorization, the common product envelope and the unconditional
+Mertens consumer. Its declarations
+\texttt{integer\_packet\_l1\_replacement},
+\texttt{integer\_packet\_mass\_replacement},
+\texttt{weighted\_bad\_mass\_bound} and
+\texttt{logarithmic\_cutoff\_l1\_replacement}
+are the literal displayed consumers. The formal inequalities allow any
+integer shift; the positive even domain above is the intended
+prime-pair application.
+
+Euler-product truncation and averaging are established techniques.
+For example, David--Koukoulopoulos--Smith~\cite{DavidKoukoulopoulosSmith}
+give a general framework for weighted averages of infinite Euler
+products, using character and residue-equidistribution hypotheses.
+Here the assertion concerns finite actual-count packets at
+\(Q^2\asymp N\), with a translation-uniform L1 replacement preserving
+all zero masks and exceptional local rows. Its proof uses the
+already-established additive sieve and reciprocal-prime estimates.
+External priority for this particular positive-model statement
 has not been established.
 
 \section{Arithmetic transfers and the next ascent investigation}
@@ -4553,6 +4715,11 @@ certify a final deletion degree. Universal conclusions above come from
 the ordinary proofs, not this finite computation.
 
 \begin{thebibliography}{99}
+\bibitem{DavidKoukoulopoulosSmith}
+C. David, D. Koukoulopoulos and E. Smith,
+\emph{Sums of Euler products and statistics of elliptic curves},
+author-hosted preprint, September 2016, Section~4.
+\url{https://dms.umontreal.ca/~koukoulo/documents/publications/random_euler_products.pdf}.
 \bibitem{MontgomeryVaughanLargeSieve}
 H. L. Montgomery and R. C. Vaughan, \emph{The large sieve},
 Mathematika (1973).
