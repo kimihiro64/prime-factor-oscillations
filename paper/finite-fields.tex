@@ -4827,6 +4827,58 @@ of the positive-crest residue in \(\mathbb F_p\). With \(K=p-1\),
 Monotonicity of the logarithm proves both claims.
 \end{proof}
 
+\begin{corollary}[Literal extraction of integer prime pairs]
+\label{cor:literalIntegerPairExtraction}
+Let \(h\geq0\) be an integer and retain the hypotheses of
+Theorem~\ref{thm:affineIntegerComparison}. Put \(n_j=a+b(M+1+j)\),
+\(0\leq j<N\), and suppose every sample satisfies
+\[
+                            Q<n_j,\qquad n_j+h\leq Q^2.
+\]
+Write
+\[
+ E=C_0(\log Q)^4\sqrt{500N(N+Q^2)/K},\qquad
+ {\cal P}=\{j:0\leq j<N,\ n_j\ \hbox{and}\ n_j+h\ \hbox{are prime}\}.
+\]
+Then
+\[
+ C_0(\log Q)^4|{\cal P}|
+              \geq \sum_{0\leq j<N}V^b_{K,Q}(n_j)-E.
+\]
+In particular, if the compensated mass exceeds \(E\), at least one
+of the sampled pairs consists of two rational primes.
+The cardinality counts sample indices, allowing even the degenerate
+case \(b=0\).
+\end{corollary}
+
+\begin{proof}
+If a prime \(p\leq Q\) divides \(n\), the exact \(p\)-row of \(U_Q(n)\)
+vanishes at residue zero. If it divides \(n+h\), that row vanishes at
+residue \(-h\). This holds both for the trace-free local model and for
+every small-prime or prime-dividing-shift fallback.
+Consequently \(U_Q(n)>0\) excludes every prime divisor at most \(Q\)
+from both \(n\) and \(n+h\).
+
+The existing deterministic past-prime theorem states that, for
+\(Q<m\leq Q^2\), excluding these divisors implies that \(m\) is prime.
+Apply it to both entries of each sampled pair.
+Thus \(U_Q(n_j)=0\) unless \(j\in{\cal P}\), while on \({\cal P}\)
+the established envelope gives \(U_Q(n_j)\leq C_0(\log Q)^4\).
+Summation and the affine total-mass comparison give the claimed
+inequality. A strictly positive right side makes \({\cal P}\)
+nonempty.
+\end{proof}
+
+This corollary is implemented in the maintained owner
+\texttt{Assembly/FiniteFieldIntegerPrimes}. Its
+\texttt{actual\_packet\_positive\_gives\_prime\_pair} consumes the
+previously proved
+\texttt{prime\_iff\_no\_past\_prime\_divisor};
+\texttt{compensated\_mass\_prime\_pair\_lower\_bound} and
+\texttt{prime\_pair\_of\_compensated\_mass} are the displayed quantitative
+and existence conclusions. The sufficient mass inequality is an
+explicit hypothesis, not an unconditional prime-pair existence claim.
+
 \paragraph{Formal status and the integer recurrence question.}
 The maintained owner \texttt{Assembly/FiniteFieldIntegerAffine}
 contains the affine residue permutation, moving energy bounds,
