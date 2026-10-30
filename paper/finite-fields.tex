@@ -4254,6 +4254,230 @@ actual compensated triple-count family; external priority is
 not established. No integer prime-gap or RH transfer follows
 from this finite-field strictness result.
 
+\section{A critical-scale transfer to ordinary integer intervals}
+\label{sec:integerTail}
+
+The preceding product-space statements average over complete residue
+systems. The next result instead samples the ordinary consecutive
+integers \(M+1,\ldots,M+N\), uniformly up to the prime-pair cutoff
+\(Q\asymp\sqrt N\). It uses the actual positive trace-free pair weight,
+not a replacement random model.
+
+Fix integers \(6\leq K\leq Q\), \(N\geq1\), \(M\geq0\), and an
+integer shift \(h\). For \(K<p\leq Q\), \(p\nmid h\), put
+\[
+ b_p(c)=1_{\{c\neq0,\ c+h\neq0\}},\qquad
+ v_p(c)=\frac{p}{p-2}b_p(c),\qquad
+ a_p(c)=(1-2/p)u_p(c)-b_p(c),
+\]
+where \(u_p(c)=v_h(c)\) is the trace-free tagged weight on
+\(\mathbb F_p\) constructed above. Here \(v_p\) denotes the flat
+admissibility weight; it is different from the earlier notation \(v_h\).
+Extend \(a_p\) by zero at both forbidden residues, as its displayed
+definition already does, and write
+\[
+ L_{K,Q}(n)=\sum_{\substack{K<p\leq Q\\p\nmid h}}a_p(n\bmod p),
+ \quad
+ T_{K,Q}(n)=\sum_{\substack{K<p\leq Q\\p\nmid h}}
+                      \log(1+a_p(n\bmod p)),
+ \quad
+ R_{K,Q}(n)=\prod_{\substack{K<p\leq Q\\p\nmid h}}
+                      (1+a_p(n\bmod p)).
+\]
+Every product and sum here is finite, and only primes in the indicated
+interval are included. Primes dividing \(h\) have correction zero.
+
+\begin{lemma}[Centered local likelihood with its complete mask]
+\label{lem:integerLocalLikelihood}
+For every such prime \(p\),
+\[
+ u_p(c)=v_p(c)(1+a_p(c)),\qquad
+ \sum_{c\bmod p}a_p(c)=0,\qquad
+ |a_p(c)|\leq\frac3p,\qquad
+ \frac1p\sum_{c\bmod p}a_p(c)^2\leq\frac5{p^2}.
+\]
+Moreover \(1/2\leq1+a_p(c)\leq3/2\), including the forbidden residues.
+If \(\epsilon_p=\chi_p(-1)\), its exact variance is
+\[
+ \frac1p\sum_{c\bmod p}a_p(c)^2
+       =(1-2/p)\bigl(D(p,\epsilon_p)-1\bigr).
+\]
+\end{lemma}
+
+\begin{proof}
+The weight \(u_p\) vanishes at the forbidden residues and has mean one.
+Also \(\sum b_p=p-2\), \(b_p^2=b_p\), and \(u_pb_p=u_p\).
+These identities give both the factorization and the centered mean.
+In particular the factorization does not divide by a vanishing mask.
+
+On an allowed residue the earlier pointwise bounds give
+\(1\leq u_p\leq(p+1)/(p-3)\). Hence
+\[
+ -\frac2p\leq a_p(c)\leq\frac3p,
+ \qquad
+ (1-2/p)\frac{p+1}{p-3}-(1+3/p)
+             =\frac{7-p}{p(p-3)}\leq0.
+\]
+At the other residues \(a_p=0\). Expanding without deleting the mask
+cross term yields
+\[
+ a_p(c)^2=(1-2/p)^2u_p(c)^2
+                  -2(1-2/p)u_p(c)+b_p(c).
+\]
+The previously proved second moment therefore gives the exact variance
+displayed above. The bounds \(1\leq D\leq1+5/p^2\) imply its stated
+upper bound. Finally \(3/p\leq3/7<1/2\).
+\end{proof}
+
+\begin{theorem}[Integer-window likelihood stability]
+\label{thm:integerTailStability}
+With the parameters just specified, unconditionally,
+\[
+ \sum_{M<n\leq M+N}L_{K,Q}(n)^2
+       \leq \frac{180(N+Q^2)}K,
+ \qquad
+ \sum_{M<n\leq M+N}T_{K,Q}(n)^2
+       \leq \frac{500(N+Q^2)}K.
+\]
+For every \(\varepsilon>0\), let
+\[
+ E=\{n\in\mathbb Z:M<n\leq M+N,\ |T_{K,Q}(n)|>\varepsilon\}.
+\]
+Then
+\[
+ |E|\leq\frac{500(N+Q^2)}{K\varepsilon^2},
+ \qquad
+ e^{-\varepsilon}\leq R_{K,Q}(n)\leq e^\varepsilon
+             \quad(M<n\leq M+N,\ n\notin E).
+\]
+If \(Q^2\leq3N\), the second energy bound is at most \(2000N/K\)
+and the exceptional-set bound is at most \(2000N/(K\varepsilon^2)\).
+All constants are independent of \(M,N,Q,K,h\) in the stated domain.
+\end{theorem}
+
+\begin{proof}
+For each active prime use the finite Fourier coefficients
+\[
+ \widehat a_p(r)=\frac1p\sum_{c\bmod p}a_p(c)e(-rc/p),
+ \qquad e(t)=e^{2\pi it}.
+\]
+Centering gives \(\widehat a_p(0)=0\), Fourier inversion gives
+\(a_p(n)=\sum_{r=1}^{p-1}\widehat a_p(r)e(rn/p)\), and Parseval gives
+\[
+ \sum_{r=1}^{p-1}|\widehat a_p(r)|^2
+                  =\frac1p\sum_{c\bmod p}a_p(c)^2.
+\]
+The reduced fractions \(r/p\), across these distinct primes, belong
+to the Farey family of denominator at most \(Q\). Apply the
+unconditional additive large sieve, in the already formalized form
+with constant \(36(N+Q^2)\), to the entire shifted interval.
+The interval shift changes the coefficients only by unit phases.
+No cross term is erased before applying that theorem. Thus
+\[
+ \sum_{M<n\leq M+N}L_{K,Q}(n)^2
+ \leq36(N+Q^2)
+      \sum_{\substack{K<p\leq Q\\p\nmid h}}\frac1p\sum_{c\bmod p}a_p(c)^2
+ \leq180(N+Q^2)\sum_{K<m\leq Q}\frac1{m^2}
+ \leq\frac{180(N+Q^2)}K.
+\]
+The sieve is a classical input~\cite{MontgomeryVaughanLargeSieve};
+the specialized integer packet and its mask are the objects transferred.
+
+For \(|x|\leq1/2\),
+\[
+ |\log(1+x)-x|\leq2x^2.
+\]
+Indeed \(\log(1+x)\leq x\), while applying the same logarithm
+inequality to \((1+x)^{-1}\) gives
+\(x-\log(1+x)\leq x^2/(1+x)\leq2x^2\).
+Consequently, at every integer,
+\[
+ |T_{K,Q}(n)-L_{K,Q}(n)|
+       \leq2\sum_{\substack{K<p\leq Q\\p\nmid h}}a_p(n)^2
+       \leq18\sum_{m>K}m^{-2}\leq\frac{18}K.
+\]
+Using \(T^2\leq2L^2+2(T-L)^2\) on the interval gives
+\[
+ \sum T_{K,Q}(n)^2
+ \leq\frac{360(N+Q^2)}K+\frac{648N}{K^2}
+ \leq\frac{468(N+Q^2)}K
+ \leq\frac{500(N+Q^2)}K.
+\]
+The claimed count follows by summing \(T(n)^2>\varepsilon^2\)
+on \(E\). Positivity of every factor gives \(R=\exp T\), which
+proves the ratio bounds. The final specialization follows from
+\(N+Q^2\leq4N\).
+\end{proof}
+
+\begin{corollary}[Full packet comparison, with the weighted exception retained]
+\label{cor:integerPacketMass}
+Let
+\[
+ U^{\rm tail}(n)=\prod_{\substack{K<p\leq Q\\p\nmid h}}u_p(n),
+ \qquad
+ V^{\rm tail}(n)=\prod_{\substack{K<p\leq Q\\p\nmid h}}v_p(n).
+\]
+For any nonnegative common factor \(A(n)\), including all small-prime
+factors and the flat fallbacks at primes dividing \(h\), set
+\(U(n)=A(n)U^{\rm tail}(n)\), \(V(n)=A(n)V^{\rm tail}(n)\).
+Then \(U(n)=V(n)R_{K,Q}(n)\) exactly. Outside \(E\),
+\[
+                  e^{-\varepsilon}V(n)\leq U(n)\leq e^\varepsilon V(n).
+\]
+On the full integer interval the rigorous lower comparison is
+\[
+ \sum_{M<n\leq M+N}U(n)\ \geq\
+ e^{-\varepsilon}\left(
+       \sum_{M<n\leq M+N}V(n)-\sum_{n\in E}V(n)\right).
+\]
+\end{corollary}
+
+\begin{proof}
+Multiply the local factorization, preserving the zero masks.
+Then multiply the ratio bounds by \(V(n)\geq0\).
+Sum the lower bound outside \(E\), and retain \(U(n)\geq0\)
+at the remaining integers. This gives the displayed weighted subtraction.
+\end{proof}
+
+\paragraph{What has reached the integers, and what has not.}
+The comparison now holds on actual incomplete integer intervals,
+even at \(Q^2\leq3N\), rather than only on full CRT periods.
+For the prime-pair window \(X<n\leq2X\), \(n+h\leq2X+h\),
+the natural sieve cutoff has \(Q^2\) of order \(X\), so the theorem
+reaches the required scale. The common factor \(A\) retains the
+small primes and all exceptional local fallbacks. The support is
+therefore the exact integer opening mask of the earlier coherent
+model.
+
+This does not by itself establish that this mask opens infinitely
+often. The exceptional-set count cannot replace
+\(\sum_{n\in E}V(n)\) by an unweighted count: the surviving sieve mass
+could be concentrated there. Nor does the comparison provide a
+positive lower bound for the flat reference mass. Those are genuine
+integer arithmetic questions still present in the full inequality.
+The old QRH exponent programme is not resumed or improved by this
+result.
+
+\paragraph{Formal status and provenance.}
+The maintained candidate \texttt{QuadraticPairTwistLikelihood}
+proves the exact local mean, amplitude, squared-mask identity,
+variance, factorization and factor bounds.
+The maintained owner \texttt{Assembly/FiniteFieldIntegerTail}
+proves the shifted Farey large-sieve transfer, finite Fourier inversion
+and coefficient energy, and the actual packet declarations
+\texttt{tail\_linear\_interval\_energy},
+\texttt{tail\_log\_interval\_energy},
+\texttt{tail\_bad\_card\_bound\_div},
+\texttt{critical\_tail\_log\_interval\_energy},
+\texttt{tail\_packet\_factorization},
+\texttt{full\_packet\_comparison}, and
+\texttt{full\_packet\_mass\_lower}.
+The interval is represented by \(M+1+j\), \(j\in\operatorname{Fin}(N)\),
+so its endpoints agree exactly with the displayed sums.
+The large sieve and Fourier principles are established inputs;
+external priority for this particular positive-model transfer
+has not been established.
+
 \section{Arithmetic transfers and the next ascent investigation}
 \paragraph{Existing ingredients.}
 The generic greedy record sandwich and the maintained periodic and
@@ -4329,6 +4553,10 @@ certify a final deletion degree. Universal conclusions above come from
 the ordinary proofs, not this finite computation.
 
 \begin{thebibliography}{99}
+\bibitem{MontgomeryVaughanLargeSieve}
+H. L. Montgomery and R. C. Vaughan, \emph{The large sieve},
+Mathematika (1973).
+\url{https://doi.org/10.1112/S0025579300004708}.
 \bibitem{Milne} J. S. Milne, \emph{Elliptic Curves}, second edition.
 \url{https://www.jmilne.org/math/Books/EC2.pdf}.
 \bibitem{CFJ} B. Cha, D. Fiorilli, F. Jouve,

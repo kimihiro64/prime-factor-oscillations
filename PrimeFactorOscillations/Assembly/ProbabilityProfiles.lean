@@ -5,6 +5,7 @@ Authors: Prime Factor Oscillations contributors
 -/
 
 import PrimeFactorOscillations.Assembly.CarmichaelProbability
+import PrimeFactorOscillations.Assembly.FiniteFieldIntegerTail
 import PrimeFactorOscillations.Assembly.PrimeConstellationRH
 import PrimeFactorOscillations.Assembly.PrimeCyclePrefixRH
 import PrimeFactorOscillations.Assembly.PrimeProfileDistortionClassification
@@ -12,7 +13,6 @@ import PrimeFactorOscillations.Assembly.PrimeProfileInverse
 import PrimeFactorOscillations.Assembly.PrimeProfileLocality
 import PrimeFactorOscillations.Assembly.PrimeProfileMinimax
 import PrimeFactorOscillations.Assembly.PrimeProfileReadouts
-import PrimeFactorOscillations.Helpers.CharacterProbability
 import PrimeFactorOscillations.Helpers.PeakComparison
 import PrimeFactorOscillations.Helpers.PrimeProfileNonlinearCoercivity
 import PrimeFactorOscillations.Helpers.PrimeProfilePairwiseRigidity
