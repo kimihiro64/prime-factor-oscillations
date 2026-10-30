@@ -41,7 +41,7 @@ theorem exists_crest_outside_natural_height :
     exists C : Real, And (0 < C)
       (forall h Q : Nat, 0 < h -> Dvd.dvd 2 h ->
         exists a : Nat, And (a < primePeriod Q) (And (crestClass h Q a)
-          (forall K : Nat, 12 <= K -> h <= K -> h < Q -> K <= Q ->
+          (forall K : Nat, 12 <= K -> h < Q -> K <= Q ->
             (3 + Real.log ((4 * h * (Q * Q) : Nat) : Real)) ^ 64 <= ((K + 1 : Nat) : Real) ->
             Real.exp (2 * C + 8 / (K : Real)) < growthLower h * normalizedRatio K Q ->
             forall t : Nat,
@@ -53,7 +53,7 @@ theorem exists_crest_outside_natural_height :
   let a : Nat := Classical.choose (sharp_frozen_packet_ratio h Q hh heven)
   have ha := Classical.choose_spec (sharp_frozen_packet_ratio h Q hh heven)
   refine Exists.intro a (And.intro ha.1 (And.intro ha.2 ?_))
-  intro K hK hhK hhQ hKQ hcut hGain t
+  intro K hK hhQ hKQ hcut hGain t
   let n : Nat := a + primePeriod Q * t
   by_cases hn : n <= Q
   . exact Or.inl hn
@@ -62,7 +62,7 @@ theorem exists_crest_outside_natural_height :
     by_contra hnot
     have hnQ : n + h <= Q * Q := by omega
     have hc := ha.2 K hK hKQ t
-    have hp := hSpec.2 K h Q n (by omega) hh hhK hhQ hKQ (by omega) hnQ hcut
+    have hp := hSpec.2 K h Q n (by omega) hh hhQ hKQ (by omega) hnQ hcut
     have hV : 0 < hybridPacket K (h : Int) Q n := hc.1
     have hl := mul_le_mul_of_nonneg_right hc.2.2.1 hV.le
     have hid :

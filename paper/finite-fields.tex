@@ -5459,7 +5459,7 @@ both are discharged for the actual integer parameters.
 The two finite-field Euler coordinates are identified pointwise with
 \(\kappa_{-hn}(p)\) and \(\kappa_{h(n+h)}(p)\) at every odd prime.
 Their zero values are retained. The row at \(2\), the small rows, and
-the rows dividing \(h\) remain in the exact finite core of the packet.
+the rows dividing \(h\) remain in the complete masked packet.
 The following packet comparison keeps those rows and carries the signed
 joint estimate through the summable local correction.
 
@@ -5475,8 +5475,8 @@ proves the exact two-coordinate dictionary,
 \texttt{exists\_natural\_height\_joint\_tail\_bound}, and its bounded-tail
 corollary \texttt{exists\_natural\_height\_joint\_tail\_bounded}.
 These results are exported through \texttt{Assembly/ProbabilityProfiles}.
-The packet envelope, independent positive packet mass and integer
-recurrence remain open. This is an application of the installed QRH
+The uniform natural-height packet envelope is proved below. Independent
+positive packet mass and integer recurrence remain open. This is an application of the installed QRH
 estimate; no new zero-free exponent or independent priority claim is made.
 
 \section{Pointwise comparison at natural integer height}
@@ -5488,7 +5488,7 @@ sample and both divisor cutoffs.
 There is an absolute constant \(C>0\) such that, for natural numbers
 \(K,h,Q,n\) satisfying
 \[
- 6\leq K\leq Q,\qquad 1\leq h\leq K,\qquad h<Q<n,\qquad n+h\leq Q^2,
+ 6\leq K\leq Q,\qquad 1\leq h,\qquad h<Q<n,\qquad n+h\leq Q^2,
 \]
 and
 \[
@@ -5506,8 +5506,8 @@ includes their common zero branch.
 \begin{proof}
 First suppose \(U_Q(n)>0\). The deterministic extraction theorem makes
 \(n\) and \(n+h\) prime. For each tail prime \(K<p\leq Q\), neither opening
-vanishes. Also \(p\nmid h\), since \(p>K\geq h\).
-Write
+vanishes. If \(p\mid h\), the exact tail correction and both characters
+vanish, so the signed row error is exactly zero. For \(p\nmid h\), write
 \[
  s_p=\kappa_{-hn}(p)+\kappa_{h(n+h)}(p),\qquad
  a_p=(1-2/p)u_p(n)-1.
@@ -5552,7 +5552,9 @@ The complete factorization
 now proves both inequalities.
 If \(U_Q(n)=0\), the same factorization and the strict positivity of the
 exponential imply \(V_{K,Q}(n)=0\), and both inequalities still hold.
-All small-prime and prime-dividing-shift factors stay in the core.
+All small-prime factors stay in the core. A prime dividing \(h\) may lie
+beyond the core: its actual and fallback factors agree, and its correction
+and both character values are zero. No condition \(h\leq K\) is needed.
 \end{proof}
 
 \paragraph{What the estimate changes.}
@@ -5561,9 +5563,8 @@ The unrestricted CRT construction attains likelihood growth of order
 by the displayed exponential factors throughout the stated core range. It supplies a pointwise arithmetic constraint on the
 finite-field packet at integer height. A positive lower bound for its
 mass on unbounded integer windows is still a separate problem.
-The sharper hybrid amplitude envelope and the eventual choice of a
-polylogarithmic core remain to be assembled before asserting the
-prospective \((\log Q)^2(\log\log Q)^2\) packet bound.
+The sharper hybrid envelope and a core uniform over all \(h<Q\) are
+established in the next section.
 
 \paragraph{Formal status and literature.}
 The maintained owner \texttt{Assembly/FiniteFieldIntegerHeight} proves
@@ -5596,7 +5597,7 @@ This same \(a\), selected before \(K\), also has the following property.
 
 Suppose
 \[
- 12\leq K\leq Q,\qquad h\leq K,\qquad h<Q,\qquad
+ 12\leq K\leq Q,\qquad h<Q,\qquad
  K+1\geq\bigl(3+\log(4hQ^2)\bigr)^{64},
 \]
 and
@@ -5640,6 +5641,157 @@ and two-sided amplification properties, and proves
 \texttt{exists\_crest\_outside\_natural\_height}. Its statement returns
 those properties on the same integer as the height exclusion.
 It is exported through \texttt{Assembly/ProbabilityProfiles}.
+
+\section{Uniform amplitude for actual integer packets}
+In this section we write \(U_{h,Q}(n)\) and \(V_{K,h,Q}(n)\) when it
+is useful to display the shift. These are the same masked actual and
+hybrid products used above.
+
+\begin{theorem}[Split-core hybrid envelope]\label{thm:split-core-envelope}
+For every integer \(h\), every natural \(n\), and \(6\leq K\leq Q\),
+\[
+ V_{K,h,Q}(n)\leq
+ C_0(\log Q)^2(\log K)^2,\qquad
+ C_0=18\exp(4+4B_{\rm M}),
+\]
+where \(B_{\rm M}\) is the fixed Mertens budget already used in the
+unrestricted fourth-power envelope.
+\end{theorem}
+\begin{proof}
+Retain the existing nonnegative exponent
+\[
+ E(p)=
+ \begin{cases}
+ 4/p+21/p^2,&p\text{ prime},\ p\geq7,\\
+ 0,&\text{otherwise},
+ \end{cases}
+\quad
+ E_K(p)=\frac12E(p)+\frac12\mathbf1_{p\leq K}E(p).
+\]
+For \(p\leq K\), the existing actual-factor envelope applies without
+change. For a tail prime \(p>K\), the exact flat fallback is bounded by
+\(p/(p-2)\), also when \(p\mid h\): its denominator is then \(p-1\),
+which gives a smaller bound. The identity
+\[
+ \frac12\left(\frac4p+\frac{21}{p^2}\right)-\frac2{p-2}
+       =\frac{13p-42}{2p^2(p-2)}\geq0\qquad(p\geq7)
+\]
+and \(1+x\leq e^x\) give
+\[
+                  \frac p{p-2}\leq \exp(E(p)/2).
+\]
+Thus every hybrid local factor is bounded by the existing small-prime
+multiplier times \(\exp(E_K(p))\). The product of those multipliers
+through \(Q\) is exactly \(18\).
+
+The proved exponent budget is
+\[
+ \sum_{p=1}^{T}E(p)\leq
+       4\sum_{\substack{p\leq T\\p\ {\rm prime}}}\frac1p+4
+       \qquad(T\geq6).
+\]
+Apply this existing bound at \(T=Q\) and \(T=K\), and divide their sum
+by two. This retains the original inverse-square budget \(4\):
+\[
+ \sum_{p=1}^{Q}E_K(p)\leq
+       2\sum_{\substack{p\leq Q\\p\ {\rm prime}}}\frac1p+
+       2\sum_{\substack{p\leq K\\p\ {\rm prime}}}\frac1p+4.
+\]
+The two Mertens upper estimates make the right side at most
+\[
+        2\log\log Q+2\log\log K+4B_{\rm M}+4.
+\]
+Exponentiating proves the claim, with all opening masks retained.
+\end{proof}
+
+\begin{theorem}[Uniform natural-height amplitude]\label{thm:uniform-natural-amplitude}
+There are absolute constants \(B>0\) and \(Q_0\) such that, for
+every \(Q\geq Q_0\) and every pair of natural numbers \(h,n\) with
+\[
+               1\leq h<Q<n,\qquad n+h\leq Q^2,
+\]
+one has
+\[
+           U_{h,Q}(n)\leq
+                 B(\log Q)^2(\log\log Q)^2.
+\]
+The constants are chosen before the shift and both integer parameters.
+The assertion includes zero packets and assumes neither recurring
+integer prime pairs nor a positive mass estimate.
+\end{theorem}
+\begin{proof}
+The natural-height comparison and the preceding hybrid envelope first
+give an absolute \(A>0\) with
+\[
+ U_{h,Q}(n)\leq A(\log Q)^2(\log K)^2
+\]
+whenever \(6\leq K\leq Q\) and
+\(K+1\geq(3+\log(4hQ^2))^{64}\).
+Indeed \(8/K\leq2\), so one may use
+\(A=e^{2C+2}C_0\).
+
+Choose a single core for every shift:
+\[
+                  K(Q)=\left\lceil(10\log Q)^{64}\right\rceil.
+\]
+For \(\log Q\geq1\), the inequality \(h<Q\) gives
+\[
+ 0\leq3+\log(4hQ^2)
+       \leq3+\log4+3\log Q\leq10\log Q.
+\]
+Consequently \(K(Q)\geq6\) and this core covers every character level
+needed in the comparison. The elementary limit
+\[
+                    \frac{(10\log Q)^{64}}Q\longrightarrow0
+\]
+proves \(K(Q)\leq Q\) for every sufficiently large integer \(Q\).
+
+For \(\log\log Q\geq1\), the ceiling estimate
+\(K(Q)\leq2(10\log Q)^{64}\) gives
+\[
+ \log K(Q)\leq\log2+64\log10+64\log\log Q
+                       \leq641\log\log Q.
+\]
+Substituting this core into the bound with \(A\) proves the assertion
+with \(B=641^2A\). All restrictions on \(Q\) are absorbed in one
+absolute \(Q_0\).
+\end{proof}
+
+\paragraph{Quantitative change and the integer connection.}
+The previous unrestricted envelope was \(C_0(\log Q)^4\).
+On the natural integer-height window the new bound is
+\(B(\log Q)^2(\log\log Q)^2\), uniformly for all \(1\leq h<Q\).
+The reduction uses both actual quadratic characters in the comparison,
+the exact zero contribution of tail primes dividing \(h\), and the
+halved leading exponent of the flat tail. The installed QRH theorem
+supplies the uniform character estimate; its zero-free exponent remains
+\(7/8\).
+
+This is a theorem about actual integer inputs, rather than only
+independently chosen finite-field residues. A positive packet in this
+window certifies that \(n,n+h\) are prime. To deduce recurrence for a
+fixed positive even \(h\), one still needs positive total packet mass
+on unbounded natural-height windows. The amplitude theorem controls
+the size of each surviving contribution; it does not prove that this
+total mass is positive. The global CRT crest theorem alone supplies
+no such height-controlled mass.
+
+\paragraph{Formal status.}
+The maintained owner \texttt{Assembly/FiniteFieldIntegerAmplitude}
+proves \texttt{hybrid\_packet\_split\_envelope} and
+\texttt{exists\_natural\_height\_split\_amplitude}, including the complete
+local, exponent-sum and product consumers.
+The maintained owner \texttt{Assembly/FiniteFieldIntegerNaturalAmplitude}
+defines \texttt{naturalCore}, proves its uniform level coverage, its
+logarithmic bound and \texttt{eventually\_natural\_core\_fits}, and proves
+\texttt{exists\_uniform\_natural\_height\_amplitude}.
+The constant and eventual cutoff precede every \(h,Q,n\).
+The strengthened comparison and crest-height statements no longer
+require \(h\leq K\). All are exported through
+\texttt{Assembly/ProbabilityProfiles}.
+These are model-specific consequences of the existing local law,
+Mertens bounds and installed QRH input; no new general truncation
+method or independent external priority claim is made.
 
 \section{Arithmetic transfers and the next ascent investigation}
 \paragraph{Existing ingredients.}
