@@ -180,10 +180,10 @@ theorem crest_factor_ge_one (h p : Nat) : 1<=crestFactor h p := by
     linarith
   . exact le_refl _
 
-theorem exists_integer_crest_product (h Q : Nat) (heven : Dvd.dvd 2 h) :
+theorem exists_integer_crest_rows (h Q : Nat) (heven : Dvd.dvd 2 h) :
     exists a : Nat, a<primePeriod Q /\
-      forall t : Nat, (Finset.Icc 1 Q).prod (crestFactor h)<=
-        actualPacket (h : Int) Q (a+primePeriod Q*t) := by
+      forall t : Nat, forall q : BoundedModulus Q, crestFactor h q.val<=
+        actualLocal (h : Int) q ((a+primePeriod Q*t : Nat) : ZMod q.val) := by
   have hex : forall q : BoundedModulus Q,
       exists c : ZMod q.val, crestFactor h q.val<=actualLocal (h : Int) q c :=
     exists_crest_residue h heven
@@ -198,6 +198,30 @@ theorem exists_integer_crest_product (h Q : Nat) (heven : Dvd.dvd 2 h) :
   have ha := Classical.choose_spec hcrt
   refine Exists.intro a (And.intro ha.1 ?_)
   intro t
+  intro q
+  by_cases hqprime : Nat.Prime q.val
+  . have hmem : Membership.mem S q :=
+      Finset.mem_filter.mpr (And.intro (Finset.mem_attach _ q) hqprime)
+    have hdiv : Dvd.dvd q.val (primePeriod Q) :=
+      Finset.dvd_prod_of_mem (fun q : BoundedModulus Q => q.val) hmem
+    have hz : ((primePeriod Q) : ZMod q.val)=0 :=
+      (CharP.cast_eq_zero_iff (ZMod q.val) q.val (primePeriod Q)).mpr hdiv
+    have har : (a : ZMod q.val)=c q := by
+      rw [ha.2 q hmem,ZMod.natCast_zmod_val]
+    simpa only [Nat.cast_add,Nat.cast_mul,hz,zero_mul,add_zero,har] using hc q
+  . have hg : Not (Nat.Prime q.val /\ 13<=q.val /\ Not (Dvd.dvd q.val h)) :=
+      fun he => hqprime he.1
+    simp [crestFactor,actualLocal,hqprime,hg]
+
+theorem exists_integer_crest_product (h Q : Nat) (heven : Dvd.dvd 2 h) :
+    exists a : Nat, a<primePeriod Q /\
+      forall t : Nat, (Finset.Icc 1 Q).prod (crestFactor h)<=
+        actualPacket (h : Int) Q (a+primePeriod Q*t) := by
+  have hex := exists_integer_crest_rows h Q heven
+  let a : Nat := Classical.choose hex
+  have ha := Classical.choose_spec hex
+  refine Exists.intro a (And.intro ha.1 ?_)
+  intro t
   unfold actualPacket
   calc
     _ = (Finset.Icc 1 Q).attach.prod (fun q => crestFactor h q.val) :=
@@ -207,19 +231,7 @@ theorem exists_integer_crest_product (h Q : Nat) (heven : Dvd.dvd 2 h) :
       . intro q _
         exact le_trans (by norm_num) (crest_factor_ge_one h q.val)
       . intro q _
-        by_cases hqprime : Nat.Prime q.val
-        . have hmem : Membership.mem S q :=
-            Finset.mem_filter.mpr (And.intro (Finset.mem_attach _ q) hqprime)
-          have hdiv : Dvd.dvd q.val (primePeriod Q) :=
-            Finset.dvd_prod_of_mem (fun q : BoundedModulus Q => q.val) hmem
-          have hz : ((primePeriod Q) : ZMod q.val)=0 :=
-            (CharP.cast_eq_zero_iff (ZMod q.val) q.val (primePeriod Q)).mpr hdiv
-          have har : (a : ZMod q.val)=c q := by
-            rw [ha.2 q hmem,ZMod.natCast_zmod_val]
-          simpa only [Nat.cast_add,Nat.cast_mul,hz,zero_mul,add_zero,har] using hc q
-        . have hg : Not (Nat.Prime q.val /\ 13<=q.val /\ Not (Dvd.dvd q.val h)) :=
-            fun he => hqprime he.1
-          simp [crestFactor,actualLocal,hqprime,hg]
+        exact ha.2 t q
 
 theorem reciprocal_prime_lower (Q : Nat) (hQ : 2<=Q) :
     Real.log (Real.log (Q : Real))-mertensBudget<=

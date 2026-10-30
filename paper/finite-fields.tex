@@ -5080,6 +5080,205 @@ the actual-count packet defined here, with all local constraints
 and its integer lifting height. No independent priority claim for
 this model-specific conclusion is made.
 
+\section{Sharp two-cutoff domination and frozen compensation growth}
+\label{sec:sharpTwoCutoffGrowth}
+
+The likelihood relative to a retained-prefix hybrid has a sharper
+uniform description than the full packet envelope.
+For integers \(12\leq K\leq Q\), define
+\[
+ R_{K,Q}=\left(\frac{\log Q}{\log K}\right)^2,\qquad
+ \gamma_h=\exp(-4B_0-2h)>0,\qquad
+ \Gamma=\exp(4B_0+1)>0.
+\]
+The denominator \(\log K\) is strictly positive throughout this domain.
+
+\begin{theorem}[Uniform domination with simultaneous sharp attainment]
+\label{thm:sharpTwoCutoffGrowth}
+Fix a positive even integer \(h\). For every \(12\leq K\leq Q\)
+and every integer \(n\geq0\),
+\[
+                       U_Q(n)\leq\Gamma R_{K,Q}V_{K,Q}(n).
+\]
+This includes the zero-weight cases.
+
+Moreover, for each \(Q\geq12\), there is one integer \(0\leq a<P_Q\)
+which works simultaneously for every \(12\leq K\leq Q\):
+for all integers \(t\geq0\), writing \(n_t=a+P_Qt\),
+\[
+ V_{K,Q}(n_t)>0,\qquad
+ \gamma_hR_{K,Q}
+ \leq\frac{U_Q(n_t)}{V_{K,Q}(n_t)}
+ =\exp(F_{K,Q}(a,P_Q))
+ \leq\Gamma R_{K,Q}.
+\]
+For the full-period step, exact compensation also satisfies
+\[
+                         V^{P_Q}_{K,Q}(n)=U_Q(n)
+                                     \quad(n\geq0).
+\]
+Thus the power two in the uniform logarithmic-ratio comparison is
+attained in order. The residue \(a\) is selected before the cutoff \(K\).
+\end{theorem}
+
+\begin{proof}
+Let
+\[
+ {\cal T}_{K,h}(Q)=
+   \{p:K<p\leq Q,\ p\ {\rm prime},\ p\nmid h\},\qquad
+ S_{K,h}(Q)=\sum_{p\in{\cal T}_{K,h}(Q)}\frac1p.
+\]
+For a prime in this set, put
+\[
+       \mathfrak r_p=(1-2/p)\frac{p+1}{p-3}
+                    =1+\frac{2(p-1)}{p(p-3)}>1.
+\]
+The previously proved local envelope, with every zero mask retained,
+gives
+\[
+             \log(1+a_p(c))\leq\log\mathfrak r_p
+\]
+at every residue \(c\). At the two forbidden residues the left side
+is zero, since \(a_p(c)=0\), and the displayed inequality still holds.
+At the maximizing admissible residue the inequality is equality.
+Every prime at most \(K\), and every prime dividing \(h\), has zero
+tail correction; its original full-packet factor remains present.
+
+The elementary logarithmic bounds are particularly useful here.
+First,
+\[
+ 1-\frac1{\mathfrak r_p}
+       =\frac2p+\frac4{p(p-2)(p+1)}\geq\frac2p,
+\]
+so \(\log y\geq1-y^{-1}\) gives
+\(\log\mathfrak r_p\geq2/p\).
+Second, for \(p\geq13\),
+\[
+ \log\mathfrak r_p
+   \leq\mathfrak r_p-1
+   =\frac2p+\frac4{p(p-3)}
+   \leq\frac2p+\frac6{p^2}.
+\]
+The last comparison has the exact nonnegative difference
+\[
+          \frac6{p^2}-\frac4{p(p-3)}
+                     =\frac{2(p-9)}{p^2(p-3)}.
+\]
+Our cutoff condition ensures \(p\geq13\) at every retained tail row.
+
+For completeness, the reciprocal-prime band is controlled without
+an asymptotic change of cutoff:
+\[
+ \begin{split}
+ \log\log Q-\log\log K-2B_0-h
+       &\leq S_{K,h}(Q)\\
+       &\leq\log\log Q-\log\log K+2B_0.
+ \end{split}
+\]
+Indeed, the sum over all primes \(K<p\leq Q\) is exactly the
+difference of the two full reciprocal-prime prefix sums.
+Deleting its primes dividing \(h\) removes mass at most \(h\):
+each such prime is at most \(h\), and each reciprocal is at most one.
+Apply the existing unconditional upper and lower Mertens estimates
+at both endpoints. The inverse-square tail estimate supplies
+\[
+                    \sum_{p\in{\cal T}_{K,h}(Q)}p^{-2}\leq K^{-1}.
+\]
+No finite sampling or independence assumption enters either estimate.
+
+The preceding row inequalities imply, for every integer \(n\),
+\[
+ T_{K,Q}(n)
+  \leq 2S_{K,h}(Q)+6/K
+  \leq2(\log\log Q-\log\log K)+4B_0+1,
+\]
+where \(6/K\leq1\) on the stated domain.
+The exact full-packet identity
+\[
+                         U_Q(n)=V_{K,Q}(n)e^{T_{K,Q}(n)}
+\]
+and nonnegativity of \(V_{K,Q}(n)\) now prove the universal domination,
+because
+\[
+          e^{2(\log\log Q-\log\log K)}=R_{K,Q}.
+\]
+If \(V_{K,Q}(n)=0\), the same identity gives \(U_Q(n)=0\);
+no division has been used in this argument.
+
+Next apply the already established row-level CRT construction.
+Choose maximizing actual factors at every prime \(p\geq13\) not
+dividing \(h\), and admissible actual factors at least one at every
+other prime, including \(2,3,5,7,11\).
+Its representative \(a<P_Q\) depends only on \(h,Q\).
+Every \(n_t=a+P_Qt\) retains these same residues, so every full actual
+local factor is positive. At every admissible tail prime, for
+every \(K\) in the prescribed range, the logarithmic row is exactly
+\(\log\mathfrak r_p\). Consequently
+\[
+ T_{K,Q}(n_t)
+ \geq2S_{K,h}(Q)
+ \geq2(\log\log Q-\log\log K)-4B_0-2h.
+\]
+The full factorization and positivity of \(U_Q(n_t)\) force
+\(V_{K,Q}(n_t)>0\), since the exponential is strictly positive.
+Only now divide and exponentiate the lower and upper logarithmic
+bounds. This gives both stated quotient inequalities, with the same
+residue for all \(K\).
+
+Finally, every rational prime \(p\leq Q\) divides \(P_Q\).
+Thus every prime row in the compensated packet retains the actual
+factor, and every composite auxiliary row is one. Their product
+proves \(V^{P_Q}_{K,Q}=U_Q\) on all integers.
+Insert this into the previously proved exact frozen-factor identity
+\[
+ V^{P_Q}_{K,Q}(a+P_Qt)
+          =V_{K,Q}(a+P_Qt)e^{F_{K,Q}(a,P_Q)}.
+\]
+The denominator has already been proved positive, giving the exact
+frozen multiplier in the theorem.
+\end{proof}
+
+\paragraph{What the result determines.}
+The full integer packet and the ordinary hybrid admit a uniform
+pointwise comparison with the optimal squared ratio of logarithms.
+All truncations are controlled on one integer progression.
+Whenever \(\log Q/\log K\) grows without bound, the displayed positive
+lower bound makes the frozen multiplier grow without bound there.
+This last statement is a mathematical consequence of the explicit
+pointwise inequalities.
+
+The exact compensated model absorbs that multiplier: on the full-period
+step its replacement error is identically zero. This quantifies the
+importance of the frozen prime rows without treating their contribution
+as a small unsigned error.
+The integer lift is still only located below \(P_Q\).
+Prime-pair extraction requires a positive sample in
+\(Q<n\leq Q^2-h\); these theorems do not supply that height bound.
+The value of \(H_1\) and the integer QRH exponent are unchanged.
+
+\paragraph{Formal status.}
+The reusable candidate
+\texttt{LegendreSymbol/QuadraticPairTwistExtrema}
+now also proves \texttt{frozen\_ratio\_log\_lower} and
+\texttt{frozen\_ratio\_log\_upper}.
+The maintained row-level lift is
+\texttt{FiniteFieldIntegerExtrema.exists\_integer\_crest\_rows};
+the earlier product theorem now consumes this same lift.
+The maintained owner \texttt{Assembly/FiniteFieldFrozenGrowth}
+contains the exact reciprocal-prime band decomposition, both Mertens
+endpoints, inverse-square remainder, local masked comparisons,
+logarithmic normalization, denominator positivity and full compensation.
+Its \texttt{full\_packet\_domination},
+\texttt{full\_period\_compensation} and
+\texttt{sharp\_frozen\_packet\_ratio} are the displayed consumers.
+Its quantified ratio theorem selects the integer residue before
+introducing either \(K\) or \(t\).
+
+This is a further model-specific sharp comparison theorem built from
+the proved local pair law. Its CRT and Euler-product tools are
+classical; the earlier discussion of general Euler-product methods
+still applies. No claim of independent external priority is made.
+
 \section{Arithmetic transfers and the next ascent investigation}
 \paragraph{Existing ingredients.}
 The generic greedy record sandwich and the maintained periodic and

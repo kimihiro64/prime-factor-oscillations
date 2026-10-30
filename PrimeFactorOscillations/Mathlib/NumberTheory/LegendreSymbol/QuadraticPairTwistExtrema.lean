@@ -119,4 +119,48 @@ theorem log_envelope_lower (x : Real) (hx : 3<x) :
   have hn : 0<=4/(x^2*(x+1)) := by positivity
   linarith only [hl,hd,hn]
 
+theorem frozen_ratio_log_lower (x : Real) (hx : 3<x) :
+    2/x<=Real.log ((1-2/x)*((x+1)/(x-3))) := by
+  have hx0 : 0<x := by linarith only [hx]
+  have hx2 : 0<x-2 := by linarith only [hx]
+  have hx3 : 0<x-3 := by linarith only [hx]
+  have hxp : 0<x+1 := by linarith only [hx]
+  have hr : 0<(1-2/x)*((x+1)/(x-3)) := by
+    apply mul_pos
+    . apply sub_pos.mpr
+      apply (div_lt_one hx0).mpr
+      linarith only [hx]
+    . exact div_pos hxp hx3
+  have hl := Real.one_sub_inv_le_log_of_pos hr
+  have hi : 1-1/((1-2/x)*((x+1)/(x-3)))=
+      2/x+4/(x*(x-2)*(x+1)) := by
+    field_simp [ne_of_gt hx0,ne_of_gt hx2,ne_of_gt hx3,ne_of_gt hxp] <;> ring
+  simp only [<- one_div] at hl
+  rw [hi] at hl
+  have hn : 0<=4/(x*(x-2)*(x+1)) := by positivity
+  linarith only [hl,hn]
+
+theorem frozen_ratio_log_upper (x : Real) (hx : 13<=x) :
+    Real.log ((1-2/x)*((x+1)/(x-3)))<=2/x+6/x^2 := by
+  have hx0 : 0<x := by linarith only [hx]
+  have hx3 : 0<x-3 := by linarith only [hx]
+  have hxp : 0<x+1 := by linarith only [hx]
+  have hr : 0<(1-2/x)*((x+1)/(x-3)) := by
+    apply mul_pos
+    . apply sub_pos.mpr
+      apply (div_lt_one hx0).mpr
+      linarith only [hx]
+    . exact div_pos hxp hx3
+  have hl := Real.log_le_sub_one_of_pos hr
+  have hi : (1-2/x)*((x+1)/(x-3))-1=2/x+4/(x*(x-3)) := by
+    field_simp [ne_of_gt hx0,ne_of_gt hx3] <;> ring
+  rw [hi] at hl
+  have hd : 6/x^2-4/(x*(x-3))=2*(x-9)/(x^2*(x-3)) := by
+    field_simp [ne_of_gt hx0,ne_of_gt hx3] <;> ring
+  have hn : 0<=2*(x-9)/(x^2*(x-3)) := by
+    apply div_nonneg
+    . nlinarith only [hx]
+    . positivity
+  linarith only [hl,hd,hn]
+
 end FiniteField.QuadraticPairTwistExtrema
