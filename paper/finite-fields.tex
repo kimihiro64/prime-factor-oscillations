@@ -4130,6 +4130,130 @@ triple-count family. External priority is not established.
 These are finite-field parameter subsets, with no integer
 prime-pair recurrence or RH implication inferred.
 
+\subsection{Strictness of the signed deletion threshold}
+The integer certificate rules out equality in the preceding height
+bound once \(q>7\), including characteristic three.
+
+\begin{theorem}[Strict signed deletion height]
+\label{thm:tripleDeletionStrict}
+For every odd finite field \(F\) of cardinality \(q>7\), every
+nonzero \(h\), fixed nonzero nonsquare tag \(t\), and
+\(D\subseteq\mathcal D_h\),
+\[
+ B_D\ge1,\qquad
+ \boxed{\quad (m-a)^2\ge4a+2R_D+1,\qquad a=q-3.\quad} \tag{SD}
+\]
+There is no sign assumption on \(R_D\) in this assertion.
+If \(R_D\ge0\), then
+\[
+ \boxed{\quad m\ge a+\sqrt{4a+2R_D+1}.\quad} \tag{SH}
+\]
+In particular, if \(q=s^2+3\) for an integer \(s\ge3\) and
+\(R_D\ge0\), then
+\[
+                 m\ge s^2+2s+1. \tag{SS}
+\]
+\end{theorem}
+
+\begin{proof}
+Suppose first that \(B_D=0\). The inverse theorem gives
+\(R_D=0\), \(C_D=0\), \(e_z=0\) for every regular fibre,
+and \(p_zn_z=0\) for every fibre. Consequently
+\[
+ (m-a)^2=4a,\qquad
+ \sum_z c_z^2=a^2+(m-a)^2,\qquad m>a. \tag{ZE}
+\]
+For the last inequality use \(m^2\ge a(a+4)\) and \(a>0\).
+
+We first show that some fibre is saturated: \(c_z=a\).
+Since \(q\) is odd and greater than seven, \(a\ge6\).
+The identity
+\[
+ (a-1)^2-4a=a(a-6)+1>0
+\]
+and (ZE) give \(m<2a-1\). If no fibre were saturated,
+integrality would give \(c_z\le a-1\) for every \(z\).
+Apply (CCS) with cap \(a-1\). Its new upper bound is strictly
+smaller than the equality value in (ZE), because
+\[
+ (a-1)^2+(m-a+1)^2-\bigl(a^2+(m-a)^2\bigr)
+                   =2(m-2a+1)<0.
+\]
+This contradiction proves saturation. At a saturated fibre,
+purity gives \(d_z^2=c_z^2=a^2\), and balance gives \(d_z=T_z\).
+Thus
+\[
+                            T_z^2=a^2. \tag{ET}
+\]
+
+Assume the characteristic is different from three.
+The two maps
+\[
+ r(z)=-z-1,\qquad i(z)=1/z
+\]
+preserve \(\mathcal R\), and
+\[
+                        T_{r(z)}^2=T_z^2=T_{i(z)}^2. \tag{TI}
+\]
+For completeness, translating a root in the defining character
+sum gives
+\[
+ \operatorname{Tr}(u,v)=\operatorname{Tr}(-v,u-v),
+\]
+and scaling both roots by \(b\ne0\) multiplies the trace by
+\(\chi(b)\). These identities, together with symmetry of the two
+roots, prove (TI) with every sign retained before squaring.
+The same Legendre parameter transformations and their quadratic
+twists are classical; see Auer--Top~\cite{AuerTopLegendre}, Section~2.
+
+The maps \(r\) and \(i\) cannot both fix a regular \(z\).
+Indeed, \(i(z)=z\) implies \(z^2=1\); since \(z\ne-1\), this
+forces \(z=1\). Then \(r(z)=z\) would give \(3=0\).
+There is therefore a distinct regular parameter \(w\) with
+\(T_w^2=T_z^2\). The exact total trace energy and (ET) give
+\[
+ 2a^2=T_z^2+T_w^2\le\sum_{v\in\mathcal R}T_v^2=a(q+1).
+\]
+As \(a>0\), this implies \(2(q-3)\le q+1\), or \(q\le7\),
+a contradiction.
+
+In characteristic three write \(q=3^r\). Since \(q>7\),
+\(r\ge2\) and \(q\equiv0\pmod9\). But (ZE) would give
+\[
+                         (m-a)^2=4(q-3)\equiv6\pmod9.
+\]
+The square residues modulo nine are \(0,1,4,7\), so this is
+impossible. This treats the characteristic in which the two
+involutions can have a common fixed point.
+
+We have excluded \(B_D=0\) in every characteristic.
+The certificate already gives \(B_D\ge0\), and \(B_D\) is an
+integer, so \(B_D\ge1\). Its definition proves (SD).
+If \(R_D\ge0\), the earlier signed height bound selects
+\(m-a\ge0\). Taking square roots in (SD) therefore proves (SH).
+Finally, when \(a=s^2\), a putative \(m\le s^2+2s\) would give
+\((m-a)^2\le4s^2\), contradicting (SD) and \(R_D\ge0\).
+Integrality proves (SS).
+\end{proof}
+
+\paragraph{Quantitative effect and formal status.}
+At \(q=19\), (SS) gives \(m\ge25\), compared with the previous
+threshold \(m\ge24\). At \(q=67\), it gives \(m\ge81\), compared
+with \(m\ge80\). These are consequences of the general
+square-shift cardinality theorem, rather than finite experiments.
+The maintained module \texttt{QuadraticTripleDeletionStrict}
+proves \texttt{strict\_deletion\_slack},
+\texttt{strict\_deletion\_count\_bound},
+\texttt{strict\_deletion\_height\_sqrt\_bound}, and
+\texttt{square\_shift\_deletion\_count}.
+Its proof also formalizes the root translation, the two
+trace-square symmetries, the saturated-fibre implication, and the
+characteristic-three congruence. No Hasse bound is used.
+The specific conclusion concerns arbitrary deleted subsets of the
+actual compensated triple-count family; external priority is
+not established. No integer prime-gap or RH transfer follows
+from this finite-field strictness result.
+
 \section{Arithmetic transfers and the next ascent investigation}
 \paragraph{Existing ingredients.}
 The generic greedy record sandwich and the maintained periodic and
@@ -4257,5 +4381,9 @@ Journal of the American Statistical Association 87 (1992), 376--382.
 \emph{2, 3, 5, Legendre: \(\pm\)-Trace Ratios in Families of Elliptic Curves},
 Experimental Mathematics 19 (2010), 267--277.
 \url{https://web.math.princeton.edu/~nmk/newratio30.pdf}.
+\bibitem{AuerTopLegendre} R. Auer and J. Top,
+\emph{Legendre elliptic curves over finite fields},
+arXiv:math/0106273 (2001), Section~2.
+\url{https://arxiv.org/abs/math/0106273}.
 \end{thebibliography}
 \end{document}
