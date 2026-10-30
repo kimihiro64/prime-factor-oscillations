@@ -3767,6 +3767,119 @@ law; external priority is not established. General affine weighting and
 reflection arguments are classical. The result supplies no integer
 height-control estimate or prime-gap transfer.
 
+\section{The exact minimum cost of centering}
+
+The canonical mass has a stronger extremal property than affine
+uniqueness. It is optimal among every normalized centered real mass on
+the entire admissible parameter space. Write
+\[
+ c_q=(q-1)(q-5),\qquad
+ \mathcal E(M)=\sum_{(k,x)\in\mathcal D_h}M(k,x)^2.
+\]
+For probability masses, \(\mathcal E(M)\) is the probability that two
+independent samples coincide. We call \(1/\mathcal E(M)\) their
+effective support; this quantity need not be the number of points
+with positive mass.
+
+\begin{theorem}[Sharp centering energy]\label{thm:tripleCenteringMinimum}
+Let \(F\) have odd cardinality \(q>5\), let \(h\ne0\), and keep a
+nonzero nonsquare tag \(t\). Let \(P_h\) be the canonical mass from
+Theorem~\ref{thm:tripleCompanionSymmetry}. For every real function
+\(M\) on \(\mathcal D_h\) satisfying
+\[
+ \sum_{\mathcal D_h}M=1,\qquad
+ \sum_{\mathcal D_h}M\Delta=0,
+\]
+there is an exact identity
+\[
+ \boxed{\quad
+ \mathcal E(M)=\frac1{c_q}
+       +\sum_{(k,x)\in\mathcal D_h}(M(k,x)-P_h(k,x))^2.
+ \quad} \tag{CE}
+\]
+Consequently
+\[
+ \mathcal E(M)\ge\frac1{c_q},
+ \qquad
+ \mathcal E(M)=\frac1{c_q}\ \Longleftrightarrow\ M=P_h.
+ \tag{CM}
+\]
+Nonnegativity of \(M\) is unnecessary for these assertions.
+The optimizer \(P_h\) is itself a probability mass by its arithmetic
+companion-count representation. It therefore also gives the unique
+minimum within the class of centered probability masses.
+
+In particular, every centered probability mass satisfies
+\[
+ \frac1{\mathcal E(M)}\le(q-1)(q-5),
+ \qquad
+ \frac1{\mathcal E(P_h)}=(q-1)(q-5).
+ \tag{ES}
+\]
+Compared with the uniform effective support
+\(N=|\mathcal D_h|=(q-2)(q-3)\), the exact deficit at the optimum is
+\[
+ N-\frac1{\mathcal E(P_h)}=q+1. \tag{EC}
+\]
+\end{theorem}
+
+\begin{proof}
+Keep \(a=q-3\) and \(Z=a c_q\), so \(P_h=(a+\Delta)/Z\).
+The normalization and centering equations retain the full pairing:
+\[
+ \sum_{\mathcal D_h}MP_h
+ =\frac{a\sum_{\mathcal D_h}M+\sum_{\mathcal D_h}M\Delta}{Z}
+ =\frac aZ=\frac1{c_q}. \tag{CP}
+\]
+Every denominator is positive because \(q>5\). Apply (CP) to
+\(M=P_h\), using its proved normalization and zero first moment:
+\(\mathcal E(P_h)=1/c_q\).
+Expanding the squared distance now gives
+\[
+ \sum_{\mathcal D_h}(M-P_h)^2
+ =\mathcal E(M)-2\sum_{\mathcal D_h}MP_h+\mathcal E(P_h)
+ =\mathcal E(M)-\frac1{c_q},
+\]
+which proves (CE). The excess is a finite sum of nonnegative squares.
+It vanishes exactly when every \(M(k,x)=P_h(k,x)\), proving (CM).
+Positivity of \(1/c_q\) justifies taking reciprocals in (CM), yielding
+(ES). Finally,
+\[
+ (q-2)(q-3)-(q-1)(q-5)=q+1,
+\]
+which proves (EC).
+\end{proof}
+
+\paragraph{Interpretation and formal status.}
+The field cardinality alone determines the least collision energy
+needed to remove the signed first-moment bias. The minimizing measure
+also has the complete reflection symmetry proved in the preceding
+section. The statement quantifies over all real masses on the full
+parameter space, so it includes every nonnegative sampling rule
+satisfying the two displayed constraints.
+
+Quadratic calibration under linear constraints is classical;
+see Deville--S\"arndal~\cite{DevilleSarndalCalibration}. The proposed
+model-specific contribution is the closed arithmetic value
+\(1/((q-1)(q-5))\), its nonnegative companion-count optimizer, and the
+exact effective-support deficit \(q+1\). External priority for this
+specific finite-field conclusion is not established.
+
+The full statement is formalized in \texttt{QuadraticTripleCentering}.
+The exact pairing is
+\texttt{centered\_mass\_canonical\_pairing}; the main declarations are
+\texttt{centered\_mass\_square\_defect},
+\texttt{centered\_mass\_square\_minimum}, and
+\texttt{centered\_mass\_square\_equality\_iff}.
+The reciprocal bound and exact deficit are
+\texttt{centered\_mass\_effective\_support\_bound} and
+\texttt{canonical\_effective\_support\_loss}.
+The proof reuses the existing generic
+\texttt{packetMean\_square\_defect} theorem through an explicit
+singleton-index product-space transport. The maintained proofs use
+only the standard foundational axioms. This theorem gives no
+integer height-control or prime-gap transfer estimate.
+
 \section{Arithmetic transfers and the next ascent investigation}
 \paragraph{Existing ingredients.}
 The generic greedy record sandwich and the maintained periodic and
@@ -3885,6 +3998,11 @@ arXiv:1711.05564. \url{https://arxiv.org/abs/1711.05564}.
 \bibitem{GaoKuttnerWang} Z. Gao, S. Kuttner, Q. Wang,
 \emph{Counting irreducible polynomials with prescribed coefficients over a finite field},
 arXiv:2109.02000. \url{https://arxiv.org/abs/2109.02000}.
+\bibitem{DevilleSarndalCalibration} J.-C. Deville and C.-E. S\"arndal,
+\emph{Calibration Estimators in Survey Sampling},
+Journal of the American Statistical Association 87 (1992), 376--382.
+\url{https://doi.org/10.1080/01621459.1992.10475217}.
+
 \bibitem{KatzTraceRatios} N. M. Katz,
 \emph{2, 3, 5, Legendre: \(\pm\)-Trace Ratios in Families of Elliptic Curves},
 Experimental Mathematics 19 (2010), 267--277.
