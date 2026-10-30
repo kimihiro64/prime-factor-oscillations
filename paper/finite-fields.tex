@@ -2029,6 +2029,9 @@ The exact common-scale classification below proves the optimal energy
 among arbitrary finite signed mixtures, a positive attaining law, and
 strict separation from the independent-tag flat law, with the small
 fields treated separately.
+The fully coupled extension proves the exact finite-packet minimum
+for arbitrary joint signed weights, pointwise uniqueness and explicit
+positive attaining coefficients across the stated fields.
 The classical Hasse input, Artin--Schreier coverage, finite Fourier
 and CRT assertions, and integer short-interval consumer still have
 ordinary proofs here. These are separate statuses.
@@ -2894,6 +2897,126 @@ mixture consumer, the strict flat-energy comparison, and the
 separate \(q=3\) and \(q=5\) statements.
 The repeated-shift sentence invokes the distinct-residue theorem
 below, rather than the nonzero-shift moments.
+
+\subsection{Fully coupled mixtures across fields}
+
+The local minimization also controls signed weights which couple all
+field choices. This is stronger than optimizing a separately factored
+choice of weights.
+Let \(I,J\) be finite sets. For each \(i\in I\), let \(F_i\) be a
+finite field of odd cardinality \(q_i>5\), choose \(h_i\ne0\), and
+choose a nonzero nonsquare \(t_i\).
+Put \(\Omega=\prod_{i\in I}F_i\), with its uniform finite average
+\(\mathbb E_\Omega\).
+For nonzero scales \(u_{j,i}\in F_i\) and arbitrary real
+\(\lambda_j\), define the actual coupled count packet
+\[
+ W(x)=\sum_{j\in J}\lambda_j
+         \prod_{i\in I}w_{q_i}(u_{j,i}x_i;u_{j,i}h_i).
+\]
+No factorization of the coefficients \(\lambda_j\), and no positivity
+of these coefficients, is assumed.
+
+\begin{theorem}[Exact joint minimum and positive attainment]
+\label{thm:jointCommonScaleOptimum}
+Let \(v_i^*\) be the positive local optimizer of
+Theorem~\ref{thm:commonScaleOptimum}, and set
+\[
+ V(x)=\prod_{i\in I}v_i^*(x_i),\qquad
+ M=\prod_{i\in I}m_{\chi_i(-1)}(q_i).
+\]
+Then \(\mathbb E_\Omega V=1\), \(V\ge0\), and
+\(\mathbb E_\Omega V^2=M\).
+Every coupled packet with \(\mathbb E_\Omega W=1\) satisfies
+\[
+ \boxed{\quad
+ \mathbb E_\Omega W^2
+   =M+\mathbb E_\Omega(W-V)^2.
+ \quad}
+\]
+Hence \(M\) is the exact minimum over finite signed coupled packets
+when the label set and scales may vary. Equality holds exactly when
+\(W=V\) pointwise.
+
+The minimum is attained within the stated class with positive
+coefficients. Explicitly, put
+\[
+ a_i=\alpha_{*,i}+\beta_{*,i}>0,\qquad
+ b_i=\alpha_{*,i}-\beta_{*,i}>0.
+\]
+For the finite label set \(\{0,1\}^I\), choose
+\[
+ u_{\omega,i}=
+ \begin{cases}1,&\omega_i=0,\\t_i,&\omega_i=1,\end{cases}
+ \qquad
+ \lambda_\omega=\prod_{i\in I}
+ \begin{cases}a_i,&\omega_i=0,\\b_i,&\omega_i=1.\end{cases}
+\]
+All scales are nonzero, all weights are positive, and the resulting
+packet is exactly \(V\).
+\end{theorem}
+
+\begin{proof}
+The full local moment matrix in the preceding proof gives
+\[
+ \alpha_*A+\beta_*B=\frac{m_\epsilon(q)(q-3)}2,\qquad
+ \alpha_*B+\beta_*C=\frac{m_\epsilon(q)(e+f)}2.
+\]
+Consequently, for every local common-scale profile \(g\),
+including every signed linear combination,
+\[
+                \mathbb E(v^*g)=m_\epsilon(q)\mathbb E g.
+\]
+This identity includes the mixed moment \(B\); no cross term has
+been bounded separately.
+
+For a basis packet
+\(B_j(x)=\prod_{i\in I}w_{q_i}(u_{j,i}x_i;u_{j,i}h_i)\),
+finite product summation gives
+\[
+ \mathbb E_\Omega(VB_j)
+  =\prod_{i\in I}\mathbb E_{F_i}
+       \bigl(v_i^*w_{q_i}(u_{j,i}\,\cdot\,;u_{j,i}h_i)\bigr)
+  =M\mathbb E_\Omega B_j.
+\]
+Linearity therefore yields
+\(\mathbb E_\Omega(VW)=M\mathbb E_\Omega W=M\), with every
+coefficient and every cross term retained.
+Also finite product summation and the local laws give
+\(\mathbb E_\Omega V=1\) and \(\mathbb E_\Omega V^2=M\).
+Expanding the square proves
+\[
+ \mathbb E_\Omega(W-V)^2
+    =\mathbb E_\Omega W^2-2M+M.
+\]
+Each point has positive uniform weight, so a zero squared
+defect is equivalent to pointwise equality.
+Finally, distributing the product
+\(\prod_i(a_iC_{+,i}+b_iC_{-,i})\) gives precisely the displayed
+finite positive coupled packet.
+\end{proof}
+
+\paragraph{Scope for the accumulation question.}
+This proves an exact result for arbitrary joint weights, rather than
+assuming that weights at different fields are independent.
+The uniform domain is the complete finite product \(\Omega\).
+For distinct prime fields \(\mathbb F_p\), CRT identifies this domain
+with one complete residue period. Extension fields or repeated
+characteristics are not additional independent rational-prime moduli.
+The theorem does not replace the required integer interval by that
+full period. In particular it gives no estimate for
+\(\sum_{X<n\le2X}U_{\sqrt{2X+h}}(n)\).
+Its range is explicitly \(q_i>5\) and \(h_i\ne0\); the exceptional
+small-field and repeated-shift laws remain separate.
+
+\paragraph{Formal status.}
+The maintained module
+\texttt{LegendreSymbol.QuadraticPairTwistJoint}
+proves the actual local pairing identity, the arbitrary finite joint
+count-packet square defect and minimum, pointwise uniqueness, and the
+explicit positive Boolean-labelled attaining packet with nonzero scales.
+These are uniform proofs over the stated finite index sets and fields,
+rather than finite numerical tests.
 
 \subsection{Exact optimal laws for arbitrary finite constellations}
 
