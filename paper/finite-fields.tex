@@ -5279,6 +5279,115 @@ the proved local pair law. Its CRT and Euler-product tools are
 classical; the earlier discussion of general Euler-product methods
 still applies. No claim of independent external priority is made.
 
+\section{Uniform character cancellation for the integer transfer}
+The integer-height question needs estimates on rational primes, rather
+than further independent finite-field realizations. The installed QRH
+character estimate supplies such an input uniformly in the modulus.
+
+\begin{theorem}[Uniform reciprocal-prime tails]\label{thm:integer-character-harmonic-tail}
+There is an absolute constant \(C>0\), chosen before the modulus, such that
+for every integer \(q\geq1\), every nonprincipal Dirichlet character
+\(\chi\) modulo \(q\), and every pair of integer cutoffs \(Y\geq1\), \(X\geq0\),
+\[
+ \left|\sum_{\substack{Y\leq p<X\\p\ {\rm prime}}}\frac{\chi(p)}p\right|
+ \leq C(3+\log q)^2Y^{-1/32}.
+\]
+The character can be imprimitive; its zero values are retained. In particular,
+the left side is at most \(C\) whenever
+\[
+                         Y\geq(3+\log q)^{64}.
+\]
+\end{theorem}
+
+\begin{proof}
+The proved QRH prime-prefix theorem supplies one absolute \(B>0\) with
+\[
+ \left|\sum_{p\leq x}\chi(p)\right|
+ \leq Bx^{7/8}(1+\log q+\log(x+2))^2
+\]
+for every nonprincipal character and every natural \(x\).
+For \(x\geq1\), the elementary inequalities
+\[
+ \log(x+2)\leq2+\log x,\qquad
+ (1+\log x)^2\leq1089x^{1/16}
+\]
+give, with \(A=1089B\),
+\[
+ |S(t)|\leq A(3+\log q)^2t^{15/16},
+ \qquad S(t)=\sum_{p<t}\chi(p).
+\]
+The second elementary inequality follows from
+\(\log x\leq32x^{1/32}\) and \(1\leq x^{1/32}\).
+The zero prefix is included.
+
+When \(Y<X\), finite Abel summation gives the exact identity
+\[
+ \sum_{\substack{Y\leq p<X\\p\ {\rm prime}}}\frac{\chi(p)}p
+ =\frac{S(X)}{X-1}-\frac{S(Y)}Y+
+   \sum_{j=Y}^{X-2}\frac{S(j+1)}{j(j+1)}.
+\]
+Both endpoint terms remain present. For \(t\geq1\),
+\[
+ (t+1)^{15/16}\leq2t^{15/16},\qquad
+ t^{-1/16}\leq t^{-1/32}.
+\]
+Consequently the two endpoint contributions together are at most
+\(3A(3+\log q)^2Y^{-1/32}\), and the remaining contribution is at most
+\[
+ 2A(3+\log q)^2
+       \sum_{j=Y}^{X-2}j^{-17/16}
+ \leq2A(3+\log q)^2Y^{-1/32}
+       \sum_{j=1}^{\infty}j^{-33/32}.
+\]
+The last series converges. Thus one may take
+\[
+ C=A\left(3+2\sum_{j=1}^{\infty}j^{-33/32}\right).
+\]
+For \(X\leq Y\), the prime support is empty. Finally,
+\(Y\geq(3+\log q)^{64}\) implies
+\((3+\log q)^2Y^{-1/32}\leq1\), proving the second assertion.
+\end{proof}
+
+\paragraph{Quantitative role at integer height.}
+On an admissible row \(p\geq5\), \(p\nmid h\), the exact local law already gives
+\[
+ u_p(n)=
+ \frac{p-1+\left(\frac{-hn}{p}\right)
+              +\left(\frac{h(n+h)}p\right)}{p-3}.
+\]
+The previously proved two-character Euler factorization retains its
+opening masks and a uniformly summable \(O(p^{-2})\) correction.
+Thus the next integer adapter must identify these two Legendre-symbol
+rows with nonprincipal Dirichlet characters of modulus at most
+\(4hQ^2\), on the nonzero packet branch
+\(Q<n\), \(n+h\leq Q^2\), \(Q>h>0\).
+The proved prime-pair extraction makes \(n\) and \(n+h\) prime there;
+hence \(-hn\) is negative and \(h(n+h)\) is nonsquare.
+The conductor, reciprocity, exceptional-prime and Euler-product consumers
+must still be assembled formally.
+
+The displayed harmonic-tail theorem is proved for actual integer primes.
+It supplies the required bounded signed character tail after a
+polylogarithmic cutoff. The prospective packet envelope
+\[
+                U_Q(n)\ll_h(\log Q)^2(\log\log Q)^2
+\]
+is not yet a theorem of this paper: its full character adapter and
+product consumer remain open. No positive short-height packet mass,
+integer prime-pair recurrence, change to \(H_1\), or new zero-free
+exponent follows from the harmonic estimate alone.
+
+\paragraph{Formal status.}
+The maintained owner \texttt{Helpers/QRHPrimePrefix} now proves
+\texttt{exists\_primeCharacterSum\_power\_bound},
+\texttt{norm\_reciprocal\_Ico\_le\_of\_power\_prefix},
+\texttt{exists\_primeCharacter\_reciprocal\_tail\_bound} and
+\texttt{exists\_primeCharacter\_reciprocal\_tail\_bounded},
+together with their scalar and summability consumers.
+The constant precedes every modulus, character and both cutoffs.
+These are quantitative consequences of the installed QRH input and
+finite Abel summation; no independent novelty is claimed for them.
+
 \section{Arithmetic transfers and the next ascent investigation}
 \paragraph{Existing ingredients.}
 The generic greedy record sandwich and the maintained periodic and
