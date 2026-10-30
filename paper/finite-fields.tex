@@ -2018,6 +2018,8 @@ The elliptic comparison and its finite-product estimates are formalized
 with their explicit numerical trace bounds. The exact moment, centered
 variance and finite product-space energy theorems below are formalized
 without any trace-bound hypothesis.
+The positive tagged construction below also has exact support over odd
+fields with \(q\geq5\) and near-minimal packet energy, without Hasse's theorem.
 The classical Hasse input, Artin--Schreier coverage, finite Fourier
 and CRT assertions, and integer short-interval consumer still have
 ordinary proofs here. These are separate statuses.
@@ -2387,6 +2389,208 @@ energy factorization, its actual-field specialization, the scalar
 These are real Lean proofs without a Hasse hypothesis.
 The existing CRT interpretation remains as previously stated; no
 new integer prime-pair lower bound is claimed.
+
+\subsection{A positive twist average with near-minimal packet energy}
+
+There is a useful way to combine the finite-field cases before forming
+the coherent product. Let \(F\) have odd cardinality \(q\geq5\), fix
+\(h\ne0\), and choose a nonsquare \(t\in F^\times\). Such a \(t\)
+exists in every finite field of odd characteristic. We use two tagged
+families, with \(b,c\in F\):
+\[
+\begin{array}{ll}
+ 0:& T^2+bT+c,\quad T^2+bT+c+h,\\
+ 1:& T^2+bT+tc,\quad T^2+bT+t(c+h).
+\end{array}
+\]
+The sampled linear coefficient remains \(b\) in both families.
+Only the constant and its shift are scaled. Tags distinguish the two
+experiments even if some resulting polynomial pairs coincide. Put
+\[
+ C_h(c)=w_q(c;h)+w_q(tc;th),\qquad \epsilon=\chi(-1).
+\]
+
+\begin{theorem}[The trace-free tagged count law]\label{thm:positiveTwistLaw}
+The tagged count and its conditional density satisfy
+\[
+ \sum_{c\in F}C_h(c)=\frac{q(q-3)}2,\qquad
+ v_h(c):=\frac{qC_h(c)}{\sum_{z\in F}C_h(z)}=\frac{2C_h(c)}{q-3}.
+\]
+The density does not depend on which nonsquare \(t\) was selected.
+It is zero at \(c=0,-h\), while for every other \(c\),
+\[
+ v_h(c)=\frac{q-1+\chi(-h)\chi(c)+\chi(h)\chi(c+h)}{q-3},
+ \qquad
+ 1\leq v_h(c)\leq\frac{q+1}{q-3}.
+\]
+In particular its positive support is exactly \(c(c+h)\ne0\), and
+\[
+ \frac1q\sum_{c\in F}v_h(c)=1,\qquad
+ \frac1q\sum_{c\in F}v_h(c)^2
+ =1+\frac{2}{q-3}-\frac{2(1+\epsilon)}{q(q-3)^2}.
+\]
+These conclusions require neither Hasse's bound nor RH.
+\end{theorem}
+
+\begin{proof}
+Changing variables in the actual cubic character sum gives
+\[
+ a(tc,th)=\chi(t)a(c,h)=-a(c,h).
+\]
+Write \(e=\chi(h)\), \(f=\chi(-h)\), \(x=\chi(c)\), and
+\(y=\chi(c+h)\). At an admissible constant the two complete count
+formulas are
+\[
+\begin{split}
+ 4w_q(c;h)&=q-1+e+f-a-(1-f)x-(1-e)y,\\
+ 4w_q(tc;th)&=q-1-e-f+a+(1+f)x+(1+e)y.
+\end{split}
+\]
+Their sum cancels the actual trace with its sign intact:
+\[
+                   2C_h(c)=q-1+fx+ey.
+\]
+Both counts vanish at the two inadmissible constants.
+
+For an identity valid at every constant, put
+\[
+ U_c=q-1+f\chi(c)+e\chi(c+h),\qquad
+ M_c=U_c-q\mathbf1_{c=0}-q\mathbf1_{c=-h}.
+\]
+Then \(U_0=U_{-h}=q\), and \(M_c=2C_h(c)\) at all \(c\).
+The zero character sums give
+\(\sum_{c\in F}M_c=q(q-3)\), proving the stated normalization. At an
+admissible constant both character products in \(U_c\) are signs,
+so \(q-3\leq U_c\leq q+1\). This proves the exact support directly.
+
+For the energy, retain the character cross term:
+\[
+ \sum_{c\in F}U_c^2=q(q-1)^2+2(q-1)-2ef.
+\]
+Here \(\sum_{c\in F}\chi(c)\chi(c+h)=-1\) and \(ef=\chi(-1)=\epsilon\).
+Removing both exceptional squares gives
+\[
+ \sum_{c\in F}M_c^2
+   =q(q-3)^2+2q(q-3)-2(1+\epsilon).
+\]
+Division by \(q(q-3)^2\) proves the second moment.
+\end{proof}
+
+The conditioning is on the joint event that the two tagged polynomials
+are irreducible. It automatically accounts for the different sizes of
+the two family events; equal averaging of their already normalized
+densities is not required. At \(q=5\), one family can have zero total
+count, while the tagged total remains positive. At \(q=3\) the tagged
+total is zero, and this normalization cannot be used. These are actual
+small-field alternatives, rather than omitted exceptional rows.
+
+\begin{theorem}[Uniform near-minimal energy]\label{thm:twistNearMinimal}
+Let \(w:F\to\mathbb R\) have mean one and satisfy \(w(0)=w(-h)=0\).
+No nonnegativity assumption on \(w\) is needed. Then
+\[
+ \frac1q\sum_{c\in F}v_h(c)^2
+ \leq \left(1+\frac5{q^2}\right)\frac1q\sum_{c\in F}w(c)^2.
+\]
+For a finite family of such fields and nonzero shifts, the product
+weight \(V(x)=\prod_i v_{h_i}(x_i)\) has mean one and energy equal
+to the product of the displayed local energies.
+
+More explicitly, set
+\[
+ m_2(q,\epsilon)=1+\frac{2}{q-3}
+       -\frac{2(1+\epsilon)}{q(q-3)^2},\qquad
+ D(q,\epsilon)=m_2(q,\epsilon)(1-2/q).
+\]
+For \(q\geq5\) and \(-1\leq\epsilon\leq1\),
+\[
+                 1\leq D(q,\epsilon)\leq1+\frac5{q^2}.
+\]
+If \(4\leq Y\leq Z\) are integers,
+\(T\subseteq\{p\text{ prime}:Y<p\leq Z\}\), and
+\(-1\leq\epsilon_p\leq1\), then
+\[
+                    1\leq\prod_{p\in T}D(p,\epsilon_p)
+                               \leq e^{10/Y}.
+\]
+For \(\epsilon_p=\chi_p(-1)\) and nonzero local shifts in
+\(\mathbb F_p\), this product is exactly the ratio of the twist-averaged
+packet energy to the energy of the normalized flat admissibility mask.
+\end{theorem}
+
+\begin{proof}
+Put \({\cal A}=F\setminus\{0,-h\}\), of cardinality \(q-2\).
+Expansion of
+\(\sum_{c\in{\cal A}}(w(c)-q/(q-2))^2\geq0\), with
+\(\sum_{c\in F}w(c)=q\), gives the universal lower bound
+\[
+                       \frac1q\sum_{c\in F}w(c)^2\geq\frac q{q-2}.
+\]
+The normalized flat density \(q/(q-2)\) on \({\cal A}\) attains equality.
+The nonnegative remainder is retained explicitly; no sign estimate of
+a prime or character packet is used for this lower bound.
+
+The trace-free energy divided by \(q/(q-2)\) is \(D(q,\epsilon)\), and
+\[
+ D(q,\epsilon)-1
+ =\frac{2q(q-3)-2(1+\epsilon)(q-2)}{q^2(q-3)^2}.
+\]
+The numerator is
+\[
+ 2(q-1)(q-4)+2(1-\epsilon)(q-2)\geq0
+\]
+and is at most \(2q(q-3)\). Therefore
+\[
+ 0\leq D-1\leq\frac{2}{q(q-3)}\leq\frac5{q^2}.
+\]
+Multiplying the universal lower bound by \(1+5/q^2\) proves the
+near-minimality assertion for every competitor \(w\).
+
+Finite product summation gives the mean and energy identities, without
+discarding any cross terms. For a tail packet indexed by \(T\), each
+\(D_p\geq1\) and \(|D_p-1|\leq5/p^2<1/2\).
+Consequently
+\[
+ 0\leq\log\prod_{p\in T}D_p
+       \leq10\sum_{p\in T}p^{-2}\leq\frac{10}{Y}.
+\]
+This proves the uniform finite-tail comparison.
+\end{proof}
+
+\paragraph{The complete coherent model and its arithmetic consumer.}
+For a fixed positive even integer \(h\), use \(v_h(n\bmod p)\) at
+each prime \(p\geq5\) with \(p\nmid h\).
+At \(p=2,3\), or \(p\mid h\), retain the normalized admissible
+fallback \(p/(p-\nu_p(h))\) on the allowed residues and zero elsewhere.
+The resulting weight \(\widetilde U_Y(n)\) has exactly the same opening
+mask \(\Gamma_{Y,h}(n)\). The earlier prime-pair window criterion
+therefore applies to this model as well.
+
+Quantitatively, the original conditional density has local energy
+\(1+3/p+O(p^{-2})\). The positive tagged combination has local energy
+\(1+2/p+O(p^{-2})\), and its energy relative to the flat mask has the
+explicit summable correction above. Thus combining these cases removes
+the extra harmonic unit of elliptic fluctuation while retaining the
+support needed by the integer consumer. The remaining integer task is
+still to control its mass on \(X<n\leq2X\) at
+\(Y\asymp\sqrt X\); the full-period calculation alone is not that estimate.
+
+\paragraph{Formal status and novelty boundary.}
+The maintained module \texttt{QuadraticPairTwistAverage} proves
+nonsquare existence, signed trace scaling, the global completed count
+identity, the actual tagged conditional normalization, exact support
+for \(q\geq5\), mean one and the second moment.
+The module \texttt{QuadraticPairTwistEnergy} proves the universal
+two-omitted-points energy floor and its exact attainment, near-minimality against arbitrary
+competitors, full finite product-space mean and energy, and the
+uniform \(e^{10/Y}\) tail comparison. All these proofs are compiled
+with only foundational axioms.
+
+Quadratic-twist cancellation and finite-support energy minimization
+are classical principles. The contribution pursued here is this
+positive actual-count construction, its small-field treatment and
+its uniform comparison with every admissible mean-one competitor.
+External priority for that combination has not been established.
+No new integer recurrence or zero-free exponent is asserted.
 
 \section{Unconditional transfer to quadratic number fields}
 
