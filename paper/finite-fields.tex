@@ -4906,6 +4906,180 @@ the integer model; a height-uniform positive mass estimate remains
 the step needed to establish infinitely recurring integer gaps.
 No QRH exponent improvement is claimed.
 
+\section{Sharp packet peaks on actual integer progressions}
+\label{sec:sharpIntegerPacketPeaks}
+
+The common envelope \(C_0(\log Q)^4\) is also the correct order of
+the largest actual integer packet values. The conclusion is a
+sharpness theorem for the full finite-field pair model on integer
+residues, with its exact local zero masks retained.
+
+For a positive even integer shift \(h\), set
+\[
+ P_Q=\prod_{\substack{p\leq Q\\p\ {\rm prime}}}p,\qquad
+ c_h=\exp\!\bigl(-4(B_0+12+h)-1\bigr)>0,
+\]
+where \(B_0\) is the explicit unconditional reciprocal-prime budget
+defined above.
+
+\begin{theorem}[The fourth-power envelope is attained in order]
+\label{thm:sharpFourthPowerIntegerPacket}
+For every positive even integer \(h\) and every integer \(Q\geq13\),
+there is an integer \(0\leq a<P_Q\) such that
+\[
+       U_Q(a+P_Qt)\geq c_h(\log Q)^4
+                       \qquad\hbox{for every integer }t\geq0.
+\]
+For every integer \(n\geq0\), the existing upper bound is
+\[
+                         U_Q(n)\leq C_0(\log Q)^4.
+\]
+Consequently, as a mathematical consequence of these two bounds,
+\[
+ c_h(\log Q)^4
+       \leq\max_{0\leq a<P_Q}U_Q(a)
+       \leq C_0(\log Q)^4.
+\]
+All constants and ranges are explicit. In particular the logarithmic
+exponent four in a uniform pointwise envelope is sharp.
+\end{theorem}
+
+\begin{proof}
+We first identify an attained local maximum. In any odd field of
+cardinality \(q\geq13\), the trace-free pair weight at an admissible
+residue is one of
+\[
+                  1,\qquad\frac{q-1}{q-3},\qquad\frac{q+1}{q-3}.
+\]
+Indeed its numerator is
+\[
+ q-1+\chi_q((-h)c)+\chi_q(h(c+h)),
+\]
+and both characters are signs at an admissible residue.
+The positive-crest theorem gives a residue with
+\(a_q(c)\geq1/(4q)>0\); it cannot be either forbidden residue.
+If its weight were at most the middle value, its correction would be
+at most
+\[
+ (1-2/q)\frac{q-1}{q-3}-1
+          =\frac{2}{q(q-3)}<\frac1{4q},
+\]
+since \(q>11\). Thus the upper local envelope
+\((q+1)/(q-3)\) is attained, for every nonzero shift.
+
+Next consider every rational prime \(p\leq Q\), including the finite
+exceptional rows. There is an admissible residue at which its actual
+local factor is at least one. If the shift is zero in \(\mathbb F_p\),
+use residue one. Otherwise, for odd \(p\), use residue \(h\):
+both \(h\) and \(2h\) are nonzero.
+The actual trace-free weight is at least one at every admissible
+residue for \(p\geq5\). The fallback is
+\(p/(p-\nu_p)\geq1\), with \(\nu_p\in\{1,2\}\) and positive
+denominator. At \(p=2\), evenness of the integer shift gives
+\(\nu_2=1\), so residue one has factor two.
+This explicitly supplies the factors at \(2,3,5,7,11\), as well as
+all primes dividing \(h\); none are dropped from the packet.
+
+For each prime \(13\leq p\leq Q\) not dividing \(h\), choose a residue
+attaining \((p+1)/(p-3)\). At every remaining prime choose the
+admissible residue just described.
+The finite Chinese remainder theorem gives a common representative
+\(0\leq a<P_Q\). Every integer \(a+P_Qt\) has exactly these residues.
+Multiplying the actual local inequalities gives, for all \(t\geq0\),
+\[
+ U_Q(a+P_Qt)\geq
+       \prod_{\substack{13\leq p\leq Q\\p\ {\rm prime}\\p\nmid h}}
+                              \frac{p+1}{p-3}.
+\]
+
+To bound this product from below, the elementary inequality
+\(\log y\geq1-y^{-1}\), \(y>0\), gives, for \(x>3\),
+\[
+ \log\frac{x+1}{x-3}\geq\frac4{x+1}
+                         \geq\frac4x-\frac4{x^2}.
+\]
+For the last comparison the exact nonnegative difference is
+\(4/(x^2(x+1))\).
+Put
+\[
+ S_h(Q)=\sum_{\substack{13\leq p\leq Q\\p\ {\rm prime}\\p\nmid h}}\frac1p.
+\]
+The already proved inverse-square tail estimate gives
+\[
+ \sum_{\substack{13\leq p\leq Q\\p\ {\rm prime}\\p\nmid h}}\frac1{p^2}
+                                                       \leq\frac1{12}.
+\]
+Hence the displayed product is at least
+\[
+                         \exp(4S_h(Q)-1).
+\]
+Here the weaker constant one has replaced \(4/12\).
+
+Because \(h>0\), any prime dividing \(h\) is at most \(h\).
+Every prime omitted from \(S_h(Q)\) therefore lies at most \(12+h\).
+Bounding its reciprocal by one and retaining the full selected sum,
+the unconditional Mertens lower estimate yields
+\[
+ \begin{split}
+ \log\log Q-B_0
+ &\leq\sum_{\substack{p\leq Q\\p\ {\rm prime}}}\frac1p\\
+ &\leq S_h(Q)+12+h.
+ \end{split}
+\]
+It follows that
+\[
+ \exp(4S_h(Q)-1)
+     \geq\exp(-4(B_0+12+h)-1)(\log Q)^4.
+\]
+This proves the attained lower bound on the entire progression.
+The upper bound is the already established full-packet envelope.
+Taking \(t=0\), followed by the maximum over one complete residue
+period, proves the stated consequence.
+\end{proof}
+
+\paragraph{Exact integer significance and remaining height issue.}
+This theorem proves compatible simultaneous amplification on actual
+integer residue classes. It also proves that replacing the current
+pointwise envelope by a smaller logarithmic power cannot be the source
+of a uniform comparison improvement.
+It makes no claim against estimates of the complete signed or
+averaged packet, where the largest residues need not dominate.
+
+The CRT conclusion has the explicit height bound \(a<P_Q\).
+The integer prime-pair extraction theorem instead requires a positive
+sample in
+\[
+                              Q<n\leq Q^2-h.
+\]
+The new theorem does not put its representative in this latter range,
+nor prove that a growing-cutoff packet is large there.
+A fixed-\(Q\) progression contains integers arbitrarily far beyond
+the range in which the retained divisors decide primality.
+Thus this is a proved integer amplification and sharpness result,
+while recurrent integer prime pairs and the value of \(H_1\)
+remain separate questions.
+
+\paragraph{Formal status and scope of originality.}
+The reusable candidate
+\texttt{LegendreSymbol/QuadraticPairTwistExtrema}
+proves \texttt{exists\_local\_maximum} and
+\texttt{log\_envelope\_lower}.
+The maintained owner \texttt{Assembly/FiniteFieldIntegerExtrema}
+implements the finite CRT lift with its bound, every exceptional
+local row, the full integer progression, the retained reciprocal-prime
+and inverse-square budgets, and the explicit lower constant.
+Its \texttt{integer\_packet\_sharp\_fourth\_power} is the displayed
+existence and universal upper-bound statement;
+the maximum formulation is its mathematical consequence.
+
+Quadratic-character identities, CRT and Mertens estimates are
+classical inputs. General Euler-product averaging frameworks such as
+David--Koukoulopoulos--Smith~\cite{DavidKoukoulopoulosSmith}
+are existing context. The particular sharpness conclusion concerns
+the actual-count packet defined here, with all local constraints
+and its integer lifting height. No independent priority claim for
+this model-specific conclusion is made.
+
 \section{Arithmetic transfers and the next ascent investigation}
 \paragraph{Existing ingredients.}
 The generic greedy record sandwich and the maintained periodic and
