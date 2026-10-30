@@ -3615,6 +3615,158 @@ for that conclusion is not established.
 These identities provide no bound on integer short-window mass and
 no improvement of a rational zeta zero-free boundary.
 
+\section{Canonical positive symmetry of the triple fluctuation}
+
+The uniform parameter law has a systematic signed bias. There is an
+explicit arithmetic change of sampling measure that makes the complete
+fluctuation law symmetric. Retain \(\mathcal D_h,\mathcal R\),
+\(a=q-3\), and the nonsquare tag \(t\) from the preceding section.
+For \(z\in\mathcal R\) and \(e\ne0\), put
+\[
+ C_z(e)=\#\{y\in F:e\,y(y+1)(y+z+1)\text{ is not a square in }F\}.
+\]
+Zero is a square, so this definition excludes all three roots.
+
+\begin{theorem}[Canonical companion symmetry]\label{thm:tripleCompanionSymmetry}
+Let \(F\) have odd cardinality \(q>5\), and let \(h\ne0\). Set
+\[
+ N=(q-2)(q-3),\qquad Z=(q-3)(q-1)(q-5).
+\]
+For every \((k,x)\in\mathcal D_h\), define
+\[
+ z=\frac{h(x+k)}{(k-h)x},\qquad e=(k-h)x,\qquad
+ P_h(k,x)=\frac{a+\Delta_{h,k}(x)}{Z}.
+\]
+Then
+\[
+ a+\Delta_{h,k}(x)=2C_z(e)\ge0,\qquad
+ \sum_{\mathcal D_h}P_h(k,x)=1.
+ \tag{CS1}
+\]
+For every integer \(r\), the full reflected-bin identity holds:
+\[
+ \sum_{\substack{(k,x)\in\mathcal D_h\\\Delta_{h,k}(x)=r}}P_h(k,x)
+ =
+ \sum_{\substack{(k,x)\in\mathcal D_h\\\Delta_{h,k}(x)=-r}}P_h(k,x).
+ \tag{CS2}
+\]
+More generally, for every integer-valued test function \(\Phi\),
+\[
+ \sum_{\mathcal D_h}(a+\Delta_{h,k}(x))\Phi(\Delta_{h,k}(x))
+ =
+ \sum_{\mathcal D_h}(a+\Delta_{h,k}(x))\Phi(-\Delta_{h,k}(x)).
+ \tag{CS3}
+\]
+Consequently all odd moments under \(P_h\) vanish.
+
+Moreover, \(P_h\) is the unique centered normalized real affine mass
+on this parameter space. Precisely, if real \(A,B\) satisfy
+\[
+ \sum_{\mathcal D_h}(A+B\Delta)=1,\qquad
+ \sum_{\mathcal D_h}(A+B\Delta)\Delta=0,
+\]
+then
+\[
+ A=\frac{a}{Z},\qquad B=\frac1Z,\qquad A+B\Delta=P_h.
+ \tag{CS4}
+\]
+This uniqueness assertion does not require nonnegativity as a hypothesis.
+At \(q=3\), \(\mathcal D_h\) is empty. At \(q=5\), it has six
+elements and \(\Delta=-2\) at every element. Neither small cardinality
+admits a centered normalized affine mass.
+\end{theorem}
+
+\begin{proof}
+For any \(v\in F\), the exact nonsquare indicator identity is
+\[
+ 2\mathbf1_{\{v\text{ not square}\}}
+ =1-\chi(v)-\mathbf1_{\{v=0\}}.
+\]
+Apply it to \(v=e\,y(y+1)(y+z+1)\). Since \(z\ne0,-1\)
+and \(e\ne0\), precisely three \(y\)'s give zero. The translated
+cubic character sum from the preceding theorem is
+\[
+ \sum_{y\in F}\chi\bigl(y(y+1)(y+z+1)\bigr)=-T_z.
+\]
+Multiplicativity therefore gives
+\[
+ 2C_z(e)=a+\chi(e)T_z. \tag{CC}
+\]
+The rational shape map preserves admissibility, and its exact phase
+identity is \(\Delta_{h,k}(x)=\chi((k-h)x)T_z\).
+Thus (CC) proves the first assertion of (CS1), including nonnegativity.
+
+For each of the \(q-2\) allowed shifts \(k\), exactly three constants
+\(x\) are excluded. Hence \(|\mathcal D_h|=N\).
+Using the already proved first moment,
+\[
+ \sum_{\mathcal D_h}(a+\Delta)
+ =a(q-2)(q-3)-a(q+1)
+ =a(q-1)(q-5)=Z.
+\]
+Every factor in \(Z\) is positive for \(q>5\), proving normalization.
+
+To prove the complete symmetry, apply (TF) to
+\(v\mapsto(a+v)\Phi(v)\). At each regular \(z\), the two
+coefficients become
+\[
+ (a-T_z)(a+T_z)\Phi(T_z)
+ +(a+T_z)(a-T_z)\Phi(-T_z).
+\]
+This expression is unchanged when \(\Phi(v)\) is replaced by
+\(\Phi(-v)\). Cancellation of the common factor \(2\) proves (CS3).
+Taking bin indicators gives (CS2), and taking odd powers gives the
+vanishing odd moments. All sums have the displayed finite support.
+
+For uniqueness, the first two unweighted moments give the two real
+equations
+\[
+ A(q-2)a-Ba(q+1)=1,\qquad
+ -Aa(q+1)+Ba^2(q+1)=0.
+\]
+Since \(a(q+1)>0\), the second equation gives \(A=aB\).
+Substitution into the first gives \(BZ=1\), proving (CS4).
+The resulting mass is nonnegative by its companion-count realization.
+
+Finally \(N=0\) at \(q=3\). At \(q=5\), the unnormalized weights
+\(a+\Delta\) are nonnegative and sum to \(Z=0\), so each is zero.
+Here \(a=2\) and \(N=6\), giving \(\Delta=-2\) throughout.
+The displayed normalization and centering equations are inconsistent
+at both small cardinalities.
+\end{proof}
+
+\paragraph{Meaning and formal status.}
+The arithmetic companion count specifies a sampling rule under which the
+entire signed fluctuation has reflection symmetry. The rule is forced
+within the real affine class by normalization and its first moment.
+The density relative to uniform parameter sampling is
+\[
+ NP_h(k,x)=
+ \frac{q-2}{(q-1)(q-5)}\bigl(q-3+\Delta_{h,k}(x)\bigr),
+ \qquad q>5.
+\]
+This is a different measure from the success-weighted density of the
+earlier triple-wave theorem, so its positive normalizer also applies
+at \(q=7,9\). No nondegeneracy is asserted for the symmetric law.
+
+The theorem is formalized in \texttt{QuadraticTripleSymmetry}.
+The main declarations are
+\texttt{symmetryWeight\_eq\_twice\_companion},
+\texttt{full\_shape\_weighted\_reflection},
+\texttt{sum\_symmetryMass},
+\texttt{symmetryMass\_reflected\_bin}, and
+\texttt{affine\_centered\_mass\_eq\_symmetryMass}.
+The small-field conclusions are
+\texttt{shapeState\_card\_three},
+\texttt{wave\_card\_five}, and
+\texttt{no\_affine\_centered\_mass\_small}.
+These maintained declarations have kernel-checked proofs with only the
+standard foundational axioms. The model-specific contribution proposed
+here is the exact companion-count realization and its rigid symmetric
+law; external priority is not established. General affine weighting and
+reflection arguments are classical. The result supplies no integer
+height-control estimate or prime-gap transfer.
+
 \section{Arithmetic transfers and the next ascent investigation}
 \paragraph{Existing ingredients.}
 The generic greedy record sandwich and the maintained periodic and
