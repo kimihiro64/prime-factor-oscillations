@@ -14,7 +14,7 @@ import PrimeFactorOscillations.Mathlib.NumberTheory.LegendreSymbol.QuadraticPair
 import PrimeFactorOscillations.Mathlib.NumberTheory.LegendreSymbol.QuadraticPairTwistEuler
 import PrimeFactorOscillations.Mathlib.NumberTheory.LegendreSymbol.QuadraticPairTwistJoint
 import PrimeFactorOscillations.Mathlib.NumberTheory.LegendreSymbol.QuadraticPairTwists
-import PrimeFactorOscillations.Mathlib.NumberTheory.LegendreSymbol.QuadraticTripleCentering
+import PrimeFactorOscillations.Mathlib.NumberTheory.LegendreSymbol.QuadraticTripleDeletionHeight
 
 /-!
 # Gauss-sum candidate exports

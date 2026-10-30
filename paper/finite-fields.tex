@@ -3880,6 +3880,150 @@ singleton-index product-space transport. The maintained proofs use
 only the standard foundational axioms. This theorem gives no
 integer height-control or prime-gap transfer estimate.
 
+\section{The signed cost of deleting triple parameters}
+
+The preceding minimum concerns arbitrary real sampling masses. Actual
+uniform retention has an additional constraint: each regular rational
+fibre contains exactly \(a=q-3\) points. Keeping that constraint gives
+a square-root correction to the deletion threshold.
+
+Let \(D\subseteq\mathcal D_h\) be any deleted set, and write
+\[
+ m=|D|,\qquad
+ R_D=\sum_{(k,x)\in\mathcal D_h\setminus D}\Delta_{h,k}(x).
+\]
+Thus \(R_D\) is the full retained compensated sum. For each
+\(z\in\mathcal R\), put
+\[
+ \mathcal Y_z=F\setminus\{0,-1,-z-1\},\qquad
+ \Psi_h(z,y)=
+ \left(\frac{h(y+1)(z+1)}{zy},\,\frac{h(y+1)}z\right),
+\]
+\[
+ D_z=\{y\in\mathcal Y_z:\Psi_h(z,y)\in D\},\quad
+ c_z=|D_z|,\quad
+ d_z=-\sum_{y\in D_z}\gamma_z(y),\qquad
+ \gamma_z(y)=\chi\bigl(y(y+1)(y+z+1)\bigr).
+\]
+These are actual rational fibres of the complete admissible parameter
+space. In particular \(0\le c_z\le a\), \(|d_z|\le c_z\), and
+\(\sum_z c_z=m\).
+
+\begin{theorem}[Signed deletion-height bound]\label{thm:tripleSignedDeletion}
+Let \(F\) have odd cardinality \(q>5\), \(h\ne0\), and a fixed
+nonzero nonsquare tag \(t\). Every deleted set \(D\subseteq\mathcal D_h\)
+satisfies the exact identity
+\[
+ \boxed{\quad
+ \sum_{z\in\mathcal R}d_z^2
+ =a(q+1)+2R_D+\sum_{z\in\mathcal R}(d_z-T_z)^2 .
+ \quad} \tag{DP}
+\]
+Consequently, without a sign assumption on \(R_D\),
+\[
+ a(q+1)+2R_D\le m^2,\qquad
+ 4a+2R_D\le(m-a)^2. \tag{DC}
+\]
+If \(R_D\ge0\), then
+\[
+ \boxed{\quad m\ge q-3+\sqrt{4(q-3)+2R_D}
+                    \ge q-3+2\sqrt{q-3}.\quad} \tag{DH}
+\]
+In particular, for \(q>7\), reversing the negative full-space sum to
+a nonnegative retained sum requires at least \(q+2\) deletions.
+The result applies to zero retained sum as a special case.
+\end{theorem}
+
+\begin{proof}
+The proved rational bijection gives
+\(\Delta_{h,k}(x)=\gamma_z(y)T_z\) at
+\((k,x)=\Psi_h(z,y)\), with all excluded roots retained in the
+domain definition. Since \(\gamma_z(y)\in\{-1,1\}\) on
+\(\mathcal Y_z\), the stated count and phase bounds follow.
+
+The exact first moment over the full space gives
+\[
+ \sum_{(k,x)\in D}\Delta_{h,k}(x)+R_D=-a(q+1).
+\]
+After transporting the deleted set through the bijection, this is
+the signed pairing
+\[
+ \sum_{z\in\mathcal R}T_zd_z=a(q+1)+R_D.
+\]
+Together with the proved trace energy
+\(\sum_zT_z^2=a(q+1)\), expansion of
+\(\sum_z(d_z-T_z)^2\) proves (DP). Both the retained term \(2R_D\)
+and the complete squared residual remain in this identity.
+In particular,
+\[
+ a(q+1)+2R_D\le\sum_z d_z^2\le\sum_z c_z^2. \tag{DS}
+\]
+
+We use the following elementary capped-count estimate. For any
+finite family of nonnegative integer counts \(c_i\le a\), with
+\(u=\sum_i c_i\),
+\[
+ \sum_i c_i^2\le u^2,\qquad
+ \sum_i c_i^2\le a^2+(u-a)^2. \tag{CCS}
+\]
+The first inequality follows from the nonnegative cross products.
+For the second, induct on the number of counts. Suppose the old
+total is \(v\) and a new count \(c\le a\) is added. If \(v\ge a\),
+the induction bound increases by at least \(c^2\), since
+\[
+ (v+c-a)^2-(v-a)^2-c^2=2c(v-a)\ge0.
+\]
+If \(v<a\), use the first inequality for the old counts and
+\[
+ a^2+(v+c-a)^2-v^2-c^2=2(a-v)(a-c)\ge0.
+\]
+The empty family supplies the base case. This proves (CCS).
+
+Apply (CCS) to the actual fibre counts \(c_z\), whose total is \(m\).
+Combining it with (DS) proves (DC), using
+\(a(q+1)=a^2+4a\).
+When \(R_D\ge0\), \(a>0\) and the first inequality in (DC) imply
+\(m>a\). The second therefore selects the positive square-root
+branch and gives the first inequality in (DH). Monotonicity of
+the square root gives the second. Finally \(q>7\) implies
+\(a>4\), so \(a+2\sqrt a>a+4=q+1\). Integrality yields
+\(m\ge q+2\).
+\end{proof}
+
+\paragraph{What the fibre structure adds.}
+For a nonempty centered retained subset, the previous collision-energy
+minimum gives the threshold \(m\ge q+1\).
+The complete fibre calculation gives the stronger real threshold
+\(q-3+2\sqrt{q-3}\), an increase of
+\(2\sqrt{q-3}-4>0\) when \(q>7\).
+It also keeps the dependence on the actual retained height \(R_D\).
+This is a universal lower bound on the cost of obtaining a nonnegative
+retained sum; optimality of that deletion count is not asserted.
+
+The complete result is formalized in
+\texttt{QuadraticTripleDeletion} and
+\texttt{QuadraticTripleDeletionHeight}.
+The first module owns the bijective subset transport, phase/count
+bounds, capped-count estimate, and zero-sum specialization
+\texttt{uniform\_deletion\_sqrt\_bound}.
+The full declarations are
+\texttt{full\_signed\_deletion\_identity},
+\texttt{full\_deletion\_count\_constraints},
+\texttt{deletion\_height\_sqrt\_bound},
+\texttt{nonnegative\_retained\_deletion\_bound}, and
+\texttt{deletion\_at\_least\_q\_add\_two}.
+Their maintained proofs use only the standard foundational axioms.
+
+The scalar capped-count argument is elementary. The proposed
+model-specific contribution is its coupling to every actual triple
+fibre through (DP), giving the uniform deletion bound (DH).
+This is distinct from signed trace-occurrence ratios such as
+those studied by Katz~\cite{KatzTraceRatios}; external priority
+for the stated deletion theorem is not established.
+The deleted objects here are finite-field parameter pairs.
+No size estimate for an integer prime deletion class or transfer
+of prime-gap recurrence is claimed.
+
 \section{Arithmetic transfers and the next ascent investigation}
 \paragraph{Existing ingredients.}
 The generic greedy record sandwich and the maintained periodic and
