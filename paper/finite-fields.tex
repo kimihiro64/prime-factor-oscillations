@@ -6501,6 +6501,212 @@ The owner is exported through
 \texttt{Assembly/ProbabilityProfiles}.
 The QRH input and its certified \(7/8\) boundary are unchanged.
 
+\subsection{Conditioning-stable profiles on genuine integer recurrence windows}
+The relative comparison controls the full finite probability profile,
+including after selecting a rare subfamily. This gives a quadratic
+bound for the squared Hellinger energy. Its arithmetic domain is the
+same natural integer window as above; every opening mask through
+\(Q\) is still present.
+
+For \(Q\geq Q_0\), \(0<h<Q\), samples \(Q<n_j\),
+\(n_j+h\leq Q^2\), and nonnegative weights \(w_j\), put
+\[
+ u_j=w_jU_{h,Q}(n_j),\qquad
+ v_j=w_jV_{K_Q,h,Q}(n_j),\qquad
+ S_U=\sum_{j<N}u_j,\quad S_V=\sum_{j<N}v_j.
+\]
+When \(S_V>0\), define
+\[
+ P_j=\frac{u_j}{S_U},\qquad Q_j=\frac{v_j}{S_V},\qquad
+ {\cal H}(P,Q)=\sum_{j<N}(\sqrt{P_j}-\sqrt{Q_j})^2.
+\]
+The theorem below proves \(S_U>0\) before using its denominator.
+This convention for \({\cal H}\) is the full squared-root energy;
+there is no factor \(1/2\).
+
+\begin{theorem}[Uniform conditioned integer profiles]
+\label{thm:conditioned-integer-profiles}
+There are absolute \(C>0\) and \(Q_0\), chosen before the gap,
+sample size, sample locations and weights, such that all the preceding
+data with \(Q\geq Q_0\) and \(S_V>0\) give two nonnegative
+probability vectors \(P,Q\) satisfying
+\[
+ {\cal H}(P,Q)
+ \leq (e^{E_Q}-1)^2
+ \leq \frac{D_C}{(\log Q)^4},
+ \qquad
+ E_Q=\frac{2C+18}{(10\log Q)^2},
+ \qquad
+ D_C=4\left(\frac{2C+18}{100}\right)^2.
+\]
+The constant \(D_C>0\) is explicit in the existing analytic constant
+\(C\); no numerical calibration of \(C\) is claimed.
+The right side tends to zero.
+
+The bound has no sample-size factor and no inverse power of \(S_V\).
+In particular, multiplying the weights by the indicator of any
+subfamily preserves the same bound whenever the selected core mass
+is positive. No lower bound on that positive mass is required.
+\end{theorem}
+
+\begin{proof}
+Let \(a=e^{E_Q}\geq1\). The full pointwise comparison gives
+\[
+                         u_j\leq av_j,\qquad v_j\leq au_j.
+\]
+Both inequalities include coordinates where the original opening
+mask vanishes. Summing shows
+\(S_U\leq aS_V\) and \(S_V\leq aS_U\).
+Since \(S_V>0\), the second inequality gives \(S_U>0\).
+Thus both normalized vectors are nonnegative and have sum one.
+
+Keep both normalization masses. For each coordinate, multiplication
+of the two appropriate comparisons gives
+\[
+ u_jS_V\leq a^2v_jS_U,\qquad
+ v_jS_U\leq a^2u_jS_V.
+\]
+Division by \(S_US_V>0\) yields
+\[
+                              P_j\leq a^2Q_j,\qquad Q_j\leq a^2P_j.
+\]
+For nonnegative \(p,q\) obeying these two bounds,
+\[
+                       (\sqrt p-\sqrt q)^2\leq(a-1)^2q.
+ \tag{H}
+\]
+Indeed, if \(p\geq q\), then
+\(0\leq\sqrt p-\sqrt q\leq(a-1)\sqrt q\).
+If \(p<q\), then
+\(0\leq\sqrt q-\sqrt p\leq(a-1)\sqrt p\);
+squaring gives at most \((a-1)^2p\leq(a-1)^2q\).
+This argument also includes zero coordinates.
+Sum (H), using \(\sum_jQ_j=1\), to obtain
+\({\cal H}(P,Q)\leq(a-1)^2\).
+
+The proved limit \(E_Q\to0\) permits enlarging \(Q_0\) so that
+\(0\leq E_Q\leq1\). The elementary exponential remainder estimate
+\[
+                         |e^t-1|\leq2|t|\qquad(|t|\leq1)
+\]
+gives \((e^{E_Q}-1)^2\leq4E_Q^2\).
+The exact identity
+\[
+                   4E_Q^2=\frac{D_C}{(\log Q)^4}
+\]
+proves the final bound. Its limit follows from \(\log Q\to\infty\).
+Every step applies to the reweighted finite arrays themselves, so
+restricting to a rare subfamily introduces no extra denominator loss.
+\end{proof}
+
+\subsubsection{Actual unbounded windows at the least recurring gap}
+These normalized laws occur on unbounded integer windows without a
+twin-prime assumption. Write \(H=H_1\) for the maintained least
+recurring adjacent prime gap. The existing bounded-gap supply makes
+\(H\) well-defined, its exact gap recurs beyond every prime index,
+and \(H\) is even. This uses the established integer recurrence
+input; it does not determine the numerical value of \(H\).
+
+For every natural cutoff \(R\), there are \(Q\geq R\) and an index
+\(i\) such that
+\[
+ \begin{gathered}
+ H<Q,\qquad K_Q\leq Q,\qquad \log Q,\log\log Q\geq1,\\
+ p_i=Q+1,\qquad p_{i+1}=Q+1+H,\\
+ {\cal V}_{H,Q}:=
+       \sum_{Q<n\leq Q^2-H}V_{K_Q,H,Q}(n)>0.
+ \end{gathered}
+ \tag{FQ}
+\]
+In particular the full natural-window profiles are defined at
+arbitrarily large cutoffs, and the same uniform bound applies
+there to every nonempty conditioned sample.
+
+\begin{proof}
+Choose an exact recurring gap \(p_{i+1}-p_i=H\) at an index so
+large that \(p_i\) exceeds all the prescribed cutoff thresholds
+and \(H+2\). Put \(Q=p_i-1\). Then \(Q\geq R\), the core fits,
+and \(H<Q\). Since \(H+1\leq Q\) and \(Q\geq2\),
+\[
+                         Q+1+H\leq2Q\leq Q^2.
+\]
+The two displayed endpoints are actual consecutive primes.
+
+At each prime modulus at most \(Q\), neither endpoint is zero.
+The proved local positivity theorem gives every actual factor
+at least one, with the even-shift small-prime condition retained.
+Nonprime rows contribute one. Hence the actual packet at \(Q+1\)
+is positive. The exact factorization
+\(U=V\exp(\texttt{tailLogSum})\) transfers this positivity to
+\(V_{K_Q,H,Q}(Q+1)\). This term belongs to the complete natural
+window, all of whose terms are nonnegative, so (FQ) follows.
+The same witness retains the consecutive prime endpoints, the
+core range and the positive full-window mass.
+
+Finally take \(R\) at least the profile theorem's \(Q_0\).
+This puts the global profile estimate and the actual integer
+recurrence witness on the same cutoff.
+\end{proof}
+
+\begin{corollary}[Arbitrarily accurate actual least-gap frames]
+\label{cor:accurate-least-gap-frames}
+For every \(\varepsilon>0\) and every \(R\), one can choose a frame
+(FQ) with \(Q\geq R\) such that every finite sample in that frame,
+with arbitrary nonnegative weights and positive selected core mass,
+satisfies
+\[
+                              {\cal H}(P,Q)\leq\varepsilon.
+\]
+The full-window core mass is positive at that same cutoff.
+\end{corollary}
+\begin{proof}
+Fix the single absolute constant \(C\) from the profile theorem.
+Choose a further cutoff beyond which
+\(D_C/(\log Q)^4<\varepsilon\), then apply the unbounded frame
+construction beyond both this cutoff and \(R\).
+The uniform profile bound applies to every stated conditioned
+sample in that frame.
+\end{proof}
+
+\paragraph{Arithmetic meaning and literature boundary.}
+The generic passage from a bounded likelihood ratio to a divergence
+bound belongs to classical information theory; see
+Sason--Verd\'u~\cite{SasonVerduFdivergence}. The arithmetic conclusion
+here combines the actual integer character estimate, all original
+opening masks, arbitrary finite conditioning, and genuine recurrence
+frames at the integer \(H_1\).
+Only the tail trace corrections are replaced above the
+polylogarithmic core. The hybrid law still uses every primality
+opening mask through \(Q\); it is not a prediction from small primes
+alone. The existence of the \(H_1\) frames comes from the already
+proved integer recurrence input. No claim that all even gaps recur,
+that \(H_1=2\), or that the QRH exponent improves is made.
+
+\paragraph{Formal status.}
+The maintained owner
+\texttt{Assembly/FiniteFieldIntegerGapWindows}
+proves evenness of \(H_1\), positivity for actual prime pairs,
+the complete natural-window enumeration, and
+\texttt{unbounded\_least\_gap\_positive\_windows}.
+Its \texttt{leastGapFrame} retains the consecutive prime endpoints,
+core range and positive whole-window mass in the same witness.
+The owner
+\texttt{Assembly/FiniteFieldIntegerGapProfile}
+uses the maintained squared-root energy, proves the finite
+normalization and reciprocal comparison, and compiles the full
+uniform arithmetic application in
+\texttt{exists\_uniform\_window\_profile\_control}.
+The joint theorem
+\texttt{exists\_integer\_least\_gap\_profile\_frames}
+retains the universal profile estimates and unbounded actual
+integer frames with the same \(C,Q_0\).
+The corollary
+\texttt{arbitrarily\_accurate\_least\_gap\_profiles}
+proves the complete \(\varepsilon,R\) conclusion.
+The information constant, exact error identity and vanishing
+rate bound are also formalized. Both owners are exported through
+\texttt{Assembly/ProbabilityProfiles}.
+
 \section{Arithmetic transfers and the next ascent investigation}
 \paragraph{Existing ingredients.}
 The generic greedy record sandwich and the maintained periodic and
@@ -6641,5 +6847,11 @@ Experimental Mathematics 19 (2010), 267--277.
 \emph{Legendre elliptic curves over finite fields},
 arXiv:math/0106273 (2001), Section~2.
 \url{https://arxiv.org/abs/math/0106273}.
+\bibitem{SasonVerduFdivergence}
+I. Sason and S. Verd\'u,
+\emph{\(f\)-divergence inequalities},
+arXiv:1508.00335.
+\url{https://arxiv.org/abs/1508.00335}.
+
 \end{thebibliography}
 \end{document}
