@@ -2894,7 +2894,7 @@ Classical trace and totient identities are supporting inputs, not novelty claims
 Owners: PrimeFactorOscillations/Mathlib/NumberTheory/ArithmeticFunction/DivisorKernelAtoms.lean and PrimeFactorOscillations/Mathlib/NumberTheory/LegendreSymbol/QuadraticPairOddPellConductor.lean.
 Export: QuadraticPairOddPellLaws, then the existing correlation and root facades.
 
-These inputs are proved. The arbitrary-test-function distribution law and the complete finite signed-span converse are proved in the following sections. The full localization candidate remains open at the sharp support spectrum and exact minimum.
+These inputs are proved. The following sections prove the arbitrary-test-function law, complete finite signed-span converse, exact support spectrum and attained sharp minimum. The selected localization theorem is complete, including the stated characteristic3 and q3 treatment.
 
 | Lean declaration | Status | Exact scope |
 | --- | --- | --- |
@@ -2921,14 +2921,14 @@ These inputs are proved. The arbitrary-test-function distribution law and the co
 
 The five definitions are Finset.divisorKernelAtom, FiniteField.oddPellSectorModulus, FiniteField.oddPellSectorDivisors, FiniteField.oddPellDegreeSector and FiniteField.oddPellPrimitiveSector. The label set includes1; its atom has cardinal0. Positive primitive counts require d>1. All field assertions use 2 nonzero when stated, and arbitrary odd degrees remain allowed.
 
-benchmark_status: exact localization inputs proved;20 real maintained theorems and5 definitions. Full selected localization theorem remains open.
+benchmark_status: exact localization inputs proved;20 maintained theorems and5 definitions in these owners. The complete selected localization theorem is proved in the following owners.
 old_bound: complete quadratic signed energy, with no exported native primitive-atom partition.
 new_bound: disjoint primitive atoms have exact size phi(d), and membership at any odd degree is exactly divisor membership. No new integer-window lower bound or analytic exponent is claimed.
 components: least-label gcd rigidity, finite disjoint union, strong divisor induction, sum of totients, native sector gcd intersections, equality from inclusion and cardinality, and both opposite-sector masks.
 actuals: universal Lean proofs for the stated divisor ideals, fields and degrees; no finite numerical completion supplies an estimate.
-first_nonpositive_domain: degree1 has an empty atom; q3 is outside normalized probability interpretation. Nonlinear pushforward and the finite signed-span converse are proved below; the sharp support spectrum and exact minimum remain open. The integer joint-survivor problem, H1/RH and the paused7/8 boundary are unchanged.
+first_nonpositive_domain: degree1 has an empty atom; q3 is outside normalized probability interpretation. The nonlinear law, finite signed-span converse, sharp support spectrum/minimum and q3 quotient degeneracy are proved below. The integer joint-survivor problem, H1/RH and the paused7/8 boundary are unchanged.
 
-The primitive order/totient data are classical inputs, not the proposed novelty claim. The selected research target is the full signed-probe localization spectrum; its sharp support/minimum formalization and historical priority remain unresolved.
+The primitive order/totient data are classical inputs, not the proposed novelty claim. The full signed-probe localization spectrum is now proved; historical priority remains unconfirmed.
 
 ## Full finite signed odd-Pell distribution (2026-10-31)
 
@@ -2953,7 +2953,7 @@ Export: QuadraticPairOddPellLaws, then the existing correlation and root facades
 
 The five definitions are FiniteField.oddPellSignedProbe, FiniteField.oddPellAtomLabels, FiniteField.oddPellAtom, FiniteField.oddPellAtomDegree and FiniteField.oddPellAtomWeight. The law averages uniformly over the q input points; it does not sample inputs with density W. No continuity of the test function, RH hypothesis or restriction on characteristic-divisible odd degrees is used.
 
-benchmark_status: exact full pushforward proved;13 maintained theorems and5 definitions in this owner, bringing the localization candidate to33 theorems at this stage. The finite signed-span converse is proved in the next section; the sharp support spectrum and exact minimum remain open.
+benchmark_status: exact full pushforward proved;13 maintained theorems and5 definitions in this owner, bringing the localization candidate to33 theorems at this stage. The finite signed-span converse, exact support spectrum and sharp minimum are proved in the following sections.
 old_bound: exact signed quadratic energy and native atom partition.
 new_bound: complete finite distribution of every signed probe, with atom masses phi(d)/q and an explicitly retained zero-value correction.
 components: exact disjoint atom cover, divisor-filtered signed values, compensation f(value)-f(0), finite sum interchange and nonzero-shift bijection.
@@ -2983,9 +2983,48 @@ Export: QuadraticPairOddPellLaws, then the existing correlation and root facades
 
 The two definitions are FiniteField.oddPellAtomIndicator and FiniteField.oddPellProbeSpace. The latter's carrier explicitly requires a finite index set and coefficient function; no abstract or infinite representability assumption replaces a finite probe. Every field-level converse holds for every nonzero h, q>=5 and 2 nonzero.
 
-benchmark_status: full finite signed-span converse proved;13 new maintained theorems and2 definitions,46 candidate theorems and12 definitions cumulatively. A5 sharp support/minimum and A6 final full-target integration remain open.
+benchmark_status: full finite signed-span converse proved;13 maintained theorems and2 definitions in this owner,46 candidate theorems and12 definitions through this stage. The next owner completes A5 sharp support/minimum and A6 integration.
 old_bound: full forward distribution with exact signed values on primitive classes, without converse finite representability.
 new_bound: every primitive indicator and every finite real combination of them is an actual finite signed probe; this characterizes the entire probe space.
 components: positive native weights, no equal primitive degrees across sectors, finite union coefficient construction, full pointwise expansion and strict proper-divisor induction with signed subtraction.
 actuals: universal Lean proofs over the full stated field and shift domain; no finite computations or unproved analytic inputs.
-first_nonpositive_domain: every sector weight is positive at q>=5. The q3 quotient degeneracy and the sharp support-cardinality/minimum theorem are still to be formalized under A5. No new integer-window positivity or RH/QRH gain is claimed. Historical priority remains unconfirmed.
+first_nonpositive_domain: every sector weight is positive at q>=5. The q3 quotient degeneracy and sharp support-cardinality/minimum theorem are proved below. No new integer-window positivity or RH/QRH gain is claimed. Historical priority remains unconfirmed.
+
+## Exact signed odd-Pell support spectrum and minimum (2026-10-31)
+
+Owner: PrimeFactorOscillations/Mathlib/NumberTheory/LegendreSymbol/QuadraticPairOddPellSpectrum.lean.
+Export: QuadraticPairOddPellLaws, then the existing correlation and root facades.
+
+| Lean declaration | Status | Exact scope |
+| --- | --- | --- |
+| FiniteField.oddPell_mem_shiftAtom | proved | Exact inverse-scaling membership for every nonzero shift and 2 nonzero. |
+| FiniteField.oddPell_shiftAtom_card | proved | Every transported primitive class has cardinality phi(d). |
+| FiniteField.oddPell_shiftAtom_disjoint | proved | Distinct primitive classes remain disjoint under every nonzero shift. |
+| FiniteField.oddPell_mem_functionSupport | proved | Exact finite support is the set of inputs with nonzero real value. |
+| FiniteField.oddPell_atomIndicator_eq_shiftAtom | proved | Each normalized primitive indicator is the indicator of its transported class. |
+| FiniteField.oddPell_atom_sum_on_shiftAtom | proved | A finite primitive-indicator sum has precisely its assigned coefficient on each class. |
+| FiniteField.oddPell_atom_sum_support | proved | Exact support is the disjoint union of classes with nonzero coefficients, including every signed cancellation. |
+| FiniteField.oddPell_shiftAtom_union_card | proved | Every selected class union has cardinality equal to its exact totient sum. |
+| FiniteField.oddPell_probe_support_iff_union | proved | A finite set is an actual finite signed probe support iff it is a union of primitive classes. |
+| FiniteField.oddPell_support_card_spectrum | proved | All attainable support sizes are exactly all totient subset sums, including zero. |
+| FiniteField.oddPell_atomLabels_nonempty | proved | The primitive label set is nonempty at every q>=5. |
+| FiniteField.oddPell_minSupport_spec | proved | The explicit finite minimum is attained by a primitive label and is no larger than any primitive class size. |
+| FiniteField.oddPell_atom_totient_two_le | proved | Every nonempty-label primitive class has at least two points. |
+| FiniteField.oddPell_minSupport_two_le | proved | The exact minimum is at least two for every q>=5. |
+| FiniteField.oddPell_functionSupport_nonempty_iff | proved | A function has nonempty finite support iff it is not the zero function. |
+| FiniteField.oddPell_sharp_support_minimum | proved | Every nonzero finite signed probe has support at least m(q), and an actual finite probe attains m(q), every nonzero shift and odd q>=5. |
+| FiniteField.oddPell_minSupport_eq_two_of_not_three_dvd | proved | The exact minimum is2 whenever3 does not divide q. |
+| FiniteField.oddPell_card_three_probe_zero | proved | At q3 every quotient-defined finite signed probe vanishes, for every nonzero shift. |
+| FiniteField.oddPell_minSupport_card_three | proved | The empty-label minimum convention at q3 is0. |
+| FiniteField.oddPell_minSupport_card_nine | proved | The exact minimum at q9 is4. |
+| FiniteField.oddPell_minSupport_card_twentyseven | proved | The exact minimum at q27 is6. |
+| FiniteField.oddPell_minSupport_card_twofortythree | proved | The exact minimum at q243 is10. |
+
+The three definitions are FiniteField.oddPellShiftAtom, FiniteField.oddPellFunctionSupport and FiniteField.oddPellMinSupport. The last is the minimum of the finite primitive totient set, with0 for an empty set. At q>=5 the set is proved nonempty. Actual finite signed representability comes from the maintained probe-space carrier and the completed converse; no completion or unproved inverse hypothesis is used.
+
+benchmark_status: complete selected localization theorem proved;22 new maintained theorems and3 definitions,68 candidate theorems and15 definitions cumulatively. A0-A6 are complete after the recorded promotion checks.
+old_bound: forward distribution and finite signed-span classification, without an exported support spectrum or sharp minimum.
+new_bound: exact support sets and cardinalities; attained m(q)=min phi(d) over all tagged odd d>1 dividing q-1 or q+1, m(q)>=2 and m(q)=2 if3 does not divide q. At q9,27,243 the exact minima are4,6,10; q3 probes vanish.
+components: shift bijection, disjoint native classes, exact signed coefficient values, finite-probe converse, full subset-sum spectrum, explicit ordinary-order finite minimum and both lower-bound and attainment proofs.
+actuals: universal Lean proofs for the full domain; the four fixed-cardinality formulas are additional kernel-checked consequences, not evidence for the universal statement.
+first_nonpositive_domain: support0 is attained by the zero probe. Nonzero normalized probes use odd q>=5; q3 is explicitly degenerate and is not a normalized mean-one probability law. No integer-window positivity or RH/QRH gain is claimed. Historical priority remains unconfirmed.

@@ -10473,10 +10473,9 @@ The least-label partition, exact totient counts and native
 divisor response are proved and exported.
 These classical order-geometric inputs are not a priority claim.
 
-The full arbitrary-test-function law and the finite signed-span
-converse are proved in the following sections.
-The remaining selected question is the sharp support spectrum and
-exact minimum, including the exceptional characteristic-three cases.
+The following sections complete the full arbitrary-test-function law,
+finite signed-span converse, exact support spectrum and attained sharp
+minimum, including the stated characteristic-three exceptions.
 
 \section{The full distribution of a finite signed Pell probe}
 \label{sec:odd-pell-full-distribution}
@@ -10634,15 +10633,100 @@ sector labels. Finite linear closure now gives every prescribed
 collection of amplitudes \(b_{\sigma,d}\).
 \end{proof}
 
-\paragraph{Formal scope and next target.}
+\paragraph{Formal scope.}
 The maintained owner \texttt{QuadraticPairOddPellLocalization}
 contains thirteen theorems and two definitions.
 Its probe-space carrier explicitly records the finite index set
-and coefficient function, so the converse is finite
-representability, not an assumed completion of a span.
-The remaining target is the sharp support-cardinality spectrum
-and exact minimum, with characteristic3 and the degenerate
-\(q=3\) quotient treated explicitly.
+and coefficient function. The next theorem uses this finite
+representability to determine every attainable support.
+
+\section{The sharp support spectrum and attained minimum}
+\label{sec:odd-pell-support-spectrum}
+
+For \(i=(\sigma,d)\in{\cal I}\), let
+\(P_{i,h}=(h/2)P_\sigma(d)\), so \(J_{i,h}=1_{P_{i,h}}\).
+For a real function on the field, write
+\(\operatorname{supp} f=\{c:f(c)\ne0\}\).
+
+\begin{theorem}[Exact support spectrum and sharp minimum]
+\label{thm:odd-pell-support-spectrum}
+Let \(q\ge5\) be odd and \(h\ne0\).
+As \(B=B_{S,a,h}\) ranges over all finite real signed probes,
+\begin{align*}
+ \{\operatorname{supp} B\}
+   &=\left\{\coprod_{i\in T}P_{i,h}:T\subseteq{\cal I}\right\},\\
+ \{|\operatorname{supp} B|\}
+   &=\left\{\sum_{i\in T}\varphi(d_i):T\subseteq{\cal I}\right\}.
+\end{align*}
+The label set \({\cal I}\) is nonempty. Define
+\[
+             \mathfrak m(q)=\min_{(\sigma,d)\in{\cal I}}\varphi(d).
+\]
+Every nonzero finite signed probe satisfies
+\[
+                  |\operatorname{supp} B|\ge\mathfrak m(q)\ge2,
+\]
+and an actual finite signed probe attains \(\mathfrak m(q)\).
+If \(3\nmid q\), then \(\mathfrak m(q)=2\).
+In particular, the minimum is independent of the nonzero shift.
+\end{theorem}
+
+\begin{proof}
+Multiplication by \(h/2\) is a bijection, so the transported
+primitive classes remain disjoint and have size \(\varphi(d_i)\).
+By the finite signed-span theorem, every probe has the form
+\[
+                         B=\sum_{i\in{\cal I}}b_iJ_{i,h}.
+\]
+At a point of \(P_{i,h}\), only its own term survives, with value
+\(b_i\). Outside the union every term vanishes. Hence
+\[
+ \operatorname{supp} B=
+    \coprod_{\substack{i\in{\cal I}\\b_i\ne0}}P_{i,h}.
+\]
+This includes every cancellation within the original signed
+divisor sums. Conversely, for any \(T\subseteq{\cal I}\), prescribe
+\(b_i=1\) on \(T\) and \(b_i=0\) on the finite complement
+\({\cal I}\setminus T\). The compiled converse supplies an actual
+finite probe with these amplitudes. Taking cardinalities gives
+the exact subset-sum spectrum.
+
+To see that the label set is nonempty, if \(q\equiv1\pmod4\)
+choose the odd divisor \((q+1)/2>1\) of \(N_-\).
+If \(q\equiv3\pmod4\), choose the odd divisor \((q-1)/2>1\)
+of \(N_+\); the hypothesis \(q\ge5\) excludes \(q=3\).
+Every odd \(d>1\) has positive even totient, so every class
+has at least two points. A nonzero probe uses at least one class,
+and its support sum is at least the least class size.
+Isolating a minimizing class, using the finite converse, attains
+that lower bound. Finally, if \(3\nmid q\), then3 divides either
+\(q-1\) or \(q+1\), and its class has size \(\varphi(3)=2\).
+\end{proof}
+
+\paragraph{Characteristic three and the smallest field.}
+The minimum is not uniformly2 in characteristic3. The general
+formula gives the following kernel-checked values:
+\[
+            \mathfrak m(9)=4,\qquad
+            \mathfrak m(27)=6,\qquad
+            \mathfrak m(243)=10.
+\]
+At \(q=3\), both sector weights have denominator \(q-3=0\).
+With the quotient convention used in Lean they are zero, and
+the exact pointwise defect identity shows that every finite
+signed probe vanishes for every nonzero shift.
+The primitive label set is empty and the defined empty-set
+minimum is0. This degenerate case is not a normalized mean-one
+probability law and is excluded from the nonzero-minimum theorem.
+
+\paragraph{Completed formal result.}
+The maintained owner \texttt{QuadraticPairOddPellSpectrum}
+contains twenty-two theorems and three definitions.
+Together the generic atoms, native partition, full distribution,
+finite converse and sharp spectrum owners contain sixty-eight
+theorems and fifteen definitions. The entire selected theorem is
+proved over the stated full domain, including arbitrary finite
+index support and real signed coefficients.
 These finite-field laws do not establish positive survivor mass
 inside an integer primality window or improve the paused QRH
 boundary. Historical priority of the full signed localization
