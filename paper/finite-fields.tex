@@ -11022,6 +11022,161 @@ This local classification supplies no positive survivor
 count inside an integer primality window and no
 RH or QRH exponent improvement.
 
+\section{A forbidden support level and a sharp non-Sophie gap}
+\label{sec:odd-pell-forbidden-support-level}
+
+The support lattice alone leaves open its second positive level.
+The complete signed spectrum and quadratic reciprocity exclude it,
+with precisely one prime extension exception.
+
+\begin{theorem}[The forbidden second level]
+\label{thm:odd-pell-forbidden-support-level}
+Let \(\ell\) be any prime, including \(2\), and work over
+\(\mathbb F_{3^\ell}\) at any nonzero shift.
+Let \(V_h\) be the space of actual finite real signed probes.
+Then
+\[
+ \bigl(\exists f\in V_h:\ |\operatorname{supp}f|=4\ell\bigr)
+                    \quad\Longleftrightarrow\quad \ell=3.
+\]
+For \(\ell\ne3\), every \(f\in V_h\) satisfies
+\[
+ |\operatorname{supp}f|=0,\qquad
+ |\operatorname{supp}f|=2\ell,\qquad\text{or}\qquad
+ |\operatorname{supp}f|\ge6\ell.
+\]
+If \(2\ell+1\) is not prime, the sharp attained minimum satisfies
+\[
+                         \mathfrak m(3^\ell)\ge6\ell.
+\]
+This improves the preceding \(4\ell\) bound, and the coefficient
+\(6\) is sharp on this full domain:
+\[
+                  \mathfrak m(3^{17})=102=6\cdot17.
+\]
+For every nonzero shift, an actual nonzero finite signed probe
+attains this value.
+\end{theorem}
+
+\begin{proof}
+Write \(a=2\ell\). An admissible degree is an odd integer
+\(d>1\) dividing \(3^\ell-1\) or \(3^\ell+1\).
+The preceding prime-extension theorem gives
+\(a\mid\varphi(d)\).
+
+First suppose that \(d\) is composite. Choose a prime \(p\mid d\)
+and write \(d=pk\), where \(k>1\). Both \(p\) and \(k\) are
+admissible, so \(\varphi(p)\ge a\) and \(\varphi(k)\ge a\).
+If \(p\nmid k\), multiplicativity gives
+\(\varphi(d)=\varphi(p)\varphi(k)\ge a^2\).
+If \(p\mid k\), then \(p^2\mid d\), whence
+\[
+       a^2\le p(p-1)=\varphi(p^2)\le\varphi(d).
+\]
+Here \(p-1=\varphi(p)\ge a\), and the last inequality follows
+from \(\varphi(p^2)\mid\varphi(d)\).
+Since \(a\ge4\), we have \(a^2>2a\).
+Consequently every admissible \(d\) with \(\varphi(d)\le2a\)
+is prime. In particular,
+\[
+ \varphi(d)=a\ \Longrightarrow\ d=a+1,\qquad
+ \varphi(d)=2a\ \Longrightarrow\ d=2a+1=4\ell+1.
+\]
+
+Now let \(p=4\ell+1\) be prime and admissible, and suppose
+\(\ell\ne3\). Neither \(p\) nor \(\ell\) is divisible by \(3\).
+The equation \(p=4\ell+1\) therefore forces
+\[
+           \ell\equiv1\pmod3,\qquad
+           p\equiv2\pmod3,\qquad p\equiv1\pmod4.
+\]
+Quadratic reciprocity gives
+\[
+                    \left(\frac3p\right)
+                    =\left(\frac p3\right)=-1.
+\]
+On the other hand, admissibility implies \(9^\ell=1\)
+in \(\mathbb F_p\), hence \(3^{2\ell}=1\).
+Since \((p-1)/2=2\ell\), Euler's criterion would give
+\((3/p)=1\), a contradiction. Thus
+\[
+       \varphi(d)=4\ell
+             \quad\Longleftrightarrow\quad
+                    \ell=3\ \text{and}\ d=13
+\]
+for every admissible \(d\). The reverse direction uses
+\(13\mid3^3-1\) and \(\varphi(13)=12\).
+Degree \(2\) is retained throughout: the hypothetical degree
+\(4\ell+1=9\) is composite, so it cannot supply that level.
+
+It remains to exclude a sum of smaller primitive classes;
+excluding an individual weight is not sufficient.
+The exact signed support theorem gives, for every probe,
+a finite subset \(T\) of primitive labels with
+\[
+                |\operatorname{supp}f|
+                         =\sum_{i\in T}\varphi(d_i).
+\]
+Every summand is positive and divisible by \(a\).
+If the sum were \(2a\) and \(\ell\ne3\), each summand
+would have to be \(a\), since weight \(2a\) was excluded.
+But weight \(a\) forces \(d_i=a+1\).
+Primitive degree labels are injective across the two sectors,
+so there is at most one such label. A subset of labels cannot
+use that label twice; its sum is at most \(a\), a contradiction.
+This argument starts with the exact support after every
+original signed coefficient cancellation. It introduces
+no triangle inequality on the probe.
+
+For \(\ell=3\), the split label of degree \(13\) exists,
+because \(13\mid26\), and has weight \(12=4\ell\).
+The finite signed-span converse realizes its indicator
+by an actual finite probe at every nonzero shift.
+This proves both directions of the exceptional-level assertion.
+
+All support cardinalities are multiples of \(a\).
+After excluding \(2a\), their only possibilities below \(3a\)
+are \(0\) and \(a\), proving the displayed support band.
+If \(2\ell+1\) is not prime, the previous endpoint theorem
+already excludes minimum \(a\) and gives minimum at least
+\(2a\). The minimum is attained at a primitive label.
+The characterization above excludes \(2a\) as well:
+the only possible exception would be \(\ell=3\), for which
+\(2\ell+1=7\) is prime. Divisibility by \(a\) now gives
+the improved lower bound \(3a=6\ell\).
+
+Finally, \(17\) is prime, \(35\) is composite, and
+\[
+                      3^{17}+1=103\cdot1253788,
+              \qquad 103\text{ is prime}.
+\]
+The nonsplit degree-\(103\) class has weight \(102\).
+It bounds the minimum above by \(102\), while the new lower
+bound is \(6\cdot17=102\). The existing exact attained-minimum
+theorem supplies an actual finite signed probe with this support
+for every nonzero shift. No enumeration of the field is used.
+\end{proof}
+
+\paragraph{Formal scope and comparison.}
+The maintained owners \texttt{PrimeExtensionTotientGap} and
+\texttt{QuadraticPairOddPellSupportGap} contain respectively
+five and eight public theorems, with no new definitions.
+The whole prime-degree domain, the exceptional degree \(3\),
+the included degree \(2\), the complete signed support gap,
+the improved non-Sophie minimum, and finite attainment at \(17\)
+are formalized. The bound is not extended to composite
+extension degrees or inferred from large cardinality alone.
+
+The arithmetic ingredients are classical. The additional
+signed-probe conclusion uses the complete support spectrum
+and unique primitive degree labels; it concerns neither
+an individual Chebyshev orbit nor only a positive combination.
+Gassert's individual dynamics \cite{GassertChebyshevGraphs}
+provide the nearby primary comparison. Historical priority
+of this full signed-support statement remains unconfirmed.
+The theorem supplies no positivity estimate in an integer
+primality window and no change to the accepted QRH exponent.
+
 \begin{thebibliography}{99}
 \bibitem{DavidKoukoulopoulosSmith}
 C. David, D. Koukoulopoulos and E. Smith,

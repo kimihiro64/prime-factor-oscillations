@@ -4,7 +4,7 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Prime Factor Oscillations contributors
 -/
 import PrimeFactorOscillations.Mathlib.NumberTheory.LegendreSymbol.QuadraticPairOddPellMinimum
-import PrimeFactorOscillations.Mathlib.NumberTheory.LegendreSymbol.QuadraticPairOddPellRoughness
+import PrimeFactorOscillations.Mathlib.NumberTheory.LegendreSymbol.QuadraticPairOddPellSupportGap
 
 /-!
 # Exact odd-Pell probability laws
@@ -14,5 +14,6 @@ split/nonsplit counts, every-shift mean, attained two-primary minimum,
 pointwise common-endpoint meet, full signed energy and pushforward laws,
 complete finite signed-span converse, sharp support spectrum/minimum,
 prime-extension support divisibility, the Sophie Germain endpoint,
-all-extension roughness classification and the fixed-divisor tower obstruction.
+all-extension roughness classification, the fixed-divisor tower obstruction,
+and the forbidden second support level with its sharp non-Sophie gap.
 -/

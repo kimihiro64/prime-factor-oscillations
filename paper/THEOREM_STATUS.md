@@ -3089,3 +3089,33 @@ new_bound: for every n>=2 and r=minFac(n),2*r<=m(3^n)<=3^r+1 and m(3^n)=2*r iff2
 components: order_p(9)>1 dividing both n and(p-1)/2, least-prime-factor lower bound, all admissible totients, exact full signed minimum and actual finite attainment, divisor-degree prime-factor lift, and the two explicit scalar bounds.
 actuals: universal kernel-checked proofs over the full stated domains; no numerical or unresolved analytic completion is used.
 first_nonpositive_domain: zero probes have support0, and n=1 is the earlier q3 degeneracy; all nonzero bounds here require n>=2. Fixed-divisor towers have bounded minima despite growing field size. This proves no integer-window positivity, H1, RH, QRH improvement or Sophie Germain infinitude. Classical arithmetic and Chebyshev geometry are inputs; historical priority of the signed-probe classification remains unconfirmed.
+
+## Forbidden second signed support level and sharp non-Sophie gap (2026-10-31)
+
+Owners: PrimeFactorOscillations/Mathlib/NumberTheory/ArithmeticFunction/PrimeExtensionTotientGap.lean and PrimeFactorOscillations/Mathlib/NumberTheory/LegendreSymbol/QuadraticPairOddPellSupportGap.lean.
+Export: QuadraticPairOddPellLaws, then the existing correlation and root facades.
+
+| Lean declaration | Status | Exact scope |
+| --- | --- | --- |
+| Nat.primeExtension_composite_totient_lower | proved | Every admissible composite odd d>1 at a prime degree ell has phi(d)>=(2*ell)^2. |
+| Nat.primeExtension_small_weight_prime | proved | An admissible degree of weight at most4*ell is prime, all prime ell including2. |
+| Nat.primeExtension_first_weight_degree | proved | Weight2*ell forces degree2*ell+1, not merely an unspecified prime factor. |
+| Nat.primeExtension_primeFactor_ne_four | proved | An admissible prime p cannot equal4*ell+1 when ell is prime and ell is not3; exact quadratic reciprocity obstruction. |
+| Nat.primeExtension_second_weight_iff | proved | Admissible weight4*ell occurs iff ell=3 and d=13. |
+| FiniteField.oddPell_primeExtension_first_atom_degree | proved | Every primitive label of weight2*ell has degree2*ell+1. |
+| FiniteField.oddPell_primeExtension_second_atom_iff | proved | A primitive label has weight4*ell iff ell=3 and its degree is13. |
+| FiniteField.oddPell_primeExtension_support_ne_four | proved | No actual finite real signed probe has support4*ell for prime ell other than3; unique first-weight label excludes a two-atom reconstruction. |
+| FiniteField.oddPell_primeExtension_support_four_iff | proved | At every nonzero shift, actual finite signed support4*ell exists iff ell=3, with split degree13 attaining the exception. |
+| FiniteField.oddPell_primeExtension_support_gap | proved | For ell not3, every full finite signed support is0,2*ell,or at least6*ell. |
+| FiniteField.oddPell_primeExtension_minSupport_nonSophie_gap | proved | If2*ell+1 is not prime, the attained sharp minimum is at least6*ell, every prime ell. |
+| FiniteField.oddPell_primeExtension_minSupport_seventeen | proved | The sharp scalar minimum at3^17 is102=6*17, using the nonsplit degree103 class. |
+| FiniteField.oddPell_primeExtension_seventeen_attained | proved | At every nonzero shift in a field of cardinality3^17, an actual nonzero finite signed probe has support102. |
+
+All support consumers retain arbitrary finite polynomial-index support, arbitrary real signed coefficients, a finite field of cardinality3^ell, nonzero shift and2 nonzero. The polynomial index is independent of ell. The scalar statements need only the existing cardinality-dependent minimum. Degree2 is included in the universal arithmetic and signed statements; degree3 is the unique exception to the missing second level. No infinite completion, RH assumption or integer-window positivity hypothesis is introduced.
+
+benchmark_status: full selected forbidden-level theorem proved;13 new maintained public theorems and0 definitions. The completed68-theorem localization,11-theorem prime-extension and16-theorem roughness candidates are preserved.
+old_bound: nonprime2*ell+1 gave minimum at least4*ell; all supports were known to be multiples of2*ell.
+new_bound: nonprime2*ell+1 gives minimum at least6*ell; for ell not3 all full signed supports are0,2*ell,or at least6*ell; support4*ell exists exactly at ell3. The coefficient6 is sharp on the stated domain, attained at ell17.
+components: composite totient bound(2*ell)^2; exact quadratic reciprocity exclusion of prime4*ell+1; unique degree2*ell+1 for a first-weight atom; injectivity of primitive labels; exact full signed support subset sum; previous endpoint iff and actual finite attained minimum.
+actuals: universal kernel-checked proofs over every prime ell, not finite prime sampling; the degree3 and degree17 witnesses use exact finite representability and integer arithmetic, with no field enumeration.
+first_nonpositive_domain: zero probes have support0. Degree3 genuinely attains the excluded level12 and is explicitly retained; degree2 is included and the non-Sophie hypothesis is false there. No composite-degree6*minFac bound, integer prime-pair positivity, H1, RH, QRH improvement or Sophie Germain infinitude is claimed. Classical arithmetic is input; historical priority of the signed-support conclusion remains unconfirmed.
