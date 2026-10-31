@@ -8175,6 +8175,50 @@ Its numerator has absolute value at most \(6q+26\), and
 Dividing by the positive denominators yields the stated \(12/q^2\) bound.
 \end{proof}
 
+\begin{theorem}[Fixed-gap pullback of the compensation]
+Write \(u_b(c)=4w_b(c)/D_b\), and let \(a\ne0\). Set
+\[
+ v_0(c)=u_h(c),\qquad v_1(c)=u_{ah}(ac).
+\]
+For every \(k\in K\),
+\[
+ \frac1q\sum_{c\in K}v_1(c)v_1(c+k)=C_{ah}(ak).
+\]
+In particular the compensated correlation has the same-gap expression
+\[
+ \overline C_{h,a}
+ =\frac{1}{q(D_h^2+D_{ah}^2)}
+   \sum_{c\in K}\left\{
+       D_h^2v_0(c)v_0(c+h)+D_{ah}^2v_1(c)v_1(c+h)
+   \right\}.
+\]
+Both class choices use the same original coordinate shift \(h\).
+Their forbidden residue conditions are the same:
+\[
+ ac\ne0,\ a(c+h)\ne0
+ \quad\Longleftrightarrow\quad c\ne0,\ c+h\ne0.
+\]
+Thus when \(\chi(a)=-1\) and \(q\ge16\), the preceding exact formula,
+strict excess over \(1\), and \(12/q^2\) error apply to this fixed-gap
+expression.
+\label{thm:fixed-gap-pullback}
+\end{theorem}
+
+\begin{proof}
+Multiplication by \(a\) permutes \(K\). Substituting \(x=ac\) gives
+\[
+ \sum_{c\in K}u_{ah}(ac)u_{ah}(a(c+k))
+ =\sum_{x\in K}u_{ah}(x)u_{ah}(x+ak).
+\]
+Divide by \(q\); then use \(k=h\) in the definition of
+\(\overline C_{h,a}\) and distribute the finite sums.
+Multiplication by a nonzero field element preserves nonvanishing, which
+proves the forbidden-residue equivalence. The earlier quantitative theorem
+now applies without changing either normalization.
+The class choice is shared within each product: no cross-class term is
+silently omitted from an autocorrelation of an averaged density.
+\end{proof}
+
 \paragraph{Small fields and the integer scope.}
 The count identities hold for every odd field, including
 \(q=3,5,7,9,11,13\). The positive normalized estimate is asserted only
@@ -8182,11 +8226,12 @@ for \(q\ge16\). In integer divisor coverage the prime \(2\) is handled
 by the parity mask. Odd primes below this normalization range, and
 primes dividing the fixed integer gap, retain their own admissibility
 masks. The nonzero-gap formula applies only when \(h\bmod p\ne0\).
-The balanced observable mixes the local gaps \(h\) and \(ah\).
-A product of these mixtures is not automatically the law of one fixed
-integer gap. Its use for that purpose requires a separate transfer
-on the required integer interval. The unaveraged every-lag formula
-above remains available with all its trace terms.
+The pullback theorem aligns both local classes with the same original
+gap \(h\), and retains the same forbidden residues. Their product can
+therefore use the residues of one fixed integer gap. What still requires
+a separate estimate is its positive supported mass on the required
+integer interval, rather than on the complete CRT period.
+The unaveraged every-lag formula remains available with all its trace terms.
 
 \paragraph{Formalization and consequence.}
 The all-character identities and scalar inequalities are maintained

@@ -298,4 +298,68 @@ theorem twistCompensatedCovariance_error
     constructor <;> nlinarith only [hv,sq_nonneg (v-1),sq_nonneg (v+1)]
   exact compensatedQuadraticPairCrossMoment_error _ _ _ hq (hb _ ht) (hb _ hu)
 
+omit [DecidableEq F] in
+theorem covariance_dilation_pullback (h k a : F) (ha : Not (a=0)) :
+    (1/(Fintype.card F : Real))*(Finset.univ.sum fun c : F =>
+      rawDensity (a*h) (a*c)*rawDensity (a*h) (a*(c+k)))=
+      covariance (a*h) (a*k) := by
+  let e : Equiv F F :=
+    { toFun := fun c => a*c
+      invFun := fun c => c/a
+      left_inv := by intro c; field_simp [ha]
+      right_inv := by intro c; field_simp [ha] }
+  unfold covariance
+  congr 1
+  simp_rw [mul_add]
+  exact Equiv.sum_comp e (fun c : F =>
+    rawDensity (a*h) c*rawDensity (a*h) (c+a*k))
+
+theorem twistCompensatedCovariance_same_gap (h a : F) (ha : Not (a=0)) :
+    let q : Real := Fintype.card F
+    let D : F -> Real := fun b => q-(quadraticPairOffset b : Real)
+    (1/q)*(Finset.univ.sum fun c : F =>
+      (D h)^2*(rawDensity h c*rawDensity h (c+h))+
+      (D (a*h))^2*(rawDensity (a*h) (a*c)*rawDensity (a*h) (a*(c+h))))/
+      ((D h)^2+(D (a*h))^2)=twistCompensatedCovariance h a := by
+  let q : Real := Fintype.card F
+  let D : F -> Real := fun b => q-(quadraticPairOffset b : Real)
+  change (1/q)*(Finset.univ.sum fun c : F =>
+      (D h)^2*(rawDensity h c*rawDensity h (c+h))+
+      (D (a*h))^2*(rawDensity (a*h) (a*c)*rawDensity (a*h) (a*(c+h))))/
+      ((D h)^2+(D (a*h))^2)=twistCompensatedCovariance h a
+  rw [Finset.sum_add_distrib,<- Finset.mul_sum,<- Finset.mul_sum]
+  unfold twistCompensatedCovariance
+  change (1/q)*((D h)^2*(Finset.univ.sum fun c : F =>
+        rawDensity h c*rawDensity h (c+h))+
+      (D (a*h))^2*(Finset.univ.sum fun c : F =>
+        rawDensity (a*h) (a*c)*rawDensity (a*h) (a*(c+h))))/
+      ((D h)^2+(D (a*h))^2)=
+    ((D h)^2*covariance h h+(D (a*h))^2*covariance (a*h) (a*h))/
+      ((D h)^2+(D (a*h))^2)
+  congr 1
+  calc
+    _=(D h)^2*((1/q)*(Finset.univ.sum fun c : F =>
+        rawDensity h c*rawDensity h (c+h)))+
+      (D (a*h))^2*((1/q)*(Finset.univ.sum fun c : F =>
+        rawDensity (a*h) (a*c)*rawDensity (a*h) (a*(c+h)))) := by ring
+    _=_ := by
+      rw [covariance_dilation_pullback h h a ha]
+      rfl
+
+omit [Fintype F] [DecidableEq F] in
+theorem dilation_pair_avoidance_iff (h a c : F) (ha : Not (a=0)) :
+    And (Not (a*c=0)) (Not (a*(c+h)=0)) <->
+      And (Not (c=0)) (Not (c+h=0)) := by
+  constructor
+  . intro hp
+    constructor
+    . intro hz
+      apply hp.1
+      rw [hz,mul_zero]
+    . intro hz
+      apply hp.2
+      rw [hz,mul_zero]
+  . intro hp
+    exact And.intro (mul_ne_zero ha hp.1) (mul_ne_zero ha hp.2)
+
 end PrimeFactorOscillations.FiniteFieldRawPairCovariance

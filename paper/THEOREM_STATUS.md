@@ -2129,11 +2129,55 @@ The available correlation identity is over the complete residue period
 M=product_(prime p<=Y) p. The required integer range remains
 Y<n<=Y^2-h for fixed positive even h, along unbounded Y. The open estimate is
 sum_(Y<n<=Y^2-h) product_(prime p<=Y) 1_(p does not divide n*(n+h)) > 0.
-A local mixture of gaps h and a*h has not been transferred to one fixed
-integer gap throughout this short range. Thus integer recurrence, H1 and
-the installed QRH boundary 7/8 are unchanged.
+The fixed-gap alignment is proved in the follow-up below; positive mass
+throughout the required short integer range remains open. Integer
+recurrence, H1 and the installed QRH boundary 7/8 are unchanged.
 
 The new exact count formula and compensated normalized law are distinct from
 the preceding specialized theorem. Classical trace symmetries are proved
 inputs; literature priority beyond the targeted primary comparison remains
 unconfirmed. Paper label: `sec:all-character-compensation`.
+
+## Fixed-gap pullback of the compensated law (October 31)
+
+All three following theorems are maintained, compiled and audited in
+`PrimeFactorOscillations/Assembly/FiniteFieldRawPairCovariance.lean`,
+namespace `PrimeFactorOscillations.FiniteFieldRawPairCovariance`.
+
+| Claim | Status | Exact scope |
+| --- | --- | --- |
+| `covariance_dilation_pullback` | proved and audited | any finite field; arbitrary h,k; a nonzero |
+| `twistCompensatedCovariance_same_gap` | proved and audited | any finite field; arbitrary h; a nonzero; exact shared-coordinate weighted correlation |
+| `dilation_pair_avoidance_iff` | proved and audited | any field; arbitrary h,c; a nonzero; both forbidden residues retained |
+
+The new-only audit checks exactly these three declarations, with only
+propext, Classical.choice and Quot.sound. No previous theorem is re-audited.
+These are the coordinate-transfer corollaries of the compensated theorem,
+not a separately claimed original analytic estimate.
+
+For v_0(c)=u_h(c) and v_1(c)=u_(a*h)(a*c), multiplication by a permutes
+the field and gives E[v_1(c)*v_1(c+k)]=C_(a*h)(a*k). Therefore
+Cbar_(h,a)=E[D_h^2*v_0(c)*v_0(c+h)+D_(a*h)^2*v_1(c)*v_1(c+h)]/
+(D_h^2+D_(a*h)^2). Both slots now use the same original shift h.
+The conditions a*c nonzero and a*(c+h) nonzero are exactly c nonzero
+and c+h nonzero. The class label remains shared within each product;
+this expression does not pretend to be an averaged density's autocorrelation.
+
+benchmark_status: exact fixed-gap coordinate consumer proved.
+old_bound: Cbar>1 and abs(Cbar-(1+1/q))<=12/q^2 were proved for the
+two linked local gaps, without an installed same-coordinate representation.
+new_bound: the identical bounds now apply to the displayed same-gap
+weighted correlation over every odd field q>=16, h nonzero, chi(a)=-1.
+components: bijective scaling of the complete finite sum, both squared
+normalizers, both product slots, and the exact forbidden-residue equivalence.
+actuals: no new numerical data; these universal algebraic identities are
+proved directly in Lean.
+first_nonpositive_domain: none in the inherited quantitative domain;
+the positive integer-window bound remains unavailable.
+
+Field-by-field pullback can use the residues of a single fixed integer gap.
+The available exact moment is still over the complete CRT period M;
+the required sum remains positive full prime-avoidance mass on
+Y<n<=Y^2-h for unbounded Y. Alignment alone supplies no bound for that
+short sum. Integer pair recurrence, H1 and QRH7/8 are unchanged.
+Paper theorem: `thm:fixed-gap-pullback`.
