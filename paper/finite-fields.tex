@@ -6050,6 +6050,128 @@ the integer height of its quartic CRT crests. No new general
 truncation method, integer prime-pair recurrence or independently
 established external priority is claimed.
 
+\subsection{A nonasymptotic stretched-exponential height bound}
+The comparison also quantifies the preceding superpolynomial escape.
+Let \(A>0\) be an absolute constant supplied by the proved one-character
+split-amplitude bound
+\[
+                         U_{h,Q}(n)\leq A(\log Q)^3\log K.
+\]
+This estimate applies for positive \(h,n\), \(6\leq K\leq Q\), and
+\(K+1\geq(3+\log(4hn))^{64}\). Put
+\[
+ \tau_h=\min\left(1,\frac{c_h}{A}\right),
+ \qquad
+ \delta_h=\frac{\tau_h}{64}.
+\]
+Then \(0<\delta_h\leq1/64\). The formula specifies the exponent in
+terms of the existing constants; it does not assign a certified
+numerical value to \(A\).
+
+\begin{theorem}[Pointwise stretched-exponential crest height]
+\label{thm:stretched-exponential-crest-height}
+One can choose a single absolute \(A>0\), before all \(h,Q,n\), such
+that for every positive integer \(h\), every \(Q\geq6\), and every
+natural \(n\),
+\[
+ c_h(\log Q)^4\leq U_{h,Q}(n)
+ \quad\Longrightarrow\quad
+ n\geq\frac{\exp\bigl(Q^{\delta_h}/2-3\bigr)}{4h}.
+\]
+This bound holds at every stated cutoff, without an unspecified
+eventual threshold.
+
+For each positive even \(h\), the single CRT crest family from
+Theorem~\ref{thm:superpolynomial-crest-escape} can retain all its
+quartic lower bounds, global quartic upper bound, and escape from
+every fixed power, while also satisfying
+\[
+ a_Q+P_Qt\geq
+       \frac{\exp\bigl(Q^{\delta_h}/2-3\bigr)}{4h}
+       \qquad(Q\geq13,\ t\geq0).
+\]
+The same \(A\) works for every shift; the exponent depends on \(h\)
+through \(c_h\).
+\end{theorem}
+
+\begin{proof}
+A quartic-scale crest has positive packet value. The prime-\(2\)
+zero mask excludes \(n=0\), so \(hn>0\). Set
+\[
+                  H=3+\log(4hn),\qquad K=\lceil H^{64}\rceil.
+\]
+Then \(H\geq3\), \(K\geq6\), and \(H^{64}\leq K+1\).
+We claim the unconditional logarithmic height inequality
+\[
+ \tau_h\log Q\leq\log2+64\log H.
+ \tag{*}
+\]
+
+If \(K\leq Q\), apply the proved split-amplitude bound at this exact
+core. Combining it with the crest inequality gives
+\[
+ c_h(\log Q)^4\leq A(\log Q)^3\log K.
+\]
+Since \(Q\geq6\), division by \(A(\log Q)^3>0\) yields
+\[
+                     \frac{c_h}{A}\log Q\leq\log K.
+\]
+The ceiling estimate and \(H^{64}\geq1\) give
+\(K\leq2H^{64}\), hence
+\[
+                       \log K\leq\log2+64\log H.
+\]
+Since \(\tau_h\leq c_h/A\), this proves (*).
+
+If \(K>Q\), the defining property of the natural ceiling implies
+\(H^{64}>Q\). Therefore \(\log Q<64\log H\). Now
+\(\tau_h\leq1\) and \(\log2\geq0\), so (*) follows in this case too.
+Thus no unproved core-feasibility condition remains.
+
+Divide (*) by \(64\) and use \(\log2/64\leq\log2\):
+\[
+                   \delta_h\log Q\leq\log2+\log H.
+\]
+Exponentiating gives \(Q^{\delta_h}\leq2H\), or
+\[
+                    Q^{\delta_h}/2-3\leq\log(4hn).
+\]
+Exponentiate once more and divide by the positive \(4h\). This proves
+the pointwise lower bound.
+
+Finally choose the already established single CRT family for the fixed
+positive even shift. Every lift retains its quartic lower bound.
+Applying the pointwise estimate to each of those same lifts proves the
+last assertion, without reselecting the family or dropping its earlier
+properties.
+\end{proof}
+
+This is a quantitative height constraint on actual integer inputs.
+The dependence of the specified exponent on \(h\) is explicit, while
+the absolute analytic amplitude constant has not been numerically
+calibrated. The result does not supply positive packet mass on the
+natural prime-pair windows.
+
+\paragraph{Formal status.}
+The maintained owner
+\texttt{Assembly/FiniteFieldIntegerCrestQuantitative} defines
+\texttt{crestExponent} and \texttt{crestHeightBound}, proves
+\texttt{crest\_exponent\_pos}, \texttt{crest\_exponent\_le},
+the zero-mask exclusion of \(n=0\), and the full two-case logarithmic
+height estimate
+\texttt{crest\_log\_height\_of\_amplitude}.
+It then discharges the amplitude premise with the existing proved
+one-character theorem in
+\texttt{exists\_stretched\_exponential\_crest\_height}.
+The theorem
+\texttt{exists\_stretched\_exponential\_integer\_crest\_family}
+retains the quartic bounds and the complete earlier superpolynomial
+escape on the same family, together with the new pointwise bound.
+These declarations are exported through
+\texttt{Assembly/ProbabilityProfiles}.
+The character and zero-free inputs are unchanged; the installed QRH
+exponent remains \(7/8\).
+
 \section{Arithmetic transfers and the next ascent investigation}
 \paragraph{Existing ingredients.}
 The generic greedy record sandwich and the maintained periodic and
