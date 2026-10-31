@@ -3279,3 +3279,38 @@ new_bound: exact stable spectrum for every odd characteristic, exactly the perma
 components: indexed interval insertion with all prefixes; distinct geometric degree blocks; all-stage totals and coverage; universal composite-degree exclusions; separate-factor Euler periods; exact full signed-span converse and primitive-class cardinalities.
 actuals: universal kernel-checked proofs for every stage and admissible support total, with exact finite base certificates only. The new-only axiom audit covers all80 new theorem declarations and uses foundational axioms only.
 first_nonpositive_domain: zero support is included; the listed small holes are genuine universal exclusions. Horizon and stage sufficiency are explicit, without an optimality claim. No integer prime-pair window positivity, H1, RH or QRH improvement is claimed. QRH remains paused at7/8; historical priority of the combined classification remains unconfirmed.
+
+
+## Uniform integral odd-Pell probes across fields (2026-10-31)
+
+The common code is an actual finite polynomial-index set with ordinary integer coefficients. It depends on the selected primitive degrees, and not on the field or shift. For each odd prime p and allowed N, it can be chosen once before every j>=N and every field of size p^(towerDegree p j). The existing stable spectrum is unchanged; integrality and the order of quantifiers are strengthened. The exact native weights and all repeated-index contributions are retained.
+
+Owners: `ArithmeticFunction/OddDivisorProbe.lean` and `LegendreSymbol/QuadraticPairOddPellUniform.lean`, exported by `QuadraticPairOddPellLaws`.
+
+| Declaration | Status | Exact scope |
+| --- | --- | --- |
+| UniversalOddDivisorProbe.sum_moebius | proved | Exact signed divisor sum for every positive integer; classical inversion input. |
+| UniversalOddDivisorProbe.divisor_filter | proved | Exact supported quotient-divisibility filter, including the empty case. |
+| UniversalOddDivisorProbe.filtered_moebius | proved | Signed quotient-filter sum equals the exact degree indicator. |
+| UniversalOddDivisorProbe.mem_probeIndices | proved | Every retained divisor term has its actual polynomial index in the common finite set. |
+| UniversalOddDivisorProbe.evaluate | proved | Exact finite pushforward over any ring, retaining all index collisions and integer signs. |
+| UniversalOddDivisorProbe.index_identity | proved | For every odd divisor quotient,2*index+1 equals that quotient exactly. |
+| UniversalOddDivisorProbe.amplitude | proved | One finite integer code has amplitude1 on D and0 at every other positive degree. |
+| FiniteField.oddPell_universal_probe_expansion | proved | The actual common code retains native positive weights on exactly the selected degree labels; every nonzero shift. |
+| FiniteField.oddPell_universal_probe_support | proved | Exact support union over selected native classes, uniformly for q>=5 and2 nonzero. |
+| FiniteField.oddPell_universal_split_labels | proved | When every selected degree splits, the selected label set is exactly the left-tagged degree image. |
+| FiniteField.oddPell_universal_split_support | proved | The actual fixed integral code has the exact split-class union and support cardinality sum_D phi(d). |
+| Nat.oddTotient_tower_mono | proved | The explicit degree families are monotone in the stage; a degree set chosen once remains admissible. |
+| FiniteField.oddPell_integral_stable_tower | proved | For every allowed N, exists one finite S and a:Nat->Int before all j>=N, all admitted fields and all nonzero shifts; support cardinality=N. |
+
+Supporting definitions: UniversalOddDivisorProbe.probeIndex, UniversalOddDivisorProbe.probeIndices, UniversalOddDivisorProbe.probeCoefficients, and FiniteField.oddPellUniversalProbe.
+
+Both maintained owners and the four public consumers compile. The new-only axiom audit covers all13 declarations and uses only propext, Classical.choice and Quot.sound. Its saved log SHA256 is `03AD999984A658316A4708A59BDC6071581CC9120DA02B8BEFFD69B9730C328A`. The canonical paper and watched source are byte-identical, and the desktop editor compiler confirms success.
+
+benchmark_status: complete common-integral-code theorem proved;13 new maintained public theorem declarations and4 supporting definitions.
+old_bound: for each j>=N, each admitted finite field and nonzero shift, there exist finite polynomial indices and real coefficients attaining N.
+new_bound: there exist one finite polynomial-index set and one ordinary integer coefficient vector, chosen before all j>=N, admitted fields and nonzero shifts, attaining N everywhere; exact selected primitive classes and native weights are preserved.
+components: signed filtered Mobius identity; finite divisor-to-index pushforward with all collisions; universal indicator amplitudes; native expansion and disjoint support; one degree subset at stage N and monotonic tower families.
+actuals: universal kernel-checked proofs, including the explicit all-field quantifier in the main theorem; maintained owner and public closure compilation;13-declaration foundational-only audit; successful watched paper compilation. No finite field/stage sample stands in for these statements.
+first_nonpositive_domain: N0 is allowed; the unchanged characteristic3 holes are2/8 and the characteristic5 hole is4. The native positive-weight formula requires q>=5; the existing q3 all-zero law remains separate. The sufficient j>=N threshold is not claimed optimal. No positive joint integer prime-pair window mass, H1, RH or QRH improvement follows; QRH remains paused at7/8. Mobius inversion is classical, and historical priority of the uniform native strengthening remains unconfirmed.
+

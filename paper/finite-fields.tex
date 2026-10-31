@@ -11697,6 +11697,159 @@ Euler's theorem are classical inputs. These primary comparisons
 are not an exhaustive priority review; historical priority of the
 combined support classification remains unconfirmed.
 
+
+\section{One integral probe across all late extension fields}
+\label{sec:odd-pell-uniform-integral}
+
+The preceding stable-spectrum theorem permits a new real coefficient
+vector after the field has been chosen.  Here the coefficient vector
+is chosen once, consists of ordinary integers, and works over every
+subsequent field and every nonzero shift.  The primitive degree \(d\),
+polynomial index \(k\), tower stage \(j\), extension degree \(m_j\)
+and support cardinality \(N\) are distinct parameters throughout.
+
+Write \(E_{F,h,k}\) for the shifted odd-Pell defect already defined,
+and \(P_{F,h,S,a}=\sum_{k\in S}a_kE_{F,h,k}\).
+For a native primitive label \(i\), put \(e_i=\deg(i)\), let
+\(w_{F,i}>0\) be its native weight, and denote its shifted class by
+\(A_{F,h,i}\).  The proved expansion reads
+\[
+ P_{F,h,S,a}
+ =\sum_{i\in\mathcal L_F}
+ w_{F,i}\left(\sum_{\substack{k\in S\\e_i\mid2k+1}}a_k\right)
+ \mathbf1_{A_{F,h,i}}.
+\]
+We retain these actual weights; the construction does not divide by them.
+
+\begin{theorem}[Universal integral degree selection]
+\label{thm:odd-pell-uniform-integral-selection}
+Let \(D\) be any finite set of positive odd integers.  For \(r\mid d\)
+define \(i(d,r)=(d/r-1)/2\), and set
+\[
+ S_D=\bigcup_{d\in D}\{i(d,r):r\mid d\},\qquad
+ a_D(k)=\sum_{d\in D}\sum_{r\mid d}
+       \mu(r)\mathbf1_{\{k=i(d,r)\}}\in\mathbb Z.
+\]
+These finite indices and integer coefficients depend only on \(D\).
+For every positive integer \(e\),
+\begin{equation}
+ \sum_{\substack{k\in S_D\\e\mid2k+1}}a_D(k)
+ =\mathbf1_{\{e\in D\}}.
+ \label{eq:odd-pell-uniform-integral-amplitude}
+\end{equation}
+Consequently, over every finite field \(F\) with \(|F|\ge5\)
+and \(2\ne0\), and for every \(h\ne0\),
+\[
+ P_{F,h,S_D,a_D}
+ =\sum_{i\in\mathcal L_F}
+     w_{F,i}\mathbf1_{\{e_i\in D\}}\mathbf1_{A_{F,h,i}}.
+\]
+Its support is exactly the union of the displayed selected classes.
+If every \(d\in D\) satisfies \(d>1\) and \(d\mid |F|-1\), then
+\[
+ \operatorname{supp}P_{F,h,S_D,a_D}
+   =\bigcup_{d\in D}A_{F,h,\mathrm{split},d},
+ \qquad
+ |\operatorname{supp}P_{F,h,S_D,a_D}|=\sum_{d\in D}\varphi(d).
+\]
+\end{theorem}
+\begin{proof}
+Every divisor quotient \(d/r\) is positive and odd, so
+\(2i(d,r)+1=d/r\) exactly.  Interchanging the finite sums in the
+definition of \(a_D\), including all repeated indices, gives the left
+side of \eqref{eq:odd-pell-uniform-integral-amplitude} as
+\[
+ \sum_{d\in D}
+   \sum_{\substack{r\mid d\\e\mid d/r}}\mu(r).
+\]
+When \(e\nmid d\), the inner index set is empty.  When \(e\mid d\),
+it is exactly the divisor set of \(d/e\), and hence its signed sum is
+\[
+ \sum_{r\mid d/e}\mu(r)=\mathbf1_{\{d/e=1\}}
+                      =\mathbf1_{\{d=e\}}.
+\]
+Summing over \(D\) proves the amplitude identity.  No sign is discarded.
+
+Substitution into the existing native expansion proves the asserted
+formula.  The shifted primitive classes are disjoint, and their weights
+are strictly positive for \(|F|\ge5\), so this formula identifies the
+support exactly.  If all selected degrees divide \(|F|-1\), each occurs
+as its split label.  Injectivity of the native degree labels excludes a
+second label of the same degree.  The split class of degree \(d\) has
+cardinality \(\varphi(d)\), giving the final equality.
+\end{proof}
+
+\begin{theorem}[One integral probe on every late tower stage]
+\label{thm:odd-pell-one-integral-stable-probe}
+Let \(p\) be an odd prime, and let
+\[
+ \mathcal B_p=
+ \begin{cases}
+  2\mathbb N_0\setminus\{2,8\},&p=3,\\
+  2\mathbb N_0\setminus\{4\},&p=5,\\
+  2\mathbb N_0,&p\ge7.
+ \end{cases}
+ \qquad
+ m_j=
+ \begin{cases}
+ 720\cdot5^j,&p=3,\\
+ 720\cdot3^j,&p=5,\\
+ 12\cdot3^j,&p\ge7.
+ \end{cases}
+\]
+For every \(N\in\mathcal B_p\), there exist a single finite
+\(S\subset\mathbb N_0\) and a single function \(a:\mathbb N_0\to\mathbb Z\)
+such that, simultaneously for every \(j\ge N\), every finite field
+\(F\) of cardinality \(p^{m_j}\) with \(2\ne0\), and every \(h\ne0\),
+\[
+ |\operatorname{supp}P_{F,h,S,a}|=N.
+\]
+The coefficients may depend on \(p,N\), but not on \(j,F,h\).
+\end{theorem}
+\begin{proof}
+Apply the proved arithmetic tower realization at stage \(N\).
+It supplies one finite degree set \(D\) in that stage's degree family
+with \(\sum_{d\in D}\varphi(d)=N\).
+Each tower degree family is contained in its successor, because its
+recursive construction adjoins a new block by union.
+Induction therefore puts this same \(D\) in every stage \(j\ge N\).
+
+The existing tower data then give, for every such \(j\) and \(d\in D\),
+that \(d\) is odd, \(d>1\), and \(d\mid p^{m_j}-1\).
+Choose \(S=S_D\) and \(a=a_D\) before choosing \(j,F,h\).
+The preceding theorem applies to every one of these fields and yields
+support cardinality \(\sum_{d\in D}\varphi(d)=N\).
+The towers have \(m_j\ge12\), hence their cardinalities are at least9;
+the small-field normalization is never used at \(q=3\).
+The separate proved \(q=3\) law still makes every signed probe zero.
+The permanent exclusions outside \(\mathcal B_p\) remain the universal
+exclusions established in the preceding stable-spectrum theorem.
+\end{proof}
+
+\paragraph{Formal declarations and scope.}
+The exact finite code, its pushforward evaluation, and
+\eqref{eq:odd-pell-uniform-integral-amplitude} are proved in
+\texttt{UniversalOddDivisorProbe.evaluate} and
+\texttt{UniversalOddDivisorProbe.amplitude}.
+The native statements are
+\texttt{FiniteField.oddPell\_universal\_probe\_expansion},
+\texttt{oddPell\_universal\_probe\_support} and
+\texttt{oddPell\_universal\_split\_support}.
+The order of quantifiers in the last theorem is the order in
+\texttt{FiniteField.oddPell\_integral\_stable\_tower}.
+
+M\"obius inversion is a classical input here.
+The proposed strengthening is its ordinary integral realization of the
+native signed law with one common probe over all late extension fields.
+The fixed-field composition classification of individual Chebyshev maps
+in \cite{RosenScherrWeissZieveChebyshev}, and the single-map dynamics and
+prime-decomposition results in \cite{GassertChebyshevGraphs}, concern
+different conclusions.  These comparisons do not establish historical
+priority.
+
+The theorem supplies compatible local probe designs across fields.
+It supplies no lower bound for their joint mass on the integer primality
+window \(Q<n\), \(n+h\le Q^2\).  That integer-window estimate remains open.
 \begin{thebibliography}{99}
 \bibitem{DavidKoukoulopoulosSmith}
 C. David, D. Koukoulopoulos and E. Smith,
@@ -11784,6 +11937,11 @@ arXiv:2402.10737. \url{https://arxiv.org/abs/2402.10737}.
 \emph{Bivariate identities related to Chebyshev and Dickson polynomials over \(F_q\)},
 Finite Fields and Their Applications 49 (2018), 143--155.
 \url{https://mathweb.ucsd.edu/~revans/BivariateIdentities.pdf}.
+\bibitem{RosenScherrWeissZieveChebyshev}
+J. Rosen, Z. Scherr, B. Weiss and M. E. Zieve,
+\emph{Chebyshev mappings of finite fields},
+American Mathematical Monthly 119 (2012), 151--155.
+\url{https://websites.umich.edu/~zieve/papers/chebyshev.pdf}.
 \bibitem{GassertChebyshevGraphs} T. A. Gassert,
 \emph{Chebyshev action on finite fields},
 Discrete Mathematics 315--316 (2014), 83--94.
