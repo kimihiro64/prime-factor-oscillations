@@ -369,14 +369,15 @@ Each real candidate file should:
 | --- | --- | --- | --- |
 | `PrimeFactorOscillations.Mathlib.NumberTheory.LegendreSymbol.QuadraticPairTraceFreeKernel` | `Mathlib/NumberTheory/LegendreSymbol/QuadraticPairTraceFreeKernel.lean` | project-verified | Exact all-lag integer kernel of the existing trace-free actual pair-count sum; all four mixed class products, both endpoint masks and every singular displacement; includes cardinality three before normalization. |
 | `PrimeFactorOscillations.Mathlib.NumberTheory.LegendreSymbol.QuadraticPairTraceFreeSigns` | `Mathlib/NumberTheory/LegendreSymbol/QuadraticPairTraceFreeSigns.lean` | project-verified | Normalized all-lag covariance, symmetry, nonpositive nonoverlap rows for chi(-1)=-1, exact adjacent row and graph upper bound; positive-row iff triple character sign condition for chi(-1)=1; q>=5 and nonzero gap. |
-| `PrimeFactorOscillations.Mathlib.NumberTheory.LegendreSymbol.QuadraticPairCorrelationLaws` | `Mathlib/NumberTheory/LegendreSymbol/QuadraticPairCorrelationLaws.lean` | project-verified | Import-only grouping of tensorized shared-label persistence and canonical trace-free covariance and signs; preserves the root facade import budget. |
+| `PrimeFactorOscillations.Mathlib.NumberTheory.LegendreSymbol.QuadraticPairCorrelationLaws` | `Mathlib/NumberTheory/LegendreSymbol/QuadraticPairCorrelationLaws.lean` | project-verified | Import-only grouping of tensorized persistence, canonical trace-free covariance, cubic transport and uniform survival; preserves the root facade import budget. |
 
 ## Cubic transport of compensated actual pair counts
 
 | Module | Proposed destination | Readiness | Scope |
 | --- | --- | --- | --- |
 | `PrimeFactorOscillations.Mathlib.NumberTheory.Primes.TwinCubic` | `Mathlib/NumberTheory/Primes/TwinCubic.lean` | project-verified | Classical cubic gap-two lift; simultaneous square multipliers, unbounded composite orbits and pairwise coprime new prime-factor blocks for seeds congruent to two modulo three. |
-| `PrimeFactorOscillations.Mathlib.NumberTheory.LegendreSymbol.QuadraticPairCubicLift` | `Mathlib/NumberTheory/LegendreSymbol/QuadraticPairCubicLift.lean` | project-verified | Exact simultaneous-square and masked cubic transport of the existing actual two-class pair-count sum and canonical trace-free weight; both character rows on unramified integer orbits. |
+| `PrimeFactorOscillations.Mathlib.NumberTheory.LegendreSymbol.QuadraticPairCubicLift` | `Mathlib/NumberTheory/LegendreSymbol/QuadraticPairCubicLift.lean` | project-verified | Exact actual two-class count and weight transport; both unramified orbit rows; exceptional-root weights, exact one-step mean and characteristic-three all-iterate invariance. |
+| `PrimeFactorOscillations.Mathlib.NumberTheory.LegendreSymbol.QuadraticPairCubicSurvival` | `Mathlib/NumberTheory/LegendreSymbol/QuadraticPairCubicSurvival.lean` | project-verified | Invariant quadratic-character sector, exact signed numerator moment and sector mass; uniform mean W(T^k)>= (q-3)/(2q) for every k and odd q>=5, including characteristic three. |
 
 Readiness should be one of: `extracting`, `project-verified`, `mathlib-ready`,
 `submitted`, or `upstreamed`. A module is `mathlib-ready` only after it has an

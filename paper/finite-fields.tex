@@ -9109,9 +9109,194 @@ The maintained modules \texttt{TwinCubic},
 \texttt{QuadraticPairCubicLift}, and \texttt{FiniteFieldCubicLift}
 prove the integer orbit properties, actual two-class count identities,
 both unramified character rows, and complete native mask transport.
-Their 43 theorems and nine definitions have passed focused compilation
-and the new-declaration foundational-axiom audit. The claim ledger
-lists each declaration and its exact scope.
+The original transport and orbit statements comprise 43 theorems and
+nine definitions, all compiled and foundational-axiom audited.
+The subsequent mass declarations are recorded separately below.
+The claim ledger lists each declaration and its exact scope.
+
+\section{An invariant sector and uniform survival under every cubic iterate}
+\label{sec:cubic-mass-survival}
+
+Continue with the canonical actual two-class law \(W_2\), and write
+\(\mathbb E_0 f=q^{-1}\sum_{c\in F}f(c)\).
+Thus \(\mathbb E_0W_2=1\), while the initial probability of a subset
+\(S\subseteq F\) is \(\mathbb E_0(W_2\mathbf1_S)\).
+All the following normalized statements require an odd field with
+\(q\ge5\). Put
+\[
+ D(c)=c(c+2),\qquad t=\chi(-1),\qquad u=\chi(-3).
+\]
+
+\begin{theorem}[Exact one-step loss]
+\label{thm:cubic-one-step-mass}
+In characteristic different from three,
+\[
+ \mathbb E_0 W_2(T(c))
+ =1-\frac{2(q+\chi(3))}{q(q-3)}.
+ \tag{C7}\label{eq:cubic-one-step-mass}
+\]
+In characteristic three the weight is preserved pointwise under every
+iterate, and consequently
+\(\mathbb E_0 W_2(T^{\circ k}(c))=1\) for every \(k\ge0\).
+\end{theorem}
+\begin{proof}
+The two roots of \(B(c)\) are \(-1/2,-3/2\), and their difference is one.
+If three is nonzero, neither root is an excluded endpoint.
+At the first root,
+\((-2)c=1\) and \(2(c+2)=3\); at the second, these two values are
+three and one. Hence at either root
+\[
+ {\cal N}(c)=q+\chi(3),\qquad
+ W_2(c)=\frac{q+\chi(3)}{q-3}.
+\]
+The exact mask identity \eqref{eq:cubic-field-mask} deletes precisely
+these two contributions from the finite sum. Divide by \(q\) and use
+the mean-one identity to obtain \eqref{eq:cubic-one-step-mass}.
+
+In characteristic three the same two roots are the already forbidden
+endpoints \(0,-2\), both of weight zero. Thus the mask identity preserves
+the weight at every point. Induction gives pointwise preservation under
+every iterate, and normalization gives the mean assertion.
+\end{proof}
+
+\begin{theorem}[Exact mass of a protected character sector]
+\label{thm:cubic-protected-sector}
+Suppose three is nonzero, and define
+\[
+ S=\{c\in F:\chi(D(c))=-u\}.
+\]
+For every \(c\in S\) and every \(k\ge0\),
+\[
+ \chi(D(T^{\circ k}(c)))=-u,\qquad
+ W_2(T^{\circ k}(c))=W_2(c).
+ \tag{C8}\label{eq:cubic-protected-invariance}
+\]
+The exact initial probability of this sector is
+\[
+ \boxed{\mathbb E_0(W_2\mathbf1_S)
+ =\frac12+\frac{u(q-1+2t)}{2q(q-3)}.}
+ \tag{C9}\label{eq:cubic-protected-mass}
+\]
+\end{theorem}
+\begin{proof}
+At either root of \(B(c)\), the polynomial identity
+\[
+ 4D(c)=B(c)-3
+\]
+gives \(\chi(D(c))=\chi(-3)=u\), because \(\chi(4)=1\).
+Since three is nonzero, \(u^2=1\), so this root class is disjoint
+from \(S\). Consequently \(B(c)\ne0\) for every \(c\in S\).
+The complete endpoint identity also gives
+\[
+ D(T(c))=D(c)B(c)^2.
+\]
+Its quadratic character therefore equals \(\chi(D(c))\) on \(S\).
+The weight is unchanged by \eqref{eq:cubic-field-mask}.
+Iteration proves \eqref{eq:cubic-protected-invariance}.
+
+To compute the sector mass, retain the signed moment
+\[
+ \sum_{c\in F}{\cal N}(c)\chi(D(c))=-q+1-2t.
+ \tag{C10}\label{eq:cubic-signed-sector-moment}
+\]
+Here is a direct calculation, including the endpoint corrections.
+Set \(X(c)=\chi(c)\) and \(Y(c)=\chi(c+2)\).
+The nonzero-shift quadratic-character correlation gives
+\(\sum_cX(c)Y(c)=-1\). Also
+\[
+ \sum_c X(c)^2Y(c)=-\chi(2),\qquad
+ \sum_c X(c)Y(c)^2=-\chi(-2).
+\]
+For the first identity, \(X(c)^2=1\) except at zero; remove that
+one contribution from the translated character sum, which is zero.
+For the second, remove the contribution at \(-2\) instead.
+Multiplication by \(\chi(D(c))=X(c)Y(c)\) makes both boundary
+contributions zero. Thus the complete summand expands exactly as
+\[
+ {\cal N}(c)\chi(D(c))
+ =(q-1)X(c)Y(c)+\chi(-2)X(c)^2Y(c)
+                  +\chi(2)X(c)Y(c)^2.
+\]
+Summation gives
+\(-(q-1)-2\chi(-2)\chi(2)=-q+1-2t\), proving
+\eqref{eq:cubic-signed-sector-moment}.
+
+Off the two endpoints, \(\chi(D(c))^2=u^2=1\); at the endpoints,
+\({\cal N}(c)=0\). Hence the exact signed projector identity is
+\[
+ 2{\cal N}(c)\mathbf1_{c\in S}
+ ={\cal N}(c)-u\,{\cal N}(c)\chi(D(c)).
+\]
+Sum this identity, use \(\sum_c{\cal N}(c)=q(q-3)\) and
+\eqref{eq:cubic-signed-sector-moment}, and divide by \(2q(q-3)\).
+This proves \eqref{eq:cubic-protected-mass}.
+\end{proof}
+
+\begin{theorem}[Uniform probability survival]
+\label{thm:cubic-uniform-survival}
+For every finite odd field of cardinality \(q\ge5\) and every \(k\ge0\),
+\[
+ \boxed{\mathbb E_0 W_2(T^{\circ k}(c))
+       \ge\frac{q-3}{2q}.}
+ \tag{C11}\label{eq:cubic-uniform-survival}
+\]
+Outside characteristic three, the stronger lower bound is the exact
+sector mass in \eqref{eq:cubic-protected-mass}.
+\end{theorem}
+\begin{proof}
+Assume first that three is nonzero.
+The weight is nonnegative at every point, and is preserved on \(S\)
+by \eqref{eq:cubic-protected-invariance}. Therefore
+\[
+ \mathbb E_0 W_2(T^{\circ k}(c))
+ \ge \mathbb E_0(W_2(c)\mathbf1_S(c)).
+\]
+This is a bound for the complete mean, with the complementary
+contribution retained as a nonnegative term.
+
+For the explicit uniform constant, put \(A=q-1+2t\).
+Since \(t,u\in\{-1,1\}\), one has
+\(0\le q-3\le A\le q+1\) and \(uA\ge-(q+1)\).
+All denominators below are positive. The exact difference is
+\[
+ \left(\frac12+\frac{uA}{2q(q-3)}\right)-\frac{q-3}{2q}
+ =\frac{3(q-3)+uA}{2q(q-3)}
+ \ge\frac{2q-10}{2q(q-3)}\ge0.
+\]
+This proves the claimed bound. In characteristic three the complete
+mean is one by Theorem~\ref{thm:cubic-one-step-mass}, which is larger
+than the displayed lower bound.
+\end{proof}
+
+\paragraph{Scope and provenance.}
+The estimate is uniform in the iteration count, including iteration
+counts depending on \(q\). Its lower bound tends to one half as
+\(q\) grows. Cardinality three is excluded from the probability
+normalization; its unnormalized identities remain valid.
+The theorem concerns the existing compensated actual-count law.
+It supplies no estimate for the raw elliptic packet's incomplete
+integer mass. In particular, the required independent integer
+positivity statement
+\[
+ \sum_{Y<n\le Y^2-2}P_Y(n)>0
+\]
+along unbounded cutoffs is not proved by this complete-field theorem.
+
+Classical Chebyshev dynamics already has a detailed finite-field graph
+theory; see Gassert~\cite{GassertChebyshevGraphs}.
+The application here is the explicit invariant-sector probability for
+the compensated irreducible-pair count, including the signed endpoint
+correction. Priority of this application remains under review.
+
+\paragraph{Lean verification.}
+The nine additional declarations in \texttt{QuadraticPairCubicLift}
+prove the root weights, exact finite-sum deletion, one-step mean,
+and characteristic-three pointwise and mean assertions.
+The eight declarations in \texttt{QuadraticPairCubicSurvival} prove
+the root character, invariant sector, signed moment, exact sector
+mass and complete uniform all-iterate bound.
+All seventeen have passed focused compilation and the new-declaration
+foundational-axiom audit. The claim ledger lists their exact scopes.
 
 \begin{thebibliography}{99}
 \bibitem{DavidKoukoulopoulosSmith}
@@ -9200,5 +9385,9 @@ arXiv:2402.10737. \url{https://arxiv.org/abs/2402.10737}.
 \emph{Bivariate identities related to Chebyshev and Dickson polynomials over \(F_q\)},
 Finite Fields and Their Applications 49 (2018), 143--155.
 \url{https://mathweb.ucsd.edu/~revans/BivariateIdentities.pdf}.
+\bibitem{GassertChebyshevGraphs} T. A. Gassert,
+\emph{Chebyshev action on finite fields},
+Discrete Mathematics 315--316 (2014), 83--94.
+\url{https://arxiv.org/abs/1209.4396}.
 \end{thebibliography}
 \end{document}

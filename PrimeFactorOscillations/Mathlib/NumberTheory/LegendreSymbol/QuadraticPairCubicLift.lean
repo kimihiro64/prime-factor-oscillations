@@ -145,4 +145,159 @@ theorem quadraticChar_twinCubic_rows (seed k : Nat)
         (2*((seed : F)+2))*((Nat.TwinCubic.rightScale seed k : Nat) : F)^2 from by ring,
       map_mul,map_pow,quadraticChar_sq_one hv,mul_one]
 
+
+theorem traceFreePairNumerator_cubic_root (h3 : Not ((3 : F)=0)) (c : F)
+    (hr : (2*c+1)*(2*c+3)=0) :
+    traceFreePairNumerator c 2=(Fintype.card F : Int)+(quadraticChar F) (3 : F) := by
+  have finish (a b : F) (ha : (-2 : F)*c=a) (hb : 2*(c+2)=b)
+      (ha0 : Not (a=0)) (hb0 : Not (b=0))
+      (hs : (quadraticChar F) a+(quadraticChar F) b=1+(quadraticChar F) (3 : F)) :
+      traceFreePairNumerator c 2=(Fintype.card F : Int)+(quadraticChar F) (3 : F) := by
+    have hc : Not (c=0) := by
+      intro he
+      apply ha0
+      rw [<- ha,he,mul_zero]
+    have hn : Not (c=-(2 : F)) := by
+      intro he
+      apply hb0
+      rw [<- hb,he]
+      ring
+    simp only [traceFreePairNumerator,ite_eq_right hc,ite_eq_right hn,twistPairNumerator]
+    rw [<- map_mul,<- map_mul,ha,hb]
+    linarith only [hs]
+  rcases mul_eq_zero.mp hr with h | h
+  . have hc : 2*c=-(1 : F) := eq_neg_of_add_eq_zero_left h
+    have ha : (-2 : F)*c=1 := by
+      calc
+        _ = -(2*c) := by ring
+        _ = 1 := by rw [hc]; ring
+    have hb : (2 : F)*(c+2)=3 := by
+      calc
+        _ = 2*c+4 := by ring
+        _ = 3 := by rw [hc]; ring
+    exact finish 1 3 ha hb one_ne_zero h3 (by simp)
+  . have hc : 2*c=-(3 : F) := eq_neg_of_add_eq_zero_left h
+    have ha : (-2 : F)*c=3 := by
+      calc
+        _ = -(2*c) := by ring
+        _ = 3 := by rw [hc]; ring
+    have hb : (2 : F)*(c+2)=1 := by
+      calc
+        _ = 2*c+4 := by ring
+        _ = 1 := by rw [hc]; ring
+    exact finish 3 1 ha hb h3 one_ne_zero (by simp [add_comm])
+
+theorem traceFreePairWeight_cubic_root (h3 : Not ((3 : F)=0)) (c : F)
+    (hr : (2*c+1)*(2*c+3)=0) :
+    traceFreePairWeight c 2=
+      ((Fintype.card F : Real)+((quadraticChar F) (3 : F) : Real))/
+        ((Fintype.card F : Real)-3) := by
+  unfold traceFreePairWeight
+  rw [traceFreePairNumerator_cubic_root h3 c hr]
+  norm_num only [Int.cast_add,Int.cast_natCast]
+
+omit [Fintype F] [DecidableEq F] in
+theorem cubic_pair_mask_zero_iff (h2 : Not ((2 : F)=0)) (c : F) :
+    (2*c+1)*(2*c+3)=0 <-> c=-(1 : F)/2 \/ c=-(3 : F)/2 := by
+  have linear_root (a : F) : (2*c+a=0) <-> c=-a/2 := by
+    rw [eq_div_iff h2]
+    constructor
+    . intro he
+      apply eq_neg_of_add_eq_zero_left
+      calc
+        c*2+a=2*c+a := by ring
+        _ = 0 := he
+    . intro he
+      calc
+        2*c+a=c*2+a := by ring
+        _ = 0 := by rw [he]; ring
+  rw [mul_eq_zero,linear_root,linear_root]
+
+theorem sum_traceFreePairWeight_cubic_lift_deletion
+    (hF : Not (ringChar F=2)) :
+    (Finset.univ.sum fun c : F => traceFreePairWeight (cubicPairLift c) 2)=
+      (Finset.univ.sum fun c : F => traceFreePairWeight c 2)-
+        traceFreePairWeight (-(1 : F)/2) 2-traceFreePairWeight (-(3 : F)/2) 2 := by
+  have h2 := two_ne_zero_of_odd hF
+  have hab : Not ((-(1 : F)/2)=-(3 : F)/2) := by
+    intro he
+    have hd : (-(1 : F)/2)-(-(3 : F)/2)=1 := by field_simp [h2]; ring
+    rw [he,sub_self] at hd
+    exact zero_ne_one hd
+  have he (c : F) :
+      traceFreePairWeight (cubicPairLift c) 2=traceFreePairWeight c 2-
+        (if c=-(1 : F)/2 then traceFreePairWeight (-(1 : F)/2) 2 else 0)-
+        (if c=-(3 : F)/2 then traceFreePairWeight (-(3 : F)/2) 2 else 0) := by
+    simp only [traceFreePairWeight_cubic_lift,cubic_pair_mask_zero_iff h2]
+    by_cases ha : c=-(1 : F)/2
+    . rw [ha]
+      simp [hab]
+    . by_cases hb : c=-(3 : F)/2
+      . rw [hb]
+        simp [Ne.symm hab]
+      . simp [ha,hb]
+  simp_rw [he]
+  simp only [Finset.sum_sub_distrib]
+  simp
+
+theorem traceFreePairWeight_cubic_lift_mean (hF : Not (ringChar F=2))
+    (h3 : Not ((3 : F)=0)) (hq : 5<=(Fintype.card F : Real)) :
+    (1/(Fintype.card F : Real))*
+      (Finset.univ.sum fun c : F => traceFreePairWeight (cubicPairLift c) 2)=
+      1-2*((Fintype.card F : Real)+((quadraticChar F) (3 : F) : Real))/
+        ((Fintype.card F : Real)*((Fintype.card F : Real)-3)) := by
+  have h2 := two_ne_zero_of_odd hF
+  have ha := (cubic_pair_mask_zero_iff h2 (-(1 : F)/2)).mpr (Or.inl rfl)
+  have hb := (cubic_pair_mask_zero_iff h2 (-(3 : F)/2)).mpr (Or.inr rfl)
+  have hm := traceFreePairWeight_mean_one hF (2 : F) h2 hq
+  rw [sum_traceFreePairWeight_cubic_lift_deletion hF,
+    traceFreePairWeight_cubic_root h3 _ ha,traceFreePairWeight_cubic_root h3 _ hb,
+    mul_sub,mul_sub,hm]
+  have hq0 : Not ((Fintype.card F : Real)=0) := ne_of_gt (by linarith only [hq])
+  have hq3 : Not ((Fintype.card F : Real)-3=0) := ne_of_gt (by linarith only [hq])
+  field_simp [hq0,hq3]
+  ring
+
+theorem traceFreePairNumerator_cubic_lift_char_three (hF : Not (ringChar F=2))
+    (h3 : (3 : F)=0) (c : F) :
+    traceFreePairNumerator (cubicPairLift c) 2=traceFreePairNumerator c 2 := by
+  rw [traceFreePairNumerator_cubic_lift]
+  by_cases hr : (2*c+1)*(2*c+3)=0
+  . rw [ite_eq_left hr]
+    have h2 := two_ne_zero_of_odd hF
+    rcases mul_eq_zero.mp hr with hv | hu
+    . have hz : (2 : F)*(c+2)=0 := by
+        calc
+          _ = (2*c+1)+3 := by ring
+          _ = 0 := by rw [hv,h3]; ring
+      have hc := (mul_eq_zero.mp hz).resolve_left h2
+      have hn := eq_neg_of_add_eq_zero_left hc
+      simp [traceFreePairNumerator,hn]
+    . have hz : (2 : F)*c=0 := by simpa only [h3,add_zero] using hu
+      have hc := (mul_eq_zero.mp hz).resolve_left h2
+      simp [traceFreePairNumerator,hc]
+  . rw [ite_eq_right hr]
+
+theorem traceFreePairWeight_cubic_lift_char_three (hF : Not (ringChar F=2))
+    (h3 : (3 : F)=0) (c : F) :
+    traceFreePairWeight (cubicPairLift c) 2=traceFreePairWeight c 2 := by
+  unfold traceFreePairWeight
+  rw [traceFreePairNumerator_cubic_lift_char_three hF h3]
+
+theorem traceFreePairWeight_cubic_iterate_char_three (hF : Not (ringChar F=2))
+    (h3 : (3 : F)=0) (k : Nat) (c : F) :
+    traceFreePairWeight ((cubicPairLift^[k]) c) 2=traceFreePairWeight c 2 := by
+  induction k with
+  | zero => rfl
+  | succ k ih =>
+    rw [Function.iterate_succ_apply',traceFreePairWeight_cubic_lift_char_three hF h3,ih]
+
+theorem traceFreePairWeight_cubic_iterate_mean_char_three (hF : Not (ringChar F=2))
+    (h3 : (3 : F)=0) (hq : 5<=(Fintype.card F : Real)) (k : Nat) :
+    (1/(Fintype.card F : Real))*
+      (Finset.univ.sum fun c : F =>
+        traceFreePairWeight ((cubicPairLift^[k]) c) 2)=1 := by
+  simp_rw [traceFreePairWeight_cubic_iterate_char_three hF h3]
+  exact traceFreePairWeight_mean_one hF (2 : F) (two_ne_zero_of_odd hF) hq
+
 end FiniteField

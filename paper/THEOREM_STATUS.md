@@ -2522,3 +2522,42 @@ actuals: pre-formalization falsification covered5349 actual two-class sums,5346 
 first_nonpositive_domain: unavailable for integer-origin mass; no positive window or cofinal prime-pair supply is certified. A visible new factor makes the transported packet exactly zero, including when it was already zero.
 
 The cubic Chebyshev identity and elementary coprime-orbit arithmetic are classical ingredients. Priority of the actual-count and complete-mask application remains unconfirmed. The paper contains its complete ordinary proof and preserves all normalization and unramified hypotheses. No integer prime-pair recurrence, H1 improvement, RH proof or change to the accepted QRH7/8 boundary is claimed; QRH exponent research stays paused.
+
+
+## Exact cubic mass loss and uniform probability survival (2026-10-31)
+
+Owner: `PrimeFactorOscillations/Mathlib/NumberTheory/LegendreSymbol/QuadraticPairCubicLift.lean`.
+
+| Claim | Status | Exact scope |
+| --- | --- | --- |
+| `FiniteField.traceFreePairNumerator_cubic_root` | proved and audited | finite field; three nonzero; every root of (2c+1)(2c+3); exact numerator q+chi(3) |
+| `FiniteField.traceFreePairWeight_cubic_root` | proved and audited | same root domain; exact algebraic weight (q+chi(3))/(q-3); probability use retains odd q>=5 |
+| `FiniteField.cubic_pair_mask_zero_iff` | proved and audited | arbitrary field with two nonzero; exact two-root classification; no finiteness assumption |
+| `FiniteField.sum_traceFreePairWeight_cubic_lift_deletion` | proved and audited | finite odd field; exact complete sum minus the two exceptional-root weights; includes algebraic cardinality-three case |
+| `FiniteField.traceFreePairWeight_cubic_lift_mean` | proved and audited | finite odd field q>=5; three nonzero; exact one-step normalized mean |
+| `FiniteField.traceFreePairNumerator_cubic_lift_char_three` | proved and audited | finite odd field; three zero; pointwise numerator preservation, including cardinality three |
+| `FiniteField.traceFreePairWeight_cubic_lift_char_three` | proved and audited | same field domain; pointwise algebraic weight preservation |
+| `FiniteField.traceFreePairWeight_cubic_iterate_char_three` | proved and audited | same field domain; every natural iteration count and every initial field element |
+| `FiniteField.traceFreePairWeight_cubic_iterate_mean_char_three` | proved and audited | finite odd field q>=5; three zero; normalized mean one for every iteration count |
+
+Owner: `PrimeFactorOscillations/Mathlib/NumberTheory/LegendreSymbol/QuadraticPairCubicSurvival.lean`.
+
+| Claim | Status | Exact scope |
+| --- | --- | --- |
+| `FiniteField.quadraticChar_cubic_root` | proved and audited | finite odd field; every exceptional root; discriminant character equals chi(-3), including characteristic three |
+| `FiniteField.cubicSafeSector_step` | proved and audited | finite odd field; three nonzero; chi(c(c+2))=-chi(-3); both sector and canonical weight preserved |
+| `FiniteField.cubicSafeSector_iterate` | proved and audited | same protected-sector domain; every natural iteration count |
+| `FiniteField.sum_traceFreePairNumerator_quadratic_character` | proved and audited | finite odd field; exact full signed moment -q+1-2*chi(-1), with both endpoint corrections |
+| `FiniteField.sum_traceFreePairNumerator_safe_sector` | proved and audited | finite odd field; three nonzero; exact denominator-free weighted character projector |
+| `FiniteField.traceFreePairWeight_safe_sector_mass` | proved and audited | finite odd field q>=5; three nonzero; exact initial protected-sector probability |
+| `FiniteField.traceFreePairWeight_cubic_iterate_mean_ge_safe_sector` | proved and audited | same qualified probability domain; every iteration count; full mean at least the exact protected-sector mass |
+| `FiniteField.traceFreePairWeight_cubic_iterate_mean_lower` | proved and audited | every finite odd field q>=5; every natural iteration count; full mean >=(q-3)/(2q), including characteristic three |
+
+benchmark_status: universal finite-field first-step and all-iterate survival theorems compiled, exported and new-declaration audited; all17 declarations have real proofs.
+old_bound: the trivial nonnegative lower envelope 0 for an arbitrary iterate followed from the existing masked good-point bounds; no uniform positive all-iterate reserve was installed.
+new_bound: E_0 W_2(T^k(c))>=(q-3)/(2q) for every odd q>=5 and every k>=0. Outside characteristic three, the stronger lower bound is 1/2+chi(-3)*(q-1+2*chi(-1))/(2q(q-3)); characteristic three has exact mean1 at every iterate.
+components: invariant discriminant-character sector; both exceptional roots; signed numerator moment -q+1-2*chi(-1); exact projector and endpoint masks; nonnegative complementary mass; positive denominator domain; no discarded class or character cross term.
+actuals: diagnostics retained135 exact-rational means,120 weighted first-death rows,13 protected-sector masses and1647 pointwise invariance checks over15 stated prime and extension fields with iteration counts0..8. These are falsification evidence, not the universal proof or integer prime counts.
+first_nonpositive_domain: none in the qualified finite-field theorem domain q>=5 and k>=0. No positive integer-window domain is certified; sum_(Y<n<=Y^2-2)P_Y(n)>0 along unbounded Y remains unproved.
+
+The full finer absorption profile involving v3(q^2-1) is still an unproved target and is not advertised as formalized. Classical Chebyshev graph theory is prior work; priority of this compensated count-law application remains under review. No integer prime-pair recurrence, H1 improvement or change to the accepted QRH7/8 boundary is claimed; QRH exponent research stays paused.
