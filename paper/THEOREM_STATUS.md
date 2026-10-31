@@ -3444,3 +3444,30 @@ components: exact (p-3) scalar scaling; the whole six-correlation energy; comple
 actuals: seven universal maintained kernel proofs and new-only foundational-axiom audits; no finite sample or numerical completion supplies any estimate.
 first_nonpositive_domain: identical pairs have zero discrepancy. All eventual onsets may depend on H and eta; C is absolute. The finite support is exactly the primes K(Q)<p<=K(Q)^2. This is a scaled squared discrepancy, with no assertion of an unscaled positive distance, an optimal constant, new integer pair supply, a numerical H1 value, RH or priority.
 
+## Global native-profile reconstruction with finite erasures (2026-10-31)
+
+Paper: `finite-fields.tex`, Lemma `lem:native-endpoint-readout`, Theorem `thm:native-global-inverse` and Corollary `cor:native-global-least-gap`. Owners: `Assembly/FiniteFieldNativeEndpointReadout.lean` and `Assembly/FiniteFieldNativeGlobalReturn.lean`. Namespace: `PrimeFactorOscillations.FiniteFieldIntegerSignature`.
+
+| Declaration | Status | Exact scope |
+| --- | --- | --- |
+| real_kernel_square_of_nonzero | proved | A nonzero residue at an odd prime gives a real numerator-kernel square of one. |
+| native_weight_large_prime_trace | proved | The exact centered scalar weight equals the aggregate trace above both endpoints, with both masks checked. |
+| native_trace_endpoint_readout | proved | Squaring the aggregate trace cancels the gap square and recovers the negative endpoint-product character. |
+| native_weight_endpoint_readout | proved | Exact endpoint-product readout from the actual native scalar probability weight for all positive integer pairs. |
+| native_weight_match_product_one | proved | Equal actual native weights force the combined endpoint-product character to equal one at every admissible field prime. |
+| distinct_prime_pairs_have_odd_carrier | proved | Distinct oriented prime pairs have an explicit odd unique endpoint carrier; integer endpoint two is included. |
+| not_eventually_prime_kernel_one | proved | The existing full-conductor correlation estimate prevents a coprime odd-carrier character from being one at all sufficiently large primes. |
+| cofinite_native_weight_pair_rigidity | proved | Every actual oriented prime pair is determined by its cofinite native-weight profile, without height ordering or a fixed gap bound. |
+| unbounded_least_gap_global_native_frames | proved | Existing positive H1 frames admit only the identical cofinite-profile-preserving actual return, with no target-height or gap ceiling. |
+
+Supporting definition: `cofiniteNativeWeightMatch`.
+
+Both maintained owners compile without warnings. All nine new-only theorem closures use propext, Classical.choice and Quot.sound. The local readout does not require prime integer endpoints; primality is used in the global odd-carrier inverse.
+
+benchmark_status: universal global inverse and its actual H1-frame consumer proved.
+old_bound: exact and quantitative finite-band reconstruction applied to common (Q,Q^2] windows with a fixed positive gap bound.
+new_bound: cofinite native-profile equality determines every actual positive-gap prime pair, with arbitrary integer heights and gaps. The observation hypothesis is cofinite prime fields; this does not enlarge the domain of the earlier finite-band quantitative theorem.
+components: full centered native scalar law; every endpoint and gap mask; exact gap-square cancellation; negative endpoint-product characters; explicit odd unique endpoint including two; full4D conductor; existing universal correlation estimate and square-band margin; actual positive least-gap frames.
+actuals: nine universal maintained kernel proofs and nine new-only foundational-axiom audits, without numerical substitute estimates.
+first_nonpositive_domain: positive gaps and actual prime endpoints are retained. Field primes two, three, endpoint divisors and gap divisors lie in the allowed finite exceptional set. No positive-density erasure threshold, return existence, new pair supply, numerical H1 value, RH/QRH gain or established priority is claimed.
+

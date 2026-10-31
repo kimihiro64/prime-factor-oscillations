@@ -12378,6 +12378,131 @@ prime recurrence or RH conclusion is inferred. Optimality of
 \(2\log2\) and historical priority are not asserted.
 
 
+
+\subsection{Global reconstruction after arbitrary finite erasures}
+\label{sec:native-global-return}
+
+The finite-band results retain their stated common-height windows.
+A different observation hypothesis gives a global inverse with no
+height or gap ceiling: retain the native weight at all but finitely
+many prime fields.
+
+\begin{lemma}[The native endpoint-product readout]
+\label{lem:native-endpoint-readout}
+For positive integers \(n,h\) and a prime \(p\ge5\) with \(n+h<p\),
+\[
+ \bigl((p-3)W_p(n,h)-(p-1)\bigr)^2
+                =2+2\left(\frac{-n(n+h)}p\right).
+\]
+Primality of the two integer endpoints is not needed for this local identity.
+\end{lemma}
+\begin{proof}
+The hypotheses make \(n,h,n+h\) nonzero modulo \(p\), excluding
+both forbidden openings. The exact scalar law identifies the centered
+weight with
+\[
+ a_p+b_p=\left(\frac{-hn}p\right)
+                       +\left(\frac{h(n+h)}p\right).
+\]
+Both summands square to one. Their product is
+\[
+ \left(\frac{-h^2n(n+h)}p\right)
+                         =\left(\frac{-n(n+h)}p\right),
+\]
+since \(h\not\equiv0\pmod p\). Squaring the sum proves the formula.
+\end{proof}
+
+\begin{theorem}[Global native-profile reconstruction]
+\label{thm:native-global-inverse}
+Let \(n,n+h,m,m+k\) be prime integers with \(h,k>0\).
+If
+\[
+                     W_p(n,h)=W_p(m,k)
+\]
+for every sufficiently large prime \(p\), then
+\[
+                              n=m,\qquad h=k.
+\]
+The pairs need not be consecutive. There is no assumed ordering of
+their heights and no fixed upper bound on their gaps.
+\end{theorem}
+\begin{proof}
+Suppose the pairs differ, and put
+\[
+                         D=n(n+h)m(m+k)>0.
+\]
+For every sufficiently large prime, the lemma and weight equality give
+\[
+ \left(\frac{-n(n+h)}p\right)
+                      =\left(\frac{-m(m+k)}p\right).
+\]
+These values are \(\pm1\), so
+\begin{equation}\label{eq:native-global-constant-character}
+                            \left(\frac Dp\right)=1.
+\end{equation}
+
+We retain an explicit odd prime carrier for \(D\), including when an
+integer endpoint is two. If the upper endpoints differ, take the
+larger upper endpoint \(P\). It exceeds the other three endpoints,
+is prime and is greater than two. If the upper endpoints agree,
+the lower endpoints differ; take the larger lower endpoint \(P\).
+It exceeds the other lower endpoint and is below the common upper
+endpoint, so again \(P>2\) is a unique endpoint prime.
+In both cases
+\[
+                       D=AP,\qquad A>0,\quad (A,P)=1.
+\]
+Repeated shared endpoints remain in \(A\); their multiplicities
+are not discarded.
+
+The maintained constructive character criterion makes the complete
+numerator character of \(D\), with its full conductor budget \(4D\),
+nonprincipal. The proved reciprocal-prime estimate gives an absolute
+\(C>0\) such that on every prime band \(2<Y<X\),
+\[
+ \left|\sum_{\substack{Y\le p<X\\p\ {\rm prime}}}
+                  \frac1p\left(\frac Dp\right)\right|
+       \le C(3+\log(4D))^2Y^{-1/32}.
+\]
+Apply the maintained uniform square-band margin to the fixed
+constant \(C(3+\log(4D))^2\). On a sufficiently late band
+\(K<p\le K^2\), the right side is strictly smaller than
+\(M=\sum_{K<p\le K^2,\ p\ {\rm prime}}1/p\).
+Here all field primes can also be chosen beyond the exceptional
+set in the hypothesis and beyond both pairs' endpoints.
+But \eqref{eq:native-global-constant-character} makes the signed
+correlation exactly \(M\), a contradiction.
+\end{proof}
+
+\begin{corollary}[Unrestricted returns on the existing least-gap frames]
+\label{cor:native-global-least-gap}
+There are unbounded positive retained-mass frames at the actual
+consecutive pair \(Q+1,Q+1+H_1\) such that every actual prime pair
+\(m,m+k\), \(k>0\), with the same native weights at all sufficiently
+large prime fields is that identical pair and has \(k=H_1\).
+No bound \(m+k\le Q^2\), condition \(Q<m\), or ceiling \(k\le H_1\)
+is needed.
+\end{corollary}
+\begin{proof}
+Apply the global theorem to each existing positive least-gap frame.
+Those frames supply actual consecutive prime endpoints; the return
+is any actual prime pair. The global inverse identifies both its
+lower endpoint and its gap.
+\end{proof}
+
+The owners \texttt{FiniteFieldNativeEndpointReadout.lean} and
+\texttt{FiniteFieldNativeGlobalReturn.lean} contain nine new maintained
+theorem declarations with foundational-only axiom closures.
+The local observation is the actual scalar probability weight, not
+a pair of separately supplied character labels. Arbitrary finite
+erasures of prime-field observations preserve this global inverse.
+The theorem supplies no return existence or new integer pair supply,
+and therefore no numerical \(H_1\) value or RH conclusion.
+The general character-separation mechanism is classical
+\cite{LauWuLeastNonresidue}; priority of this native-profile application
+has not been established.
+
+
 \begin{thebibliography}{99}
 \bibitem{LauWuLeastNonresidue}
 Y.-K. Lau and J. Wu, \emph{On the least quadratic non-residue},
