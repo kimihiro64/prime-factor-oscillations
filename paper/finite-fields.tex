@@ -7162,6 +7162,168 @@ retains both the full uniform bound and the actual integer frame
 in the same existential statement. All are exported through
 \texttt{Assembly/ProbabilityProfiles}.
 
+\section{Quantitative separation of the raw and averaged pair laws}
+The raw elliptic law and the trace-free law have the same forbidden
+rows, but their fluctuations have different accumulated sizes. The
+following comparison concerns the complete finite product space. It
+does not assume or prove positive mass in an integer interval.
+
+For an odd finite field of cardinality \(q\), fix \(h\ne0\) and put
+\[
+\begin{gathered}
+ u(c)=\frac{4w(c,h)}{q-d},\qquad
+ f(c)=\frac{q}{q-2}{\bf1}_{c\ne0,-h},\\
+ v(c)=\hbox{the normalized trace-free pair weight},
+ \quad d=3-\chi(h)-\chi(-h).
+\end{gathered}
+\]
+All three densities have sum \(q\). For nonnegative densities of this
+normalization define
+\[
+ H_q(a,b)=\frac1q\sum_{c\in\F_q}\sqrt{a(c)b(c)}.
+\]
+In particular
+\[
+ \frac1q\sum_c(\sqrt{a(c)}-\sqrt{b(c)})^2=2(1-H_q(a,b)).
+ \tag{HA}
+\]
+
+\begin{theorem}[Raw versus averaged affinity]
+For \(q\ge16\),
+\[
+ H_q(u,f)\le1-\frac1{64q},\qquad
+ 1-H_q(v,f)\le\frac5{q^2}.
+ \tag{HB}
+\]
+For \(q\ge2048\),
+\[
+ H_q(u,v)\le1-\frac1{256q}.
+ \tag{HC}
+\]
+The hypotheses exclude characteristic two and the zero shift.
+No pointwise Hasse estimate or integer prime-pair hypothesis is needed.
+\end{theorem}
+\begin{proof}
+The exact raw second moment already proved above is
+\[
+ \frac1q\sum_c u(c)^2
+   =1+\frac{3q+d}{q(q-d)},\qquad 1\le d\le5.
+\]
+The count \(w(c,h)\) is a sum of \(q\) zero-one indicators, so
+\(0\le w(c,h)\le q\). Thus \(0\le u\le6\) and \(0\le f\le2\)
+when \(q\ge16\). Since \(u\) vanishes on the forbidden rows and
+has mean one,
+\[
+ \frac1q\sum_c u(c)f(c)=\frac1q\sum_c f(c)^2=\frac q{q-2}.
+\]
+Consequently
+\[
+ \frac1q\sum_c(u(c)-f(c))^2
+ =1+\frac{3q+d}{q(q-d)}-\frac q{q-2}\ge\frac1{2q}.
+ \tag{HD}
+\]
+Indeed the middle raw moment is at least \(1+3/q\), and
+\[
+ 1+\frac3q-\frac q{q-2}-\frac1{2q}
+   =\frac{q-10}{2q(q-2)}\ge0.
+\]
+For every row,
+\[
+ (u-f)^2=(\sqrt u-\sqrt f)^2(\sqrt u+\sqrt f)^2
+ \le16(\sqrt u-\sqrt f)^2,
+\]
+because \((\sqrt u+\sqrt f)^2\le2(u+f)\le16\).
+Summing and using (HA) and (HD) proves the first bound in (HB).
+
+For the second bound retain the exact zero-extended correction
+\[
+ \delta(c)=(1-2/q)v(c)-{\bf1}_{c\ne0,-h},\qquad
+ v(c)=f(c)(1+\delta(c)).
+\]
+The proved local estimates give \(1+\delta\ge1/2\) and
+\(q^{-1}\sum_c\delta(c)^2\le5/q^2\). For \(a\ge0\),
+\((\sqrt a-1)^2\le(a-1)^2\). Hence, including both forbidden rows,
+\[
+ (\sqrt v-\sqrt f)^2
+   =f(\sqrt{1+\delta}-1)^2\le f\delta^2\le2\delta^2.
+\]
+Now (HA) gives \(1-H_q(v,f)\le5/q^2\).
+
+The full square-root triangle inequality yields
+\[
+ 1-H_q(u,v)\ge
+   \tfrac12(1-H_q(u,f))-(1-H_q(v,f))
+   \ge\frac1{128q}-\frac5{q^2}.
+\]
+This is at least \(1/(256q)\) for \(q\ge2048\), since the difference
+is \((q-1280)/(256q^2)\). This proves (HC).
+\end{proof}
+
+\begin{theorem}[Complete finite-product comparison]
+For any finite family of such fields and shifts, write
+\[
+ U((c_i)_i)=\prod_i u_i(c_i),\quad
+ V((c_i)_i)=\prod_i v_i(c_i),\quad
+ F((c_i)_i)=\prod_i f_i(c_i).
+\]
+Normalize affinity by \(\prod_i q_i\). If every \(q_i\ge16\), then
+\[
+ H(U,F)\le
+   \exp\left(-\sum_i\frac1{64q_i}\right),\qquad
+ H(V,F)\ge1-\sum_i\frac5{q_i^2}.
+ \tag{HE}
+\]
+If every \(q_i\ge2048\), then
+\[
+ H(U,V)\le
+   \exp\left(-\sum_i\frac1{256q_i}\right).
+ \tag{HF}
+\]
+\end{theorem}
+\begin{proof}
+Finite Fubini gives \(H(A,B)=\prod_i H_{q_i}(a_i,b_i)\).
+Apply (HB), (HC) and \(1-t\le e^{-t}\) for the upper bounds.
+For the lower bound use \(0\le H_{q_i}(v_i,f_i)\le1\) and the
+finite product inequality
+\(1-\prod_i a_i\le\sum_i(1-a_i)\) for \(0\le a_i\le1\).
+This retains the joint product rather than bounding the individual
+density corrections separately.
+\end{proof}
+
+\paragraph{Meaning for the integer transfer.}
+These are explicit finite-law comparisons; product-affinity theory is
+classical (see, for example, \cite{KudoKakutani}). The specific inputs
+here are the exact raw quadratic-pair moment and the zero-extended
+trace-free correction. The reciprocal and inverse-square budgets are
+different, so a uniform identification of the raw and averaged
+probability laws is unjustified. This does not obstruct a separate
+positivity argument using their supports.
+
+Positive complete-product mass does not yet supply positive incomplete
+integer mass at the critical divisor cutoff. For a fixed positive even
+shift \(h\), the remaining arithmetic target is
+\[
+ \sum_{X<n\le2X}U_{\sqrt{2X+h}}(n)>0
+ \quad\hbox{along an unbounded sequence of }X.
+\]
+The exact signed integer Fourier remainder, including every raw
+Gauss--Kloosterman term and every mask correction, is still unestimated
+at the strength needed for this assertion. Neither a new integer
+prime-pair supply nor a value of \(H_1\) is claimed.
+
+\paragraph{Formal status.}
+All statements (HA)--(HF), with the domains displayed above, are proved
+by these maintained owners:
+\begin{itemize}
+\item \texttt{Assembly/FiniteFieldPairAffinity};
+\item \texttt{Assembly/FiniteFieldRawHellinger};
+\item \texttt{Assembly/FiniteFieldTwistHellinger};
+\item \texttt{Assembly/FiniteFieldPairProductSeparation}.
+\end{itemize}
+The finite tensorization reuses
+\texttt{QuadraticPairTwistJoint.packetMean\_pure}.
+These owners are exported through \texttt{Assembly/FiniteFieldPairPackets}.
+
 \section{Arithmetic transfers and the next ascent investigation}
 \paragraph{Existing ingredients.}
 The generic greedy record sandwich and the maintained periodic and
@@ -7308,5 +7470,8 @@ I. Sason and S. Verd\'u,
 arXiv:1508.00335.
 \url{https://arxiv.org/abs/1508.00335}.
 
+\bibitem{KudoKakutani} Kudo,
+\emph{A Theorem of Kakutani on Infinite Product Measures} (1952).
+\url{https://teapot.lib.ocha.ac.jp/record/35128/files/KJ00004829299.pdf}.
 \end{thebibliography}
 \end{document}

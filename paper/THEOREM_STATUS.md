@@ -1,5 +1,48 @@
 # Paper theorem and provenance ledger
 
+## Raw and averaged finite-field pair-law separation - 30 October 2026
+
+**Fully matched: 36 declarations in four maintained owners.** For odd finite fields, nonzero shift, and q>=16, the original normalized irreducible-quadratic law u and flat admissibility law f satisfy H(u,f)<=1-1/(64q), while the trace-free law v satisfies 1-H(v,f)<=5/q^2. For q>=2048, H(u,v)<=1-1/(256q). On every complete finite product the upper bounds exponentiate with the reciprocal-cardinality sum; the averaged/flat affinity is at least 1-sum(5/q_i^2). Every forbidden row and all square-root cross terms remain. These are finite-law comparisons, with no Hasse or integer primality assumption. No positive incomplete integer pair mass, new H_1 bound, or zero-free improvement is claimed. The independent critical-height integer mass remains open. The specific comparison is an originality prospect; general product-affinity theory is classical.
+
+All declarations below are compiled and focused-axiom-audited; the only axioms are `propext`, `Classical.choice`, and `Quot.sound`.
+
+- `PrimeFactorOscillations.FiniteFieldPairAffinity.affinity_nonneg` - compiled and focused-audited.
+- `PrimeFactorOscillations.FiniteFieldPairAffinity.affinity_symm` - compiled and focused-audited.
+- `PrimeFactorOscillations.FiniteFieldPairAffinity.sqrt_energy_identity` - compiled and focused-audited.
+- `PrimeFactorOscillations.FiniteFieldPairAffinity.affinity_le_one` - compiled and focused-audited.
+- `PrimeFactorOscillations.FiniteFieldPairAffinity.scalar_square_gap_le` - compiled and focused-audited.
+- `PrimeFactorOscillations.FiniteFieldPairAffinity.square_distance_le_affinity_defect` - compiled and focused-audited.
+- `PrimeFactorOscillations.FiniteFieldPairAffinity.affinity_defect_triangle` - compiled and focused-audited.
+- `PrimeFactorOscillations.FiniteFieldPairAffinity.overlap_le_affinity` - compiled and focused-audited.
+- `PrimeFactorOscillations.FiniteFieldRawHellinger.pair_count_bounds` - compiled and focused-audited.
+- `PrimeFactorOscillations.FiniteFieldRawHellinger.normalization_total` - compiled and focused-audited.
+- `PrimeFactorOscillations.FiniteFieldRawHellinger.denominator_pos` - compiled and focused-audited.
+- `PrimeFactorOscillations.FiniteFieldRawHellinger.raw_density_quotient` - compiled and focused-audited.
+- `PrimeFactorOscillations.FiniteFieldRawHellinger.raw_density_bounds` - compiled and focused-audited.
+- `PrimeFactorOscillations.FiniteFieldRawHellinger.sum_raw_density` - compiled and focused-audited.
+- `PrimeFactorOscillations.FiniteFieldRawHellinger.raw_mul_mask` - compiled and focused-audited.
+- `PrimeFactorOscillations.FiniteFieldRawHellinger.flat_density_bounds` - compiled and focused-audited.
+- `PrimeFactorOscillations.FiniteFieldRawHellinger.sum_flat_density` - compiled and focused-audited.
+- `PrimeFactorOscillations.FiniteFieldRawHellinger.raw_flat_cross_moment` - compiled and focused-audited.
+- `PrimeFactorOscillations.FiniteFieldRawHellinger.flat_second_moment` - compiled and focused-audited.
+- `PrimeFactorOscillations.FiniteFieldRawHellinger.raw_flat_square_distance_eq` - compiled and focused-audited.
+- `PrimeFactorOscillations.FiniteFieldRawHellinger.raw_second_moment_lower` - compiled and focused-audited.
+- `PrimeFactorOscillations.FiniteFieldRawHellinger.raw_flat_square_distance_lower` - compiled and focused-audited.
+- `PrimeFactorOscillations.FiniteFieldRawHellinger.raw_flat_affinity_upper` - compiled and focused-audited.
+- `PrimeFactorOscillations.FiniteFieldTwistHellinger.scalar_sqrt_defect_le_square` - compiled and focused-audited.
+- `PrimeFactorOscillations.FiniteFieldTwistHellinger.twist_density_nonneg` - compiled and focused-audited.
+- `PrimeFactorOscillations.FiniteFieldTwistHellinger.sum_twist_density` - compiled and focused-audited.
+- `PrimeFactorOscillations.FiniteFieldTwistHellinger.twist_flat_sqrt_gap_le` - compiled and focused-audited.
+- `PrimeFactorOscillations.FiniteFieldTwistHellinger.twist_flat_affinity_defect_upper` - compiled and focused-audited.
+- `PrimeFactorOscillations.FiniteFieldTwistHellinger.raw_twist_affinity_upper` - compiled and focused-audited.
+- `PrimeFactorOscillations.FiniteFieldPairProductSeparation.sqrt_product` - compiled and focused-audited.
+- `PrimeFactorOscillations.FiniteFieldPairProductSeparation.packet_affinity_factorization` - compiled and focused-audited.
+- `PrimeFactorOscillations.FiniteFieldPairProductSeparation.affinity_product_exp_bound` - compiled and focused-audited.
+- `PrimeFactorOscillations.FiniteFieldPairProductSeparation.product_defect_bound` - compiled and focused-audited.
+- `PrimeFactorOscillations.FiniteFieldPairProductSeparation.raw_flat_packet_upper` - compiled and focused-audited.
+- `PrimeFactorOscillations.FiniteFieldPairProductSeparation.raw_twist_packet_upper` - compiled and focused-audited.
+- `PrimeFactorOscillations.FiniteFieldPairProductSeparation.twist_flat_packet_lower` - compiled and focused-audited.
+
 ## Exact split-norm Fourier packet and principal row — 28 October 2026
 
 **Fully matched: 13 declarations in one maintained owner.** Over every finite field with distinct roots `r+s=-1`, `r*s=1`, the complete norm-coordinate Fourier sum is `chi(3)*tau(chi)^2*chi^-1(N(w))` for every nonprincipal multiplicative character. No primitive additive-character assumption is needed for that identity. For primitive additive characters the full principal row is exactly `1-q*1_(N(w)=0)+q*(q-1)*1_(w=0)`. Both isotropic lines, their intersection and all nonzero frequencies remain. Characteristic three is excluded by the root hypotheses themselves. The actual Eisenstein quotient/trace specialization, assembled phase-centering consumer and full signed reciprocal-L estimate remain open. No arithmetic power improvement is claimed: the certified boundary is **7/8**, with target **at most 3/4**.
