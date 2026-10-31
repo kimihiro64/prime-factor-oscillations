@@ -2894,7 +2894,7 @@ Classical trace and totient identities are supporting inputs, not novelty claims
 Owners: PrimeFactorOscillations/Mathlib/NumberTheory/ArithmeticFunction/DivisorKernelAtoms.lean and PrimeFactorOscillations/Mathlib/NumberTheory/LegendreSymbol/QuadraticPairOddPellConductor.lean.
 Export: QuadraticPairOddPellLaws, then the existing correlation and root facades.
 
-These inputs are proved. The arbitrary-test-function distribution law is proved in the next section. The full localization candidate remains open at converse signed-probe attainability and the sharp support spectrum.
+These inputs are proved. The arbitrary-test-function distribution law and the complete finite signed-span converse are proved in the following sections. The full localization candidate remains open at the sharp support spectrum and exact minimum.
 
 | Lean declaration | Status | Exact scope |
 | --- | --- | --- |
@@ -2926,9 +2926,9 @@ old_bound: complete quadratic signed energy, with no exported native primitive-a
 new_bound: disjoint primitive atoms have exact size phi(d), and membership at any odd degree is exactly divisor membership. No new integer-window lower bound or analytic exponent is claimed.
 components: least-label gcd rigidity, finite disjoint union, strong divisor induction, sum of totients, native sector gcd intersections, equality from inclusion and cardinality, and both opposite-sector masks.
 actuals: universal Lean proofs for the stated divisor ideals, fields and degrees; no finite numerical completion supplies an estimate.
-first_nonpositive_domain: degree1 has an empty atom; q3 is outside normalized probability interpretation. Nonlinear pushforward is proved below; converse signed-span attainability and the full support spectrum remain open. The integer joint-survivor problem, H1/RH and the paused7/8 boundary are unchanged.
+first_nonpositive_domain: degree1 has an empty atom; q3 is outside normalized probability interpretation. Nonlinear pushforward and the finite signed-span converse are proved below; the sharp support spectrum and exact minimum remain open. The integer joint-survivor problem, H1/RH and the paused7/8 boundary are unchanged.
 
-The primitive order/totient data are classical inputs, not the proposed novelty claim. The selected research target is the full signed-probe localization spectrum; its converse and historical priority remain unresolved.
+The primitive order/totient data are classical inputs, not the proposed novelty claim. The selected research target is the full signed-probe localization spectrum; its sharp support/minimum formalization and historical priority remain unresolved.
 
 ## Full finite signed odd-Pell distribution (2026-10-31)
 
@@ -2953,9 +2953,39 @@ Export: QuadraticPairOddPellLaws, then the existing correlation and root facades
 
 The five definitions are FiniteField.oddPellSignedProbe, FiniteField.oddPellAtomLabels, FiniteField.oddPellAtom, FiniteField.oddPellAtomDegree and FiniteField.oddPellAtomWeight. The law averages uniformly over the q input points; it does not sample inputs with density W. No continuity of the test function, RH hypothesis or restriction on characteristic-divisible odd degrees is used.
 
-benchmark_status: exact full pushforward proved;13 new real maintained theorems and5 definitions. The selected localization target now has33 proved theorems; converse attainability and the complete support spectrum remain open.
+benchmark_status: exact full pushforward proved;13 maintained theorems and5 definitions in this owner, bringing the localization candidate to33 theorems at this stage. The finite signed-span converse is proved in the next section; the sharp support spectrum and exact minimum remain open.
 old_bound: exact signed quadratic energy and native atom partition.
 new_bound: complete finite distribution of every signed probe, with atom masses phi(d)/q and an explicitly retained zero-value correction.
 components: exact disjoint atom cover, divisor-filtered signed values, compensation f(value)-f(0), finite sum interchange and nonzero-shift bijection.
 actuals: universal Lean proofs over the stated full domain; no numerical estimate is substituted.
-first_nonpositive_domain: signed divisor sums may vanish, so a probe can erase an atom. This is included exactly in the law; arbitrary atom isolation is not yet proved. Integer-window survivor positivity, H1/RH and the paused7/8 boundary remain unchanged.
+first_nonpositive_domain: signed divisor sums may vanish, so a probe can erase an atom. This is included exactly in the law. Arbitrary atom isolation is proved below; integer-window survivor positivity, H1/RH and the paused7/8 boundary remain unchanged.
+
+## Complete finite signed odd-Pell span (2026-10-31)
+
+Owner: PrimeFactorOscillations/Mathlib/NumberTheory/LegendreSymbol/QuadraticPairOddPellLocalization.lean.
+Export: QuadraticPairOddPellLaws, then the existing correlation and root facades.
+
+| Lean declaration | Status | Exact scope |
+| --- | --- | --- |
+| FiniteField.oddPell_splitWeight_pos | proved | q>=5 makes the split weight strictly positive. |
+| FiniteField.oddPell_nonsplitWeight_pos | proved | q>=5 makes the nonsplit weight strictly positive. |
+| FiniteField.oddPell_atomWeight_pos | proved | Every tagged primitive weight is strictly positive. |
+| FiniteField.oddPell_atomDegree_pos | proved | Every admissible primitive degree is positive. |
+| FiniteField.oddPell_atomDegree_odd | proved | Every admissible primitive degree is odd. |
+| FiniteField.oddPell_atomDegree_injective | proved | At q>=5, equal primitive degrees force equal tagged labels, including across sectors. |
+| FiniteField.oddPell_probe_add | proved | Exact finite union and zero-extension construction for addition of signed probes. |
+| FiniteField.oddPell_mem_probeSpace | proved | Membership means an actual finite index set and real coefficient function represent the input function. |
+| FiniteField.oddPell_defect_mem_probeSpace | proved | Every individual defect is a singleton finite signed probe. |
+| FiniteField.oddPell_probe_atom_expansion | proved | Complete pointwise primitive-indicator expansion of every signed probe at every nonzero shift. |
+| FiniteField.oddPell_defect_atom_expansion | proved | Exact divisor-triangular primitive-indicator expansion of every individual defect. |
+| FiniteField.oddPell_atomIndicator_mem_probeSpace | proved | Each primitive indicator has a finite signed Pell representation, by strong divisor induction and positive-weight inversion. |
+| FiniteField.oddPell_probeSpace_iff_atom_expansion | proved | Complete converse: finite signed probes are exactly arbitrary real combinations of the finitely many primitive indicators. |
+
+The two definitions are FiniteField.oddPellAtomIndicator and FiniteField.oddPellProbeSpace. The latter's carrier explicitly requires a finite index set and coefficient function; no abstract or infinite representability assumption replaces a finite probe. Every field-level converse holds for every nonzero h, q>=5 and 2 nonzero.
+
+benchmark_status: full finite signed-span converse proved;13 new maintained theorems and2 definitions,46 candidate theorems and12 definitions cumulatively. A5 sharp support/minimum and A6 final full-target integration remain open.
+old_bound: full forward distribution with exact signed values on primitive classes, without converse finite representability.
+new_bound: every primitive indicator and every finite real combination of them is an actual finite signed probe; this characterizes the entire probe space.
+components: positive native weights, no equal primitive degrees across sectors, finite union coefficient construction, full pointwise expansion and strict proper-divisor induction with signed subtraction.
+actuals: universal Lean proofs over the full stated field and shift domain; no finite computations or unproved analytic inputs.
+first_nonpositive_domain: every sector weight is positive at q>=5. The q3 quotient degeneracy and the sharp support-cardinality/minimum theorem are still to be formalized under A5. No new integer-window positivity or RH/QRH gain is claimed. Historical priority remains unconfirmed.

@@ -10473,11 +10473,10 @@ The least-label partition, exact totient counts and native
 divisor response are proved and exported.
 These classical order-geometric inputs are not a priority claim.
 
-The full arbitrary-test-function law is proved next.
-The remaining selected question is the attainable support spectrum
-of finite signed Pell probes. Its converse must show that each
-primitive class can be isolated by a finite signed probe.
-That converse is not asserted by the partition theorem.
+The full arbitrary-test-function law and the finite signed-span
+converse are proved in the following sections.
+The remaining selected question is the sharp support spectrum and
+exact minimum, including the exceptional characteristic-three cases.
 
 \section{The full distribution of a finite signed Pell probe}
 \label{sec:odd-pell-full-distribution}
@@ -10552,15 +10551,98 @@ It therefore preserves the complete uniform finite sum,
 which proves the displayed law.
 \end{proof}
 
-\paragraph{Scope and remaining converse.}
+\paragraph{Scope.}
 The maintained owner \texttt{QuadraticPairOddPellDistribution}
 contains thirteen theorems and five definitions and is exported
 through the existing odd-Pell and root facades.
-The theorem determines every probe's distribution, including
-which divisor sums cancel to zero.
-It does not yet prove that every union of primitive classes is
-attainable as a probe support. That converse and the sharp support
-spectrum remain open.
+It determines every probe's distribution, including which divisor
+sums cancel to zero. Finite signed representability of arbitrary
+primitive-class amplitudes is proved next.
+
+\section{The complete finite signed Pell span}
+\label{sec:odd-pell-signed-span}
+
+Let
+\[
+ {\cal I}=\{(\sigma,d):\sigma\in\{+,-\},\
+                 d>1,\ d\text{ odd},\ d\mid N_\sigma\},
+ \qquad
+ J_{\sigma,d,h}(c)=1_{P_\sigma(d)}((2/h)c).
+\]
+This is a finite label set. Write \({\cal V}_h\) for the real
+functions represented by an actual finite signed probe
+\(B_{S,a,h}\).
+
+\begin{theorem}[Complete finite signed-span classification]
+\label{thm:odd-pell-signed-span}
+For every odd finite field with \(q\ge5\) and every nonzero \(h\),
+\[
+ {\cal V}_h=
+ \left\{\sum_{(\sigma,d)\in{\cal I}}
+              b_{\sigma,d}J_{\sigma,d,h}:
+                   b_{\sigma,d}\in\mathbb R\right\}.
+\]
+In particular, each primitive-class indicator is represented by
+a finite set of indices and real signed coefficients.
+All odd indices are allowed in the generating probe family.
+\end{theorem}
+
+\begin{proof}
+The space of actual finite probes is a real vector space.
+For addition, take the union of the two finite index sets and
+extend both coefficient functions by zero before adding them.
+Scalar multiplication scales the coefficients.
+The pointwise expansion underlying the full distribution law gives
+\[
+ B_{S,a,h}=
+ \sum_{(\sigma,d)\in{\cal I}}
+     \left(\lambda_\sigma
+         \sum_{\substack{k\in S\\d\mid 2k+1}}a_k\right)
+               J_{\sigma,d,h}.
+\]
+This proves one inclusion.
+
+For the converse, first note that the numerical degree uniquely
+identifies a label in \({\cal I}\). Indeed, an odd \(d>1\) dividing
+both \(q-1\) and \(q+1\) would divide2, which is impossible.
+Also \(\lambda_+,\lambda_->0\): since \(t=\chi(-1)\in\{-1,1\}\),
+both numerators are at least \(q-1>0\) and the common denominator
+is \(q-3>0\).
+
+Induct strongly on the odd degree \(d\) of a label \((\sigma,d)\).
+The individual defect of index \(k=(d-1)/2\) has the exact expansion
+\[
+ \Delta_{(d-1)/2,h}
+   =\lambda_\sigma J_{\sigma,d,h}
+    +\sum_{\substack{(\tau,e)\in{\cal I}\\e\mid d,\ e<d}}
+                     \lambda_\tau J_{\tau,e,h}.
+\]
+Every indicator in the remaining finite sum already belongs to
+\({\cal V}_h\), by the induction hypothesis.
+The defect itself belongs to \({\cal V}_h\) as a singleton probe.
+Consequently
+\[
+ J_{\sigma,d,h}
+   =\lambda_\sigma^{-1}
+       \left(\Delta_{(d-1)/2,h}
+        -\sum_{\substack{(\tau,e)\in{\cal I}\\e\mid d,\ e<d}}
+                     \lambda_\tau J_{\tau,e,h}\right)
+       \in{\cal V}_h.
+\]
+The subtraction retains all proper-divisor terms and both
+sector labels. Finite linear closure now gives every prescribed
+collection of amplitudes \(b_{\sigma,d}\).
+\end{proof}
+
+\paragraph{Formal scope and next target.}
+The maintained owner \texttt{QuadraticPairOddPellLocalization}
+contains thirteen theorems and two definitions.
+Its probe-space carrier explicitly records the finite index set
+and coefficient function, so the converse is finite
+representability, not an assumed completion of a span.
+The remaining target is the sharp support-cardinality spectrum
+and exact minimum, with characteristic3 and the degenerate
+\(q=3\) quotient treated explicitly.
 These finite-field laws do not establish positive survivor mass
 inside an integer primality window or improve the paused QRH
 boundary. Historical priority of the full signed localization
