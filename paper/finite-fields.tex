@@ -2036,6 +2036,119 @@ The classical Hasse input, Artin--Schreier coverage, finite Fourier
 and CRT assertions, and integer short-interval consumer still have
 ordinary proofs here. These are separate statuses.
 
+\subsection{The original elliptic packet in Fourier coordinates}
+The original packet and its trace-free twist average have different
+Fourier rows. To keep the elliptic information in the integer mass
+consumer, we now compute the original row without averaging.
+For an odd prime \(p\geq7\), \(h\ne0\) in \(\F_p\), write
+\[
+ e_p(t)=\exp(2\pi i t/p),\qquad
+ \lambda_p=p-3+\chi_p(h)+\chi_p(-h).
+\]
+Then \(\lambda_p\geq p-5>0\), and the normalized weight is
+\(u_p(c)=4w_p(c;h)/\lambda_p\). The packet used for integer
+prime-pair support still uses its stated fallback at \(p<17\)
+and at \(p\mid h\).
+
+Define the complete sums
+\begin{align*}
+ G_p(a)&=\sum_{b\in\F_p}e_p(ab^2),&
+ g_p(a)&=\sum_{u\in\F_p}\chi_p(u)e_p(au),\\
+ \mathrm{Kl}_p(z)&=\sum_{t\in\F_p^\times}e_p(t+z/t),&
+ B_{p,h}(a)&=1-\chi_p(-4h)+(1-\chi_p(4h))e_p(4ah).
+\end{align*}
+
+\begin{theorem}[The full elliptic Fourier row]
+\label{thm:rawEllipticFourierRow}
+The zero frequency is \(\widehat u_p(0)=1\).
+For every \(a\ne0\) in \(\F_p\),
+\[
+ \widehat u_p(4a)=
+ -\frac{1+e_p(4ah)}{\lambda_p}
+ +\frac{G_p(-a)}{p\lambda_p}
+   \left(e_p(2ah)\mathrm{Kl}_p(a^2h^2)-B_{p,h}(a)\right).
+ \tag{RF}
+\]
+Both forbidden constant terms and both zero-discriminant
+compensations are retained.
+\end{theorem}
+\begin{proof}
+Put
+\[
+ T_{p,h}(a)=\sum_{u\in\F_p}
+ \mathbf1_{\substack{u\ \mathrm{nonsquare}\\
+                     u-4h\ \mathrm{nonsquare}}}e_p(au).
+\]
+Here zero is a square, so each indicator requires a nonzero
+nonsquare. The discriminant substitution \(u=b^2-4c\) gives,
+at every frequency including zero,
+\[
+ \sum_{c\in\F_p}w_p(c;h)e_p(-4ac)
+                  =G_p(-a)T_{p,h}(a).
+\]
+Let
+\[
+ Z_p(a)=\sum_u e_p(au),\qquad
+ Q_{p,h}(a)=\sum_u\chi_p(u(u-4h))e_p(au).
+\]
+Expansion of both nonsquare indicators, with their zero rows
+subtracted before summing, gives
+\[
+ 4T_{p,h}(a)=Z_p(a)
+ -(1+e_p(4ah))g_p(a)+Q_{p,h}(a)-B_{p,h}(a).
+\]
+There is no joint zero row because \(h\ne0\).
+
+Every affine point \(y^2=u(u-4h)\) has a unique parameter
+\(t=u-2h+y\ne0\), with inverse
+\[
+ u=2h+\frac{t+4h^2/t}{2},\qquad
+ y=\frac{t-4h^2/t}{2}.
+\]
+Counting the square-root fibers therefore gives the exact identity
+\[
+ Q_{p,h}(a)+Z_p(a)=
+ e_p(2ah)\sum_{t\ne0}e_p\!\left(\frac a2t+\frac{2ah^2}{t}\right).
+\]
+For \(a\ne0\), substituting \(v=at/2\) identifies the last
+sum with \(\mathrm{Kl}_p(a^2h^2)\).
+Thus the constant transform cancels against the conic transform
+before any estimate is made.
+The quadratic Gauss identity
+\(G_p(-a)g_p(a)=p\) now gives
+\[
+ 4\sum_c w_p(c;h)e_p(-4ac)=
+ G_p(-a)e_p(2ah)\mathrm{Kl}_p(a^2h^2)
+ -p(1+e_p(4ah))-G_p(-a)B_{p,h}(a).
+\]
+Division by \(p\lambda_p\) proves (RF).
+At zero frequency the already proved total count
+\(4\sum_cw_p(c;h)=p\lambda_p\) proves the normalization.
+\end{proof}
+
+\paragraph{Formal status and integer consumer.}
+The discriminant factorization and the complete signed expansion are
+proved in \texttt{Assembly.FiniteFieldRawPairFourier}.
+The affine conic parametrization, including its inverse and zero
+frequency, is proved in
+\texttt{Assembly.FiniteFieldRawPairKloosterman}.
+The normalized statements \texttt{raw\_fourier\_zero} and
+\texttt{raw\_fourier\_nonzero}, the Gauss product and the square
+Kloosterman argument are proved in
+\texttt{Assembly.FiniteFieldRawPairSpectrum}.
+The maintained results hold over arbitrary odd finite fields,
+with an arbitrary nontrivial complex additive character in the
+nonzero-frequency statement and \(q\geq7\) for normalization.
+They have no integer primality hypothesis.
+
+The nonprincipal term in \(S_h(X)\) above must retain (RF) when
+the original elliptic packet is used. Its Kloosterman and
+residue-exclusion terms are coupled at the same frequency.
+This identifies the original signed object to estimate; it does not
+prove its incomplete integer mass positive, give a new integer
+gap bound, or turn the trace-free packet's estimates into an
+estimate for the original packet.
+
 \subsection{A uniform elliptic--Dirichlet factorization}
 Fix positive integers \(n,h\), with \(h\) even. All products indexed
 by \(p\) in this subsection are over rational primes. At a prime
