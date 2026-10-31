@@ -10473,14 +10473,98 @@ The least-label partition, exact totient counts and native
 divisor response are proved and exported.
 These classical order-geometric inputs are not a priority claim.
 
-The selected further question is the complete distribution and
-attainable support spectrum of finite signed Pell probes.
-In particular, an exact converse must show that each primitive
-class can be isolated by a finite signed probe.
-That converse and the full arbitrary-test-function law are
-not asserted by the theorem above.
-Neither this finite-field partition nor the earlier energy
-identity proves positive mass in an integer primality window.
+The full arbitrary-test-function law is proved next.
+The remaining selected question is the attainable support spectrum
+of finite signed Pell probes. Its converse must show that each
+primitive class can be isolated by a finite signed probe.
+That converse is not asserted by the partition theorem.
+
+\section{The full distribution of a finite signed Pell probe}
+\label{sec:odd-pell-full-distribution}
+
+Write \(m_k=2k+1\), \(t=\chi(-1)\), and
+\[
+ \lambda_+=\frac{q+t}{q-3},\qquad
+ \lambda_-=\frac{q-t}{q-3},\qquad
+ B_{S,a,h}(c)=\sum_{k\in S}a_k\Delta_{k,h}(c).
+\]
+Here \(S\) is any finite set of nonnegative indices,
+\(a_k\in\mathbb R\) may have either sign, and the defect is
+\(\Delta_{k,h}(c)=W_h(c)-W_h(\Phi_{k,h}(c))\).
+The expectation below is uniform input averaging,
+\(q^{-1}\sum_{c\in\mathbb F_q}\), rather than input sampling
+with density \(W_h\).
+
+\begin{theorem}[Full signed-probe pushforward]
+\label{thm:odd-pell-full-distribution}
+Let \(\mathbb F_q\) be any odd finite field with \(q\ge5\),
+and let \(h\ne0\). For every function \(f:\mathbb R\to\mathbb R\),
+\begin{align*}
+ \frac1q\sum_{c\in\mathbb F_q}f(B_{S,a,h}(c))
+  =f(0)+\frac1q\sum_{\sigma\in\{+,-\}}
+     \sum_{\substack{d\mid N_\sigma\\d>1,\ d\ {\rm odd}}}
+       \varphi(d)
+       \left[
+       f\left(\lambda_\sigma
+           \sum_{\substack{k\in S\\d\mid m_k}}a_k\right)-f(0)
+       \right].
+\end{align*}
+No regularity condition on \(f\) is required, and indices divisible
+by the field characteristic are allowed.
+\end{theorem}
+
+\begin{proof}
+First take \(h=2\). The exact two-sector defect law says that
+\[
+ \Delta_{k,2}(c)
+   =\lambda_+1_{E_+(m_k)}(c)+
+      \lambda_-1_{E_-(m_k)}(c).
+\]
+At a point of \(P_\sigma(d)\), the partition theorem gives
+\(1_{E_\sigma(m_k)}(c)=1_{d\mid m_k}\), while every opposite-sector
+indicator vanishes. Consequently the entire signed sum has the
+constant value
+\[
+ v_{\sigma,d}=\lambda_\sigma
+                 \sum_{\substack{k\in S\\d\mid m_k}}a_k
+ \quad\hbox{on }P_\sigma(d).
+\]
+Every endpoint-sector point belongs to one of these atoms.
+Thus \(B_{S,a,2}\) vanishes off their union. Disjointness gives
+the pointwise identity
+\[
+ f(B_{S,a,2}(c))
+   =f(0)+\sum_{\sigma}\sum_{\substack{d\mid N_\sigma\\d>1,\ d\ {\rm odd}}}
+       1_{P_\sigma(d)}(c)\,[f(v_{\sigma,d})-f(0)].
+\]
+Sum over all \(q\) inputs and use
+\(|P_\sigma(d)|=\varphi(d)\). This proves the formula at shift2.
+In particular, the compensation by \(f(0)\) retains every zero
+value and every cancellation within the signed coefficient sums.
+
+For arbitrary nonzero \(h\), the already proved pointwise
+normalization gives
+\[
+ B_{S,a,h}(c)=B_{S,a,2}((2/h)c).
+\]
+Multiplication by \(2/h\) is a bijection of the field.
+It therefore preserves the complete uniform finite sum,
+which proves the displayed law.
+\end{proof}
+
+\paragraph{Scope and remaining converse.}
+The maintained owner \texttt{QuadraticPairOddPellDistribution}
+contains thirteen theorems and five definitions and is exported
+through the existing odd-Pell and root facades.
+The theorem determines every probe's distribution, including
+which divisor sums cancel to zero.
+It does not yet prove that every union of primitive classes is
+attainable as a probe support. That converse and the sharp support
+spectrum remain open.
+These finite-field laws do not establish positive survivor mass
+inside an integer primality window or improve the paused QRH
+boundary. Historical priority of the full signed localization
+spectrum remains unconfirmed.
 
 \begin{thebibliography}{99}
 \bibitem{DavidKoukoulopoulosSmith}

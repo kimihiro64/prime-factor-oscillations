@@ -2894,7 +2894,7 @@ Classical trace and totient identities are supporting inputs, not novelty claims
 Owners: PrimeFactorOscillations/Mathlib/NumberTheory/ArithmeticFunction/DivisorKernelAtoms.lean and PrimeFactorOscillations/Mathlib/NumberTheory/LegendreSymbol/QuadraticPairOddPellConductor.lean.
 Export: QuadraticPairOddPellLaws, then the existing correlation and root facades.
 
-These inputs are proved. The full localization candidate, including arbitrary nonlinear laws and converse signed-probe attainability, remains open.
+These inputs are proved. The arbitrary-test-function distribution law is proved in the next section. The full localization candidate remains open at converse signed-probe attainability and the sharp support spectrum.
 
 | Lean declaration | Status | Exact scope |
 | --- | --- | --- |
@@ -2926,6 +2926,36 @@ old_bound: complete quadratic signed energy, with no exported native primitive-a
 new_bound: disjoint primitive atoms have exact size phi(d), and membership at any odd degree is exactly divisor membership. No new integer-window lower bound or analytic exponent is claimed.
 components: least-label gcd rigidity, finite disjoint union, strong divisor induction, sum of totients, native sector gcd intersections, equality from inclusion and cardinality, and both opposite-sector masks.
 actuals: universal Lean proofs for the stated divisor ideals, fields and degrees; no finite numerical completion supplies an estimate.
-first_nonpositive_domain: degree1 has an empty atom; q3 is outside normalized probability interpretation. Nonlinear pushforward, converse signed-span attainability and the full support spectrum remain open. The integer joint-survivor problem, H1/RH and the paused7/8 boundary are unchanged.
+first_nonpositive_domain: degree1 has an empty atom; q3 is outside normalized probability interpretation. Nonlinear pushforward is proved below; converse signed-span attainability and the full support spectrum remain open. The integer joint-survivor problem, H1/RH and the paused7/8 boundary are unchanged.
 
-The primitive order/totient data are classical inputs, not the proposed novelty claim. The selected research target is the full signed-probe localization spectrum; its proof and historical priority remain unresolved.
+The primitive order/totient data are classical inputs, not the proposed novelty claim. The selected research target is the full signed-probe localization spectrum; its converse and historical priority remain unresolved.
+
+## Full finite signed odd-Pell distribution (2026-10-31)
+
+Owner: PrimeFactorOscillations/Mathlib/NumberTheory/LegendreSymbol/QuadraticPairOddPellDistribution.lean.
+Export: QuadraticPairOddPellLaws, then the existing correlation and root facades.
+
+| Lean declaration | Status | Exact scope |
+| --- | --- | --- |
+| FiniteField.oddPell_atomLabels_left | proved | Split labels are exactly the odd divisors d>1 of q-1. |
+| FiniteField.oddPell_atomLabels_right | proved | Nonsplit labels are exactly the odd divisors d>1 of q+1. |
+| FiniteField.oddPell_atom_card | proved | Every tagged primitive atom has cardinality phi(d). |
+| FiniteField.oddPell_atom_disjoint | proved | All distinct tagged atoms are disjoint, including opposite sectors. |
+| FiniteField.oddPell_defect_degree_sectors | proved | Exact two-sector pointwise defect, with both weights retained. |
+| FiniteField.oddPell_defect_on_atom | proved | A degree-m defect at a primitive d-point is its sector weight iff d divides m. |
+| FiniteField.oddPell_probe_on_atom | proved | Arbitrary finite signed coefficients give the exact divisor-filtered probe value. |
+| FiniteField.oddPell_exists_atom_of_sector | proved | Every endpoint-sector point belongs to a nonempty-label primitive class. |
+| FiniteField.oddPell_defect_off_atoms | proved | Every defect vanishes outside the union of all primitive classes. |
+| FiniteField.oddPell_probe_off_atoms | proved | Every finite signed probe vanishes outside that same union. |
+| FiniteField.oddPell_probe_distribution_two | proved | Arbitrary real test-function pushforward at shift2, with zero compensation. |
+| FiniteField.oddPell_probe_normalize | proved | Every nonzero shift transports the whole signed probe by c maps to (2/h)c. |
+| FiniteField.oddPell_probe_distribution | proved | Full arbitrary-test-function distribution, every nonzero shift, q>=5 and 2 nonzero. |
+
+The five definitions are FiniteField.oddPellSignedProbe, FiniteField.oddPellAtomLabels, FiniteField.oddPellAtom, FiniteField.oddPellAtomDegree and FiniteField.oddPellAtomWeight. The law averages uniformly over the q input points; it does not sample inputs with density W. No continuity of the test function, RH hypothesis or restriction on characteristic-divisible odd degrees is used.
+
+benchmark_status: exact full pushforward proved;13 new real maintained theorems and5 definitions. The selected localization target now has33 proved theorems; converse attainability and the complete support spectrum remain open.
+old_bound: exact signed quadratic energy and native atom partition.
+new_bound: complete finite distribution of every signed probe, with atom masses phi(d)/q and an explicitly retained zero-value correction.
+components: exact disjoint atom cover, divisor-filtered signed values, compensation f(value)-f(0), finite sum interchange and nonzero-shift bijection.
+actuals: universal Lean proofs over the stated full domain; no numerical estimate is substituted.
+first_nonpositive_domain: signed divisor sums may vanish, so a probe can erase an atom. This is included exactly in the law; arbitrary atom isolation is not yet proved. Integer-window survivor positivity, H1/RH and the paused7/8 boundary remain unchanged.
