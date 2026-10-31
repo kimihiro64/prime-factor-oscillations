@@ -12119,6 +12119,167 @@ coordinates and the existing integer frames.  We claim no new general
 least-nonresidue estimate; historical priority of this joint application
 remains unconfirmed.
 
+\subsection{The actual native probability weights suffice}
+\label{sec:native-integer-return}
+
+The preceding theorem can be strengthened to the original scalar weight.
+For an odd prime \(p\), put
+\[
+ W_p(n,h)=\operatorname{traceFreePairWeight}_{\mathbb F_p}
+                         (n\bmod p,h\bmod p).
+\]
+This is the already constructed finite-field conditional pair weight,
+evaluated at the actual integer pair.  We assert no new integer sampling
+or short-window equidistribution theorem.
+
+For a finite band
+\[
+ S_{Y,X}=\{p:\ p\ {\rm prime},\ Y\le p<X\},
+\]
+let \(M=\sum_{p\in S_{Y,X}}1/p\), and write
+\[
+ a_p=\left(\frac{-hn}{p}\right),\quad
+ b_p=\left(\frac{h(n+h)}p\right),\quad
+ c_p=\left(\frac{-km}{p}\right),\quad
+ d_p=\left(\frac{k(m+k)}p\right).
+\]
+Every correlation below has this same finite support:
+\[
+ C_{uv}=\sum_{p\in S_{Y,X}}\frac{u_pv_p}p,\qquad
+ E=\sum_{p\in S_{Y,X}}\frac{(a_p+b_p-c_p-d_p)^2}p.
+\]
+
+\begin{lemma}[The complete signed native separation bound]
+\label{lem:native-signed-energy}
+There is an absolute \(C>0\) with the following property.
+Suppose \(n,n+h,m,m+k\) are prime,
+\[
+ 0<h,k\le H<Y,\qquad 2<Y<X\le n,m,\qquad
+                  n+h,m+k\le T,
+\]
+and \((n,h)\ne(m,k)\). Set
+\[
+ \varepsilon=
+ C\bigl(3+\log(4H^2T^2)\bigr)^2Y^{-1/32}.
+\]
+Then
+\begin{equation}\label{eq:native-energy-lower}
+                         E\ge2M-10\varepsilon.
+\end{equation}
+In particular all shared-endpoint cases are included.
+\end{lemma}
+
+\begin{proof}
+Every one of \(a_p,b_p,c_p,d_p\) is \(\pm1\) on this band.
+The exact expansion, retaining every term, is
+\begin{equation}\label{eq:native-full-energy}
+ E=4M+2C_{ab}+2C_{cd}
+             -2C_{ac}-2C_{ad}-2C_{bc}-2C_{bd}.
+\end{equation}
+The internal products have numerators
+\(-h^2n(n+h)\) and \(-k^2m(m+k)\).
+Each contains a distinct endpoint prime to odd valuation.
+The constructive coprime-factor criterion and the same full conductor
+budget as before therefore give
+\[
+                   C_{ab},C_{cd}\ge-\varepsilon.
+\]
+
+The four cross products have numerators
+\[
+ hknm,\quad -hkn(m+k),\quad
+             -hk(n+h)m,\quad hk(n+h)(m+k),
+\]
+respectively.  Whenever the two displayed endpoint primes differ,
+the entire signed product character is nonprincipal, and its correlation
+has absolute value at most \(\varepsilon\).
+
+Two distinct positively oriented pairs share at most one endpoint.
+More explicitly, a common lower endpoint excludes both cross-shared
+equalities and a common upper endpoint; the last exclusion uses
+\((n,h)\ne(m,k)\).  A common upper endpoint is analogous.
+If \(n=m+k\), positivity of both gaps excludes all other endpoint
+equalities, and the case \(n+h=m\) is analogous.
+Consequently at least three cross correlations are at most
+\(\varepsilon\).  The remaining one is at most \(M\), since its
+individual character values are at most one.  Its possible principal
+contribution has been retained.
+Substituting these five nonprincipal allowances and the one full
+principal allowance into the exact identity gives
+\[
+                  E\ge4M-4\varepsilon-6\varepsilon-2M,
+\]
+which is \eqref{eq:native-energy-lower}.
+\end{proof}
+
+\begin{theorem}[Uniform rigidity of the native local weights]
+\label{thm:native-integer-return}
+For every fixed integer \(H\ge1\), all sufficiently large \(Q\) have
+the following property.  For any two actual prime pairs satisfying
+\[
+ 1\le h,k\le H,\qquad Q<n,m,\qquad n+h,m+k\le Q^2,
+\]
+the equalities
+\[
+ W_p(n,h)=W_p(m,k)
+ \quad\hbox{for every prime }K(Q)<p\le K(Q)^2
+\]
+force \(n=m\) and \(h=k\).
+Separate equality of the two labelled characters is not a hypothesis.
+\end{theorem}
+
+\begin{proof}
+The band eventually lies above \(H\) and below \(Q\).
+All four endpoints are therefore nonzero modulo its primes, and none
+is a forbidden opening.  The existing exact scalar law gives
+\[
+ W_p(n,h)=\frac{p-1+a_p+b_p}{p-3},\qquad
+ W_p(m,k)=\frac{p-1+c_p+d_p}{p-3}.
+\]
+The denominator is nonzero, since these primes are at least five.
+Equality of the actual weights thus gives
+\(a_p+b_p=c_p+d_p\) at every prime in the band, and hence \(E=0\).
+
+Apply the lemma with \(T=Q^2\), \(Y=K+1\), \(X=K^2+1\).
+The already proved uniform margin can be applied to the fixed constant
+\(5C\); it gives \(5\varepsilon<M\) eventually.  Thus
+\(2M-10\varepsilon>0\).  If the pairs differed,
+\eqref{eq:native-energy-lower} would contradict \(E=0\).
+\end{proof}
+
+\begin{corollary}[Native-weight rigidity on unbounded least-gap frames]
+\label{cor:native-least-gap-return}
+There are unbounded positive retained-mass frames at the actual
+consecutive pair \(Q+1,Q+1+H_1\) such that every prime pair \(m,m+k\) with
+\[
+ 1\le k\le H_1,\qquad Q<m,\qquad m+k\le Q^2
+\]
+preserving the native weights at every prime
+\(K(Q)<p\le K(Q)^2\) is that same pair and has \(k=H_1\).
+\end{corollary}
+\begin{proof}
+Use the preceding theorem with the fixed bound \(H=H_1\), and choose
+the existing unbounded positive frames beyond its onset.
+Their actual consecutive endpoints and positive retained mass remain
+part of the conclusion.
+\end{proof}
+
+The maintained declarations are
+\texttt{exists\_native\_trace\_energy\_lower},
+\texttt{eventually\_native\_weight\_pair\_rigidity}, and
+\texttt{unbounded\_least\_gap\_native\_rigid\_frames}, in
+\texttt{PrimeFactorOscillations.FiniteFieldIntegerSignature}.
+The two owners are \texttt{FiniteFieldIntegerNativeRigidity.lean} and
+\texttt{FiniteFieldIntegerNativeReturn.lean}.
+Their twelve new theorem closures use only the standard foundational
+axioms.  This is a rigidity statement for the actual local probability
+weights within the common bounded-height integer window.
+It places a stronger constraint on a native-weight-preserving return
+map, while supplying no new prime recurrence, numerical \(H_1\) bound,
+or zero-free exponent.  The general character-separation mechanism is
+classical; historical priority of the native-weight application remains
+unconfirmed.
+
 \begin{thebibliography}{99}
 \bibitem{LauWuLeastNonresidue}
 Y.-K. Lau and J. Wu, \emph{On the least quadratic non-residue},

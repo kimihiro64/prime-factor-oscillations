@@ -3386,3 +3386,36 @@ components: constructive coprime-factor nonprincipality; exact signed score; ins
 actuals: universal maintained Lean proofs and new-only foundational-axiom audits; no numerical sample is used to establish the universal theorem.
 first_nonpositive_domain: positive gaps and H>=1 are required; the band eventually excludes2 and every prime<=H and lies below all four endpoint primes. No new pair supply, numerical H1 bound, RH proof or zero-free exponent improvement follows. The general least-nonresidue mechanism is classical; priority of the two-coordinate integer-return application remains unconfirmed.
 
+
+## The native probability weights determine the integer pair (2026-10-31)
+
+Paper: `finite-fields.tex`, Lemma `lem:native-signed-energy`, Theorem `thm:native-integer-return`, and Corollary `cor:native-least-gap-return`. All declarations below are in `PrimeFactorOscillations.FiniteFieldIntegerSignature`.
+
+Owners: `Assembly/FiniteFieldIntegerNativeRigidity.lean` and `Assembly/FiniteFieldIntegerNativeReturn.lean`.
+
+| Declaration | Status | Exact scope |
+| --- | --- | --- |
+| real_kernel_mul | proved | Exact real product formula, retaining the numerator kernel's original signs. |
+| real_kernel_le_one | proved | Universal real kernel upper bound on every odd prime. |
+| real_kernel_square_endpoint | proved | Both signed endpoint characters square to one on the admissible band. |
+| prime_correlation_le_mass | proved | Possible principal correlation retains the entire reciprocal-prime mass. |
+| exists_coprime_prime_correlation_bound | proved | Two-sided signed correlation bound for the full coprime-factor numerator character. |
+| exists_endpoint_prime_correlation_bound | proved | Uniform full conductor budget for either sign and every distinct pair of endpoint primes. |
+| native_trace_energy_identity | proved | Four diagonal and all six signed correlation terms in the exact native trace energy. |
+| exists_native_trace_energy_lower | proved | Complete E>=2M-10epsilon bound for all distinct actual prime pairs, including every shared endpoint. |
+| native_weight_trace_eq | proved | Actual scalar weight equality gives aggregate trace equality, with both opening masks and p-3 checked. |
+| native_energy_zero_of_weight_match | proved | Equality of all actual local weights gives zero full energy on the supported band. |
+| eventually_native_weight_pair_rigidity | proved | For each fixed positive gap bound, all large bounded-height prime pairs are determined by their native weight vector. |
+| unbounded_least_gap_native_rigid_frames | proved | Existing unbounded positive H1 frames permit only the identical actual prime-pair return preserving the native weights. |
+
+Supporting definitions: `primeCorrelation`, `nativeTrace`, `nativeTraceEnergy`, and `nativeWeightMatch`.
+
+Both maintained owners compile without warnings. All12 new closures have only propext, Classical.choice and Quot.sound. The conclusion assumes equality only of the actual native scalar local weights. The original character phases, zero-mask checks, all four overlap cases, complete six-correlation energy and possible principal contribution are retained. It is not a theorem about equality of arbitrary unmarked products or normalized location distributions.
+
+benchmark_status: complete native-weight integer-return theorem proved;12 new maintained theorem declarations and4 supporting definitions.
+old_bound: uniform integer rigidity required equality of both labelled A/B characters at every prime in the band.
+new_bound: equality of the actual scalar native weights suffices, uniformly for every fixed H>=1, all sufficiently large Q and all actual prime pairs in (Q,Q^2] with positive gaps<=H. The complete finite signed estimate is E>=2M-10epsilon, with epsilon=C*(3+log(4H^2T^2))^2*Y^(-1/32).
+components: the exact native scalar law; four diagonal terms and six signed correlations; two internal and three cross nonprincipal bounds; at most one shared endpoint; full mass M for the remaining possible principal row; existing margin at5C; all original phases and opening masks; actual positive H1 recurrence frames.
+actuals: universal maintained kernel proofs and12 new-only foundational-axiom audits. No finite character, field, height or pair sample is substituted for the universal bounds.
+first_nonpositive_domain: identical pairs have zero energy and are excluded only in the separation contradiction. Positive gaps prevent two distinct shared endpoints. Actual scalar weights use primes>=5; the complete band is above H and below all endpoints. No numerical H1 bound, new prime recurrence, RH proof or QRH exponent improvement follows. Quantitative robust-distance asymptotics remain separate work; priority is unconfirmed.
+
