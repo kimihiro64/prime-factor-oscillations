@@ -11385,6 +11385,318 @@ That comparison is not an exhaustive priority review.
 Historical priority remains unconfirmed, and the
 accepted QRH boundary is unchanged.
 
+\section{The complete stable signed-support spectrum in odd characteristic}
+\label{sec:odd-pell-stable-spectrum}
+
+The fixed-field spectrum can be classified completely after passing to
+explicit extension towers. This is stronger than boundedness of the least
+support along a tower: it identifies every permanently possible support
+size and every permanent exception.
+
+Write \(E_{h,k}:F\to\mathbb R\) for the odd-Pell defect at polynomial
+index \(k\), whose transport has odd degree \(2k+1\). For a finite index
+set \(S\subseteq\mathbb N\) and arbitrary real coefficients \(a_k\), put
+\[
+ P_{h,S,a}(c)=\sum_{k\in S}a_k E_{h,k}(c),
+ \qquad
+ \operatorname{supp}P_{h,S,a}=\{c\in F:P_{h,S,a}(c)\ne0\}.
+\]
+The characteristic \(p\), extension degree \(m\), tower stage \(j\),
+primitive degree \(d\), polynomial index \(k\), and support size \(N\)
+are distinct parameters throughout.
+
+For an odd prime \(p\), define
+\[
+ \mathcal B_p=
+ \begin{cases}
+  2\mathbb Z_{\ge0}\setminus\{2,8\},&p=3,\\
+  2\mathbb Z_{\ge0}\setminus\{4\},&p=5,\\
+  2\mathbb Z_{\ge0},&p\ge7,
+ \end{cases}
+ \qquad
+ m_j(p)=
+ \begin{cases}
+  720\cdot5^j,&p=3,\\
+  720\cdot3^j,&p=5,\\
+  12\cdot3^j,&p\ge7.
+ \end{cases}
+\]
+
+\begin{theorem}[Complete stable signed-support spectrum]
+\label{thm:odd-pell-stable-spectrum}
+Let \(p\) be an odd prime, let \(j,N\ge0\), and let \(F\) be any finite
+field with
+\[
+            |F|=p^{m_j(p)},\qquad 2\ne0\text{ in }F.
+\]
+For every nonzero shift \(h\in F\), if \(j\ge N\), then
+\[
+ \bigl(\exists\,S\subseteq\mathbb N\text{ finite},\
+            a:S\to\mathbb R:
+            |\operatorname{supp}P_{h,S,a}|=N\bigr)
+          \quad\Longleftrightarrow\quad N\in\mathcal B_p.
+\]
+The coefficient function may equivalently be extended to all of
+\(\mathbb N\); only its values on \(S\) enter the probe.
+
+There are also the following quantitative sufficient horizons, valid
+at every stage \(j\), without the condition \(j\ge N\):
+\[
+\begin{array}{c|c|c}
+ p&m_j(p)&\text{all attained support sizes}\\ \hline
+ 3&720\cdot5^j&
+      \{0,4,6\}\ \cup\bigl(2\mathbb Z\cap[10,310\cdot5^j-6]\bigr)\\
+ 5&720\cdot3^j&
+      \{0,2\}\ \cup\bigl(2\mathbb Z\cap[6,186\cdot3^j+2]\bigr)\\
+ p\ge7&12\cdot3^j&
+      2\mathbb Z\cap[0,21\cdot3^j-1].
+\end{array}
+\]
+Every witness can be supported entirely on split primitive classes.
+More precisely, the proof returns a finite set \(D\) of distinct odd
+degrees \(d>1\), each dividing \(|F|-1\), and actual finite \(S,a\), with
+\[
+ \operatorname{supp}P_{h,S,a}
+       =\coprod_{d\in D}P^+_{d,h},
+       \qquad
+ |\operatorname{supp}P_{h,S,a}|=\sum_{d\in D}\varphi(d)=N.
+\]
+Here \(P^+_{d,h}\) is the shifted split primitive class of degree \(d\).
+\end{theorem}
+
+\begin{proof}
+We first prove the complete arithmetic statement
+\[
+ \exists\,D\subseteq\mathbb N\text{ finite}:
+ \left.
+ \begin{array}{l}
+  d\in D\ \Longrightarrow\ d>1,\ d\text{ odd},\ (d,p)=1,\\
+  \displaystyle\sum_{d\in D}\varphi(d)=N
+ \end{array}\right\}
+ \quad\Longleftrightarrow\quad N\in\mathcal B_p.             \tag{1}
+\]
+All sums here and below have the displayed finite degree sets as their
+domains. Distinct degrees with equal totients remain distinct indices.
+
+For odd \(d>1\), \(\varphi(d)\) is a positive even integer. Thus every
+sum in (1) is even. If additionally \((d,3)=1\), every prime factor of
+\(d\) is at least \(5\), and hence \(\varphi(d)\ge4\).
+If such a \(d\) is composite, write \(d=uv\) with \(u\) prime and
+\(v>1\). When \(u\nmid v\), both totients are at least \(4\), so
+\(\varphi(d)=\varphi(u)\varphi(v)\ge16\). When \(u\mid v\),
+\(u^2\mid d\), and totient divisibility gives
+\[
+                  \varphi(d)\ge\varphi(u^2)=u(u-1)\ge20.
+\]
+Consequently the only admissible degrees with totient at most \(8\)
+are \(5\) and \(7\). Their finite subset sums are \(0,4,6,10\);
+neither \(2\) nor \(8\) can occur.
+
+Every odd composite \(d>1\) has \(\varphi(d)\ge6\).
+Indeed, a repeated prime factor gives
+\(\varphi(d)\ge u(u-1)\ge6\). In a coprime factorization \(d=uv\)
+with \(u\) prime, if \(u=3\), then \((v,3)=1\), so
+\(\varphi(v)\ge4\) and the product is at least \(8\).
+If \(u\ne3\), then \(u\ge5\), while \(\varphi(v)\ge2\), again giving
+at least \(8\). Therefore an odd degree coprime to \(5\) whose totient
+is at most \(4\) must be the prime \(3\). It occurs only once in a
+degree set, and contributes \(2\), so a total of \(4\) is impossible.
+These arguments prove every exclusion in (1), uniformly over all
+finite admissible degree sets.
+
+We construct all remaining totals and keep explicit degree bounds.
+Normalize each degree's weight by
+\[
+                              w(d)=\varphi(d)/2.
+\]
+For an indexed finite set \(T\) with total weight \(S\), suppose its
+subset sums contain every integer in \([A,S-A]\).
+Adjoin a new index of weight \(w\). If
+\[
+                              w+2A\le S+1,                  \tag{2}
+\]
+the enlarged set covers \([A,S+w-A]\).
+For a target \(t\) in this new interval, use the old representation
+when \(t+A\le S\). Otherwise,
+\(t\ge S-A+1\), and (2) gives \(t-w\ge A\); the new upper endpoint
+gives \(t-w+A\le S\). Represent \(t-w\) with old indices and add the
+new index. This proof depends on distinct indices, not distinct
+weight values.
+
+Let
+\[
+                       E=\{7,11,13,17,19\}.
+\]
+For \(p=3\), take the degree family
+\[
+ D_{3,j}=\{5,7,11,13,17,19\}
+       \ \cup\bigcup_{i=0}^j\{e5^{i+1}:e\in E\}.
+\]
+Its base weights are \(2,3,5,6,8,9\), totaling \(33\), and cover
+\([5,28]\). The successive block at index \(i\) has weights
+\[
+                   (12,20,24,32,36)\,5^i,
+\]
+with total \(124\cdot5^i\).
+For \(p=5\), take
+\[
+ D_{5,j}=\{3,7,9,11,13,17,19\}
+       \ \cup\bigcup_{i=0}^j\{e3^{i+1}:e\in E\}.
+\]
+The base weights are \(1,3,3,5,6,8,9\), totaling \(35\), and cover
+\([3,32]\). Both degrees \(7\) and \(9\), each of weight \(3\),
+are retained. Its block weights are
+\[
+                     (6,10,12,16,18)\,3^i,
+\]
+with total \(62\cdot3^i\).
+For \(p\ge7\), use
+\[
+ D_{p,j}=\{3,5\}\ \cup\bigcup_{i=0}^j
+                         \{3^{i+2},\,5\cdot3^{i+1}\}.
+\]
+The base weights \(1,2\) cover \([0,3]\), and block \(i\) has
+weights \((3,4)3^i\), totaling \(7\cdot3^i\).
+The three finite base certificates require respectively all
+\(64,128,4\) subsets; these finite statements are verified by
+kernel-checked decidable proofs.
+
+The degree unions are disjoint. In the first two families, the
+valuation at the scaling prime determines the block index, and
+then its unit factor determines \(e\). The base degrees are at most
+\(19\), whereas scaled degrees are at least \(21\).
+In the last family, the unit factors at \(3\) are \(1\) and \(5\);
+their distinctness separates the two forms, and valuations separate
+the stages. Its base degrees are \(3,5\), below all new degrees.
+
+Applying (2) in the displayed order within each block requires only
+\[
+ S+1\ge12\cdot5^i+10,\qquad
+ S+1\ge6\cdot3^i+6,\qquad
+ S+1\ge3\cdot3^i,
+\]
+respectively. The available preceding prefix weight is retained at
+each insertion. Starting from the three base certificates, induction
+gives total weights
+\[
+ S_{3,j}=31\cdot5^{j+1}+2,\quad
+ S_{5,j}=31\cdot3^{j+1}+4,\quad
+ S_{p,j}=(7\cdot3^{j+1}-1)/2\quad(p\ge7),
+\]
+and covers
+\[
+ [5,S_{3,j}-5],\qquad [3,S_{5,j}-3],\qquad[0,S_{p,j}].
+\]
+For example, after stage \(j\) the next first-block requirement in
+characteristic \(3\) is
+\(60\cdot5^j+10\le155\cdot5^j+3\), which holds since \(5^j\ge1\).
+The other two next-block requirements reduce to
+\(18\cdot3^j+6\le93\cdot3^j+5\) and
+\(9\cdot3^j\le(21\cdot3^j+1)/2\).
+Thus this is induction for all stages, with no finite-stage
+approximation.
+
+Multiplying the covered weights by \(2\) gives the stated horizons.
+The missing small allowed values are supplied by the empty degree
+set, by degrees \(5,7\) in characteristic \(3\), and by degree \(3\)
+in characteristic \(5\). All degrees in each family are odd, exceed
+\(1\), and are coprime to the corresponding characteristic.
+The elementary induction
+\[
+                          j+1\le r^j\qquad(r\ge2)
+\]
+also shows directly that every allowed \(N\) lies in its sufficient
+horizon whenever \(j\ge N\). This proves (1), including explicit
+every-late-stage witnesses.
+
+It remains to place all selected degrees in the claimed fields.
+For \((p,d)=1\), Euler's theorem gives
+\[
+       \varphi(d)\mid m\quad\Longrightarrow\quad d\mid p^m-1. \tag{3}
+\]
+For coprime factors \(a,b\), it suffices to apply (3) separately
+to \(a\) and \(b\), then combine their divisibilities. There is no
+need to require the generally larger \(\varphi(ab)\) to divide \(m\).
+
+For each \(e\in E\), \(\varphi(e)\mid720\).
+In characteristic \(3\),
+\(\varphi(5^{i+1})=4\cdot5^i\mid720\cdot5^j\) for \(i\le j\);
+the base degree \(5\) also has period dividing \(720\).
+In characteristic \(5\),
+\(\varphi(3^{i+1})=2\cdot3^i\mid720\cdot3^j\), and every base
+degree, including \(9\), has totient dividing \(720\).
+Thus all degrees in the first two families divide
+\(p^{m_j(p)}-1\).
+For \(p\ge7\),
+\[
+ \varphi(3^{i+2})=6\cdot3^i\mid12\cdot3^j,
+\]
+and the factors \(5\) and \(3^{i+1}\) of the mixed degree have
+periods \(4\) and \(2\cdot3^i\), both dividing \(12\cdot3^j\).
+The base degrees have periods \(2\) and \(4\). This proves the same
+split-sector divisibility for the third family, with exactly the
+displayed extension degrees.
+
+Finally, the complete signed-span converse realizes the union of
+the selected split primitive classes as an actual finite signed
+probe at every nonzero shift. The exact primitive-class cardinality
+is \(\varphi(d)\), and these classes are disjoint, so its support is
+the prescribed finite sum. Conversely, the full support-spectrum
+theorem represents every finite signed probe by a finite set of
+distinct primitive degrees dividing \(|F|-1\) or \(|F|+1\).
+Those degrees are coprime to \(p\). The already proved arithmetic
+exclusions therefore apply to every probe, including probes using
+both sectors and arbitrary coefficient cancellations. This proves
+both directions of the stable classification and all quantitative
+and split-support assertions.
+\end{proof}
+
+\paragraph{Scope and consequences.}
+The characteristic-three holes \(2,8\) and characteristic-five hole
+\(4\) persist over every field of the corresponding characteristic;
+the sufficient towers prove that there are no other permanent holes.
+The previously proved \(q=3\) degeneracy still has only the zero probe
+and is outside the normalized \(q\ge5\) law. Zero support is included
+in the theorem; every positive attained size gives a nonzero probe.
+The horizons grow linearly in extension degree, hence logarithmically
+in field cardinality. They are explicit sufficient horizons, with no
+optimal-period or optimal-stage claim.
+
+This classifies support flexibility of the full real signed-probe
+space along smooth extension towers. It complements the rough-degree
+divergence theorem: extension arithmetic can force the least nonzero
+support to grow, while these towers eventually realize every support
+size not universally forbidden by the characteristic.
+It does not supply joint positive mass in an integer prime-pair
+window, a value of \(H_1\), or a change to the accepted QRH boundary.
+
+\paragraph{Formalization and primary comparison.}
+The six maintained owners are
+\texttt{TotientSubsetSumIntervals}, \texttt{OddTotientFamilies},
+\texttt{OddTotientCoverage}, \texttt{OddTotientSpectrum},
+\texttt{OddTotientPowerTowers}, and
+\texttt{QuadraticPairOddPellStableSpectrum}.
+Their full proofs contain eighty new public theorem declarations
+and fifteen supporting definitions.
+The native conclusions retain actual finite index sets and real
+coefficients, the selected split classes, and the exact cardinality;
+there is no limiting substitute for a finite witness.
+
+Individual Chebyshev dynamics and cyclic primitive-order counts are
+classical \cite{GassertChebyshevGraphs}.
+Totient subset-sum methods also occur in the theory of
+\(\varphi\)-practical numbers
+(\url{https://arxiv.org/abs/1511.03357}) and the broader
+\(f\)-practical setting
+(\url{https://arxiv.org/abs/1701.08504}).
+The proposed additional conclusion here is the complete
+characteristic-dependent stable support spectrum of the entire real
+signed-probe space, its universal exceptional holes, and its explicit
+split-sector extension towers. The interval-insertion lemma and
+Euler's theorem are classical inputs. These primary comparisons
+are not an exhaustive priority review; historical priority of the
+combined support classification remains unconfirmed.
+
 \begin{thebibliography}{99}
 \bibitem{DavidKoukoulopoulosSmith}
 C. David, D. Koukoulopoulos and E. Smith,

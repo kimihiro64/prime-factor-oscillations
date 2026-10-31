@@ -3146,3 +3146,136 @@ new_bound: composite atoms have size at least L=2*ell*(2*ell+1); the whole suppo
 components: first-weight degree uniqueness, coupled coprime-factor totient product, repeated-prime square contribution, exact signed support union, primitive degree injectivity, full finite-span converse and the complete modular-power adapter.
 actuals: universal kernel-checked proofs over every prime degree and every n<L. The fixed ell5 alphabet and boundary witness are exact consequences after the universal argument; no field enumeration or numerical completion supplies it.
 first_nonpositive_domain: zero support is included; the alphabet may be empty and no unconditional nonempty claim is made. The boundary n=L genuinely fails at ell5. No composite-degree lift, integer prime-pair positivity, H1, RH, QRH improvement or prime infinitude is claimed. Classical arithmetic is input; historical priority of the full signed-window statement remains unconfirmed.
+
+## Complete stable signed-support spectrum in odd characteristic (2026-10-31)
+
+The characteristic p, extension degree m, tower stage j, primitive degree d, polynomial probe index k and actual support size N are distinct. At every nonzero shift and with2 nonzero, the full actual finite real signed-probe spectrum stabilizes to all even N, except2/8 in characteristic3 and4 in characteristic5. The explicit tower degrees are720*5^j,720*3^j,12*3^j, respectively. Every allowed N occurs at every j>=N, with a finite-index, real-coefficient witness supported entirely on split primitive classes. The quantitative horizons are310*5^j-6,186*3^j+2,21*3^j-1, respectively, with the same permanent holes. Global exclusions apply to arbitrary signed probes, not just the constructive degree families.
+
+Owner: PrimeFactorOscillations/Mathlib/NumberTheory/ArithmeticFunction/TotientSubsetSumIntervals.lean.
+
+| Lean declaration | Status | Exact scope |
+| --- | --- | --- |
+| Finset.subset_sum_interval_insert | proved | Adding a new indexed weight w extends [A,S-A] to [A,S+w-A] when w+2A<=S+1. |
+| Finset.subset_sum_interval_insert_block | proved | Ordered distinct new indices extend a subset-sum interval with every prefix weight retained. |
+| Nat.oddTotient_base_three_interval | proved | Exact finite base certificate for degrees5,7,11,13,17,19 with normalized interval center exclusion A=5. |
+| Nat.oddTotient_base_five_interval | proved | Exact finite base certificate for degrees3,7,9,11,13,17,19 with normalized interval center exclusion A=3. |
+| Nat.oddTotient_base_other_interval | proved | Exact finite base certificate for degrees3,5 with normalized interval center exclusion A=0. |
+
+Supporting definitions: Finset.subsetSumInterval, Finset.subsetSumAdmissibleBlock.
+
+Owner: PrimeFactorOscillations/Mathlib/NumberTheory/ArithmeticFunction/OddTotientFamilies.lean.
+
+| Lean declaration | Status | Exact scope |
+| --- | --- | --- |
+| Nat.oddTotient_auxiliary_data | proved | The five auxiliary primes are odd, lie in [7,19], avoid3/5, and have totients dividing720. |
+| Nat.oddTotient_prime_power_unit_injective | proved | For prime r and positive units avoiding r, equality u*r^a=v*r^b forces u=v and a=b. |
+| Nat.oddTotient_scaled_three_weight | proved | The exact normalized weight of e*3^(i+1) is phi(e)*3^i when e is coprime to3. |
+| Nat.oddTotient_scaled_five_weight | proved | The exact normalized weight of e*5^(i+1) is2*phi(e)*5^i when e is coprime to5. |
+| Nat.oddTotient_scaled_blocks_disjoint | proved | Every two distinct stages of a unit-prime scaled degree family are disjoint. |
+| Nat.oddTotient_base_scaled_block_disjoint | proved | A base bounded by19 is disjoint from every auxiliary-prime block scaled by r>=3. |
+| Nat.oddTotient_scaled_five_block_sum | proved | Every five-scaled block has total normalized weight124*5^i. |
+| Nat.oddTotient_scaled_three_block_sum | proved | Every three-scaled block has total normalized weight62*3^i. |
+| Nat.oddTotient_base_weight_sums | proved | The three exact base totals are33,35,3. |
+| Nat.oddTotient_three_mem_cases | proved | Every member of the characteristic3 family is a base degree or belongs to one block i<=j. |
+| Nat.oddTotient_five_mem_cases | proved | Every member of the characteristic5 family is a base degree or belongs to one block i<=j. |
+| Nat.oddTotient_other_mem_cases | proved | Every member of the other odd characteristics family is a base degree or belongs to one block i<=j. |
+| Nat.oddTotient_other_blocks_disjoint | proved | The pure3-power and5-times3-power blocks are disjoint at different stages. |
+| Nat.oddTotient_base_other_block_disjoint | proved | The base degrees3,5 are disjoint from every other-characteristic block. |
+| Nat.oddTotient_other_block_sum | proved | Every other-characteristic block has total normalized weight7*3^i. |
+| Nat.oddTotient_three_next_disjoint | proved | The next block is disjoint from the full preceding characteristic3 family. |
+| Nat.oddTotient_five_next_disjoint | proved | The next block is disjoint from the full preceding characteristic5 family. |
+| Nat.oddTotient_other_next_disjoint | proved | The next block is disjoint from the full preceding other odd characteristics family. |
+| Nat.oddTotient_three_total | proved | Exact normalized total 31*5^(j+1)+2 for all stages. |
+| Nat.oddTotient_five_total | proved | Exact normalized total 31*3^(j+1)+4 for all stages. |
+| Nat.oddTotient_other_total | proved | Exact normalized total (7*3^(j+1)-1)/2 for all stages, stated as2*total+1=7*3^(j+1). |
+| Nat.oddTotient_scaled_block_data | proved | Every selected scaled degree is odd, exceeds1, and retains the stated characteristic coprimality. |
+| Nat.oddTotient_other_block_data | proved | Every degree3^(i+2) or5*3^(i+1) is odd, exceeds1, and avoids any characteristic coprime to3,5. |
+| Nat.oddTotient_three_data | proved | Every degree in the characteristic3 family is odd, exceeds1, and avoids the stated characteristic. |
+| Nat.oddTotient_five_data | proved | Every degree in the characteristic5 family is odd, exceeds1, and avoids the stated characteristic. |
+| Nat.oddTotient_other_data | proved | Every degree in the other odd characteristics family is odd, exceeds1, and avoids the stated characteristic. |
+| Nat.oddTotient_normalized_weight_double | proved | For every odd degree d>1, twice phi(d)/2 equals phi(d) exactly. |
+| Nat.oddTotient_sum_normalized_double | proved | The finite totient sum equals twice the normalized indexed weight sum. |
+
+Supporting definitions: Nat.oddTotientAuxiliaryPrimes, Nat.oddTotientBaseThree, Nat.oddTotientBaseFive, Nat.oddTotientBaseOther, Nat.oddTotientScaledBlock, Nat.oddTotientOtherBlock, Nat.oddTotientThreeDegrees, Nat.oddTotientFiveDegrees, Nat.oddTotientOtherDegrees.
+
+Owner: PrimeFactorOscillations/Mathlib/NumberTheory/ArithmeticFunction/OddTotientCoverage.lean.
+
+| Lean declaration | Status | Exact scope |
+| --- | --- | --- |
+| Nat.oddTotient_three_interval_step | proved | The ordered characteristic3 block extends the covered interval under its exact first-weight reserve. |
+| Nat.oddTotient_five_interval_step | proved | The ordered characteristic5 block extends the covered interval under its exact first-weight reserve. |
+| Nat.oddTotient_other_interval_step | proved | The ordered other odd characteristics block extends the covered interval under its exact first-weight reserve. |
+| Nat.oddTotient_three_coverage | proved | Universal coverage of every integer in [5,31*5^(j+1)-3] by distinct degree-indexed normalized weights. |
+| Nat.oddTotient_five_coverage | proved | Universal coverage of every integer in [3,31*3^(j+1)+1] by distinct degree-indexed normalized weights. |
+| Nat.oddTotient_other_coverage | proved | Universal coverage of every integer in [0,(7*3^(j+1)-1)/2] by distinct degree-indexed normalized weights. |
+| Nat.oddTotient_stage_le_power | proved | For every r>=2 and every stage j, j+1<=r^j. |
+| Nat.oddTotient_three_base_subset | proved | Every base degree5,7,11,13,17,19 remains available at every stage. |
+| Nat.oddTotient_five_base_subset | proved | Every base degree3,7,9,11,13,17,19 remains available at every stage. |
+| Nat.oddTotient_other_base_subset | proved | Every base degree3,5 remains available at every stage. |
+| Nat.oddTotient_three_realize_interval | proved | Every normalized target in [5,31*5^(j+1)-3] gives an actual finite degree subset with total totient twice that target. |
+| Nat.oddTotient_five_realize_interval | proved | Every normalized target in [3,31*3^(j+1)+1] gives an actual finite degree subset with total totient twice that target. |
+| Nat.oddTotient_other_realize_interval | proved | Every normalized target in [0,(7*3^(j+1)-1)/2] gives an actual finite degree subset with total totient twice that target. |
+
+Owner: PrimeFactorOscillations/Mathlib/NumberTheory/ArithmeticFunction/OddTotientSpectrum.lean.
+
+| Lean declaration | Status | Exact scope |
+| --- | --- | --- |
+| Nat.oddTotient_positive_even_lower | proved | Every odd d>1 has phi(d)>=2. |
+| Nat.oddTotient_coprime_three_lower | proved | Every odd d>1 coprime to3 has phi(d)>=4. |
+| Nat.oddTotient_composite_factor_bound | proved | If every nontrivial divisor of a composite d has totient at least B, then phi(d)>=B^2. |
+| Nat.oddTotient_composite_lower_six | proved | Every odd composite degree has totient at least6. |
+| Nat.oddTotient_three_small_degrees | proved | An odd degree coprime to3 with totient at most8 is5 or7. |
+| Nat.oddTotient_five_small_degree | proved | An odd degree coprime to5 with totient at most4 is3. |
+| Nat.oddTotient_three_forbidden | proved | No finite set of distinct admissible odd degrees coprime to3 has total totient2 or8. |
+| Nat.oddTotient_five_forbidden | proved | No finite set of distinct admissible odd degrees coprime to5 has total totient4. |
+| Nat.oddTotient_support_necessary | proved | Every admissible finite totient sum is even and satisfies the characteristic3/5 exclusions. |
+| Nat.oddTotient_three_horizon_realize | proved | Every allowed support total satisfying N+6<=310*5^j is realized by a subset of the characteristic3 degree family. |
+| Nat.oddTotient_three_eventual_realize | proved | Every allowed support total N is realized inside the characteristic3 degree family at every stage j>=N. |
+| Nat.oddTotient_five_horizon_realize | proved | Every allowed support total satisfying N<=186*3^j+2 is realized by a subset of the characteristic5 degree family. |
+| Nat.oddTotient_five_eventual_realize | proved | Every allowed support total N is realized inside the characteristic5 degree family at every stage j>=N. |
+| Nat.oddTotient_other_horizon_realize | proved | Every allowed support total satisfying N+1<=21*3^j is realized by a subset of the other odd characteristics degree family. |
+| Nat.oddTotient_other_eventual_realize | proved | Every allowed support total N is realized inside the other odd characteristics degree family at every stage j>=N. |
+| Nat.oddTotient_support_spectrum | proved | Complete iff for all odd prime characteristics: every even total except2,8 at3 or4 at5 is an admissible finite totient sum. |
+
+Supporting definitions: Nat.oddTotientSupportAllowed.
+
+Owner: PrimeFactorOscillations/Mathlib/NumberTheory/ArithmeticFunction/OddTotientPowerTowers.lean.
+
+| Lean declaration | Status | Exact scope |
+| --- | --- | --- |
+| Nat.oddTotient_degree_period | proved | Coprimality and phi(d) dividing m imply d divides p^m-1. |
+| Nat.oddTotient_coprime_product_period | proved | Separate Euler periods for coprime factors suffice to place their product in p^m-1. |
+| Nat.oddTotient_scaled_block_period | proved | Every block through stage j divides p^(C*r^j)-1 under the displayed separate-factor periods. |
+| Nat.oddTotient_three_family_period | proved | Every degree in the characteristic3 family divides3^(720*5^j)-1. |
+| Nat.oddTotient_five_family_period | proved | Every degree in the characteristic5 family divides5^(720*3^j)-1. |
+| Nat.oddTotient_other_block_period | proved | Every selected other-characteristic block through stage j divides p^(12*3^j)-1. |
+| Nat.oddTotient_other_family_period | proved | The entire other-characteristic degree family divides p^(12*3^j)-1. |
+| Nat.oddTotient_tower_degree_lower | proved | Every selected tower extension degree is at least12, including stage0. |
+| Nat.oddTotient_prime_power_card_bounds | proved | For p>=3 and m>=2, p^m>=9 and p divides p^m. |
+| Nat.oddTotient_tower_data | proved | Uniform all-characteristic family data: oddness, degree>1, characteristic coprimality, and split-sector divisibility. |
+| Nat.oddTotient_tower_eventual_realize | proved | Every allowed N is a totient sum inside the corresponding explicit degree family at every j>=N. |
+
+Supporting definitions: Nat.oddTotientTowerDegree, Nat.oddTotientTowerDegrees.
+
+Owner: PrimeFactorOscillations/Mathlib/NumberTheory/LegendreSymbol/QuadraticPairOddPellStableSpectrum.lean.
+
+| Lean declaration | Status | Exact scope |
+| --- | --- | --- |
+| FiniteField.oddPell_stable_support_necessary | proved | Every actual signed probe has even support, excluding2/8 if3 divides the field order and4 if5 divides it; all sectors retained. |
+| FiniteField.oddPell_stable_split_realize | proved | Every admissible finite split-degree set is the exact support union of an actual finite signed probe, with cardinality its totient sum. |
+| FiniteField.oddPell_stable_three_horizon | proved | At q=3^(720*5^j), every allowed N with N+6<=310*5^j has an actual finite split-support witness. |
+| FiniteField.oddPell_stable_five_horizon | proved | At q=5^(720*3^j), every allowed N<=186*3^j+2 has an actual finite split-support witness. |
+| FiniteField.oddPell_stable_other_horizon | proved | For prime p>=7 and q=p^(12*3^j), every even N with N+1<=21*3^j has an actual finite split-support witness. |
+| FiniteField.oddPell_stable_tower_realize | proved | At every j>=N in every selected odd-characteristic tower, every allowed N has actual finite indices, real coefficients and an exact split-class support identity. |
+| FiniteField.oddPell_stable_tower_spectrum | proved | Complete actual-finite-probe iff at every j>=N: support N exists precisely for the characteristic-dependent allowed even totals; every nonzero shift,2 nonzero. |
+
+Supporting definitions: FiniteField.oddPellSplitSupportWitness.
+
+The finite base certificates check all64/128/4 subsets of their respective fixed degree bases; every tower stage and target interval is handled by universal induction. Equal normalized weights at the distinct degrees7 and9 are retained. Euler periods are applied separately to coprime degree factors, so the displayed periods are preserved. The native witness predicate contains actual finite polynomial indices and real coefficients, the exact split-class support identity, and the exact support cardinality. The already proved q3 all-zero degeneracy remains outside the normalized q>=5 law.
+
+benchmark_status: complete selected stable-spectrum theorem proved;80 new maintained public theorem declarations and15 supporting definitions across six owners.
+old_bound: the complete fixed-field divisor/totient subset-sum spectrum and the bounded-minimum obstruction for fixed-divisor towers; no classification of every eventually attainable size.
+new_bound: exact stable spectrum for every odd characteristic, exactly the permanent holes2/8 at3 and4 at5, the three explicit sufficient horizons, and actual finite split-support witnesses at every j>=N.
+components: indexed interval insertion with all prefixes; distinct geometric degree blocks; all-stage totals and coverage; universal composite-degree exclusions; separate-factor Euler periods; exact full signed-span converse and primitive-class cardinalities.
+actuals: universal kernel-checked proofs for every stage and admissible support total, with exact finite base certificates only. The new-only axiom audit covers all80 new theorem declarations and uses foundational axioms only.
+first_nonpositive_domain: zero support is included; the listed small holes are genuine universal exclusions. Horizon and stage sufficiency are explicit, without an optimality claim. No integer prime-pair window positivity, H1, RH or QRH improvement is claimed. QRH remains paused at7/8; historical priority of the combined classification remains unconfirmed.
