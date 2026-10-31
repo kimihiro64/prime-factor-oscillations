@@ -2265,3 +2265,111 @@ The available signed window identity averages the complete field.
 Its insertion into a complete product does not estimate the actual integer
 origin on Y<n<=Y^2-h. The cofinal positive-mass estimate is still open.
 Integer recurrence, H1 and the installed QRH boundary7/8 are unchanged.
+
+## Tensorized compensated persistence and exact small-prime masks (2026-10-31)
+
+Paper claims: `thm:tensor-persistence`, `prop:tensor-exceptional-mask`.
+Every advertised theorem below compiled from its maintained owner; only the
+new declarations were recursively audited. The allowed foundational axioms
+are `propext`, `Classical.choice`, and `Quot.sound`.
+
+Owner: `PrimeFactorOscillations/Mathlib/NumberTheory/EulerProduct/ShiftedBounds.lean`.
+
+| Claim | Status | Exact scope |
+| --- | --- | --- |
+| `Finset.eulerShiftRatio_bounds` | proved and audited | c>=0; n>c+1; ratio in (0,1] |
+| `Finset.eulerShiftRatio_Icc` | proved and audited | integers N>=m>c+1, c>=0; exact consecutive product |
+| `Finset.eulerShiftRatio_Icc_lower` | proved and audited | same consecutive domain; positive endpoint lower constant |
+| `Finset.eulerShiftRatio_subset_lower` | proved and audited | any finite distinct integer support n>=m>c+1; c>=0 |
+| `Finset.shiftedEulerProduct_bounds` | proved and audited | same arbitrary finite support; shifted and ordinary products with exact lower constant |
+
+Definitions (compiled and audited): `Finset.shiftedEulerFactor`, `Finset.eulerShiftRatio`.
+
+Owner: `PrimeFactorOscillations/Mathlib/NumberTheory/LegendreSymbol/QuadraticPairProductFactors.lean`.
+
+| Claim | Status | Exact scope |
+| --- | --- | --- |
+| `FiniteField.compensatedQuadraticPairBase_pos` | proved and audited | real q>=16, t>=-1 |
+| `FiniteField.compensatedQuadraticPairDiagonalNumerator_pos` | proved and audited | real q>=16, t>=-1 |
+| `FiniteField.compensatedQuadraticPairMomentRatio_eq` | proved and audited | real q>=16, t>=-1; arbitrary u; full ratio identity |
+| `FiniteField.compensatedQuadraticPairCrossMoment_lower` | proved and audited | q>=16, t,u in [-1,1]; C>=1+1/(4q) |
+| `FiniteField.compensatedQuadraticPairMomentRatio_bounds` | proved and audited | same local domain; both shifted Euler squares |
+| `FiniteField.compensatedQuadraticPairDiagonalMoment_bounds` | proved and audited | q>=16, t in [-1,1]; both inverse Euler cubes |
+
+Definitions (compiled and audited): `FiniteField.compensatedQuadraticPairDiagonalMoment`, `FiniteField.compensatedQuadraticPairMomentRatio`.
+
+Owner: `PrimeFactorOscillations/Mathlib/NumberTheory/LegendreSymbol/QuadraticPairTensorPersistence.lean`.
+
+| Claim | Status | Exact scope |
+| --- | --- | --- |
+| `FiniteField.compensatedQuadraticPairDiagonalProduct_pos` | proved and audited | finite distinct integer q>=17; t_q>=-1 |
+| `FiniteField.compensatedQuadraticPairCrossProduct_lower` | proved and audited | q>=17, t_q,u_q in [-1,1]; B>=1+L/4; empty support included |
+| `FiniteField.compensatedQuadraticPairRatioProduct_bounds` | proved and audited | same finite domain; (81/256)E^2<=B/A<=E^2 |
+| `FiniteField.compensatedQuadraticPairInverseDiagonalProduct_bounds` | proved and audited | q>=17, t_q in [-1,1]; (343/512)E^3<=1/A<=E^3 |
+| `FiniteField.compensatedQuadraticPairTensorPersistence_compatible` | proved and audited | full finite domain; a>=2, 1<=b<=a; signed centered Euler-square bounds |
+| `FiniteField.compensatedQuadraticPairTensorPersistence_obstructed` | proved and audited | q>=17, t_q in [-1,1], a>=2, b=0; signed centered negative Euler-cube bounds |
+
+Definitions (compiled and audited): `FiniteField.compensatedQuadraticPairDiagonalProduct`, `FiniteField.compensatedQuadraticPairCrossProduct`, `FiniteField.compensatedQuadraticPairTensorPersistence`.
+
+Owner: `PrimeFactorOscillations/Mathlib/NumberTheory/LegendreSymbol/QuadraticPairMaskOverlap.lean`.
+
+| Claim | Status | Exact scope |
+| --- | --- | --- |
+| `FiniteField.QuadraticPairTwistLikelihood.mask_nonneg` | proved and audited | any field with decidable equality; every c,h |
+| `FiniteField.QuadraticPairTwistLikelihood.mask_adjacent_indicator` | proved and audited | finite odd field; h nonzero; all three distinct forbidden residues retained |
+| `FiniteField.QuadraticPairTwistLikelihood.sum_mask_adjacent` | proved and audited | finite odd field; h nonzero; exact sum q-3 |
+| `FiniteField.QuadraticPairTwistLikelihood.sum_mask_zero` | proved and audited | any finite field; exact zero-gap mask sum q-1 |
+| `FiniteField.QuadraticPairTwistLikelihood.maskMoments_zero` | proved and audited | any finite field q>=2; both moments q/(q-1) |
+| `FiniteField.QuadraticPairTwistLikelihood.maskMoments_nonzero` | proved and audited | odd finite field q>=3, h nonzero; exact normalized diagonal and shared moments |
+| `FiniteField.QuadraticPairTwistLikelihood.maskSharedMoment_card_three` | proved and audited | odd field of cardinality3; h nonzero; shared moment zero |
+| `FiniteField.QuadraticPairTwistLikelihood.mask_adjacent_vanish_card_three` | proved and audited | same card-three domain; every residue has zero shared mask product |
+| `FiniteField.QuadraticPairTwistLikelihood.maskMoments_compatible` | proved and audited | odd field q>=5, h nonzero; 1<=shared<=diagonal |
+
+Definitions (compiled and audited): `FiniteField.QuadraticPairTwistLikelihood.maskDiagonalMoment`, `FiniteField.QuadraticPairTwistLikelihood.maskSharedMoment`.
+
+Owner: `PrimeFactorOscillations/Assembly/FiniteFieldTensorPersistence.lean`.
+
+| Claim | Status | Exact scope |
+| --- | --- | --- |
+| `PrimeFactorOscillations.FiniteFieldTensorPersistence.atomic_sum` | proved and audited | any finite field; arbitrary h,a and two functions; exact shared-label average |
+| `PrimeFactorOscillations.FiniteFieldTensorPersistence.atom_weight_nonneg` | proved and audited | any finite field; every class and coordinate |
+| `PrimeFactorOscillations.FiniteFieldTensorPersistence.atom_weight_one` | proved and audited | q>=16; h nonzero; arbitrary multiplier |
+| `PrimeFactorOscillations.FiniteFieldTensorPersistence.atom_value_mean` | proved and audited | odd field q>=16; h and multiplier nonzero; every lag |
+| `PrimeFactorOscillations.FiniteFieldTensorPersistence.atomic_kernel` | proved and audited | any finite field; exact shared-label physical kernel |
+| `PrimeFactorOscillations.FiniteFieldTensorPersistence.packet_kernel` | proved and audited | arbitrary finite field family and support; exact full-product moment |
+| `PrimeFactorOscillations.FiniteFieldTensorPersistence.packet_shifted_kernel` | proved and audited | same family; arbitrary two dependent shift families; every mixed coordinate retained |
+| `PrimeFactorOscillations.FiniteFieldTensorPersistence.packet_shifted_diagonal` | proved and audited | same family; shift-invariance of the product diagonal |
+| `PrimeFactorOscillations.FiniteFieldTensorPersistence.packet_weight_one` | proved and audited | q>=16 and nonzero gaps on support; actual product weights normalized |
+| `PrimeFactorOscillations.FiniteFieldTensorPersistence.packet_value_mean` | proved and audited | odd q>=16; nonzero gaps and multipliers on support; every shift |
+| `PrimeFactorOscillations.FiniteFieldTensorPersistence.packet_diagonal_model` | proved and audited | distinct supported field sizes q>=17; odd fields, nonzero gaps, nonsquare multipliers |
+| `PrimeFactorOscillations.FiniteFieldTensorPersistence.packet_adjacent_model` | proved and audited | same qualified actual field domain; full shared-endpoint moment |
+| `PrimeFactorOscillations.FiniteFieldTensorPersistence.centered_packet_compatible` | proved and audited | qualified actual field domain; a>=2, 1<=b<=a; actual centered Euler-square comparison |
+| `PrimeFactorOscillations.FiniteFieldTensorPersistence.centered_packet_obstructed` | proved and audited | qualified actual field domain; a>=2, b=0; actual centered negative Euler-cube comparison |
+
+Definitions (compiled and audited): `PrimeFactorOscillations.FiniteFieldTensorPersistence.atomWeight`, `PrimeFactorOscillations.FiniteFieldTensorPersistence.atomValue`, `PrimeFactorOscillations.FiniteFieldTensorPersistence.packetKernel`, `PrimeFactorOscillations.FiniteFieldTensorPersistence.centeredPacketPersistence`.
+
+benchmark_status: universal finite-product comparison and its actual
+shared-label probability consumer proved; integer-window mass remains open.
+old_bound: the one-field centered coefficient was controlled by 1/3+O(1/q);
+no uniform centered product comparison with exceptional-prime sign was installed.
+new_bound: (81/256)*(b/a)*(L/(L+4))*E^2<=rho<=(b/a)*E^2 for
+a>=2 and 1<=b<=a. For b=0, z/(a-z)<=-rho<=E^3/(a-E^3),
+where z=(343/512)*E^3 and E=product_(q in S)(1-1/q).
+components: exact C>=1+1/(4q) supply; positive diagonal; uniform shifted
+Euler telescoping; both subtractions of1; shared class labels; distinct
+squared normalizers; every product-coordinate cross term; parity,
+card-three and gap-divisor masks.
+actuals: retained falsification records cover4036 local scalar corner
+cases and348 finite-product/prefix cases. These are diagnostics, not the
+uniform proof or integer pair counts. The actual law is identified by
+compiled finite-sum equalities and normalization.
+first_nonpositive_domain: compatible nonempty S has positive lower bound;
+empty S has rho=(b-1)/(a-1), including zero when b=1. The obstructed
+b=0 regime is negative for every S. No finite or cofinal positivity
+domain is asserted for the integer-window count.
+
+The elementary telescoping and tensorization are classical inputs.
+Priority of the explicit compensated square/cube comparison remains
+unconfirmed beyond the targeted comparison. The independent-field
+product does not give a positive survivor in Y<n<=Y^2-h. Integer
+recurrence, H1 and QRH7/8 are unchanged; QRH exponent work stays paused.

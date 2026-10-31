@@ -353,6 +353,15 @@ Each real candidate file should:
 | --- | --- | --- | --- |
 | `PrimeFactorOscillations.Mathlib.NumberTheory.GaussSum.All` | `Mathlib/NumberTheory/GaussSum/All.lean` | project-verified | Import-only grouping of existing reusable Gauss-sum candidates; preserves the root and number-theory facade import budgets. |
 
+## Tensorized compensated pair persistence
+
+| Module | Proposed destination | Readiness | Scope |
+| --- | --- | --- | --- |
+| `PrimeFactorOscillations.Mathlib.NumberTheory.EulerProduct.ShiftedBounds` | `Mathlib/NumberTheory/EulerProduct/ShiftedBounds.lean` | project-verified | Uniform telescoping of shifted Euler factors over any finite subset of integers; positive constants independent of support size. |
+| `PrimeFactorOscillations.Mathlib.NumberTheory.LegendreSymbol.QuadraticPairProductFactors` | `Mathlib/NumberTheory/LegendreSymbol/QuadraticPairProductFactors.lean` | project-verified | Uniform local compensated diagonal, shared-moment supply, Euler-square ratio and inverse Euler-cube comparisons for real q>=16. |
+| `PrimeFactorOscillations.Mathlib.NumberTheory.LegendreSymbol.QuadraticPairTensorPersistence` | `Mathlib/NumberTheory/LegendreSymbol/QuadraticPairTensorPersistence.lean` | project-verified | Full finite-product centered compatible and obstructed persistence bounds with all centering and prefix moments retained. |
+| `PrimeFactorOscillations.Mathlib.NumberTheory.LegendreSymbol.QuadraticPairMaskOverlap` | `Mathlib/NumberTheory/LegendreSymbol/QuadraticPairMaskOverlap.lean` | project-verified | Exact shared-endpoint mask moments, zero-gap case, cardinality-three vanishing and compatible cardinality>=5 classification. |
+
 Readiness should be one of: `extracting`, `project-verified`, `mathlib-ready`,
 `submitted`, or `upstreamed`. A module is `mathlib-ready` only after it has an
 identified destination, no project dependency, focused tests, and a clean

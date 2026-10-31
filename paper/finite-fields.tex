@@ -8442,6 +8442,228 @@ actual-count kernel and its uniform rational persistence law were not
 found in the checked target records or targeted primary comparison.
 Priority beyond that comparison remains unconfirmed.
 
+\section{Euler-square persistence and the exceptional-prime sign}
+\label{sec:tensor-persistence}
+
+The one-field persistence law has a different tensor limit from its
+uncentered overlap. The centering terms and the small-prime masks must
+both be retained. Let \(S\) be a finite set of distinct integers \(q\ge17\).
+For \(t_q,u_q\in[-1,1]\), put
+\[
+ R_q=(q-3)^2+2(1+t_q),\qquad
+ D_q=\frac{q^3-3q^2+(5+2t_q)q-11-2t_q}{qR_q},\qquad
+ C_q=\frac{q^3-5q^2+(5-4u_q)q-11-2t_q}{qR_q}.
+\]
+Write
+\[
+ A=\prod_{q\in S}D_q,\quad B=\prod_{q\in S}C_q,\quad
+ E=\prod_{q\in S}(1-1/q),\quad L=\sum_{q\in S}1/q .
+\]
+Empty products and sums are allowed.
+
+\begin{theorem}[Uniform centered tensor persistence]
+\label{thm:tensor-persistence}
+Let \(a_0\ge2\), and define
+\[
+ \rho=\frac{b_0B-1}{a_0A-1}.
+\]
+The denominator is positive. If \(1\le b_0\le a_0\), then
+\begin{equation}
+ \frac{81}{256}\frac{b_0}{a_0}\frac{L}{L+4}E^2
+ \ \le\ \rho\ \le\ \frac{b_0}{a_0}E^2 .
+ \label{eq:tensor-compatible}
+\end{equation}
+If \(b_0=0\), put \(z=(343/512)E^3\). Then
+\begin{equation}
+ \frac{z}{a_0-z}\ \le\ -\rho\
+       \le\ \frac{E^3}{a_0-E^3}.
+ \label{eq:tensor-obstructed}
+\end{equation}
+All constants are independent of the finite support and its size.
+For nonempty \(S\), the compatible correlation is positive; the obstructed
+correlation is negative. For empty \(S\), \(\rho=(b_0-1)/(a_0-1)\).
+\end{theorem}
+
+\begin{proof}
+First, uniformly for real \(q\ge16\) and \(t,u\in[-1,1]\), the local factors
+satisfy
+\begin{align}
+ C_q&\ge1+\frac1{4q}, \label{eq:tensor-local-supply}\\
+ \left(\frac{q-8}{q-7}\right)^2
+ &\le \frac{C_q}{D_q}\le\left(\frac{q-1}{q}\right)^2,
+ \label{eq:tensor-local-ratio}\\
+ \left(\frac q{q-1}\right)^3
+ &\le D_q\le\left(\frac{q-2}{q-3}\right)^3 .
+ \label{eq:tensor-local-diagonal}
+\end{align}
+Here \(qR_q>0\), and the diagonal numerator is positive.
+For completeness, clearing these positive denominators gives the
+following explicit checks. The numerator of
+\(C_q-1-1/(4q)\), with denominator \(4qR_q\), is
+\[
+ 3q^2-(18+16u+8t)q-55-10t
+ \ge3q(q-16)+6q-65>0.
+\]
+The numerators of the lower and upper differences in
+\eqref{eq:tensor-local-ratio}, with denominators
+\((q-7)^2qR_qD_q\) and \(q^2qR_qD_q\), respectively, are
+\begin{align*}
+ P={}&(7-2t-4u)q^3+(-43+32t+56u)q^2\\
+     &+(-97-132t-196u)q+165+30t,\\
+ Q={}&(7+2t+4u)q^3-(13+4t)q^2+(27+6t)q-11-2t .
+\end{align*}
+On \(q\ge16\), \(P\) decreases in both parameters, while \(Q\)
+increases in both. Their minima are
+\(q^3+45q^2-425q+195>0\) and \(q^3-9q^2+21q-9>0\).
+For the lower diagonal difference, its numerator with denominator
+\(qR_q(q-1)^3\) is
+\[
+ 6q^4-(36+8t)q^3+(51+12t)q^2-(38+8t)q+11+2t .
+\]
+It decreases in \(t\), and its minimum is
+\(q^3(6q-44)+q(63q-46)+13>0\).
+For the upper diagonal difference, set \(x=q-3>0\).
+Its numerator with denominator \(qR_q(q-3)^3\) is
+\[
+ (18+8t)x^3+(27+24t)x^2+20(1+t)x+6(1+t)\ge0.
+\]
+These prove all local comparisons.
+
+We next keep the support dependence exactly. For \(c\ge0\) and integers
+\(N\ge m>c+1\),
+\[
+ \prod_{n=m}^{N}
+ \frac{1-1/(n-c)}{1-1/n}
+ =\frac{N(m-c-1)}{(m-1)(N-c)}
+ \ge\frac{m-c-1}{m-1}.
+\]
+Each ratio is positive and at most one. Therefore removing any factors
+increases this product. For any finite \(S\subseteq\{m,m+1,\ldots\}\),
+\begin{equation}
+ \frac{m-c-1}{m-1}\prod_{q\in S}(1-1/q)
+ \le\prod_{q\in S}(1-1/(q-c))
+ \le\prod_{q\in S}(1-1/q).
+ \label{eq:uniform-shifted-Euler}
+\end{equation}
+The empty-set case satisfies the same inequalities.
+Use \(m=17,c=7\) in the ratio comparison, and \(m=17,c=2\)
+in the reciprocal diagonal comparison. Multiplication of
+\eqref{eq:tensor-local-ratio} and \eqref{eq:tensor-local-diagonal} gives
+\begin{equation}
+ \frac{81}{256}E^2\le\frac BA\le E^2,\qquad
+ \frac{343}{512}E^3\le\frac1A\le E^3.
+ \label{eq:tensor-product-factors}
+\end{equation}
+The constants are \((9/16)^2\) and \((7/8)^3\).
+Also, multiplying \eqref{eq:tensor-local-supply} without dropping its
+positive linear terms gives \(B\ge1+L/4\).
+Thus \(A\ge B\ge1\), \(0<E\le1\), and \(a_0A-1>0\).
+
+In the compatible case the full signed centering satisfies
+\[
+ \frac{b_0}{a_0}\frac BA(1-1/B)
+ \le \frac{b_0B-1}{a_0A-1}
+ \le \frac{b_0}{a_0}\frac BA .
+\]
+For the lower inequality, \(b_0B\ge b_0\ge1\), and
+\[
+ \frac{b_0B-1}{a_0A-1}-\frac{b_0B-b_0}{a_0A}
+ =\frac{(b_0-1)a_0A+(b_0B-b_0)}
+        {a_0A(a_0A-1)}\ge0.
+\]
+For the upper inequality, \(b_0B\le a_0A\); the corresponding
+difference has numerator \(a_0A-b_0B\ge0\).
+Finally \(B\ge1+L/4\) implies \(1-1/B\ge L/(L+4)\).
+This proves \eqref{eq:tensor-compatible}.
+
+In the obstructed case, retain the centering rather than setting the
+whole coefficient to zero:
+\[
+ -\rho=\frac{1/A}{a_0-1/A}.
+\]
+The map \(d\mapsto d/(a_0-d)\) increases for \(d<a_0\).
+Its monotonicity follows directly from the difference
+\(a_0(d_2-d_1)/((a_0-d_2)(a_0-d_1))\).
+Apply \eqref{eq:tensor-product-factors} to obtain
+\eqref{eq:tensor-obstructed}.
+\end{proof}
+
+\paragraph{The actual probability law.}
+For every \(q\in S\), take a finite odd field \(K_q\) of cardinality \(q\),
+a nonzero gap \(h_q\), and a nonsquare multiplier \(r_q\).
+Use the preceding shared-label law with class probabilities proportional
+to \(D_{h_q}^2,D_{r_qh_q}^2\). Choose these coordinates independently,
+and set \(X_k=\prod_{q\in S}V_{q,L_q}(c_q+k_q)\).
+Finite tensorization, with each label retained in both slots, gives
+\[
+ \mathbb E X_k=1,\qquad
+ \mathbb E(X_xX_y)=\prod_{q\in S}{\cal K}_{h_q,r_q}(y_q-x_q).
+\]
+In particular the diagonal and shared-endpoint moments are exactly
+\(A,B\), with \(t_q=\chi_q(-1)\), \(u_q=\chi_q(2)\).
+An independent mean-one prefix with equal diagonal moments \(a_0\)
+and shared moment \(b_0\) therefore has precisely the coefficient
+in Theorem~\ref{thm:tensor-persistence}.
+No pointwise average of the two classes is substituted for this law.
+
+\begin{proposition}[The exact exceptional masks]
+\label{prop:tensor-exceptional-mask}
+Put \(m_h(c)=\mathbf1_{c\notin\{0,-h\}}\). Its normalized diagonal
+and shared-endpoint moments are
+\[
+ a_h=\frac{q\sum_c m_h(c)^2}{(\sum_c m_h(c))^2},\qquad
+ b_h=\frac{q\sum_c m_h(c)m_h(c+h)}{(\sum_c m_h(c))^2}.
+\]
+For \(h=0\), \(q\ge2\), one has \(a_h=b_h=q/(q-1)\).
+For \(h\ne0\) in odd characteristic, \(q\ge3\), one has
+\[
+ a_h=\frac q{q-2},\qquad b_h=\frac{q(q-3)}{(q-2)^2}.
+\]
+At \(q=3\) the adjacent mask product vanishes at every residue.
+For \(q\ge5\), \(1\le b_h\le a_h\).
+\end{proposition}
+\begin{proof}
+The mask is idempotent. For a nonzero gap in odd characteristic the
+three residues \(0,-h,-2h\) are distinct, and exactly
+\[
+ m_h(c)m_h(c+h)
+ =1-\mathbf1_{c=0}-\mathbf1_{c=-h}-\mathbf1_{c=-2h}.
+\]
+Summation gives \(q-3\). A zero gap leaves just the forbidden residue
+zero, so both sums are \(q-1\).
+When \(q=3\), the three forbidden residues exhaust the field, proving
+pointwise vanishing as well as the zero moment.
+Finally \(b_h-1=(q-4)/(q-2)^2\) and
+\(a_h-b_h=q/(q-2)^2\), proving the stated inequalities.
+\end{proof}
+
+For a fixed positive even integer gap, retain parity, every small prime,
+and every prime dividing the gap in the prefix. Parity contributes
+\(a=b=2\). The prime \(3\) contributes zero shared moment exactly when
+\(3\nmid h\); all the other odd-prime factors satisfy the compatible
+inequalities above, including the zero-gap formula at gap divisors.
+This explains why the obstruction changes the sign and the Euler power.
+It concerns the overlap of two pair observations, not an asserted
+supply of integer triples.
+
+\paragraph{Formalization and integer scope.}
+The local factor inequalities, uniform shifted Euler comparison, complete
+centered bounds and exact mask classification are maintained in
+\texttt{QuadraticPairProductFactors}, \texttt{ShiftedBounds},
+\texttt{QuadraticPairTensorPersistence} and \texttt{QuadraticPairMaskOverlap}.
+The atomic law, its normalization and means, every shifted product moment,
+and the actual centered consumers are maintained in
+\texttt{FiniteFieldTensorPersistence}.
+The distinct field sizes in this independent product model need not have
+distinct characteristics. Integer CRT applications require the actual
+distinct prime characteristics; extension fields repeat the same
+integer divisibility test.
+The result does not prove positive supported mass at the actual integer
+origin on \(Y<n\le Y^2-h\). Integer pair recurrence and the installed
+QRH boundary remain unchanged. The classical tensorization and telescoping
+are inputs; priority of this explicit compensated comparison remains
+unconfirmed beyond the checked target records and primary comparison.
+
 \section{Exact diagnostic checks}
 The companion script \texttt{finite\_field\_greedy\_probe.py} checks all
 general Weierstrass equations over \(\F_2,\F_3\), all short Weierstrass
