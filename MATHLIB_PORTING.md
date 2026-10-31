@@ -5,6 +5,12 @@ Reusable mathematics intended for possible upstreaming lives under
 The child generator replaces `PrimeFactorOscillations` with the configured project
 namespace.
 
+## Weighted finite-product pushforward
+
+| Module | Proposed destination | Readiness | Scope |
+| --- | --- | --- | --- |
+| `PrimeFactorOscillations.Mathlib.Algebra.BigOperators.WeightedFiberProduct` | `Mathlib/Algebra/BigOperators/WeightedFiberProduct.lean` | project-verified | Exact weighted pushforward of finite product factors and equality for arbitrary coupled statistics from coordinate fiber-sum equality, over any commutative semiring. |
+
 ## Finite-field quadratic discriminant pairs
 
 | Module | Proposed destination | Readiness | Scope |

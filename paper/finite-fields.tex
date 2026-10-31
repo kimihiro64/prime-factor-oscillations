@@ -7648,6 +7648,148 @@ and \texttt{Assembly/FiniteFieldOptimalCharacterLaw} compile
 signed-statistic identity, and the normalized error and affinity bounds.
 They use no Hasse hypothesis or RH-dependent limit.
 
+\section{Arbitrary joint character models on complete field products}
+\label{sec:joint-character-projection}
+The preceding one-field optimum extends to competitors with unrestricted
+dependence between fields. Let \(I\) be any finite index set. For every
+\(i\in I\), fix an odd finite field \(K_i\), put \(q_i=\#K_i\ge16\),
+assume \(\chi_i(-1)=-1\), and fix \(h_i\ne0\).
+Use the uniform probability measure on the complete product
+\(\mathcal K=\prod_{i\in I}K_i\), and write
+\[
+ U(\mathbf c)=\prod_i u_{h_i}(c_i),\qquad
+ G(\mathbf c)=\prod_i\Gamma_{h_i}(c_i),\qquad
+ s_i(c_i)=(\chi_i(c_i),\chi_i(c_i+h_i)).
+\]
+A joint character model is any real function
+\(B(\mathbf c)=g((s_i(c_i))_{i\in I})\).
+No product structure, positivity, normalization, or coefficient bound is
+imposed on \(g\).
+
+\begin{theorem}[Exact optimum against every coupled character model]
+\label{thm:joint-character-projection}
+Define
+\[
+ a(q)=\frac{q^2+3}{q(q-3)},\qquad
+ v(q)=\frac{q^2-q+2}{q(q-3)},\qquad
+ r(q)=\frac{q^2-q+2}{q^2+3}.
+ \tag{JC1}
+\]
+The exact second moments and mixed-statistic identity are
+\[
+ \mathbb E U^2=\prod_i a(q_i),\qquad
+ \mathbb E G^2=\prod_i v(q_i),\qquad
+ \mathbb E[UB]=\mathbb E[GB].
+ \tag{JC2}
+\]
+Consequently, for every joint character model \(B\),
+\[
+ \mathbb E(U-B)^2
+   =\prod_i a(q_i)-\prod_i v(q_i)+\mathbb E(G-B)^2.
+ \tag{JC3}
+\]
+Since \(\mathbb E U^2>0\), the sharp relative minimum is
+\[
+ \min_B\frac{\mathbb E(U-B)^2}{\mathbb E U^2}
+                 =1-\prod_i r(q_i),
+ \tag{JC4}
+\]
+attained by \(B=G\). Each retained-energy factor satisfies
+\[
+                     0<r(q)\le1-\frac1q\qquad(q\ge16).
+ \tag{JC5}
+\]
+The empty index set is allowed: its products equal one and its minimum
+error is zero.
+\end{theorem}
+
+\begin{proof}
+First fix one field and let \(L_i\) be the finite image of \(s_i\).
+Apply (CP3) to the indicator of each \(\ell_i\in L_i\). This gives the
+exact equality of weighted fiber masses
+\[
+ \sum_{\substack{c_i\in K_i\\s_i(c_i)=\ell_i}}u_{h_i}(c_i)
+ =
+ \sum_{\substack{c_i\in K_i\\s_i(c_i)=\ell_i}}\Gamma_{h_i}(c_i).
+ \tag{JC6}
+\]
+Every sum includes the actual singular rows; no row is deleted here.
+
+Finite distributivity and regrouping over
+\(\ell=(\ell_i)_{i\in I}\in\prod_iL_i\) give
+\[
+ \sum_{\mathbf c\in\mathcal K}U(\mathbf c)B(\mathbf c)
+ =
+ \sum_{\ell\in\prod_iL_i}g(\ell)
+   \prod_i
+    \left(\sum_{\substack{c_i\in K_i\\s_i(c_i)=\ell_i}}
+                         u_{h_i}(c_i)\right).
+\]
+Replace each fiber mass using (JC6), then undo the same finite
+regrouping. Division by \(\prod_iq_i\) proves
+\(\mathbb E[UB]=\mathbb E[GB]\). This argument retains the entire function
+\(g\); it does not replace it by independent coordinate weights.
+
+The previously proved raw second moment has offset \(3\), because
+\(\chi_i(-h_i)=-\chi_i(h_i)\). Thus
+\[
+ q_i^{-1}\sum_{c_i\in K_i}u_{h_i}(c_i)^2
+       =1+\frac{3(q_i+1)}{q_i(q_i-3)}=a(q_i).
+\]
+Putting the zero model into (CP4) gives
+\[
+ q_i^{-1}\sum_{c_i\in K_i}\Gamma_{h_i}(c_i)^2
+       =a(q_i)-\frac{q_i+1}{q_i(q_i-3)}=v(q_i).
+\]
+Complete-product summation factors these two second moments, proving
+the first two identities in (JC2).
+
+For the full cross term, use the pointwise identity
+\[
+ (U-B)^2=U^2-G^2+(G-B)^2-2(UB-GB).
+\]
+Take expectations and use all three identities in (JC2). This proves
+(JC3), with no absolute-value estimate or discarded interaction.
+The last term in (JC3) is nonnegative and is zero for \(B=G\).
+Every denominator in (JC1) is positive on \(q\ge16\), and
+\(v(q)=r(q)a(q)\). Dividing by the positive raw second moment yields
+(JC4). Finally \(q^2-q+2>0\), and the exact difference
+\[
+       \left(1-\frac1q\right)-r(q)
+                  =\frac{q-3}{q(q^2+3)}\ge0
+\]
+proves (JC5).
+\end{proof}
+
+\paragraph{Meaning and limits.}
+The optimum is over the full joint algebra of the two named quadratic
+signs in every coordinate. Even arbitrary interactions between those
+signs cannot recover the indicated fraction of the raw second moment.
+This is stronger than a comparison with a selected product model.
+It remains a statement about complete products of finite fields.
+It neither estimates the restriction to a short integer interval nor
+proves the independent positive-mass condition in
+Section~\ref{sec:integer-crt-pair-mass}.
+For an integer application the actual cutoff must still cover every
+possible small prime divisor; the hypotheses here do not silently include
+small prime fields or coordinates where the shift is zero.
+
+\paragraph{Sources and formal status.}
+Tensor-product conditional expectation and the Pythagorean principle
+are classical. The arithmetic content here is their exact realization
+for the original irreducible-quadratic pair law, with the explicit
+factor \(r(q)\), the singular corrections, and unrestricted joint
+character competitors. This is not a claim of general literature priority.
+The maintained owner
+\texttt{Assembly/FiniteFieldJointCharacterProjection} proves
+(JC1)--(JC5), the full coupled-statistic identity, attainment, and positivity
+of the normalizing raw energy. Its finite weighted-pushforward input is
+maintained independently in
+\texttt{Mathlib/Algebra/BigOperators/WeightedFiberProduct}.
+Both owners compile, and a new-only audit of their 19 theorem proofs
+and 8 definitions uses only the standard foundational axioms.
+No Hasse hypothesis, RH assumption, or integer prime-pair supply is used.
+
 \section{Arithmetic transfers and the next ascent investigation}
 \paragraph{Existing ingredients.}
 The generic greedy record sandwich and the maintained periodic and

@@ -1908,3 +1908,69 @@ private target records or the targeted primary literature search; general
 priority remains unestablished. The matched Carmichael label-erasure owner
 has different group-phase objects and is a completed input, not this target.
 Paper label: `sec:optimal-character-pair-law`.
+
+## Optimal joint character projection (2026-10-31)
+
+Maintained owners: `Mathlib/Algebra/BigOperators/WeightedFiberProduct.lean`
+and `Assembly/FiniteFieldJointCharacterProjection.lean`. All 19 theorem
+proofs compile; a new-only audit of 27 declarations found only `propext`,
+`Classical.choice`, and `Quot.sound`. No unchanged proof was re-audited.
+
+The finite-field domain is any finite family of odd fields, each q>=16,
+chi(-1)=-1, with a nonzero shift in each field. The complete uniform product
+measure is essential. Competitors are arbitrary real functions of the full
+vector of two-sign profiles; positivity, normalization and independence
+are not assumed. The two generic transport declarations hold over any
+commutative semiring and arbitrary finite coordinate and label types.
+
+| Declaration | Exact scope | Status |
+| --- | --- | --- |
+| `Fintype.sum_prod_mul_comp_eq` | Exact finite weighted pushforward with the complete joint statistic retained. | Proved; compiled; new-only axiom audit passed. |
+| `Fintype.sum_prod_mul_comp_eq_of_fiber_sums` | Coordinate fiber-mass equality gives equality for every coupled joint statistic. | Proved; compiled; new-only axiom audit passed. |
+| `character_label_eq` | Finite observed-label equality agrees exactly with equality of both quadratic signs. | Proved; compiled; new-only axiom audit passed. |
+| `raw_optimal_label_mass` | Every actual sign fiber has identical raw and projected mass, including singular rows. | Proved; compiled; new-only axiom audit passed. |
+| `raw_second_moment_exact` | Raw second moment equals (q^2+3)/(q*(q-3)) when chi(-1)=-1. | Proved; compiled; new-only axiom audit passed. |
+| `optimal_second_moment_exact` | Projected second moment equals (q^2-q+2)/(q*(q-3)). | Proved; compiled; new-only axiom audit passed. |
+| `raw_joint_character_statistics` | Every arbitrary coupled function of all two-sign profiles has equal raw and projected expectation. | Proved; compiled; new-only axiom audit passed. |
+| `raw_joint_second_moment` | Exact product of the raw one-field second moments. | Proved; compiled; new-only axiom audit passed. |
+| `optimal_joint_second_moment` | Exact product of the visible one-field second moments. | Proved; compiled; new-only axiom audit passed. |
+| `joint_projection_pythagoras` | Full coupled error identity, retaining and canceling the exact mixed-statistic term. | Proved; compiled; new-only axiom audit passed. |
+| `joint_character_error_lower` | Sharp universal error floor prod rawMoment minus prod visibleMoment. | Proved; compiled; new-only axiom audit passed. |
+| `raw_moment_pos` | Positive raw energy factor throughout q>=16. | Proved; compiled; new-only axiom audit passed. |
+| `moment_fraction_identity` | Exact visibleMoment=retainedFraction*rawMoment with all denominators checked. | Proved; compiled; new-only axiom audit passed. |
+| `retained_fraction_bounds` | The exact retained fraction lies in (0,1-1/q] on q>=16. | Proved; compiled; new-only axiom audit passed. |
+| `joint_relative_error_identity` | Exact relative-error numerator identity for every arbitrary joint character model. | Proved; compiled; new-only axiom audit passed. |
+| `joint_relative_error_lower` | Universal normalized error floor (1-prod retainedFraction)*prod rawMoment. | Proved; compiled; new-only axiom audit passed. |
+| `optimal_joint_table_comp` | The explicit joint sign table evaluates to the product projection. | Proved; compiled; new-only axiom audit passed. |
+| `joint_projection_error_exact` | The product projection attains the complete coupled error floor. | Proved; compiled; new-only axiom audit passed. |
+| `raw_joint_energy_pos` | Strict positivity of the raw product energy, including the empty-family case. | Proved; compiled; new-only axiom audit passed. |
+
+The 8 audited definitions are `characterLabels`, `CharacterLabel`,
+`characterLabel`, `rawMoment`, `visibleMoment`, `retainedFraction`,
+`jointTable`, and `optimalJointTable`. The field-specific theorem names
+above are in `PrimeFactorOscillations.FiniteFieldJointCharacterProjection`.
+
+Benchmark status: exact complete-product approximation optimum proved.
+Old bound: a one-field universal optimum and comparisons with named product
+models; no installed exact optimum against every coupled sign statistic.
+New bound: min_B E[(U-B)^2]/E[U^2] =
+1-prod((q^2-q+2)/(q^2+3)), attained by the explicit product projection.
+Components: exact local weighted sign-fiber masses; unrestricted joint
+pushforward; raw moment (q^2+3)/(q*(q-3)); projected moment
+(q^2-q+2)/(q*(q-3)); full mixed term E[UB-GB]=0.
+Actuals: finite falsification passed 70 local nonzero-shift frames in
+fields19,23,31 and 12 coupled frames in fields19 and23. These checks do
+not certify the universal result; the maintained Lean proofs do.
+First nonpositive domain: the empty index set has exact minimum0;
+every nonempty admissible family has a positive error fraction because
+0<retainedFraction<=1-1/q<1. This is an approximation error, not a lower
+bound on integer prime-pair mass. The natural-height mass estimate,
+integer recurrence, H1, and the installed QRH boundary7/8 are unchanged.
+
+The earlier coupled twist-count theorem optimizes a different class:
+mixtures of scaled pair counts. It does not establish this optimum over
+the full joint two-sign algebra. General finite conditional expectation
+and tensorization are classical; the specific raw-law Euler factor and
+its application were not found in the checked target records or targeted
+primary-source search. General literature priority remains unconfirmed.
+Paper label: `sec:joint-character-projection`.

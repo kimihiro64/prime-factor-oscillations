@@ -3,7 +3,7 @@ Copyright (c) 2026 Prime Factor Oscillations contributors.
 Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Prime Factor Oscillations contributors
 -/
-import PrimeFactorOscillations.Assembly.FiniteFieldOptimalCharacterLaw
+import PrimeFactorOscillations.Assembly.FiniteFieldJointCharacterProjection
 import PrimeFactorOscillations.Assembly.FiniteFieldPairIntegerCRT
 import PrimeFactorOscillations.Assembly.FiniteFieldPairProductSeparation
 import PrimeFactorOscillations.Assembly.FiniteFieldQuasipolynomialWeight
