@@ -6314,6 +6314,193 @@ and the height assertion on the same function and every lift.
 The owner is exported through
 \texttt{Assembly/ProbabilityProfiles}.
 
+\subsection{Vanishing relative transfer on integer prime-pair windows}
+The constant-factor integer comparison can be sharpened by retaining
+the decay in the proved joint character bound. Define
+\[
+ K_Q=\left\lceil(10\log Q)^{128}\right\rceil,\qquad
+ E_Q=\frac{2C+18}{(10\log Q)^2},
+\]
+where \(C>0\) is the absolute constant supplied by the joint
+reciprocal-character tail estimate. There is an absolute \(Q_0\)
+such that \(6\leq K_Q\leq Q\) for \(Q\geq Q_0\).
+The constants are existential analytic constants; no numerical
+calibration is claimed.
+
+\begin{theorem}[Uniform relative integer-window transfer]
+\label{thm:relative-integer-window-transfer}
+One can choose absolute \(C,B>0\) and \(Q_0\) before all shifts,
+sample lengths, sample locations and weights, such that the following
+holds. Let \(Q\geq Q_0\), \(0<h<Q\), and let
+\(n_j\), \(0\leq j<N\), be any finite sample satisfying
+\[
+                         Q<n_j,\qquad n_j+h\leq Q^2.
+\]
+Put \(U_j=U_{h,Q}(n_j)\), \(V_j=V_{K_Q,h,Q}(n_j)\).
+For every collection of nonnegative real weights \(w_j\), write
+\[
+ {\cal U}=\sum_{j<N}w_jU_j,\qquad
+ {\cal V}=\sum_{j<N}w_jV_j,\qquad
+ {\cal D}=\sum_{j<N}w_j(U_j-V_j).
+\]
+Then
+\[
+             e^{-E_Q}{\cal V}\leq{\cal U}
+                              \leq e^{E_Q}{\cal V},
+\]
+and the complete signed difference satisfies
+\[
+ (e^{-E_Q}-1){\cal V}
+       \leq {\cal D}\leq(e^{E_Q}-1){\cal V}.
+\]
+Moreover \(E_Q\longrightarrow0\) as \(Q\longrightarrow\infty\).
+These bounds impose no lower bound on \(N\) and no spacing condition
+on the sample.
+
+For unit weights, let
+\[
+ {\cal P}=\#\{j<N:\ n_j\ \hbox{and}\ n_j+h\ \hbox{are prime}\}.
+\]
+Then the actual integer prime-pair readout is
+\[
+ e^{-E_Q}\sum_{j<N}V_j
+     \leq B(\log Q)^2(\log\log Q)^2\,{\cal P}.
+ \tag{PC}
+\]
+Here \({\cal P}\) counts sample indices; for distinct sample locations
+it counts distinct prime pairs. In particular any positive core
+packet mass supplies an integer prime pair. The last positivity
+assertion already follows directly from exact factorization and
+requires no additive error allowance.
+\end{theorem}
+
+\begin{proof}
+The integer logarithmic character level
+\[
+             H_{h,Q}=3+\log(4hQ^2)
+\]
+satisfies \(0\leq H_{h,Q}\leq L_Q=10\log Q\) once
+\(\log Q\geq1\). The elementary limit
+\((10\log Q)^{128}/Q\to0\) makes \(K_Q\leq Q\) eventually.
+Also \(K_Q\geq L_Q^2\geq6\) there. The reciprocal-power
+identity
+\[
+                 L^4(L^{128})^{-1/32}=1 \qquad(L>0)
+\]
+and monotonicity of the negative power give
+\[
+ L^2 x^{-1/32}\leq L^{-2}\qquad(x\geq L^{128}).
+ \tag{RD}
+\]
+
+First fix a single sample input \(n\), and let
+\(T=\texttt{tailLogSum}(K_Q,h,Q,n)\).
+The full factorization is
+\[
+                              U=Ve^T.
+ \tag{F}
+\]
+If \(U=0\), then \(V=0\), because \(e^T>0\). The asserted
+two-sided multiplicative comparison is then exact.
+This branch is necessary: the character on the second numerator
+need not be nonprincipal at an arbitrary composite input.
+
+If \(U\ne0\), nonnegativity gives \(U>0\). The existing zero-mask
+criterion, on \(Q<n\) and \(n+h\leq Q^2\), proves both \(n\)
+and \(n+h\) prime. Thus the already proved joint estimate applies
+to the actual two numerator characters. If \(S\) denotes their
+complete signed reciprocal-prime signal over
+\(K_Q<p\leq Q\), it gives
+\[
+ |S|\leq
+  2C H_{h,Q}^2(K_Q+1)^{-1/32}
+       \leq\frac{2C}{L_Q^2},
+\]
+by \(H_{h,Q}\leq L_Q\), \(L_Q^{128}\leq K_Q+1\), and (RD).
+Both characters, their zero values, and the entire finite tail are
+retained in \(S\).
+
+The compiled local-to-global signed band is
+\[
+                       -\frac{18}{K_Q}\leq T-S
+                                             \leq\frac8{K_Q}.
+\]
+Since \(K_Q\geq L_Q^2\), these inequalities imply
+\[
+                              -E_Q\leq T\leq E_Q.
+\]
+Exponentiation in (F) proves
+\(e^{-E_Q}V\leq U\leq e^{E_Q}V\). This completes both support
+branches, uniformly over every stated \(h,n\).
+
+Multiply these inequalities by \(w_j\geq0\) and sum over the
+finite sample. Exact distributivity gives
+\({\cal D}={\cal U}-{\cal V}\), hence the signed bounds.
+Equivalently, the retained difference is the complete expression
+\(\sum_{j<N}w_jV_j(e^{T_j}-1)\). There is no interval
+energy estimate or sample-length error in this argument.
+The logarithm tends to infinity, so the displayed \(E_Q\) tends
+to zero; this limit is also formalized.
+
+For (PC), use the already proved absolute natural-height amplitude
+bound
+\[
+             U_j\leq B(\log Q)^2(\log\log Q)^2.
+\]
+At an index failing the prime-pair condition, the positive-packet
+criterion and nonnegativity give \(U_j=0\).
+Summing this upper bound only over the prime-pair indices, and
+combining it with the lower mass comparison, proves (PC).
+Finally, positive \(\sum_j V_j\) gives a positive \(V_j\);
+(F) then gives a positive \(U_j\), and the same zero-mask criterion
+extracts the integer prime pair.
+\end{proof}
+
+\paragraph{Comparison with the existing interval transfer.}
+The earlier affine estimate controls an additive replacement error by
+\[
+ B_4(\log Q)^4
+    \sqrt{\frac{500N(N+Q^2)}{K}}.
+\]
+The new comparison applies on the smaller, explicit arithmetic domain
+\(0<h<Q\), \(Q<n_j\), \(n_j+h\leq Q^2\), at the enlarged core \(K_Q\).
+Its complete error is relative to the core mass and tends to zero,
+uniformly for arbitrarily short or irregular samples. Formula (PC)
+also uses the sharper natural-height amplitude denominator.
+The core packet retains every original opening mask; proving its
+positive mass on an unbounded sequence of natural windows remains
+an independent existence problem. No integer prime-gap recurrence
+or improved zero-free exponent follows without such an input.
+
+\paragraph{Literature and scope.}
+David--Koukoulopoulos--Smith~\cite{DavidKoukoulopoulosSmith}
+develop a general framework for weighted averages of Euler products.
+The present conclusion is a deterministic, height-restricted comparison
+for the specific integer pair packet, followed by its uniform finite
+weighted-sample consequence. Its proof uses the installed character
+estimate and the exact arithmetic support reduction. No new general
+Euler-product averaging method or universal priority claim is made.
+
+\paragraph{Formal status.}
+The maintained owner
+\texttt{Assembly/FiniteFieldIntegerWindowTransfer}
+defines \texttt{preciseCore}, \texttt{relativeError}, the three
+finite window masses and \texttt{pairIndices}. It proves the
+eventual core range, the quantitative power decay, the error limit,
+and the complete zero/nonzero-support comparison in
+\texttt{exists\_precise\_natural\_height\_comparison}.
+The finite weighted and signed bounds are compiled in
+\texttt{exists\_uniform\_window\_mass\_transfer};
+the actual integer count readout is
+\texttt{exists\_uniform\_prime\_pair\_count\_transfer}.
+That theorem packages the core range, weighted signed comparison and
+count inequality together with the same \(C,B,Q_0\).
+The direct positivity consumer is
+\texttt{prime\_pair\_of\_positive\_core\_mass}.
+The owner is exported through
+\texttt{Assembly/ProbabilityProfiles}.
+The QRH input and its certified \(7/8\) boundary are unchanged.
+
 \section{Arithmetic transfers and the next ascent investigation}
 \paragraph{Existing ingredients.}
 The generic greedy record sandwich and the maintained periodic and
