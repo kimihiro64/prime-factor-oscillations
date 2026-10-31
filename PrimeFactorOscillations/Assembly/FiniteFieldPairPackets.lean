@@ -7,6 +7,7 @@ import PrimeFactorOscillations.Assembly.FiniteFieldJointCharacterProjection
 import PrimeFactorOscillations.Assembly.FiniteFieldPairIntegerCRT
 import PrimeFactorOscillations.Assembly.FiniteFieldPairProductSeparation
 import PrimeFactorOscillations.Assembly.FiniteFieldQuasipolynomialWeight
+import PrimeFactorOscillations.Assembly.FiniteFieldRawPairCovariance
 import PrimeFactorOscillations.Assembly.FiniteFieldRawPairSpectrum
 
 /-!

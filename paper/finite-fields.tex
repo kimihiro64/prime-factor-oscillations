@@ -7836,6 +7836,176 @@ deletion enforcing every past one-sided cutoff, with its full backward
 envelope and elliptic classification. No matching theorem has yet been
 identified, but this is not an established priority claim.
 
+\section{Exact shifted covariance of the original pair law}
+\label{sec:raw-pair-covariance}
+
+Let \(K\) be a finite field of odd characteristic, \(q=\#K\), and
+\(\chi:K\to\{-1,0,1\}\) its quadratic character. In this section assume
+\(\chi(-1)=-1\), and fix \(h\ne0\). Write \(w_h(c)\) for the actual
+irreducible-quadratic pair count defined earlier and put
+\[
+ t_h(c)=\operatorname{splitCubicPointTrace}(c,c+h),\qquad
+ Q_h(k)=\sum_{x\in K}\chi(x(x-h))\chi((x+k)(x+k-h)).
+\]
+Every sum below is over the entire indicated finite set, including the
+singular constants \(0,-h\). Write \(\delta_{k,a}=1\) if \(k=a\), and
+zero otherwise.
+
+\begin{theorem}[Full raw pair correlation]
+For every \(k\in K\), including \(0,h,-h\),
+\begin{align*}
+ 16\sum_{c\in K}w_h(c)w_h(c+k)
+ ={}&q(q-1)(q-5)+qQ_h(k)-9\\
+ &-2q\{\chi(k(k-h))+\chi(k(k+h))\}\\
+ &+2q\chi(h)\{\chi(k-h)-\chi(k+h)\}+4q\delta_{k,0}\\
+ &+q^2(2\delta_{k,0}+\delta_{k,h}+\delta_{k,-h}).
+\end{align*}
+At the shared-endpoint lag this simplifies to
+\[
+ 16\sum_{c\in K}w_h(c)w_h(c+h)
+ =q^3-5q^2+(5-4\chi(2))q-9.                 \tag{R}
+\]
+The unnormalized identities have no field-size hypothesis beyond those
+stated above.
+\end{theorem}
+
+\begin{proof}
+Set \(e=\chi(h)\), so \(e^2=1\) and \(\chi(-h)=-e\). The completed
+numerator is
+\[
+ B_h(c)=q-1-(1+e)\chi(c)-(1-e)\chi(c+h)-t_h(c).
+\]
+The actual count, rather than its completion, satisfies
+\[
+ 4w_h(c)=B_h(c)-q\,1_{\{c=0\}}-q\,1_{\{c=-h\}}.             \tag{C}
+\]
+In particular both forbidden constants remain in the calculation.
+
+The signed convolution and its character pairing give
+\[
+ \sum_{c\in K}t_h(c)\chi(c+v)
+   =-q\chi(v(v-h))-1,
+ \qquad
+ \sum_{c\in K}t_h(c)t_h(c+k)=qQ_h(k)-1.                   \tag{T}
+\]
+For the second identity, substitute
+\(t_h(c+k)=-\sum_{x\in K}\chi(x(x-h))\chi(c+k+x)\)
+and apply the first identity before summing over \(x\).
+The remaining single kernel sum is
+\(\sum_{x\in K}\chi(x(x-h))=-1\), which supplies the final \(-1\).
+
+Choose \(j=0\) when \(e=1\), and \(j=h\) when \(e=-1\). Then
+\(B_h(c)=q-1-2\chi(c+j)-t_h(c)\). The character and trace means
+vanish, while
+\[
+ \sum_{c\in K}\chi(c+j)\chi(c+k+j)=q\delta_{k,0}-1.
+\]
+Keeping both mixed trace--character products in (T), direct expansion yields
+\begin{align*}
+ \sum_{c\in K}B_h(c)B_h(c+k)
+ ={}&q(q-1)^2+qQ_h(k)-9\\
+ &-2q\{\chi(k(k-h))+\chi(k(k+h))\}+4q\delta_{k,0}. \tag{B}
+\end{align*}
+The same two mixed kernel arguments occur for either choice of \(j\);
+their order is merely interchanged.
+
+Put \(D_h(c)=1_{\{c=0\}}+1_{\{c=-h\}}\). Expanding (C) retains the
+two boundary cross terms and their intersection:
+\begin{align*}
+ 16\sum_{c\in K}w_h(c)w_h(c+k)
+ ={}&\sum_{c\in K}B_h(c)B_h(c+k)\\
+ &-q\{B_h(-k)+B_h(-h-k)+B_h(k)+B_h(k-h)\}\\
+ &+q^2(2\delta_{k,0}+\delta_{k,h}+\delta_{k,-h}).
+\end{align*}
+Indeed the last factor is exactly \(\sum_{c\in K}D_h(c)D_h(c+k)\).
+Trace reflection \(t_h(-h-c)=-t_h(c)\) implies
+\[
+ B_h(c)+B_h(-h-c)
+ =2(q-1)+2e\{\chi(c+h)-\chi(c)\}.
+\]
+Applying this at \(c=k\) and \(c=k-h\), then substituting (B), proves
+the full formula.
+
+Finally \(Q_h(h)=0\): away from \(x=0\) its summand is
+\(\chi((x-h)(x+h))\). That quadratic-character sum is \(-1\);
+the omitted value at zero is \(\chi(-h^2)=-1\), so the corrected sum
+is zero. Since \(h\ne-h\), substituting \(k=h\) and
+\(\chi(h)^2=1\) in the full formula proves (R).
+\end{proof}
+
+For the normalized original law, retain the explicit domain \(q\ge16\)
+used by its existing normalization provider. Define the uncentered
+cross moment
+\[
+ C_h(k)=\frac1q\sum_{c\in K}u_h(c)u_h(c+k),
+ \qquad u_h(c)=\frac{4w_h(c)}{q-3}.
+\]
+Its centered covariance is \(C_h(k)-1\). Formula (R) gives
+\[
+ C_h(h)=
+ \frac{q^3-5q^2+(5-4\chi(2))q-9}{q(q-3)^2}.
+\]
+Thus the actual shared-endpoint dependence is explicit; the elliptic
+term and forbidden rows were not discarded to obtain it.
+
+\begin{theorem}[Every signed window cross term]
+Let \(I,J\) be arbitrary finite index sets, let \(K_i\) be finite fields,
+and let \(u_i\) be their original normalized pair weights.
+Set \(U(x)=\prod_{i\in I}u_i(x_i)\), and define
+\(C_i(k)=\mathbb E_{c\in K_i}[u_i(c)u_i(c+k)]\).
+For arbitrary real weights \(a_j\) and shifts
+\(s_j\in\prod_{i\in I}K_i\),
+\[
+ \mathbb E_x\left(\sum_{j\in J}a_jU(x+s_j)\right)^2
+ =\sum_{j,\ell\in J}a_ja_\ell
+       \prod_{i\in I}C_i(s_{\ell,i}-s_{j,i}).
+\]
+The expectation is over the complete finite product. This identity does
+not require the character hypothesis of the preceding local closed formula.
+\end{theorem}
+
+\begin{proof}
+Translation in each field gives
+\(\mathbb E_c[u_i(c+a)u_i(c+b)]=C_i(b-a)\).
+Factor the complete product average of each pair of shifted products,
+then expand the square and interchange the finite sums. The real
+weights may have either sign; every diagonal and off-diagonal term remains.
+\end{proof}
+
+\paragraph{What must transfer to the integers.}
+Covering every possible small prime divisor is an exact certificate.
+Fix a positive even integer \(h\) and an integer \(Y\ge2\).
+For \(Y<n\le n+h\le Y^2\), the simultaneous conditions
+\(p\nmid n(n+h)\) for every prime \(p\le Y\) imply that both endpoints
+are prime. The corresponding exact Boolean mask is
+\[
+ V_Y(n)=\prod_{\substack{p\le Y\\p\ {\rm prime}}}
+                    1_{\{p\nmid n(n+h)\}}.
+\]
+A surviving integer pair in this height range is therefore precisely
+a positive sum of this mask over the range. Our earlier CRT coverage
+theorem supplies the same implication for supported pair packets.
+The present cross-moment theorem averages window starting points over
+a complete residue period; it does not prove the needed positive mass
+at natural integer heights. A product modulus larger than \(Y^2\)
+gives unique residue coding within the range, but does not force a
+surviving code to have a representative there. Different extensions
+of the same characteristic do not add new integer prime divisors to
+the coverage.
+
+\paragraph{Formalization and novelty boundary.}
+The exact count theorem and its signed convolution inputs are maintained
+in \texttt{QuadraticPairCovariance}; normalization, the adjacent cross
+moment and the arbitrary signed product-window identity are maintained
+in \texttt{FiniteFieldRawPairCovariance}. General trace-function
+correlations are classical; see, for example,
+Fouvry--Kowalski--Michel~\cite{FouvryKowalskiMichelProducts}.
+The specific full count formula with both singular-row corrections and
+its \(\chi(2)\) shared-endpoint specialization was not found in the
+targeted comparison. This is not an established literature-priority claim.
+No integer pair recurrence, \(H_1\) bound or improved QRH exponent is
+claimed.
+
 \section{Exact diagnostic checks}
 The companion script \texttt{finite\_field\_greedy\_probe.py} checks all
 general Weierstrass equations over \(\F_2,\F_3\), all short Weierstrass
@@ -7939,5 +8109,10 @@ arXiv:1508.00335.
 \bibitem{KudoKakutani} Kudo,
 \emph{A Theorem of Kakutani on Infinite Product Measures} (1952).
 \url{https://teapot.lib.ocha.ac.jp/record/35128/files/KJ00004829299.pdf}.
+\bibitem{FouvryKowalskiMichelProducts}
+E. Fouvry, E. Kowalski and P. Michel,
+\emph{A study in sums of products},
+arXiv:1405.2293.
+\url{https://arxiv.org/abs/1405.2293}.
 \end{thebibliography}
 \end{document}

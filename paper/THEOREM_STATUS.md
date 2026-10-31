@@ -1974,3 +1974,78 @@ and tensorization are classical; the specific raw-law Euler factor and
 its application were not found in the checked target records or targeted
 primary-source search. General literature priority remains unconfirmed.
 Paper label: `sec:joint-character-projection`.
+
+## Full raw pair covariance and signed window kernels (October 31)
+
+All 21 theorem proofs and 3 definitions below are maintained and compiled.
+The new-only axiom audit covers exactly these 24 declarations and reports
+only propext, Classical.choice and Quot.sound. No unchanged declarations
+were re-audited.
+
+Candidate owner:
+`PrimeFactorOscillations/Mathlib/NumberTheory/LegendreSymbol/QuadraticPairCovariance.lean`.
+The following theorem names are in namespace `FiniteField`.
+
+| Claim | Status | Exact scope |
+| --- | --- | --- |
+| `splitCubicPointTrace_reflection_neg_one` | proved and audited | odd field; chi(-1)=-1; arbitrary h,c |
+| `splitCubicPointTrace_arithmetic_progression_zero` | proved and audited | odd field; chi(-1)=-1; arbitrary h |
+| `sum_splitCubicPointTrace_shift_mul_char` | proved and audited | odd field; h nonzero; arbitrary k,v |
+| `splitCubicPointTrace_shift_correlation` | proved and audited | odd field; h nonzero; arbitrary lag |
+| `quadraticPairCorrelationKernel_zero` | proved and audited | any finite field; h nonzero |
+| `quadraticPairCorrelationKernel_even` | proved and audited | any finite field; arbitrary h,k |
+| `quadraticPairCorrelationKernel_adjacent` | proved and audited | odd field; chi(-1)=-1; h nonzero |
+| `splitCubicPointTrace_adjacent_correlation` | proved and audited | odd field; chi(-1)=-1; h nonzero |
+| `quadraticPairCount_first_order_completion` | proved and audited | odd field; h nonzero; both forbidden rows |
+| `quadraticPair_linearized_shift_correlation` | proved and audited | odd field; h nonzero; arbitrary A,j,k |
+| `completedQuadraticPairNumerator_shift_correlation` | proved and audited | odd field; chi(-1)=-1; h nonzero; every lag |
+| `completedQuadraticPairNumerator_reflection` | proved and audited | odd field; chi(-1)=-1; arbitrary h,c |
+| `quadraticPairCount_shift_completion` | proved and audited | odd field; h nonzero; every boundary intersection |
+| `completedQuadraticPairNumerator_boundary_correction` | proved and audited | odd field; chi(-1)=-1; arbitrary h,k |
+| `monicQuadraticPairCount_shift_correlation` | proved and audited | odd field; chi(-1)=-1; h nonzero; every lag |
+| `monicQuadraticPairCount_adjacent_correlation` | proved and audited | odd field; chi(-1)=-1; h nonzero; exact chi(2) formula |
+
+Assembly owner:
+`PrimeFactorOscillations/Assembly/FiniteFieldRawPairCovariance.lean`.
+The following names are in namespace
+`PrimeFactorOscillations.FiniteFieldRawPairCovariance`.
+
+| Claim | Status | Exact scope |
+| --- | --- | --- |
+| `covariance_count` | proved and audited | odd field; chi(-1)=-1; h nonzero; q>=16 |
+| `covariance_adjacent` | proved and audited | same normalized domain; shared-endpoint lag |
+| `covariance_shifted` | proved and audited | any finite field; arbitrary h,a,b |
+| `packet_cross_moment` | proved and audited | arbitrary finite product; arbitrary shifts |
+| `signed_window_second_moment` | proved and audited | arbitrary finite product and finite signed window; every cross term |
+
+Definitions: `FiniteField.quadraticPairCorrelationKernel`,
+`PrimeFactorOscillations.FiniteFieldRawPairCovariance.covariance` and
+`PrimeFactorOscillations.FiniteFieldRawPairCovariance.shiftedPacket`.
+Here covariance is explicitly the uncentered raw cross moment;
+the centered covariance is that value minus 1 when the mean is 1.
+
+benchmark_status: exact signed complete-product identities proved;
+no improved integer-window bound claimed.
+old_bound: the raw diagonal second moment was exact; general lag and
+signed window off-diagonal terms had no installed explicit raw count formula.
+new_bound: the full all-lag count formula is exact, and at lag h,
+16*sum_c w(c)*w(c+h)=q^3-5*q^2+(5-4*chi(2))*q-9.
+The normalized shared-endpoint value divides this by q*(q-3)^2.
+components: quartic character kernel, both signed trace-character mixed
+products, both singular-row subtractions, all boundary intersections,
+and every signed product-window cross term.
+actuals: falsification passed 156 local frames and 4444 all-lag frames
+in the stated finite test domain, including the genuine extension field F27;
+these are diagnostics, not the universal proof.
+first_nonpositive_domain: unavailable for the unresolved integer-window
+mass; no finite or infinite integer positivity range is asserted.
+
+The required integer input remains a positive sum of the full prime
+avoidance mask V_Y(n) on Y<n<=Y^2-h along unbounded Y, for fixed positive
+even h. CRT complete-period support and a modulus larger than Y^2 do
+not discharge this input. The previous natural-height mass estimate,
+integer recurrence, H1 and certified QRH boundary 7/8 are unchanged.
+All-lag exactness is currently specialized to chi(-1)=-1; the generic
+product-window identity retains arbitrary finite fields without that
+hypothesis. Literature priority beyond the targeted primary comparison
+is unconfirmed. Paper label: `sec:raw-pair-covariance`.
