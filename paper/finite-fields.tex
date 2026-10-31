@@ -8886,6 +8886,233 @@ inequalities are proved in the maintained modules
 \texttt{FiniteFieldTraceFreeWave}.
 The claim ledger records their exact declarations and audit status.
 
+\section{Cubic transport and the exact new-prime mask}
+\label{sec:cubic-pair-lift}
+
+The following transport concerns the canonical trace-free law built from
+the actual two-class counts. The cubic polynomial itself is classical:
+with \(x=c+1\), the substitution is
+\[
+ T(c)=c(2c+3)^2,\qquad T(c)+1=4x^3-3x.
+\]
+Chebyshev and Dickson identities over finite fields are established
+ingredients; compare Evans and Van Veen~\cite{EvansVanVeenDickson}.
+The result here applies simultaneous square transport to the maintained
+count law and retains the exact prime masks in its integer consumer.
+Priority of this application is not established by the formal proof.
+
+\subsection{The actual finite-field count law}
+
+Let \(F\) be a finite odd field of cardinality \(q\), and let \(\chi\)
+be its quadratic character, extended by zero. Write
+\[
+ m(c)=\mathbf1_{c\notin\{0,-2\}},\qquad
+ {\cal N}(c)=m(c)\bigl(q-1+\chi(-2)\chi(c)+\chi(2)\chi(c+2)\bigr).
+\]
+For any nonsquare \(a\in F^\times\), the established two-class identity is
+\[
+ {\cal N}(c)=2\bigl(w_2(c)+w_{2a}(ac)\bigr).
+\]
+For \(q\ge5\), the canonical mean-one weight is
+\(W_2(c)={\cal N}(c)/(q-3)\).
+Define
+\[
+ B(c)=(2c+1)(2c+3),\qquad
+ M(c)=\mathbf1_{B(c)\ne0}.
+\]
+
+\begin{theorem}[Exact cubic transport of the compensated count]
+\label{thm:cubic-count-transport}
+For every \(c\in F\),
+\[
+ {\cal N}(T(c))=M(c){\cal N}(c),\qquad
+ w_2(T(c))+w_{2a}(aT(c))
+ =M(c)\bigl(w_2(c)+w_{2a}(ac)\bigr).
+\]
+For \(q\ge5\), one also has
+\[
+ \boxed{W_2(T(c))=M(c)W_2(c).}
+ \tag{C1}\label{eq:cubic-field-mask}
+\]
+The unnormalized count identities include cardinality three.
+\end{theorem}
+\begin{proof}
+The simultaneous endpoint identities are
+\[
+ T(c)=c(2c+3)^2,\qquad
+ T(c)+2=(c+2)(2c+1)^2.
+ \tag{C2}\label{eq:cubic-endpoints}
+\]
+When \(B(c)\ne0\), both square multipliers are nonzero.
+Consequently
+\(\chi(T(c))=\chi(c)\) and
+\(\chi(T(c)+2)=\chi(c+2)\).
+The same nonvanishing gives
+\(T(c)=0\) if and only if \(c=0\), and
+\(T(c)=-2\) if and only if \(c=-2\).
+Thus both character terms and the endpoint mask are unchanged, proving
+the numerator identity in this case.
+
+When \(B(c)=0\), either \(2c+3=0\), giving \(T(c)=0\), or
+\(2c+1=0\), giving \(T(c)=-2\) by
+\eqref{eq:cubic-endpoints}. In either event its endpoint mask vanishes.
+This proves the numerator identity in all cases.
+Apply the two-class count identity and cancel its factor two.
+Division by the common nonzero denominator \(q-3\) proves
+\eqref{eq:cubic-field-mask} on the stated normalized domain.
+\end{proof}
+
+More generally, the same argument proves simultaneous square transport:
+if \(u,v\ne0\), \(d=cu^2\), and \(d+2=(c+2)v^2\), then
+\({\cal N}(d)={\cal N}(c)\) and \(W_2(d)=W_2(c)\).
+This preserves the compensated count; no invariance of each individual
+raw count is asserted.
+
+\subsection{Unbounded composite orbits and coprime factor blocks}
+
+For natural integers set
+\[
+ n_0=s,\qquad n_{k+1}=T(n_k),\qquad
+ A(n)=n(n+2),\qquad B(n)=(2n+1)(2n+3).
+\]
+Define \(L_0=R_0=1\) and
+\[
+ L_{k+1}=L_k(2n_k+3),\qquad R_{k+1}=R_k(2n_k+1).
+\]
+All products here have the displayed finite index range.
+
+\begin{theorem}[Cubic composite orbits]
+\label{thm:cubic-composite-orbits}
+For every seed \(s>0\) and every \(k\ge0\),
+\[
+ n_k=sL_k^2,\qquad n_k+2=(s+2)R_k^2,\qquad n_k\ge s+k.
+ \tag{C3}\label{eq:cubic-orbit-squares}
+\]
+The orbit is strictly increasing. Both \(n_{k+1}\) and \(n_{k+1}+2\)
+are composite, so these composite pairs are unbounded.
+If \(s\equiv2\pmod3\), then the blocks \(B(n_k)\) are pairwise coprime.
+Every prime divisor of \(B(n_k)\) is absent from \(n_k(n_k+2)\).
+If \(s\equiv5\pmod6\), this congruence persists throughout the orbit.
+\end{theorem}
+\begin{proof}
+Induction using \eqref{eq:cubic-endpoints} proves the two square
+factorizations and positivity of every \(n_k\).
+For \(n>0\), the square factor in \(T(n)\) exceeds one, so \(T(n)>n\).
+Induction now gives \(n_k\ge s+k\).
+Both endpoint identities exhibit a square of an integer greater than
+one as a divisor of the next endpoint; each endpoint is strictly larger
+than that divisor. Thus both are composite.
+
+The identities controlling all overlaps are
+\[
+ A(T(n))=A(n)B(n)^2,\qquad B(n)=3+4A(n).
+ \tag{C4}\label{eq:cubic-new-block}
+\]
+Reduction modulo three shows that \(n\equiv2\pmod3\) implies
+\(T(n)\equiv2\pmod3\), and then \(A(n)\equiv2\pmod3\).
+The second identity in \eqref{eq:cubic-new-block} gives
+\[
+ \gcd(B(n),A(n))=\gcd(3,A(n))=1.
+\]
+The first identity shows that \(A(n_i)\) divides \(A(n_j)\) for \(i\le j\),
+and \(B(n_i)\) divides \(A(n_j)\) for \(i<j\).
+Hence \(B(n_i)\) and \(B(n_j)\) are coprime for \(i<j\).
+The same coprimality excludes any prime divisor of \(B(n_k)\) from
+\(A(n_k)\).
+Finally direct reduction of \(n(2n+3)^2\) modulo six preserves residue
+five. The two factors \(2n+1,2n+3\) are themselves coprime, since
+they are odd and differ by two.
+\end{proof}
+
+At any finite field whose characteristic divides neither \(L_k\) nor
+\(R_k\), \eqref{eq:cubic-orbit-squares} gives the exact identities
+\[
+ W_2(n_k)=W_2(s),\qquad
+ \chi(-2n_k)=\chi(-2s),\qquad
+ \chi(2(n_k+2))=\chi(2(s+2)).
+ \tag{C5}\label{eq:cubic-orbit-rows}
+\]
+These follow by the proved simultaneous square transport.
+The nonvanishing hypotheses on both accumulated multipliers are
+essential; a newly ramified characteristic instead invokes its mask.
+
+\subsection{The full integer packet, including two and three}
+
+For the fixed gap two, the canonical actual local factor is
+\[
+ \ell_p(c)=
+ \begin{cases}
+  2\mathbf1_{c\ne0},&p=2,\\
+  3\mathbf1_{c=2},&p=3,\\
+  W_2(c),&p\ge5.
+ \end{cases}
+\]
+These are exactly the existing small-prime fallbacks and qualified
+trace-free rows. For any natural cutoff \(Q\), including an empty prime
+support, put
+\[
+ P_Q(n)=\prod_{\substack{p\le Q\\p\ {\rm prime}}}\ell_p(n\bmod p),
+ \qquad
+ {\cal M}_Q(n)=
+ \prod_{\substack{p\le Q\\p\ {\rm prime}}}\mathbf1_{p\nmid B(n)}.
+\]
+
+\begin{theorem}[Complete native mask transport]
+\label{thm:cubic-native-packet}
+For all natural \(Q,n\),
+\[
+ \boxed{P_Q(T(n))=P_Q(n){\cal M}_Q(n).}
+ \tag{C6}\label{eq:cubic-native-packet}
+\]
+Thus the packet is unchanged if no prime \(p\le Q\) divides \(B(n)\),
+and is zero if at least one such prime divides \(B(n)\).
+\end{theorem}
+\begin{proof}
+For \(p\ge5\), \eqref{eq:cubic-field-mask} gives
+\[
+ \ell_p(T(n))=\ell_p(n)\mathbf1_{p\nmid B(n)}.
+\]
+The equivalence between field vanishing of \(B(n)\) and integer
+divisibility is exact.
+
+For the fallback rows retain the original opening mask
+\[
+ m_p(n)=\mathbf1_{p\nmid n(n+2)}.
+\]
+The first identity in \eqref{eq:cubic-new-block}, together with primality
+of \(p\), gives
+\[
+ m_p(T(n))=m_p(n)\mathbf1_{p\nmid B(n)}.
+\]
+Multiplication by the same fallback normalizer proves the local identity
+at both two and three. This also covers residues where both sides
+already vanish. Finally multiply the exact local identities over the
+complete finite prime support. This gives \eqref{eq:cubic-native-packet}
+without an estimate or a discarded overlap. A finite product of these
+zero-one masks equals one precisely when every mask is one, and equals
+zero when any mask is zero.
+\end{proof}
+
+\paragraph{What the construction establishes.}
+The two character rows can be preserved along unbounded composite
+orbits at every unramified tested characteristic.
+The full prime packet records exactly the additional prime factors
+that the cutoff has reached.
+This does not obstruct the complete square-root cover:
+as the integer height grows, that primality-certifying cutoff must grow
+as well, and the newly included factors activate the exact masks.
+No positive mass in \(Y<n\le Y^2-2\), integer prime-pair recurrence,
+value of \(H_1\), or improved QRH exponent follows from this transport.
+
+\paragraph{Formalization.}
+The maintained modules \texttt{TwinCubic},
+\texttt{QuadraticPairCubicLift}, and \texttt{FiniteFieldCubicLift}
+prove the integer orbit properties, actual two-class count identities,
+both unramified character rows, and complete native mask transport.
+Their 43 theorems and nine definitions have passed focused compilation
+and the new-declaration foundational-axiom audit. The claim ledger
+lists each declaration and its exact scope.
+
 \begin{thebibliography}{99}
 \bibitem{DavidKoukoulopoulosSmith}
 C. David, D. Koukoulopoulos and E. Smith,
@@ -8969,5 +9196,9 @@ arXiv:1405.2293.
 \bibitem{CohenConsecutivePatterns} S. D. Cohen,
 \emph{Triples and quadruples of consecutive squares or non-squares in a finite field},
 arXiv:2402.10737. \url{https://arxiv.org/abs/2402.10737}.
+\bibitem{EvansVanVeenDickson} R. Evans and M. Van Veen,
+\emph{Bivariate identities related to Chebyshev and Dickson polynomials over \(F_q\)},
+Finite Fields and Their Applications 49 (2018), 143--155.
+\url{https://mathweb.ucsd.edu/~revans/BivariateIdentities.pdf}.
 \end{thebibliography}
 \end{document}

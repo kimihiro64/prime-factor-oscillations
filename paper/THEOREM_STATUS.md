@@ -2446,3 +2446,79 @@ triple-character pattern ingredient from this covariance application.
 Priority remains under review. No integer prime-pair recurrence, H1
 improvement or change to the accepted QRH7/8 boundary is claimed.
 QRH exponent research stays paused.
+
+
+## Cubic actual-count transport and native prime masks (2026-10-31)
+
+Owner: `PrimeFactorOscillations/Mathlib/NumberTheory/Primes/TwinCubic.lean`.
+
+| Claim | Status | Exact scope |
+| --- | --- | --- |
+| `Nat.TwinCubic.step_add_two` | proved and audited | all natural n; simultaneous square factorization of the second endpoint |
+| `Nat.TwinCubic.step_chebyshev` | proved and audited | all natural n; exact cubic Chebyshev identity without natural subtraction |
+| `Nat.TwinCubic.block_eq` | proved and audited | all natural n; B(n)=3+4*n*(n+2) |
+| `Nat.TwinCubic.endpointProduct_step` | proved and audited | all natural n; exact endpoint product multiplication by B(n)^2 |
+| `Nat.TwinCubic.orbit_eq_left_square` | proved and audited | all natural seeds and indices; first endpoint accumulated square |
+| `Nat.TwinCubic.orbit_add_two_eq_right_square` | proved and audited | all natural seeds and indices; second endpoint accumulated square |
+| `Nat.TwinCubic.step_pos` | proved and audited | positive natural n; positive next iterate |
+| `Nat.TwinCubic.orbit_pos` | proved and audited | positive seed; every orbit index |
+| `Nat.TwinCubic.lt_step` | proved and audited | positive natural n; strictly larger next iterate |
+| `Nat.TwinCubic.orbit_strictMono` | proved and audited | positive seed; strictly increasing full orbit |
+| `Nat.TwinCubic.seed_add_le_orbit` | proved and audited | positive seed; explicit seed+k lower bound for every k |
+| `Nat.TwinCubic.step_composite_pair` | proved and audited | positive natural n; both next endpoints are nonprime |
+| `Nat.TwinCubic.exists_large_composite_pair` | proved and audited | positive seed; every natural X; a later composite pair above X |
+| `Nat.TwinCubic.step_mod_three` | proved and audited | n mod 3=2; next iterate has the same residue |
+| `Nat.TwinCubic.orbit_mod_three` | proved and audited | seed mod 3=2; all orbit indices |
+| `Nat.TwinCubic.orbit_mod_six` | proved and audited | seed mod 6=5; all orbit indices |
+| `Nat.TwinCubic.affine_factors_coprime` | proved and audited | every natural n; the two odd affine factors are coprime |
+| `Nat.TwinCubic.block_coprime_endpointProduct` | proved and audited | n mod 3=2; new block coprime to both old endpoints jointly |
+| `Nat.TwinCubic.endpointProduct_dvd_next` | proved and audited | every natural n; old endpoint product divides the next |
+| `Nat.TwinCubic.endpointProduct_orbit_dvd` | proved and audited | all seeds; i<=j; full endpoint-product divisibility |
+| `Nat.TwinCubic.block_dvd_next` | proved and audited | every natural n; new block divides the next endpoint product |
+| `Nat.TwinCubic.earlier_block_dvd` | proved and audited | all seeds; i<j; earlier block divides later endpoint product |
+| `Nat.TwinCubic.blocks_coprime_of_lt` | proved and audited | seed mod 3=2; i<j; corresponding new blocks coprime |
+| `Nat.TwinCubic.blocks_pairwise_coprime` | proved and audited | seed mod 3=2; all distinct orbit indices |
+| `Nat.TwinCubic.new_prime_divisor` | proved and audited | n mod 3=2; every prime divisor of B(n) absent from the old endpoint product |
+
+Definitions (compiled and audited): `Nat.TwinCubic.step`, `Nat.TwinCubic.endpointProduct`, `Nat.TwinCubic.block`, `Nat.TwinCubic.orbit`, `Nat.TwinCubic.leftScale`, `Nat.TwinCubic.rightScale`.
+
+Owner: `PrimeFactorOscillations/Mathlib/NumberTheory/LegendreSymbol/QuadraticPairCubicLift.lean`.
+
+| Claim | Status | Exact scope |
+| --- | --- | --- |
+| `FiniteField.cubicPairLift_add_two` | proved and audited | all fields; arbitrary c; exact second-endpoint factorization |
+| `FiniteField.cast_twinCubic_step` | proved and audited | all fields; every natural n; integer lift agrees with field polynomial |
+| `FiniteField.traceFreePairNumerator_square_transport` | proved and audited | finite field; two nonzero simultaneous square multipliers; both endpoint masks retained |
+| `FiniteField.traceFreePairWeight_square_transport` | proved and audited | same finite-field square-transport hypotheses; canonical weight unchanged |
+| `FiniteField.traceFreePairNumerator_cubic_lift` | proved and audited | every finite field and c; exact new-factor mask, including singular endpoints |
+| `FiniteField.traceFreePairWeight_cubic_lift` | proved and audited | every finite field and c; algebraic masked weight identity; probability normalization retains its existing qualified domain |
+| `FiniteField.monicQuadraticPairCount_cubic_lift` | proved and audited | finite odd field; any nonsquare multiplier; exact actual two-class count sum including cardinality three |
+| `FiniteField.traceFreePairWeight_twinCubic_orbit` | proved and audited | finite field; arbitrary seed and index; both accumulated square multipliers nonzero |
+| `FiniteField.quadraticChar_twinCubic_rows` | proved and audited | same unramified orbit domain; both signed quadratic-character rows preserved |
+
+Definitions (compiled and audited): `FiniteField.cubicPairLift`.
+
+Owner: `PrimeFactorOscillations/Assembly/FiniteFieldCubicLift.lean`.
+
+| Claim | Status | Exact scope |
+| --- | --- | --- |
+| `PrimeFactorOscillations.FiniteFieldCubicLift.integer_mask_product` | proved and audited | every bounded prime modulus; arbitrary residue; exact product opening mask |
+| `PrimeFactorOscillations.FiniteFieldCubicLift.block_cast_zero_iff` | proved and audited | every bounded modulus and natural n; affine field-product zero iff integer block divisibility |
+| `PrimeFactorOscillations.FiniteFieldCubicLift.integer_mask_cubic_lift` | proved and audited | every bounded prime modulus, including two and three; exact new-prime opening mask |
+| `PrimeFactorOscillations.FiniteFieldCubicLift.actual_local_cubic_lift` | proved and audited | all bounded moduli and natural n; full canonical local row, including fallback and composite unit rows |
+| `PrimeFactorOscillations.FiniteFieldCubicLift.actual_packet_cubic_lift` | proved and audited | every natural cutoff and n; exact full actual packet times the complete new-prime mask |
+| `PrimeFactorOscillations.FiniteFieldCubicLift.block_mask_eq_one` | proved and audited | every cutoff and n; no supported prime divides the new block |
+| `PrimeFactorOscillations.FiniteFieldCubicLift.block_mask_eq_zero` | proved and audited | every cutoff and n; any named prime divisor at or below cutoff |
+| `PrimeFactorOscillations.FiniteFieldCubicLift.actual_packet_eq_of_no_new_prime` | proved and audited | every cutoff and n; full actual packet unchanged under complete supported avoidance |
+| `PrimeFactorOscillations.FiniteFieldCubicLift.actual_packet_zero_of_new_prime` | proved and audited | every cutoff and n; full actual packet zero when a supported new prime is present |
+
+Definitions (compiled and audited): `PrimeFactorOscillations.FiniteFieldCubicLift.primeBlockMask`, `PrimeFactorOscillations.FiniteFieldCubicLift.blockMask`.
+
+benchmark_status: exact universal cubic transport proved; all52 new public declarations compiled and foundational-axiom audited. Public closure and final staged validation accompany promotion.
+old_bound: no maintained exact cubic transport for the complete canonical actual packet.
+new_bound: P_Q(T(n))=P_Q(n)*product_(prime p<=Q)1_(p does not divide (2n+1)(2n+3)), for all natural Q,n. Both unramified character rows and the actual two-class sum are preserved exactly.
+components: simultaneous endpoint square factors; both zero-discriminant masks; every prime row including two and three; coprime new blocks and every supported prime-factor mask; no discarded count class or compensation term.
+actuals: pre-formalization falsification covered5349 actual two-class sums,5346 normalized weights,42 integer-orbit frames and189 coprime-block comparisons in the recorded finite domain. These are diagnostics, not universal proofs or integer prime-pair counts.
+first_nonpositive_domain: unavailable for integer-origin mass; no positive window or cofinal prime-pair supply is certified. A visible new factor makes the transported packet exactly zero, including when it was already zero.
+
+The cubic Chebyshev identity and elementary coprime-orbit arithmetic are classical ingredients. Priority of the actual-count and complete-mask application remains unconfirmed. The paper contains its complete ordinary proof and preserves all normalization and unramified hypotheses. No integer prime-pair recurrence, H1 improvement, RH proof or change to the accepted QRH7/8 boundary is claimed; QRH exponent research stays paused.
