@@ -6707,6 +6707,164 @@ The information constant, exact error identity and vanishing
 rate bound are also formalized. Both owners are exported through
 \texttt{Assembly/ProbabilityProfiles}.
 
+\subsection{Sharp weight exponent on actual integer prime pairs}
+The upper amplitude theorem has a matching lower logarithmic exponent
+on genuine prime pairs. This concerns the actual integer packet,
+rather than a residue class chosen independently at each modulus.
+
+\begin{theorem}[Uniform two-power weight on prime-pair support]
+\label{thm:integer-pair-two-power-weight}
+There are absolute constants \(c,B>0\) and \(Q_0\), chosen before
+\(h,n,Q\), such that for every \(Q\geq Q_0\), \(0<h<Q\),
+\(Q<n\), \(n+h\leq Q^2\), with \(n\) and \(n+h\) prime,
+\[
+ c\,\frac{(\log Q)^2}{(\log\log Q)^2}
+ \ \leq\ U_{h,Q}(n)\
+ \leq B\,(\log Q)^2(\log\log Q)^2 .
+ \tag{WP}
+\]
+Consequently, uniformly over all these actual prime pairs,
+\[
+                 \frac{\log U_{h,Q}(n)}{\log\log Q}\longrightarrow2.
+ \tag{WE}
+\]
+More precisely, for every \(\varepsilon>0\), one absolute cutoff
+\(Q_\varepsilon\) works simultaneously for all the admissible
+\(Q,h,n\) in
+\[
+ \left|\frac{\log U_{h,Q}(n)}{\log\log Q}-2\right|
+       \leq\varepsilon\qquad(Q\geq Q_\varepsilon).
+\]
+No assertion that such a pair exists for every \(h,Q\) is needed.
+\end{theorem}
+
+\begin{proof}
+Enlarge all cutoffs so that \(\log Q,\log\log Q\geq1\).
+For this argument use the already proved natural-height core
+\[
+ J_Q=\left\lceil(10\log Q)^{64}\right\rceil .
+\]
+The earlier conditioning theorem continues to use its larger core
+\(K_Q=\lceil(10\log Q)^{128}\rceil\).
+For all sufficiently large \(Q\),
+\[
+ 12\leq J_Q\leq Q,\qquad
+ \log Q\leq J_Q,\qquad
+ \log J_Q\leq641\log\log Q .
+ \tag{JC}
+\]
+The core covers the conductor level in the proved natural-height
+character comparison.
+
+Since both primes exceed \(Q\geq6\), their shift \(h\) is even.
+For each prime \(p\leq Q\), neither \(n\) nor \(n+h\) vanishes
+modulo \(p\), so the original opening mask is exactly one.
+Every retained actual row at \(p\leq J_Q\) is at least one.
+For \(p>J_Q\), the hybrid row is exactly
+\[
+ \frac p{p-1}\quad(p\mid h),\qquad
+ \frac p{p-2}\quad(p\nmid h).
+\]
+The first is at least one. The elementary inequality
+\(1-2/p\leq e^{-2/p}\), with \(p-2>0\), gives
+\(e^{2/p}\leq p/(p-2)\). Therefore, retaining every row,
+\[
+ V_{J_Q,h,Q}(n)\geq
+ \exp\left(2\sum_{\substack{J_Q<p\leq Q\\p\ {\rm prime}\\p\nmid h}}
+                         \frac1p\right).
+ \tag{VL}
+\]
+The exceptional rows have not been deleted; the lower estimate uses
+their proved lower bound of one.
+
+Let \(B_M\) be the maintained absolute reciprocal-prime Mertens
+budget. The proved logarithmic shift-divisor estimate and
+\(\log h\leq\log Q\leq J_Q\) give
+\[
+ \sum_{\substack{p>J_Q\\p\mid h}}\frac1p
+ \leq\frac{\log h}{J_Q\log2}\leq\frac1{\log2}.
+\]
+Using both Mertens bounds in (VL) yields
+\[
+ V_{J_Q,h,Q}(n)\geq
+ g\left(\frac{\log Q}{\log J_Q}\right)^2,\qquad
+ g=\exp\left(-4B_M-\frac2{\log2}\right)>0.
+ \tag{VG}
+\]
+The existing natural-height packet comparison supplies one absolute
+\(C>0\) with
+\[
+ U_{h,Q}(n)\geq e^{-2C-18/J_Q}V_{J_Q,h,Q}(n)
+              \geq e^{-2C-3}V_{J_Q,h,Q}(n).
+\]
+Combine this with (JC) and (VG) to obtain the lower bound in (WP)
+with the explicit expression
+\[
+                       c=\frac{e^{-2C-3}g}{641^2}>0.
+\]
+The upper bound is the already proved uniform natural-height
+amplitude theorem. These constants are absolute; no numerical
+calibration of the analytic constant \(C\) is asserted.
+
+The lower bound proves \(U_{h,Q}(n)>0\), so its logarithm is valid.
+Taking logarithms in both sides of (WP) gives
+\[
+ \left|\frac{\log U_{h,Q}(n)}{\log\log Q}-2\right|
+ \leq
+ \frac{|\log c|+|\log B|+2\log\log\log Q}{\log\log Q}.
+ \tag{WR}
+\]
+The right side tends to zero, by
+\(\log t/t\to0\) and \(1/t\to0\) with \(t=\log\log Q\).
+It depends only on \(Q\) and the two absolute constants, which
+proves the full uniform conclusion.
+\end{proof}
+
+\begin{corollary}[Actual least-gap attainment]
+\label{cor:least-gap-two-power-weight}
+For every \(\varepsilon>0\) and cutoff \(R\), there are
+\(Q\geq R\) and an index \(i\) satisfying the complete actual
+integer frame (FQ), including its positive full-window mass, with
+\[
+ \left|\frac{\log U_{H_1,Q}(Q+1)}{\log\log Q}-2\right|
+                \leq\varepsilon .
+\]
+The endpoints \(Q+1=p_i\) and \(Q+1+H_1=p_{i+1}\) are actual
+consecutive integer primes at that same cutoff.
+\end{corollary}
+\begin{proof}
+Choose an (FQ) frame beyond both \(R\) and
+\(Q_\varepsilon\). Its pair belongs to the natural-height window,
+so the uniform theorem applies. The existing frame witness retains
+all its original endpoint, core and positive-mass properties.
+\end{proof}
+
+\paragraph{Meaning and formal status.}
+Thus the actual prime-pair weight has the sharp logarithmic
+exponent \(2\) throughout its natural integer window. The earlier
+quartic CRT crests describe larger weights at different integer
+heights; they are not the weight scale of these prime-pair windows.
+The statement is pointwise and does not supply a prime-pair density,
+determine \(H_1\), or change the installed QRH exponent.
+Classical Mertens estimates and elementary logarithmic comparisons
+are inputs. The literature on averages of Euler products, such as
+David--Koukoulopoulos--Smith~\cite{DavidKoukoulopoulosSmith},
+has a different conclusion from this deterministic pointwise
+bound for the full masked packet.
+
+The maintained owner
+\texttt{Assembly/FiniteFieldIntegerWeightGrowth}
+proves the local mask and tail lower bounds and the full theorem
+\texttt{exists\_uniform\_prime\_pair\_weight\_bounds}.
+The owner
+\texttt{Assembly/FiniteFieldIntegerWeightExponent}
+proves the explicit logarithmic band, its vanishing error,
+\texttt{uniform\_prime\_pair\_weight\_exponent}, and the full
+integer corollary
+\texttt{unbounded\_least\_gap\_weight\_exponent}.
+Both owners are exported through
+\texttt{Assembly/ProbabilityProfiles}.
+
 \section{Arithmetic transfers and the next ascent investigation}
 \paragraph{Existing ingredients.}
 The generic greedy record sandwich and the maintained periodic and
