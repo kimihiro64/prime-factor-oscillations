@@ -2887,3 +2887,45 @@ actuals: universal symbolic Lean proofs for the stated fields, indices, shifts a
 first_nonpositive_domain: q=3 is excluded from probability normalization. The growing-cutoff integer joint-survivor count remains open; H1, RH and the paused7/8 QRH boundary are unchanged.
 
 Classical trace and totient identities are supporting inputs, not novelty claims. Priority of the masked probability joint-energy theorem remains unconfirmed.
+
+
+## Primitive odd-Pell atoms: localization inputs (2026-10-31)
+
+Owners: PrimeFactorOscillations/Mathlib/NumberTheory/ArithmeticFunction/DivisorKernelAtoms.lean and PrimeFactorOscillations/Mathlib/NumberTheory/LegendreSymbol/QuadraticPairOddPellConductor.lean.
+Export: QuadraticPairOddPellLaws, then the existing correlation and root facades.
+
+These inputs are proved. The full localization candidate, including arbitrary nonlinear laws and converse signed-probe attainability, remains open.
+
+| Lean declaration | Status | Exact scope |
+| --- | --- | --- |
+| Finset.mem_divisorKernelAtom | proved | Exact least-active-label atom definition. |
+| Finset.divisorKernelAtom_subset | proved | Each atom is contained in its original kernel set. |
+| Finset.divisorKernelAtom_disjoint | proved | Distinct admissible least labels give disjoint atoms. |
+| Finset.divisorKernel_subset_of_dvd | proved | Divisibility gives inclusion for an exact gcd-intersection family. |
+| Finset.divisorKernelAtom_dvd_of_mem | proved | In a finite positive divisor ideal, the primitive label divides every active label. |
+| Finset.exists_divisorKernelAtom_of_mem | proved | Every kernel point belongs to an atom labelled by a divisor. |
+| Finset.divisorKernel_eq_biUnion_atoms | proved | Exact disjoint divisor cover of each kernel. |
+| Finset.divisorKernel_card_sum_atoms | proved | Full finite sum of primitive cardinalities. |
+| Finset.divisorKernelAtom_one_card | proved | Under card(E_d)+1=d, the degree-one atom is empty. |
+| Finset.divisorKernelAtom_card | proved | Under the same exact cardinalities, every admissible d>1 has primitive cardinality phi(d). |
+| FiniteField.oddPell_sectorDivisors_pos | proved | Every odd-divisor label is positive; uses only the finite field cardinal parameter. |
+| FiniteField.oddPell_sectorDivisors_down | proved | Full divisor closure of the odd label set. |
+| FiniteField.oddPell_degree_sector_card | proved | Every odd m: card(E_(sigma,m))+1=gcd(q-1,m) or gcd(q+1,m). |
+| FiniteField.oddPell_degree_sector_inter | proved | Every pair of odd degrees: sector intersection equals the gcd-degree sector. |
+| FiniteField.oddPell_degree_sector_gcd | proved | Pointwise equality E_(sigma,m)=E_(sigma,gcd(N_sigma,m)); not merely equal cardinality. |
+| FiniteField.oddPell_primitiveSector_card | proved | Every odd d>1 dividing its native modulus: primitive sector cardinality phi(d). |
+| FiniteField.oddPell_primitiveSector_disjoint | proved | Different primitive labels in one sector are disjoint. |
+| FiniteField.oddPell_primitiveSector_mem_degree | proved | At a primitive d-point, every odd degree m responds iff d divides m. |
+| FiniteField.oddPell_degree_sector_eq_biUnion_atoms | proved | Every q>=5 and odd m: complete divisor-atom endpoint cover. |
+| FiniteField.oddPell_primitiveSector_opposite_disjoint | proved | Every split primitive atom is disjoint from every nonsplit primitive atom. |
+
+The five definitions are Finset.divisorKernelAtom, FiniteField.oddPellSectorModulus, FiniteField.oddPellSectorDivisors, FiniteField.oddPellDegreeSector and FiniteField.oddPellPrimitiveSector. The label set includes1; its atom has cardinal0. Positive primitive counts require d>1. All field assertions use 2 nonzero when stated, and arbitrary odd degrees remain allowed.
+
+benchmark_status: exact localization inputs proved;20 real maintained theorems and5 definitions. Full selected localization theorem remains open.
+old_bound: complete quadratic signed energy, with no exported native primitive-atom partition.
+new_bound: disjoint primitive atoms have exact size phi(d), and membership at any odd degree is exactly divisor membership. No new integer-window lower bound or analytic exponent is claimed.
+components: least-label gcd rigidity, finite disjoint union, strong divisor induction, sum of totients, native sector gcd intersections, equality from inclusion and cardinality, and both opposite-sector masks.
+actuals: universal Lean proofs for the stated divisor ideals, fields and degrees; no finite numerical completion supplies an estimate.
+first_nonpositive_domain: degree1 has an empty atom; q3 is outside normalized probability interpretation. Nonlinear pushforward, converse signed-span attainability and the full support spectrum remain open. The integer joint-survivor problem, H1/RH and the paused7/8 boundary are unchanged.
+
+The primitive order/totient data are classical inputs, not the proposed novelty claim. The selected research target is the full signed-probe localization spectrum; its proof and historical priority remain unresolved.

@@ -10379,6 +10379,109 @@ survivor mass in an integer interval at a growing primality cutoff.
 That integer transfer, bounded prime-pair recurrence and RH/QRH
 improvements remain open.
 
+\section{Primitive endpoint atoms and exact divisor response}
+\label{sec:odd-pell-primitive-atoms}
+
+The quadratic energy of Section~\ref{sec:odd-pell-joint-energy}
+has divisor coordinates. We now identify their actual native input
+classes, without discarding any overlap.
+For \(\sigma\in\{+,-\}\), put \(N_+=q-1\), \(N_-=q+1\), and
+\[
+ {\cal D}_\sigma=\{d>0:d\mid N_\sigma,\ d\text{ odd}\}.
+\]
+For odd \(m\), let \(E_\sigma(m)\) be the split or nonsplit
+endpoint sector of index \((m-1)/2\), at the normalized shift \(2\),
+excluding the two input endpoints as before. For \(d\in{\cal D}_\sigma\), define
+\[
+ P_\sigma(d)=\{c\in E_\sigma(d):
+     d\le e\text{ for every }e\in{\cal D}_\sigma
+                    \text{ with }c\in E_\sigma(e)\}.
+\]
+
+\begin{theorem}[Primitive partition and divisor response]
+\label{thm:odd-pell-primitive-atoms}
+Over every odd finite field of order \(q\ge5\), the following hold.
+\begin{enumerate}
+\item The degree-one atoms are empty. For every
+ \(d\in{\cal D}_\sigma\), \(d>1\),
+ \[
+                         |P_\sigma(d)|=\varphi(d).
+ \]
+ Distinct atoms within either sector are disjoint, and every
+ split atom is disjoint from every nonsplit atom.
+\item If \(c\in P_\sigma(d)\), then for every odd \(m\ge1\),
+ \[
+                    c\in E_\sigma(m)\quad\Longleftrightarrow\quad d\mid m.
+ \]
+\item Every odd-degree endpoint sector has the exact disjoint cover
+ \[
+ E_\sigma(m)=
+ \coprod_{d\mid\gcd(N_\sigma,m)}P_\sigma(d).
+ \]
+ The degree-one term is empty.
+\end{enumerate}
+No restriction excludes degrees divisible by the field characteristic.
+\end{theorem}
+
+\begin{proof}
+We first give the general finite-set argument used in the maintained
+generic owner. Let \(D\) be a finite set of positive integers closed
+under divisors, and let \(A_d\), \(d\in D\), be finite sets satisfying
+\[
+ A_d\cap A_e=A_{\gcd(d,e)},\qquad |A_d|+1=d.
+\]
+Define the least-label atoms by the same rule as \(P_\sigma(d)\).
+Distinct least labels cannot hold at one point, so these atoms
+are disjoint.
+
+For a point of \(A_m\), choose its least active label \(d\in D\).
+If \(e\in D\) is another active label, the point belongs to
+\(A_{\gcd(d,e)}\). Divisor closure makes this an admissible label.
+Minimality gives \(d\le\gcd(d,e)\), whereas divisibility gives
+\(\gcd(d,e)\le d\). Hence \(\gcd(d,e)=d\) and \(d\mid e\).
+Conversely, \(d\mid e\) implies \(A_d\subseteq A_e\) by the
+intersection identity. It follows that
+\[
+                  A_m=\coprod_{d\mid m}P(d).
+\]
+The cardinality condition gives \(A_1=P(1)=\varnothing\).
+For \(m>1\), subtracting the already determined proper-divisor
+atoms from \(|A_m|=m-1\), and using
+\(\sum_{d\mid m}\varphi(d)=m\), proves
+\(|P(m)|=\varphi(m)\) by strong induction. The formal proof
+retains both exact finite sums before cancelling them.
+
+Apply this argument to the odd divisors of \(N_\sigma\).
+The maintained native intersection and counting laws give the
+required hypotheses for all admissible divisor degrees.
+For an arbitrary odd \(m\), put \(r=\gcd(N_\sigma,m)\).
+The gcd-intersection law gives
+\(E_\sigma(r)\subseteq E_\sigma(m)\).
+Both sets have cardinality \(r-1\), so they are equal.
+This proves the displayed cover. At a primitive point,
+divisibility by \(r\) is equivalent to divisibility by \(m\),
+since its primitive label already divides \(N_\sigma\).
+Finally, opposite-sector atoms are disjoint because their
+input discriminants are respectively square and nonsquare.
+\end{proof}
+
+\paragraph{What is proved and what remains.}
+The generic owner \texttt{DivisorKernelAtoms} and native owner
+\texttt{QuadraticPairOddPellConductor} each contain ten maintained
+theorems. Together they contain five definitions.
+The least-label partition, exact totient counts and native
+divisor response are proved and exported.
+These classical order-geometric inputs are not a priority claim.
+
+The selected further question is the complete distribution and
+attainable support spectrum of finite signed Pell probes.
+In particular, an exact converse must show that each primitive
+class can be isolated by a finite signed probe.
+That converse and the full arbitrary-test-function law are
+not asserted by the theorem above.
+Neither this finite-field partition nor the earlier energy
+identity proves positive mass in an integer primality window.
+
 \begin{thebibliography}{99}
 \bibitem{DavidKoukoulopoulosSmith}
 C. David, D. Koukoulopoulos and E. Smith,
