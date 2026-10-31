@@ -9839,9 +9839,10 @@ its squared factor vanishes. This proves both endpoint equivalences.
 The eight theorem declarations and two definitions in
 \texttt{QuadraticPairOddPell} have passed maintained compilation and
 the new-declaration foundational-axiom audit.
-The split/nonsplit endpoint counts are now formalized in
-Section~\ref{sec:odd-pell-native-sector-counts}; the exact probability
-mass and odd-semigroup minimum are not yet Lean-proved.
+The split/nonsplit endpoint counts are formalized in
+Section~\ref{sec:odd-pell-native-sector-counts}, and the exact
+all-shift probability mean in Section~\ref{sec:odd-pell-all-shift-mean}.
+The odd-semigroup minimum remains to be formalized.
 The algebraic identities above provide their input; they do not
 establish positive raw-packet mass on an incomplete integer window.
 
@@ -9933,10 +9934,11 @@ and the new-declaration foundational-axiom audit.
 The extension field need not be finite. The generic torus count assumes
 enough \(n\)-th roots; it imposes no characteristic-coprimality
 condition on the power \(d\) or \(m\).
-These classical geometric inputs do not yet establish the selected
-odd-semigroup weighted mean or its \(2\)-primary minimum and attainment
-classification. In particular, no positive integer prime-pair mass,
-integer recurrence, or improved RH/QRH boundary is claimed.
+The selected odd-semigroup weighted mean is now formalized in
+Section~\ref{sec:odd-pell-all-shift-mean}; its \(2\)-primary minimum and
+attainment classification remain to be formalized. In particular,
+no positive integer prime-pair mass, integer recurrence, or improved
+RH/QRH boundary is claimed.
 
 \section{Exact split and nonsplit Pell endpoint counts}
 \label{sec:odd-pell-native-sector-counts}
@@ -10016,11 +10018,133 @@ The general trace-descent and sector-count theorems state their
 hypotheses explicitly; the final joint count discharges them for
 both concrete tori.
 This completes the native cardinality bridge.
-The weighted mean and the minimum over all odd degrees have not yet
-been formalized. The normalized probability law requires \(q\ge5\);
+The weighted mean is now formalized in
+Section~\ref{sec:odd-pell-all-shift-mean}; the minimum over all odd
+degrees remains to be formalized.
+The normalized probability law requires \(q\ge5\);
 the count theorem at \(q=3\) does not assert such a normalization.
 No positive mass on an integer primality window follows from these
 finite-field counts alone.
+
+
+\section{Exact odd-Pell means at every nonzero shift}
+\label{sec:odd-pell-all-shift-mean}
+
+Let \(F\) be an odd finite field of order \(q\ge5\), let
+\(\chi\) denote its quadratic character, and set \(t=\chi(-1)\).
+For a nonzero \(h\in F\), the actual trace-free probability weight is
+\[
+ W_h(c)=
+ \begin{cases}
+ 0,&c=0\text{ or }c=-h,\\[2pt]
+ \displaystyle\frac{q-1+\chi(-hc)+\chi(h(c+h))}{q-3},
+       &c\ne0,-h .
+ \end{cases}
+\]
+This is the trace-free two-class average, with both endpoint masks
+retained. Write \(\Phi_k(c)=\operatorname{oddPellMap}(c,k)\) for the
+previously defined shift-two map and define
+\[
+ \Phi_{k,h}(c)=\frac h2\,\Phi_k\!\left(\frac{2c}{h}\right),
+ \qquad m=2k+1.
+\]
+
+\begin{theorem}[All-shift odd-Pell mean]\label{thm:odd-pell-all-shift-mean}
+For every \(k\ge0\) and every nonzero \(h\in F\),
+\[
+ \boxed{\quad
+ \frac1q\sum_{c\in F}W_h(\Phi_{k,h}(c))
+ =1-
+ \frac{(q+t)(\gcd(q-1,m)-1)+(q-t)(\gcd(q+1,m)-1)}
+      {q(q-3)}.\quad}
+\]
+Moreover \(c\) and \(\Phi_{k,h}(c)\) satisfy the square-transport
+relation at shift \(h\). No restriction excludes indices \(m\)
+divisible by the characteristic.
+\end{theorem}
+
+\begin{proof}
+First take \(h=2\). For a nonendpoint input \(c\), set
+\(D=c(c+2)\), \(a=\chi(-2c)\), and \(b=\chi(2(c+2))\).
+Both \(a\) and \(b\) belong to \(\{-1,1\}\).
+If \(\Phi_k(c)\) is an endpoint, the already proved endpoint-reach
+criteria imply \(a=1\) or \(b=1\). Consequently
+\[
+ a+b=1+ab,\qquad ab=t\chi(D),
+\]
+and the source numerator on that collapsed row is exactly
+\(q+t\chi(D)\). If the image is not an endpoint, the Pell square
+identities preserve the weight. The source endpoints themselves
+have weight zero. Thus the complete pointwise identity is
+\[
+ W_2(\Phi_k(c))=W_2(c)
+ -\frac{q+t}{q-3}\,\mathbf 1_{E_+}(c)
+ -\frac{q-t}{q-3}\,\mathbf 1_{E_-}(c),
+\]
+where \(E_+\) and \(E_-\) consist of the nonendpoint inputs that
+collapse to either endpoint and have square and nonsquare \(D\),
+respectively. In particular, neither sector nor endpoint correction
+has been discarded.
+
+The native sector-count theorem gives
+\[
+ 2|E_+|+2=\gcd(q-1,2m),\qquad
+ 2|E_-|+2=\gcd(q+1,2m).
+\]
+Since \(q-1\) and \(q+1\) are even and \(m\) is odd,
+\(\gcd(n,2m)=2\gcd(n,m)\) for either of these \(n\).
+Hence \(|E_+|=\gcd(q-1,m)-1\) and
+\(|E_-|=\gcd(q+1,m)-1\).
+Summing the pointwise identity and applying the previously proved
+mean-one law for \(W_2\) proves the displayed formula at shift two.
+
+For every nonzero \(s\), multiplication by \(s\) preserves the
+endpoint masks and
+\[
+ \chi(-(sh)(sc))=\chi(-hc),\qquad
+ \chi((sh)(sc+sh))=\chi(h(c+h)).
+\]
+Indeed each argument acquires the nonzero square factor \(s^2\).
+Therefore \(W_{sh}(sc)=W_h(c)\) exactly, including both endpoints.
+Take \(s=h/2\) and use the bijection \(c\mapsto2c/h\) of \(F\)
+to transfer the mean from shift two to shift \(h\).
+The same scaling applied to the Pell square identities proves
+the asserted square-transport relation.
+\end{proof}
+
+\paragraph{Simultaneous arithmetic optimization inputs.}
+The following supporting facts are also formalized.
+Every positive integer \(n\) can be written \(n=2^s u\) with \(u\)
+odd. If \(m\) is odd then \(\gcd(n,m)\le u\).
+If \(n_-=2^a u\) and \(n_+=2^b v\) with \(u,v\) odd, the single
+positive odd index \(m=uv\) satisfies
+\[
+ \gcd(n_-,m)=u,\qquad \gcd(n_+,m)=v.
+\]
+These assertions require no coprimality assumption on \(u,v\).
+For an odd finite field, the existing exact core-indicator sum
+also gives the fully proved phase alternatives
+\[
+ (t=1,\ q\equiv1\pmod4)
+ \quad\text{or}\quad
+ (t=-1,\ q\equiv3\pmod4).
+\]
+The weighted minimum assembled from these inputs and its
+\(2\)-primary and modulo-eight attainment classification remain
+to be formalized.
+
+\paragraph{Formal scope.}
+The maintained owners
+\texttt{QuadraticPairOddPellMean} and
+\texttt{QuadraticPairOddPellArithmetic} contain twelve and five
+theorems, respectively, and one shifted-map definition.
+Their actual maintained sources compile and the new declarations
+receive the foundational-axiom audit. The normalized theorem
+requires \(q\ge5\); the separate algebraic reach theorem needs only
+\(2\ne0\) and \(h\ne0\).
+This finite-field expectation does not establish a common
+surviving integer in a primality window, integer prime-pair
+recurrence, or an improved RH/QRH boundary.
 
 \begin{thebibliography}{99}
 \bibitem{DavidKoukoulopoulosSmith}
