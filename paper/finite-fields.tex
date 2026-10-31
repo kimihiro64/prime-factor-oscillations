@@ -7475,6 +7475,179 @@ not independently claimed new classical theorems. They quantify
 the transfer for the specific pair laws; no new \(H_1\) bound or
 integer prime-pair recurrence follows at present.
 
+\section{Optimal quadratic-character projection of the raw pair law}
+\label{sec:optimal-character-pair-law}
+This section identifies exactly how much of the original pair law can be
+recovered from the two quadratic-character signs. Fix an odd finite field
+\(K\) of cardinality \(q\ge16\), a nonzero \(h\in K\), and assume
+\(\chi(-1)=-1\). All sums below are over the complete finite set \(K\).
+Put
+\[
+ t(c)=a_K\bigl(y^2=x(x-c)(x-c-h)\bigr),\quad
+ x_c=\chi(c),\quad y_c=\chi(c+h),\quad e=\chi(h).
+\]
+The trace notation includes the singular rows, interpreted by the actual
+split-cubic character sum. In particular \(t(0)=-e\) and \(t(-h)=e\).
+The raw density of the actual irreducible polynomial pairs
+\(T^2+bT+c,\ T^2+bT+c+h\), counted over \(b\in K\), is
+\[
+ u_h(c)=\frac{4w(c,h)}{q-3}.
+\]
+Define the zero-extended density
+\[
+ \Gamma_h(c)=
+ \begin{cases}
+ 0,&c=0\ \text{or}\ c=-h,\\[2mm]
+ \displaystyle
+ \frac{q-1-(1+e)x_c-(1-e)y_c}{q-3},&c\ne0,-h.
+ \end{cases}
+ \tag{CP1}
+\]
+
+\begin{theorem}[Exact optimal character projection]
+\label{thm:optimal-character-projection}
+The function \(\Gamma_h\) is nonnegative, has sum \(q\), and lies
+between \(1\) and \(2\) on the admissible rows. On those rows it is
+\[
+ \Gamma_h(c)=
+ \begin{cases}
+ (q-1-2\chi(c))/(q-3),&\chi(h)=1,\\
+ (q-1-2\chi(c+h))/(q-3),&\chi(h)=-1.
+ \end{cases}
+ \tag{CP2}
+\]
+For every function \(g:\mathbf Z^2\to\mathbf R\),
+\[
+ \sum_{c\in K}u_h(c)g(x_c,y_c)
+       =\sum_{c\in K}\Gamma_h(c)g(x_c,y_c).
+ \tag{CP3}
+\]
+Write \(D_q(a,b)=q^{-1}\sum_{c\in K}(a(c)-b(c))^2\).
+There is an exact Pythagorean identity
+\[
+ D_q(u_h,g(x_c,y_c))
+   =\frac{q+1}{q(q-3)}+D_q(\Gamma_h,g(x_c,y_c)).
+ \tag{CP4}
+\]
+Consequently the minimum over \emph{all} such functions of the two
+character signs is exactly \((q+1)/(q(q-3))\), attained by
+\(\Gamma_h\). In particular every such approximation has error at least
+\(1/q\). No positivity, normalization or coefficient bound on \(g\)
+is needed for (CP3)--(CP4).
+\end{theorem}
+
+\begin{proof}
+Retain both singular corrections by defining
+\[
+ R(c)=t(c)-\chi(-h){\bf1}_{c=0}-\chi(h){\bf1}_{c=-h}.
+\]
+Then \(R=0\) on the singular rows and \(R=t\) on the admissible rows.
+The exact signed moment providers give
+\[
+ \sum_ct(c)=0,\qquad
+ \sum_ct(c)\chi(c)=\sum_ct(c)\chi(c+h)=-1.
+ \tag{CP5}
+\]
+The involution \(c\mapsto-h-c\) changes \(t(c)\) to \(-t(c)\)
+and preserves \(\chi(c)\chi(c+h)\). Hence
+\[
+                     \sum_ct(c)\chi(c)\chi(c+h)=0.
+\]
+Subtracting the actual singular contributions in (CP5) yields
+\[
+ \sum_cR(c)=\sum_cR(c)\chi(c)
+ =\sum_cR(c)\chi(c+h)
+ =\sum_cR(c)\chi(c)\chi(c+h)=0.
+ \tag{CP6}
+\]
+For example, the singular contribution to \(\sum t(c)\chi(c)\)
+is \(t(-h)\chi(-h)=e(-e)=-1\), so its removal gives zero.
+
+On the admissible rows \(x_c,y_c\in\{1,-1\}\).
+Every function on these four sign pairs is a linear combination of
+\(1,x_c,y_c,x_cy_c\), as follows directly from the four indicator
+polynomials \((1+s x_c)(1+r y_c)/4\), \(s,r\in\{1,-1\}\).
+Since \(R\) vanishes on the other rows, (CP6) proves
+\[
+                         \sum_cR(c)g(x_c,y_c)=0
+ \tag{CP7}
+\]
+for arbitrary \(g\), including its arbitrary values on zero-sign pairs.
+
+The raw count identity, with its actual normalizer, is exactly
+\[
+                         u_h(c)=\Gamma_h(c)-\frac{R(c)}{q-3}.
+ \tag{CP8}
+\]
+This proves (CP3). Taking \(g=1\) gives \(\sum\Gamma_h=q\).
+Formula (CP2) follows from \(e\in\{1,-1\}\). Its numerator is
+either \(q-3\) or \(q+1\); thus \(\Gamma_h\ge1\) on admissible
+rows and \(\Gamma_h\le(q+1)/(q-3)\le2\), with zero elsewhere.
+
+Finally the completed exact second moment gives
+\[
+ \sum_ct(c)^2=q^2-2q-1,\qquad
+ \sum_cR(c)^2=q^2-2q-3=(q-3)(q+1).
+ \tag{CP9}
+\]
+The two removed squares are each \(1\). Expand the square in (CP8).
+Its cross term against \(\Gamma_h-g\) vanishes by (CP7), because
+\(\Gamma_h\) itself is a function of the same two signs. The remaining
+trace square contributes
+\[
+                 \frac{\sum_cR(c)^2}{q(q-3)^2}
+                  =\frac{q+1}{q(q-3)}.
+\]
+This is (CP4). Its second term is nonnegative, vanishes for
+\(g(x_c,y_c)=\Gamma_h(c)\), and the first term exceeds \(1/q\).
+\end{proof}
+
+\begin{theorem}[Uniform affinity loss for bounded sign models]
+Under the same field and shift hypotheses, suppose
+\(b(c)=g(\chi(c),\chi(c+h))\) has \(0\le b(c)\le2\) and
+\(\sum_cb(c)=q\). Then
+\[
+                  H_q(u_h,b)\le1-\frac1{32q}.
+ \tag{CP10}
+\]
+This includes \(b=\Gamma_h\). The optimum in the preceding theorem
+concerns squared distance; (CP10) does not assert affinity optimality.
+\end{theorem}
+\begin{proof}
+The proved elementary raw density bound is \(0\le u_h\le6\).
+Therefore
+\[
+ (u_h-b)^2\le2(u_h+b)(\sqrt{u_h}-\sqrt b)^2
+                 \le16(\sqrt{u_h}-\sqrt b)^2.
+\]
+After summing and normalizing,
+\(D_q(u_h,b)\le32(1-H_q(u_h,b))\).
+Use the lower bound \(D_q(u_h,b)\ge1/q\) from (CP4).
+\end{proof}
+
+\paragraph{Arithmetic meaning and scope.}
+Even complete knowledge of all statistics formed from these two signs
+does not recover the raw elliptic fluctuations: (CP3) matches every
+such statistic exactly, while (CP4) fixes the irreducible error.
+The restriction is specifically the algebra generated by
+\(\chi(c)\) and \(\chi(c+h)\); this is not a claim about all Dirichlet
+characters or all arithmetic observables. The result supplies a precise
+constraint on replacing the original raw packet by a sign-only model.
+An independent estimate on its incomplete integer mass remains necessary.
+
+\paragraph{Sources and formal status.}
+Trace-reversing involutions in Legendre families are classical; see
+Katz~\cite[Lemma~2.3]{KatzTraceRatios}. Orthogonal projection and the
+conversion between squared distance and affinity are also classical.
+The specific statement here identifies the exact optimal surrogate and
+sharp residual for the original normalized irreducible-pair count,
+including its two singular rows. No general literature priority is claimed.
+The maintained owners \texttt{Assembly/FiniteFieldCharacterProjection}
+and \texttt{Assembly/FiniteFieldOptimalCharacterLaw} compile
+(CP1)--(CP10), including arbitrary nonlinear sign functions, the exact
+signed-statistic identity, and the normalized error and affinity bounds.
+They use no Hasse hypothesis or RH-dependent limit.
+
 \section{Arithmetic transfers and the next ascent investigation}
 \paragraph{Existing ingredients.}
 The generic greedy record sandwich and the maintained periodic and

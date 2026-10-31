@@ -1829,3 +1829,82 @@ The generic periodic and complement inequalities are elementary and are not
 claimed as independently novel classical theorems. Their role is an exact
 consumer for the specific raw pair moments and probability-law comparisons.
 Paper label: `sec:integer-crt-pair-mass`.
+
+## Exact optimal quadratic-character approximation (2026-10-30)
+
+Maintained owners: `Assembly/FiniteFieldCharacterProjection.lean` and
+`Assembly/FiniteFieldOptimalCharacterLaw.lean`. All 26 theorem proofs
+compiled; a new-only audit of their closures and the 4 definitions found
+only `propext`, `Classical.choice`, and `Quot.sound`.
+
+The common raw-law domain is an odd finite field K, q=card K>=16,
+chi(-1)=-1, and h nonzero. The first 13 structural identities have the
+weaker hypotheses printed in their declarations. Every sum is over the
+complete finite field, including the two explicitly completed singular rows.
+The first 17 rows belong to FiniteFieldCharacterProjection, the final 9
+to FiniteFieldOptimalCharacterLaw.
+
+| Declaration | Exact scope | Status |
+| --- | --- | --- |
+| `masked_trace_good` | Trace completion equals the actual trace on both nonexceptional rows. | Proved; compiled; new-only axiom audit passed. |
+| `masked_trace_zero` | Completion is exactly zero on c=0. | Proved; compiled; new-only axiom audit passed. |
+| `masked_trace_neg_shift` | Completion is exactly zero on c=-h. | Proved; compiled; new-only axiom audit passed. |
+| `masked_trace_pairing` | Full signed pairing retains both actual singular corrections. | Proved; compiled; new-only axiom audit passed. |
+| `trace_reflection` | Actual trace reverses under c maps to -h-c when chi(-1)=-1. | Proved; compiled; new-only axiom audit passed. |
+| `trace_two_character_sum` | Exact trace pairing with the product of the two quadratic characters is zero. | Proved; compiled; new-only axiom audit passed. |
+| `masked_trace_sum` | Completed trace has total sum zero. | Proved; compiled; new-only axiom audit passed. |
+| `masked_trace_left_character_sum` | Completed trace is orthogonal to chi(c), including both removed rows. | Proved; compiled; new-only axiom audit passed. |
+| `masked_trace_right_character_sum` | Completed trace is orthogonal to chi(c+h), including both removed rows. | Proved; compiled; new-only axiom audit passed. |
+| `masked_trace_two_character_sum` | Completed trace is orthogonal to chi(c)*chi(c+h). | Proved; compiled; new-only axiom audit passed. |
+| `masked_trace_square_sum` | Exact completed square sum is (q-3)*(q+1), without Hasse. | Proved; compiled; new-only axiom audit passed. |
+| `masked_trace_polynomial_sum` | Orthogonality to every real bilinear polynomial in the two signs. | Proved; compiled; new-only axiom audit passed. |
+| `masked_trace_table_sum` | Orthogonality to every arbitrary real function of both signs; no positivity or boundedness hypothesis. | Proved; compiled; new-only axiom audit passed. |
+| `raw_density_decomposition` | Raw density equals optimalDensity minus the completed trace divided by q-3. | Proved; compiled; new-only axiom audit passed. |
+| `raw_projection_pythagoras` | Exact universal Pythagorean identity, with residual (q+1)/(q*(q-3)). | Proved; compiled; new-only axiom audit passed. |
+| `character_only_error_lower` | Sharp lower squared error for every two-sign surrogate. | Proved; compiled; new-only axiom audit passed. |
+| `optimal_density_error` | The explicit optimal density attains that exact minimum. | Proved; compiled; new-only axiom audit passed. |
+| `raw_optimal_sign_statistics` | Every two-sign statistic has identical expectations under raw and optimal laws. | Proved; compiled; new-only axiom audit passed. |
+| `sum_optimal_density` | The explicit optimal density has total sum q. | Proved; compiled; new-only axiom audit passed. |
+| `optimal_density_good_bounds` | Optimal density lies in [1,2] on admissible rows. | Proved; compiled; new-only axiom audit passed. |
+| `optimal_density_bounds` | Optimal density is nonnegative and at most2 everywhere. | Proved; compiled; new-only axiom audit passed. |
+| `optimal_density_square_shift` | On admissible rows, square shift gives the correction using chi(c) alone. | Proved; compiled; new-only axiom audit passed. |
+| `optimal_density_nonsquare_shift` | On admissible rows, nonsquare shift gives the correction using chi(c+h) alone. | Proved; compiled; new-only axiom audit passed. |
+| `character_only_error_reciprocal` | Every arbitrary two-sign surrogate has mean-square error at least1/q. | Proved; compiled; new-only axiom audit passed. |
+| `character_only_affinity_upper` | Every two-sign density with meanq and range[0,2] has raw affinity at most1-1/(32q). | Proved; compiled; new-only axiom audit passed. |
+| `raw_optimal_affinity_upper` | The normalized optimal density satisfies the same reciprocal affinity loss. | Proved; compiled; new-only axiom audit passed. |
+
+For every real tableg of (chi(c),chi(c+h)), the exact squared-distance
+minimum is b_q=(q+1)/(q*(q-3)), attained by the explicit masked optimal
+law. Pythagoras reads D(raw,g)=b_q+D(optimal,g). No positivity, mean or
+coefficient restriction on g is required for this minimum. The additional
+affinity theorem requires 0<=g<=2 and sum g=q. Its bound applies to this
+entire class, not just one preselected flat or twist-averaged model.
+The optimal law retains both zero masks; its correction on admissible rows
+uses chi(c) when chi(h)=1, and chi(c+h) when chi(h)=-1.
+
+Benchmark status: exact finite-field approximation optimum proved.
+Old bound: comparisons with named flat and averaged laws; no installed
+universal optimum over arbitrary nonlinear two-sign models.
+New bound: inf_g D(raw,g)=b_q>=1/q; bounded normalized two-sign models
+have affinity<=1-1/(32q).
+Components: the exact signed first moments -1, both singular corrections,
+trace-reflection cancellation, and completed square sum (q-3)*(q+1).
+Actuals: the initial nonzero cell-mean candidate failed at p7,h1,cell--;
+the corrected zero means and square identity passed 128 nonzero-shift
+frames in prime fields7,11,19,23,31,43. These were falsification checks;
+the uniform theorem is supplied by the real compiled proofs.
+First nonpositive domain: none within q>=16 for b_q; this does not give
+a positive natural-height integer packet mass. Its previous lower bound0
+and the unbounded prime-pair recurrence problem remain unchanged.
+
+Scope: the observable algebra is generated by the two named quadratic
+characters, not by all Dirichlet characters or all arithmetic observables.
+The result prevents replacing the raw elliptic fluctuations by an arbitrary
+nonlinear function of those two signs with mean-square error o(1/q). It is
+a complete-field theorem, not an incomplete integer-window estimate.
+Classical Legendre sign symmetry and orthogonal projection are credited.
+The model-specific optimum was not found in the checked public and live
+private target records or the targeted primary literature search; general
+priority remains unestablished. The matched Carmichael label-erasure owner
+has different group-phase objects and is a completed input, not this target.
+Paper label: `sec:optimal-character-pair-law`.
