@@ -8251,6 +8251,197 @@ with its boundary terms, its linked-gap compensation and the normalized
 universal overlap law. No match was found in the checked target records
 or targeted primary comparison; literature priority remains unconfirmed.
 
+\section{The compensated lag kernel and one-third persistence}
+\label{sec:compensated-persistence}
+
+The preceding compensation extends to every lag. It removes the cubic
+boundary traces while retaining the quartic character kernel, so it
+can be used in a signed window without discarding any overlap.
+Continue to write \(q=\#K\), \(\sigma=\chi(-1)\), \(e=\chi(h)\),
+\(f=\chi(-h)\), and \(Q_h(k)\) for the earlier quartic kernel.
+Define the signed correction
+\[
+ {\cal R}_h(k)=
+ \chi(k(k-h))+\chi(k(k+h))+(e+f)\chi(k)
+       +f\chi(k-h)+e\chi(k+h).
+\]
+Let \(\delta_{k,b}\) denote \(1\) when \(k=b\) and \(0\) otherwise, and put
+\begin{align*}
+ {\cal P}_h(k)={}&q^3-6q^2+(7+2\sigma)q-11-2\sigma+qQ_h(k)
+                    -2q{\cal R}_h(k)\\
+ &+2q(q+2)\delta_{k,0}
+    +q(q+1+\sigma)(\delta_{k,h}+\delta_{k,-h}).
+\end{align*}
+
+\begin{theorem}[Full compensated count kernel]
+For every finite odd field, every \(h\ne0\), every \(k\in K\), and
+every \(a\) with \(\chi(a)=-1\),
+\[
+ 8\sum_{c\in K}\{w_h(c)w_h(c+k)+w_{ah}(c)w_{ah}(c+ak)\}
+       ={\cal P}_h(k).
+ \label{thm:full-compensated-kernel}
+\]
+All three intersection masks are present, including at the exceptional
+lags \(0,h,-h\).
+For \(q\ge16\), put \(R=(q-3)^2+2(1+\sigma)\). The physical fixed-gap
+correlation is
+\[
+ {\cal K}_{h,a}(k)=
+ \frac{1}{q(D_h^2+D_{ah}^2)}
+ \sum_{c\in K}\{D_h^2u_h(c)u_h(c+k)
+       +D_{ah}^2u_{ah}(ac)u_{ah}(a(c+k))\}.
+\]
+Then
+\begin{equation}
+ {\cal K}_{h,a}(k)=\frac{{\cal P}_h(k)}{qR}.
+ \label{eq:full-compensated-model}
+\end{equation}
+In particular it is independent of the chosen nonsquare \(a\).
+\end{theorem}
+
+\begin{proof}
+Apply the full raw count formula at \((h,k)\) and at \((ah,ak)\).
+Multiplication by \(a\) permutes the field and gives
+\(Q_{ah}(ak)=Q_h(k)\). The quadratic character products
+\(\chi(k(k-h))\) and \(\chi(k(k+h))\) are invariant under this
+simultaneous scaling. The characters of \(h,-h,k,k-h,k+h\) reverse sign,
+as do the two cubic traces. Nonzero multiplication preserves each
+intersection condition \(k=0,h,-h\).
+
+In the notation \(S_h(k)\) for the previous boundary correction,
+the sum of the two boundary terms is exactly
+\[
+ S_h(k)+S_{ah}(ak)=8(q-1)+
+ 4\{(e+f)\chi(k)+f\chi(k-h)+e\chi(k+h)\}.
+\]
+Thus both cubic boundary traces cancel before any estimate. Add the two
+completed correlations, use \(e^2=f^2=\sigma^2=1\) and \(ef=\sigma\),
+and include both intersection corrections. Dividing by \(2\) gives
+precisely \({\cal P}_h(k)\), with its displayed coefficients.
+
+For the normalized identity, each raw density contributes \(4w_b/D_b\).
+Use the fixed-gap pullback to change the second summation variable
+from \(c\) to \(ac\). The numerator is therefore \(16\) times the raw
+sum in the first identity. Since \(D_h^2+D_{ah}^2=2R\), division gives
+\eqref{eq:full-compensated-model}. All denominators are positive on the
+stated normalized domain.
+\end{proof}
+
+Here is a probabilistic consequence with an explicit finite-field error.
+Choose a class \(L\in\{0,1\}\) with probabilities
+\(D_h^2/(D_h^2+D_{ah}^2)\) and \(D_{ah}^2/(D_h^2+D_{ah}^2)\),
+and independently choose \(c\) uniformly in \(K\).
+Set \(V_0(c)=u_h(c)\), \(V_1(c)=u_{ah}(ac)\).
+Both class densities have mean \(1\), by the existing raw-density
+normalization and the unit permutation. Consequently
+\({\cal K}_{h,a}(k)-1\) is the covariance of \(V_L(c)\) and
+\(V_L(c+k)\), with the same class label in both factors.
+
+\begin{theorem}[Uniform one-third persistence law]
+For every odd field with \(q\ge16\), every \(h\ne0\), and
+every \(\chi(a)=-1\), the variance \({\cal K}_{h,a}(0)-1\) is positive.
+Writing \(\eta=\chi(2)\), its centered shared-endpoint correlation is
+\begin{equation}
+ \rho_{h,a}
+ =\frac{{\cal K}_{h,a}(h)-1}{{\cal K}_{h,a}(0)-1}
+ =\frac{q^2-(6+4\eta+2\sigma)q-11-2\sigma}
+        {3q^2-6q-11-2\sigma}.
+ \label{eq:one-third-persistence}
+\end{equation}
+Uniformly over the gap and the nonsquare choice,
+\[
+ 0<\rho_{h,a}<\frac12,\qquad
+ \left|\rho_{h,a}-\frac13\right|\le\frac5q.
+\]
+\end{theorem}
+
+\begin{proof}
+At zero, \(Q_h(0)=q-2\), and the two squared nonzero characters in
+the signed correction are \(1\). The full kernel therefore gives
+\[
+ {\cal K}_{h,a}(0)
+  =\frac{q^3-3q^2+(5+2\sigma)q-11-2\sigma}{qR}.
+\]
+At \(h\), the previously proved shared-endpoint formula gives
+\[
+ {\cal K}_{h,a}(h)
+  =\frac{q^3-5q^2+(5-4\eta)q-11-2\sigma}{qR}.
+\]
+Subtract \(1\) from both fractions. Their numerators become
+\[
+ A=q^2-(6+4\eta+2\sigma)q-11-2\sigma,\qquad
+ B=3q^2-6q-11-2\sigma.
+\]
+The variance is \(B/(qR)>0\): indeed
+\(B=3(q-16)q+42q-11-2\sigma>0\).
+This proves the exact correlation formula.
+
+The bounds hold more generally for real \(q\ge16\) and
+\(-1\le\sigma,\eta\le1\). Positivity of \(A\) follows from
+\[
+ A=(q-13)(q+1)+4(1-\eta)q+2(1-\sigma)(q+1)>0.
+\]
+Moreover
+\[
+ B-2A=(q-3)^2+8(1+\eta)q+2(1+\sigma)(2q+1)>0,
+\]
+which gives \(0<A/B<1/2\).
+The exact difference from \(1/3\) has numerator
+\[
+ 3A-B=-(12+12\eta+6\sigma)q-22-4\sigma
+\]
+over \(3B\). Its absolute value is at most \(30q+26\).
+Finally
+\[
+ 15B-q(30q+26)
+ =15(q-16)q+124q-165-30\sigma>0.
+\]
+The positive denominators give the claimed \(5/q\) error.
+\end{proof}
+
+The limit \(1/3\) has a simple benchmark: for independent fair Bernoulli
+variables \(A_0,A_1,A_2\), the mean-one variables \(4A_0A_1\) and
+\(4A_1A_2\) have variance \(3\) and covariance \(1\).
+The theorem establishes the corresponding normalized overlap law for the
+actual finite-field counts, with an explicit \(O(q^{-1})\) error after
+the cubic response has cancelled. The benchmark is explanatory;
+no independence assumption enters the count proof.
+
+\begin{theorem}[Signed window identity]
+Let \(b_j\in\mathbb R\) and \(s_j\in K\) be arbitrary finite families.
+With the same shared class label and uniform field coordinate,
+\[
+ {\mathbb E}_{L,c}
+  \left(\sum_j b_j V_L(c+s_j)\right)^2
+ =\sum_{j,\ell}b_jb_\ell\,{\cal K}_{h,a}(s_\ell-s_j).
+\]
+\end{theorem}
+\begin{proof}
+Expand the square as a finite double sum and interchange the finite
+averages. For each pair \(j,\ell\), translate \(c\) by \(s_j\).
+The two slots then have displacement \(s_\ell-s_j\) in both classes.
+The resulting weighted moment is exactly the kernel defined above.
+This retains all diagonal, shared-endpoint and other signed cross terms.
+\end{proof}
+
+\paragraph{Scope and formalization.}
+The unnormalized identities include every odd small field; the probability
+and persistence assertions use \(q\ge16\). Integer uses retain separate
+small-prime, parity and gap-divisor masks. The reusable count and scalar
+proofs are maintained in \texttt{QuadraticPairCompensatedKernel};
+the physical kernel, actual persistence law and signed window consumer
+are maintained in \texttt{FiniteFieldCompensatedKernel}.
+These results sharpen the local signed information available to a
+window calculation. They do not estimate the supported mass at the
+actual integer origin on \(Y<n\le Y^2-h\), and imply no new integer
+pair recurrence or QRH exponent.
+
+General trace-product correlation methods remain the classical
+comparison~\cite{FouvryKowalskiMichelProducts}. The explicit compensated
+actual-count kernel and its uniform rational persistence law were not
+found in the checked target records or targeted primary comparison.
+Priority beyond that comparison remains unconfirmed.
+
 \section{Exact diagnostic checks}
 The companion script \texttt{finite\_field\_greedy\_probe.py} checks all
 general Weierstrass equations over \(\F_2,\F_3\), all short Weierstrass

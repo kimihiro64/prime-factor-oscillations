@@ -2181,3 +2181,87 @@ the required sum remains positive full prime-avoidance mass on
 Y<n<=Y^2-h for unbounded Y. Alignment alone supplies no bound for that
 short sum. Integer pair recurrence, H1 and QRH7/8 are unchanged.
 Paper theorem: `thm:fixed-gap-pullback`.
+
+## Full compensated lag kernel and one-third persistence (October 31)
+
+All 15 theorem proofs and 5 definitions below are maintained and compiled.
+The new-only audit covers exactly these 20 declarations and reports only
+propext, Classical.choice and Quot.sound. No unchanged declarations were
+re-audited. The full proof and probabilistic interpretation are in paper
+section `sec:compensated-persistence`; the editor source compiles.
+
+Candidate owner:
+`PrimeFactorOscillations/Mathlib/NumberTheory/LegendreSymbol/QuadraticPairCompensatedKernel.lean`.
+The theorem names in this table are in namespace `FiniteField`.
+
+| Claim | Status | Exact scope |
+| --- | --- | --- |
+| `quadraticPairCorrelationKernel_scale` | proved and audited | any finite field; arbitrary h,k; unit dilation |
+| `monicQuadraticPairCount_twist_compensated_correlation` | proved and audited | odd field; h nonzero; every k; chi(a)=-1; all singular intersections |
+| `twistCompensatedPairKernel_zero` | proved and audited | any finite field; h nonzero; exact zero-lag numerator |
+| `compensatedQuadraticPairPersistence_denominator_pos` | proved and audited | real q>=16; t<=1; explicit positive denominator |
+| `compensatedQuadraticPairPersistence_bounds` | proved and audited | real q>=16; t,u in [-1,1]; strict bounds 0<rho<1/2 |
+| `compensatedQuadraticPairPersistence_error` | proved and audited | same scalar domain; absolute error from 1/3 <=5/q |
+
+Candidate definitions: `FiniteField.twistCompensatedPairKernel` and
+`FiniteField.compensatedQuadraticPairPersistence`.
+
+Assembly owner:
+`PrimeFactorOscillations/Assembly/FiniteFieldCompensatedKernel.lean`.
+The next names are in namespace
+`PrimeFactorOscillations.FiniteFieldCompensatedKernel`.
+
+| Claim | Status | Exact scope |
+| --- | --- | --- |
+| `kernel_eq_covariances` | proved and audited | any finite field; arbitrary h,k; a nonzero; physical pullback retained |
+| `normalization_pair` | proved and audited | finite field; h nonzero; chi(a)=-1; both squared normalizers |
+| `kernel_eq_model` | proved and audited | odd field; q>=16; h nonzero; chi(a)=-1; every lag |
+| `kernel_zero_eq_model` | proved and audited | same qualified domain; exact diagonal model |
+| `kernel_adjacent` | proved and audited | finite field; a nonzero; matches preceding shared-endpoint law |
+| `centeredPersistence_eq_model` | proved and audited | qualified domain; actual centered correlation equals rational model |
+| `centeredPersistence_law` | proved and audited | qualified domain; 0<rho<1/2 and abs(rho-1/3)<=5/q |
+| `kernel_shifted` | proved and audited | any finite field; arbitrary h,a,x,y; exact displacement y-x |
+| `signed_window_kernel` | proved and audited | any finite field; arbitrary finite signed weights and shifts; every mixed term |
+
+Assembly definitions: `moment`, `kernel`, and `centeredPersistence`.
+Their probability interpretation requires the qualified positive-denominator
+domain above; the purely algebraic translation/window identities have a
+larger domain and do not assert normalization outside it.
+
+Writing sigma=chi(-1), eta=chi(2), R=(q-3)^2+2*(1+sigma), the actual
+zero-lag moment is [q^3-3*q^2+(5+2*sigma)*q-11-2*sigma]/(q*R).
+The centered shared-endpoint coefficient is exactly
+rho=[q^2-(6+4*eta+2*sigma)*q-11-2*sigma]/
+[3*q^2-6*q-11-2*sigma]. The denominator is positive throughout the
+qualified domain. Both class densities have mean1 by the existing
+`sum_raw_density` and the unit pullback, so this is an actual correlation
+coefficient with a shared class label, not a ratio of uncentered moments.
+
+benchmark_status: uniform actual centered persistence law and full signed
+one-field window consumer proved.
+old_bound: exact single-class every-lag identities and compensated adjacent
+moment were installed; no compensated every-lag kernel or uniform centered
+persistence estimate was installed.
+new_bound: exact compensated every-lag count model; 0<rho<1/2 and
+abs(rho-1/3)<=5/q for every odd field q>=16, h nonzero, chi(a)=-1.
+components: retained quartic kernel; all signed character corrections;
+exact cancellation of both cubic boundary traces; all three singular
+intersection masks; distinct positive normalizers; every signed window
+cross term.
+actuals: falsification passed 43042 full compensated frames and 3758
+gap-ratio diagnostic frames in F3,F5,F7,F9,F11,F13,F17,F19,F23,F25,F27,F31.
+These tests are not the uniform proof. The separate numerical 4/q envelope
+and ratio-homogeneity checks are diagnostics, not promoted bound claims.
+first_nonpositive_domain: none for rho in the proved qualified domain,
+by the universal theorem. The positive integer-window mass remains
+unavailable; no finite or cofinal integer positivity range is asserted.
+
+The one-third fair-Bernoulli benchmark is classical. The result proved here
+is the explicit actual-count compensated law with a uniform 5/q error.
+It was not found in the checked unfinished-target records or targeted
+primary comparison; literature priority remains unconfirmed.
+
+The available signed window identity averages the complete field.
+Its insertion into a complete product does not estimate the actual integer
+origin on Y<n<=Y^2-h. The cofinal positive-mass estimate is still open.
+Integer recurrence, H1 and the installed QRH boundary7/8 are unchanged.
