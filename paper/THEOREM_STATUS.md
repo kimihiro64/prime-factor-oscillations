@@ -3471,3 +3471,37 @@ components: full centered native scalar law; every endpoint and gap mask; exact 
 actuals: nine universal maintained kernel proofs and nine new-only foundational-axiom audits, without numerical substitute estimates.
 first_nonpositive_domain: positive gaps and actual prime endpoints are retained. Field primes two, three, endpoint divisors and gap divisors lie in the allowed finite exceptional set. No positive-density erasure threshold, return existence, new pair supply, numerical H1 value, RH/QRH gain or established priority is claimed.
 
+## Sharp adaptive half-mass native reconstruction (2026-10-31)
+
+Paper: `finite-fields.tex`, Lemma `lem:native-half-signed`, Theorems `thm:native-half-inverse` and `thm:native-half-sharp`, Corollary `cor:native-half-least-gap`. Owners: `Assembly/FiniteFieldNativeAgreement.lean` and `Assembly/FiniteFieldNativeHalfSharpness.lean`. Namespace: `PrimeFactorOscillations.FiniteFieldIntegerSignature`.
+
+| Declaration | Status | Exact scope |
+| --- | --- | --- |
+| real_kernel_ge_neg_one | proved | The real numerator character at an odd prime is at least minus one, including its zero branch. |
+| native_agreement_mass_le_character | proved | Above both endpoints and field prime three, the full finite agreement mass is at most one-half of mass plus the signed endpoint-product correlation. |
+| exists_eventual_fixed_prime_correlation_bound | proved | Every fixed coprime odd-carrier numerator, of either sign, has its complete field-band correlation bounded by relativeError(B,U) for some fixed B>=0. |
+| exists_eventual_native_agreement_upper | proved | Distinct actual positive-gap prime pairs have agreement mass at most M_U/2+relativeError(B,U)/2 eventually. |
+| retained_mass_le_native_agreement | proved | Every finite supported set preserving actual native weights has reciprocal mass at most the entire agreement mass. |
+| native_pair_rigidity_of_retained_mass | proved | Arbitrary adaptive sets retaining M_U/2+epsilon at unbounded scales recover any fixed actual prime pair, for epsilon>0. |
+| native_pair_rigidity_of_retained_fraction | proved | Retained mass at least (1/2+delta)M_U at unbounded independent field scales forces both endpoints and gap to agree, for delta>0. |
+| unbounded_least_gap_retained_native_frames | proved | Existing unbounded positive H1 frames admit only the identical fixed actual return under the adaptive retained-fraction hypothesis. |
+| native_sharp_pair_match_iff | proved | For every prime p>13, pairs (5,7) and (5,13) have equal native weights exactly when chi_91(p)=1. |
+| native_sharp_character_square | proved | The real chi_91 character squares to one at every prime p>13, with its two prime factors checked. |
+| native_sharp_agreement_identity | proved | The complete finite agreement mass of the explicit distinct pairs equals (M+C_91)/2 above thirteen. |
+| native_sharp_agreement_approx | proved | The explicit pair agreement mass minus half the complete square-band mass tends to zero. |
+| native_sharp_retention_data | proved | The explicit finite chi_91=1 retained sets lie in the supported prime bands and preserve every actual native weight. |
+| native_sharp_retention_mass_approx | proved | Reciprocal mass of those explicit retained sets minus M_U/2 tends to zero. |
+| native_sharp_retention_above_subhalf | proved | For every fixed real c<1/2, the explicit retained mass eventually exceeds cM_U. |
+| native_half_retention_is_sharp | proved | Actual distinct positive-gap prime pairs and finite retained sets satisfy every observation hypothesis while eventually exceeding every subhalf fraction. |
+
+Supporting definitions: `nativeAgreementMass` and `nativeSharpRetentionSet`.
+
+Both maintained owners compile without warnings. All sixteen new-only theorem closures use propext, Classical.choice and Quot.sound. Integer pairs are fixed before the independent field scale U tends to infinity. The H1-frame height Q is a separate parameter.
+
+benchmark_status: universal adaptive reconstruction and exact sharpness for arbitrary actual prime pairs proved.
+old_bound: arbitrary finite erasures of a cofinite native profile preserve the inverse, with no positive-fraction erasure theorem.
+new_bound: agreementMass<=M_U/2+relativeError(B,U)/2 for every fixed distinct actual pair comparison, where relativeError(B,U)->0 and M_U>=log2/2 eventually. Arbitrary adaptive retained mass >=(1/2+delta)M_U along unbounded U therefore recovers the pair. The explicit distinct pairs have retained mass M_U/2+o(1), so no smaller universal threshold works.
+components: full centered native scalar law; endpoint-product readout; exact signed indicator bound; explicit unique odd endpoint including integer two; full4D conductor; all field and endpoint mask onsets; complete fixed-character error; retained-set inclusion; actual positive least-gap frames; exact91 class with full modulus364.
+actuals: sixteen universal maintained kernel proofs and sixteen new-only foundational-axiom audits; no finite sample or numerical completion supplies a bound.
+first_nonpositive_domain: the theorem requires a fixed positive margin above half mass. It does not assert reconstruction at exactly half. Field exceptions disappear only after a pair-dependent onset. The witness (5,13) is not consecutive; no consecutive-pair or growing-endpoint sharpness is claimed. Reciprocal weights are not unweighted field counts. No return existence, new integer pair supply, numerical H1 value, RH/QRH gain, or established priority is claimed.
+

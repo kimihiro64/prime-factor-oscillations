@@ -12503,7 +12503,217 @@ The general character-separation mechanism is classical
 has not been established.
 
 
+\section{Sharp reconstruction from adaptive field observations}
+\label{sec:native-half-retention}
+
+The global inverse above survives substantially more than finite erasure.
+The integer pairs in this section are fixed before the independent field
+observation scale \(U\) tends to infinity. Use the established cutoff
+\(K(U)=\operatorname{preciseCore}(U)\) and put
+\[
+ \mathcal B_U=\{p\text{ prime}:K(U)<p\le K(U)^2\},\qquad
+ M_U=\sum_{p\in\mathcal B_U}\frac1p.
+\]
+Every sum below has this explicit finite support. Write
+\[
+ A_U(n,h;m,k)=
+ \sum_{\substack{p\in\mathcal B_U\\W_p(n,h)=W_p(m,k)}}\frac1p,
+ \qquad
+ C_D(U)=\sum_{p\in\mathcal B_U}\frac1p\left(\frac Dp\right).
+\]
+The maintained square-band bounds give \(K(U)\to\infty\) and
+\(M_U\ge(\log2)/2\) eventually. For a fixed \(B\ge0\), put
+\[
+ e_B(U)=\frac{2B+18}{(10\log U)^2};
+\]
+this tends to zero, and will only be used at sufficiently large \(U\).
+
+\begin{lemma}[Complete signed agreement bound]
+\label{lem:native-half-signed}
+Let \(n,h,m,k>0\), put \(D=n(n+h)m(m+k)\), and suppose
+\(5\le Y\), \(n+h<Y\), and \(m+k<Y\). Then
+\[
+ \sum_{\substack{Y\le p<X,\ p\text{ prime}\\
+                   W_p(n,h)=W_p(m,k)}}\frac1p
+ \le \frac12\left(
+       \sum_{\substack{Y\le p<X\\p\text{ prime}}}\frac1p+
+       \sum_{\substack{Y\le p<X\\p\text{ prime}}}
+                          \frac1p\left(\frac Dp\right)\right).
+\]
+If both integer pairs are prime pairs and are distinct, there is a
+fixed \(B\ge0\), depending on those pairs, such that eventually
+\begin{equation}\label{eq:native-half-error}
+ A_U(n,h;m,k)\le \frac{M_U}{2}+\frac{e_B(U)}2.
+\end{equation}
+\end{lemma}
+\begin{proof}
+All field primes exceed both upper endpoints. Thus every endpoint
+and positive gap is a nonzero residue, and both opening masks in
+the native law are excluded. The endpoint-product readout already
+proved above gives
+\[
+ W_p(n,h)=W_p(m,k)\quad\Longrightarrow\quad
+                         \left(\frac Dp\right)=1.
+\]
+At every other field prime the real character value is at least
+\(-1\). Consequently the complete pointwise inequality is
+\[
+ {\bf1}_{\{W_p(n,h)=W_p(m,k)\}}
+                  \le \frac{1+(D/p)}2.
+\]
+Multiplication by \(1/p>0\) and summation proves the finite bound,
+with the signed correlation retained.
+
+For distinct prime pairs, the unique odd endpoint argument in the
+global inverse supplies \(D=AP\), where \(P>2\) is prime and
+\((A,P)=1\). This includes pairs having integer endpoint two.
+The full numerator character is nonprincipal, and the existing
+estimate, with its complete conductor budget \(4D\), gives
+\[
+ \left|\sum_{\substack{Y\le p<X\\p\text{ prime}}}
+                   \frac1p\left(\frac Dp\right)\right|
+ \le C(3+\log(4D))^2Y^{-1/32}
+\]
+for an absolute \(C>0\). Put \(B=C(3+\log(4D))^2\).
+The maintained uniform cost comparison gives
+\(\lvert C_D(U)\rvert\le e_B(U)\) eventually on the chosen bands.
+Since \(K(U)\to\infty\), these bands eventually lie beyond every
+mask and endpoint exception. Substituting into the finite signed
+bound proves \eqref{eq:native-half-error}.
+\end{proof}
+
+\begin{theorem}[Adaptive reconstruction above half mass]
+\label{thm:native-half-inverse}
+Fix prime integers \(n,n+h,m,m+k\), with \(h,k>0\).
+For each \(U\), let \(S_U\subseteq\mathcal B_U\) be arbitrary, and
+suppose \(W_p(n,h)=W_p(m,k)\) for every \(p\in S_U\).
+If some fixed \(\delta>0\) satisfies
+\[
+ \sum_{p\in S_U}\frac1p\ge(1/2+\delta)M_U
+\]
+at unbounded integer scales \(U\), then \(n=m\) and \(h=k\).
+The sets may be selected adaptively from the complete observed data.
+\end{theorem}
+\begin{proof}
+Suppose the pairs differ. The entire retained mass is bounded by
+the agreement mass, so the lemma gives eventually
+\[
+ \sum_{p\in S_U}\frac1p
+                \le A_U(n,h;m,k)
+                \le M_U/2+e_B(U)/2.
+\]
+Choose the onset so that also \(M_U\ge(\log2)/2\) and
+\(e_B(U)/2<\delta(\log2)/2\). At any subsequent scale satisfying the
+hypothesized retained-mass inequality, the two bounds would imply
+\[
+ \delta M_U\le e_B(U)/2
+                   <\delta(\log2)/2\le\delta M_U,
+\]
+a contradiction. No independence or separate unsigned estimate for
+the selected observations has been used. The same argument proves
+the additive version with retained mass at least \(M_U/2+\epsilon\)
+for any fixed \(\epsilon>0\).
+\end{proof}
+
+\begin{corollary}[Adaptive observations on actual least-gap frames]
+\label{cor:native-half-least-gap}
+For every \(R\), there is an existing positive least-gap frame
+\(Q\ge R\) at the actual consecutive pair
+\((Q+1,Q+1+H_1)\) such that any fixed actual prime pair
+\((m,m+k)\), \(k>0\), agreeing with it on sets \(S_U\) as in the
+theorem is that identical pair. In particular \(k=H_1\).
+\end{corollary}
+\begin{proof}
+Choose the existing unbounded positive least-gap frame, then apply
+the theorem to its prime endpoints and the proposed prime pair.
+The integer frame parameter \(Q\) is fixed before \(U\) grows.
+There is no target-height ordering or upper gap bound.
+\end{proof}
+
+\begin{theorem}[The universal half-mass threshold is sharp]
+\label{thm:native-half-sharp}
+The distinct actual prime pairs \((5,7)\) and \((5,13)\) satisfy,
+for every prime \(p>13\),
+\[
+ W_p(5,2)=W_p(5,8)
+               \quad\Longleftrightarrow\quad \left(\frac{91}p\right)=1.
+\]
+Define the finite retained sets
+\[
+ S_U=\{p\in\mathcal B_U:p>13,\ (91/p)=1\}.
+\]
+They preserve all observed native weights, and
+\[
+ \sum_{p\in S_U}\frac1p-\frac{M_U}{2}\longrightarrow0.
+\]
+For every real \(c<1/2\), their retained mass eventually exceeds
+\(cM_U\). Thus no smaller universal constant can replace \(1/2\)
+in the reconstruction theorem for arbitrary prime pairs.
+\end{theorem}
+\begin{proof}
+For the first pair the centered trace is
+\(\chi_{-10}(p)+\chi_{14}(p)\); for the second it is
+\(\chi_{-40}(p)+\chi_{104}(p)\).
+Here \(\chi_a(p)=(a/p)\).
+Since \(p>13\), the factor four is a nonzero square and all
+relevant characters are nonzero. Hence
+\(\chi_{-40}=\chi_{-10}\) and \(\chi_{104}=\chi_{26}\).
+The common denominator \(p-3\) is nonzero, so equality of weights
+is equivalent to \(\chi_{14}=\chi_{26}\). Their squares are one,
+and
+\[
+                    \chi_{14}\chi_{26}
+                       =\chi_{364}=\chi_{91}.
+\]
+This proves the exact equivalence, keeping the scalar factor and
+both masks.
+
+For every \(Y>13\), the same pointwise identity now gives equality:
+\[
+ A(5,2;5,8;Y,X)
+       =\frac12\left(M(Y,X)+C_{91}(Y,X)\right),
+\]
+where \(A,M,C\) are the preceding finite supported sums on
+\(Y\le p<X\). The character has odd carrier \(P=7\), coprime
+cofactor \(A=13\), and full modulus budget \(4\cdot7\cdot13=364\).
+The proved full-character estimate therefore gives
+\(C_{91}(U)\to0\). Once \(K(U)>13\), the retained set is exactly
+the agreement set, proving the asserted limit.
+
+Fix \(c<1/2\). The limit and \(M_U\ge(\log2)/2\) show eventually
+\[
+ \sum_{p\in S_U}\frac1p-cM_U
+ >(1/2-c)M_U-(1/2-c)(\log2)/4>0.
+\]
+To test a proposed smaller cutoff \(c\) with a fixed positive
+margin, take \(c'=(c+1/2)/2\) and \(\delta=c'-c>0\).
+The same distinct pairs eventually retain more than
+\((c+\delta)M_U\), contradicting reconstruction at that cutoff.
+\end{proof}
+
+The maintained owners \texttt{FiniteFieldNativeAgreement.lean} and
+\texttt{FiniteFieldNativeHalfSharpness.lean} contain sixteen new
+proved declarations, including the exact finite identities, limits
+and actual least-gap-frame consumer. Their new-only axiom closures
+are foundational. The matching-density mechanism for characters
+and Frobenius traces is classical; see Walji
+\cite{WaljiMatchingDensities}. The present application concerns the
+specific conditional probability law, adaptive reciprocal-prime
+bands, full conductor error, and its integer-pair inverse.
+Priority of this application is not established.
+
+The sharpness example uses arbitrary prime pairs: \((5,13)\) is
+not consecutive. No sharp threshold for the consecutive-pair
+subclass or for integer endpoints growing with \(U\) is asserted.
+The theorem concerns reciprocal-prime mass, rather than an
+unweighted count of fields. It supplies no return existence,
+new integer prime-pair supply, value of \(H_1\), or RH conclusion.
+
 \begin{thebibliography}{99}
+\bibitem{WaljiMatchingDensities}
+N. Walji, \emph{Matching densities for Galois representations},
+arXiv:1501.07343 (2015).
+\url{https://arxiv.org/abs/1501.07343}.
 \bibitem{LauWuLeastNonresidue}
 Y.-K. Lau and J. Wu, \emph{On the least quadratic non-residue},
 International Journal of Number Theory 4 (2008), no.~3.
