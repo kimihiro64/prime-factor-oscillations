@@ -3119,3 +3119,30 @@ new_bound: nonprime2*ell+1 gives minimum at least6*ell; for ell not3 all full si
 components: composite totient bound(2*ell)^2; exact quadratic reciprocity exclusion of prime4*ell+1; unique degree2*ell+1 for a first-weight atom; injectivity of primitive labels; exact full signed support subset sum; previous endpoint iff and actual finite attained minimum.
 actuals: universal kernel-checked proofs over every prime ell, not finite prime sampling; the degree3 and degree17 witnesses use exact finite representability and integer arithmetic, with no field enumeration.
 first_nonpositive_domain: zero probes have support0. Degree3 genuinely attains the excluded level12 and is explicitly retained; degree2 is included and the non-Sophie hypothesis is false there. No composite-degree6*minFac bound, integer prime-pair positivity, H1, RH, QRH improvement or Sophie Germain infinitude is claimed. Classical arithmetic is input; historical priority of the signed-support conclusion remains unconfirmed.
+
+## Sharp prime-conductor window and rational-prime alphabet (2026-10-31)
+
+Owners: PrimeFactorOscillations/Mathlib/NumberTheory/ArithmeticFunction/PrimeExtensionCompositeBarrier.lean and PrimeFactorOscillations/Mathlib/NumberTheory/LegendreSymbol/QuadraticPairOddPellPrimeWindow.lean.
+Export: QuadraticPairOddPellLaws, then the existing correlation and root facades.
+
+| Lean declaration | Status | Exact scope |
+| --- | --- | --- |
+| Nat.primeExtension_composite_totient_barrier | proved | For every prime ell and admissible composite odd d>1, phi(d)>=2*ell*(2*ell+1); both coprime factors cannot have the first weight. |
+| Nat.primeExtension_below_barrier_prime | proved | Every admissible degree with totient below that sharp barrier is prime. |
+| Nat.mem_primeExtensionPrimeAlphabet | proved | Exact membership: an odd prime p with p-1<L divides3^ell-1 or3^ell+1. |
+| Nat.mem_primeExtensionPrimeAlphabet_power | proved | Exact alternative membership using the complete identity9^ell=1 in ZMod p. |
+| Nat.primeExtensionPrimeAlphabet_five | proved | The finite alphabet at ell5 is exactly11,61. |
+| Nat.primeExtensionPrimeAlphabet_five_no_boundary_sum | proved | No subset of that alphabet has weight sum110. |
+| FiniteField.oddPell_primeWindow_support_iff_union | proved | Every support set of cardinality below L=2*ell*(2*ell+1) is attainable iff it is a union of prime-degree primitive shifted classes, with actual finite converse. |
+| FiniteField.oddPell_primeWindow_support_card_iff | proved | For every n<L, actual finite signed support n exists iff n is a subset sum of p-1 over the rational-prime alphabet; degree injectivity preserves multiplicity one. |
+| FiniteField.oddPell_primeWindow_nonzero_iff | proved | At every nonzero shift, a nonzero actual finite signed probe below L exists iff the rational-prime alphabet is nonempty. |
+| FiniteField.oddPell_primeWindow_five_boundary_attained | proved | At q=3^5, every nonzero shift has an actual nonzero finite signed probe with support110, from the composite degree121 class. |
+
+The definition Nat.primeExtensionPrimeAlphabet ell is a computable finite range filtered by primality, oddness and the exact divisibility disjunction. It tests small rational primes and does not require factoring3^ell-1 or3^ell+1. The theorem gives the full signed-support window, not an assumed count of primes in an integer window. Every prime ell including2 and3, n0, arbitrary finite polynomial-index support and arbitrary real signed coefficients remain in scope. Field support statements retain cardinality3^ell, h nonzero and2 nonzero.
+
+benchmark_status: complete selected sharp-window theorem proved;10 new maintained public theorems and1 definition. The completed68/11/16/13-theorem candidates are preserved.
+old_bound: composite atom totients were bounded below by(2*ell)^2; the exact full support spectrum still ranged over all primitive divisors.
+new_bound: composite atoms have size at least L=2*ell*(2*ell+1); the whole support spectrum below L is exactly the subset sums of p-1 over the bounded rational-prime alphabet, with both actual finite converse directions. The strict cutoff is sharp at ell5, where L110 is attainable but no alphabet subset sum110 exists.
+components: first-weight degree uniqueness, coupled coprime-factor totient product, repeated-prime square contribution, exact signed support union, primitive degree injectivity, full finite-span converse and the complete modular-power adapter.
+actuals: universal kernel-checked proofs over every prime degree and every n<L. The fixed ell5 alphabet and boundary witness are exact consequences after the universal argument; no field enumeration or numerical completion supplies it.
+first_nonpositive_domain: zero support is included; the alphabet may be empty and no unconditional nonempty claim is made. The boundary n=L genuinely fails at ell5. No composite-degree lift, integer prime-pair positivity, H1, RH, QRH improvement or prime infinitude is claimed. Classical arithmetic is input; historical priority of the full signed-window statement remains unconfirmed.

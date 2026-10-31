@@ -11177,6 +11177,214 @@ of this full signed-support statement remains unconfirmed.
 The theorem supplies no positivity estimate in an integer
 primality window and no change to the accepted QRH exponent.
 
+\section{A sharp prime-conductor window for the full signed spectrum}
+\label{sec:odd-pell-prime-window}
+
+The exclusion of one support level extends to a whole range
+in which composite primitive degrees cannot occur.
+For a prime extension degree \(\ell\), put
+\[
+                   L_\ell=2\ell(2\ell+1)
+\]
+and define the finite rational-prime alphabet
+\[
+ \mathcal A_\ell=
+ \{p\le L_\ell:\ p\text{ is an odd prime and }
+                       p\mid3^\ell-1\text{ or }p\mid3^\ell+1\}.
+\]
+The disjunction is inside the defining prime condition.
+Equivalently,
+\[
+ \mathcal A_\ell=
+ \{p\le L_\ell:\ p\text{ is an odd prime and }
+                                9^\ell\equiv1\pmod p\}.
+\]
+These definitions require only trial tests at the indicated
+small primes, not a factorization of the exponential integers.
+
+\begin{theorem}[Sharp prime-conductor window]
+\label{thm:odd-pell-prime-window}
+Let \(\ell\) be any prime, including \(2\) and \(3\).
+Over \(\mathbb F_{3^\ell}\), fix any nonzero shift \(h\)
+and retain the full space \(V_h\) of actual finite
+real signed probes.
+
+For every \(U\subseteq\mathbb F_{3^\ell}\) with
+\(|U|<L_\ell\), the set \(U\) is a support of a probe
+in \(V_h\) if and only if it is a union of primitive
+shifted classes \(P_{i,h}\) with prime degrees \(d_i\).
+For every integer \(0\le n<L_\ell\),
+\[
+ \bigl(\exists f\in V_h:\ |\operatorname{supp}f|=n\bigr)
+ \quad\Longleftrightarrow\quad
+ \bigl(\exists P\subseteq\mathcal A_\ell:
+                          n=\sum_{p\in P}(p-1)\bigr).
+\]
+Here \(P\) is a subset, so each prime occurs at most once.
+Both converse statements produce actual finite probes.
+In particular,
+\[
+ \bigl(\exists\,0\ne f\in V_h:
+                    |\operatorname{supp}f|<L_\ell\bigr)
+                    \quad\Longleftrightarrow\quad
+                           \mathcal A_\ell\ne\varnothing.
+\]
+
+The strict cutoff is sharp uniformly in the prime degree.
+At \(\ell=5\),
+\[
+              L_5=110,\qquad \mathcal A_5=\{11,61\}.
+\]
+No subset of this alphabet has weight sum \(110\).
+Nevertheless, at every nonzero shift over
+\(\mathbb F_{243}\), an actual nonzero finite signed
+probe has support exactly \(110\).
+\end{theorem}
+
+\begin{proof}
+Set \(a=2\ell\). We first strengthen the composite
+totient bound to
+\[
+                \varphi(d)\ge a(a+1)=L_\ell
+ \tag{*}
+\]
+for every admissible composite odd degree \(d>1\).
+Write \(d=pk\), where \(p\) is prime and \(k>1\).
+Both factors are admissible and their totients are
+at least \(a\).
+
+If \(p\mid k\), then \(p^2\mid d\), so
+\[
+       \varphi(d)\ge\varphi(p^2)
+                    =p(p-1)\ge(a+1)a,
+\]
+using \(p-1\ge a\). If \(p\nmid k\), then
+\[
+                     \varphi(d)=\varphi(p)\varphi(k).
+\]
+Both factors are at least \(a\), and they cannot both
+equal \(a\). Indeed, the proved first-weight degree
+characterization would then give
+\[
+                              p=k=a+1,
+\]
+contrary to \(p\nmid k\). At least one totient is
+therefore at least \(a+1\), proving \((*)\).
+The argument is uniform for every prime \(\ell\);
+no degree \(2\) or degree \(3\) exception is removed.
+
+Now apply the complete signed support-set theorem.
+For any support \(U\) of an actual finite probe, it gives
+a finite subset \(T\) of primitive labels such that
+\[
+                U=\coprod_{i\in T}P_{i,h},
+       \qquad |U|=\sum_{i\in T}\varphi(d_i).
+\]
+All summands are positive. If \(|U|<L_\ell\), each
+\(\varphi(d_i)\) is smaller than \(L_\ell\).
+By \((*)\), every selected degree is prime.
+Conversely, every such finite union of prime-degree
+primitive classes is an actual finite support by the
+existing signed-span converse. This proves the set
+statement, with every original signed coefficient
+cancellation retained before support sizes are estimated.
+
+For the cardinality statement, map each selected label
+to its prime degree \(p=d_i\).
+The degree map is injective on the primitive label set,
+including across the split and nonsplit sectors.
+Also,
+\[
+                  p-1=\varphi(p)\le n<L_\ell,
+\]
+so \(p\le L_\ell\). Admissibility places \(p\) in
+\(\mathcal A_\ell\), and the exact support sum becomes
+\(\sum_{p\in P}(p-1)=n\) with no multiplicities.
+
+For the reverse direction, start with a subset
+\(P\subseteq\mathcal A_\ell\).
+For each \(p\in P\), choose the split label if
+\(p\mid3^\ell-1\), and the nonsplit label otherwise.
+The latter choice is permitted by the defining
+disjunction. Its degree is \(p\), so this map is
+injective. The resulting finite label subset has
+total weight
+\[
+                        \sum_{p\in P}\varphi(p)
+                       =\sum_{p\in P}(p-1)=n.
+\]
+The exact finite support-spectrum converse produces
+a probe with this cardinality at the prescribed shift.
+The modular-power description of the alphabet follows
+from the already proved equivalence
+\[
+      p\mid3^\ell-1\text{ or }p\mid3^\ell+1
+                    \quad\Longleftrightarrow\quad
+                            9^\ell=1\text{ in }\mathbb F_p.
+\]
+A nonzero support below the threshold gives a nonempty
+subset \(P\). Conversely, a singleton alphabet prime
+has positive weight below \(L_\ell\), and the finite
+converse produces the required nonzero probe.
+This proves the last equivalence.
+
+Finally, the exact small-prime tests give
+\(\mathcal A_5=\{11,61\}\).
+Their total weight is \(10+60=70\), so no subset
+can have weight \(110\).
+But
+\[
+                     3^5-1=242=2\cdot121,\qquad
+                            \varphi(121)=110.
+\]
+The split primitive class of degree \(121\) exists
+and has exactly \(110\) points. The finite converse
+realizes its shifted indicator as an actual finite
+probe, which is nonzero because its support has
+positive cardinality.
+Thus the strict-window characterization fails at its
+boundary already at degree \(5\); the composite barrier
+itself is attained as well.
+\end{proof}
+
+\paragraph{What this transfers to rational primes.}
+The entire low-support cardinality question is determined
+by a bounded alphabet of rational primes and their exact
+modular-power tests. A nonzero probe below the threshold
+is equivalent to the existence of one of those small
+rational primes. Finite-field cardinality alone does
+not assert that the alphabet is nonempty, nor does the
+theorem supply a common survivor inside an integer
+prime-pair window. Those are separate arithmetic
+existence questions.
+
+\paragraph{Formal scope and primary comparison.}
+The maintained owner \texttt{PrimeExtensionCompositeBarrier}
+contains six public theorems and one computable finite
+alphabet definition. The owner
+\texttt{QuadraticPairOddPellPrimeWindow} contains four
+public theorems: the full support-set equivalence,
+the rational-prime subset-sum equivalence, the nonzero
+existence equivalence, and actual boundary attainment.
+All prime degrees, zero support, arbitrary finite signed
+coefficients and both converse directions are retained.
+No completion or unproved analytic estimate is used.
+
+The totient arguments, cyclic orders and individual
+Chebyshev dynamics are classical
+\cite{GassertChebyshevGraphs}.
+The proposed additional conclusion is the sharp uniform
+window for the complete real signed-probe space,
+together with its bounded rational-prime alphabet and
+actual finite converse. Nearby work on constacyclic
+codes concerns affine stabilizers of generator roots
+over finite coefficient fields; the current primary
+abstract is available at
+\url{https://arxiv.org/abs/2609.26414v2}.
+That comparison is not an exhaustive priority review.
+Historical priority remains unconfirmed, and the
+accepted QRH boundary is unchanged.
+
 \begin{thebibliography}{99}
 \bibitem{DavidKoukoulopoulosSmith}
 C. David, D. Koukoulopoulos and E. Smith,
