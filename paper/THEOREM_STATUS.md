@@ -2561,3 +2561,49 @@ actuals: diagnostics retained135 exact-rational means,120 weighted first-death r
 first_nonpositive_domain: none in the qualified finite-field theorem domain q>=5 and k>=0. No positive integer-window domain is certified; sum_(Y<n<=Y^2-2)P_Y(n)>0 along unbounded Y remains unproved.
 
 The full finer absorption profile involving v3(q^2-1) is still an unproved target and is not advertised as formalized. Classical Chebyshev graph theory is prior work; priority of this compensated count-law application remains under review. No integer prime-pair recurrence, H1 improvement or change to the accepted QRH7/8 boundary is claimed; QRH exponent research stays paused.
+
+## Complete square-transport profiles and attained mass (2026-10-31)
+
+Owner: `PrimeFactorOscillations/Mathlib/NumberTheory/LegendreSymbol/QuadraticPairSquareTransport.lean`.
+
+| Claim | Status | Exact scope |
+| --- | --- | --- |
+| `FiniteField.squarePairReach_refl` | proved and audited | every field; identity square transport; no finiteness hypothesis |
+| `FiniteField.traceFreePairNumerator_square_transport_gap` | proved and audited | every finite field and gap; both multipliers nonzero; both endpoint masks and character rows preserved |
+| `FiniteField.traceFreePairWeight_square_transport_gap` | proved and audited | same domain; exact algebraic canonical weight equality, before probability qualification |
+| `FiniteField.squarePairReach_zero_iff` | proved and audited | finite field; nonzero gap; endpoint zero reachable exactly when chi(h(c+h))=1; square-root witness included |
+| `FiniteField.squarePairReach_neg_shift_iff` | proved and audited | finite field; nonzero gap; endpoint -h reachable exactly when chi(-hc)=1; square-root witness included |
+| `FiniteField.squarePairCore_good` | proved and audited | every finite field; double-negative core excludes both endpoints |
+| `FiniteField.squarePairCore_of_no_positive` | proved and audited | finite field; nonzero gap; absence of both positive characters forces the double-negative core |
+| `FiniteField.traceFreePairWeight_core` | proved and audited | finite field q>=5; exact core weight one |
+| `FiniteField.squarePairCollapse_reachable` | proved and audited | finite field; every nonzero gap and point; explicit piecewise collapse is compatible |
+| `FiniteField.squarePairCollapse_profile` | proved and audited | finite field q>=5; nonzero gap; collapse pullback equals the complete core indicator |
+| `FiniteField.traceFreePairWeight_square_reach_cases` | proved and audited | finite field; every compatible point pair; transported weight is zero or its original value |
+| `FiniteField.traceFreePairWeight_square_core` | proved and audited | finite field q>=5; nonzero gap; every compatible image of a core point has weight one |
+| `FiniteField.traceFreePairWeight_nonneg_all` | proved and audited | finite field q>=5; nonzero gap; global nonnegativity including both zero endpoints |
+
+Definitions (compiled and audited): `FiniteField.squarePairReach`, `FiniteField.squarePairCore`, `FiniteField.squarePairCollapse`.
+
+Owner: `PrimeFactorOscillations/Mathlib/NumberTheory/LegendreSymbol/QuadraticPairSquareExtremal.lean`.
+
+| Claim | Status | Exact scope |
+| --- | --- | --- |
+| `FiniteField.squarePairCollapse_zero` | proved and audited | finite field; nonzero gap; collapse fixes zero |
+| `FiniteField.squarePairCollapse_neg_shift` | proved and audited | finite field; nonzero gap; collapse fixes -h |
+| `FiniteField.squarePairCollapse_idempotent` | proved and audited | finite field; nonzero gap; pointwise idempotence |
+| `FiniteField.squarePair_mask_attainment` | proved and audited | finite field q>=5; nonzero gap; every predicate containing the core has a compatible map realizing exactly its masked law |
+| `FiniteField.squarePair_profiles_iff` | proved and audited | same domain; arbitrary real-valued function; both directions of the complete attainable-profile classification |
+| `FiniteField.squarePairCore_indicator` | proved and audited | finite field; nonzero gap; exact integer two-character projector with both endpoint corrections zero |
+| `FiniteField.sum_squarePairCore_indicator` | proved and audited | finite odd field; nonzero gap; four times the core count equals q-chi(-1), retaining the signed cross term |
+| `FiniteField.squarePairCore_mass` | proved and audited | finite odd field q>=5; nonzero gap; exact normalized core mass (q-chi(-1))/(4q) |
+| `FiniteField.traceFreePairWeight_square_extremal` | proved and audited | finite odd field q>=5; every nonzero gap and every compatible map; complete sharp mean interval |
+| `FiniteField.traceFreePairWeight_square_minimum_attained` | proved and audited | same field/gap domain; explicit compatible idempotent collapse attains the exact lower endpoint |
+
+benchmark_status: exact universal attainable-profile and attained-extremum theorems;23 real theorems and3 definitions, with new-only foundational-axiom audit. Export and final staged checks accompany promotion.
+old_bound: the nonnegative lower envelope0 for general simultaneous-square pullbacks; prior cubic survival applies to a strictly smaller map family.
+new_bound: (q-chi(-1))/(4q) <= E_0 W_h(Phi(c)) <=1, for every odd finite field q>=5, every nonzero gap and every compatible map, with zero multipliers allowed. Both endpoints attained; the minimum witness is idempotent. Every attainable profile is exactly W_h*1_A for some A containing the double-negative core, and conversely every such mask is attained.
+components: exact square-root endpoint witnesses; both forbidden endpoints; all character classes; signed cross term sum(alpha*beta)=-chi(-1); count4|core|=q-chi(-1); positive normalization q-3; no discarded compensation term.
+actuals: falsification checked all nonzero shifts in15 prime and extension fields,340 field/shift frames and96660 compatible point transitions; these checks are not the universal proof or integer-origin pair counts.
+first_nonpositive_domain: none in the proved finite-field domain q>=5. No positive integer-window domain is certified; unbounded-cutoff positivity in Y<n<=Y^2-h remains open.
+
+The projector and correlation ingredients are classical. The complete arbitrary-map weighted-profile classification is the application proved here; historical priority remains unconfirmed. This does not improve the stronger cubic-specific reserve, prove integer prime-pair recurrence or change H1, RH or the accepted QRH7/8 boundary. QRH exponent research stays paused.

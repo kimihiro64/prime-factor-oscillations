@@ -9298,6 +9298,164 @@ mass and complete uniform all-iterate bound.
 All seventeen have passed focused compilation and the new-declaration
 foundational-axiom audit. The claim ledger lists their exact scopes.
 
+
+\section{All attainable square-transport profiles}
+\label{sec:squareTransportExtremal}
+
+Let \(F=\mathbb F_q\) have odd cardinality \(q\ge5\), let
+\(h\in F^\times\), and retain the actual two-class density
+\(W_h(c)=N_h(c)/(q-3)\) from the preceding sections. Put
+\[
+ \alpha_h(c)=\chi(-hc),\qquad
+ \beta_h(c)=\chi(h(c+h)),\qquad
+ C_h=\{c:\alpha_h(c)=\beta_h(c)=-1\}.
+\]
+A map \(\Phi:F\to F\) is \emph{square-compatible} if, for every
+\(c\in F\), there exist \(u,v\in F\) such that
+\[
+             \Phi(c)=cu^2,\qquad
+             \Phi(c)+h=(c+h)v^2.
+\]
+The multipliers may vanish. There is no degree restriction on the map.
+
+\begin{theorem}[Complete attainable-profile classification]
+\label{thm:squareTransportProfiles}
+A function \(f:F\to\mathbb R\) is of the form \(W_h\circ\Phi\)
+for a square-compatible map if and only if
+\[
+                   f=W_h1_A
+             \quad\hbox{for some }C_h\subseteq A\subseteq F.
+\]
+Thus the double-negative core is forced to survive, and every
+deletion pattern outside that core is attainable. Choices of \(A\)
+at the two zero-weight endpoints do not affect the profile.
+\end{theorem}
+
+\begin{proof}
+If both multipliers are nonzero, the two character rows are unchanged:
+\[
+ \chi(\Phi(c))=\chi(c),\qquad
+ \chi(\Phi(c)+h)=\chi(c+h).
+\]
+The zero conditions for both endpoints are also equivalent before and
+after transport. Consequently \(W_h(\Phi(c))=W_h(c)\).
+If a multiplier vanishes, the image is \(0\) or \(-h\), whose weight
+is zero. Hence every compatible map gives a pointwise mask of \(W_h\).
+
+The exact endpoint reachability conditions are
+\[
+ \begin{split}
+ 0\text{ is reachable from }c
+     &\iff \beta_h(c)=1,\\
+ -h\text{ is reachable from }c
+     &\iff \alpha_h(c)=1.
+ \end{split}
+\]
+For the first necessity, \(h=(c+h)v^2\ne0\), so multiplying
+characters gives \(\chi(h(c+h))=1\).
+Conversely, if \(\beta_h(c)=1\), choose
+\(z^2=h(c+h)\); necessarily \(c+h\ne0\). The choices
+\(u=0,\ v=z/(c+h)\) give the image zero.
+For the second equivalence use
+\(z^2=-hc,\ u=z/c,\ v=0\); its denominator is again nonzero.
+These arguments retain the endpoint cases themselves.
+
+On \(C_h\), neither endpoint is reachable, so both multipliers
+are nonzero. Here
+\[
+                         N_h(c)=q-3,\qquad W_h(c)=1.
+\]
+The class must therefore remain in every mask.
+
+For sufficiency define
+\[
+ R_h(c)=
+ \begin{cases}
+ 0,&\beta_h(c)=1,\\
+ -h,&\beta_h(c)\ne1,\ \alpha_h(c)=1,\\
+ c,&\text{otherwise}.
+ \end{cases}
+\]
+The endpoint equivalences show that this map is compatible.
+If neither character is positive, \(c\) cannot be either endpoint,
+and both nonzero characters are \(-1\). It follows that
+\[
+                         W_h(R_h(c))=1_{C_h}(c).
+\]
+Given \(A\supseteq C_h\), use the identity at points of \(A\) and
+\(R_h\) elsewhere. The resulting compatible map has density
+\(W_h1_A\), as required.
+\end{proof}
+
+\begin{theorem}[Sharp retained mass, with an idempotent minimizer]
+\label{thm:squareTransportMinimum}
+For every square-compatible \(\Phi\),
+\[
+ \boxed{\quad
+ \frac{q-\chi(-1)}{4q}
+       \le \frac1q\sum_{c\in F}W_h(\Phi(c))
+       \le1.\quad}
+\]
+Both bounds are attained. The identity attains the upper bound;
+the map \(R_h\) above attains the lower bound and satisfies
+\(R_h\circ R_h=R_h\).
+\end{theorem}
+
+\begin{proof}
+The endpoint corrections in the core projector vanish exactly.
+At \(c=0\), the opposite character is
+\(\beta_h(0)=\chi(h^2)=1\); at \(c=-h\),
+\(\alpha_h(-h)=\chi(h^2)=1\). At every other point both
+characters are signs. Thus, over the entire field,
+\[
+ 4\,1_{C_h}(c)=(1-\alpha_h(c))(1-\beta_h(c)).
+\]
+Both individual character sums are zero. Keeping their product,
+\[
+ \begin{split}
+ \sum_c\alpha_h(c)\beta_h(c)
+ &=\chi(-h)\chi(h)\sum_c\chi(c)\chi(c+h)\\
+ &=-\chi(-1),
+ \end{split}
+\]
+by the nonzero-shift quadratic correlation. Hence
+\[
+                         4|C_h|=q-\chi(-1).
+\]
+The classification gives, pointwise,
+\(1_{C_h}\le W_h\circ\Phi\le W_h\).
+Averaging and using the existing mean-one identity proves both
+inequalities. The displayed collapse has profile \(1_{C_h}\),
+so its mean is exactly the lower endpoint. It fixes \(0\) and
+\(-h\), and otherwise either fixes a point or sends it to one
+of these endpoints. This proves idempotence.
+\end{proof}
+
+The result includes characteristic three whenever \(q\ge9\).
+Cardinality three is outside the probability normalization
+\(q-3>0\); characteristic two is outside the stated quadratic law.
+The theorem extends the former nonzero-multiplier invariance to
+all pointwise square transports and completely determines their
+possible retained profiles. The stronger half-scale reserve for
+the particular cubic map is a separate, more restrictive result.
+The character-count ingredients are classical
+\cite{CohenConsecutivePatterns}; classical Chebyshev dynamics
+\cite{GassertChebyshevGraphs} concerns a specified polynomial map.
+The complete weighted-profile classification is the application
+established here; its historical priority remains unconfirmed.
+
+\paragraph{Lean verification and integer scope.}
+The maintained candidates
+\texttt{QuadraticPairSquareTransport} and
+\texttt{QuadraticPairSquareExtremal} contain the real proofs.
+Their exact declarations and verification status appear in the
+claim ledger. The density is the original compensated sum of two
+actual irreducible-pair counts; it is not an individual raw elliptic
+count. This finite-field mass theorem does not put a positive
+sample into the integer window \(Y<n\le Y^2-h\), and gives no
+integer prime-pair recurrence, value of \(H_1\), RH proof or change
+to the accepted QRH boundary \(7/8\).
+
 \begin{thebibliography}{99}
 \bibitem{DavidKoukoulopoulosSmith}
 C. David, D. Koukoulopoulos and E. Smith,
