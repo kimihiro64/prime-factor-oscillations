@@ -3417,5 +3417,30 @@ old_bound: uniform integer rigidity required equality of both labelled A/B chara
 new_bound: equality of the actual scalar native weights suffices, uniformly for every fixed H>=1, all sufficiently large Q and all actual prime pairs in (Q,Q^2] with positive gaps<=H. The complete finite signed estimate is E>=2M-10epsilon, with epsilon=C*(3+log(4H^2T^2))^2*Y^(-1/32).
 components: the exact native scalar law; four diagonal terms and six signed correlations; two internal and three cross nonprincipal bounds; at most one shared endpoint; full mass M for the remaining possible principal row; existing margin at5C; all original phases and opening masks; actual positive H1 recurrence frames.
 actuals: universal maintained kernel proofs and12 new-only foundational-axiom audits. No finite character, field, height or pair sample is substituted for the universal bounds.
-first_nonpositive_domain: identical pairs have zero energy and are excluded only in the separation contradiction. Positive gaps prevent two distinct shared endpoints. Actual scalar weights use primes>=5; the complete band is above H and below all endpoints. No numerical H1 bound, new prime recurrence, RH proof or QRH exponent improvement follows. Quantitative robust-distance asymptotics remain separate work; priority is unconfirmed.
+first_nonpositive_domain: identical pairs have zero energy and are excluded only in the separation contradiction. Positive gaps prevent two distinct shared endpoints. Actual scalar weights use primes>=5; the complete band is above H and below all endpoints. No numerical H1 bound, new prime recurrence, RH proof or QRH exponent improvement follows. The quantitative extension is recorded below; priority remains unconfirmed.
+
+## Quantitative separation of the native probability weights (2026-10-31)
+
+Paper: `finite-fields.tex`, Theorem `thm:native-metric-separation` and Corollary `cor:native-metric-least-gap`. Owner: `Assembly/FiniteFieldIntegerNativeMetric.lean`. Namespace: `PrimeFactorOscillations.FiniteFieldIntegerSignature`.
+
+| Declaration | Status | Exact scope |
+| --- | --- | --- |
+| native_weight_scaled_difference | proved | Exact (p-3) times the actual native-weight difference equals the aggregate trace difference; both masks and denominator checked. |
+| native_weight_energy_eq_trace | proved | The scaled native squared discrepancy equals the full signed trace energy on the entire supported prime band. |
+| native_metric_defect_tendsto_zero | proved | The explicit Mertens and full-conductor defect tends to zero. |
+| exists_uniform_native_metric_lower | proved | One absolute C gives the eventual 2log2-d_C(Q) separation for every fixed positive gap bound and all distinct eligible actual prime pairs. |
+| eventually_native_weight_metric_separation | proved | For every eta>0, all sufficiently large eligible distinct pairs have scaled native discrepancy at least 2log2-eta. |
+| eventually_native_metric_pair_rigidity | proved | Scaled discrepancy below log2 eventually forces the identical integer pair and gap. |
+| unbounded_least_gap_native_metric_frames | proved | Existing unbounded positive H1 frames retain the same pair and H1 under every eligible approximate return with discrepancy below log2. |
+
+Supporting definitions: `integerNativeWeight`, `nativeWeightEnergy`, and `nativeMetricDefect`.
+
+The maintained owner compiles without warnings. All seven new-only theorem closures use propext, Classical.choice and Quot.sound. This is a quantitative extension for the actual scalar local probability weights; it is distinct from the older optional labelled-coordinate distance target.
+
+benchmark_status: universal quantitative native-profile separation and actual approximate-return consumer proved.
+old_bound: exact native-weight equality forced equality of eligible bounded-height prime pairs; no positive mismatch allowance was stated.
+new_bound: D_Q>=2log2-d_C(Q), where d_C(Q)=4B/logK(Q)+10relativeError(C,Q)->0. Consequently every fixed eta>0 gives the uniform eventual bound D_Q>=2log2-eta, and D_Q<log2 forces the identical pair.
+components: exact (p-3) scalar scaling; the whole six-correlation energy; complete E>=2M-10epsilon; M>=log2-2B/logK; full-conductor epsilon<=relativeError(C,Q); both proved limits; existing actual positive H1 frames.
+actuals: seven universal maintained kernel proofs and new-only foundational-axiom audits; no finite sample or numerical completion supplies any estimate.
+first_nonpositive_domain: identical pairs have zero discrepancy. All eventual onsets may depend on H and eta; C is absolute. The finite support is exactly the primes K(Q)<p<=K(Q)^2. This is a scaled squared discrepancy, with no assertion of an unscaled positive distance, an optimal constant, new integer pair supply, a numerical H1 value, RH or priority.
 

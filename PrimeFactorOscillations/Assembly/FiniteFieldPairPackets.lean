@@ -4,7 +4,7 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Prime Factor Oscillations contributors
 -/
 import PrimeFactorOscillations.Assembly.FiniteFieldCubicLift
-import PrimeFactorOscillations.Assembly.FiniteFieldIntegerNativeReturn
+import PrimeFactorOscillations.Assembly.FiniteFieldIntegerNativeMetric
 import PrimeFactorOscillations.Assembly.FiniteFieldJointCharacterProjection
 import PrimeFactorOscillations.Assembly.FiniteFieldPairIntegerCRT
 import PrimeFactorOscillations.Assembly.FiniteFieldPairProductSeparation
@@ -17,7 +17,8 @@ import PrimeFactorOscillations.Assembly.FiniteFieldTraceFreeWave
 # Finite-field pair packets and integer height transport
 
 Import-only grouping of the sharp prime-pair weight laws and the complete
-raw elliptic Fourier rows, together with native-weight rigidity of bounded
-integer prime pairs. The identities retain the Gauss-Kloosterman term and
-its compensation. No new integer pair-supply estimate is asserted.
+raw elliptic Fourier rows, together with quantitative native-weight separation
+and approximate-return rigidity for bounded integer prime pairs. The identities
+retain the Gauss-Kloosterman term and its compensation. No new integer
+pair-supply estimate is asserted.
 -/

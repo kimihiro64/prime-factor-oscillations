@@ -12280,6 +12280,104 @@ or zero-free exponent.  The general character-separation mechanism is
 classical; historical priority of the native-weight application remains
 unconfirmed.
 
+
+\subsection{A positive separation for approximate native returns}
+\label{sec:native-metric-return}
+
+Exact equality can be replaced by a quantitative error allowance.
+For the same prime band and the actual weights \(W_p\), define the
+scaled squared discrepancy
+\[
+ \mathcal D_Q((n,h),(m,k))
+   =\sum_{\substack{K(Q)<p\le K(Q)^2\\p\ {\rm prime}}}
+       \frac{(p-3)^2}{p}
+           \bigl(W_p(n,h)-W_p(m,k)\bigr)^2.
+\]
+The scaling is essential: the individual native weights approach one.
+No claim about an unscaled discrepancy is being made.
+
+\begin{theorem}[Uniform positive native separation]
+\label{thm:native-metric-separation}
+Fix an integer \(H\ge1\) and a real \(\eta>0\).
+For every sufficiently large \(Q\), any two distinct actual prime pairs
+satisfying
+\[
+ 1\le h,k\le H,\qquad Q<n,m,\qquad n+h,m+k\le Q^2
+\]
+satisfy
+\[
+             \mathcal D_Q((n,h),(m,k))\ge2\log2-\eta.
+\]
+More explicitly, there is an absolute \(C>0\), independent of \(H\),
+such that for each fixed \(H\) the eventual lower bound is
+\begin{equation}\label{eq:native-metric-defect}
+ \mathcal D_Q((n,h),(m,k))
+       \ge2\log2-d_C(Q),\qquad
+ d_C(Q)=\frac{4B}{\log K(Q)}
+                  +10\,\operatorname{relativeError}(C,Q),
+\end{equation}
+where \(B=\operatorname{mertensErrorConstant}\) is the maintained
+reciprocal-prime Mertens error constant, and \(d_C(Q)\to0\).
+\end{theorem}
+
+\begin{proof}
+All band primes are eventually at least five, below every endpoint and
+above \(H\). The exact scalar law, with both opening masks checked, gives
+\[
+ (p-3)\bigl(W_p(n,h)-W_p(m,k)\bigr)
+                      =a_p+b_p-c_p-d_p.
+\]
+Squaring this identity and summing with weight \(1/p\) proves
+\(\mathcal D_Q=E\); it does not separate any correlation or omit
+a compensation term.
+
+Apply Lemma~\ref{lem:native-signed-energy} with
+\(T=Q^2\), \(Y=K+1\), and \(X=K^2+1\).
+The maintained uniform conductor comparison gives
+\[
+ \varepsilon\le\operatorname{relativeError}(C,Q),
+\]
+and the maintained Mertens comparison on this same band gives
+\[
+                    M\ge\log2-\frac{2B}{\log K}.
+\]
+Substitution into the complete signed bound \(E\ge2M-10\varepsilon\)
+is exactly \eqref{eq:native-metric-defect}.
+Since \(K(Q)\to\infty\) and
+\(\operatorname{relativeError}(C,Q)\to0\), both terms of \(d_C\)
+tend to zero. Eventually \(d_C(Q)<\eta\), proving the assertion.
+\end{proof}
+
+\begin{corollary}[Approximate returns on the actual least-gap frames]
+\label{cor:native-metric-least-gap}
+For every fixed \(H\ge1\), all sufficiently large eligible integer
+prime pairs satisfy
+\[
+ \mathcal D_Q((n,h),(m,k))<\log2
+                  \quad\Longrightarrow\quad (n,h)=(m,k).
+\]
+In particular, there are unbounded positive retained-mass frames at
+the actual consecutive pair \((Q+1,Q+1+H_1)\) for which every eligible
+return with \(k\le H_1\) and scaled squared discrepancy less than
+\(\log2\) is that same pair and has \(k=H_1\).
+\end{corollary}
+\begin{proof}
+Take \(\eta=\log2>0\) in the theorem and contradict the resulting
+lower bound if the pairs differ. Then choose the existing unbounded
+positive least-gap frames beyond the uniform onset, as in
+Corollary~\ref{cor:native-least-gap-return}.
+\end{proof}
+
+The maintained owner is \texttt{FiniteFieldIntegerNativeMetric.lean}.
+Its seven new theorem closures use only the standard foundational
+axioms. The actual local weights, the common finite prime support,
+all signed correlations and every shared-endpoint case are retained.
+This supplies tolerance for an approximate return map; it does not
+supply the existence of such a return. No new numerical \(H_1\) bound,
+prime recurrence or RH conclusion is inferred. Optimality of
+\(2\log2\) and historical priority are not asserted.
+
+
 \begin{thebibliography}{99}
 \bibitem{LauWuLeastNonresidue}
 Y.-K. Lau and J. Wu, \emph{On the least quadratic non-residue},
