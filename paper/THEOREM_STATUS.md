@@ -3537,3 +3537,28 @@ components: exact centered native scalar law; full seven-character identity with
 actuals: twelve universal maintained kernel proofs and twelve new-only foundational-axiom audits; no finite sample, independent-sign model or numerical completion supplies an estimate.
 first_nonpositive_domain: no reconstruction assertion at exactly3/8 without a fixed positive surplus. The three-eighths law excludes identical pairs, whose agreement mass is M_U. All eventual onsets may depend on the fixed integer pairs and requested tolerance. This is reciprocal-prime mass, not an unweighted field count or a uniform theorem with growing integer endpoints. The arbitrary-pair half-mass theorem remains sharp in its larger class. No return existence, new pair supply, numerical H1, RH/QRH gain or established priority is claimed.
 
+## Complete native agreement spectrum for arbitrary prime pairs (2026-10-31)
+
+Both integer pairs are fixed before independent field scale U. For distinct actual positive-gap prime pairs, alpha=(3+e(hknm)+e(hk(n+h)(m+k)))/8, where e(D)=1 precisely when the actual full numerator character modulo4abs(D) is principal (and e(0)=0). Then A_U-alpha*M_U->0 and A_U/M_U->alpha, with alpha in{3/8,1/2}.
+
+| Claim / declaration | Status | Maintained owner | Evidence and scope |
+| --- | --- | --- | --- |
+| `principal_prime_kernel_eventually` | proved | `PrimeFactorOscillations/Assembly/FiniteFieldNativePrincipalMean.lean` | Principal full numerator character evaluates to1 at every sufficiently large prime; all nonunit exceptions retained. |
+| `principal_prime_correlation_eventually_eq_mass` | proved | `PrimeFactorOscillations/Assembly/FiniteFieldNativePrincipalMean.lean` | Principal reciprocal correlation is eventually exactly the observed band mass. |
+| `prime_correlation_principal_centered_tendsto_zero` | proved | `PrimeFactorOscillations/Assembly/FiniteFieldNativePrincipalMean.lean` | Every fixed nonzero numerator is centered by its actual principal contribution. |
+| `negative_prime_correlation_tendsto_zero` | proved | `PrimeFactorOscillations/Assembly/FiniteFieldNativePrincipalMean.lean` | Includes negative squares and the full4abs(D) modulus. |
+| `prime_correlation_square_factor_eventually` | proved | `PrimeFactorOscillations/Assembly/FiniteFieldNativePrincipalMean.lean` | Removes a fixed nonzero square multiplier only after all its prime divisors leave the band. |
+| `native_product_prime_correlation_tendsto_zero` | proved | `PrimeFactorOscillations/Assembly/FiniteFieldNativeAgreementClassification.lean` | Full four-coordinate product including both gap squares, arbitrary distinct actual prime pairs and endpoint2. |
+| `native_agreement_centered_by_cross_characters` | proved | `PrimeFactorOscillations/Assembly/FiniteFieldNativeAgreementClassification.lean` | Complete seven-row signed assembly with both positive principal contributions retained. |
+| `native_agreement_rate_dichotomy` | proved | `PrimeFactorOscillations/Assembly/FiniteFieldNativeAgreementClassification.lean` | Only3/8 or1/2; excludes5/8 using the proved half bound and positive band mass. |
+| `native_agreement_ratio_tendsto_rate` | proved | `PrimeFactorOscillations/Assembly/FiniteFieldNativeAgreementClassification.lean` | Normalized agreement fraction converges to the explicit rate; denominator eventually at least log2/2. |
+
+Namespace: `PrimeFactorOscillations.FiniteFieldIntegerSignature`. Supporting definitions: `numeratorPrincipalIndicator`, `nativeAgreementRate`. All nine declarations compile without warnings and pass new-only foundation audits containing only propext, Classical.choice and Quot.sound. No unchanged earlier closure was reaudited.
+
+benchmark_status: complete exact two-value agreement law for arbitrary fixed actual prime pairs, proved.
+old_bound: arbitrary distinct prime pairs had agreement mass at most M_U/2+o(1); exact3M_U/8 was proved on the short/consecutive subclass.
+new_bound: every arbitrary distinct actual positive-gap prime pair comparison has A_U-alpha*M_U->0 and A_U/M_U->alpha, with explicit alpha in{3/8,1/2}. No universal arbitrary-pair threshold below1/2 is asserted.
+components: full principal-character centering and nonunit masks; all four negative rows; unchanged actual endpoint carrier; entire gap-square multiplier and its finite exceptional primes; both positive cross rows; complete signed assembly; existing half upper bound; eventual positive reciprocal band; explicit denominator positivity before normalization.
+actuals: nine universal maintained proofs and nine new-only foundation audits. No finite sample or independent-sign model is used.
+first_nonpositive_domain: identical pairs are excluded. The theorem is not uniform for integer endpoints growing with U. The explicit criterion is full-character principality; a separate positive-numerator principality iff square refinement is not claimed here. No integer pair supply, H1 determination, return existence, RH/QRH exponent improvement or established priority is claimed.
+

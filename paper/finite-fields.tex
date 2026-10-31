@@ -12920,6 +12920,126 @@ sharpness result is unaffected. Neither result supplies a new
 integer pair, a return existence theorem, a numerical value of
 \(H_1\), an RH proof, or a stronger zero-free exponent.
 
+\section{The complete agreement spectrum for arbitrary prime pairs}
+\label{sec:native-general-spectrum}
+Fix distinct actual prime pairs \((n,n+h),(m,m+k)\), with \(h,k>0\).
+The endpoints are prime, but the pairs need not be consecutive and the
+gaps have no upper bound. Fix the integer data before the independent
+field scale \(U\) grows. As before, put
+\[
+ K=\operatorname{preciseCore}(U),\quad
+ M_U=\sum_{\substack{K<p\le K^2\\p\ {\rm prime}}}\frac1p,\quad
+ A_U=\sum_{\substack{K<p\le K^2\\p\ {\rm prime}\\
+                    W_p(n,h)=W_p(m,k)}}\frac1p.
+\]
+For a fixed nonzero integer \(D\), let \(\chi_D\) be the actual
+numerator-Jacobi character modulo \(4|D|\), with its full nonunit mask.
+Define \(e(D)=1\) if \(\chi_D=1\), and \(e(D)=0\) otherwise.
+The maintained definition has \(e(0)=0\); neither positive cross
+numerator below is zero. Define
+\begin{equation}\label{eq:native-general-rate}
+ \alpha(n,h;m,k)=\frac{3+e(hknm)+e(hk(n+h)(m+k))}{8}.
+\end{equation}
+
+\begin{theorem}[Complete native agreement law]
+\label{thm:native-general-spectrum}
+For all such fixed distinct prime pairs,
+\[
+ A_U-\alpha M_U\longrightarrow0,\qquad
+ \frac{A_U}{M_U}\longrightarrow\alpha,\qquad
+ \alpha\in\left\{\frac38,\frac12\right\}.
+\]
+Thus the two positive cross characters cannot both make a principal
+contribution. Formula \eqref{eq:native-general-rate} is the explicit
+full-character test for the agreement rate.
+\end{theorem}
+
+\begin{proof}
+For a fixed nonzero numerator write
+\[
+ C_D(U)=\sum_{\substack{K<p\le K^2\\p\ {\rm prime}}}
+                         \frac{\operatorname{Re}\chi_D(p)}p.
+\]
+If \(\chi_D=1\), then every prime \(p>4|D|\) is a unit modulo
+\(4|D|\), so \(\chi_D(p)=1\). Since \(K\to\infty\),
+\(C_D(U)=M_U\) eventually. Only finitely many nonunits were removed.
+If \(\chi_D\ne1\), the maintained fixed-character estimate gives
+\(C_D(U)\to0\). Therefore
+\begin{equation}\label{eq:native-principal-centering}
+                         C_D(U)-e(D)M_U\longrightarrow0.
+\end{equation}
+This keeps the actual character and its entire modulus.
+
+Put \(a=-hn,\ b=h(n+h),\ c=-km,\ d=k(m+k)\).
+Once the field primes exceed the fixed endpoints and \(3\), the
+previous exact scalar identity gives the complete signed expression
+\[
+ A_U=\frac{3M_U}{8}
+ +\frac{-C_{ab}-C_{cd}+C_{ac}+C_{ad}+C_{bc}+C_{bd}+3C_{abcd}}8.
+\]
+All correlations here are evaluated at \(U\). The four numerators
+\(ab,cd,ad,bc\) are negative. The negative-numerator theorem, including
+negative squares, makes each corresponding correlation tend to zero.
+
+For the last row retain the whole product
+\[
+                       abcd=(hk)^2E,\qquad E=n(n+h)m(m+k).
+\]
+The distinct-prime-pair carrier theorem gives \(E=sP\), with \(s>0\),
+\(P>2\) prime and \(P\nmid s\), including shared endpoints and endpoint
+\(2\). Thus the actual character of \(E\) is nonprincipal and
+\(C_E(U)\to0\).
+For sufficiently large observed primes, \(p>hk\) and \(p>2\).
+The quadratic value of \(hk\) is nonzero and its square is \(1\);
+multiplicativity gives equality of the real kernels for
+\((hk)^2E\) and \(E\). Hence \(C_{abcd}(U)=C_E(U)\) eventually.
+This removes a fixed square factor only after all its prime divisors
+have left the band; it assumes no primitivity and omits no growing mask.
+
+The remaining rows have numerators
+\[
+                         ac=hknm,\qquad bd=hk(n+h)(m+k).
+\]
+Apply \eqref{eq:native-principal-centering} to them and combine all
+seven signed terms. This proves \(A_U-\alpha M_U\to0\), with
+the entire coefficient \eqref{eq:native-general-rate}.
+
+Since each indicator is zero or one, the preliminary possibilities are
+\(3/8,1/2,5/8\). The previously proved arbitrary-pair upper bound gives,
+at these same fixed pairs,
+\[
+ A_U\le M_U/2+e_B(U)/2,\qquad e_B(U)\to0,\qquad
+ M_U\ge\log2/2\quad\hbox{eventually}.
+\]
+If \(\alpha=5/8\), take \(\eta=\log2/100\).
+At a common sufficiently large scale,
+\(A_U-5M_U/8>-\eta\) and \(e_B(U)<\eta\).
+Consequently \(M_U/8<3\eta/2<\log2/16\), whereas
+\(M_U/8\ge\log2/16\). This excludes \(5/8\).
+Finally \(M_U\) is eventually bounded away from zero, so dividing
+the centered error proves the normalized limit.
+\end{proof}
+
+The five supporting declarations are maintained in
+\texttt{FiniteFieldNativePrincipalMean.lean}.
+The full product limit, signed centering, two-value dichotomy and
+normalized convergence are maintained in
+\texttt{FiniteFieldNativeAgreementClassification.lean}.
+All nine new theorem declarations compile without warnings;
+their new-only foundation audits contain only
+\texttt{propext}, \texttt{Classical.choice}, and \texttt{Quot.sound}.
+
+The trace-matching viewpoint is classical
+\cite[Definition~1.1 and Theorem~1.2]{WaljiMatchingDensities}.
+The application here classifies the constrained native probability
+observable with full moduli and reciprocal-band normalization;
+established priority is not claimed.
+The earlier arbitrary-pair half-mass sharpness example and the
+consecutive-pair three-eighths theorem remain unchanged.
+This result is not uniform in growing integer endpoints and supplies
+no new integer pair, return existence, value of \(H_1\), RH proof,
+or stronger zero-free exponent.
+
 \begin{thebibliography}{99}
 \bibitem{WaljiMatchingDensities}
 N. Walji, \emph{Matching densities for Galois representations},
