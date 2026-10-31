@@ -43,8 +43,10 @@ their maximal peak count among \(\deg D\leq H\) is of sharp order
 \end{abstract}
 
 \paragraph{Status.}
-This is a new finite-field manuscript containing ordinary mathematical
-arguments, not yet Lean formalizations. Existing maintained proofs supply
+This working manuscript combines ordinary arguments with maintained Lean
+formalizations of the pair-count results identified in the claim ledger.
+The curve-level statements retain their separately recorded status.
+Existing maintained proofs supply
 the abstract greedy record mechanism and damped-wave method; their
 integer-prime consumers do not automatically constitute finite-field
 adapters. The curve zeta formula and Hasse--Weil theorem are classical
@@ -8692,6 +8694,198 @@ at least 183. These observations neither prove infinite deletion nor
 certify a final deletion degree. Universal conclusions above come from
 the ordinary proofs, not this finite computation.
 
+\section{The trace-free actual-count wave at every lag}
+\label{sec:trace-free-wave}
+Let \(F\) be a finite field of odd cardinality \(q\), let
+\(h\in F^\times\), and extend the quadratic character by \(\chi(0)=0\).
+Write \(w_h(c)\) for the number of monic irreducible pairs
+\(X^2+bX+c,\ X^2+bX+c+h\), with \(b\in F\).
+For any nonsquare \(a\in F^\times\), the already established actual-count
+identity gives
+\[
+ N_h(c)=2\{w_h(c)+w_{ah}(ac)\}
+ =q-1+\chi(-h)\chi(c)+\chi(h)\chi(c+h)
+       -q{\bf1}_{c=0}-q{\bf1}_{c=-h}.
+\]
+This is the existing canonical trace-free observable, with both count
+classes added before multiplying. When \(q\ge5\), put
+\(W_h(c)=N_h(c)/(q-3)\); its uniform mean is one.
+No class label is shared between the two factors of
+\(W_h(c)W_h(c+k)\): all four count products are present.
+
+\begin{theorem}[Exact all-lag kernel]\label{thm:trace-free-all-lag}
+Put \(t=\chi(-1)\), \(e=\chi(h)\), \(f=\chi(-h)\), and
+\[
+ T_h(k)=(e+f)\chi(k)+f\chi(k-h)+e\chi(k+h).
+\]
+For every \(k\in F\),
+\begin{align*}
+ H_h(k):=\sum_{c\in F}N_h(c)N_h(c+k)
+ &=q(q-1)(q-5)-2(1+t)-2qT_h(k)\\
+ &\quad+2q(q+1){\bf1}_{k=0}
+       +q(q+t)({\bf1}_{k=h}+{\bf1}_{k=-h}).
+\end{align*}
+In particular the full four-product count sum is \(H_h(k)/4\).
+The identity remains valid at \(q=3\).
+\end{theorem}
+\begin{proof}
+Set \(U(c)=q-1+f\chi(c)+e\chi(c+h)\).
+The exact character correlation
+\[
+ \sum_c\chi(c+r)\chi(c+s)=q{\bf1}_{r=s}-1
+\]
+and zero character mean give
+\[
+ \sum_cU(c)U(c+k)
+ =q(q-1)^2+2(q{\bf1}_{k=0}-1)
+   +t\{q({\bf1}_{k=h}+{\bf1}_{k=-h})-2\}.
+\]
+Here \(e^2=f^2=1\) and \(ef=t\).
+The four boundary evaluations satisfy
+\[
+ U(-k)+U(-h-k)+U(k)+U(k-h)=4(q-1)+2T_h(k).
+\]
+Expand \(N_h(c)=U(c)-q{\bf1}_{c=0}-q{\bf1}_{c=-h}\)
+in both factors. The linear boundary subtraction is minus \(q\) times
+this four-term sum. The boundary--boundary contribution is
+\[
+ q^2\{2{\bf1}_{k=0}+{\bf1}_{k=h}+{\bf1}_{k=-h}\}.
+\]
+Combining these exact signed terms gives the displayed formula.
+The actual-count identity gives the last assertion.
+\end{proof}
+
+For \(q\ge5\), define the complete-field centered covariance by
+\[
+ C_h(k)=\frac1q\sum_{c\in F}W_h(c)W_h(c+k)-1.
+\]
+It is even in \(k\). Normalization of the preceding theorem yields
+\[
+ C_h(0)=\frac2{q-3}-\frac{2(1+t)}{q(q-3)^2},\qquad
+ C_h(k)=-\frac{4+2T_h(k)+2(1+t)/q}{(q-3)^2}
+ \quad(k\notin\{0,h,-h\}).
+\]
+
+\begin{theorem}[Covariance sign classification]\label{thm:trace-free-signs}
+Suppose \(q\ge5\). If \(t=-1\), every nonoverlap covariance is
+nonpositive, and
+\[
+ C_h(h)=C_h(-h)=\frac{q-5-2\chi(2)}{(q-3)^2}
+             \le\frac1{q-3}.
+\]
+Consequently, for every \(k\in F\),
+\[
+ C_h(k)\le
+ \frac{2{\bf1}_{k=0}+{\bf1}_{k=h}+{\bf1}_{k=-h}}{q-3}.
+\]
+If \(t=1\) and \(k\notin\{0,h,-h\}\), then
+\[
+ C_h(k)>0\quad\Longleftrightarrow\quad
+ \chi(hk)=\chi(h(k-h))=\chi(h(k+h))=-1.
+\]
+\end{theorem}
+\begin{proof}
+When \(t=-1\), \(f=-e\), so
+\[
+ T_h(k)=\chi(h(k+h))-\chi(h(k-h)).
+\]
+At a nonoverlap lag the two terms belong to \(\{-1,1\}\);
+hence \(T_h(k)\ge-2\), proving nonpositivity without replacing any
+character sum by its absolute value. At \(k=h\), insert
+\(\chi(2h)=\chi(2)\chi(h)\) in the exact kernel.
+This gives the adjacent formula; \(\chi(2)\ge-1\) gives its upper
+bound. Evenness, the diagonal formula, and the nonoverlap result give
+the bound at every lag.
+
+When \(t=1\), \(f=e\), and
+\[
+ T_h(k)=2\chi(hk)+\chi(h(k-h))+\chi(h(k+h)).
+\]
+All three characters are signs. If all equal \(-1\), the covariance
+numerator is \(4-4/q>0\). In every other case,
+\(4+2T_h(k)+4/q\ge4/q>0\), giving negative covariance.
+This proves the stated positive-sign equivalence.
+\end{proof}
+
+\begin{theorem}[Signed identity and overlap-graph bound]
+\label{thm:trace-free-window-graph}
+Let \(I\) be any finite index set, \(b_i\in\mathbb R\), and \(s_i\in F\).
+For \(q\ge5\), set
+\[
+ V_h(b,s)=\frac1q\sum_{c\in F}
+       \left\{\sum_{i\in I}b_i(W_h(c+s_i)-1)\right\}^2.
+\]
+For arbitrary signed weights and arbitrary shifts,
+\[
+ V_h(b,s)=\sum_{i,j\in I}b_ib_jC_h(s_j-s_i).
+\]
+If additionally \(t=-1\), \(b_i\ge0\), and \(i\mapsto s_i\) is
+injective, define the directed overlap energies
+\[
+ E_a(b,s)=
+ \sum_{\substack{(i,j)\in I\times I\\s_j-s_i=a}}b_ib_j.
+\]
+Then
+\[
+ \boxed{\quad
+ V_h(b,s)\le
+ \frac{2\sum_i b_i^2+E_h(b,s)+E_{-h}(b,s)}{q-3}
+ \le\frac{4\sum_i b_i^2}{q-3}.
+ \quad}
+\]
+\end{theorem}
+\begin{proof}
+Translation invariance and the exact unit mean give
+\[
+ \frac1q\sum_c(W_h(c+x)-1)(W_h(c+y)-1)=C_h(y-x).
+\]
+Expand the square and interchange the finite sums. This proves the
+signed identity with every cross term retained; no sign assumption is
+used here.
+
+Now assume nonnegative weights and \(t=-1\).
+Multiply the all-lag upper bound by \(b_ib_j\ge0\) and sum.
+Injectivity makes \(s_j-s_i=0\) equivalent to \(j=i\), giving the
+first inequality with both directed overlap energies preserved.
+For each \(a\in F\), injectivity also implies that every vertex has
+at most one outgoing and one incoming edge of displacement \(a\).
+Sum \(2b_ib_j\le b_i^2+b_j^2\) on those edges. Each square occurs at
+most once in each role, so \(E_a(b,s)\le\sum_i b_i^2\).
+Apply this to \(a=h,-h\).
+\end{proof}
+
+\paragraph{Domain, comparison, and integer scope.}
+The exact unnormalized identity includes \(q=3\), where the normalized
+denominator vanishes. Characteristic two and \(h=0\) are excluded here;
+the existing integer packet retains their separate exact fallback masks.
+Cardinality five is included in the normalized formulas and the
+\(t=1\) classification. The \(t=-1\) window estimate starts at the
+first actual admissible cardinality seven.
+
+For \(N\) distinct shifts with unit weights, the elementary diagonal
+envelope is \(2N^2/(q-3)\), whereas the proved graph estimate is
+\(4N/(q-3)\); it is strictly smaller for \(N>2\).
+The exact graph form can be sharper still.
+This improvement concerns complete-field fluctuations, not the positive
+integer-origin mass in \(Y<n\le Y^2-h\).
+Extension fields do not add independent integer divisibility tests beyond
+their prime characteristic.
+
+The triple-character pattern appearing in the positive branch is
+classical; compare Cohen~\cite{CohenConsecutivePatterns}.
+It is not claimed as a new counting theorem.
+Priority of this actual-count covariance and window application remains
+under review.
+
+\paragraph{Lean verification.}
+The exact count kernel, all normalized covariance statements and positive
+sign equivalence, the arbitrary-signed window identity, and both graph
+inequalities are proved in the maintained modules
+\texttt{QuadraticPairTraceFreeKernel},
+\texttt{QuadraticPairTraceFreeSigns}, and
+\texttt{FiniteFieldTraceFreeWave}.
+The claim ledger records their exact declarations and audit status.
+
 \begin{thebibliography}{99}
 \bibitem{DavidKoukoulopoulosSmith}
 C. David, D. Koukoulopoulos and E. Smith,
@@ -8772,5 +8966,8 @@ E. Fouvry, E. Kowalski and P. Michel,
 \emph{A study in sums of products},
 arXiv:1405.2293.
 \url{https://arxiv.org/abs/1405.2293}.
+\bibitem{CohenConsecutivePatterns} S. D. Cohen,
+\emph{Triples and quadruples of consecutive squares or non-squares in a finite field},
+arXiv:2402.10737. \url{https://arxiv.org/abs/2402.10737}.
 \end{thebibliography}
 \end{document}

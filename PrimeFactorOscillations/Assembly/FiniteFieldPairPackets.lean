@@ -9,6 +9,7 @@ import PrimeFactorOscillations.Assembly.FiniteFieldPairProductSeparation
 import PrimeFactorOscillations.Assembly.FiniteFieldQuasipolynomialWeight
 import PrimeFactorOscillations.Assembly.FiniteFieldRawPairSpectrum
 import PrimeFactorOscillations.Assembly.FiniteFieldTensorPersistence
+import PrimeFactorOscillations.Assembly.FiniteFieldTraceFreeWave
 
 /-!
 # Finite-field pair packets and integer height transport

@@ -2373,3 +2373,76 @@ Priority of the explicit compensated square/cube comparison remains
 unconfirmed beyond the targeted comparison. The independent-field
 product does not give a positive survivor in Y<n<=Y^2-h. Integer
 recurrence, H1 and QRH7/8 are unchanged; QRH exponent work stays paused.
+
+## Trace-free actual-count covariance and signed windows (2026-10-31)
+
+Owner: `PrimeFactorOscillations/Mathlib/NumberTheory/LegendreSymbol/QuadraticPairTraceFreeKernel.lean`.
+
+| Claim | Status | Exact scope |
+| --- | --- | --- |
+| `FiniteField.sum_twistPairNumerator_shift_correlation` | proved and audited | finite odd field; nonzero h; every lag; unmasked exact character kernel |
+| `FiniteField.twistPairNumerator_boundary_sum` | proved and audited | any finite field; arbitrary h,k; exact four-boundary evaluation |
+| `FiniteField.sum_traceFreePairNumerator_shift_correlation` | proved and audited | finite odd field; nonzero h; every lag; unnormalized formula includes q=3 |
+| `FiniteField.monicQuadraticPairCount_full_twist_correlation` | proved and audited | finite odd field; nonzero h; nonsquare multiplier; all four actual count products retained |
+
+Definitions (compiled and audited): `FiniteField.traceFreePairLagNumerator`.
+
+Owner: `PrimeFactorOscillations/Mathlib/NumberTheory/LegendreSymbol/QuadraticPairTraceFreeSigns.lean`.
+
+| Claim | Status | Exact scope |
+| --- | --- | --- |
+| `FiniteField.traceFreePairKernel_eq_model` | proved and audited | finite odd field q>=5; nonzero h; every lag |
+| `FiniteField.traceFreePairCovariance_zero` | proved and audited | same qualified domain; exact diagonal including chi(-1) correction |
+| `FiniteField.traceFreePairCovariance_nonoverlap` | proved and audited | same qualified domain; lag outside {0,h,-h}; exact signed character formula |
+| `FiniteField.traceFreePairCovariance_neg` | proved and audited | any finite field; arbitrary h,k; exact evenness |
+| `FiniteField.traceFreePairCovariance_nonpos_nonoverlap` | proved and audited | finite odd field q>=5; nonzero h; chi(-1)=-1; all nonoverlap lags |
+| `FiniteField.traceFreePairCovariance_adjacent_neg_one` | proved and audited | same negative-character domain; exact adjacent covariance including chi(2) |
+| `FiniteField.traceFreePairCovariance_adjacent_le` | proved and audited | same negative-character domain; adjacent covariance <=1/(q-3) |
+| `FiniteField.traceFreePairCovariance_graph_upper` | proved and audited | same negative-character domain; every lag; diagonal and both overlap rows retained |
+| `FiniteField.traceFreePairCovariance_positive_iff` | proved and audited | finite odd field q>=5; nonzero h; chi(-1)=1; nonoverlap covariance positive iff all three displayed character products are -1 |
+
+Definitions (compiled and audited): `FiniteField.traceFreePairKernel`, `FiniteField.traceFreePairCovariance`.
+
+Owner: `PrimeFactorOscillations/Assembly/FiniteFieldTraceFreeWave.lean`.
+
+| Claim | Status | Exact scope |
+| --- | --- | --- |
+| `PrimeFactorOscillations.FiniteFieldTraceFreeWave.centered_shift_kernel` | proved and audited | finite odd field q>=5; nonzero h; arbitrary two shifts; exact centered covariance |
+| `PrimeFactorOscillations.FiniteFieldTraceFreeWave.windowEnergy_eq_covariance` | proved and audited | same qualified field domain; arbitrary finite index set, signed real coefficients and shifts |
+| `PrimeFactorOscillations.FiniteFieldTraceFreeWave.edgeEnergy_le_square_sum` | proved and audited | any field; finite index set; arbitrary signed real coefficients and injective shifts; every edge displacement |
+| `PrimeFactorOscillations.FiniteFieldTraceFreeWave.windowEnergy_le_graph` | proved and audited | finite odd field q>=5; nonzero h; chi(-1)=-1; nonnegative weights and injective shifts; full two-edge graph bound |
+| `PrimeFactorOscillations.FiniteFieldTraceFreeWave.windowEnergy_le_four_square_sum` | proved and audited | same qualified window domain; uniform 4*sum b_i^2/(q-3) bound |
+
+Definitions (compiled and audited): `PrimeFactorOscillations.FiniteFieldTraceFreeWave.windowEnergy`, `PrimeFactorOscillations.FiniteFieldTraceFreeWave.edgeEnergy`.
+
+benchmark_status: universal complete-field signed covariance identity and
+nonnegative-window variance estimate proved and audited; all23 public
+declarations exported. Integer-origin mass remains open.
+old_bound: for chi(-1)=-1 and N unit-weight shifts, the elementary
+diagonal envelope is2N^2/(q-3).
+new_bound: for distinct shifts and nonnegative coefficients,
+V<=[2*sum b_i^2+E_h+E_(-h)]/(q-3)<=4*sum b_i^2/(q-3).
+Unit weights give4N/(q-3), strictly improving the displayed envelope
+when N>2.
+components: exact canonical weight; all four mixed count products;
+both endpoint masks; diagonal, both overlap rows and every nonoverlap
+sign; signed square expansion before the nonnegative-weight inequality.
+actuals: retained diagnostics cover10698 exact kernels,9672 nonoverlap
+sign checks,187470 actual nonsquare twist constants and340 signed-window
+checks over the stated16 prime and extension fields. These do not prove
+the universal theorem or any integer supply.
+first_nonpositive_domain: unavailable for the integer-origin prime-pair
+count; no positive integer-window domain is certified by this field bound.
+
+The unnormalized kernel includes cardinality3. Normalized claims require
+q>=5. The negative-character branch has first actual cardinality7;
+cardinality5 lies in the positive-character classification.
+Characteristic2 and h=0 remain the existing separately qualified packet
+fallbacks. Arbitrary signed weights are permitted in the exact identity;
+the graph upper bound requires nonnegative weights and injective shifts.
+
+The paper gives the complete proof and distinguishes the classical
+triple-character pattern ingredient from this covariance application.
+Priority remains under review. No integer prime-pair recurrence, H1
+improvement or change to the accepted QRH7/8 boundary is claimed.
+QRH exponent research stays paused.

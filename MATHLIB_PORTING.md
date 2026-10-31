@@ -362,6 +362,15 @@ Each real candidate file should:
 | `PrimeFactorOscillations.Mathlib.NumberTheory.LegendreSymbol.QuadraticPairTensorPersistence` | `Mathlib/NumberTheory/LegendreSymbol/QuadraticPairTensorPersistence.lean` | project-verified | Full finite-product centered compatible and obstructed persistence bounds with all centering and prefix moments retained. |
 | `PrimeFactorOscillations.Mathlib.NumberTheory.LegendreSymbol.QuadraticPairMaskOverlap` | `Mathlib/NumberTheory/LegendreSymbol/QuadraticPairMaskOverlap.lean` | project-verified | Exact shared-endpoint mask moments, zero-gap case, cardinality-three vanishing and compatible cardinality>=5 classification. |
 
+
+## Trace-free actual-count covariance
+
+| Module | Proposed destination | Readiness | Scope |
+| --- | --- | --- | --- |
+| `PrimeFactorOscillations.Mathlib.NumberTheory.LegendreSymbol.QuadraticPairTraceFreeKernel` | `Mathlib/NumberTheory/LegendreSymbol/QuadraticPairTraceFreeKernel.lean` | project-verified | Exact all-lag integer kernel of the existing trace-free actual pair-count sum; all four mixed class products, both endpoint masks and every singular displacement; includes cardinality three before normalization. |
+| `PrimeFactorOscillations.Mathlib.NumberTheory.LegendreSymbol.QuadraticPairTraceFreeSigns` | `Mathlib/NumberTheory/LegendreSymbol/QuadraticPairTraceFreeSigns.lean` | project-verified | Normalized all-lag covariance, symmetry, nonpositive nonoverlap rows for chi(-1)=-1, exact adjacent row and graph upper bound; positive-row iff triple character sign condition for chi(-1)=1; q>=5 and nonzero gap. |
+| `PrimeFactorOscillations.Mathlib.NumberTheory.LegendreSymbol.QuadraticPairCorrelationLaws` | `Mathlib/NumberTheory/LegendreSymbol/QuadraticPairCorrelationLaws.lean` | project-verified | Import-only grouping of tensorized shared-label persistence and canonical trace-free covariance and signs; preserves the root facade import budget. |
+
 Readiness should be one of: `extracting`, `project-verified`, `mathlib-ready`,
 `submitted`, or `upstreamed`. A module is `mathlib-ready` only after it has an
 identified destination, no project dependency, focused tests, and a clean
