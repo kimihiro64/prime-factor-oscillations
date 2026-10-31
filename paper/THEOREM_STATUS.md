@@ -3314,3 +3314,30 @@ components: signed filtered Mobius identity; finite divisor-to-index pushforward
 actuals: universal kernel-checked proofs, including the explicit all-field quantifier in the main theorem; maintained owner and public closure compilation;13-declaration foundational-only audit; successful watched paper compilation. No finite field/stage sample stands in for these statements.
 first_nonpositive_domain: N0 is allowed; the unchanged characteristic3 holes are2/8 and the characteristic5 hole is4. The native positive-weight formula requires q>=5; the existing q3 all-zero law remains separate. The sufficient j>=N threshold is not claimed optimal. No positive joint integer prime-pair window mass, H1, RH or QRH improvement follows; QRH remains paused at7/8. Mobius inversion is classical, and historical priority of the uniform native strengthening remains unconfirmed.
 
+## One-field completeness for bounded odd-Pell signed relations (2026-10-31)
+
+The full mathematical claim is proved in `QuadraticPairOddPellFiniteDetector.lean` and recorded in paper Section `sec:odd-pell-finite-detector`, Theorem `thm:odd-pell-finite-detector`, and Corollary `cor:odd-pell-finite-code-comparison`. The supporting characteristic restriction is an API exposure in the existing stable-spectrum owner. There are10 new maintained public theorem declarations and1 public API promotion; no new supporting definitions or completed private-only proofs.
+
+| Declaration | Status | Exact scope |
+| --- | --- | --- |
+| FiniteField.oddPell_atom_characteristic_data | proved | Public API promotion of the existing atom-data proof: every visible degree is odd, >1 and coprime to any prime divisor p of the field cardinality. This is not a new mathematical proof. |
+| FiniteField.oddPell_probe_zero_iff_amplitudes | proved | For q>=5 and nonzero h, the entire native probe is zero iff every visible signed divisibility amplitude is zero; all native weights retained. |
+| FiniteField.oddPell_split_amplitude_zero | proved | Vanishing of a probe forces the amplitude of every positive split primitive degree e>1 to vanish. |
+| FiniteField.oddPell_bounded_amplitudes_suffice | proved | For degrees 2*k+1<=M, vanishing of all odd characteristic-coprime amplitudes e in (1,M] forces the full native probe to vanish. |
+| FiniteField.oddPell_factorial_zero_iff | proved | A field of size p^(M!), M>=2, tests exactly those finitely many amplitudes, for every bounded finite real coefficient code. |
+| FiniteField.oddPell_factorial_vanishing_transfer | proved | Vanishing in the factorial witness transfers to every finite field whose cardinality is divisible by p, with nonzero shift and 2 nonzero; q=3 is included. |
+| FiniteField.oddPell_factorial_all_fields_iff | proved | Universe-polymorphic equivalence between the single-field test and all admitted finite fields in that universe; no RH or asymptotic sampling hypothesis. |
+| FiniteField.oddPell_probe_sub | proved | The native signed probe of a-b equals the difference of the probes on the same finite support. |
+| FiniteField.oddPell_factorial_compare_iff | proved | Two bounded real coefficient codes agree in the factorial witness iff all stated signed divisibility sums agree. |
+| FiniteField.oddPell_factorial_comparison_transfer | proved | Agreement of two bounded codes in the witness transfers to every admitted finite field and nonzero shift. |
+| FiniteField.oddPell_galois_factorial_zero_iff | proved | Actual GaloisField p (M!) specialization at shift 1, with cardinality and 2 nonzero discharged from odd prime p and M>=2. |
+
+Both maintained proof owners compile. The new-only audit covers these11 public declarations and uses only propext, Classical.choice and Quot.sound. The saved audit SHA256 is `DBB116137159BA8EF7BDA21A2D1BFB8C2A9B9E7BE39AF48C7872D0D5447286BE`. The canonical paper and watched source are byte-identical and the desktop editor compiler confirms success. Public-export and final staged checks are release gates recorded in the completion receipt; these do not replace the proof or axiom checks.
+
+benchmark_status: complete single-field relation theorem proved;10 new maintained public theorem declarations and1 public API promotion.
+old_bound: the existing exact vanishing test uses a field's varying primitive labels, determined by divisors of q-1 and q+1.
+new_bound: for every odd prime p, M>=2 and finite real signed code supported on input degrees 2*k+1<=M, one actual field of size p^(M!) detects vanishing over every finite extension of characteristic p; the equivalent finite test is B_e=0 for every odd 1<e<=M coprime to p.
+components: nonempty primitive classes and positive native weights; exact signed atom expansion; all characteristic-coprime degrees split in the factorial extension by Euler periods; empty amplitudes above M; the existing q3 all-zero law; exact subtraction for two-code comparison; the actual GaloisField specialization.
+actuals: universal kernel-checked statements and foundational-only11-declaration audit, including all finite fields in the explicit universal theorem; successful watched paper compilation. No sample of fields, degrees or coefficients is used as proof of the universal claim.
+first_nonpositive_domain: M2 includes the degree-one/empty-admissible-degree case; empty supports are allowed. Positive native weights require q>=5; q3 is handled by its separate proved zero law. The characteristic is an odd prime and shifts and2 are nonzero. The sufficient factorial exponent is not claimed minimal. No integer prime-pair native-window positivity, H1, RH or QRH improvement follows; QRH remains paused at7/8. Historical priority of the native relation classifier remains unconfirmed.
+

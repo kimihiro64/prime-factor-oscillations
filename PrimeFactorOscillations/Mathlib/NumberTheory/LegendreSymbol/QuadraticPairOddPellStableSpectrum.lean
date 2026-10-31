@@ -256,4 +256,13 @@ theorem oddPell_stable_tower_spectrum (h : F) (hh : Not (h=0)) (p N j : Nat)
       hallowed hcard htwo
     exact Exists.intro S (Exists.intro a hD.2.2)
 
+/- Public access to the existing characteristic restriction on native atoms. -/
+omit [Field F] [DecidableEq F] in
+theorem oddPell_atom_characteristic_data (p : Nat) (hp : Nat.Prime p)
+    (hq : 5<=Fintype.card F) (hpq : Dvd.dvd p (Fintype.card F))
+    (i : Sum Nat Nat) (hi : Membership.mem (oddPellAtomLabels (F:=F)) i) :
+    Odd (oddPellAtomDegree i) /\ 1<oddPellAtomDegree i /\
+      Nat.Coprime p (oddPellAtomDegree i) :=
+  oddPell_stable_atom_data p hp hq hpq i hi
+
 end FiniteField

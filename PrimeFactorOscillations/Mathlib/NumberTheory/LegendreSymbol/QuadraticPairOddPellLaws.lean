@@ -3,6 +3,7 @@ Copyright (c) 2026 Prime Factor Oscillations contributors.
 Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Prime Factor Oscillations contributors
 -/
+import PrimeFactorOscillations.Mathlib.NumberTheory.LegendreSymbol.QuadraticPairOddPellFiniteDetector
 import PrimeFactorOscillations.Mathlib.NumberTheory.LegendreSymbol.QuadraticPairOddPellMinimum
 import PrimeFactorOscillations.Mathlib.NumberTheory.LegendreSymbol.QuadraticPairOddPellUniform
 
@@ -21,4 +22,6 @@ and the complete stable signed-support spectrum in every odd characteristic,
 with explicit towers, finite split-support witnesses and universal small holes.
 One common finite integral coefficient code realizes each allowed support size
 across every late field and every nonzero shift.
+A single factorial extension tests all bounded signed-code relations across
+finite extensions of the same odd characteristic.
 -/

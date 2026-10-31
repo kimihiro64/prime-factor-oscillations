@@ -11850,6 +11850,116 @@ priority.
 The theorem supplies compatible local probe designs across fields.
 It supplies no lower bound for their joint mass on the integer primality
 window \(Q<n\), \(n+h\le Q^2\).  That integer-window estimate remains open.
+\section{One finite field detects every bounded signed relation}
+\label{sec:odd-pell-finite-detector}
+
+The preceding result chooses one code that works over many fields.
+We now fix an arbitrary bounded code and determine whether it vanishes
+over every finite extension of one odd characteristic.  This question
+has a single finite-field test and a finite arithmetic answer.
+
+Let \(p\) be an odd prime and \(M\ge2\).  For a finite set
+\(S\subset\mathbb N_0\) and real coefficients \(a_k\), assume
+\(2k+1\le M\) for every \(k\in S\), and put
+\[
+ \mathcal D_{p,M}
+   =\{e\in\mathbb N:1<e\le M,\ e\text{ odd},\ \gcd(e,p)=1\},
+ \qquad
+ B_e(S,a)=\sum_{\substack{k\in S\\e\mid 2k+1}}a_k.
+\]
+All sums retain their finite support and their signs.
+
+\begin{theorem}[Complete factorial-extension detector]
+\label{thm:odd-pell-finite-detector}
+Let \(F_0\) have cardinality \(p^{M!}\), and choose any nonzero
+\(h_0\in F_0\).  The following statements are equivalent:
+\begin{enumerate}
+ \item \(P_{F_0,h_0,S,a}(c)=0\) for every \(c\in F_0\);
+ \item \(B_e(S,a)=0\) for every \(e\in\mathcal D_{p,M}\);
+ \item for every finite extension \(G/\mathbb F_p\), every nonzero
+ \(h\in G\), and every \(c\in G\), one has \(P_{G,h,S,a}(c)=0\).
+\end{enumerate}
+In particular, a single actual finite field determines every real linear
+relation among the native probes with input degrees at most \(M\).
+One may take \(F_0=\operatorname{GF}(p,M!)\).
+\end{theorem}
+\begin{proof}
+First, \(M!\ge2\), so \(|F_0|\ge9\).
+For each \(e\in\mathcal D_{p,M}\), the positive integer
+\(\varphi(e)\le e\le M\) divides \(M!\).
+Euler's theorem therefore gives
+\[
+ e\mid p^{M!}-1=|F_0|-1.
+\]
+Thus the split primitive class of degree \(e\) occurs in \(F_0\).
+Its cardinality is \(\varphi(e)>0\), and its native weight is
+strictly positive.  On its shifted class the signed probe is exactly
+\(w_{F_0,e}B_e(S,a)\).
+Consequently, statement1 forces every stated amplitude to vanish,
+proving statement2.  This uses the exact signed amplitude, without
+a norm or an absolute-value replacement.
+
+Assume statement2, and first let \(|G|\ge5\).
+Every native primitive degree \(d\) in characteristic \(p\) is odd,
+greater than one, and coprime to \(p\), because it divides
+\(|G|-1\) or \(|G|+1\).
+If \(d\le M\), its amplitude vanishes by statement2.
+If \(d>M\), no \(k\in S\) can satisfy \(d\mid2k+1\), since
+\(0<2k+1\le M\); its amplitude is the empty sum.
+The exact native atom expansion therefore vanishes everywhere.
+This argument keeps each split and nonsplit class and its native weight.
+For \(|G|=3\), the already proved small-field law makes every signed
+probe identically zero.  These cases exhaust finite fields of odd
+characteristic, and prove statement3.
+Statement3 applied to \(F_0,h_0\) gives statement1.
+
+The standard Galois-field construction supplies a field of the asserted
+cardinality, since \(M!\ne0\).  Its characteristic is the odd prime \(p\),
+so its normalization also has \(2\ne0\).
+\end{proof}
+
+\begin{corollary}[Exact comparison of two bounded codes]
+\label{cor:odd-pell-finite-code-comparison}
+For two real coefficient functions \(a,b\) on the same finite support
+\(S\), the native probes agree in the detector field if and only if
+\[
+ \sum_{\substack{k\in S\\e\mid2k+1}}a_k
+ =
+ \sum_{\substack{k\in S\\e\mid2k+1}}b_k
+ \qquad(e\in\mathcal D_{p,M}).
+\]
+These equalities imply agreement over every finite extension and every
+nonzero shift in characteristic \(p\).
+\end{corollary}
+\begin{proof}
+The probe of \(a-b\) is the difference of the two probes.
+Apply the theorem to this signed coefficient function.
+\end{proof}
+
+\paragraph{Formal declarations and scope.}
+The native zero criterion is
+\texttt{FiniteField.oddPell\_probe\_zero\_iff\_amplitudes}.
+The bounded criterion, cross-extension transfer, and explicit
+all-fields equivalence are
+\texttt{oddPell\_factorial\_zero\_iff},
+\texttt{oddPell\_factorial\_vanishing\_transfer}, and
+\texttt{oddPell\_factorial\_all\_fields\_iff}.
+The comparison and actual Galois-field specializations are
+\texttt{oddPell\_factorial\_compare\_iff} and
+\texttt{oddPell\_galois\_factorial\_zero\_iff}.
+The general transfer states its target-field hypotheses explicitly as
+\(p\mid|G|\), \(h\ne0\), and \(2\ne0\), and includes its size-three case.
+
+The factorial extension is a sufficient witness, with no minimality
+claim.  Euler periods and finite-field existence are classical inputs.
+The conclusion concerns linear relations of the native probability
+defects across all extensions.  It differs from the fixed-prime-field
+classification of individual Chebyshev maps under composition in
+\cite{RosenScherrWeissZieveChebyshev}, and from the dynamics studied in
+\cite{GassertChebyshevGraphs}.  Historical priority remains unconfirmed.
+This theorem supplies no positive joint mass in the integer primality
+window, and changes no bound for \(H_1\), RH, or QRH.
+
 \begin{thebibliography}{99}
 \bibitem{DavidKoukoulopoulosSmith}
 C. David, D. Koukoulopoulos and E. Smith,
