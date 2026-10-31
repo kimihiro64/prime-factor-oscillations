@@ -3341,3 +3341,48 @@ components: nonempty primitive classes and positive native weights; exact signed
 actuals: universal kernel-checked statements and foundational-only11-declaration audit, including all finite fields in the explicit universal theorem; successful watched paper compilation. No sample of fields, degrees or coefficients is used as proof of the universal claim.
 first_nonpositive_domain: M2 includes the degree-one/empty-admissible-degree case; empty supports are allowed. Positive native weights require q>=5; q3 is handled by its separate proved zero law. The characteristic is an odd prime and shifts and2 are nonzero. The sufficient factorial exponent is not claimed minimal. No integer prime-pair native-window positivity, H1, RH or QRH improvement follows; QRH remains paused at7/8. Historical priority of the native relation classifier remains unconfirmed.
 
+
+## Uniform small-prime signatures for actual integer pair returns (2026-10-31)
+
+Paper: `finite-fields.tex`, Theorem `thm:integer-signature-return` and Corollary `cor:least-gap-signature-return`. All declarations below are in `PrimeFactorOscillations.FiniteFieldIntegerSignature`.
+
+Owners: `Assembly/FiniteFieldIntegerSignature.lean`, `Assembly/FiniteFieldIntegerSignatureWindow.lean`, and `Assembly/FiniteFieldIntegerSignatureReturn.lean`.
+
+| Declaration | Status | Exact scope |
+| --- | --- | --- |
+| numerator_kernel_mul_numerators | proved | Exact multiplicativity of the full numerator Jacobi kernel. |
+| exists_coprime_prime_factor_witness | proved | Constructive CRT nonprincipal witness with an arbitrary coprime coefficient. |
+| numerator_character_ne_one_of_coprime_prime_factor | proved | Nonprincipality from the actual odd-valuation prime factor. |
+| separation_score_identity | proved | Exact signed positive-supply-minus-correlation identity. |
+| exists_uniform_separation_score_lower | proved | Uniform signed score lower bound, with conductor and prime cutoff retained. |
+| endpoint_coefficient_coprime | proved | Coprimality of the endpoint prime with the full comparison coefficient. |
+| positive_kernel_square_on_prime | proved | The actual endpoint kernel squares to one on the admissible band. |
+| separation_score_zero_of_matching | proved | Exact coordinate agreement forces the full signed score to vanish. |
+| exists_finite_endpoint_signature_separation | proved | Finite prime-band endpoint distinction under its explicit mass margin. |
+| endpoint_cost_le_uniform | proved | Full conductor budget uniformly below the common pair height. |
+| exists_finite_prime_pair_signature_rigidity | proved | Two-coordinate finite prime-pair rigidity with its explicit margin. |
+| reciprocal_band_eq_sub | proved | Exact finite reciprocal-prime prefix subtraction. |
+| reciprocal_square_band_lower | proved | For K>=2, square-band mass is at least log(2)-2E/log(K). |
+| eventually_reciprocal_square_band_positive | proved | Eventual square-band mass at least log(2)/2. |
+| precise_core_tendsto_atTop | proved | The existing integer polylogarithmic core tends to infinity. |
+| eventually_precise_core_square_fits | proved | The full square band lies below Q eventually, including the ceiling. |
+| signature_uniform_log_bound | proved | Uniform logarithmic conductor budget at bounded gap and height Q^2. |
+| signature_uniform_cost_le | proved | Complete character allowance bounded by the existing vanishing relative error. |
+| eventually_uniform_signature_margin | proved | The finite mass margin holds uniformly at every sufficiently large height. |
+| eventually_prime_pair_signature_rigidity | proved | Full uniform positive-numerator two-coordinate rigidity for actual prime pairs. |
+| numerator_kernel_neg_matching | proved | Explicit cancellation of the original negative-unit character phase. |
+| original_signature_implies_positive | proved | Actual finite-field A/B coordinate agreement supplies both normalized signatures. |
+| eventually_actual_pair_signature_rigidity | proved | Uniform rigidity for the original two finite-field carrier coordinates. |
+| unbounded_least_gap_signature_rigid_frames | proved | Existing unbounded H1 positive frames admit only the identical signature-preserving actual prime-pair return. |
+
+Supporting definitions: `reciprocalBand`, `separationScore`, and `originalSignatureMatch`. The existing `preciseCore` is reused.
+
+The three maintained owners compile without warnings. All24 new theorem closures have only propext, Classical.choice and Quot.sound. The full prime-pair theorem includes the original A=-h*n phase, every prime in the complete band, positive bounded gaps, and all actual prime-pair endpoints in the stated height range. The H1 corollary retains the existing positive frame mass and actual consecutive endpoints. The onset is existential; no numerical onset or optimal cutoff exponent is claimed.
+
+benchmark_status: complete uniform signature-return rigidity proved;24 maintained theorem declarations and3 supporting definitions.
+old_bound: a finite prime-band certificate required an explicit reciprocal-mass margin; no uniform height discharge or actual A/B and H1-frame consumer.
+new_bound: for every fixed H>=1, all sufficiently large Q and all actual prime pairs in (Q,Q^2] with positive gaps<=H, equality of both original coordinates on every prime K(Q)<p<=K(Q)^2 forces the same pair and gap, where K(Q)=ceil((10 log Q)^128).
+components: constructive coprime-factor nonprincipality; exact signed score; installed uniform Dirichlet tail; Mertens mass >=log(2)-2E/log(K); full conductor <=4H^2Q^4; vanishing allowance <=C/(10 log Q)^2; ceiling-aware K^2<Q; explicit negative-unit phase; existing H1 positive frames.
+actuals: universal maintained Lean proofs and new-only foundational-axiom audits; no numerical sample is used to establish the universal theorem.
+first_nonpositive_domain: positive gaps and H>=1 are required; the band eventually excludes2 and every prime<=H and lies below all four endpoint primes. No new pair supply, numerical H1 bound, RH proof or zero-free exponent improvement follows. The general least-nonresidue mechanism is classical; priority of the two-coordinate integer-return application remains unconfirmed.
+

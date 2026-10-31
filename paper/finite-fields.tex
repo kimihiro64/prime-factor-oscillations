@@ -11960,7 +11960,170 @@ classification of individual Chebyshev maps under composition in
 This theorem supplies no positive joint mass in the integer primality
 window, and changes no bound for \(H_1\), RH, or QRH.
 
+\section{Small-prime signatures and rigid integer returns}
+\label{sec:integer-signature-return}
+
+The two characters of the actual pair carrier retain more information
+than a single averaged packet.  For an odd prime \(p\), write
+\[
+ {\cal S}_p(n,h)=
+ \left(\left(\frac{-hn}{p}\right),
+       \left(\frac{h(n+h)}{p}\right)\right).
+\]
+These are the original \(A,B\) coordinates, including their signs and
+zero values.  In the range of the next theorem both coordinates are
+nonzero.  Put
+\[
+ K(Q)=\left\lceil(10\log Q)^{128}\right\rceil.
+\]
+
+\begin{theorem}[Uniform rigidity from a polylogarithmic prime band]
+\label{thm:integer-signature-return}
+For every fixed integer \(H\ge1\), there is \(Q_0\) such that, for all
+integers \(Q\ge Q_0\), the following holds.  Suppose
+\[
+ n,n+h,m,m+k\ \hbox{are prime},\qquad
+ 1\le h,k\le H,\quad Q<n,m,\quad n+h,m+k\le Q^2.
+\]
+If
+\[
+ {\cal S}_p(n,h)={\cal S}_p(m,k)
+ \quad\hbox{for every prime }K(Q)<p\le K(Q)^2,
+\]
+then \(n=m\) and \(h=k\).
+The prime pairs need not be consecutive.
+\end{theorem}
+
+\begin{proof}
+We use the already maintained uniform reciprocal-prime estimate:
+there is an absolute \(C>0\) such that every nonprincipal Dirichlet
+character \(\chi\) modulo \(d\) satisfies
+\[
+ \left|\sum_{\substack{Y\le p<X\\p\ {\rm prime}}}
+                \frac{\chi(p)}p\right|
+ \le C(3+\log d)^2Y^{-1/32}\qquad(Y\ge1).
+ \tag{S1}\label{eq:signature-character-input}
+\]
+This is the input from \texttt{QRHPrimePrefix.lean}, rather than a
+new character estimate proved here.
+
+First compare positive numerators \(hP\) and \(kR\), where \(P,R\)
+are distinct primes larger than \(H\).  For
+\[
+ D=hkPR,
+\]
+the prime \(P\) has valuation one: \(P\) divides none of \(h,k,R\).
+Consequently the associated quadratic character modulo \(4D\)
+is nonprincipal.  The maintained constructive CRT proof gives this
+conclusion from \(\gcd(P,hkR)=1\); it does not require the possibly
+large coefficient \(hkR\) to be smaller than \(P\).
+
+For a finite prime band define the signed score
+\[
+ {\mathcal E}_D(Y,X)=
+ \sum_{\substack{Y\le p<X\\p\ {\rm prime}}}
+       \frac{1-\chi_D(p)}p,\qquad
+ {\mathcal M}(Y,X)=
+ \sum_{\substack{Y\le p<X\\p\ {\rm prime}}}\frac1p.
+\]
+Keeping its positive main term, (S1) gives
+\[
+ {\mathcal E}_D(Y,X)\ge
+ {\mathcal M}(Y,X)-C(3+\log(4D))^2Y^{-1/32}.
+ \tag{S2}\label{eq:signature-signed-score}
+\]
+No absolute-value estimate replaces the score on the left.
+
+Take \(Y=K+1\), \(X=K^2+1\), where \(K=K(Q)\).
+The unconditional Mertens estimate, with its fixed error constant
+\(E\ge0\), gives, for every integer \(K\ge2\),
+\[
+ {\mathcal M}(K+1,K^2+1)
+ \ge \log2-\frac{2E}{\log K}.
+ \tag{S3}\label{eq:signature-band-mass}
+\]
+Indeed subtract the upper estimate for primes through \(K\) from
+the lower estimate through \(K^2\); the main-term difference is
+\(\log(\log K^2)-\log(\log K)=\log2\).
+The two errors are at most \(2E/\log K\).
+
+For fixed \(H\), eventually \(H\le Q\), \(\log Q\ge1\), and
+\[
+ 4D\le4H^2Q^4,\qquad
+ 3+\log(4H^2Q^4)\le10\log Q.
+\]
+Since \(K\ge(10\log Q)^{128}\), the allowance in (S2) is at most
+\[
+ C(10\log Q)^2(K+1)^{-1/32}
+ \le \frac{C}{(10\log Q)^2}\longrightarrow0.
+\]
+Also \(K\to\infty\) and \(K^2<Q\) eventually; the latter follows
+from \((\log Q)^{256}/Q\to0\), retaining the ceiling error.
+Thus the right side of (S2) is positive uniformly in the displayed
+pair range, once \(Q\) is sufficiently large.
+
+If \(n\ne m\), apply this score to \(P=n,R=m\).
+At every prime in the band, the two individual characters are
+\(\pm1\).  Equality of the first original coordinates implies equality
+of the positive-numerator characters: multiply by the known unit
+\(\left(\frac{-1}{p}\right)\), whose square is one.
+Their product is therefore one, making the entire score zero.
+This contradicts (S2).
+
+We have proved \(n=m\).  If \(h\ne k\), the upper endpoints
+\(n+h,n+k\) are distinct primes.  Apply the same argument to
+\(P=n+h,R=n+k\), using equality of the second coordinates.
+Again the score would be zero.  Hence \(h=k\).
+\end{proof}
+
+\begin{corollary}[Rigidity on the existing least-gap frames]
+\label{cor:least-gap-signature-return}
+Write \(H_1\) for the least infinitely recurring consecutive prime gap.
+There are unbounded integers \(Q\) with the previously established
+positive retained-mass frame at the actual consecutive pair
+\[
+                  Q+1,\quad Q+1+H_1,
+\]
+such that every prime pair \(m,m+k\) satisfying
+\[
+ 1\le k\le H_1,\qquad Q<m,\qquad m+k\le Q^2
+\]
+and preserving all the signatures of that frame on
+\(K(Q)<p\le K(Q)^2\) has \(m=Q+1\) and \(k=H_1\).
+\end{corollary}
+\begin{proof}
+Apply the theorem with the fixed bound \(H=H_1\), and choose the
+unbounded positive frames beyond its onset.  Their already proved
+endpoint identities give the two prime endpoints.  Their bounds
+\(H_1<Q\) and \(6\le Q\) place the upper endpoint below \(Q^2\).
+All frame and positivity conclusions are retained.
+\end{proof}
+
+The exact implementations are
+\texttt{eventually\_actual\_pair\_signature\_rigidity} and
+\texttt{unbounded\_least\_gap\_signature\_rigid\_frames}, in the
+namespace \texttt{PrimeFactorOscillations.FiniteFieldIntegerSignature}.
+The maintained owners are \texttt{FiniteFieldIntegerSignature.lean},
+\texttt{FiniteFieldIntegerSignatureWindow.lean}, and
+\texttt{FiniteFieldIntegerSignatureReturn.lean}.  Their twenty-four
+new theorem closures use only the standard foundational axioms.
+
+This is an information constraint on an actual integer return map.
+It excludes obtaining a smaller gap by preserving both full signatures.
+It does not exclude a return preserving fewer or different observables,
+and supplies no new prime-pair recurrence or numerical value of \(H_1\).
+Character separation is a classical least-nonresidue mechanism; compare
+the introduction of \cite{LauWuLeastNonresidue}.
+Here its analytic input is reused for the two specific probability-carrier
+coordinates and the existing integer frames.  We claim no new general
+least-nonresidue estimate; historical priority of this joint application
+remains unconfirmed.
+
 \begin{thebibliography}{99}
+\bibitem{LauWuLeastNonresidue}
+Y.-K. Lau and J. Wu, \emph{On the least quadratic non-residue},
+International Journal of Number Theory 4 (2008), no.~3.
+\url{https://hkumath.hku.hk/~yklau/p/34.pdf}.
 \bibitem{DavidKoukoulopoulosSmith}
 C. David, D. Koukoulopoulos and E. Smith,
 \emph{Sums of Euler products and statistics of elliptic curves},
