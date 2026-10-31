@@ -10,6 +10,7 @@ import PrimeFactorOscillations.Mathlib.NumberTheory.LegendreSymbol.QuadraticPair
 import PrimeFactorOscillations.Mathlib.NumberTheory.LegendreSymbol.QuadraticPairSquareExtremal
 import PrimeFactorOscillations.Mathlib.NumberTheory.LegendreSymbol.QuadraticPairTensorPersistence
 import PrimeFactorOscillations.Mathlib.NumberTheory.LegendreSymbol.QuadraticPairTraceFreeSigns
+import PrimeFactorOscillations.Mathlib.NumberTheory.LegendreSymbol.QuadraticPairTraceTori
 
 /-!
 # Compensated pair correlation laws
@@ -19,5 +20,6 @@ trace-free covariance and signs, exact cubic transport and survival,
 all attainable square-transport profiles with their sharp mass,
 the complete low-degree map classification and sequence reserve,
 the linear polynomial complexity of exact minimum mass,
-and the all-index Pell trace and endpoint parameterization.
+the all-index Pell trace and endpoint parameterization,
+and exact trace-fiber and finite torus power-kernel counts.
 -/

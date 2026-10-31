@@ -2716,4 +2716,33 @@ components: coupled recurrence, conserved quadratic form, both square multiplier
 actuals: finite falsification for the still-unproved mass candidate covered2758 odd-index profiles,99078 point checks and10692 all-shift affine checks across15 fields, including extensions and characteristic-divisible indices. These are finite diagnostics, not proof of the proposed mass or minimum formula.
 first_nonpositive_domain: no signed-mass bound is claimed. The trace hypotheses require2*z nonzero. The full finite-field weighted profile and natural-height integer pair mass remain open.
 
+## Native trace fibers and torus kernel counts (2026-10-31)
+
+Owner: PrimeFactorOscillations/Mathlib/NumberTheory/LegendreSymbol/QuadraticPairTraceTori.lean
+
+Definition: FiniteField.oddTraceInput z=(z-1)^2/(2*z).
+
+| Lean declaration | Status | Exact scope |
+| --- | --- | --- |
+| FiniteField.pow_card_eq_self_iff_mem_range | proved and audited | Any extension K/F of a finite field, including infinite K: y^card(F)=y iff y is in the embedded base field. |
+| FiniteField.oddTraceInput_map | proved and audited | Every field homomorphism; exact compatibility with the normalized trace coordinate. |
+| FiniteField.oddTraceInput_sub_scaled | proved and audited | Nonzero z,w and 2; the full scaled trace difference factors as (z-w)*(z*w-1). |
+| FiniteField.oddTraceInput_eq_iff | proved and audited | Same domain; equal trace inputs iff z=w or z*w=1. |
+| FiniteField.oddTraceInput_eq_zero_iff | proved and audited | Nonzero z and 2; the zero input has exactly the endpoint z=1. |
+| FiniteField.oddTraceInput_eq_neg_two_iff | proved and audited | Same domain; the negative endpoint input has exactly z=-1. |
+| FiniteField.exists_oddTraceInput | proved and audited | Algebraically closed K with 2 nonzero; every input has a nonzero trace representative. |
+| FiniteField.oddTraceInput_mem_base_iff | proved and audited | K/F as above with 2 nonzero; trace input lies in F iff z^(q-1)=1 or z^(q+1)=1. |
+| FiniteField.card_oddTraceInput_image | proved and audited | Any finite inverse-closed nonzero set S containing 1 and -1, with 2 nonzero: card(S)+2=2*card(trace image). |
+| FiniteField.exists_torus_power_kernel | proved and audited | Every n>=1 and d>=0 in a field with enough n-th roots of unity; a finite set of all joint n-th and d-th roots has cardinal gcd(n,d). |
+| FiniteField.exists_torus_trace_kernel_image | proved and audited | Same root hypothesis, (-1)^n=1 and 2 nonzero; simultaneous n-th and (2*m)-th roots have trace-image count satisfying 2*card(image)=gcd(n,2*m)+2, for every m>=0. |
+
+These are classical geometric and group-theoretic inputs to the selected odd-semigroup mass problem. No characteristic-coprimality condition is imposed on d or m. The actual split/nonsplit weighted endpoint counts, full probability formula and 2-primary minimum/attainment classification remain unproved in Lean.
+
+benchmark_status: exact input formalization;11 real theorems and1 definition, with new-only foundational-axiom audit.
+old_bound: all-index Pell endpoint recovery was exported, but the native trace-fiber and finite torus cardinality bridge was not.
+new_bound: the generic joint-root count is exactly gcd(n,d), and the joint endpoint trace image satisfies 2*card(image)=gcd(n,2*m)+2. Integer-window positive mass and the certified QRH boundary remain unchanged.
+components: polynomial root bound, extension-field Frobenius, exact scaled trace factorization, reciprocal fibers, both singleton endpoints, fiberwise finite sums and the cyclic power-kernel cardinal theorem.
+actuals: universal symbolic proofs; no new finite diagnostic is used as evidence for the weighted mean or minimum formula.
+first_nonpositive_domain: no signed integer-mass lower bound is installed. The trace count requires 2 nonzero and both endpoint roots; the full finite-field weighted profile and natural-height integer pair mass remain open.
+
 The Pell and Chebyshev identities are classical inputs. Historical priority of the proposed weighted odd-semigroup extremal application remains unconfirmed. This input promotion neither rebrands the existing finer cubic absorption problem as new nor changes H1, RH or QRH. QRH stays paused and7/8 unchanged.

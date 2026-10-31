@@ -9845,6 +9845,98 @@ The algebraic identities above provide their input; they do not
 establish positive raw-packet mass on an incomplete integer window.
 
 
+\section{Native trace fibers and exact torus kernel counts}
+\label{sec:odd-pell-trace-tori}
+Put \(t(z)=(z-1)^2/(2z)\). The following statements supply the
+cardinality bridge for the preceding Pell endpoint identities.
+
+\begin{theorem}[Native Frobenius and trace cover]
+\label{thm:odd-pell-native-trace-cover}
+Let \(F\) be a finite field with \(q\) elements and \(F\hookrightarrow K\)
+an arbitrary extension field. Then \(y^q=y\) if and only if \(y\) belongs
+to the embedded copy of \(F\).
+Assume additionally that \(2\ne0\) in \(K\). For nonzero \(z,w\in K\),
+\[
+ t(z)=t(w)\quad\Longleftrightarrow\quad z=w\ \text{or}\ zw=1,
+\]
+and
+\[
+ t(z)=0\Longleftrightarrow z=1,\qquad
+ t(z)=-2\Longleftrightarrow z=-1.
+\]
+Moreover,
+\[
+ t(z)\in F\quad\Longleftrightarrow\quad
+ z^{q-1}=1\ \text{or}\ z^{q+1}=1.
+\]
+If \(K\) is algebraically closed, every \(c\in K\) equals \(t(z)\)
+for some nonzero \(z\).
+\end{theorem}
+\begin{proof}
+The polynomial \(X^q-X\) has degree at most \(q\), is nonzero,
+and already has the \(q\) distinct embedded elements of \(F\) as roots.
+It therefore has no additional root in \(K\).
+For the trace fibers, retain the exact factorization
+\[
+ 2zw\bigl(t(z)-t(w)\bigr)=(z-w)(zw-1).
+\]
+The scalar is nonzero, so the fiber criterion follows. The two endpoint
+criteria are the index-zero instances of
+Theorem~\ref{thm:odd-pell-algebraic-endpoints}.
+Frobenius commutes with \(t\), hence the fixed-point criterion and
+the fiber identity give \(z^q=z\) or \(z^qz=1\).
+Canceling nonzero \(z\) gives the claimed two-torus cover, in both directions.
+
+Finally, choose \(u\) with \(u^2=c(c+2)\) and put \(z=c+1+u\).
+Then \(z(c+1-u)=1\), so \(z\ne0\), and
+\(2zc=(z-1)^2\). Thus \(t(z)=c\).
+\end{proof}
+
+\begin{theorem}[Joint endpoint correction in a finite torus]
+\label{thm:odd-pell-torus-kernel-count}
+Let \(K\) be a field with \(2\ne0\). For every finite inverse-closed
+set \(S\subset K^\times\) containing \(1,-1\), one has
+\[
+ |S|+2=2\,|t(S)|.
+\]
+More specifically, let \(n\ge1\), suppose \(K\) contains \(n\) distinct
+\(n\)-th roots of unity, and assume \((-1)^n=1\). For every integer
+\(m\ge0\), the finite set
+\[
+ S_{n,m}=\{z\in K:z^n=1,\ z^{2m}=1\}
+\]
+satisfies
+\[
+ |S_{n,m}|=\gcd(n,2m),\qquad
+ 2\,|t(S_{n,m})|=\gcd(n,2m)+2.
+\]
+No restriction excludes \(m\) divisible by the characteristic.
+\end{theorem}
+\begin{proof}
+Each fiber on \(S\) is \(\{z,z^{-1}\}\).
+The fibers above \(0,-2\) are the distinct singletons \(1,-1\);
+every other fiber has two elements. Summing these finite fiber
+cardinalities proves the first identity, with both endpoint corrections
+retained.
+
+The group of \(n\)-th roots of unity is cyclic of order \(n\).
+Its power-\(d\) kernel has cardinal \(\gcd(n,d)\), for every \(d\ge0\).
+Apply this with \(d=2m\). The resulting set is inverse-closed,
+does not contain zero, and contains \(1,-1\), so the first identity applies.
+\end{proof}
+
+\paragraph{Formal scope and remaining target.}
+The eleven theorem declarations and one definition in
+\texttt{QuadraticPairTraceTori} have passed maintained compilation
+and the new-declaration foundational-axiom audit.
+The extension field need not be finite. The generic torus count assumes
+enough \(n\)-th roots; it imposes no characteristic-coprimality
+condition on the power \(d\) or \(m\).
+These classical geometric inputs do not yet establish the selected
+odd-semigroup weighted mean or its \(2\)-primary minimum and attainment
+classification. In particular, no positive integer prime-pair mass,
+integer recurrence, or improved RH/QRH boundary is claimed.
+
 \begin{thebibliography}{99}
 \bibitem{DavidKoukoulopoulosSmith}
 C. David, D. Koukoulopoulos and E. Smith,
