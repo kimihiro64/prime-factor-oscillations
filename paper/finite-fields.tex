@@ -6172,6 +6172,148 @@ These declarations are exported through
 The character and zero-free inputs are unchanged; the installed QRH
 exponent remains \(7/8\).
 
+\subsection{An absolute height exponent across all even shifts}
+The preceding scalar crest bound has an exponent depending on \(h\).
+For a full local crest, that dependence can be removed. The stronger
+hypothesis here is that every row has the already defined crest value:
+\[
+ \operatorname{crestFactor}(h,p)
+       \leq \operatorname{actualLocal}_{h,p}(n)
+       \qquad(1\leq p\leq Q).
+ \tag{LC}
+\]
+The nonprime rows are harmless, and the small primes and primes dividing
+\(h\) are retained. This is the local condition realized by the CRT
+construction; a scalar quartic lower bound alone does not imply (LC).
+
+Let \(C>0\) be the absolute constant from the one-character packet
+comparison. With \(B_M=\texttt{mertensBudget}\), put
+\[
+ \gamma=\exp\!\left(-4B_M-\frac{2}{\log2}\right),\qquad
+ E=\exp(C+2B_M+2),\qquad
+ \delta=\frac{1}{64}\min\left(1,\frac{\gamma}{E}\right).
+\]
+Thus \(0<\delta\leq1/64\), independently of \(h,Q,n\).
+The constant is specified by the proved analytic inputs, rather than
+numerically calibrated.
+
+\begin{theorem}[Shift-uniform integer crest height]
+\label{thm:shift-uniform-integer-crest-height}
+There is one absolute \(\delta>0\), with \(\delta\leq1/64\), such
+that every positive integer \(h\), every \(Q\geq13\), and every
+natural \(n\) satisfying (LC) obey
+\[
+                n\geq\frac{\exp(Q^\delta/2-3)}{4h}.
+\]
+For each positive even \(h\), one can choose a single function
+\(Q\mapsto a_Q\) such that \(a_Q<P_Q\), every lift
+\(a_Q+P_Qt\) satisfies (LC), the quartic lower bound
+\(c_h(\log Q)^4\), and this absolute-exponent height bound.
+The global quartic upper bound remains valid for every integer input.
+All assertions concern the same lift, and the same \(\delta\) works
+for every shift and cutoff.
+\end{theorem}
+
+\begin{proof}
+The distinct prime divisors of \(h>0\) have product dividing \(h\).
+Consequently
+\[
+                    \sum_{p\mid h}\log p\leq\log h.
+\]
+For \(K\geq1\) and \(p>K\), the inequalities \(p\geq K\) and
+\(\log p\geq\log2>0\) give
+\[
+ \frac1p\leq\frac{\log p}{K\log2},\qquad
+ \sum_{\substack{p>K\\p\mid h}}\frac1p
+                    \leq\frac{\log h}{K\log2}.
+ \tag{D}
+\]
+Both sums run over distinct prime divisors. The finite support of any
+tail with \(p\leq Q\) is contained in this divisor set, so no limiting
+interchange is needed.
+
+Write \(U=U_{h,Q}(n)\), \(V=V_{K,h,Q}(n)\), and
+\(R=\log Q/\log K\). For \(12\leq K\leq Q\), the exact local crest
+formula and the retained Mertens comparison yield
+\[
+ \log(U/V)\geq
+  2(\log\log Q-\log\log K)-4B_M
+       -\frac{2\log h}{K\log2}.
+\]
+Here \(U,V>0\) follows from (LC), with every row at least one;
+the quotient is therefore legitimate. This displayed inequality is
+obtained by combining the exact tail identity, its lower envelope
+\(2\sum_{K<p\leq Q,\ p\nmid h}1/p\), and (D).
+If additionally \(K\geq\log h\), exponentiation gives
+\[
+                              U/V\geq\gamma R^2.
+ \tag{L}
+\]
+
+Positivity and the prime-\(2\) mask exclude \(n=0\). Set
+\[
+                 H=3+\log(4hn),\qquad K=\lceil H^{64}\rceil.
+\]
+Then \(H\geq3\), \(K\geq12\), and \(K\geq\log h\). Indeed
+\(\log h\leq\log(4hn)<H\leq H^{64}\leq K\).
+Suppose first that \(K\leq Q\). The already proved one-character
+comparison on this exact conductor core gives
+\[
+ \frac UV\leq
+ \exp(C+2B_M+8/K)R\leq ER.
+ \tag{U}
+\]
+Combining (L) and (U), and cancelling the positive \(R\), yields
+\(\gamma R\leq E\). Thus
+\[
+ \min(1,\gamma/E)\log Q\leq\log K
+                         \leq\log2+64\log H.
+\]
+If instead \(K>Q\), the ceiling property gives \(Q<H^{64}\).
+The same final inequality follows from
+\(\min(1,\gamma/E)\leq1\) and \(\log2\geq0\).
+There is no remaining core-feasibility hypothesis.
+
+Dividing by \(64\) and exponentiating gives \(Q^\delta\leq2H\).
+Exponentiating the resulting
+\(Q^\delta/2-3\leq\log(4hn)\) proves the stated height bound.
+Finally choose the existing local-row CRT witness separately for each
+\(Q\), before selecting a lift. The row product dominates
+\(c_h(\log Q)^4\), and the proved quartic envelope is global.
+Applying the height theorem to every lift retains all these properties
+on the same family.
+\end{proof}
+
+\paragraph{What this transfers to the integers.}
+These are bounds on actual integers and their residue classes, uniform
+in the gap. They do not establish that the compatible residue classes
+have representatives in the natural window \(Q<n\) and \(n+h\leq Q^2\).
+In that window the established positive-packet criterion proves both
+entries prime. To obtain integer recurrence, one still needs positive
+packet mass in such windows for unbounded cutoffs. Abundant finite-field
+examples do not establish that window estimate.
+The uniform height theorem makes this distinction quantitative;
+it supplies no new prime-gap bound and leaves the installed \(7/8\)
+zero-free exponent unchanged.
+
+\paragraph{Formal status.}
+The maintained owner
+\texttt{Assembly/FiniteFieldIntegerCrestUniform}
+proves the distinct-prime logarithmic budget, its reciprocal tail
+consequence, the complete retained-tail lower bound, and the positive
+packet-ratio comparison. The scalar consumer
+\texttt{uniform\_crest\_log\_height}
+handles both conductor-core cases.
+The theorem
+\texttt{exists\_absolute\_integer\_crest\_exponent}
+chooses the absolute exponent before all \(h,Q,n\).
+The theorem
+\texttt{exists\_shift\_uniform\_integer\_crest\_family}
+retains the full local rows, the quartic lower and global upper bounds,
+and the height assertion on the same function and every lift.
+The owner is exported through
+\texttt{Assembly/ProbabilityProfiles}.
+
 \section{Arithmetic transfers and the next ascent investigation}
 \paragraph{Existing ingredients.}
 The generic greedy record sandwich and the maintained periodic and
