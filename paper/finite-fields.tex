@@ -9842,7 +9842,8 @@ the new-declaration foundational-axiom audit.
 The split/nonsplit endpoint counts are formalized in
 Section~\ref{sec:odd-pell-native-sector-counts}, and the exact
 all-shift probability mean in Section~\ref{sec:odd-pell-all-shift-mean}.
-The odd-semigroup minimum remains to be formalized.
+The exact odd-semigroup minimum and its attainment criterion are
+formalized in Section~\ref{sec:odd-pell-minimum}.
 The algebraic identities above provide their input; they do not
 establish positive raw-packet mass on an incomplete integer window.
 
@@ -9936,7 +9937,8 @@ enough \(n\)-th roots; it imposes no characteristic-coprimality
 condition on the power \(d\) or \(m\).
 The selected odd-semigroup weighted mean is now formalized in
 Section~\ref{sec:odd-pell-all-shift-mean}; its \(2\)-primary minimum and
-attainment classification remain to be formalized. In particular,
+attainment classification are formalized in
+Section~\ref{sec:odd-pell-minimum}. In particular,
 no positive integer prime-pair mass, integer recurrence, or improved
 RH/QRH boundary is claimed.
 
@@ -10019,8 +10021,8 @@ hypotheses explicitly; the final joint count discharges them for
 both concrete tori.
 This completes the native cardinality bridge.
 The weighted mean is now formalized in
-Section~\ref{sec:odd-pell-all-shift-mean}; the minimum over all odd
-degrees remains to be formalized.
+Section~\ref{sec:odd-pell-all-shift-mean}; the exact minimum over all
+odd degrees is formalized in Section~\ref{sec:odd-pell-minimum}.
 The normalized probability law requires \(q\ge5\);
 the count theorem at \(q=3\) does not assert such a normalization.
 No positive mass on an integer primality window follows from these
@@ -10130,8 +10132,8 @@ also gives the fully proved phase alternatives
  (t=-1,\ q\equiv3\pmod4).
 \]
 The weighted minimum assembled from these inputs and its
-\(2\)-primary and modulo-eight attainment classification remain
-to be formalized.
+\(2\)-primary and modulo-eight attainment classification are
+formalized in Section~\ref{sec:odd-pell-minimum}.
 
 \paragraph{Formal scope.}
 The maintained owners
@@ -10145,6 +10147,97 @@ requires \(q\ge5\); the separate algebraic reach theorem needs only
 This finite-field expectation does not establish a common
 surviving integer in a primality window, integer prime-pair
 recurrence, or an improved RH/QRH boundary.
+
+
+\section{The exact odd-semigroup minimum and its modulo-eight obstruction}
+\label{sec:odd-pell-minimum}
+
+Let \(F\), \(q\), \(h\), \(W_h\) and \(\Phi_{k,h}\) be as in
+Theorem~\ref{thm:odd-pell-all-shift-mean}. Put \(t=\chi(-1)\) and let
+\[
+ C=\#\{c\in F:\chi(-2c)=\chi(2(c+2))=-1\}.
+\]
+The existing core-count identity gives \(4C=q-t\). In particular
+\(C>0\) for \(q\ge5\). Write \(C=2^s u\), where \(u\) is odd.
+
+\begin{theorem}[Exact minimum and attainment]\label{thm:odd-pell-minimum}
+For every nonzero \(h\), the minimum over all \(k\ge0\) is attained
+and equals
+\[
+ \boxed{\quad
+ \min_{k\ge0}\frac1q\sum_{c\in F}W_h(\Phi_{k,h}(c))
+   =\frac Cq+\frac{(q+1)(C-u)}{q(q-3)}.\quad}
+\]
+The odd-Pell family reaches the unrestricted square-transport
+minimum \(C/q\) if and only if
+\[
+                     q\equiv3\ \text{or}\ 5\pmod8.
+\]
+These assertions hold for every odd finite field of order \(q\ge5\);
+all odd indices are allowed, including indices divisible by the
+characteristic.
+\end{theorem}
+
+\begin{proof}
+If \(n=2^a w\) with \(w\) odd and \(m\) odd, the proved arithmetic
+bound gives \(\gcd(n,m)\le w\).
+The two coefficients \(q+t\) and \(q-t\), and the denominator
+\(q(q-3)\), are positive. Therefore the exact mean is minimized
+by maximizing both gcd terms. If \(u_-\) and \(u_+\) are the odd
+parts of \(q-1\) and \(q+1\), the single odd index
+\(m=u_-u_+\) attains both maxima simultaneously. Thus this is an
+actual minimum over the discrete index set, not merely an infimum.
+
+When \(t=1\), the equation \(q=4C+1\) gives
+\[
+ q-1=2^{s+2}u,\qquad q+1=2(2C+1).
+\]
+Both \(u\) and \(2C+1\) are odd. Substituting these odd parts in the
+exact mean and simplifying yields the boxed formula.
+When \(t=-1\), the equation \(q+1=4C\) instead gives
+\[
+ q-1=2(2C-1),\qquad q+1=2^{s+2}u.
+\]
+Here \(2C-1\) is positive and odd. Substitution of these odd parts
+gives the same formula. All natural-number subtractions and
+positive denominators are checked in the formal proof.
+
+Since \(u\) is a positive divisor of \(C\), we have \(u\le C\).
+If any odd-Pell index reaches \(C/q\), the minimum formula and
+the strict positivity of its coefficient force \(C-u=0\).
+Hence \(C\) is odd. Conversely, if \(C\) is odd, take \(s=0\)
+and \(u=C\); the attained minimum is then \(C/q\).
+
+Finally the already proved phase alternatives are
+\(t=1,\ q\equiv1\pmod4\) and \(t=-1,\ q\equiv3\pmod4\).
+Together with \(q=4C+t\), they show that \(C\) is odd exactly
+when \(q\equiv5\pmod8\) in the first case or
+\(q\equiv3\pmod8\) in the second case. This proves both directions
+of the stated attainment criterion.
+\end{proof}
+
+\paragraph{Meaning of the obstruction.}
+The correction \( (q+1)(C-u)/(q(q-3)) \) is the exact loss imposed
+by restricting square transports to the odd-Pell family.
+It records the power-of-two factor in \(C\); it vanishes precisely
+in the two stated residue classes. The formula retains the split
+and nonsplit endpoint losses of the actual probability law.
+
+\paragraph{Exceptional fields and formal scope.}
+Characteristic two and zero shift are outside the theorem's domain.
+The algebraic endpoint counts and core-parity identity include
+\(q=3\), but the mean-one probability normalization does not:
+its denominator is \(q-3\). No normalized assertion at \(q=3\)
+is inferred from those counts.
+The maintained owner \texttt{QuadraticPairOddPellMinimum} contains
+eight theorems and four definitions, including the attained
+minimum, its full core formula, and both directions of the
+modulo-eight criterion. Its actual source, public import consumers,
+new-declaration axiom audit and the synchronized paper are checked.
+This settles the selected finite-field extremal question.
+A common surviving integer in an incomplete primality window,
+integer prime-pair recurrence and any RH/QRH improvement remain
+separate open tasks.
 
 \begin{thebibliography}{99}
 \bibitem{DavidKoukoulopoulosSmith}

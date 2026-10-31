@@ -2707,7 +2707,7 @@ Definitions: FiniteField.oddPellPair and FiniteField.oddPellMap.
 | FiniteField.oddPell_map_eq_zero_iff | proved and audited | Same domain; Phi=0 iff z^(2*k+1)=1. |
 | FiniteField.oddPell_map_eq_neg_two_iff | proved and audited | Same domain; Phi=-2 iff z^(2*k+1)=-1. |
 
-No assumption excludes odd indices divisible by the characteristic. This module is the algebraic input to the selected odd-semigroup mass problem. The subsequent maintained owner QuadraticPairOddPellSectors now proves its exact native split/nonsplit endpoint input counts. QuadraticPairOddPellMean now proves the full weighted probability formula at every nonzero shift. The2-primary minimum/attainment classification remains unproved in Lean.
+No assumption excludes odd indices divisible by the characteristic. This module is the algebraic input to the selected odd-semigroup mass problem. The subsequent maintained owner QuadraticPairOddPellSectors now proves its exact native split/nonsplit endpoint input counts. QuadraticPairOddPellMean now proves the full weighted probability formula at every nonzero shift. QuadraticPairOddPellMinimum now proves the full2-primary minimum and modulo-eight attainment classification.
 
 benchmark_status: structural input formalization;8 real theorems and2 definitions, with new-only foundational-axiom audit.
 old_bound: the cubic transport and its uniform3-power survival were installed; no all-index native Pell trace and endpoint package was exported.
@@ -2736,7 +2736,7 @@ Definition: FiniteField.oddTraceInput z=(z-1)^2/(2*z).
 | FiniteField.exists_torus_power_kernel | proved and audited | Every n>=1 and d>=0 in a field with enough n-th roots of unity; a finite set of all joint n-th and d-th roots has cardinal gcd(n,d). |
 | FiniteField.exists_torus_trace_kernel_image | proved and audited | Same root hypothesis, (-1)^n=1 and 2 nonzero; simultaneous n-th and (2*m)-th roots have trace-image count satisfying 2*card(image)=gcd(n,2*m)+2, for every m>=0. |
 
-These are classical geometric and group-theoretic inputs to the selected odd-semigroup mass problem. No characteristic-coprimality condition is imposed on d or m. The subsequent owner QuadraticPairOddPellSectors now proves the actual split/nonsplit input cardinalities; QuadraticPairOddPellMean now proves their weighted mean at every nonzero shift. The2-primary minimum/attainment consumer remains unproved in Lean.
+These are classical geometric and group-theoretic inputs to the selected odd-semigroup mass problem. No characteristic-coprimality condition is imposed on d or m. The subsequent owner QuadraticPairOddPellSectors now proves the actual split/nonsplit input cardinalities; QuadraticPairOddPellMean now proves their weighted mean at every nonzero shift. QuadraticPairOddPellMinimum now proves the full2-primary minimum and modulo-eight attainment consumer.
 
 benchmark_status: exact input formalization;11 real theorems and1 definition, with new-only foundational-axiom audit.
 old_bound: all-index Pell endpoint recovery was exported, but the native trace-fiber and finite torus cardinality bridge was not.
@@ -2763,14 +2763,14 @@ Definition: FiniteField.oddPellEndpointSector P k is the finite set of c outside
 | FiniteField.card_oddPell_endpoint_sector | proved and audited | Algebraically closed extension, enough n-th roots, both endpoint roots and an explicit nonendpoint sector criterion; gives2*card(sector)+2=gcd(n,2*m). |
 | FiniteField.oddPell_endpoint_split_nonsplit_counts | proved and audited | All odd finite fields, all k>=0: both sector criteria and enough-roots conditions are discharged at n=q-1 and q+1. The two actual nonendpoint collapsed-input counts satisfy2*N+2=gcd(q-1,2*m) and2*N+2=gcd(q+1,2*m), m=2*k+1. |
 
-The last theorem is unconditional on the field and index apart from2 nonzero. In particular q=3 and characteristic-divisible indices are included. The normalized probability law requires q>=5; the weighted mean is now proved in QuadraticPairOddPellMean, while the2-primary semigroup optimum remains open.
+The last theorem is unconditional on the field and index apart from2 nonzero. In particular q=3 and characteristic-divisible indices are included. The normalized probability law requires q>=5; the weighted mean is now proved in QuadraticPairOddPellMean, and QuadraticPairOddPellMinimum now proves the2-primary semigroup optimum.
 
 benchmark_status: exact native cardinality bridge;9 real theorems and1 definition, with new-only foundational-axiom audit.
 old_bound: only generic trace-involution image and power-kernel counts were public; the actual base-field Pell endpoint sectors were uncounted.
 new_bound: the full nonendpoint split and nonsplit counts are exactly specified by2*N+2=gcd(q-1,2*m) and gcd(q+1,2*m), with every endpoint correction retained.
 components: native square-discriminant equivalence, finite-field fixed points, ring-homomorphism transport, joint endpoint kernel, trace descent, both erased endpoints and the concrete q-1/q+1 sector criteria.
 actuals: universal symbolic proofs; no finite diagnostic substitutes for a count. The subsequent QuadraticPairOddPellMean promotion proves the exact probability formula.
-first_nonpositive_domain: the integer-window positive-mass problem and certified QRH boundary are unchanged. The generic sector theorem has stated root/descent hypotheses, all discharged in the concrete joint count. The later Mean owner proves the weighted mean; the optimized semigroup minimum remains pending.
+first_nonpositive_domain: the integer-window positive-mass problem and certified QRH boundary are unchanged. The generic sector theorem has stated root/descent hypotheses, all discharged in the concrete joint count. The later Mean owner proves the weighted mean; QuadraticPairOddPellMinimum now proves the exact optimized semigroup minimum.
 
 The Pell and Chebyshev identities are classical inputs. Historical priority of the proposed weighted odd-semigroup extremal application remains unconfirmed. This input promotion neither rebrands the existing finer cubic absorption problem as new nor changes H1, RH or QRH. QRH stays paused and7/8 unchanged.
 
@@ -2807,13 +2807,42 @@ The supporting owner `PrimeFactorOscillations/Mathlib/NumberTheory/LegendreSymbo
 | `FiniteField.oddPell_gcd_odd_product_right` | Lean proved in QuadraticPairOddPellArithmetic; the same odd product attains the corresponding gcd maximum; maintained compilation and new-only axiom audit. |
 | `FiniteField.oddPell_character_mod_four` | Lean proved in QuadraticPairOddPellArithmetic; quadratic phase is +1 at q=1 mod4 and -1 at q=3 mod4, for every odd finite field; maintained compilation and new-only axiom audit. |
 
-The full weighted minimum and its 2-primary/modulo-eight attainment classification remain unproved. The mean and its all-shift adapter are fully proved; they are no longer pending consumers of the sector theorem.
+The full weighted minimum and its2-primary/modulo-eight attainment classification are now proved in QuadraticPairOddPellMinimum. The mean, all-shift adapter and extremal consumer are all maintained Lean proofs.
 
 benchmark_status: exact all-shift probability formula,12 mean/transport theorems,5 arithmetic theorems and1 definition; new-only foundational-axiom audit.
 old_bound: native endpoint-sector cardinalities were proved, but the full trace-free expectation and all-shift transfer were pending.
 new_bound: the exact displayed expectation holds uniformly for every odd q>=5, every h nonzero and every odd degree m=2*k+1, including characteristic-divisible m.
 components: collapsed-row signed numerator, pointwise two-sector loss, exact native counts, odd gcd simplification, mean-one normalization, common scaling with both masks and a field bijection.
 actuals: universal symbolic proofs; no numerical completion of the optimized minimum or integer-window survivor count.
-first_nonpositive_domain: the optimized semigroup minimum is still pending; positive joint mass in an integer primality window remains open. H1, RH and the paused7/8 QRH boundary are unchanged.
+first_nonpositive_domain: the exact optimized semigroup minimum is now proved in QuadraticPairOddPellMinimum; positive joint mass in an integer primality window remains open. H1, RH and the paused7/8 QRH boundary are unchanged.
 
 The trace and torus ingredients are classical. Priority of the weighted odd-semigroup extremal application remains unconfirmed.
+
+
+## Exact odd-Pell semigroup minimum and modulo-eight attainment (2026-10-31)
+
+Maintained owner: `PrimeFactorOscillations/Mathlib/NumberTheory/LegendreSymbol/QuadraticPairOddPellMinimum.lean`.
+
+For every odd finite field F of order q>=5, every nonzero h and every k>=0, the actual expectation is bounded below by `C/q+(q+1)*(C-u)/(q*(q-3))`, where `C=oddPellCoreCard(F)`, `4*C=q-chi(-1)` and `C=2^s*u` with u odd. There exists an index attaining this value. Some index attains the unrestricted square-transport minimum C/q iff q mod8 is3 or5.
+
+| Maintained declaration | Status and exact scope |
+| --- | --- |
+| `FiniteField.oddPell_minimum_odd_parts` | Lean proved: uniform lower bound and actual attainment from both odd parts; same odd product attains both gcd maxima. Maintained source compilation and new-only foundational-axiom audit. |
+| `FiniteField.oddPell_core_count` | Lean proved: exact integer identity 4*C=q-chi(-1), for every odd finite field. Maintained source compilation and new-only foundational-axiom audit. |
+| `FiniteField.oddPell_core_pos` | Lean proved: mandatory core cardinality is positive for q>=5. Maintained source compilation and new-only foundational-axiom audit. |
+| `FiniteField.oddPell_core_odd_iff` | Lean proved: core cardinality is odd iff q mod8 is3 or5; every odd finite field. Maintained source compilation and new-only foundational-axiom audit. |
+| `FiniteField.oddPell_minimum_core_parts` | Lean proved: exact lower bound C/q+(q+1)*(C-u)/(q*(q-3)) and attainment, for each odd decomposition C=2^s*u. Maintained source compilation and new-only foundational-axiom audit. |
+| `FiniteField.oddPell_minimum` | Lean proved: unconditional existence of the odd decomposition and the attained exact minimum, all odd q>=5 and all nonzero shifts. Maintained source compilation and new-only foundational-axiom audit. |
+| `FiniteField.oddPell_attains_core_iff` | Lean proved: some odd-Pell index reaches C/q iff C is odd, in both directions. Maintained source compilation and new-only foundational-axiom audit. |
+| `FiniteField.oddPell_attains_minimum_iff` | Lean proved: some odd-Pell index reaches the unrestricted minimum C/q iff q mod8 is3 or5, in both directions. Maintained source compilation and new-only foundational-axiom audit. |
+
+The four maintained definitions are `FiniteField.oddPellExpectedWeight` (the actual normalized expectation), `FiniteField.oddPellGcdMass` (the exact odd-part expression), `FiniteField.oddPellCoreCard` (the finite mandatory-core count) and `FiniteField.oddPellCoreMass` (the displayed exact minimum expression). The full target is proved, rather than only its mean, cardinality or gcd inputs.
+
+benchmark_status: exact attained finite-field minimum and complete modulo-eight criterion,8 real theorems and4 definitions.
+old_bound: the all-shift mean and simultaneous odd gcd maxima were public; their full weighted optimum and residue-class attainment were pending.
+new_bound: exact attained minimum C/q+(q+1)*(C-u)/(q*(q-3)), with C=2^s*u and u odd; attainment of C/q iff q mod8 in{3,5}.
+components: retained two-sector mean, simultaneous odd product, both quadratic phase cases, exact core count, positive denominators, positive divisor comparison and both parity directions.
+actuals: universal symbolic Lean proofs over every stated field, shift and index; no finite diagnostic substitutes for a bound.
+first_nonpositive_domain: the normalized theorem excludes q=3 because q-3 vanishes; the core-count and parity results include it. The integer-window joint survivor estimate remains open. H1, RH and the paused7/8 QRH boundary are unchanged.
+
+The classical trace and torus inputs are not novelty claims. Priority of this weighted odd-semigroup optimization remains unconfirmed.
