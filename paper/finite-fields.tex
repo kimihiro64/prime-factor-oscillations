@@ -9630,6 +9630,140 @@ The complete prime-divisor coverage certificate remains proved,
 and its unbounded-window positivity input remains open.
 QRH research remains paused; the accepted \(7/8\) boundary is unchanged.
 
+
+\section{Polynomial complexity of exact minimum mass}
+\label{sec:optimal-transport-degree}
+We now ask an algebraic question about the sharp quarter-scale mass:
+can a compatible polynomial of bounded degree attain that minimum
+as the field grows? The answer is no, with a field-uniform linear
+lower bound and an explicit polynomial upper witness.
+
+Keep the finite odd field \(F\), \(q=|F|\ge5\) and nonzero \(h\).
+Let
+\[
+ C_h=\{c:\chi(-hc)=\chi(h(c+h))=-1\},\qquad
+ K=|C_h|=\frac{q-\chi(-1)}4,\qquad
+ M_h=\frac Kq.
+\]
+For a compatible map \(\Phi\), write
+\(m_h(\Phi)=q^{-1}\sum_{c\in F}W_h(\Phi(c))\).
+All zero multipliers, both endpoints and all character classes
+remain part of the domain.
+
+\begin{theorem}[Complete equality case for minimum mass]
+\label{thm:minimum-transport-profile}
+For every compatible \(\Phi:F\to F\), the following are equivalent:
+\[
+ \begin{split}
+ &m_h(\Phi)=M_h;\\
+ &W_h(\Phi(c))=\mathbf1_{C_h}(c)\quad(c\in F);\\
+ &\Phi(c)\in\{0,-h\}\quad(c\in F\setminus C_h).
+ \end{split}                                             \tag{DG1}
+\]
+\end{theorem}
+\begin{proof}
+The existing transport theorem gives
+\(W_h(\Phi(c))=1\) on \(C_h\), and the weight is nonnegative
+everywhere. Thus
+\[
+ W_h(\Phi(c))-\mathbf1_{C_h}(c)\ge0.
+\]
+Equality of the complete means makes the sum of these differences
+zero, so each difference is zero. Conversely the pointwise profile
+has mean \(K/q\).
+The weight vanishes exactly at the two endpoints: it is zero
+there by its masks and is at least one at every other point.
+This proves the equivalence with the final condition.
+\end{proof}
+
+\begin{theorem}[Linear degree cost of optimal erasure]
+\label{thm:optimal-transport-degree}
+Let \(P\in F[X]\) be compatible at every input and satisfy
+\(m_h(P)=M_h\). Then
+\[
+             \boxed{\quad 8\deg P\ge3q+\chi(-1).\quad}       \tag{DG2}
+\]
+Moreover an attaining polynomial exists with degree at most \(q-1\).
+Consequently the least degree \(d_{\min}(F,h)\) exists, is attained,
+and satisfies
+\[
+ \boxed{\qquad
+ \left\lceil\frac{3q+\chi(-1)}8\right\rceil
+       \le d_{\min}(F,h)\le q-1.
+ \qquad}                                                  \tag{DG3}
+\]
+In particular its order of growth is linear in \(q\), uniformly
+over the nonzero shift.
+\end{theorem}
+\begin{proof}
+The anchors give \(P(0)=0\) and \(P(-h)=-h\). Hence neither
+\(P\) nor \(P+h\) is the zero polynomial. The product
+\[
+                           Q=P(P+h)
+\]
+is nonzero and has degree at most \(2\deg P\).
+By (DG1), every point of \(F\setminus C_h\) is a root of \(Q\).
+The distinct-root bound therefore gives
+\[
+ q-K\le|\{c\in F:Q(c)=0\}|\le2\deg P.
+\]
+Substitution of \(4K=q-\chi(-1)\) proves (DG2).
+No point outside the core has been omitted from this root count.
+
+For the upper witness use the already proved compatible
+idempotent collapse \(R_h:F\to F\), whose weight profile is
+exactly \(\mathbf1_{C_h}\).
+For any function \(f:F\to F\), form the explicit polynomial
+\[
+ P_f(X)=\sum_{a\in F} f(a)
+                    \bigl(1-(X-a)^{q-1}\bigr).             \tag{DG4}
+\]
+It has degree at most \(q-1\). At an input \(x\), every term
+except \(a=x\) vanishes by the finite-field Fermat identity;
+the remaining term is \(f(x)\), since \(q-1>0\).
+Thus \(P_f(x)=f(x)\) at every field element.
+Taking \(f=R_h\) yields a compatible polynomial attaining
+the exact minimum and the stated degree upper bound.
+The nonempty set of attaining degrees has a least natural
+element. Choose a polynomial of that degree; it satisfies
+both bounds and is minimal among all attaining polynomials.
+\end{proof}
+
+\paragraph{What is settled.}
+The exact minimum mass and the least-degree growth question
+are both resolved. This is not an exact formula for
+\(d_{\min}(F,h)\); (DG3) gives its uniform linear scale with an
+attaining minimum witness. The numerical degree of the
+particular polynomial \(P_{R_h}\) is an upper-witness diagnostic,
+not a computation of the least degree.
+Together with the earlier cubic classification, the theorem
+separates the uniformly surviving low-degree maps from the
+linearly growing degree needed for exact quarter-scale erasure.
+
+\paragraph{Classical inputs and formal status.}
+Polynomial root counting and finite-field function interpolation
+are classical polynomial-evaluation tools
+\cite{ReedSolomonPolynomialCodes}.
+The contribution here is their quantitative consequence for
+the exact weighted simultaneous-square minimum and its full
+equality case. All-secant subgroup restrictions
+\cite{CsajbokSecants} concern a different class of maps.
+Historical priority of this probability-law application remains
+unconfirmed after the recorded portfolio and primary-source review.
+
+The maintained owners
+\texttt{FieldFunctionPolynomial} and
+\texttt{QuadraticPairPolynomialDegree} contain the real Lean proofs:
+the explicit evaluation and degree certificates, the full
+minimum-profile and endpoint equivalences, the universal degree
+lower bound, an attaining polynomial, and the least-degree
+existence package with all its properties.
+The observable is the actual trace-free two-class average.
+These results give no positive mass in the integer primality
+window \(B<n\le B^2-h\), no integer prime-pair recurrence and
+no change to \(H_1\), RH or the accepted QRH boundary \(7/8\).
+QRH exponent research remains paused.
+
 \begin{thebibliography}{99}
 \bibitem{DavidKoukoulopoulosSmith}
 C. David, D. Koukoulopoulos and E. Smith,
@@ -9730,5 +9864,10 @@ L'Enseignement Math\'ematique 44 (1998), 95--102.
 \emph{Extending a result of Carlitz and McConnel to polynomials
 which are not permutations}, arXiv:2409.04045.
 \url{https://arxiv.org/abs/2409.04045}.
+\bibitem{ReedSolomonPolynomialCodes} I. S. Reed and G. Solomon,
+\emph{Polynomial Codes Over Certain Finite Fields},
+Journal of the Society for Industrial and Applied Mathematics
+8 (1960), 300--304.
+\url{https://doi.org/10.1137/0108018}.
 \end{thebibliography}
 \end{document}

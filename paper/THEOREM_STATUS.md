@@ -2655,3 +2655,36 @@ actuals: the pre-formalization classification test covered385620 coefficient row
 first_nonpositive_domain: none in the qualified finite-field survival domain q>=5 and every finite sequence length. No positive integer-origin window or unbounded-cutoff prime-pair supply is certified.
 
 The classical character-sum ingredients are not claimed new. The two-anchor low-degree classification differs from all-secant subgroup conditions and from the earlier open exact cubic absorption profile. Historical priority remains unconfirmed after the recorded portfolio and primary-literature comparison. These are completed finite-field results, not an integer short-window estimate, H1 improvement, RH proof or QRH exponent gain. QRH research remains paused and7/8 unchanged.
+
+## Exact-minimum transport profiles and linear polynomial degree (2026-10-31)
+
+Owner: `PrimeFactorOscillations/Mathlib/Algebra/Field/FieldFunctionPolynomial.lean`.
+
+| Claim | Status | Exact scope |
+| --- | --- | --- |
+| `Polynomial.fieldFunctionPolynomial_eval` | proved and audited | every finite field of cardinality at least two; every function and every input; explicit Fermat-indicator polynomial represents that function |
+| `Polynomial.fieldFunctionPolynomial_natDegree_le` | proved and audited | every finite field; explicit function polynomial has natural degree at most q-1 |
+| `Polynomial.card_eval_zero_le_natDegree` | proved and audited | every finite field; nonzero polynomial; all field inputs whose evaluation vanishes counted against natural degree |
+
+Definition (compiled and audited): `Polynomial.fieldFunctionPolynomial`.
+
+Owner: `PrimeFactorOscillations/Mathlib/NumberTheory/LegendreSymbol/QuadraticPairPolynomialDegree.lean`.
+
+| Claim | Status | Exact scope |
+| --- | --- | --- |
+| `FiniteField.square_transport_minimum_profile_iff` | proved and audited | every finite odd q>=5 and nonzero h; every globally compatible map; exact minimum mean iff its entire profile is the core indicator |
+| `FiniteField.square_transport_minimum_iff_endpoints` | proved and audited | same domain; minimum mean iff every noncore image is one of the two endpoints |
+| `FiniteField.square_transport_extremizer_degree_lower` | proved and audited | every finite odd q>=5 and nonzero h; every attaining compatible polynomial; 8*degree>=3q+chi(-1) |
+| `FiniteField.square_transport_extremizer_polynomial_exists` | proved and audited | same domain; an attaining compatible polynomial exists of degree at most q-1 |
+| `FiniteField.square_transport_minimum_degree` | proved and audited | same domain; one attaining polynomial simultaneously satisfies both degree bounds and has least degree among every attaining polynomial |
+
+Definition (compiled and audited): `FiniteField.SquareTransportMinimizer`.
+
+benchmark_status: universal complete equality cases and attained minimum-degree growth;8 real theorems and2 definitions, with new-only foundational-axiom audit.
+old_bound: the arbitrary-map quarter-scale minimum and classification through degree three were proved; no field-uniform linear lower degree bound or bounded-degree attaining polynomial package was installed.
+new_bound: every exact-minimum compatible polynomial satisfies 8*degree>=3q+chi(-1). The minimum degree exists and is attained between ceil((3q+chi(-1))/8) and q-1, uniformly in every nonzero shift.
+components: nonnegative complete profile minus the forced core; exact equality case; all noncore images in the two endpoints; nonzero polynomial P*(P+h); full distinct-root count; signed core count 4|core|=q-chi(-1); explicit Fermat interpolation and natural least-degree selection.
+actuals: diagnostics covered all340 nonzero-shift frames in15 prime and extension fields,10692 point evaluations and1006 high-coefficient checks. They verified the explicit upper witness, not the actual minimum degree; its least degree was not numerically computed. The sharper characteristic-dependent degree of the canonical collapse remains unproved and is not promoted here.
+first_nonpositive_domain: not a signed-mass benchmark; the degree lower bound is positive throughout q>=5. Positive integer-window mass remains unavailable.
+
+The root-count and interpolation tools are classical, including the polynomial-evaluation framework of Reed and Solomon. The proposed new application is the full equality case and uniform polynomial-complexity consequence for this compensated probability law; historical priority remains unconfirmed. The earlier unfinished integer polynomial-plus-prime degree-budget extremality problem has different objects and conclusions and was not reopened. No H1, RH or QRH exponent gain is claimed; QRH remains paused and7/8 unchanged.
