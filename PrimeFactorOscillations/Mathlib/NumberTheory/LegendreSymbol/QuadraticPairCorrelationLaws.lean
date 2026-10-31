@@ -5,11 +5,7 @@ Authors: Prime Factor Oscillations contributors
 -/
 import PrimeFactorOscillations.Mathlib.NumberTheory.LegendreSymbol.QuadraticPairCubicSurvival
 import PrimeFactorOscillations.Mathlib.NumberTheory.LegendreSymbol.QuadraticPairLowDegreeSurvival
-import PrimeFactorOscillations.Mathlib.NumberTheory.LegendreSymbol.QuadraticPairOddPell
-import PrimeFactorOscillations.Mathlib.NumberTheory.LegendreSymbol.QuadraticPairOddPellArithmetic
-import PrimeFactorOscillations.Mathlib.NumberTheory.LegendreSymbol.QuadraticPairOddPellMean
-import PrimeFactorOscillations.Mathlib.NumberTheory.LegendreSymbol.QuadraticPairOddPellMinimum
-import PrimeFactorOscillations.Mathlib.NumberTheory.LegendreSymbol.QuadraticPairOddPellSectors
+import PrimeFactorOscillations.Mathlib.NumberTheory.LegendreSymbol.QuadraticPairOddPellLaws
 import PrimeFactorOscillations.Mathlib.NumberTheory.LegendreSymbol.QuadraticPairPolynomialDegree
 import PrimeFactorOscillations.Mathlib.NumberTheory.LegendreSymbol.QuadraticPairSquareExtremal
 import PrimeFactorOscillations.Mathlib.NumberTheory.LegendreSymbol.QuadraticPairTensorPersistence
@@ -29,5 +25,6 @@ exact trace-fiber and finite torus power-kernel counts,
 native split/nonsplit Pell endpoint cardinalities,
 the exact odd-Pell mean at every nonzero shift,
 simultaneous odd-part gcd optimization inputs,
-and the exact attained two-primary minimum with its modulo-eight criterion.
+the exact attained two-primary minimum with its modulo-eight criterion,
+and the full signed defect energy with all common endpoint overlaps.
 -/

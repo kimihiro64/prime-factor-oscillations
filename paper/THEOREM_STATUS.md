@@ -2846,3 +2846,44 @@ actuals: universal symbolic Lean proofs over every stated field, shift and index
 first_nonpositive_domain: the normalized theorem excludes q=3 because q-3 vanishes; the core-count and parity results include it. The integer-window joint survivor estimate remains open. H1, RH and the paused7/8 QRH boundary are unchanged.
 
 The classical trace and torus inputs are not novelty claims. Priority of this weighted odd-semigroup optimization remains unconfirmed.
+
+
+## Full odd-Pell joint defects and signed energy (2026-10-31)
+
+Owners: PrimeFactorOscillations/Mathlib/NumberTheory/LegendreSymbol/QuadraticPairOddPellOverlap.lean and QuadraticPairOddPellEnergy.lean.
+Export: QuadraticPairOddPellLaws through the existing CorrelationLaws and root Mathlib facade.
+
+The following entries are real maintained Lean proofs. The final focused owner and public consumer builds, new-only foundational-axiom audit, staged fast checks and paper compilation accompany the promotion.
+
+| Lean declaration | Status | Exact scope |
+| --- | --- | --- |
+| FiniteField.oddPell_gcdIndex_degree | proved | The defined gcd index has degree gcd(2*k+1,2*l+1). |
+| FiniteField.oddPell_trace_common_endpoints | proved | Joint trace endpoint condition equals the gcd-degree condition. |
+| FiniteField.oddPell_common_endpoints | proved | Every field with 2 nonzero; common native endpoints equal the gcd-degree endpoints. |
+| FiniteField.oddPell_endpoint_sector_inter | proved | Exact finite sector intersection, for any fixed sector predicate. |
+| FiniteField.oddPell_common_sector_counts | proved | Both native common-sector counts with the doubled gcd exponents. |
+| FiniteField.oddPell_common_sector_sizes | proved | Counts plus one equal gcd(q-1,gcd(m_k,m_l)) and gcd(q+1,gcd(m_k,m_l)). |
+| FiniteField.oddPell_totient_gcd_kernel | proved | Every positive N and every k,l; exact finite odd-divisor kernel. |
+| FiniteField.oddPell_gcd_energy_diagonal | proved | Every positive N, finite index support and arbitrary real signed coefficients. |
+| FiniteField.oddPell_defect_two_mask | proved | Exact normalized-shift defect including both endpoint exclusions. |
+| FiniteField.oddPell_defect_meet_two | proved | Pointwise product is the squared gcd-index defect at shift 2. |
+| FiniteField.oddPell_defect_normalize | proved | The same nonzero-shift scaling transports every index. |
+| FiniteField.oddPell_defect_meet | proved | Pointwise gcd meet at every nonzero shift. |
+| FiniteField.oddPell_defect_square_sectors | proved | Both squared sector weights; opposite-sector cross terms vanish by disjointness. |
+| FiniteField.oddPell_defect_square_sum | proved | Exact split and nonsplit second moments. |
+| FiniteField.oddPell_defect_inner_two | proved | Complete normalized bilinear gcd kernel at shift 2. |
+| FiniteField.oddPell_defect_inner | proved | Complete normalized bilinear kernel at every nonzero shift. |
+| FiniteField.oddPell_defect_energy | proved | Every odd finite field q>=5, every nonzero shift, finite support S and arbitrary real coefficients; full totient diagonalization with every signed cross term retained. |
+| FiniteField.oddPell_defect_zero | proved | Degree one has identically zero defect at every admissible shift. |
+| FiniteField.oddPell_defect_coprime | proved | Coprime odd degrees have pointwise disjoint defects; no independence claim. |
+
+The five definitions are FiniteField.oddPellGcdIndex, FiniteField.oddPellPrimitiveDivisors, FiniteField.oddPellDefect, FiniteField.oddPellSplitWeight and FiniteField.oddPellNonsplitWeight. Algebraic bilinear identities include q=3 as degenerate zero-quotient identities; normalized probability interpretation requires q>=5. Degrees divisible by the characteristic remain allowed.
+
+benchmark_status: exact universal finite signed-energy theorem;19 real theorems and5 definitions, with no nonnegative-coefficient restriction.
+old_bound: exact one-point means and attained minimum were available; joint defects and signed combinations had no exported complete kernel.
+new_bound: exact all-shift bilinear gcd law and full odd-divisor totient diagonalization; no integer-window lower bound or QRH exponent improvement is claimed.
+components: algebraic-closure trace representatives, multiplicative-order gcd meet, native sector intersections and counts, both compensated weights, one common shift bijection and the classical sum-of-totients identity.
+actuals: universal symbolic Lean proofs for the stated fields, indices, shifts and signed coefficients; no finite completion or experiment supplies an unresolved estimate.
+first_nonpositive_domain: q=3 is excluded from probability normalization. The growing-cutoff integer joint-survivor count remains open; H1, RH and the paused7/8 QRH boundary are unchanged.
+
+Classical trace and totient identities are supporting inputs, not novelty claims. Priority of the masked probability joint-energy theorem remains unconfirmed.

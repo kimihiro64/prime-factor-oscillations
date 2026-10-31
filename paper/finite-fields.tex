@@ -10239,6 +10239,146 @@ A common surviving integer in an incomplete primality window,
 integer prime-pair recurrence and any RH/QRH improvement remain
 separate open tasks.
 
+\section{The complete signed odd-Pell defect energy}
+\label{sec:odd-pell-joint-energy}
+
+Retain the odd finite field \(F\), \(q\ge5\), nonzero shift \(h\)
+and actual density \(W_h\) of Theorem~\ref{thm:odd-pell-all-shift-mean}.
+Here expectation is uniform input averaging,
+\(\mathbb E f=q^{-1}\sum_{c\in F}f(c)\). Define
+\[
+ m_k=2k+1,\qquad
+ \Delta_k(c)=W_h(c)-W_h(\Phi_{k,h}(c)),\qquad
+ \lambda_\pm=\frac{q\pm\chi(-1)}{q-3}.
+\]
+The following computes the full joint law needed for quadratic
+combinations; coefficients may have either sign.
+
+\begin{theorem}[Gcd meet and full signed energy]
+\label{thm:odd-pell-joint-energy}
+If \(\gcd(m_k,m_l)=m_r\), then for every \(c\in F\),
+\[
+                  \Delta_k(c)\Delta_l(c)=\Delta_r(c)^2.
+\]
+Consequently
+\[
+ \mathbb E(\Delta_k\Delta_l)=\frac1q
+ \left[\lambda_+^2\bigl(\gcd(q-1,m_k,m_l)-1\bigr)
+       +\lambda_-^2\bigl(\gcd(q+1,m_k,m_l)-1\bigr)\right].
+\]
+For \(N>0\), put \(D(N)=\{d:d\mid N,\ d>1,\ d\text{ odd}\}\).
+For every finite \(S\subset\mathbb N\) and every real family
+\((a_k)_{k\in S}\), the exact energy is
+\[
+\begin{split}
+ \mathbb E\left(\sum_{k\in S}a_k\Delta_k\right)^2
+ =\frac1q\bigg[
+ &\lambda_+^2\sum_{d\in D(q-1)}\varphi(d)
+       \left(\sum_{\substack{k\in S\\d\mid m_k}}a_k\right)^2\\
+ {}+{}&\lambda_-^2\sum_{d\in D(q+1)}\varphi(d)
+       \left(\sum_{\substack{k\in S\\d\mid m_k}}a_k\right)^2
+ \bigg].
+\end{split}
+\]
+In particular, coprime odd degrees have pointwise disjoint defects:
+\(\gcd(m_k,m_l)=1\) implies \(\Delta_k(c)\Delta_l(c)=0\)
+for every input.
+\end{theorem}
+
+\begin{proof}
+First take \(h=2\). For each index \(k\), let \(E_{k,+}\)
+and \(E_{k,-}\) be the maintained endpoint sectors: inputs
+\(c\notin\{0,-2\}\) mapped into \(\{0,-2\}\), with respectively
+square and nonsquare discriminant \(c(c+2)\).
+The proved pointwise weight-loss identity is
+\[
+ \Delta_k(c)=
+ \lambda_+\mathbf1_{E_{k,+}}(c)+
+ \lambda_-\mathbf1_{E_{k,-}}(c).
+\]
+These are the actual compensated weights, including the endpoint
+exclusions; no positive or negative term is discarded.
+
+Write \(T(z)=(z-1)^2/(2z)\) in an algebraic closure.
+Every input has a nonzero representative \(T(z)\).
+The trace identity shows that its index-\(k\) image is an endpoint
+exactly when \(z^{2m_k}=1\).
+For a fixed representative, the simultaneous conditions
+\(z^{2m_k}=z^{2m_l}=1\) are equivalent to
+\(z^{2\gcd(m_k,m_l)}=1\): its multiplicative order divides
+both exponents precisely when it divides their gcd.
+Field-homomorphism transport gives the same equivalence in \(F\).
+Hence
+\[
+ E_{k,+}\cap E_{l,+}=E_{r,+},\qquad
+ E_{k,-}\cap E_{l,-}=E_{r,-}.
+\]
+Every intersection between opposite sectors is empty.
+Multiplying the exact weight-loss identities therefore proves the
+pointwise meet assertion, with all cross terms accounted for.
+
+The maintained native sector counts, reduced using the oddness
+of \(m_r\), are
+\[
+ |E_{r,+}|=\gcd(q-1,m_r)-1,\qquad
+ |E_{r,-}|=\gcd(q+1,m_r)-1.
+\]
+Squaring the sector formula and summing now gives the displayed
+bilinear identity. For general nonzero \(h\), the already proved
+common-scale transport gives
+\[
+ \Delta_{k,h}(c)=\Delta_{k,2}((2/h)c).
+\]
+The same multiplication bijection works for every index, so both
+the pointwise meet and the joint sum transfer without changing
+any overlap.
+
+It remains to keep the entire signed finite combination.
+For every \(N>0\), the classical identity
+\(\sum_{d\mid g}\varphi(d)=g\), with
+\(g=\gcd(N,m_k,m_l)\), gives
+\[
+ \gcd(N,m_k,m_l)-1
+ =\sum_{\substack{d\in D(N)\\d\mid m_k,\ d\mid m_l}}\varphi(d).
+\]
+The divisor \(1\) supplies exactly the subtracted constant;
+all other divisors are odd because the two degrees are odd.
+Expand the square, insert the bilinear identity, and interchange
+the finite sums. For each fixed \(d\), the full signed inner sum
+is exactly
+\[
+ \sum_{\substack{k,l\in S\\d\mid m_k,\ d\mid m_l}}a_k a_l
+       =\left(\sum_{\substack{k\in S\\d\mid m_k}}a_k\right)^2.
+\]
+This proves the energy formula without a triangle inequality.
+Finally \(m_0=1\) and the index-zero map is the identity, so
+\(\Delta_0=0\). The meet assertion yields the coprime corollary.
+\end{proof}
+
+\paragraph{Scope and interpretation.}
+The theorem determines every quadratic combination of the actual
+defects, rather than only their individual means.
+The divisor coordinates display precisely where signed coefficients
+cancel. Pointwise disjointness is an uncentered orthogonality statement,
+not a claim of probabilistic independence.
+No coprimality with the field characteristic is imposed on the degrees.
+The endpoint meet and bilinear algebraic identities also include \(q=3\);
+there the quotient-defined weights vanish and do not define the
+mean-one probability law. Characteristic two and zero shift are excluded.
+
+The maintained owners \texttt{QuadraticPairOddPellOverlap} and
+\texttt{QuadraticPairOddPellEnergy} contain respectively six and
+thirteen proved theorems, with one and four definitions.
+The classical trace, power-kernel and totient ingredients are not
+novelty claims; comparison with the Chebyshev mapping results of
+Gassert and Rosen--Scherr--Weiss--Zieve concerns this specific
+masked probability energy. Priority remains unconfirmed.
+
+This is a finite-field identity. It does not prove positive joint
+survivor mass in an integer interval at a growing primality cutoff.
+That integer transfer, bounded prime-pair recurrence and RH/QRH
+improvements remain open.
+
 \begin{thebibliography}{99}
 \bibitem{DavidKoukoulopoulosSmith}
 C. David, D. Koukoulopoulos and E. Smith,
