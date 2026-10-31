@@ -7324,6 +7324,157 @@ The finite tensorization reuses
 \texttt{QuadraticPairTwistJoint.packetMean\_pure}.
 These owners are exported through \texttt{Assembly/FiniteFieldPairPackets}.
 
+\section{Native integer windows and complete divisor coverage}
+\label{sec:integer-crt-pair-mass}
+The residue fields test divisibility of one common integer. Their complete
+product is not a separate collection of unrelated prime candidates.
+Let \(m_i>0\) be pairwise coprime integer moduli, put
+\[
+ M=\prod_i m_i,\qquad
+ \rho(n)=(n\bmod m_i)_i,\qquad
+ \Omega=\prod_i\mathbf Z/m_i\mathbf Z.
+\]
+The canonical ring CRT map identifies \(\mathbf Z/M\mathbf Z\) with
+\(\Omega\) and sends the class of \(n\) to exactly \(\rho(n)\).
+In particular \(|\Omega|=M\).
+
+\begin{theorem}[Mass on an incomplete integer period]
+\label{thm:integer-subperiod-mass}
+Let \(F:\Omega\to\mathbf R\) have
+\[
+ \sum_{x\in\Omega}F(x)=M,\qquad
+ \sum_{x\in\Omega}F(x)^2=ME.
+\]
+For every integer origin \(A\ge0\) and \(0\le N\le M\), define
+\(I=\{A,A+1,\ldots,A+N-1\}\). Then
+\[
+ \sum_{n\in I}F(\rho(n))
+ \ \ge\ M-\sqrt{(M-N)ME}.
+ \tag{IW1}
+\]
+Consequently this interval mass is strictly positive if
+\[
+                         (M-N)E<M.
+ \tag{IW2}
+\]
+The result permits \(M>N\); it does not require \(F\) to factor or
+assume independence of the sampled residues.
+\end{theorem}
+\begin{proof}
+The map \(n\mapsto\rho(n)\) is injective on \(I\): equality implies
+\(M\mid n-n'\), whereas \(|n-n'|<M\). Write \(B=\rho(I)\), so that
+\(|B|=N\), and let \(C=\Omega\setminus B\). The exact complement identity is
+\[
+ M-\sum_{n\in I}F(\rho(n))=\sum_{x\in C}F(x).
+\]
+Cauchy's inequality on this complement, including all its joint rows, gives
+\[
+ \left(M-\sum_{n\in I}F(\rho(n))\right)^2
+ \le |C|\sum_{x\in C}F(x)^2
+ \le (M-N)ME.
+\]
+Taking the upper square-root bound on the deficit proves (IW1).
+Under (IW2), its square-root error is smaller than \(M>0\).
+No sign or phase has been discarded from the exact complement identity.
+\end{proof}
+
+For the raw pair law, take a finite set of odd primes \(p_i\ge17\)
+with \(p_i\nmid h\), and take the \emph{same integer shift} \(h\) in
+every residue field. With the raw local densities above,
+\[
+ F((c_i)_i)=\prod_i u_i(c_i),\qquad
+ E=\prod_i\left(1+\frac{3p_i+d_i}{p_i(p_i-d_i)}\right),
+ \quad d_i=3-\chi_i(h)-\chi_i(-h).
+ \tag{IW3}
+\]
+Here \(1\le d_i\le5\). The existing exact product-energy theorem
+supplies both hypotheses of Theorem~\ref{thm:integer-subperiod-mass}.
+Thus (IW1)--(IW2) apply to actual consecutive integer evaluations of
+the original raw law, with every overlap retained. The formula (IW3)
+alone does not cover the omitted small primes or the primes dividing
+\(h\); those require their actual fallback factors for primality extraction.
+
+\begin{theorem}[Divisor coverage gives actual integer primes]
+\label{thm:integer-coverage-certificate}
+Let \(Y\ge1\), and suppose every prime \(p\le Y\) occurs among the
+moduli \(m_i\). Suppose that, for each \(i\),
+\[
+ x_i=0\ \hbox{or}\ x_i=-h\bmod m_i
+                \quad\Longrightarrow\quad F(x)=0.
+\]
+If every \(n\in I\) satisfies \(Y<n\) and \(n+h\le Y^2\), then any
+\(n\in I\) with \(F(\rho(n))\ne0\) has both \(n\) and \(n+h\) prime.
+In particular, positive interval mass produces an actual prime pair.
+Combining these hypotheses with (IW2) is a proved sufficient
+prime-pair criterion.
+\end{theorem}
+\begin{proof}
+A composite integer \(r>1\), \(r\le Y^2\), has a prime divisor
+\(p\le Y\). Apply this first to \(r=n\) and then to \(r=n+h\).
+Coverage would make the corresponding residue equal to \(0\) or
+\(-h\), forcing \(F(\rho(n))=0\), a contradiction.
+A positive finite sum has at least one positive summand, so the
+last assertion does not require an unproved local-to-global step.
+\end{proof}
+
+\begin{theorem}[Normalized laws on longer integer intervals]
+For nonnegative \(U,V:\Omega\to\mathbf R\), each of full sum \(M\),
+every interval \(I\) of length \(N\ge M\) has positive \(U\)- and
+\(V\)-mass, and
+\[
+ \frac{\sum_{n\in I}\sqrt{U(\rho(n))V(\rho(n))}}
+ {\sqrt{\left(\sum_{n\in I}U(\rho(n))\right)
+              \left(\sum_{n\in I}V(\rho(n))\right)}}
+ \le \frac2M\sum_{x\in\Omega}\sqrt{U(x)V(x)}.
+ \tag{IW4}
+\]
+\end{theorem}
+\begin{proof}
+Put \(k=\lfloor N/M\rfloor\ge1\). Periodicity and nonnegativity
+give each denominator mass at least \(kM\); the numerator is at
+most \((k+1)\sum_{\Omega}\sqrt{UV}\). Every shifted full period
+has exactly the complete-product sum. Since \((k+1)/k\le2\),
+the claimed normalized bound follows. The numerator and both
+normalizing masses belong to the same integer interval.
+\end{proof}
+
+\paragraph{What the product condition establishes.}
+Taking \(M>Y^2\) is compatible with exact divisor coverage and makes
+the residue encoding injective throughout the target height range.
+It does not force an allowed CRT representative to lie in that range.
+For example, with \(h=2\) and moduli \(2,3,5\), the product is
+\(M=30>25\), and the allowed residues are \(11,17,29\bmod30\).
+None lies in the interval \(20\le n\le23\), although every local
+allowed set is nonempty.
+
+The quantitative domain proved by (IW2) is
+\[
+                      N>M(1-1/E).
+\]
+The primality window additionally requires \(Y<A\) and
+\(A+N-1+h\le Y^2\) when \(N>0\). No estimate establishing (IW2),
+or another positive-mass condition, on an unbounded sequence of
+these natural-height windows is proved here. Failure of (IW2)
+is failure of this sufficient test, not a proof of zero actual mass.
+The statement about prime elements is also precise: a finite field
+has no nonzero nonunit prime elements; irreducible polynomials are
+primes in \(\mathbf F_q[T]\). In this integer certificate,
+\(\mathbf F_p\) is used for its zero-residue divisibility test.
+
+\paragraph{Formal status and scope.}
+The maintained owners \texttt{Assembly/PeriodicPairAffinity},
+\texttt{Assembly/FiniteFieldPairSubperiodMass}, and
+\texttt{Assembly/FiniteFieldPairIntegerCRT} prove (IW1)--(IW4),
+the canonical natural-number CRT transport, and the full coverage
+consumer. The two raw integer declarations use the same integer \(h\)
+in every prime field and the previously proved exact energy.
+The coverage proof reuses
+\texttt{PrimeClassDeletion.prime\_iff\_no\_past\_prime\_divisor}.
+The periodic and finite-subset inequalities are elementary tools,
+not independently claimed new classical theorems. They quantify
+the transfer for the specific pair laws; no new \(H_1\) bound or
+integer prime-pair recurrence follows at present.
+
 \section{Arithmetic transfers and the next ascent investigation}
 \paragraph{Existing ingredients.}
 The generic greedy record sandwich and the maintained periodic and

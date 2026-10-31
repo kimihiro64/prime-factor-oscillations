@@ -1756,3 +1756,76 @@ at most3/4 remain open. No finite diagnostics or unknown-sum completions
 are used; an improved complete-bound failure domain is unavailable.
 Paper label:`sec:carmichael-euler-critical-wedge`.
 Receipt:[critical Euler wedge](verification/carmichael-euler-critical-wedge.json).
+
+
+## Native integer CRT mass and complete divisor coverage (2026-10-30)
+
+Maintained owners: `Assembly/PeriodicPairAffinity.lean`,
+`Assembly/FiniteFieldPairSubperiodMass.lean`, and
+`Assembly/FiniteFieldPairIntegerCRT.lean`.
+All 31 theorem proofs compiled. Their 31 closures and the 11 new definitions
+received a fresh audit: only `propext`, `Classical.choice`, and `Quot.sound`.
+Previously checked unchanged providers were not re-audited.
+
+The first 7 rows belong to PeriodicPairAffinity, the next 7 to
+FiniteFieldPairSubperiodMass, and the final 17 to FiniteFieldPairIntegerCRT.
+
+| Declaration | Exact scope | Status |
+| --- | --- | --- |
+| `shifted_period_mass` | Every shifted complete period has the original full-period sum. | Proved; compiled; new-only axiom audit passed. |
+| `whole_period_mass` | Exact mass on any integer number of periods. | Proved; compiled; new-only axiom audit passed. |
+| `partial_period_mass` | Nonnegative residual segment is bounded by one full period. | Proved; compiled; new-only axiom audit passed. |
+| `interval_mass_bounds` | Floor-period lower and upper mass bounds at every integer origin. | Proved; compiled; new-only axiom audit passed. |
+| `interval_mass_positive` | Positive interval mass for N>=M and positive full mean. | Proved; compiled; new-only axiom audit passed. |
+| `period_affinity_nonneg` | Nonnegative complete-period affinity. | Proved; compiled; new-only axiom audit passed. |
+| `interval_affinity_le_twice` | Both normalization masses positive and normalized interval affinity <=2 times complete affinity for N>=M. | Proved; compiled; new-only axiom audit passed. |
+| `mass_deficit_square_bound` | Exact complement deficit squared <= missingCount times full second moment. | Proved; compiled; new-only axiom audit passed. |
+| `subset_mass_lower` | Full mean minus square-root complement energy bounds every finite subset mass. | Proved; compiled; new-only axiom audit passed. |
+| `subset_mass_positive` | Strict positive mass under the explicit complement-energy condition. | Proved; compiled; new-only axiom audit passed. |
+| `raw_packet_mean` | Exact full-product mean for odd fields, nonzero shifts and q>=16. | Proved; compiled; new-only axiom audit passed. |
+| `raw_packet_square_sum` | Exact full raw joint energy from the existing normalized product-moment provider. | Proved; compiled; new-only axiom audit passed. |
+| `raw_subset_mass_lower` | Finite-subset lower bound retaining the exact raw product energy. | Proved; compiled; new-only axiom audit passed. |
+| `raw_subset_mass_positive` | Positive raw subset mass when missingCount*rawEnergy<M. | Proved; compiled; new-only axiom audit passed. |
+| `zmod_sum_range` | Canonical natural representatives enumerate ZMod M exactly. | Proved; compiled; new-only axiom audit passed. |
+| `crt_natCast` | Canonical ring CRT sends n to the actual tuple of n modulo each modulus. | Proved; compiled; new-only axiom audit passed. |
+| `crt_period_sum` | Exact integer complete-period sum equals the finite product-space sum. | Proved; compiled; new-only axiom audit passed. |
+| `sampled_periodic` | Actual integer evaluation is periodic with product modulus. | Proved; compiled; new-only axiom audit passed. |
+| `window_injective` | Every consecutive window of length N<=M has injective CRT encoding. | Proved; compiled; new-only axiom audit passed. |
+| `window_image_card` | Its finite image has cardinality exactly N. | Proved; compiled; new-only axiom audit passed. |
+| `window_image_sum` | Its subset sum equals the consecutive integer interval mass. | Proved; compiled; new-only axiom audit passed. |
+| `residue_space_card` | The complete residue product has cardinality M. | Proved; compiled; new-only axiom audit passed. |
+| `missing_window_count` | The omitted residue set has cardinality exactly M-N. | Proved; compiled; new-only axiom audit passed. |
+| `integer_subperiod_mass_lower` | For N<=M, interval mass >=M-sqrt((M-N)*M*E), at every integer origin. | Proved; compiled; new-only axiom audit passed. |
+| `integer_subperiod_mass_positive` | Strict positive integer mass when (M-N)*E<M. | Proved; compiled; new-only axiom audit passed. |
+| `integer_long_interval_affinity` | Native integer normalized comparison with factor2 and both positive masses, N>=M. | Proved; compiled; new-only axiom audit passed. |
+| `raw_integer_subperiod_mass_lower` | Actual raw prime-field product evaluated at the same integer shift h; exact known energy. | Proved; compiled; new-only axiom audit passed. |
+| `raw_integer_subperiod_mass_positive` | Same actual raw integer product and explicit strict positivity condition. | Proved; compiled; new-only axiom audit passed. |
+| `prime_pair_of_nonzero_packet` | All primes p<=Y covered, all forbidden rows zero, and Y<n,n+h<=Y^2 imply both endpoints prime. | Proved; compiled; new-only axiom audit passed. |
+| `prime_pair_of_positive_integer_mass` | Positive native interval mass with complete divisor coverage produces an actual integer prime pair. | Proved; compiled; new-only axiom audit passed. |
+| `prime_pair_of_subperiod_energy` | Complete signed mean/energy bound composed with coverage produces an actual integer prime pair under (M-N)*E<M. | Proved; compiled; new-only axiom audit passed. |
+
+The generic CRT moduli are positive and pairwise coprime; the same native
+integer is used in every coordinate. The two raw specializations additionally
+require prime moduli, odd characteristic, p>=16 and h nonzero modulo each p.
+Those specializations alone omit small primes and p dividing h. The independent
+coverage consumer explicitly requires every prime through Y and both forbidden
+rows for every modulus. It does not silently infer coverage from product size.
+All sums and complements are over the named complete finite residue space.
+
+Benchmark status: proved finite-window transfer and a sufficient integer
+prime-pair consumer; no new unbounded positive-mass estimate.
+Old bound: nonnegative raw mass >=0. New bound: raw mass >=
+M-sqrt((M-N)*M*E), with the old zero bound still available.
+Components: full signed mean M; exact missing cardinality M-N; full raw
+product energy E=prod(1+(3p+d)/(p*(p-d))), with each raw d in {1,3,5}.
+Actuals: no numerical experiments or unknown-sum completions.
+First nonpositive domain of this sufficient lower bound: (M-N)*E>=M.
+That is not a statement that actual mass vanishes there. The required natural
+height range is Y<A and A+N-1+h<=Y^2 for N>0, whereas this test proves
+positivity only for N>M*(1-1/E). No estimate reaching the former range on
+unbounded cutoffs is claimed. No new H1 or RH/QRH boundary follows.
+
+The generic periodic and complement inequalities are elementary and are not
+claimed as independently novel classical theorems. Their role is an exact
+consumer for the specific raw pair moments and probability-law comparisons.
+Paper label: `sec:integer-crt-pair-mass`.
