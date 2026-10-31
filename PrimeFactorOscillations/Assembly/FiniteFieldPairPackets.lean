@@ -5,7 +5,7 @@ Authors: Prime Factor Oscillations contributors
 -/
 import PrimeFactorOscillations.Assembly.FiniteFieldCubicLift
 import PrimeFactorOscillations.Assembly.FiniteFieldJointCharacterProjection
-import PrimeFactorOscillations.Assembly.FiniteFieldNativeHalfSharpness
+import PrimeFactorOscillations.Assembly.FiniteFieldNativeConsecutiveAgreement
 import PrimeFactorOscillations.Assembly.FiniteFieldPairIntegerCRT
 import PrimeFactorOscillations.Assembly.FiniteFieldPairProductSeparation
 import PrimeFactorOscillations.Assembly.FiniteFieldQuasipolynomialWeight
@@ -19,7 +19,8 @@ import PrimeFactorOscillations.Assembly.FiniteFieldTraceFreeWave
 Import-only grouping of the sharp prime-pair weight laws and the complete
 raw elliptic Fourier rows, quantitative native-weight separation, and global
 reconstruction of actual integer prime pairs from cofinite native profiles
-or adaptive observations above the sharp half-mass threshold.
+or adaptive observations. The sharp retained-mass threshold is one half for
+arbitrary prime pairs and three eighths for consecutive prime pairs.
 The identities retain the Gauss-Kloosterman term and its compensation. No new
 integer pair-supply estimate is asserted.
 -/

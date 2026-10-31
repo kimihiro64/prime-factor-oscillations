@@ -3505,3 +3505,35 @@ components: full centered native scalar law; endpoint-product readout; exact sig
 actuals: sixteen universal maintained kernel proofs and sixteen new-only foundational-axiom audits; no finite sample or numerical completion supplies a bound.
 first_nonpositive_domain: the theorem requires a fixed positive margin above half mass. It does not assert reconstruction at exactly half. Field exceptions disappear only after a pair-dependent onset. The witness (5,13) is not consecutive; no consecutive-pair or growing-endpoint sharpness is claimed. Reciprocal weights are not unweighted field counts. No return existence, new integer pair supply, numerical H1 value, RH/QRH gain, or established priority is claimed.
 
+## Sharp three-eighths agreement for consecutive prime pairs (2026-10-31)
+
+Paper: `finite-fields.tex`, Lemmas `lem:native-negative-row` and `lem:native-seven-agreement`, Theorems `thm:native-short-three-eighths` and `thm:native-consecutive-three-eighths`, Corollary `cor:native-consecutive-least-gap`. Owners: `Assembly/FiniteFieldNegativeNumerator.lean`, `Assembly/FiniteFieldNativeAgreementSpectrum.lean`, `Assembly/FiniteFieldNativeShortPairAgreement.lean`, `Assembly/FiniteFieldNativeConsecutiveAgreement.lean`.
+
+`negative_numerator_character_ne_one` is in namespace `PrimeFactorOscillations.IntegerQuadraticCharacter`; all other declarations are in `PrimeFactorOscillations.FiniteFieldIntegerSignature`.
+
+| Declaration | Status | Exact scope |
+| --- | --- | --- |
+| negative_numerator_character_ne_one | proved | For every A>0, the full numerator character of -A modulo4A is nonprincipal, with explicit witness4A-1; negative squares are included. |
+| exists_eventual_nonprincipal_correlation_bound | proved | Every fixed nonzero actual nonprincipal full numerator character has complete signed band correlation bounded eventually by relativeError(B,U). |
+| fixed_nonprincipal_prime_correlation_tendsto_zero | proved | The same complete signed correlation tends to zero with its full modulus and nonunit mask. |
+| native_agreement_indicator | proved | Above both positive integer endpoint pairs and field prime three, the actual scalar-weight equality indicator is exactly(3-ab-cd+ac+ad+bc+bd+3abcd)/8. |
+| native_agreement_mass_eq_seven_correlations | proved | The entire finite supported reciprocal-prime agreement mass equals3M/8 plus the full seven-correlation signed remainder. |
+| native_agreement_remainder_tendsto_zero_of_short_gaps | proved | For actual prime pairs with0<h<n,0<k<m and distinct lower/upper endpoints, all seven actual character rows tend to zero. |
+| native_agreement_three_eighths_of_short_gaps | proved | For every fixed pair in that arithmetic class, native agreement mass minus3M_U/8 tends to zero. |
+| native_indexed_gap_lt_lower | proved | Every actual indexed consecutive prime gap is smaller than its lower prime, including index zero, via Bertrand and the exact prime enumeration. |
+| native_agreement_three_eighths_of_consecutive | proved | Every two distinct actual consecutive prime pairs have complete native agreement mass3M_U/8+o(1), with no character-independence assumption. |
+| native_consecutive_pair_rigidity_of_retained_fraction | proved | Arbitrary adaptive supported observations of mass at least(3/8+delta)M_U at unbounded scales force the same actual consecutive prime index. |
+| native_consecutive_three_eighths_is_sharp | proved | Every two distinct actual consecutive prime pairs admit explicit agreeing finite sets with mass3M_U/8+o(1), eventually above every fixed subthree-eighths fraction. |
+| unbounded_least_gap_consecutive_native_frames | proved | Existing unbounded positive H1 frames admit only the identical actual consecutive return under the improved retained-mass hypothesis. |
+
+Supporting definition: `nativeAgreementRemainder`. Both integer prime pairs are fixed before the independent field scale U. The H1-frame parameter Q is separate.
+
+All four maintained owners compile without warnings. The twelve new-only theorem closures use propext, Classical.choice and Quot.sound. No unchanged older theorem closure was reaudited.
+
+benchmark_status: exact complete agreement law, sharp adaptive consecutive-pair inverse and actual least-gap consumer proved.
+old_bound: the maintained inverse on consecutive pairs required retained reciprocal mass at least(1/2+delta)M_U, inherited from the arbitrary-prime-pair theorem.
+new_bound: every fixed distinct consecutive comparison satisfies A_U-3M_U/8->0. Retained mass at least(3/8+delta)M_U on unbounded independent scales recovers the same pair. Every distinct consecutive comparison supplies agreeing sets of mass3M_U/8+o(1), proving the universal constant optimal with a fixed positive margin.
+components: exact centered native scalar law; full seven-character identity with weights-1,-1,+1,+1,+1,+1,+3; every opening mask and denominator; explicit negative Jacobi witness4A-1 including negative unit squareclasses; three actual positive odd-prime carriers with all factors; full4abs(D) character mean; Bertrand and exact prime enumeration including(2,3); complete retained-set inclusion and actual H1-frame data.
+actuals: twelve universal maintained kernel proofs and twelve new-only foundational-axiom audits; no finite sample, independent-sign model or numerical completion supplies an estimate.
+first_nonpositive_domain: no reconstruction assertion at exactly3/8 without a fixed positive surplus. The three-eighths law excludes identical pairs, whose agreement mass is M_U. All eventual onsets may depend on the fixed integer pairs and requested tolerance. This is reciprocal-prime mass, not an unweighted field count or a uniform theorem with growing integer endpoints. The arbitrary-pair half-mass theorem remains sharp in its larger class. No return existence, new pair supply, numerical H1, RH/QRH gain or established priority is claimed.
+

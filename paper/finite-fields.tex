@@ -12703,11 +12703,222 @@ bands, full conductor error, and its integer-pair inverse.
 Priority of this application is not established.
 
 The sharpness example uses arbitrary prime pairs: \((5,13)\) is
-not consecutive. No sharp threshold for the consecutive-pair
-subclass or for integer endpoints growing with \(U\) is asserted.
+not consecutive. The following section treats the different sharp
+threshold for consecutive pairs. Both results keep the integer
+endpoints fixed before the field scale \(U\) grows.
 The theorem concerns reciprocal-prime mass, rather than an
 unweighted count of fields. It supplies no return existence,
 new integer prime-pair supply, value of \(H_1\), or RH conclusion.
+
+\section{The sharp consecutive-pair agreement law}
+\label{sec:native-consecutive-agreement}
+
+Restricting the integer objects to consecutive prime pairs changes the
+sharp observation threshold. In fact every two distinct consecutive
+pairs have the same asymptotic agreement fraction, even when the pairs
+share their middle endpoint. The fields are still sampled on the finite
+bands \(\mathcal B_U\) above, with reciprocal weights; the integer pairs
+are fixed before \(U\to\infty\).
+
+\begin{lemma}[The negative row is nonprincipal]
+\label{lem:native-negative-row}
+For every integer \(A\ge1\), the full numerator character of \(-A\)
+modulo \(4A\) is nonprincipal. This includes negative squares.
+\end{lemma}
+\begin{proof}
+Put \(N=4A-1\ge3\). It is odd and is three modulo four.
+The standard Jacobi identities give
+\[
+ \left(\frac4N\right)=1,\qquad
+ \left(\frac{4A}N\right)=\left(\frac1N\right)=1.
+\]
+Thus \((A/N)=1\), whereas \((-1/N)=-1\), and consequently
+\[
+                         \left(\frac{-A}N\right)=-1.
+\]
+The actual numerator character evaluated at the residue of \(N\)
+therefore equals \(-1\). A principal character has value one on
+units and zero on nonunits, so cannot have this value. This retains
+the negative phase without requiring an odd prime factor in \(A\).
+\end{proof}
+
+\begin{lemma}[The full seven-character identity]
+\label{lem:native-seven-agreement}
+Fix positive integers \(n,h,m,k\), and set
+\[
+ u=-hn,\quad v=h(n+h),\quad s=-km,\quad t=k(m+k).
+\]
+Once every field prime exceeds both upper endpoints and three,
+the complete finite-band agreement mass is exactly
+\begin{equation}\label{eq:native-seven-agreement}
+ A_U=\frac{3M_U}{8}
+ +\frac{-C_{uv}(U)-C_{st}(U)+C_{us}(U)+C_{ut}(U)
+                 +C_{vs}(U)+C_{vt}(U)+3C_{uvst}(U)}8.
+\end{equation}
+All correlations are the full supported numerator-character sums
+defined above, including their complete scalar moduli.
+\end{lemma}
+\begin{proof}
+At an admissible prime let
+\[
+ a=\chi_u(p),\quad b=\chi_v(p),\quad
+ c=\chi_s(p),\quad d=\chi_t(p).
+\]
+All four values square to one. The exact centered native weight
+shows that weight equality is precisely \(a+b=c+d\), since
+\(p-3\ne0\). For \(z=a+b-c-d\), the only possibilities are
+\(-4,-2,0,2,4\), so
+\[
+ {\bf1}_{\{z=0\}}=\frac{(z^2-4)(z^2-16)}{64}.
+\]
+Expansion using the four square equations gives
+\[
+ {\bf1}_{\{a+b=c+d\}}
+       =\frac{3-ab-cd+ac+ad+bc+bd+3abcd}{8}.
+\]
+This identity holds on every allowed sign configuration; no
+independence of the four characters is assumed. Multiplicativity
+identifies the seven products with the seven numerator characters
+in \eqref{eq:native-seven-agreement}. Multiply by \(1/p\) and sum
+over exactly \(\mathcal B_U\). The maintained finite identity also
+holds on any interval \(Y\le p<X\) with \(Y\ge5\) above both
+upper endpoints.
+\end{proof}
+
+\begin{theorem}[The arithmetic three-eighths law]
+\label{thm:native-short-three-eighths}
+Suppose \(n,n+h,m,m+k\) are prime integers and
+\[
+ 0<h<n,\qquad 0<k<m,\qquad n\ne m,\qquad n+h\ne m+k.
+\]
+Then
+\[
+                       A_U(n,h;m,k)-3M_U/8\longrightarrow0.
+\]
+There is no ordering assumption on the two pairs' heights.
+\end{theorem}
+\begin{proof}
+We check every retained character. The four integers
+\(uv,st,ut,vs\) are negative, so the preceding negative-row lemma
+proves their full characters nonprincipal.
+
+For \(us=hknm\), take \(P=\max(n,m)\) and let \(R\) be the
+other lower endpoint. Then \(P>2\), \(R\ne P\), and \(h,k<P\).
+As \(P\) is prime, it is coprime to \(hkR\). Hence \(us\) has an
+explicit coprime odd prime carrier, and its full character is
+nonprincipal.
+
+For \(vt=hk(n+h)(m+k)\), take \(P\) to be the larger upper
+endpoint and \(R\) the other. Both gaps are strictly below \(P\),
+and \(R\ne P\), so the same argument applies.
+
+Finally retain the entire product
+\[
+                  uvst=h^2k^2n(n+h)m(m+k).
+\]
+The larger upper endpoint \(P\) exceeds both gaps and each of the
+other three endpoints. It occurs exactly once and is coprime to
+the full remaining cofactor, including both gap squares.
+This proves nonprincipality of the seventh full character.
+A shared middle endpoint may occur twice in that cofactor and
+does not invalidate the argument.
+
+For each fixed nonprincipal numerator character of a nonzero
+integer \(D\), the existing full-character reciprocal-prime estimate
+gives a fixed \(B_D\ge0\) and
+\[
+                         |C_D(U)|\le e_{B_D}(U)\longrightarrow0.
+\]
+Its modulus is \(4|D|\); no primitive-character replacement discards
+the associated nonunit mask. This adapter is compiled for every
+fixed actual nonprincipal numerator character, including the negative
+squareclasses above. All seven terms in
+\eqref{eq:native-seven-agreement} therefore tend to zero, so the full
+signed remainder tends to zero.
+The constant \(3M_U/8\) survives the signed assembly.
+\end{proof}
+
+\begin{theorem}[Sharp reconstruction for consecutive prime pairs]
+\label{thm:native-consecutive-three-eighths}
+Let \(p_i<p_{i+1}\) enumerate consecutive rational primes and put
+\(g_i=p_{i+1}-p_i\). For every fixed \(i\ne j\),
+\[
+                  A_U(p_i,g_i;p_j,g_j)-3M_U/8\longrightarrow0.
+\]
+For arbitrary finite sets \(S_U\subseteq\mathcal B_U\), suppose
+\[
+ W_p(p_i,g_i)=W_p(p_j,g_j)\qquad(p\in S_U).
+\]
+If for some fixed \(\delta>0\),
+\[
+                  \sum_{p\in S_U}\frac1p
+                         \ge(3/8+\delta)M_U
+\]
+at unbounded \(U\), then \(i=j\).
+The universal threshold \(3/8\) is sharp within this
+consecutive-pair subclass.
+\end{theorem}
+\begin{proof}
+Bertrand supplies a prime \(r\) with \(p_i<r\le2p_i\).
+The least prime above \(p_i\) is at most \(r\), and a prime above
+\(p_i\ge2\) cannot equal \(2p_i\). Thus
+\(p_{i+1}<2p_i\), or \(0<g_i<p_i\), including \(i=0\) and the
+pair \((2,3)\). Distinct indices give distinct lower endpoints
+and distinct upper endpoints. The arithmetic theorem gives the
+asserted agreement law, including adjacent pairs.
+
+For reconstruction, suppose \(i\ne j\). Every retained observation
+lies in the full agreement set, so its reciprocal mass is at most
+\(A_U=3M_U/8+o(1)\). Since \(M_U\ge(\log2)/2\) eventually,
+the fixed positive surplus \(\delta M_U\) contradicts this error
+along an unbounded sequence. Adaptive selection is allowed.
+
+For sharpness, fix any \(i\ne j\) and choose the explicit finite sets
+\[
+ S_U=\{p\in\mathcal B_U:
+                    W_p(p_i,g_i)=W_p(p_j,g_j)\}.
+\]
+Their supported reciprocal mass is exactly \(A_U\), so it is
+\(3M_U/8+o(1)\). For every \(c<3/8\), the mass eventually exceeds
+\(cM_U\): choose an error smaller than
+\((3/8-c)(\log2)/4\) and use \(M_U\ge(\log2)/2\).
+For any proposed smaller reconstruction cutoff \(c\), take
+\(c'=(c+3/8)/2\) and margin \(\delta=c'-c>0\).
+These distinct pairs then satisfy its retained-mass hypothesis,
+contradicting reconstruction at that cutoff.
+No sufficiency assertion at exactly \(3/8\) without a fixed margin
+is made.
+\end{proof}
+
+\begin{corollary}[The actual least-gap return consumer]
+\label{cor:native-consecutive-least-gap}
+At the existing unbounded positive least-gap frames
+\((Q+1,Q+1+H_1)\), any actual consecutive prime pair preserving
+the native weights on adaptive sets of reciprocal mass at least
+\((3/8+\delta)M_U\) at unbounded independent field scales is the
+identical pair and has gap \(H_1\).
+\end{corollary}
+\begin{proof}
+Choose the existing frame and its actual prime index \(i\).
+Apply the preceding reconstruction theorem to \(i\) and the proposed
+return index \(j\). It gives \(j=i\), so their actual gaps agree.
+The frame \(Q\) and the return index are fixed before \(U\) grows.
+\end{proof}
+
+The maintained owners \texttt{FiniteFieldNegativeNumerator.lean},
+\texttt{FiniteFieldNativeAgreementSpectrum.lean},
+\texttt{FiniteFieldNativeShortPairAgreement.lean}, and
+\texttt{FiniteFieldNativeConsecutiveAgreement.lean} supply twelve
+new proved declarations and their foundational-only axiom closures.
+The character matching mechanism is classical
+\cite{WaljiMatchingDensities}. The arithmetic native-profile
+classification and its sharp adaptive consecutive-pair inverse
+are the application studied here; priority is not established.
+This improves the proved observation threshold from \(1/2\)
+to \(3/8\) on consecutive pairs. The arbitrary-pair half-mass
+sharpness result is unaffected. Neither result supplies a new
+integer pair, a return existence theorem, a numerical value of
+\(H_1\), an RH proof, or a stronger zero-free exponent.
 
 \begin{thebibliography}{99}
 \bibitem{WaljiMatchingDensities}
