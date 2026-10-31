@@ -9456,6 +9456,180 @@ sample into the integer window \(Y<n\le Y^2-h\), and gives no
 integer prime-pair recurrence, value of \(H_1\), RH proof or change
 to the accepted QRH boundary \(7/8\).
 
+
+\section{Rigidity of low-degree simultaneous-square transports}
+\label{sec:cubic-square-rigidity}
+The arbitrary-map classification above permits a quarter-scale surviving
+mass. Polynomial compatibility is substantially more restrictive.
+Throughout this section \(F\) is a finite field of odd cardinality
+\(q\ge5\), \(h\ne0\), and a square multiplier may be zero.
+Write \(\mathcal R_h(c,d)\) when
+\[
+             d=cu^2,\qquad d+h=(c+h)v^2
+\]
+for some \(u,v\in F\).
+
+\begin{theorem}[Complete degree-three classification]
+\label{thm:cubic-square-rigidity}
+Let \(\Phi(X)=AX^3+BX^2+DX+E\in F[X]\).
+Then \(\mathcal R_h(c,\Phi(c))\) for every \(c\in F\) if and only if
+\[
+ \boxed{\quad
+ E=0,\qquad
+ \bigl(A=B=0,\ D=1\bigr)
+ \quad\hbox{or}\quad
+ \bigl(Ah^2=16,\ Bh=24,\ D=9\bigr).
+ \quad}
+\]
+Equivalently, the complete list is
+\[
+                    \Phi(X)=X,\qquad
+                    \Phi(X)=X(4X/h+3)^2.
+\]
+The conclusion includes all polynomials of smaller degree and all
+odd characteristics in the stated cardinality range.
+\end{theorem}
+
+\begin{proof}
+The anchors \(0,-h\) force \(E=0\) and \(\Phi(-h)=-h\), hence
+\(D=1-Ah^2+Bh\). Define
+\[
+ R(X)=AX^2+BX+D,\qquad
+ S(X)=AX^2+(B-Ah)X+1.
+\]
+Then \(\Phi(X)=XR(X)\) and
+\(\Phi(X)+h=(X+h)S(X)\).
+Compatibility says that \(R(c)\) is square for \(c\ne0\) and
+\(S(c)\) is square for \(c\ne-h\).
+
+We retain the exact correction at an exceptional input.
+For any \(f:F\to F\) square away from \(t\), let
+\(Z_f=\sum_{c\in F}\mathbf1_{\{f(c)=0\}}\).
+With \(\chi(0)=0\),
+\[
+ \sum_{c\in F}\chi(f(c))
+     =q-Z_f-1+\chi(f(t))+\mathbf1_{\{f(t)=0\}}.       \tag{CR1}
+\]
+Indeed, at each nonexceptional input the character is one minus
+the zero indicator; the displayed correction restores the input \(t\).
+
+For \(Q(X)=aX^2+bX+c\), \(a\ne0\), put
+\(\Delta=b^2-4ac\). Completing the square, followed by the
+already proved square-subtraction character identity, gives
+\[
+ \sum_{x\in F}\chi(Q(x))=
+ \begin{cases}\chi(a)(q-1),&\Delta=0,\\-\chi(a),&\Delta\ne0,\end{cases}
+ \qquad Z_Q=1+\chi(\Delta).                         \tag{CR2}
+\]
+The nonconstant affine analogues are character sum zero and zero
+count one. Thus (CR1) rules out a nonconstant affine polynomial
+square away from one input when \(q\ge5\).
+If \(A=0\), applying this to \(R\) gives \(B=0\), then \(D=1\).
+
+Suppose \(A\ne0\). Equations (CR1)--(CR2) give a precise dichotomy
+for either quotient. Either its discriminant is zero and
+\(\chi(A)=1\), or
+\[
+ q=5,\qquad \chi(A)=-1,\qquad
+ \chi(\Delta)=1,\qquad \chi(Q(t))=-1.               \tag{CR3}
+\]
+To see that these are the only alternatives, (CR1) is at least
+\(q-4\), whereas a nonzero-discriminant sum is at most one.
+Equality at \(q=5\) forces every condition in (CR3).
+A zero-discriminant polynomial with nonsquare leading coefficient
+instead has sum \(-(q-1)\), contradicting (CR1).
+
+The exceptional alternatives must be analyzed jointly.
+If either \(R\) or \(S\) has (CR3), their common leading coefficient
+forces both to have it. Each has exactly two distinct roots, and
+neither vanishes at its exceptional input. Consequently
+\(\Phi\) has three distinct roots, including \(0\), and
+\(\Phi+h\) has three distinct roots, including \(-h\).
+Their root sets are disjoint because \(h\ne0\).
+Six distinct elements cannot lie in a five-element field.
+This eliminates the exceptional alternative without excluding
+the field \(F_5\).
+
+Both discriminants therefore vanish. Using the anchor relation,
+\[
+ \Delta_R-\Delta_S=Ah(3Ah-2B),
+\]
+so \(2B=3Ah\). The exact identity
+\[
+ A(Ah^2-16)=
+ 4\Delta_S-(2B-3Ah)(2B-Ah)
+\]
+now gives \(Ah^2=16\). Since two is nonzero, \(Bh=24\), and then
+\(D=9\).
+
+Conversely the identity map is compatible. For the second map,
+\[
+ \Phi(c)=c(4c/h+3)^2,\qquad
+ \Phi(c)+h=(c+h)(4c/h+1)^2.
+\]
+These are the required square witnesses, including their zeros.
+\end{proof}
+
+In characteristic three the second map is exactly \(X^3/h^2\).
+The proof retains this case, all prime-power extension fields of
+cardinality at least five, and the five-element field. Cardinality
+three lies outside the probability normalization \(q-3>0\);
+no statement at that excluded denominator is inferred here.
+
+\begin{theorem}[Every compatible low-degree sequence retains half-scale mass]
+\label{thm:low-degree-square-survival}
+At the normalized shift \(h=2\), let \(\Phi_0,\ldots,\Phi_{r-1}\)
+be any sequence of polynomials of degree at most three, each
+compatible at every field input. Put \(P_0(c)=c\) and
+\(P_{j+1}(c)=\Phi_j(P_j(c))\). Then for some \(0\le k\le r\),
+\[
+ P_r=T^{\circ k},\qquad T(c)=c(2c+3)^2,
+\]
+and the actual trace-free two-class law satisfies
+\[
+ \boxed{\qquad
+ \frac1q\sum_{c\in F}W_2(P_r(c))
+                    \ge\frac{q-3}{2q}.
+ \qquad}                                               \tag{CR4}
+\]
+\end{theorem}
+\begin{proof}
+The classification gives \(\Phi_j=\mathrm{id}\) or \(T\) for every
+stage. Induction on \(r\) identifies the composite with a cubic
+iterate; \(k\) counts the nonidentity stages.
+Apply the already established uniform cubic-iterate survival bound.
+The choice of polynomial at a stage is global; arbitrary
+point-dependent piecewise choices belong to the earlier
+arbitrary-map theorem instead.
+\end{proof}
+
+\paragraph{Comparison, provenance and verification.}
+The earlier sharp lower bound \((q-\chi(-1))/(4q)\) applies to all
+compatible maps. The entire low-degree composition class instead
+has (CR4), approaching one half. The bounds agree at \(q=5,7\);
+(CR4) is strictly stronger at every admissible \(q\ge9\).
+The discriminant sums are classical ingredients. Zannier studies
+polynomial square values modulo a prime
+\cite{ZannierSquareValues}; Csajb\'ok's multiplicative-subgroup
+condition controls all secant slopes \cite{CsajbokSecants},
+whereas the present hypothesis fixes only two anchors.
+The coupled one-exception argument is the classification proved
+here; historical priority remains unconfirmed.
+
+The maintained owners
+\texttt{QuadraticCharacterPolynomial},
+\texttt{QuadraticCharacterOneException},
+\texttt{QuadraticPairCubicRigidity} and
+\texttt{QuadraticPairLowDegreeSurvival} contain the real Lean proofs.
+The classification and its converse, not only the character
+identities, are formalized. The density in (CR4) is the compensated
+average of two actual irreducible-pair counts, not an individual
+raw elliptic packet. Neither (CR4) nor the classification establishes
+positive integer mass in \(B<n\le B^2-h\).
+The complete prime-divisor coverage certificate remains proved,
+and its unbounded-window positivity input remains open.
+QRH research remains paused; the accepted \(7/8\) boundary is unchanged.
+
 \begin{thebibliography}{99}
 \bibitem{DavidKoukoulopoulosSmith}
 C. David, D. Koukoulopoulos and E. Smith,
@@ -9547,5 +9721,14 @@ Finite Fields and Their Applications 49 (2018), 143--155.
 \emph{Chebyshev action on finite fields},
 Discrete Mathematics 315--316 (2014), 83--94.
 \url{https://arxiv.org/abs/1209.4396}.
+\bibitem{ZannierSquareValues} U. Zannier,
+\emph{Polynomials modulo \(p\) whose values are squares
+(elementary improvements on some consequences of Weil's bounds)},
+L'Enseignement Math\'ematique 44 (1998), 95--102.
+\url{https://www.e-periodica.ch/cntmng?pid=ens-001:1998:44::54}.
+\bibitem{CsajbokSecants} B. Csajb\'ok,
+\emph{Extending a result of Carlitz and McConnel to polynomials
+which are not permutations}, arXiv:2409.04045.
+\url{https://arxiv.org/abs/2409.04045}.
 \end{thebibliography}
 \end{document}

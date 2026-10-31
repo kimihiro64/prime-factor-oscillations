@@ -2607,3 +2607,51 @@ actuals: falsification checked all nonzero shifts in15 prime and extension field
 first_nonpositive_domain: none in the proved finite-field domain q>=5. No positive integer-window domain is certified; unbounded-cutoff positivity in Y<n<=Y^2-h remains open.
 
 The projector and correlation ingredients are classical. The complete arbitrary-map weighted-profile classification is the application proved here; historical priority remains unconfirmed. This does not improve the stronger cubic-specific reserve, prove integer prime-pair recurrence or change H1, RH or the accepted QRH7/8 boundary. QRH exponent research stays paused.
+
+## Complete low-degree square-transport rigidity and sequence survival (2026-10-31)
+
+Owner: `PrimeFactorOscillations/Mathlib/NumberTheory/LegendreSymbol/QuadraticCharacterPolynomial.lean`.
+
+| Claim | Status | Exact scope |
+| --- | --- | --- |
+| `FiniteField.quadraticChar_affine_sum` | proved and audited | finite odd field; nonzero slope; exact zero full character sum |
+| `FiniteField.affine_zero_indicator_sum` | proved and audited | every finite field; nonzero slope; exact root count one |
+| `FiniteField.quadraticChar_quadratic_sum` | proved and audited | finite odd field; nonzero quadratic coefficient; exact discriminant split, including repeated roots |
+| `FiniteField.quadratic_zero_indicator_sum` | proved and audited | same domain; exact root-indicator sum 1+chi(discriminant) |
+
+Owner: `PrimeFactorOscillations/Mathlib/NumberTheory/LegendreSymbol/QuadraticCharacterOneException.lean`.
+
+| Claim | Status | Exact scope |
+| --- | --- | --- |
+| `FiniteField.square_off_one_character_sum` | proved and audited | arbitrary function on a finite field; square away from one named input; exact signed correction and full zero count |
+| `FiniteField.affine_square_off_one_constant` | proved and audited | finite odd q>=5; square away from one input forces zero slope |
+| `FiniteField.quadratic_square_off_one_dichotomy` | proved and audited | finite odd q>=5; nonzero leading coefficient; square polynomial or exact five-element exceptional character data |
+
+Owner: `PrimeFactorOscillations/Mathlib/NumberTheory/LegendreSymbol/QuadraticPairCubicRigidity.lean`.
+
+| Claim | Status | Exact scope |
+| --- | --- | --- |
+| `FiniteField.cubic_squarePairReach_constant_zero` | proved and audited | every field; all-input compatibility of a polynomial of degree at most three forces constant term zero |
+| `FiniteField.cubic_squarePairReach_endpoint` | proved and audited | every field; nonzero shift; exact second-anchor coefficient relation |
+| `FiniteField.cubic_squarePairReach_quotient_squares` | proved and audited | every field; exact anchor relation and compatibility; both quotient square conditions retain their exceptional inputs |
+| `FiniteField.cubic_squarePairReach_rigidity` | proved and audited | every finite odd q>=5 and nonzero h; full coefficient dichotomy; five-element exception excluded jointly; characteristic three retained |
+| `FiniteField.cubic_squarePairReach_iff` | proved and audited | same domain; both directions of the complete classification, with explicit converse square witnesses |
+
+Owner: `PrimeFactorOscillations/Mathlib/NumberTheory/LegendreSymbol/QuadraticPairLowDegreeSurvival.lean`.
+
+| Claim | Status | Exact scope |
+| --- | --- | --- |
+| `FiniteField.cubicPair_map_dichotomy` | proved and audited | finite odd q>=5; normalized shift two; the entire polynomial map is identity or the cubic lift |
+| `FiniteField.polynomialPairWalk_is_cubic_iterate` | proved and audited | every field; any sequence of identity/cubic maps; its n-stage composite is a cubic iterate with exponent at most n |
+| `FiniteField.low_degree_square_transport_survival` | proved and audited | every finite odd q>=5; any globally compatible sequence of degree-at-most-three polynomial maps at shift two; every finite composition has mean >=(q-3)/(2q) |
+
+Definition (compiled and audited): `FiniteField.polynomialPairWalk`.
+
+benchmark_status: universal exact map classification, both directions, and all-sequence finite-field survival;15 real theorems and1 definition, with new-only foundational-axiom audit.
+old_bound: arbitrary compatible maps have mean >=(q-chi(-1))/(4q); the half-scale theorem was available only for the selected cubic and its iterates.
+new_bound: every compatible polynomial of degree at most three is identity or X*(4X/h+3)^2. At shift two, every finite sequence of such maps has mean >=(q-3)/(2q), independently of its length and coefficients. This matches the general bound at q=5,7 and is strictly stronger for every admissible q>=9.
+components: exact one-input signed compensation; quadratic discriminant sum and full zero count; both quotient rows; common leading character; disjoint three-root sets in q=5; nonzero two and nonzero gap; complete coefficient cancellation; existing all-iterate cubic survival with all masks retained.
+actuals: the pre-formalization classification test covered385620 coefficient rows across all340 nonzero-shift frames in15 prime and extension fields, finding exactly680 compatible polynomials. The earlier135 exact-rational cubic-iterate means are retained as diagnostics. These finite evaluations do not replace the universal proof or count integer prime pairs.
+first_nonpositive_domain: none in the qualified finite-field survival domain q>=5 and every finite sequence length. No positive integer-origin window or unbounded-cutoff prime-pair supply is certified.
+
+The classical character-sum ingredients are not claimed new. The two-anchor low-degree classification differs from all-secant subgroup conditions and from the earlier open exact cubic absorption profile. Historical priority remains unconfirmed after the recorded portfolio and primary-literature comparison. These are completed finite-field results, not an integer short-window estimate, H1 improvement, RH proof or QRH exponent gain. QRH research remains paused and7/8 unchanged.
