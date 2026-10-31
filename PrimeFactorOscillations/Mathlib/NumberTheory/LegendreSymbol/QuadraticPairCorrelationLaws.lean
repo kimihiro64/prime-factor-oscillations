@@ -6,6 +6,7 @@ Authors: Prime Factor Oscillations contributors
 import PrimeFactorOscillations.Mathlib.NumberTheory.LegendreSymbol.QuadraticPairCubicSurvival
 import PrimeFactorOscillations.Mathlib.NumberTheory.LegendreSymbol.QuadraticPairLowDegreeSurvival
 import PrimeFactorOscillations.Mathlib.NumberTheory.LegendreSymbol.QuadraticPairOddPell
+import PrimeFactorOscillations.Mathlib.NumberTheory.LegendreSymbol.QuadraticPairOddPellSectors
 import PrimeFactorOscillations.Mathlib.NumberTheory.LegendreSymbol.QuadraticPairPolynomialDegree
 import PrimeFactorOscillations.Mathlib.NumberTheory.LegendreSymbol.QuadraticPairSquareExtremal
 import PrimeFactorOscillations.Mathlib.NumberTheory.LegendreSymbol.QuadraticPairTensorPersistence
@@ -21,5 +22,6 @@ all attainable square-transport profiles with their sharp mass,
 the complete low-degree map classification and sequence reserve,
 the linear polynomial complexity of exact minimum mass,
 the all-index Pell trace and endpoint parameterization,
-and exact trace-fiber and finite torus power-kernel counts.
+exact trace-fiber and finite torus power-kernel counts,
+and native split/nonsplit Pell endpoint cardinalities.
 -/

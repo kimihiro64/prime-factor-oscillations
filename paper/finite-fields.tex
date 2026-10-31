@@ -9839,8 +9839,9 @@ its squared factor vanishes. This proves both endpoint equivalences.
 The eight theorem declarations and two definitions in
 \texttt{QuadraticPairOddPell} have passed maintained compilation and
 the new-declaration foundational-axiom audit.
-The full finite-field split/nonsplit endpoint counts, exact probability
-mass, and odd-semigroup minimum are not yet Lean-proved.
+The split/nonsplit endpoint counts are now formalized in
+Section~\ref{sec:odd-pell-native-sector-counts}; the exact probability
+mass and odd-semigroup minimum are not yet Lean-proved.
 The algebraic identities above provide their input; they do not
 establish positive raw-packet mass on an incomplete integer window.
 
@@ -9936,6 +9937,90 @@ These classical geometric inputs do not yet establish the selected
 odd-semigroup weighted mean or its \(2\)-primary minimum and attainment
 classification. In particular, no positive integer prime-pair mass,
 integer recurrence, or improved RH/QRH boundary is claimed.
+
+\section{Exact split and nonsplit Pell endpoint counts}
+\label{sec:odd-pell-native-sector-counts}
+The trace geometry now gives counts on the original field itself.
+Write \(F\) for an odd finite field, \(q=|F|\),
+\(m=2k+1\), and retain the preceding definition of \(\Phi_k\).
+
+\begin{theorem}[Native joint endpoint sector counts]
+\label{thm:odd-pell-native-sector-counts}
+For every \(k\ge0\), let
+\[
+ \begin{split}
+ A_{\rm sp}&=\{c\in F\setminus\{0,-2\}:
+   \Phi_k(c)\in\{0,-2\},\ c(c+2)\text{ is a square in }F\},\\
+ A_{\rm ns}&=\{c\in F\setminus\{0,-2\}:
+   \Phi_k(c)\in\{0,-2\},\ c(c+2)\text{ is not a square in }F\}.
+ \end{split}
+\]
+Then the exact simultaneous counts are
+\[
+ 2|A_{\rm sp}|+2=\gcd(q-1,2m),\qquad
+ 2|A_{\rm ns}|+2=\gcd(q+1,2m).
+\]
+The assertion includes \(q=3\) and all indices divisible by the
+characteristic. It requires no bound for a character sum.
+\end{theorem}
+\begin{proof}
+Work in an algebraic closure \(K\) of \(F\).
+For \(t(z)=c\in F\), the identity
+\[
+ (z-(c+1))^2=c(c+2)
+\]
+shows that \(c(c+2)\) is a square in \(F\) exactly when \(z\in F\).
+Indeed, a square root \(r\in F\) gives \(z=c+1+r\) or \(c+1-r\);
+the converse uses \(r=z-(c+1)\).
+Native Frobenius therefore identifies the square sector with
+\(z^{q-1}=1\). Every trace input in \(F\) lies on one of the two tori
+by Theorem~\ref{thm:odd-pell-native-trace-cover}.
+If a nonzero \(z\) lies on both, then \(z^2=1\), so its trace input
+is \(0\) or \(-2\). Away from these inputs, the nonsquare sector
+is consequently exactly \(z^{q+1}=1\).
+
+The Pell recurrence and both its coordinates commute with every
+homomorphism of commutative rings. Thus its endpoint assertions
+over \(K\) pull back to the actual map over \(F\).
+The two endpoint conditions combine without separating their fibers:
+\[
+ \Phi_k(t(z))\in\{0,-2\}
+ \quad\Longleftrightarrow\quad
+ z^m\in\{1,-1\}
+ \quad\Longleftrightarrow\quad z^{2m}=1.
+\]
+No division by \(m\) is used here.
+
+Both tori have their full expected root counts in \(K\):
+in \(F\), the casts of \(q-1\) and \(q+1\) are respectively
+\(-1\) and \(1\), hence are nonzero.
+For \(n=q-1\) or \(q+1\), apply
+Theorem~\ref{thm:odd-pell-torus-kernel-count} to
+\(S_{n,m}\).
+Every trace input of this kernel belongs to \(F\), and the embedding
+\(F\hookrightarrow K\) is injective, so its trace-image cardinality
+is also the cardinality of the corresponding native set in \(F\).
+That native set contains the two distinct inputs \(0,-2\).
+Removing both gives
+\[
+ 2\bigl(|A|+2\bigr)=\gcd(n,2m)+2,
+\]
+which is the claimed identity.
+\end{proof}
+
+\paragraph{Formal scope and remaining probability calculation.}
+The nine theorem declarations and one finite-set definition in
+\texttt{QuadraticPairOddPellSectors} have passed maintained compilation
+and a new-declaration foundational-axiom audit.
+The general trace-descent and sector-count theorems state their
+hypotheses explicitly; the final joint count discharges them for
+both concrete tori.
+This completes the native cardinality bridge.
+The weighted mean and the minimum over all odd degrees have not yet
+been formalized. The normalized probability law requires \(q\ge5\);
+the count theorem at \(q=3\) does not assert such a normalization.
+No positive mass on an integer primality window follows from these
+finite-field counts alone.
 
 \begin{thebibliography}{99}
 \bibitem{DavidKoukoulopoulosSmith}

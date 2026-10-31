@@ -2707,7 +2707,7 @@ Definitions: FiniteField.oddPellPair and FiniteField.oddPellMap.
 | FiniteField.oddPell_map_eq_zero_iff | proved and audited | Same domain; Phi=0 iff z^(2*k+1)=1. |
 | FiniteField.oddPell_map_eq_neg_two_iff | proved and audited | Same domain; Phi=-2 iff z^(2*k+1)=-1. |
 
-No assumption excludes odd indices divisible by the characteristic. This module is the algebraic input to the selected odd-semigroup mass problem. Its exact split/nonsplit finite-field counts, full probability formula and2-primary minimum/attainment classification remain unproved in Lean and are not promoted as completed theorems.
+No assumption excludes odd indices divisible by the characteristic. This module is the algebraic input to the selected odd-semigroup mass problem. The subsequent maintained owner QuadraticPairOddPellSectors now proves its exact native split/nonsplit endpoint input counts. The full weighted probability formula and2-primary minimum/attainment classification remain unproved in Lean.
 
 benchmark_status: structural input formalization;8 real theorems and2 definitions, with new-only foundational-axiom audit.
 old_bound: the cubic transport and its uniform3-power survival were installed; no all-index native Pell trace and endpoint package was exported.
@@ -2736,7 +2736,7 @@ Definition: FiniteField.oddTraceInput z=(z-1)^2/(2*z).
 | FiniteField.exists_torus_power_kernel | proved and audited | Every n>=1 and d>=0 in a field with enough n-th roots of unity; a finite set of all joint n-th and d-th roots has cardinal gcd(n,d). |
 | FiniteField.exists_torus_trace_kernel_image | proved and audited | Same root hypothesis, (-1)^n=1 and 2 nonzero; simultaneous n-th and (2*m)-th roots have trace-image count satisfying 2*card(image)=gcd(n,2*m)+2, for every m>=0. |
 
-These are classical geometric and group-theoretic inputs to the selected odd-semigroup mass problem. No characteristic-coprimality condition is imposed on d or m. The actual split/nonsplit weighted endpoint counts, full probability formula and 2-primary minimum/attainment classification remain unproved in Lean.
+These are classical geometric and group-theoretic inputs to the selected odd-semigroup mass problem. No characteristic-coprimality condition is imposed on d or m. The subsequent owner QuadraticPairOddPellSectors now proves the actual split/nonsplit input cardinalities; their weighted mean and2-primary minimum/attainment consumer remain unproved in Lean.
 
 benchmark_status: exact input formalization;11 real theorems and1 definition, with new-only foundational-axiom audit.
 old_bound: all-index Pell endpoint recovery was exported, but the native trace-fiber and finite torus cardinality bridge was not.
@@ -2744,5 +2744,32 @@ new_bound: the generic joint-root count is exactly gcd(n,d), and the joint endpo
 components: polynomial root bound, extension-field Frobenius, exact scaled trace factorization, reciprocal fibers, both singleton endpoints, fiberwise finite sums and the cyclic power-kernel cardinal theorem.
 actuals: universal symbolic proofs; no new finite diagnostic is used as evidence for the weighted mean or minimum formula.
 first_nonpositive_domain: no signed integer-mass lower bound is installed. The trace count requires 2 nonzero and both endpoint roots; the full finite-field weighted profile and natural-height integer pair mass remain open.
+
+## Native split/nonsplit Pell endpoint counts (2026-10-31)
+
+Owner: PrimeFactorOscillations/Mathlib/NumberTheory/LegendreSymbol/QuadraticPairOddPellSectors.lean
+
+Definition: FiniteField.oddPellEndpointSector P k is the finite set of c outside {0,-2} satisfying P c and oddPellMap c k in {0,-2}. The input precedes the index in oddPellMap.
+
+| Lean declaration | Status | Exact scope |
+| --- | --- | --- |
+| FiniteField.oddTraceInput_discriminant_square | proved and audited | Every field with2 nonzero and z nonzero: (z-(t(z)+1))^2=t(z)*(t(z)+2). |
+| FiniteField.oddTraceInput_discriminant_isSquare_iff_mem_base | proved and audited | Any field extension K/F with2 nonzero, t(z)=c in F: c*(c+2) square in F iff z belongs to embedded F; includes both endpoints. |
+| FiniteField.pow_card_sub_one_eq_one_iff_mem_range | proved and audited | Any extension of a finite field, z nonzero: z^(q-1)=1 iff z belongs to embedded F. |
+| FiniteField.oddPell_map_endpoint_union_iff | proved and audited | Every field with2 nonzero: Phi_k(t(z)) is0 or-2 iff z^(2*(2*k+1))=1. |
+| FiniteField.oddPell_pair_map | proved and audited | Every homomorphism of commutative rings; both coordinates of the all-index recurrence commute with the map. |
+| FiniteField.oddPell_map_map | proved and audited | Same domain; the actual Pell map commutes with the ring homomorphism. |
+| FiniteField.exists_base_torus_trace_kernel | proved and audited | Enough n-th roots and the explicit trace-descent condition; a native finite set C of all trace inputs has 2*card(C)=gcd(n,2*m)+2. |
+| FiniteField.card_oddPell_endpoint_sector | proved and audited | Algebraically closed extension, enough n-th roots, both endpoint roots and an explicit nonendpoint sector criterion; gives2*card(sector)+2=gcd(n,2*m). |
+| FiniteField.oddPell_endpoint_split_nonsplit_counts | proved and audited | All odd finite fields, all k>=0: both sector criteria and enough-roots conditions are discharged at n=q-1 and q+1. The two actual nonendpoint collapsed-input counts satisfy2*N+2=gcd(q-1,2*m) and2*N+2=gcd(q+1,2*m), m=2*k+1. |
+
+The last theorem is unconditional on the field and index apart from2 nonzero. In particular q=3 and characteristic-divisible indices are included. The normalized probability law requires q>=5; the weighted mean and2-primary semigroup optimum remain open.
+
+benchmark_status: exact native cardinality bridge;9 real theorems and1 definition, with new-only foundational-axiom audit.
+old_bound: only generic trace-involution image and power-kernel counts were public; the actual base-field Pell endpoint sectors were uncounted.
+new_bound: the full nonendpoint split and nonsplit counts are exactly specified by2*N+2=gcd(q-1,2*m) and gcd(q+1,2*m), with every endpoint correction retained.
+components: native square-discriminant equivalence, finite-field fixed points, ring-homomorphism transport, joint endpoint kernel, trace descent, both erased endpoints and the concrete q-1/q+1 sector criteria.
+actuals: universal symbolic proofs; no finite diagnostic substitutes for a count or the remaining probability formula.
+first_nonpositive_domain: the integer-window positive-mass problem and certified QRH boundary are unchanged. The generic sector theorem has stated root/descent hypotheses, all discharged in the concrete joint count. No weighted mean or optimized semigroup minimum is claimed yet.
 
 The Pell and Chebyshev identities are classical inputs. Historical priority of the proposed weighted odd-semigroup extremal application remains unconfirmed. This input promotion neither rebrands the existing finer cubic absorption problem as new nor changes H1, RH or QRH. QRH stays paused and7/8 unchanged.
