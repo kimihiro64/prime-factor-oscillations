@@ -3056,3 +3056,36 @@ new_bound: at q=3^ell for every prime ell, all support sizes are multiples of2*e
 components: exact full signed support spectrum; multiplicative order of9 modulo every admissible odd prime; totient divisibility; explicit degree2 case; safe-prime Fermat supply; attained primitive minimum and actual finite representability.
 actuals: universal kernel-checked proofs over the full prime-ell domain; the finite degree2 exception is justified after the symbolic split. No numerical experiment or unresolved analytic completion supplies the bound.
 first_nonpositive_domain: zero support is attained by the zero probe; every nonzero probe has the stated positive minimum. The theorem does not prove infinitely many Sophie Germain primes, integer prime pairs, RH or a QRH improvement. The order and totient ingredients are classical; historical priority of the signed-probe support conclusion remains unconfirmed.
+
+## Extension-degree roughness and the tower obstruction (2026-10-31)
+
+Owners: PrimeFactorOscillations/Mathlib/NumberTheory/ArithmeticFunction/TernaryExtensionOrder.lean and PrimeFactorOscillations/Mathlib/NumberTheory/LegendreSymbol/QuadraticPairOddPellRoughness.lean.
+Export: QuadraticPairOddPellLaws, then the existing correlation and root facades.
+
+| Lean declaration | Status | Exact scope |
+| --- | --- | --- |
+| Nat.ternaryExtension_primeFactor_iff | proved | For every prime p, divisibility into3^n-1 or3^n+1 is equivalent to9^n=1 in ZMod p. |
+| Nat.ternaryExtension_primeFactor_lift | proved | Every such prime factor lifts from degree d to degree n whenever d divides n. |
+| Nat.ternaryExtension_primeFactor_lower | proved | Every n>=2 and admissible odd prime p satisfy2*minFac(n)<=p-1, using the full square-order half exponent. |
+| Nat.ternaryExtension_totient_lower | proved | Every admissible odd d>1 has phi(d)>=2*minFac(n). |
+| Nat.ternaryExtension_endpoint_prime | proved | An admissible totient equal to2*minFac(n) forces2*minFac(n)+1 prime. |
+| FiniteField.oddPell_ternary_atom_totient_lower | proved | Every primitive class at3^n has at least2*minFac(n) points, all n>=2. |
+| FiniteField.oddPell_ternary_minSupport_lower | proved | The attained sharp support minimum is at least2*minFac(n). |
+| FiniteField.oddPell_ternary_support_lower | proved | Every nonzero actual finite signed probe has support at least2*minFac(n), every nonzero shift and2 nonzero. |
+| FiniteField.oddPell_ternary_minSupport_eq_iff_prime | proved | The attained minimum equals2*minFac(n) iff2*minFac(n)+1 is prime. |
+| FiniteField.oddPell_ternary_endpoint_iff_prime | proved | Actual nonzero finite support2*minFac(n) exists iff, every nonzero shift. |
+| FiniteField.oddPell_ternary_minSupport_bound_of_degree_dvd | proved | If d>=2 divides n>=2, the minimum at3^n is at most3^d+1. |
+| FiniteField.oddPell_ternary_minSupport_upper | proved | The minimum is at most3^minFac(n)+1. |
+| FiniteField.oddPell_ternary_minSupport_bounds | proved | Both uniform scalar bounds for the explicitly defined ternary minimum. |
+| FiniteField.oddPell_ternary_minSupport_tendsto_iff | proved | For every sequence of degrees a(j)>=2, the minimum tends to infinity iff minFac(a(j)) does. |
+| FiniteField.oddPell_ternary_tower_bounded | proved | A fixed d>=2 dividing every degree gives the uniform minimum bound3^d+1. |
+| FiniteField.oddPell_ternary_tower_not_tendsto | proved | The minimum cannot tend to infinity along such a fixed-divisor tower. |
+
+The one definition is FiniteField.oddPellTernaryMinSupport n, the existing scalar minimum evaluated at cardinality3^n using Fin(3^n). It records a number; no field structure on Fin(3^n) is assumed. Actual field/probe statements retain the finite field, nonzero shift,2 nonzero, finite polynomial-index support and arbitrary real signed coefficients. All composite and even degrees n>=2 are included. No divisibility of all support sizes by2*minFac(n), or composite-case4*minFac(n) gap, is claimed for composite n.
+
+benchmark_status: complete all-extension classification proved;16 new maintained public theorems and1 definition. The prior completed68-theorem localization and11-theorem prime-extension candidates are preserved.
+old_bound: exact finite totient minimum for general fields; explicit2*ell lower bound and endpoint iff only for prime extension degrees.
+new_bound: for every n>=2 and r=minFac(n),2*r<=m(3^n)<=3^r+1 and m(3^n)=2*r iff2*r+1 is prime; divergence along every degree sequence is equivalent to divergence of r, with a uniform fixed-divisor tower bound.
+components: order_p(9)>1 dividing both n and(p-1)/2, least-prime-factor lower bound, all admissible totients, exact full signed minimum and actual finite attainment, divisor-degree prime-factor lift, and the two explicit scalar bounds.
+actuals: universal kernel-checked proofs over the full stated domains; no numerical or unresolved analytic completion is used.
+first_nonpositive_domain: zero probes have support0, and n=1 is the earlier q3 degeneracy; all nonzero bounds here require n>=2. Fixed-divisor towers have bounded minima despite growing field size. This proves no integer-window positivity, H1, RH, QRH improvement or Sophie Germain infinitude. Classical arithmetic and Chebyshev geometry are inputs; historical priority of the signed-probe classification remains unconfirmed.
