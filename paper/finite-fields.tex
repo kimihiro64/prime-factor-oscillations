@@ -6865,6 +6865,190 @@ integer corollary
 Both owners are exported through
 \texttt{Assembly/ProbabilityProfiles}.
 
+\subsection{Two-character weights throughout quasipolynomial heights}
+The natural-height hypothesis in (WP) is needed to extract
+primality from the opening masks. It is not needed to compare the
+two character tails once actual primality is supplied. This
+distinction gives a larger range for the sharp weight exponent.
+
+For \(m\geq1\), put
+\[
+             F_m=64m+577,\qquad
+             J_{m,Q}=\left\lceil
+                    \bigl(10(\log Q)^m\bigr)^{64}\right\rceil .
+\]
+The degree \(m\) is fixed before \(Q\) tends to infinity.
+
+\begin{theorem}[Uniform quasipolynomial prime-pair weights]
+\label{thm:quasipolynomial-pair-weights}
+There are absolute \(a,b>0\), chosen before \(m\), such that
+for every integer \(m\geq1\) there is a cutoff \(Q_0(m)\)
+with the following property. If
+\[
+ \begin{gathered}
+ Q\geq Q_0(m),\qquad 0<h<Q<n,\qquad n,\ n+h\text{ prime},\\
+                  \log(n+h)\leq2(\log Q)^m ,
+ \end{gathered}
+ \tag{QH}
+\]
+then the full actual packet satisfies
+\[
+ \frac{a}{F_m^2}\,
+      \frac{(\log Q)^2}{(\log\log Q)^2}
+ \ \leq U_{h,Q}(n)\leq
+ bF_m^2\,(\log Q)^2(\log\log Q)^2 .
+ \tag{QW}
+\]
+In particular, for each fixed \(m\),
+\[
+                 \frac{\log U_{h,Q}(n)}{\log\log Q}\longrightarrow2
+ \tag{QE}
+\]
+uniformly over all the prime pairs and shifts in (QH).
+The height range is \(n+h\leq\exp(2(\log Q)^m)\).
+Only the eventual cutoff depends on \(m\); the displayed \(a,b\)
+do not.
+\end{theorem}
+
+\begin{proof}
+Write
+\[
+                   L_{h,n}=3+\log(4h(n+h)).
+\]
+The maintained numerator-character tail theorem has one absolute
+\(C>0\) before \(h,P,Y,X\). It applies to the numerators
+\(\pm hP\) whenever \(P\) is prime, \(2<P\), and \(0<h<P\).
+For (QH), use \(P=n\) with numerator \(-hn\) and
+\(P=n+h\) with numerator \(h(n+h)\). Both satisfy those
+hypotheses, without using \(n+h\leq Q^2\).
+The source nonprincipality proof uses the prime factor \(P\);
+it is retained in each application. Monotonicity of the conductor
+level gives, for \(1\leq Y\) and every \(X\),
+\[
+ \left|\sum_{\substack{Y\leq p<X\\p\ {\rm prime}}}
+       \frac{\chi_{-hn}(p)+\chi_{h(n+h)}(p)}p\right|
+ \leq 2C L_{h,n}^2Y^{-1/32}.
+ \tag{QT}
+\]
+Here the characters include their zero values exactly as in the
+maintained numerator kernels. This invokes the installed character
+estimate; it does not improve its QRH input.
+
+If \(6\leq K\leq Q\) and \(L_{h,n}^{64}\leq K+1\),
+then \(L_{h,n}^2(K+1)^{-1/32}\leq1\). The signed local
+logarithmic remainder still lies between \(-18/K\) and \(8/K\).
+Together with the exact full factorization, (QT) therefore gives
+\[
+ e^{-2C-18/K}V_{K,h,Q}(n)
+ \leq U_{h,Q}(n)
+ \leq e^{2C+8/K}V_{K,h,Q}(n).
+ \tag{QP}
+\]
+No opening mask, small-prime row or prime-dividing-shift fallback
+has been removed.
+
+Take \(K=J_{m,Q}\). For \(\log Q\geq1\) and \(m\geq1\),
+\((\log Q)^m\geq\log Q\). Since
+\(\log h\leq\log Q\) and \(\log4\leq3\), (QH) gives
+\[
+ \begin{split}
+ L_{h,n}
+ &\leq6+\log Q+2(\log Q)^m\\
+ &\leq10(\log Q)^m.
+ \end{split}
+\]
+Thus \(L_{h,n}^{64}\leq J_{m,Q}+1\).
+The same core satisfies \(12\leq J_{m,Q}\) and
+\(\log h\leq\log Q\leq J_{m,Q}\).
+For fixed \(m\), it is a polynomial in \(\log Q\), up to
+rounding, so \(J_{m,Q}\leq Q\) eventually.
+
+The ceiling bound and \(\log\log Q\geq1\) give
+\[
+ \begin{split}
+ \log J_{m,Q}
+ &\leq \log2+64\log10+64m\log\log Q\\
+ &\leq(64m+577)\log\log Q=F_m\log\log Q.
+ \end{split}
+ \tag{QJ}
+\]
+The previously proved hybrid lower bound and split envelope apply
+to these same actual prime pairs:
+\[
+ g\left(\frac{\log Q}{\log J_{m,Q}}\right)^2
+ \leq V_{J_{m,Q},h,Q}(n)
+ \leq R(\log Q)^2(\log J_{m,Q})^2,
+\]
+where \(g=e^{-4B_M-2/\log2}\) and \(R\) is the absolute
+replacement constant. Insert these estimates into (QP).
+Using \(18/J_{m,Q}\leq3\) and \(8/J_{m,Q}\leq2\),
+one may take
+\[
+                  a=e^{-2C-3}g,\qquad b=e^{2C+2}R.
+\]
+These choices precede \(m\). Inequality (QJ) now proves (QW).
+
+Set \(c_m=a/F_m^2\) and \(B_m=bF_m^2\). The compiled logarithmic
+comparison gives the explicit uniform error bound
+\[
+ \left|\frac{\log U_{h,Q}(n)}{\log\log Q}-2\right|
+ \leq
+ \frac{|\log c_m|+|\log B_m|+2\log\log\log Q}{\log\log Q}.
+\]
+Its right side tends to zero for every fixed \(m\), proving the
+complete uniform assertion (QE).
+\end{proof}
+
+\begin{corollary}[Every fixed polynomial prime-pair height]
+\label{cor:polynomial-prime-pair-weight}
+For each fixed integer \(d\geq0\) and each \(\varepsilon>0\),
+all sufficiently large \(Q\) have
+\[
+ \left|\frac{\log U_{h,Q}(n)}{\log\log Q}-2\right|
+       \leq\varepsilon
+\]
+simultaneously for all actual prime pairs
+\(0<h<Q<n\), \(n+h\leq Q^d\).
+\end{corollary}
+\begin{proof}
+For sufficiently large \(Q\), \(d\leq\log Q\), and hence
+\(\log(n+h)\leq d\log Q\leq2(\log Q)^2\).
+Apply (QE) with the fixed degree \(m=2\).
+\end{proof}
+
+For every \(m\geq1,\varepsilon>0,R\), the uniform theorem also
+holds at a genuine (FQ) frame \(Q\geq R\), retaining its
+consecutive integer prime endpoints and positive full-window mass.
+The starting pair has \(n=Q+1\), \(h=H_1\), and
+\(n+h\leq Q^2\), so it satisfies (QH) for every \(m\geq1\)
+once \(\log Q\geq1\). Choosing the frame beyond the uniform
+cutoff proves its error is at most \(\varepsilon\), while the
+same cutoff controls every other pair satisfying (QH).
+
+\paragraph{Range and formal status.}
+Actual primality is an explicit hypothesis throughout the wider
+range. Outside the natural \(Q^2\) window, positive packet mass
+alone does not provide that hypothesis. The earlier exponent-three
+upper envelope on arbitrary composite-capable polynomial-height
+inputs remains a separate theorem. Here both nonprincipal
+characters give exponent two on actual prime pairs. No new
+prime-pair supply, value of \(H_1\), or zero-free boundary follows.
+
+The maintained owner \texttt{Assembly/FiniteFieldPrimePairHeight}
+compiles \texttt{exists\_prime\_pair\_packet\_comparison} and the
+complete two-sided split-core consumer.
+The owner \texttt{Assembly/FiniteFieldQuasipolynomialHeight}
+proves the level coverage, degree-dependent logarithmic core bound
+and eventual fit.
+The owner \texttt{Assembly/FiniteFieldQuasipolynomialWeight}
+proves \texttt{exists\_uniform\_quasipolynomial\_weights},
+\texttt{uniform\_quasipolynomial\_weight\_exponent},
+\texttt{uniform\_polynomial\_prime\_pair\_weight\_exponent}, and
+\texttt{unbounded\_quasipolynomial\_frames}. The last theorem
+retains both the full uniform bound and the actual integer frame
+in the same existential statement. All are exported through
+\texttt{Assembly/ProbabilityProfiles}.
+
 \section{Arithmetic transfers and the next ascent investigation}
 \paragraph{Existing ingredients.}
 The generic greedy record sandwich and the maintained periodic and

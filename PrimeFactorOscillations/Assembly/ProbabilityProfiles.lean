@@ -5,7 +5,7 @@ Authors: Prime Factor Oscillations contributors
 -/
 
 import PrimeFactorOscillations.Assembly.CarmichaelProbability
-import PrimeFactorOscillations.Assembly.FiniteFieldIntegerWeightExponent
+import PrimeFactorOscillations.Assembly.FiniteFieldQuasipolynomialWeight
 import PrimeFactorOscillations.Assembly.PrimeConstellationRH
 import PrimeFactorOscillations.Assembly.PrimeCyclePrefixRH
 import PrimeFactorOscillations.Assembly.PrimeProfileDistortionClassification
