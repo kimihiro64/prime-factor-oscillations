@@ -3028,3 +3028,31 @@ new_bound: exact support sets and cardinalities; attained m(q)=min phi(d) over a
 components: shift bijection, disjoint native classes, exact signed coefficient values, finite-probe converse, full subset-sum spectrum, explicit ordinary-order finite minimum and both lower-bound and attainment proofs.
 actuals: universal Lean proofs for the full domain; the four fixed-cardinality formulas are additional kernel-checked consequences, not evidence for the universal statement.
 first_nonpositive_domain: support0 is attained by the zero probe. Nonzero normalized probes use odd q>=5; q3 is explicitly degenerate and is not a normalized mean-one probability law. No integer-window positivity or RH/QRH gain is claimed. Historical priority remains unconfirmed.
+
+## Prime-extension signed support lattice and Sophie Germain endpoint (2026-10-31)
+
+Owners: PrimeFactorOscillations/Mathlib/NumberTheory/ArithmeticFunction/PrimeExtensionTotient.lean and PrimeFactorOscillations/Mathlib/NumberTheory/LegendreSymbol/QuadraticPairOddPellPrimeExtension.lean.
+Export: QuadraticPairOddPellLaws, then the existing correlation and root facades.
+
+| Lean declaration | Status | Exact scope |
+| --- | --- | --- |
+| Nat.primeExtension_primeFactor_progression | proved | For odd prime ell, every odd prime divisor p of 3^ell-1 or 3^ell+1 satisfies 2*ell dividing p-1. |
+| Nat.primeExtension_totient_dvd | proved | Every prime ell, including2, and every admissible odd d>1 have 2*ell dividing phi(d); ell2 is handled explicitly. |
+| Nat.primeExtension_safePrime_factor | proved | For every ell>=2, primality of 2*ell+1 supplies its divisibility into 3^ell-1 or 3^ell+1. |
+| Nat.primeExtension_endpoint_prime | proved | An admissible d with phi(d)=2*ell forces 2*ell+1 prime. |
+| FiniteField.oddPell_primeExtension_atom_totient_dvd | proved | Every primitive class at q=3^ell has size divisible by 2*ell. |
+| FiniteField.oddPell_primeExtension_minSupport_dvd | proved | The attained sharp minimum is divisible by 2*ell. |
+| FiniteField.oddPell_primeExtension_minSupport_lower | proved | The sharp minimum is at least 2*ell. |
+| FiniteField.oddPell_primeExtension_support_dvd | proved | Every actual finite real signed probe has support size divisible by 2*ell, including the zero probe. |
+| FiniteField.oddPell_primeExtension_minSupport_eq_iff_prime | proved | The sharp minimum equals 2*ell iff 2*ell+1 is prime. |
+| FiniteField.oddPell_primeExtension_minSupport_composite_gap | proved | If 2*ell+1 is not prime, the sharp minimum is at least 4*ell. |
+| FiniteField.oddPell_primeExtension_endpoint_iff_prime | proved | For every nonzero shift, an actual nonzero finite signed probe of support 2*ell exists iff 2*ell+1 is prime. |
+
+The extension degree ell is prime and includes2. It is independent of the polynomial index k, whose odd-Pell degree is2*k+1. Native support statements retain a finite field of cardinality 3^ell, h nonzero, 2 nonzero, arbitrary finite index support and arbitrary real signed coefficients. Scalar minimum statements use only the cardinality and the finite primitive-label formula. No new definitions, infinite completion, RH hypothesis, conditional zero detector or integer-window positivity assumption is used.
+
+benchmark_status: full selected prime-extension theorem proved;11 new maintained public theorems and0 definitions. The earlier completed localization package remains68 theorems and15 definitions.
+old_bound: exact support subset-sum spectrum and attained minimum m(q)>=2 for general odd q>=5.
+new_bound: at q=3^ell for every prime ell, all support sizes are multiples of2*ell, m(q)>=2*ell, m(q)=2*ell iff 2*ell+1 is prime, and otherwise m(q)>=4*ell.
+components: exact full signed support spectrum; multiplicative order of9 modulo every admissible odd prime; totient divisibility; explicit degree2 case; safe-prime Fermat supply; attained primitive minimum and actual finite representability.
+actuals: universal kernel-checked proofs over the full prime-ell domain; the finite degree2 exception is justified after the symbolic split. No numerical experiment or unresolved analytic completion supplies the bound.
+first_nonpositive_domain: zero support is attained by the zero probe; every nonzero probe has the stated positive minimum. The theorem does not prove infinitely many Sophie Germain primes, integer prime pairs, RH or a QRH improvement. The order and totient ingredients are classical; historical priority of the signed-probe support conclusion remains unconfirmed.

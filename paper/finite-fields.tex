@@ -10732,6 +10732,128 @@ inside an integer primality window or improve the paused QRH
 boundary. Historical priority of the full signed localization
 spectrum remains unconfirmed.
 
+\section{Prime-extension support lattices and the Sophie Germain endpoint}
+\label{sec:odd-pell-prime-extension}
+
+The characteristic-three examples above belong to a uniform arithmetic
+phenomenon. The extension degree \(\ell\) below is distinct from the
+polynomial index \(k\), whose odd-Pell degree is \(2k+1\).
+
+\begin{theorem}[Prime-extension support lattice]
+\label{thm:odd-pell-prime-extension}
+Let \(\ell\) be any prime, including \(2\), let \(F\) have
+\(q=3^\ell\) elements, and let \(h\ne0\).
+For every actual finite real signed probe \(B=B_{S,a,h}\),
+\[
+                         2\ell\mid|\operatorname{supp}B|.
+\]
+The attained nonzero support minimum satisfies
+\[
+ \mathfrak m(3^\ell)\ge2\ell,\qquad
+ \mathfrak m(3^\ell)=2\ell
+          \ \Longleftrightarrow\ 2\ell+1\text{ is prime}.
+\]
+If \(2\ell+1\) is composite, then
+\[
+                         \mathfrak m(3^\ell)\ge4\ell.
+\]
+Equivalently, for every nonzero shift, an actual nonzero finite
+signed probe with exactly \(2\ell\) support points exists if and
+only if \(2\ell+1\) is prime.
+\end{theorem}
+
+\begin{proof}
+First suppose that \(\ell\) is odd. Let \(p\) be an odd prime
+dividing \(3^\ell-1\) or \(3^\ell+1\).
+Then \(p\ne3\) and \(9^\ell\equiv1\pmod p\).
+The multiplicative order of \(9\) modulo \(p\) divides the prime
+\(\ell\), so it is either \(1\) or \(\ell\).
+Order \(1\) would imply \(p\mid8\), impossible for odd \(p\).
+Thus the order is \(\ell\), and \(\ell\mid p-1\).
+Since \(p-1\) is even and \(\ell\) is odd,
+\[
+                              2\ell\mid p-1.
+\]
+
+Now let \(d>1\) be an odd divisor of \(3^\ell-1\) or
+\(3^\ell+1\), and choose a prime \(p\mid d\).
+It is odd, belongs to the same divisibility alternatives, and
+\[
+                     p-1=\varphi(p)\mid\varphi(d).
+\]
+Consequently \(2\ell\mid\varphi(d)\).
+For the exceptional prime extension degree \(\ell=2\), the
+only odd \(d>1\) dividing \(8\) or \(10\) is \(5\), and
+\(\varphi(5)=4=2\ell\). This proves the totient divisibility
+for every prime extension degree without excluding degree \(2\).
+
+By Theorem~\ref{thm:odd-pell-support-spectrum}, every actual
+signed support cardinality is a finite sum of these totients.
+Each summand is divisible by \(2\ell\), so the full support is
+divisible by \(2\ell\), with every original coefficient
+cancellation retained. The minimum \(\mathfrak m(3^\ell)>0\)
+is itself one such totient, hence is at least \(2\ell\).
+
+Suppose next that \(P=2\ell+1\) is prime. Since \(\ell\ge2\),
+we have \(P\ge5\), so Fermat's theorem gives
+\[
+                         3^{2\ell}\equiv1\pmod P.
+\]
+In the field \(\mathbb F_P\), this factors as
+\((3^\ell-1)(3^\ell+1)=0\). Therefore \(P\) divides one
+of \(3^\ell-1\) and \(3^\ell+1\).
+Its primitive class is admissible and has
+\(\varphi(P)=2\ell\) points. The exact attained-minimum
+theorem gives \(\mathfrak m(3^\ell)=2\ell\).
+
+Conversely, suppose that a minimizing odd divisor \(d>1\)
+has \(\varphi(d)=2\ell\). If \(\ell\) is odd, choose
+a prime \(p\mid d\) as above. Then
+\[
+                          2\ell\mid p-1\mid2\ell,
+\]
+and positivity forces \(p-1=2\ell\).
+Hence \(2\ell+1=p\) is prime.
+If \(\ell=2\), the endpoint is \(5\), which is prime.
+This proves the equivalence.
+
+If \(2\ell+1\) is composite, the attained minimum is a
+positive multiple of \(2\ell\) unequal to \(2\ell\);
+it is therefore at least \(4\ell\).
+Finally, the existing finite representability theorem isolates
+a minimizing primitive class for every nonzero shift.
+It supplies an actual finite probe at the endpoint when \(P\)
+is prime. Conversely, a nonzero probe of support \(2\ell\),
+together with the lower bound for the minimum, forces the
+minimum to equal \(2\ell\), and hence forces \(P\) prime.
+\end{proof}
+
+\paragraph{Meaning and scope.}
+The theorem gives an arithmetic obstruction to localization:
+at these extension fields, arbitrary real signed combinations
+cannot leave a nonzero remainder on fewer than \(2\ell\)
+inputs. Composite \(2\ell+1\) doubles this lower bound.
+The condition for attaining the first support level is exactly
+the Sophie Germain condition on the extension degree.
+This is a finite-field support criterion, not a proof of
+infinitely many Sophie Germain primes or integer prime pairs.
+
+\paragraph{Formalization and comparison.}
+The arithmetic owner \texttt{PrimeExtensionTotient} contains
+four theorems. The native owner
+\texttt{QuadraticPairOddPellPrimeExtension} contains seven
+theorems and no new definitions; it applies the complete
+signed support spectrum, rather than a termwise absolute-value
+bound. All prime extension degrees, finite probe supports,
+real signed coefficients and nonzero shifts are retained.
+The multiplicative-order and totient ingredients are classical,
+as is the trace/tori geometry discussed in
+\cite{GassertChebyshevGraphs}. The proposed additional conclusion
+is the full signed-probe support lattice and its attained
+Sophie Germain endpoint. Historical priority remains unconfirmed.
+No integer-window survivor estimate or QRH exponent gain follows
+from these support statements alone.
+
 \begin{thebibliography}{99}
 \bibitem{DavidKoukoulopoulosSmith}
 C. David, D. Koukoulopoulos and E. Smith,
