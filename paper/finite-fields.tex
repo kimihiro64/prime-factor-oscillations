@@ -9764,6 +9764,87 @@ window \(B<n\le B^2-h\), no integer prime-pair recurrence and
 no change to \(H_1\), RH or the accepted QRH boundary \(7/8\).
 QRH exponent research remains paused.
 
+\section{Odd Pell transports and exact endpoint recovery}
+\label{sec:odd-pell-algebraic-input}
+The following coupled recurrence gives the normalized odd Pell family
+without choosing roots or dividing by an endpoint:
+\[
+ A_0(x)=B_0(x)=1,\qquad
+ \begin{pmatrix}A_{k+1}(x)\\B_{k+1}(x)\end{pmatrix}
+ =
+ \begin{pmatrix}x+1&x+2\\x&x+1\end{pmatrix}
+ \begin{pmatrix}A_k(x)\\B_k(x)\end{pmatrix},\qquad
+ \Phi_k(x)=xA_k(x)^2.
+\]
+Its classical Chebyshev interpretation uses the trace coordinate
+\(x=(z+z^{-1})/2-1\); compare \cite{GassertChebyshevGraphs}.
+The declarations here concern the displayed recurrence itself.
+
+\begin{theorem}[All-index Pell endpoint recovery]
+\label{thm:odd-pell-algebraic-endpoints}
+In every commutative ring and for every \(k\ge0\),
+\[
+ (x+2)B_k(x)^2-xA_k(x)^2=2,\qquad
+ \Phi_k(x)+2=(x+2)B_k(x)^2.
+\]
+Consequently, over any field, \(\mathcal R_2(x,\Phi_k(x))\) holds.
+Over a field in which \(2\ne0\), let \(z\ne0\) and put
+\(x=(z-1)^2/(2z)\), \(m=2k+1\). Then
+\[
+ A_k(x)(z-1)z^k=z^m-1,\qquad
+ B_k(x)(z+1)z^k=z^m+1,
+\]
+and
+\[
+ 2z^m\Phi_k(x)=(z^m-1)^2,\qquad
+ 2z^m(\Phi_k(x)+2)=(z^m+1)^2.
+\]
+In particular,
+\[
+ \Phi_k(x)=0\ \Longleftrightarrow\ z^m=1,\qquad
+ \Phi_k(x)=-2\ \Longleftrightarrow\ z^m=-1.
+\]
+No hypothesis excludes \(m\) divisible by the characteristic.
+\end{theorem}
+\begin{proof}
+The recurrence preserves the quadratic form
+\((x+2)B^2-xA^2\), whose initial value is \(2\).
+This proves the first two identities and supplies the two square
+multipliers in \(\mathcal R_2\).
+
+For the trace statements, the initial pair gives \(z-1,z+1\).
+Use
+\[
+ 2zx=(z-1)^2,\quad
+ 2z(x+1)=z^2+1,\quad
+ 2z(x+2)=(z+1)^2.
+\]
+After multiplying the next recurrence by \(2\), its two expressions
+become, respectively,
+\[
+ (z^2+1)(z^m-1)+(z^2-1)(z^m+1)=2(z^{m+2}-1)
+\]
+and
+\[
+ (z^2-1)(z^m-1)+(z^2+1)(z^m+1)=2(z^{m+2}+1).
+\]
+Cancel \(2\) to complete the induction.
+Squaring the first trace identity and using \(2zx=(z-1)^2\)
+gives the first scaled map identity. Adding \(4z^m\) gives the second.
+Since \(2z^m\ne0\), either scaled expression vanishes exactly when
+its squared factor vanishes. This proves both endpoint equivalences.
+\end{proof}
+
+\paragraph{Formal and arithmetic scope.}
+The eight theorem declarations and two definitions in
+\texttt{QuadraticPairOddPell} have passed maintained compilation and
+the new-declaration foundational-axiom audit.
+The full finite-field split/nonsplit endpoint counts, exact probability
+mass, and odd-semigroup minimum are not yet Lean-proved.
+The algebraic identities above provide their input; they do not
+establish positive raw-packet mass on an incomplete integer window.
+
+
 \begin{thebibliography}{99}
 \bibitem{DavidKoukoulopoulosSmith}
 C. David, D. Koukoulopoulos and E. Smith,

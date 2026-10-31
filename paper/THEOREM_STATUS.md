@@ -2688,3 +2688,32 @@ actuals: diagnostics covered all340 nonzero-shift frames in15 prime and extensio
 first_nonpositive_domain: not a signed-mass benchmark; the degree lower bound is positive throughout q>=5. Positive integer-window mass remains unavailable.
 
 The root-count and interpolation tools are classical, including the polynomial-evaluation framework of Reed and Solomon. The proposed new application is the full equality case and uniform polynomial-complexity consequence for this compensated probability law; historical priority remains unconfirmed. The earlier unfinished integer polynomial-plus-prime degree-budget extremality problem has different objects and conclusions and was not reopened. No H1, RH or QRH exponent gain is claimed; QRH remains paused and7/8 unchanged.
+
+
+## All-index odd Pell endpoint identities
+
+Owner: PrimeFactorOscillations/Mathlib/NumberTheory/LegendreSymbol/QuadraticPairOddPell.lean
+
+Definitions: FiniteField.oddPellPair and FiniteField.oddPellMap.
+
+| Lean declaration | Status | Exact scope |
+| --- | --- | --- |
+| FiniteField.oddPell_pair_invariant | proved and audited | Every commutative ring, every x and k; complete coupled quadratic invariant. |
+| FiniteField.oddPell_shifted_square | proved and audited | Every commutative ring; both endpoint square factors, including zero multipliers. |
+| FiniteField.oddPell_map_reachable | proved and audited | Every field and k; the map is globally compatible for shift2. |
+| FiniteField.oddPell_pair_trace | proved and audited | Every field with2 nonzero, z nonzero and every k; both exact trace coordinates. |
+| FiniteField.oddPell_map_trace_scaled | proved and audited | Same domain; 2*z^(2*k+1)*Phi=(z^(2*k+1)-1)^2. |
+| FiniteField.oddPell_map_shift_trace_scaled | proved and audited | Same domain; shifted scaled identity with the positive endpoint. |
+| FiniteField.oddPell_map_eq_zero_iff | proved and audited | Same domain; Phi=0 iff z^(2*k+1)=1. |
+| FiniteField.oddPell_map_eq_neg_two_iff | proved and audited | Same domain; Phi=-2 iff z^(2*k+1)=-1. |
+
+No assumption excludes odd indices divisible by the characteristic. This module is the algebraic input to the selected odd-semigroup mass problem. Its exact split/nonsplit finite-field counts, full probability formula and2-primary minimum/attainment classification remain unproved in Lean and are not promoted as completed theorems.
+
+benchmark_status: structural input formalization;8 real theorems and2 definitions, with new-only foundational-axiom audit.
+old_bound: the cubic transport and its uniform3-power survival were installed; no all-index native Pell trace and endpoint package was exported.
+new_bound: the integer-window mass and certified QRH boundary are unchanged. The new exact endpoint equivalences hold for every nonnegative k over every field with2 nonzero.
+components: coupled recurrence, conserved quadratic form, both square multipliers, joint trace induction, scaled map identities, nonzero scalar cancellation and both endpoint iff directions.
+actuals: finite falsification for the still-unproved mass candidate covered2758 odd-index profiles,99078 point checks and10692 all-shift affine checks across15 fields, including extensions and characteristic-divisible indices. These are finite diagnostics, not proof of the proposed mass or minimum formula.
+first_nonpositive_domain: no signed-mass bound is claimed. The trace hypotheses require2*z nonzero. The full finite-field weighted profile and natural-height integer pair mass remain open.
+
+The Pell and Chebyshev identities are classical inputs. Historical priority of the proposed weighted odd-semigroup extremal application remains unconfirmed. This input promotion neither rebrands the existing finer cubic absorption problem as new nor changes H1, RH or QRH. QRH stays paused and7/8 unchanged.
