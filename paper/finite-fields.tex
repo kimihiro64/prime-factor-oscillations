@@ -8006,6 +8006,206 @@ targeted comparison. This is not an established literature-priority claim.
 No integer pair recurrence, \(H_1\) bound or improved QRH exponent is
 claimed.
 
+\section{All-character compensation and a universal overlap law}
+\label{sec:all-character-compensation}
+
+The preceding restriction \(\chi(-1)=-1\) can be removed while retaining
+the actual count and every correction. Let \(K\) now be any finite field
+of odd characteristic, \(q=\#K\), and let \(h\ne0\). Put
+\[
+ \sigma=\chi(-1),\quad e=\chi(h),\quad f=\chi(-h)=\sigma e,\quad
+ \eta=\chi(2),\quad
+ A=q-1+e+f,\quad \alpha=1-f,\quad\beta=1-e.
+\]
+Keep the original \(w_h,t_h,Q_h\) and the indicators \(\delta_{k,a}\).
+In particular \(e^2=f^2=\sigma^2=1\).
+Define
+\begin{align*}
+ L_h(k)={}&qA^2+qQ_h(k)-1
+   +(\alpha^2+\beta^2)(q\delta_{k,0}-1)\\
+ &+\alpha\beta\{q(\delta_{k,h}+\delta_{k,-h})-2\}\\
+ &-(\alpha+\beta)\{q[\chi(k(k-h))+\chi(k(k+h))]+2\},\\
+ S_h(k)={}&4A-(1+\sigma)\{t_h(k)+t_h(k-h)\}\\
+ &-(1+\sigma)(\alpha+\beta)\chi(k)
+   -(\alpha+\sigma\beta)\chi(k-h)
+   -(\sigma\alpha+\beta)\chi(k+h).
+\end{align*}
+
+\begin{theorem}[Every odd field, every lag]
+For every \(k\in K\), including \(0,h,-h\),
+\[
+ 16\sum_{c\in K}w_h(c)w_h(c+k)
+ =L_h(k)-qS_h(k)
+   +q^2(2\delta_{k,0}+\delta_{k,h}+\delta_{k,-h}).
+\]
+At the shared endpoint, set \(\tau_h=t_h(h)\), and write
+\[
+ P_0=q^3-5q^2+(5-4\eta)q-11-2\sigma,\qquad
+ B=2q^2+(2\eta-4)q+6.
+\]
+Then
+\begin{equation}
+ 16\sum_{c\in K}w_h(c)w_h(c+h)
+   =P_0+(1+\sigma)(eB+q\tau_h).
+ \label{eq:all-character-adjacent}
+\end{equation}
+For every \(a\in K\) with \(\chi(a)=-1\), the two actual correlations satisfy
+\begin{equation}
+ 8\sum_{c\in K}\bigl[
+    w_h(c)w_h(c+h)+w_{ah}(c)w_{ah}(c+ah)\bigr]=P_0.
+ \label{eq:all-character-compensated}
+\end{equation}
+These count identities include characteristic three and have no
+additional field-size hypothesis.
+\end{theorem}
+
+\begin{proof}
+The completed numerator is
+\(B_h(c)=A-t_h(c)-\alpha\chi(c)-\beta\chi(c+h)\).
+Its exact relation to the actual count remains (C). The trace convolution
+and pairing in (T) hold over every odd field, without a condition on
+\(\sigma\). Expand \(B_h(c)B_h(c+k)\) before summing. The trace product
+contributes \(qQ_h(k)-1\). The two equal-character products each contribute
+\(q\delta_{k,0}-1\), and the two crossed-character products contribute
+\(q(\delta_{k,h}+\delta_{k,-h})-2\). For either character position, the
+sum of its two mixed products with the trace is
+\[
+ -q\{\chi(k(k-h))+\chi(k(k+h))\}-2.
+\]
+All linear means vanish. This proves
+\(\sum_{c\in K}B_h(c)B_h(c+k)=L_h(k)\).
+
+Scaling by \(-1\) gives \(t_h(-h-c)=\sigma t_h(c)\), hence
+\begin{align*}
+ B_h(c)+B_h(-h-c)
+ ={}&2A-(1+\sigma)t_h(c)\\
+ &-(\alpha+\sigma\beta)\chi(c)
+   -(\beta+\sigma\alpha)\chi(c+h).
+\end{align*}
+Apply this at \(c=k\) and \(c=k-h\). The result is precisely
+\[
+ B_h(-k)+B_h(-h-k)+B_h(k)+B_h(k-h)=S_h(k).
+\]
+The same singular-mask expansion used earlier now proves the full formula.
+
+At \(k=h\), the corrected quadratic sum is
+\(Q_h(h)=-1-\sigma\): the full quadratic sum is \(-1\), and its
+omitted value at zero is \(\chi(-h^2)=\sigma\).
+Use \(h\ne-h\), \(t_h(0)=f\),
+\(\chi(h+h)=\eta e\) and \(\chi(h(h+h))=\eta\) in the full formula.
+Expanding and reducing \(e^2=\sigma^2=1\) proves
+\eqref{eq:all-character-adjacent}.
+
+Finally \(\chi(ah)=-e\), while scaling the split cubic gives
+\(\tau_{ah}=\chi(a)\tau_h=-\tau_h\).
+Thus the entire second term of
+\eqref{eq:all-character-adjacent} changes sign under \(h\mapsto ah\).
+Adding the two identities proves
+\eqref{eq:all-character-compensated}.
+\end{proof}
+
+The quantity \(\tau_h\) is the Frobenius trace of the split cubic with
+roots \(0,h,2h\). Translating its coordinate by \(h\) gives
+\(y^2=x^3-h^2x\). The appearance of this curve is explicit in
+\eqref{eq:all-character-adjacent}; it disappears only after the proved
+two-class compensation. The trace symmetries used here are classical
+Legendre-family inputs~\cite{KatzTraceRatios}.
+
+\begin{theorem}[Normalized compensated correlation]
+Assume \(q\ge16\), and retain any \(h\ne0\) and \(\chi(a)=-1\).
+Use the actual normalizations
+\[
+ d_b=3-\chi(b)-\chi(-b),\qquad D_b=q-d_b,\qquad
+ C_b(k)=\frac1q\sum_{c\in K}
+       \frac{4w_b(c)}{D_b}\frac{4w_b(c+k)}{D_b}.
+\]
+Define
+\[
+ \overline C_{h,a}
+ =\frac{D_h^2C_h(h)+D_{ah}^2C_{ah}(ah)}
+        {D_h^2+D_{ah}^2}.
+\]
+Both weights are positive, and
+\begin{equation}
+ \overline C_{h,a}
+ =\frac{q^3-5q^2+(5-4\eta)q-11-2\sigma}
+        {q\{(q-3)^2+2(1+\sigma)\}}.
+ \label{eq:balanced-adjacent-law}
+\end{equation}
+Consequently this weighted correlation is independent of the gap
+and the chosen nonsquare dilation. Uniformly on this domain,
+\[
+ \overline C_{h,a}>1,\qquad
+ \left|\overline C_{h,a}-\left(1+\frac1q\right)\right|
+     \le\frac{12}{q^2}.
+\]
+\end{theorem}
+
+\begin{proof}
+The existing denominator bounds give \(D_b>0\) for every nonzero \(b\).
+Furthermore \(d_h=3-e-f\), \(d_{ah}=3+e+f\), and
+\((e+f)^2=2(1+\sigma)\). Therefore
+\[
+ D_h^2+D_{ah}^2=2\{(q-3)^2+2(1+\sigma)\}.
+\]
+Multiplying each normalized correlation by its own squared denominator,
+and then applying \eqref{eq:all-character-compensated}, proves
+\eqref{eq:balanced-adjacent-law}. This retains the different
+normalizations in the two quadratic classes.
+
+For completeness the quantitative bounds hold on the larger scalar
+domain \(q\ge16\), \(-1\le\sigma,\eta\le1\).
+Put \(R=(q-3)^2+2(1+\sigma)>0\).
+The numerator of \(\overline C_{h,a}-1\), over the positive
+denominator \(qR\), is
+\begin{align*}
+ &q^2-(6+4\eta+2\sigma)q-11-2\sigma\\
+ &\qquad=(q-13)(q+1)+4(1-\eta)q+2(1-\sigma)(q+1)>0.
+\end{align*}
+The exact error is
+\[
+ \overline C_{h,a}-1-\frac1q
+ =\frac{-(4\eta+2\sigma)q-22-4\sigma}{qR}.
+\]
+Its numerator has absolute value at most \(6q+26\), and
+\[
+ 12R-(6q+26)q
+ \ge6(q-16)^2+94(q-16)+76\ge0.
+\]
+Dividing by the positive denominators yields the stated \(12/q^2\) bound.
+\end{proof}
+
+\paragraph{Small fields and the integer scope.}
+The count identities hold for every odd field, including
+\(q=3,5,7,9,11,13\). The positive normalized estimate is asserted only
+for \(q\ge16\). In integer divisor coverage the prime \(2\) is handled
+by the parity mask. Odd primes below this normalization range, and
+primes dividing the fixed integer gap, retain their own admissibility
+masks. The nonzero-gap formula applies only when \(h\bmod p\ne0\).
+The balanced observable mixes the local gaps \(h\) and \(ah\).
+A product of these mixtures is not automatically the law of one fixed
+integer gap. Its use for that purpose requires a separate transfer
+on the required integer interval. The unaveraged every-lag formula
+above remains available with all its trace terms.
+
+\paragraph{Formalization and consequence.}
+The all-character identities and scalar inequalities are maintained
+in \texttt{QuadraticPairGeneralCovariance}; the exact actual-law
+normalization and both bounds are maintained in
+\texttt{FiniteFieldRawPairCovariance}. Their proofs assume neither
+Hasse nor RH. They remove the quadratic-character restriction from
+the local correlation calculation and give an exact compensated law.
+The outstanding integer claim remains positive supported mass on
+\(Y<n\le Y^2-h\) along unbounded \(Y\). No fixed-gap integer recurrence
+or improvement of the installed QRH boundary \(7/8\) follows here.
+
+General trace-function correlations and the underlying twist
+symmetries are classical~\cite{FouvryKowalskiMichelProducts,KatzTraceRatios}.
+The proposed original contribution is the full actual-count formula
+with its boundary terms, its linked-gap compensation and the normalized
+universal overlap law. No match was found in the checked target records
+or targeted primary comparison; literature priority remains unconfirmed.
+
 \section{Exact diagnostic checks}
 The companion script \texttt{finite\_field\_greedy\_probe.py} checks all
 general Weierstrass equations over \(\F_2,\F_3\), all short Weierstrass

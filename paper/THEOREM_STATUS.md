@@ -2049,3 +2049,91 @@ All-lag exactness is currently specialized to chi(-1)=-1; the generic
 product-window identity retains arbitrary finite fields without that
 hypothesis. Literature priority beyond the targeted primary comparison
 is unconfirmed. Paper label: `sec:raw-pair-covariance`.
+
+## All-character raw covariance and exact twist compensation (October 31)
+
+All 15 theorem proofs and 2 definitions below are maintained and compiled.
+The affected candidate, assembly, public facade and full project closure compile.
+The new-only audit covers exactly these 17 declarations and reports only
+propext, Classical.choice and Quot.sound. Unchanged declarations were not
+re-audited. This removes the preceding covariance theorem's chi(-1)=-1
+restriction; it does not establish positive mass in an integer interval.
+
+Candidate owner:
+`PrimeFactorOscillations/Mathlib/NumberTheory/LegendreSymbol/QuadraticPairGeneralCovariance.lean`.
+Names in the first table are in namespace `FiniteField`.
+
+| Claim | Status | Exact scope |
+| --- | --- | --- |
+| `splitCubicPointTrace_reflection` | proved and audited | odd field; arbitrary h,c; exact chi(-1) factor |
+| `quadraticPairCorrelationKernel_adjacent_general` | proved and audited | odd field; h nonzero; exact kernel -1-chi(-1) |
+| `completed_trace_numerator_shift_correlation` | proved and audited | odd field; h nonzero; every lag; all signed mixed terms |
+| `completedQuadraticPairNumerator_shift_correlation_general` | proved and audited | odd field; h nonzero; every lag and both character signs |
+| `completedQuadraticPairNumerator_reflection_general` | proved and audited | odd field; arbitrary h,c; exact trace reflection |
+| `completedQuadraticPairNumerator_boundary_correction_general` | proved and audited | odd field; arbitrary h,k; both singular-row subtractions |
+| `monicQuadraticPairCount_shift_correlation_general` | proved and audited | odd field; h nonzero; every lag, including 0,h,-h; all intersections |
+| `monicQuadraticPairCount_adjacent_correlation_general` | proved and audited | odd field; h nonzero; exact character and CM trace terms |
+| `monicQuadraticPairCount_twist_compensated_adjacent` | proved and audited | odd field; h nonzero; every nonsquare dilation a |
+| `compensatedQuadraticPairCrossMoment_gt_one` | proved and audited | real q>=16; both real character parameters in [-1,1] |
+| `compensatedQuadraticPairCrossMoment_error` | proved and audited | same scalar domain; explicit error <=12/q^2 |
+
+Assembly owner:
+`PrimeFactorOscillations/Assembly/FiniteFieldRawPairCovariance.lean`.
+Names in the next table are in namespace
+`PrimeFactorOscillations.FiniteFieldRawPairCovariance`.
+
+| Claim | Status | Exact scope |
+| --- | --- | --- |
+| `covariance_count_general` | proved and audited | odd field; h nonzero; every lag; q>=16 |
+| `twistCompensatedCovariance_eq_model` | proved and audited | odd field; h nonzero; chi(a)=-1; q>=16; actual normalized counts |
+| `twistCompensatedCovariance_gt_one` | proved and audited | same actual-law domain; strict positive excess over 1 |
+| `twistCompensatedCovariance_error` | proved and audited | same actual-law domain; absolute error <=12/q^2 from 1+1/q |
+
+Definitions:
+`FiniteField.compensatedQuadraticPairCrossMoment` and
+`PrimeFactorOscillations.FiniteFieldRawPairCovariance.twistCompensatedCovariance`.
+
+Write q=#K, sigma=chi(-1), eta=chi(2), D_b=q-3+chi(b)+chi(-b),
+and C_b(k)=q^(-1)*sum_c u_b(c)*u_b(c+k), where
+u_b(c)=4*w_b(c)/D_b is the existing normalized raw pair law.
+The exact compensated correlation is
+(D_h^2*C_h(h)+D_(a*h)^2*C_(a*h)(a*h))/(D_h^2+D_(a*h)^2)
+= [q^3-5*q^2+(5-4*eta)*q-11-2*sigma]/
+[q*((q-3)^2+2*(1+sigma))].
+The class label is shared inside each product. This is a weighted average
+of correlations, not the autocorrelation of an averaged density.
+
+benchmark_status: uniform actual compensated overlap law proved.
+old_bound: exact adjacent/raw correlation was specialized to chi(-1)=-1;
+no all-character balanced overlap estimate was installed.
+new_bound: for every odd finite field with q>=16, every h nonzero and
+every chi(a)=-1, the displayed correlation exceeds 1 and differs from
+1+1/q by at most 12/q^2, independently of h and the nonsquare choice.
+components: full quartic trace kernel; signed trace-character products;
+singular masks and every boundary intersection; exact paired CM trace
+cancellation; both distinct positive normalizers.
+actuals: finite falsification passed 178 local, 3758 all-lag and 1790
+linked-twist frames, including genuine extension fields F9,F25,F27.
+These diagnostics are not the uniform proof.
+first_nonpositive_domain: none in the proved q>=16 domain, by the
+universal theorem, not by a finite scan. Outside that domain no positivity
+is asserted. The integer-window mass bound is unavailable.
+
+Unnormalized identities hold over all odd fields, including characteristic3
+and q=3,5,7,9,11,13. Integer divisor coverage separately retains the p=2
+parity mask, each small odd prime mask, and the coincident-residue masks for
+all primes dividing the fixed integer gap h. The nonzero-gap formulas do
+not replace those exceptional masks.
+
+The available correlation identity is over the complete residue period
+M=product_(prime p<=Y) p. The required integer range remains
+Y<n<=Y^2-h for fixed positive even h, along unbounded Y. The open estimate is
+sum_(Y<n<=Y^2-h) product_(prime p<=Y) 1_(p does not divide n*(n+h)) > 0.
+A local mixture of gaps h and a*h has not been transferred to one fixed
+integer gap throughout this short range. Thus integer recurrence, H1 and
+the installed QRH boundary 7/8 are unchanged.
+
+The new exact count formula and compensated normalized law are distinct from
+the preceding specialized theorem. Classical trace symmetries are proved
+inputs; literature priority beyond the targeted primary comparison remains
+unconfirmed. Paper label: `sec:all-character-compensation`.

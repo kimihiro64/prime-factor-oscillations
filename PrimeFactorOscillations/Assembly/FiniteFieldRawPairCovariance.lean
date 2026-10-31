@@ -4,15 +4,17 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Prime Factor Oscillations contributors
 -/
 import PrimeFactorOscillations.Assembly.FiniteFieldJointCharacterProjection
-import PrimeFactorOscillations.Mathlib.NumberTheory.LegendreSymbol.QuadraticPairCovariance
+import PrimeFactorOscillations.Mathlib.NumberTheory.LegendreSymbol.QuadraticPairGeneralCovariance
 
 /-!
 # Full raw pair cross moments and signed window kernels
 
 The covariance function is the uncentered cross moment of the original
 normalized count law. Its shared-endpoint value follows from the full
-integer covariance identity. Arbitrary signed windows retain every mixed
-term over complete products; no incomplete integer mass bound is assumed.
+integer covariance identity. Nonsquare-gap compensation has an exact
+all-character normalized model, positive correlation and uniform 12/q^2
+error for q>=16. Signed windows retain every mixed term over complete
+products; no incomplete integer mass bound is assumed.
 -/
 
 set_option autoImplicit false
@@ -140,4 +142,160 @@ theorem signed_window_second_moment {J : Type*} [Fintype J]
   simp_rw [hp,hsum,hmul,packet_cross_moment]
 
 end Products
+theorem covariance_count_general (hF : Not (ringChar F=2))
+    (h k : F) (hh : Not (h=0)) (hq : 16<=(Fintype.card F : Real)) :
+    covariance h k=
+      (16*(Finset.univ.sum fun c : F =>
+        (monicQuadraticPairCount c h : Real)*(monicQuadraticPairCount (c+k) h : Real)))/
+      ((Fintype.card F : Real)*
+        ((Fintype.card F : Real)-(quadraticPairOffset h : Real))^2) := by
+  let q : Real := Fintype.card F
+  let d : Real := quadraticPairOffset h
+  have hq0 : Not (q=0) := ne_of_gt (by dsimp only [q]; linarith only [hq])
+  have hd : Not (q-d=0) := ne_of_gt (denominator_pos h hh hq)
+  have hp (c : F) :
+      rawDensity h c*rawDensity h (c+k)=
+        (16/(q-d)^2)*
+          ((monicQuadraticPairCount c h : Real)*(monicQuadraticPairCount (c+k) h : Real)) := by
+    rw [raw_density_quotient hF h hh hq c,raw_density_quotient hF h hh hq (c+k)]
+    change (4*(monicQuadraticPairCount c h : Real)/(q-d))*
+      (4*(monicQuadraticPairCount (c+k) h : Real)/(q-d))=_
+    field_simp [hd]
+    ring
+  unfold covariance
+  simp_rw [hp]
+  rw [<- Finset.mul_sum]
+  change (1/q)*((16/(q-d)^2)*
+    (Finset.univ.sum fun c : F =>
+      (monicQuadraticPairCount c h : Real)*(monicQuadraticPairCount (c+k) h : Real)))=
+    (16*(Finset.univ.sum fun c : F =>
+      (monicQuadraticPairCount c h : Real)*(monicQuadraticPairCount (c+k) h : Real)))/
+      (q*(q-d)^2)
+  field_simp [hq0,hd]
+
+def twistCompensatedCovariance (h a : F) : Real :=
+  let q : Real := Fintype.card F
+  let D : F -> Real := fun b => q-(quadraticPairOffset b : Real)
+  ((D h)^2*covariance h h+(D (a*h))^2*covariance (a*h) (a*h))/
+    ((D h)^2+(D (a*h))^2)
+
+theorem twistCompensatedCovariance_eq_model
+    (hF : Not (ringChar F=2)) (h a : F) (hh : Not (h=0))
+    (ha : (quadraticChar F) a=-1) (hq : 16<=(Fintype.card F : Real)) :
+    twistCompensatedCovariance h a=
+      compensatedQuadraticPairCrossMoment (Fintype.card F : Real)
+        ((quadraticChar F) (-1) : Real) ((quadraticChar F) (2 : F) : Real) := by
+  let q : Real := Fintype.card F
+  let D : Real := (q-3)^2+2*(1+((quadraticChar F) (-1) : Real))
+  have hq0 : Not (q=0) := ne_of_gt (by dsimp only [q]; linarith only [hq])
+  have ha0 : Not (a=0) := by
+    intro hz
+    subst a
+    norm_num at ha
+  have hah : Not (a*h=0) := mul_ne_zero ha0 hh
+  have he : (quadraticChar F) (a*h)=-(quadraticChar F) h := by
+    rw [map_mul,ha,neg_one_mul]
+  have hf : (quadraticChar F) (-(a*h))=-(quadraticChar F) (-h) := by
+    rw [show -(a*h)=a*(-h) from by ring,map_mul,ha,neg_one_mul]
+  have he2 : ((quadraticChar F) h : Real)^2=1 := by
+    exact_mod_cast quadraticChar_sq_one hh
+  have hf2 : ((quadraticChar F) (-h) : Real)^2=1 := by
+    exact_mod_cast quadraticChar_sq_one (neg_ne_zero.mpr hh)
+  have hep : (quadraticChar F) h*(quadraticChar F) (-h)=(quadraticChar F) (-1) := by
+    rw [<- map_mul,show h*(-h)=(-1 : F)*h^2 from by ring,map_mul,map_pow,
+      quadraticChar_sq_one hh,mul_one]
+  have hepR :
+      ((quadraticChar F) h : Real)*((quadraticChar F) (-h) : Real)=
+        ((quadraticChar F) (-1) : Real) := by exact_mod_cast hep
+  have hsq :
+      (((quadraticChar F) h : Real)+((quadraticChar F) (-h) : Real))^2=
+        2*(1+((quadraticChar F) (-1) : Real)) := by
+    nlinarith only [he2,hf2,hepR]
+  have hnorm :
+      (q-(quadraticPairOffset h : Real))^2+
+        (q-(quadraticPairOffset (a*h) : Real))^2=2*D := by
+    unfold quadraticPairOffset
+    rw [he,hf]
+    norm_num only [Int.cast_sub,Int.cast_neg,Int.cast_ofNat]
+    dsimp only [D]
+    nlinarith only [hsq]
+  have hd : 0<D := by
+    have hl : 0<(q-(quadraticPairOffset h : Real))^2 :=
+      sq_pos_of_pos (denominator_pos h hh hq)
+    have hr : 0<=(q-(quadraticPairOffset (a*h) : Real))^2 := sq_nonneg _
+    nlinarith only [hnorm,hl,hr]
+  have hw (b : F) (hb : Not (b=0)) :
+      (q-(quadraticPairOffset b : Real))^2*covariance b b=
+        (16/q)*(Finset.univ.sum fun c : F =>
+          (monicQuadraticPairCount c b : Real)*(monicQuadraticPairCount (c+b) b : Real)) := by
+    have hd0 : Not (q-(quadraticPairOffset b : Real)=0) :=
+      ne_of_gt (denominator_pos b hb hq)
+    rw [covariance_count_general hF b b hb hq]
+    change (q-(quadraticPairOffset b : Real))^2*
+      ((16*(Finset.univ.sum fun c : F =>
+        (monicQuadraticPairCount c b : Real)*(monicQuadraticPairCount (c+b) b : Real)))/
+          (q*(q-(quadraticPairOffset b : Real))^2))=_
+    field_simp [hq0,hd0]
+  have hi :
+      8*(Finset.univ.sum fun c : F =>
+        (monicQuadraticPairCount c h : Real)*(monicQuadraticPairCount (c+h) h : Real)+
+        (monicQuadraticPairCount c (a*h) : Real)*
+          (monicQuadraticPairCount (c+a*h) (a*h) : Real))=
+      q^3-5*q^2+(5-4*((quadraticChar F) (2 : F) : Real))*q-11-
+        2*((quadraticChar F) (-1) : Real) := by
+    have hint := monicQuadraticPairCount_twist_compensated_adjacent hF h a hh ha
+    dsimp only at hint
+    have hcast := congrArg (fun z : Int => (z : Real)) hint
+    push_cast at hcast
+    exact hcast
+  rw [Finset.sum_add_distrib] at hi
+  unfold twistCompensatedCovariance
+  dsimp only
+  change
+    ((q-(quadraticPairOffset h : Real))^2*covariance h h+
+      (q-(quadraticPairOffset (a*h) : Real))^2*covariance (a*h) (a*h))/
+    ((q-(quadraticPairOffset h : Real))^2+
+      (q-(quadraticPairOffset (a*h) : Real))^2)=_
+  rw [hw h hh,hw (a*h) hah,hnorm]
+  unfold compensatedQuadraticPairCrossMoment
+  change
+    ((16/q)*(Finset.univ.sum fun c : F =>
+      (monicQuadraticPairCount c h : Real)*(monicQuadraticPairCount (c+h) h : Real))+
+    (16/q)*(Finset.univ.sum fun c : F =>
+      (monicQuadraticPairCount c (a*h) : Real)*
+        (monicQuadraticPairCount (c+a*h) (a*h) : Real)))/(2*D)=
+    (q^3-5*q^2+(5-4*((quadraticChar F) (2 : F) : Real))*q-11-
+      2*((quadraticChar F) (-1) : Real))/(q*D)
+  simp_rw [mul_comm a h] at hi
+  simp_rw [mul_comm a h]
+  field_simp [hq0,ne_of_gt hd]
+  nlinarith only [hi]
+
+theorem twistCompensatedCovariance_gt_one
+    (hF : Not (ringChar F=2)) (h a : F) (hh : Not (h=0))
+    (ha : (quadraticChar F) a=-1) (hq : 16<=(Fintype.card F : Real)) :
+    1<twistCompensatedCovariance h a := by
+  rw [twistCompensatedCovariance_eq_model hF h a hh ha hq]
+  have ht : ((quadraticChar F) (-1) : Real)^2=1 := by
+    exact_mod_cast quadraticChar_sq_one (neg_ne_zero.mpr one_ne_zero : Not ((-1 : F)=0))
+  have hu : ((quadraticChar F) (2 : F) : Real)^2=1 := by
+    exact_mod_cast quadraticChar_sq_one (two_ne_zero_of_odd hF)
+  have hb (v : Real) (hv : v^2=1) : And (-1<=v) (v<=1) := by
+    constructor <;> nlinarith only [hv,sq_nonneg (v-1),sq_nonneg (v+1)]
+  exact compensatedQuadraticPairCrossMoment_gt_one _ _ _ hq (hb _ ht) (hb _ hu)
+
+theorem twistCompensatedCovariance_error
+    (hF : Not (ringChar F=2)) (h a : F) (hh : Not (h=0))
+    (ha : (quadraticChar F) a=-1) (hq : 16<=(Fintype.card F : Real)) :
+    abs (twistCompensatedCovariance h a-(1+1/(Fintype.card F : Real)))<=
+      12/(Fintype.card F : Real)^2 := by
+  rw [twistCompensatedCovariance_eq_model hF h a hh ha hq]
+  have ht : ((quadraticChar F) (-1) : Real)^2=1 := by
+    exact_mod_cast quadraticChar_sq_one (neg_ne_zero.mpr one_ne_zero : Not ((-1 : F)=0))
+  have hu : ((quadraticChar F) (2 : F) : Real)^2=1 := by
+    exact_mod_cast quadraticChar_sq_one (two_ne_zero_of_odd hF)
+  have hb (v : Real) (hv : v^2=1) : And (-1<=v) (v<=1) := by
+    constructor <;> nlinarith only [hv,sq_nonneg (v-1),sq_nonneg (v+1)]
+  exact compensatedQuadraticPairCrossMoment_error _ _ _ hq (hb _ ht) (hb _ hu)
+
 end PrimeFactorOscillations.FiniteFieldRawPairCovariance

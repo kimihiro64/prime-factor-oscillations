@@ -5,7 +5,7 @@ import PrimeFactorOscillations.Mathlib.Combinatorics.IntegerBlockGrouping
 import PrimeFactorOscillations.Mathlib.Combinatorics.IntegerMomentCompression
 import PrimeFactorOscillations.Mathlib.Data.All
 import PrimeFactorOscillations.Mathlib.NumberTheory.All
-import PrimeFactorOscillations.Mathlib.NumberTheory.LegendreSymbol.QuadraticPairCovariance
+import PrimeFactorOscillations.Mathlib.NumberTheory.LegendreSymbol.QuadraticPairGeneralCovariance
 import PrimeFactorOscillations.Mathlib.Order.All
 import PrimeFactorOscillations.Mathlib.Probability.All
 import PrimeFactorOscillations.Mathlib.RingTheory.MvPolynomial.Symmetric.LargestWeightHarmonic
