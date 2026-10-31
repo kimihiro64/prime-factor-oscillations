@@ -5793,6 +5793,263 @@ These are model-specific consequences of the existing local law,
 Mertens bounds and installed QRH input; no new general truncation
 method or independent external priority claim is made.
 
+\section{Polynomial integer height and superpolynomial CRT crests}
+The natural-height comparison used both characters and prime extraction.
+For general positive integer inputs, one character already gives an
+arithmetic saving. Its nonprincipality follows from its negative
+numerator, with no assumption on the factorization of the input.
+
+\begin{lemma}[A negative numerator is nonprincipal]\label{lem:negative-numerator-witness}
+For every positive integer \(a\), put \(u=4a-1\). Then
+\[
+                         \kappa_{-a}(u)=-1.
+\]
+Consequently the numerator character modulo \(4a\) is nonprincipal.
+\end{lemma}
+\begin{proof}
+The integer \(u\) is odd and \(u\equiv3\pmod4\). Since \(4a=u+1\),
+\[
+ \left(\frac{4a}{u}\right)=\left(\frac1u\right)=1.
+\]
+The supplementary square law gives \((4/u)=1\), so multiplicativity
+gives \((a/u)=1\). The negative-unit factor gives \((-1/u)=-1\).
+Multiplying proves the assertion. A principal character can take only
+the values zero and one, whereas this character takes the value
+\(-1\) at the displayed residue.
+\end{proof}
+This is a classical character fact. Its role here is to discharge the
+actual packet's nonprincipality hypothesis for every \(a=hn>0\),
+including composite and square input products.
+
+\subsection{A signed comparison using one character}
+Define the supported signed prime tail
+\[
+ S^-_{K,h,Q}(n)=
+     \sum_{\substack{K<p\leq Q\\p\ {\rm prime}}}
+                         \frac{\kappa_{-hn}(p)}p .
+\]
+These quadratic character values are real. Let \(L_{K,h,Q}(n)\)
+be the exact masked \texttt{tailLogSum}, so the complete product
+identity is \(U_{h,Q}(n)=V_{K,h,Q}(n)e^{L_{K,h,Q}(n)}\).
+
+\begin{theorem}[One-character packet comparison]\label{thm:one-character-comparison}
+There is an absolute \(C>0\) such that, for all positive integers
+\(h,n\) and all \(6\leq K\leq Q\) with
+\[
+                   K+1\geq\bigl(3+\log(4hn)\bigr)^{64},
+\]
+one has
+\[
+ U_{h,Q}(n)\leq
+ e^{\,C+2B_{\rm M}+8/K}\frac{\log Q}{\log K}\,
+ V_{K,h,Q}(n).
+\]
+Neither primality nor a quadratic height condition is assumed.
+The conclusion includes zero packets.
+\end{theorem}
+\begin{proof}
+Retain the first character with its signs. In each admissible tail row,
+the proved logarithmic comparison gives
+\[
+ \log(1+a_p)\leq
+   \frac{\kappa_{-hn}(p)+\kappa_{h(n+h)}(p)}p+\frac8{p^2}
+ \leq\frac{\kappa_{-hn}(p)+1}p+\frac8{p^2}.
+\]
+At either forbidden opening the local correction is zero. The right
+side remains nonnegative because the first character is at least
+\(-1\). At a prime dividing \(h\), the correction and the first
+character are both zero, so the same upper estimate holds. Nonprime
+and non-tail rows retain their exact zero contributions.
+
+Summing the actual supported rows and the proved inverse-square tail
+bound yields
+\[
+ L_{K,h,Q}(n)\leq
+ S^-_{K,h,Q}(n)+
+ \sum_{\substack{K<p\leq Q\\p\ {\rm prime}}}\frac1p+\frac8K .
+\]
+The preceding lemma makes \(\kappa_{-hn}\) nonprincipal, with modulus
+\(4hn\). The installed uniform QRH character-tail theorem therefore
+gives \(\lvert S^-_{K,h,Q}(n)\rvert\leq C\) at the stated core cutoff.
+The Mertens upper estimate at \(Q\) and lower estimate at \(K\) give
+\[
+ \sum_{\substack{K<p\leq Q\\p\ {\rm prime}}}\frac1p
+       \leq\log\log Q-\log\log K+2B_{\rm M}.
+\]
+Exponentiate and use the complete product factorization. The hybrid
+packet is nonnegative, and \(\log K,\log Q>0\); thus this argument
+also covers the common zero branch without dividing by a packet.
+\end{proof}
+
+Combining this theorem with the split-core hybrid envelope gives one
+absolute \(A>0\) such that, under the same hypotheses,
+\[
+                         U_{h,Q}(n)\leq
+                              A(\log Q)^3\log K.
+\]
+For example the proof uses \(A=e^{C+2B_{\rm M}+2}C_0\), since
+\(8/K\leq2\). The signed first-character tail supplies the saved
+logarithmic power; the second character's explicit \(1/p\) allowance
+is retained in the complete estimate.
+
+\subsection{Uniformity on every fixed polynomial height range}
+\begin{theorem}[Uniform polynomial-height amplitude]\label{thm:polynomial-height-amplitude}
+There is one absolute \(A>0\) such that, for each fixed integer
+\(m\geq0\), there is \(Q_0(m)\) for which every \(Q\geq Q_0(m)\) and
+every pair of integers
+\[
+                      1\leq h<Q,\qquad1\leq n\leq Q^m
+\]
+satisfy
+\[
+ U_{h,Q}(n)\leq
+          A(64m+641)(\log Q)^3\log\log Q.
+\]
+The constant \(A\) is chosen before \(m\); the eventual cutoff may
+depend on \(m\). No primality, positive mass or recurrence hypothesis
+is present.
+\end{theorem}
+\begin{proof}
+Use
+\[
+ K_m(Q)=\left\lceil\bigl((m+10)\log Q\bigr)^{64}\right\rceil.
+\]
+For \(\log Q\geq1\), the hypotheses give
+\[
+ 0\leq3+\log(4hn)\leq3+\log4+(m+1)\log Q
+                           \leq(m+10)\log Q.
+\]
+Thus \(K_m(Q)\geq6\) and it covers the character level in
+Theorem~\ref{thm:one-character-comparison}. For each fixed \(m\),
+\[
+             \frac{\bigl((m+10)\log Q\bigr)^{64}}Q\longrightarrow0,
+\]
+so \(K_m(Q)\leq Q\) eventually.
+
+When \(\log\log Q\geq1\), the ceiling bound and
+\(\log(m+10)\leq m+9\) give
+\begin{align*}
+ \log K_m(Q)
+ &\leq\log2+64\log(m+10)+64\log\log Q\\
+ &\leq(64m+641)\log\log Q.
+\end{align*}
+Substitute this bound into \(U\leq A(\log Q)^3\log K_m(Q)\).
+All restrictions on \(Q\) are absorbed in \(Q_0(m)\).
+\end{proof}
+
+This extends the arithmetic saving to every fixed polynomial range,
+uniformly across the allowed shifts. On the smaller natural
+prime-pair window, Theorem~\ref{thm:uniform-natural-amplitude} remains
+stronger: it uses both nonprincipal characters to save a second
+logarithmic power.
+
+\subsection{One CRT crest family escapes every polynomial height}
+Let \(c_h>0\) denote the already proved constant
+\[
+ c_h=\exp\bigl(-4(B_{\rm M}+12+h)-1\bigr)
+\]
+in the quartic logarithmic CRT lower bound.
+
+\begin{theorem}[Superpolynomial escape of integer crests]\label{thm:superpolynomial-crest-escape}
+Fix a positive even shift \(h\).
+For every integer \(m\geq0\), there is \(Q_1(h,m)\) such that,
+for \(Q\geq Q_1(h,m)\), every natural integer \(n\) with
+\[
+                     c_h(\log Q)^4\leq U_{h,Q}(n)
+\]
+satisfies \(n>Q^m\).
+
+Moreover, one can select a single function \(Q\mapsto a_Q\),
+chosen before \(m\), such that for every \(Q\geq13\),
+\[
+ 0\leq a_Q<P_Q,\qquad
+ c_h(\log Q)^4\leq U_{h,Q}(a_Q+P_Qt)\quad(t\geq0),
+\]
+while retaining the global bound
+\(U_{h,Q}(n)\leq C_0(\log Q)^4\) for every natural \(n\).
+This same family obeys
+\[
+ \forall m\geq0\ \exists Q_1(h,m)\
+   \forall Q\geq Q_1(h,m)\ \forall t\geq0,\qquad
+                         a_Q+P_Qt>Q^m.
+\]
+In particular the selected representatives \(a_Q\) themselves grow
+faster than every fixed power of \(Q\).
+\end{theorem}
+\begin{proof}
+Fix \(m\). For all sufficiently large \(Q\), one has \(h<Q\),
+\(\log Q>0\), and the polynomial-height amplitude estimate holds.
+A quartic-scale crest has positive packet value. It cannot occur at
+\(n=0\), since the local zero mask at the prime \(2\) makes
+\(U_{h,Q}(0)=0\).
+
+If \(1\leq n\leq Q^m\) were such a crest, the two proved estimates
+would give
+\[
+ c_h(\log Q)^4\leq
+       A(64m+641)(\log Q)^3\log\log Q.
+\]
+Division by the positive \((\log Q)^4\) implies
+\[
+                  c_h\leq
+                  A(64m+641)\frac{\log\log Q}{\log Q},
+\]
+which contradicts \(\log\log Q/\log Q\to0\). This proves the first
+assertion for every integer reaching the quartic scale.
+
+For each \(Q\geq13\), choose \(a_Q\) once from the already proved
+quartic CRT-attainment theorem, retaining its lower bound on every
+lift and its global upper bound. Set \(a_Q=0\) for \(Q<13\).
+This choice is independent of \(m\). Apply the first assertion to
+each lift of this same chosen family. Taking \(t=0\) gives the final
+claim about the representatives.
+\end{proof}
+
+\paragraph{What this says about transfer to the integers.}
+The compatibility of the finite-field crest choices is exact:
+they have actual integer CRT representatives for every cutoff.
+Nevertheless, those integer representatives eventually lie above
+every fixed polynomial height in that cutoff. Thus compatibility and
+large local amplification by themselves do not locate the crests in
+the integer prime-pair windows. This is a quantitative height constraint
+on these extremal packets, not an exclusion of moderate compatible
+packets or of a future mass-transfer argument.
+
+For integer recurrence the remaining arithmetic question is positive
+packet mass on unbounded natural-height windows. Neither the existence
+of the superpolynomial crest family nor the pointwise amplitude upper
+bounds prove that mass is positive. The zero-free exponent supplied
+by the installed QRH input remains \(7/8\).
+
+\paragraph{Formal status and scope.}
+The maintained owner
+\texttt{Assembly/DetectorPackets/IntegerQuadraticParity} proves
+\texttt{numerator\_kernel\_negative\_residue} and
+\texttt{numerator\_character\_negative\_nonprincipal}.
+The maintained owner \texttt{Assembly/FiniteFieldOneCharacterHeight}
+proves the complete signed local and row consumers,
+\texttt{exists\_negative\_tail\_bounded},
+\texttt{exists\_one\_character\_packet\_comparison}, and
+\texttt{exists\_one\_character\_split\_amplitude}.
+The maintained owner \texttt{Assembly/FiniteFieldPolynomialHeight}
+proves the degree-dependent core estimates and
+\texttt{exists\_uniform\_polynomial\_height\_amplitude}.
+The maintained owner \texttt{Assembly/FiniteFieldIntegerCrestEscape}
+proves \texttt{quartic\_crests\_escape\_polynomial\_height} and
+\texttt{exists\_superpolynomial\_integer\_crest\_family}.
+The latter returns one function of \(Q\) before the universal degree
+quantifier, retaining its actual quartic lower bounds on every lift.
+All four owners are exported through
+\texttt{Assembly/ProbabilityProfiles}.
+
+The negative-numerator lemma, Mertens bounds and character-based
+truncation tools are classical inputs. Related Euler-product methods
+are discussed in David--Koukoulopoulos--Smith~\cite{DavidKoukoulopoulosSmith}.
+The conclusions above concern this masked quadratic-pair packet and
+the integer height of its quartic CRT crests. No new general
+truncation method, integer prime-pair recurrence or independently
+established external priority is claimed.
+
 \section{Arithmetic transfers and the next ascent investigation}
 \paragraph{Existing ingredients.}
 The generic greedy record sandwich and the maintained periodic and
