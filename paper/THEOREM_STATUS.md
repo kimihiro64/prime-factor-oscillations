@@ -1,5 +1,39 @@
 # Paper theorem and provenance ledger
 
+## Exact negative-phase arithmetic obstruction dichotomy (2026-11-01)
+
+All eighteen claims below have maintained Lean proofs, warning-free focused compilation and completed new-only assumption audits. Their namespace is `PrimeFactorOscillations.FiniteFieldIntegerSignature`. For every fixed nonempty strict graph G on actual prime vertices P, let N=N_all(P,G), K be the full supported even-square relation count, and J=sum_(O,T in Kfamily)(-1)^|O|. Translation of the entire support proves J=0 if a member has odd lower cardinality, and J=K otherwise. Consequently A_minus=N/2^m in the obstruction branch and A_minus=N/2^m+2*K/4^m otherwise. In the latter branch A_minus=A_plus. The old odd-cycle theorem is recovered because every odd Eulerian diagonal supplies an obstruction.
+
+| Claim | Lean declaration | Status |
+| --- | --- | --- |
+| Exact symmetric-difference law for the full lower-mask sign | native_mask_symmDiff_sign | Proved; maintained, compiled and audited. |
+| Bijective translation of a sum over the entire supported even-square family | native_even_square_row_sum_translate | Proved; maintained, compiled and audited. |
+| An odd lower-row relation cancels the complete signed sum exactly | native_square_row_parity_sum_zero_of_obstruction | Proved; maintained, compiled and audited. |
+| Absence of an odd lower-row relation makes every signed summand one | native_square_row_parity_sum_eq_count_of_no_obstruction | Proved; maintained, compiled and audited. |
+| Complete zero-or-full-count dichotomy for the signed relation sum | native_square_row_parity_sum_dichotomy | Proved; maintained, compiled and audited. |
+| Difference of both signed square indicators retains the lower-mask sign | native_signed_indicator_difference_eq_unsigned | Proved; maintained, compiled and audited. |
+| Exact negative-phase paired summand with full even-total selector | native_negative_even_square_row_paired_contribution | Proved; maintained, compiled and audited. |
+| Complete supported negative-phase finite sum equals twice the signed count | native_even_square_row_signed_sum | Proved; maintained, compiled and audited. |
+| The complete supported square-relation count is strictly positive | native_even_square_row_count_positive | Proved; maintained, compiled and audited. |
+| Exact negative-phase synchronized-word rate from the signed count | native_graph_negative_phase_constant_word_signed_count_eq | Proved; maintained, compiled and audited. |
+| Complete negative-phase agreement rate retaining the universal central mass | native_graph_negative_phase_agreement_signed_count_eq | Proved; maintained, compiled and audited. |
+| Exact obstruction-dependent negative-phase agreement formula | native_graph_negative_phase_agreement_dichotomy_eq | Proved; maintained, compiled and audited. |
+| Negative-phase agreement equals central mass if and only if the arithmetic obstruction exists | native_negative_phase_agreement_eq_central_iff | Proved; maintained, compiled and audited. |
+| The exact dichotomy through the actual modulo-four weight probability limit | native_graph_negative_phase_weight_dichotomy_ratio_tendsto | Proved; maintained, compiled and audited. |
+| Every odd Eulerian mask supplies the arithmetic row obstruction | native_odd_eulerian_square_row_obstruction | Proved; maintained, compiled and audited. |
+| No row obstruction implies all-central positive-phase compatibility | native_central_positive_compatible_of_no_row_obstruction | Proved; maintained, compiled and audited. |
+| Both phase-conditioned agreement probabilities coincide when the obstruction is absent | native_graph_phase_agreement_eq_of_no_row_obstruction | Proved; maintained, compiled and audited. |
+| Complete balanced-phase or central-only negative-phase dichotomy | native_graph_two_phase_agreement_dichotomy | Proved; maintained, compiled and audited. |
+
+Definition interfaces, separate from proof counts: `nativeOddSquareRowObstruction`, `nativeSquareRowParitySum`. Owner: Assembly/FiniteFieldNativeNegativeCoincidence.lean, exported through FiniteFieldNativePacking.lean. The full signed proof is in the finite-fields paper, section native-negative-phase-dichotomy. Only the eighteen new proof closures were audited; they use only propext, Classical.choice and Quot.sound. The downstream public build and final staged release results are recorded in the promotion receipt.
+
+benchmark_status: complete exact actual negative-phase coincidence law, necessary and sufficient arithmetic obstruction, and balanced-phase alternative proved.
+old_bound: the completed negative-phase exact law N_all/2^m required an odd Eulerian mask; the general phase-word expansion retained an unevaluated signed square-indicator difference.
+new_bound: J=0 or K exactly. A_minus=N_all/2^m if and only if an even-total square row pair has odd lower cardinality; otherwise A_minus=A_plus=N_all/2^m+2*K/4^m.
+components: the full delta(D)-delta(-D); joined synchronized coefficient; exact supported signed sum; preserved intersection squares and even total parity; involutive reindexing; complete sign reversal; universal central contribution; exact conditional factor2 and actual modulo-four weight transfer.
+actuals: eighteen newly audited real proofs, two definition interfaces and one warning-free maintained owner. All arithmetic conclusions are symbolic for arbitrary fixed actual prime graphs; no numerical diagnostic supplies an estimate.
+first_nonpositive_domain: the obstruction branch has zero noncentral limiting contribution, while its central probability N_all/2^m is positive. Without obstruction the noncentral term2*K/4^m is positive since the empty pair belongs to Kfamily. The physical theorem requires G nonempty and the existing eventual field-prime cutoff. Prime2 and isolated vertices are allowed. A limiting zero is not counted as a pointwise event exclusion. No growing-graph uniformity, integer prime-gap transfer or RH/QRH improvement is asserted; publication priority remains unestablished.
+
 ## Exact native coincidence count and isolated floor (2026-11-01)
 
 All twenty-six claims below have maintained Lean proofs, completed focused compilation and new-only assumption audits. Their namespace is `PrimeFactorOscillations.FiniteFieldIntegerSignature`. For every fixed nonempty strict graph G on actual prime vertices P, let N=N_all(P,G), let K count all supported row pairs (O,T) with even total cardinality and square full unsigned row product, and retain the compatible all-central contribution C_plus. The actual conditional agreement limit in prime fields1 modulo4 is exactly C_plus+2*K/4^|G|. It attains the previous floor if and only if every surviving pair is diagonal. Any off-diagonal member forces K>=2*N and a gap at least2*N/4^|G| above the floor.

@@ -4,13 +4,13 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Prime Factor Oscillations contributors
 -/
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeCoherentCapacity
-import PrimeFactorOscillations.Assembly.FiniteFieldNativeCoincidenceGap
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeCrossOutputs
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeDensityEnergy
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeFullCapacity
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeFullSparseConflicts
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeHeightCapacity
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeHeightPacking
+import PrimeFactorOscillations.Assembly.FiniteFieldNativeNegativeCoincidence
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeSignedFamilies
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeVertexGreedy
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeVertexReservoir
@@ -43,4 +43,6 @@ The sharp universal positive-phase coincidence floor and its simultaneous
 attainment on one computable infinite prime class are included.
 The exact even-square relation count, necessary and sufficient extremizer
 criterion and isolated gap above that coincidence floor are exported.
+The complete negative-phase signed cancellation, exact arithmetic obstruction
+criterion and two-phase probability dichotomy on arbitrary prime graphs are included.
 -/

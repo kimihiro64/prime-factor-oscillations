@@ -17793,6 +17793,176 @@ Its finite translation argument is classical; the application to
 the exact actual native-weight coincidence law is the contribution
 here. Historical publication priority remains unestablished.
 
+\section{A complete signed cancellation law in the negative phase}
+\label{sec:native-negative-phase-dichotomy}
+
+The square-mask translation also evaluates the signed contribution in
+the other field phase. The result applies to every fixed actual prime
+graph, including graphs for which no odd Eulerian mask is available.
+
+Keep the preceding nonempty \(G\subseteq E(P)\), \(m=|G|\),
+\(N=N_{\rm all}(P,G)\), and full supported family \(\mathcal K(G)\)
+of even-total square row relations. Define the arithmetic obstruction
+\[
+ \mathfrak o(G)\quad\Longleftrightarrow\quad
+  \text{there exists }(O,T)\in\mathcal K(G)\text{ with }|O|\text{ odd},
+\]
+and retain the complete signed sum
+\[
+                       J(G)=\sum_{(O,T)\in\mathcal K(G)}(-1)^{|O|}.
+\]
+Since every member has even total cardinality, an obstructing pair
+has both \(|O|\) and \(|T|\) odd. No row factor or overlap is removed.
+
+Let \(A_-(P,G)\) be the actual-weight agreement probability defined
+using the same reciprocal-prime band as \(A_+\), now conditioning
+on field primes \(\ell\equiv3\pmod4\).
+\begin{theorem}[Arithmetic obstruction and the full negative-phase law]
+\label{thm:native-negative-phase-dichotomy}
+For every fixed nonempty actual prime graph the limit \(A_-(P,G)\)
+exists, and
+\begin{align}
+ J(G)&=
+ \begin{cases}
+  0,&\text{if }\mathfrak o(G),\\
+  K(G),&\text{otherwise},
+ \end{cases}                                             \label{eq:native-parity-annihilation}\\
+ A_-(P,G)&=\frac{N}{2^m}+
+ \begin{cases}
+  0,&\text{if }\mathfrak o(G),\\
+  \displaystyle\frac{2K(G)}{4^m},&\text{otherwise}.
+ \end{cases}                                             \label{eq:native-negative-dichotomy}
+\end{align}
+In particular
+\[
+           A_-(P,G)=\frac{N}{2^m}
+                    \quad\Longleftrightarrow\quad\mathfrak o(G).
+\]
+If the obstruction is absent, the two phase-conditioned actual
+agreement probabilities coincide:
+\[
+                   A_-(P,G)=A_+(P,G)
+                      =\frac{N}{2^m}+\frac{2K(G)}{4^m}.
+\]
+Every odd Eulerian mask supplies an obstruction, recovering the
+previous odd-cycle conditional coincidence law.
+\end{theorem}
+
+\begin{proof}
+We first evaluate \(J\) on its entire finite support.
+The full overlap cardinality identity proved in the preceding section
+implies, for arbitrary finite masks \(S,T\),
+\[
+        (-1)^{|S\mathbin{\triangle}T|}
+                         =(-1)^{|S|}(-1)^{|T|}.
+\]
+Indeed the missing exponent is \(2|S\cap T|\), an even integer.
+
+Suppose \((A,B)\in\mathcal K(G)\) has odd \(|A|\). Translate every
+member of the same full family by
+\[
+          \tau(O,T)=(O\mathbin{\triangle}A,T\mathbin{\triangle}B).
+\]
+The previously proved square and total-parity closure shows that
+\(\tau\) maps \(\mathcal K(G)\) to itself, retaining all intersection
+square factors. Applying \(\tau\) twice is the identity, so it is a
+bijection of this precise finite support. The preceding sign identity
+gives
+\[
+          (-1)^{|O\mathbin{\triangle}A|}
+                      =-(-1)^{|O|}.
+\]
+Reindexing the whole sum, rather than bounding any summand, yields
+\[
+ J(G)=\sum_{(O,T)\in\mathcal K(G)}
+                 (-1)^{|O\mathbin{\triangle}A|}
+      =-\sum_{(O,T)\in\mathcal K(G)}(-1)^{|O|}
+      =-J(G).
+\]
+Thus \(J(G)=0\). If there is no obstructing pair, every lower
+cardinality on the same support is even, every summand is one,
+and \(J(G)=K(G)\). This proves
+\eqref{eq:native-parity-annihilation} with all cross terms present.
+
+It remains to pass this finite cancellation through the original
+physical probability consumer. Write \(H(O,T)>0\) for the full
+unsigned row product, so \(D(O,T)=(-1)^{|O|}H(O,T)\).
+The exact difference of the two signed square indicators is
+\[
+ \delta(D(O,T))-\delta(-D(O,T))
+    =(-1)^{|O|}\mathbf1\{H(O,T)\text{ is a square}\}.
+\]
+To check signs explicitly: when \(|O|\) is even, the positive
+numerator is \(D=H\); when it is odd, the positive numerator is
+\(-D=H\). The other numerator is negative and cannot be a square.
+When \(H\) is nonsquare, both indicators vanish.
+
+Join both nonzero synchronized-word expansions in the negative phase.
+Their complete signed joint rate is consequently
+\begin{align*}
+ W_-(P,G)
+ &=2^{-2m-1}\sum_{\substack{O\subseteq G\\T\subseteq G}}
+     \left(1+(-1)^{|O|+|T|}\right)
+     \left(\delta(D(O,T))-\delta(-D(O,T))\right)\\
+ &=2^{-2m-1}\sum_{(O,T)\in\mathcal K(G)}2(-1)^{|O|}
+   =\frac{J(G)}{4^m}.
+\end{align*}
+Both original synchronized events and both square indicators have
+survived up to this exact identity. Cancellation is evaluated before
+any estimate, on the same support used to define the physical rate.
+
+The all-central profile is compatible with the negative phase on
+every actual graph: its coefficient on a mask \(C\) is
+\((-1)^{|C|}\), exactly the negative phase raised to \(|C|\).
+The complete phase-profile law therefore gives its conditional
+probability \(N/2^m\), or joint full-band probability \(N/2^{m+1}\).
+The actual-weight affine readout and three-event decomposition now
+give
+\[
+                    A_-(P,G)=\frac{N}{2^m}
+                                      +\frac{2J(G)}{4^m}.
+\]
+The factor two is the same phase-band normalization as before.
+Substitute \eqref{eq:native-parity-annihilation} to obtain
+\eqref{eq:native-negative-dichotomy}. All limits are the already
+proved unconditional fixed-character limits; no growing family is
+interchanged with the field-prime limit.
+
+For the stated equivalence, \(K(G)\geq1\): the empty pair is supported,
+has even total cardinality, and its unsigned product is one.
+Thus the additional term \(2K(G)/4^m\) is strictly positive.
+It vanishes exactly in the obstruction branch.
+
+Finally, if \(C\) is an odd Eulerian mask, its diagonal \((C,C)\)
+belongs to \(\mathcal K(G)\), so it supplies an obstruction.
+If there is no obstruction, every Eulerian mask is even.
+The all-central positive-phase coefficient on each such mask is
+then \((-1)^{|C|}=1\), so that profile is compatible as well and
+\(C_+=N/2^m\). The preceding positive-phase count identity
+\(A_+=C_++2K/4^m\) proves equality of the two phases in this branch.
+\end{proof}
+
+This classifies the limiting noncentral synchronized contribution:
+it is either the whole positive-phase noncentral contribution or zero.
+The zero-frequency branch alone is not asserted to be a pointwise
+event exclusion; the earlier odd-cycle theorem separately supplies
+pointwise rigidity under its graph hypothesis.
+The result treats arbitrary fixed actual prime vertices, including
+vertex \(2\) and isolated vertices, and uses the same eventual
+field-prime cutoff as the earlier physical laws.
+
+The two definitions and eighteen maintained proofs are in
+\texttt{FiniteFieldNativeNegativeCoincidence.lean}.
+They include the exact full-support reindexing, signed square
+difference, both complete finite sums, necessary and sufficient
+obstruction criterion, actual modulo-four probability limit and
+two-phase dichotomy. The claim ledger records their individual
+verification. Finite character annihilation by translation is classical;
+the application here is to the exact arithmetic row relations and
+actual native-weight coincidence probabilities. Historical priority
+remains unestablished. No growing-graph or integer prime-gap transfer,
+or change to the RH/QRH exponent, is claimed.
+
 \begin{thebibliography}{99}
 \bibitem{KarpVaziraniVazirani}
 R. M. Karp, U. V. Vazirani and V. V. Vazirani,
