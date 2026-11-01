@@ -3,7 +3,8 @@ Copyright (c) 2026 Prime Factor Oscillations contributors.
 Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Prime Factor Oscillations contributors
 -/
-import PrimeFactorOscillations.Assembly.FiniteFieldNativeSparseConflicts
+import PrimeFactorOscillations.Assembly.FiniteFieldNativeFullHeightSupply
+import PrimeFactorOscillations.Assembly.FiniteFieldNativeFullSparseConflicts
 import PrimeFactorOscillations.Helpers.NativeHeightSquarefreeSupply
 import PrimeFactorOscillations.Helpers.NativeSquarepartTail
 
@@ -24,12 +25,13 @@ open scoped Classical Topology
 
 namespace PrimeFactorOscillations.FiniteFieldIntegerSignature
 
-private theorem eventually_native_density_one_cutoff (C : Real) (hC : 0 <= C)
+private theorem eventually_native_density_one_cutoff (J : Nat) (hJ : 0 < J)
+    (C : Real) (hC : 0 <= C)
     (B : Real) (hB : 0 < B) :
     Filter.Eventually (fun Y : Nat =>
       let R := Nat.ceil ((Y : Real) ^ (1 / 8 : Real))
       24 <= Y /\ 1 <= Real.log (Y : Real) /\ 2 <= R /\
-        R ^ 2 <= 2 * (Y / 4) /\
+        R ^ 2 <= Y / J /\
         C * (R : Real) * (Y : Real) ^ (7 / 4 : Real) *
             (1 + 2 * Real.log ((Y : Real) + 2)) ^ 4 +
           (Y : Real) * ((Y / R : Nat) : Real) <=
@@ -43,9 +45,10 @@ private theorem eventually_native_density_one_cutoff (C : Real) (hC : 0 <= C)
   have hRadius := Real.eventually_const_mul_log_natpow_le_rpow
     3 0 (s := (1 / 8 : Real)) (by norm_num)
   have hGeometry := Real.eventually_const_mul_log_natpow_le_rpow
-    12 0 (s := (3 / 4 : Real)) (by norm_num)
+    (8 * (J : Real)) 0 (s := (3 / 4 : Real)) (by norm_num)
   filter_upwards [Filter.eventually_ge_atTop (24 : Nat), hLog, hPoly,
-      hRadius, hGeometry] with Y hY hl hp hr hg
+      hRadius, hGeometry, Filter.eventually_ge_atTop (2 * J)]
+    with Y hY hl hp hr hg hYJ
   let x : Real := Y
   let R := Nat.ceil (x ^ (1 / 8 : Real))
   let L := 1 + 2 * Real.log (x + 2)
@@ -72,22 +75,32 @@ private theorem eventually_native_density_one_cutoff (C : Real) (hC : 0 <= C)
   have hRSquare : (R : Real) ^ 2 <= 4 * x ^ (1 / 4 : Real) := by
     have hs := mul_self_le_mul_self (Nat.cast_nonneg R) hUpper
     nlinarith only [hs, hSquare]
-  have hGeometryProduct : 12 * x ^ (1 / 4 : Real) <= x := by
+  have hGeometryProduct : (8 * (J : Real)) * x ^ (1 / 4 : Real) <= x := by
     calc
-      12 * x ^ (1 / 4 : Real) <=
+      (8 * (J : Real)) * x ^ (1 / 4 : Real) <=
           x ^ (3 / 4 : Real) * x ^ (1 / 4 : Real) :=
         mul_le_mul_of_nonneg_right hg (Real.rpow_nonneg hx.le _)
       _ = x := by
         rw [<- Real.rpow_add hx]
         norm_num
-  have hNatGeometry : Y <= 6 * (Y / 4) := by omega
-  have hCastGeometry : x <= 6 * ((Y / 4 : Nat) : Real) := by
-    dsimp [x]
+  have hDiv := Nat.div_add_mod Y J
+  have hRem := Nat.mod_lt Y hJ
+  have hq : 1 <= Y / J := by
+    apply (Nat.le_div_iff_mul_le hJ).mpr
+    omega
+  have hqJ : J <= J * (Y / J) := by
+    simpa only [Nat.mul_one] using Nat.mul_le_mul_left J hq
+  have hNatGeometry : Y <= 2 * J * (Y / J) := by
+    nlinarith only [hDiv, hRem, hqJ]
+  have hCastGeometry : x <= 2 * (J : Real) * ((Y / J : Nat) : Real) := by
+    dsimp only [x]
     exact_mod_cast hNatGeometry
-  have hRGeometry : R ^ 2 <= 2 * (Y / 4) := by
-    have h : (R : Real) ^ 2 <= 2 * ((Y / 4 : Nat) : Real) := by
-      nlinarith only [hRSquare, hGeometryProduct, hCastGeometry]
-    exact_mod_cast h
+  have hJReal : (0 : Real) < (J : Real) := by exact_mod_cast hJ
+  have hQuarter : 4 * x ^ (1 / 4 : Real) <= ((Y / J : Nat) : Real) := by
+    apply le_of_mul_le_mul_right ?_ hJReal
+    nlinarith only [hGeometryProduct, hCastGeometry]
+  have hRGeometry : R ^ 2 <= Y / J := by
+    exact_mod_cast hRSquare.trans hQuarter
   have hLogAdd : Real.log (x + 2) <= 2 * Real.log x := by
     calc
       Real.log (x + 2) <= Real.log (x ^ 2) :=
@@ -201,7 +214,7 @@ theorem eventually_native_prime_pair_density_one
   have heps0 : Not (eps = 0) := ne_of_gt heps
   choose C hC hTail using exists_primeBlock_largeSquarepart_small_allowance
   choose T hT hTailT using hTail (eps / 3) (by positivity)
-  have hError := eventually_native_density_one_cutoff C hC.le
+  have hError := eventually_native_density_one_cutoff 4 (by decide) C hC.le
     (243 / eps) (by positivity)
   have hProb := (tendsto_native_weighted_endpoint_output_probability_zero T).eventually
     (gt_mem_nhds (show (0 : Real) < eps / 972 by positivity))
@@ -238,7 +251,10 @@ theorem eventually_native_prime_pair_density_one
   have hl0 : Not (l = 0) := ne_of_gt hlPos
   have hl2 : 0 < l ^ 2 := pow_pos hlPos 2
   have hR : 2 <= R := hErr.2.2.1
-  have hRA : R ^ 2 <= a := hErr.2.2.2.1
+  have hRA : R ^ 2 <= a := by
+    have hh : R ^ 2 <= Y / 4 := hErr.2.2.2.1
+    dsimp only [a, N]
+    omega
   have hK : 0 <= K := by dsimp [K]; positivity
   have hSupply := (hN0 N hNbase).2 Y hNY
   have hA : (N : Real) <= 2 * (A.card : Real) * l := hSupply.1
@@ -395,5 +411,245 @@ theorem eventually_native_prime_pair_density_one
   have hEB := hErrorBound.trans hSmall
   have hWB := hW.trans hSmall
   nlinarith only [hFull, hKcast, hBad, hEB, hWB]
+
+/-- Almost all actual positive-gap prime pairs up to the full height can be
+retained with distinct native agreement rates exactly three eighths. -/
+theorem eventually_native_full_prime_pair_density_one
+    (eps : Real) (heps : 0 < eps) :
+    Filter.Eventually (fun Y : Nat =>
+      exists M : Finset (Prod Nat Nat),
+        M <= nativeFullPrimePairGapSet Y /\
+        (1 - eps) * ((nativeFullPrimePairGapSet Y).card : Real) <= (M.card : Real) /\
+        (forall z : Prod Nat Nat, Membership.mem M z ->
+          Nat.Prime z.1 /\ Nat.Prime (z.1 + z.2) /\ 0 < z.2 /\ z.1 + z.2 <= Y) /\
+        (forall z : Prod Nat Nat, Membership.mem M z ->
+          forall w : Prod Nat Nat, Membership.mem M w -> Not (z = w) ->
+            nativeAgreementRate z.1 z.2 w.1 w.2 = 3 / 8)) atTop := by
+  classical
+  have heps0 : Not (eps = 0) := ne_of_gt heps
+  let J := Nat.ceil (2592 / eps) + 4
+  have hJ : 0 < J := by dsimp only [J]; omega
+  have hjPos : (0 : Real) < (J : Real) := by exact_mod_cast hJ
+  have hj0 : Not ((J : Real) = 0) := ne_of_gt hjPos
+  have hJceil : (2592 / eps : Real) <= (J : Real) := by
+    have hl := Nat.le_ceil (2592 / eps)
+    have hg : (Nat.ceil (2592 / eps) : Real) <= (J : Real) := by
+      dsimp only [J]
+      exact_mod_cast (show Nat.ceil (2592 / eps) <= Nat.ceil (2592 / eps) + 4 by omega)
+    exact hl.trans hg
+  have hBudget : (2592 : Real) <= eps * (J : Real) := by
+    have hh := mul_le_mul_of_nonneg_right hJceil heps.le
+    have hc : (2592 / eps : Real) * eps = 2592 := by field_simp [heps0]
+    nlinarith only [hh, hc]
+  have hCoeff : (8 / (J : Real)) <= eps / 324 := by
+    apply le_of_mul_le_mul_right ?_ hjPos
+    have he : (8 / (J : Real)) * (J : Real) = 8 := by field_simp [hj0]
+    rw [he]
+    nlinarith only [hBudget]
+  choose C hC hTail using exists_primeBlocksSupport_largeSquarepart_small_allowance
+  choose T hT hTailT using hTail (eps / 1296) (by positivity)
+  have hError := eventually_native_density_one_cutoff J hJ C hC.le
+    (324 / eps) (by positivity)
+  have hSupplies := eventually_native_full_pair_supplies J hJ
+  have hRoot := (tendsto_native_weighted_endpoint_output_probability_zero T).eventually
+    (gt_mem_nhds (show (0 : Real) < eps / 2592 by positivity))
+  have hCross := (tendsto_native_cross_endpoint_output_probability_zero J).eventually
+    (gt_mem_nhds (show (0 : Real) < eps / 2592 by positivity))
+  filter_upwards [hError, hSupplies, hRoot, hCross] with Y hErr hSup hEr hWr
+  let S := nativeFullPrimePairGapSet Y
+  let a := Y / J
+  let A := primeBlockSet a Y
+  let U := S.filter (fun z => a < z.1)
+  let Low := S.filter (fun z => z.1 <= a)
+  let Bad := U.filter (fun z => exists u : Nat, T <= u /\ Dvd.dvd (u ^ 2) z.2)
+  let V := U.filter (fun z => Not (exists u : Nat, T <= u /\ Dvd.dvd (u ^ 2) z.2))
+  let R := Nat.ceil ((Y : Real) ^ (1 / 8 : Real))
+  let x : Real := Y
+  let l := Real.log x
+  let D : Real := x ^ 2 / l ^ 2
+  let Error : Real := C * (R : Real) * x ^ (7 / 4 : Real) *
+    (1 + 2 * Real.log (x + 2)) ^ 4 + x * ((Y / R : Nat) : Real)
+  let E := ((primePairs Y).filter
+    (fun pq => nativeWeightedEndpointPrimeOutput T pq.1 pq.2)).card
+  let W := ((primePairs Y).filter
+    (fun pq => nativeCrossEndpointPrimeOutput J pq.1 pq.2)).card
+  have hLog : 1 <= l := hErr.2.1
+  have hlPos : 0 < l := by linarith
+  have hl0 : Not (l = 0) := ne_of_gt hlPos
+  have hD0 : 0 <= D := by dsimp only [D]; positivity
+  have hR : 2 <= R := hErr.2.2.1
+  have hRA : R ^ 2 <= a := hErr.2.2.2.1
+  have haY : a <= Y := Nat.div_le_self Y J
+  have hScale : D <= 81 * (S.card : Real) := hSup.2.2.1
+  have hPiSq : (Nat.primeCounting Y : Real) ^ 2 <= 4 * D := hSup.2.2.2.1
+  have hPrefix : (Nat.primeCounting a : Real) * (Nat.primeCounting Y : Real) <=
+      (8 / (J : Real)) * D := hSup.2.2.2.2
+  have hSmall : eps / 324 * D <= eps / 4 * (S.card : Real) := by
+    have hh := mul_le_mul_of_nonneg_left hScale
+      (show (0 : Real) <= eps / 324 by positivity)
+    nlinarith only [hh]
+  have hErrorBound : Error <= eps / 324 * D := by
+    have hh : Error <= x ^ 2 / ((324 / eps) * l ^ 2) := hErr.2.2.2.2
+    calc
+      Error <= x ^ 2 / ((324 / eps) * l ^ 2) := hh
+      _ = eps / 324 * D := by dsimp only [D]; field_simp [heps0, hl0]
+  have hScoords (z : Prod Nat Nat) (hz : Membership.mem S z) :
+      Nat.Prime z.1 /\ Nat.Prime (z.1 + z.2) /\ 0 < z.2 /\ z.1 + z.2 <= Y :=
+    (mem_nativeFullPrimePairGapSet_iff Y z.1 z.2).mp hz
+  have hU : U <= S := Finset.filter_subset _ _
+  have hLowCard : Low.card <= Nat.primeCounting a * Nat.primeCounting Y := by
+    have hh : Low.card <= ((Nat.primesLE a).product (Nat.primesLE Y)).card := by
+      apply Finset.card_le_card_of_injOn (fun z : Prod Nat Nat => Prod.mk z.1 (z.1 + z.2))
+      . intro z hz
+        have hp := hScoords z (Finset.mem_filter.mp hz).1
+        exact Finset.mem_product.mpr (And.intro
+          (Nat.mem_primesLE.mpr (And.intro (Finset.mem_filter.mp hz).2 hp.1))
+          (Nat.mem_primesLE.mpr (And.intro hp.2.2.2 hp.2.1)))
+      . intro z hz w hw he
+        have hp1 := congrArg (fun t : Prod Nat Nat => t.1) he
+        have hp2 := congrArg (fun t : Prod Nat Nat => t.2) he
+        have hn : z.1 = w.1 := hp1
+        have hq : z.1 + z.2 = w.1 + w.2 := hp2
+        exact Prod.ext hn (by omega)
+    have hc : ((Nat.primesLE a).product (Nat.primesLE Y)).card =
+        Nat.primeCounting a * Nat.primeCounting Y := by
+      calc
+        _ = (Nat.primesLE a).card * (Nat.primesLE Y).card :=
+          Finset.card_product (Nat.primesLE a) (Nat.primesLE Y)
+        _ = Nat.primeCounting a * Nat.primeCounting Y := by
+          simp only [Nat.primesLE_card_eq_primeCounting]
+    exact hh.trans_eq hc
+  have hLow : (Low.card : Real) <= eps / 324 * D := by
+    calc
+      (Low.card : Real) <=
+          (Nat.primeCounting a : Real) * (Nat.primeCounting Y : Real) := by
+        exact_mod_cast hLowCard
+      _ <= (8 / (J : Real)) * D := hPrefix
+      _ <= eps / 324 * D := mul_le_mul_of_nonneg_right hCoeff hD0
+  have hAPi : A.card <= Nat.primeCounting Y := by
+    have hs : A <= Nat.primesLE Y := by
+      intro p hp
+      have hh := (mem_primeBlockSet_iff a Y p).mp hp
+      exact Nat.mem_primesLE.mpr (And.intro hh.2.2 hh.1)
+    have hc := Finset.card_le_card hs
+    simpa only [Nat.primesLE_card_eq_primeCounting] using hc
+  have hAcard : A.card <= Y := by
+    have hs : A <= Finset.Icc 1 Y := by
+      intro p hp
+      have hh := (mem_primeBlockSet_iff a Y p).mp hp
+      exact Finset.mem_Icc.mpr (And.intro hh.1.pos hh.2.2)
+    have hc := Finset.card_le_card hs
+    simpa only [Nat.card_Icc, Nat.add_sub_cancel] using hc
+  have hAPiSq : (A.card : Real) ^ 2 <= (Nat.primeCounting Y : Real) ^ 2 := by
+    have hh := mul_self_le_mul_self (Nat.cast_nonneg A.card)
+      (show (A.card : Real) <= Nat.primeCounting Y by exact_mod_cast hAPi)
+    nlinarith only [hh]
+  have hUcoords (z : Prod Nat Nat) (hz : Membership.mem U z) :
+      Membership.mem A z.1 /\ Membership.mem A (z.1 + z.2) /\
+        0 < z.2 /\ z.2 <= Y := by
+    have hp := hScoords z (hU hz)
+    have hcut := (Finset.mem_filter.mp hz).2
+    have hlo : Membership.mem A z.1 :=
+      (mem_primeBlockSet_iff a Y z.1).mpr
+        (And.intro hp.1 (And.intro hcut (by omega)))
+    have hup : Membership.mem A (z.1 + z.2) :=
+      (mem_primeBlockSet_iff a Y (z.1 + z.2)).mpr
+        (And.intro hp.2.1 (And.intro (by have hh := hp.2.2.1; omega) hp.2.2.2))
+    exact And.intro hlo (And.intro hup (And.intro hp.2.2.1 (by omega)))
+  have hHigh : (A.card : Real) * ((Y / R : Nat) : Real) <=
+      x * ((Y / R : Nat) : Real) :=
+    mul_le_mul_of_nonneg_right (by dsimp only [x]; exact_mod_cast hAcard) (Nat.cast_nonneg _)
+  have hPrincipal : (eps / 1296) * (A.card : Real) * (A.card : Real) <=
+      eps / 324 * D := by
+    have hh := mul_le_mul_of_nonneg_left (hAPiSq.trans hPiSq)
+      (show (0 : Real) <= eps / 1296 by positivity)
+    nlinarith only [hh]
+  have hBad : (Bad.card : Real) <= eps / 324 * D + Error := by
+    have hh := hTailT a Y a Y Y R U hR hRA hRA haY haY (le_refl Y) (le_refl Y) hUcoords
+    change (Bad.card : Real) <=
+      (eps / 1296) * (A.card : Real) * (A.card : Real) +
+        C * (R : Real) * x ^ (7 / 4 : Real) *
+          (1 + 2 * Real.log (x + 2)) ^ 4 +
+        (A.card : Real) * ((Y / R : Nat) : Real) at hh
+    dsimp only [Error]
+    nlinarith only [hh, hHigh, hPrincipal]
+  have hPiPosNat : 0 < Nat.primeCounting Y := by
+    rw [<- Nat.primesLE_card_eq_primeCounting]
+    exact Finset.card_pos.mpr (Exists.intro 2
+      (Nat.mem_primesLE.mpr (And.intro (by have hy := hErr.1; omega) Nat.prime_two)))
+  have hPiPos : (0 : Real) < (Nat.primeCounting Y : Real) := by exact_mod_cast hPiPosNat
+  have hEventBound (P : Prod Nat Nat -> Prop)
+      (hP : primePairProbability Y P <= eps / 2592) :
+      (((primePairs Y).filter P).card : Real) <= eps / 648 * D := by
+    have he : (((primePairs Y).filter P).card : Real) =
+        primePairProbability Y P * (Nat.primeCounting Y : Real) ^ 2 := by
+      unfold primePairProbability
+      field_simp [ne_of_gt hPiPos]
+    calc
+      (((primePairs Y).filter P).card : Real) =
+          primePairProbability Y P * (Nat.primeCounting Y : Real) ^ 2 := he
+      _ <= (eps / 2592) * (Nat.primeCounting Y : Real) ^ 2 :=
+        mul_le_mul_of_nonneg_right hP (sq_nonneg _)
+      _ <= (eps / 2592) * (4 * D) :=
+        mul_le_mul_of_nonneg_left hPiSq (by positivity)
+      _ = eps / 648 * D := by ring
+  have hEW : (E : Real) + (W : Real) <= eps / 324 * D := by
+    have he := hEventBound
+      (fun pq => nativeWeightedEndpointPrimeOutput T pq.1 pq.2) hEr.le
+    have hw := hEventBound
+      (fun pq => nativeCrossEndpointPrimeOutput J pq.1 pq.2) hWr.le
+    change (E : Real) <= eps / 648 * D at he
+    change (W : Real) <= eps / 648 * D at hw
+    nlinarith only [he, hw]
+  have hV : V <= U := Finset.filter_subset _ _
+  have haFour : 4 <= a := by
+    have hh := Nat.pow_le_pow_left hR 2
+    norm_num at hh
+    omega
+  have hVprime (z : Prod Nat Nat) (hz : Membership.mem V z) :
+      Nat.Prime z.1 /\ Nat.Prime (z.1 + z.2) /\ 0 < z.2 /\
+        2 < z.1 /\ z.1 + z.2 <= Y /\ Y < J * z.1 := by
+    have hp := hScoords z (hU (hV hz))
+    have hcut : a < z.1 := (Finset.mem_filter.mp (hV hz)).2
+    have hdiv : Y < z.1 * J :=
+      (Nat.div_lt_iff_lt_mul hJ).mp (show Y / J < z.1 from hcut)
+    have hJn : Y < J * z.1 := by simpa only [Nat.mul_comm] using hdiv
+    exact And.intro hp.1 (And.intro hp.2.1 (And.intro hp.2.2.1
+      (And.intro (by omega) (And.intro hp.2.2.2 hJn))))
+  have hVclean (z : Prod Nat Nat) (hz : Membership.mem V z)
+      (u : Nat) (hu : T <= u) : Not (Dvd.dvd (u ^ 2) z.2) := by
+    intro hd
+    exact (Finset.mem_filter.mp hz).2 (Exists.intro u (And.intro hu hd))
+  choose M hM hPack hFlat using
+    native_unrestricted_clean_sparse_collision_packing V T J Y hVprime hVclean
+  have hLowCover : S <= Union.union Low U := by
+    intro z hz
+    by_cases hcut : z.1 <= a
+    . exact Finset.mem_union.mpr (Or.inl (Finset.mem_filter.mpr (And.intro hz hcut)))
+    . exact Finset.mem_union.mpr (Or.inr
+        (Finset.mem_filter.mpr (And.intro hz (by omega))))
+  have hCleanCover : U <= Union.union V Bad := by
+    intro z hz
+    by_cases hb : exists u : Nat, T <= u /\ Dvd.dvd (u ^ 2) z.2
+    . exact Finset.mem_union.mpr (Or.inr (Finset.mem_filter.mpr (And.intro hz hb)))
+    . exact Finset.mem_union.mpr (Or.inl (Finset.mem_filter.mpr (And.intro hz hb)))
+  have hSLow : S.card <= Low.card + U.card :=
+    (Finset.card_le_card hLowCover).trans (Finset.card_union_le Low U)
+  have hUV : U.card <= V.card + Bad.card :=
+    (Finset.card_le_card hCleanCover).trans (Finset.card_union_le V Bad)
+  have hPack' : V.card <= M.card + E + W := hPack
+  have hWholeNat : S.card <= M.card + Low.card + Bad.card + E + W := by omega
+  have hWhole : (S.card : Real) <=
+      (M.card : Real) + (Low.card : Real) + (Bad.card : Real) + (E : Real) + (W : Real) := by
+    exact_mod_cast hWholeNat
+  have hLoss : (Low.card : Real) + (Bad.card : Real) + (E : Real) + (W : Real) <=
+      eps * (S.card : Real) := by
+    nlinarith only [hLow, hBad, hErrorBound, hEW, hSmall]
+  have hKeep : (1 - eps) * (S.card : Real) <= (M.card : Real) := by
+    nlinarith only [hWhole, hLoss]
+  refine Exists.intro M (And.intro (fun z hz => hU (hV (hM hz)))
+    (And.intro hKeep (And.intro ?_ hFlat)))
+  intro z hz
+  exact hScoords z (hU (hV (hM hz)))
 
 end PrimeFactorOscillations.FiniteFieldIntegerSignature

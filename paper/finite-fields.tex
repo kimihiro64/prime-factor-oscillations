@@ -48,8 +48,9 @@ square-root-accurate reference clock. At fixed odd \(q\) and rank
 their maximal peak count among \(\deg D\leq H\) is of sharp order
 \( \log H\), although their Galois group is always the same.
 
-For actual integer prime-pair labels in separated quarter blocks,
-we construct native finite-field codebooks retaining at least
+For actual integer prime-pair labels with positive gaps and upper
+endpoint at most the height, we construct native finite-field
+codebooks retaining at least
 \(1-\varepsilon\) of the complete candidate set, for every
 \(\varepsilon>0\) and all sufficiently large heights.
 Their distinct agreement rates are exactly \(3/8\).
@@ -15274,10 +15275,130 @@ Both maintained owners compile without warnings.
 These three new closures and the changed compatibility proof use only
 standard Lean foundations.
 
-The complete height consumer must still subtract the low-endpoint
-prefix and the full squarepart loss from the actual candidate supply.
-This finite theorem does not itself assert the unrestricted
-density-one limit or a sharp global capacity asymptotic.
+The next theorem assembles this finite extraction with the complete
+low-endpoint and squarepart costs.
+
+\section{Density-one retention for all positive prime gaps}
+\label{sec:native-full-density}
+
+The preceding restrictions on the lower endpoint and square factors can
+both be removed at vanishing relative cost. Define the full finite
+candidate set
+\[
+ S_Y=\{(p,q-p):p<q\le Y,\ p,q\in\mathbb P\}.
+\]
+In particular, this set includes pairs with \(q-p\ge p\).
+
+\begin{theorem}[Unrestricted density-one native packing]
+\label{thm:native-full-density}
+For every real \(\varepsilon>0\), every sufficiently large natural
+\(Y\) admits \(M_Y\subseteq S_Y\) such that
+\[
+ |M_Y|\ge(1-\varepsilon)|S_Y|,
+ \qquad
+ A(z,w)=\frac38\quad(z,w\in M_Y,\ z\ne w),
+\]
+where \(A\) is the native agreement rate.
+\end{theorem}
+
+\begin{proof}
+Write \(D=Y^2/\log^2Y\) and \(L=1+2\log(Y+2)\).
+Choose a fixed integer \(J\ge4\) with
+\(\varepsilon J\ge2592\), and set
+\[
+ a=\lfloor Y/J\rfloor,\qquad
+ \eta=\frac{\varepsilon}{1296},\qquad
+ B=\frac{324}{\varepsilon},\qquad
+ R=\lceil Y^{1/8}\rceil .
+\]
+First fix \(J\). The complete squarepart-tail theorem, applied with
+allowance \(\eta\), then fixes \(T\ge2\). Both parameters remain fixed
+as \(Y\) tends to infinity.
+
+We use three estimates for the actual prime supply:
+\begin{equation}\label{eq:native-full-supply}
+ D\le81|S_Y|,\qquad
+ \pi(Y)^2\le4D,\qquad
+ \pi(a)\pi(Y)\le\frac8J D
+\end{equation}
+for all sufficiently large \(Y\).
+For the first, inject the complete separated quarter-block product
+into \(S_Y\) and apply its proved prime-number-theorem lower bound.
+For the last, the prime-number-theorem upper bounds at \(a\) and \(Y\)
+give
+\[
+ \pi(a)\pi(Y)\le
+ \frac{4aY}{\log a\log Y}
+ \le\frac8J\,\frac{Y^2}{\log^2Y}.
+\]
+Here \(a\le Y/J\) and eventually \(\log Y\le2\log a\).
+To verify the latter without losing the integer rounding, use
+\(Y\le2Ja\) for \(Y\ge2J\), followed by \(Y\ge4J^2\) to obtain
+\(Y\le a^2\). All displayed logarithmic denominators are positive
+at the chosen large heights.
+
+Remove the candidates with lower endpoint at most \(a\). The endpoint
+map is injective into
+\(\{p\le a:p\in\mathbb P\}\times\{q\le Y:q\in\mathbb P\}\),
+so this costs at most \(\pi(a)\pi(Y)\).
+On the remaining support, apply the full squarepart estimate to the
+two identical prime blocks \((a,Y]\). The number of candidates with
+some \(u^2\mid(q-p)\), \(u\ge T\), is at most
+\[
+ \eta\pi(Y)^2+
+ CRY^{7/4}L^4+Y\lfloor Y/R\rfloor .
+\]
+The constant \(C>0\) is the fixed constant in that proved estimate.
+The rounded-cutoff lemma gives, eventually,
+\[
+ 2\le R,\qquad R^2\le a,\qquad
+ CRY^{7/4}L^4+Y\lfloor Y/R\rfloor
+ \le \frac{D}{B}.
+\]
+In particular every remaining lower prime exceeds \(2\), and
+\(p>a\) implies \(Jp>Y\).
+The unrestricted finite extraction theorem is therefore applicable.
+Keeping both sparse output losses gives the complete lower bound
+\begin{align*}
+ |M_Y|\ge |S_Y|
+ &-\pi(a)\pi(Y)-\eta\pi(Y)^2\\
+ &-\bigl(CRY^{7/4}L^4+Y\lfloor Y/R\rfloor\bigr)
+   -E_T(Y)-C_J(Y).
+\end{align*}
+No summand of this deletion cost is suppressed.
+
+The first three loss allowances are each at most
+\(\varepsilon D/324\), using \eqref{eq:native-full-supply},
+\(\varepsilon J\ge2592\), and the definitions of \(\eta,B\).
+The two fixed-parameter zero-density theorems give, eventually,
+\[
+ E_T(Y),C_J(Y)\le\frac{\varepsilon}{2592}\pi(Y)^2.
+\]
+Their sum is at most \(\varepsilon D/324\).
+Consequently the entire loss is at most
+\(\varepsilon D/81\le\varepsilon|S_Y|\).
+The extracted set has every distinct agreement rate \(3/8\), which
+proves the claim for every sufficiently large natural height.
+\end{proof}
+
+The actual full candidate set and its membership equivalence are
+maintained as \texttt{nativeFullPrimePairGapSet} and
+\texttt{mem\_nativeFullPrimePairGapSet\_iff}.
+Its supply bounds are
+\texttt{eventually\_native\_full\_pair\_supplies}, in
+\texttt{Assembly/\allowbreak FiniteFieldNativeFullHeightSupply.\allowbreak lean}.
+The complete theorem is
+\texttt{eventually\_native\_full\_prime\_pair\_density\_one}, in
+\texttt{Assembly/\allowbreak FiniteFieldNativeDensityOne.\allowbreak lean}.
+The older quarter-block theorem keeps its statement and specializes the
+same generalized private cutoff estimate.
+The three new declarations and that changed proof compile without
+warnings and use only standard Lean foundations.
+The retention threshold is not made effective here.
+The sharp leading constant for the total full-height capacity is
+a separate consequence to be established next; this theorem makes
+no claim about integer prime-gap recurrence or an improved zero-free
+boundary.
 
 \begin{thebibliography}{99}
 \bibitem{MartinWaljiCharacters}

@@ -3987,9 +3987,27 @@ first_nonpositive_domain: R>=2 and R^2<=both lower block endpoints are required.
 
 Both maintained owners compile warning-free. Exactly the three new declarations and the changed compatibility proof use only propext, Classical.choice and Quot.sound. The full root-flatness proof is reused with an explicit lower-recovery hypothesis. The proved bounded positive-output certificate discharges it after cross-output deletion, with every upper-row and lower-row term retained.
 
-benchmark_status: full unrestricted finite sparse consumer proved; the height-dependent density-one assembly remains open.
+benchmark_status: full unrestricted finite sparse consumer proved; its full-height density-one consumer is proved in the following section.
 old_bound: clean sparse extraction required every gap to be shorter than its lower endpoint.
 new_bound: without short gaps, S.card<=M.card+E_T(Y)+C_J(Y) above the fixed lower cutoff, and both fixed-parameter event probabilities tend to zero.
 components: complete two-row root outputs; positive lower-row cross-output certificate; fixed finite coefficient union; exact actual-endpoint injection; both deletion classes and all squarefree cores.
 actuals: three new maintained proofs and one changed compatibility proof across two owners, all warning-free and standard-foundation only. No finite numerical count replaces a limiting estimate.
-first_nonpositive_domain: lower prime2 is excluded explicitly; J and T are fixed before the sampling limit. The clean support and lower cutoff must still be supplied by the full squarepart and prefix estimates. No full unrestricted retention ratio, effective cutoff or new zero-free exponent is claimed.
+first_nonpositive_domain: lower prime2 is excluded explicitly; J and T are fixed before the sampling limit. The clean support and lower cutoff are supplied in the full-height theorem below. No effective cutoff or new zero-free exponent is claimed.
+
+## Full positive-gap density-one retention (2026-11-01)
+
+| Claim | Maintained declaration | Status and scope |
+| --- | --- | --- |
+| Full actual prime-pair candidate membership | PrimeFactorOscillations.FiniteFieldIntegerSignature.mem_nativeFullPrimePairGapSet_iff | Proved for every natural height and label: exactly prime n,n+h, positive h, upper endpoint<=Y. No short-gap condition. |
+| Full candidate and low-prefix PNT supplies | PrimeFactorOscillations.FiniteFieldIntegerSignature.eventually_native_full_pair_supplies | Proved: for each fixed positive J, eventually D<=81 card(S_Y), pi(Y)^2<=4D, and pi(floor(Y/J))*pi(Y)<=(8/J)D, with D=Y^2/log(Y)^2. |
+| Unrestricted density-one native codebooks | PrimeFactorOscillations.FiniteFieldIntegerSignature.eventually_native_full_prime_pair_density_one | Proved: for every real eps>0 and every sufficiently large natural Y, some M subset S_Y retains at least (1-eps) card(S_Y) and every distinct native agreement rate is3/8. All positive prime gaps with actual upper endpoint<=Y are admissible. |
+| Completed quarter-block theorem preserved | PrimeFactorOscillations.FiniteFieldIntegerSignature.eventually_native_prime_pair_density_one | Proved with unchanged statement; its proof now specializes the private fixed-J cutoff at J=4. |
+
+Maintained owners: Assembly/FiniteFieldNativeFullHeightSupply.lean and Assembly/FiniteFieldNativeDensityOne.lean. The three new declarations and the changed quarter-block proof compile warning-free, with exactly propext, Classical.choice and Quot.sound. The two unchanged supplier closures were reused from their existing successful audit rather than re-audited.
+
+benchmark_status: full positive-gap retention proved; sharp leading full-height capacity and its same-witness physical specialization remain pending.
+old_bound: density-one retention was restricted to separated quarter blocks; arbitrary full-height labels had only constant-factor or finite clean-support results.
+new_bound: card(M)>=(1-eps) card(S_Y), eventually for every natural Y and every fixed real eps>0; no short-gap restriction.
+components: full positive supply D<=81 card(S_Y); low-prefix cost<=8D/J; complete squarepart principal and character/high-root remainder; both E_T and C_J; four allowances each<=eps D/324; total loss<=eps D/81.
+actuals: three new maintained proofs and one changed compatibility proof. No finite numerical count is used in place of an analytic estimate.
+first_nonpositive_domain: J>=4 with eps J>=2592 is fixed first, T second, then Y grows. The threshold is not effective. Sharp capacity constant1/2 and the full-codebook physical specialization are not asserted by this row. No RH/QRH exponent or integer bounded-gap conclusion.
