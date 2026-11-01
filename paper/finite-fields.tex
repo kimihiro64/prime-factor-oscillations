@@ -13136,6 +13136,93 @@ constrained native probability observable. The relation to classical
 trace matching remains as described above; established priority is
 not claimed. Both integer pairs are fixed before \(U\to\infty\).
 
+\section{Square-root scarcity of exceptional agreement}
+\label{sec:native-exception-count}
+Fix an actual prime pair \((n,n+h)\), with \(h>0\), and put
+\[
+                         A=hn,\qquad B=h(n+h).
+\]
+For \(Y\in\mathbb N\), let \(\mathcal E_Y\) be the set of actual prime
+pairs \((m,q)\) with \(m<q\le Y\), different from \((n,n+h)\), whose
+native agreement rate with the reference is \(1/2\).
+Here the rate is the fixed-pair limit of the reciprocal-band
+agreement fraction. Each such limit is taken before the candidate
+endpoints vary.
+
+\begin{theorem}[Quantitative scarcity of half-agreement pairs]
+\label{thm:native-exception-count}
+For every natural cutoff \(Y\),
+\begin{equation}\label{eq:native-exception-count}
+ \#\mathcal E_Y
+ \le (A+1)\bigl(\lfloor\sqrt{A^2Y}\rfloor+1\bigr)+(B+1)^2.
+\end{equation}
+Every exceptional pair lies in at least one of the two explicit classes
+\[
+ \bigl\{(m,q):m\le A,\ A(q-m)m\text{ is a square}\bigr\},
+ \qquad
+ \bigl\{(m,q):q\le B\bigr\}.
+\]
+\end{theorem}
+
+\begin{proof}
+Set \(k=q-m>0\). The arithmetic classifier says that
+\(Akm\) or \(Bkq\) must be a square.
+
+Suppose first that \(Akm\) is a square. If \(m>A\), then \(m>2\)
+because \(A\ge2\). The prime \(m\) is coprime to \(A\), since
+\(0<A<m\), and is coprime to \(k\), since the distinct primes
+\(m,q=m+k\) are coprime. Thus \(m\) is an odd prime carrier in
+\(Akm\) with coprime complementary factor \(Ak\).
+The maintained carrier theorem makes its full numerator character
+nonprincipal, contradicting \eqref{eq:native-principal-square}.
+Hence \(m\le A\).
+
+Similarly, if \(Bkq\) is a square and \(q>B\), then \(q>2\)
+because \(B\ge2\). Now \(q\) is coprime to \(B\), and it is
+coprime to \(k\) because \(0<k<q\). Its full carrier character
+would again be nonprincipal, a contradiction. Hence \(q\le B\).
+This proves the stated localization, including the small prime \(2\).
+
+For the first localized class, assign
+\[
+                  (m,q)\longmapsto(m,s),\qquad
+                  s=\lfloor\sqrt{A(q-m)m}\rfloor .
+\]
+Exact squareness gives \(s^2=A(q-m)m\).
+Since \(m\le A\) and \(q-m\le Y\),
+\[
+                    0\le s\le\lfloor\sqrt{A^2Y}\rfloor .
+\]
+The map is injective on actual candidate pairs: equality of \(m\)
+and \(s\), together with \(Am>0\), forces equality of \(q-m\),
+and hence of \(q\). Its image therefore has at most
+\((A+1)(\lfloor\sqrt{A^2Y}\rfloor+1)\) elements.
+On the second localized class both endpoints belong to
+\(\{0,\ldots,B\}\), giving at most \((B+1)^2\) pairs.
+The cardinality of the union is at most the sum of these two
+bounds; no disjointness assumption is needed. This proves
+\eqref{eq:native-exception-count}.
+\end{proof}
+
+For fixed \(n,h\), the exact inequality is a square-root bound in
+\(Y\): \(\lfloor\sqrt{A^2Y}\rfloor\le A\sqrt Y\).
+Every other distinct actual candidate pair has rate \(3/8\) by
+the already proved two-value classification.
+This interpretation is an elementary consequence of the exact
+compiled bound, rather than a separate formal big-O declaration.
+
+The full localization and finite counting proofs are maintained in
+\texttt{FiniteFieldNativeExceptionalAgreement.\allowbreak lean}.
+Both declarations compile without warnings and their new-only
+axiom audits contain only \texttt{propext},
+\texttt{Classical.choice}, and \texttt{Quot.sound}.
+The count is over limiting agreement rates, with a fixed reference;
+no uniform growing-endpoint field estimate or new integer pair
+supply is asserted. Classical matching-density questions
+\cite{WaljiMatchingDensities} concern fixed representations;
+the additional parameter here is the integer height of the
+candidate prime pair. Priority for this application remains provisional.
+
 \begin{thebibliography}{99}
 \bibitem{WaljiMatchingDensities}
 N. Walji, \emph{Matching densities for Galois representations},

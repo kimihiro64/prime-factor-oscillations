@@ -8,6 +8,7 @@ import PrimeFactorOscillations.Assembly.FiniteFieldJointCharacterProjection
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeAgreementClassification
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeArithmeticAgreement
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeConsecutiveAgreement
+import PrimeFactorOscillations.Assembly.FiniteFieldNativeExceptionalAgreement
 import PrimeFactorOscillations.Assembly.FiniteFieldPairIntegerCRT
 import PrimeFactorOscillations.Assembly.FiniteFieldPairProductSeparation
 import PrimeFactorOscillations.Assembly.FiniteFieldQuasipolynomialWeight
@@ -26,6 +27,8 @@ agreement fraction three eighths or one half, with explicit integer square
 tests for both full cross characters; consecutive pairs have fraction three
 eighths. The existing
 adaptive reconstruction thresholds are retained.
+For a fixed reference pair, the exceptional half-agreement neighborhood
+has an explicit square-root count in the candidate upper endpoint.
 The identities retain the Gauss-Kloosterman term and its compensation. No new
 integer pair-supply estimate is asserted.
 -/

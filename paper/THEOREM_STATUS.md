@@ -3586,3 +3586,21 @@ components: full4N numerator characters and nonunit masks; squarefree decomposit
 actuals: eight universal maintained proofs and eight new-only axiom audits; no finite experiment or independent-sign model supplies the theorem.
 first_nonpositive_domain: N>0 is required for the supporting square criterion. Actual prime endpoints and positive gaps ensure both cross numerators are positive. Identical pairs are excluded from the rate classifier and normalized limit. Endpoints are fixed before U; no growing-endpoint uniformity, integer pair supply, H1 determination, RH/QRH gain or established priority is claimed.
 
+## Square-root count of exceptional half-agreement pairs (2026-10-31)
+
+Paper: `finite-fields.tex`, Theorem `thm:native-exception-count`, equation `eq:native-exception-count`. Owner: `Assembly/FiniteFieldNativeExceptionalAgreement.lean`. Namespace: `PrimeFactorOscillations.FiniteFieldIntegerSignature`.
+
+| Claim / declaration | Status | Exact verified scope |
+| --- | --- | --- |
+| `native_half_agreement_endpoint_localization` | proved | For fixed distinct actual positive-gap prime pairs with rate1/2, either m<=hn and h*n*k*m is square, or m+k<=h(n+h). Includes integer endpoint2 and arbitrary positive gaps. |
+| `native_exceptional_agreement_count_bound` | proved | For every natural Y, the actual finite set of distinct candidate prime pairs(m,q),m<q<=Y, of rate1/2 has cardinality <=(A+1)*(Nat.sqrt(A^2*Y)+1)+(B+1)^2, where A=hn,B=h(n+h). Complete injective square-root count and both finite branches proved. |
+
+Supporting definition: `nativeHalfAgreementPairs`, with its full finite product support, both primality tests, strict endpoint order, exclusion of the reference pair and exact native rate test. Both declarations compile warning-free and their new-only axiom audits contain only propext, Classical.choice and Quot.sound. No unchanged earlier theorem closure was reaudited. The square-root interpretation in real Y is the elementary consequence of this exact compiled Nat.sqrt bound, not a separate formal big-O declaration.
+
+benchmark_status: complete universal finite exception count proved.
+old_bound: fixed distinct candidate pairs had exact limiting agreement3/8 or1/2, with no count of the one-half exceptions as their heights vary.
+new_bound: card(E_Y)<=(A+1)*(Nat.sqrt(A^2*Y)+1)+(B+1)^2 at every natural cutoffY. Every exception has either lower endpoint<=A with the actual square condition, or upper endpoint<=B.
+components: full native arithmetic rate classifier; actual prime coprimality; full odd-prime carriers and principality iff square; explicit small-prime thresholds; exact root identity; injectivity by A*m>0; finite square-root rectangle; complete bounded upper-endpoint branch; union bound with overlaps retained.
+actuals: two universal maintained real proofs and two new-only foundational-axiom audits. No finite numerical test supplies the count.
+first_nonpositive_domain: reference endpoints are prime and h>0. Candidate pairs have m<q<=Y and differ from the reference. Each field-scale limit uses fixed compared pairs; the height count concerns those limiting rates. No growing-endpoint field uniformity, integer prime-pair supply, H1 value, RH/QRH improvement or established literature priority is claimed.
+
