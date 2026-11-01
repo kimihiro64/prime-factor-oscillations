@@ -10,9 +10,9 @@ import PrimeFactorOscillations.Assembly.FiniteFieldNativeFullCapacity
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeFullSparseConflicts
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeHeightCapacity
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeHeightPacking
+import PrimeFactorOscillations.Assembly.FiniteFieldNativeSignedFamilies
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeVertexGreedy
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeVertexReservoir
-import PrimeFactorOscillations.Assembly.FiniteFieldPrimeCycleKernel
 import PrimeFactorOscillations.Proof.AffinePairs.PrimeSplitSquarePolynomials
 
 /-!
@@ -26,4 +26,6 @@ extensions and one computable infinite complete prime-pair family are included.
 Prescribed nonvanishing-density reservoirs and finite vertex colorings are covered.
 Arbitrary fixed-degree split-product prime rejection, full vertex/gap squareclass
 independence and the exact lower/upper row cycle kernel are also exported.
+The full signed native word law, sharp seven-row independence and exact
+four-cycle eight-row failure are included on the same infinite prime class.
 -/

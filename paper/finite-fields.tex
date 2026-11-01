@@ -60,6 +60,10 @@ These same codebooks have exact physical energy
 \(\frac38(\sum c)^2+\frac58\sum c^2\) and optimal lower
 stability constant \(5/8\), with the finite codebook fixed
 before the independent field-scale limit.
+On one computable infinite prime vertex set, we further determine the
+complete joint law of the actual signed native character rows.
+Every seven rows are independent fair signs; the exact four-cycle law
+proves that eight-wise independence fails.
 \end{abstract}
 
 \paragraph{Status.}
@@ -68,6 +72,9 @@ formalizations of the pair-count results identified in the claim ledger.
 The curve-level statements retain their separately recorded status.
 The native density-one retention and its combined physical energy and
 sharp-stability consumer are maintained, kernel-checked results.
+The complete signed native word law, sharp seven-row independence and
+actual eight-row failure on the same infinite prime class are also
+maintained, kernel-checked results.
 Existing maintained proofs supply
 the abstract greedy record mechanism and damped-wave method; their
 integer-prime consumers do not automatically constitute finite-field
@@ -16343,6 +16350,199 @@ Here the proved condition controls all finite square relations among
 indexed prime vertices and their pair gaps and identifies the exact
 lower/upper row kernel. This comparison describes the scope of the result;
 it does not establish publication priority.
+
+\section{Signed native word laws and sharp seven-row independence}
+\label{sec:native-signed-word-law}
+
+The native character rows retain the sign of their integer coefficients.
+For \(e=(p,q)\in E(P)\), set
+\[
+ D^-_e=-p(q-p),\qquad D^+_e=q(q-p),\qquad
+ X^-_e(\ell)=\chi_\ell(D^-_e),\quad X^+_e(\ell)=\chi_\ell(D^+_e),
+\]
+where \(\chi_\ell\) is the quadratic character modulo the independently
+varying prime \(\ell\), extended by zero.
+In particular the native trace is \(X^-_e(\ell)+X^+_e(\ell)\).
+These are the actual signed coefficients, rather than their positive
+magnitudes. The prime vertices, finite edge sets and sign assignments
+remain fixed throughout the field-prime limit.
+
+Write \(K_U=\operatorname{preciseCore}(U)\),
+\[
+ \mathcal I_U=\{\ell\ {\rm prime}:K_U+1\leq\ell<K_U^2+1\},
+ \qquad M_U=\sum_{\ell\in\mathcal I_U}\frac1\ell.
+\]
+The maintained character estimates give \(K_U\to\infty\) and
+\(M_U\geq(\log2)/2>0\) eventually.
+For \(A,B\subseteq E(P)\) and signs \(a_e,b_e\in\{-1,1\}\), let
+\[
+ \mathcal P_U(A,B;a,b)=\frac1{M_U}
+ \sum_{\ell\in\mathcal I_U}\frac1\ell
+ \mathbf1\{X^-_e(\ell)=a_e\ (e\in A),\
+             X^+_e(\ell)=b_e\ (e\in B)\}.
+\]
+The quotient at an empty band is assigned value zero; only its eventual
+values enter the limit. Lower and upper rows have separate indices, so
+the number of tested rows is \(|A|+|B|\), including when an edge occurs
+in both sets.
+
+\begin{theorem}[Complete signed word law on one infinite prime graph]
+\label{thm:native-signed-word-law}
+Let \(R\) and the computable infinite prime class \(V_R\) satisfy
+Theorem~\ref{thm:native-prime-cycle-kernel}.
+For every finite \(P\subseteq V_R\), all \(A,B\subseteq E(P)\), and
+every fixed sign assignment, the following limit exists:
+\begin{equation}\label{eq:native-signed-word-law}
+ \lim_{U\to\infty}\mathcal P_U(A,B;a,b)
+ =
+ 2^{-|A|-|B|}
+ \sum_{\substack{O\subseteq A\\T\subseteq B}}
+ \left(\prod_{e\in O}a_e\right)\left(\prod_{e\in T}b_e\right)
+ \mathbf1\{O=T,\ \deg_O(v)\ {\rm even}\ (v\in P),\
+                        |O|\ {\rm even}\}.
+\end{equation}
+Thus all finite words on the same graph have an explicit joint law.
+If \(|A|+|B|\leq7\), the limit is exactly
+\(2^{-|A|-|B|}\). The seven-row order is optimal.
+More precisely, for any \(p<q<r<s\) in \(V_R\), put
+\[
+ C=\{(p,q),(q,r),(r,s),(p,s)\}.
+\]
+The eight-row law is
+\begin{equation}\label{eq:native-signed-four-cycle-law}
+ \lim_{U\to\infty}\mathcal P_U(C,C;a,b)
+   =\frac{1+\prod_{e\in C}a_eb_e}{256}.
+\end{equation}
+In particular the all-positive word has probability \(1/128\), whereas
+eight independent fair rows would give \(1/256\).
+There are four such vertices inside every admissible reservoir class.
+\end{theorem}
+
+\begin{proof}
+For finite \(O,T\subseteq E(P)\), the exact signed coefficient product is
+\[
+ \left(\prod_{e\in O}D^-_e\right)
+ \left(\prod_{e\in T}D^+_e\right)
+ =(-1)^{|O|}
+   \left(\prod_{e\in O}p_e(q_e-p_e)\right)
+   \left(\prod_{e\in T}q_e(q_e-p_e)\right).
+\]
+The unsigned factor is a positive integer, including for empty supports.
+An odd \(|O|\) makes the integer negative and hence nonsquare.
+For even \(|O|\), Theorem~\ref{thm:native-prime-cycle-kernel} applies
+without changing the integer square predicate. Consequently this full
+signed product is square if and only if
+\[
+ O=T,\qquad \deg_O(v)\equiv0\pmod2\quad(v\in P),\qquad
+ |O|\equiv0\pmod2.                                      \tag{*}
+\]
+
+The fixed-integer character estimate used here is unconditional.
+For every fixed nonzero signed integer \(D\), it states
+\[
+ \sum_{\ell\in\mathcal I_U}\frac{\chi_\ell(D)}{\ell}
+       -\mathbf1_{\{D\ {\rm square}\}}M_U\longrightarrow0.
+\]
+Negative integers have zero principal indicator; positive integers have
+principal indicator one precisely when square.
+All numerators and their character moduli are retained in this statement.
+Its application requires only fixed \(D\), not RH or a number-field
+zero-free hypothesis. Division by the eventual positive lower bound for
+\(M_U\) gives the corresponding normalized limit.
+By multiplicativity, the mixed row moment for \(O,T\) is exactly the
+character of their complete signed coefficient product.
+That product is nonzero because every vertex is positive and every
+strict gap is positive. The normalized mixed moment therefore tends
+to the indicator in \((*)\).
+
+For completeness, the passage from mixed moments to actual words has
+no exceptional-prime error. Once
+\(\ell>\max(P\cup\{2\})\), both endpoints and every gap are nonzero
+modulo \(\ell\): each factor is positive and strictly smaller than
+\(\ell\). Thus all row characters are in \(\{-1,1\}\), including
+when \(2\) is itself a vertex.
+For such \(\ell\) the exact selector identity is
+\[
+ \mathbf1_{\{\text{word }(a,b)\}}
+ =
+ \prod_{e\in A}\frac{1+a_eX^-_e(\ell)}2
+ \prod_{e\in B}\frac{1+b_eX^+_e(\ell)}2.
+\]
+Expanding both finite products retains every pair of masks:
+\[
+ 2^{-|A|-|B|}
+ \sum_{\substack{O\subseteq A\\T\subseteq B}}
+ \left(\prod_{e\in O}a_e\right)\left(\prod_{e\in T}b_e\right)
+ \left(\prod_{e\in O}X^-_e(\ell)\right)
+ \left(\prod_{e\in T}X^+_e(\ell)\right).
+\]
+The whole band eventually satisfies the stated field-prime bound
+because \(K_U\to\infty\). Sum with the positive reciprocal weights,
+divide by \(M_U\), and take the finite sum of the proved moment limits.
+This proves \eqref{eq:native-signed-word-law} with no exchange of an
+infinite family and a limit.
+
+Suppose now that \(|A|+|B|\leq7\).
+A surviving mask has \(O=T\), so
+\(2|O|\leq |A|+|B|\leq7\).
+It follows that \(|O|\leq3\).
+Since \(|O|\) is even, a nonempty surviving mask would have exactly two
+edges. Two distinct strict undirected edges cannot have even degree at
+every endpoint: evenness at both endpoints of either edge would force
+the other to have exactly the same two endpoints, contrary to their
+distinctness. Hence \(O=T=\varnothing\).
+The empty-mask coefficient is one, proving seven-row independence.
+The argument includes empty supports and isolated vertices.
+
+For \(C\) as displayed, strict increase makes all four edges distinct.
+Each of its four vertices has degree two.
+A nonempty surviving mask contained in \(C\) cannot have at most three
+edges by the preceding argument, and hence must be \(C\) itself.
+There are exactly two surviving mask pairs,
+\((\varnothing,\varnothing)\) and \((C,C)\).
+Their coefficients are \(1\) and \(\prod_{e\in C}a_eb_e\).
+Since the tested row count is eight, this gives
+\eqref{eq:native-signed-four-cycle-law}.
+Every factor \(a_eb_e\) is a sign, so compatible words have probability
+\(1/128\) and words with product \(-1\) have probability zero.
+The all-positive probability differs from \(1/256\);
+uniqueness of real limits rules out an eight-independent-row limit.
+Finally infinity of \(V_R\) supplies four increasing vertices, giving
+actual witnesses inside the same reservoir class.
+\end{proof}
+
+\paragraph{Interpretation and verified scope.}
+The lower-row minus sign supplies a common quadratic phase
+\(\chi_\ell(-1)\). It removes every odd-edge cycle mask, including the
+doubled-triangle mask, and leaves the four-cycle as the first dependence.
+The full finite law is consequently seven-wise independent and fails
+eight-wise independence on every four-cycle of the constructed graph.
+The coefficient-product test and finite Boolean inversion are classical
+algebra; quadratic-character equidistribution is classical as well
+(compare Sutherland~\cite{Sutherland}, Lecture~28,
+Theorem~28.9 and Corollary~28.11).
+The specific application combines these ingredients with a single
+computable infinite prime vertex/gap family and the actual signed native
+rows. Publication priority remains under review.
+Every graph, row support and sign word is fixed before the independent
+field scale tends to infinity. No uniformity for a growing graph,
+effective vertex growth, integer prime-gap value, or improved RH/QRH
+exponent follows from this result.
+
+The signed square classifier is
+\texttt{native\_signed\_row\_product\_isSquare\_iff}.
+The physical mixed moments, exact eventual word expansion and full
+limiting law are maintained in
+\texttt{FiniteFieldNativeSignedMoments.lean},
+\texttt{FiniteFieldNativeWordEvents.lean} and
+\texttt{FiniteFieldNativeWordLaw.lean}.
+The seven-row and exact four-cycle consumers are
+\texttt{native\_signed\_word\_ratio\_tendsto\_seven} and
+\texttt{native\_four\_cycle\_word\_ratio\_tendsto};
+\texttt{native\_reservoir\_signed\_eight\_row\_failure}
+supplies actual reservoir witnesses and excludes the independent
+\(1/256\) limit.
+The new-only assumption audits cover all thirty-eight proof closures.
 
 \begin{thebibliography}{99}
 \bibitem{KarpVaziraniVazirani}

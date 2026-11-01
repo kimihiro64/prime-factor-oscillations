@@ -1,5 +1,61 @@
 # Paper theorem and provenance ledger
 
+## Complete signed native word law and optimal seven-row independence (2026-11-01)
+
+All thirty-eight claims below have maintained Lean proofs, warning-free focused builds and completed new-only assumption audits. They belong to `PrimeFactorOscillations.FiniteFieldIntegerSignature`. The same fixed computable infinite prime class works for every fixed finite graph and sign word, inside any decidable prime reservoir whose actual relative frequency does not tend to zero. Lower and upper rows are distinct indexed coordinates. The independent field-prime band is `[preciseCore U+1, preciseCore U*preciseCore U+1)`, with reciprocal-prime weights and its exact reciprocal-band normalizer.
+
+| Claim | Lean declaration | Status |
+| --- | --- | --- |
+| Complete signed integer row-product factorization | native_signed_row_product_factorization | Proved; maintained, compiled and audited. |
+| Signed square kernel: matching masks, even degrees and even edge count | native_signed_row_product_isSquare_iff | Proved; maintained, compiled and audited. |
+| Principal character indicator for every nonzero signed integer | numerator_principal_indicator_int_eq_square | Proved; maintained, compiled and audited. |
+| Unconditional centered character mean for signed integers | prime_correlation_centered_int_square_tendsto_zero | Proved; maintained, compiled and audited. |
+| Exact finite-product character multiplicativity | real_kernel_finset_product | Proved; maintained, compiled and audited. |
+| Actual native trace equals its two signed character rows | native_trace_eq_signed_rows | Proved; maintained, compiled and audited. |
+| Complete physical mixed moment equals one signed character correlation | native_signed_row_moment_eq_correlation | Proved; maintained, compiled and audited. |
+| Normalized limit from the eventual positive band mass | native_prime_band_ratio_tendsto_of_centered | Proved; maintained, compiled and audited. |
+| Centered signed-cycle mixed moment tends to zero | native_signed_cycle_moment_centered_tendsto_zero | Proved; maintained, compiled and audited. |
+| Full normalized mixed-moment cycle indicator | native_signed_cycle_moment_ratio_tendsto | Proved; maintained, compiled and audited. |
+| Boolean sign values square to one | native_word_sign_square | Proved; maintained, compiled and audited. |
+| Exact one-row Boolean selector | native_word_bit_eq_indicator | Proved; maintained, compiled and audited. |
+| Exact supported product of word selectors | native_word_selector_product | Proved; maintained, compiled and audited. |
+| Full finite two-support Boolean expansion | native_word_full_mask_expansion | Proved; maintained, compiled and audited. |
+| All signed rows are signs above the fixed vertex bound | native_signed_edge_kernel_squares | Proved; maintained, compiled and audited. |
+| Actual word event equals the full selector product | native_signed_word_pointwise_selector | Proved; maintained, compiled and audited. |
+| Exact physical word mass expanded over every mask pair | native_signed_word_mass_expansion | Proved; maintained, compiled and audited. |
+| Entire eventual prime band satisfies the exact word expansion | native_signed_word_mass_expansion_eventually | Proved; maintained, compiled and audited. |
+| Complete finite signed word law | native_signed_word_ratio_tendsto | Proved; maintained, compiled and audited. |
+| Complete word law on every finite reservoir-class subset | native_reservoir_signed_word_ratio_tendsto | Proved; maintained, compiled and audited. |
+| One infinite computable reservoir family with all finite word laws | native_infinite_signed_word_family_in_reservoir | Proved; maintained, compiled and audited. |
+| Unconditional full-prime infinite signed-word family | native_infinite_signed_word_family | Proved; maintained, compiled and audited. |
+| Exact degree as a finite sum of endpoint indicators | native_cycle_degree_eq_sum | Proved; maintained, compiled and audited. |
+| Two distinct strict edges cannot have even degree everywhere | native_even_cycle_card_ne_two | Proved; maintained, compiled and audited. |
+| An even-sized Eulerian mask with at most three edges is empty | native_small_even_cycle_empty | Proved; maintained, compiled and audited. |
+| Every surviving mask on at most seven tested rows is empty | native_signed_small_mask_empty | Proved; maintained, compiled and audited. |
+| Exact fair product probability for at most seven rows | native_signed_word_rate_seven | Proved; maintained, compiled and audited. |
+| Physical seven-row independence limit | native_signed_word_ratio_tendsto_seven | Proved; maintained, compiled and audited. |
+| Physical seven-row independence inside the same reservoir class | native_reservoir_signed_word_ratio_tendsto_seven | Proved; maintained, compiled and audited. |
+| Four arbitrary increasing vertices give valid strict edges | native_four_cycle_support | Proved; maintained, compiled and audited. |
+| The strict four-cycle has exactly four distinct edges | native_four_cycle_card | Proved; maintained, compiled and audited. |
+| Every four-cycle vertex degree is even, including outside vertices | native_four_cycle_degrees_even | Proved; maintained, compiled and audited. |
+| The only surviving four-cycle masks are empty and complete | native_four_cycle_mask_iff | Proved; maintained, compiled and audited. |
+| Exact eight-row four-cycle word formula | native_four_cycle_word_rate | Proved; maintained, compiled and audited. |
+| All-positive four-cycle rate is exactly one over 128 | native_four_cycle_all_positive_rate | Proved; maintained, compiled and audited. |
+| Physical exact eight-row word-law limit | native_four_cycle_word_ratio_tendsto | Proved; maintained, compiled and audited. |
+| Physical all-positive four-cycle limit is one over 128 | native_four_cycle_all_positive_ratio_tendsto | Proved; maintained, compiled and audited. |
+| Actual four reservoir witnesses and failure of the independent one-over-256 limit | native_reservoir_signed_eight_row_failure | Proved; maintained, compiled and audited. |
+
+Definition interfaces (not additional theorem claims): `nativeSignedLowerCoefficient`, `nativeSignedUpperCoefficient`, `nativeSignedRowProduct`, `nativeSignedRowMoment`, `nativeWordSign`, `nativeWordBit`, `nativeSignedWordEvent`, `nativeSignedWordMass`, `nativeSignedWordMaskCoefficient`, `nativeSignedCycleMask`, `nativeSignedWordRate`, `nativePrimeFourCycle`. Integer coefficients, four-cycle supports and Boolean signs are computable; real-valued selectors, events, moments, masses and limiting-rate expressions use the explicitly noncomputable probability section. The computable infinite prime class is the previously promoted construction.
+
+Maintained owners: `PrimeFactorOscillations/Definitions/NativePrimeSignedRows.lean`, `PrimeFactorOscillations/Helpers/NativePrimeSignedCycleKernel.lean`, `PrimeFactorOscillations/Assembly/FiniteFieldNativeSignedCharacter.lean`, `PrimeFactorOscillations/Assembly/FiniteFieldNativeSignedMoments.lean`, `PrimeFactorOscillations/Definitions/NativePrimeWordSigns.lean`, `PrimeFactorOscillations/Helpers/NativeWordBooleanAlgebra.lean`, `PrimeFactorOscillations/Assembly/FiniteFieldNativeWordEvents.lean`, `PrimeFactorOscillations/Assembly/FiniteFieldNativeWordLaw.lean`, `PrimeFactorOscillations/Helpers/NativePrimeSmallCycles.lean`, `PrimeFactorOscillations/Assembly/FiniteFieldNativeSevenRows.lean`, `PrimeFactorOscillations/Definitions/NativePrimeFourCycle.lean`, `PrimeFactorOscillations/Helpers/NativePrimeFourCycle.lean`, `PrimeFactorOscillations/Assembly/FiniteFieldNativeFourCycleLaw.lean`, `PrimeFactorOscillations/Assembly/FiniteFieldNativeSignedFamilies.lean`. The public NativePacking facade exports the full signed family. All thirty-eight new closures use only `propext`, `Classical.choice` and `Quot.sound`; unchanged old closures were not re-audited. The paper gives the full signed product argument, exact eventual selector expansion, finite moment limit and both sharpness calculations.
+
+benchmark_status: the full physical finite-word law, seven-row independence and actual eight-row failure are proved.
+old_bound: the promoted infinite prime graph had a complete positive square-product cycle classifier; its actual signed physical joint word law and optimal independence order were not yet installed.
+new_bound: every k<=7 indexed signed rows have every sign word with limiting probability 2^(-k). On every strict four-cycle the eight-row word probability is (1+product_e(a_e*b_e))/256. The all-positive limit is 1/128, and the independent 1/256 limit is formally excluded inside every admissible reservoir.
+components: complete signed integer product; full nonzero signed numerator character; exact physical mixed moments; every Boolean mask and product term; the fixed-vertex exceptional-prime condition on the entire eventual band; even-degree and even-cardinality cycle classification; witnessed four-vertex selection from the same infinite class.
+actuals: thirty-eight maintained real Lean proof closures, thirty-eight new-only foundational audits, twelve definition interfaces and fourteen new maintained owners. No finite experiment supplies a universal probability statement.
+first_nonpositive_domain: inconsistent four-cycle sign words have limiting probability zero. Finite initial bands can be empty; division uses Lean's zero convention and the normalizer is bounded below by log(2)/2 eventually. Empty supports, isolated vertices and vertex prime2 are included. No uniform growing-graph limit, effective vertex density or growth, integer prime-gap value, RH proof or QRH exponent gain is claimed. General quadratic-character equidistribution and Boolean inversion are classical; publication priority for the specific infinite prime-graph application remains under review.
+
 ## Raw and averaged finite-field pair-law separation - 30 October 2026
 
 **Fully matched: 36 declarations in four maintained owners.** For odd finite fields, nonzero shift, and q>=16, the original normalized irreducible-quadratic law u and flat admissibility law f satisfy H(u,f)<=1-1/(64q), while the trace-free law v satisfies 1-H(v,f)<=5/q^2. For q>=2048, H(u,v)<=1-1/(256q). On every complete finite product the upper bounds exponentiate with the reciprocal-cardinality sum; the averaged/flat affinity is at least 1-sum(5/q_i^2). Every forbidden row and all square-root cross terms remain. These are finite-law comparisons, with no Hasse or integer primality assumption. No positive incomplete integer pair mass, new H_1 bound, or zero-free improvement is claimed. The independent critical-height integer mass remains open. The specific comparison is an originality prospect; general product-affinity theory is classical.
