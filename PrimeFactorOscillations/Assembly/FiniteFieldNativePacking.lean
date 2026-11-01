@@ -5,15 +5,14 @@ Authors: Prime Factor Oscillations contributors
 -/
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeHeightCapacity
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeHeightPacking
+import PrimeFactorOscillations.Assembly.FiniteFieldNativeSparseConflicts
 import PrimeFactorOscillations.Helpers.NativeSquarepartTail
-import PrimeFactorOscillations.Proof.AffinePairs.WeightedSieveDecay
 
 /-!
-# Native height capacity and weighted collision-sieve inputs
+# Native height capacity and sparse collision consumers
 
 Import-only grouping of the complete height-order theorem, sharp physical
-stability, finite prime-product packing, exact fixed weighted prime sieves
-vanishing positive weighted-prime-output probabilities and the complete
-large-squarepart deletion estimate.
+stability, finite prime-product packing, weighted prime-output decay,
+complete squarepart deletion and both sparse native collision rows.
 The density-one native retention theorem is not asserted by this facade.
 -/

@@ -14461,7 +14461,8 @@ Every prime \(\ell>T^2\) avoids all three coefficient and
 denominator exceptions. The theorem supplies its exact finite
 sieve factor. The following sections prove weighted-prime-output
 decay and an arbitrarily small large-squarepart allowance. The exact
-native collision-removal and final error-absorption consumer remain.
+native collision-removal statement is proved below; final uniform
+error absorption and the density-one quantifier assembly remain.
 
 \section{Vanishing density of positive weighted prime outputs}
 \label{sec:weighted-prime-output-decay}
@@ -14632,9 +14633,118 @@ The supporting summability argument consumes the existing
 \texttt{lpf\_totient\_inverse\_sq\_power\_bound};
 it does not assume a new totient estimate or improved QRH exponent.
 This finite bound supplies the arbitrarily small squarepart
-principal loss. Density-one retention still requires the exact
-native collision-removal argument and the final uniform
-absorption of the displayed errors.
+principal loss. The following section proves the exact sparse native
+collision-removal argument. Final uniform absorption of the
+displayed errors remains for density-one retention.
+
+\section{Sparse removal of both native collision rows}
+\label{sec:native-sparse-collisions}
+
+For a fixed natural \(T\), let \(\Omega_T(p,q)\) be the following
+predicate on two actual prime endpoints:
+there are integers \(1\le v<u<T\) and a prime \(r\) such that
+\[
+ (u^2-v^2)p+v^2q=u^2r
+ \quad\hbox{or}\quad
+ v^2p+(u^2-v^2)q=u^2r.
+\]
+Define the finite supported count
+\[
+ E_T(Y)=\#\{(p,q)\in\mathcal P(Y)^2:\Omega_T(p,q)\}.
+\]
+The predicate is defined on the two endpoints \(p,q\), with no
+subtraction or ordering imposed on the sampling ensemble.
+
+\begin{theorem}[Sparse native collision removal]
+\label{thm:native-sparse-collision-removal}
+For every fixed natural \(T\),
+\[
+ \frac{E_T(Y)}{\pi(Y)^2}\longrightarrow0
+ \qquad(Y\longrightarrow\infty).
+\]
+Suppose \(S\) is any finite set of pairs \((n,h)\) with
+\[
+ n,\ n+h\ \hbox{prime},\qquad 0<h<n,\qquad n+h\le Y,
+\]
+and with no divisor \(u^2\mid h\) for any integer \(u\ge T\).
+Then there is \(M\subseteq S\) such that
+\[
+ \#S\le\#M+E_T(Y),
+ \qquad
+ \operatorname{nativeAgreementRate}(a,b)=\frac38
+ \quad(a,b\in M,\ a\ne b).
+\]
+Both endpoint rows are included in this conclusion.
+\end{theorem}
+
+\begin{proof}
+For every fixed \(1\le v<u<T\), the three coefficients
+\(u^2-v^2,v^2,u^2\) are positive.
+Theorem~\ref{thm:weighted-prime-output-sparse} applies in both
+coefficient orders. The complete finite union over the root
+pairs and the two row types has limiting probability zero.
+The formal proof indexes both roots by \(\{0,\ldots,T-1\}\)
+and the row by a two-element set, assigning probability zero
+to invalid root pairs. A finite union bound and a finite sum
+of the proved limits give the displayed convergence, also
+when the root index set is empty.
+
+Define
+\[
+ M=\{(n,h)\in S:\neg\Omega_T(n,n+h)\}.
+\]
+Every removed pair maps injectively under
+\((n,h)\mapsto(n,n+h)\) into the finite set counted by \(E_T(Y)\).
+The finite cardinality union bound gives \(\#S\le\#M+E_T(Y)\).
+
+It remains to prove that the removal eliminates every native
+collision, keeping both rows. Write two gaps as
+\(h=u^2d\), \(k=v^2e\), where \(d,e\) are positive and
+squarefree and \(u,v>0\). The square-divisor hypothesis gives
+\(u,v<T\). By the proved endpoint-recovery theorem, a lower-row
+square collision forces equal lower endpoints, and an upper-row
+square collision forces equal upper endpoints. In either case,
+the remaining square condition has the form
+\[
+ u^2v^2de\,s^2\ \hbox{is a square},\qquad s>0.
+\]
+Cancellation of the positive square factor gives that \(de\)
+is a square. Since both cores are squarefree, each divides
+the other, hence \(d=e\).
+
+Equal roots would now give equal gaps and, with the recovered
+endpoint, the same pair. Thus a collision between distinct
+pairs has unequal roots. Choose its larger-root vertex as the
+anchor, writing its gap \(h=u^2d\) and the other gap \(k=v^2d\)
+with \(v<u\). If the lower endpoints agree at \(n\), the other
+upper endpoint is prime and
+\[
+ (u^2-v^2)n+v^2(n+h)=u^2(n+k).
+\]
+If instead \(n+h=m+k\), the other lower endpoint \(m\) is prime
+and
+\[
+ v^2n+(u^2-v^2)(n+h)=u^2m.
+\]
+These are exactly the two forbidden events for the anchor.
+Both contradict membership in \(M\). The arithmetic native
+classification therefore gives agreement \(3/8\) for all
+distinct retained pairs.
+\end{proof}
+
+The maintained declarations are
+\texttt{native\_clean\_sparse\_collision\_packing} and
+\texttt{tendsto\_native\_weighted\_endpoint\_output\_probability\_zero},
+in \texttt{Assembly/\allowbreak FiniteFieldNativeSparseConflicts.\allowbreak lean}.
+Both compile without warnings; their two new closure checks
+use only standard Lean foundations.
+For a fixed \(T\), this replaces the earlier factor
+\(2(T-1)\) from a worst-case matching argument by the actual
+sparse deletion count \(E_T(Y)\).
+The density-one native retention theorem still requires the
+final rounded-cutoff error absorption and the uniform
+quantifier assembly. No integer bounded-gap value or new
+zero-free exponent follows from this finite collision result.
 
 \begin{thebibliography}{99}
 \bibitem{MartinWaljiCharacters}

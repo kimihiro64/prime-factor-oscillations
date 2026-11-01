@@ -3864,7 +3864,7 @@ old_bound: weighted-prime-output probability was bounded only by one; the commit
 new_bound: weighted-prime-output probability is o(1) for every fixed positive triple a,b,k. No effective cutoff or power rate is claimed.
 components: exact weighted unit-pair CRT sieve; Mertens divergence of prime odds; nonnegative finite-product exponential bound; fixed small-first-prime exception; full finite probability union bound.
 actuals: two maintained warning-free Lean proofs and two new-only standard-foundation closure checks; no numerical substitutions.
-first_nonpositive_domain: not applicable to this nonnegative limit. The finite large-squarepart allowance is proved in the following section; exact native collision removal and final error absorption remain unproved. No density-one codebook or RH exponent gain is claimed.
+first_nonpositive_domain: not applicable to this nonnegative limit. The following sections prove the finite large-squarepart allowance and exact sparse native collision removal; final uniform error absorption remains open. No density-one codebook or RH exponent gain is claimed.
 
 ## Full large-squarepart deletion allowance (2026-11-01)
 
@@ -3880,3 +3880,19 @@ new_bound: the principal mass of the full large-squarepart deletion set is at mo
 components: existing uniform collision estimate at every integer modulus u^2; summable 4/u^(3/2) majorant; complete low-root union T<=u<=R; complete high-root union u>=R+1; exact natural-quotient allowance.
 actuals: one maintained warning-free proof and one new-only standard-foundation closure; no finite numerical prime experiments.
 first_nonpositive_domain: not applicable to this upper bound. The theorem requires 2<=R and R^2<=a; it does not yet absorb the finite errors or prove native density-one retention, an integer bounded-gap value, or a stronger zero-free exponent.
+
+## Sparse removal of both native collision rows (2026-11-01)
+
+| Claim | Maintained declaration | Status and scope |
+| --- | --- | --- |
+| Exact finite collision deletion consumer | PrimeFactorOscillations.FiniteFieldIntegerSignature.native_clean_sparse_collision_packing | Proved for every natural T,Y and finite S of short actual prime pairs with endpoints<=Y and no integer square root>=T dividing a gap: a subset M has all distinct native rates3/8 and S.card<=M.card+E_T(Y). E_T(Y) counts the actual ordered endpoint pairs<=Y satisfying either positive weighted-prime row event. |
+| Vanishing full fixed-root event density | PrimeFactorOscillations.FiniteFieldIntegerSignature.tendsto_native_weighted_endpoint_output_probability_zero | Proved for every fixed natural T, including empty root ranges: E_T(Y)/pi(Y)^2 tends to zero. The finite root and row family is fixed before Y tends to infinity. |
+
+The maintained FiniteFieldNativeSparseConflicts.lean owner compiles warning-free. Exactly these two new theorem closures use only propext, Classical.choice and Quot.sound. The proof retains both native rows, every squarefree core and all valid distinct root pairs. Equal roots are excluded by actual pair equality; the larger-root anchor produces one of the two positive weighted-prime equations. The probability predicate takes the two actual endpoints as separate inputs.
+
+benchmark_status: full finite native collision consumer and its zero-density arithmetic loss proved; final density-one assembly remains unproved.
+old_bound: the clean-set matching theorem gave S.card<=2*(T-1)*M.card.
+new_bound: S.card<=M.card+E_T(Y), with E_T(Y)/pi(Y)^2 tending to zero for every fixed T. The complete lower bound is AB minus the D3 squarepart deletion bound minus E_T(Y).
+components: both endpoint-recovery rows; squarefree-core cancellation; distinct-root orientation; both positive coefficient orders; complete supported finite union; actual endpoint injection.
+actuals: two maintained warning-free proofs and two new-only standard-foundation closures; no numerical replacements for analytic estimates.
+first_nonpositive_domain: not applicable to the finite loss inequality. T is fixed before the sampling limit; the final universal rounded-cutoff and error absorption remain open. No growing-root-family limit, completed density-one theorem, integer bounded-gap value or improved zero-free exponent is claimed.
