@@ -14225,10 +14225,87 @@ so no effective numerical starting height is claimed.
 For the physical interpretation, each finite \(M_Y\) is fixed before
 the independent field-scale limit is taken. The theorem does not assert
 a uniform simultaneous limit with the codebook growing with that field
-scale. The cardinality lower bound is now proved. The optimal physical
-stability consumer and matching capacity upper order remain separate
-formalization tasks. No new bound on rational-prime gaps or zero-free
-exponent is inferred.
+scale. The cardinality lower bound is now proved. The following theorem
+gives the exact physical energy of its flat class.
+
+\subsection{Exact energy and optimal stability of flat codebooks}
+
+Use the actual prime pairs, normalized masses, and physical forms
+\(A_{ij}(U)/M_U\), \(Q_U(c)\), and \(Q(c)\) from
+Section~\ref{sec:native-agreement-energy}. In particular, the physical
+diagonal equals \(1\), and the normalization is positive for
+sufficiently large \(U\).
+
+\begin{theorem}[Exact flat native energy and sharp stability]
+\label{thm:native-flat-energy}
+Fix any finite index set \(I\) and distinct actual prime pairs
+\((n_i,n_i+h_i)\), with \(h_i>0\). Suppose every two distinct
+entries have native agreement rate \(3/8\). Then the physical
+limiting matrix is
+\[
+ K=\frac38J+\frac58\mathrm{Id},\qquad J_{ij}=1,
+\]
+and, for every signed real coefficient vector \((c_i)_{i\in I}\),
+\[
+ \lim_{U\to\infty}Q_U(c)=Q(c)
+    =\frac38\left(\sum_{i\in I}c_i\right)^2
+       +\frac58\sum_{i\in I}c_i^2.
+\]
+Consequently \(Q(c)\ge(5/8)\sum_{i\in I}c_i^2\).
+If \(|I|\ge2\), this constant is optimal: any real \(\kappa\)
+satisfying
+\[
+ \kappa\sum_{i\in I}c_i^2\le Q(c)
+       \quad\hbox{for every real coefficient vector }c
+\]
+must satisfy \(\kappa\le5/8\).
+The family and every coefficient vector are fixed before \(U\to\infty\).
+\end{theorem}
+
+\begin{proof}
+For distinct indices the rate is \(3/8\), while physical
+self-agreement is \(1\). Thus
+\[
+ K_{ij}=\frac38+\frac58\mathbf 1_{i=j}.
+\]
+Pass to the limit in the finite signed double sum defining \(Q_U\),
+using the proved physical mass limit. Keeping every coefficient product,
+\[
+ Q(c)=\frac38\sum_{i,j\in I}c_ic_j+\frac58\sum_{i\in I}c_i^2,
+\]
+which is the claimed identity. Its first term is nonnegative.
+
+For optimality choose distinct \(i,j\in I\) and let \(c_i=1\),
+\(c_j=-1\), with all other coefficients zero. This vector has
+sum zero and squared norm two, so \(Q(c)=5/4\).
+The proposed uniform bound gives \(2\kappa\le5/4\), proving
+\(\kappa\le5/8\). Empty families and one-entry families satisfy
+the identity and lower bound; the optimality assertion requires
+at least two entries.
+\end{proof}
+
+The maintained owner
+\texttt{Assembly/\allowbreak FiniteFieldNativeFlatEnergy.\allowbreak lean}
+contains the four checked declarations
+\texttt{native\_flat\_agreement\_form},
+\texttt{native\_flat\_agreement\_mass\_form\_tendsto},
+\texttt{native\_flat\_agreement\_stability}, and
+\texttt{native\_flat\_agreement\_stability\_optimal}, in namespace
+\texttt{FiniteFieldIntegerSignature}.
+The form identity and lower bound require only finite indexing and
+flat off-diagonal rates. The physical limit separately retains prime
+endpoints, positive gaps, and injectivity of the pair map.
+All four maintained proofs compile without warnings, and their four
+new closure checks use only standard Lean foundations.
+This is classical constant-kernel algebra for the arithmetic codebooks;
+no separate originality claim is attached to the matrix identity.
+The general \(3/8\) bound of
+Theorem~\ref{thm:native-agreement-energy} remains sharp over its
+unrestricted class.
+
+The matching height-cardinality upper bound and the assembled
+height-capacity consumer remain to be formalized. No new bound on
+rational-prime gaps or integer zero-free exponent is inferred.
 
 \begin{thebibliography}{99}
 \bibitem{MartinWaljiCharacters}

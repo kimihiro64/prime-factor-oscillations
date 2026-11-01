@@ -3765,7 +3765,7 @@ old_bound: the full high-root union at cutoff T=2 supplies only the raw fallback
 new_bound: card(S_sf)>=card(A)*card(B)/12-C*R*Y^(7/4)*(1+2*log(Y+2))^4-card(A)*floor(Y/R), uniformly on the stated integer domain, with one existential C>0.
 components: exact positive product supply; low principal reciprocal sum at most 11/12; all <=R prime-square collision errors with only the prime-root count <=R charged; full high-square-divisor allowance card(A)*floor(Y/R); no overlap or cutoff term discarded.
 actuals: maintained real proofs and four new-only standard-foundation closures; no finite counts, numerical completions, or assumed prime-count asymptotics enter the bound.
-first_nonpositive_domain: unavailable numerically because the inherited universal constant C has not been made explicit; no effective positivity cutoff is claimed. The quarter-block prime supplies are now formalized below. The rounded cutoff and native height cardinality are now formalized below; optimal physical stability and matching capacity upper order remain.
+first_nonpositive_domain: unavailable numerically because the inherited universal constant C has not been made explicit; no effective positivity cutoff is claimed. The quarter-block prime supplies are now formalized below. The rounded cutoff and native height cardinality are now formalized below; flat physical stability is proved below; matching capacity upper order and the assembled height consumer remain.
 
 ## Uniform PNT prime-block supplies (2026-11-01)
 
@@ -3792,9 +3792,27 @@ first_nonpositive_domain: no effective numerical threshold is claimed because th
 
 Helpers/NativeHeightSquarefreeSupply.lean and Assembly/FiniteFieldNativeAsymptoticPacking.lean compile warning-free. Exactly the two new public theorem closures were checked; both contain only propext, Classical.choice and Quot.sound. Their maintained proofs include every cutoff and integer-rounding condition. The arithmetic input is the existing unconditional uniform 7/8 character bound, with no new zero-free exponent claimed.
 
-benchmark_status: complete positive squarefree supply and native codebook cardinality lower bound proved; optimal physical stability and matching capacity upper order remain to be formalized.
+benchmark_status: complete positive squarefree supply and native codebook cardinality lower bound proved; flat physical stability is proved below; matching capacity upper order and the assembled height consumer remain.
 old_bound: the complete finite squarefree-gap inequality, supplemented by the two PNT block supplies, still retained a growing cutoff and both full error allowances.
 new_bound: card(S_sf)>=Y^2/(2000*log(Y)^2), and an actual native codebook exists with card(M)>=Y^2/(4096*log(Y)^2), at every sufficiently large natural Y.
 components: N=floor(Y/4), R=ceil(Y^(1/8)), 2<=R and R^2<=2N; exact positive product supply; complete low allowance at most 1250*C*Y^(15/8)*log(Y)^4; complete high allowance at most Y^(15/8); their sum at most Y^2/(2000*log(Y)^2); finite clean packing at T=2 costs a factor of two.
 actuals: no numerical prime counts, diagnostic completions or finite checks enter the bound. The codebook contains actual integer prime pairs. Each codebook is fixed before the independent field-scale limit.
 first_nonpositive_domain: no effective starting height is claimed because the inherited uniform constant C and PNT convergence thresholds remain existential. The theorem proves positivity for all sufficiently large heights.
+
+## Exact flat native energy and optimal stability (2026-11-01)
+
+| Claim | Maintained declaration | Status and scope |
+| --- | --- | --- |
+| Exact full signed energy of every flat native kernel | PrimeFactorOscillations.FiniteFieldIntegerSignature.native_flat_agreement_form | Proved for every finite I, arbitrary n,h:I->Nat, flat off-diagonal rates 3/8, and all real coefficient vectors: Q=(3/8)*(sum c)^2+(5/8)*sum(c^2). |
+| Actual physical mass converges to the same exact form | PrimeFactorOscillations.FiniteFieldIntegerSignature.native_flat_agreement_mass_form_tendsto | Proved with both endpoints prime, positive gaps, injective pair map and flat rates. The finite family and coefficients are fixed before U tends to infinity. |
+| Flat native stability is at least five eighths | PrimeFactorOscillations.FiniteFieldIntegerSignature.native_flat_agreement_stability | Proved for all finite flat kernels and all signed real coefficients, including the empty and one-entry cases. |
+| No larger constant works on a nontrivial flat family | PrimeFactorOscillations.FiniteFieldIntegerSignature.native_flat_agreement_stability_optimal | Proved when two specified distinct indices exist: every uniform lower constant kappa valid for all coefficient vectors is at most 5/8. |
+
+Assembly/FiniteFieldNativeFlatEnergy.lean compiles warning-free. Exactly the four new public theorem closures were checked; each contains only propext, Classical.choice and Quot.sound. The physical diagonal is one, while the auxiliary cross-rate on identical labels is five eighths. No diagonal substitution is made. The matrix facts are classical supporting algebra for the actual native height-codebook construction; no standalone priority claim is made.
+
+benchmark_status: exact flat physical energy and optimal five-eighths stability proved; matching height upper order and the assembled codebook consumer remain.
+old_bound: arbitrary positive native families satisfy Q>=(3/8)*((sum c)^2+sum(c^2)); the general three-eighths sharpness theorem is unchanged.
+new_bound: on the flat class Q=(3/8)*(sum c)^2+(5/8)*sum(c^2), and 5/8 is the largest uniform lower constant if at least two entries exist.
+components: physical diagonal one; every off-diagonal exactly 3/8; all signed coefficient products retained; the proved finite-family physical mass limit; a two-coordinate vector with sum zero and squared norm two certifies optimality.
+actuals: four maintained real proofs and four new-only standard-foundation closures; no numerical prime counts, character tables or diagnostic completions.
+first_nonpositive_domain: the finite identity and lower bound are exact on the stated class. Optimality requires two distinct indices. No effective field-scale threshold is claimed.
