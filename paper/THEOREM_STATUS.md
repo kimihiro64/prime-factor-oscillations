@@ -3942,3 +3942,20 @@ new_bound: without short gaps, every distinct-lower collision above the fixed lo
 components: exact endpoint divisibility; distinct-prime coprimality; positive quotient witnesses; full parity exception; exact natural-subtraction identity; both coefficient cutoffs.
 actuals: two maintained warning-free proofs and two new-only standard-foundation closures. The separate finite diagnostic checks 532 cross collisions among pairs with upper endpoint<=200 and is not an asymptotic input.
 first_nonpositive_domain: lower prime2 is excluded by an explicit counterexample; empty coefficient ranges cause no exception. No new full retention fraction, effective cutoff, QRH exponent or integer prime-gap result is claimed.
+
+## Arbitrary and identical prime-block collisions (2026-11-01)
+
+| Claim | Maintained declaration | Status and scope |
+| --- | --- | --- |
+| Uniform two-block congruence count without separation | PrimeFactorOscillations.QRH.exists_primeBlocksCollisionCount_le_seven_fourths | Proved: one C>0 before every nonzero modulus N and natural a,b,c,d,Y, with N<=a,c and a<=b<=Y,c<=d<=Y; absolute discrepancy from actual block-cardinality product/phi(N) is at most C*Y^(7/4)*(1+log N+log(Y+2))^4. Blocks may overlap or coincide. |
+| Identical-block count including every diagonal pair | PrimeFactorOscillations.QRH.exists_primeBlockSelfCollisionCount_le_seven_fourths | Proved: N<=a<=b<=Y; principal mass is card(primes(a,b])^2/phi(N), with the same error form and a uniform existential constant. |
+| Original adjacent-block statement preserved | PrimeFactorOscillations.QRH.exists_primeBlockCollisionCount_le_seven_fourths | Proved compatibility specialization with unchanged public statement. |
+
+The maintained QRHPrimeBlockCollision.lean owner compiles warning-free. Exactly its two new closures and its changed compatibility-proof closure were checked; all use only propext, Classical.choice and Quot.sound. No unchanged theorem closures were re-audited. This generalizes the endpoint interface of the existing complete character-product proof and keeps its full principal mass and same-character product.
+
+benchmark_status: uniform overlapping-block component proved; full unrestricted density-one consumer remains open.
+old_bound: the public collision adapter required adjacent separated blocks (a,b] and (b,c].
+new_bound: arbitrary two blocks, including the same block, with principal card(A)*card(B)/phi(N) and uniform error C*Y^(7/4)*L^4. The exponent and its constant provenance are unchanged.
+components: existing all-modulus seven-eighths prime-character prefixes; both block boundaries; inverse character; complete character product before residue reconstruction; actual unit support; full diagonal.
+actuals: two new maintained proofs and one changed compatibility proof, all warning-free and standard-foundation only. No numerical character tests are used.
+first_nonpositive_domain: the modulus must not exceed either lower block endpoint; empty blocks and N=1 are included. For the planned square-modulus consumer require R^2<=floor(Y/J), with J fixed before Y. No new full retention fraction, effective threshold or zero-free exponent is claimed.

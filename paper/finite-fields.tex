@@ -14997,6 +14997,84 @@ Full density-one retention in the unrestricted height universe
 still requires the corresponding collision-count and deletion
 consumers; it is not asserted by this certificate.
 
+\section{Collision counts for overlapping prime blocks}
+\label{sec:native-arbitrary-block-collision}
+
+\begin{theorem}[Two-block congruence estimate]
+\label{thm:native-arbitrary-block-collision}
+There is a constant \(C>0\) such that the following holds.
+Let \(N\ge1\) and let \(a,b,c,d,Y\) be natural numbers with
+\[
+ N\le a,\quad N\le c,\quad a\le b\le Y,\quad c\le d\le Y.
+\]
+For the actual prime sets \(A=(a,b]\cap\mathbb P\) and
+\(B=(c,d]\cap\mathbb P\), put
+\[
+ N_N(A,B)=\#\{(p,q)\in A\times B:p\equiv q\pmod N\}.
+\]
+Then
+\[
+ \left|N_N(A,B)-\frac{|A||B|}{\varphi(N)}\right|
+ \le C Y^{7/4}\bigl(1+\log N+\log(Y+2)\bigr)^4.
+\]
+The intervals may overlap or coincide. In particular, when
+\(A=B\), the principal mass is \(|A|^2/\varphi(N)\);
+all diagonal pairs remain in \(N_N(A,A)\).
+\end{theorem}
+
+\begin{proof}
+Every prime in either block exceeds \(N\), hence is a unit
+modulo \(N\). Character orthogonality gives the exact identity
+\[
+ N_N(A,B)=\frac1{\varphi(N)}
+ \sum_{\chi\bmod N}
+ \left(\sum_{p\in A}\chi^{-1}(p)\right)
+ \left(\sum_{q\in B}\chi(q)\right).
+\]
+The principal character contributes \(|A||B|/\varphi(N)\).
+The already proved uniform seven-eighths prime-character
+prefix estimate bounds each nonprincipal block sum, by its
+two prefix endpoints, by
+\[
+ 2B_0Y^{7/8}
+ \bigl(1+\log N+\log(Y+2)\bigr)^2.
+\]
+Inversion preserves nonprincipality. Bound the complete
+same-character product before residue reconstruction.
+Its norm is at most \(4B_0^2Y^{7/4}\) times the fourth power
+of the displayed logarithm. Averaging the nonprincipal
+characters introduces no additional totient factor.
+Thus \(C=4B_0^2\) works uniformly for all the stated endpoints,
+including identical intervals.
+\end{proof}
+
+The full arbitrary-block declaration is
+\texttt{exists\_primeBlocksCollisionCount\_le\_seven\_fourths};
+the identical-block specialization is
+\texttt{exists\_primeBlockSelfCollisionCount\_le\_seven\_fourths}.
+Both are maintained in
+\texttt{Helpers/\allowbreak QRHPrimeBlockCollision.\allowbreak lean}.
+The previously advertised adjacent-block declaration is
+preserved with its original statement, now as a specialization.
+The maintained owner compiles without warnings.
+The two new closures and the changed compatibility proof use
+only standard Lean foundations.
+
+For the full prime-pair counting consumer, take fixed \(J\),
+\(a=\lfloor Y/J\rfloor\), and square moduli \(N=u^2\).
+For \(1\le u\le R\) and \(R^2\le a\), the error summed over
+any supported root subset is at most
+\[
+ CRY^{7/4}\bigl(1+2\log(Y+2)\bigr)^4.
+\]
+With \(R=\lceil Y^{1/8}\rceil\), this is
+\(o(Y^2/\log^2Y)\); the condition \(R^2\le a\) holds
+eventually for every fixed positive \(J\).
+This supplies the missing block interface for the proposed
+unrestricted squarepart consumer. It uses the established
+character exponent and claims no improvement of that exponent
+or separate originality for character orthogonality.
+
 \begin{thebibliography}{99}
 \bibitem{MartinWaljiCharacters}
 K. Martin and N. Walji,

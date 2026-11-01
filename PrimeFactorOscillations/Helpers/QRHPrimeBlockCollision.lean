@@ -22,25 +22,30 @@ namespace PrimeFactorOscillations.QRH
 def primeBlockSet (a b : Nat) : Finset Nat :=
   SDiff.sdiff (Nat.primesBelow (b + 1)) (Nat.primesBelow (a + 1))
 
+noncomputable def primeBlocksCollisionCount (N a b c d : Nat) : Nat := by
+  classical
+  exact (((primeBlockSet a b).product (primeBlockSet c d)).filter
+    (fun z => (z.1 : ZMod N) = (z.2 : ZMod N))).card
+
 noncomputable def primeBlockCollisionCount (N a b c : Nat) : Nat := by
   classical
   exact (((primeBlockSet a b).product (primeBlockSet b c)).filter
     (fun z => (z.1 : ZMod N) = (z.2 : ZMod N))).card
 
-theorem exists_primeBlockCollisionCount_le_seven_fourths :
+theorem exists_primeBlocksCollisionCount_le_seven_fourths :
     exists C : Real, 0 < C /\
-      forall {N : Nat} [NeZero N] (a b c Y : Nat),
-        N <= a -> a <= b -> b <= c -> c <= Y ->
-          abs ((primeBlockCollisionCount N a b c : Real) -
-            (primeBlockSet a b).card * (primeBlockSet b c).card / (N.totient : Real)) <=
+      forall {N : Nat} [NeZero N] (a b c d Y : Nat),
+        N <= a -> N <= c -> a <= b -> c <= d -> b <= Y -> d <= Y ->
+          abs ((primeBlocksCollisionCount N a b c d : Real) -
+            (primeBlockSet a b).card * (primeBlockSet c d).card / (N.totient : Real)) <=
               C * (Y : Real) ^ (7 / 4 : Real) *
                 (1 + Real.log N + Real.log ((Y : Real) + 2)) ^ 4 := by
   classical
   choose B0 hB0 hPrefix0 using exists_primeCharacterSum_le_seven_eighths
   refine Exists.intro (4 * B0 ^ 2) (And.intro (by positivity) ?_)
-  intro N inst a b c Y hNa hab hbc hcY
+  intro N inst a b c d Y hNa hNc hab hcd hbY hdY
   let A := primeBlockSet a b
-  let B := primeBlockSet b c
+  let B := primeBlockSet c d
   let S := A.product B
   let f : Prod Nat Nat -> ZMod N := fun z => Ring.inverse (z.1 : ZMod N) * (z.2 : ZMod N)
   let L : Real := 1 + Real.log N + Real.log ((Y : Real) + 2)
@@ -110,12 +115,12 @@ theorem exists_primeBlockCollisionCount_le_seven_fourths :
           rw [Finset.sum_comm]
     rw [hFactor, norm_mul]
     exact mul_le_mul
-      (hBlock (Inv.inv chi) (inv_ne_one.mpr hchi) a b hab (hbc.trans hcY))
-      (hBlock chi hchi b c hbc hcY) (norm_nonneg _) hE
+      (hBlock (Inv.inv chi) (inv_ne_one.mpr hchi) a b hab hbY)
+      (hBlock chi hchi c d hcd hdY) (norm_nonneg _) hE
   have hUnitF (z : Prod Nat Nat) (hz : Membership.mem S z) : IsUnit (f z) := by
     have hm := Finset.mem_product.mp hz
     have hn := hUnit a b z.1 hNa hm.1
-    have hq := hUnit b c z.2 (hNa.trans hab) hm.2
+    have hq := hUnit c d z.2 hNc hm.2
     dsimp [f]
     rw [<- hn.unit_spec, <- hq.unit_spec, Ring.inverse_unit]
     exact (Units.isUnit _).mul (Units.isUnit _)
@@ -138,7 +143,7 @@ theorem exists_primeBlockCollisionCount_le_seven_fourths :
   have hFilter : S.filter (fun z => f z = 1) =
       S.filter (fun z => (z.1 : ZMod N) = (z.2 : ZMod N)) :=
     Finset.filter_congr hRatio
-  have hCount : (S.filter (fun z => f z = 1)).card = primeBlockCollisionCount N a b c := by
+  have hCount : (S.filter (fun z => f z = 1)).card = primeBlocksCollisionCount N a b c d := by
     rw [hFilter]
     rfl
   have hUnitFilter : S.filter (fun z => IsUnit (f z)) = S :=
@@ -159,5 +164,32 @@ theorem exists_primeBlockCollisionCount_le_seven_fourths :
         ring
       _ = _ := by rw [hPow]
   exact hRes.trans_eq hError
+
+theorem exists_primeBlockCollisionCount_le_seven_fourths :
+    exists C : Real, 0 < C /\
+      forall {N : Nat} [NeZero N] (a b c Y : Nat),
+        N <= a -> a <= b -> b <= c -> c <= Y ->
+          abs ((primeBlockCollisionCount N a b c : Real) -
+            (primeBlockSet a b).card * (primeBlockSet b c).card / (N.totient : Real)) <=
+              C * (Y : Real) ^ (7 / 4 : Real) *
+                (1 + Real.log N + Real.log ((Y : Real) + 2)) ^ 4 := by
+  choose C hC hAll using exists_primeBlocksCollisionCount_le_seven_fourths
+  refine Exists.intro C (And.intro hC ?_)
+  intro N inst a b c Y hNa hab hbc hcY
+  simpa only [primeBlocksCollisionCount, primeBlockCollisionCount] using
+    hAll a b b c Y hNa (hNa.trans hab) hab hbc (hbc.trans hcY) hcY
+
+theorem exists_primeBlockSelfCollisionCount_le_seven_fourths :
+    exists C : Real, 0 < C /\
+      forall {N : Nat} [NeZero N] (a b Y : Nat),
+        N <= a -> a <= b -> b <= Y ->
+          abs ((primeBlocksCollisionCount N a b a b : Real) -
+            ((primeBlockSet a b).card : Real) ^ 2 / (N.totient : Real)) <=
+              C * (Y : Real) ^ (7 / 4 : Real) *
+                (1 + Real.log N + Real.log ((Y : Real) + 2)) ^ 4 := by
+  choose C hC hAll using exists_primeBlocksCollisionCount_le_seven_fourths
+  refine Exists.intro C (And.intro hC ?_)
+  intro N inst a b Y hNa hab hbY
+  simpa only [pow_two] using hAll a b a b Y hNa hNa hab hab hbY hbY
 
 end PrimeFactorOscillations.QRH
