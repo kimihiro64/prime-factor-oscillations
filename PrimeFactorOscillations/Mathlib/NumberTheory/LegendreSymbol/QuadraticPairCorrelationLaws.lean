@@ -11,6 +11,7 @@ import PrimeFactorOscillations.Mathlib.NumberTheory.LegendreSymbol.QuadraticPair
 import PrimeFactorOscillations.Mathlib.NumberTheory.LegendreSymbol.QuadraticPairTensorPersistence
 import PrimeFactorOscillations.Mathlib.NumberTheory.LegendreSymbol.QuadraticPairTraceFreeSigns
 import PrimeFactorOscillations.Mathlib.NumberTheory.LegendreSymbol.QuadraticPairTraceTori
+import PrimeFactorOscillations.Mathlib.NumberTheory.LegendreSymbol.QuadraticSquareDensity
 
 /-!
 # Compensated pair correlation laws
@@ -26,5 +27,6 @@ native split/nonsplit Pell endpoint cardinalities,
 the exact odd-Pell mean at every nonzero shift,
 simultaneous odd-part gcd optimization inputs,
 the exact attained two-primary minimum with its modulo-eight criterion,
-and the full signed defect energy with all common endpoint overlaps.
+the full signed defect energy with all common endpoint overlaps,
+and complete affine/quadratic square-value counts with unit-density bounds.
 -/

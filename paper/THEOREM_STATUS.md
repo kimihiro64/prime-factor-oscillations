@@ -4082,3 +4082,56 @@ new_bound: one decidable infinite G satisfies G_Y=G intersect S_Y for every natu
 components: all-prime endpoint scan; computable square tests; preservation of every old choice and blocker; exact birth-height identity; universal2-deficit consumer; complete positive supply; positive-denominator order limits.
 actuals: twenty-nine new proof declarations, seven computable definitions/instances, no finite numerical replacement of a universal estimate.
 first_nonpositive_domain: primes include2, all positive gaps are admitted, and small empty prefixes are handled. Asymptotic cutoffs are not effective. Physical consequences keep each finite family fixed before the field limit.
+
+## Complete prime-vertex families (2026-11-01)
+
+All claims below have maintained Lean proofs and completed new-closure assumption audits. The finite extension density is1 for each fixed finite prime vertex set; the global vertex growth rate is unquantified. The six vertex construction definitions/instances are computable. Native declarations without a written namespace below belong to PrimeFactorOscillations.FiniteFieldIntegerSignature.
+
+| Claim | Lean declaration | Status |
+| --- | --- | --- |
+| Complete square count including zeros | FiniteField.twice_square_values_card | Proved; compiled and audited. |
+| Affine complete square count | FiniteField.twice_affine_square_values_card | Proved; compiled and audited. |
+| Split quadratic complete square count | FiniteField.twice_split_quadratic_square_values_card | Proved; compiled and audited. |
+| Affine unit fraction at most3/4 for field size at least11 | FiniteField.four_affine_unit_square_card_le_three | Proved; compiled and audited. |
+| Split quadratic unit fraction at most3/4 for field size at least11 | FiniteField.four_split_quadratic_unit_square_card_le_three | Proved; compiled and audited. |
+| Exact first-coordinate prime marginal | PrimeFactorOscillations.prime_pair_probability_first_marginal | Proved; compiled and audited. |
+| Unary fixed-modulus prime CRT product limit | PrimeFactorOscillations.tendsto_prime_crt_pattern_probability | Proved; compiled and audited. |
+| Prime square sparsity from arbitrarily many unit tests | PrimeFactorOscillations.tendsto_prime_square_values_zero_of_unit_tests | Proved; compiled and audited. |
+| Actual-prime affine square sparsity | PrimeFactorOscillations.tendsto_prime_affine_square_values_zero | Proved; compiled and audited. |
+| Actual-prime split quadratic square sparsity | PrimeFactorOscillations.tendsto_prime_split_quadratic_square_values_zero | Proved; compiled and audited. |
+| Prime-event domination transfer | PrimeFactorOscillations.tendsto_prime_event_zero_of_imp | Proved; compiled and audited. |
+| Full finite union has zero prime-relative density | PrimeFactorOscillations.tendsto_prime_finite_union_zero | Proved; compiled and audited. |
+| Finite initial prime range has zero relative density | PrimeFactorOscillations.tendsto_prime_bounded_event_zero | Proved; compiled and audited. |
+| Complement-zero implies density one | PrimeFactorOscillations.tendsto_prime_event_one_of_complement_zero | Proved; compiled and audited. |
+| Decision-independent count equality | PrimeFactorOscillations.prime_filter_ratio_eq_probability | Proved; exact normalization only. |
+| Canonical domination interface | PrimeFactorOscillations.tendsto_prime_probability_zero_of_imp | Proved; exact normalization only. |
+| Canonical finite-union interface | PrimeFactorOscillations.tendsto_prime_probability_finite_union_zero | Proved; exact normalization only. |
+| Canonical finite-range interface | PrimeFactorOscillations.tendsto_prime_probability_bounded_zero | Proved; exact normalization only. |
+| Canonical complement interface | PrimeFactorOscillations.tendsto_prime_probability_one_of_complement_zero | Proved; exact normalization only. |
+| Every new/old collision excluded by full rejection test | native_prime_vertex_new_old_compatible | Proved; compiled and audited. |
+| Both new/new rows excluded, with positive square-factor cancellation | native_prime_vertex_new_new_compatible | Proved; compiled and audited. |
+| Complete largest-prime insertion preserves flatness | native_prime_vertex_clear_insertion_flat | Proved; compiled and audited. |
+| All rejection families together have prime-relative density zero | tendsto_native_prime_vertex_unclear_zero | Proved; compiled and audited. |
+| Clear extensions have prime-relative density one | tendsto_native_prime_vertex_clear_one | Proved; compiled and audited. |
+| Valid larger prime extensions have relative density one | tendsto_native_prime_vertex_valid_extensions_one | Proved; compiled and audited. |
+| Actual valid prime extension above any fixed bound | exists_native_prime_vertex_extension_above | Proved; compiled and audited. |
+| Every accepted insertion preserves old vertices | native_prime_vertex_insert_contains | Proved; compiled and audited. |
+| An insertion adds only its candidate vertex | native_prime_vertex_insert_subset | Proved; compiled and audited. |
+| Every prefix consists of bounded primes and is completely flat | native_prime_vertex_prefix_geometry | Proved; compiled and audited. |
+| All prefixes persist | native_prime_vertex_prefix_monotone | Proved; compiled and audited. |
+| Every selected vertex was selected at birth | native_prime_vertex_prefix_mem_birth | Proved; compiled and audited. |
+| Exact global-class truncation at every natural height | native_prime_vertex_prefix_mem_iff | Proved; compiled and audited. |
+| Every global vertex is prime | native_prime_vertex_class_prime | Proved; compiled and audited. |
+| The single computable vertex class is infinite | native_prime_vertex_class_infinite | Proved; compiled and audited. |
+| Both square rows separate for all distinct complete pair labels | native_prime_vertex_class_square_compatible | Proved; compiled and audited. |
+| Every distinct complete pair-label rate equals3/8 | native_prime_vertex_class_agreement | Proved; compiled and audited. |
+| Full computable infinite complete-vertex headline | native_computable_complete_prime_vertex_family | Proved; compiled and audited. |
+
+The candidate owner is Mathlib/NumberTheory/LegendreSymbol/QuadraticSquareDensity.lean. Prime-frequency providers are in Proof/AffinePairs/MarginalLimits.lean, PrimeSquareSieve.lean, PrimeSquarePolynomials.lean, FiniteEventLimits.lean and FiniteEventProbability.lean. The native owners are Assembly/FiniteFieldNativeVertexInsertion.lean, FiniteFieldNativeVertexDensity.lean and FiniteFieldNativeVertexGreedy.lean. Canonical primeEventProbability is an exact noncomputable frequency definition, not an extra arithmetic estimate. All owners compile warning-free; the new closures use only standard Lean foundations. Earlier unchanged closures were not re-audited.
+
+benchmark_status: the fixed finite-extension and full computable infinite complete-vertex theorems are proved.
+old_bound: the completed density-one selection kept individual pair labels; it did not supply one prime vertex class retaining all of its positive pairs.
+new_bound: every fixed finite flat prime vertex set has relative density1 of valid larger prime extensions; one fixed computable infinite prime vertex class has rate3/8 for every distinct complete pair label.
+components: exact square counts with zero values; unit3/4 bound; fixed-modulus unary CRT and exact marginal; all finite rejection overlaps; upper-endpoint recovery; positive square-factor cancellation; deterministic persistence and birth coherence.
+actuals: thirty-seven new proof declarations, including five exact normalization interfaces; six computable vertex definitions/instances, one finite rejection predicate and one canonical noncomputable frequency definition. No finite diagnostic replaces a universal estimate.
+first_nonpositive_domain: empty and small prefixes and the prime2 are included. Extension density uses fixed P,B before the prime cutoff limit; the global vertex density and effective growth remain unquantified. Each native label stays fixed before the independent field-scale limit.

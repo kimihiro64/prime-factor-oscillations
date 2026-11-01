@@ -15760,6 +15760,189 @@ the full signed physical energy limit and optimal \(5/8\) stability.
 Each prefix remains fixed before that field-scale limit.
 This construction does not assert a simultaneous growing-height field limit.
 
+\section{One prime vertex class with every pair retained}
+\label{sec:native-complete-prime-vertices}
+For a finite set \(P\) of integer primes, write
+\[
+ E(P)=\{(p,q-p):p,q\in P,\ p<q\}.
+\]
+Call \(P\) flat when, for every two distinct labels \(a,b\in E(P)\),
+both \(L(a)L(b)\) and \(U(a)U(b)\) are nonsquares. The arithmetic
+classifier identifies this with native rate \(3/8\). This requires
+all positive pairs of the vertex set to be retained.
+
+\begin{lemma}[Prime-relative square sparsity]
+Fix natural numbers \(t,a,b\) with \(t>0\), and assume \(a\ne b\) in the
+quadratic case. As \(N\) tends to infinity,
+\[
+ \frac{\#\{v\le N:v\text{ prime},\ t(v-a)\text{ is an integer square}\}}
+      {\pi(N)}\longrightarrow0,
+\]
+and
+\[
+ \frac{\#\{v\le N:v\text{ prime},\
+                t(v-a)(v-b)\text{ is an integer square}\}}
+      {\pi(N)}\longrightarrow0.
+\]
+All polynomial subtractions in these assertions are in \(\mathbb Z\).
+\end{lemma}
+\begin{proof}
+Let \(\ell\) be an odd auxiliary prime. For its quadratic character
+\(\chi_\ell\), including the value zero, the exact indicator identity is
+\[
+ 2\,1_{\mathrm{square}(z)}
+   =1+\chi_\ell(z)+1_{z=0}.
+\]
+For \(t\not\equiv0\pmod\ell\), summing an affine polynomial gives
+\[
+ 2\#\{x\in\mathbb F_\ell:t(x-a)\text{ square}\}=\ell+1.
+\]
+For distinct roots \(a,b\bmod\ell\), the complete quadratic character
+sum is \(-\chi_\ell(t)\), and both zero values must be added:
+\[
+ 2\#\{x\in\mathbb F_\ell:t(x-a)(x-b)\text{ square}\}
+     =\ell+2-\chi_\ell(t)\le\ell+3.
+\]
+The number of passing units is at most the complete count. For
+\(\ell\ge11\), either polynomial therefore passes on at most
+\(3(\ell-1)/4\) units. The affine argument uses
+\(\ell\ge\max(11,t+1)\); the quadratic argument uses
+\(\ell\ge\max(11,t+a+b+1)\). These bounds ensure every coefficient
+and root-separation hypothesis. They exclude only finitely many
+auxiliary test primes.
+
+Choose \(k\) distinct such test primes. Their product is fixed before
+\(N\) tends to infinity. The proved fixed-modulus distribution of
+actual primes, together with CRT, gives the product of the local
+unit proportions as the limiting fraction passing all tests. It is
+at most \((3/4)^k\). The fixed-modulus prime law includes the
+nonunit classes with limiting mass zero; no sampled prime class
+is discarded. An integer square passes every test. Consequently,
+for each fixed \(k\) the upper limiting square-value fraction is at
+most \((3/4)^k\). Given any positive tolerance, first choose \(k\)
+so that this bound is smaller than half the tolerance, and then
+take the input cutoff sufficiently large for that fixed CRT
+modulus. Nonnegativity proves both limits.
+\end{proof}
+
+\begin{theorem}[Density-one complete prime extensions]
+\label{thm:native-prime-vertex-extension}
+Let \(P\) be any fixed finite flat set of integer primes, and let \(B\)
+be any natural upper bound for its vertices. Then
+\[
+ \boxed{\quad
+ \frac{\#\{v\le N:v\text{ prime},\ B<v,\
+                   P\cup\{v\}\text{ is flat}\}}{\pi(N)}
+       \longrightarrow1.\quad}
+\]
+In particular, \(P\) has a prime extension above every prescribed
+upper bound.
+\end{theorem}
+\begin{proof}
+For \(v>B\), every new label has the form \((p,v-p)\), with \(p\in P\).
+Old labels remain compatible. Consider an old label \((n,m-n)\),
+where \(n<m\) belong to \(P\). Its upper-row collision with a new
+label would force equality of their upper prime endpoints, by the
+proved endpoint-recovery theorem. This would give \(m=v\), whereas
+\(m\le B<v\).
+
+The remaining collisions are covered by the complete finite families
+\[
+ \begin{array}{ll}
+ p\,n(m-n)(v-p),&
+          p,n,m\in P,\ n<m,\\[2pt]
+ pr(v-p)(v-r),&
+          p,r\in P,\ p\ne r,\\[2pt]
+ (v-p)(v-r),&
+          p,r\in P,\ p\ne r.
+ \end{array}
+\]
+The first is the old/new lower row. The second and third are the
+new/new lower and upper rows. In the upper row the original product
+contains the additional factor \(v^2\); it cancels because \(v>0\).
+This is an application of positive square-class transitivity, so
+the zero middle-factor exception cannot arise.
+
+Every leading coefficient is positive, and the two quadratic roots
+are distinct. The preceding lemma gives prime-relative density zero
+for each fixed polynomial's square values. The union of all these
+events still has density zero: its exact count is bounded by the
+sum of their counts, with every overlap retained. The additional
+finite range \(v\le B\) has prime-relative density zero, since
+\(\pi(N)\) tends to infinity. Every other sampled prime gives a flat
+extension, by the complete old/old, old/new and new/new case split.
+Taking complements proves the limit. Its positive limiting value
+also supplies an actual prime extension.
+\end{proof}
+
+\begin{theorem}[Computable infinite complete prime family]
+\label{thm:native-complete-prime-vertices}
+There is one explicit decidable infinite set \(V\) of integer primes
+such that every two distinct positive pair labels made from \(V\)
+have native rate \(3/8\):
+\[
+ \begin{gathered}
+ p,q,r,s\in V,\quad p<q,\quad r<s,\quad (p,q)\ne(r,s)\\
+ \Longrightarrow\quad
+ \operatorname{rate}\bigl((p,q-p),(r,s-r)\bigr)=3/8.
+ \end{gathered}
+\]
+\end{theorem}
+\begin{proof}
+Set \(V_0=\varnothing\). At height \(Y+1\), insert \(Y+1\) exactly
+when it is prime and the complete family \(E(V_Y\cup\{Y+1\})\)
+passes both square-row tests for every two distinct labels;
+otherwise put \(V_{Y+1}=V_Y\). All four vertex indices range over
+finite sets, so this is a decidable finite computation. Induction
+proves that \(V_Y\) consists of primes at most \(Y\), is flat, and
+is contained in \(V_{Y+1}\).
+
+Define \(p\in V\) by the finite decision \(p\in V_p\).
+A vertex enters only at its own height, and is never removed. Thus
+\[
+ V_Y=V\cap[0,Y]\qquad\text{for every natural }Y.
+\]
+Suppose that \(V\) were finite and bounded by \(B\). Coherence would
+make every later prefix equal to \(V_B\). The preceding theorem
+supplies a prime \(v>B\) for which \(V_B\cup\{v\}\) is flat.
+The prefix just before height \(v\) is \(V_B\), so the algorithm
+would accept \(v\), contradicting the bound. Hence \(V\) is infinite.
+
+Any four vertices of \(V\) lie in one finite prefix, where every
+two distinct positive pair labels pass both nonsquare tests.
+The exact native agreement formula then gives \(3/8\), as claimed.
+\end{proof}
+
+The extension density is asserted for each fixed finite vertex set.
+The growth rate of the resulting infinite vertex class remains
+unquantified. Every native label is fixed before the independent
+field-scale limit; no simultaneous growing-vertex limit is asserted.
+
+For comparison, ordinary multiplicative Sidon sets impose uniqueness
+of products~\cite{LiuPachMultiplicativeSidon}. Here both weighted
+endpoint-gap square classes must separate throughout the complete
+pair family of a prime vertex set. The complete character counts,
+fixed-modulus prime distribution and greedy mechanism are classical
+ingredients; the application-specific statements are the joint
+extension and complete-family conclusions above.
+
+The computable definitions are maintained in
+\texttt{Definitions/NativePrimeVertexGreedy.lean}. The complete
+collision consumer and density theorem are maintained in
+\texttt{FiniteFieldNativeVertexInsertion.lean} and
+\texttt{FiniteFieldNativeVertexDensity.lean}. The latter contains
+\texttt{tendsto\_native\_prime\_vertex\_valid\_extensions\_one}
+and \texttt{exists\_native\_prime\_vertex\_extension\_above}.
+The infinite construction, exact coherence and native rate are
+proved together by
+\texttt{native\_computable\_complete\_prime\_vertex\_family},
+in \texttt{FiniteFieldNativeVertexGreedy.lean}.
+The exact finite-field count and unit bound are extracted as the
+reusable \texttt{QuadraticSquareDensity} candidate in the
+\texttt{FiniteField} namespace.
+All these maintained owners compile without warnings, and the new
+proof closures use only standard Lean foundations.
+
 \begin{thebibliography}{99}
 \bibitem{KarpVaziraniVazirani}
 R. M. Karp, U. V. Vazirani and V. V. Vazirani,
@@ -15888,5 +16071,10 @@ which are not permutations}, arXiv:2409.04045.
 Journal of the Society for Industrial and Applied Mathematics
 8 (1960), 300--304.
 \url{https://doi.org/10.1137/0108018}.
+\bibitem{LiuPachMultiplicativeSidon}
+H. Liu and P. P. Pach,
+\emph{The number of multiplicative Sidon sets of integers},
+arXiv:1808.06182.
+\url{https://arxiv.org/abs/1808.06182}.
 \end{thebibliography}
 \end{document}

@@ -10,6 +10,7 @@ import PrimeFactorOscillations.Assembly.FiniteFieldNativeFullCapacity
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeFullSparseConflicts
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeHeightCapacity
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeHeightPacking
+import PrimeFactorOscillations.Assembly.FiniteFieldNativeVertexGreedy
 
 /-!
 # Native prime-pair packing and physical capacity
@@ -17,5 +18,6 @@ import PrimeFactorOscillations.Assembly.FiniteFieldNativeHeightPacking
 Import-only grouping of sharp full-height native capacity, density-one
 retention and exact same-codebook physical stability. The earlier quarter
 blocks, unrestricted finite extraction, positive cross-output class and
-complete squarepart consumers remain exported.
+complete squarepart consumers remain exported. Density-one finite prime-vertex
+extensions and one computable infinite complete prime-pair family are included.
 -/

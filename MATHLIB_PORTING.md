@@ -437,6 +437,12 @@ Each real candidate file should:
 | `PrimeFactorOscillations.Mathlib.NumberTheory.LegendreSymbol.QuadraticPairOddPellUniform` | `Mathlib/NumberTheory/LegendreSymbol/QuadraticPairOddPellUniform.lean` | project-verified | Exact common-code native expansion/support and split-class cardinalities; one ordinary integer coefficient vector works over every late tower stage, admitted field and nonzero shift. |
 | `PrimeFactorOscillations.Mathlib.NumberTheory.LegendreSymbol.QuadraticPairPolynomialDegree` | `Mathlib/NumberTheory/LegendreSymbol/QuadraticPairPolynomialDegree.lean` | project-verified | Complete minimum-profile and endpoint iff classification; every exact-minimum polynomial has 8*degree>=3q+chi(-1); attaining polynomial of degree <=q-1 and an attained least degree, uniformly over odd q>=5 and nonzero h. |
 
+## Finite-field square-value density tests
+
+| Candidate module | Proposed Mathlib destination | Readiness | Scope |
+| --- | --- | --- | --- |
+| `PrimeFactorOscillations.Mathlib.NumberTheory.LegendreSymbol.QuadraticSquareDensity` | `Mathlib/NumberTheory/LegendreSymbol/QuadraticSquareDensity.lean` | project-verified | Complete square-value count including zeros; exact affine and split nondegenerate quadratic cardinalities; uniform4*unitSquareCard<=3*(q-1) over odd finite fields with q>=11. Classical local estimates consumed by the native prime-vertex finite-test programme; pinned standalone compiler check passed. |
+
 Readiness should be one of: `extracting`, `project-verified`, `mathlib-ready`,
 `submitted`, or `upstreamed`. A module is `mathlib-ready` only after it has an
 identified destination, no project dependency, focused tests, and a clean
