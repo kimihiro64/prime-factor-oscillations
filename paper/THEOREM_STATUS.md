@@ -3765,4 +3765,20 @@ old_bound: the full high-root union at cutoff T=2 supplies only the raw fallback
 new_bound: card(S_sf)>=card(A)*card(B)/12-C*R*Y^(7/4)*(1+2*log(Y+2))^4-card(A)*floor(Y/R), uniformly on the stated integer domain, with one existential C>0.
 components: exact positive product supply; low principal reciprocal sum at most 11/12; all <=R prime-square collision errors with only the prime-root count <=R charged; full high-square-divisor allowance card(A)*floor(Y/R); no overlap or cutoff term discarded.
 actuals: maintained real proofs and four new-only standard-foundation closures; no finite counts, numerical completions, or assumed prime-count asymptotics enter the bound.
-first_nonpositive_domain: unavailable numerically because the inherited universal constant C has not been made explicit; no effective positivity cutoff is claimed. The quarter-block prime supplies, rounded growing cutoff, native packing consumer and full optimal height capacity remain to be formalized.
+first_nonpositive_domain: unavailable numerically because the inherited universal constant C has not been made explicit; no effective positivity cutoff is claimed. The quarter-block prime supplies are now formalized below. The rounded growing cutoff, native packing consumer and full optimal height capacity remain to be formalized.
+
+## Uniform PNT prime-block supplies (2026-11-01)
+
+| Claim | Maintained declaration | Status and scope |
+| --- | --- | --- |
+| Exact theta increment is at most the prime-block cardinal times log Y | PrimeFactorOscillations.QRH.primeBlock_theta_sub_le_card_mul_log | Proved for all natural a<=b<=Y, including empty blocks. |
+| Both adjacent quarter blocks have uniform PNT supply | PrimeFactorOscillations.QRH.eventually_primeQuarterBlock_supply | Proved: for all sufficiently large natural N and every Y>=4N, N<=2*card((2N,3N])*log Y and N<=2*card((3N,4N])*log Y. |
+
+The maintained owner Helpers/PrimeBlockPackingSupply.lean compiles warning-free. Exactly the two new declaration closures were checked; each contains only propext, Classical.choice and Quot.sound. No RH premise is used. For N>=1 and Y>=4N the denominator 2*log Y is positive, yielding the displayed cardinal lower bounds in the paper. The finite theta comparison is exact, and the PNT threshold is uniform in Y.
+
+benchmark_status: uniform lower supply installed in both actual prime blocks; full height-capacity theorem unproved.
+old_bound: the complete finite squarefree-gap inequality retained its exact positive product supply without a formal asymptotic lower bound on that product.
+new_bound: for the quarter blocks the positive product is at least N^2/(4*log(Y)^2), as a mathematical consequence of the compiled inequalities and positive denominator; the rounded-cutoff and packing assembly remain unproved.
+components: unconditional theta PNT bands 15n/16 and 17n/16; signed increments at least 11N/16 and 9N/16; exact finite prime sums; no sampled counts.
+actuals: two maintained real proofs and two new-only standard-foundation closure checks, with no numerical completion.
+first_nonpositive_domain: no effective numerical threshold is claimed because the inherited PNT convergence is existential.

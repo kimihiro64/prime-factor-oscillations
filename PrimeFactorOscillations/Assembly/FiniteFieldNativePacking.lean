@@ -5,12 +5,12 @@ Authors: Prime Factor Oscillations contributors
 -/
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeAgreementEnergy
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeHeightPacking
-import PrimeFactorOscillations.Helpers.QRHSquarefreePrimePairs
+import PrimeFactorOscillations.Helpers.PrimeBlockPackingSupply
 
 /-!
 # Native packing inputs
 
 Import-only grouping of native agreement energy, finite prime-product
-packing and the complete finite squarefree-gap supply for prime blocks.
+packing, the complete finite squarefree-gap supply and both PNT block supplies.
 The asymptotic height consumer remains a separate theorem.
 -/

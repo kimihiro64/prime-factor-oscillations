@@ -14068,11 +14068,63 @@ reciprocal bound as
 These two classical inputs are maintained candidates; no separate
 originality claim is attached to them.
 
-The remaining height-capacity theorem must still combine this finite
-bound with quantitative prime-block supplies, a rigorously rounded
-divisor cutoff, and the native packing and physical-limit consumers.
-No numerical positivity cutoff is extracted here: \(C\) is the
-existential uniform constant inherited from the proved character bound.
+\subsection{Prime supply in both adjacent blocks}
+
+\begin{theorem}[Uniform quarter-block prime supply]
+\label{thm:prime-quarter-block-supply}
+For every sufficiently large natural \(N\), and every natural
+\(Y\ge4N\), put
+\[
+ A_N=\{p\text{ prime}:2N<p\le3N\},\qquad
+ B_N=\{q\text{ prime}:3N<q\le4N\}.
+\]
+Then \(N\ge1\), \(\log Y>0\), and
+\[
+ |A_N|\ge\frac{N}{2\log Y},\qquad
+ |B_N|\ge\frac{N}{2\log Y}.
+\]
+The threshold for \(N\) is independent of \(Y\).
+\end{theorem}
+
+\begin{proof}
+The proved unconditional prime number theorem for \(\theta\) gives,
+at every sufficiently large natural \(n\),
+\[
+ \frac{15}{16}n\le\theta(n)\le\frac{17}{16}n.
+\]
+Apply these bounds simultaneously at \(2N,3N,4N\). Their signed
+differences give
+\[
+ \theta(3N)-\theta(2N)\ge\frac{11}{16}N,\qquad
+ \theta(4N)-\theta(3N)\ge\frac9{16}N.
+\]
+For any natural endpoints \(a\le b\le Y\), the exact prime sum gives
+\[
+ \theta(b)-\theta(a)
+   =\sum_{\substack{a<p\le b\\p\ {\rm prime}}}\log p
+   \le |\{p\text{ prime}:a<p\le b\}|\log Y.
+\]
+Both differences therefore exceed \(N/2\). Finally \(N\ge1\)
+and \(Y\ge4N\) ensure \(\log Y>0\), so division proves the claim.
+\end{proof}
+
+The exact finite theta-to-cardinality comparison and both uniform
+block supplies are maintained in
+\texttt{Helpers/PrimeBlockPackingSupply.\allowbreak lean}.
+Their declarations are
+\texttt{QRH.primeBlock\_theta\_sub\_le\_card\_mul\_log} and
+\texttt{QRH.eventually\_primeQuarterBlock\_supply}.
+The compiled supply uses the equivalent inequalities
+\(N\le2|A_N|\log Y\) and \(N\le2|B_N|\log Y\).
+This is classical PNT support for the height theorem, with no separate
+originality claim.
+
+The remaining height-capacity theorem must combine
+Theorems~\ref{thm:squarefree-prime-block-supply} and
+\ref{thm:prime-quarter-block-supply} with a rigorously rounded divisor
+cutoff and the native packing and physical-limit consumers.
+No numerical positivity cutoff is extracted here: \(C\) and the PNT
+threshold remain existential.
 
 \begin{thebibliography}{99}
 \bibitem{MartinWaljiCharacters}
