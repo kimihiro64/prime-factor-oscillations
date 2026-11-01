@@ -14459,10 +14459,9 @@ average whose coefficients are \(v^2,u^2-v^2\), in either order,
 and whose denominator is \(u^2\).
 Every prime \(\ell>T^2\) avoids all three coefficient and
 denominator exceptions. The theorem supplies its exact finite
-sieve factor. The vanishing product and small-prime output exception
-are now proved in the following section. Density-one retention still
-requires the large-squarepart tail and full native collision-deletion
-consumer.
+sieve factor. The following sections prove weighted-prime-output
+decay and an arbitrarily small large-squarepart allowance. The exact
+native collision-removal and final error-absorption consumer remain.
 
 \section{Vanishing density of positive weighted prime outputs}
 \label{sec:weighted-prime-output-decay}
@@ -14537,9 +14536,105 @@ supporting sieve estimates, with no independent priority claim.
 No effective cutoff, power rate, growing-modulus limit or
 improved integer zero-free exponent is asserted.
 For each fixed pair of distinct square-root multipliers, this
-supplies the required sparse weighted-prime event. The exact
-native collision-count map and the large-squarepart deletion
-tail are still needed for density-one native retention.
+supplies the required sparse weighted-prime event. The next theorem
+controls the full large-squarepart deletion allowance.
+
+\section{An arbitrarily small large-squarepart allowance}
+\label{sec:native-large-squarepart}
+
+The deletion estimate must include square divisors with every integer
+root, rather than only prime roots.
+
+\begin{theorem}[Full squarepart deletion bound]
+\label{thm:native-large-squarepart}
+There is a constant \(C>0\) such that, for every
+\(\varepsilon>0\), there is an integer \(T\ge2\) with the following
+property. For all natural \(a,b,c,Y,R\) satisfying
+\[
+ 2\le R,\qquad R^2\le a\le b\le c\le Y,
+\]
+put
+\[
+ A=\{p:a<p\le b,\ p\text{ prime}\},\qquad
+ B=\{q:b<q\le c,\ q\text{ prime}\},
+\]
+and
+\[
+ S=\{(p,q-p):(p,q)\in A\times B\},\qquad
+ \mathcal B_T=\{(p,h)\in S:\exists u\ge T,\ u^2\mid h\}.
+\]
+Then
+\[
+ \#\mathcal B_T\le
+ \varepsilon\,\#A\,\#B+
+ CRY^{7/4}(1+2\log(Y+2))^4+
+ \#A\left\lfloor\frac YR\right\rfloor.
+\]
+The constant \(C\) is chosen before \(\varepsilon\); \(T\) is
+chosen before all five block and cutoff parameters.
+The bound also covers \(T>R\).
+\end{theorem}
+
+\begin{proof}
+Set \(w(u)=1/\varphi(u^2)\), interpreting \(w(0)=0\).
+Totient supermultiplicativity and the already proved uniform
+totient bound give, for \(u>0\),
+\[
+ 0\le w(u)\le\frac1{\varphi(u)^2}\le\frac4{u^{3/2}}.
+\]
+Consequently \(\sum_{u\ge0}w(u)\) converges and
+\[
+ \tau(T)=\sum_{u\ge0}w(u)-\sum_{0\le u<T}w(u)
+        =\sum_{u\ge T}w(u)\longrightarrow0.
+\]
+Choose \(T\ge2\) with \(\tau(T)<\varepsilon\).
+
+For every integer \(T\le u\le R\), a gap divisible by \(u^2\)
+gives a collision \(p\equiv q\pmod{u^2}\).
+The map \((p,h)\mapsto(p,p+h)\) is injective.
+The existing uniform prime-block collision estimate, valid for
+every integer modulus \(u^2\le a\), therefore bounds the number
+of such gaps by
+\[
+ \frac{\#A\,\#B}{\varphi(u^2)}
+   +CY^{7/4}
+       (1+\log(u^2)+\log(Y+2))^4.
+\]
+Here the same \(C\) works for all the moduli and endpoints.
+Since \(u^2\le Y\), the logarithmic factor is at most
+\((1+2\log(Y+2))^4\).
+The low-root union is thus at most
+\[
+ \#A\,\#B\sum_{u\in[T,R]}w(u)
+   +CRY^{7/4}(1+2\log(Y+2))^4.
+\]
+Its principal sum is at most \(\tau(T)<\varepsilon\).
+There are at most \(R\) roots in this finite interval,
+including when the interval is empty.
+
+Keep separately every root \(u\ge R+1\).
+For each fixed first coordinate \(p\in A\), positivity and
+\(h\le Y\) give the exact high-square divisor union bound
+\(\lfloor Y/R\rfloor\), by the proved natural-quotient
+square-divisor estimate. Hence the complete high-root union
+has size at most \(\#A\lfloor Y/R\rfloor\).
+Every member of \(\mathcal B_T\) lies in the low or high union.
+Their finite union bound proves the display, with all cutoff
+and rounding terms retained.
+\end{proof}
+
+This is the maintained theorem
+\texttt{exists\_primeBlock\_largeSquarepart\_small\_allowance}
+in \texttt{Helpers/\allowbreak NativeSquarepartTail.\allowbreak lean}.
+Its owner compiles without warnings; the new theorem's closure
+uses only standard Lean foundations.
+The supporting summability argument consumes the existing
+\texttt{lpf\_totient\_inverse\_sq\_power\_bound};
+it does not assume a new totient estimate or improved QRH exponent.
+This finite bound supplies the arbitrarily small squarepart
+principal loss. Density-one retention still requires the exact
+native collision-removal argument and the final uniform
+absorption of the displayed errors.
 
 \begin{thebibliography}{99}
 \bibitem{MartinWaljiCharacters}

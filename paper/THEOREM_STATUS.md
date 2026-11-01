@@ -3864,4 +3864,19 @@ old_bound: weighted-prime-output probability was bounded only by one; the commit
 new_bound: weighted-prime-output probability is o(1) for every fixed positive triple a,b,k. No effective cutoff or power rate is claimed.
 components: exact weighted unit-pair CRT sieve; Mertens divergence of prime odds; nonnegative finite-product exponential bound; fixed small-first-prime exception; full finite probability union bound.
 actuals: two maintained warning-free Lean proofs and two new-only standard-foundation closure checks; no numerical substitutions.
-first_nonpositive_domain: not applicable to this nonnegative limit. The native large-squarepart tail and exact collision-deletion consumer remain unproved; no density-one codebook or RH exponent gain is claimed.
+first_nonpositive_domain: not applicable to this nonnegative limit. The finite large-squarepart allowance is proved in the following section; exact native collision removal and final error absorption remain unproved. No density-one codebook or RH exponent gain is claimed.
+
+## Full large-squarepart deletion allowance (2026-11-01)
+
+| Claim | Maintained declaration | Status and scope |
+| --- | --- | --- |
+| Arbitrarily small principal squarepart deletion loss | PrimeFactorOscillations.QRH.exists_primeBlock_largeSquarepart_small_allowance | Proved: one universal C>0 works for every eps>0 after choosing T>=2, uniformly for every 2<=R and R^2<=a<=b<=c<=Y. The count of actual prime-block gaps with some integer u>=T satisfying u^2 divides the gap is at most eps*A.card*B.card + C*R*Y^(7/4)*(1+2*log(Y+2))^4 + A.card*floor(Y/R). |
+
+The maintained NativeSquarepartTail.lean owner compiles warning-free. The one new theorem closure uses only propext, Classical.choice and Quot.sound. Every integer square root is included; T>R and the empty low interval are covered. The totient-tail summability consumes the already proved LPF uniform bound rather than introducing a new assumption. This is a supporting arithmetic estimate for the density-one native retention application.
+
+benchmark_status: finite squarepart deletion bound proved; native density-one retention remains unproved.
+old_bound: the earlier squarefree supply retained a fixed 1/12 fraction after a fixed 11/12 principal allowance.
+new_bound: the principal mass of the full large-squarepart deletion set is at most eps times the actual block product, for every eps>0 and a suitable fixed T. Both finite errors remain explicit.
+components: existing uniform collision estimate at every integer modulus u^2; summable 4/u^(3/2) majorant; complete low-root union T<=u<=R; complete high-root union u>=R+1; exact natural-quotient allowance.
+actuals: one maintained warning-free proof and one new-only standard-foundation closure; no finite numerical prime experiments.
+first_nonpositive_domain: not applicable to this upper bound. The theorem requires 2<=R and R^2<=a; it does not yet absorb the finite errors or prove native density-one retention, an integer bounded-gap value, or a stronger zero-free exponent.
