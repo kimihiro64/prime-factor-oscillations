@@ -16544,6 +16544,182 @@ supplies actual reservoir witnesses and excludes the independent
 \(1/256\) limit.
 The new-only assumption audits cover all thirty-eight proof closures.
 
+\section{A sharp universal floor for simultaneous native coincidence}
+\label{sec:native-graph-coincidence}
+
+The preceding word law describes the constructed independent prime class.
+There is also a comparison theorem for arbitrary prime labels, requiring
+no square independence. It concerns simultaneous equality of all native
+outputs, rather than a sum of pairwise agreement probabilities.
+
+Let \(P\) be any finite set of actual primes and let
+\(\varnothing\ne G\subseteq E(P)\), \(m=|G|\).
+Write
+\[
+ \mathcal C_{\rm ev}(P,G)=
+ \{C\subseteq G:\deg_C(v)\equiv0\pmod2\ (v\in P),\
+                         |C|\equiv0\pmod2\},\qquad
+ N_{\rm ev}(P,G)=|\mathcal C_{\rm ev}(P,G)|.
+\]
+This finite count is computable from the graph and includes the empty
+mask. For a field prime \(\ell\), put
+\[
+ W_e(\ell)=\operatorname{integerNativeWeight}(p,q-p,\ell)
+       \quad(e=(p,q)\in G).
+\]
+With the same independent field-prime bands and normalizer \(M_U\) as
+above, define
+\[
+ A_U(P,G)=\frac1{M_U}\sum_{\ell\in\mathcal I_U}\frac1\ell
+     \mathbf1\{W_e(\ell)=W_f(\ell)\text{ for all }e,f\in G\}.
+\]
+
+\begin{theorem}[Sharp universal graph-coincidence floor]
+\label{thm:native-graph-coincidence}
+For every fixed nonempty strict graph \(G\) on arbitrary prime
+vertices \(P\), the limit \(A(P,G)=\lim_{U\to\infty}A_U(P,G)\)
+exists and satisfies
+\begin{equation}\label{eq:native-graph-coincidence-floor}
+ A(P,G)\ \geq\
+ N_{\rm ev}(P,G)\bigl(2^{-m}+2^{1-2m}\bigr).
+\end{equation}
+For every admissible decidable prime reservoir \(R\), the same single
+computable infinite class \(V_R\) constructed earlier attains equality
+in \eqref{eq:native-graph-coincidence-floor} for every fixed nonempty
+finite graph with vertices in \(V_R\).
+Thus the lower bound is sharp simultaneously on that class.
+In particular, on the class the exact coincidence probabilities for
+one, two and three distinct edges are respectively
+\[
+ 1,\qquad \frac38,\qquad \frac5{32}.
+\]
+For the four-cycle on any four increasing vertices the exact probability
+is \(9/64\).
+\end{theorem}
+
+\begin{proof}
+Keep the complete signed coefficients \(D^-_e=-p(q-p)\) and
+\(D^+_e=q(q-p)\).
+For all \(O,T\subseteq G\), set
+\[
+ D(O,T)=\prod_{e\in O}D^-_e\prod_{e\in T}D^+_e,\qquad
+ \delta(O,T)=\mathbf1\{D(O,T)\text{ is an integer square}\}.
+\]
+Every factor is nonzero, including when the prime \(2\) is a vertex.
+The fixed-integer character theorem from the preceding proof applies
+without any independence assumption and gives the normalized mixed
+moment limit \(\delta(O,T)\).
+
+Once \(\ell>\max(P\cup\{3\})\), both row characters are signs.
+All traces \(X^-_e+X^+_e\) agree if and only if one of three
+mutually exclusive events occurs: every trace is zero, every row in
+both supports is \(+1\), or every row in both supports is \(-1\).
+Nonemptiness of \(G\) is used here. The exact zero-trace selector is
+\[
+ \prod_{e\in G}\frac{1-X^-_eX^+_e}{2}
+ =2^{-m}\sum_{S\subseteq G}(-1)^{|S|}
+       \prod_{e\in S}X^-_e\prod_{e\in S}X^+_e.
+\]
+Expanding the two constant-sign words and adding them before estimating
+gives the full coupled limit
+\begin{align}
+ A(P,G)
+ &=2^{-m}\sum_{S\subseteq G}(-1)^{|S|}\delta(S,S)\notag\\
+ &\quad+2^{-2m}\sum_{\substack{O\subseteq G\\T\subseteq G}}
+       \bigl(1+(-1)^{|O|+|T|}\bigr)\delta(O,T).
+ \label{eq:native-graph-full-signed-consumer}
+\end{align}
+The affine weight transfer justifying this notation is proved below.
+
+No triangle inequality is applied to the signed main terms.
+If \(|S|\) is odd, the integer \(D(S,S)\) is negative, so
+\(\delta(S,S)=0\). If \(|S|\) is even, its coefficient in the
+first sum is \(+1\). Every term in that sum is therefore nonnegative.
+Every coefficient \(1+(-1)^{|O|+|T|}\) in the second sum is
+either zero or two, so those terms are nonnegative as well.
+
+There is an unconditional square supply: for
+\(C\in\mathcal C_{\rm ev}(P,G)\),
+\[
+ D(C,C)=(-1)^{|C|}
+       \prod_{(p,q)\in C}(q-p)^2\prod_{v\in P}v^{\deg_C(v)}
+\]
+is a square. This assertion uses only finite incidence and evenness,
+with no independence of prime gaps.
+Each such \(C\) contributes one in the first sum and two at
+\((O,T)=(C,C)\) in the second. Keeping these contributions and
+the nonnegativity of every remaining coupled term proves
+\eqref{eq:native-graph-coincidence-floor}.
+All summations are over the displayed finite subsets of \(G\).
+
+If \(P\subseteq V_R\), the complete signed square classifier says
+\[
+ \delta(O,T)=1
+ \quad\Longleftrightarrow\quad
+ O=T\in\mathcal C_{\rm ev}(P,G).
+\]
+Thus exactly the contributions just retained survive in both sums of
+\eqref{eq:native-graph-full-signed-consumer}. Equality follows.
+The earlier construction supplies one computable infinite \(V_R\)
+for every decidable reservoir whose actual prime-relative frequency
+does not tend to zero; the same class works for all finite graphs.
+There is no exchange of a limit with an infinite graph.
+
+It remains to identify the traces with the actual outputs.
+For each edge \(e=(p,q)\), the maintained endpoint readout gives,
+for \(\ell\geq5\) and \(q<\ell\),
+\[
+ (\ell-3)W_e(\ell)-(\ell-1)=X^-_e(\ell)+X^+_e(\ell).
+\]
+Since \(\ell-3\ne0\), two weights agree exactly when their traces
+agree. Every field prime in the entire band satisfies these inequalities
+eventually. The weight and trace agreement masses are then exactly
+equal, not merely asymptotic; their normalized limits coincide.
+This also treats exceptional field primes \(2,3\), empty early bands
+and any vertex equal to \(2\): they are outside the eventual band.
+The positive eventual bound \(M_U\geq(\log2)/2\) justifies normalization.
+
+Finally, an even-sized even-degree mask with at most three strict
+edges is empty, as proved in the preceding section.
+Consequently \(N_{\rm ev}=1\) whenever \(m\leq3\).
+Substitution in the sharp formula gives \(1,3/8,5/32\).
+On a strict four-cycle the only qualifying masks are the empty
+and full masks, so \(N_{\rm ev}=2\), \(m=4\), and
+\[
+ 2\bigl(2^{-4}+2^{1-8}\bigr)=\frac9{64}.
+\]
+All these specializations have their own compiled actual-weight
+limit declarations.
+\end{proof}
+
+\paragraph{Meaning and verified scope.}
+The even-cycle count measures an unavoidable simultaneous collision
+supply for arbitrary prime labels. The independent vertex/gap class
+minimizes that supply sharply: no additional square relations survive.
+For comparison, four traces with independent pairs of fair sign rows
+would have coincidence probability \(9/128\); the four-cycle forces
+exactly twice that value on the constructed class.
+This is a graph-sensitive comparison for actual native outputs.
+It uses classical finite character expansion and the already established
+computable prime-family construction; historical publication priority
+is not asserted.
+Every finite graph is fixed before \(U\to\infty\).
+The result supplies no growing-graph uniformity, effective class growth,
+integer prime-gap value, or improved RH/QRH exponent.
+
+The unconditional signed supply and general moments are maintained in
+\texttt{NativePrimeUniversalCycles.lean} and
+\texttt{FiniteFieldNativeGeneralMoments.lean}.
+The exact physical events and the complete signed consumer are in
+\texttt{FiniteFieldNativeGraphCoincidenceEvents.lean};
+the universal lower bound and simultaneous sharpness are in
+\texttt{FiniteFieldNativeGraphCoincidenceLaw.lean}.
+The actual weight bridge and small graph limits are in
+\texttt{FiniteFieldNativeGraphOutputs.lean}.
+The fifty-eight new proof closures have completed new-only
+standard-foundation audits, with the eleven definition interfaces
+listed separately in the claim ledger.
+
 \begin{thebibliography}{99}
 \bibitem{KarpVaziraniVazirani}
 R. M. Karp, U. V. Vazirani and V. V. Vazirani,

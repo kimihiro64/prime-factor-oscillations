@@ -1,5 +1,81 @@
 # Paper theorem and provenance ledger
 
+## Sharp universal simultaneous native graph coincidence (2026-11-01)
+
+All fifty-eight claims below have maintained Lean proofs, warning-free focused builds and completed new-only assumption audits. They belong to `PrimeFactorOscillations.FiniteFieldIntegerSignature`. For every fixed nonempty strict graph G on arbitrary actual prime vertices P, the actual simultaneous native-weight agreement limit A(P,G) exists and is at least N_even(P,G)*(2^(-m)+2^(1-2*m)), where m=|G| and N_even counts the even-sized, even-degree masks C contained in G. One fixed computable infinite class inside every admissible decidable prime reservoir attains equality on every finite graph inside it. No gap independence is assumed for the lower bound.
+
+| Claim | Lean declaration | Status |
+| --- | --- | --- |
+| Positive unsigned part of every complete signed product | native_signed_unsigned_product_positive | Proved; maintained, compiled and audited. |
+| Every supported signed coefficient product is nonzero | native_signed_row_product_ne_zero | Proved; maintained, compiled and audited. |
+| Odd paired masks have negative signed product | native_signed_paired_row_product_neg_of_odd | Proved; maintained, compiled and audited. |
+| Every even Eulerian mask supplies a square unconditionally | native_signed_cycle_product_isSquare | Proved; maintained, compiled and audited. |
+| General centered mixed moment without independence | native_signed_row_moment_centered_general | Proved; maintained, compiled and audited. |
+| General normalized mixed moment equals the square indicator | native_signed_row_moment_general_ratio_tendsto | Proved; maintained, compiled and audited. |
+| Exact computable even-cycle membership predicate | native_even_cycle_masks_mem_iff | Proved; maintained, compiled and audited. |
+| The even-cycle count is positive | native_even_cycle_count_positive | Proved; maintained, compiled and audited. |
+| Exact zero-trace selector product | native_trace_zero_selector_product | Proved; maintained, compiled and audited. |
+| Full signed zero-trace mask expansion | native_trace_zero_full_mask_expansion | Proved; maintained, compiled and audited. |
+| Exact coupled three-event agreement selector | native_trace_agreement_selector_product | Proved; maintained, compiled and audited. |
+| Physical zero-trace pointwise selector | native_graph_zero_pointwise_selector | Proved; maintained, compiled and audited. |
+| Physical disjoint agreement decomposition | native_graph_agreement_pointwise_decomposition | Proved; maintained, compiled and audited. |
+| Exact zero-trace mass mask expansion | native_graph_zero_mass_expansion | Proved; maintained, compiled and audited. |
+| Exact coupled agreement mass decomposition | native_graph_agreement_mass_decomposition | Proved; maintained, compiled and audited. |
+| The entire eventual band exceeds every fixed vertex | native_graph_field_window_eventually | Proved; maintained, compiled and audited. |
+| Eventual physical zero-trace expansion | native_graph_zero_mass_expansion_eventually | Proved; maintained, compiled and audited. |
+| Eventual physical three-event agreement decomposition | native_graph_agreement_mass_decomposition_eventually | Proved; maintained, compiled and audited. |
+| General word limit for arbitrary prime labels | native_signed_word_general_ratio_tendsto | Proved; maintained, compiled and audited. |
+| General zero-trace limit for arbitrary prime labels | native_graph_zero_ratio_tendsto | Proved; maintained, compiled and audited. |
+| General agreement limit for arbitrary prime labels | native_graph_agreement_ratio_tendsto | Proved; maintained, compiled and audited. |
+| Every square indicator is nonnegative | native_graph_square_indicator_nonneg | Proved; maintained, compiled and audited. |
+| Every even Eulerian mask has principal indicator one | native_graph_cycle_indicator_eq_one | Proved; maintained, compiled and audited. |
+| Odd masks cancel before the zero-trace estimate | native_graph_zero_mask_nonneg | Proved; maintained, compiled and audited. |
+| Every qualifying cycle supplies one zero-trace term | native_graph_zero_mask_eq_one_of_cycle | Proved; maintained, compiled and audited. |
+| Universal zero-trace lower bound | native_graph_zero_rate_lower_bound | Proved; maintained, compiled and audited. |
+| Constant-sign words combined with every mask pair | native_graph_constant_word_sum_expansion | Proved; maintained, compiled and audited. |
+| All combined mask coefficients are nonnegative | native_graph_paired_mask_nonneg | Proved; maintained, compiled and audited. |
+| Every qualifying cycle supplies two paired-word terms | native_graph_paired_mask_eq_two_of_cycle | Proved; maintained, compiled and audited. |
+| Universal constant-sign-word lower bound | native_graph_constant_word_rate_lower_bound | Proved; maintained, compiled and audited. |
+| Sharp universal graph-coincidence lower bound | native_graph_agreement_rate_lower_bound | Proved; maintained, compiled and audited. |
+| Actual trace limit with the universal lower bound | native_graph_agreement_limit_lower_bound | Proved; maintained, compiled and audited. |
+| Noncycle masks vanish on the independent class | native_graph_noncycle_indicator_eq_zero | Proved; maintained, compiled and audited. |
+| Exact zero-trace rate on the independent class | native_graph_zero_rate_eq_of_independent | Proved; maintained, compiled and audited. |
+| Exact paired-word rate on the independent class | native_graph_constant_word_rate_eq_of_independent | Proved; maintained, compiled and audited. |
+| Exact graph-coincidence floor on the independent class | native_graph_agreement_rate_eq_of_independent | Proved; maintained, compiled and audited. |
+| Sharp physical graph limit throughout the reservoir class | native_reservoir_graph_agreement_ratio_tendsto | Proved; maintained, compiled and audited. |
+| One infinite reservoir class attaining every finite graph floor | native_infinite_graph_coincidence_family_in_reservoir | Proved; maintained, compiled and audited. |
+| Unconditional infinite full-prime sharp graph family | native_infinite_graph_coincidence_family | Proved; maintained, compiled and audited. |
+| Exact invertible native-weight and trace agreement equivalence | native_graph_weight_agreement_iff | Proved; maintained, compiled and audited. |
+| Exact finite-band weight and trace mass equality | native_graph_weight_mass_eq | Proved; maintained, compiled and audited. |
+| Exact eventual-band weight and trace mass equality | native_graph_weight_mass_eq_eventually | Proved; maintained, compiled and audited. |
+| Actual native-weight agreement limit | native_graph_weight_agreement_ratio_tendsto | Proved; maintained, compiled and audited. |
+| Universal lower bound for actual native-weight agreement | native_graph_weight_limit_lower_bound | Proved; maintained, compiled and audited. |
+| Sharp actual-weight limit throughout the reservoir class | native_reservoir_graph_weight_ratio_tendsto | Proved; maintained, compiled and audited. |
+| One infinite reservoir class attaining every native-weight floor | native_infinite_graph_weight_family_in_reservoir | Proved; maintained, compiled and audited. |
+| Only the empty even-cycle mask occurs with at most three edges | native_even_cycle_masks_small | Proved; maintained, compiled and audited. |
+| Even-cycle count equals one with at most three edges | native_even_cycle_count_small | Proved; maintained, compiled and audited. |
+| Four-cycle qualifying masks are exactly empty and full | native_even_cycle_masks_four_cycle | Proved; maintained, compiled and audited. |
+| Four-cycle even-cycle count equals two | native_even_cycle_count_four_cycle | Proved; maintained, compiled and audited. |
+| Exact one-edge agreement rate | native_graph_one_edge_rate | Proved; maintained, compiled and audited. |
+| Exact two-edge agreement rate | native_graph_two_edge_rate | Proved; maintained, compiled and audited. |
+| Exact three-edge agreement rate | native_graph_three_edge_rate | Proved; maintained, compiled and audited. |
+| Exact four-cycle agreement rate | native_graph_four_cycle_rate | Proved; maintained, compiled and audited. |
+| Actual one-edge native-weight limit is one | native_graph_one_edge_weight_ratio_tendsto | Proved; maintained, compiled and audited. |
+| Actual two-edge native-weight limit is three eighths | native_graph_two_edge_weight_ratio_tendsto | Proved; maintained, compiled and audited. |
+| Actual three-edge native-weight limit is five over thirty-two | native_graph_three_edge_weight_ratio_tendsto | Proved; maintained, compiled and audited. |
+| Actual four-cycle native-weight limit is nine over sixty-four | native_graph_four_cycle_weight_ratio_tendsto | Proved; maintained, compiled and audited. |
+
+Definition interfaces (not additional theorem claims): `nativeEvenCycleMasks`, `nativeEvenCycleCount`, `nativeGraphZeroTraceEvent`, `nativeGraphAgreementEvent`, `nativeGraphZeroTraceMass`, `nativeGraphAgreementMass`, `nativeSignedGeneralWordRate`, `nativeGraphZeroTraceRate`, `nativeGraphAgreementRate`, `nativeGraphWeightAgreementEvent`, `nativeGraphWeightAgreementMass`. The two finite even-cycle definitions are computable. The nine real-valued event/mass/rate interfaces are explicitly in noncomputable sections; no additional arithmetic assumption is hidden there.
+
+Maintained owners: `PrimeFactorOscillations/Definitions/NativePrimeEvenCycleMasks.lean`, `PrimeFactorOscillations/Helpers/NativePrimeUniversalCycles.lean`, `PrimeFactorOscillations/Helpers/NativePrimeEvenCycleMasks.lean`, `PrimeFactorOscillations/Helpers/NativeTraceAgreementAlgebra.lean`, `PrimeFactorOscillations/Assembly/FiniteFieldNativeGeneralMoments.lean`, `PrimeFactorOscillations/Assembly/FiniteFieldNativeGraphCoincidenceEvents.lean`, `PrimeFactorOscillations/Assembly/FiniteFieldNativeGraphCoincidenceLaw.lean`, `PrimeFactorOscillations/Assembly/FiniteFieldNativeGraphOutputs.lean`. All fifty-eight new closures use only `propext`, `Classical.choice` and `Quot.sound`. Earlier unchanged closures were not re-audited. The paper includes the full signed consumer, odd-mask cancellation, the unconditional cycle-square supply, simultaneous sharpness, exact affine transfer to native weights and all four symbolic small-graph cases.
+
+benchmark_status: universal sharp graph-coincidence comparison and actual-weight transfer proved.
+old_bound: the completed signed word law determined the independent-class distribution; it did not prove a universal simultaneous native-output lower bound for arbitrary prime labels.
+new_bound: A(P,G)>=N_even(P,G)*(2^(-m)+2^(1-2*m)), with equality on every fixed finite graph in one computable infinite reservoir class. Exact native-weight values are 1,3/8,5/32 for one,two,three edges and 9/64 for a strict four-cycle.
+components: full zero-trace signed sum plus both coupled constant-sign word sums; odd paired masks have zero principal indicator; all remaining combined coefficients are nonnegative; every even Eulerian mask supplies one zero-event and two paired-word terms; independent-class square classification proves sharpness; invertible affine endpoint readout preserves actual equality.
+actuals: fifty-eight audited real Lean proofs and eleven definition interfaces. The small cases are universal symbolic theorems; no numerical sample supplies an estimate.
+first_nonpositive_domain: the graph is nonempty and fixed before the independently varying field-prime band. Empty-graph raw three-event rates are not interpreted as probabilities. Exceptional field primes 2,3 and all fixed vertex factors are excluded by an eventual whole-band bound. No effective class-growth rate, growing-graph uniformity, integer prime-gap value, RH or QRH gain is asserted; the certified boundary remains7/8. Publication priority remains under review.
+
 ## Complete signed native word law and optimal seven-row independence (2026-11-01)
 
 All thirty-eight claims below have maintained Lean proofs, warning-free focused builds and completed new-only assumption audits. They belong to `PrimeFactorOscillations.FiniteFieldIntegerSignature`. The same fixed computable infinite prime class works for every fixed finite graph and sign word, inside any decidable prime reservoir whose actual relative frequency does not tend to zero. Lower and upper rows are distinct indexed coordinates. The independent field-prime band is `[preciseCore U+1, preciseCore U*preciseCore U+1)`, with reciprocal-prime weights and its exact reciprocal-band normalizer.
