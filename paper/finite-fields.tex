@@ -13595,6 +13595,110 @@ Its one new axiom audit contains only \texttt{propext},
 The proof composes the existing endpoint-divisor theorem with elementary
 prime divisibility; no independent novelty is claimed for that argument.
 
+\section{Packing after a square-factor cutoff}
+\label{sec:native-clean-packing}
+
+Let \(S\) be a finite set of distinct actual prime pairs
+\((n_a,n_a+h_a)\), with \(0<h_a<n_a\).
+Both endpoints are prime. Fix an integer \(T\ge2\), and impose the
+finite gap condition
+\begin{equation}
+ u^2\mid h_a,\quad u\in\mathbb N
+       \quad\Longrightarrow\quad u<T
+       \qquad(a\in S).
+ \label{eq:native-clean-gap}
+\end{equation}
+
+\begin{theorem}[Finite clean-gap packing]
+\label{thm:native-clean-packing}
+There is a subset \(M\subseteq S\) such that
+\begin{equation}
+ |S|\le2(T-1)|M|,
+ \qquad
+ \operatorname{Agr}(a,b)=\frac38
+       \quad(a,b\in M,\ a\ne b).
+ \label{eq:native-clean-packing}
+\end{equation}
+Here \(\operatorname{Agr}\) is the limiting native agreement rate
+of the two fixed prime pairs. The prime \(2\) is allowed.
+\end{theorem}
+
+\begin{proof}
+Choose a positive squarefree decomposition of each gap:
+\[
+ h_a=d_a u_a^2,\qquad d_a,u_a>0,\quad d_a\ \hbox{squarefree}.
+\]
+Condition~\eqref{eq:native-clean-gap} gives
+\(u_a\in\{1,\ldots,T-1\}\). Associate to \(a\) the two labels
+\[
+ L_a=(n_a,d_a),\qquad V_a=(n_a+h_a,d_a).
+\]
+
+A lower-row square match forces the lower endpoints to agree by
+Theorem~\ref{thm:native-row-fibres}. Substituting the decompositions
+into that square match shows that \(d_ad_b\) is a square.
+For completeness, this cancellation does not assume that a square
+root has an unspecified denominator: if \(w^2d_ad_b=r^2\) with
+\(w>0\), then \(w^2\mid r^2\), hence \(w\mid r\).
+Writing \(r=wt\) and cancelling \(w^2\) gives \(d_ad_b=t^2\).
+Since both cores are squarefree, each divides the other, so
+\(d_a=d_b\). A lower-row match therefore implies \(L_a=L_b\).
+The same argument, using the upper-endpoint conclusion, shows
+that an upper-row match implies \(V_a=V_b\).
+
+Each fixed label occurs on at most \(T-1\) pairs in \(S\).
+Indeed, a lower label together with \(u_a\) determines
+\(h_a=d_au_a^2\) and both endpoints.
+An upper label together with \(u_a\) likewise determines the gap
+and then the lower endpoint. Thus \(a\mapsto u_a\) is injective
+on either kind of label fibre, with image in
+\(\{1,\ldots,T-1\}\).
+
+Choose a subset \(M\subseteq S\) of maximum cardinality whose
+distinct members share neither label. Every \(a\in S\) shares
+a lower or upper label with some \(b\in M\); otherwise adjoining
+\(a\) would give a larger such subset.
+For each \(b\in M\), put
+\[
+ N_b=\{a\in S:L_a=L_b\}\ \cup\ \{a\in S:V_a=V_b\}.
+\]
+These are subsets of the same finite support \(S\), and
+\[
+ S\subseteq\bigcup_{b\in M}N_b,\qquad
+ |N_b|\le2(T-1).
+\]
+Keeping every overlap in this finite cover gives
+\[
+ |S|\le\left|\bigcup_{b\in M}N_b\right|
+       \le\sum_{b\in M}|N_b|
+       \le2(T-1)|M|.
+\]
+Distinct selected members have neither squareclass-row match,
+by the implications already proved. The complete native
+arithmetic agreement classifier therefore gives rate \(3/8\).
+\end{proof}
+
+The maintained theorem uses natural subtraction and also includes
+\(T=0,1\): in those cases taking \(u=1\) in the hypothesis forces
+\(S\) to be empty. An empty support is included for every \(T\).
+Each selected finite family is fixed before taking its field-scale limit.
+
+The declaration
+\texttt{native\_clean\_gap\_packing} in
+\texttt{FiniteFieldNativeCleanPacking.\allowbreak lean}
+contains the complete proof, including both fibre counts,
+the maximal-set cover and the native rate conclusion.
+Its one new axiom-closure audit contains only \texttt{propext},
+\texttt{Classical.choice}, and \texttt{Quot.sound}.
+Positive squarefree decomposition and finite-set maximization
+are existing Mathlib inputs; the application here uses the
+proved arithmetic rigidity of these native prime-pair rows.
+
+This theorem supplies a quantitative selection bound from a clean
+finite support. A height-dependent construction additionally needs
+an estimate for the pairs removed by the square-factor cutoff and
+a lower bound for the initial prime-pair support.
+
 \begin{thebibliography}{99}
 \bibitem{MartinWaljiCharacters}
 K. Martin and N. Walji,

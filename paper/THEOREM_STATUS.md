@@ -3678,3 +3678,20 @@ components: the same endpoint-divisor implications applied in both directions; p
 actuals: one universal maintained theorem and one new-only foundational-axiom audit; no numerical experiment.
 first_nonpositive_domain: lower recovery requires h<n and k<m; upper recovery only requires actual prime endpoints and positive gaps. The full height-packing lower bound remains unproved. No RH/QRH exponent or H1 gain is asserted.
 
+## Finite clean-gap native packing (2026-10-31)
+
+Paper: `finite-fields.tex`, Theorem `thm:native-clean-packing` and equations `eq:native-clean-gap`, `eq:native-clean-packing`. Owner: `Assembly/FiniteFieldNativeCleanPacking.lean`. Namespace: `PrimeFactorOscillations.FiniteFieldIntegerSignature`.
+
+| Claim / declaration | Status | Exact verified scope |
+| --- | --- | --- |
+| `native_clean_gap_packing` | proved | For every finite set S of actual short prime pairs (n,n+h), 0<h<n, and natural T, if no gap has a square divisor u^2 with u>=T, some M subset S satisfies |S|<=2*(T-1)*|M| and every distinct selected native agreement rate is3/8. Natural subtraction includes T=0,1, when S is empty. Prime2 and empty supports are included. |
+
+The complete maintained proof compiles warning-free. Its one new-only axiom closure contains only propext, Classical.choice and Quot.sound. Positive squarefree decomposition and finite maximization are existing Mathlib results; the real project-local argument combines them with the proved native endpoint recovery and exact rate classifier. No unchanged earlier closure was reaudited. No separate novelty is claimed for classical squarefree decomposition or finite matching.
+
+benchmark_status: universal finite clean-support extraction bound proved.
+old_bound: endpoint constraints alone, without an installed quantitative subfamily selection theorem.
+new_bound: |S|<=2*(T-1)*|M|, with all distinct selected native rates3/8.
+components: positive squarefree gap decomposition; exact square-factor cancellation; native endpoint recovery on both rows; root-index injection into {1,...,T-1}; maximum-cardinality two-row separation; the full finite neighborhood cover and overlap-safe union count; exact arithmetic native agreement classification.
+actuals: one universal maintained Lean proof and one new-only foundational axiom closure. A separate diagnostic tested1937 full clean-support cases for consecutive heights2..150 and T=0..12, including prime2 and empty cases. Those computations are evidence only and do not supply the universal proof.
+first_nonpositive_domain: a nonempty clean support forces T>=2 and a nonempty selected family. T=0,1 and empty supports have the stated zero case. The full proposed height bound Y^2/(2^18 log^3Y) and capacity exponent2 remain unproved; square-divisor deletion and PNT supply are still required. Each finite family is fixed before its field limit. No RH/QRH or H1 gain is claimed.
+

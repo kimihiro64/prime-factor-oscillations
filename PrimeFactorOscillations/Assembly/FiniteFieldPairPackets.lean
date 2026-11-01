@@ -6,9 +6,9 @@ Authors: Prime Factor Oscillations contributors
 import PrimeFactorOscillations.Assembly.FiniteFieldCubicLift
 import PrimeFactorOscillations.Assembly.FiniteFieldJointCharacterProjection
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeAgreementEnergy
+import PrimeFactorOscillations.Assembly.FiniteFieldNativeCleanPacking
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeConsecutiveAgreement
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeExceptionalAgreement
-import PrimeFactorOscillations.Assembly.FiniteFieldNativeRowFibres
 import PrimeFactorOscillations.Assembly.FiniteFieldPairIntegerCRT
 import PrimeFactorOscillations.Assembly.FiniteFieldPairProductSeparation
 import PrimeFactorOscillations.Assembly.FiniteFieldQuasipolynomialWeight
@@ -36,6 +36,8 @@ Every fixed finite native agreement form has sharp coercivity three eighths,
 including its physical limit and an exact four-pair equality witness.
 An upper squareclass row fixes the upper prime endpoint; a lower row fixes
 the lower prime endpoint when both compared gaps are short.
+A square-factor cutoff gives a large short-pair subfamily whose distinct
+agreement rates are three eighths, with an explicit finite extraction bound.
 The identities retain the Gauss-Kloosterman term and its compensation. No new
 integer pair-supply estimate is asserted.
 -/
