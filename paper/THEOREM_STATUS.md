@@ -3695,3 +3695,21 @@ components: positive squarefree gap decomposition; exact square-factor cancellat
 actuals: one universal maintained Lean proof and one new-only foundational axiom closure. A separate diagnostic tested1937 full clean-support cases for consecutive heights2..150 and T=0..12, including prime2 and empty cases. Those computations are evidence only and do not supply the universal proof.
 first_nonpositive_domain: a nonempty clean support forces T>=2 and a nonempty selected family. T=0,1 and empty supports have the stated zero case. The full proposed height bound Y^2/(2^18 log^3Y) and capacity exponent2 remain unproved; square-divisor deletion and PNT supply are still required. Each finite family is fixed before its field limit. No RH/QRH or H1 gain is claimed.
 
+## Exact integer square-divisor tail (2026-10-31)
+
+Paper: `finite-fields.tex`, Theorem `thm:integer-square-tail`, equations `eq:integer-square-tail-step` and `eq:integer-square-tail`. Owner: `Mathlib/Data/Nat/DivSquareTail.lean`. Namespace: `Nat`.
+
+| Claim / declaration | Status | Exact verified scope |
+| --- | --- | --- |
+| `Nat.div_sq_add_div_le_div_pred` | proved | Every natural Y and u>=2 satisfy Y/(u*u)+Y/u<=Y/(u-1), with natural division and no rounding remainder. Includes Y=0. |
+| `Nat.sum_Ico_div_sq_le` | proved | Every natural Y,T,N with T>=2 satisfy sum over T<=u<N of Y/(u*u)<=Y/(T-1). The finite upper endpoint N is arbitrary; empty ranges and Y=0 are included. |
+
+Both real proofs compile warning-free. Exactly two new-only closure audits were run: the step uses propext and Quot.sound; the finite tail also uses Classical.choice. These are standard classical arithmetic formalizations, maintained as a project-independent Mathlib candidate with sole import Mathlib.Algebra.BigOperators.Intervals, not standalone originality claims. The existing native packing construction is their consumer.
+
+benchmark_status: exact universal integer floor-tail allowance proved.
+old_bound: the proposed deletion argument had a real reciprocal-square tail and no installed natural-quotient telescoping bound.
+new_bound: sum over T<=u<N of floor(Y/u^2)<=floor(Y/(T-1)), with no accumulated floor error.
+components: associativity of natural division; u*floor(q/u)<=q; positive denominator u-1; complete finite induction retaining the terminal quotient; empty-interval case.
+actuals: two maintained real proofs and two new-only closure audits. Separate diagnostics checked49599 one-step cases and14529 tail cases for Y=0..500; their restricted N=Y+1 tail domain is recorded and is not used as the universal proof.
+first_nonpositive_domain: Y=0 or an empty summation interval gives the zero case. T>=2 ensures the displayed denominators are positive. The actual prime-pair deletion consumer, full Y^2/(2^18 log^3Y) bound and capacity exponent2 remain unproved. No RH/QRH or H1 gain is asserted.
+

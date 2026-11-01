@@ -5,6 +5,12 @@ Reusable mathematics intended for possible upstreaming lives under
 The child generator replaces `PrimeFactorOscillations` with the configured project
 namespace.
 
+## Integer square-divisor tails
+
+| Module | Proposed destination | Readiness | Scope |
+| --- | --- | --- | --- |
+| `PrimeFactorOscillations.Mathlib.Data.Nat.DivSquareTail` | `Mathlib/Data/Nat/DivSquareTail.lean` | project-verified | Natural quotient step Y/u^2+Y/u<=Y/(u-1) for u>=2 and exact finite square-divisor tail sum over T<=u<N bounded by Y/(T-1), for all natural Y,N and T>=2; no rounding remainder. |
+
 ## Weighted finite-product pushforward
 
 | Module | Proposed destination | Readiness | Scope |

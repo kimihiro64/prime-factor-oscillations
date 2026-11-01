@@ -5,6 +5,7 @@ Authors: Prime Factor Oscillations contributors
 -/
 import PrimeFactorOscillations.Mathlib.Data.Finset.SumPartnersDeletion
 import PrimeFactorOscillations.Mathlib.Data.Int.PrimeSquareRoot
+import PrimeFactorOscillations.Mathlib.Data.Nat.DivSquareTail
 import PrimeFactorOscillations.Mathlib.Data.Nat.Factorial.LinearError
 import PrimeFactorOscillations.Mathlib.Data.Nat.Prime.All
 import PrimeFactorOscillations.Mathlib.Data.ZMod.CompositeSquareRootCount

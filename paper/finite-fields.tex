@@ -13699,6 +13699,74 @@ finite support. A height-dependent construction additionally needs
 an estimate for the pairs removed by the square-factor cutoff and
 a lower bound for the initial prime-pair support.
 
+\section{Integer tails for square-divisor deletion}
+\label{sec:integer-square-tail}
+
+The square-factor cutoff requires a bound that retains the natural
+quotients, including every rounding term. For natural \(Y\), write
+\(Y/u=\lfloor Y/u\rfloor\) when discussing natural division.
+
+\begin{theorem}[Exact finite square-divisor tail]
+\label{thm:integer-square-tail}
+For natural \(Y,u\) with \(u\ge2\),
+\begin{equation}
+ \left\lfloor\frac{Y}{u^2}\right\rfloor+
+ \left\lfloor\frac{Y}{u}\right\rfloor
+ \le \left\lfloor\frac{Y}{u-1}\right\rfloor.
+ \label{eq:integer-square-tail-step}
+\end{equation}
+For every natural upper endpoint \(N\) and every \(T\ge2\),
+\begin{equation}
+ \sum_{T\le u<N}\left\lfloor\frac{Y}{u^2}\right\rfloor
+       \le\left\lfloor\frac{Y}{T-1}\right\rfloor.
+ \label{eq:integer-square-tail}
+\end{equation}
+The statements include \(Y=0\) and empty summation intervals.
+\end{theorem}
+
+\begin{proof}
+Put \(q=\lfloor Y/u\rfloor\) and \(r=\lfloor Y/u^2\rfloor\).
+Associativity of natural division gives \(r=\lfloor q/u\rfloor\),
+so \(ur\le q\), while \(uq\le Y\).
+Consequently
+\[
+ (u-1)(q+r)
+   =(u-1)q+(u-1)r
+   \le (u-1)q+q=uq\le Y.
+\]
+Since \(u-1>0\), taking the natural quotient proves
+\eqref{eq:integer-square-tail-step}.
+
+For \(K\ge T\), finite induction gives the stronger invariant
+\[
+ \sum_{T\le u<K}\left\lfloor\frac{Y}{u^2}\right\rfloor
+       +\left\lfloor\frac{Y}{K-1}\right\rfloor
+       \le\left\lfloor\frac{Y}{T-1}\right\rfloor.
+\]
+At \(K=T\) the sum is empty and equality holds.
+The step from \(K\) to \(K+1\) follows by applying
+\eqref{eq:integer-square-tail-step} at \(u=K\), combining the
+new summand with the new terminal quotient.
+For \(N\ge T\), drop the nonnegative terminal quotient from
+this invariant. For \(N<T\), the summation interval is empty.
+This proves \eqref{eq:integer-square-tail} for every \(N\).
+\end{proof}
+
+These are classical integer counting estimates, included as dependencies
+of the native packing construction. The maintained candidate
+\texttt{Data/Nat/DivSquareTail.\allowbreak lean}, in namespace
+\texttt{Nat}, proves
+\texttt{div\_sq\_add\_div\_le\_div\_pred} and
+\texttt{sum\_Ico\_div\_sq\_le}.
+It imports only the narrow Mathlib interval-sum provider and no
+project-specific definitions. The first new closure uses
+\texttt{propext} and \texttt{Quot.sound}; the second additionally
+uses \texttt{Classical.choice}.
+
+For the height construction the upper endpoint may be taken as
+\(N=Y+1\). Translating this integer allowance into the count of
+discarded actual prime pairs is a separate finite counting step.
+
 \begin{thebibliography}{99}
 \bibitem{MartinWaljiCharacters}
 K. Martin and N. Walji,
