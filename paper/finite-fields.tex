@@ -13040,6 +13040,102 @@ This result is not uniform in growing integer endpoints and supplies
 no new integer pair, return existence, value of \(H_1\), RH proof,
 or stronger zero-free exponent.
 
+\section{An integer square test for the agreement spectrum}
+\label{sec:native-arithmetic-spectrum}
+The character-based rate in Section~\ref{sec:native-general-spectrum}
+has a completely arithmetic decision rule. Put
+\[
+ N_-=hknm,\qquad N_+=hk(n+h)(m+k).
+\]
+Both are positive integers. Write \(\mathbf1_{\mathrm{sq}}(N)=1\) when
+\(N\) is an integer square and \(0\) otherwise.
+
+\begin{theorem}[Arithmetic native agreement classifier]
+\label{thm:native-arithmetic-spectrum}
+For every two fixed distinct actual prime pairs
+\((n,n+h),(m,m+k)\), with \(h,k>0\),
+\[
+ \frac{A_U}{M_U}\longrightarrow
+ \alpha=\frac{3+\mathbf1_{\mathrm{sq}}(N_-)+\mathbf1_{\mathrm{sq}}(N_+)}8.
+\]
+Moreover,
+\[
+ \alpha=\frac12
+ \iff N_-\text{ or }N_+\text{ is a square},\qquad
+ \alpha=\frac38
+ \iff N_-\text{ and }N_+\text{ are both nonsquares}.
+\]
+The two integers cannot both be squares. Primes equal to \(2\),
+even gaps, repeated factors, and arbitrary fixed positive gap sizes
+are included.
+\end{theorem}
+
+\begin{proof}
+We first prove the supporting classical fact with the actual full
+modulus: for every positive integer \(N\),
+\begin{equation}\label{eq:native-principal-square}
+                  \chi_N=1\quad\Longleftrightarrow\quad N\text{ is a square},
+\end{equation}
+where \(\chi_N\) is the numerator character modulo \(4N\).
+If \(N=a^2\), a unit residue modulo \(4a^2\) has an odd representative
+coprime to \(a\). Its Jacobi value \((a^2/u)\) is \(1\).
+At every nonunit, both the numerator character and the principal
+character vanish. Thus the characters agree on the entire residue
+ring, including their masks.
+
+Conversely, write \(N=s^2d\), with \(s,d>0\) and \(d\) squarefree.
+Suppose \(d>1\). If \(d=2\), the unit residue \(3\bmod8\) has
+\((2/3)=-1\), so \(\chi_d\) is nonprincipal.
+If \(d\ne2\), it has an odd prime divisor \(P\): when an initially
+chosen prime divisor is \(2\), write \(d=2c\). Squarefreeness makes
+\(c\) odd, and \(d\ne2\) gives \(c>1\), so a prime divisor of \(c\)
+is odd. Writing \(d=Pa\), squarefreeness gives \((P,a)=1\).
+The maintained odd-prime-carrier theorem therefore makes the full
+character \(\chi_d\) nonprincipal.
+
+It remains to check that the repeated square factor \(s^2\) cannot
+turn this character principal. This follows directly from the
+previously proved signed means. If \(\chi_{s^2d}\) were principal,
+then
+\[
+ C_{s^2d}(U)=M_U\quad\text{eventually}.
+\]
+After every prime divisor of \(s\) has left the band, the exact
+square-factor identity gives
+\[
+ C_{s^2d}(U)=C_d(U).
+\]
+But nonprincipality gives \(C_d(U)\to0\), whereas
+\(M_U\ge\log2/2>0\) eventually. For a completely explicit
+contradiction, choose one common sufficiently large scale where
+\(C_d(U)<\log2/4\) and all the preceding identities and lower bounds
+hold. Hence \(d=1\), proving that \(N\) is a square and establishing
+\eqref{eq:native-principal-square}. This argument preserves the full
+character modulus and deals with every power of two.
+
+Apply \eqref{eq:native-principal-square} to \(N_-\) and \(N_+\) in
+\eqref{eq:native-general-rate}. The complete signed centering and
+normalized convergence from Theorem~\ref{thm:native-general-spectrum}
+then give the displayed square formula. If both square indicators
+were \(1\), that formula would give \(5/8\), contrary to the already
+proved dichotomy \(\alpha\in\{3/8,1/2\}\). The remaining three
+possibilities give exactly the two stated equivalences.
+\end{proof}
+
+The five supporting declarations are maintained in
+\texttt{FiniteFieldNativeSquareCharacter.\allowbreak lean}; the rate formula,
+two-way arithmetic classification, and explicit normalized limit
+are maintained in \texttt{FiniteFieldNativeArithmeticAgreement.\allowbreak lean}.
+All eight new declarations compile without warnings and their
+new-only axiom audits contain only \texttt{propext},
+\texttt{Classical.choice}, and \texttt{Quot.sound}.
+
+The character-square equivalence itself is classical. The present
+application gives an explicit arithmetic classifier for the
+constrained native probability observable. The relation to classical
+trace matching remains as described above; established priority is
+not claimed. Both integer pairs are fixed before \(U\to\infty\).
+
 \begin{thebibliography}{99}
 \bibitem{WaljiMatchingDensities}
 N. Walji, \emph{Matching densities for Galois representations},

@@ -6,6 +6,7 @@ Authors: Prime Factor Oscillations contributors
 import PrimeFactorOscillations.Assembly.FiniteFieldCubicLift
 import PrimeFactorOscillations.Assembly.FiniteFieldJointCharacterProjection
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeAgreementClassification
+import PrimeFactorOscillations.Assembly.FiniteFieldNativeArithmeticAgreement
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeConsecutiveAgreement
 import PrimeFactorOscillations.Assembly.FiniteFieldPairIntegerCRT
 import PrimeFactorOscillations.Assembly.FiniteFieldPairProductSeparation
@@ -21,8 +22,9 @@ Import-only grouping of the sharp prime-pair weight laws and the complete
 raw elliptic Fourier rows, quantitative native-weight separation, and global
 reconstruction of actual integer prime pairs from cofinite native profiles
 or adaptive observations. Arbitrary distinct prime pairs have exact native
-agreement fraction three eighths or one half, according to their full cross
-characters; consecutive pairs have fraction three eighths. The existing
+agreement fraction three eighths or one half, with explicit integer square
+tests for both full cross characters; consecutive pairs have fraction three
+eighths. The existing
 adaptive reconstruction thresholds are retained.
 The identities retain the Gauss-Kloosterman term and its compensation. No new
 integer pair-supply estimate is asserted.

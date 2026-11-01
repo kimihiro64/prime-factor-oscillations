@@ -3560,5 +3560,29 @@ old_bound: arbitrary distinct prime pairs had agreement mass at most M_U/2+o(1);
 new_bound: every arbitrary distinct actual positive-gap prime pair comparison has A_U-alpha*M_U->0 and A_U/M_U->alpha, with explicit alpha in{3/8,1/2}. No universal arbitrary-pair threshold below1/2 is asserted.
 components: full principal-character centering and nonunit masks; all four negative rows; unchanged actual endpoint carrier; entire gap-square multiplier and its finite exceptional primes; both positive cross rows; complete signed assembly; existing half upper bound; eventual positive reciprocal band; explicit denominator positivity before normalization.
 actuals: nine universal maintained proofs and nine new-only foundation audits. No finite sample or independent-sign model is used.
-first_nonpositive_domain: identical pairs are excluded. The theorem is not uniform for integer endpoints growing with U. The explicit criterion is full-character principality; a separate positive-numerator principality iff square refinement is not claimed here. No integer pair supply, H1 determination, return existence, RH/QRH exponent improvement or established priority is claimed.
+first_nonpositive_domain: identical pairs are excluded. The theorem is not uniform for integer endpoints growing with U. The explicit full-character criterion has the proved arithmetic square refinement in the following section. No integer pair supply, H1 determination, return existence, RH/QRH exponent improvement or established priority is claimed.
+
+## Arithmetic square classifier for native agreement (2026-10-31)
+
+Paper: `finite-fields.tex`, Theorem `thm:native-arithmetic-spectrum`, identity `eq:native-principal-square`. Namespace: `PrimeFactorOscillations.FiniteFieldIntegerSignature`.
+
+| Claim / declaration | Status | Maintained owner | Evidence and scope |
+| --- | --- | --- | --- |
+| `numerator_character_square_mul_ne_one` | proved | `Assembly/FiniteFieldNativeSquareCharacter.lean` | A positive natural square multiplier preserves nonprincipality, using exact signed band means and the positive mass floor. |
+| `squarefree_numerator_character_ne_one` | proved | `Assembly/FiniteFieldNativeSquareCharacter.lean` | Every squarefree d>1 has nonprincipal full numerator character; d=2 uses the exact unit witness3 modulo8. |
+| `square_numerator_character_eq_one` | proved | `Assembly/FiniteFieldNativeSquareCharacter.lean` | Every nonzero natural square has principal full numerator character, including equality at all nonunit residues. |
+| `numerator_character_nat_eq_one_iff_isSquare` | proved | `Assembly/FiniteFieldNativeSquareCharacter.lean` | For every positive natural N, full numerator principality iff Nat IsSquare N; arbitrary repeated factors and powers of2 included. |
+| `numerator_principal_indicator_nat_eq_square` | proved | `Assembly/FiniteFieldNativeSquareCharacter.lean` | The actual principal indicator equals the elementary integer-square indicator on every positive natural numerator. |
+| `native_agreement_rate_eq_square_test` | proved | `Assembly/FiniteFieldNativeArithmeticAgreement.lean` | Exact rate formula(3+1_square(hknm)+1_square(hk(n+h)(m+k)))/8 for all positive integer inputs. |
+| `native_agreement_arithmetic_classification` | proved | `Assembly/FiniteFieldNativeArithmeticAgreement.lean` | Distinct actual positive-gap prime pairs have rate1/2 iff at least one cross integer is square, and3/8 iff neither is square. |
+| `native_agreement_ratio_tendsto_square_rate` | proved | `Assembly/FiniteFieldNativeArithmeticAgreement.lean` | The actual reciprocal-band agreement fraction converges to that explicit square-test formula. |
+
+All eight declarations compile warning-free and pass new-only foundational-axiom audits containing only propext, Classical.choice and Quot.sound. Unchanged older theorem closures were not reaudited. Both owners are exported through the maintained finite-field facade.
+
+benchmark_status: complete arithmetic classification and actual normalized native agreement limit, proved.
+old_bound: exact rate in{3/8,1/2} required two full-character principality tests.
+new_bound: rate1/2 iff hknm or hk(n+h)(m+k) is an integer square; rate3/8 iff neither is a square. The exact agreement limit is the elementary square-indicator formula.
+components: full4N numerator characters and nonunit masks; squarefree decomposition; exact d=2 unit witness; odd-prime carrier; complete square-factor correlation identity; positive reciprocal-band floor; unchanged seven-row signed assembly and dichotomy.
+actuals: eight universal maintained proofs and eight new-only axiom audits; no finite experiment or independent-sign model supplies the theorem.
+first_nonpositive_domain: N>0 is required for the supporting square criterion. Actual prime endpoints and positive gaps ensure both cross numerators are positive. Identical pairs are excluded from the rate classifier and normalized limit. Endpoints are fixed before U; no growing-endpoint uniformity, integer pair supply, H1 determination, RH/QRH gain or established priority is claimed.
 
