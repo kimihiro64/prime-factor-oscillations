@@ -1,5 +1,38 @@
 # Paper theorem and provenance ledger
 
+## Universal central native-output law (2026-11-01)
+
+All fifteen claims below have maintained Lean proofs, warning-free focused builds and completed new-only assumption audits. They belong to `PrimeFactorOscillations.FiniteFieldIntegerSignature`. For every fixed strict graph G on arbitrary actual prime vertices P, the simultaneous zero-trace frequency and the frequency of all native weights equaling (ell-1)/(ell-3) are exactly N_even(P,G)/2^|G|. Neither statement assumes vertex/gap square independence. The empty graph is included, with probability1.
+
+| Claim | Lean declaration | Status |
+| --- | --- | --- |
+| Exact endpoint product as vertex incidence powers | native_vertex_endpoint_product | Proved; maintained, compiled and audited. |
+| Exact diagonal natural product with all gap squares retained | native_diagonal_natural_product | Proved; maintained, compiled and audited. |
+| Each distinct prime reads its own prescribed exponent | native_prime_power_product_valuation | Proved; maintained, compiled and audited. |
+| A square prime-power product has only even exponents | native_prime_power_product_even_of_square | Proved; maintained, compiled and audited. |
+| Universal signed diagonal square classifier without gap independence | native_signed_diagonal_isSquare_iff | Proved; maintained, compiled and audited. |
+| Every noncycle diagonal has zero principal indicator | native_graph_diagonal_indicator_zero_outside_cycles | Proved; maintained, compiled and audited. |
+| Universal exact zero-trace rate for arbitrary actual prime labels | native_graph_zero_rate_eq_universal | Proved; maintained, compiled and audited. |
+| Unconditional universal physical zero-trace limit | native_graph_zero_universal_ratio_tendsto | Proved; maintained, compiled and audited. |
+| Exact central/nonzero decomposition of the general agreement rate | native_graph_agreement_central_decomposition | Proved; maintained, compiled and audited. |
+| Actual weight equals the central value exactly when its trace is zero | native_graph_central_weight_iff_zero | Proved; maintained, compiled and audited. |
+| Exact finite-band central-weight/zero-trace mass identity | native_graph_central_weight_mass_eq | Proved; maintained, compiled and audited. |
+| Exact eventual-band central-weight/zero-trace mass identity | native_graph_central_weight_mass_eq_eventually | Proved; maintained, compiled and audited. |
+| Universal actual central-weight frequency | native_graph_central_weight_universal_ratio_tendsto | Proved; maintained, compiled and audited. |
+| Generic central-weight probability for at most three edges | native_graph_small_central_weight_ratio_tendsto | Proved; maintained, compiled and audited. |
+| Actual four-cycle central-weight frequency is one eighth for arbitrary prime labels | native_graph_four_cycle_central_weight_ratio_tendsto | Proved; maintained, compiled and audited. |
+
+Definition interfaces (not additional theorem claims): `nativeGraphCentralWeightEvent`, `nativeGraphCentralWeightMass`. Both belong to an explicitly noncomputable real probability section.
+
+Maintained owners: `PrimeFactorOscillations/Helpers/NativePrimeDiagonalCycles.lean` and `PrimeFactorOscillations/Assembly/FiniteFieldNativeUniversalZero.lean`. All fifteen new proof closures use only `propext`, `Classical.choice` and `Quot.sound`; unchanged old closures were not re-audited. The paper gives the full prime-valuation argument, exact signed zero-mask substitution and actual central-weight transfer.
+
+benchmark_status: universal exact central-output law proved.
+old_bound: the preceding comparison provided a zero-event lower bound for arbitrary prime labels and equality under full vertex/gap independence.
+new_bound: the zero-event bound is always equality, N_even(P,G)/2^|G|, on arbitrary actual prime labels. The full agreement rate is this fixed central atom plus the two limiting nonzero constant-trace word probabilities. Central probability is2^(-m) for every graph with m<=3 edges and1/8 for every strict four-cycle.
+components: exact paired coefficient sign; every gap retained as a positive square; distinct-prime valuation parity; exact zero-event mask expansion; exact finite-band affine endpoint transfer. No signed remainder is estimated by absolute coefficient mass.
+actuals: fifteen audited Lean proofs and two definition interfaces; no numerical experiment supplies a universal assertion.
+first_nonpositive_domain: empty graphs, isolated vertices and prime2 are included. Field primes2,3 and fixed vertex factors are outside the eventual band. Every graph is fixed before the independent field scale tends to infinity. No growing-graph uniformity, effective class growth, integer prime-gap value or RH/QRH improvement is asserted; the certified boundary remains7/8. Publication priority remains under review.
+
 ## Sharp universal simultaneous native graph coincidence (2026-11-01)
 
 All fifty-eight claims below have maintained Lean proofs, warning-free focused builds and completed new-only assumption audits. They belong to `PrimeFactorOscillations.FiniteFieldIntegerSignature`. For every fixed nonempty strict graph G on arbitrary actual prime vertices P, the actual simultaneous native-weight agreement limit A(P,G) exists and is at least N_even(P,G)*(2^(-m)+2^(1-2*m)), where m=|G| and N_even counts the even-sized, even-degree masks C contained in G. One fixed computable infinite class inside every admissible decidable prime reservoir attains equality on every finite graph inside it. No gap independence is assumed for the lower bound.

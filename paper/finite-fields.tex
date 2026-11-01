@@ -16720,6 +16720,123 @@ The fifty-eight new proof closures have completed new-only
 standard-foundation audits, with the eleven definition interfaces
 listed separately in the claim ledger.
 
+\section{The central native-output atom is universal}
+\label{sec:native-universal-zero}
+
+The zero-trace term in the preceding comparison admits a stronger
+conclusion: its lower bound is always an equality, without selecting
+a special prime class. Only the nonzero constant-trace terms can change
+with additional gap square relations.
+
+\begin{theorem}[Universal central-output law]
+\label{thm:native-universal-zero}
+Let \(P\) be any finite set of actual primes and let
+\(G\subseteq E(P)\) be any fixed strict graph, now allowing \(G\) empty.
+Then
+\begin{align}
+ \lim_{U\to\infty}\frac1{M_U}
+  \sum_{\ell\in\mathcal I_U}\frac1\ell
+  \mathbf1\{X^-_e(\ell)+X^+_e(\ell)=0\ (e\in G)\}
+ &=\frac{N_{\rm ev}(P,G)}{2^{|G|}},\label{eq:native-universal-zero}\\
+ \lim_{U\to\infty}\frac1{M_U}
+  \sum_{\ell\in\mathcal I_U}\frac1\ell
+  \mathbf1\left\{W_e(\ell)=\frac{\ell-1}{\ell-3}\ (e\in G)\right\}
+ &=\frac{N_{\rm ev}(P,G)}{2^{|G|}}.\label{eq:native-universal-central}
+\end{align}
+No vertex/gap square-independence hypothesis is needed.
+For at most three edges this probability is \(2^{-|G|}\).
+For a strict four-cycle it is \(1/8\), for every increasing choice
+of four actual prime vertices.
+\end{theorem}
+
+\begin{proof}
+We prove the unconditional diagonal classifier
+\begin{equation}\label{eq:native-universal-diagonal}
+ D(C,C)\text{ is square}
+ \quad\Longleftrightarrow\quad
+ \deg_C(v)\equiv0\pmod2\ (v\in P),\quad |C|\equiv0\pmod2
+ \qquad(C\subseteq G).
+\end{equation}
+The reverse implication was already used as the universal positive
+supply in the preceding theorem.
+For the forward implication, an odd \(|C|\) makes \(D(C,C)\) negative.
+Thus a square product must have even \(|C|\).
+Its positive natural part has the exact factorization
+\[
+ \left(\prod_{(p,q)\in C}p(q-p)\right)
+ \left(\prod_{(p,q)\in C}q(q-p)\right)
+ =
+ \left(\prod_{(p,q)\in C}(q-p)\right)^2
+ \prod_{v\in P}v^{\deg_C(v)}.
+\]
+The first factor is a positive square, so it can be canceled from the
+square predicate. For each \(v\in P\), unique prime factorization gives
+\[
+ \nu_v\left(\prod_{w\in P}w^{\deg_C(w)}\right)=\deg_C(v).
+\]
+Here the vertices are distinct actual primes; no property of their
+gaps is used. Every valuation of a square is even, proving the required
+degree parity and hence \eqref{eq:native-universal-diagonal}.
+The formal proof includes the empty support and prime \(2\).
+
+The already proved physical zero-event expansion is
+\[
+ 2^{-|G|}\sum_{C\subseteq G}(-1)^{|C|}\delta(C,C).
+\]
+By \eqref{eq:native-universal-diagonal}, its nonzero terms are
+exactly \(C\in\mathcal C_{\rm ev}(P,G)\).
+Their signs are all positive, so the sum is precisely
+\(2^{-|G|}N_{\rm ev}(P,G)\).
+The unconditional mixed-moment limits therefore prove
+\eqref{eq:native-universal-zero}.
+
+For every sufficiently large field prime the exact endpoint identity
+\[
+ (\ell-3)W_e(\ell)-(\ell-1)=X^-_e(\ell)+X^+_e(\ell)
+\]
+has nonzero coefficient \(\ell-3\).
+Consequently every trace is zero if and only if every actual weight
+equals \((\ell-1)/(\ell-3)\).
+The two event masses are exactly equal on the whole eventual band,
+which proves \eqref{eq:native-universal-central}.
+When \(G\) is empty the event is vacuous, the mass equals \(M_U\),
+and \(N_{\rm ev}=1\), so the limit is one.
+The graph is fixed throughout; exceptional early field primes do not
+enter the eventual identity.
+
+For \(|G|\leq3\) the only qualifying cycle mask is empty, and for
+a strict four-cycle the qualifying masks are empty and full.
+The compiled generic small-graph and four-cycle limits give the stated
+values. In particular substituting one, two or three edges into the
+generic formula gives \(1/2,1/4,1/8\).
+\end{proof}
+
+\paragraph{Consequences for the sharp comparison.}
+The complete signed consumer now separates the fixed central atom:
+\[
+ A(P,G)=\frac{N_{\rm ev}(P,G)}{2^{|G|}}
+   +\mathcal P_{+}(P,G)+\mathcal P_{-}(P,G)
+ \qquad(G\ne\varnothing),
+\]
+where \(\mathcal P_{+}\) and \(\mathcal P_{-}\) are the limiting
+all-positive and all-negative signed-row word probabilities.
+Thus any excess above the sharp coincidence floor comes entirely
+from these two nonzero synchronized-trace events.
+The prime-family construction remains essential for their simultaneous
+minimality; it is unnecessary for the central atom.
+This is a universal native-output refinement, using classical prime
+valuation parity and fixed-character equidistribution.
+No claim of established publication priority, integer prime-gap
+information or RH/QRH improvement is made.
+
+The unconditional diagonal classifier and its explicit valuation proof
+are maintained in \texttt{NativePrimeDiagonalCycles.lean}.
+The universal physical limits, central-output equivalence and exact
+finite-band transfer are in \texttt{FiniteFieldNativeUniversalZero.lean}.
+All fifteen new proof closures have completed new-only
+standard-foundation audits; the two noncomputable event/mass definitions
+are recorded separately.
+
 \begin{thebibliography}{99}
 \bibitem{KarpVaziraniVazirani}
 R. M. Karp, U. V. Vazirani and V. V. Vazirani,

@@ -8,10 +8,10 @@ import PrimeFactorOscillations.Assembly.FiniteFieldNativeCrossOutputs
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeDensityEnergy
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeFullCapacity
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeFullSparseConflicts
-import PrimeFactorOscillations.Assembly.FiniteFieldNativeGraphOutputs
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeHeightCapacity
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeHeightPacking
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeSignedFamilies
+import PrimeFactorOscillations.Assembly.FiniteFieldNativeUniversalZero
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeVertexGreedy
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeVertexReservoir
 import PrimeFactorOscillations.Proof.AffinePairs.PrimeSplitSquarePolynomials
@@ -31,4 +31,6 @@ The full signed native word law, sharp seven-row independence and exact
 four-cycle eight-row failure are included on the same infinite prime class.
 The sharp universal simultaneous graph-coincidence floor, its attainment
 on that class and the exact actual-native-weight transfer are exported.
+The central native-output atom is universal on arbitrary actual prime graphs,
+including empty graphs, without vertex/gap independence.
 -/
