@@ -14461,8 +14461,8 @@ Every prime \(\ell>T^2\) avoids all three coefficient and
 denominator exceptions. The theorem supplies its exact finite
 sieve factor. The following sections prove weighted-prime-output
 decay and an arbitrarily small large-squarepart allowance. The exact
-native collision-removal statement is proved below; final uniform
-error absorption and the density-one quantifier assembly remain.
+native collision-removal statement and full density-one assembly
+are proved in the later sections.
 
 \section{Vanishing density of positive weighted prime outputs}
 \label{sec:weighted-prime-output-decay}
@@ -14634,8 +14634,8 @@ The supporting summability argument consumes the existing
 it does not assume a new totient estimate or improved QRH exponent.
 This finite bound supplies the arbitrarily small squarepart
 principal loss. The following section proves the exact sparse native
-collision-removal argument. Final uniform absorption of the
-displayed errors remains for density-one retention.
+collision-removal argument. The final section absorbs the displayed
+errors and proves full density-one retention.
 
 \section{Sparse removal of both native collision rows}
 \label{sec:native-sparse-collisions}
@@ -14741,10 +14741,115 @@ use only standard Lean foundations.
 For a fixed \(T\), this replaces the earlier factor
 \(2(T-1)\) from a worst-case matching argument by the actual
 sparse deletion count \(E_T(Y)\).
-The density-one native retention theorem still requires the
-final rounded-cutoff error absorption and the uniform
-quantifier assembly. No integer bounded-gap value or new
-zero-free exponent follows from this finite collision result.
+The following theorem completes the rounded-cutoff error absorption
+and the full density-one quantifier assembly.
+
+\section{Density-one retention of the complete native candidate set}
+\label{sec:native-density-one}
+
+\begin{theorem}[Native density-one retention]
+\label{thm:native-density-one}
+For \(Y\in\mathbb N\), put \(N=\lfloor Y/4\rfloor\) and
+\[
+ A_Y=\{p:2N<p\le3N,\ p\text{ prime}\},\qquad
+ B_Y=\{q:3N<q\le4N,\ q\text{ prime}\},
+\]
+\[
+ S_Y=\{(p,q-p):(p,q)\in A_Y\times B_Y\}.
+\]
+For every real \(\varepsilon>0\), there is \(Y_0\) such that
+every natural \(Y\ge Y_0\) admits \(M_Y\subseteq S_Y\) with
+\[
+ \#M_Y\ge(1-\varepsilon)\#S_Y
+       =(1-\varepsilon)\#A_Y\,\#B_Y,
+\]
+and every two distinct members of \(M_Y\) have native agreement
+rate exactly \(3/8\). Every member \((n,h)\) has prime endpoints,
+\(0<h<n\), and \(n+h\le Y\).
+\end{theorem}
+
+\begin{proof}
+Fix \(\varepsilon>0\). Write
+\[
+ K=\#A_Y\,\#B_Y=\#S_Y,\qquad D=\frac{Y^2}{\log^2Y}.
+\]
+The identity for \(\#S_Y\) follows from the injectivity of
+\((p,q)\mapsto(p,q-p)\) on the separated prime blocks.
+The actual PNT block supply gives, at every sufficiently large
+height,
+\[
+ N\le2\#A_Y\log Y,\qquad N\le2\#B_Y\log Y,
+ \qquad 2Y\le9N,
+\]
+hence \(D\le81K\).
+The existing prime-counting upper estimate gives
+\(\pi(Y)^2\le4D\). In particular the normalizations are positive.
+
+Apply Theorem~\ref{thm:native-large-squarepart} with principal
+allowance \(\varepsilon/3\), choosing its fixed \(T\ge2\).
+For this same \(T\), Theorem~\ref{thm:native-sparse-collision-removal}
+gives, at all sufficiently large \(Y\),
+\[
+ \frac{E_T(Y)}{\pi(Y)^2}\le\frac{\varepsilon}{972},
+ \qquad
+ E_T(Y)\le\frac{\varepsilon}{243}D
+          \le\frac{\varepsilon}{3}K.
+\]
+
+Choose the height-dependent divisor cutoff
+\(R=\lceil Y^{1/8}\rceil\).
+The previously checked rounded-cutoff argument extends to
+every positive denominator reserve. With reserve
+\(243/\varepsilon\), it gives, at all sufficiently large heights,
+\(R\ge2\), \(R^2\le2N\), and
+\[
+ \mathcal E(Y):=
+ CRY^{7/4}(1+2\log(Y+2))^4+
+ Y\left\lfloor\frac YR\right\rfloor
+ \le\frac{\varepsilon}{243}D
+ \le\frac{\varepsilon}{3}K.
+\]
+Here all ceiling, logarithmic and quotient terms are retained.
+For clarity, the cutoff proof bounds the two terms together by
+\[
+ (1250C+1)Y^{15/8}\log^4Y,
+\]
+then uses power-log domination with the chosen reserve.
+The cutoff geometry follows from the same ceiling bounds.
+This is a uniform eventual estimate, without a numerical
+height substitution.
+
+Since \(\#A_Y\le Y\), the complete large-squarepart deletion set
+satisfies
+\[
+ \#\mathcal B_T\le\frac{\varepsilon}{3}K+\mathcal E(Y).
+\]
+Apply the exact finite collision-removal theorem to
+\(S_Y\setminus\mathcal B_T\). It gives a flat subset \(M_Y\) and
+the full signed retention inequality
+\[
+ \#M_Y\ge K-\#\mathcal B_T-E_T(Y)
+ \ge K-\frac{\varepsilon}{3}K-\mathcal E(Y)-E_T(Y)
+ \ge(1-\varepsilon)K.
+\]
+The quarter-block geometry gives the asserted prime endpoints,
+short positive gaps and height bound.
+
+The fixed threshold \(T\) and its entire finite weighted-prime
+family were chosen before the height limit. Taking a common
+height threshold for all the displayed estimates proves the
+stated quantifiers.
+\end{proof}
+
+The maintained declaration is
+\texttt{eventually\_native\_prime\_pair\_density\_one}, in
+\texttt{Assembly/\allowbreak FiniteFieldNativeDensityOne.\allowbreak lean}.
+Its full proof compiles without warnings and its new closure
+uses only standard Lean foundations.
+This completes the native density-one retention programme.
+Density one is relative to the complete candidate set \(S_Y\).
+The starting height remains existential, and any subsequent
+physical field-scale limit fixes the chosen finite codebook first.
 
 \begin{thebibliography}{99}
 \bibitem{MartinWaljiCharacters}

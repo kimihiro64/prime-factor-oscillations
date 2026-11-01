@@ -3843,12 +3843,12 @@ first_nonpositive_domain: all conclusions hold for every sufficiently large natu
 
 The changed FiniteAffineRoots.lean candidate and new WeightedPrimePatterns.lean owner compile warning-free. Exactly these three new theorem closures were checked; all use only propext, Classical.choice and Quot.sound. Unequal coefficients are retained, and the whole integer weighted sum is typed before casting. The empty prime set and the permitted prime-two factor are included. These classical supporting facts do not independently settle the new density-one native retention target.
 
-benchmark_status: finite weighted local and actual-input sieve factors proved; density-one native retention remains unproved.
+benchmark_status: finite weighted local and actual-input sieve factors proved; the completed native density-one assembly is recorded below.
 old_bound: the proved height-capacity bounds remain Y^2/(4096*log(Y)^2) and 4*Y^2/log(Y)^2, with sharp physical stability 5/8 on the constructed codebooks.
-new_bound: for every fixed permitted prime family, the exact limiting fraction of ordered prime pairs avoiding all its weighted divisibility events is product(1-1/(ell-1)). No new full codebook-retention ratio is certified.
+new_bound: for every fixed permitted prime family, the exact limiting fraction is product(1-1/(ell-1)). The full native retention ratio is proved in the density-one section below.
 components: nonzero field coefficients; one zero pair per nonzero first coordinate; positive local denominator ell-1; exact unit-pair CRT independence; both actual prime inputs retained; complete integer-output casting.
 actuals: three maintained proofs and three new-only standard-foundation closure checks; no finite numerical prime experiments.
-first_nonpositive_domain: the finite product is zero if the allowed sieve includes prime2; it equals one for an empty sieve. Coefficient-zero primes are outside the stated hypothesis. No growing-prime-set sampling limit, improved integer zero-free exponent or completed density-one codebook theorem is claimed.
+first_nonpositive_domain: the finite product is zero if an allowed sieve includes prime2 and is one for an empty sieve. Coefficient-zero primes are outside the hypothesis. This fixed-family component is consumed by the full density-one theorem below; no growing-sieve sampling limit is used.
 
 ## Vanishing weighted-prime-output density (2026-11-01)
 
@@ -3859,12 +3859,12 @@ first_nonpositive_domain: the finite product is zero if the allowed sieve includ
 
 The maintained WeightedSieveDecay.lean owner compiles warning-free. Exactly these two new closures were checked; both use only propext, Classical.choice and Quot.sound. The proof preserves unequal coefficients, the small-output exception, and the order of limits: a finite sieve is fixed before N tends to infinity. These classical supporting estimates do not by themselves prove density-one native retention.
 
-benchmark_status: component proved; native density-one retention remains unproved.
+benchmark_status: weighted-prime-output decay proved and consumed by the completed native density-one theorem below.
 old_bound: weighted-prime-output probability was bounded only by one; the committed native height-capacity and stability bounds remain unchanged.
 new_bound: weighted-prime-output probability is o(1) for every fixed positive triple a,b,k. No effective cutoff or power rate is claimed.
 components: exact weighted unit-pair CRT sieve; Mertens divergence of prime odds; nonnegative finite-product exponential bound; fixed small-first-prime exception; full finite probability union bound.
 actuals: two maintained warning-free Lean proofs and two new-only standard-foundation closure checks; no numerical substitutions.
-first_nonpositive_domain: not applicable to this nonnegative limit. The following sections prove the finite large-squarepart allowance and exact sparse native collision removal; final uniform error absorption remains open. No density-one codebook or RH exponent gain is claimed.
+first_nonpositive_domain: not applicable to this nonnegative limit. The squarepart allowance, sparse native collision removal and final error absorption are all proved below. This component gives no RH exponent gain.
 
 ## Full large-squarepart deletion allowance (2026-11-01)
 
@@ -3874,12 +3874,12 @@ first_nonpositive_domain: not applicable to this nonnegative limit. The followin
 
 The maintained NativeSquarepartTail.lean owner compiles warning-free. The one new theorem closure uses only propext, Classical.choice and Quot.sound. Every integer square root is included; T>R and the empty low interval are covered. The totient-tail summability consumes the already proved LPF uniform bound rather than introducing a new assumption. This is a supporting arithmetic estimate for the density-one native retention application.
 
-benchmark_status: finite squarepart deletion bound proved; native density-one retention remains unproved.
+benchmark_status: full finite squarepart deletion allowance proved and consumed by the completed native density-one theorem below.
 old_bound: the earlier squarefree supply retained a fixed 1/12 fraction after a fixed 11/12 principal allowance.
 new_bound: the principal mass of the full large-squarepart deletion set is at most eps times the actual block product, for every eps>0 and a suitable fixed T. Both finite errors remain explicit.
 components: existing uniform collision estimate at every integer modulus u^2; summable 4/u^(3/2) majorant; complete low-root union T<=u<=R; complete high-root union u>=R+1; exact natural-quotient allowance.
 actuals: one maintained warning-free proof and one new-only standard-foundation closure; no finite numerical prime experiments.
-first_nonpositive_domain: not applicable to this upper bound. The theorem requires 2<=R and R^2<=a; it does not yet absorb the finite errors or prove native density-one retention, an integer bounded-gap value, or a stronger zero-free exponent.
+first_nonpositive_domain: not applicable to this upper bound. The theorem requires2<=R and R^2<=a; its explicit finite errors are absorbed in the density-one theorem below. No integer bounded-gap value or stronger zero-free exponent is claimed.
 
 ## Sparse removal of both native collision rows (2026-11-01)
 
@@ -3890,9 +3890,24 @@ first_nonpositive_domain: not applicable to this upper bound. The theorem requir
 
 The maintained FiniteFieldNativeSparseConflicts.lean owner compiles warning-free. Exactly these two new theorem closures use only propext, Classical.choice and Quot.sound. The proof retains both native rows, every squarefree core and all valid distinct root pairs. Equal roots are excluded by actual pair equality; the larger-root anchor produces one of the two positive weighted-prime equations. The probability predicate takes the two actual endpoints as separate inputs.
 
-benchmark_status: full finite native collision consumer and its zero-density arithmetic loss proved; final density-one assembly remains unproved.
+benchmark_status: full finite collision consumer and zero-density loss proved; the completed native density-one assembly is recorded below.
 old_bound: the clean-set matching theorem gave S.card<=2*(T-1)*M.card.
 new_bound: S.card<=M.card+E_T(Y), with E_T(Y)/pi(Y)^2 tending to zero for every fixed T. The complete lower bound is AB minus the D3 squarepart deletion bound minus E_T(Y).
 components: both endpoint-recovery rows; squarefree-core cancellation; distinct-root orientation; both positive coefficient orders; complete supported finite union; actual endpoint injection.
 actuals: two maintained warning-free proofs and two new-only standard-foundation closures; no numerical replacements for analytic estimates.
-first_nonpositive_domain: not applicable to the finite loss inequality. T is fixed before the sampling limit; the final universal rounded-cutoff and error absorption remain open. No growing-root-family limit, completed density-one theorem, integer bounded-gap value or improved zero-free exponent is claimed.
+first_nonpositive_domain: not applicable to the finite loss inequality. T is fixed before the sampling limit; the uniform rounded-cutoff and error absorption are assembled in the following density-one theorem. No growing-root-family limit or improved zero-free exponent is claimed.
+
+## Complete native density-one retention (2026-11-01)
+
+| Claim | Maintained declaration | Status and scope |
+| --- | --- | --- |
+| Almost all complete quarter-block actual prime pairs retained | PrimeFactorOscillations.FiniteFieldIntegerSignature.eventually_native_prime_pair_density_one | Proved: for every real eps>0, at every sufficiently large natural Y there is M contained in the full quarter-block prime-pair gap set S_Y with M.card>=(1-eps)*S_Y.card and every distinct native agreement rate exactly3/8. Every retained pair has prime endpoints, 0<h<n and n+h<=Y. |
+
+The maintained FiniteFieldNativeDensityOne.lean owner compiles warning-free. The one new headline closure uses only propext, Classical.choice and Quot.sound. D1-D5 are now all proved. The complete signed consumer retains the actual block product and subtracts both the full large-squarepart loss and the full supported weighted-prime event count. The fixed root threshold is selected before the height tends to infinity.
+
+benchmark_status: full density-one theorem proved.
+old_bound: the height-order theorem gave Y^2/(4096*log(Y)^2) codewords; the clean-set matching consumer incurred the fixed factor2*(T-1).
+new_bound: for every eps>0, all sufficiently large heights retain at least1-eps of every actual pair in the complete quarter-block candidate set. All distinct native rates remain exactly3/8.
+components: D3 principal allowance eps/3; fixed-T probability threshold eps/972; arbitrary rounding reserve243/eps; exact PNT comparisons D<=81*AB and pi(Y)^2<=4*D; full retention AB-B_T-E_T with all errors retained.
+actuals: one maintained warning-free full theorem and one new-only standard-foundation closure; no numerical substitutes for unresolved estimates.
+first_nonpositive_domain: the conclusion holds for every sufficiently large natural height, with an existential cutoff depending on eps. No effective starting height or convergence rate is claimed. Density one is relative to the complete quarter-block candidate set; the certified integer zero-free boundary is unchanged.
