@@ -4083,6 +4083,37 @@ components: all-prime endpoint scan; computable square tests; preservation of ev
 actuals: twenty-nine new proof declarations, seven computable definitions/instances, no finite numerical replacement of a universal estimate.
 first_nonpositive_domain: primes include2, all positive gaps are admitted, and small empty prefixes are handled. Asymptotic cutoffs are not effective. Physical consequences keep each finite family fixed before the field limit.
 
+## Prescribed prime reservoirs (2026-11-01)
+
+All fifteen claims have maintained Lean proofs and completed new-closure assumption audits. Every declaration below belongs to PrimeFactorOscillations.FiniteFieldIntegerSignature. The three reservoir construction definitions/instances are ordinary computable code using the supplied decision procedure.
+
+| Claim | Lean declaration | Status |
+| --- | --- | --- |
+| Full signed supply inside an arbitrary prime reservoir | native_prime_vertex_reservoir_supply | Proved; compiled and audited. |
+| All collision and bounded-cutoff rejections have relative density zero | tendsto_native_prime_vertex_rejection_zero | Proved; compiled and audited. |
+| An actual reservoir extension above every bound | exists_native_prime_vertex_reservoir_extension_above | Proved; compiled and audited. |
+| A restricted prefix adds only its candidate vertex | native_reservoir_prefix_step_subset | Proved; compiled and audited. |
+| Every prefix is flat and consists of bounded reservoir primes | native_reservoir_prefix_geometry | Proved; compiled and audited. |
+| Restricted prefixes persist | native_reservoir_prefix_monotone | Proved; compiled and audited. |
+| Restricted membership was decided at birth | native_reservoir_prefix_mem_birth | Proved; compiled and audited. |
+| Exact restricted prefix/global-class coherence | native_reservoir_prefix_mem_iff | Proved; compiled and audited. |
+| Global vertices are primes satisfying the prescribed predicate | native_reservoir_class_geometry | Proved; compiled and audited. |
+| Every nonvanishing-frequency reservoir gives an infinite greedy class | native_reservoir_class_infinite | Proved; compiled and audited. |
+| Both square rows separate for all distinct complete pair labels | native_reservoir_class_square_compatible | Proved; compiled and audited. |
+| Every distinct complete pair-label native rate is3/8 | native_reservoir_class_agreement | Proved; compiled and audited. |
+| Full infinite computable complete family in the prescribed reservoir | native_complete_prime_vertex_family_in_reservoir | Proved; compiled and audited. |
+| Explicit positive upper relative density supplies infinity | native_reservoir_infinite_of_positive_upper_density | Proved; compiled and audited. |
+| Finite vertex-coloring corollary with existential color selection | native_monochromatic_complete_prime_vertex_family | Proved; compiled and audited. |
+
+Owners: Definitions/NativePrimeVertexReservoir.lean, Assembly/FiniteFieldNativeVertexReservoirExtension.lean and Assembly/FiniteFieldNativeVertexReservoir.lean. Only the fifteen new proof closures were audited; unchanged old closures were not repeated. All focused owners compile warning-free and use only standard Lean foundations. The color corollary does not claim a uniform computable color selector.
+
+benchmark_status: universal reservoir extension and full infinite complete-family theorems proved.
+old_bound: the completed vertex construction selected from all primes; no prescribed-reservoir consumer was installed.
+new_bound: at every cutoff, admissible reservoir mass is at least rho_N(R)-epsilon_(P,B)(N), with epsilon_(P,B)(N)->0 for every fixed finite flat prime seed and upper bound. Nonvanishing upper relative frequency forces an infinite computable complete family inside R.
+components: positive actual reservoir prime frequency; negative complete collision-union and finite-cutoff mass; every overlap retained; prime-supported cover; exact birth coherence and finite-class contradiction.
+actuals: fifteen audited proof declarations and three computable definitions/instances; no finite diagnostic or numerical substitute.
+first_nonpositive_domain: the finite signed bound may be nonpositive before the rejection mass is small. Under an explicit delta>0 on unbounded reservoir cutoffs, the bound is at least delta/2 once epsilon<delta/2; no effective threshold or global vertex growth estimate is asserted. N=0,1 and arbitrary predicate values on composites are included.
+
 ## Complete prime-vertex families (2026-11-01)
 
 All claims below have maintained Lean proofs and completed new-closure assumption audits. The finite extension density is1 for each fixed finite prime vertex set; the global vertex growth rate is unquantified. The six vertex construction definitions/instances are computable. Native declarations without a written namespace below belong to PrimeFactorOscillations.FiniteFieldIntegerSignature.

@@ -15943,6 +15943,131 @@ reusable \texttt{QuadraticSquareDensity} candidate in the
 All these maintained owners compile without warnings, and the new
 proof closures use only standard Lean foundations.
 
+\section{Complete families inside prescribed prime reservoirs}
+\label{sec:native-prime-reservoirs}
+The extension theorem also permits the prime vertices to be restricted
+in advance. For any predicate \(R\) on the natural numbers, put
+\[
+ \rho_N(R)=
+ \frac{\#\{q\le N:q\text{ prime},\ R(q)\}}{\pi(N)}.
+\]
+At \(N=0,1\) the quotient is defined to be zero. Values of \(R\)
+at composite inputs have no effect.
+
+\begin{theorem}[Reservoir-universal complete families]
+\label{thm:native-prime-reservoir}
+Let \(R\) be a decidable predicate for which \(\rho_N(R)\) does
+not tend to zero. There is one explicit decidable infinite set
+\(V_R\) of primes satisfying \(R\), such that
+\[
+ \begin{gathered}
+ p,q,r,s\in V_R,\quad p<q,\quad r<s,\quad (p,q)\ne(r,s)\\
+ \Longrightarrow\quad
+ \operatorname{rate}\bigl((p,q-p),(r,s-r)\bigr)=3/8.
+ \end{gathered}
+\]
+In particular the conclusion holds if, for some fixed \(\delta>0\),
+\[
+ \forall M\in\mathbb N\ \exists N\ge M:\quad \rho_N(R)\ge\delta.
+\]
+No lower density or density limit of \(R\) is required.
+\end{theorem}
+\begin{proof}
+Fix a finite flat prime vertex set \(P\) and an upper bound \(B\)
+for its vertices. Let \(\mathcal B_{P,B}(N)\) be the primes \(q\le N\)
+for which \(q\le B\), or at least one of the three complete
+collision families in the preceding section is a square. Write
+\[
+ \varepsilon_{P,B}(N)=\frac{\#\mathcal B_{P,B}(N)}{\pi(N)}.
+\]
+The fixed-polynomial sparsity and finite-union results give
+\(\varepsilon_{P,B}(N)\to0\), with every collision overlap retained.
+Every prime satisfying \(R\) outside this rejection set supplies
+a flat extension. Thus, at every cutoff, the complete signed supply is
+\[
+ \boxed{\quad
+ \frac{\#\{q\le N:q\text{ prime},\ R(q),\ B<q,\
+                  P\cup\{q\}\text{ flat}\}}{\pi(N)}
+ \ \ge\ \rho_N(R)-\varepsilon_{P,B}(N).
+ \quad}
+\]
+Indeed, the reservoir primes are covered by the admissible set
+together with \(\mathcal B_{P,B}(N)\); the cardinal inequality does
+not assume these two sets are disjoint. Dividing by the nonnegative
+prime count proves the assertion, including the zero-count convention.
+
+If there were no admissible reservoir prime above \(B\), the left
+side would vanish at every cutoff. Nonnegativity and the displayed
+bound would force \(\rho_N(R)\to0\), a contradiction. Hence every
+fixed finite flat prime seed has an extension inside \(R\) above
+every upper bound. Under the explicit \(\delta\) hypothesis, one
+can see the positive supply directly: choose an arbitrarily large
+reservoir cutoff after \(\varepsilon_{P,B}(N)<\delta/2\); the
+admissible relative mass is then at least \(\delta/2\).
+
+Now scan the natural numbers in order. Start with
+\(V_{R,0}=\varnothing\). At height \(Y+1\), accept the candidate
+exactly when it satisfies \(R\), is prime, and its insertion leaves
+the complete pair family flat. The supplied decision procedure for
+\(R\) and the finite square tests make this a computable process.
+Induction proves flatness, primality, reservoir membership and
+persistence of every prefix. A vertex can enter only at its own
+height. Defining \(p\in V_R\) by \(p\in V_{R,p}\) therefore gives
+\[
+ V_{R,Y}=V_R\cap[0,Y]\qquad(Y\in\mathbb N).
+\]
+If \(V_R\) were finite and bounded by \(B\), all later prefixes
+would equal the fixed set \(V_{R,B}\). The reservoir extension
+proved above would then be accepted at its own height, contradicting
+the bound. Thus \(V_R\) is infinite. Every four of its vertices
+lie in one flat finite prefix, and the exact native classifier
+gives the asserted rate.
+
+Finally, if \(\rho_N(R)\to0\), then it is eventually smaller than
+any fixed positive \(\delta\). The explicit unbounded-cutoff
+hypothesis contradicts this. It is therefore sufficient for the
+same construction.
+\end{proof}
+
+\begin{corollary}[Finite vertex colorings]
+Let \(I\) be a finite set with decidable equality and let
+\(c:\mathbb N\to I\) be computable. Some color class contains one
+computable infinite prime vertex set whose complete positive pair
+family has rate \(3/8\) between every two distinct labels.
+\end{corollary}
+\begin{proof}
+If every color class had prime-relative frequency tending to zero,
+their finite union would too. That union contains every prime, whose
+relative frequency is eventually one. Thus some color class has
+nonvanishing upper prime frequency, and the theorem applies to it.
+For each fixed color the construction is computable from \(c\).
+The argument selects a color existentially; it supplies no uniform
+computable procedure for identifying which color works.
+\end{proof}
+
+The nonvanishing hypothesis concerns only the prescribed reservoir.
+The rate of decay of \(\varepsilon_{P,B}\) is needed for each fixed
+\(P,B\), and is never used uniformly over growing greedy prefixes.
+The resulting vertex growth remains unquantified. The finite-color
+statement is a corollary of the arithmetic extension property;
+the distinct extension here is the freedom to prescribe any
+reservoir of positive upper prime-relative density.
+
+The computable definitions are in
+\texttt{Definitions/NativePrimeVertexReservoir.lean}.
+The full signed supply and actual reservoir extensions are proved in
+\texttt{FiniteFieldNativeVertexReservoirExtension.lean}.
+The maintained declaration
+\texttt{native\_complete\_prime\_vertex\_family\_in\_reservoir}
+proves the complete nonvanishing-reservoir headline;
+\texttt{native\_reservoir\_infinite\_of\_positive\_upper\_density}
+supplies the explicit \(\delta\) specialization, and
+\texttt{native\_monochromatic\_complete\_prime\_vertex\_family}
+is the color corollary. These are in
+\texttt{FiniteFieldNativeVertexReservoir.lean}.
+All fifteen new proof closures have been checked against the
+standard foundational-axiom allowlist.
+
 \begin{thebibliography}{99}
 \bibitem{KarpVaziraniVazirani}
 R. M. Karp, U. V. Vazirani and V. V. Vazirani,
