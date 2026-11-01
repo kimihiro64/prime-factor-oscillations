@@ -13858,6 +13858,110 @@ actual native-codebook construction, rather than an assumed
 clean-support supply. An asymptotic estimate for the size of
 height-bounded codebooks remains a separate theorem.
 
+\section{Uniform congruence counts on actual prime blocks}
+\label{sec:uniform-prime-block-collisions}
+
+The remaining low-square-divisor count involves two prime blocks
+at the same modulus. Estimating their character product before
+residue reconstruction avoids an additional residue-class factor.
+
+\begin{theorem}[Uniform prime-block collision bound]
+\label{thm:uniform-prime-block-collisions}
+There is an absolute constant \(C>0\) with the following property.
+Let \(m,a,b,c,Y\) be natural numbers satisfying
+\[
+ 1\le m\le a\le b\le c\le Y,
+\]
+and put
+\[
+ A=\{p\text{ prime}:a<p\le b\},\qquad
+ B=\{q\text{ prime}:b<q\le c\}.
+\]
+Write
+\[
+ Q_m=\#\{(p,q)\in A\times B:p\equiv q\pmod m\}.
+\]
+Then
+\begin{equation}
+ \left|Q_m-\frac{|A||B|}{\varphi(m)}\right|
+ \le C Y^{7/4}
+       \bigl(1+\log m+\log(Y+2)\bigr)^4.
+ \label{eq:uniform-prime-block-collisions}
+\end{equation}
+The constant precedes all five integer parameters. The statement
+includes \(m=1\), empty blocks, and the prime \(2\) whenever it
+belongs to the stated blocks.
+\end{theorem}
+
+\begin{proof}
+We use the established conductor-uniform prime-character estimate:
+there is \(B_0>0\), independent of the modulus, nonprincipal
+Dirichlet character, and natural endpoint \(x\), such that
+\[
+ \left|\sum_{p\le x}\chi(p)\right|
+ \le B_0x^{7/8}
+       \bigl(1+\log m+\log(x+2)\bigr)^2.
+\]
+It applies to imprimitive as well as primitive characters.
+Put \(L=1+\log m+\log(Y+2)\) and
+\(K=2B_0Y^{7/8}L^2\). Subtracting the two actual prefix sums,
+with both endpoints retained, gives
+\[
+ \left|\sum_{p\in A}\chi(p)\right|\le K,\qquad
+ \left|\sum_{q\in B}\chi(q)\right|\le K
+ \quad(\chi\ne1).
+\]
+The same bound holds for the inverse character \(\chi^{-1}\),
+which is nonprincipal when \(\chi\) is nonprincipal.
+
+Every prime in either block exceeds \(m\), so its residue is a
+unit. On the full finite product \(S=A\times B\), define
+\(f(p,q)=p^{-1}q\) modulo \(m\). Its outputs are all units, and
+\(f(p,q)=1\) is exactly the collision condition \(p\equiv q\).
+Repeated outputs remain separate indexed pairs. Character
+orthogonality therefore gives the complete signed identity
+\begin{equation}
+ \varphi(m)Q_m-|A||B|
+ =\sum_{\substack{\chi\bmod m\\\chi\ne1}}
+       \left(\sum_{p\in A}\chi^{-1}(p)\right)
+       \left(\sum_{q\in B}\chi(q)\right).
+ \label{eq:prime-block-signed-character-packet}
+\end{equation}
+In particular, the principal term is the actual product
+\(|A||B|\), with no replacement by an asymptotic.
+
+Each nonprincipal product in
+\eqref{eq:prime-block-signed-character-packet} has absolute value
+at most \(K^2\). There are at most \(\varphi(m)\) such characters.
+Since \(\varphi(m)>0\), division yields
+\[
+ \left|Q_m-\frac{|A||B|}{\varphi(m)}\right|
+       \le K^2=4B_0^2Y^{7/4}L^4.
+\]
+Thus \(C=4B_0^2\) works simultaneously for every stated parameter.
+The argument also covers the trivial unit group when \(m=1\).
+\end{proof}
+
+The maintained owner is
+\texttt{Helpers/QRHPrimeBlockCollision.\allowbreak lean}.
+Its declaration
+\texttt{exists\_primeBlockCollisionCount\_le\_seven\_fourths}
+uses the previously proved uniform prefix estimate and the
+existing residue-count reconstruction theorem. The latter retains
+the exact unit-output mass even for repeated output values.
+The proof compiles without warnings and its new dependency audit
+contains only \texttt{propext}, \texttt{Classical.choice}, and
+\texttt{Quot.sound}.
+
+This is an application of the established seven-eighths input;
+no new zero-free exponent is asserted. Character orthogonality
+and residue reconstruction are classical ingredients, not
+separate originality claims. For the packing construction the
+relevant moduli are prime squares. Summing those low-root
+contributions, controlling the complementary high roots, and
+proving the final asymptotic height capacity remain separate
+obligations.
+
 \begin{thebibliography}{99}
 \bibitem{MartinWaljiCharacters}
 K. Martin and N. Walji,

@@ -3719,7 +3719,7 @@ Paper: `finite-fields.tex`, Theorem `thm:native-height-square-tail` and equation
 
 | Claim / declaration | Status | Exact verified scope |
 | --- | --- | --- |
-| `native_height_square_tail_packing` | proved | Every finite prime sets A,B and natural Y,T>=2 with Y<2*n on A, q<=Y on B and n<q on A x B admit a family M of actual short prime pairs with |A|*|B|<=2*(T-1)*|M|+|A|*floor(Y/(T-1)); all distinct selected native rates equal3/8. Empty sets and prime2 are included. |
+| `native_height_square_tail_packing` | proved | All finite prime sets A,B, every natural Y and natural T>=2 with Y<2*n on A, q<=Y on B and n<q on A x B admit a family M of actual short prime pairs with |A|*|B|<=2*(T-1)*|M|+|A|*floor(Y/(T-1)); all distinct selected native rates equal3/8. Empty sets and prime2 are included. |
 
 The complete maintained real proof compiled warning-free. Its one new-only axiom closure contains only propext, Classical.choice and Quot.sound. No unchanged earlier closure was reaudited. Classical integer division, finite injections and the union estimate are inputs; the project-specific conclusion composes the exact divisor allowance with the native clean-support extraction theorem.
 
@@ -3729,4 +3729,21 @@ new_bound: |A|*|B|<=2*D*|M|+|A|*floor(Y/D), D=T-1>=1, with all distinct selected
 components: injective endpoint-to-gap coordinates; the quotient injection on every square-divisor fibre; every root T<=u<=Y; the complete overlap-safe finite union; exact natural quotient tail; native clean-support extraction.
 actuals: one universal maintained proof and one new-only foundational axiom audit. A separate falsification check covered1419 full quarter-interval supports, every Y=0..128 and T=2..12, including lower prime2; no computation is an analytic input.
 first_nonpositive_domain: the allowance can exhaust the displayed positive supply when floor(Y/D)>=|B|; no positivity is asserted there. The full asymptotic height-capacity theorem remains unproved. The proposed stronger squarefree-gap route is not promoted as a theorem. No integer H1 or RH/QRH exponent gain is asserted.
+
+## Uniform actual prime-block collision estimate (2026-10-31)
+
+Paper: `finite-fields.tex`, Theorem `thm:uniform-prime-block-collisions`, equations `eq:uniform-prime-block-collisions` and `eq:prime-block-signed-character-packet`. Owner: `Helpers/QRHPrimeBlockCollision.lean`. Namespace: `PrimeFactorOscillations.QRH`.
+
+| Claim / declaration | Status | Exact verified scope |
+| --- | --- | --- |
+| `exists_primeBlockCollisionCount_le_seven_fourths` | proved | One C>0 precedes every positive modulus N and natural a,b,c,Y with N<=a<=b<=c<=Y. For actual prime blocks A=(a,b], B=(b,c], the congruent-pair count Q satisfies abs(Q-|A||B|/phi(N))<=C*Y^(7/4)*(1+log N+log(Y+2))^4. Includes modulus1, empty blocks and prime2 when admitted by the domain. |
+
+The complete maintained proof compiles warning-free. Its one new-only closure audit contains only propext, Classical.choice and Quot.sound. No unchanged closure was reaudited. The analytic input is the already proved conductor-uniform 7/8 prime-character prefix bound, including imprimitive characters and every natural endpoint. Classical character orthogonality and the existing residue-count theorem provide the reconstruction. This application is supporting arithmetic for native packing, not a standalone priority claim or a new QRH exponent.
+
+benchmark_status: actual two-block congruence discrepancy bounded uniformly without an extra totient or residue-class factor.
+old_bound: the low-square-divisor route had no installed paired-prime congruence consumer; a separate-class product envelope would charge additional residue-class factors.
+new_bound: abs(Q-|A||B|/phi(N))<=C*Y^(7/4)*(1+log N+log(Y+2))^4, with one universal C.
+components: both interval prefix boundaries; inverse and direct nonprincipal characters; the full product support and repeated quotient outputs; exact principal unit mass |A||B|; the coupled character product; exact cancellation of the character-count denominator.
+actuals: one universal maintained real proof and one new-only foundational axiom audit; no numerical experiment or assumed prime-count asymptotic.
+first_nonpositive_domain: the error may exceed the principal supply on small or sparse blocks; no positivity is asserted in that regime. The summed squarefree-gap supply, asymptotic native codebook order and optimal height capacity remain unproved. No H1 value or RH/QRH exponent gain is claimed.
 

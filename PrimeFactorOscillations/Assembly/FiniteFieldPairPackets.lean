@@ -5,10 +5,9 @@ Authors: Prime Factor Oscillations contributors
 -/
 import PrimeFactorOscillations.Assembly.FiniteFieldCubicLift
 import PrimeFactorOscillations.Assembly.FiniteFieldJointCharacterProjection
-import PrimeFactorOscillations.Assembly.FiniteFieldNativeAgreementEnergy
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeConsecutiveAgreement
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeExceptionalAgreement
-import PrimeFactorOscillations.Assembly.FiniteFieldNativeHeightPacking
+import PrimeFactorOscillations.Assembly.FiniteFieldNativePacking
 import PrimeFactorOscillations.Assembly.FiniteFieldPairIntegerCRT
 import PrimeFactorOscillations.Assembly.FiniteFieldPairProductSeparation
 import PrimeFactorOscillations.Assembly.FiniteFieldQuasipolynomialWeight
@@ -39,6 +38,8 @@ the lower prime endpoint when both compared gaps are short.
 A square-factor cutoff gives a large short-pair subfamily whose distinct
 agreement rates are three eighths, with an explicit finite extraction bound.
 The full square-divisor deletion allowance is proved on actual finite prime
-endpoint products. An asymptotic height-capacity estimate remains unproved.
+endpoint products. For prime blocks above the modulus, the uniform congruence
+estimate retains the actual principal pair mass without an extra totient factor.
+An asymptotic height-capacity estimate remains unproved.
 The identities retain the Gauss-Kloosterman term and its compensation.
 -/
