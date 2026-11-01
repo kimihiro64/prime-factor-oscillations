@@ -15162,6 +15162,123 @@ relative density-one statement for every arbitrary sparse
 support; that requires the positive supply and the remaining
 collision-deletion consumer.
 
+\section{Unrestricted sparse collision deletion}
+\label{sec:native-unrestricted-sparse}
+
+For fixed natural numbers \(J,T\), define two counts on the
+finite set of actual ordered prime pairs \(p,q\le Y\).
+The root-output count \(E_T(Y)\) uses the event
+\[
+ \begin{gathered}
+ \exists\,0<v<u<T,\quad \exists r\in\mathbb P:\qquad\\
+ (u^2-v^2)p+v^2q=u^2r
+ \quad\text{or}\quad
+ v^2p+(u^2-v^2)q=u^2r .
+ \end{gathered}
+\]
+Both coefficient orders are retained. The cross-output count
+\(C_J(Y)\) uses the event
+\[
+ \exists\,1\le a,b<J,\quad ab>1,\quad \exists r\in\mathbb P:
+ \qquad (ab-1)p+q=ar .
+\]
+The two sampled inputs are the actual endpoints \(p,q\).
+The existential output prime has no artificial cutoff.
+
+\begin{theorem}[Fixed cross-output class has zero density]
+\label{thm:native-cross-output-zero}
+For every fixed natural \(J\),
+\[
+ \frac{C_J(Y)}{\pi(Y)^2}\longrightarrow0.
+\]
+As already proved for the root-output class, for every
+fixed \(T\) one also has \(E_T(Y)/\pi(Y)^2\to0\).
+\end{theorem}
+
+\begin{proof}
+Index the cross-output events by \((a,b)\in
+\{0,\ldots,J-1\}^2\). Invalid indices contribute the empty
+event. At a valid index, \(ab-1>0\), \(1>0\), and \(a>0\).
+The proved weighted-prime output theorem therefore gives
+zero limiting pair probability for
+\((ab-1)p+q=ar\).
+The complete finite union is bounded by the sum of these
+probabilities. That finite sum tends to zero, while the
+union probability is nonnegative.
+The index family is fixed before \(Y\) tends to infinity.
+The root-output assertion is the previously proved
+two-row finite-union theorem.
+\end{proof}
+
+\begin{theorem}[Unrestricted finite extraction]
+\label{thm:native-unrestricted-sparse}
+Let \(S\) be a finite set of pairs \((n,h)\), with
+\(n,n+h\) prime, \(h>0\), and
+\[
+ n>2,\qquad n+h\le Y,\qquad Jn>Y.
+\]
+Suppose no gap in \(S\) is divisible by any \(u^2\) with
+\(u\ge T\).
+There exists \(M\subseteq S\) such that
+\[
+ |S|\le |M|+E_T(Y)+C_J(Y),
+\]
+and every two distinct members of \(M\) have native
+agreement rate exactly \(3/8\).
+There is no short-gap hypothesis.
+\end{theorem}
+
+\begin{proof}
+Retain exactly those elements of \(S\) whose actual endpoint
+pair belongs to neither output event.
+The endpoint map \((n,h)\mapsto(n,n+h)\) is injective.
+It sends every deleted element into the union of the two
+finite anchor sets counted by \(E_T(Y)\) and \(C_J(Y)\).
+The finite union cardinality bound gives the displayed
+inequality, with both losses present.
+
+It remains to prove flat agreement.
+If a square lower row had distinct lower endpoints,
+Theorem~\ref{thm:native-cross-positive-output} would give
+\(1\le a,b<J\), \(ab>1\), and the cross-output equation
+at a retained anchor. This contradicts its retention.
+Thus every square lower row in \(M\) has equal lower
+endpoints. A square upper row always has equal upper
+endpoints by the existing prime-divisor recovery theorem.
+
+For completeness, the remaining root argument keeps both
+rows. Decompose every positive gap as \(u^2d\), with
+\(d\) squarefree. The clean-gap hypothesis forces \(u<T\).
+Once the relevant endpoints agree, a square row forces the
+two squarefree cores to agree. Equal roots would give the
+same pair, so for distinct pairs the roots are unequal.
+At the larger-root anchor, the lower row gives the first
+root-output equation above, and the upper row gives the
+second. Both contradict retention.
+Consequently neither exceptional square row occurs between
+distinct retained elements. The exact native agreement
+classifier gives rate \(3/8\).
+\end{proof}
+
+The maintained declarations are
+\texttt{tendsto\_native\_cross\_endpoint\_output\_probability\_zero}
+and \texttt{native\_unrestricted\_clean\_sparse\_collision\_packing},
+in \texttt{Assembly/\allowbreak FiniteFieldNativeFullSparseConflicts.\allowbreak lean}.
+The shared two-row proof is maintained as
+\texttt{native\_clean\_avoiding\_weighted\_outputs\_flat\_of\_lower\_recovery}
+in \texttt{Assembly/\allowbreak FiniteFieldNativeSparseConflicts.\allowbreak lean}.
+It assumes lower-row recovery explicitly and does not assume short gaps.
+The old short-gap packing statement is preserved by
+discharging that hypothesis with its original endpoint-recovery theorem.
+Both maintained owners compile without warnings.
+These three new closures and the changed compatibility proof use only
+standard Lean foundations.
+
+The complete height consumer must still subtract the low-endpoint
+prefix and the full squarepart loss from the actual candidate supply.
+This finite theorem does not itself assert the unrestricted
+density-one limit or a sharp global capacity asymptotic.
+
 \begin{thebibliography}{99}
 \bibitem{MartinWaljiCharacters}
 K. Martin and N. Walji,

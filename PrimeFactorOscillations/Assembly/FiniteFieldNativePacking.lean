@@ -5,14 +5,15 @@ Authors: Prime Factor Oscillations contributors
 -/
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeCrossOutputs
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeDensityEnergy
+import PrimeFactorOscillations.Assembly.FiniteFieldNativeFullSparseConflicts
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeHeightCapacity
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeHeightPacking
 
 /-!
-# Native density-one physical capacity
+# Native prime-pair packing and physical capacity
 
-Import-only grouping of complete density-one retention with exact physical
-energy and sharp stability on the same codebooks, optimal height order and
-finite prime-product packing. The squarepart and both sparse row consumers
-are exported through the density-one physical owner.
+Import-only grouping of complete quarter-block density-one physical capacity,
+optimal height order, and unrestricted finite sparse collision deletion.
+Both root-row outputs and the positive cross-output class are exported with
+the actual prime-pair support and full squarepart consumers.
 -/

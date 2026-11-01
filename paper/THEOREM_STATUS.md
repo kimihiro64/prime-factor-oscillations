@@ -3975,3 +3975,21 @@ new_bound: the same complete allowance and errors apply to any positive-gap supp
 components: sum over every integer square root; injective endpoint map; uniform complete same-character discrepancy; summable principal allowance; exact high-root floor(Y/R) term; full low/high union including T>R.
 actuals: one new maintained proof and one changed compatibility proof, both warning-free and standard-foundation only; no numerical completion of unestimated terms.
 first_nonpositive_domain: R>=2 and R^2<=both lower block endpoints are required. The threshold T is fixed before Y and no effective threshold is supplied. No density-one assertion for arbitrary sparse S or new zero-free exponent is claimed.
+
+## Unrestricted finite collision extraction (2026-11-01)
+
+| Claim | Maintained declaration | Status and scope |
+| --- | --- | --- |
+| Full two-row flatness from clean gaps, root-event avoidance and lower-row recovery | PrimeFactorOscillations.FiniteFieldIntegerSignature.native_clean_avoiding_weighted_outputs_flat_of_lower_recovery | Proved: finite actual prime-pair supports with positive gaps, no roots u>=T, avoidance of both root-output rows, and explicit square-lower-row endpoint recovery have every distinct agreement rate3/8. No short-gap assumption. |
+| Fixed cross-output anchor class has zero prime-pair probability | PrimeFactorOscillations.FiniteFieldIntegerSignature.tendsto_native_cross_endpoint_output_probability_zero | Proved for every fixed natural J, including empty index ranges. The two arguments are actual endpoints; all positive triples (a*b-1,1,a), 1<=a,b<J,ab>1, are included. |
+| Unrestricted finite extraction with both sparse losses | PrimeFactorOscillations.FiniteFieldIntegerSignature.native_unrestricted_clean_sparse_collision_packing | Proved: all finite clean actual prime-pair supports with positive gaps, lower primes>2, upper endpoints<=Y and J*lower>Y admit M subset S with S.card<=M.card+E_T(Y)+C_J(Y), and every distinct native agreement rate3/8. J,T,Y are arbitrary naturals; no short-gap assumption. |
+| Original short-gap sparse extraction preserved | PrimeFactorOscillations.FiniteFieldIntegerSignature.native_clean_sparse_collision_packing | Proved compatibility consumer with unchanged public statement. The existing fixed-root probability theorem is unchanged and was not re-audited. |
+
+Both maintained owners compile warning-free. Exactly the three new declarations and the changed compatibility proof use only propext, Classical.choice and Quot.sound. The full root-flatness proof is reused with an explicit lower-recovery hypothesis. The proved bounded positive-output certificate discharges it after cross-output deletion, with every upper-row and lower-row term retained.
+
+benchmark_status: full unrestricted finite sparse consumer proved; the height-dependent density-one assembly remains open.
+old_bound: clean sparse extraction required every gap to be shorter than its lower endpoint.
+new_bound: without short gaps, S.card<=M.card+E_T(Y)+C_J(Y) above the fixed lower cutoff, and both fixed-parameter event probabilities tend to zero.
+components: complete two-row root outputs; positive lower-row cross-output certificate; fixed finite coefficient union; exact actual-endpoint injection; both deletion classes and all squarefree cores.
+actuals: three new maintained proofs and one changed compatibility proof across two owners, all warning-free and standard-foundation only. No finite numerical count replaces a limiting estimate.
+first_nonpositive_domain: lower prime2 is excluded explicitly; J and T are fixed before the sampling limit. The clean support and lower cutoff must still be supplied by the full squarepart and prefix estimates. No full unrestricted retention ratio, effective cutoff or new zero-free exponent is claimed.

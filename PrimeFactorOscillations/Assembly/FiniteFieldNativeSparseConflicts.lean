@@ -30,14 +30,17 @@ def nativeWeightedEndpointPrimeOutput (T p q : Nat) : Prop :=
      (exists r : Nat, Nat.Prime r /\
       v ^ 2 * p + (u ^ 2 - v ^ 2) * q = u ^ 2 * r))
 
-private theorem native_clean_avoiding_weighted_outputs_flat
+theorem native_clean_avoiding_weighted_outputs_flat_of_lower_recovery
     (S : Finset (Prod Nat Nat)) (T : Nat)
     (hprime : forall a : Prod Nat Nat, Membership.mem S a ->
-      Nat.Prime a.1 /\ Nat.Prime (a.1 + a.2) /\ 0 < a.2 /\ a.2 < a.1)
+      Nat.Prime a.1 /\ Nat.Prime (a.1 + a.2) /\ 0 < a.2)
     (hclean : forall a : Prod Nat Nat, Membership.mem S a ->
       forall u : Nat, T <= u -> Not (Dvd.dvd (u ^ 2) a.2))
     (havoid : forall a : Prod Nat Nat, Membership.mem S a ->
-      Not (nativeWeightedEndpointPrimeOutput T a.1 (a.1 + a.2))) :
+      Not (nativeWeightedEndpointPrimeOutput T a.1 (a.1 + a.2)))
+    (hLower : forall a : Prod Nat Nat, Membership.mem S a ->
+      forall b : Prod Nat Nat, Membership.mem S b ->
+        IsSquare (a.2 * b.2 * a.1 * b.1) -> a.1 = b.1) :
     forall a : Prod Nat Nat, Membership.mem S a ->
       forall b : Prod Nat Nat, Membership.mem S b -> Not (a = b) ->
         nativeAgreementRate a.1 a.2 b.1 b.2 = 3 / 8 := by
@@ -47,7 +50,7 @@ private theorem native_clean_avoiding_weighted_outputs_flat
         0 < d /\ 0 < u /\ u ^ 2 * d = a.2 /\ Squarefree d := by
     intro a
     by_cases ha : Membership.mem S a
-    . choose d u hd hu he hs using Nat.sq_mul_squarefree_of_pos (hprime a ha).2.2.1
+    . choose d u hd hu he hs using Nat.sq_mul_squarefree_of_pos (hprime a ha).2.2
       exact Exists.intro d (Exists.intro u (fun _ => And.intro hd
         (And.intro hu (And.intro he hs))))
     . exact Exists.intro 1 (Exists.intro 1 (fun h => False.elim (ha h)))
@@ -132,13 +135,10 @@ private theorem native_clean_avoiding_weighted_outputs_flat
     intro h
     exact hneq (Prod.ext h.1 h.2)
   apply (native_agreement_arithmetic_classification a.1 a.2 b.1 b.2
-    haP.1 haP.2.1 hbP.1 hbP.2.1 haP.2.2.1 hbP.2.2.1 hneq').2.mpr
+    haP.1 haP.2.1 hbP.1 hbP.2.1 haP.2.2 hbP.2.2 hneq').2.mpr
   constructor
   . intro hs
-    have hn : a.1 = b.1 :=
-      (native_square_rows_recover_endpoints a.1 a.2 b.1 b.2
-        haP.1 haP.2.1 hbP.1 hbP.2.1 haP.2.2.1 hbP.2.2.1).1
-          haP.2.2.2 hbP.2.2.2 hs
+    have hn : a.1 = b.1 := hLower a ha b hb hs
     have hs' : IsSquare (a.2 * b.2 * a.1 * a.1) := by
       simpa only [<- hn] using hs
     have hd := hcore a b ha hb a.1 haP.1.pos hs'
@@ -151,7 +151,7 @@ private theorem native_clean_avoiding_weighted_outputs_flat
   . intro hs
     have hq : a.1 + a.2 = b.1 + b.2 :=
       (native_square_rows_recover_endpoints a.1 a.2 b.1 b.2
-        haP.1 haP.2.1 hbP.1 hbP.2.1 haP.2.2.1 hbP.2.2.1).2 hs
+        haP.1 haP.2.1 hbP.1 hbP.2.1 haP.2.2 hbP.2.2).2 hs
     have hs' : IsSquare (a.2 * b.2 * (a.1 + a.2) * (a.1 + a.2)) := by
       simpa only [<- hq] using hs
     have hd := hcore a b ha hb (a.1 + a.2) haP.2.1.pos hs'
@@ -209,14 +209,20 @@ theorem native_clean_sparse_collision_packing
   refine Exists.intro M (And.intro hM (And.intro ?_ ?_))
   . exact (Finset.card_le_card hcover).trans
       ((Finset.card_union_le M B).trans (Nat.add_le_add_left hB M.card))
-  . apply native_clean_avoiding_weighted_outputs_flat M T
+  . apply native_clean_avoiding_weighted_outputs_flat_of_lower_recovery M T
     . intro a ha
       have hp := hprime a (hM ha)
-      exact And.intro hp.1 (And.intro hp.2.1 (And.intro hp.2.2.1 hp.2.2.2.1))
+      exact And.intro hp.1 (And.intro hp.2.1 hp.2.2.1)
     . intro a ha
       exact hclean a (hM ha)
     . intro a ha
       exact (Finset.mem_filter.mp ha).2
+    . intro a ha b hb hs
+      have haP := hprime a (hM ha)
+      have hbP := hprime b (hM hb)
+      exact (native_square_rows_recover_endpoints a.1 a.2 b.1 b.2
+        haP.1 haP.2.1 hbP.1 hbP.2.1 haP.2.2.1 hbP.2.2.1).1
+          haP.2.2.2.1 hbP.2.2.2.1 hs
 
 /-- The complete fixed-root collision event has zero actual prime-pair density.
 The root cutoff is fixed before the independent sampling height tends to infinity. -/
