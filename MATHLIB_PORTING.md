@@ -10,6 +10,8 @@ namespace.
 | Module | Proposed destination | Readiness | Scope |
 | --- | --- | --- | --- |
 | `PrimeFactorOscillations.Mathlib.Data.Nat.DivSquareTail` | `Mathlib/Data/Nat/DivSquareTail.lean` | project-verified | Natural quotient step Y/u^2+Y/u<=Y/(u-1) for u>=2 and exact finite square-divisor tail sum over T<=u<N bounded by Y/(T-1), for all natural Y,N and T>=2; no rounding remainder. |
+| `PrimeFactorOscillations.Mathlib.Data.Finset.SquareDivisorCount` | `Mathlib/Data/Finset/SquareDivisorCount.lean` | project-verified | Arbitrary finite positive second-coordinate fibres h<=Y above a finite first-coordinate set A: the full union of square divisors u>=T has cardinal at most card(A)*floor(Y/(T-1)), for all natural Y and T>=2; exact classical quotient-fibre and integer-tail bound. |
+| `PrimeFactorOscillations.Mathlib.Data.Finset.ReciprocalGapSum` | `Mathlib/Data/Finset/ReciprocalGapSum.lean` | project-verified | Every finite set S of integers n>=2 excluding 4 satisfies sum_S 1/(n*(n-1))<=11/12; classical finite telescoping with the exact excluded contribution 1/12. |
 
 ## Weighted finite-product pushforward
 

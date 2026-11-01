@@ -3745,5 +3745,24 @@ old_bound: the low-square-divisor route had no installed paired-prime congruence
 new_bound: abs(Q-|A||B|/phi(N))<=C*Y^(7/4)*(1+log N+log(Y+2))^4, with one universal C.
 components: both interval prefix boundaries; inverse and direct nonprincipal characters; the full product support and repeated quotient outputs; exact principal unit mass |A||B|; the coupled character product; exact cancellation of the character-count denominator.
 actuals: one universal maintained real proof and one new-only foundational axiom audit; no numerical experiment or assumed prime-count asymptotic.
-first_nonpositive_domain: the error may exceed the principal supply on small or sparse blocks; no positivity is asserted in that regime. The summed squarefree-gap supply, asymptotic native codebook order and optimal height capacity remain unproved. No H1 value or RH/QRH exponent gain is claimed.
+first_nonpositive_domain: the error may exceed the principal supply on small or sparse blocks; no positivity is asserted in that regime. The complete finite squarefree-gap supply is now proved in the following section. The asymptotic native codebook order and optimal height capacity remain unproved. No H1 value or RH/QRH exponent gain is claimed.
 
+## Complete finite squarefree prime-pair supply (2026-11-01)
+
+Paper: `finite-fields.tex`, Theorem `thm:squarefree-prime-block-supply`, equations `eq:squarefree-prime-block-supply` and `eq:squarefree-full-union`. Maintained application owner: `Helpers/QRHSquarefreePrimePairs.lean`. The two reusable classical inputs are candidates under `Mathlib/Data/Finset/`.
+
+| Claim / declaration | Status | Exact verified scope |
+| --- | --- | --- |
+| `Finset.card_filter_exists_sq_dvd_le` | proved | Every finite S of natural pairs (n,h) with n in a finite A and 0<h<=Y: the complete filtered union exists u>=T with u^2 dividing h has cardinal at most card(A)*floor(Y/(T-1)), for every natural Y and T>=2. Quotient-fibre injection, all overlaps, and the exact finite integer tail; no rounding loss. Extraction of the previously proved local high-root argument, not a new analytic saving. |
+| `Finset.sum_inv_mul_pred_le_of_four_notMem` | proved | Every finite S of naturals n>=2 with 4 not in S satisfies sum_S 1/(n*(n-1))<=11/12 over the reals. Every denominator is positive. Classical finite telescoping with the excluded contribution 1/12; no numerical experiment or primality assumption. |
+| `QRH.mem_primeBlockSet_iff` | proved | Membership in the actual block (a,b] is equivalent to primality together with a<p<=b, for all natural a,b,p, including empty and reversed endpoint ranges. |
+| `QRH.exists_squarefreePrimeBlockGapSet_lower` | proved | One C>0 precedes all natural a,b,c,Y,R with R>=2 and R^2<=a<=b<=c<=Y. For the actual two blocks and their complete squarefree-gap support S_sf, card(A)*card(B)/12 <= card(S_sf)+C*R*Y^(7/4)*(1+2*log(Y+2))^4+card(A)*floor(Y/R). Empty blocks included. No RH premise. |
+
+All three maintained owners compile warning-free in the pinned direct cached environment. The four new-only declaration closures contain exactly propext, Classical.choice and Quot.sound. Unchanged closures were not reaudited. The application retains the full product supply, every low prime-square divisor, the complete high-root union, repeated congruence outputs and the exact modulus range p^2<=R^2<=a. It consumes the already proved uniform 7/8 prime-character input; the certified zero-free boundary is unchanged. The classical candidate statements and block membership identity are supporting inputs, not standalone novelty claims.
+
+benchmark_status: complete universal finite squarefree-gap lower bound installed; the asymptotic height-capacity theorem is still unproved.
+old_bound: the full high-root union at cutoff T=2 supplies only the raw fallback card(S_sf)>=card(A)*card(B)-card(A)*Y; count nonnegativity also gives zero. This fallback is a mathematical consequence of the existing quotient-fibre and integer-tail inputs, not an advertised separately compiled comparison declaration.
+new_bound: card(S_sf)>=card(A)*card(B)/12-C*R*Y^(7/4)*(1+2*log(Y+2))^4-card(A)*floor(Y/R), uniformly on the stated integer domain, with one existential C>0.
+components: exact positive product supply; low principal reciprocal sum at most 11/12; all <=R prime-square collision errors with only the prime-root count <=R charged; full high-square-divisor allowance card(A)*floor(Y/R); no overlap or cutoff term discarded.
+actuals: maintained real proofs and four new-only standard-foundation closures; no finite counts, numerical completions, or assumed prime-count asymptotics enter the bound.
+first_nonpositive_domain: unavailable numerically because the inherited universal constant C has not been made explicit; no effective positivity cutoff is claimed. The quarter-block prime supplies, rounded growing cutoff, native packing consumer and full optimal height capacity remain to be formalized.

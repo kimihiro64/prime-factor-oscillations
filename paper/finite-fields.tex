@@ -13957,10 +13957,122 @@ This is an application of the established seven-eighths input;
 no new zero-free exponent is asserted. Character orthogonality
 and residue reconstruction are classical ingredients, not
 separate originality claims. For the packing construction the
-relevant moduli are prime squares. Summing those low-root
-contributions, controlling the complementary high roots, and
-proving the final asymptotic height capacity remain separate
-obligations.
+relevant moduli are prime squares. The next theorem closes the
+complete low- and high-root count. The asymptotic height capacity
+still requires its prime-block and packing consumers.
+
+\section{A full squarefree-gap supply between prime blocks}
+\label{sec:squarefree-prime-block-supply}
+
+The collision estimate can now be summed while retaining both the actual
+product supply and the entire high-square-divisor allowance.
+
+\begin{theorem}[Finite squarefree prime-pair supply]
+\label{thm:squarefree-prime-block-supply}
+There is an absolute \(C>0\) such that, for all natural
+\(a,b,c,Y,R\) with
+\[
+ 2\le R,\qquad R^2\le a\le b\le c\le Y,
+\]
+the actual prime blocks
+\[
+ A=\{p\text{ prime}:a<p\le b\},\qquad
+ B=\{q\text{ prime}:b<q\le c\}
+\]
+satisfy the following bound. Put
+\[
+ S_{\rm sf}=\{(p,q-p):p\in A,\ q\in B,\ q-p\text{ squarefree}\}.
+\]
+Then
+\begin{equation}
+ \frac{|A||B|}{12}
+ \le |S_{\rm sf}|
+    +CRY^{7/4}\bigl(1+2\log(Y+2)\bigr)^4
+    +|A|\left\lfloor\frac YR\right\rfloor .
+ \label{eq:squarefree-prime-block-supply}
+\end{equation}
+The constant is independent of every integer parameter. Empty blocks
+are included. The two error terms and the positive product term belong
+to this one finite inequality.
+\end{theorem}
+
+\begin{proof}
+Let \(S=\{(p,q-p):p\in A,q\in B\}\). Since \(p\le b<q\),
+the gap is positive; the map from \(A\times B\) to \(S\) is injective,
+and \(|S|=|A||B|\). Every gap is at most \(Y\).
+A nonsquarefree gap has a prime square divisor. Split those divisors
+at \(R\), retaining the complete union of the large ones. This gives
+\begin{equation}
+ |A||B|
+ \le |S_{\rm sf}|+
+       \sum_{\substack{\ell\le R\\\ell\ {\rm prime}}}Q_{\ell^2}
+       +|D_R|,\qquad
+ D_R=\{(p,h)\in S:\exists u\ge R+1,\ u^2\mid h\}.
+ \label{eq:squarefree-full-union}
+\end{equation}
+Overlaps among divisors do not invalidate this union upper bound.
+
+For each fixed \(u\ge R+1\), the map
+\((p,h)\mapsto(p,h/u^2)\) is injective on the corresponding
+divisor fibre. Its image lies in
+\(A\times\{1,\ldots,\lfloor Y/u^2\rfloor\}\).
+Only \(u\le Y\) can occur. The exact integer tail therefore yields
+\[
+ |D_R|
+ \le |A|\sum_{u=R+1}^{Y}\left\lfloor\frac{Y}{u^2}\right\rfloor
+ \le |A|\left\lfloor\frac YR\right\rfloor .
+\]
+This estimate uses all high roots, including composite ones.
+
+For a prime \(\ell\le R\), the hypotheses give
+\(\ell^2\le a\), so Theorem~\ref{thm:uniform-prime-block-collisions}
+applies at the actual modulus \(\ell^2\). Since
+\(\varphi(\ell^2)=\ell(\ell-1)\) and \(\ell^2\le Y\),
+\[
+ Q_{\ell^2}
+ \le \frac{|A||B|}{\ell(\ell-1)}
+       +CY^{7/4}\bigl(1+2\log(Y+2)\bigr)^4.
+\]
+There are at most \(R\) prime roots. Moreover, for every finite
+set \(P\subseteq\{2,3,\ldots\}\) excluding \(4\),
+\[
+ \sum_{n\in P}\frac{1}{n(n-1)}\le\frac{11}{12}.
+\]
+Indeed, take \(M\ge4\) above every element of \(P\). The complete
+finite telescope is
+\[
+ \sum_{n=2}^{M}\frac{1}{n(n-1)}=1-\frac1M,
+\]
+and excluding \(4\) removes exactly \(1/12\). All summands are
+nonnegative. Apply this to the finite prime-root set to obtain
+\[
+ \sum_{\substack{\ell\le R\\\ell\ {\rm prime}}}Q_{\ell^2}
+ \le \frac{11}{12}|A||B|
+       +CRY^{7/4}\bigl(1+2\log(Y+2)\bigr)^4.
+\]
+Substitution in \eqref{eq:squarefree-full-union}, followed by
+subtracting the displayed principal contribution, proves
+\eqref{eq:squarefree-prime-block-supply}.
+\end{proof}
+
+The complete finite consumer is the maintained declaration
+\texttt{QRH.exists\_squarefreePrimeBlockGapSet\_lower} in
+\texttt{Helpers/QRHSquarefreePrimePairs.\allowbreak lean}.
+Its squarefree condition is the exact finite-gap condition
+\(u^2\nmid h\) for every integer \(u\ge2\).
+The high-root estimate is exposed for arbitrary finite positive
+coordinate fibres as
+\texttt{Finset.card\_filter\_exists\_sq\_dvd\_le}, and the finite
+reciprocal bound as
+\texttt{Finset.sum\_inv\_mul\_pred\_le\_of\_four\_notMem}.
+These two classical inputs are maintained candidates; no separate
+originality claim is attached to them.
+
+The remaining height-capacity theorem must still combine this finite
+bound with quantitative prime-block supplies, a rigorously rounded
+divisor cutoff, and the native packing and physical-limit consumers.
+No numerical positivity cutoff is extracted here: \(C\) is the
+existential uniform constant inherited from the proved character bound.
 
 \begin{thebibliography}{99}
 \bibitem{MartinWaljiCharacters}
