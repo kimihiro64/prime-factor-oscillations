@@ -3765,7 +3765,7 @@ old_bound: the full high-root union at cutoff T=2 supplies only the raw fallback
 new_bound: card(S_sf)>=card(A)*card(B)/12-C*R*Y^(7/4)*(1+2*log(Y+2))^4-card(A)*floor(Y/R), uniformly on the stated integer domain, with one existential C>0.
 components: exact positive product supply; low principal reciprocal sum at most 11/12; all <=R prime-square collision errors with only the prime-root count <=R charged; full high-square-divisor allowance card(A)*floor(Y/R); no overlap or cutoff term discarded.
 actuals: maintained real proofs and four new-only standard-foundation closures; no finite counts, numerical completions, or assumed prime-count asymptotics enter the bound.
-first_nonpositive_domain: unavailable numerically because the inherited universal constant C has not been made explicit; no effective positivity cutoff is claimed. The quarter-block prime supplies are now formalized below. The rounded growing cutoff, native packing consumer and full optimal height capacity remain to be formalized.
+first_nonpositive_domain: unavailable numerically because the inherited universal constant C has not been made explicit; no effective positivity cutoff is claimed. The quarter-block prime supplies are now formalized below. The rounded cutoff and native height cardinality are now formalized below; optimal physical stability and matching capacity upper order remain.
 
 ## Uniform PNT prime-block supplies (2026-11-01)
 
@@ -3778,7 +3778,23 @@ The maintained owner Helpers/PrimeBlockPackingSupply.lean compiles warning-free.
 
 benchmark_status: uniform lower supply installed in both actual prime blocks; full height-capacity theorem unproved.
 old_bound: the complete finite squarefree-gap inequality retained its exact positive product supply without a formal asymptotic lower bound on that product.
-new_bound: for the quarter blocks the positive product is at least N^2/(4*log(Y)^2), as a mathematical consequence of the compiled inequalities and positive denominator; the rounded-cutoff and packing assembly remain unproved.
+new_bound: for the quarter blocks the positive product is at least N^2/(4*log(Y)^2), as a mathematical consequence of the compiled inequalities and positive denominator; the rounded-cutoff and native cardinality assembly are now proved below.
 components: unconditional theta PNT bands 15n/16 and 17n/16; signed increments at least 11N/16 and 9N/16; exact finite prime sums; no sampled counts.
 actuals: two maintained real proofs and two new-only standard-foundation closure checks, with no numerical completion.
 first_nonpositive_domain: no effective numerical threshold is claimed because the inherited PNT convergence is existential.
+
+## Asymptotic squarefree supply and native height codebooks (2026-11-01)
+
+| Claim | Maintained declaration | Status and scope |
+| --- | --- | --- |
+| Uniform squarefree prime-pair supply at every large height | PrimeFactorOscillations.QRH.eventually_squarefree_quarter_prime_pair_supply | Proved: with N=floor(Y/4), the actual squarefree-gap pairs from (2N,3N] and (3N,4N] have cardinality at least Y^2/(2000*log(Y)^2); also Y>=24 and log Y>=1. |
+| Actual native codebooks with all distinct agreements three eighths | PrimeFactorOscillations.FiniteFieldIntegerSignature.eventually_native_prime_pair_height_packing | Proved: at every sufficiently large natural Y there is a finite set M of actual short prime pairs (n,n+h), with 0<h<n and n+h<=Y, cardinality at least Y^2/(4096*log(Y)^2), and all distinct native agreement rates 3/8. |
+
+Helpers/NativeHeightSquarefreeSupply.lean and Assembly/FiniteFieldNativeAsymptoticPacking.lean compile warning-free. Exactly the two new public theorem closures were checked; both contain only propext, Classical.choice and Quot.sound. Their maintained proofs include every cutoff and integer-rounding condition. The arithmetic input is the existing unconditional uniform 7/8 character bound, with no new zero-free exponent claimed.
+
+benchmark_status: complete positive squarefree supply and native codebook cardinality lower bound proved; optimal physical stability and matching capacity upper order remain to be formalized.
+old_bound: the complete finite squarefree-gap inequality, supplemented by the two PNT block supplies, still retained a growing cutoff and both full error allowances.
+new_bound: card(S_sf)>=Y^2/(2000*log(Y)^2), and an actual native codebook exists with card(M)>=Y^2/(4096*log(Y)^2), at every sufficiently large natural Y.
+components: N=floor(Y/4), R=ceil(Y^(1/8)), 2<=R and R^2<=2N; exact positive product supply; complete low allowance at most 1250*C*Y^(15/8)*log(Y)^4; complete high allowance at most Y^(15/8); their sum at most Y^2/(2000*log(Y)^2); finite clean packing at T=2 costs a factor of two.
+actuals: no numerical prime counts, diagnostic completions or finite checks enter the bound. The codebook contains actual integer prime pairs. Each codebook is fixed before the independent field-scale limit.
+first_nonpositive_domain: no effective starting height is claimed because the inherited uniform constant C and PNT convergence thresholds remain existential. The theorem proves positivity for all sufficiently large heights.

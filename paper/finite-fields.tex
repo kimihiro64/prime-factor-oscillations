@@ -14119,12 +14119,116 @@ The compiled supply uses the equivalent inequalities
 This is classical PNT support for the height theorem, with no separate
 originality claim.
 
-The remaining height-capacity theorem must combine
-Theorems~\ref{thm:squarefree-prime-block-supply} and
-\ref{thm:prime-quarter-block-supply} with a rigorously rounded divisor
-cutoff and the native packing and physical-limit consumers.
-No numerical positivity cutoff is extracted here: \(C\) and the PNT
-threshold remain existential.
+\subsection{The complete squarefree height supply}
+
+\begin{theorem}[Asymptotic squarefree prime-pair supply]
+\label{thm:asymptotic-squarefree-prime-pairs}
+For every sufficiently large natural \(Y\), put \(N=\lfloor Y/4\rfloor\)
+and
+\[
+ S_Y=\{(p,q-p):2N<p\le3N<q\le4N,\quad
+                   p,q\text{ prime},\quad q-p\text{ squarefree}\}.
+\]
+Then \(Y\ge24\), \(\log Y\ge1\), and
+\[
+                         |S_Y|\ge\frac{Y^2}{2000\log^2Y}.
+\]
+The assertion is unconditional and holds at every sufficiently large
+integer height, rather than only along a subsequence.
+\end{theorem}
+
+\begin{proof}
+Write \(l=\log Y\), \(z=Y^{1/8}\), and \(R=\lceil z\rceil\).
+All statements below hold for every sufficiently large \(Y\).
+In particular, \(l\ge1\), \(z\ge3\), and \(12\le Y^{3/4}\).
+Rounding gives \(2\le R\le2z\), hence
+\[
+ R^2\le4Y^{1/4}\le Y/3\le2N.
+\]
+The last inequality follows from \(Y\le6\lfloor Y/4\rfloor\),
+valid here. Thus every modulus condition in
+Theorem~\ref{thm:squarefree-prime-block-supply} is satisfied at
+\((a,b,c)=(2N,3N,4N)\).
+
+Theorem~\ref{thm:prime-quarter-block-supply} supplies
+\(|A_N|,|B_N|\ge N/(2l)\). Since \(2Y\le9N\) for \(Y\ge24\),
+\[
+ |A_N||B_N|\ge\frac{Y^2}{81l^2},\qquad
+ \frac{|A_N||B_N|}{12}\ge\frac{Y^2}{1000l^2}.
+\]
+Also \(|A_N|\le Y\), since its members are distinct positive integers
+at most \(Y\). The complete high-root allowance therefore satisfies
+\[
+ |A_N|\left\lfloor\frac YR\right\rfloor
+       \le\frac{Y^2}{R}\le Y^{15/8}.
+\]
+For the low-root allowance, \(Y+2\le Y^2\) gives
+\(1+2\log(Y+2)\le5l\). Consequently
+\[
+ CRY^{7/4}\bigl(1+2\log(Y+2)\bigr)^4
+       \le1250C\,Y^{15/8}l^4.
+\]
+Retaining both allowances, their sum is at most
+\((1250C+1)Y^{15/8}l^4\). The proved logarithm-versus-power estimate
+gives
+\[
+ 2000(1250C+1)l^6\le Y^{1/8}
+\]
+eventually. Their complete sum is therefore at most
+\(Y^2/(2000l^2)\). Substitute this and the positive product supply
+in \eqref{eq:squarefree-prime-block-supply}. The retained supply is
+at least twice the full allowance, which proves the assertion.
+\end{proof}
+
+\subsection{Native codebooks at every sufficiently large height}
+
+\begin{theorem}[Native prime-pair height packing]
+\label{thm:asymptotic-native-height-packing}
+For every sufficiently large natural \(Y\), there is a finite
+set \(M_Y\) of pairs \((n,h)\) such that
+\[
+ n,\ n+h\text{ are prime},\qquad 0<h<n,\qquad n+h\le Y,
+\]
+\[
+                         |M_Y|\ge\frac{Y^2}{4096\log^2Y},
+\]
+and the native agreement rate of every two distinct entries is
+exactly \(3/8\).
+\end{theorem}
+
+\begin{proof}
+Apply the proved finite clean-gap packing theorem to \(S_Y\) with
+square-root cutoff \(T=2\). If \((p,q-p)\in S_Y\), then
+\(q>p\) and \(q\le4N<2p\), so \(0<q-p<p\).
+Its squarefree gap has no square divisor \(u^2\) with \(u\ge2\).
+The finite theorem therefore gives \(M_Y\subseteq S_Y\), with
+\[
+ |S_Y|\le2|M_Y|,
+\]
+and all distinct native agreement rates equal to \(3/8\).
+The preceding squarefree supply and \(4096>4000\) give the claimed
+cardinality. Every entry has both prime endpoints at most \(Y\).
+\end{proof}
+
+The maintained declarations are
+\texttt{QRH.eventually\_squarefree\_quarter\_prime\_pair\_supply}
+in \texttt{Helpers/\allowbreak NativeHeightSquarefreeSupply.\allowbreak lean}, and
+\texttt{FiniteFieldIntegerSignature.\allowbreak
+eventually\_native\_prime\_pair\_height\_packing}
+in \texttt{Assembly/\allowbreak FiniteFieldNativeAsymptoticPacking.\allowbreak lean}.
+Both maintained proofs compile without warnings; their two new closure
+checks use only the standard Lean foundations.
+No finite prime counts are substituted into an unresolved error.
+The uniform source constant and convergence cutoffs remain existential,
+so no effective numerical starting height is claimed.
+
+For the physical interpretation, each finite \(M_Y\) is fixed before
+the independent field-scale limit is taken. The theorem does not assert
+a uniform simultaneous limit with the codebook growing with that field
+scale. The cardinality lower bound is now proved. The optimal physical
+stability consumer and matching capacity upper order remain separate
+formalization tasks. No new bound on rational-prime gaps or zero-free
+exponent is inferred.
 
 \begin{thebibliography}{99}
 \bibitem{MartinWaljiCharacters}
