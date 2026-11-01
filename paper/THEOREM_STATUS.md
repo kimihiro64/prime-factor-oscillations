@@ -4083,6 +4083,28 @@ components: all-prime endpoint scan; computable square tests; preservation of ev
 actuals: twenty-nine new proof declarations, seven computable definitions/instances, no finite numerical replacement of a universal estimate.
 first_nonpositive_domain: primes include2, all positive gaps are admitted, and small empty prefixes are handled. Asymptotic cutoffs are not effective. Physical consequences keep each finite family fixed before the field limit.
 
+## Arbitrary fixed-degree split-product rejection (2026-11-01)
+
+The following five maintained proof declarations compile warning-free and have completed new-closure assumption audits. Earlier unchanged closures were not re-audited. The stronger infinite vertex/gap independence and cycle-classification programme remains open.
+
+| Claim | Lean declaration | Status |
+| --- | --- | --- |
+| A positive squarefree factor of a square product divides its partner | Nat.squarefree_dvd_of_positive_square_product | Proved; compiled and audited. |
+| Common-prime support gives a fixed-divisor square-class representative | Nat.exists_square_class_divisor_of_common_prime_support | Proved; compiled and audited. |
+| A common divisor of two shifts divides the absolute root difference | Nat.dvd_root_difference_of_dvd_shifts | Proved; compiled and audited. |
+| Every square split product has a root-difference divisor certificate | Nat.split_square_has_root_difference_divisor | Proved; compiled and audited. |
+| Actual-prime square-value density is zero for every fixed nonempty split product | PrimeFactorOscillations.tendsto_prime_split_product_square_values_zero | Proved; compiled and audited. |
+| Full infinite prime-vertex/gap squareclass independence and exact cycle kernel | No declaration installed yet | Open; no headline claim. |
+
+Reusable candidates: Mathlib/Data/Nat/SquareProductSupport.lean and SplitSquareCertificate.lean, both in the Nat namespace and listed in MATHLIB_PORTING.md. The prime limit owner is Proof/AffinePairs/PrimeSplitSquarePolynomials.lean. Natural subtraction is truncated; all inputs at or below the fixed root bound belong to an explicitly bounded zero-density event. Above that bound the expression is the ordinary split polynomial.
+
+benchmark_status: the universal fixed-degree rejection theorem is proved; the stronger infinite independence/cycle target remains open.
+old_bound: installed affine and split quadratic square-value sparsity.
+new_bound: square-value prime-relative frequency tends to zero for every fixed positive coefficient and every fixed nonempty finite set of distinct natural roots, of arbitrary finite size.
+components: positive squarefree decomposition; exact common-prime support absorption; all root differences; a finite union over every divisor of the fixed positive D; proved affine prime-relative sparsity; the bounded small-input event.
+actuals: five new audited proofs; no finite numerical test or higher-degree character estimate is substituted for a proof.
+first_nonpositive_domain: no uniformity in root count, root size or coefficient is claimed. A=empty and c=0 are excluded and can give frequency1. Small cutoffs including pi(N)=0 are included. No quantitative global vertex growth or new RH/QRH exponent is asserted.
+
 ## Prescribed prime reservoirs (2026-11-01)
 
 All fifteen claims have maintained Lean proofs and completed new-closure assumption audits. Every declaration below belongs to PrimeFactorOscillations.FiniteFieldIntegerSignature. The three reservoir construction definitions/instances are ordinary computable code using the supplied decision procedure.

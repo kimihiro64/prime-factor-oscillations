@@ -16068,6 +16068,108 @@ is the color corollary. These are in
 All fifteen new proof closures have been checked against the
 standard foundational-axiom allowlist.
 
+\section{Split-product rejection in every fixed degree}
+\label{sec:split-product-square-rejection}
+The affine square sparsity theorem suffices for products with any fixed
+finite number of distinct roots. The reduction is a fixed-divisor
+certificate; it requires no new character estimate of growing degree.
+
+\begin{lemma}[Common-prime square-class certificate]
+\label{lem:common-prime-square-certificate}
+Let \(m,n,D\) be positive natural numbers. Suppose \(mn\) is square
+and every prime dividing both \(m\) and \(n\) divides \(D\). Then
+there is a positive divisor \(d\mid D\) for which \(dm\) is square.
+\end{lemma}
+\begin{proof}
+Write \(m=b^2d\), where \(b,d>0\) and \(d\) is squarefree.
+Cancellation of the positive square \(b^2\) shows that \(dn\) is
+square. For each prime dividing \(d\), the exponent contributed by
+\(d\) is one. Its exponent in \(n\) must therefore be odd, hence
+positive. Thus \(d\mid n\); also \(d\mid m\). Every prime factor of
+the squarefree number \(d\) divides \(D\), so \(d\mid D\). Finally
+\(dm=(db)^2\).
+\end{proof}
+
+\begin{theorem}[Fixed root-difference certificate]
+\label{thm:split-square-divisor-certificate}
+Let \(A\) be a nonempty finite set of natural numbers, \(a_0\in A\),
+and \(c>0\) a natural number. Put
+\[
+ D=c\prod_{b\in A\setminus\{a_0\}}|b-a_0|>0.
+\]
+For every natural \(q\) above all roots in \(A\), if
+\(c\prod_{a\in A}(q-a)\) is square, then
+\[
+ \exists d>0:\qquad d\mid D,\qquad d(q-a_0)\text{ is square}.
+\]
+All differences \(q-a\) in this assertion are positive.
+\end{theorem}
+\begin{proof}
+Set
+\[
+ m=q-a_0,\qquad
+ n=c\prod_{b\in A\setminus\{a_0\}}(q-b).
+\]
+Both factors are positive, and \(mn\) is the assumed square product.
+If a prime \(\ell\) divides both, then it divides \(c\) or some
+\(q-b\) with \(b\ne a_0\). In the latter case it divides
+\((q-a_0)-(q-b)=b-a_0\), hence \(|b-a_0|\).
+Thus every common prime divisor of \(m,n\) divides the fixed
+positive integer \(D\). Apply
+Lemma~\ref{lem:common-prime-square-certificate}.
+The argument includes the singleton-root case, when the empty
+product gives \(D=c\).
+\end{proof}
+
+\begin{theorem}[Prime-relative square sparsity in arbitrary fixed degree]
+\label{thm:split-product-prime-sparsity}
+For every nonempty finite \(A\subset\mathbb N\) and every natural
+\(c>0\),
+\[
+ \frac{\#\{q\le N:q\text{ prime},\
+       c\prod_{a\in A}(q-a)_+\text{ is square}\}}{\pi(N)}
+       \longrightarrow0,
+ \qquad (q-a)_+=\max(q-a,0).
+\]
+The quotient is defined as zero when \(\pi(N)=0\). Above the
+largest root, the displayed product is the usual split polynomial.
+\end{theorem}
+\begin{proof}
+Choose \(a_0\in A\) and a fixed upper bound \(B\) for all roots.
+The primes \(q\le B\) have relative frequency tending to zero.
+For every other square value, the preceding certificate gives a
+positive divisor \(d\) of its fixed \(D\) such that \(d(q-a_0)\)
+is square. Each one of these finitely many affine square events
+has actual-prime relative frequency tending to zero by the proved
+affine sparsity theorem. Their full finite union therefore has
+frequency tending to zero, with all overlaps retained. It covers
+every remaining square value. Nonnegativity proves the limit.
+
+The order of choices is fixed throughout: first \(A,c,a_0,B,D\),
+then the finite divisor family, and finally \(N\to\infty\).
+No uniformity in the degree, coefficient or root size is asserted.
+\end{proof}
+
+The nonempty-root and positive-coefficient hypotheses are essential
+to this stated version: a zero coefficient or an empty product
+with square coefficient gives square values at every input. Roots
+are indexed by a set and are therefore distinct. The theorem makes
+no assertion that all nonsplit polynomials obey the same proof.
+
+The two square-product support declarations are maintained in
+\texttt{SquareProductSupport.lean}. The shifted-divisor argument
+and fixed-root certificate are in
+\texttt{SplitSquareCertificate.lean}; its principal declaration is
+\texttt{Nat.split\_square\_has\_root\_difference\_divisor}.
+The actual-prime limit is
+\texttt{PrimeFactorOscillations.tendsto\_prime\_split\_product\_square\_values\_zero},
+in \texttt{Proof/AffinePairs/PrimeSplitSquarePolynomials.lean}.
+All five new proof closures have been audited against the standard
+foundational-axiom allowlist. These are the completed rejection
+inputs for the proposed full vertex/gap independence construction;
+that stronger construction and its exact cycle kernel are not
+asserted by this section.
+
 \begin{thebibliography}{99}
 \bibitem{KarpVaziraniVazirani}
 R. M. Karp, U. V. Vazirani and V. V. Vazirani,

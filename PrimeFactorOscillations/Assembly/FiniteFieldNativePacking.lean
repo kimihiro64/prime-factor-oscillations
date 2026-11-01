@@ -12,6 +12,7 @@ import PrimeFactorOscillations.Assembly.FiniteFieldNativeHeightCapacity
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeHeightPacking
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeVertexGreedy
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeVertexReservoir
+import PrimeFactorOscillations.Proof.AffinePairs.PrimeSplitSquarePolynomials
 
 /-!
 # Native prime-pair packing and physical capacity
@@ -22,4 +23,5 @@ blocks, unrestricted finite extraction, positive cross-output class and
 complete squarepart consumers remain exported. Density-one finite prime-vertex
 extensions and one computable infinite complete prime-pair family are included.
 Prescribed nonvanishing-density reservoirs and finite vertex colorings are covered.
+Arbitrary fixed-degree split-product prime rejection is also exported.
 -/

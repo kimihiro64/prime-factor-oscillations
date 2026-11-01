@@ -10,6 +10,8 @@ namespace.
 | Module | Proposed destination | Readiness | Scope |
 | --- | --- | --- | --- |
 | `PrimeFactorOscillations.Mathlib.Data.Nat.IsSquareTrans` | `Mathlib/Data/Nat/IsSquareTrans.lean` | project-verified | For positive natural b, square(a*b) and square(b*c) imply square(a*c); extracted from the existing local native-row argument, with the positive middle factor retained explicitly. Maintained pinned compiler check passed; used by the native maximal-packing two-row consumer. |
+| `PrimeFactorOscillations.Mathlib.Data.Nat.SquareProductSupport` | `Mathlib/Data/Nat/SquareProductSupport.lean` | project-verified | For positive factors, a squarefree factor of a square product divides its partner; a square product m*n whose common prime divisors all divide positive D admits positive d dividing D with d*m square. Full source and new-closure audits passed; no analytic estimate is assumed. |
+| `PrimeFactorOscillations.Mathlib.Data.Nat.SplitSquareCertificate` | `Mathlib/Data/Nat/SplitSquareCertificate.lean` | project-verified | A prime divisor common to two shifted factors divides their root difference. For any nonempty finite set of distinct natural roots and positive leading coefficient, a square split product above all roots has a square-class divisor supported on the fixed coefficient and root differences. Both real proofs compile and their new closures are audited. |
 
 ## Integer square-divisor tails
 
