@@ -17601,6 +17601,198 @@ separately. The quadratic-character and finite-selector inputs are
 classical; historical priority for this native sharp conditional
 coincidence theorem is unestablished.
 
+\section{Exact square-relation counts and an isolated coincidence floor}
+\label{sec:native-coincidence-gap}
+
+The preceding floor has an exact extremizer criterion for arbitrary
+actual prime vertices. It depends only on the row relations that survive
+the joined synchronized-word expansion, rather than on every possible
+vertex/gap relation. There is also a uniform separation from the floor
+whenever this criterion fails.
+
+Keep a fixed nonempty strict graph \(G\subseteq E(P)\) on actual prime
+vertices, with \(m=|G|\), \(N=N_{\rm all}(P,G)\), and central contribution
+\(C_+=\kappa_+(P,G)N/2^m\) as above. For \(O,T\subseteq G\), define
+\[
+ H(O,T)=
+ \prod_{(p,q)\in O}p(q-p)\,
+ \prod_{(p,q)\in T}q(q-p)>0.
+\]
+Use the complete finite supported relation family
+\[
+ \mathcal K(G)=
+ \{(O,T)\in\mathcal P(G)\times\mathcal P(G):
+       |O|+|T|\equiv0\pmod2,\ H(O,T)\text{ is a square}\},
+ \qquad K(G)=|\mathcal K(G)|.
+\]
+The even-total condition is essential: an odd-total square relation
+has zero coefficient after the two synchronized events are joined.
+Write
+\[
+ F_+(P,G)=C_+(P,G)+\frac{2N}{4^m},
+ \qquad B(P,G)=\frac{2N}{4^m}>0.
+\]
+
+\begin{theorem}[Exact extremizers and an isolated positive-phase floor]
+\label{thm:native-coincidence-gap}
+For every such fixed actual prime graph, the conditional actual-weight
+agreement limit within prime fields of size \(1\) modulo four satisfies
+\begin{equation}\label{eq:native-exact-square-count}
+              A_+(P,G)=C_+(P,G)+\frac{2K(G)}{4^m}.
+\end{equation}
+Moreover,
+\begin{equation}\label{eq:native-exact-floor-criterion}
+ A_+(P,G)=F_+(P,G)
+ \quad\Longleftrightarrow\quad
+       (O,T)\in\mathcal K(G)\ \Longrightarrow\ O=T.
+\end{equation}
+If there is an off-diagonal pair in \(\mathcal K(G)\), then
+\begin{equation}\label{eq:native-isolated-floor}
+ K(G)\geq2N,\qquad
+ A_+(P,G)\geq F_+(P,G)+B(P,G)
+             =C_+(P,G)+\frac{4N}{4^m}.
+\end{equation}
+Thus the possible conditional limits have no values strictly between
+\(F_+\) and \(F_++B\). No sharpness assertion for this second endpoint
+is needed or made here.
+\end{theorem}
+
+\begin{proof}
+First reduce the entire paired summand, before making any estimate.
+The exact signed factorization is
+\[
+                    D(O,T)=(-1)^{|O|}H(O,T).
+\]
+Since \(H(O,T)>0\), precisely one of \(D(O,T)\) and \(-D(O,T)\)
+can be a square when \(H(O,T)\) is a square; neither can be a square
+otherwise. Hence, retaining both indicators,
+\[
+       \delta(D(O,T))+\delta(-D(O,T))
+                  =\mathbf1\{H(O,T)\text{ is a square}\}.
+\]
+Also
+\[
+       1+(-1)^{|O|+|T|}
+             =2\mathbf1\{|O|+|T|\equiv0\pmod2\}.
+\]
+The complete finite sum in
+\eqref{eq:native-positive-full-signed-rate} therefore counts exactly
+\(\mathcal K(G)\), with contribution two per member:
+\[
+                       W_+(P,G)=\frac{K(G)}{4^m}.
+\]
+The already proved actual-weight decomposition, common-phase
+normalization and fixed-character limits give
+\(A_+=C_++2W_+\), proving \eqref{eq:native-exact-square-count}.
+In particular, this is the same physical probability limit as above,
+including its central mass and both synchronized noncentral events.
+
+We next prove the full overlap identity needed to translate square
+relations. For finite sets \(S,T\) and a natural-valued function \(f\),
+disjoint decomposition into \(S\setminus T\), \(T\setminus S\) and
+\(S\cap T\) gives
+\[
+ \left(\prod_{s\in S}f(s)\right)
+ \left(\prod_{t\in T}f(t)\right)
+   =\left(\prod_{u\in S\mathbin{\triangle}T}f(u)\right)
+       \left(\prod_{v\in S\cap T}f(v)\right)^2.
+\]
+Apply this to the lower and upper row factors separately. For all
+\(O,T,A,B\subseteq G\), it gives
+\begin{align*}
+ H(O,T)H(A,B)
+  ={}&H(O\mathbin{\triangle}A,T\mathbin{\triangle}B)\,c^2,\\
+ c={}&
+ \prod_{(p,q)\in O\cap A}p(q-p)\,
+ \prod_{(p,q)\in T\cap B}q(q-p)>0.
+\end{align*}
+Every intersection factor is retained. Positivity uses primality of
+the vertices and the strict orientation \(p<q\).
+If both original products are squares, so is their product.
+Cancellation of the positive square \(c^2\) then proves that the
+translated product is a square. Explicitly, if \(ac^2=k^2\) and
+\(c>0\), divisibility \(c^2\mid k^2\) implies \(c\mid k\);
+write \(k=cu\) and cancel \(c^2\) to obtain \(a=u^2\).
+The reverse implication is immediate.
+
+The exact cardinality identity
+\[
+ |S\mathbin{\triangle}T|+2|S\cap T|=|S|+|T|
+\]
+shows at the same time that two even-total pairs have an even-total
+symmetric difference. Subsets remain supported in \(G\).
+Consequently \(\mathcal K(G)\) is closed under the full translation
+\[
+                (O,T),(A,B)\longmapsto
+                 (O\mathbin{\triangle}A,T\mathbin{\triangle}B).
+\]
+There is no restriction to selected edges or disjoint input supports.
+
+The universal diagonal square classifier proved earlier says
+\[
+       (C,C)\in\mathcal K(G)
+        \quad\Longleftrightarrow\quad C\in\mathcal C(P,G).
+\]
+Indeed, the diagonal total is automatically even, and its unsigned
+product is a square exactly when every vertex degree in \(C\) is even.
+Thus the diagonal family
+\[
+                   \mathcal D=\{(C,C):C\in\mathcal C(P,G)\}
+\]
+is contained in \(\mathcal K(G)\) and has cardinality \(N\).
+
+Suppose \((O,T)\in\mathcal K(G)\) with \(O\ne T\). Translate every
+one of these \(N\) diagonals by the same full pair:
+\[
+ \mathcal F_{O,T}
+   =\{(O\mathbin{\triangle}C,T\mathbin{\triangle}C):
+                                  C\in\mathcal C(P,G)\}.
+\]
+Closure proves \(\mathcal F_{O,T}\subseteq\mathcal K(G)\).
+The map is injective: applying symmetric difference with \(O\) to
+an equality of its first coordinates recovers the original \(C\).
+Therefore \(|\mathcal F_{O,T}|=N\).
+These two families are disjoint. If a translated member were diagonal,
+then
+\(O\mathbin{\triangle}C=T\mathbin{\triangle}C\);
+cancelling \(C\) would give \(O=T\), a contradiction.
+It follows, on the complete supported family, that
+\[
+              K(G)\geq|\mathcal D\cup\mathcal F_{O,T}|=2N.
+\]
+Substitution in \eqref{eq:native-exact-square-count}, with its central
+contribution unchanged, proves \eqref{eq:native-isolated-floor}.
+
+If every member of \(\mathcal K(G)\) is diagonal, the diagonal
+classifier proves \(\mathcal K(G)=\mathcal D\), so \(K=N\) and
+\(A_+=F_+\). Conversely, an off-diagonal member forces the strictly
+positive additional mass \(B\), contradicting \(A_+=F_+\).
+Here \(N\geq1\), since the empty mask is Eulerian, and \(4^m>0\).
+This proves the equivalence and the complete isolated-gap alternative.
+\end{proof}
+
+The definitions of the unsigned product, complete supported relation
+family and its count are maintained in
+\texttt{NativePrimeSquareMaskRelations.lean}.
+The positive square cancellation, exact overlap factors and parity
+translation are in \texttt{NativePrimeSquareMaskTranslation.lean}.
+The exact actual probability count, extremizer criterion and isolated
+gap are in \texttt{FiniteFieldNativeCoincidenceGap.lean}; the claim
+ledger records the individual proof validations.
+The count and mask identities also hold for the empty graph, but the
+three-event physical agreement decomposition used here requires a
+nonempty graph. Prime vertex \(2\) and isolated vertices are allowed;
+exceptional field primes are removed by the same eventual finite-band
+cutoff used above.
+
+This theorem classifies attainment of the previous native coincidence
+floor using only surviving even-total square relations. It neither
+requires nor asserts a squareclass rank formula, uniformity for growing
+graphs, a sharper integer prime supply, or an RH exponent improvement.
+Its finite translation argument is classical; the application to
+the exact actual native-weight coincidence law is the contribution
+here. Historical publication priority remains unestablished.
+
 \begin{thebibliography}{99}
 \bibitem{KarpVaziraniVazirani}
 R. M. Karp, U. V. Vazirani and V. V. Vazirani,

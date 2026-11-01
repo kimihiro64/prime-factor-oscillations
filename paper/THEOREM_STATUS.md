@@ -1,5 +1,47 @@
 # Paper theorem and provenance ledger
 
+## Exact native coincidence count and isolated floor (2026-11-01)
+
+All twenty-six claims below have maintained Lean proofs, completed focused compilation and new-only assumption audits. Their namespace is `PrimeFactorOscillations.FiniteFieldIntegerSignature`. For every fixed nonempty strict graph G on actual prime vertices P, let N=N_all(P,G), let K count all supported row pairs (O,T) with even total cardinality and square full unsigned row product, and retain the compatible all-central contribution C_plus. The actual conditional agreement limit in prime fields1 modulo4 is exactly C_plus+2*K/4^|G|. It attains the previous floor if and only if every surviving pair is diagonal. Any off-diagonal member forces K>=2*N and a gap at least2*N/4^|G| above the floor.
+
+| Claim | Lean declaration | Status |
+| --- | --- | --- |
+| Exact product overlap identity retaining the full intersection square | native_mask_product_symmDiff_square_factor | Proved; maintained, compiled and audited. |
+| Exact symmetric-difference cardinality with doubled intersections | native_mask_card_symmDiff_double_inter | Proved; maintained, compiled and audited. |
+| Cancellation of a positive natural square factor in both directions | native_positive_square_factor_cancel | Proved; maintained, compiled and audited. |
+| Right cancellation of a finite-set symmetric difference | native_mask_symmDiff_right_cancel | Proved; maintained, compiled and audited. |
+| Injectivity of every left symmetric-difference translation | native_mask_symmDiff_left_injective | Proved; maintained, compiled and audited. |
+| Supported masks stay supported under symmetric difference | native_mask_symmDiff_subset | Proved; maintained, compiled and audited. |
+| Full lower and upper row overlap product identity | native_unsigned_row_symmDiff_square_factor | Proved; maintained, compiled and audited. |
+| Square row pairs stay square under complete mask translation | native_unsigned_square_pair_symmDiff_closed | Proved; maintained, compiled and audited. |
+| Even total row parity is preserved by translation | native_even_row_pair_symmDiff_parity | Proved; maintained, compiled and audited. |
+| Exact membership criterion for the complete supported even-square family | native_even_square_row_pairs_mem_iff | Proved; maintained, compiled and audited. |
+| The two signed square indicators equal the unsigned square indicator | native_signed_agnostic_indicator_eq_unsigned | Proved; maintained, compiled and audited. |
+| The joined synchronized-word coefficient is exactly the even-parity selector | native_synchronized_sign_coefficient_parity | Proved; maintained, compiled and audited. |
+| Each complete paired row summand is twice its even-square indicator | native_even_square_row_paired_contribution | Proved; maintained, compiled and audited. |
+| The full supported paired sum is twice the exact relation count | native_even_square_row_pairs_card_sum | Proved; maintained, compiled and audited. |
+| Exact joint synchronized-word rate from the relation count | native_graph_positive_phase_constant_word_count_eq | Proved; maintained, compiled and audited. |
+| Exact conditional agreement rate retaining the central contribution | native_graph_positive_phase_agreement_count_eq | Proved; maintained, compiled and audited. |
+| The count formula through the actual modulo-four weight probability limit | native_graph_positive_phase_weight_count_ratio_tendsto | Proved; maintained, compiled and audited. |
+| Complete supported even-square row family is closed under translation | native_even_square_row_pairs_symmDiff_mem | Proved; maintained, compiled and audited. |
+| Every Eulerian diagonal belongs to the full relation family | native_eulerian_diagonal_square_pair_mem | Proved; maintained, compiled and audited. |
+| Diagonal square relation if and only if the mask is Eulerian | native_diagonal_square_pair_mem_iff | Proved; maintained, compiled and audited. |
+| No extra row relations implies the exact Eulerian count | native_even_square_row_count_eq_of_no_extra | Proved; maintained, compiled and audited. |
+| One off-diagonal relation forces at least twice the Eulerian count | native_even_square_row_count_ge_double_of_extra | Proved; maintained, compiled and audited. |
+| An extra row relation forces the explicit positive gap above the floor | native_positive_phase_floor_gap_of_extra | Proved; maintained, compiled and audited. |
+| Attainment of the floor if and only if there are no off-diagonal even-square rows | native_positive_phase_floor_eq_iff_no_extra | Proved; maintained, compiled and audited. |
+| Complete equality or isolated-gap alternative | native_positive_phase_floor_isolated | Proved; maintained, compiled and audited. |
+| The isolated-gap alternative through the actual conditional weight limit | native_positive_phase_weight_limit_isolated | Proved; maintained, compiled and audited. |
+
+Definition interfaces, separate from proof counts: `nativeUnsignedRowProduct`, `nativeEvenSquareRowPairs`, `nativeEvenSquareRowCount`, `nativeNoExtraEvenSquareRows`. Owners: Definitions/NativePrimeSquareMaskRelations.lean, Helpers/NativePrimeSquareMaskTranslation.lean and Assembly/FiniteFieldNativeCoincidenceGap.lean. The final owner is exported through FiniteFieldNativePacking.lean; the complete proof is in the finite-fields paper, section native-coincidence-gap. Only the twenty-six new proof closures were audited, using only propext, Classical.choice and Quot.sound. The public downstream build and final staged release checks are recorded in the promotion receipt.
+
+benchmark_status: exact universal actual coincidence formula, necessary and sufficient extremizer criterion, and isolated gap proved.
+old_bound: A_plus>=C_plus+2*N_all/4^m, with equality under the sufficient full vertex/gap independence hypothesis.
+new_bound: A_plus=C_plus+2*K/4^m; equality with the old floor holds exactly when all supported even-square row pairs are diagonal. Otherwise A_plus>=C_plus+4*N_all/4^m.
+components: both signed square indicators; complete even-total selector; exact supported count; retained intersection square factors and parity; Eulerian diagonal family; full translated family of the same cardinality; injectivity and disjointness; unchanged central contribution and actual conditional normalization.
+actuals: twenty-six newly audited maintained proofs, four definition interfaces and three maintained owners. No numerical approximation or finite diagnostic supplies any part of the symbolic bound.
+first_nonpositive_domain: the additional gap2*N_all/4^m is strictly positive for every finite graph because N_all>=1; the physical agreement consumer requires G nonempty. Early field primes are removed by the existing eventual band. Prime vertex2 and isolated vertices are permitted. No growing-graph uniformity, second-gap endpoint sharpness, squareclass rank formula, integer prime-gap transfer or RH/QRH gain is asserted. Publication priority is unestablished.
+
 ## Sharp universal positive-phase coincidence law (2026-11-01)
 
 All thirty-four claims below have maintained Lean proofs, warning-free focused builds and completed new-only assumption audits. Their namespace is `PrimeFactorOscillations.FiniteFieldIntegerSignature`. For every fixed nonempty strict graph G on arbitrary actual prime vertices P, the exact limiting agreement probability within prime fields1 modulo4 is at least C_plus(P,G)+2*N_all(P,G)/4^|G|. The central contribution C_plus is N_all/2^|G| when its all-central positive-phase profile is compatible and0 otherwise. Equality holds under complete vertex/gap squareclass independence; one previously constructed computable infinite prime class attains it for every fixed finite nonempty graph on that class. The same holds inside any decidable prime reservoir with nonvanishing prime-relative frequency.
