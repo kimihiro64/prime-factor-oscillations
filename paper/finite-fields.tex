@@ -13764,8 +13764,99 @@ project-specific definitions. The first new closure uses
 uses \texttt{Classical.choice}.
 
 For the height construction the upper endpoint may be taken as
-\(N=Y+1\). Translating this integer allowance into the count of
-discarded actual prime pairs is a separate finite counting step.
+\(N=Y+1\). The next theorem translates this integer allowance into
+the count of discarded actual prime pairs.
+
+\section{Actual prime-pair packing and its deletion allowance}
+\label{sec:native-height-square-tail}
+
+The integer tail estimate can be applied to actual prime pairs without
+a rounding loss or a disjointness assumption on the square-divisor
+events. The following finite statement retains the initial supply
+and the discarded pairs in the same inequality.
+
+\begin{theorem}[Prime-product support and square-divisor deletion]
+\label{thm:native-height-square-tail}
+Let \(A,B\) be finite sets of primes, and let \(Y,T\) be natural
+numbers with \(T\ge2\). Suppose that
+\[
+ Y<2n\quad(n\in A),\qquad q\le Y\quad(q\in B),\qquad
+ n<q\quad(n\in A,\ q\in B).
+\]
+Put \(D=T-1\). There is a finite set \(M\) of pairs \((n,h)\)
+with \(n\in A\), \(n+h\in B\), and \(0<h<n\), such that
+every two distinct members have native agreement rate \(3/8\) and
+\begin{equation}
+ |A|\,|B|
+ \le 2D\,|M|+|A|\left\lfloor\frac{Y}{D}\right\rfloor.
+ \label{eq:native-height-square-tail}
+\end{equation}
+The statement includes empty endpoint sets and the prime \(2\).
+\end{theorem}
+
+\begin{proof}
+Map the full product \(A\times B\) to
+\[
+ S=\{(n,q-n):n\in A,\ q\in B\}.
+\]
+The inequalities \(n<q\le Y<2n\) imply \(0<q-n<n\).
+The map is injective: its image recovers both \(n\) and
+\(q=n+(q-n)\). Thus \(|S|=|A||B|\).
+
+For each integer \(u\ge T\), let
+\[
+ Q_u=\{(n,h)\in S:u^2\mid h\}.
+\]
+Since every such \(h\) is positive and at most \(Y\), division by
+\(u^2\) gives an injection
+\[
+ Q_u\longrightarrow
+ A\times\{1,\ldots,\lfloor Y/u^2\rfloor\},\qquad
+ (n,h)\longmapsto(n,h/u^2).
+\]
+The divisibility condition recovers the gap from its quotient,
+so this is an actual injection, including all endpoint restrictions.
+Consequently
+\[
+ |Q_u|\le |A|\left\lfloor\frac{Y}{u^2}\right\rfloor.
+\]
+
+Let \(E\) consist of the pairs in \(S\) whose gaps have a square
+divisor \(u^2\) with \(u\ge T\), and put \(C=S\setminus E\).
+Any such divisor satisfies \(u^2\le h\le Y\), hence \(u\le Y\).
+The full finite union bound, with all overlaps retained, and
+Theorem~\ref{thm:integer-square-tail} give
+\begin{align*}
+ |E|
+ &\le\left|\bigcup_{T\le u<Y+1}Q_u\right|
+ \le\sum_{T\le u<Y+1}|Q_u|\\
+ &\le |A|\sum_{T\le u<Y+1}
+          \left\lfloor\frac{Y}{u^2}\right\rfloor
+ \le |A|\left\lfloor\frac{Y}{T-1}\right\rfloor.
+\end{align*}
+Every member of \(C\) satisfies the square-divisor cutoff in
+Theorem~\ref{thm:native-clean-packing}. That theorem supplies
+\(M\subseteq C\) with all distinct native rates \(3/8\) and
+\(|C|\le2(T-1)|M|\). Finally,
+\[
+ |A||B|=|S|\le |C|+|E|
+ \le 2(T-1)|M|+|A|
+                  \left\lfloor\frac{Y}{T-1}\right\rfloor,
+\]
+as required. No prime pair is counted twice in \(S\); overlaps in
+the divisor cover only enlarge its upper bound.
+\end{proof}
+
+The maintained declaration is
+\texttt{native\_height\_square\_tail\_packing} in
+\texttt{FiniteFieldNativeHeightPacking.\allowbreak lean}.
+Its real proof compiles without warnings; the new dependency audit
+uses only \texttt{propext}, \texttt{Classical.choice}, and
+\texttt{Quot.sound}. The divisor count and finite union estimate
+are classical ingredients. Their composition here gives the
+actual native-codebook construction, rather than an assumed
+clean-support supply. An asymptotic estimate for the size of
+height-bounded codebooks remains a separate theorem.
 
 \begin{thebibliography}{99}
 \bibitem{MartinWaljiCharacters}

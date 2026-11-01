@@ -3693,7 +3693,7 @@ old_bound: endpoint constraints alone, without an installed quantitative subfami
 new_bound: |S|<=2*(T-1)*|M|, with all distinct selected native rates3/8.
 components: positive squarefree gap decomposition; exact square-factor cancellation; native endpoint recovery on both rows; root-index injection into {1,...,T-1}; maximum-cardinality two-row separation; the full finite neighborhood cover and overlap-safe union count; exact arithmetic native agreement classification.
 actuals: one universal maintained Lean proof and one new-only foundational axiom closure. A separate diagnostic tested1937 full clean-support cases for consecutive heights2..150 and T=0..12, including prime2 and empty cases. Those computations are evidence only and do not supply the universal proof.
-first_nonpositive_domain: a nonempty clean support forces T>=2 and a nonempty selected family. T=0,1 and empty supports have the stated zero case. The full proposed height bound Y^2/(2^18 log^3Y) and capacity exponent2 remain unproved; square-divisor deletion and PNT supply are still required. Each finite family is fixed before its field limit. No RH/QRH or H1 gain is claimed.
+first_nonpositive_domain: a nonempty clean support forces T>=2 and a nonempty selected family. T=0,1 and empty supports have the stated zero case. The full proposed height bound Y^2/(2^18 log^3Y) and capacity exponent2 remain unproved; the finite prime-product deletion consumer is now proved below, while PNT supply and the asymptotic assembly remain. Each finite family is fixed before its field limit. No RH/QRH or H1 gain is claimed.
 
 ## Exact integer square-divisor tail (2026-10-31)
 
@@ -3711,5 +3711,22 @@ old_bound: the proposed deletion argument had a real reciprocal-square tail and 
 new_bound: sum over T<=u<N of floor(Y/u^2)<=floor(Y/(T-1)), with no accumulated floor error.
 components: associativity of natural division; u*floor(q/u)<=q; positive denominator u-1; complete finite induction retaining the terminal quotient; empty-interval case.
 actuals: two maintained real proofs and two new-only closure audits. Separate diagnostics checked49599 one-step cases and14529 tail cases for Y=0..500; their restricted N=Y+1 tail domain is recorded and is not used as the universal proof.
-first_nonpositive_domain: Y=0 or an empty summation interval gives the zero case. T>=2 ensures the displayed denominators are positive. The actual prime-pair deletion consumer, full Y^2/(2^18 log^3Y) bound and capacity exponent2 remain unproved. No RH/QRH or H1 gain is asserted.
+first_nonpositive_domain: Y=0 or an empty summation interval gives the zero case. T>=2 ensures the displayed denominators are positive. The actual prime-pair deletion consumer is now proved in the next section; the full Y^2/(2^18 log^3Y) bound and capacity exponent2 remain unproved. No RH/QRH or H1 gain is asserted.
+
+## Actual prime-product packing with the deletion allowance (2026-10-31)
+
+Paper: `finite-fields.tex`, Theorem `thm:native-height-square-tail` and equation `eq:native-height-square-tail`. Owner: `Assembly/FiniteFieldNativeHeightPacking.lean`. Namespace: `PrimeFactorOscillations.FiniteFieldIntegerSignature`.
+
+| Claim / declaration | Status | Exact verified scope |
+| --- | --- | --- |
+| `native_height_square_tail_packing` | proved | Every finite prime sets A,B and natural Y,T>=2 with Y<2*n on A, q<=Y on B and n<q on A x B admit a family M of actual short prime pairs with |A|*|B|<=2*(T-1)*|M|+|A|*floor(Y/(T-1)); all distinct selected native rates equal3/8. Empty sets and prime2 are included. |
+
+The complete maintained real proof compiled warning-free. Its one new-only axiom closure contains only propext, Classical.choice and Quot.sound. No unchanged earlier closure was reaudited. Classical integer division, finite injections and the union estimate are inputs; the project-specific conclusion composes the exact divisor allowance with the native clean-support extraction theorem.
+
+benchmark_status: exact finite prime-product supply and square-divisor loss assembled in one proved inequality.
+old_bound: a clean-support extraction and a separate integer quotient tail, with no installed consumer on arbitrary actual prime endpoint products.
+new_bound: |A|*|B|<=2*D*|M|+|A|*floor(Y/D), D=T-1>=1, with all distinct selected native rates3/8.
+components: injective endpoint-to-gap coordinates; the quotient injection on every square-divisor fibre; every root T<=u<=Y; the complete overlap-safe finite union; exact natural quotient tail; native clean-support extraction.
+actuals: one universal maintained proof and one new-only foundational axiom audit. A separate falsification check covered1419 full quarter-interval supports, every Y=0..128 and T=2..12, including lower prime2; no computation is an analytic input.
+first_nonpositive_domain: the allowance can exhaust the displayed positive supply when floor(Y/D)>=|B|; no positivity is asserted there. The full asymptotic height-capacity theorem remains unproved. The proposed stronger squarefree-gap route is not promoted as a theorem. No integer H1 or RH/QRH exponent gain is asserted.
 
