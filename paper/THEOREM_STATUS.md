@@ -4005,9 +4005,28 @@ first_nonpositive_domain: lower prime2 is excluded explicitly; J and T are fixed
 
 Maintained owners: Assembly/FiniteFieldNativeFullHeightSupply.lean and Assembly/FiniteFieldNativeDensityOne.lean. The three new declarations and the changed quarter-block proof compile warning-free, with exactly propext, Classical.choice and Quot.sound. The two unchanged supplier closures were reused from their existing successful audit rather than re-audited.
 
-benchmark_status: full positive-gap retention proved; sharp leading full-height capacity and its same-witness physical specialization remain pending.
+benchmark_status: full positive-gap retention proved; sharp full-height capacity and its same-witness physical specialization are proved in the following section.
 old_bound: density-one retention was restricted to separated quarter blocks; arbitrary full-height labels had only constant-factor or finite clean-support results.
 new_bound: card(M)>=(1-eps) card(S_Y), eventually for every natural Y and every fixed real eps>0; no short-gap restriction.
 components: full positive supply D<=81 card(S_Y); low-prefix cost<=8D/J; complete squarepart principal and character/high-root remainder; both E_T and C_J; four allowances each<=eps D/324; total loss<=eps D/81.
 actuals: three new maintained proofs and one changed compatibility proof. No finite numerical count is used in place of an analytic estimate.
-first_nonpositive_domain: J>=4 with eps J>=2592 is fixed first, T second, then Y grows. The threshold is not effective. Sharp capacity constant1/2 and the full-codebook physical specialization are not asserted by this row. No RH/QRH exponent or integer bounded-gap conclusion.
+first_nonpositive_domain: J>=4 with eps J>=2592 is fixed first, T second, then Y grows. The threshold is not effective. The sharp capacity and physical specialization are supplied below. No RH/QRH exponent or integer bounded-gap conclusion.
+
+## Sharp full-height native capacity (2026-11-01)
+
+| Claim | Maintained declaration | Status and scope |
+| --- | --- | --- |
+| Two strict prime-pair triangles plus the full diagonal | PrimeFactorOscillations.FiniteFieldIntegerSignature.nativeFullPrimePairGapSet_card_twice | Proved for every natural Y: 2 card(S_Y)+pi(Y)=pi(Y)^2. Empty and singleton prime ranges are included. |
+| Exact full positive-gap candidate cardinality | PrimeFactorOscillations.FiniteFieldIntegerSignature.nativeFullPrimePairGapSet_card | Proved for every natural Y: card(S_Y)=(pi(Y)^2-pi(Y))/2, with natural subtraction and division. |
+| Sharp normalized full count | PrimeFactorOscillations.FiniteFieldIntegerSignature.tendsto_native_full_pair_count_ratio | Proved: card(S_Y)/(Y^2/log(Y)^2) tends to1/2 along natural heights, retaining the entire diagonal correction. |
+| Sharp full capacity, relative retention, and same-witness physical stability | PrimeFactorOscillations.FiniteFieldIntegerSignature.eventually_native_full_pair_sharp_capacity | Proved for every fixed real eps>0: eventually every V subset S_Y has card(V)<=(1/2+eps)D, and the same constructed M retains at least1-eps of S_Y, has card(M)>=(1/2-eps)D and at least2 members, every distinct native rate3/8, the exact signed physical energy limit3/8(sum c)^2+5/8 sum c^2, and optimal lower stability constant5/8. |
+| Largest flat codebook has leading constant1/2 | Direct mathematical squeeze consequence of the preceding compiled bracket | Established consequence; the maximal-size function itself is not a separate compiled declaration. |
+
+Maintained owners: Assembly/FiniteFieldNativeFullCounting.lean and Assembly/FiniteFieldNativeFullCapacity.lean. Exactly these four new closures compile warning-free and use only propext, Classical.choice and Quot.sound. No earlier unchanged theorem closure was re-audited.
+
+benchmark_status: full unrestricted native density-one and sharp-capacity programme proved.
+old_bound: relative full-height retention was proved, with only constant-factor height supplies recorded.
+new_bound: optimal full-height cardinality has leading constant1/2 on D=Y^2/log(Y)^2; for every eps>0 the compiled universal upper and constructed lower brackets are (1/2+eps)D and (1/2-eps)D.
+components: exact upper/lower triangle bijection and diagonal; existing PNT ratio; log(Y)/Y decay; full retained coefficient(1-delta)(1/2-delta), delta=min(eps/8,1/8); all signed physical cross terms; same codebook with at least2 members.
+actuals: four new maintained proofs across two focused owners. No finite numerical completion or assumed asymptotic is used.
+first_nonpositive_domain: eps>0 fixed before Y; every sufficiently large natural height; positive normalized denominators and at least2 retained labels. Each finite codebook is fixed before the independent field-scale limit. No effective threshold, simultaneous growing-codebook limit, new zero-free exponent or integer bounded-gap claim.

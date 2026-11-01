@@ -53,7 +53,9 @@ endpoint at most the height, we construct native finite-field
 codebooks retaining at least
 \(1-\varepsilon\) of the complete candidate set, for every
 \(\varepsilon>0\) and all sufficiently large heights.
-Their distinct agreement rates are exactly \(3/8\).
+Their distinct agreement rates are exactly \(3/8\), and the largest
+possible codebooks have size asymptotic to
+\(\tfrac12Y^2/\log^2Y\).
 These same codebooks have exact physical energy
 \(\frac38(\sum c)^2+\frac58\sum c^2\) and optimal lower
 stability constant \(5/8\), with the finite codebook fixed
@@ -15395,10 +15397,146 @@ same generalized private cutoff estimate.
 The three new declarations and that changed proof compile without
 warnings and use only standard Lean foundations.
 The retention threshold is not made effective here.
-The sharp leading constant for the total full-height capacity is
-a separate consequence to be established next; this theorem makes
-no claim about integer prime-gap recurrence or an improved zero-free
-boundary.
+The next section determines the sharp full-height capacity and its
+physical consequences without an integer prime-gap or zero-free-boundary
+claim.
+
+\section{Sharp full-height capacity and physical stability}
+\label{sec:native-full-capacity}
+
+The unrestricted retention fraction determines the sharp total capacity,
+including its leading constant. The diagonal of the complete ordered
+prime ensemble must be subtracted before taking that limit.
+
+\begin{theorem}[Exact full candidate count]\label{thm:native-full-count}
+For every natural \(Y\), including the empty and singleton prime ranges,
+\[
+ 2|S_Y|+\pi(Y)=\pi(Y)^2,\qquad
+ |S_Y|=\frac{\pi(Y)^2-\pi(Y)}2.
+\]
+Moreover,
+\[
+ \frac{|S_Y|}{Y^2/\log^2Y}\longrightarrow\frac12
+ \qquad(Y\to\infty,\ Y\in\mathbb N).
+\]
+\end{theorem}
+
+\begin{proof}
+Partition the complete ordered prime-pair ensemble through \(Y\) into
+the strict upper triangle, diagonal, and strict lower triangle.
+Swapping the endpoints is a bijection between the two triangles.
+The diagonal has exactly \(\pi(Y)\) members. The map
+\((p,q)\mapsto(p,q-p)\) is injective on the strict upper triangle
+and its image is exactly \(S_Y\). Since the complete ensemble has
+\(\pi(Y)^2\) members, the two exact identities follow.
+
+For the limit, put
+\[
+ r_Y=\frac{\pi(Y)}{Y/\log Y},\qquad
+ t_Y=\frac{\log Y}{Y}.
+\]
+At every \(Y\ge2\), the exact identity gives
+\[
+ \frac{|S_Y|}{Y^2/\log^2Y}
+   =\frac12\bigl(r_Y^2-r_Yt_Y\bigr).
+\]
+The prime number theorem gives \(r_Y\to1\), and logarithmic decay
+gives \(t_Y\to0\). This proves the stated limit with the entire
+diagonal correction present.
+\end{proof}
+
+\begin{theorem}[Sharp capacity on the same physical codebooks]
+\label{thm:native-full-capacity}
+For every real \(\varepsilon>0\) and every sufficiently large natural
+\(Y\), every \(V\subseteq S_Y\) satisfies
+\[
+ |V|\le\left(\frac12+\varepsilon\right)
+       \frac{Y^2}{\log^2Y}.
+\]
+There is a single \(M_Y\subseteq S_Y\), with at least two members,
+such that
+\[
+ |M_Y|\ge(1-\varepsilon)|S_Y|,\qquad
+ |M_Y|\ge\left(\frac12-\varepsilon\right)
+       \frac{Y^2}{\log^2Y},
+ \qquad A(z,w)=\frac38\quad(z\ne w\in M_Y).
+\]
+For every real coefficient vector \(c\) on this same finite codebook,
+the physical agreement mass form tends, as the independent field
+cutoff tends to infinity, to
+\[
+ Q_{M_Y}(c)=\frac38\left(\sum_{z\in M_Y}c_z\right)^2
+            +\frac58\sum_{z\in M_Y}c_z^2.
+\]
+Its optimal lower stability constant is exactly \(5/8\):
+\[
+ \left(\forall c,\quad
+   \kappa\sum_{z\in M_Y}c_z^2\le Q_{M_Y}(c)\right)
+ \quad\Longleftrightarrow\quad \kappa\le\frac58.
+\]
+Each finite \(M_Y\) is fixed before this field-scale limit.
+\end{theorem}
+
+\begin{proof}
+Write \(D=Y^2/\log^2Y\), and fix
+\(\delta=\min(\varepsilon/8,1/8)>0\).
+The preceding limit and the unrestricted retention theorem give,
+eventually on the same heights,
+\[
+ \left(\frac12-\delta\right)D
+ \le |S_Y|\le\left(\frac12+\delta\right)D,
+ \qquad
+ |M_Y|\ge(1-\delta)|S_Y|.
+\]
+The upper bound for any \(V\subseteq S_Y\) follows from
+\(|V|\le|S_Y|\) and \(\delta\le\varepsilon\).
+The chosen \(M_Y\) retains at least \(1-\varepsilon\) of \(S_Y\), and
+\[
+ |M_Y|\ge
+ (1-\delta)\left(\frac12-\delta\right)D
+ \ge\left(\frac12-\varepsilon\right)D.
+\]
+The retained coefficient is at least \(1/4\). Since \(D\to\infty\),
+we may also require \(|M_Y|\ge2\).
+In the formal proof, the elementary bound \(D\ge8\) already suffices.
+
+The actual endpoints of every member are prime and its gap is positive.
+Apply the proved flat native physical-limit theorem to this fixed
+finite codebook. All off-diagonal agreement entries are \(3/8\) and
+all diagonal entries are \(1\). Thus its limiting matrix is exactly
+\[
+ \frac38\mathbf 1\mathbf 1^{\mathrm T}+\frac58 I.
+\]
+Expanding this matrix gives the displayed energy formula for arbitrary
+real coefficients, with every signed cross term retained.
+The \(5/8\) lower bound follows by dropping the nonnegative first
+square. It is attained by a vector with coefficients \(1,-1\) at
+two distinct members and zero elsewhere. Hence no larger lower
+constant works. All these assertions use the very same \(M_Y\).
+\end{proof}
+
+Consequently the largest possible flat codebook in \(S_Y\) has size
+asymptotic to \(\tfrac12Y^2/\log^2Y\): the lower construction and the
+upper bound for the entire candidate set squeeze its maximum.
+This concerns native finite-field agreement among labels made from
+actual integer prime pairs. It does not assert a simultaneous limit
+with a growing codebook and field cutoff, or an integer prime-gap
+recurrence result.
+
+The exact identities and count limit are maintained as
+\texttt{nativeFullPrimePairGapSet\_card\_twice},
+\texttt{nativeFullPrimePairGapSet\_card}, and
+\texttt{tendsto\_native\_full\_pair\_count\_ratio}, in
+\texttt{Assembly/\allowbreak FiniteFieldNativeFullCounting.\allowbreak lean}.
+The sharp bracket, relative retention, physical limit and optimal
+stability are proved together by
+\texttt{eventually\_native\_full\_pair\_sharp\_capacity}, in
+\texttt{Assembly/\allowbreak FiniteFieldNativeFullCapacity.\allowbreak lean}.
+The maximal-size asymptotic just stated is the direct mathematical
+squeeze consequence of that compiled bracket.
+Both owners compile without warnings. Exactly these four new theorem
+closures use standard Lean foundations; unchanged earlier closures
+are not re-audited.
 
 \begin{thebibliography}{99}
 \bibitem{MartinWaljiCharacters}
