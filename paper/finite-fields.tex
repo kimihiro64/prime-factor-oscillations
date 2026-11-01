@@ -14932,6 +14932,71 @@ This corollary combines the proved density-one theorem with
 the existing exact flat-energy and optimal-stability results;
 it makes no separate originality claim for that combination.
 
+\section{Positive output certificates for unrestricted lower rows}
+\label{sec:native-cross-positive-output}
+
+\begin{theorem}[Unrestricted lower-row certificate]
+\label{thm:native-cross-positive-output}
+Let \(n,n+h,m,m+k\) be primes, with \(h,k>0\),
+\(n,m>2\), and \(n\ne m\). If
+\[
+ hknm\ \text{is a square},
+\]
+there are positive integers \(a,b\) such that
+\[
+ h=ma,\qquad k=nb,\qquad ab>1,\qquad
+ (ab-1)n+(n+h)=a(m+k).
+\]
+If additionally both upper endpoints are at most \(Y\) and
+\(Jn>Y,\ Jm>Y\), these same witnesses satisfy \(a,b<J\).
+No short-gap hypothesis is imposed.
+\end{theorem}
+
+\begin{proof}
+The proved native endpoint-divisor theorem gives
+\(m\mid hn\) and, on reversing the pair, \(n\mid km\).
+Distinct prime lower endpoints are coprime, so
+\(m\mid h\) and \(n\mid k\). Write \(h=ma\) and \(k=nb\).
+The gaps are positive, hence \(a,b\ge1\).
+If \(ab=1\), both multipliers are one. Then the prime
+\(n+h=n+m\) would be an even integer greater than two,
+because \(n,m>2\) are odd primes. Thus \(ab>1\).
+Finally,
+\[
+ (ab-1)n+(n+h)=abn+ma=a(m+nb)=a(m+k).
+\]
+If \(a\ge J\), then \(h=ma\ge Jm>Y\), contradicting
+\(n+h\le Y\). The proof of \(b<J\) is identical.
+\end{proof}
+
+The exclusion of the prime two has a genuine small witness:
+\((n,h)=(2,3)\) and \((m,k)=(3,2)\) have prime endpoints
+and \(hknm=36\), but \(a=b=1\).
+Thus the positive-coefficient conclusion would fail there.
+
+For fixed \(J\), the bounded certificate ranges over only finitely
+many triples
+\[
+ (A,B,K)=(ab-1,1,a),\qquad 1\le a,b<J,\quad ab>1.
+\]
+Each has \(A,B,K>0\), so the proved weighted-prime output
+zero-density theorem applies to the two actual input endpoints
+\((p,q)=(n,n+h)\), with output prime \(r=m+k\):
+\(Ap+Bq=Kr\). It does not require \(K=A+B\).
+The coefficient family must be fixed before the prime sampling
+cutoff tends to infinity.
+
+The maintained declarations are
+\texttt{native\_lower\_square\_cross\_positive\_output} and
+\texttt{native\_lower\_square\_cross\_bounded\_positive\_output},
+in \texttt{Assembly/\allowbreak FiniteFieldNativeCrossOutputs.\allowbreak lean}.
+Both complete statements compile without warnings, and their
+two new closures use only standard Lean foundations.
+They extend the available lower-row arithmetic beyond short gaps.
+Full density-one retention in the unrestricted height universe
+still requires the corresponding collision-count and deletion
+consumers; it is not asserted by this certificate.
+
 \begin{thebibliography}{99}
 \bibitem{MartinWaljiCharacters}
 K. Martin and N. Walji,

@@ -3926,3 +3926,19 @@ new_bound: the same almost-full codebooks satisfy the exact signed physical ener
 components: min(eps,1/2) selection; actual candidate count>=4; at least two retained codewords; injective endpoint labelling; exact physical diagonal and all signed cross terms; two-entry zero-sum sharpness witness.
 actuals: one maintained warning-free combined theorem and one new-only standard-foundation closure; no numerical experiments or new arithmetic assumptions.
 first_nonpositive_domain: all sufficiently large natural heights for each eps>0, with an existential threshold. Optimality includes an explicitly proved two-codeword witness. Each field-scale limit fixes the finite codebook; no simultaneous growing-family limit is claimed.
+
+## Positive cross-output certificates without short gaps (2026-11-01)
+
+| Claim | Maintained declaration | Status and scope |
+| --- | --- | --- |
+| Unrestricted lower square row forces a positive three-prime equation | PrimeFactorOscillations.FiniteFieldIntegerSignature.native_lower_square_cross_positive_output | Proved: for distinct lower primes n,m>2, positive gaps and prime upper endpoints, a square h*k*n*m gives positive a,b, h=m*a, k=n*b, a*b>1 and (a*b-1)*n+(n+h)=a*(m+k). No short-gap hypothesis. |
+| Fixed lower endpoint cutoff bounds both output coefficients | PrimeFactorOscillations.FiniteFieldIntegerSignature.native_lower_square_cross_bounded_positive_output | Proved: under the same hypotheses, endpoints<=Y and J*n,J*m>Y imply witnesses a,b<J, for arbitrary natural J,Y. |
+
+The maintained FiniteFieldNativeCrossOutputs.lean owner compiles warning-free; exactly these two new closures use only propext, Classical.choice and Quot.sound. The prime2 exception is explicit: (n,h)=(2,3), (m,k)=(3,2) has square lower row and a*b=1. The coefficient triples (a*b-1,1,a) are positive and are admissible for the already proved arbitrary-positive weighted-prime output theorem, without requiring denominator=sum of coefficients.
+
+benchmark_status: unrestricted finite collision certificate proved; full unrestricted density-one retention remains open.
+old_bound: lower-row endpoint equality was available with both short-gap assumptions.
+new_bound: without short gaps, every distinct-lower collision above the fixed lower cutoff maps to one of finitely many positive weighted-prime equations.
+components: exact endpoint divisibility; distinct-prime coprimality; positive quotient witnesses; full parity exception; exact natural-subtraction identity; both coefficient cutoffs.
+actuals: two maintained warning-free proofs and two new-only standard-foundation closures. The separate finite diagnostic checks 532 cross collisions among pairs with upper endpoint<=200 and is not an asymptotic input.
+first_nonpositive_domain: lower prime2 is excluded by an explicit counterexample; empty coefficient ranges cause no exception. No new full retention fraction, effective cutoff, QRH exponent or integer prime-gap result is claimed.
