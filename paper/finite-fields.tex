@@ -13855,8 +13855,8 @@ uses only \texttt{propext}, \texttt{Classical.choice}, and
 \texttt{Quot.sound}. The divisor count and finite union estimate
 are classical ingredients. Their composition here gives the
 actual native-codebook construction, rather than an assumed
-clean-support supply. An asymptotic estimate for the size of
-height-bounded codebooks remains a separate theorem.
+clean-support supply. The complete asymptotic estimate for the size of
+height-bounded codebooks is proved in the final height-capacity theorem below.
 
 \section{Uniform congruence counts on actual prime blocks}
 \label{sec:uniform-prime-block-collisions}
@@ -14303,9 +14303,86 @@ The general \(3/8\) bound of
 Theorem~\ref{thm:native-agreement-energy} remains sharp over its
 unrestricted class.
 
-The matching height-cardinality upper bound and the assembled
-height-capacity consumer remain to be formalized. No new bound on
-rational-prime gaps or integer zero-free exponent is inferred.
+\section{Optimal native height capacity and sharp physical stability}
+
+The preceding constructions settle the cardinality order, rather than
+only giving codebooks of unbounded size. The upper estimate applies even
+without the flat-agreement restriction.
+
+\begin{theorem}[Height-optimal native codebooks]
+\label{thm:native-height-capacity}
+For every sufficiently large natural \(Y\), every finite set \(V\) of
+pairs \((n,h)\) with \(n,n+h\) prime and \(n+h\le Y\) satisfies
+\[
+ |V|\le \pi(Y)^2\le \frac{4Y^2}{(\log Y)^2}.
+\]
+For each such \(Y\), there is a finite set \(M_Y\) with
+\[
+ \frac{Y^2}{4096(\log Y)^2}\le |M_Y|,
+ \qquad |M_Y|\ge2,
+\]
+whose entries have \(n,n+h\) prime, \(0<h<n\), \(n+h\le Y\), and
+native agreement rate \(3/8\) between every two distinct entries.
+For every signed real coefficient vector on this actual codebook,
+the physical form of Section~\ref{sec:native-agreement-energy} satisfies
+\[
+ \lim_{U\to\infty} Q_U(c)
+ =Q(c)=\frac38\left(\sum_{i\in M_Y}c_i\right)^2
+        +\frac58\sum_{i\in M_Y}c_i^2 .
+\]
+Moreover, for every real \(\kappa\),
+\[
+ \left[\,Q(c)\ge\kappa\sum_{i\in M_Y}c_i^2
+             \text{ for every real }c\,\right]
+       \quad\Longleftrightarrow\quad \kappa\le\frac58.
+\]
+The height, its finite codebook and the coefficient vector are fixed
+before the independent field-scale limit.
+\end{theorem}
+
+\begin{proof}
+The map \((n,h)\mapsto(n,n+h)\) is injective. Both image coordinates
+are primes at most \(Y\), so \(|V|\le\pi(Y)^2\).
+The proved prime number theorem gives
+\(\pi(Y)\le2Y/\log Y\) for all sufficiently large \(Y\).
+Squaring this nonnegative inequality proves the universal upper bound.
+
+The preceding native height-packing theorem supplies \(M_Y\) with
+the displayed geometry, flat rates, and lower cardinality bound.
+The power-log comparison gives
+\(8192(\log Y)^2\le Y^2\) eventually. Since \(\log Y>0\) on this
+eventual range, that lower bound implies \(|M_Y|\ge2\).
+
+Index the actual pairs by the finite subtype \(M_Y\).
+Its pair map is injective, its endpoints are prime, and its gaps
+are positive. Theorem~\ref{thm:native-flat-energy} therefore gives
+the physical limit and exact signed form. It also gives the
+\(5/8\) lower bound. If \(\kappa\le5/8\), multiply this inequality
+by the nonnegative squared coefficient norm to obtain the proposed
+lower bound. Conversely, the two-entry zero-sum coefficient vector
+in that theorem forces \(\kappa\le5/8\).
+\end{proof}
+
+The maintained owner
+\texttt{Assembly/\allowbreak FiniteFieldNativeHeightCapacity.\allowbreak lean}
+contains
+\texttt{eventually\_prime\_pair\_height\_card\_upper} and
+\texttt{eventually\_native\_prime\_pair\_height\_capacity}.
+Both declarations compile without warnings; exactly their two new
+closure checks use only standard Lean foundations.
+The first declaration is universal over finite prime-pair sets.
+The second assembles that upper bound with the actual lower codebook,
+its nontriviality, physical mass limit and both directions of the
+optimal-stability equivalence.
+
+As a mathematical consequence, the largest flat native codebook at
+height \(Y\) has order \(Y^2/(\log Y)^2\): the ambient set is finite,
+and the theorem supplies the two bounds for its maximum cardinality.
+The height-order application is the research conclusion; the PNT,
+finite injection and constant-kernel algebra are classical inputs.
+No effective starting height is claimed. The pairs need not be
+consecutive integer primes, and the result supplies no value of
+the least recurring integer gap or new integer zero-free exponent.
 
 \begin{thebibliography}{99}
 \bibitem{MartinWaljiCharacters}

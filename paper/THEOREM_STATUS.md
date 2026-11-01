@@ -3676,7 +3676,7 @@ old_bound: a lower match gave m dividing h*n; an upper match gave m+k dividing h
 new_bound: lower endpoints are equal under the two short-gap assumptions; upper endpoints are equal without short-gap assumptions.
 components: the same endpoint-divisor implications applied in both directions; prime-divisor splitting; positive gaps and prime endpoints.
 actuals: one universal maintained theorem and one new-only foundational-axiom audit; no numerical experiment.
-first_nonpositive_domain: lower recovery requires h<n and k<m; upper recovery only requires actual prime endpoints and positive gaps. The full height-packing lower bound remains unproved. No RH/QRH exponent or H1 gain is asserted.
+first_nonpositive_domain: lower recovery requires h<n and k<m; upper recovery only requires actual prime endpoints and positive gaps. The full height-packing lower bound and matching capacity order are now proved in the final height-capacity section below. No RH/QRH exponent or H1 gain is asserted.
 
 ## Finite clean-gap native packing (2026-10-31)
 
@@ -3693,7 +3693,7 @@ old_bound: endpoint constraints alone, without an installed quantitative subfami
 new_bound: |S|<=2*(T-1)*|M|, with all distinct selected native rates3/8.
 components: positive squarefree gap decomposition; exact square-factor cancellation; native endpoint recovery on both rows; root-index injection into {1,...,T-1}; maximum-cardinality two-row separation; the full finite neighborhood cover and overlap-safe union count; exact arithmetic native agreement classification.
 actuals: one universal maintained Lean proof and one new-only foundational axiom closure. A separate diagnostic tested1937 full clean-support cases for consecutive heights2..150 and T=0..12, including prime2 and empty cases. Those computations are evidence only and do not supply the universal proof.
-first_nonpositive_domain: a nonempty clean support forces T>=2 and a nonempty selected family. T=0,1 and empty supports have the stated zero case. The full proposed height bound Y^2/(2^18 log^3Y) and capacity exponent2 remain unproved; the finite prime-product deletion consumer is now proved below, while PNT supply and the asymptotic assembly remain. Each finite family is fixed before its field limit. No RH/QRH or H1 gain is claimed.
+first_nonpositive_domain: a nonempty clean support forces T>=2 and a nonempty selected family. T=0,1 and empty supports have the stated zero case. The stronger Y^2/log(Y)^2 lower supply, matching upper order, PNT supply and complete physical capacity assembly are now proved in the final height-capacity sections below. Each finite family is fixed before its field limit. No RH/QRH or H1 gain is claimed.
 
 ## Exact integer square-divisor tail (2026-10-31)
 
@@ -3711,7 +3711,7 @@ old_bound: the proposed deletion argument had a real reciprocal-square tail and 
 new_bound: sum over T<=u<N of floor(Y/u^2)<=floor(Y/(T-1)), with no accumulated floor error.
 components: associativity of natural division; u*floor(q/u)<=q; positive denominator u-1; complete finite induction retaining the terminal quotient; empty-interval case.
 actuals: two maintained real proofs and two new-only closure audits. Separate diagnostics checked49599 one-step cases and14529 tail cases for Y=0..500; their restricted N=Y+1 tail domain is recorded and is not used as the universal proof.
-first_nonpositive_domain: Y=0 or an empty summation interval gives the zero case. T>=2 ensures the displayed denominators are positive. The actual prime-pair deletion consumer is now proved in the next section; the full Y^2/(2^18 log^3Y) bound and capacity exponent2 remain unproved. No RH/QRH or H1 gain is asserted.
+first_nonpositive_domain: Y=0 or an empty summation interval gives the zero case. T>=2 ensures the displayed denominators are positive. The actual prime-pair deletion consumer is now proved in the next section; the stronger Y^2/log(Y)^2 lower bound and matching capacity order are now proved in the final height-capacity section below. No RH/QRH or H1 gain is asserted.
 
 ## Actual prime-product packing with the deletion allowance (2026-10-31)
 
@@ -3728,7 +3728,7 @@ old_bound: a clean-support extraction and a separate integer quotient tail, with
 new_bound: |A|*|B|<=2*D*|M|+|A|*floor(Y/D), D=T-1>=1, with all distinct selected native rates3/8.
 components: injective endpoint-to-gap coordinates; the quotient injection on every square-divisor fibre; every root T<=u<=Y; the complete overlap-safe finite union; exact natural quotient tail; native clean-support extraction.
 actuals: one universal maintained proof and one new-only foundational axiom audit. A separate falsification check covered1419 full quarter-interval supports, every Y=0..128 and T=2..12, including lower prime2; no computation is an analytic input.
-first_nonpositive_domain: the allowance can exhaust the displayed positive supply when floor(Y/D)>=|B|; no positivity is asserted there. The full asymptotic height-capacity theorem remains unproved. The proposed stronger squarefree-gap route is not promoted as a theorem. No integer H1 or RH/QRH exponent gain is asserted.
+first_nonpositive_domain: the allowance can exhaust the displayed positive supply when floor(Y/D)>=|B|; no positivity is asserted there. The complete squarefree-gap route and full asymptotic height-capacity theorem are now proved in the final sections below. No integer H1 or RH/QRH exponent gain is asserted.
 
 ## Uniform actual prime-block collision estimate (2026-10-31)
 
@@ -3745,7 +3745,7 @@ old_bound: the low-square-divisor route had no installed paired-prime congruence
 new_bound: abs(Q-|A||B|/phi(N))<=C*Y^(7/4)*(1+log N+log(Y+2))^4, with one universal C.
 components: both interval prefix boundaries; inverse and direct nonprincipal characters; the full product support and repeated quotient outputs; exact principal unit mass |A||B|; the coupled character product; exact cancellation of the character-count denominator.
 actuals: one universal maintained real proof and one new-only foundational axiom audit; no numerical experiment or assumed prime-count asymptotic.
-first_nonpositive_domain: the error may exceed the principal supply on small or sparse blocks; no positivity is asserted in that regime. The complete finite squarefree-gap supply is now proved in the following section. The asymptotic native codebook order and optimal height capacity remain unproved. No H1 value or RH/QRH exponent gain is claimed.
+first_nonpositive_domain: the error may exceed the principal supply on small or sparse blocks; no positivity is asserted in that regime. The complete finite squarefree-gap supply is now proved in the following section. The asymptotic native codebook order and optimal height capacity are now proved in the final section below. No H1 value or RH/QRH exponent gain is claimed.
 
 ## Complete finite squarefree prime-pair supply (2026-11-01)
 
@@ -3765,7 +3765,7 @@ old_bound: the full high-root union at cutoff T=2 supplies only the raw fallback
 new_bound: card(S_sf)>=card(A)*card(B)/12-C*R*Y^(7/4)*(1+2*log(Y+2))^4-card(A)*floor(Y/R), uniformly on the stated integer domain, with one existential C>0.
 components: exact positive product supply; low principal reciprocal sum at most 11/12; all <=R prime-square collision errors with only the prime-root count <=R charged; full high-square-divisor allowance card(A)*floor(Y/R); no overlap or cutoff term discarded.
 actuals: maintained real proofs and four new-only standard-foundation closures; no finite counts, numerical completions, or assumed prime-count asymptotics enter the bound.
-first_nonpositive_domain: unavailable numerically because the inherited universal constant C has not been made explicit; no effective positivity cutoff is claimed. The quarter-block prime supplies are now formalized below. The rounded cutoff and native height cardinality are now formalized below; flat physical stability is proved below; matching capacity upper order and the assembled height consumer remain.
+first_nonpositive_domain: unavailable numerically because the inherited universal constant C has not been made explicit; no effective positivity cutoff is claimed. The quarter-block prime supplies are now formalized below. The rounded cutoff and native height cardinality are now formalized below; flat physical stability is proved below; matching capacity upper order and the assembled height consumer are now proved below.
 
 ## Uniform PNT prime-block supplies (2026-11-01)
 
@@ -3792,7 +3792,7 @@ first_nonpositive_domain: no effective numerical threshold is claimed because th
 
 Helpers/NativeHeightSquarefreeSupply.lean and Assembly/FiniteFieldNativeAsymptoticPacking.lean compile warning-free. Exactly the two new public theorem closures were checked; both contain only propext, Classical.choice and Quot.sound. Their maintained proofs include every cutoff and integer-rounding condition. The arithmetic input is the existing unconditional uniform 7/8 character bound, with no new zero-free exponent claimed.
 
-benchmark_status: complete positive squarefree supply and native codebook cardinality lower bound proved; flat physical stability is proved below; matching capacity upper order and the assembled height consumer remain.
+benchmark_status: complete positive squarefree supply and native codebook cardinality lower bound proved; flat physical stability is proved below; matching capacity upper order and the assembled height consumer are now proved below.
 old_bound: the complete finite squarefree-gap inequality, supplemented by the two PNT block supplies, still retained a growing cutoff and both full error allowances.
 new_bound: card(S_sf)>=Y^2/(2000*log(Y)^2), and an actual native codebook exists with card(M)>=Y^2/(4096*log(Y)^2), at every sufficiently large natural Y.
 components: N=floor(Y/4), R=ceil(Y^(1/8)), 2<=R and R^2<=2N; exact positive product supply; complete low allowance at most 1250*C*Y^(15/8)*log(Y)^4; complete high allowance at most Y^(15/8); their sum at most Y^2/(2000*log(Y)^2); finite clean packing at T=2 costs a factor of two.
@@ -3810,9 +3810,25 @@ first_nonpositive_domain: no effective starting height is claimed because the in
 
 Assembly/FiniteFieldNativeFlatEnergy.lean compiles warning-free. Exactly the four new public theorem closures were checked; each contains only propext, Classical.choice and Quot.sound. The physical diagonal is one, while the auxiliary cross-rate on identical labels is five eighths. No diagonal substitution is made. The matrix facts are classical supporting algebra for the actual native height-codebook construction; no standalone priority claim is made.
 
-benchmark_status: exact flat physical energy and optimal five-eighths stability proved; matching height upper order and the assembled codebook consumer remain.
+benchmark_status: exact flat physical energy and optimal five-eighths stability proved; matching height upper order and the assembled codebook consumer are now proved in the following section.
 old_bound: arbitrary positive native families satisfy Q>=(3/8)*((sum c)^2+sum(c^2)); the general three-eighths sharpness theorem is unchanged.
 new_bound: on the flat class Q=(3/8)*(sum c)^2+(5/8)*sum(c^2), and 5/8 is the largest uniform lower constant if at least two entries exist.
 components: physical diagonal one; every off-diagonal exactly 3/8; all signed coefficient products retained; the proved finite-family physical mass limit; a two-coordinate vector with sum zero and squared norm two certifies optimality.
 actuals: four maintained real proofs and four new-only standard-foundation closures; no numerical prime counts, character tables or diagnostic completions.
 first_nonpositive_domain: the finite identity and lower bound are exact on the stated class. Optimality requires two distinct indices. No effective field-scale threshold is claimed.
+
+## Optimal native height capacity and assembled physical stability (2026-11-01)
+
+| Claim | Maintained declaration | Status and scope |
+| --- | --- | --- |
+| Matching cardinality upper order for all actual prime-pair sets | PrimeFactorOscillations.FiniteFieldIntegerSignature.eventually_prime_pair_height_card_upper | Proved: for every sufficiently large natural Y, every finite V with prime endpoints and n+h<=Y has card(V)<=4*Y^2/log(Y)^2. Flat agreement and positive gaps are not needed for this upper bound. |
+| Complete height-order codebook and sharp physical stability | PrimeFactorOscillations.FiniteFieldIntegerSignature.eventually_native_prime_pair_height_capacity | Proved: at every sufficiently large Y, an actual codebook M has short positive gaps, both prime endpoints, height<=Y, cardinality>=Y^2/(4096*log(Y)^2), at least two entries, and all distinct agreement rates 3/8. Its physical signed mass converges to (3/8)*(sum c)^2+(5/8)*sum(c^2), and a uniform stability constant works exactly when it is <=5/8. The same eventual statement includes the universal upper bound. |
+
+Assembly/FiniteFieldNativeHeightCapacity.lean compiles warning-free. Exactly its two new public closures were checked; both contain only propext, Classical.choice and Quot.sound. The complete asymptotic height-capacity theorem is proved. The maximum-cardinality formulation follows mathematically from the displayed existential/universal bounds and the finite ambient pair set; no separate compiled maximum definition is advertised.
+
+benchmark_status: full optimal height order and actual-codebook physical stability proved.
+old_bound: the height lower codebook and separate flat-kernel energy were proved, without the matching upper order or assembled physical consumer.
+new_bound: Y^2/(4096*log(Y)^2)<=card(M)<=4*Y^2/log(Y)^2 eventually, with at least two actual entries and optimal physical stability 5/8.
+components: inject (n,h) into (n,n+h); apply the proved PNT bound pi(Y)<=2Y/log(Y); retain the complete squarefree-gap lower supply; use power-log decay to guarantee two entries; apply the exact physical limit with all signed cross products; prove both directions of the stability equivalence.
+actuals: two maintained real proofs and two new-only standard-foundation closures; no finite prime counts or numerical completion.
+first_nonpositive_domain: all conclusions hold for every sufficiently large natural height. The inherited constants and convergence cutoffs remain existential. Each finite codebook is fixed before the independent field-scale limit; no simultaneous growing-codebook limit, integer bounded-gap value or improved zero-free exponent is claimed.
