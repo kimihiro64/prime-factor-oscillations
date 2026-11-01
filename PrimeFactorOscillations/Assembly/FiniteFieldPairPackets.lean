@@ -5,6 +5,7 @@ Authors: Prime Factor Oscillations contributors
 -/
 import PrimeFactorOscillations.Assembly.FiniteFieldCubicLift
 import PrimeFactorOscillations.Assembly.FiniteFieldJointCharacterProjection
+import PrimeFactorOscillations.Assembly.FiniteFieldNativeAgreementEnergy
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeConsecutiveAgreement
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeEndpointDivisors
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeExceptionalAgreement
@@ -31,6 +32,8 @@ has an explicit square-root count in the candidate upper endpoint.
 Every pairwise half-agreement family, finite or infinite, shares one lower
 or one upper squareclass row. Unbounded upper-endpoint families use only
 the lower row, with all lower primes dividing each fixed lower invariant.
+Every fixed finite native agreement form has sharp coercivity three eighths,
+including its physical limit and an exact four-pair equality witness.
 The identities retain the Gauss-Kloosterman term and its compensation. No new
 integer pair-supply estimate is asserted.
 -/

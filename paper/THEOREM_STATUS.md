@@ -3640,3 +3640,24 @@ components: exact native square classifier; coprimality of the two actual prime 
 actuals: three universal maintained real proofs and three new-only foundational-axiom audits. No finite numerical test or assumed prime-producing polynomial supplies the theorem.
 first_nonpositive_domain: candidate endpoints are prime with positive gap; the actual rate cover also requires distinct actual reference and candidate pairs with positive reference gap. The family theorem requires an injective pair map and unbounded upper endpoints. No new prime-pair supply, H1, RH/QRH gain, common field cutoff for an infinite family or established literature priority is claimed.
 
+## Sharp collective native-agreement energy (2026-10-31)
+
+Paper: `finite-fields.tex`, Theorem `thm:native-agreement-energy` and equations `eq:native-agreement-energy`, `eq:native-agreement-energy-kernel`. Owner: `Assembly/FiniteFieldNativeAgreementEnergy.lean`. Namespace: `PrimeFactorOscillations.FiniteFieldIntegerSignature`.
+
+| Claim / declaration | Status | Exact verified scope |
+| --- | --- | --- |
+| `native_agreement_form_lower_bound` | proved | Every finite index type, positive natural lower endpoints and gaps, and real coefficient vector satisfy Q >= (3/8)*((sum c)^2+sum c^2) for the explicitly defined kernel with diagonal1 and auxiliary native cross rates off the diagonal. Empty families and zero vectors included. |
+| `native_agreement_mass_form_tendsto` | proved | For every fixed finite injective family of actual positive-gap prime pairs and every fixed real coefficient vector, the normalized physical agreement-mass quadratic form tends to the stated kernel form. Self mass equals the full reciprocal band mass; its normalized diagonal is eventually1. The codebook and coefficients are fixed before U tends to infinity. |
+| `native_agreement_three_eighths_sharp` | proved | An actual injective four-pair prime codebook and coefficient vector have sum c=0, sum c^2=4, and Q=3/2. The proof constructs (11,43),(11,139),(41,43),(41,139) with c=(1,-1,-1,1). This witnesses optimality of the uniform Euclidean constant3/8. |
+
+All three advertised theorems compile warning-free. Their three new-only axiom-closure audits contain only propext, Classical.choice and Quot.sound and cover the maintained private fixed-example lemmas used by the sharpness proof. No unchanged earlier closure was reaudited. The matrix/eigenvalue interpretation follows mathematically from the compiled quadratic inequality; a separate eigenvalue declaration is not advertised.
+
+The complete paper proof retains the signed kernel K=(3/8)J+(1/8)L+(1/8)V+(3/8)Id. The positive squareclass relations partition the same finite support, so each row-kernel form is a sum of squared class totals. The diagonal correction is essential: the identical-pair auxiliary cross formula5/8 is not physical self-agreement1. The square/nonsquare certificates in the four-pair example are kernel-checked integer arithmetic. Finite diagnostic checks are separate evidence and do not prove the universal bound.
+
+benchmark_status: sharp universal finite-family coercivity and actual physical limit proved.
+old_bound: exact individual cross rates3/8 or1/2 and squareclass family rigidity; no installed uniform lower coefficient for all signed codebook forms.
+new_bound: Q >= (3/8)*((sum c)^2+sum c^2) >= (3/8)*sum c^2, with the last coefficient optimal.
+components: exact arithmetic cross-rate classifier; actual off-diagonal field-band limits; exact physical diagonal; positive-square cancellation and finite quotient partition; all signed products; maintained exact prime, square, nonsquare and rational sharpness certificates.
+actuals: three maintained headline theorem proofs and their three foundational closure audits. A separate finite falsification check covered20686 signed small-codebook cases, including empty and singleton supports; those evaluations are not analytic inputs.
+first_nonpositive_domain: every admissible nonzero coefficient vector has strictly positive limiting energy; empty families and the zero vector have energy0. The physical statement requires fixed finite injective actual prime-pair codebooks with positive gaps. No growing-codebook uniformity, new prime-pair supply, H1 value, RH/QRH exponent gain or established literature priority is asserted. Equality-kernel positivity is classical; the arithmetic application and actual sharpness witness are the new project result.
+

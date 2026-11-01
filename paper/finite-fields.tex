@@ -13394,7 +13394,147 @@ native agreement observable.
 All field-scale limits still use fixed compared integer pairs.
 No new prime-pair supply or growing-endpoint field limit is asserted.
 
+\section{Sharp energy of finite native agreement families}
+\label{sec:native-agreement-energy}
+
+Fix a finite index set \(I\) and distinct actual prime pairs
+\((n_i,n_i+h_i)\), with \(h_i>0\). Both endpoints are prime, including
+the possibility \(n_i=2\). The pairs and real coefficients \(c_i\)
+are fixed before the independent field scale \(U\) tends to infinity.
+Use the finite band \(\mathcal B_U\), mass \(M_U\), and actual native
+weights \(W_p(n_i,h_i)\) from Section~\ref{sec:native-half-retention}.
+Put
+\[
+ A_{ij}(U)=
+ \sum_{\substack{p\in\mathcal B_U\\W_p(n_i,h_i)=W_p(n_j,h_j)}}\frac1p,
+ \qquad
+ Q_U(c)=\sum_{i,j\in I}c_ic_j\,\frac{A_{ij}(U)}{M_U}.
+\]
+The normalization is used at sufficiently large \(U\), when
+\(M_U\ge(\log2)/2>0\). In particular \(A_{ii}(U)=M_U\)
+exactly: physical self-agreement has limiting value \(1\).
+The auxiliary cross-rate formula evaluated on identical pairs is
+\(5/8\); it is not their physical diagonal.
+
+\begin{theorem}[Sharp collective agreement bound]
+\label{thm:native-agreement-energy}
+The limit \(Q(c)=\lim_{U\to\infty}Q_U(c)\) exists, and
+\begin{equation}
+ Q(c)\ge\frac38\left[
+       \left(\sum_{i\in I}c_i\right)^2+\sum_{i\in I}c_i^2
+                         \right].
+ \label{eq:native-agreement-energy}
+\end{equation}
+The coefficient \(3/8\) in the uniform bound
+\(Q(c)\ge(3/8)\sum_{i\in I}c_i^2\) is optimal over these finite
+prime-pair families. Empty families and zero coefficient vectors
+are included.
+\end{theorem}
+
+\begin{proof}
+Write \(A_i=h_in_i\), \(B_i=h_i(n_i+h_i)\), and let
+\(L_{ij}\) and \(V_{ij}\) be the indicators that \(A_iA_j\)
+and \(B_iB_j\), respectively, are integer squares.
+The arithmetic agreement theorem gives, for \(i\ne j\),
+\[
+ \frac{A_{ij}(U)}{M_U}\longrightarrow
+                   \frac{3+L_{ij}+V_{ij}}8.
+\]
+Together with the exact diagonal, this identifies the entire limiting
+matrix:
+\begin{equation}
+ K=\frac38J+\frac18L+\frac18V+\frac38\mathrm{Id},
+ \qquad Q(c)=\sum_{i,j\in I}c_ic_jK_{ij},
+ \label{eq:native-agreement-energy-kernel}
+\end{equation}
+where \(J\) is the all-ones matrix.
+The last term supplies precisely the missing \(3/8\) on the diagonal.
+The finite number of entries permits taking their signed linear
+combination after their individual limits. No uniformity over a
+family growing with \(U\) is used.
+
+For positive integers, the relation \(a\sim b\) defined by
+\(ab\) being a square is an equivalence relation.
+For transitivity, if \(ab=r^2\) and \(bd=s^2\), then
+\(b^2ad=(rs)^2\). The divisibility \(b^2\mid(rs)^2\)
+implies \(b\mid rs\); writing \(rs=bt\) and cancelling
+the positive factor \(b^2\) gives \(ad=t^2\).
+Reflexivity and symmetry are immediate.
+
+Consequently \(L\) and \(V\) are equality kernels for partitions
+\(\mathcal C_L,\mathcal C_V\) of the finite set \(I\).
+All cross terms are retained in
+\[
+ \sum_{i,j\in I}c_ic_jL_{ij}
+   =\sum_{C\in\mathcal C_L}\left(\sum_{i\in C}c_i\right)^2,
+ \qquad
+ \sum_{i,j\in I}c_ic_jV_{ij}
+   =\sum_{C\in\mathcal C_V}\left(\sum_{i\in C}c_i\right)^2.
+\]
+Substituting these identities into
+\eqref{eq:native-agreement-energy-kernel} proves
+\eqref{eq:native-agreement-energy}. Thus every nonzero signed
+coefficient vector has positive limiting energy.
+
+For sharpness use the four actual prime pairs
+\[
+ (11,43),\quad(11,139),\quad(41,43),\quad(41,139),
+ \qquad (h_0,h_1,h_2,h_3)=(32,128,2,98).
+\]
+Their lower squareclasses form the two classes
+\(\{0,1\},\{2,3\}\); their upper squareclasses form
+\(\{0,2\},\{1,3\}\).
+For example the matching cross products have square roots
+\(704,344,15568,574\), respectively.
+The remaining eight cross products are nonsquares, verified by
+placing each strictly between two consecutive integer squares.
+The resulting physical limiting matrix is
+\[
+ K=
+ \begin{pmatrix}
+ 1&1/2&1/2&3/8\\
+ 1/2&1&3/8&1/2\\
+ 1/2&3/8&1&1/2\\
+ 3/8&1/2&1/2&1
+ \end{pmatrix}.
+\]
+For \(c=(1,-1,-1,1)\), every class total and the total coefficient
+are zero, while \(\sum_{i\in I}c_i^2=4\) and
+\(Q(c)=3/2=(3/8)\cdot4\). No larger uniform coefficient is possible.
+\end{proof}
+
+The bound gives a uniform lower stability estimate for every fixed finite
+signed mixture of native signatures. Equality-kernel positivity is
+classical. The arithmetic input here is the complete native agreement
+classification and its realization by actual prime pairs.
+Walji's matching-density theorem~\cite{WaljiMatchingDensities}
+and the character-separation bounds of
+Martin--Walji~\cite{MartinWaljiCharacters}, especially Proposition~1.1,
+provide the pairwise comparison context. This result instead controls
+the whole limiting agreement quadratic form of these native families;
+no priority for the general matrix argument is claimed.
+
+The maintained owner
+\texttt{FiniteFieldNativeAgreementEnergy.\allowbreak lean}
+contains the real proofs
+\texttt{native\_agreement\_form\_lower\_bound},
+\texttt{native\_agreement\_mass\_form\_tendsto}, and
+\texttt{native\_agreement\_three\_eighths\_sharp}.
+The first actually permits all positive natural lower endpoints and gaps
+for its explicitly defined auxiliary kernel. Its physical limiting
+interpretation uses the prime-endpoint and injectivity hypotheses of
+the second. The four-pair sharpness proof uses exact kernel-checked
+integer-square certificates and rational arithmetic.
+All field scales remain independent of the fixed family.
+This supplies no new integer prime-pair occurrence theorem,
+value of the least recurring gap, or RH/QRH exponent estimate.
+
 \begin{thebibliography}{99}
+\bibitem{MartinWaljiCharacters}
+K. Martin and N. Walji,
+\emph{Distinguishing finite group characters and refined local-global phenomena},
+Acta Arithmetica 179 (2017), 277--300.
+\url{https://arxiv.org/abs/1607.07586}.
 \bibitem{WaljiMatchingDensities}
 N. Walji, \emph{Matching densities for Galois representations},
 arXiv:1501.07343 (2015).
