@@ -17963,6 +17963,178 @@ actual native-weight coincidence probabilities. Historical priority
 remains unestablished. No growing-graph or integer prime-gap transfer,
 or change to the RH/QRH exponent, is claimed.
 
+\section{Arithmetic rigidity versus actual noncentral recurrence}
+\label{sec:native-noncentral-recurrence}
+
+The zero-frequency branch of the preceding theorem admits a stronger,
+direct arithmetic certificate. Its converse gives actual prime-field
+realizers of noncentral agreement above every prescribed bound.
+
+For the same fixed nonempty actual prime graph \(G\subseteq E(P)\), let
+\(\mathcal N_G(\ell)\) mean that all actual native weights agree and
+that they are not all central. This is equivalent, under agreement, to
+every weight being different from
+\[
+                            c_\ell=\frac{\ell-1}{\ell-3}.
+\]
+The forward implication is maintained directly: if any agreeing weight
+were \(c_\ell\), every weight would be \(c_\ell\).
+Keep the arithmetic obstruction \(\mathfrak o(G)\) from the preceding
+section.
+
+\begin{theorem}[Complete noncentral recurrence and rigidity criterion]
+\label{thm:native-noncentral-recurrence}
+For every fixed nonempty actual prime graph,
+\begin{align}
+ \neg\mathfrak o(G)
+ \quad\Longleftrightarrow\quad&
+ \text{for every }B\in\mathbb N\text{ there exists a prime }\ell>B
+ \text{ with }\ell\equiv3\pmod4
+ \text{ and }\mathcal N_G(\ell),                         \label{eq:native-noncentral-recurrence}\\
+ \mathfrak o(G)
+ \quad\Longleftrightarrow\quad&
+ \text{for some }B\in\mathbb N,\text{ every prime }\ell>B
+ \text{ with }\ell\equiv3\pmod4\text{ satisfies}\\[-2mm]
+ &\hspace{12mm}
+ \mathcal A_G(\ell)\quad\Longleftrightarrow\quad
+             \text{every weight on }G\text{ is central}. \nonumber
+\end{align}
+In the obstruction branch this pointwise equivalence holds already
+whenever \(\ell\geq5\) and \(\ell\) exceeds every vertex.
+In the other branch the reciprocal-prime conditional mass of
+\(\mathcal N_G\) is exactly
+\begin{equation}\label{eq:native-noncentral-mass}
+ \lim_{U\to\infty}
+ \frac{\displaystyle\sum_{\ell\in\mathcal I_U}\frac1\ell
+      \mathbf1\{\ell\equiv3\pmod4,\ \mathcal N_G(\ell)\}}
+      {\displaystyle\sum_{\ell\in\mathcal I_U}\frac1\ell
+      \mathbf1\{\ell\equiv3\pmod4\}}
+                  =\frac{2K(G)}{4^{|G|}}>0.
+\end{equation}
+With an obstruction the same limit is zero, as a consequence of the
+direct pointwise exclusion.
+\end{theorem}
+
+\begin{proof}
+First prove exclusion at an actual field prime, independently of any
+limiting zero. Choose an obstructing supported pair \((O,T)\):
+its total cardinality is even, \(|O|\) is odd, and the full unsigned
+product is a natural square \(H(O,T)=k^2\).
+Retaining its exact sign and every factor,
+\[
+                              D(O,T)=-k^2.
+\]
+In a negative-phase field, multiplicativity gives
+\[
+             \chi_\ell(D(O,T))
+                  =\chi_\ell(-1)\chi_\ell(k)^2
+                  =-\chi_\ell(k)^2\leq0.
+\]
+This inequality does not require replacing a character by its
+absolute value or assuming \(k\) is nonzero modulo \(\ell\).
+
+On the other hand, either synchronized signed row word assigns one
+common sign \(s\in\{-1,1\}\) to every lower and upper row on \(G\).
+On the same complete supported pair, finite product multiplicativity
+then gives
+\[
+                \chi_\ell(D(O,T))=s^{|O|+|T|}=1.
+\]
+The two conclusions contradict each other.
+Thus both nonzero synchronized words are impossible pointwise.
+For field primes at least five and beyond all fixed vertices, the
+previous exact three-event trace decomposition and the common affine
+weight readout now show
+\[
+        \mathcal A_G(\ell)
+                  \quad\Longleftrightarrow\quad
+                         \text{all weights are central}.
+\]
+This proves the direct rigidity statement, including its finite
+exceptional-prime cutoff. The proof uses the actual full row product;
+it does not infer pointwise absence from a limiting density.
+
+For the converse, preserve the complete central/noncentral partition.
+Let \(M_b(U)\) be the reciprocal-prime mass of the phase-\(b\) band,
+and let \(Q_b(U)\), \(Z_b(U)\), and \(R_b(U)\) be respectively the
+phase-conditioned agreement, all-central, and noncentral agreement
+masses before normalization. For every finite band, exactly,
+\[
+                              Q_b(U)=Z_b(U)+R_b(U).
+\]
+Indeed the all-central event implies agreement, and within agreement
+it and its complement are disjoint and exhaustive.
+This finite identity is maintained for arbitrary band endpoints.
+
+In the negative phase, the previously proved complete agreement limit
+and central-profile limit yield
+\[
+ \frac{Q_-(U)}{M_-(U)}
+      \longrightarrow\frac{N}{2^m}+
+       \begin{cases}
+        0,&\text{if }\mathfrak o(G),\\
+        2K(G)/4^m,&\text{otherwise},
+       \end{cases}
+ \qquad
+ \frac{Z_-(U)}{M_-(U)}\longrightarrow\frac{N}{2^m}.
+\]
+Subtract these limits using the exact finite partition, retaining the
+same phase denominator. Consequently
+\[
+ \frac{R_-(U)}{M_-(U)}
+       \longrightarrow
+       \begin{cases}
+        0,&\text{if }\mathfrak o(G),\\
+        2K(G)/4^m,&\text{otherwise}.
+       \end{cases}
+\]
+This proves the claimed mass law with the central contribution
+accounted for. Since the empty pair belongs to \(\mathcal K(G)\),
+\(K(G)\geq1\), so the second limit is strictly positive.
+
+Suppose there is no obstruction and fix any numerical bound \(B\).
+The positive limit makes \(R_-(U)/M_-(U)>0\) eventually.
+Also the band lower endpoint tends to infinity, so choose one such
+\(U\) whose whole band is above \(B\) and at least five.
+If no prime in that band satisfied the phase and noncentral agreement
+conditions, every summand of \(R_-(U)\) would vanish.
+Then the normalized mass would be zero, a contradiction.
+Thus an actual prime \(\ell>B\) with
+\(\ell\equiv3\pmod4\) and \(\mathcal N_G(\ell)\) exists.
+The residue condition follows from the proved equivalence between
+negative quadratic phase and the residue class three for odd prime
+fields. This proves the forward direction of
+\eqref{eq:native-noncentral-recurrence} for every \(B\).
+
+Conversely, recurrence above every bound supplies a realizer beyond
+all fixed vertices and five. If an obstruction existed, the direct
+pointwise rigidity just proved would force that realizer to be
+all-central, contradicting \(\mathcal N_G(\ell)\).
+This proves the recurrence equivalence.
+
+Finally an obstruction supplies a common finite bound for pointwise
+rigidity by taking the maximum of five and an upper bound for \(P\).
+If eventual rigidity held without an obstruction, the just-proved
+recurrence would supply a noncentral agreement realizer beyond its
+claimed rigidity bound, again a contradiction. This proves the second
+equivalence and completes the classification.
+\end{proof}
+
+The two event/mass definitions and fourteen maintained proofs are in
+\texttt{FiniteFieldNativeNoncentralRecurrence.lean}.
+The declarations distinguish the negative-square certificate, exact
+pointwise actual-weight rigidity, the full central/noncentral mass
+partition, positive conditional probability, actual prime realization
+above every bound, and both equivalences.
+The paper's earlier frequency-only theorem is used as an input;
+pointwise absence is established separately here.
+All vertices and graphs remain fixed, including prime vertex \(2\)
+and isolated vertices. No effective first realizer, growing-graph
+uniformity, integer prime-gap transfer, or RH/QRH improvement is
+asserted. The multiplicative character and positive-mass mechanisms
+are classical; historical priority of this specific native arithmetic
+classification remains unestablished.
+
 \begin{thebibliography}{99}
 \bibitem{KarpVaziraniVazirani}
 R. M. Karp, U. V. Vazirani and V. V. Vazirani,

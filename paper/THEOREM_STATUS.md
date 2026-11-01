@@ -1,5 +1,35 @@
 # Paper theorem and provenance ledger
 
+## Arithmetic noncentral recurrence and eventual rigidity (2026-11-01)
+
+All fourteen claims below have maintained Lean proofs, warning-free focused compilation and completed new-only assumption audits. Their namespace is `PrimeFactorOscillations.FiniteFieldIntegerSignature`. For every fixed nonempty strict graph G on actual prime vertices P, no odd lower-row even-square relation exists if and only if every numerical bound B has an actual prime ell>B, ell=3 modulo4, where every native weight agrees and the common weight is off-center. Conversely the arithmetic obstruction is equivalent to eventual pointwise agreement if and only if all weights are central. Its direct negative-square certificate excludes both complete synchronized words; pointwise absence is not inferred from a limiting zero.
+
+| Claim | Lean declaration | Status |
+| --- | --- | --- |
+| Negative field phase makes the character of every negative square nonpositive | native_negative_square_real_kernel_nonpos | Proved; maintained, compiled and audited. |
+| A synchronized word gives value one to the complete even-total row product | native_synchronized_word_even_row_product | Proved; maintained, compiled and audited. |
+| An arithmetic odd-row square obstruction excludes each synchronized word pointwise | native_square_row_obstruction_signed_word_impossible | Proved; maintained, compiled and audited. |
+| Under an arithmetic obstruction trace agreement holds exactly at zero trace | native_arithmetic_obstruction_agreement_iff_zero | Proved; maintained, compiled and audited. |
+| Arithmetic obstruction gives pointwise actual-weight agreement if and only if all weights are central | native_arithmetic_obstruction_weight_rigidity | Proved; maintained, compiled and audited. |
+| The pointwise weight rigidity in actual prime fields three modulo four | native_arithmetic_obstruction_mod_four_rigidity | Proved; maintained, compiled and audited. |
+| Every all-central actual-weight profile gives actual agreement | native_central_profile_weight_agreement | Proved; maintained, compiled and audited. |
+| Noncentral agreement forces every actual weight off the center | native_noncentral_agreement_all_off_center | Proved; maintained, compiled and audited. |
+| The arithmetic obstruction excludes actual noncentral agreement pointwise | native_obstructed_noncentral_agreement_impossible | Proved; maintained, compiled and audited. |
+| Exact full finite-band central and noncentral agreement mass partition | native_graph_phase_noncentral_mass_partition | Proved; maintained, compiled and audited. |
+| Exact conditional noncentral agreement mass limit with both branches retained | native_graph_negative_phase_noncentral_ratio_tendsto | Proved; maintained, compiled and audited. |
+| Absence of an arithmetic obstruction gives an actual prime-field realizer above every bound | native_noncentral_negative_realization_above | Proved; maintained, compiled and audited. |
+| Unbounded negative-phase noncentral recurrence if and only if no arithmetic obstruction exists | native_noncentral_negative_recurrence_iff | Proved; maintained, compiled and audited. |
+| Arithmetic obstruction if and only if eventual actual-weight rigidity | native_arithmetic_obstruction_iff_eventual_rigidity | Proved; maintained, compiled and audited. |
+
+Definition interfaces, separate from proof counts: `nativeGraphNoncentralAgreementEvent`, `nativeGraphPhaseNoncentralAgreementMass`. Owner: Assembly/FiniteFieldNativeNoncentralRecurrence.lean, exported through FiniteFieldNativePacking.lean. The full proof is in the finite-fields paper, section native-noncentral-recurrence. Only the fourteen new proof closures were audited; they use only propext, Classical.choice and Quot.sound. Public downstream build and final staged checks are recorded in the promotion receipt.
+
+benchmark_status: full arithmetic criterion for actual noncentral prime-field recurrence and necessary and sufficient eventual rigidity proved.
+old_bound: the complete negative-phase law gave zero or2*K/4^m for the noncentral limiting contribution; pointwise rigidity was known under the odd Eulerian graph hypothesis only.
+new_bound: every arithmetic obstruction gives direct pointwise rigidity for prime ell>=5 beyond all fixed vertices. Without obstruction the actual noncentral conditional limit is2*K/4^m>0 and actual prime realizers ell=3 modulo4 exist above every bound. Obstruction is equivalent to eventual rigidity.
+components: exact D=-k^2 certificate; full synchronized even-total row product; pointwise1<=0 contradiction; common affine weight readout; exact full central/noncentral finite mass partition; subtraction of the complete central contribution in the same phase denominator; positive K from the empty pair; band cutoff beyond each arbitrary bound and extraction of an actual prime witness.
+actuals: fourteen newly audited real proofs, two definition interfaces and one warning-free maintained owner. No numerical sample supplies the unbounded recurrence or pointwise statements.
+first_nonpositive_domain: the noncentral limiting mass is exactly0 with an obstruction and strictly positive2*K/4^m otherwise. All physical equivalences require G nonempty; the pointwise weight transfer requires prime ell>=5 above every fixed vertex. Prime vertex2 and isolated vertices are allowed. No effective first realizer, growing-graph uniformity, integer prime-gap transfer or RH/QRH improvement is asserted; publication priority remains unestablished.
+
 ## Exact negative-phase arithmetic obstruction dichotomy (2026-11-01)
 
 All eighteen claims below have maintained Lean proofs, warning-free focused compilation and completed new-only assumption audits. Their namespace is `PrimeFactorOscillations.FiniteFieldIntegerSignature`. For every fixed nonempty strict graph G on actual prime vertices P, let N=N_all(P,G), K be the full supported even-square relation count, and J=sum_(O,T in Kfamily)(-1)^|O|. Translation of the entire support proves J=0 if a member has odd lower cardinality, and J=K otherwise. Consequently A_minus=N/2^m in the obstruction branch and A_minus=N/2^m+2*K/4^m otherwise. In the latter branch A_minus=A_plus. The old odd-cycle theorem is recovered because every odd Eulerian diagonal supplies an obstruction.
