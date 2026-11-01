@@ -3661,3 +3661,20 @@ components: exact arithmetic cross-rate classifier; actual off-diagonal field-ba
 actuals: three maintained headline theorem proofs and their three foundational closure audits. A separate finite falsification check covered20686 signed small-codebook cases, including empty and singleton supports; those evaluations are not analytic inputs.
 first_nonpositive_domain: every admissible nonzero coefficient vector has strictly positive limiting energy; empty families and the zero vector have energy0. The physical statement requires fixed finite injective actual prime-pair codebooks with positive gaps. No growing-codebook uniformity, new prime-pair supply, H1 value, RH/QRH exponent gain or established literature priority is asserted. Equality-kernel positivity is classical; the arithmetic application and actual sharpness witness are the new project result.
 
+## Endpoint recovery in native squareclass rows (2026-10-31)
+
+Paper: `finite-fields.tex`, Theorem `thm:native-row-fibres`. Owner: `Assembly/FiniteFieldNativeRowFibres.lean`. Namespace: `PrimeFactorOscillations.FiniteFieldIntegerSignature`.
+
+| Claim / declaration | Status | Exact verified scope |
+| --- | --- | --- |
+| `native_square_rows_recover_endpoints` | proved | For actual prime pairs n,n+h and m,m+k with positive gaps, a lower-row square match forces n=m when h<n and k<m; an upper-row square match always forces n+h=m+k. The prime2 is included. |
+
+The maintained real proof compiled warning-free. Its one new-only axiom-closure audit contains only propext, Classical.choice and Quot.sound; no unchanged earlier closure was reaudited. This is a project-local supporting composition of the existing endpoint-divisor theorem and elementary prime divisibility. No independent novelty claim is made for the elementary argument.
+
+benchmark_status: exact row-fibre endpoint constraints proved.
+old_bound: a lower match gave m dividing h*n; an upper match gave m+k dividing h*(n+h).
+new_bound: lower endpoints are equal under the two short-gap assumptions; upper endpoints are equal without short-gap assumptions.
+components: the same endpoint-divisor implications applied in both directions; prime-divisor splitting; positive gaps and prime endpoints.
+actuals: one universal maintained theorem and one new-only foundational-axiom audit; no numerical experiment.
+first_nonpositive_domain: lower recovery requires h<n and k<m; upper recovery only requires actual prime endpoints and positive gaps. The full height-packing lower bound remains unproved. No RH/QRH exponent or H1 gain is asserted.
+

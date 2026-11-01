@@ -13529,6 +13529,72 @@ All field scales remain independent of the fixed family.
 This supplies no new integer prime-pair occurrence theorem,
 value of the least recurring gap, or RH/QRH exponent estimate.
 
+\section{Endpoint recovery from the two squareclass rows}
+\label{sec:native-row-fibres}
+
+For actual prime pairs \((n,q)=(n,n+h)\) and
+\((m,r)=(m,m+k)\), with \(h,k>0\), the two row matches in the
+native agreement formula are
+\[
+ hk\,nm\text{ is a square},\qquad hk\,qr\text{ is a square}.
+\]
+Their endpoint restrictions are stronger than the individual divisor
+bounds of Theorem~\ref{thm:native-endpoint-divisors}.
+
+\begin{theorem}[Endpoint recovery]
+\label{thm:native-row-fibres}
+Let \(n,n+h,m,m+k\) be prime and \(h,k>0\).
+If \(h<n\) and \(k<m\), then
+\[
+ hk\,nm\text{ is a square}\quad\Longrightarrow\quad n=m.
+\]
+Without the two short-gap assumptions,
+\[
+ hk\,(n+h)(m+k)\text{ is a square}
+       \quad\Longrightarrow\quad n+h=m+k.
+\]
+The statements include the prime \(2\).
+\end{theorem}
+
+\begin{proof}
+Apply Theorem~\ref{thm:native-endpoint-divisors} in both directions.
+A lower-row match gives
+\[
+ m\mid hn,\qquad n\mid km.
+\]
+Since \(m\) is prime, either \(m\mid h\) or \(m\mid n\).
+In the first case \(m\le h<n\); in the second, \(m\le n\).
+Thus \(m\le n\). The reverse argument, using \(k<m\), gives
+\(n\le m\), so \(n=m\).
+
+An upper-row match similarly gives
+\[
+ r\mid hq,\qquad q\mid kr,
+ \qquad q=n+h,\quad r=m+k.
+\]
+Primality of \(r\) implies \(r\mid h\) or \(r\mid q\).
+The first alternative gives \(r\le h<q\); the second gives \(r\le q\).
+Hence \(r\le q\). Reversing the pairs and using \(k<r\) gives
+\(q\le r\), and therefore \(q=r\).
+The strict inequalities \(h<q\) and \(k<r\) follow from positivity
+of the lower primes, so the upper-row conclusion needs no short-gap
+restriction. No oddness hypothesis is used.
+\end{proof}
+
+Thus a lower-row fibre among short prime pairs has one lower endpoint,
+and every upper-row fibre has one upper endpoint. This is the arithmetic
+constraint needed when counting how many pairs can share a row;
+no quantitative packing count is asserted here.
+
+The maintained declaration
+\texttt{native\_square\_rows\_recover\_endpoints} in
+\texttt{FiniteFieldNativeRowFibres.\allowbreak lean}
+proves both implications with exactly these hypotheses.
+Its one new axiom audit contains only \texttt{propext},
+\texttt{Classical.choice}, and \texttt{Quot.sound}.
+The proof composes the existing endpoint-divisor theorem with elementary
+prime divisibility; no independent novelty is claimed for that argument.
+
 \begin{thebibliography}{99}
 \bibitem{MartinWaljiCharacters}
 K. Martin and N. Walji,

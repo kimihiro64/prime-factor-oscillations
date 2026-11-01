@@ -7,8 +7,8 @@ import PrimeFactorOscillations.Assembly.FiniteFieldCubicLift
 import PrimeFactorOscillations.Assembly.FiniteFieldJointCharacterProjection
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeAgreementEnergy
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeConsecutiveAgreement
-import PrimeFactorOscillations.Assembly.FiniteFieldNativeEndpointDivisors
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeExceptionalAgreement
+import PrimeFactorOscillations.Assembly.FiniteFieldNativeRowFibres
 import PrimeFactorOscillations.Assembly.FiniteFieldPairIntegerCRT
 import PrimeFactorOscillations.Assembly.FiniteFieldPairProductSeparation
 import PrimeFactorOscillations.Assembly.FiniteFieldQuasipolynomialWeight
@@ -34,6 +34,8 @@ or one upper squareclass row. Unbounded upper-endpoint families use only
 the lower row, with all lower primes dividing each fixed lower invariant.
 Every fixed finite native agreement form has sharp coercivity three eighths,
 including its physical limit and an exact four-pair equality witness.
+An upper squareclass row fixes the upper prime endpoint; a lower row fixes
+the lower prime endpoint when both compared gaps are short.
 The identities retain the Gauss-Kloosterman term and its compensation. No new
 integer pair-supply estimate is asserted.
 -/
