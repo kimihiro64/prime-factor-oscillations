@@ -14384,6 +14384,86 @@ No effective starting height is claimed. The pairs need not be
 consecutive integer primes, and the result supplies no value of
 the least recurring integer gap or new integer zero-free exponent.
 
+\section{Exact weighted sieves for prime-pair collisions}
+\label{sec:weighted-native-sieve}
+
+The next retention question requires unequal input coefficients.
+A family evaluated only at \(p+q\) does not cover that case.
+The already proved arbitrary unit-residue limit supplies the correct
+sampling theorem.
+
+\begin{theorem}[Fixed weighted prime-pair sieve]
+\label{thm:weighted-prime-pair-sieve}
+Let \(K\) be a finite field and let \(a,b\in K\) be nonzero.
+Exactly \(|K|-1\) ordered pairs \((x,y)\in(K^\times)^2\) satisfy
+\(ax+by=0\).
+
+Now fix natural coefficients \(a,b\) and a finite set
+\(\mathcal L\) of distinct primes, with
+\(\ell\not\mid a\) and \(\ell\not\mid b\) for every
+\(\ell\in\mathcal L\). Write
+\(\mathcal P(Y)=\{p\le Y:p\text{ is prime}\}\).
+Then
+\[
+ \lim_{Y\to\infty}
+ \frac{\#\{(p,q)\in\mathcal P(Y)^2:
+       \ell\not\mid(ap+bq)\ \text{for every }\ell\in\mathcal L\}}
+      {\pi(Y)^2}
+   =\prod_{\ell\in\mathcal L}\frac{\ell-2}{\ell-1}.
+\]
+Both prime inputs are sampled, and the coefficients and the entire
+finite set \(\mathcal L\) are fixed before this limit.
+The empty prime set is included. The factor at \(2\) is exactly
+zero when \(2\in\mathcal L\) and both coefficients are odd.
+The normalization is positive for \(Y\ge2\).
+\end{theorem}
+
+\begin{proof}
+For every nonzero \(x\), the unique solution is
+\(y=-a x/b\), which is also nonzero. Projection onto \(x\)
+therefore gives the first cardinality formula.
+
+At a prime \(\ell\) satisfying the hypotheses there are
+\((\ell-1)^2\) reduced ordered pairs, of which exactly
+\(\ell-1\) make the weighted sum zero. Thus the allowed
+proportion is
+\[
+ 1-\frac{\ell-1}{(\ell-1)^2}
+       =1-\frac1{\ell-1}=\frac{\ell-2}{\ell-1}.
+\]
+The generic prime-pair residue theorem gives the uniform reduced
+pair law at each fixed modulus. Chinese remaindering multiplies
+these local proportions at the distinct primes of \(\mathcal L\).
+The casts of the complete integer expression \(ap+bq\) commute
+with each CRT projection, so the residue event is exactly the
+integer divisibility event in the display.
+\end{proof}
+
+The field count is
+\texttt{Finset.card\_nonzero\_linear\_sum\_zero} in the maintained
+\texttt{Mathlib/\allowbreak Algebra/\allowbreak Field/\allowbreak
+FiniteAffineRoots.\allowbreak lean} owner.
+The two prime-pair statements are
+\texttt{tendsto\_prime\_pair\_weighted\_sieve\_pattern} and
+\texttt{tendsto\_prime\_pair\_weighted\_nondivisibility\_pattern},
+in \texttt{Proof/\allowbreak AffinePairs/\allowbreak
+WeightedPrimePatterns.\allowbreak lean}.
+All three new proofs compile without warnings and their new
+closure checks use only standard Lean foundations.
+These are classical supporting sieve facts, with no independent
+originality claim.
+
+For the native retention problem, a collision with square-root
+multipliers \(1\le v<u<T\) produces a third prime from a weighted
+average whose coefficients are \(v^2,u^2-v^2\), in either order,
+and whose denominator is \(u^2\).
+Every prime \(\ell>T^2\) avoids all three coefficient and
+denominator exceptions. The theorem supplies its exact finite
+sieve factor. The density-one retention conclusion is not yet
+proved: the vanishing sieve product, small-prime output exception,
+large-squarepart tail and full native collision-deletion consumer
+still have to be assembled.
+
 \begin{thebibliography}{99}
 \bibitem{MartinWaljiCharacters}
 K. Martin and N. Walji,

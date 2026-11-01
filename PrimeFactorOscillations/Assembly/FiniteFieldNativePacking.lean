@@ -5,10 +5,12 @@ Authors: Prime Factor Oscillations contributors
 -/
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeHeightCapacity
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeHeightPacking
+import PrimeFactorOscillations.Proof.AffinePairs.WeightedPrimePatterns
 
 /-!
-# Optimal native height capacity and physical stability
+# Native height capacity and weighted collision-sieve inputs
 
-Import-only grouping of the complete height-order theorem, exact signed
-physical energy, sharp flat stability and finite prime-product packing.
+Import-only grouping of the complete height-order theorem, sharp physical
+stability, finite prime-product packing and exact fixed weighted prime sieves.
+The density-one native retention theorem is not asserted by this facade.
 -/

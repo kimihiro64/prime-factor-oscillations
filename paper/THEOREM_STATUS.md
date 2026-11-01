@@ -3832,3 +3832,20 @@ new_bound: Y^2/(4096*log(Y)^2)<=card(M)<=4*Y^2/log(Y)^2 eventually, with at leas
 components: inject (n,h) into (n,n+h); apply the proved PNT bound pi(Y)<=2Y/log(Y); retain the complete squarefree-gap lower supply; use power-log decay to guarantee two entries; apply the exact physical limit with all signed cross products; prove both directions of the stability equivalence.
 actuals: two maintained real proofs and two new-only standard-foundation closures; no finite prime counts or numerical completion.
 first_nonpositive_domain: all conclusions hold for every sufficiently large natural height. The inherited constants and convergence cutoffs remain existential. Each finite codebook is fixed before the independent field-scale limit; no simultaneous growing-codebook limit, integer bounded-gap value or improved zero-free exponent is claimed.
+
+## Exact weighted prime-pair collision sieve (2026-11-01)
+
+| Claim | Maintained declaration | Status and scope |
+| --- | --- | --- |
+| Weighted zero count over a finite field | Finset.card_nonzero_linear_sum_zero | Proved: over every finite field K and nonzero a,b, exactly card(K)-1 ordered pairs of nonzero coordinates satisfy a*x+b*y=0. |
+| Exact finite weighted sieve in CRT coordinates | PrimeFactorOscillations.tendsto_prime_pair_weighted_sieve_pattern | Proved for every fixed finite pairwise-coprime prime family and natural coefficients nonzero modulo every selected prime: the actual ordered prime-pair residue event tends to the product of 1-1/(ell-1). |
+| Direct sieve for actual integer weighted outputs | PrimeFactorOscillations.tendsto_prime_pair_weighted_nondivisibility_pattern | Proved on the complete ordered pairs of primes<=N, normalized by pi(N)^2, for the integer event ell does not divide a*p+b*q at every selected prime. The coefficients and finite prime family are fixed before N tends to infinity. |
+
+The changed FiniteAffineRoots.lean candidate and new WeightedPrimePatterns.lean owner compile warning-free. Exactly these three new theorem closures were checked; all use only propext, Classical.choice and Quot.sound. Unequal coefficients are retained, and the whole integer weighted sum is typed before casting. The empty prime set and the permitted prime-two factor are included. These classical supporting facts do not independently settle the new density-one native retention target.
+
+benchmark_status: finite weighted local and actual-input sieve factors proved; density-one native retention remains unproved.
+old_bound: the proved height-capacity bounds remain Y^2/(4096*log(Y)^2) and 4*Y^2/log(Y)^2, with sharp physical stability 5/8 on the constructed codebooks.
+new_bound: for every fixed permitted prime family, the exact limiting fraction of ordered prime pairs avoiding all its weighted divisibility events is product(1-1/(ell-1)). No new full codebook-retention ratio is certified.
+components: nonzero field coefficients; one zero pair per nonzero first coordinate; positive local denominator ell-1; exact unit-pair CRT independence; both actual prime inputs retained; complete integer-output casting.
+actuals: three maintained proofs and three new-only standard-foundation closure checks; no finite numerical prime experiments.
+first_nonpositive_domain: the finite product is zero if the allowed sieve includes prime2; it equals one for an empty sieve. Coefficient-zero primes are outside the stated hypothesis. No growing-prime-set sampling limit, improved integer zero-free exponent or completed density-one codebook theorem is claimed.

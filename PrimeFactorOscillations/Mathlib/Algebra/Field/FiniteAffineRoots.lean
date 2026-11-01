@@ -108,4 +108,43 @@ theorem card_nonzero_affine_product_sum {K I : Type*} [Field K] [Fintype K] [Fin
   rw [hset, Finset.card_nonzero_sum_mem hq R, hR]
   simp only [hzero]
 
+/-- A nondegenerate weighted sum has exactly one zero pair for each
+nonzero first coordinate. This is the local collision-sieve count. -/
+theorem card_nonzero_linear_sum_zero {K : Type*} [Field K] [Fintype K]
+    [DecidableEq K] (a b : K) (ha : Not (a = 0)) (hb : Not (b = 0)) :
+    (((Finset.univ.erase (0 : K)).product (Finset.univ.erase (0 : K))).filter
+      (fun xy : Prod K K => a * xy.1 + b * xy.2 = 0)).card =
+        Fintype.card K - 1 := by
+  classical
+  have hInv : (1 / b) * b = 1 := by field_simp [hb]
+  have hcard :
+      (((Finset.univ.erase (0 : K)).product (Finset.univ.erase (0 : K))).filter
+        (fun xy : Prod K K => a * xy.1 + b * xy.2 = 0)).card =
+          (Finset.univ.erase (0 : K)).card := by
+    apply Finset.card_bij (fun xy _ => xy.1)
+    . intro xy hxy
+      exact (Finset.mem_product.mp (Finset.mem_filter.mp hxy).1).1
+    . intro xy hxy zw hzw he
+      apply Prod.ext he
+      have hx := (Finset.mem_filter.mp hxy).2
+      have hz := (Finset.mem_filter.mp hzw).2
+      rw [he] at hx
+      have hm : b * xy.2 = b * zw.2 := by linear_combination hx - hz
+      have hc := congrArg (fun z : K => (1 / b) * z) hm
+      simpa only [<- mul_assoc, hInv, one_mul] using hc
+    . intro x hx
+      have hx0 : Not (x = 0) := (Finset.mem_erase.mp hx).1
+      have hy0 : Not (-(a / b) * x = 0) :=
+        mul_ne_zero (neg_ne_zero.mpr (div_ne_zero ha hb)) hx0
+      have hroot : a * x + b * (-(a / b) * x) = 0 := by
+        field_simp [hb]; simp
+      refine Exists.intro (Prod.mk x (-(a / b) * x)) (Exists.intro ?_ rfl)
+      apply Finset.mem_filter.mpr
+      refine And.intro ?_ hroot
+      apply Finset.mem_product.mpr
+      exact And.intro hx
+        (Finset.mem_erase.mpr (And.intro hy0 (Finset.mem_univ _)))
+  simpa only [Finset.card_erase_of_mem (Finset.mem_univ (0 : K)),
+    Finset.card_univ] using hcard
+
 end Finset
