@@ -3849,3 +3849,19 @@ new_bound: for every fixed permitted prime family, the exact limiting fraction o
 components: nonzero field coefficients; one zero pair per nonzero first coordinate; positive local denominator ell-1; exact unit-pair CRT independence; both actual prime inputs retained; complete integer-output casting.
 actuals: three maintained proofs and three new-only standard-foundation closure checks; no finite numerical prime experiments.
 first_nonpositive_domain: the finite product is zero if the allowed sieve includes prime2; it equals one for an empty sieve. Coefficient-zero primes are outside the stated hypothesis. No growing-prime-set sampling limit, improved integer zero-free exponent or completed density-one codebook theorem is claimed.
+
+## Vanishing weighted-prime-output density (2026-11-01)
+
+| Claim | Maintained declaration | Status and scope |
+| --- | --- | --- |
+| Vanishing sieve product outside a fixed prefix | PrimeFactorOscillations.tendsto_weighted_sieve_product_zero | Proved for every natural B>=2: the product over prime B<p<=n of 1-1/(p-1) tends to zero. |
+| Zero density of positive weighted prime outputs | PrimeFactorOscillations.tendsto_weighted_prime_output_probability_zero | Proved for every fixed positive natural a,b,k: the probability on all ordered primes p,q<=N of existence of a prime r with a*p+b*q=k*r tends to zero. No cutoff on r is imposed. |
+
+The maintained WeightedSieveDecay.lean owner compiles warning-free. Exactly these two new closures were checked; both use only propext, Classical.choice and Quot.sound. The proof preserves unequal coefficients, the small-output exception, and the order of limits: a finite sieve is fixed before N tends to infinity. These classical supporting estimates do not by themselves prove density-one native retention.
+
+benchmark_status: component proved; native density-one retention remains unproved.
+old_bound: weighted-prime-output probability was bounded only by one; the committed native height-capacity and stability bounds remain unchanged.
+new_bound: weighted-prime-output probability is o(1) for every fixed positive triple a,b,k. No effective cutoff or power rate is claimed.
+components: exact weighted unit-pair CRT sieve; Mertens divergence of prime odds; nonnegative finite-product exponential bound; fixed small-first-prime exception; full finite probability union bound.
+actuals: two maintained warning-free Lean proofs and two new-only standard-foundation closure checks; no numerical substitutions.
+first_nonpositive_domain: not applicable to this nonnegative limit. The native large-squarepart tail and exact collision-deletion consumer remain unproved; no density-one codebook or RH exponent gain is claimed.

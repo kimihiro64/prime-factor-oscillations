@@ -14459,10 +14459,87 @@ average whose coefficients are \(v^2,u^2-v^2\), in either order,
 and whose denominator is \(u^2\).
 Every prime \(\ell>T^2\) avoids all three coefficient and
 denominator exceptions. The theorem supplies its exact finite
-sieve factor. The density-one retention conclusion is not yet
-proved: the vanishing sieve product, small-prime output exception,
-large-squarepart tail and full native collision-deletion consumer
-still have to be assembled.
+sieve factor. The vanishing product and small-prime output exception
+are now proved in the following section. Density-one retention still
+requires the large-squarepart tail and full native collision-deletion
+consumer.
+
+\section{Vanishing density of positive weighted prime outputs}
+\label{sec:weighted-prime-output-decay}
+
+\begin{theorem}[Weighted prime-output sparsity]
+\label{thm:weighted-prime-output-sparse}
+For every fixed integer \(L\ge2\),
+\[
+ \delta_L(z)=\prod_{\substack{L<\ell\le z\\ \ell\ {\rm prime}}}
+       \left(1-\frac1{\ell-1}\right)\longrightarrow0.
+\]
+For every fixed triple of positive natural numbers \(A,B,D\),
+\[
+ \frac{\#\{(p,q)\in\mathcal P(Y)^2:
+       \exists r\ {\rm prime},\ Ap+Bq=Dr\}}{\pi(Y)^2}
+       \longrightarrow0
+ \qquad(Y\longrightarrow\infty).
+\]
+There is no cutoff on the third prime \(r\).
+\end{theorem}
+
+\begin{proof}
+The ordinary prime odds satisfy
+\(\sum_{\ell\le z}1/(\ell-1)\longrightarrow\infty\).
+In the formal proof this follows from the proved Mertens bounds
+and the bounded comparison between ordinary and generic odd
+prime weights. Removing the fixed initial segment through \(L\)
+preserves divergence. All remaining factors are nonnegative, and
+finite product induction using \(1-t\le e^{-t}\) gives
+\[
+ 0\le\delta_L(z)\le
+ \exp\left(-\sum_{\substack{L<\ell\le z\\\ell\ {\rm prime}}}
+                  \frac1{\ell-1}\right)\longrightarrow0.
+\]
+
+Fix \(A,B,D>0\), put \(L=A+B+D+2\), and choose a finite
+integer \(z\ge L\). Each prime \(L<\ell\le z\) divides none
+of \(A,B,D\). If \(Ap+Bq=Dr\) and such an \(\ell\) divides
+\(Ap+Bq\), then \(\ell\mid r\), whence \(r=\ell\le z\).
+Positivity implies \(p\le Dz\). Consequently the prime-output
+event is contained in the union of the sieve-avoidance event
+from Theorem~\ref{thm:weighted-prime-pair-sieve} and the event
+\(p\le Dz\).
+
+For completeness, the latter exceptional event has limiting
+pair probability zero without any estimate for prime triples.
+Let \(M\) be the product of the primes at most \(Dz\), with
+empty product one. Every prime \(p\le Dz\) divides \(M\);
+its residue is therefore not a unit modulo \(M\).
+The arbitrary fixed-modulus prime-pair limit is supported on
+pairs of units. Thus the exceptional event has limiting
+probability zero. If there are no such small primes, the
+exceptional event is empty.
+
+The exact finite union bound now gives a limiting upper
+bound \(\delta_L(z)\) for the prime-output probability.
+Given \(\varepsilon>0\), first fix \(z\) with
+\(\delta_L(z)<\varepsilon/3\), then take \(Y\) large enough
+for the two fixed-event convergence bounds. Nonnegativity
+proves convergence to zero. The finite sieve cutoff is always
+fixed before the sampling limit.
+\end{proof}
+
+The maintained declarations are
+\texttt{tendsto\_weighted\_sieve\_product\_zero} and
+\texttt{tendsto\_weighted\_prime\_output\_probability\_zero}
+in \texttt{Proof/\allowbreak AffinePairs/\allowbreak
+WeightedSieveDecay.\allowbreak lean}.
+Both compile without warnings; their two new closure checks
+use only standard Lean foundations. These are classical
+supporting sieve estimates, with no independent priority claim.
+No effective cutoff, power rate, growing-modulus limit or
+improved integer zero-free exponent is asserted.
+For each fixed pair of distinct square-root multipliers, this
+supplies the required sparse weighted-prime event. The exact
+native collision-count map and the large-squarepart deletion
+tail are still needed for density-one native retention.
 
 \begin{thebibliography}{99}
 \bibitem{MartinWaljiCharacters}
