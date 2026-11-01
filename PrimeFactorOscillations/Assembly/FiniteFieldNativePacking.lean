@@ -11,7 +11,7 @@ import PrimeFactorOscillations.Assembly.FiniteFieldNativeFullSparseConflicts
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeHeightCapacity
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeHeightPacking
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeSignedFamilies
-import PrimeFactorOscillations.Assembly.FiniteFieldNativeUniversalZero
+import PrimeFactorOscillations.Assembly.FiniteFieldNativeVanishingProfiles
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeVertexGreedy
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeVertexReservoir
 import PrimeFactorOscillations.Proof.AffinePairs.PrimeSplitSquarePolynomials
@@ -33,4 +33,6 @@ The sharp universal simultaneous graph-coincidence floor, its attainment
 on that class and the exact actual-native-weight transfer are exported.
 The central native-output atom is universal on arbitrary actual prime graphs,
 including empty graphs, without vertex/gap independence.
+The complete universal central/noncentral profile law, exact forbidden
+patterns, field-prime recurrence criterion and small-graph laws are included.
 -/

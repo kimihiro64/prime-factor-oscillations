@@ -16837,6 +16837,182 @@ All fifteen new proof closures have completed new-only
 standard-foundation audits; the two noncomputable event/mass definitions
 are recorded separately.
 
+\section{The complete universal vanishing-profile law}
+\label{sec:native-vanishing-profiles}
+
+The preceding universal atom extends to every prescribed zero/nonzero
+profile. This queries which traces vanish, retaining the distinction
+between the two nonzero trace signs in the earlier word laws.
+
+Fix any finite actual prime set \(P\), any \(G\subseteq E(P)\), and
+signs \(\epsilon_e\in\{-1,1\}\) for \(e\in G\).
+The sign \(+1\) specifies a nonzero trace, and \(-1\) specifies a zero
+trace. Call the profile \emph{compatible} when
+\begin{equation}\label{eq:native-profile-compatibility}
+ \prod_{e\in C}\epsilon_e=1
+ \quad\text{for every }C\in\mathcal C_{\rm ev}(P,G).
+\end{equation}
+For the fixed reciprocal-prime bands above, put
+\[
+ \mathcal V_U(P,G;\epsilon)=\frac1{M_U}
+  \sum_{\ell\in\mathcal I_U}\frac1\ell
+  \mathbf1\{T_e(\ell)=0\ \Longleftrightarrow\
+                          \epsilon_e=-1\quad(e\in G)\},
+ \qquad T_e=X^-_e+X^+_e.
+\]
+
+\begin{theorem}[Universal profile classification and recurrence]
+\label{thm:native-vanishing-profiles}
+For arbitrary actual prime vertices, with no vertex/gap independence,
+\begin{equation}\label{eq:native-full-profile-law}
+ \lim_{U\to\infty}\mathcal V_U(P,G;\epsilon)
+ =
+ \begin{cases}
+  N_{\rm ev}(P,G)/2^{|G|},&\text{if \(\epsilon\) is compatible},\\
+  0,&\text{otherwise}.
+ \end{cases}
+\end{equation}
+Every incompatible profile is absent at every field prime
+\(\ell>\max(P\cup\{2\})\).
+A compatible profile occurs at arbitrarily large actual field primes;
+conversely this recurrence implies compatibility.
+
+The same limiting law holds for the actual native central/noncentral
+weight profile
+\[
+ W_e(\ell)=\frac{\ell-1}{\ell-3}
+       \quad\Longleftrightarrow\quad\epsilon_e=-1
+       \qquad(e\in G).
+\]
+The fraction is used for \(\ell\geq5\); any convention at the finitely
+many remaining field primes gives the same limit.
+
+For \(|G|\leq3\), every profile is compatible and has probability
+\(2^{-|G|}\). For a strict four-cycle \(C\), the exact actual-weight
+profile law is
+\[
+ \begin{cases}
+  1/8,&\prod_{e\in C}\epsilon_e=1,\\
+  0,&\prod_{e\in C}\epsilon_e\ne1.
+ \end{cases}
+\]
+The empty graph is included, with its unique vacuous profile having
+probability one.
+\end{theorem}
+
+\begin{proof}
+For \(\ell>\max(P\cup\{2\})\), both signed rows at each edge are
+in \(\{-1,1\}\). Put
+\(R_e(\ell)=X^-_e(\ell)X^+_e(\ell)\).
+The elementary identity
+\[
+ (X^-_e+X^+_e)^2=2+2R_e
+\]
+shows that the trace is zero exactly when \(R_e=-1\); it is nonzero
+exactly when \(R_e=1\). Thus the actual profile selector is exactly
+\[
+ \prod_{e\in G}\frac{1+\epsilon_eR_e(\ell)}2
+ =
+ 2^{-|G|}\sum_{C\subseteq G}
+    \left(\prod_{e\in C}\epsilon_e\right)
+    \left(\prod_{e\in C}X^-_e(\ell)\right)
+    \left(\prod_{e\in C}X^+_e(\ell)\right).
+\]
+Every finite mask and its sign is retained.
+The entire eventual field-prime band satisfies the endpoint bound,
+so summing this identity with \(1/\ell\), dividing by \(M_U\), and
+using the unconditional mixed-moment limits gives
+\begin{equation}\label{eq:native-profile-full-fourier}
+ \lim_{U\to\infty}\mathcal V_U(P,G;\epsilon)
+ =
+ 2^{-|G|}\sum_{C\subseteq G}
+     \left(\prod_{e\in C}\epsilon_e\right)\delta(C,C).
+\end{equation}
+The universal diagonal classifier
+\eqref{eq:native-universal-diagonal} reduces this finite sum exactly to
+\(\mathcal C_{\rm ev}(P,G)\).
+For a compatible profile all remaining coefficients are one, proving
+the first branch of \eqref{eq:native-full-profile-law}.
+
+We prove the other branch by a pointwise arithmetic constraint, keeping
+the complete square numerator.
+For any \(C\in\mathcal C_{\rm ev}(P,G)\), its signed product
+\(D(C,C)\) is a square, say \(k^2\) with \(k\in\mathbb Z\).
+Multiplicativity gives
+\[
+ r_C(\ell):=\prod_{e\in C}R_e(\ell)
+   =\chi_\ell(D(C,C))=\chi_\ell(k)^2\geq0.
+\]
+On the same endpoint range, every row is a sign, so \(r_C(\ell)^2=1\).
+Consequently \(r_C(\ell)=1\), at every such field prime.
+This argument needs no additional bound on a chosen square root and
+no removal of a reciprocal factor or unsigned relaxation.
+
+If the prescribed profile occurs, then \(R_e(\ell)=\epsilon_e\)
+at every edge. It follows that
+\(\prod_{e\in C}\epsilon_e=r_C(\ell)=1\) for every qualifying mask.
+An incompatible profile is therefore impossible on the whole stated
+range. Its event mass is exactly zero on every eventual band,
+giving the zero branch.
+Together with \eqref{eq:native-profile-full-fourier}, this also proves
+the exact cancellation of the full signed Fourier sum for every
+forbidden profile; no separate subgroup-closure reconstruction is needed.
+
+The compatible limiting value is positive because the empty mask
+belongs to \(\mathcal C_{\rm ev}(P,G)\).
+For every bound \(B\), choose a sufficiently late band with lower
+endpoint exceeding \(B\) and positive normalized event mass.
+At least one actual field prime in that band realizes the profile.
+This proves recurrence. Conversely an incompatible profile has no
+realizer above the fixed endpoint threshold, so cannot recur.
+
+For \(\ell\geq5\) above all vertices, the exact affine readout
+\[
+ (\ell-3)W_e(\ell)-(\ell-1)=T_e(\ell)
+\]
+has nonzero coefficient \(\ell-3\).
+It equates the central-weight equality with the zero-trace equality,
+and equates their negations as well.
+Thus every prescribed central/noncentral profile transfers pointwise,
+and the two full event masses are equal on the entire eventual band.
+This proves the actual-weight law.
+
+Finally, for at most three strict edges the only qualifying mask is
+empty, whose sign product is one for every profile.
+For a strict four-cycle the qualifying masks are empty and full,
+so compatibility is exactly the single full-cycle product test.
+The previously compiled counts \(N_{\rm ev}=1\) and \(N_{\rm ev}=2\),
+respectively, give the displayed limits.
+All statements include empty supports and the prime vertex \(2\).
+\end{proof}
+
+\paragraph{Meaning and verified scope.}
+The whole central/noncentral profile is universal for a given finite
+prime-vertex graph. Additional arithmetic relations between gaps can
+affect the signs of the nonzero traces and their synchronization, while
+the complete pattern of vanishing has the exact law above.
+The small-graph theorem gives three-wise fair independence of these
+statuses for arbitrary actual prime labels; the four-cycle supplies the
+first explicit constraint.
+Recurrence here varies the field prime \(\ell\) with \(P,G,\epsilon\)
+fixed. It does not vary an integer prime-pair gap.
+The finite Boolean expansion and quadratic-character equidistribution
+are classical inputs; the claimed application is the complete universal
+native profile classification, with publication priority unestablished.
+There is no growing-graph uniformity, effective vertex growth,
+integer prime-gap conclusion or improved RH/QRH exponent.
+
+The paired selector algebra is maintained in
+\texttt{NativeVanishingProfileAlgebra.lean}.
+The exact physical cycle constraint, finite-band expansion and general
+profile limit are in \texttt{FiniteFieldNativeVanishingEvents.lean}.
+The full compatible/forbidden law, recurrence equivalence,
+central-weight transfer and symbolic small-graph consumers are in
+\texttt{FiniteFieldNativeVanishingProfiles.lean}.
+All twenty-seven new proof closures have completed new-only
+standard-foundation audits; seven event/coefficient/rate definitions
+are listed separately in the claim ledger.
+
 \begin{thebibliography}{99}
 \bibitem{KarpVaziraniVazirani}
 R. M. Karp, U. V. Vazirani and V. V. Vazirani,

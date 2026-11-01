@@ -1,5 +1,50 @@
 # Paper theorem and provenance ledger
 
+## Complete universal native vanishing-profile law (2026-11-01)
+
+All twenty-seven claims below have maintained Lean proofs, warning-free focused builds and completed new-only assumption audits. They belong to `PrimeFactorOscillations.FiniteFieldIntegerSignature`. For every fixed strict graph G on arbitrary actual prime vertices P, every prescribed zero/nonzero trace profile and central/noncentral native-weight profile has frequency N_even(P,G)/2^|G| if all even Eulerian mask sign products are1, and0 otherwise. No vertex/gap independence is assumed. True specifies a nonzero trace or noncentral weight; false specifies a zero trace or central weight. Every incompatible profile is eventually impossible; compatible profiles occur at arbitrarily large actual field primes.
+
+| Claim | Lean declaration | Status |
+| --- | --- | --- |
+| Zero paired trace exactly means negative row product | native_trace_zero_iff_paired_negative | Proved; maintained, compiled and audited. |
+| Exact zero/nonzero status and paired-sign equivalence | native_trace_status_iff_paired_sign | Proved; maintained, compiled and audited. |
+| Actual finite profile equals its supported Boolean selector | native_paired_profile_selector | Proved; maintained, compiled and audited. |
+| Full paired-profile signed mask expansion | native_paired_profile_full_mask_expansion | Proved; maintained, compiled and audited. |
+| Every qualifying cycle has physical character product exactly one | native_cycle_paired_character_product_one | Proved; maintained, compiled and audited. |
+| Every actual late-field profile satisfies all cycle constraints | native_vanishing_profile_event_compatible | Proved; maintained, compiled and audited. |
+| Exact physical vanishing-profile selector | native_vanishing_profile_pointwise_selector | Proved; maintained, compiled and audited. |
+| Full finite-band profile mass expansion with all masks | native_vanishing_profile_mass_expansion | Proved; maintained, compiled and audited. |
+| Eventual whole-band profile expansion | native_vanishing_profile_mass_expansion_eventually | Proved; maintained, compiled and audited. |
+| An incompatible profile has exactly zero late-band mass | native_vanishing_incompatible_mass_zero | Proved; maintained, compiled and audited. |
+| Incompatible profile mass is eventually exactly zero | native_vanishing_incompatible_mass_zero_eventually | Proved; maintained, compiled and audited. |
+| General physical profile limit before finite mask classification | native_vanishing_profile_general_ratio_tendsto | Proved; maintained, compiled and audited. |
+| Compatible profiles have the exact common frequency | native_vanishing_compatible_rate | Proved; maintained, compiled and audited. |
+| Incompatible profiles have rate exactly zero | native_vanishing_incompatible_rate | Proved; maintained, compiled and audited. |
+| Complete compatible/forbidden profile rate formula | native_vanishing_profile_rate_eq | Proved; maintained, compiled and audited. |
+| Complete unconditional physical profile law | native_vanishing_profile_ratio_tendsto | Proved; maintained, compiled and audited. |
+| Incompatible profiles are absent above a fixed field-prime threshold | native_vanishing_incompatible_eventually_absent | Proved; maintained, compiled and audited. |
+| Every compatible profile has an actual field-prime realizer above every bound | native_vanishing_compatible_realization_above | Proved; maintained, compiled and audited. |
+| Actual field-prime profile recurrence is equivalent to compatibility | native_vanishing_profile_recurrence_iff | Proved; maintained, compiled and audited. |
+| Exact full central-weight and vanishing-profile equivalence | native_central_profile_iff_vanishing | Proved; maintained, compiled and audited. |
+| Exact finite-band central-profile mass transfer | native_central_profile_mass_eq | Proved; maintained, compiled and audited. |
+| Exact eventual-band central-profile mass transfer | native_central_profile_mass_eq_eventually | Proved; maintained, compiled and audited. |
+| Complete actual central/noncentral native-weight profile law | native_central_profile_ratio_tendsto | Proved; maintained, compiled and audited. |
+| Every profile with at most three edges is compatible | native_small_vanishing_profile_compatible | Proved; maintained, compiled and audited. |
+| Universal fair profile frequency for at most three edges | native_small_central_profile_ratio_tendsto | Proved; maintained, compiled and audited. |
+| Four-cycle compatibility is exactly one full-cycle sign test | native_four_cycle_vanishing_profile_compatible_iff | Proved; maintained, compiled and audited. |
+| Exact actual-weight four-cycle profile law | native_four_cycle_central_profile_ratio_tendsto | Proved; maintained, compiled and audited. |
+
+Definition interfaces (not additional theorem claims): `nativeVanishingProfileEvent`, `nativeVanishingProfileMass`, `nativeVanishingProfileCoefficient`, `nativeVanishingProfileCompatible`, `nativeVanishingProfileRate`, `nativeCentralProfileEvent`, `nativeCentralProfileMass`. These are explicit noncomputable probability-section interfaces, not additional arithmetic assumptions.
+
+Maintained owners: `PrimeFactorOscillations/Helpers/NativeVanishingProfileAlgebra.lean`, `PrimeFactorOscillations/Assembly/FiniteFieldNativeVanishingEvents.lean`, `PrimeFactorOscillations/Assembly/FiniteFieldNativeVanishingProfiles.lean`. All twenty-seven new closures use only `propext`, `Classical.choice` and `Quot.sound`; earlier unchanged closures were not re-audited. The paper includes the full signed expansion, exact physical cycle product, compatible/forbidden classification, unbounded field-prime realization proof and actual-weight transfer.
+
+benchmark_status: full universal profile classification and recurrence criterion proved.
+old_bound: the universal central atom covered only the all-zero/all-central profile; the full signed lower/upper word law required a specially constructed independent prime class.
+new_bound: every fixed Boolean profile on every actual prime graph has exact reciprocal-band frequency N_even/2^m when compatible and0 otherwise. Incompatible profiles are absent beyond all fixed vertices and field prime2. Every compatible profile occurs above every field-prime bound. All profiles on at most three edges are fair with frequency2^(-m); a four-cycle has frequency1/8 or0 according to its full-cycle sign test.
+components: exact paired Boolean selectors; all signed mask coefficients; universal diagonal square classifier; physical product of every even Eulerian mask equals1 because it is nonnegative and has square1; exact forbidden-event absence; positive compatible limit; invertible actual native central readout.
+actuals: twenty-seven new audited Lean proofs and seven definition interfaces. Every small-graph claim is symbolic in all allowed prime labels and profiles; no finite experiment supplies a universal statement.
+first_nonpositive_domain: incompatible profiles have frequency exactly0; compatible profiles have positive frequency because the empty cycle mask is retained. Empty graphs, isolated vertices and vertex2 are included. Every graph and profile is fixed before the independently varying field prime. Recurrence is in that field prime, not in integer prime gaps. No growing-graph uniformity, effective class growth or RH/QRH gain is asserted; the installed boundary remains7/8. Publication priority remains under review.
+
 ## Universal central native-output law (2026-11-01)
 
 All fifteen claims below have maintained Lean proofs, warning-free focused builds and completed new-only assumption audits. They belong to `PrimeFactorOscillations.FiniteFieldIntegerSignature`. For every fixed strict graph G on arbitrary actual prime vertices P, the simultaneous zero-trace frequency and the frequency of all native weights equaling (ell-1)/(ell-3) are exactly N_even(P,G)/2^|G|. Neither statement assumes vertex/gap square independence. The empty graph is included, with probability1.
