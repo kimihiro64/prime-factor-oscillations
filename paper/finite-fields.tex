@@ -13302,6 +13302,98 @@ General matching-density questions are discussed in
 Each compared integer pair is fixed before its field-scale limit.
 The theorem does not assert a uniform cutoff for an infinite family.
 
+\section{Prime-divisor support of exceptional agreement}
+\label{sec:native-endpoint-divisors}
+
+The size localization of exceptional comparisons has an exact
+arithmetic refinement. Write \(P=(n,n+h)\), \(Q=(m,m+k)\),
+and
+\[
+ A=hn,\qquad B=h(n+h).
+\]
+
+\begin{theorem}[Endpoint prime-divisor support]
+\label{thm:native-endpoint-divisors}
+Suppose \(m,m+k\) are prime and \(k>0\). For arbitrary
+natural \(n,h\),
+\[
+ \begin{split}
+ hk\,nm\text{ is a square}&\ \Longrightarrow\ m\mid hn,\\
+ hk\,(n+h)(m+k)\text{ is a square}
+   &\ \Longrightarrow\ m+k\mid h(n+h).
+ \end{split}
+\]
+Consequently, if \(P,Q\) are distinct actual prime pairs with
+positive gaps and native agreement rate \(1/2\), then
+\[
+ \boxed{m\mid A\quad\text{or}\quad m+k\mid B.}
+\]
+These statements include endpoint \(2\).
+\end{theorem}
+
+\begin{proof}
+We first use a scalar fact valid for every prime \(p\).
+If \(p\nmid g\) and \(Agp=r^2\), then \(p\mid r\).
+Write \(r=ps\). Cancelling the positive factor \(p\) gives
+\(Ag=ps^2\); primality and \(p\nmid g\) force \(p\mid A\).
+
+For the lower row, the distinct primes \(m,m+k\) are coprime.
+Hence \(m\) is coprime to \(k\), and the scalar fact applies
+with \(p=m\), \(g=k\), and \(A=hn\).
+For the upper row, \(0<k<m+k\), so \(m+k\nmid k\).
+Apply the same fact with \(p=m+k\) and \(A=h(n+h)\).
+No step requires \(p>2\).
+The two-branch cover follows from the complete native square-test
+classification of agreement \(1/2\).
+\end{proof}
+
+\begin{theorem}[Unbounded exceptional families have one lower row]
+\label{thm:native-unbounded-lower-row}
+Let \(i\mapsto(n_i,h_i)\) be an injective family of actual
+positive-gap prime pairs. Assume every distinct comparison has
+native agreement \(1/2\), and its upper endpoints are unbounded:
+\[
+ \forall Q\in\mathbb N\ \exists i:\quad Q<n_i+h_i.
+\]
+Then
+\[
+ \begin{gathered}
+ \forall i,j:\quad (h_i n_i)(h_j n_j)\text{ is a square},\\
+ \forall i,j:\quad n_j\mid h_i n_i.
+ \end{gathered}
+\]
+In particular, for each fixed reference index \(i\), every lower
+endpoint belongs to the explicit finite set
+\[
+ \{p\in\mathbb N: p\le h_i n_i,\ p\text{ prime},\ p\mid h_i n_i\}.
+\]
+\end{theorem}
+
+\begin{proof}
+The global family theorem supplies either one common lower row
+or one common upper row. Suppose the latter holds, and fix any
+reference index \(i\), which exists by unboundedness.
+The upper-row prime-divisor theorem makes every upper prime
+\(n_j+h_j\) divide the positive integer \(h_i(n_i+h_i)\).
+Every such upper endpoint is therefore at most that integer,
+contradicting unboundedness.
+The common row must be lower. Apply the lower-row prime-divisor
+theorem to every reference \(i\) and member \(j\).
+This also gives \(n_j\le h_i n_i\), since \(h_i n_i>0\),
+and proves the finite-set interpretation.
+\end{proof}
+
+The three maintained declarations in
+\texttt{FiniteFieldNativeEndpointDivisors.\allowbreak lean}
+prove both row implications, their actual agreement cover,
+and the full unbounded-family conclusion.
+They compile warning-free and have new-only foundational-axiom
+audits. The supporting prime-divisibility argument is classical;
+the application identifies the arithmetic support of this
+native agreement observable.
+All field-scale limits still use fixed compared integer pairs.
+No new prime-pair supply or growing-endpoint field limit is asserted.
+
 \begin{thebibliography}{99}
 \bibitem{WaljiMatchingDensities}
 N. Walji, \emph{Matching densities for Galois representations},

@@ -3621,3 +3621,22 @@ components: the actual native arithmetic classifier, its full square-indicator f
 actuals: one universal maintained real proof and one new-only foundational-axiom audit; no finite experiment or independent-sign model supplies the theorem.
 first_nonpositive_domain: actual prime endpoints, positive gaps and an injective pair family are required. Each compared pair is fixed before its field-scale limit; no common field cutoff for an infinite family, candidate-pair supply, H1 determination, RH/QRH gain or established literature priority is asserted.
 
+## Prime-divisor support and unbounded exceptional families (2026-10-31)
+
+Paper: `finite-fields.tex`, Theorems `thm:native-endpoint-divisors` and `thm:native-unbounded-lower-row`. Owner: `Assembly/FiniteFieldNativeEndpointDivisors.lean`. Namespace: `PrimeFactorOscillations.FiniteFieldIntegerSignature`.
+
+| Claim / declaration | Status | Exact verified scope |
+| --- | --- | --- |
+| `native_square_cross_rows_endpoint_divisors` | proved | For arbitrary natural n,h and actual candidate primes m,m+k with k>0, a lower cross square forces m dividing h*n, and an upper cross square forces m+k dividing h*(n+h). Includes endpoint2 without an odd-prime assumption. |
+| `native_half_agreement_endpoint_divisor_cover` | proved | Every distinct actual positive-gap prime-pair comparison of native rate1/2 has m dividing h*n or m+k dividing h*(n+h), using the complete square-test classifier. |
+| `native_half_agreement_unbounded_family_rigidity` | proved | For every injective family of actual positive-gap prime pairs with unbounded upper endpoints and all distinct rates1/2, every lower-invariant cross product is square, and every lower endpoint divides the lower invariant of every fixed reference. |
+
+All three real declarations compile warning-free and pass exactly three new-only axiom audits containing only propext, Classical.choice and Quot.sound. The explicit finite prime-divisor-set interpretation is an elementary consequence of the compiled divisibility conclusion and positivity, rather than a separately compiled finite-set declaration. No unchanged previous closure was reaudited.
+
+benchmark_status: exact arithmetic support and full unbounded-family restriction proved.
+old_bound: exceptional endpoints satisfied m<=h*n or m+k<=h*(n+h); an arbitrary pairwise exceptional family could share either squareclass row.
+new_bound: m divides h*n or m+k divides h*(n+h). An unbounded-upper-endpoint exceptional family must share the lower row, and every lower endpoint lies among the prime divisors of each fixed reference lower invariant.
+components: exact native square classifier; coprimality of the two actual prime endpoints within each pair; prime divisibility of a square; cancellation of a positive prime; complete two-row family dichotomy; positive fixed upper invariant and the full unboundedness quantifier.
+actuals: three universal maintained real proofs and three new-only foundational-axiom audits. No finite numerical test or assumed prime-producing polynomial supplies the theorem.
+first_nonpositive_domain: candidate endpoints are prime with positive gap; the actual rate cover also requires distinct actual reference and candidate pairs with positive reference gap. The family theorem requires an injective pair map and unbounded upper endpoints. No new prime-pair supply, H1, RH/QRH gain, common field cutoff for an infinite family or established literature priority is claimed.
+
