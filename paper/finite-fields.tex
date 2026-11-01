@@ -15666,8 +15666,99 @@ The maintained owners are
 \texttt{FiniteFieldNativeMaximalCapacity.lean}; positive square transitivity
 is extracted to the reusable \texttt{Nat.IsSquareTrans} candidate.
 The sharp finite witness and all four uniform capacity declarations
-compile without warnings. A single persistent computable family is the
-next step; it is not asserted by these finite-height theorems.
+compile without warnings. The following section supplies one persistent
+computable family.
+
+\section{One computable infinite density-one native family}
+\label{sec:native-coherent-family}
+The height-by-height selections can be made coherent without losing
+their asymptotic size. Define \(G_0=\varnothing\). At height \(q=Y+1\),
+start with \(G_Y\), visit \(p=0,\ldots,q-1\) in order, and insert
+\(a=(p,q-p)\) exactly when \(p,q\) are prime and
+\[
+ \text{for every }b\text{ already selected},\qquad
+ L(a)L(b)\text{ and }U(a)U(b)\text{ are both nonsquares}.
+\]
+Call the final selection \(G_q\). All tests are finite and decidable.
+In particular, the construction uses no choice of an optimizing family.
+
+\begin{theorem}[Computable coherent full-density family]
+There is one explicit decidable infinite class \(G\) of actual
+positive-gap integer prime-pair labels such that
+\[
+ G_Y=G\cap S_Y\quad\text{for every natural }Y,
+ \qquad
+ \operatorname{rate}(a,b)=3/8
+ \quad(a,b\in G,\ a\ne b).
+\]
+Along every sufficiently large natural height, its actual truncations satisfy
+\[
+ \frac{|G\cap S_Y|}{|S_Y|}\longrightarrow1,\qquad
+ \frac{|G\cap S_Y|}{Y^2/\log^2Y}\longrightarrow\frac12.
+\]
+Thus one computably fixed family realizes the full leading capacity.
+\end{theorem}
+\begin{proof}
+Induction over the finite scan and then over heights proves that
+\(G_Y\subseteq S_Y\), that \(G_Y\subseteq G_{Y+1}\), and that both square
+rows are separated between distinct selected labels. Primality is checked
+at insertion, and the identity \(p+(q-p)=q\) uses \(p<q\). New labels
+at a scan have upper endpoint exactly \(q\). Square-row separation is
+preserved because an insertion is tested against every preceding choice
+in both rows. The arithmetic classifier gives native rate \(3/8\).
+
+For each \(a=(p,q-p)\in S_Y\), its eligible visit occurs at height \(q\le Y\).
+It is either retained at that visit or conflicts in at least one row
+with an already retained label. All subsequent scans preserve that label.
+Hence every omitted \(a\in S_Y\setminus G_Y\) has a blocker in \(G_Y\).
+This proves domination on the complete support, including all long gaps.
+It also proves insertion maximality: a flat extension by an omitted
+label would contradict its retained blocker.
+
+Define the single class by the finite birth-height decision
+\[
+ a=(n,h)\in G
+ \quad\Longleftrightarrow\quad
+ a\in G_{n+h}.
+\]
+A selected label can only have been inserted at its own upper endpoint.
+Consequently, membership in any later prefix already implies membership
+at its birth height. Monotonicity proves the converse for all later
+heights. This gives \(G_Y=G\cap S_Y\) exactly, including small heights.
+Any two labels of \(G\) lie together in the prefix at the maximum of their
+birth heights, so their native rate is \(3/8\).
+
+Apply the uniform dominating-selection capacity theorem to \(G_Y\).
+For every fixed \(\varepsilon>0\), eventually
+\[
+ (1-\varepsilon)|S_Y|\le |G_Y|,\qquad
+ (1/2-\varepsilon)\frac{Y^2}{\log^2Y}
+ \le |G_Y|
+ \le(1/2+\varepsilon)\frac{Y^2}{\log^2Y}.
+\]
+The upper retained fraction is at most one. The size of \(G_Y\)
+eventually exceeds every prescribed natural number: use the lower
+bracket at \(\varepsilon=1/4\) and
+\(Y^2/\log^2Y\ge4N\) eventually. Thus \(G\) is infinite and
+\(|S_Y|>0\) eventually. Dividing by these positive denominators and
+squeezing proves both stated limits.
+\end{proof}
+
+The definitions \texttt{nativePrimePairGreedyPrefix} and
+\texttt{nativePrimePairGreedyClass}, including their decision procedure,
+are computable Lean definitions. The maintained proof owners are
+\texttt{FiniteFieldNativeGreedyPacking.lean} and
+\texttt{FiniteFieldNativeCoherentCapacity.lean}. The complete statement is
+the compiled declaration
+\texttt{native\_computable\_density\_one\_flat\_prime\_pair\_family}.
+Its normalized limits and infinitude are separately compiled, rather
+than left as informal consequences.
+
+As a mathematical consequence of the compiled every-maximal physical
+theorem and greedy maximality, the same large finite prefixes retain
+the full signed physical energy limit and optimal \(5/8\) stability.
+Each prefix remains fixed before that field-scale limit.
+This construction does not assert a simultaneous growing-height field limit.
 
 \begin{thebibliography}{99}
 \bibitem{KarpVaziraniVazirani}

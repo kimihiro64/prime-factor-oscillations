@@ -4054,4 +4054,31 @@ old_bound: the full-height theorem selected an existential density-one family se
 new_bound: every dominating family at the same sufficiently large height has density1 and leading capacity1/2; every maximal flat family also has the exact physical limit.
 components: positive square-row transitivity; both full conflict rows; complete charge from M minus G to G minus M; exact finite deficit identities; full retention at eps/2; absolute lower bound2 card(M)-card(S_Y); delta=eps/4.
 actuals: ten new maintained declarations across three focused owners; explicit actual-prime witness, no numerical completion of an analytic remainder.
-first_nonpositive_domain: positive square-transitivity middle factor; actual prime endpoints and positive gaps; eps fixed before all sufficiently large natural heights; each finite family fixed before the field limit. The coherent single infinite computable family remains unproved. No new zero-free exponent or integer bounded-gap conclusion.
+first_nonpositive_domain: positive square-transitivity middle factor; actual prime endpoints and positive gaps; eps fixed before all sufficiently large natural heights; each finite family fixed before the field limit. The coherent single infinite computable family is proved in the following section. No new zero-free exponent or integer bounded-gap conclusion.
+
+
+## One computable coherent infinite native family (2026-11-01)
+
+| Claim | Maintained declaration | Status and scope |
+| --- | --- | --- |
+| Computable choices and global membership | Definitions.NativePrimePairGreedy: nativePrimePairGreedyInsert, nativePrimePairGreedyScan, nativePrimePairGreedyPrefix, nativePrimePairGreedyClass and decidability instances | Compiled computable definitions. Visit every lower endpoint below each upper endpoint, check both primes and both complete square rows; selected labels are never removed. No noncomputable declaration or choice-based construction. |
+| Prefix geometry, flatness and monotonicity | nativePrimePairGreedyPrefix_geometry; nativePrimePairGreedyPrefix_flat; nativePrimePairGreedyPrefix_mono | Proved for every natural height, including0. Every selected label has actual prime endpoints, positive gap and upper endpoint at most the height. |
+| Complete support is retained or blocked | nativePrimePairGreedyPrefix_retained_or_blocked; nativePrimePairGreedyPrefix_dominates | Proved for every label of S_Y; blockers are retained from the actual birth visit through every later prefix. Both square rows and long gaps are included. |
+| Every prefix is maximal flat | nativePrimePairGreedyPrefix_agreement; nativePrimePairGreedyPrefix_maximal | Proved: all distinct selected rates are3/8, and every flat single-label extension was already selected. |
+| Exact global coherence | nativePrimePairGreedyPrefix_mem_at_birth; nativePrimePairGreedyPrefix_mem_iff | Proved: prefix membership is equivalent to membership in the one fixed decidable class and in S_Y. |
+| Global actual-prime geometry and flatness | nativePrimePairGreedyClass_geometry; nativePrimePairGreedyClass_agreement | Proved for every global class member and every distinct pair, by placing both in the prefix at their maximum birth height. |
+| Uniform persistent capacity | eventually_nativePrimePairGreedyPrefix_capacity | Proved: every fixed eps>0 gives relative retention and the sharp(1/2+-eps)D bracket along all sufficiently large natural heights. |
+| Prefix sizes are unbounded and the one class is infinite | eventually_nativePrimePairGreedyPrefix_card_ge; nativePrimePairGreedyClass_infinite | Proved: for every N, eventually card(G_Y)>=N; the decidable global class is infinite. |
+| Actual retained fraction tends to1 | tendsto_nativePrimePairGreedyPrefix_retention_ratio | Proved along all natural heights, with denominators positive eventually. |
+| Sharp normalized persistent size tends to1/2 | tendsto_nativePrimePairGreedyPrefix_count_ratio | Proved: card(G_Y)/(Y^2/log(Y)^2) tends to1/2. |
+| Full constructive headline | native_computable_density_one_flat_prime_pair_family | Proved and compiled as one statement: the fixed class is infinite, consists of actual positive prime pairs, is pairwise flat, has exactly coherent truncations, and both density and sharp-capacity limits hold. |
+| Physical energy and optimal stability for the same large prefixes | Mathematical consequence of compiled every-maximal physical capacity and greedy maximality | Established consequence, with each finite prefix fixed before the field limit; no separate growing-codebook field limit is claimed. |
+
+Unqualified declarations in this section belong to PrimeFactorOscillations.FiniteFieldIntegerSignature. The two proof owners and the computable definition owner compile warning-free. All twenty-nine new proof closures use only standard Lean foundations: propext, Classical.choice and Quot.sound; the square-compatibility symmetry proof uses only propext. No earlier unchanged closure was re-audited.
+
+benchmark_status: the coherent infinite density-one construction is proved.
+old_bound: a density-one flat family could be chosen separately at each height; no single fixed computable global class was supplied.
+new_bound: one decidable infinite G satisfies G_Y=G intersect S_Y for every natural height, card(G_Y)/card(S_Y)->1 and card(G_Y)/(Y^2/log(Y)^2)->1/2; all distinct global native rates are3/8.
+components: all-prime endpoint scan; computable square tests; preservation of every old choice and blocker; exact birth-height identity; universal2-deficit consumer; complete positive supply; positive-denominator order limits.
+actuals: twenty-nine new proof declarations, seven computable definitions/instances, no finite numerical replacement of a universal estimate.
+first_nonpositive_domain: primes include2, all positive gaps are admitted, and small empty prefixes are handled. Asymptotic cutoffs are not effective. Physical consequences keep each finite family fixed before the field limit.
