@@ -4085,7 +4085,7 @@ first_nonpositive_domain: primes include2, all positive gaps are admitted, and s
 
 ## Arbitrary fixed-degree split-product rejection (2026-11-01)
 
-The following five maintained proof declarations compile warning-free and have completed new-closure assumption audits. Earlier unchanged closures were not re-audited. The stronger infinite vertex/gap independence and cycle-classification programme remains open.
+The following five maintained proof declarations compile warning-free and have completed new-closure assumption audits. Earlier unchanged closures were not re-audited. The full infinite vertex/gap independence and cycle-classification consumer is now proved in the following claim section.
 
 | Claim | Lean declaration | Status |
 | --- | --- | --- |
@@ -4094,16 +4094,76 @@ The following five maintained proof declarations compile warning-free and have c
 | A common divisor of two shifts divides the absolute root difference | Nat.dvd_root_difference_of_dvd_shifts | Proved; compiled and audited. |
 | Every square split product has a root-difference divisor certificate | Nat.split_square_has_root_difference_divisor | Proved; compiled and audited. |
 | Actual-prime square-value density is zero for every fixed nonempty split product | PrimeFactorOscillations.tendsto_prime_split_product_square_values_zero | Proved; compiled and audited. |
-| Full infinite prime-vertex/gap squareclass independence and exact cycle kernel | No declaration installed yet | Open; no headline claim. |
+| Full infinite prime-vertex/gap squareclass independence and exact cycle kernel | native_prime_cycle_kernel_family | Proved; compiled and audited; see full-family claims below. |
 
 Reusable candidates: Mathlib/Data/Nat/SquareProductSupport.lean and SplitSquareCertificate.lean, both in the Nat namespace and listed in MATHLIB_PORTING.md. The prime limit owner is Proof/AffinePairs/PrimeSplitSquarePolynomials.lean. Natural subtraction is truncated; all inputs at or below the fixed root bound belong to an explicitly bounded zero-density event. Above that bound the expression is the ordinary split polynomial.
 
-benchmark_status: the universal fixed-degree rejection theorem is proved; the stronger infinite independence/cycle target remains open.
+benchmark_status: the universal fixed-degree rejection theorem and its full infinite independence/cycle consumer are proved.
 old_bound: installed affine and split quadratic square-value sparsity.
 new_bound: square-value prime-relative frequency tends to zero for every fixed positive coefficient and every fixed nonempty finite set of distinct natural roots, of arbitrary finite size.
 components: positive squarefree decomposition; exact common-prime support absorption; all root differences; a finite union over every divisor of the fixed positive D; proved affine prime-relative sparsity; the bounded small-input event.
 actuals: five new audited proofs; no finite numerical test or higher-degree character estimate is substituted for a proof.
 first_nonpositive_domain: no uniformity in root count, root size or coefficient is claimed. A=empty and c=0 are excluded and can give frequency1. Small cutoffs including pi(N)=0 are included. No quantitative global vertex growth or new RH/QRH exponent is asserted.
+
+## Full prime-vertex/gap independence and exact cycle kernel (2026-11-01)
+
+Every declaration below belongs to PrimeFactorOscillations.FiniteFieldIntegerSignature. These forty-four new maintained proof closures compile warning-free and have completed new-only assumption audits. All earlier unchanged proofs were left unaudited. Thirteen new definitions/instances implement finite indexed bases, full-relation tests, the computable scan and row incidence data.
+
+| Claim | Lean declaration | Status |
+| --- | --- | --- |
+| Vertex membership in the indexed basis | native_gap_basis_vertex_mem | Proved; compiled and audited. |
+| Strict-edge membership in the indexed basis | native_gap_basis_edge_mem | Proved; compiled and audited. |
+| Every prime vertex/gap coordinate is positive | native_gap_basis_value_positive | Proved; compiled and audited. |
+| Every supported old subproduct is positive | native_gap_subfamily_product_positive | Proved; compiled and audited. |
+| Every old coordinate lies below a larger prime | native_gap_basis_value_lt | Proved; compiled and audited. |
+| The empty seed is fully independent | native_gap_independent_empty | Proved; compiled and audited. |
+| The coordinate basis preserves vertex-set inclusions | native_gap_basis_monotone | Proved; compiled and audited. |
+| A larger new vertex is absent from the old seed | native_gap_new_vertex_not_mem | Proved; compiled and audited. |
+| Exact new-coordinate erase/image partition | native_gap_new_part_erase | Proved; compiled and audited. |
+| Exact old/new product partition | native_gap_relation_product_partition | Proved; compiled and audited. |
+| Exact new-prime and new-gap product | native_gap_new_part_product | Proved; compiled and audited. |
+| Empty pieces imply an empty relation | native_gap_relation_empty_of_parts | Proved; compiled and audited. |
+| The new prime cannot occur in a square relation | native_gap_new_vertex_excluded | Proved; compiled and audited. |
+| Full finite squareclass-independent insertion | native_gap_independent_insert | Proved; compiled and audited. |
+| Every new-relation rejection has density zero | tendsto_native_prime_gap_unclear_zero | Proved; compiled and audited. |
+| Full rejection plus bounded cutoff has density zero | tendsto_native_prime_gap_rejection_zero | Proved; compiled and audited. |
+| Full clear insertion adapter | native_gap_clear_insertion_independent | Proved; compiled and audited. |
+| Signed actual reservoir supply with every loss retained | native_prime_gap_reservoir_supply | Proved; compiled and audited. |
+| An independent reservoir extension exists above every bound | exists_native_prime_gap_reservoir_extension_above | Proved; compiled and audited. |
+| Greedy insertion adds only its candidate | native_prime_gap_insert_subset | Proved; compiled and audited. |
+| Greedy insertion preserves old vertices | native_prime_gap_insert_contains | Proved; compiled and audited. |
+| Full square independence passes to subsets | native_gap_independent_mono | Proved; compiled and audited. |
+| One scan step adds only its candidate | native_gap_reservoir_prefix_step_subset | Proved; compiled and audited. |
+| Every prefix contains bounded reservoir primes and is fully independent | native_gap_reservoir_prefix_geometry | Proved; compiled and audited. |
+| Prefixes persist | native_gap_reservoir_prefix_monotone | Proved; compiled and audited. |
+| Membership was decided at birth | native_gap_reservoir_prefix_mem_birth | Proved; compiled and audited. |
+| Exact prefix/global-class coherence | native_gap_reservoir_prefix_mem_iff | Proved; compiled and audited. |
+| Global class vertices are reservoir primes | native_gap_reservoir_class_geometry | Proved; compiled and audited. |
+| The computable reservoir class is infinite | native_gap_reservoir_class_infinite | Proved; compiled and audited. |
+| Every finite global-class subset is fully independent | native_gap_reservoir_class_finite_independent | Proved; compiled and audited. |
+| Full infinite independent reservoir family | native_infinite_prime_gap_independent_family_in_reservoir | Proved; compiled and audited. |
+| Explicit positive upper density gives infinity | native_gap_reservoir_infinite_of_positive_upper_density | Proved; compiled and audited. |
+| Unconditional full-prime infinite independent family | native_infinite_prime_gap_independent_family | Proved; compiled and audited. |
+| Exact even/odd coordinate product factorization | native_gap_power_parity_factorization | Proved; compiled and audited. |
+| Square products are exactly even exponent vectors | native_gap_square_power_product_iff | Proved; compiled and audited. |
+| Exact finite edge support | native_gap_edges_mem_iff | Proved; compiled and audited. |
+| Exact vertex incidence exponent | native_gap_row_multiplicity_vertex | Proved; compiled and audited. |
+| Exact gap incidence exponent | native_gap_row_multiplicity_edge | Proved; compiled and audited. |
+| Finite fiber product identity for coordinates | native_gap_mapped_product | Proved; compiled and audited. |
+| Exact lower/upper row product as coordinate powers | native_gap_row_product_powers | Proved; compiled and audited. |
+| Complete finite cycle square-product classifier | native_gap_row_product_square_iff | Proved; compiled and audited. |
+| Classifier on every finite reservoir-class subset | native_gap_reservoir_row_product_square_iff | Proved; compiled and audited. |
+| Infinite independent reservoir family with exact cycle kernel | native_prime_cycle_kernel_family_in_reservoir | Proved; compiled and audited. |
+| Unconditional infinite family with exact cycle kernel | native_prime_cycle_kernel_family | Proved; compiled and audited. |
+
+Owners: Definitions/NativePrimeVertexGapIndependent.lean, NativePrimeVertexGapExtension.lean, NativePrimeVertexGapGreedy.lean and NativePrimeCycleRows.lean; Helpers/NativePrimeVertexGapGeometry.lean, NativePrimeVertexGapPartition.lean, NativePrimeVertexGapInsertion.lean, NativePrimeVertexGapGreedy.lean, NativePrimeVertexGapParity.lean, NativePrimeVertexGapIncidence.lean and NativePrimeVertexGapCycles.lean; Proof/AffinePairs/PrimeVertexGapRejections.lean; Assembly/FiniteFieldIndependentPrimeVertexDensity.lean, FiniteFieldIndependentPrimeVertices.lean and FiniteFieldPrimeCycleKernel.lean. The public NativePacking facade exports the complete result. All assumption closures use only propext, Classical.choice and Quot.sound.
+
+benchmark_status: full infinite computable square-independent prime vertex/gap family and exact arbitrary-size row-relation classifier proved.
+old_bound: complete native-flat families excluded pairwise lower/upper square collisions; arbitrary larger finite square relations remained uncontrolled.
+new_bound: every finite vertex/gap subproduct is square only for empty support. Every lower-A/upper-B row product is square iff A=B and every vertex has even degree in A. At every actual prime cutoff, valid reservoir supply is at least rho_N(R)-epsilon_(P,B0)(N), with epsilon->0 for each fixed finite independent seed and bound.
+components: exact disjoint coordinate insertion; the new prime's forced even valuation; every old subproduct and every nonempty new-gap subset; full arbitrary-degree rejection union; signed reservoir supply; finite birth coherence; full odd-support square cancellation; exact edge and vertex incidence counts.
+actuals: forty-four new real Lean theorem proofs, forty-four new-only foundational closure audits, thirteen computable definitions/instances; no finite experiment supplies a universal estimate.
+first_nonpositive_domain: the finite signed supply may be nonpositive at small cutoffs. For any fixed delta>0 attained by reservoir frequency at unbounded cutoffs, supply is at least delta/2 after epsilon<delta/2. No effective onset, uniformity in growing seeds, global class density, prescribed integer prime-gap value or RH/QRH gain is asserted. Empty supports, isolated vertices, prime2 and pi(N)=0 are included.
 
 ## Prescribed prime reservoirs (2026-11-01)
 

@@ -16165,10 +16165,184 @@ The actual-prime limit is
 \texttt{PrimeFactorOscillations.tendsto\_prime\_split\_product\_square\_values\_zero},
 in \texttt{Proof/AffinePairs/PrimeSplitSquarePolynomials.lean}.
 All five new proof closures have been audited against the standard
-foundational-axiom allowlist. These are the completed rejection
-inputs for the proposed full vertex/gap independence construction;
-that stronger construction and its exact cycle kernel are not
-asserted by this section.
+foundational-axiom allowlist. These completed rejection inputs now supply the full vertex/gap
+independence construction and exact cycle kernel proved next.
+
+\section{An infinite prime graph with exactly the cycle square relations}
+\label{sec:native-prime-cycle-kernel}
+
+The pairwise square separation extends to all finite products at once.
+The coordinate indices are important: a vertex and a gap are different
+coordinates even before their numerical values have been compared.
+For a finite prime set \(P\), put
+\[
+ \mathcal B(P)=\{v_p:p\in P\}\sqcup
+              \{g_{p,q}:p,q\in P,\ p<q\},\qquad
+ \nu(v_p)=p,\quad \nu(g_{p,q})=q-p.
+\]
+Call \(P\) square-independent when, for every \(S\subseteq\mathcal B(P)\),
+\begin{equation}\label{eq:native-full-square-independence}
+ \prod_{b\in S}\nu(b)\ \hbox{is a square}
+ \quad\Longleftrightarrow\quad S=\varnothing.
+\end{equation}
+The empty product is \(1\). All coordinates of a prime set are positive.
+
+\begin{theorem}[Computable infinite square independence and exact cycle kernel]
+\label{thm:native-prime-cycle-kernel}
+Let \(R\) be a decidable predicate on the natural numbers and write
+\[
+ \rho_N(R)=\frac{\#\{p\leq N:p\ {\rm prime},\ R(p)\}}{\pi(N)},
+\]
+with value \(0\) when \(\pi(N)=0\).
+Suppose \(\rho_N(R)\) does not tend to \(0\).
+There is a single computable infinite set \(V_R\) of primes satisfying \(R\)
+such that every finite \(P\subseteq V_R\) is square-independent.
+
+For every such \(P\), let
+\(E(P)=\{(p,q):p,q\in P,\ p<q\}\), and define
+\[
+ L_{p,q}=p(q-p),\qquad U_{p,q}=q(q-p).
+\]
+For every two finite edge sets \(A,B\subseteq E(P)\),
+\begin{equation}\label{eq:native-cycle-kernel}
+ \left(\prod_{e\in A}L_e\right)\left(\prod_{e\in B}U_e\right)
+ \ \hbox{is a square}
+ \quad\Longleftrightarrow\quad
+ A=B\ \hbox{and every vertex has even degree in }A.
+\end{equation}
+In particular this gives an unconditional computable infinite prime set by
+taking \(R\) identically true.
+\end{theorem}
+
+\begin{proof}
+We first prove the full finite extension statement.
+Fix a finite square-independent prime set \(P\), and let \(q\) be a prime
+larger than every vertex of \(P\).
+Every selected subfamily of \(\mathcal B(P\cup\{q\})\) has the exact product
+\begin{equation}\label{eq:native-cycle-insertion-product}
+ c_Oq^\epsilon\prod_{p\in T}(q-p),\qquad
+ O\subseteq\mathcal B(P),\quad T\subseteq P,\quad
+ \epsilon\in\{0,1\},\qquad c_O=\prod_{b\in O}\nu(b).
+\end{equation}
+These three supports are disjoint as coordinate sets, and \(c_O>0\).
+
+If \(\epsilon=1\), the product cannot be square.
+Indeed, squarefreeness of the prime \(q\) would force
+\(q\mid c_O\prod_{p\in T}(q-p)\).
+Every individual factor on the right is positive and less than \(q\).
+Prime divisibility of a product would therefore force \(q\) to divide a
+positive integer smaller than itself, a contradiction.
+If \(\epsilon=0\) and \(T\) is empty, old square independence forces
+\(O\) empty. All remaining failures belong to the complete finite union
+\[
+ E_P(q)=
+ \bigvee_{\substack{O\subseteq\mathcal B(P)\\
+                   \varnothing\ne T\subseteq P}}
+ \left\{c_O\prod_{p\in T}(q-p)\ \hbox{is a square}\right\}.
+\]
+For each fixed \(O,T\), arbitrary fixed-degree split-product rejection
+applies with positive coefficient \(c_O\) and distinct roots \(T\).
+Thus every constituent has prime-relative density zero. The finite union
+has density zero, with every overlap included.
+
+Take any \(B_0\) bounding all vertices of \(P\). Define the complete loss
+\[
+ \varepsilon_{P,B_0}(N)=
+ \rho_N\bigl(q\leq B_0\ \hbox{or }E_P(q)\bigr).
+\]
+The bounded initial range and the full rejection union give
+\(\varepsilon_{P,B_0}(N)\to0\).
+The prime-supported cover of the reservoir gives the signed bound
+\begin{equation}\label{eq:native-cycle-reservoir-supply}
+ \rho_N\bigl(R(q),\ q>B_0,\ P\cup\{q\}\text{ square-independent}\bigr)
+ \ \geq\ \rho_N(R)-\varepsilon_{P,B_0}(N).
+\end{equation}
+This follows by covering each reservoir prime by either an admissible
+extension or the complete loss event; union cardinality retains overlaps
+and division by \(\pi(N)\) is nonnegative. The formula also holds at
+\(\pi(N)=0\).
+If no admissible prime existed above \(B_0\), the nonnegative reservoir
+frequency would be bounded above by a quantity tending to zero, contrary
+to the hypothesis. Hence such a prime exists above every fixed bound.
+
+For the computable construction, scan the natural numbers in increasing
+order. Retain a candidate precisely when it satisfies \(R\), is prime,
+and adjoining it preserves the finite test
+\eqref{eq:native-full-square-independence}.
+This test enumerates all subsets of a finite coordinate set and uses
+integer square testing. Every prefix is square-independent, contains only
+reservoir primes, and persists at later stages. Moreover
+\[
+ p\in V_R\cap[0,Y]\quad\Longleftrightarrow\quad
+ p\text{ was retained by stage }Y;
+\]
+membership in \(V_R\) is decided at the finite birth stage \(p\).
+If \(V_R\) were finite and bounded by \(B_0\), all prefixes from \(B_0\)
+onward would equal the same finite set. The extension just proved would
+supply a larger reservoir prime that the scan must retain, contradicting
+the bound. Thus \(V_R\) is infinite. Every finite \(P\subseteq V_R\)
+lies in one finite prefix; independence passes to subsets by inclusion
+of their indexed coordinate sets.
+
+It remains to determine every row relation.
+For any finite coordinate set \(S\) and exponent function \(n\),
+the exact parity factorization is
+\[
+ \prod_{b\in S}\nu(b)^{n(b)}
+ =
+ \left(\prod_{b\in S}\nu(b)^{\lfloor n(b)/2\rfloor}\right)^2
+ \prod_{\substack{b\in S\\n(b)\ {\rm odd}}}\nu(b).
+\]
+The first product is positive. Cancelling its square and applying full
+square independence shows that the whole product is square exactly when
+every coordinate exponent is even.
+In the product on the left of \eqref{eq:native-cycle-kernel}, the gap
+coordinate \(g_{p,q}\) has exponent
+\(\mathbf1_A(p,q)+\mathbf1_B(p,q)\).
+Evenness at every gap is therefore equivalent to \(A=B\).
+Once these sets agree, the exponent of \(v_p\) is
+\[
+ \#\{(p,q)\in A\}+\#\{(q,p)\in A\}=\deg_A(p).
+\]
+All exponents are even precisely for the asserted even-degree edge sets.
+The even-exponent direction also supplies the converse square.
+Finally, the full-prime reservoir frequency tends to \(1\), so it
+satisfies the required nonvanishing condition.
+\end{proof}
+
+\paragraph{Meaning and verified scope.}
+The two row selections have exactly the finite graph cycle relations:
+the same edges occur in both selections and form an even-degree subgraph.
+In particular, the familiar doubled triangle relation is retained.
+This determines relations of every finite size on one fixed computable
+infinite prime set. The extension estimate fixes \(P,B_0\) before
+\(N\to\infty\); the construction gives no effective rate of vertex growth.
+
+The finite insertion, full rejection union and signed reservoir consumer
+are maintained in \texttt{NativePrimeVertexGapInsertion.lean},
+\texttt{PrimeVertexGapRejections.lean} and
+\texttt{FiniteFieldIndependentPrimeVertexDensity.lean}.
+The computable class and its exact prefix coherence are maintained in
+\texttt{NativePrimeVertexGapGreedy.lean} and
+\texttt{FiniteFieldIndependentPrimeVertices.lean}.
+The parity and incidence identities are in
+\texttt{NativePrimeVertexGapParity.lean} and
+\texttt{NativePrimeVertexGapIncidence.lean}.
+The exact finite classifier is
+\texttt{native\_gap\_row\_product\_square\_iff};
+the assembled headlines are
+\texttt{native\_prime\_cycle\_kernel\_family\_in\_reservoir}
+and \texttt{native\_prime\_cycle\_kernel\_family},
+exported through \texttt{FiniteFieldPrimeCycleKernel.lean}.
+All forty-four new proof closures have completed new-only standard-foundation
+audits.
+
+Multiplicative Sidon sets, as in Liu and Pach
+\cite{LiuPachMultiplicativeSidon}, concern equality of products.
+Here the proved condition controls all finite square relations among
+indexed prime vertices and their pair gaps and identifies the exact
+lower/upper row kernel. This comparison describes the scope of the result;
+it does not establish publication priority.
 
 \begin{thebibliography}{99}
 \bibitem{KarpVaziraniVazirani}
