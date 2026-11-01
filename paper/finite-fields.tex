@@ -13223,6 +13223,85 @@ supply is asserted. Classical matching-density questions
 the additional parameter here is the integer height of the
 candidate prime pair. Priority for this application remains provisional.
 
+\section{Global squareclass rigidity of exceptional agreement}
+\label{sec:native-agreement-geometry}
+
+The pairwise square test constrains whole collections of prime pairs.
+It is not possible to combine its two matching mechanisms arbitrarily.
+
+\begin{theorem}[One common squareclass row]
+\label{thm:native-agreement-geometry}
+Let \(I\) be any index set, finite or infinite. For each \(i\in I\),
+let \(n_i,n_i+h_i\) be primes with \(h_i>0\), and assume
+\(i\mapsto(n_i,h_i)\) is injective. Put
+\[
+ A_i=h_i n_i,\qquad B_i=h_i(n_i+h_i).
+\]
+For distinct \(i,j\), let \(\alpha_{ij}\) be the limiting native
+agreement fraction of these two fixed prime pairs. Then
+\[
+ \boxed{
+ \bigl(\forall i\ne j,\ \alpha_{ij}=1/2\bigr)
+ \quad\Longleftrightarrow\quad
+ \bigl(\forall i,j,\ A_iA_j\text{ is a square}\bigr)
+ \ \text{or}\
+ \bigl(\forall i,j,\ B_iB_j\text{ is a square}\bigr).
+ }
+\]
+The assertion includes empty and singleton families.
+\end{theorem}
+
+\begin{proof}
+On positive integers define \(a\sim b\) when \(ab\) is an integer
+square. This is an equivalence relation. Reflexivity and symmetry
+are immediate. If \(ab=u^2\) and \(bc=v^2\), then
+\(b^2ac=(uv)^2\). Divisibility of squares implies \(b\mid uv\);
+writing \(uv=bt\) and cancelling the positive factor \(b^2\)
+gives \(ac=t^2\), proving transitivity.
+
+Write \(L(i,j)\) for \(A_i\sim A_j\), and \(U(i,j)\) for
+\(B_i\sim B_j\). The maintained arithmetic classification gives
+\[
+ \alpha_{ij}=1/2\quad\Longleftrightarrow\quad
+ L(i,j)\ \text{or}\ U(i,j)\qquad(i\ne j).
+\]
+These two alternatives are exclusive for distinct pairs: if both
+held, the exact square-indicator formula would give \(5/8\),
+contrary to the proved dichotomy \(3/8\) or \(1/2\).
+
+Suppose all distinct pairs have agreement \(1/2\). If every
+\(L(i,j)\) holds, the first conclusion follows. Otherwise choose
+\(i,j\) for which \(L(i,j)\) fails. They are distinct by reflexivity,
+so \(U(i,j)\) holds. We show \(U(i,t)\) for every \(t\).
+It holds immediately for \(t=i,j\). For other \(t\), suppose it
+fails. The agreement of \(i,t\) forces \(L(i,t)\).
+The agreement of \(t,j\) cannot give \(L(t,j)\), since transitivity
+would give \(L(i,j)\). It therefore gives \(U(t,j)\).
+Together with \(U(i,j)\), symmetry and transitivity yield \(U(i,t)\),
+a contradiction. Thus every \(t\) is \(U\)-equivalent to \(i\);
+transitivity gives every \(U(s,t)\).
+
+Conversely, either universal row supplies at least one square
+in every distinct comparison, so the same arithmetic classification
+gives agreement \(1/2\) for every such comparison.
+No enumeration or finiteness of \(I\) was used.
+\end{proof}
+
+In particular, an exceptional triangle has one common matching row.
+There is no triangle whose three \(1/2\)-agreement edges require a
+mixture of lower and upper rows. More generally, every pairwise
+exceptional family is contained in a single class of one row.
+
+The full arbitrary-family statement is maintained in
+\texttt{FiniteFieldNativeAgreementGeometry.\allowbreak lean}.
+The squareclass equivalence and the abstract equivalence-relation
+argument are classical; the application concerns the two exclusive
+rows of this particular native agreement observable.
+General matching-density questions are discussed in
+\cite{WaljiMatchingDensities}.
+Each compared integer pair is fixed before its field-scale limit.
+The theorem does not assert a uniform cutoff for an infinite family.
+
 \begin{thebibliography}{99}
 \bibitem{WaljiMatchingDensities}
 N. Walji, \emph{Matching densities for Galois representations},

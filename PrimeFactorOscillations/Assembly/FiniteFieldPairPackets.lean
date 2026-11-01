@@ -5,8 +5,7 @@ Authors: Prime Factor Oscillations contributors
 -/
 import PrimeFactorOscillations.Assembly.FiniteFieldCubicLift
 import PrimeFactorOscillations.Assembly.FiniteFieldJointCharacterProjection
-import PrimeFactorOscillations.Assembly.FiniteFieldNativeAgreementClassification
-import PrimeFactorOscillations.Assembly.FiniteFieldNativeArithmeticAgreement
+import PrimeFactorOscillations.Assembly.FiniteFieldNativeAgreementGeometry
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeConsecutiveAgreement
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeExceptionalAgreement
 import PrimeFactorOscillations.Assembly.FiniteFieldPairIntegerCRT
@@ -29,6 +28,8 @@ eighths. The existing
 adaptive reconstruction thresholds are retained.
 For a fixed reference pair, the exceptional half-agreement neighborhood
 has an explicit square-root count in the candidate upper endpoint.
+Every pairwise half-agreement family, finite or infinite, shares one lower
+or one upper squareclass row.
 The identities retain the Gauss-Kloosterman term and its compensation. No new
 integer pair-supply estimate is asserted.
 -/

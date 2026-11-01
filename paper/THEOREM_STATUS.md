@@ -3604,3 +3604,20 @@ components: full native arithmetic rate classifier; actual prime coprimality; fu
 actuals: two universal maintained real proofs and two new-only foundational-axiom audits. No finite numerical test supplies the count.
 first_nonpositive_domain: reference endpoints are prime and h>0. Candidate pairs have m<q<=Y and differ from the reference. Each field-scale limit uses fixed compared pairs; the height count concerns those limiting rates. No growing-endpoint field uniformity, integer prime-pair supply, H1 value, RH/QRH improvement or established literature priority is claimed.
 
+## Global rigidity of pairwise exceptional agreement (2026-10-31)
+
+Paper: `finite-fields.tex`, Theorem `thm:native-agreement-geometry`. Owner: `Assembly/FiniteFieldNativeAgreementGeometry.lean`. Namespace: `PrimeFactorOscillations.FiniteFieldIntegerSignature`.
+
+| Claim / declaration | Status | Exact verified scope |
+| --- | --- | --- |
+| `native_half_agreement_family_rigidity` | proved | For every index type I and injective family of actual positive-gap prime pairs, all distinct native agreement rates equal1/2 iff either every lower-invariant product A_i*A_j is square or every upper-invariant product B_i*B_j is square, with A_i=h_i*n_i,B_i=h_i*(n_i+h_i). Empty, singleton, arbitrary finite and infinite families included. |
+
+The full statement compiles warning-free. Its one new-only axiom audit contains only propext, Classical.choice and Quot.sound. No unchanged earlier proof closure was reaudited. The exclusion of mixed exceptional triangles is a mathematical consequence of this compiled arbitrary-family statement, rather than a separately compiled triangle declaration.
+
+benchmark_status: complete global classification of pairwise exceptional families, proved.
+old_bound: each distinct comparison had rate1/2 iff its lower or upper cross integer was square, with row choices treated pair by pair.
+new_bound: every pairwise exceptional family has one globally shared lower squareclass or one globally shared upper squareclass; mixed exceptional triangles are excluded.
+components: the actual native arithmetic classifier, its full square-indicator formula, exclusion of simultaneous matching rows for distinct pairs, exact positive-square cancellation, and global equivalence-relation propagation.
+actuals: one universal maintained real proof and one new-only foundational-axiom audit; no finite experiment or independent-sign model supplies the theorem.
+first_nonpositive_domain: actual prime endpoints, positive gaps and an injective pair family are required. Each compared pair is fixed before its field-scale limit; no common field cutoff for an infinite family, candidate-pair supply, H1 determination, RH/QRH gain or established literature priority is asserted.
+
