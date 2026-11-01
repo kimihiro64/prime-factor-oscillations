@@ -85,31 +85,34 @@ private theorem squarepart_sum_le_allowance (S : Finset Nat) (T : Nat)
 
 /-- All large square-divisor deletions have arbitrarily small principal mass,
 with the complete low-character and high-divisor errors retained. -/
-theorem exists_primeBlock_largeSquarepart_small_allowance :
+theorem exists_primeBlocksSupport_largeSquarepart_small_allowance :
     exists C : Real, 0 < C /\
       forall eps : Real, 0 < eps ->
         exists T : Nat, 2 <= T /\
-          forall a b c Y R : Nat, 2 <= R -> R ^ 2 <= a ->
-            a <= b -> b <= c -> c <= Y ->
-              (((primeBlockGapSet a b c).filter (fun z =>
+          forall (a b c d Y R : Nat) (S : Finset (Prod Nat Nat)),
+            2 <= R -> R ^ 2 <= a -> R ^ 2 <= c ->
+            a <= b -> c <= d -> b <= Y -> d <= Y ->
+            (forall z : Prod Nat Nat, Membership.mem S z ->
+              Membership.mem (primeBlockSet a b) z.1 /\
+              Membership.mem (primeBlockSet c d) (z.1 + z.2) /\
+              0 < z.2 /\ z.2 <= Y) ->
+              ((S.filter (fun z =>
                 exists u : Nat, T <= u /\ Dvd.dvd (u ^ 2) z.2)).card : Real) <=
-                eps * (primeBlockSet a b).card * (primeBlockSet b c).card +
+                eps * (primeBlockSet a b).card * (primeBlockSet c d).card +
                   C * (R : Real) * (Y : Real) ^ (7 / 4 : Real) *
                     (1 + 2 * Real.log ((Y : Real) + 2)) ^ 4 +
                   (primeBlockSet a b).card * ((Y / R : Nat) : Real) := by
   classical
-  choose C0 hC0 hCollision using exists_primeBlockCollisionCount_le_seven_fourths
+  choose C0 hC0 hCollision using exists_primeBlocksCollisionCount_le_seven_fourths
   refine Exists.intro C0 (And.intro hC0 ?_)
   intro eps heps
   have hev : Filter.Eventually (fun T => squarepartAllowance T < eps) atTop :=
     squarepartAllowance_tendsto.eventually (gt_mem_nhds heps)
   choose T hTail hT using (hev.and (eventually_ge_atTop 2)).exists
   refine Exists.intro T (And.intro hT ?_)
-  intro a b c Y R hR hR2 hab hbc hcY
+  intro a b c d Y R S hR hR2a hR2c hab hcd hbY hdY hcoords
   let A := primeBlockSet a b
-  let B := primeBlockSet b c
-  let f : Prod Nat Nat -> Prod Nat Nat := fun z => Prod.mk z.1 (z.2 - z.1)
-  let S := (A.product B).image f
+  let B := primeBlockSet c d
   let P := Finset.Icc T R
   let Q : Nat -> Finset (Prod Nat Nat) := fun u =>
     S.filter (fun z => Dvd.dvd (u ^ 2) z.2)
@@ -120,25 +123,8 @@ theorem exists_primeBlock_largeSquarepart_small_allowance :
   let E : Real := C0 * (Y : Real) ^ (7 / 4 : Real) * L ^ 4
   have hK : 0 <= K := by dsimp [K]; positivity
   have hE : 0 <= E := by dsimp [E]; positivity
-  have hcoords (z : Prod Nat Nat) (hz : Membership.mem S z) :
-      Membership.mem A z.1 /\ Membership.mem B (z.1 + z.2) /\
-        0 < z.2 /\ z.2 <= Y := by
-    choose w hw he using Finset.mem_image.mp hz
-    have hwAB := Finset.mem_product.mp hw
-    have ha := (mem_primeBlockSet_iff a b w.1).mp hwAB.1
-    have hb := (mem_primeBlockSet_iff b c w.2).mp hwAB.2
-    have he1 : w.1 = z.1 := by
-      have hp := congrArg (fun t : Prod Nat Nat => t.1) he
-      exact hp
-    have he2 : w.2 - w.1 = z.2 := by
-      have hp := congrArg (fun t : Prod Nat Nat => t.2) he
-      exact hp
-    have hsum : z.1 + z.2 = w.2 := by omega
-    have hzA : Membership.mem A z.1 := by rw [<- he1]; exact hwAB.1
-    have hzB : Membership.mem B (z.1 + z.2) := by rw [hsum]; exact hwAB.2
-    exact And.intro hzA (And.intro hzB (And.intro (by omega) (by omega)))
   have hQcard (p : Nat) :
-      (Q p).card <= primeBlockCollisionCount (p ^ 2) a b c := by
+      (Q p).card <= primeBlocksCollisionCount (p ^ 2) a b c d := by
     let g : Prod Nat Nat -> Prod Nat Nat := fun z => Prod.mk z.1 (z.1 + z.2)
     change (Q p).card <=
       ((A.product B).filter (fun z => (z.1 : ZMod (p ^ 2)) = (z.2 : ZMod (p ^ 2)))).card
@@ -172,8 +158,9 @@ theorem exists_primeBlock_largeSquarepart_small_allowance :
     have hInst : NeZero (p ^ 2) := by
       constructor
       exact Nat.ne_of_gt hpSq
-    have hNa : p ^ 2 <= a := (Nat.pow_le_pow_left hpR 2).trans hR2
-    have hNY : p ^ 2 <= Y := hNa.trans (hab.trans (hbc.trans hcY))
+    have hNa : p ^ 2 <= a := (Nat.pow_le_pow_left hpR 2).trans hR2a
+    have hNc : p ^ 2 <= c := (Nat.pow_le_pow_left hpR 2).trans hR2c
+    have hNY : p ^ 2 <= Y := hNa.trans (hab.trans hbY)
     have hLogN : 0 <= Real.log ((p ^ 2 : Nat) : Real) :=
       Real.log_nonneg (by exact_mod_cast (show 1 <= p ^ 2 by omega))
     have hLogY : 0 <= Real.log ((Y : Real) + 2) := Real.log_nonneg (by
@@ -194,14 +181,14 @@ theorem exists_primeBlock_largeSquarepart_small_allowance :
       dsimp only [E]
       exact mul_le_mul_of_nonneg_left hfour
         (mul_nonneg hC0.le (Real.rpow_nonneg (Nat.cast_nonneg Y) _))
-    have hBound := @hCollision (p ^ 2) hInst a b c Y hNa hab hbc hcY
-    change abs ((primeBlockCollisionCount (p ^ 2) a b c : Real) -
+    have hBound := @hCollision (p ^ 2) hInst a b c d Y hNa hNc hab hcd hbY hdY
+    change abs ((primeBlocksCollisionCount (p ^ 2) a b c d : Real) -
       K / ((p ^ 2).totient : Real)) <=
         C0 * (Y : Real) ^ (7 / 4 : Real) * V ^ 4 at hBound
     have hUpper := (le_abs_self
-      ((primeBlockCollisionCount (p ^ 2) a b c : Real) -
+      ((primeBlocksCollisionCount (p ^ 2) a b c d : Real) -
         K / ((p ^ 2).totient : Real))).trans hBound
-    have hCast : ((Q p).card : Real) <= primeBlockCollisionCount (p ^ 2) a b c := by
+    have hCast : ((Q p).card : Real) <= primeBlocksCollisionCount (p ^ 2) a b c d := by
       exact_mod_cast hQcard p
     calc
       ((Q p).card : Real) <= K / ((p ^ 2).totient : Real) + E := by linarith
@@ -260,5 +247,47 @@ theorem exists_primeBlock_largeSquarepart_small_allowance :
   convert hfinal using 1
   dsimp only [K, E, L, A, B]
   ring
+
+theorem exists_primeBlock_largeSquarepart_small_allowance :
+    exists C : Real, 0 < C /\
+      forall eps : Real, 0 < eps ->
+        exists T : Nat, 2 <= T /\
+          forall a b c Y R : Nat, 2 <= R -> R ^ 2 <= a ->
+            a <= b -> b <= c -> c <= Y ->
+              (((primeBlockGapSet a b c).filter (fun z =>
+                exists u : Nat, T <= u /\ Dvd.dvd (u ^ 2) z.2)).card : Real) <=
+                eps * (primeBlockSet a b).card * (primeBlockSet b c).card +
+                  C * (R : Real) * (Y : Real) ^ (7 / 4 : Real) *
+                    (1 + 2 * Real.log ((Y : Real) + 2)) ^ 4 +
+                  (primeBlockSet a b).card * ((Y / R : Nat) : Real) := by
+  choose C hC hAll using exists_primeBlocksSupport_largeSquarepart_small_allowance
+  refine Exists.intro C (And.intro hC ?_)
+  intro eps heps
+  choose T hT hBound using hAll eps heps
+  refine Exists.intro T (And.intro hT ?_)
+  intro a b c Y R hR hR2 hab hbc hcY
+  let A := primeBlockSet a b
+  let B := primeBlockSet b c
+  let f : Prod Nat Nat -> Prod Nat Nat := fun z => Prod.mk z.1 (z.2 - z.1)
+  let S := (A.product B).image f
+  have hcoords (z : Prod Nat Nat) (hz : Membership.mem S z) :
+      Membership.mem A z.1 /\ Membership.mem B (z.1 + z.2) /\
+        0 < z.2 /\ z.2 <= Y := by
+    choose w hw he using Finset.mem_image.mp hz
+    have hwAB := Finset.mem_product.mp hw
+    have ha := (mem_primeBlockSet_iff a b w.1).mp hwAB.1
+    have hb := (mem_primeBlockSet_iff b c w.2).mp hwAB.2
+    have he1 : w.1 = z.1 := by
+      have hp := congrArg (fun t : Prod Nat Nat => t.1) he
+      exact hp
+    have he2 : w.2 - w.1 = z.2 := by
+      have hp := congrArg (fun t : Prod Nat Nat => t.2) he
+      exact hp
+    have hsum : z.1 + z.2 = w.2 := by omega
+    have hzA : Membership.mem A z.1 := by rw [<- he1]; exact hwAB.1
+    have hzB : Membership.mem B (z.1 + z.2) := by rw [hsum]; exact hwAB.2
+    exact And.intro hzA (And.intro hzB (And.intro (by omega) (by omega)))
+  exact hBound a b b c Y R S hR hR2 (hR2.trans hab)
+    hab hbc (hbc.trans hcY) hcY hcoords
 
 end PrimeFactorOscillations.QRH

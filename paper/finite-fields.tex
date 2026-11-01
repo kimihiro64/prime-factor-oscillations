@@ -15075,6 +15075,93 @@ unrestricted squarepart consumer. It uses the established
 character exponent and claims no improvement of that exponent
 or separate originality for character orthogonality.
 
+\section{Full squarepart deletion on arbitrary supports}
+\label{sec:native-full-support-squarepart}
+
+\begin{theorem}[Uniform full-support squarepart allowance]
+\label{thm:native-full-support-squarepart}
+There is a constant \(C>0\) such that for every
+\(\varepsilon>0\) there is an integer \(T\ge2\) with
+the following property. Let \(a,b,c,d,Y,R\) be natural
+numbers satisfying
+\[
+ R\ge2,\quad R^2\le a,c,\quad a\le b\le Y,\quad c\le d\le Y.
+\]
+Put \(A=(a,b]\cap\mathbb P\), \(B=(c,d]\cap\mathbb P\).
+Let \(S\) be any finite set of pairs \((n,h)\) such that
+\[
+ n\in A,\qquad n+h\in B,\qquad 0<h\le Y.
+\]
+Then
+\[
+ \begin{split}
+ \#\{(n,h)\in S:\exists u\ge T,\ u^2\mid h\}
+ \le{}&\varepsilon |A||B|\\
+ &+CRY^{7/4}\bigl(1+2\log(Y+2)\bigr)^4\\
+ &+|A|\lfloor Y/R\rfloor.
+ \end{split}
+\]
+The two endpoint blocks may coincide.
+Every integer square divisor is included; no primality
+condition on the root \(u\) is imposed.
+\end{theorem}
+
+\begin{proof}
+The previously established totient bound gives, for \(u>0\),
+\[
+ \frac1{\varphi(u^2)}
+ \le\frac1{\varphi(u)^2}
+ \le\frac4{u^{3/2}}.
+\]
+Consequently
+\(\tau(T)=\sum_{u\ge T}1/\varphi(u^2)\) tends to zero.
+Choose \(T\ge2\) so that \(\tau(T)<\varepsilon\).
+
+For a fixed integer root \(T\le u\le R\), the endpoint map
+\((n,h)\mapsto(n,n+h)\) is injective and takes the pairs
+with \(u^2\mid h\) into the congruence collision set in
+\(A\times B\) modulo \(u^2\).
+The arbitrary-block collision theorem applies because
+\(u^2\le R^2\le a,c\). Its principal mass is
+\(|A||B|/\varphi(u^2)\).
+Since \(u^2\le Y\), its logarithmic factor is at most
+\(1+2\log(Y+2)\).
+Sum these complete principal masses and discrepancies over
+the at most \(R\) supported low roots.
+This gives the first two displayed terms.
+
+For all roots \(u\ge R+1\), apply the proved finite
+square-divisor covering bound at each fixed first coordinate.
+It bounds the number of positive gaps at most \(Y\) divisible
+by any such \(u^2\) by \(\lfloor Y/R\rfloor\).
+Thus the full high-root contribution is at most
+\(|A|\lfloor Y/R\rfloor\).
+Every bad gap belongs to the union of the low and high
+root classes. The cardinality union bound proves the result,
+including \(T>R\), when the low root range is empty.
+\end{proof}
+
+This is the maintained declaration
+\texttt{exists\_primeBlocksSupport\_largeSquarepart\_small\_allowance},
+in \texttt{Helpers/\allowbreak NativeSquarepartTail.\allowbreak lean}.
+Its full proof compiles without warnings and its new closure
+uses only standard Lean foundations.
+The original adjacent-block theorem is retained, with its
+unchanged statement, by verifying the support conditions for
+its actual gap set and applying this theorem.
+The summable allowance and the complete natural-quotient
+tail proof are reused, rather than replaced by a finite
+root truncation.
+
+For the unrestricted positive-gap prime-pair universe above
+a fixed lower cutoff \(Y/J\), take both blocks to be
+\((\lfloor Y/J\rfloor,Y]\).
+The principal allowance is then measured against the square
+of the actual block count. The theorem does not assert a
+relative density-one statement for every arbitrary sparse
+support; that requires the positive supply and the remaining
+collision-deletion consumer.
+
 \begin{thebibliography}{99}
 \bibitem{MartinWaljiCharacters}
 K. Martin and N. Walji,

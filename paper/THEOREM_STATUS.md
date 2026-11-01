@@ -3959,3 +3959,19 @@ new_bound: arbitrary two blocks, including the same block, with principal card(A
 components: existing all-modulus seven-eighths prime-character prefixes; both block boundaries; inverse character; complete character product before residue reconstruction; actual unit support; full diagonal.
 actuals: two new maintained proofs and one changed compatibility proof, all warning-free and standard-foundation only. No numerical character tests are used.
 first_nonpositive_domain: the modulus must not exceed either lower block endpoint; empty blocks and N=1 are included. For the planned square-modulus consumer require R^2<=floor(Y/J), with J fixed before Y. No new full retention fraction, effective threshold or zero-free exponent is claimed.
+
+## Full squarepart allowance on arbitrary positive-gap supports (2026-11-01)
+
+| Claim | Maintained declaration | Status and scope |
+| --- | --- | --- |
+| Complete large-squarepart deletion bound on arbitrary supported prime pairs | PrimeFactorOscillations.QRH.exists_primeBlocksSupport_largeSquarepart_small_allowance | Proved: one C>0 before eps>0; choose fixed T>=2; all natural endpoints a<=b<=Y,c<=d<=Y, R>=2,R^2<=a,c, and every finite positive-gap support with lower endpoint in (a,b], upper endpoint in (c,d] and gap<=Y satisfy bad.card<=eps*card(A)*card(B)+C*R*Y^(7/4)*(1+2log(Y+2))^4+card(A)*floor(Y/R). |
+| Adjacent-block full squarepart theorem preserved | PrimeFactorOscillations.QRH.exists_primeBlock_largeSquarepart_small_allowance | Proved compatibility specialization with unchanged statement. |
+
+The maintained NativeSquarepartTail.lean owner compiles warning-free. Its one new theorem closure and one changed compatibility closure use only propext, Classical.choice and Quot.sound. The existing private summable totient-square allowance and exact high-root natural quotient are reused. The support may omit any candidates, but the principal allowance is against the actual endpoint-block product, not against its own potentially sparse cardinality.
+
+benchmark_status: full-support uniform deletion component proved; unrestricted retention assembly remains open.
+old_bound: the complete deletion estimate applied to the full adjacent-block gap image.
+new_bound: the same complete allowance and errors apply to any positive-gap support in arbitrary endpoint blocks, including identical blocks.
+components: sum over every integer square root; injective endpoint map; uniform complete same-character discrepancy; summable principal allowance; exact high-root floor(Y/R) term; full low/high union including T>R.
+actuals: one new maintained proof and one changed compatibility proof, both warning-free and standard-foundation only; no numerical completion of unestimated terms.
+first_nonpositive_domain: R>=2 and R^2<=both lower block endpoints are required. The threshold T is fixed before Y and no effective threshold is supplied. No density-one assertion for arbitrary sparse S or new zero-free exponent is claimed.
