@@ -17251,6 +17251,164 @@ separately in the ledger. The fixed-character and finite Boolean
 inputs are classical. Publication priority for this native
 phase-resolved application is not established.
 
+\section{Odd-cycle rigidity of synchronized native weights}
+\label{sec:native-odd-cycle-rigidity}
+
+The common phase gives an exact synchronization law on arbitrary actual
+prime graphs, rather than a lower bound requiring a specially constructed
+independent vertex class. The decisive condition is that the graph
+contain an odd Eulerian mask.
+
+Fix a finite actual prime set \(P\), a strict graph \(G\subseteq E(P)\),
+and a mask \(C\subseteq G\) with every vertex degree even and \(|C|\)
+odd. The graph itself may have either parity of edge count and may
+contain further edges and isolated vertices.
+Write \(\mathcal A_G(\ell)\) for equality of all actual native weights
+on \(G\), and \(\mathcal Z_G(\ell)\) for the event that every such weight
+equals \((\ell-1)/(\ell-3)\).
+
+\begin{theorem}[Odd-cycle synchronization rigidity]
+\label{thm:native-odd-cycle-rigidity}
+For every field prime \(\ell\geq5\) above all vertices,
+\[
+ \ell\equiv3\pmod4
+ \quad\Longrightarrow\quad
+       \bigl(\mathcal A_G(\ell)\ \Longleftrightarrow\
+                                      \mathcal Z_G(\ell)\bigr).
+\]
+In contrast, if \(\ell\equiv1\pmod4\) and all the weights agree,
+each weight is noncentral.
+
+Let
+\[
+ Q_{G,U}=\sum_{\ell\in\mathcal I_U}\frac1\ell
+       \mathbf1\{\ell\equiv3\pmod4,\ \mathcal A_G(\ell)\},
+ \qquad
+ B_{-,U}=\sum_{\ell\in\mathcal I_U}\frac1\ell
+                                      \mathbf1\{\ell\equiv3\pmod4\}.
+\]
+With \(P,G,C\) fixed before the independent field-prime scale,
+\begin{equation}\label{eq:native-odd-cycle-coincidence-law}
+ \frac{Q_{G,U}}{M_U}\longrightarrow
+          \frac{N_{\rm all}(P,G)}{2^{|G|+1}},
+ \qquad
+ \frac{Q_{G,U}}{B_{-,U}}\longrightarrow
+          \frac{N_{\rm all}(P,G)}{2^{|G|}}.
+\end{equation}
+The conditional denominator is positive eventually.
+For every bound \(B\), there is an actual field prime \(\ell>B\)
+congruent to \(3\) modulo four at which all weights on \(G\) agree.
+
+In particular, for any actual primes \(p<q<r\), agreement on
+\(\{(p,q),(q,r),(p,r)\}\) has conditional probability \(1/4\) within
+fields congruent to \(3\) modulo four, and joint full-band probability
+\(1/8\). No vertex/gap independence hypothesis is used.
+\end{theorem}
+
+\begin{proof}
+Above all vertices and \(2\), put \(T_e=X^-_e+X^+_e\) and
+\(R_e=X^-_eX^+_e\). Both signed rows are signs, so
+\(T_e=0\) exactly when \(R_e=-1\), and \(T_e\ne0\) exactly when
+\(R_e=1\).
+The compiled physical cycle identity retains every overlapping edge:
+\[
+                 \prod_{e\in C}R_e(\ell)=\sigma_\ell^{|C|}.
+\]
+In the negative phase, its right side is \(-1\).
+Consequently it is impossible that all traces on \(G\) are nonzero.
+
+Now suppose every trace on \(G\) has the same value.
+If any one were nonzero, equality would make every trace nonzero,
+contradicting the preceding full-mask product.
+Every trace is therefore zero.
+The converse holds because zero traces agree.
+Equivalently, in the complete exact agreement decomposition
+\[
+ \mathbf1\{\text{all traces agree}\}
+ =
+ \mathbf1\{\text{all traces zero}\}
+ +\mathbf1\{X^-_e=X^+_e=1\ (e\in G)\}
+ +\mathbf1\{X^-_e=X^+_e=-1\ (e\in G)\},
+\]
+both nonzero synchronized events vanish pointwise in the negative
+phase. This removes their complete contributions, rather than
+bounding separate unsigned character sums.
+The odd mask is nonempty, so the graph is nonempty and the displayed
+three-event decomposition has no empty-graph overlap.
+
+For \(\ell\geq5\) the exact common affine readout
+\[
+       (\ell-3)W_e(\ell)-(\ell-1)=T_e(\ell)
+\]
+has nonzero slope. It preserves equality between any two edges and
+identifies zero trace with the central weight.
+Thus the trace equivalence is exactly the actual-weight equivalence.
+The phase equals \(-1\) precisely for prime fields of size \(3\)
+modulo four, proving the first assertion.
+
+In the positive phase, an all-zero profile instead has
+\(\prod_{e\in C}R_e=(-1)^{|C|}=-1\), whereas the physical cycle
+identity requires \(+1\). Such a profile is impossible.
+If agreeing weights had even one central value, they would all be
+central, yielding that impossible profile. Hence each is noncentral.
+This does not assert that a noncentral synchronized event must occur.
+
+For the frequency calculation, the first equivalence gives the exact
+finite-band identity, once its lower endpoint exceeds all vertices
+and is at least \(5\):
+\[
+ \sum_{\substack{\ell\in[Y,X)\\\ell\ {\rm prime}}}
+       \frac{\mathbf1\{\sigma_\ell=-1,\ \mathcal A_G(\ell)\}}{\ell}
+ =
+ \sum_{\substack{\ell\in[Y,X)\\\ell\ {\rm prime}}}
+       \frac{\mathbf1\{\sigma_\ell=-1,\ \mathcal Z_G(\ell)\}}{\ell}.
+\]
+No early-field correction survives on the whole eventual band.
+For the all-central profile, \(\epsilon_e=-1\) for every edge,
+and every Eulerian mask satisfies
+\(\prod_{e\in D}\epsilon_e=(-1)^{|D|}\).
+It is therefore compatible with the negative phase for every graph.
+The compiled joint and residue-conditioned actual-weight profile laws
+apply directly, giving both limits in
+\eqref{eq:native-odd-cycle-coincidence-law}, with their distinct
+normalizations retained.
+The phase band has asymptotic relative mass \(1/2\) and is positive
+eventually.
+
+The limiting joint probability is positive because the empty mask
+belongs to the complete Eulerian family.
+For any fixed \(B\), choose a late band with positive normalized
+agreement mass and lower endpoint above \(B\) and \(2\).
+If no actual field prime in this band had the stated residue and
+agreement, every supported summand would be zero, contradicting
+positive mass. This proves the unbounded actual-prime realization
+claim without a prime-field enumeration.
+
+Finally, the full triangle has odd cardinality and all degrees even.
+Its complete Eulerian masks are exactly empty and full, so
+\(N_{\rm all}=2\) and \(|G|=3\).
+The two limits are \(2/2^4=1/8\) and \(2/2^3=1/4\).
+The conditional specialization is itself a maintained compiled
+declaration for arbitrary prime vertices.
+\end{proof}
+
+The result isolates a residue class in which the entire graph
+coincidence probability is universal, even though the unrestricted
+nonzero trace signs can depend on arithmetic relations among gaps.
+It refines the earlier marginal coincidence comparison and the
+phase-conditioned profile theorem with a pointwise synchronization
+classification. The field primes vary; the integer prime graph stays
+fixed. No integer gap recurrence, value of \(H_1\), growing-graph
+uniformity or RH/QRH improvement follows.
+
+The full implementation is maintained in
+\texttt{FiniteFieldNativeOddCycleRigidity.lean}.
+All sixteen new proof closures have completed new-only
+standard-foundation audits; the single phase-restricted agreement-mass
+definition is recorded separately. The result consumes the proved
+quadratic phase/profile laws. Historical publication priority for
+this native synchronization application is unestablished.
+
 \begin{thebibliography}{99}
 \bibitem{KarpVaziraniVazirani}
 R. M. Karp, U. V. Vazirani and V. V. Vazirani,

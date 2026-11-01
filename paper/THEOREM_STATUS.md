@@ -1,5 +1,38 @@
 # Paper theorem and provenance ledger
 
+## Odd-cycle native synchronization rigidity (2026-11-01)
+
+All sixteen claims below have maintained Lean proofs, warning-free focused compilation and completed new-only assumption audits. They belong to `PrimeFactorOscillations.FiniteFieldIntegerSignature`. Fix arbitrary actual prime vertices P and a strict graph G containing a supported odd-cardinality Eulerian mask C. For every sufficiently large prime field ell=3 modulo4, all actual native weights on G agree exactly when all of them equal the central weight (ell-1)/(ell-3). Their exact conditional agreement frequency is N_all(P,G)/2^|G|, without vertex/gap independence. Prime fields realizing this agreement exist above every bound. In the opposite phase any agreeing weights are all noncentral.
+
+| Claim | Lean declaration | Status |
+| --- | --- | --- |
+| Exact constant-profile coefficient as a sign power | native_constant_profile_coefficient | Proved; maintained, compiled and audited. |
+| Every all-central profile is compatible with the negative phase | native_central_negative_phase_compatible | Proved; maintained, compiled and audited. |
+| Every all-noncentral profile is compatible with the positive phase | native_noncentral_positive_phase_compatible | Proved; maintained, compiled and audited. |
+| Odd Eulerian mask forbids every trace being nonzero in negative phase | native_odd_mask_noncentral_negative_impossible | Proved; maintained, compiled and audited. |
+| Odd Eulerian mask forbids every trace being zero in positive phase | native_odd_mask_central_positive_impossible | Proved; maintained, compiled and audited. |
+| Negative-phase trace agreement holds exactly when every trace is zero | native_graph_negative_phase_agreement_iff_zero | Proved; maintained, compiled and audited. |
+| Negative-phase actual weight agreement holds exactly when every weight is central | native_graph_negative_phase_weight_agreement_iff_central | Proved; maintained, compiled and audited. |
+| Exact actual weight rigidity in prime fields congruent to three modulo four | native_graph_mod_four_three_weight_agreement_iff_central | Proved; maintained, compiled and audited. |
+| Exact negative-phase actual agreement and central-profile event equivalence | native_graph_negative_phase_weight_event_iff | Proved; maintained, compiled and audited. |
+| Positive-phase actual agreement forces every weight to be noncentral | native_graph_positive_phase_agreement_noncentral | Proved; maintained, compiled and audited. |
+| Full finite-band negative-phase actual agreement equals central-profile mass | native_graph_negative_phase_weight_mass_eq | Proved; maintained, compiled and audited. |
+| The exact agreement and central-profile masses agree on the whole eventual band | native_graph_negative_phase_weight_mass_eq_eventually | Proved; maintained, compiled and audited. |
+| Exact full-band joint negative-phase weight agreement probability | native_graph_negative_phase_weight_joint_ratio_tendsto | Proved; maintained, compiled and audited. |
+| Exact conditional agreement probability within prime fields three modulo four | native_graph_negative_phase_weight_conditional_ratio_tendsto | Proved; maintained, compiled and audited. |
+| Every prime-labelled triangle has conditional agreement probability one quarter | native_triangle_negative_phase_weight_conditional_ratio_tendsto | Proved; maintained, compiled and audited. |
+| Actual prime-field agreement realizers three modulo four exist above every bound | native_graph_mod_four_three_agreement_realization_above | Proved; maintained, compiled and audited. |
+
+Definition interface, separate from proof counts: `nativeGraphPhaseWeightAgreementMass`. The maintained owner is Assembly/FiniteFieldNativeOddCycleRigidity.lean, exported through FiniteFieldNativePacking.lean. The full ordinary proof and exact normalizations are in the finite-fields paper, section native-odd-cycle-rigidity. Only the sixteen new proof closures were audited; unchanged inputs were not re-audited. The new closures use only propext, Classical.choice and Quot.sound.
+
+benchmark_status: universal pointwise odd-cycle synchronization rigidity and exact residue-class coincidence law proved.
+old_bound: the completed graph-coincidence theorem gave a universal marginal floor and independence-class attainment; the phase-profile theorem classified central/noncentral patterns but did not identify phase-restricted actual agreement.
+new_bound: negative-phase actual agreement has joint full-band probability N_all/2^(m+1) and conditional probability N_all/2^m. For every prime-labelled triangle the exact values are1/8 and1/4. This is an exact native output law, not an RH/QRH exponent improvement.
+components: full three-event coincidence decomposition; odd Eulerian common-phase constraint; pointwise simultaneous exclusion of both nonzero synchronized events; exact actual affine weight readout; compatible all-central negative-phase profile; finite-band identity and positive conditional normalizer.
+actuals: sixteen new audited proofs and one mass definition; one warning-free maintained owner; the triangle specialization is universal in its prime labels, with no numerical diagnostic substitute.
+first_nonpositive_domain: the exact conditional agreement probability is positive because the empty Eulerian mask is present. The pointwise actual-weight equivalence uses ell>=5 and ell above all fixed vertices. The odd witness excludes an empty graph; prime vertex2, additional graph edges and isolated vertices are allowed. No growing-graph uniformity, integer prime-gap transfer or RH/QRH improvement is asserted; publication priority remains unestablished.
+
+
 ## Universal native phase-conditioned profile law (2026-11-01)
 
 All sixty-three claims below have maintained Lean proofs, warning-free focused builds and completed new-only assumption audits. Their namespace is `PrimeFactorOscillations.FiniteFieldIntegerSignature`. For every fixed strict graph G on arbitrary actual prime vertices P and either fixed field phase sigma, a Boolean profile is allowed exactly when every Eulerian mask C has sign product sigma^|C|. Its full-band joint frequency is N_all(P,G)/2^(|G|+1), and its within-phase conditional frequency is N_all(P,G)/2^|G|; incompatible events are pointwise impossible above all vertices and2. Every phase band has asymptotic relative mass1/2. True means noncentral or nonzero; false means central or zero. No vertex/gap independence or RH hypothesis is used.
