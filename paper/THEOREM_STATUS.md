@@ -1,5 +1,85 @@
 # Paper theorem and provenance ledger
 
+## Universal native phase-conditioned profile law (2026-11-01)
+
+All sixty-three claims below have maintained Lean proofs, warning-free focused builds and completed new-only assumption audits. Their namespace is `PrimeFactorOscillations.FiniteFieldIntegerSignature`. For every fixed strict graph G on arbitrary actual prime vertices P and either fixed field phase sigma, a Boolean profile is allowed exactly when every Eulerian mask C has sign product sigma^|C|. Its full-band joint frequency is N_all(P,G)/2^(|G|+1), and its within-phase conditional frequency is N_all(P,G)/2^|G|; incompatible events are pointwise impossible above all vertices and2. Every phase band has asymptotic relative mass1/2. True means noncentral or nonzero; false means central or zero. No vertex/gap independence or RH hypothesis is used.
+
+| Claim | Lean declaration | Status |
+| --- | --- | --- |
+| Exact membership in the complete Eulerian mask family | native_eulerian_masks_mem_iff | Proved; maintained, compiled and audited. |
+| The complete Eulerian mask family always has positive cardinality | native_eulerian_count_positive | Proved; maintained, compiled and audited. |
+| Unsigned diagonal is a square exactly when every vertex degree is even | native_diagonal_unsigned_isSquare_iff | Proved; maintained, compiled and audited. |
+| Signed positive cast is square exactly for even sign exponent and square magnitude | native_signed_positive_cast_square_iff | Proved; maintained, compiled and audited. |
+| Complete phase-twisted diagonal square classifier | native_signed_phase_diagonal_isSquare_iff | Proved; maintained, compiled and audited. |
+| Negative diagonal square classifier for odd Eulerian masks | native_negative_diagonal_isSquare_iff | Proved; maintained, compiled and audited. |
+| No singleton strict-edge mask is Eulerian | native_phase_eulerian_card_ne_one | Proved; maintained, compiled and audited. |
+| Every Eulerian mask with at most two edges is empty | native_phase_small_eulerian_empty | Proved; maintained, compiled and audited. |
+| Complete Eulerian mask classification for at most two edges | native_phase_eulerian_masks_small | Proved; maintained, compiled and audited. |
+| Exact Eulerian count one for at most two edges | native_phase_eulerian_count_small | Proved; maintained, compiled and audited. |
+| A strict triangle is supported on its prime vertices | native_phase_triangle_support | Proved; maintained, compiled and audited. |
+| Exact strict triangle edge count three | native_phase_triangle_card | Proved; maintained, compiled and audited. |
+| Every full triangle vertex degree is even | native_phase_triangle_degrees_even | Proved; maintained, compiled and audited. |
+| Triangle Eulerian masks are exactly empty and full | native_phase_triangle_eulerian_masks | Proved; maintained, compiled and audited. |
+| Exact triangle Eulerian mask count two | native_phase_triangle_eulerian_count | Proved; maintained, compiled and audited. |
+| Opposite vertex degrees sum to the four-cycle mask size | native_phase_four_cycle_opposite_degree_sum | Proved; maintained, compiled and audited. |
+| Four-cycle Eulerian masks are exactly empty and full | native_phase_four_cycle_eulerian_masks | Proved; maintained, compiled and audited. |
+| Exact four-cycle Eulerian mask count two | native_phase_four_cycle_eulerian_count | Proved; maintained, compiled and audited. |
+| The physical quadratic phase has square one | native_quadratic_phase_square_one | Proved; maintained, compiled and audited. |
+| Exact real quadratic-character power identity | native_real_kernel_power | Proved; maintained, compiled and audited. |
+| Every supported paired row product has square one | native_paired_product_square_one | Proved; maintained, compiled and audited. |
+| Every Eulerian cycle product equals the common phase to its edge count | native_cycle_phase_product | Proved; maintained, compiled and audited. |
+| An occurring profile determines each supported paired mask product | native_vanishing_profile_mask_product | Proved; maintained, compiled and audited. |
+| Every actual joint phase/profile event is compatible | native_phase_profile_event_compatible | Proved; maintained, compiled and audited. |
+| Exact pointwise joint phase/profile selector | native_phase_profile_pointwise_selector | Proved; maintained, compiled and audited. |
+| Odd powers preserve the physical quadratic phase | native_quadratic_phase_odd_power | Proved; maintained, compiled and audited. |
+| An odd Eulerian mask reads the common field phase | native_odd_cycle_phase_readout | Proved; maintained, compiled and audited. |
+| An occurring odd-mask profile reads the common field phase | native_odd_mask_profile_reads_phase | Proved; maintained, compiled and audited. |
+| Full signed pointwise joint phase/profile expansion | native_phase_profile_pointwise_expansion | Proved; maintained, compiled and audited. |
+| Full finite-band joint mass expansion including both character terms | native_phase_profile_mass_expansion | Proved; maintained, compiled and audited. |
+| The full joint mass expansion holds on the whole eventual band | native_phase_profile_mass_expansion_eventually | Proved; maintained, compiled and audited. |
+| Exact phase-band principal and negative-one character decomposition | native_phase_band_expansion | Proved; maintained, compiled and audited. |
+| Incompatible joint profiles have exactly zero late-band mass | native_phase_incompatible_mass_zero | Proved; maintained, compiled and audited. |
+| Incompatible joint profile mass is eventually exactly zero | native_phase_incompatible_mass_zero_eventually | Proved; maintained, compiled and audited. |
+| Fixed nonzero character correlation has its unconditional principal-indicator limit | native_phase_fixed_correlation_ratio_tendsto | Proved; maintained, compiled and audited. |
+| The negative-one principal indicator is zero | native_minus_one_principal_indicator_zero | Proved; maintained, compiled and audited. |
+| Each phase has exactly half the full reciprocal-band mass asymptotically | native_phase_band_ratio_tendsto | Proved; maintained, compiled and audited. |
+| Each phase band has positive mass eventually | native_phase_band_eventually_positive | Proved; maintained, compiled and audited. |
+| Exact parity formula for powers of either word sign | native_word_sign_power_parity | Proved; maintained, compiled and audited. |
+| Both diagonal indicators combine into the complete Eulerian phase coefficient | native_phase_diagonal_indicator | Proved; maintained, compiled and audited. |
+| General full joint profile limit before compatibility classification | native_phase_profile_general_ratio_tendsto | Proved; maintained, compiled and audited. |
+| Compatible phase/profile rate is the complete Eulerian count divided by two to m plus one | native_phase_compatible_rate | Proved; maintained, compiled and audited. |
+| Incompatible phase/profile rate is exactly zero | native_phase_incompatible_rate | Proved; maintained, compiled and audited. |
+| Complete compatible or forbidden joint-rate formula | native_phase_profile_rate_eq | Proved; maintained, compiled and audited. |
+| Full-band joint profile probability law | native_phase_profile_joint_ratio_tendsto | Proved; maintained, compiled and audited. |
+| Within-phase conditional profile probability law | native_phase_profile_conditional_ratio_tendsto | Proved; maintained, compiled and audited. |
+| Exact quadratic phase classification by prime modulus modulo four | native_quadratic_phase_mod_four | Proved; maintained, compiled and audited. |
+| Either physical phase event equals its modulo-four prime condition | native_phase_event_mod_four | Proved; maintained, compiled and audited. |
+| Exact phase-band and modulo-four-band equality | native_phase_band_eq_mod_four | Proved; maintained, compiled and audited. |
+| Either odd residue class has limiting reciprocal-band mass one half | native_mod_four_band_ratio_tendsto | Proved; maintained, compiled and audited. |
+| Actual central-weight and trace joint profiles are equivalent | native_central_phase_profile_iff | Proved; maintained, compiled and audited. |
+| Actual central-weight phase event has the exact modulo-four interpretation | native_central_phase_profile_mod_four_iff | Proved; maintained, compiled and audited. |
+| Actual weight and trace joint masses agree on every qualified band | native_central_phase_profile_mass_eq | Proved; maintained, compiled and audited. |
+| Actual weight and trace joint masses agree eventually | native_central_phase_profile_mass_eq_eventually | Proved; maintained, compiled and audited. |
+| Full-band actual central-weight joint profile probability law | native_central_phase_profile_joint_ratio_tendsto | Proved; maintained, compiled and audited. |
+| Within-phase actual central-weight conditional profile probability law | native_central_phase_profile_conditional_ratio_tendsto | Proved; maintained, compiled and audited. |
+| Actual central-weight profile law normalized inside either odd residue class | native_central_profile_mod_four_ratio_tendsto | Proved; maintained, compiled and audited. |
+| Every profile on at most two edges is compatible with either phase | native_phase_small_profile_compatible | Proved; maintained, compiled and audited. |
+| Every at-most-two-edge profile has conditional probability two to minus m | native_small_central_profile_mod_four_ratio_tendsto | Proved; maintained, compiled and audited. |
+| Triangle phase compatibility is exactly its full sign product test | native_triangle_phase_profile_compatible_iff | Proved; maintained, compiled and audited. |
+| Triangle actual-weight profile has conditional probability one quarter or zero | native_triangle_central_profile_mod_four_ratio_tendsto | Proved; maintained, compiled and audited. |
+| Four-cycle phase compatibility is exactly its full sign product one test | native_four_cycle_phase_profile_compatible_iff | Proved; maintained, compiled and audited. |
+| Four-cycle actual-weight profile has conditional probability one eighth or zero | native_four_cycle_central_profile_mod_four_ratio_tendsto | Proved; maintained, compiled and audited. |
+
+Definition interfaces, recorded separately from proof counts: `nativeEulerianMasks`, `nativeEulerianCount`, `nativeQuadraticPhase`, `nativeQuadraticPhaseEvent`, `nativePhaseBand`, `nativePhaseProfileCompatible`, `nativePhaseProfileEvent`, `nativePhaseProfileMass`, `nativePhaseProfileRate`, `nativeModuloFourBand`, `nativeCentralPhaseProfileEvent`, `nativeCentralPhaseProfileMass`. The all-Eulerian masks and their count are finite computable definitions. All six owners are exported through FiniteFieldNativePacking.lean; the full paper proof and actual-weight specializations are in the finite-fields paper, section native-phase-profiles. Only the sixty-three new proof closures were audited; unchanged old closures were not repeated. The audits use only propext, Classical.choice and Quot.sound.
+
+benchmark_status: exact universal phase-conditioned profile law proved, including actual native weights and both odd residue classes modulo four.
+old_bound: the completed universal marginal profile law uses even-cardinality Eulerian masks and gives N_even/2^m for each allowed profile; the common field phase was marginalized.
+new_bound: the joint phase/profile law uses all Eulerian masks and gives N_all/2^(m+1), with within-phase frequency N_all/2^m; the phase normalizer is1/2. This refines the probability law rather than improving a zero-free boundary.
+components: full supported signed Boolean expansion; positive and negative diagonal character terms; exact valuation parity; common physical phase; pointwise forbidden-event exclusion; positive conditional denominator; exact central-weight transfer and modulo-four identification.
+actuals: sixty-three audited proof declarations, twelve definition interfaces and six warning-free maintained owners. No finite diagnostic supplies a universal estimate.
+first_nonpositive_domain: forbidden events have exactly zero mass on all sufficiently late bands. Every compatible conditional frequency is positive because the empty Eulerian mask is present. Empty graphs and vertex2 are included; the weight transfer uses field primes at least5. Graphs and profiles stay fixed before the independent field-scale limit; there is no growing-graph uniformity, integer prime-gap transfer or RH/QRH gain. Publication priority remains unestablished.
+
+
 ## Complete universal native vanishing-profile law (2026-11-01)
 
 All twenty-seven claims below have maintained Lean proofs, warning-free focused builds and completed new-only assumption audits. They belong to `PrimeFactorOscillations.FiniteFieldIntegerSignature`. For every fixed strict graph G on arbitrary actual prime vertices P, every prescribed zero/nonzero trace profile and central/noncentral native-weight profile has frequency N_even(P,G)/2^|G| if all even Eulerian mask sign products are1, and0 otherwise. No vertex/gap independence is assumed. True specifies a nonzero trace or noncentral weight; false specifies a zero trace or central weight. Every incompatible profile is eventually impossible; compatible profiles occur at arbitrarily large actual field primes.

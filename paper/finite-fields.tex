@@ -17013,6 +17013,244 @@ All twenty-seven new proof closures have completed new-only
 standard-foundation audits; seven event/coefficient/rate definitions
 are listed separately in the claim ledger.
 
+\section{The common quadratic phase and residue-resolved profiles}
+\label{sec:native-phase-profiles}
+
+The universal marginal profile law conceals one observable bit: the
+quadratic character of \(-1\) in the independently varying prime field.
+Retaining that bit distinguishes odd and even Eulerian masks without
+any independence assumption on the prime vertices or their gaps.
+
+Fix arbitrary finite actual prime vertices \(P\), a strict graph
+\(G\subseteq E(P)\), a profile \(\epsilon_e\in\{-1,1\}\), and
+\(\sigma\in\{-1,1\}\). All these data are fixed before the field scale
+tends to infinity. Put \(m=|G|\) and
+\[
+ \mathcal C(P,G)=\{C\subseteq G:\deg_C(p)\equiv0\pmod2
+                              \text{ for every }p\in P\},
+ \qquad N_{\rm all}(P,G)=|\mathcal C(P,G)|.
+\]
+There is no cardinality parity restriction in this definition.
+Call the phase/profile pair compatible when
+\begin{equation}\label{eq:native-phase-compatible}
+ \prod_{e\in C}\epsilon_e=\sigma^{|C|}
+                   \qquad(C\in\mathcal C(P,G)).
+\end{equation}
+As before, \(\epsilon_e=-1\) specifies a zero trace or central weight,
+and \(+1\) specifies a nonzero trace or noncentral weight.
+
+Write \(\sigma_\ell=\chi_\ell(-1)\), and define the unnormalized masses
+\[
+ B_{\sigma,U}=\sum_{\ell\in\mathcal I_U}
+       \frac{\mathbf1\{\sigma_\ell=\sigma\}}{\ell},\qquad
+ J_{\epsilon,\sigma,U}=\sum_{\ell\in\mathcal I_U}\frac1\ell
+       \mathbf1\{\sigma_\ell=\sigma,\
+                         R_e(\ell)=\epsilon_e\ (e\in G)\},
+ \quad R_e=X^-_eX^+_e.
+\]
+The full reciprocal-prime band mass is still \(M_U\).
+For odd field primes, the phase conditions are exactly
+\(\ell\equiv1\pmod4\) for \(\sigma=1\) and
+\(\ell\equiv3\pmod4\) for \(\sigma=-1\).
+
+\begin{theorem}[Universal phase-conditioned native profile law]
+\label{thm:native-phase-profiles}
+For every fixed graph on arbitrary actual prime vertices,
+\[
+ \frac{B_{\sigma,U}}{M_U}\longrightarrow\frac12,
+ \qquad B_{\sigma,U}>0\quad\text{eventually}.
+\]
+The full-band joint profile probability and the within-phase
+conditional probability are respectively
+\begin{align}
+ \frac{J_{\epsilon,\sigma,U}}{M_U}
+ &\longrightarrow
+ \begin{cases}
+ N_{\rm all}(P,G)/2^{m+1},&\text{if compatible},\\
+ 0,&\text{otherwise},
+ \end{cases}\label{eq:native-phase-joint}\\
+ \frac{J_{\epsilon,\sigma,U}}{B_{\sigma,U}}
+ &\longrightarrow
+ \begin{cases}
+ N_{\rm all}(P,G)/2^m,&\text{if compatible},\\
+ 0,&\text{otherwise}.
+ \end{cases}\label{eq:native-phase-conditional}
+\end{align}
+An incompatible phase/profile pair is impossible at every field prime
+\(\ell>\max(P\cup\{2\})\).
+
+The same two limits hold for actual native weights, with the event
+\(R_e(\ell)=\epsilon_e\) replaced by
+\[
+ W_e(\ell)=\frac{\ell-1}{\ell-3}
+                   \quad\Longleftrightarrow\quad\epsilon_e=-1.
+\]
+The conditional denominator can equivalently be the reciprocal-prime
+mass restricted to the corresponding residue class modulo four.
+
+For every odd-cardinality \(C\in\mathcal C(P,G)\), an occurring profile
+reads the field phase exactly:
+\begin{equation}\label{eq:native-odd-cycle-readout}
+ \prod_{e\in C}\epsilon_e=\sigma_\ell.
+\end{equation}
+Empty graphs and the prime vertex \(2\) are included.
+\end{theorem}
+
+\begin{proof}
+Keep both principal character contributions in the phase selector.
+For an edge \(e=(p,q)\), set \(\Delta_e=q-p>0\).
+The complete signed diagonal numerator has the exact factorization
+\begin{equation}\label{eq:native-phase-diagonal-factor}
+ D(C,C)=(-1)^{|C|}
+   \left(\prod_{e\in C}\Delta_e\right)^2
+   \prod_{p\in P}p^{\deg_C(p)}.
+\end{equation}
+Every factor in its unsigned part is positive. The prime valuation
+argument already proved for the marginal law shows that this unsigned
+part is a square if and only if every degree is even: the gap product
+is already a square, and valuation at each actual prime vertex isolates
+that vertex's degree modulo two. Thus, for \(b=0,1\),
+\[
+ (-1)^bD(C,C)\text{ is an integer square}
+ \quad\Longleftrightarrow\quad
+ \bigl(\deg_C(p)\text{ is even for all }p\in P\bigr)
+       \ \text{and}\ b+|C|\equiv0\pmod2.
+\]
+The negative case cannot be a square because the unsigned part is
+strictly positive. This includes the empty mask, whose product is one.
+
+For every field prime above all vertices and \(2\), each signed row is
+a sign and \(\sigma_\ell^2=1\).
+If \(C\in\mathcal C(P,G)\), multiplying
+\eqref{eq:native-phase-diagonal-factor} by \((-1)^{|C|}\)
+gives a nonzero integer square. Its character is nonnegative; the
+product of the individual row characters and
+\(\sigma_\ell^{|C|}\) has square one, so that character is exactly one.
+Cancelling the sign unit proves the pointwise identity
+\[
+ \prod_{e\in C}R_e(\ell)=\sigma_\ell^{|C|}.
+\]
+This retains the full numerator and all overlapping edges.
+For odd \(|C|\), it proves \eqref{eq:native-odd-cycle-readout}.
+If the prescribed profile and phase occur together, it also proves
+every condition in \eqref{eq:native-phase-compatible}.
+Incompatibility is therefore pointwise impossible on the whole stated
+late-field range.
+
+For the positive branch we compute the entire finite signed selector:
+\[
+ \frac{1+\sigma\sigma_\ell}{2}
+        \prod_{e\in G}\frac{1+\epsilon_eR_e(\ell)}2
+ =
+ 2^{-m-1}\sum_{C\subseteq G}
+    \left(\prod_{e\in C}\epsilon_e\right)
+       \bigl(\chi_\ell(D(C,C))+
+                      \sigma\chi_\ell(-D(C,C))\bigr).
+\]
+All masks, the common phase and both character terms remain coupled.
+The exact identity holds on the whole eventual field-prime band.
+Multiply by \(1/\ell\), sum over that finite band, and divide by \(M_U\).
+Fixed-character equidistribution gives the unconditional limit
+\begin{equation}\label{eq:native-phase-full-consumer}
+ 2^{-m-1}\sum_{C\subseteq G}
+  \left(\prod_{e\in C}\epsilon_e\right)
+   \bigl(\mathbf1\{D(C,C)\text{ square}\}
+       +\sigma\mathbf1\{-D(C,C)\text{ square}\}\bigr).
+\end{equation}
+No RH assumption or growing-family limit is used.
+The square classifiers reduce the bracket exactly to
+\(\sigma^{|C|}\) for \(C\in\mathcal C(P,G)\), and to zero otherwise.
+Under compatibility the remaining coefficient is
+\(\sigma^{|C|}\sigma^{|C|}=1\) for every retained mask.
+Hence \eqref{eq:native-phase-full-consumer} equals
+\(N_{\rm all}/2^{m+1}\). For incompatible profiles the entire eventual
+event mass is zero by the pointwise constraint already established.
+This proves \eqref{eq:native-phase-joint}, including its zero branch.
+
+Separately, the exact phase-band identity is
+\[
+ B_{\sigma,U}=\frac{M_U}{2}
+       +\frac{\sigma}{2}\sum_{\ell\in\mathcal I_U}
+                                  \frac{\chi_\ell(-1)}{\ell}.
+\]
+Since \(-1\) is not an integer square, the normalized character term
+tends to zero. Thus \(B_{\sigma,U}/M_U\to1/2\).
+The full band is positive eventually, so the phase band is also
+positive eventually. Dividing the joint limit by this nonzero limiting
+normalizer proves \eqref{eq:native-phase-conditional}.
+In particular the joint and conditional probabilities differ by the
+explicit factor two.
+
+For every sufficiently large field prime, the already proved affine
+readout \((\ell-3)W_e-(\ell-1)=X^-_e+X^+_e\) equates the complete
+central/noncentral weight profile with the paired-sign profile.
+Its coefficient is nonzero for \(\ell\geq5\).
+The actual weight and trace event masses therefore agree on the whole
+eventual band, in each phase separately.
+The quadratic character of \(-1\) equals \(1\) or \(-1\) according as
+\(\ell\equiv1\) or \(3\pmod4\); the maintained finite-field character
+provider proves this identification, including its exact modulus.
+It equates the phase denominator with the residue-class denominator
+on every band whose lower endpoint exceeds \(2\).
+This proves the actual-weight and residue-class conclusions.
+For the empty graph, \(N_{\rm all}=1\), so the joint probability is
+\(1/2\) and the conditional probability is one, as required.
+\end{proof}
+
+\begin{corollary}[First phase-sensitive graph and even-cycle comparison]
+\label{cor:native-phase-small-graphs}
+For at most two strict edges every profile is phase-compatible and has
+conditional actual-weight probability \(2^{-m}\).
+For a triangle \(T=\{(p,q),(q,r),(p,r)\}\), \(p<q<r\),
+the exact probability in the phase-\(\sigma\) residue class is
+\[
+ \begin{cases}
+ 1/4,&\prod_{e\in T}\epsilon_e=\sigma,\\
+ 0,&\text{otherwise}.
+ \end{cases}
+\]
+For a strict four-cycle \(C\), the exact probability in either phase is
+\[
+ \begin{cases}
+ 1/8,&\prod_{e\in C}\epsilon_e=1,\\
+ 0,&\text{otherwise}.
+ \end{cases}
+\]
+\end{corollary}
+\begin{proof}
+No nonempty Eulerian mask has one or two edges.
+On a triangle the Eulerian masks are exactly empty and full, so that
+\(N_{\rm all}=2\) and the full constraint is
+\(\prod_T\epsilon_e=\sigma^3=\sigma\).
+For a four-cycle, the sum of the degrees at its two opposite vertices
+equals the mask cardinality. Even degrees force that cardinality to
+be even. The only Eulerian masks are therefore empty and full:
+a nonempty proper even mask would have two edges, which is impossible.
+Here \(N_{\rm all}=2\) and the full constraint is
+\(\prod_C\epsilon_e=\sigma^4=1\).
+Substitution into the compiled conditional actual-weight law gives
+all three claims.
+\end{proof}
+
+The marginal three-edge fairness and the phase-conditioned triangle
+constraint are consistent: the two disjoint phases each have mass
+\(1/2\), and the triangle product identifies which phase is possible.
+The result exposes a dependence that the marginal profile law hides.
+It concerns fixed prime labels and independently varying prime fields;
+it supplies no integer prime-gap transfer or new RH/QRH exponent.
+
+The new maintained owners are \texttt{NativePrimeEulerianMasks.lean},
+\texttt{NativePrimePhaseCycles.lean},
+\texttt{NativePrimeEulerianGeometry.lean},
+\texttt{FiniteFieldNativePhaseEvents.lean},
+\texttt{FiniteFieldNativePhaseProfiles.lean} and
+\texttt{FiniteFieldNativePhaseArithmetic.lean}.
+All sixty-three new proof closures have completed new-only
+standard-foundation audits; twelve definition interfaces are listed
+separately in the ledger. The fixed-character and finite Boolean
+inputs are classical. Publication priority for this native
+phase-resolved application is not established.
+
 \begin{thebibliography}{99}
 \bibitem{KarpVaziraniVazirani}
 R. M. Karp, U. V. Vazirani and V. V. Vazirani,

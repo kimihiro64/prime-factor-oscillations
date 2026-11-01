@@ -10,8 +10,8 @@ import PrimeFactorOscillations.Assembly.FiniteFieldNativeFullCapacity
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeFullSparseConflicts
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeHeightCapacity
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeHeightPacking
+import PrimeFactorOscillations.Assembly.FiniteFieldNativePhaseArithmetic
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeSignedFamilies
-import PrimeFactorOscillations.Assembly.FiniteFieldNativeVanishingProfiles
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeVertexGreedy
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeVertexReservoir
 import PrimeFactorOscillations.Proof.AffinePairs.PrimeSplitSquarePolynomials
@@ -35,4 +35,6 @@ The central native-output atom is universal on arbitrary actual prime graphs,
 including empty graphs, without vertex/gap independence.
 The complete universal central/noncentral profile law, exact forbidden
 patterns, field-prime recurrence criterion and small-graph laws are included.
+The complete phase-conditioned profile law, odd-cycle phase readout,
+modulo-four weight law and exact triangle/four-cycle cases are included.
 -/
