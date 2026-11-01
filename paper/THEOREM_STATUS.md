@@ -4030,3 +4030,28 @@ new_bound: optimal full-height cardinality has leading constant1/2 on D=Y^2/log(
 components: exact upper/lower triangle bijection and diagonal; existing PNT ratio; log(Y)/Y decay; full retained coefficient(1-delta)(1/2-delta), delta=min(eps/8,1/8); all signed physical cross terms; same codebook with at least2 members.
 actuals: four new maintained proofs across two focused owners. No finite numerical completion or assumed asymptotic is used.
 first_nonpositive_domain: eps>0 fixed before Y; every sufficiently large natural height; positive normalized denominators and at least2 retained labels. Each finite codebook is fixed before the independent field-scale limit. No effective threshold, simultaneous growing-codebook limit, new zero-free exponent or integer bounded-gap claim.
+
+
+## Sharp deletion deficit and every-maximal native capacity (2026-11-01)
+
+| Claim | Maintained declaration | Status and scope |
+| --- | --- | --- |
+| Positive square-product transitivity | Nat.isSquare_mul_trans_of_pos | Proved for natural a,b,c with b>0: square(a*b) and square(b*c) imply square(a*c). Classical supporting lemma extracted to the Mathlib candidate layer. |
+| At most one conflict in each native row | PrimeFactorOscillations.FiniteFieldIntegerSignature.native_flat_square_row_conflicts_card_le_one | Proved for every finite flat actual prime-pair family and every positive anchor; both complete row filters have cardinality at most1. |
+| Complete two-row conflict bound | PrimeFactorOscillations.FiniteFieldIntegerSignature.native_flat_square_conflicts_card_le_two | Proved: the full conflict union has cardinality at most2, including its intersection. |
+| Full finite deletion comparison | PrimeFactorOscillations.FiniteFieldIntegerSignature.native_dominating_selection_flat_deficit | Proved: for every finite actual support S, dominating G subset S, and flat M subset S, card(S minus G)<=2 card(S minus M). G need not be flat. All complements are relative to S. |
+| Actual-prime sharpness certificate | PrimeFactorOscillations.FiniteFieldIntegerSignature.native_dominating_selection_flat_deficit_sharp | Proved: labels(11,2),(11,8),(5,8), with middle singleton G and outer pair M, have actual prime endpoints, both required flatness properties, domination, and deletion deficits2 and1. The constant2 is optimal as a direct consequence. |
+| Sharpness witness rates | PrimeFactorOscillations.FiniteFieldIntegerSignature.native_maximal_packing_sharp_rates | Proved: the two middle conflicts have rate1/2 and the outer pair has rate3/8, using explicit roots and nonsquare intervals. |
+| Insertion maximality implies full square-row domination | PrimeFactorOscillations.FiniteFieldIntegerSignature.native_insertion_maximal_flat_selection_dominates | Proved on every finite actual support. A selection is insertion-maximal when any flat single-label extension was already selected; inclusion maximality implies this condition. |
+| Density-one retention uniformly over every dominating selection | PrimeFactorOscillations.FiniteFieldIntegerSignature.eventually_native_full_dominating_density_one | Proved: for every eps>0, eventually for every natural Y and every dominating G subset S_Y, card(G)>=(1-eps)card(S_Y). |
+| Sharp capacity uniformly over every dominating selection | PrimeFactorOscillations.FiniteFieldIntegerSignature.eventually_native_full_dominating_sharp_capacity | Proved: the same universally quantified G has relative retention and bracket(1/2-eps)D<=card(G)<=(1/2+eps)D. |
+| Every maximal family's same-witness physical limit and optimal stability | PrimeFactorOscillations.FiniteFieldIntegerSignature.eventually_native_full_maximal_physical_capacity | Proved: every insertion-maximal flat G at every sufficiently large height has relative retention, the sharp bracket, at least2 members, exact signed physical limit3/8(sum c)^2+5/8 sum c^2, and optimal lower stability constant5/8. |
+
+All three maintained owners compile warning-free. Exactly these ten new theorem closures use only propext, Classical.choice and Quot.sound. Earlier unchanged closures are not re-audited.
+
+benchmark_status: sharp finite deficit and every-maximal full-height capacity proved.
+old_bound: the full-height theorem selected an existential density-one family separately for each height.
+new_bound: every dominating family at the same sufficiently large height has density1 and leading capacity1/2; every maximal flat family also has the exact physical limit.
+components: positive square-row transitivity; both full conflict rows; complete charge from M minus G to G minus M; exact finite deficit identities; full retention at eps/2; absolute lower bound2 card(M)-card(S_Y); delta=eps/4.
+actuals: ten new maintained declarations across three focused owners; explicit actual-prime witness, no numerical completion of an analytic remainder.
+first_nonpositive_domain: positive square-transitivity middle factor; actual prime endpoints and positive gaps; eps fixed before all sufficiently large natural heights; each finite family fixed before the field limit. The coherent single infinite computable family remains unproved. No new zero-free exponent or integer bounded-gap conclusion.

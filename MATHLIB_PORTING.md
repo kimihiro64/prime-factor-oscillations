@@ -5,6 +5,12 @@ Reusable mathematics intended for possible upstreaming lives under
 The child generator replaces `PrimeFactorOscillations` with the configured project
 namespace.
 
+## Positive natural square classes
+
+| Module | Proposed destination | Readiness | Scope |
+| --- | --- | --- | --- |
+| `PrimeFactorOscillations.Mathlib.Data.Nat.IsSquareTrans` | `Mathlib/Data/Nat/IsSquareTrans.lean` | project-verified | For positive natural b, square(a*b) and square(b*c) imply square(a*c); extracted from the existing local native-row argument, with the positive middle factor retained explicitly. Maintained pinned compiler check passed; used by the native maximal-packing two-row consumer. |
+
 ## Integer square-divisor tails
 
 | Module | Proposed destination | Readiness | Scope |

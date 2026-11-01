@@ -15538,7 +15538,143 @@ Both owners compile without warnings. Exactly these four new theorem
 closures use standard Lean foundations; unchanged earlier closures
 are not re-audited.
 
+\section{Sharp deficit control for every maximal native packing}
+\label{sec:native-maximal-deficit}
+For a positive-gap prime-pair label \(a=(n,h)\), write
+\[
+ L(a)=hn,\qquad U(a)=h(n+h).
+\]
+Both coordinates are positive. Two distinct actual labels are compatible
+precisely when neither \(L(a)L(b)\) nor \(U(a)U(b)\) is a square; equivalently,
+their native agreement rate is \(3/8\). A selection \(G\subseteq S\) is
+\emph{dominating} if each \(a\in S\setminus G\) has a member \(g\in G\)
+with \(L(a)L(g)\) or \(U(a)U(g)\) square. Every inclusion-maximal compatible
+selection is dominating: otherwise the unblocked label could be inserted.
+
+\begin{theorem}[Sharp finite deletion comparison]
+Let \(S\) be any finite set of actual positive-gap prime-pair labels,
+let \(M\subseteq S\) be compatible, and let \(G\subseteq S\) be dominating.
+Then
+\[
+ \boxed{\ |S\setminus G|\le 2|S\setminus M|\ }.
+\]
+The selection \(G\) need not itself be compatible. The constant \(2\)
+cannot be decreased, even if \(G\) is required to be a maximal compatible
+selection of actual prime-pair labels.
+\end{theorem}
+\begin{proof}
+For positive integers, the relation that their product is a square is
+transitive. Indeed, if \(ab\) and \(bc\) are squares with \(b>0\), then
+\(b^2ac=r^2\); divisibility \(b^2\mid r^2\) gives \(b\mid r\), and cancellation
+of \(b^2>0\) shows that \(ac\) is a square.
+
+Consequently, a fixed positive anchor \(g\) conflicts with at most one
+member of \(M\) in its lower row: two such members would conflict with each
+other by transitivity. The same argument applies to the upper row. The
+union of the two conflict fibers therefore contains at most two members,
+including any intersection of the fibers.
+
+Set \(A=M\setminus G\) and \(B=G\setminus M\). Every \(a\in A\) has a blocker
+\(g\in G\). That blocker cannot belong to \(M\), since \(a\ne g\) and \(M\)
+is compatible. Thus the complete family of conflict fibers indexed by
+\(B\) covers \(A\), giving \(|A|\le2|B|\). Retain the exact finite identities
+\[
+ |A|+|G|=|B|+|M|,\qquad
+ |S\setminus G|+|G|=|S|,\qquad
+ |S\setminus M|+|M|=|S|.
+\]
+They imply
+\[
+ |S\setminus G|-|S\setminus M|
+ =|A|-|B|\le |B|\le |S\setminus M|,
+\]
+which proves the stated comparison.
+
+For sharpness take
+\[
+ a=(11,2),\quad b=(11,8),\quad c=(5,8),\qquad
+ S=\{a,b,c\},\quad G=\{a\},\quad M=\{b,c\}.
+\]
+Their endpoints are respectively \((11,13),(11,19),(5,13)\), all prime.
+The rates for \((a,b),(a,c),(b,c)\) are respectively \(1/2,1/2,3/8\).
+Thus \(G\) is maximal compatible and dominating, \(M\) is compatible, and
+the two deletion deficits are exactly \(2\) and \(1\).
+\end{proof}
+
+\begin{theorem}[Uniform maximal full-height capacity]
+Put \(S_Y=\{(p,q-p):p<q\le Y,\ p,q\text{ prime}\}\) and
+\(D(Y)=Y^2/\log^2Y\). For every fixed real \(\varepsilon>0\), at every
+sufficiently large natural height \(Y\), \emph{every} dominating
+\(G\subseteq S_Y\) satisfies
+\[
+ |G|\ge(1-\varepsilon)|S_Y|,\qquad
+ (1/2-\varepsilon)D(Y)\le |G|\le(1/2+\varepsilon)D(Y).
+\]
+In particular this holds for every inclusion-maximal compatible selection,
+uniformly over its choices.
+\end{theorem}
+\begin{proof}
+Apply full-height density-one retention with tolerance \(\varepsilon/2\).
+Its comparison family \(M\) misses at most
+\((\varepsilon/2)|S_Y|\); the finite theorem gives the asserted relative
+retention for every dominating \(G\) at the same height.
+
+For the absolute bracket, set \(\delta=\varepsilon/4>0\). The already
+proved sharp full-height capacity theorem supplies a compatible \(M\)
+with \(|M|\ge(1/2-\delta)D(Y)\), and the universal bound
+\(|S_Y|\le(1/2+\delta)D(Y)\). The exact deficit comparison yields
+\[
+ |G|\ge 2|M|-|S_Y|
+       \ge(1/2-3\delta)D(Y)
+       \ge(1/2-\varepsilon)D(Y).
+\]
+The upper bound follows from \(G\subseteq S_Y\).
+All thresholds are chosen before \(G\); no effective threshold is asserted.
+\end{proof}
+
+This is stronger than the classical half-size guarantee for a maximal
+matching~\cite{KarpVaziraniVazirani}. The finite charging argument is
+elementary; the arithmetic input is that the full actual prime-pair
+support admits a comparison family with vanishing relative deletion
+deficit. It forces \emph{every} maximal selection to have that property.
+We make no priority claim for the elementary matching argument.
+
+\begin{corollary}[Every maximal family's physical limit]
+For every sufficiently large \(Y\), every maximal compatible \(G\subseteq S_Y\)
+has at least two labels. For each such fixed finite \(G\) and every real
+coefficient vector \(c\), its physical agreement mass form tends to
+\[
+ \frac38\left(\sum_{a\in G}c_a\right)^2+
+ \frac58\sum_{a\in G}c_a^2.
+\]
+A constant \(\kappa\) is a lower stability constant for all coefficient
+vectors exactly when \(\kappa\le5/8\).
+\end{corollary}
+\begin{proof}
+The capacity theorem with tolerance \(1/8\), together with \(D(Y)\ge8\)
+eventually, gives \(|G|\ge(3/8)D(Y)\ge3\).
+The existing flat agreement mass-form limit now applies to this same \(G\).
+Its exact quadratic form is the displayed expression, retaining every
+off-diagonal term. Nonnegativity of the squared sum gives the lower
+constant \(5/8\), and coefficients \(1,-1\) on two distinct labels give
+equality. Thus no larger uniform lower constant is possible.
+The finite label set is fixed before the independent field-scale limit.
+\end{proof}
+
+The maintained owners are
+\texttt{FiniteFieldNativeMaximalPacking.lean} and
+\texttt{FiniteFieldNativeMaximalCapacity.lean}; positive square transitivity
+is extracted to the reusable \texttt{Nat.IsSquareTrans} candidate.
+The sharp finite witness and all four uniform capacity declarations
+compile without warnings. A single persistent computable family is the
+next step; it is not asserted by these finite-height theorems.
+
 \begin{thebibliography}{99}
+\bibitem{KarpVaziraniVazirani}
+R. M. Karp, U. V. Vazirani and V. V. Vazirani,
+\emph{An optimal algorithm for on-line bipartite matching},
+Proceedings of STOC (1990), 352--358, Section~2.
+\url{https://people.eecs.berkeley.edu/~vazirani/pubs/online.pdf}.
 \bibitem{MartinWaljiCharacters}
 K. Martin and N. Walji,
 \emph{Distinguishing finite group characters and refined local-global phenomena},

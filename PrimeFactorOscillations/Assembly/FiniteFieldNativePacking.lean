@@ -9,6 +9,7 @@ import PrimeFactorOscillations.Assembly.FiniteFieldNativeFullCapacity
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeFullSparseConflicts
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeHeightCapacity
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeHeightPacking
+import PrimeFactorOscillations.Assembly.FiniteFieldNativeMaximalCapacity
 
 /-!
 # Native prime-pair packing and physical capacity
