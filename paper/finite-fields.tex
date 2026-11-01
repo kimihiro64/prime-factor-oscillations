@@ -1,3 +1,5 @@
+% Copyright (c) 2026 Prime Factor Oscillations contributors.
+% SPDX-License-Identifier: Apache-2.0 OR CC-BY-4.0
 \documentclass[11pt]{article}
 \usepackage{amsmath,amssymb,amsthm}
 \setlength{\textwidth}{6.5in}
@@ -18,9 +20,14 @@
 \title{Prime Profiles and Oscillation over Finite Fields\\
 \large Optimal deletion, Frobenius waves, and ascent geometry}
 \author{Research working draft}
-\date{29 October 2026}
+\date{1 November 2026}
 \begin{document}
 \maketitle
+\begingroup\small
+\noindent Copyright (c) 2026 Prime Factor Oscillations contributors.
+This paper is dual-licensed as
+\texttt{Apache-2.0 OR CC-BY-4.0}, at the reader's choice.\par
+\endgroup\medskip
 \begin{abstract}
 We study the minimum deletion of closed points needed to keep a cumulative
 degree-weighted prime count below its geometric main term. For a smooth
@@ -39,13 +46,25 @@ sampling supplies character-sensitive profiles with an explicit
 square-root-accurate reference clock. At fixed odd \(q\) and rank
 \(k\geq2\), these quadratic profiles realize every finite ascent word;
 their maximal peak count among \(\deg D\leq H\) is of sharp order
-\(\log H\), although their Galois group is always the same.
+\( \log H\), although their Galois group is always the same.
+
+For actual integer prime-pair labels in separated quarter blocks,
+we construct native finite-field codebooks retaining at least
+\(1-\varepsilon\) of the complete candidate set, for every
+\(\varepsilon>0\) and all sufficiently large heights.
+Their distinct agreement rates are exactly \(3/8\).
+These same codebooks have exact physical energy
+\(\frac38(\sum c)^2+\frac58\sum c^2\) and optimal lower
+stability constant \(5/8\), with the finite codebook fixed
+before the independent field-scale limit.
 \end{abstract}
 
 \paragraph{Status.}
 This working manuscript combines ordinary arguments with maintained Lean
 formalizations of the pair-count results identified in the claim ledger.
 The curve-level statements retain their separately recorded status.
+The native density-one retention and its combined physical energy and
+sharp-stability consumer are maintained, kernel-checked results.
 Existing maintained proofs supply
 the abstract greedy record mechanism and damped-wave method; their
 integer-prime consumers do not automatically constitute finite-field
@@ -14850,6 +14869,68 @@ This completes the native density-one retention programme.
 Density one is relative to the complete candidate set \(S_Y\).
 The starting height remains existential, and any subsequent
 physical field-scale limit fixes the chosen finite codebook first.
+
+\section{Sharp physical stability on the same density-one codebooks}
+\label{sec:native-density-one-physical}
+
+\begin{corollary}[Density-one physical capacity]
+\label{cor:native-density-one-physical}
+For every \(\varepsilon>0\), the codebooks in
+Theorem~\ref{thm:native-density-one} can be chosen with at least
+two members and with the following properties simultaneously.
+For every real coefficient vector \(c:M_Y\to\mathbb R\), their
+native physical mass form \(Q_U(c)\), at the independent field
+cutoff \(U\), satisfies
+\[
+ \lim_{U\to\infty}Q_U(c)
+   =Q_{M_Y}(c)
+   =\frac38\left(\sum_{i\in M_Y}c_i\right)^2
+       +\frac58\sum_{i\in M_Y}c_i^2.
+\]
+Moreover,
+\[
+ \left(\forall c:M_Y\to\mathbb R,\quad
+       \kappa\sum_{i\in M_Y}c_i^2\le Q_{M_Y}(c)\right)
+       \quad\Longleftrightarrow\quad \kappa\le\frac58 .
+\]
+The retention bound and all actual prime-endpoint conditions hold
+for this same \(M_Y\). Each finite codebook is fixed before
+the field-scale limit.
+\end{corollary}
+
+\begin{proof}
+Apply the density-one theorem with
+\(\varepsilon'=\min(\varepsilon,1/2)>0\).
+The previously proved squarefree quarter-block supply and
+power-log growth imply \(\#S_Y\ge4\) at all sufficiently large
+heights. Thus \(\#M_Y\ge\#S_Y/2\ge2\).
+Since \(\varepsilon'\le\varepsilon\), the requested retention
+bound is preserved.
+
+Index the family by the elements of \(M_Y\) themselves.
+Its endpoint labelling is injective, every lower and upper
+endpoint is prime, and every gap is positive.
+The exact flat physical-energy theorem therefore applies to
+these same codebooks and gives the displayed limit.
+All coefficients may be signed; the complete rank-one term
+is retained.
+
+The squared-sum term is nonnegative, proving the lower
+stability inequality at \(5/8\), and hence at every smaller
+constant. Choose two distinct codewords and put coefficients
+\(1,-1\) on them and zero elsewhere. Their sum is zero and
+their squared sum is two, so the same exact identity forces
+every uniform lower stability constant to be at most \(5/8\).
+\end{proof}
+
+This is the maintained declaration
+\texttt{eventually\_native\_density\_one\_physical\_capacity}, in
+\texttt{Assembly/\allowbreak FiniteFieldNativeDensityEnergy.\allowbreak lean}.
+Its full combined statement compiles without warnings and its
+new closure uses only standard Lean foundations.
+This corollary combines the proved density-one theorem with
+the existing exact flat-energy and optimal-stability results;
+it makes no separate originality claim for that combination.
 
 \begin{thebibliography}{99}
 \bibitem{MartinWaljiCharacters}

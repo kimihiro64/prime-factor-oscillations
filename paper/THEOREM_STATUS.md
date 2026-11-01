@@ -3911,3 +3911,18 @@ new_bound: for every eps>0, all sufficiently large heights retain at least1-eps 
 components: D3 principal allowance eps/3; fixed-T probability threshold eps/972; arbitrary rounding reserve243/eps; exact PNT comparisons D<=81*AB and pi(Y)^2<=4*D; full retention AB-B_T-E_T with all errors retained.
 actuals: one maintained warning-free full theorem and one new-only standard-foundation closure; no numerical substitutes for unresolved estimates.
 first_nonpositive_domain: the conclusion holds for every sufficiently large natural height, with an existential cutoff depending on eps. No effective starting height or convergence rate is claimed. Density one is relative to the complete quarter-block candidate set; the certified integer zero-free boundary is unchanged.
+
+## Sharp physical stability on density-one codebooks (2026-11-01)
+
+| Claim | Maintained declaration | Status and scope |
+| --- | --- | --- |
+| Same-witness density-one retention, physical energy and optimal stability | PrimeFactorOscillations.FiniteFieldIntegerSignature.eventually_native_density_one_physical_capacity | Proved: for every eps>0 and all sufficiently large natural heights, the same actual quarter-block codebook retains at least1-eps of all candidates, has at least two codewords and distinct rates3/8, has exact physical mass limit3/8*(sum c)^2+5/8*sum(c^2), and admits every uniform lower stability constant kappa exactly when kappa<=5/8. The finite codebook is fixed before the independent field-scale limit. |
+
+The maintained FiniteFieldNativeDensityEnergy.lean owner compiles warning-free. Its one new closure uses only propext, Classical.choice and Quot.sound. This is a compiled corollary of density-one retention and the existing flat-energy theorems, with no separate priority claim. The at-least-two condition is proved using the smaller retention parameter min(eps,1/2) and the existing actual squarefree supply.
+
+benchmark_status: full same-witness physical consumer proved; the density-one theorem remains complete.
+old_bound: density-one retention and physical optimal stability were available in separate statements about constructed codebooks.
+new_bound: the same almost-full codebooks satisfy the exact signed physical energy formula and optimal5/8 stability for every real coefficient vector. The retention fraction remains1-eps.
+components: min(eps,1/2) selection; actual candidate count>=4; at least two retained codewords; injective endpoint labelling; exact physical diagonal and all signed cross terms; two-entry zero-sum sharpness witness.
+actuals: one maintained warning-free combined theorem and one new-only standard-foundation closure; no numerical experiments or new arithmetic assumptions.
+first_nonpositive_domain: all sufficiently large natural heights for each eps>0, with an existential threshold. Optimality includes an explicitly proved two-codeword witness. Each field-scale limit fixes the finite codebook; no simultaneous growing-family limit is claimed.
