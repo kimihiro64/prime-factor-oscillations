@@ -10,7 +10,7 @@ import PrimeFactorOscillations.Assembly.FiniteFieldNativeFullCapacity
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeFullSparseConflicts
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeHeightCapacity
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeHeightPacking
-import PrimeFactorOscillations.Assembly.FiniteFieldNativeOddCycleRigidity
+import PrimeFactorOscillations.Assembly.FiniteFieldNativePositiveCoincidence
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeSignedFamilies
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeVertexGreedy
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeVertexReservoir
@@ -39,4 +39,6 @@ The complete phase-conditioned profile law, odd-cycle phase readout,
 modulo-four weight law and exact triangle/four-cycle cases are included.
 Odd-cycle synchronization rigidity, universal coincidence in fields3 modulo4,
 and unbounded actual field-prime agreement realizers are exported.
+The sharp universal positive-phase coincidence floor and its simultaneous
+attainment on one computable infinite prime class are included.
 -/

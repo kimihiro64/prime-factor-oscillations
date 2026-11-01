@@ -1,5 +1,56 @@
 # Paper theorem and provenance ledger
 
+## Sharp universal positive-phase coincidence law (2026-11-01)
+
+All thirty-four claims below have maintained Lean proofs, warning-free focused builds and completed new-only assumption audits. Their namespace is `PrimeFactorOscillations.FiniteFieldIntegerSignature`. For every fixed nonempty strict graph G on arbitrary actual prime vertices P, the exact limiting agreement probability within prime fields1 modulo4 is at least C_plus(P,G)+2*N_all(P,G)/4^|G|. The central contribution C_plus is N_all/2^|G| when its all-central positive-phase profile is compatible and0 otherwise. Equality holds under complete vertex/gap squareclass independence; one previously constructed computable infinite prime class attains it for every fixed finite nonempty graph on that class. The same holds inside any decidable prime reservoir with nonvanishing prime-relative frequency.
+
+| Claim | Lean declaration | Status |
+| --- | --- | --- |
+| Every supported unsigned full row product is positive | native_phase_row_unsigned_product_positive | Proved; maintained, compiled and audited. |
+| Complete twisted signed row square classifier for every natural phase exponent | native_twisted_signed_row_product_isSquare_iff | Proved; maintained, compiled and audited. |
+| Negative signed row square classifier retaining odd Eulerian masks | native_negative_signed_row_product_isSquare_iff | Proved; maintained, compiled and audited. |
+| Independent full row phase indicator eliminates every off-diagonal mask | native_phase_row_indicator_of_independent | Proved; maintained, compiled and audited. |
+| Exact joint phase and arbitrary signed row-word selector | native_signed_phase_word_pointwise_selector | Proved; maintained, compiled and audited. |
+| Full supported pointwise phase and row-word character expansion | native_signed_phase_word_pointwise_expansion | Proved; maintained, compiled and audited. |
+| Exact finite-band phase and row-word mass expansion | native_signed_phase_word_mass_expansion | Proved; maintained, compiled and audited. |
+| The full phase and row-word mass identity holds eventually | native_signed_phase_word_mass_expansion_eventually | Proved; maintained, compiled and audited. |
+| Unconditional joint phase and arbitrary row-word probability limit | native_signed_phase_word_joint_ratio_tendsto | Proved; maintained, compiled and audited. |
+| Exact actual weight agreement decomposition with common phase retained | native_graph_phase_weight_pointwise_decomposition | Proved; maintained, compiled and audited. |
+| Full finite-band phase agreement decomposition into central and synchronized events | native_graph_phase_weight_mass_decomposition | Proved; maintained, compiled and audited. |
+| The complete phase agreement decomposition holds eventually | native_graph_phase_weight_mass_decomposition_eventually | Proved; maintained, compiled and audited. |
+| Full-band joint actual agreement probability limit in either phase | native_graph_phase_weight_joint_ratio_tendsto | Proved; maintained, compiled and audited. |
+| Within-phase actual agreement probability limit with its factor-two normalization | native_graph_phase_weight_conditional_ratio_tendsto | Proved; maintained, compiled and audited. |
+| Actual agreement limit normalized in either odd residue class modulo four | native_graph_mod_four_weight_conditional_ratio_tendsto | Proved; maintained, compiled and audited. |
+| Exact paired synchronized-word expansion with both signed square indicators | native_graph_phase_constant_word_sum_expansion | Proved; maintained, compiled and audited. |
+| Every joined synchronized sign coefficient is nonnegative | native_synchronized_sign_coefficient_nonneg | Proved; maintained, compiled and audited. |
+| Every complete paired mask contribution is nonnegative in positive phase | native_graph_positive_phase_paired_mask_nonneg | Proved; maintained, compiled and audited. |
+| Each complete Eulerian diagonal contributes exactly two in positive phase | native_graph_positive_phase_paired_mask_eq_two_of_eulerian | Proved; maintained, compiled and audited. |
+| The full positive-phase synchronized-word rate dominates all Eulerian diagonals | native_graph_positive_phase_constant_word_rate_lower_bound | Proved; maintained, compiled and audited. |
+| Exact conditional normalization of any phase-profile rate | native_phase_profile_conditional_rate_eq | Proved; maintained, compiled and audited. |
+| The normalized positive-phase synchronized rate has the full Eulerian lower bound | native_graph_positive_phase_constant_word_conditional_lower_bound | Proved; maintained, compiled and audited. |
+| Full positive-phase agreement rate retains the central term and paired lower bound | native_graph_positive_phase_agreement_rate_lower_bound | Proved; maintained, compiled and audited. |
+| Universal positive-phase lower bound through the actual weight probability consumer | native_graph_positive_phase_weight_limit_lower_bound | Proved; maintained, compiled and audited. |
+| Independence makes the positive-phase synchronized-word lower bound an equality | native_graph_positive_phase_constant_word_rate_eq_of_independent | Proved; maintained, compiled and audited. |
+| Exact conditional synchronized-word rate under complete squareclass independence | native_graph_positive_phase_constant_word_conditional_eq_of_independent | Proved; maintained, compiled and audited. |
+| Full positive-phase agreement rate attains the universal floor under independence | native_graph_positive_phase_agreement_rate_eq_of_independent | Proved; maintained, compiled and audited. |
+| Actual positive-phase agreement probability attains the floor under independence | native_graph_positive_phase_weight_ratio_tendsto_of_independent | Proved; maintained, compiled and audited. |
+| Every fixed graph from the reservoir class attains the positive-phase floor | native_reservoir_positive_phase_weight_ratio_tendsto | Proved; maintained, compiled and audited. |
+| One infinite class in each nonvanishing reservoir attains the floor on every finite graph | native_infinite_positive_phase_coincidence_family_in_reservoir | Proved; maintained, compiled and audited. |
+| One computable infinite prime class attains the floor on every finite nonempty graph | native_infinite_positive_phase_coincidence_family | Proved; maintained, compiled and audited. |
+| Exact positive-phase floor one sixteenth for every strict prime-labelled triangle | native_triangle_positive_phase_floor | Proved; maintained, compiled and audited. |
+| Every actual prime-labelled triangle has positive-phase agreement rate at least one sixteenth | native_triangle_positive_phase_agreement_rate_lower_bound | Proved; maintained, compiled and audited. |
+| Independent prime-labelled triangles have exact conditional agreement probability one sixteenth | native_triangle_positive_phase_weight_ratio_tendsto_of_independent | Proved; maintained, compiled and audited. |
+
+Definition interfaces, separate from proof counts: `nativeSignedPhaseWordEvent`, `nativeSignedPhaseWordMass`, `nativeSignedPhaseWordRate`, `nativeGraphPhaseAgreementRate`, `nativePositivePhaseCoincidenceFloor`. Owners: Helpers/NativePrimePhaseRowKernel.lean, Assembly/FiniteFieldNativePhaseWords.lean and Assembly/FiniteFieldNativePositiveCoincidence.lean. The final owner is exported through FiniteFieldNativePacking.lean; the full signed proof and simultaneous sharpness are in the finite-fields paper, section native-positive-phase-coincidence. Only the thirty-four new proof closures were audited; unchanged earlier closures were not repeated. The new proofs use only propext, Classical.choice and Quot.sound.
+
+benchmark_status: full universal positive-phase coincidence lower bound, exact independent-class equality and one infinite simultaneous attaining class proved.
+old_bound: the completed marginal graph floor did not resolve the positive phase. The negative-phase odd-cycle theorem gave its exact law, and the phase profile theorem supplied the central contribution only.
+new_bound: A_plus>=C_plus+2*N_all/4^m, with equality on the existing independent class. For arbitrary prime-labelled triangles A_plus>=1/16 and equality holds under independence; the complementary phase has exact value1/4. Their sharp phase average remains the earlier marginal5/32.
+components: full finite phase/row-word identity with both D and -D; joined coefficient1+(-1)^(|O|+|T|); complete nonnegative paired matrix; all Eulerian diagonals contributing2; exact central contribution; conditional factor2; independent off-diagonal and non-Eulerian vanishing; common actual-weight affine transfer.
+actuals: thirty-four new audited proofs, five definition interfaces and three warning-free maintained owners. Universal symbolic triangle statements and simultaneous infinite-class attainment use no finite numerical diagnostic.
+first_nonpositive_domain: the physical agreement consumer requires G nonempty; every resulting floor is positive since N_all>=1. Early field primes are excluded by an eventual band above all fixed vertices and at least5. Isolated vertices and prime2 are allowed. All graphs stay fixed before the independent field scale; no growing-graph uniformity, vertex growth estimate, integer prime-gap transfer or RH/QRH improvement is asserted. Publication priority remains unestablished.
+
+
 ## Odd-cycle native synchronization rigidity (2026-11-01)
 
 All sixteen claims below have maintained Lean proofs, warning-free focused compilation and completed new-only assumption audits. They belong to `PrimeFactorOscillations.FiniteFieldIntegerSignature`. Fix arbitrary actual prime vertices P and a strict graph G containing a supported odd-cardinality Eulerian mask C. For every sufficiently large prime field ell=3 modulo4, all actual native weights on G agree exactly when all of them equal the central weight (ell-1)/(ell-3). Their exact conditional agreement frequency is N_all(P,G)/2^|G|, without vertex/gap independence. Prime fields realizing this agreement exist above every bound. In the opposite phase any agreeing weights are all noncentral.

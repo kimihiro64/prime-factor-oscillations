@@ -17409,6 +17409,198 @@ definition is recorded separately. The result consumes the proved
 quadratic phase/profile laws. Historical publication priority for
 this native synchronization application is unestablished.
 
+\section{A sharp universal coincidence floor in the positive phase}
+\label{sec:native-positive-phase-coincidence}
+
+The positive field phase permits a different exact estimate: combine
+the two nonzero synchronized events before estimating their character
+expansions. Every resulting coefficient is nonnegative. Both square
+indicators, including the negative numerator, are needed to retain
+odd Eulerian diagonals.
+
+For fixed actual prime vertices \(P\) and a nonempty strict graph
+\(G\subseteq E(P)\), put \(m=|G|\), \(N=N_{\rm all}(P,G)\), and
+\[
+ \kappa_+(P,G)=
+ \mathbf1\left\{\prod_{e\in C}(-1)=1
+                        \text{ for every }C\in\mathcal C(P,G)\right\}.
+\]
+This is exactly compatibility of the all-central profile with the
+positive phase. Its conditional probability is therefore
+\[
+                         C_+(P,G)=\kappa_+(P,G)\frac{N}{2^m}.
+\]
+Let \(\mathcal A_G(\ell)\) again mean agreement of every actual native
+weight on \(G\). Define
+\[
+ A_+(P,G)=\lim_{U\to\infty}
+ \frac{\displaystyle\sum_{\ell\in\mathcal I_U}\frac1\ell
+       \mathbf1\{\ell\equiv1\pmod4,\ \mathcal A_G(\ell)\}}
+      {\displaystyle\sum_{\ell\in\mathcal I_U}\frac1\ell
+       \mathbf1\{\ell\equiv1\pmod4\}}.
+\]
+
+\begin{theorem}[Sharp universal positive-phase coincidence floor]
+\label{thm:native-positive-phase-coincidence}
+The limit \(A_+(P,G)\) exists for every fixed nonempty actual
+prime-vertex graph, and
+\begin{equation}\label{eq:native-positive-phase-floor}
+ A_+(P,G)\ \geq\
+       \kappa_+(P,G)\frac{N_{\rm all}(P,G)}{2^{|G|}}
+          +\frac{2N_{\rm all}(P,G)}{4^{|G|}}.
+\end{equation}
+Equality holds whenever \(P\) satisfies the already defined complete
+vertex/gap squareclass independence condition
+\textnormal{\texttt{nativePrimeVertexGapIndependent}}.
+
+One fixed computable infinite prime vertex class attains equality
+simultaneously for every fixed finite nonempty graph on its vertices.
+More generally, the previously constructed class in any decidable
+prime reservoir whose prime-relative frequency does not tend to zero
+is infinite, stays inside that reservoir, and has the same simultaneous
+attainment property.
+
+For arbitrary actual primes \(p<q<r\), the triangle agreement
+probability within prime fields of size \(1\) modulo four is at least
+\(1/16\). On the independent class it is exactly \(1/16\).
+\end{theorem}
+
+\begin{proof}
+We first retain the common field phase in arbitrary row words.
+For \(O,T\subseteq G\), write \(D(O,T)\) for the complete signed row
+product and \(\delta(D)\) for its integer-square indicator.
+The joint phase/row-word selector is the product of the field-phase
+selector and every prescribed lower and upper row selector.
+Its exact finite expansion, for sufficiently large field primes, is
+\[
+ 2^{-|A|-|B|-1}
+ \sum_{\substack{O\subseteq A\\T\subseteq B}}
+  c_{a,c}(O,T)
+   \left(\chi_\ell(D(O,T))
+                 +\sigma\chi_\ell(-D(O,T))\right),
+\]
+where
+\[
+ c_{a,c}(O,T)=
+    \prod_{e\in O}\operatorname{sgn}(a_e)
+    \prod_{e\in T}\operatorname{sgn}(c_e).
+\]
+The two finite supports \(A,B\), the row profiles \(a,c\), and
+the phase \(\sigma\) are fixed before the field scale varies.
+Multiplicativity is applied to the whole signed numerator.
+Summing with the reciprocal-prime weights gives the corresponding
+full finite-band identity. Fixed-character equidistribution then
+replaces the two characters by
+\(\delta(D(O,T))\) and \(\delta(-D(O,T))\), respectively.
+The phase-band denominator has relative limiting mass \(1/2\),
+so conditional probabilities are twice these joint full-band rates.
+
+Now take \(A=B=G\), and combine the all-positive and all-negative
+row words. Their coefficients are respectively \(1\) and
+\((-1)^{|O|+|T|}\). In the positive phase their complete joint rate is
+\begin{equation}\label{eq:native-positive-full-signed-rate}
+ W_+(P,G)=
+ 2^{-2m-1}\sum_{\substack{O\subseteq G\\T\subseteq G}}
+ \left(1+(-1)^{|O|+|T|}\right)
+ \left(\delta(D(O,T))+\delta(-D(O,T))\right).
+\end{equation}
+Every summand is nonnegative: the first factor is \(0\) or \(2\),
+and the second is a sum of square indicators.
+This conclusion follows after the two physical synchronized events
+have been combined, with every sign and mask retained.
+
+For a diagonal Eulerian mask \(C\in\mathcal C(P,G)\), the universal
+diagonal classifier gives
+\[
+             \delta(D(C,C))+\delta(-D(C,C))=1.
+\]
+Its first factor in \eqref{eq:native-positive-full-signed-rate}
+is \(1+(-1)^{2|C|}=2\), regardless of the parity of \(|C|\).
+The \(N\) qualifying diagonals therefore give
+\[
+                  W_+(P,G)\geq 2^{-2m-1}(2N)=\frac{N}{4^m}.
+\]
+All remaining nonnegative terms remain available.
+
+For a nonempty graph the exact agreement decomposition has three
+disjoint events: every trace zero, every signed row \(+1\), and every
+signed row \(-1\). The common affine trace readout preserves actual
+weight agreement on the whole eventual band.
+The all-zero event contributes joint rate \(C_+/2\), and the two
+nonzero events contribute \(W_+\).
+Consequently the actual conditional limit exists and satisfies
+\[
+       A_+(P,G)=C_+(P,G)+2W_+(P,G)
+           \geq C_+(P,G)+\frac{2N}{4^m},
+\]
+which proves the full bound \eqref{eq:native-positive-phase-floor}.
+The normalization and the central contribution have both survived
+the complete physical consumer.
+
+For sharpness, use the complete vertex/gap independence hypothesis.
+Let
+\[
+ H(O,T)=
+  \prod_{e\in O}e_1(e_2-e_1)
+  \prod_{e\in T}e_2(e_2-e_1)>0.
+\]
+The exact factorization is
+\(D(O,T)=(-1)^{|O|}H(O,T)\).
+The existing unsigned squareclass classifier and positivity prove,
+for every natural \(b\),
+\begin{align*}
+ (-1)^bD(O,T)\text{ is an integer square}
+ \quad\Longleftrightarrow\quad&
+ O=T,\quad \deg_O(p)\equiv0\pmod2\ (p\in P),\\
+ &b+|O|\equiv0\pmod2.
+\end{align*}
+This full twisted classifier is maintained and compiled.
+For \(b=0,1\), it shows that the sum
+\(\delta(D(O,T))+\delta(-D(O,T))\) vanishes unless
+\(O=T\in\mathcal C(P,G)\).
+On those diagonals it equals one.
+Thus every term outside the retained diagonal family is exactly zero
+and the lower bound for \(W_+\) is an equality.
+Substituting into the same actual-weight consumer proves equality in
+\eqref{eq:native-positive-phase-floor}.
+
+The previously proved computable reservoir construction supplies one
+infinite vertex class all of whose finite subsets satisfy this exact
+independence condition. Apply the just-proved conditional agreement
+law to every such fixed finite subset and graph.
+The existing construction also supplies its infinitude and reservoir
+membership under the stated nonvanishing-frequency assumption.
+This proves the simultaneous sharpness assertions with their original
+quantifier order.
+
+For a triangle, the complete Eulerian masks are empty and full,
+so \(N=2\). The full mask is odd, making the all-central positive-phase
+profile incompatible and hence \(\kappa_+=0\).
+The bound is \(2\cdot2/4^3=1/16\), with equality under independence.
+Both the universal triangle rate bound and its exact conditional
+independent-class limit are maintained compiled declarations.
+\end{proof}
+
+Together with the exact negative-phase triangle value \(1/4\), the
+sharp positive-phase value \(1/16\) averages to the earlier marginal
+value \(5/32\). The result resolves how that coincidence mass is
+distributed between the two residue classes.
+All graphs stay fixed before the independent field-prime limit;
+no vertex growth rate or integer prime-gap transfer is asserted.
+
+The twisted square kernel is maintained in
+\texttt{NativePrimePhaseRowKernel.lean}.
+The complete finite phase/row-word identities and unconditional
+joint limits are in \texttt{FiniteFieldNativePhaseWords.lean}.
+The full actual agreement consumer, nonnegative paired estimate,
+sharpness, reservoir family and triangle consequences are in
+\texttt{FiniteFieldNativePositiveCoincidence.lean}.
+All thirty-four new proof closures have completed new-only
+standard-foundation audits; five definition interfaces are recorded
+separately. The quadratic-character and finite-selector inputs are
+classical; historical priority for this native sharp conditional
+coincidence theorem is unestablished.
+
 \begin{thebibliography}{99}
 \bibitem{KarpVaziraniVazirani}
 R. M. Karp, U. V. Vazirani and V. V. Vazirani,
