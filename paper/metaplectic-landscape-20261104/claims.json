@@ -435,6 +435,46 @@
         "Metaplectic.G2Seven.Jacobi.native_packet_reciprocity",
         "Metaplectic.G2Seven.Jacobi.abel_packet_reciprocity"
       ]
+    },
+    {
+      "id": "G7-G1",
+      "claim": "Actual finite-field Gauss--Jacobi convolution and the seventh-root fiber law are proved from an order-seven character. The exact affine count of z^7=x(1-x) includes zero and every diagonal Jacobi sum, with no assumed fiber law.",
+      "status": "kernel_checked_for_every_finite_field_and_order_seven_character",
+      "declarations": [
+        "Metaplectic.G2Seven.Curve.gauss_jacobi",
+        "Metaplectic.G2Seven.Curve.affine_count_fibers",
+        "Metaplectic.G2Seven.Curve.affine_count_jacobi_of_fibers",
+        "Metaplectic.G2Seven.Curve.seventh_power_iff_character",
+        "Metaplectic.G2Seven.Curve.seventh_root_fiber",
+        "Metaplectic.G2Seven.Curve.affine_count_jacobi"
+      ]
+    },
+    {
+      "id": "G7-G2",
+      "claim": "Actual normalized finite-field Gauss sums have the nonzero and reciprocal entries required by the source model. Every repeated-entry source phase equals its corresponding diagonal Jacobi sum divided by rho, with rho^2=q and primitive additive character.",
+      "status": "kernel_checked_actual_finite_field_gauss_inputs",
+      "declarations": [
+        "Metaplectic.G2Seven.Curve.normalized_gauss_ne_zero",
+        "Metaplectic.G2Seven.Curve.normalized_gauss_complement",
+        "Metaplectic.G2Seven.Curve.normalized_diagonal_jacobi",
+        "Metaplectic.G2Seven.Curve.diagonal_phase"
+      ]
+    },
+    {
+      "id": "G7-G3",
+      "claim": "The complete six-channel compensated coherent Abel trace equals (q-N_aff)/rho for the actual curve z^7=x(1-x). The left-neighborhood filter is nontrivial, and all principal coordinates and both periods are inherited from the proved source readouts.",
+      "status": "kernel_checked_full_source_to_point_count_consumer",
+      "declarations": [
+        "Metaplectic.G2Seven.Curve.curve_trace_abel"
+      ]
+    },
+    {
+      "id": "G7-G4",
+      "claim": "After its exact variable rescaling, the native source packet equals the unnormalized diagonal Jacobi polynomial product_r(U+J(chi^r,chi^r)V). The right-hand side has no additive-character or auxiliary-scale dependence. Projective curve geometry and zeta-function interpretation are separate classical inputs.",
+      "status": "kernel_checked_actual_jacobi_polynomial_identification",
+      "declarations": [
+        "Metaplectic.G2Seven.Curve.jacobi_packet_identification"
+      ]
     }
   ],
   "novelty": "Priority for the combined explicit formulas has not been established; source classification and Gauss identities are classical."

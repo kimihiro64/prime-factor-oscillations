@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-04",
+  "scope": "Actual finite-field character sums identify the full compensated sevenfold G2 six-channel packet with a genus-three curve's Jacobi polynomial and affine point-count discrepancy.",
+  "status": "kernel_checked_finite_field_and_source_consumer; projective geometry and zeta interpretation cited separately",
+  "new_public_declarations": [
+    "Metaplectic.G2Seven.Curve.affine_count_fibers",
+    "Metaplectic.G2Seven.Curve.affine_count_jacobi",
+    "Metaplectic.G2Seven.Curve.affine_count_jacobi_of_fibers",
+    "Metaplectic.G2Seven.Curve.curve_trace_abel",
+    "Metaplectic.G2Seven.Curve.diagonal_phase",
+    "Metaplectic.G2Seven.Curve.gauss_jacobi",
+    "Metaplectic.G2Seven.Curve.jacobi_packet_identification",
+    "Metaplectic.G2Seven.Curve.normalized_diagonal_jacobi",
+    "Metaplectic.G2Seven.Curve.normalized_gauss_complement",
+    "Metaplectic.G2Seven.Curve.normalized_gauss_ne_zero",
+    "Metaplectic.G2Seven.Curve.seventh_power_iff_character",
+    "Metaplectic.G2Seven.Curve.seventh_root_fiber"
+  ],
+  "source_hashes": [
+    {
+      "path": "PrimeFactorOscillations/Mathlib/NumberTheory/Metaplectic/G2SevenCurveTrace.lean",
+      "sha256": "0868432AFB8F688C85E85748EBB35904FAAE42474886F98CA060A265DA4624C4"
+    },
+    {
+      "path": "PrimeFactorOscillations/Mathlib/NumberTheory/Metaplectic/G2SevenCurveReadout.lean",
+      "sha256": "152012C6A4AC71040606F12CA06DC3938F81C38647229BC3C491B06B25660000"
+    },
+    {
+      "path": "PrimeFactorOscillations/Mathlib/NumberTheory/Metaplectic/All.lean",
+      "sha256": "21416BDC5A8134290AFA4D73B4F677D862931370CE43603897ED9F231E007B65"
+    },
+    {
+      "path": "scripts/metaplectic_proof_targets.py",
+      "sha256": "192375FA65051C51570CF5B787193615EDD6FA547E59EFDD49C6C36D886A3BCC"
+    },
+    {
+      "path": "MATHLIB_PORTING.md",
+      "sha256": "A191955B6F019044946375D59AEA4F2BCF3473D75CDBB948942A1FFA404DAEE4"
+    },
+    {
+      "path": "paper/metaplectic-landscape-20261104/main.tex",
+      "sha256": "28DE221105A04B337AF2EC5689835E7CDA3DBEEFE36CBC1EDA5F42980573053A"
+    },
+    {
+      "path": "paper/metaplectic-landscape-20261104/cases.json",
+      "sha256": "EA5AB71312A288DADAF7124A0AC2F4910F69AF786B959F115C8B8E46AA22F88B"
+    },
+    {
+      "path": "paper/metaplectic-landscape-20261104/claims.json",
+      "sha256": "74023A482B769BDDFE286C0E5938D9B6DB71F1B1B2FF64081BEA77C63F6655CC"
+    }
+  ],
+  "checks": {
+    "source_compilation": "Both maintained leaves compiled with pinned cached Lean and preserved elaborator options.",
+    "facade": "Actual Metaplectic.All compiled.",
+    "public_export": "All 12 new declarations checked through import Solution.",
+    "axiom_closures": "Only these 12 new declaration closures audited.",
+    "allowed_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "required_staged_gate": "scripts/check.py --profile fast on all nine intended staged paths, Ruff check/format of the changed registry, exact staged path set, hashes and whitespace; exclude five unrelated finite-field edits."
+  },
+  "compiler": {
+    "version": "4.34.0",
+    "executable": "C:/Users/jonas/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+    "flags": [
+      "-j",
+      "1",
+      "-s",
+      "65536",
+      "-M",
+      "8192"
+    ],
+    "options": [
+      "autoImplicit false",
+      "Elab.async false",
+      "maxRecDepth 4096",
+      "maxHeartbeats 4000000"
+    ],
+    "environment": "Existing repository and shared primegaps434 olean cache only; no dependency fetching or rebuild."
+  },
+  "mathematics": {
+    "quantifiers": "Every finite field F and actual MulChar F Complex of exact order seven. Actual primitive AddChar for the Gauss-source bridge; nonzero rho with rho^2=card(F), arbitrary nonzero boundary scale u.",
+    "root_fibers": "Complete seventh-root count 1+sum_(r=1..6)chi^r(a), including a=0; proved from cyclicity, actual character order and kernel/fiber cardinality. No assumed counting contract in affine_count_jacobi.",
+    "curve": "Actual affine solutions of z^7=x(1-x). N_aff=q+sum_(r=1..6)J(chi^r,chi^r).",
+    "gauss": "Exact full Gauss--Jacobi convolution with zero additive fiber; normalized nonzero and reciprocal entries are proved.",
+    "full_consumer": "Actual source g=G(chi)/rho,h=G(chi^2)/rho,j=G(chi^3)/rho. The six masks ordered 0,3,2,6,7,4 have a nontrivial compensated coherent Abel trace (q-N_aff)/rho. Full principal polynomial and both periods remain.",
+    "packet": "At t=u^7,X=Y=u^(-2), P_native(U,rho*V/u^15)=product_(r=1..6)(U+J(chi^r,chi^r)*V). The right-hand side contains no additive character, rho or u.",
+    "classical_only": "Smooth projective completion, genus three, its unique rational point at infinity, compatible prime-power Hasse-Davenport and the projective zeta interpretation are separate cited inputs, not Lean declarations here.",
+    "small_characteristics": "The formal finite-field theorem includes characteristic two. Y^2=1-4X^7 is used only in odd characteristic; in characteristic two the Kummer model is x^2+x=z^7. The source excludes characteristic seven.",
+    "cost": "Physical u=q^(-1/14),rho=sqrt(q): trace extraction costs q^(15/14), and raw Jacobi Euler-polynomial variable rescaling is q^(11/7).",
+    "not_proved": [
+      "rational-prime Frobenius descent",
+      "admissible global metaplectic Fourier realization",
+      "independent signed arithmetic saving",
+      "improved QRH boundary"
+    ]
+  },
+  "closest_primary_literature": [
+    {
+      "url": "https://arxiv.org/html/1602.01880v3",
+      "role": "Gao's source coordinate model; representation theory remains cited."
+    },
+    {
+      "url": "https://www.researchgate.net/publication/265705571_On_the_zeta_function_of_some_cyclic_quotients_of_Fermat_curves",
+      "role": "Author-uploaded Aoki 2008 primary paper, equation (2): classical Fermat-quotient Jacobi zeta polynomial.",
+      "difference": "The new formal bridge identifies this polynomial and finite-field count with the complete principal-preserving compensated G2 source observation and its nontrivial Abel limit."
+    }
+  ],
+  "latex": {
+    "status": "compile-failed after 28-page XDV typesetting",
+    "pdf_success": false,
+    "blocker": "Built-in compiler could not embed msam10.pfb: access denied/download failure; fatal xdvipdfmx error."
+  },
+  "benchmark_status": "geometric identification only; no completed global analytic bound",
+  "old_bound": "7/8",
+  "new_bound": "7/8",
+  "components": {
+    "proved": [
+      "actual finite-field fibers and Gauss--Jacobi identity",
+      "actual Gauss input/source phase match",
+      "full source-to-count Abel consumer",
+      "full rescaled native packet/Jacobi polynomial identity"
+    ],
+    "open": [
+      "rational-prime Frobenius compatibility",
+      "global automorphic Fourier transfer",
+      "uniform independent signed estimate after scaling"
+    ]
+  },
+  "actuals": null,
+  "first_nonpositive_domain": null,
+  "novelty_priority": "Not established for the precise source-observation bridge. The curve, Gauss/Jacobi theory and classical zeta formula are not claimed new.",
+  "overlap_scope": "Current repository tracked and private metaplectic/Jacobi/plan/decision records searched for hyperelliptic, genus-three, Fermat-quotient and diagonal-Jacobi matches; no overlap found. No complete all-repository priority audit is claimed."
+}

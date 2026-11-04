@@ -48,8 +48,11 @@ Jacobi phase with both period factors intact.
 All eight sevenfold Jacobi channels admit individual compensated
 readouts and normalized Abel limits. Their six-channel packet retains
 its native weights and becomes reciprocal at the period boundary.
-The arithmetic proofs are maintained in Lean; classical source inputs
-and global signal questions are stated separately.
+Actual finite-field Gauss inputs identify the six-channel packet
+with the diagonal Jacobi polynomial of $z^7=x(1-x)$, and its compensated
+Abel trace with the affine point-count discrepancy.
+The arithmetic proofs are maintained in Lean; classical source inputs,
+projective geometry and global signal questions are stated separately.
 No new zero-free theorem is claimed. The installed local theorem remains
 the project's compiled $7/8$ result. Later external theorem statements are
 recorded with their versions and have not been imported or proof-audited
@@ -1138,13 +1141,157 @@ $\xi=\eta=(d_i/2-s)/(a_i+b_i)$ and use the exponent identity.
 The equivalence is formalized for all eight rows.
 
 These results expose all Jacobi channels and their coupled
-reciprocal boundary packet. They supply data for a global
-Fourier or Hecke construction beyond the first quadratic sector.
-They do not identify that global object, give a uniform bound
-after normalization, or continue its Euler product to a critical
-strip. No independent signed character estimate or QRH gain
-is proved; the installed boundary stays $7/8$.
+reciprocal boundary packet. The next section identifies the
+six-channel packet with an actual finite-field Jacobi polynomial.
+An admissible global metaplectic Fourier construction and a
+uniform estimate after normalization remain separate questions.
+No independent signed character estimate or QRH gain is proved;
+the installed boundary stays $7/8$.
 Priority for this combined construction is not established.
+
+\section{An actual genus-three curve inside the sevenfold readout}
+\label{sec:G2-seven-curve}
+
+The six-channel sector admits a concrete finite-field interpretation.
+Let $F$ be any finite field with $q$ elements, $\chi:F\to\mathbb C$
+a multiplicative character of exact order seven, and $\psi$ a
+primitive additive character. Characters are zero on zero. Choose
+$\rho\ne0$ with $\rho^2=q$, and put
+\[
+ G_r=\frac{\sum_{x\in F}\chi^r(x)\psi(x)}{\rho},\qquad
+ J_r=\sum_{x\in F}\chi^r(x)\chi^r(1-x),\qquad 1\le r\le6.
+\]
+Use the actual inputs $g=G_1,h=G_2,j=G_3$ in the source model.
+All statements below concerning these finite sums and their
+compensated source consumers are kernel checked.
+
+First, $G_{7-r}=G_r^{-1}$ and all six entries are nonzero.
+The exact Gauss--Jacobi convolution gives
+\[
+ \frac{J_r}{\rho}=\frac{G_r^2}{G_{2r}},
+\]
+with character exponents reduced modulo seven. Consequently the
+six source phases, in character-exponent order, are
+\[
+\begin{array}{c|rrrrrr}
+r&1&2&3&4&5&6\\ \hline
+\text{source row }i&0&3&2&6&7&4\\
+J_r/\rho&B&D&C&C^{-1}&D^{-1}&B^{-1}.
+\end{array}
+\]
+These are actual finite-field sums, rather than formal Gauss
+variables satisfying an unproved identification.
+
+\emph{Proof of the Gauss conversion.}
+Expand the product of two Gauss sums and group it by the additive
+sum $t$. For $t\ne0$, substitute $x=tu$ to obtain
+$\chi(t)\phi(t)J(\chi,\phi)$. At $t=0$ the full fiber is
+$\phi(-1)\sum_x(\chi\phi)(x)=0$ when $\chi\phi$ is nonprincipal.
+Thus $G_{\rm raw}(\chi)G_{\rm raw}(\phi)
+=J(\chi,\phi)G_{\rm raw}(\chi\phi)$, with the zero fiber retained.
+For a nontrivial power of $\chi$, the inverse Gauss product is $q$,
+since $\chi(-1)=1$. Dividing by $\rho^2=q$ gives the reciprocal
+entries. Substitution proves the displayed six-phase table.
+All three steps, including the zero fiber, are formalized.
+
+Consider the affine curve
+\[
+ C_{\rm aff}:\quad z^7=x(1-x),\qquad
+ N_{\rm aff}=\#C_{\rm aff}(F).
+\]
+Its complete character count is
+\begin{equation}
+ N_{\rm aff}=q+\sum_{r=1}^6J_r.
+ \label{eq:curve-affine-jacobi}
+\end{equation}
+No root-counting hypothesis is assumed in this theorem.
+
+\emph{Proof.} At $a=0$ there is one solution of $z^7=a$.
+For $a\ne0$, cyclicity of $F^\times$ shows that $a$ is a seventh
+power exactly when $\chi(a)=1$. Each nonempty fiber has seven
+elements, by the kernel size of the seventh-power homomorphism.
+The complete geometric sum therefore gives
+\[
+ \#\{z\in F:z^7=a\}=1+\sum_{r=1}^6\chi^r(a)
+\]
+for every $a$, including zero. Sum this identity at $a=x(1-x)$.
+Multiplicativity and interchange of the two finite sums give
+\eqref{eq:curve-affine-jacobi}. Lean proves the cyclic-group
+argument and the fiber size, not only the final substitution.
+
+Now choose any auxiliary scale $a\ne0$ and set
+$t=a^7$, $X_0=Y_0=a^{-2}$. For the native source packet from
+Section~\ref{sec:G2-seven-jacobi}, the exact theorem is
+\begin{equation}
+ {\cal P}_{\rm source}\left(U,\frac{\rho V}{a^{15}}\right)
+   =\prod_{r=1}^6(U+J_rV).
+ \label{eq:curve-source-packet}
+\end{equation}
+The right-hand side contains neither $\psi$, nor $\rho$, nor $a$.
+Thus the conversion removes those auxiliary choices after the
+stated rescaling.
+
+\emph{Proof.} Every native weight is $a^{15}$. Its extracted
+root is $-a^{15}\phi_i$. Each rescaled factor is therefore
+$U+\rho\phi_iV$. The six-phase table identifies these with
+$U+J_rV$, and their complete product proves
+\eqref{eq:curve-source-packet}. This is a theorem about the
+actual source packet, preserving every factor and cross term.
+
+There is also a kernel-checked source-to-count Abel theorem:
+\begin{equation}
+ \lim_{s\to1^-}\sum_{r=1}^6
+ \frac{\langle Q_{\iota(r)}^{\rm coh}(sa^{-2},sa^{-2})\rangle-1}
+      {a^{15}}
+ =\frac{q-N_{\rm aff}}{\rho},
+ \label{eq:curve-source-trace}
+\end{equation}
+where $\iota=(0,3,2,6,7,4)$ is the row table above.
+Both complete period ratios are $s^7$ in the approach region;
+the limiting filter is nontrivial. Apply the six previously
+proved normalized Abel limits, sum their negative Jacobi phases,
+and use \eqref{eq:curve-affine-jacobi}. The full principal
+polynomial and both period compensations remain in each probe.
+
+The smooth-projective interpretation is a separate classical
+input. This cyclic Fermat quotient has genus three and one
+rational point above infinity. In odd characteristic,
+$Y=1-2x$, $X=z$ gives the equivalent affine model
+$Y^2=1-4X^7$. In characteristic two the Kummer model instead
+reads $x^2+x=z^7$; the counting theorem above still applies.
+Characteristic seven is excluded by the tame source datum:
+an order-seven character cannot exist on its finite-field unit
+group, since seven does not divide $q-1$.
+For a rational prime $p\ne7$, the least admissible residue degree
+is $f=\operatorname{ord}_7(p)$; it is $1,3,6,3,6,2$ for residues
+$1,2,3,4,5,6$, respectively. This does not yet identify the
+rational-prime descent of the packet.
+
+The classical Jacobi-sum zeta formula
+\cite[Introduction, equation (2)]{AokiQuotients} gives
+\[
+ Z(C/F,T)=
+ \frac{\prod_{r=1}^6(1+J_rT)}{(1-T)(1-qT)} .
+\]
+Its sign can also be checked from norm-compatible lifting:
+$J_{r,n}=(-1)^{n-1}J_r^n$, so
+$\#C(F_{q^n})=q^n+1-\sum_r(-J_r)^n$.
+This projective geometry and the full lifting/zeta formalism
+are cited classical inputs; they are not new Lean declarations
+here. The newly formalized bridge is the exact identification
+of this finite Jacobi polynomial and affine trace with the full
+compensated metaplectic source observation.
+
+This supplies a specific geometric target for further global
+work, beyond a polynomial having a suggestive reciprocal shape.
+It is not an identification of an admissible global metaplectic
+Fourier coefficient. With physical $a=q^{-1/14}$ and
+$\rho=\sqrt q$, the trace normalization still costs $q^{15/14}$;
+the unnormalized polynomial variable in
+\eqref{eq:curve-source-packet} rescales by $q^{11/7}$.
+No uniform analytic saving or improvement of $7/8$ follows.
+The curve and its zeta formula are classical; priority for this
+precise source-observation bridge is not established.
 
 \section{A complete twelvefold $G_2$ coordinate calculation}
 \label{sec:G2-coordinates}
@@ -1649,5 +1796,10 @@ Publications math\'ematiques de Besan\c{c}on (2018), 111--122.
 \emph{Jacobi-sum Hecke characters and Gauss-sum identities},
 Compositio Mathematica 48 (1983), 55--87, Proposition 2.12.
 \url{https://www.numdam.org/article/CM_1983__48_1_55_0.pdf}.
+\bibitem{AokiQuotients} N. Aoki, \emph{On the zeta function of some
+cyclic quotients of Fermat curves}, Commentarii Mathematici
+Universitatis Sancti Pauli 57 (2008), 163--185.
+Author-uploaded primary text:
+\url{https://www.researchgate.net/publication/265705571_On_the_zeta_function_of_some_cyclic_quotients_of_Fermat_curves}.
 \end{thebibliography}
 \end{document}
