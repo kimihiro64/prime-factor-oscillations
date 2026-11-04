@@ -1944,6 +1944,121 @@ observable, and what boundary follows after all errors are included?
 This is a screening framework, not a promise that five routine steps
 finish a new zero-free theorem.
 
+\section{A sharp inequality for the Paley phase sector}
+
+The full Fermat observation supplies a concrete stability question that
+is different from recovering a phase by a classical bispectrum.
+Write \(\Phi(g,h,j)=\texttt{phaseTotal}(g,h,j)\), with all eight
+multiplicities from the preceding construction. In this section we
+restrict explicitly to
+\[
+ |g|=1,\qquad h=g,\qquad j=g^{-1}.
+\]
+This is an additional sector hypothesis. The previously proved diagonal
+Jacobi Frobenius theorem alone does not discharge it for arbitrary Gauss
+inputs. We do not claim that it covers every arithmetic source.
+
+Put \(c=\Re g\), \(s=|\Im g|\), \(t=1/\sqrt2\), \(v=\sqrt7\), and define
+the explicit sector defect
+\[
+ d_P(g)=\min\{6-6c,\;6+c-vs\}.
+\]
+The statement below uses this formula as its definition. An identification
+with a Euclidean distance to all seven coherent phase triples is not
+among the formal claims of this section.
+
+\paragraph{Theorem (sharp full-source inequality on the Paley sector).}
+For every unit complex number \(g\),
+\[
+ 30-\Re\Phi(g,g,g^{-1})
+ \ \ge\left(6+\frac3{\sqrt2}\right)d_P(g).
+\]
+The constant is optimal uniformly throughout this sector. It is attained
+at the noncoherent point
+\[
+ g=-\frac1{\sqrt8}+i\sqrt{\frac78}.
+\]
+\paragraph{Proof.}
+Expanding the actual weighted eight-phase table, rather than discarding
+either cubic sector, gives
+\[
+ \Phi(g,g,g^{-1})
+ =6(g+g^{-1})^3-9(g+g^{-1})=48c^3-18c.
+\]
+Thus it suffices to prove, for every \(c^2+s^2=1\), \(s\ge0\),
+\[
+ (6+3t)\min\{6-6c,6+c-vs\}\le30+18c-48c^3.                 \tag{P1}
+\]
+Here \(t>0\), \(t^2=1/2\), \(v\ge0\), and \(v^2=7\).
+If \(c\ge t/2\), subtraction of \((6+3t)(6-6c)\) factors as
+\[
+ 6(1-c)(8c^2+8c-1-3t)\ge0.
+\]
+Indeed \(c\le1\), \(8c^2\ge1\), and \(8c\ge4t\).
+
+Suppose \(c\le t/2\), and retain the signed expression
+\[
+ A(c)=6+18t+(-12+3t)c+48c^3.
+\]
+We need \(A(c)\le(6+3t)vs\). If \(c\le-7/8\), let
+\(w=-7/8-c\ge0\). The exact identity
+\[
+ A(c)=-\frac{501}{32}+\frac{123}8t
+ -\left[\left(\frac{393}4+3t\right)w+126w^2+48w^3\right]
+\]
+proves \(A(c)\le0\); for example \(7/10\le t\le71/100\)
+follows directly from \(t^2=1/2\), \(t>0\).
+This tail is treated before squaring.
+
+For \(-7/8\le c\le t/2\), the exact residual is
+\[
+ 7(6+3t)^2(1-c^2)-A(c)^2
+   =144(c+t/2)^2Q_t(c),                                  \tag{P2}
+\]
+where
+\[
+ Q_t(c)=-16c^4+16tc^3+(2-2t)c^2-(3+16t)c+\frac{19}4+2t.
+\]
+For \(c=-7/8+(7/8+t/2)z\), \(0\le z\le1\), the complete
+positive certificate is
+\[
+ Q_t(c)=\sum_{r=0}^4 \binom{4}{r}b_rz^r(1-z)^{4-r},
+\]
+with
+\[
+\begin{aligned}
+ b_0&=-121/256+15t/4,& b_1&=9+1741t/128,\\
+ b_2&=893/192+1247t/192,& b_3&=23/8+27t/8,\\
+ b_4&=5/4+t/4.
+\end{aligned}
+\]
+Every \(b_r\) is positive. Hence (P2) is nonnegative.
+Since \(s^2=1-c^2\) and \((6+3t)vs\ge0\), it follows that
+\(A(c)\le(6+3t)vs\), proving (P1).
+
+At \(c=-t/2\), \(s=vt/2\), the circle condition holds and
+\[
+ d_P=6-4t>0,\qquad
+ 30+18c-48c^3=30-6t=(6+3t)(6-4t).
+\]
+This proves equality and rules out any larger uniform constant.
+\hfill$\square$
+
+All the polynomial identities, the signed tail, the uniform circle
+inequality, its symbolic attainer, optimality, and the full-source
+consumer are kernel checked in
+\texttt{G2SevenPaleyStability.lean}. In particular the statement is
+uniform, not an inference from a numerical scan.
+
+The unrestricted three-phase extension remains a conjecture. A finite
+diagnostic on 132768 grid and random triples, followed by numerical
+optimization, found the same candidate constant; this is neither a proof
+nor a global QRH estimate. Two low-degree polynomial certificate attempts
+did not close and are recorded as unsuccessful. Plain cyclic bispectrum
+reconstruction is classical, and priority for this particular sharp
+source inequality has not been established. The installed zero-free
+boundary remains \(7/8\).
+
 \section{Expanding the target $L$-functions is a separate problem}
 
 There are two goals that should not be conflated: lowering the boundary

@@ -1,0 +1,81 @@
+{
+  "date": "2026-11-04",
+  "result": "Sharp complete-cubic-source stability on the explicit Paley phase sector",
+  "module": "PrimeFactorOscillations.Mathlib.NumberTheory.Metaplectic.G2SevenPaleyStability",
+  "quantifiers": "Every unit complex g; equivalently all real c,s with c^2+s^2=1 and s>=0. No arithmetic sector-membership premise is silently discharged.",
+  "sharp_constant": "6+3/sqrt(2)",
+  "source_identity": "phaseTotal(g,g,inverse g)=48*Re(g)^3-18*Re(g)",
+  "bound": "30-Re(phaseTotal) >= (6+3/sqrt(2))*min(6-6*Re(g),6+Re(g)-sqrt(7)*abs(Im(g)))",
+  "optimality": "Symbolic noncoherent attainer c=-1/sqrt(8),s=sqrt(7/8), defect=6-2*sqrt(2)>0, deficit=30-3*sqrt(2).",
+  "proof": "Exact residual factorization plus strictly positive Bernstein coefficients on [-7/8,1/sqrt(8)], signed tail before squaring, and the complete weighted phase table.",
+  "declarations": [
+    "Metaplectic.G2Seven.Paley.attainer",
+    "Metaplectic.G2Seven.Paley.cubic_source_stability",
+    "Metaplectic.G2Seven.Paley.half_root_bounds",
+    "Metaplectic.G2Seven.Paley.optimal_constant",
+    "Metaplectic.G2Seven.Paley.quartic_bernstein",
+    "Metaplectic.G2Seven.Paley.quartic_nonneg",
+    "Metaplectic.G2Seven.Paley.residual_factorization",
+    "Metaplectic.G2Seven.Paley.sector_phase_total",
+    "Metaplectic.G2Seven.Paley.sharp_stability",
+    "Metaplectic.G2Seven.Paley.tail_nonpos",
+    "Metaplectic.G2Seven.Paley.unit_sector_trace"
+  ],
+  "checks_completed": {
+    "focused_leaf": "exit 0",
+    "maintained_facade": "exit 0",
+    "solution_export_and_new_axiom_closures": "11 declarations checked through import Solution; only propext, Classical.choice, Quot.sound",
+    "paper": "Built-in compiler success"
+  },
+  "required_staged_checks": [
+    "scripts/check.py --profile fast",
+    "Ruff check and format check on edited proof registry",
+    "cached path set, source hashes, and whitespace"
+  ],
+  "diagnostics": {
+    "universal_conjecture": "The same constant for arbitrary three unit phases is unproved.",
+    "finite_domain": "132768 grid/random triples; 65 local starts; two evolutionary seeds, each 22590 evaluations plus local polishing.",
+    "numerical_best_ratio": 8.121320343559638,
+    "numerical_status": "No numerical refutation; not a proof.",
+    "normalization": "Independent direct phase and Fourier cubic identities agreed to less than 7e-14.",
+    "unsuccessful_attempts": [
+      {
+        "ansatz": "Degree-three sum of maximum-gap times equality-compatible quadratic squares plus all cyclic correlation multipliers",
+        "coefficient_residual": 8.342472312398584,
+        "status": "Did not produce an identity; not a mathematical obstruction."
+      },
+      {
+        "ansatz": "Same ansatz with the quadratic-residue balance square and both endpoint weights",
+        "coefficient_residual": 8.423524219575299,
+        "status": "Did not produce an identity; not a mathematical obstruction."
+      }
+    ]
+  },
+  "not_proved": [
+    "Unrestricted three-phase stability",
+    "Euclidean nearest-coherent-orbit distance identification",
+    "Automatic Gauss/Frobenius sector membership",
+    "Global automorphic realization or signed moment gain"
+  ],
+  "benchmark_status": "Local sharp source stability only; global analytic consumer unavailable.",
+  "old_bound": "7/8",
+  "new_bound": "7/8",
+  "components": {
+    "source_stability": "proved in the explicit sector",
+    "global_signed_remainder": "unestimated"
+  },
+  "actuals": {
+    "attainer": "symbolically kernel checked"
+  },
+  "first_nonpositive_domain": "Not applicable to this local source inequality.",
+  "novelty": "Priority not established; classical cyclic bispectrum reconstruction is not claimed as new.",
+  "source_sha256": {
+    "PrimeFactorOscillations/Mathlib/NumberTheory/Metaplectic/G2SevenPaleyStability.lean": "88D404F7D4FDF656D1D0EFB805E2E419A231E5B81FC3A1D0639E12EA9E2C938F",
+    "PrimeFactorOscillations/Mathlib/NumberTheory/Metaplectic/All.lean": "044E885F962B1AE84F7489B7B9B87112BEB300858FEB040F857C097CF355A053",
+    "MATHLIB_PORTING.md": "D26FDDA46A8EA640B1DED8DA95E6400EC25DB0912E76E8748583ABA3B59D2C12",
+    "scripts/metaplectic_proof_targets.py": "F06785CA46D94A7257ED3DA77AFFA985758D00FD5F5796D634A38E6B7F94EEB4",
+    "paper/metaplectic-landscape-20261104/main.tex": "5DDC59BA9D8BC7238D4C765FBC8D2B1C4F77C0F38EF748EA257365863F33567E",
+    "paper/metaplectic-landscape-20261104/cases.json": "BCDD9D9953D8C5DE558DC09843EE85C1AA2D019D8A932E08D07D4F3B87CF4F44",
+    "paper/metaplectic-landscape-20261104/claims.json": "63287AA610F321317048888F77DE2B4BA4FA39EEE8CA07EC0E18699172D2E468"
+  }
+}

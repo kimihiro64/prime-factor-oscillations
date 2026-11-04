@@ -97,6 +97,17 @@
     "Metaplectic.G2Seven.Jacobi.radial_abel_limit",
     "Metaplectic.G2Seven.Jacobi.radial_domain",
     "Metaplectic.G2Seven.Jacobi.source_masked_carrier",
+    "Metaplectic.G2Seven.Paley.attainer",
+    "Metaplectic.G2Seven.Paley.cubic_source_stability",
+    "Metaplectic.G2Seven.Paley.half_root_bounds",
+    "Metaplectic.G2Seven.Paley.optimal_constant",
+    "Metaplectic.G2Seven.Paley.quartic_bernstein",
+    "Metaplectic.G2Seven.Paley.quartic_nonneg",
+    "Metaplectic.G2Seven.Paley.residual_factorization",
+    "Metaplectic.G2Seven.Paley.sector_phase_total",
+    "Metaplectic.G2Seven.Paley.sharp_stability",
+    "Metaplectic.G2Seven.Paley.tail_nonpos",
+    "Metaplectic.G2Seven.Paley.unit_sector_trace",
     "Metaplectic.G2Seven.Spectrum.complete_cubic_mean",
     "Metaplectic.G2Seven.Spectrum.cubic_sum",
     "Metaplectic.G2Seven.Spectrum.frequency_resonance",
@@ -190,7 +201,7 @@
     "Metaplectic.Sp4Eight.twistClass_fiber_card",
     "Metaplectic.Sp4Eight.unit_coordinate_survives"
   ],
-  "proof_status": "Sixteen maintained kernel-checked modules: local G2 and Sp4 models, complete Jacobi readouts, actual diagonal-curve and full Fermat-septic counting bridges, all-residue Frobenius compression, and the full principal-compensated cubic Fermat observation with its nontrivial joint Abel limit. Actual character fibers, inverse-pair and infinity corrections are proved. Projective geometry, prime-power lifting, rational-prime descent and global automorphic transfer remain separate. No analytic boundary gain.",
+  "proof_status": "Seventeen maintained kernel-checked modules: local G2 and Sp4 models, complete Jacobi readouts, actual diagonal-curve and full Fermat-septic counting bridges, all-residue Frobenius compression, and the full principal-compensated cubic Fermat observation with its nontrivial joint Abel limit. Actual character fibers, inverse-pair and infinity corrections are proved. Projective geometry, prime-power lifting, rational-prime descent and global automorphic transfer remain separate. No analytic boundary gain. The Paley phase sector has a sharp uniform cubic-source stability theorem, exact positive-polynomial certificate and symbolic noncoherent attainer. The unrestricted three-phase inequality and arithmetic sector-membership transfer remain open.",
   "classification_scope": "principal structural mechanisms and selected low-degree cases, not a complete global automorphic classification",
   "overlap_scope": "current repo public/private QRH terminology search and specified prior notes; not exhaustive across sibling repositories",
   "sources": [
@@ -1048,6 +1059,22 @@
         "classical_geometry": "The two normal forms identify the count of X^7+Y^7=Z^7. Its smooth geometry and classical Fermat-Jacobian decomposition are not new Lean geometry theorems.",
         "normalization_cost": "Physical u=q^(-1/14): normalized trace extraction still costs q^(15/14). No global analytic exponent gain.",
         "novelty": "Classical Jacobi/Fermat counting and Jacobian decompositions are inputs/context. Priority of the complete compensated G2 source-to-Fermat observation is not established."
+      },
+      "paley_stability": {
+        "domain": "Every unit complex g in the explicit sector (g,g,inverse g); no assumed arithmetic Gauss membership.",
+        "source": "The full multiplicity-weighted Fermat.phaseTotal equals 48*Re(g)^3-18*Re(g), including both cubic sectors.",
+        "defect": "dP=min(6-6*c,6+c-sqrt(7)*abs(Im(g))).",
+        "sharp_bound": "30-Re(phaseTotal(g,g,inverse g)) >= (6+3/sqrt(2))*dP.",
+        "attainer": "c=-1/sqrt(8), abs(Im(g))=sqrt(7/8), dP=6-2*sqrt(2), deficit=30-3*sqrt(2).",
+        "certificate": "Exact sextic residual factorization into 144*(c+t/2)^2*Q_t(c), with a five-term positive Bernstein certificate for Q on [-7/8,t/2] and separate signed tail treatment.",
+        "status": "kernel_checked_sharp_sector_source_bound_and_optimal_constant",
+        "not_claimed": [
+          "Unrestricted three-phase stability",
+          "A proved Euclidean orbit-distance formula",
+          "Automatic Frobenius-sector membership of all arithmetic inputs",
+          "Any global QRH exponent improvement"
+        ],
+        "novelty": "Specific sharp source inequality is a potential originality prospect; priority not established. Plain cyclic bispectrum reconstruction is classical."
       }
     }
   },

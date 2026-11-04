@@ -581,6 +581,38 @@
         "Metaplectic.G2Seven.Fermat.fermat_finite_readout",
         "Metaplectic.G2Seven.Fermat.fermat_abel_readout"
       ]
+    },
+    {
+      "id": "G7-P1",
+      "claim": "The exact sextic comparison residual factors as 144*(c+t/2)^2*Q_t(c). A fully positive Bernstein expansion proves Q_t>=0 on [-7/8,t/2]; the negative-c tail is controlled before squaring.",
+      "status": "kernel_checked_exact_signed_polynomial_certificate",
+      "declarations": [
+        "Metaplectic.G2Seven.Paley.half_root_bounds",
+        "Metaplectic.G2Seven.Paley.quartic_bernstein",
+        "Metaplectic.G2Seven.Paley.quartic_nonneg",
+        "Metaplectic.G2Seven.Paley.residual_factorization",
+        "Metaplectic.G2Seven.Paley.tail_nonpos"
+      ]
+    },
+    {
+      "id": "G7-P2",
+      "claim": "For every c^2+s^2=1 with s>=0, the explicit Paley defect obeys the uniform sharp constant 6+3/sqrt(2). The symbolic noncoherent equality point proves that no larger constant works throughout this sector.",
+      "status": "kernel_checked_uniform_sector_bound_attainer_and_optimality",
+      "declarations": [
+        "Metaplectic.G2Seven.Paley.sharp_stability",
+        "Metaplectic.G2Seven.Paley.attainer",
+        "Metaplectic.G2Seven.Paley.optimal_constant"
+      ]
+    },
+    {
+      "id": "G7-P3",
+      "claim": "The actual weighted eight-sector phase table at (g,g,inverse g) equals 48*Re(g)^3-18*Re(g) for every unit g. The sharp inequality bounds that full cubic source directly. General arithmetic sector membership, Euclidean orbit-distance identification and the unrestricted three-phase extension are not asserted.",
+      "status": "kernel_checked_complete_cubic_source_stability_consumer",
+      "declarations": [
+        "Metaplectic.G2Seven.Paley.sector_phase_total",
+        "Metaplectic.G2Seven.Paley.unit_sector_trace",
+        "Metaplectic.G2Seven.Paley.cubic_source_stability"
+      ]
     }
   ],
   "novelty": "Priority for the combined explicit formulas has not been established; source classification and Gauss identities are classical."
