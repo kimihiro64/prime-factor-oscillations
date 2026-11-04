@@ -1,0 +1,64 @@
+{
+  "date": "2026-11-04",
+  "result": "Actual Frobenius Gauss-sector transfer and sharp signed Fermat point-count bound",
+  "module": "PrimeFactorOscillations.Mathlib.NumberTheory.Metaplectic.G2SevenFrobeniusStability",
+  "declarations": [
+    "Metaplectic.G2Seven.Curve.fermat_paley_stability",
+    "Metaplectic.G2Seven.Curve.gauss_paley_sector",
+    "Metaplectic.G2Seven.Curve.normalized_gauss_unit",
+    "Metaplectic.G2Seven.Curve.source_gauss_frobenius"
+  ],
+  "universal_domain": {
+    "source": "Every finite field F of prime characteristic p",
+    "multiplicative_character": "Complex-valued of exact order7",
+    "additive_character": "Primitive and explicitly fixed by source Frobenius x->x^p",
+    "residue_classes": "p modulo7 equal2 or4",
+    "normalization": "rho real, positive, rho^2=card(F)"
+  },
+  "proved_steps": [
+    "Source-field Frobenius reindexes the complete Gauss sum; no target-characteristic Frobenius is used.",
+    "The conjugate Gauss product proves the actual unit-circle normalization.",
+    "Frobenius residues and the existing exact complement prove G2=G1 and G3=inverse(G1).",
+    "The full signed Fermat readout T=(q+1-N_chart)/rho=-phaseTotal yields T>=-30+(6+3/sqrt(2))*dP(G1)."
+  ],
+  "defect": "dP(g)=min(6-6*Re(g),6+Re(g)-sqrt(7)*abs(Im(g)))",
+  "checks_completed": {
+    "focused_leaf": "exit0",
+    "maintained_facade": "exit0",
+    "new_solution_export_and_axiom_closures": "Four declarations, only propext, Classical.choice, Quot.sound",
+    "paper": "Built-in compiler success"
+  },
+  "required_staged_checks": [
+    "scripts/check.py --profile fast",
+    "Ruff check and format on the edited registry",
+    "Exact cached path set, source hashes and whitespace"
+  ],
+  "scope_limits": [
+    "Additive Frobenius invariance is explicit, not asserted for arbitrary primitive characters.",
+    "Split residue class p%7=1 is untreated.",
+    "No rational-prime descent, global automorphic transfer, global moment saving or QRH exponent improvement."
+  ],
+  "benchmark_status": "Actual finite-field signed point-count consumer; global analytic estimate remains unavailable.",
+  "old_bound": "7/8",
+  "new_bound": "7/8",
+  "components": {
+    "unit_normalization": "proved",
+    "actual_sector_membership": "proved on the quantified domain",
+    "full_point_count_consumer": "proved",
+    "global_signed_remainder": "unestimated"
+  },
+  "actuals": {
+    "finite_computations": "No finite numerical test is used in this proof."
+  },
+  "first_nonpositive_domain": "Not applicable to this local/source theorem.",
+  "novelty": "Classical Gauss identities are inputs. Priority for their sharp complete-source point-count consumer is not established.",
+  "source_sha256": {
+    "PrimeFactorOscillations/Mathlib/NumberTheory/Metaplectic/G2SevenFrobeniusStability.lean": "FD9D74C824D62A43D5DD0897DF94791A2F5CC2955723D7CC5AE679D39A09A4DF",
+    "PrimeFactorOscillations/Mathlib/NumberTheory/Metaplectic/All.lean": "FCBF197D67598580BBA186757B58A9C2E5595226717390040CDC9C86C3A82D3D",
+    "MATHLIB_PORTING.md": "6E88FD3069D4C376368EA752320D3B3F668EA371396119F7F6F05A32DBF8B43F",
+    "scripts/metaplectic_proof_targets.py": "757507D0262207A6FEEFD0071A6E3B12EA5FA253543F9D29CBEF1FBC362E4E26",
+    "paper/metaplectic-landscape-20261104/main.tex": "678653F6367BDE1B7CBC4865D0760AD7427058B0AD0AE083ABEBC64CD1D5C59D",
+    "paper/metaplectic-landscape-20261104/cases.json": "9F5CF9C083C23FE7CB67E6D2E4A923FBEEE70EA7E75342C020D73F78054BD2DA",
+    "paper/metaplectic-landscape-20261104/claims.json": "7D9395C5794B794B8B55A2644C20F2CED1CC20CF871BF2BB00F1010E655A49F6"
+  }
+}

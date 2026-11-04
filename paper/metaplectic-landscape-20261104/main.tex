@@ -2059,6 +2059,69 @@ reconstruction is classical, and priority for this particular sharp
 source inequality has not been established. The installed zero-free
 boundary remains \(7/8\).
 
+\subsection{Arithmetic discharge of the symmetry sector}
+
+The preceding sharp inequality has an actual finite-field consumer.
+Let \(F\) be any finite field of prime characteristic \(p\), let
+\(\chi:F\to\mathbb C\) have exact order seven, and let \(\psi\) be
+primitive. In this subsection the additive character satisfies the
+explicit condition
+\[
+ \psi(x^p)=\psi(x)\qquad(x\in F).                         \tag{P3}
+\]
+Choose a positive real \(\rho\) with \(\rho^2=q=\#F\), and write
+\(G_n=G(\chi^n,\psi)/\rho\).
+The condition concerns Frobenius on the source field, not a
+characteristic-\(p\) operation on the complex target.
+
+\paragraph{Theorem (sharp signed Fermat bound in the order-three classes).}
+If \(p\equiv2\) or \(4\pmod7\), then \(G_2=G_1\),
+\(G_3=G_1^{-1}\), \(|G_1|=1\), and
+\[
+ \Re\frac{q+1-N_{\mathrm{chart}}}{\rho}
+ \ \ge -30+\left(6+\frac3{\sqrt2}\right)d_P(G_1).          \tag{P4}
+\]
+The count includes the complete infinity chart and all thirty
+nondegenerate Jacobi terms.
+
+\paragraph{Proof.}
+Reindexing the entire Gauss sum by the finite-field automorphism
+\(x\mapsto x^p\), using (P3), gives
+\[
+ G(\chi^p,\psi)=G(\chi,\psi),\qquad G_{np}=G_n.
+\]
+Together with \(G_{n+7}=G_n\), the classes \(p\equiv2,4\)
+give \(G_2=G_4=G_1\). The previously proved complement identity
+\(G_4=G_3^{-1}\) gives \(G_3=G_1^{-1}\).
+The exact conjugate product is
+\[
+ G(\chi,\psi)\,\overline{G(\chi,\psi)}=q.
+\]
+Since \(\rho\) is real and positive, division by \(\rho^2=q\)
+proves \((\Re G_1)^2+(\Im G_1)^2=1\).
+Finally, the already established full Fermat readout has the sign
+\[
+ T:=\frac{q+1-N_{\mathrm{chart}}}{\rho}
+   =-\Phi(G_1,G_2,G_3).
+\]
+Substitute the proved sector identities into the sharp source inequality:
+\(30+T\ge(6+3/\sqrt2)d_P(G_1)\), which is (P4).
+\hfill$\square$
+
+These steps, including the unit normalization and the final signed
+point-count consumer, are kernel checked in
+\texttt{G2SevenFrobeniusStability.lean}. The additive invariance (P3)
+is retained in the theorem signature; it is not replaced by an assumption
+that all primitive characters are invariant. Characteristic two is
+included: the divisions by two occur in the real/complex comparison,
+not in \(F\).
+
+This arithmetic transfer resolves a symmetry-sector applicability question.
+It does not control the split class \(p\equiv1\pmod7\), discharge
+rational-prime descent, or estimate a global signed moment. In particular
+(P4) is a source-coherence refinement of a point-count bound; it supplies
+no new global zero-free exponent by itself.
+
 \section{Expanding the target $L$-functions is a separate problem}
 
 There are two goals that should not be conflated: lowering the boundary

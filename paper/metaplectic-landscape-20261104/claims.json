@@ -613,6 +613,31 @@
         "Metaplectic.G2Seven.Paley.unit_sector_trace",
         "Metaplectic.G2Seven.Paley.cubic_source_stability"
       ]
+    },
+    {
+      "id": "G7-A1",
+      "claim": "Source-field Frobenius reindexing proves the complex Gauss invariance under an explicitly invariant additive character. The exact conjugate Gauss product and positive real square-root normalization prove the actual unit-circle identity.",
+      "status": "kernel_checked_source_Gauss_Frobenius_and_unit_normalization",
+      "declarations": [
+        "Metaplectic.G2Seven.Curve.source_gauss_frobenius",
+        "Metaplectic.G2Seven.Curve.normalized_gauss_unit"
+      ]
+    },
+    {
+      "id": "G7-A2",
+      "claim": "For p modulo7 equal2 or4, actual Frobenius Gauss data satisfy G2=G1 and G3=inverse(G1). The source-sector hypothesis is discharged using every residue relation and the existing normalized complement theorem.",
+      "status": "kernel_checked_actual_Gauss_Paley_sector",
+      "declarations": [
+        "Metaplectic.G2Seven.Curve.gauss_paley_sector"
+      ]
+    },
+    {
+      "id": "G7-A3",
+      "claim": "The sharp sector bound transfers with its exact sign to the actual Fermat-septic count: (q+1-N_chart)/rho >= -30+(6+3/sqrt(2))*dP(G1), under the stated primitive Frobenius-invariant additive-character and p modulo7 hypotheses.",
+      "status": "kernel_checked_actual_signed_Fermat_stability",
+      "declarations": [
+        "Metaplectic.G2Seven.Curve.fermat_paley_stability"
+      ]
     }
   ],
   "novelty": "Priority for the combined explicit formulas has not been established; source classification and Gauss identities are classical."

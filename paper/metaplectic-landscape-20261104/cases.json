@@ -31,7 +31,9 @@
     "Metaplectic.G2Seven.Curve.curve_trace_abel",
     "Metaplectic.G2Seven.Curve.diagonal_frobenius",
     "Metaplectic.G2Seven.Curve.diagonal_phase",
+    "Metaplectic.G2Seven.Curve.fermat_paley_stability",
     "Metaplectic.G2Seven.Curve.gauss_jacobi",
+    "Metaplectic.G2Seven.Curve.gauss_paley_sector",
     "Metaplectic.G2Seven.Curve.invariant_eq_representative",
     "Metaplectic.G2Seven.Curve.invariant_packet",
     "Metaplectic.G2Seven.Curve.invariant_power_trace",
@@ -43,11 +45,13 @@
     "Metaplectic.G2Seven.Curve.normalized_diagonal_jacobi",
     "Metaplectic.G2Seven.Curve.normalized_gauss_complement",
     "Metaplectic.G2Seven.Curve.normalized_gauss_ne_zero",
+    "Metaplectic.G2Seven.Curve.normalized_gauss_unit",
     "Metaplectic.G2Seven.Curve.root_count_coprime",
     "Metaplectic.G2Seven.Curve.scaling_index_spec",
     "Metaplectic.G2Seven.Curve.seventh_power_bijective",
     "Metaplectic.G2Seven.Curve.seventh_power_iff_character",
     "Metaplectic.G2Seven.Curve.seventh_root_fiber",
+    "Metaplectic.G2Seven.Curve.source_gauss_frobenius",
     "Metaplectic.G2Seven.Fermat.affine_count_all_jacobi",
     "Metaplectic.G2Seven.Fermat.affine_count_coprime",
     "Metaplectic.G2Seven.Fermat.affine_count_fibers",
@@ -201,7 +205,7 @@
     "Metaplectic.Sp4Eight.twistClass_fiber_card",
     "Metaplectic.Sp4Eight.unit_coordinate_survives"
   ],
-  "proof_status": "Seventeen maintained kernel-checked modules: local G2 and Sp4 models, complete Jacobi readouts, actual diagonal-curve and full Fermat-septic counting bridges, all-residue Frobenius compression, and the full principal-compensated cubic Fermat observation with its nontrivial joint Abel limit. Actual character fibers, inverse-pair and infinity corrections are proved. Projective geometry, prime-power lifting, rational-prime descent and global automorphic transfer remain separate. No analytic boundary gain. The Paley phase sector has a sharp uniform cubic-source stability theorem, exact positive-polynomial certificate and symbolic noncoherent attainer. The unrestricted three-phase inequality and arithmetic sector-membership transfer remain open.",
+  "proof_status": "Eighteen maintained kernel-checked modules: local G2 and Sp4 models, complete Jacobi readouts, actual diagonal-curve and full Fermat-septic counting bridges, all-residue Frobenius compression, and the full principal-compensated cubic Fermat observation with its nontrivial joint Abel limit. Actual character fibers, inverse-pair and infinity corrections are proved. Projective geometry, prime-power lifting, rational-prime descent and global automorphic transfer remain separate. No analytic boundary gain. The Paley phase sector has a sharp uniform cubic-source stability theorem, exact positive-polynomial certificate and symbolic noncoherent attainer. The unrestricted three-phase inequality and arithmetic sector-membership transfer remain open. Source-field Gauss Frobenius and the positive unit normalization now discharge the Paley-sector conditions for p modulo7 equal2 or4 with a Frobenius-invariant primitive additive character; the sharp signed actual Fermat point-count bound is proved.",
   "classification_scope": "principal structural mechanisms and selected low-degree cases, not a complete global automorphic classification",
   "overlap_scope": "current repo public/private QRH terminology search and specified prior notes; not exhaustive across sibling repositories",
   "sources": [
@@ -1075,6 +1079,19 @@
           "Any global QRH exponent improvement"
         ],
         "novelty": "Specific sharp source inequality is a potential originality prospect; priority not established. Plain cyclic bispectrum reconstruction is classical."
+      },
+      "frobenius_stability": {
+        "domain": "Any finite field of prime characteristic p with an order-seven multiplicative character, p%7 in {2,4}, a primitive complex additive character fixed by x->x^p, and positive real rho with rho^2=card(F).",
+        "gauss_frobenius": "gaussSum(chi^p,psi)=gaussSum(chi,psi) by source-field reindexing; Complex has characteristic zero.",
+        "unit_normalization": "The full product gaussSum*star(gaussSum)=card(F) proves the normalized circle identity.",
+        "sector_membership": "Actual G2=G1 and G3=inverse(G1), proved from Frobenius residue classes and the existing exact complement provider.",
+        "full_signed_consumer": "T=(card(F)+1-N_chart)/rho=-phaseTotal. Hence T >= -30+(6+3/sqrt(2))*min(6-6*Re(G1),6+Re(G1)-sqrt(7)*abs(Im(G1))).",
+        "status": "kernel_checked_actual_Frobenius_sector_and_signed_Fermat_bound",
+        "scope_limits": [
+          "Frobenius invariance of the chosen additive character remains explicit",
+          "No result here covers p%7=1",
+          "No rational-prime descent or global analytic saving"
+        ]
       }
     }
   },
