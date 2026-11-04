@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "date": "2026-11-04",
-  "scope": "Complete G2 sevenfold/twelvefold and Sp4 eightfold arithmetic models, coherent local energies, central compensation and principal-preserving cubic readout; no global QRH claim.",
+  "scope": "Complete G2 sevenfold/twelvefold and Sp4 eightfold arithmetic models, local energies, central compensation, cubic readout and complete cubic spectrum; no global QRH claim.",
   "claims": [
     {
       "id": "G2-01",
@@ -339,6 +339,40 @@
         "Metaplectic.G2Seven.Cubic.coherent_nonresidue_probe_mean",
         "Metaplectic.G2Seven.Cubic.coherentProjection_hasSum",
         "Metaplectic.G2Seven.Cubic.absolute_period_box"
+      ]
+    },
+    {
+      "id": "G7-S1",
+      "claim": "The complete cubic moment retains all 49 resonant ordered terms, including the 19 with principal factors. Its full source-coordinate specialization includes every torus weight and the exact principal cross term.",
+      "status": "kernel_checked_with_explicit_nonzero_inputs_for_source_specialization",
+      "declarations": [
+        "Metaplectic.G2Seven.Spectrum.cubic_sum",
+        "Metaplectic.G2Seven.Spectrum.frequency_resonance",
+        "Metaplectic.G2Seven.Spectrum.complete_cubic_mean",
+        "Metaplectic.G2Seven.Spectrum.source_full_carrier",
+        "Metaplectic.G2Seven.Spectrum.source_cubic_mean"
+      ]
+    },
+    {
+      "id": "G7-S2",
+      "claim": "Every sorted nonzero zero-sum triple modulo 7 is in the eight-entry table. Scaling gives disjoint sectors represented by 124 and 115, with stabilizers {1,2,4} and {1} respectively.",
+      "status": "kernel_checked_finite_multiset_classification",
+      "declarations": [
+        "Metaplectic.G2Seven.Spectrum.resonant_triples_classified",
+        "Metaplectic.G2Seven.Spectrum.stabilizer_classification",
+        "Metaplectic.G2Seven.Spectrum.sector_orbits",
+        "Metaplectic.G2Seven.Spectrum.sector_disjoint"
+      ]
+    },
+    {
+      "id": "G7-S3",
+      "claim": "Every scaled triple has an exact integral fractional-part index, complementary under conjugation. The two representative index vectors are (0,0,1,0,1,1) and (0,0,0,1,1,1). The classical Jacobi-motive interpretation remains separate.",
+      "status": "kernel_checked_finite_arithmetic_data",
+      "declarations": [
+        "Metaplectic.G2Seven.Spectrum.hodge_integral",
+        "Metaplectic.G2Seven.Spectrum.hodge_conjugation",
+        "Metaplectic.G2Seven.Spectrum.hodge_repeated_representative",
+        "Metaplectic.G2Seven.Spectrum.hodge_residue_representative"
       ]
     }
   ],

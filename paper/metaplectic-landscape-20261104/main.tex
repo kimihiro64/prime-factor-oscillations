@@ -5,8 +5,10 @@
 \setlength{\textheight}{9in}
 \setlength{\topmargin}{-0.5in}
 \usepackage{amsmath,amssymb,hyperref}
-% Use the available bold metric at every heading size in the built-in compiler.
+% Use available Roman, bold and math-italic metrics in the built-in compiler.
+\DeclareFontShape{OT1}{cmr}{m}{n}{<-> cmr10}{}
 \DeclareFontShape{OT1}{cmr}{bx}{n}{<-> cmbx10}{}
+\DeclareFontShape{OML}{cmm}{m}{it}{<-> cmmi10}{}
 \newcommand{\toprule}{\hline}
 \newcommand{\midrule}{\hline}
 \newcommand{\bottomrule}{\hline}
@@ -893,6 +895,111 @@ here. In particular, the local reciprocal-factor shape does not
 change the installed $7/8$ boundary. Priority for this particular
 combined readout has not been established.
 
+\section{The complete cubic spectrum and its two arithmetic sectors}
+\label{sec:G2-seven-spectrum}
+
+The residue-only readout selects a quadratic CM sector, but the full
+cubic moment carries more arithmetic. Let $v_0=u$ and $v_1,\ldots,v_6$
+be arbitrary complex amplitudes, and put
+$S(a)=\sum_{r=0}^6v_re_7(ar)$. Complete orthogonality gives the
+following exact theorem:
+\[
+\begin{split}
+ \langle S^3\rangle={}&u^3+
+ 6u(v_1v_6+v_2v_5+v_3v_4)\\
+ &+3(v_1^2v_5+v_1v_3^2+v_2^2v_3
+              +v_2v_6^2+v_4^2v_6+v_4v_5^2)\\
+ &+6(v_1v_2v_4+v_3v_5v_6).
+\end{split}
+\]
+This includes all $7^3$ ordered terms before averaging. Exactly 49
+resonate: the principal triple, eighteen terms containing one principal
+factor, and thirty fully nonprincipal terms. No principal cross term
+has been removed by centering.
+
+For the complete source-coordinate model, take $u=P_0$ and the six
+nonprincipal torus amplitudes from Section~\ref{sec:G2-seven-cubic}.
+Define
+\[
+ A=gh/j,\quad B=g^2/h,\quad C=gj^2,\quad D=h^2j.
+\]
+The eight sorted nonprincipal triple types are the entire spectrum:
+\[
+\begin{array}{c|c|c|c}
+(r,s,k)&\text{multiplicity}&\text{phase}&\text{torus weight}\\ \hline
+(1,1,5)&3&B&t^5X^8Y^2\\
+(1,2,4)&6&A&t^7X^8Y^9\\
+(1,3,3)&3&C&t^3XY^2\\
+(2,2,3)&3&D&t^7X^8Y^9\\
+(2,6,6)&3&B^{-1}&t^9X^8Y^{16}\\
+(3,5,6)&6&A^{-1}&t^7X^8Y^9\\
+(4,4,6)&3&C^{-1}&t^9X^8Y^{16}\\
+(4,5,5)&3&D^{-1}&t^9X^{15}Y^9 .
+\end{array}
+\]
+If $\mathcal C$ is the sum of these eight weighted entries, including
+their multiplicities, the complete physical identity is
+\[
+ \left\langle S_{\rm full}^3\right\rangle
+ =P_0^3+6P_0(2t^4X^3Y^6+t^6X^{10}Y^6)+\mathcal C.
+\]
+Both the arbitrary-amplitude identity and this full 49-state
+specialization are kernel-checked theorems.
+
+\emph{Proof and completeness.}
+Expand the cube and sum each term over $a$. A term survives precisely
+when $r+s+k=0$ modulo seven. With a zero index this gives the principal
+triple or an opposite pair and its six ordered placements. Without a
+zero index, sorting gives exactly the eight triples in the table.
+Their permutation counts are three or six as displayed. Substitution
+of the actual coordinate amplitudes gives the stated torus exponents
+and the principal cross term. The finite classification of every
+sorted nonzero triple is itself formalized, rather than inferred
+from a selection of examples.
+
+There is a second exact classification. Scale each triple by
+$m\in(\ZZ/7\ZZ)^\times$ and compare multiplicities of its entries.
+The triples $(1,2,4)$ and $(3,5,6)$ form one orbit, with stabilizer
+$\{1,2,4\}$. The other six triples form a disjoint orbit with trivial
+stabilizer. For a triple $T$, set
+\[
+ h_T(m)=\sum_{r\in T}\left\{\frac{mr}{7}\right\}-1.
+\]
+The sum is exactly integral; no floor or rounding error is hidden.
+Its values are zero or one, and $h_T(m)+h_T(-m)=1$.
+For $m=1,\ldots,6$, representatives have vectors
+\[
+ h_{124}=(0,0,1,0,1,1),\qquad
+ h_{115}=(0,0,0,1,1,1).
+\]
+The stabilizers, orbit coverage and disjointness, exact integrality,
+conjugation and both representative vectors are all kernel-checked.
+
+The arithmetic interpretation uses a separate classical input.
+For actual Gauss sums, every nondegenerate level-seven Jacobi ratio
+is a product $G_rG_sG_{-r-s}$, so the table covers all such ratios.
+The formal-multiset field and fractional-part rules in
+\cite[Sections 2.1--2.3]{Watkins} associate the first orbit with the
+quadratic CM field $\QQ(\sqrt{-7})$, and the second with the degree-six
+CM field $\QQ(\zeta_7)$, before unitary normalization. The displayed
+indices are those after the Tate shift giving weight one.
+These are classical interpretations of the proved finite data,
+not Lean field-identification theorems. In particular the natural
+field of a motive is not a claim that every value at every prime
+has that exact field degree.
+
+This gives a concrete reason to retain higher correlations when
+categorizing possible extensions: one cover contains more than the
+quadratic sector selected by the first probe. The six remaining
+terms carry nonconstant infinity-type data. Their unequal physical
+torus weights cannot be silently replaced by an unweighted Galois
+trace. A compatible global Fourier construction must keep those
+weights, the source sign convention, the bad prime seven and the
+archimedean factors. Such a construction and an independent signed
+analytic estimate remain open here; the installed boundary stays
+$7/8$. Priority for this combined source-coordinate spectrum is
+not established.
+
 \section{A complete twelvefold $G_2$ coordinate calculation}
 \label{sec:G2-coordinates}
 
@@ -1389,5 +1496,8 @@ Hiroshima Mathematical Journal 39 (2009), 217--235, (1.5)--(1.6).
 Gauss observation: resonance and a uniform remainder}, research
 manuscript v1, 3 November 2026. Source statement only; not audited here.
 \url{https://rstation.ai/problems/riemann_hypothesis/papers/103}.
+\bibitem{Watkins} M. Watkins, \emph{Jacobi sums and Gr\"ossencharacters},
+Publications math\'ematiques de Besan\c{c}on (2018), 111--122.
+\url{https://www.numdam.org/article/PMB_2018____111_0.pdf}.
 \end{thebibliography}
 \end{document}

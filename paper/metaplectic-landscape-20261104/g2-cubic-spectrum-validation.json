@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-04",
+  "scope": "Complete cubic spectrum of the sevenfold G2 arithmetic source-coordinate model.",
+  "status": "kernel_checked_arithmetic_model",
+  "new_public_declarations": [
+    "Metaplectic.G2Seven.Spectrum.complete_cubic_mean",
+    "Metaplectic.G2Seven.Spectrum.cubic_sum",
+    "Metaplectic.G2Seven.Spectrum.frequency_resonance",
+    "Metaplectic.G2Seven.Spectrum.hodge_conjugation",
+    "Metaplectic.G2Seven.Spectrum.hodge_integral",
+    "Metaplectic.G2Seven.Spectrum.hodge_repeated_representative",
+    "Metaplectic.G2Seven.Spectrum.hodge_residue_representative",
+    "Metaplectic.G2Seven.Spectrum.resonant_triples_classified",
+    "Metaplectic.G2Seven.Spectrum.sector_disjoint",
+    "Metaplectic.G2Seven.Spectrum.sector_orbits",
+    "Metaplectic.G2Seven.Spectrum.source_cubic_mean",
+    "Metaplectic.G2Seven.Spectrum.source_full_carrier",
+    "Metaplectic.G2Seven.Spectrum.stabilizer_classification"
+  ],
+  "source_hashes": [
+    {
+      "path": "PrimeFactorOscillations/Mathlib/NumberTheory/Metaplectic/G2SevenCubicSpectrum.lean",
+      "sha256": "AD7FDF27E220F73668A22D18E8C277E322176F4ADC8CE36598BCC6E872876B4C"
+    },
+    {
+      "path": "PrimeFactorOscillations/Mathlib/NumberTheory/Metaplectic/All.lean",
+      "sha256": "C85EE526508559F21E5DEECD4B53007B08CC855E009A3F423153419E9BCD7CA7"
+    },
+    {
+      "path": "scripts/metaplectic_proof_targets.py",
+      "sha256": "26330CC25BAACE1331AE96EFE6117FDF8E3F9903A3D608EA8DC8EE64D0355C05"
+    },
+    {
+      "path": "MATHLIB_PORTING.md",
+      "sha256": "7BAF150829F91252ADEBB2D6E766742899564717C26C81685B7994C7B676503B"
+    },
+    {
+      "path": "paper/metaplectic-landscape-20261104/main.tex",
+      "sha256": "06F06857AF521AD9A6F14CA160F3705089F342877BB053C43D79D7391F9208AA"
+    },
+    {
+      "path": "paper/metaplectic-landscape-20261104/cases.json",
+      "sha256": "D5B3407E2E9435171970E3686FE7A004C2F80D7C7F02683B4FEDDA061EE2AE50"
+    },
+    {
+      "path": "paper/metaplectic-landscape-20261104/claims.json",
+      "sha256": "662585AE61D0855A0D5E2606050D259E2770AC92AE63136E4417EFBFC6EB05E0"
+    }
+  ],
+  "checks": {
+    "source_compilation": "G2SevenCubicSpectrum passed with the pinned cached Lean compiler; no dependency fetching or rebuilding.",
+    "facade": "Actual Metaplectic.All compiled with the new source export.",
+    "public_export": "All 13 new declarations checked through import Solution.",
+    "axiom_closures": "Only the 13 new declarations audited; unchanged completed files were not re-audited.",
+    "allowed_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "required_staged_gate": "scripts/check.py --profile fast on all eight intended paths; unrelated finite-field edits excluded."
+  },
+  "compiler": {
+    "version": "Lean 4.34.0",
+    "commit": "293d5d0c0c3f3dded4688b3ccd6a33939ac5102b",
+    "autoImplicit": false,
+    "elab_async": false,
+    "maxRecDepth": 4096,
+    "maxHeartbeats": 4000000,
+    "flags": [
+      "-j",
+      "1",
+      "-s",
+      "65536",
+      "-M",
+      "8192"
+    ]
+  },
+  "mathematics": {
+    "full_moment": "All 343 ordered terms expanded; all 49 resonances retained, including 19 with principal factors.",
+    "source_consumer": "Exact full 49-state coordinate identity with the actual t/X/Y weight on every term.",
+    "completeness": "All sorted nonzero triples summing to zero modulo 7 classified by eight entries.",
+    "scaling": "Disjoint formal sectors represented by 124 and 115; stabilizers {1,2,4} and {1}.",
+    "indices": "Exact integral fractional-part indices, conjugation complement and both representative vectors.",
+    "classical_interpretation": "Under classical Gauss/Jacobi and formal-motive rules, the sectors supply quadratic CM and degree-six CM data. These field/Hecke identifications are not Lean theorems here.",
+    "global_status": "No compatible global Fourier/Hecke construction or independent improved signed estimate established."
+  },
+  "primary_source": {
+    "url": "https://www.numdam.org/article/PMB_2018____111_0.pdf",
+    "role": "Watkins Sections 2.1--2.3; classical sign conventions, natural field and fractional-part data, kept separate from the new arithmetic-model proof."
+  },
+  "latex": {
+    "status": "PDF compilation failed after 24-page XDV typesetting",
+    "source_errors_reported": false,
+    "repairs": "Mapped Roman and math-italic metrics to available cmr10/cmmi10, retaining prior cmbx10 mapping.",
+    "blocker": "The next missing physical font is msam10.pfb; compiler bundle fetching failed. No successful PDF compilation claimed."
+  },
+  "benchmark_status": "Local arithmetic spectrum and exact finite classification; no assembled global analytic gain.",
+  "old_bound": "7/8",
+  "new_bound": "7/8",
+  "components": {
+    "proved": "Full signed cubic spectrum, every principal cross term and torus weight, exhaustive resonance classification and formal scaling/type data.",
+    "unproved": "Compatible global coefficient, source-sign/Frobenius/bad-prime transfer and independent signed analytic estimate."
+  },
+  "actuals": null,
+  "first_nonpositive_domain": null,
+  "novelty_priority": "Not established for the combined source-coordinate spectrum; classical field/type rules are cited inputs, not new results.",
+  "overlap_scope": "Current repository public/private literal search for complete cubic spectrum and related phases; not an exhaustive sibling-repository or literature priority audit."
+}
