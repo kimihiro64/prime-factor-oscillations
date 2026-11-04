@@ -9,6 +9,8 @@
 \DeclareFontShape{OT1}{cmr}{m}{n}{<-> cmr10}{}
 \DeclareFontShape{OT1}{cmr}{bx}{n}{<-> cmbx10}{}
 \DeclareFontShape{OML}{cmm}{m}{it}{<-> cmmi10}{}
+% Draw the two proof-end markers without the unavailable AMS square glyph.
+\renewcommand{\square}{\mathord{\vcenter{\hrule\hbox{\vrule height .45em\kern .45em\vrule}\hrule}}}
 \newcommand{\toprule}{\hline}
 \newcommand{\midrule}{\hline}
 \newcommand{\bottomrule}{\hline}
@@ -1292,6 +1294,114 @@ the unnormalized polynomial variable in
 No uniform analytic saving or improvement of $7/8$ follows.
 The curve and its zeta formula are classical; priority for this
 precise source-observation bridge is not established.
+
+\section{Frobenius compression and the exact vanishing branch}
+\label{sec:G2-seven-frobenius}
+
+The preceding identification can now be followed through every
+characteristic residue modulo seven. These assertions are proved in
+the maintained \texttt{G2SevenCurveFrobenius} module, including their
+consumer in the actual compensated source packet.
+
+Let $p$ be the characteristic of $F$, retain the order-seven
+character, and write $J_r=J(\chi^r,\chi^r)$. The fundamental identity
+is
+\[
+ J(\chi^p,\phi^p)=J(\chi,\phi),\qquad J_{pr}=J_r,
+ \tag{F.1}
+\]
+where subscripts are reduced modulo seven. For the first equality
+no order-seven hypothesis is needed.
+
+\emph{Proof.} Frobenius $x\mapsto x^p$ is a permutation of the
+finite source field. Multiplicativity gives
+$\chi^p(x)=\chi(x^p)$, and in characteristic $p$,
+$(1-x)^p=1-x^p$. Reindex the complete Jacobi sum by Frobenius.
+Apply the result to $\chi^r$ and reduce its exponents modulo
+$\operatorname{ord}(\chi)=7$. No Frobenius operation is applied to
+the complex target.
+
+Let $f=\operatorname{ord}_7(p)$, and let $\mathcal R_p$ contain one
+exponent from each multiplication-by-$p$ orbit. Put
+\[
+ R_p(U,V)=\prod_{r\in\mathcal R_p}(U+J_rV).
+\]
+The complete classification is
+\[
+\begin{array}{c|c|l|l}
+p\bmod7&f&\text{orbits on }1,\ldots,6&\mathcal R_p\\ \hline
+1&1&(1),(2),(3),(4),(5),(6)&1,2,3,4,5,6\\
+2&3&(1,2,4),(3,6,5)&1,3\\
+3&6&(1,3,2,6,4,5)&1\\
+4&3&(1,4,2),(3,5,6)&1,3\\
+5&6&(1,5,4,6,2,3)&1\\
+6&2&(1,6),(2,5),(3,4)&1,2,3 .
+\end{array}
+\]
+In particular, $\deg R_p=6/f$. The exact identities are
+\begin{align}
+ \prod_{r=1}^6(U+J_rV)&=R_p(U,V)^f, \tag{F.2}\\
+ \sum_{r=1}^6(-J_r)^n&=
+ f\sum_{r\in\mathcal R_p}(-J_r)^n\qquad(n\ge0). \tag{F.3}
+\end{align}
+Both are kernel checked for arbitrary complex values invariant under
+the displayed permutation; (F.1) discharges that invariance for the
+actual finite-field sums. The proof lists all six residue classes,
+follows each complete orbit, and expands the full product or sum.
+There is no norm inequality and no discarded cross term.
+The power-trace theorem quantifies over every natural $n$.
+
+Substitution in \eqref{eq:curve-source-packet} proves the actual
+source theorem
+\begin{equation}
+ {\cal P}_{\rm source}\left(U,\frac{\rho V}{a^{15}}\right)
+       =R_p(U,V)^f .
+ \tag{F.4}
+\end{equation}
+The primitive additive character, arbitrary nonzero $a$ and
+$\rho^2=q$ retain their earlier domains. Thus the six-channel
+source has six, two, one, two, one or three distinct orbit factors
+in characteristic classes $1,2,3,4,5,6$, respectively. These are
+exact orbit factors; further accidental equality is not excluded.
+
+There is also an unconditional branch without any character:
+\begin{equation}
+ q\not\equiv1\pmod7
+ \quad\Longrightarrow\quad
+ \#\{(x,z)\in F^2:z^7=x(1-x)\}=q .
+ \tag{F.5}
+\end{equation}
+Indeed, $\gcd(7,q-1)=1$, so seventh powering is a bijection on
+$F^\times$, and it extends to a bijection on $F$ by fixing zero.
+Every $x$ has exactly one corresponding $z$. Lean constructs the
+power equivalence on units, proves uniqueness of every fiber
+including zero, and sums these fibers. It also derives the
+coprimality from the displayed residue condition.
+Equation (F.5) includes characteristic seven as an affine counting
+identity; it makes no tame-source or smooth-projective assertion
+there. In characteristic two the original Kummer model is used,
+without dividing by two.
+
+The field in (F.2)--(F.4) already supports an order-seven character.
+For $q=p^f$, this is an extension-field factorization, and its $f$th
+power must not be mistaken for the rational-prime Euler numerator.
+That descent must also use the counts over every $p^n$:
+(F.5) treats the nonsplit extension degrees, while compatible
+Jacobi lifting and the point above infinity are the remaining
+classical geometric inputs. Frobenius compression alone does not
+prove that descent in Lean.
+
+This classification is useful for screening generalizations:
+cover degree, the number of Gauss coordinates, and the number of
+independent orbit factors are different data. Here the exact
+source-to-curve bridge retains the principal compensation and
+both infinite periods, while Frobenius reduces its effective
+orbit count. It supplies no independent global signed estimate.
+The costs $q^{15/14}$ and $q^{11/7}$ above are unchanged, as is
+the installed $7/8$ boundary. Frobenius and Fermat-quotient
+factorizations are classical; priority for this exact compensated
+source consumer has not been established.
+
 
 \section{A complete twelvefold $G_2$ coordinate calculation}
 \label{sec:G2-coordinates}

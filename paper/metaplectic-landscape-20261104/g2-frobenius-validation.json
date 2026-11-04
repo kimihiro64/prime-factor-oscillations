@@ -1,0 +1,242 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-04",
+  "scope": "All-residue source-field Frobenius compression of the actual sevenfold G2 Jacobi packet, all signed power traces, and the exact non-split affine point count.",
+  "status": "kernel_checked_actual_finite_field_and_complete_source_consumer",
+  "new_public_declarations": [
+    "Metaplectic.G2Seven.Curve.affine_count_coprime",
+    "Metaplectic.G2Seven.Curve.affine_count_of_card_mod_ne_one",
+    "Metaplectic.G2Seven.Curve.diagonal_frobenius",
+    "Metaplectic.G2Seven.Curve.invariant_eq_representative",
+    "Metaplectic.G2Seven.Curve.invariant_packet",
+    "Metaplectic.G2Seven.Curve.invariant_power_trace",
+    "Metaplectic.G2Seven.Curve.jacobi_frobenius",
+    "Metaplectic.G2Seven.Curve.jacobi_packet_frobenius",
+    "Metaplectic.G2Seven.Curve.jacobi_power_trace",
+    "Metaplectic.G2Seven.Curve.native_packet_frobenius",
+    "Metaplectic.G2Seven.Curve.root_count_coprime",
+    "Metaplectic.G2Seven.Curve.scaling_index_spec",
+    "Metaplectic.G2Seven.Curve.seventh_power_bijective"
+  ],
+  "source_hashes": [
+    {
+      "path": "PrimeFactorOscillations/Mathlib/NumberTheory/Metaplectic/G2SevenCurveFrobenius.lean",
+      "sha256": "76C0AC419536D77676C0CAA958D0DE9E53F5D0C9CCF9C4B5D28197AA0F78A563"
+    },
+    {
+      "path": "PrimeFactorOscillations/Mathlib/NumberTheory/Metaplectic/All.lean",
+      "sha256": "9B56CC6C4F544725FA791E28E1A1B2D375F4A023EF9D29681D82F7D0E6AC1592"
+    },
+    {
+      "path": "scripts/metaplectic_proof_targets.py",
+      "sha256": "58D46D1D254CC5E733678F7D9EF808A1E3805538EF5CEB644E21E1338073C68F"
+    },
+    {
+      "path": "MATHLIB_PORTING.md",
+      "sha256": "CF866A1BBB7DF55D86815FC940E06956EAC4ED811CFDCC727DD5451FB1C2E2B4"
+    },
+    {
+      "path": "paper/metaplectic-landscape-20261104/main.tex",
+      "sha256": "AFE32CE4A3F9F4318061F36775081C026A96E04994BDD8EC0842A72BA966FB45"
+    },
+    {
+      "path": "paper/metaplectic-landscape-20261104/cases.json",
+      "sha256": "AA6241FAA347A9BB2BDF00785CA1E528A5F5906BDB8810901BE1D4CA21E40A56"
+    },
+    {
+      "path": "paper/metaplectic-landscape-20261104/claims.json",
+      "sha256": "61CA9EB9E57B8F305C8C2926E015A7748E7CAA7F203FB1B1E924BCFAFE4A5D38"
+    }
+  ],
+  "checks": {
+    "source_compilation": "The maintained Frobenius owner compiled with the pinned cached Lean environment and all verified elaborator options.",
+    "facade": "The edited Metaplectic.All facade compiled against the successful maintained leaf.",
+    "public_export": "All 13 new declarations checked through import Solution.",
+    "axiom_closures": "Exactly these 13 new declaration closures audited; unchanged closures were not reaudited.",
+    "allowed_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "staged_gate_requirement": "Before commit: scripts/check.py --profile fast on the complete eight-path staged surface; Ruff check and format check for the edited registry; exact staged path set, source hashes and whitespace. Preserve all five unrelated finite-field changes."
+  },
+  "compiler": {
+    "version": "4.34.0",
+    "executable": "C:/Users/jonas/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+    "flags": [
+      "-j",
+      "1",
+      "-s",
+      "65536",
+      "-M",
+      "8192"
+    ],
+    "options": [
+      "autoImplicit false",
+      "Elab.async false",
+      "maxRecDepth 4096",
+      "maxHeartbeats 4000000"
+    ],
+    "environment": "Existing repository and shared primegaps434 olean cache only; no dependency fetching or rebuild."
+  },
+  "mathematics": {
+    "quantifiers": "Every finite field F, prime characteristic p, actual MulChar F Complex of exact order seven and every p residue class 1 through 6 modulo seven. The source consumer additionally has an actual primitive AddChar, nonzero rho with rho^2=card(F), arbitrary nonzero auxiliary scale and arbitrary complex U,V. Signed power traces quantify over every natural n.",
+    "general_identity": "J(chi^p,phi^p)=J(chi,phi) by reindexing source-field Frobenius, without an order-seven hypothesis and without Frobenius on the complex target.",
+    "classification": [
+      {
+        "residue": 1,
+        "degree": 1,
+        "cycles": [
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ],
+          [
+            6
+          ]
+        ]
+      },
+      {
+        "residue": 2,
+        "degree": 3,
+        "cycles": [
+          [
+            1,
+            2,
+            4
+          ],
+          [
+            3,
+            6,
+            5
+          ]
+        ]
+      },
+      {
+        "residue": 3,
+        "degree": 6,
+        "cycles": [
+          [
+            1,
+            3,
+            2,
+            6,
+            4,
+            5
+          ]
+        ]
+      },
+      {
+        "residue": 4,
+        "degree": 3,
+        "cycles": [
+          [
+            1,
+            4,
+            2
+          ],
+          [
+            3,
+            5,
+            6
+          ]
+        ]
+      },
+      {
+        "residue": 5,
+        "degree": 6,
+        "cycles": [
+          [
+            1,
+            5,
+            4,
+            6,
+            2,
+            3
+          ]
+        ]
+      },
+      {
+        "residue": 6,
+        "degree": 2,
+        "cycles": [
+          [
+            1,
+            6
+          ],
+          [
+            2,
+            5
+          ],
+          [
+            3,
+            4
+          ]
+        ]
+      }
+    ],
+    "full_packet": "Product_(r=1..6)(U+J_r*V)=R_p(U,V)^f; all polynomial cross terms retained and f=1,3,6,3,6,2.",
+    "power_traces": "Sum_(r=1..6)(-J_r)^n=f*sum_(orbit representatives)(-J_r)^n for every natural n.",
+    "actual_source_consumer": "P_native(U,rho*V/u^15)=R_p(U,V)^f at t=u^7,X=Y=u^(-2). All principal compensation and both complete coherent periods are inherited from the proved source-to-Jacobi identification.",
+    "vanishing_branch": "For any finite field with q%7 not equal to 1, seventh powering is bijective and the actual affine curve z^7=x(1-x) has exactly q points, with no multiplicative-character assumption.",
+    "small_characteristics": "Characteristic two uses the Kummer model. Characteristic seven is covered only by the nonsplit affine count, and is excluded from the tame source and smooth genus-three interpretation.",
+    "field_distinction": "The fth-power factorization is over a field supporting order-seven characters. It is not a rational-prime Euler descent theorem.",
+    "normalization_cost": "Physical u=q^(-1/14),rho=sqrt(q) still costs q^(15/14) for trace extraction and q^(11/7) for the raw polynomial variable.",
+    "not_proved": [
+      "rational-prime Euler descent using all prime-power counts",
+      "formal projective geometry and Hasse-Davenport lifting",
+      "admissible global metaplectic Fourier realization",
+      "independent global signed estimate",
+      "improved QRH boundary"
+    ]
+  },
+  "closest_primary_literature": [
+    {
+      "url": "https://arxiv.org/html/1602.01880v3",
+      "role": "Gao's source coordinate model; representation theory remains cited."
+    },
+    {
+      "url": "https://www.researchgate.net/publication/265705571_On_the_zeta_function_of_some_cyclic_quotients_of_Fermat_curves",
+      "role": "Author-uploaded Aoki 2008 primary paper, equation (2): classical Fermat-quotient Jacobi zeta polynomial.",
+      "difference": "The new formal bridge identifies this polynomial and finite-field count with the complete principal-preserving compensated G2 source observation and its nontrivial Abel limit."
+    }
+  ],
+  "latex": {
+    "status": "success",
+    "pdf_success": true,
+    "compiler": "Built-in desktop editor compiler",
+    "pages_typeset": 30,
+    "source_repair": "The two proof-end squares are drawn with TeX rules, avoiding the unavailable msam10.pfb glyph. No machine settings or dependencies were changed."
+  },
+  "benchmark_status": "Exact local source/Frobenius classification; no completed global analytic bound",
+  "old_bound": "7/8",
+  "new_bound": "7/8",
+  "components": {
+    "proved": [
+      "Actual complex-valued Jacobi Frobenius invariance",
+      "Complete six-residue orbit compression and all signed power traces",
+      "Full native source packet consumer after exact rescaling",
+      "Exact zero affine discrepancy at every non-split field size"
+    ],
+    "open": [
+      "Rational-prime descent from all compatible extension counts",
+      "Global automorphic Fourier transfer",
+      "Independent signed estimate after all normalization costs"
+    ]
+  },
+  "actuals": null,
+  "first_nonpositive_domain": null,
+  "novelty_priority": "Not established for the precise compensated source consumer; Frobenius and Fermat-quotient factorization theory are classical.",
+  "overlap_scope": "Current repository tracked and private metaplectic/Jacobi/plan/decision records searched for hyperelliptic, genus-three, Fermat-quotient and diagonal-Jacobi matches; no overlap found. No complete all-repository priority audit is claimed."
+}

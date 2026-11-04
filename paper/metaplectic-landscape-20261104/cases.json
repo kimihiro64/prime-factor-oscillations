@@ -23,16 +23,29 @@
     "Metaplectic.G2Seven.Cubic.residue_resonance",
     "Metaplectic.G2Seven.Cubic.source_nonresidue_carrier",
     "Metaplectic.G2Seven.Cubic.source_residue_carrier",
+    "Metaplectic.G2Seven.Curve.affine_count_coprime",
     "Metaplectic.G2Seven.Curve.affine_count_fibers",
     "Metaplectic.G2Seven.Curve.affine_count_jacobi",
     "Metaplectic.G2Seven.Curve.affine_count_jacobi_of_fibers",
+    "Metaplectic.G2Seven.Curve.affine_count_of_card_mod_ne_one",
     "Metaplectic.G2Seven.Curve.curve_trace_abel",
+    "Metaplectic.G2Seven.Curve.diagonal_frobenius",
     "Metaplectic.G2Seven.Curve.diagonal_phase",
     "Metaplectic.G2Seven.Curve.gauss_jacobi",
+    "Metaplectic.G2Seven.Curve.invariant_eq_representative",
+    "Metaplectic.G2Seven.Curve.invariant_packet",
+    "Metaplectic.G2Seven.Curve.invariant_power_trace",
+    "Metaplectic.G2Seven.Curve.jacobi_frobenius",
+    "Metaplectic.G2Seven.Curve.jacobi_packet_frobenius",
     "Metaplectic.G2Seven.Curve.jacobi_packet_identification",
+    "Metaplectic.G2Seven.Curve.jacobi_power_trace",
+    "Metaplectic.G2Seven.Curve.native_packet_frobenius",
     "Metaplectic.G2Seven.Curve.normalized_diagonal_jacobi",
     "Metaplectic.G2Seven.Curve.normalized_gauss_complement",
     "Metaplectic.G2Seven.Curve.normalized_gauss_ne_zero",
+    "Metaplectic.G2Seven.Curve.root_count_coprime",
+    "Metaplectic.G2Seven.Curve.scaling_index_spec",
+    "Metaplectic.G2Seven.Curve.seventh_power_bijective",
     "Metaplectic.G2Seven.Curve.seventh_power_iff_character",
     "Metaplectic.G2Seven.Curve.seventh_root_fiber",
     "Metaplectic.G2Seven.Jacobi.abel_packet_reciprocity",
@@ -154,7 +167,7 @@
     "Metaplectic.Sp4Eight.twistClass_fiber_card",
     "Metaplectic.Sp4Eight.unit_coordinate_survives"
   ],
-  "proof_status": "Thirteen maintained kernel-checked modules: local G2 sevenfold/twelvefold and Sp4 eightfold models, all-eight Jacobi readouts, native coupled packets, and actual finite-field character sums identifying the six-channel packet and Abel trace with the diagonal Jacobi polynomial and affine curve point count. Representation-theoretic identification, projective geometry, Hasse-Davenport lifting and global automorphic transfer remain distinct. No analytic boundary gain.",
+  "proof_status": "Fourteen maintained kernel-checked modules: the local G2 and Sp4 models, complete Jacobi readouts, actual finite-field curve bridge, and Frobenius compression of the full source packet in every characteristic residue modulo seven. The exact zero-discrepancy affine branch is proved whenever q is not 1 modulo seven. Projective geometry, Hasse-Davenport lifting, rational-prime descent and global automorphic transfer remain separate. No analytic boundary gain.",
   "classification_scope": "principal structural mechanisms and selected low-degree cases, not a complete global automorphic classification",
   "overlap_scope": "current repo public/private QRH terminology search and specified prior notes; not exhaustive across sibling repositories",
   "sources": [
@@ -665,7 +678,7 @@
       "coherent_energy": "(1+8*t^2+13*t^4+16*t^6+4*t^8)/(1-t^2)^4",
       "coherent_convergence": "Kernel-checked HasSum over both infinite periods for 0<=t<1.",
       "phase_information": "Every one of the eight nonprincipal Jacobi triple types is recovered by its own principal-preserving compensated cubic probe. The complete second moment remains phase blind.",
-      "global_status": "The actual finite-field six-channel packet is now identified in Lean with the diagonal Jacobi polynomial of z^7=x(1-x), and its compensated Abel trace with the affine point-count discrepancy. The projective zeta interpretation is classical. An admissible global metaplectic Fourier realization, rational-prime Frobenius descent and independent signed analytic estimate remain open.",
+      "global_status": "Actual finite-field Gauss inputs identify the compensated source packet and Abel trace with the diagonal Jacobi polynomial and affine curve count. Frobenius invariance, all six residue-class orbit factorizations, every signed power trace and the non-split affine vanishing branch are now kernel checked. Rational-prime Euler descent, admissible global metaplectic Fourier realization and an independent signed analytic estimate remain open.",
       "cubic_readout": {
         "principal": "P0=(1+t^2*X^2*Y^4)*(1+t^2*X*Y^2+t^2*X^4*Y)",
         "residue_grades": [
@@ -880,7 +893,121 @@
         "classical_interpretation": "The smooth projective completion is a genus-three cyclic Fermat quotient with one rational point at infinity; its local zeta numerator is the displayed Jacobi polynomial. Geometry and full lifting/zeta formalism are cited classical inputs, not Lean declarations here.",
         "small_characteristics": "The Kummer count theorem includes characteristic two whenever the order-seven character exists. The model Y^2=1-4X^7 is used only in odd characteristic. Characteristic seven is excluded by the source datum and cannot support an order-seven character on the finite-field unit group.",
         "analytic_cost": "Physical u=q^(-1/14),rho=sqrt(q): trace normalization costs q^(15/14), and the unnormalized Euler-polynomial variable rescales by q^(11/7). No uniform analytic estimate follows.",
-        "novelty": "The curve, Jacobi sums and zeta formula are classical. Priority of their precise identification with this full compensated G2 source observation is not established."
+        "novelty": "The curve, Jacobi sums and zeta formula are classical. Priority of their precise identification with this full compensated G2 source observation is not established.",
+        "frobenius": {
+          "scope": "Every finite field of prime characteristic p with an actual order-seven character; complex-valued Jacobi sums. Source consumer retains primitive AddChar, rho^2=q and nonzero auxiliary scale.",
+          "identity": "J(chi^p,phi^p)=J(chi,phi), by reindexing the source field. Therefore J_(p*r)=J_r modulo seven.",
+          "residue_classes": [
+            {
+              "residue": 1,
+              "degree": 1,
+              "cycles": [
+                [
+                  1
+                ],
+                [
+                  2
+                ],
+                [
+                  3
+                ],
+                [
+                  4
+                ],
+                [
+                  5
+                ],
+                [
+                  6
+                ]
+              ]
+            },
+            {
+              "residue": 2,
+              "degree": 3,
+              "cycles": [
+                [
+                  1,
+                  2,
+                  4
+                ],
+                [
+                  3,
+                  6,
+                  5
+                ]
+              ]
+            },
+            {
+              "residue": 3,
+              "degree": 6,
+              "cycles": [
+                [
+                  1,
+                  3,
+                  2,
+                  6,
+                  4,
+                  5
+                ]
+              ]
+            },
+            {
+              "residue": 4,
+              "degree": 3,
+              "cycles": [
+                [
+                  1,
+                  4,
+                  2
+                ],
+                [
+                  3,
+                  5,
+                  6
+                ]
+              ]
+            },
+            {
+              "residue": 5,
+              "degree": 6,
+              "cycles": [
+                [
+                  1,
+                  5,
+                  4,
+                  6,
+                  2,
+                  3
+                ]
+              ]
+            },
+            {
+              "residue": 6,
+              "degree": 2,
+              "cycles": [
+                [
+                  1,
+                  6
+                ],
+                [
+                  2,
+                  5
+                ],
+                [
+                  3,
+                  4
+                ]
+              ]
+            }
+          ],
+          "packet": "Product_(r=1..6)(U+J_r*V)=R_p(U,V)^f, with one factor per orbit and f=1,3,6,3,6,2.",
+          "all_signed_power_traces": "For every natural n, sum_(r=1..6)(-J_r)^n=f*sum_(orbit representatives)(-J_r)^n.",
+          "complete_source_consumer": "P_native(U,rho*V/u^15)=R_p(U,V)^f at the balanced corner; every native factor and cross term retained.",
+          "vanishing_branch": "For every finite field with card(F)%7 not equal to 1, seventh powering is bijective and N_aff=card(F), with no character assumption.",
+          "exceptions": "Characteristic seven is included only in the non-split affine count, and excluded from the tame source and good genus-three interpretation. Characteristic two uses the Kummer model.",
+          "descent_status": "The fth-power factorization is over the field containing order-seven characters. A rational-prime numerator requires compatible prime-power counts and geometric/lifting inputs; it is not yet a Lean theorem."
+        }
       }
     }
   },
@@ -922,7 +1049,7 @@
     },
     {
       "case": "G2 degree 7",
-      "first_test": "Consume the completed actual Gauss-to-curve packet and Abel trace. Prove Frobenius compatibility across rational residue degrees 1,2,3,6, preserving both formal sectors and the exact scales; then test an admissible global Fourier transfer. Do not reconstruct the completed counting bridge.",
+      "first_test": "Consume the completed all-residue Frobenius compression and exact non-split affine count. Complete rational-prime Euler descent using the actual prime-power counts, compatible Hasse-Davenport and the point at infinity, then test an admissible global Fourier transfer. Do not reconstruct the completed finite-field bridges.",
       "advantage_to_test": "Rank two with root orders 7/7 and no mixed Gauss product in an individual functional coordinate; global field/conductor and signal remain to be checked.",
       "failure_condition": "The selected observable erases its target phase, or global reflection and conductor costs do not support a useful independent estimate."
     }
