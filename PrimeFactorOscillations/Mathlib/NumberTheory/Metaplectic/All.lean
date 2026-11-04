@@ -3,7 +3,7 @@ Copyright (c) 2026 Prime Factor Oscillations contributors.
 Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Prime Factor Oscillations contributors
 -/
-import PrimeFactorOscillations.Mathlib.NumberTheory.Metaplectic.G2SevenCubicSpectrum
+import PrimeFactorOscillations.Mathlib.NumberTheory.Metaplectic.G2SevenJacobiPackets
 import PrimeFactorOscillations.Mathlib.NumberTheory.Metaplectic.G2TwelveFourier
 import PrimeFactorOscillations.Mathlib.NumberTheory.Metaplectic.QuinticCocycle
 import PrimeFactorOscillations.Mathlib.NumberTheory.Metaplectic.QuinticLocalMass
@@ -13,6 +13,6 @@ import PrimeFactorOscillations.Mathlib.NumberTheory.Metaplectic.Sp4EightTrace
 # Metaplectic arithmetic candidate exports
 
 Exports the G2 sevenfold/twelvefold and Sp4 eightfold signed models,
-their complete local Fourier energies, cubic readout and spectrum,
+their complete local Fourier energies, cubic spectrum and Jacobi packets,
 central compensation, and the existing quintic local-mass and cocycle models.
 -/

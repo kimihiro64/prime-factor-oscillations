@@ -23,6 +23,32 @@
     "Metaplectic.G2Seven.Cubic.residue_resonance",
     "Metaplectic.G2Seven.Cubic.source_nonresidue_carrier",
     "Metaplectic.G2Seven.Cubic.source_residue_carrier",
+    "Metaplectic.G2Seven.Jacobi.abel_packet_reciprocity",
+    "Metaplectic.G2Seven.Jacobi.balanced_corner",
+    "Metaplectic.G2Seven.Jacobi.coherent_mean_tendsto_X",
+    "Metaplectic.G2Seven.Jacobi.coherent_probe_eq",
+    "Metaplectic.G2Seven.Jacobi.coherent_probe_mean",
+    "Metaplectic.G2Seven.Jacobi.eigenvalue_eq",
+    "Metaplectic.G2Seven.Jacobi.euler_probe_mean",
+    "Metaplectic.G2Seven.Jacobi.extracted_eq",
+    "Metaplectic.G2Seven.Jacobi.extracted_lift",
+    "Metaplectic.G2Seven.Jacobi.finite_mean_continuous_X",
+    "Metaplectic.G2Seven.Jacobi.finite_probe_mean",
+    "Metaplectic.G2Seven.Jacobi.individual_period_box",
+    "Metaplectic.G2Seven.Jacobi.masked_cubic_mean",
+    "Metaplectic.G2Seven.Jacobi.masked_negation",
+    "Metaplectic.G2Seven.Jacobi.native_inverse_pairs",
+    "Metaplectic.G2Seven.Jacobi.native_norm_relations",
+    "Metaplectic.G2Seven.Jacobi.native_packet_reciprocity",
+    "Metaplectic.G2Seven.Jacobi.native_pair_products",
+    "Metaplectic.G2Seven.Jacobi.normalized_abel_readout",
+    "Metaplectic.G2Seven.Jacobi.packet6_swap",
+    "Metaplectic.G2Seven.Jacobi.physical_product",
+    "Metaplectic.G2Seven.Jacobi.powers_defect",
+    "Metaplectic.G2Seven.Jacobi.probe_mean",
+    "Metaplectic.G2Seven.Jacobi.radial_abel_limit",
+    "Metaplectic.G2Seven.Jacobi.radial_domain",
+    "Metaplectic.G2Seven.Jacobi.source_masked_carrier",
     "Metaplectic.G2Seven.Spectrum.complete_cubic_mean",
     "Metaplectic.G2Seven.Spectrum.cubic_sum",
     "Metaplectic.G2Seven.Spectrum.frequency_resonance",
@@ -116,7 +142,7 @@
     "Metaplectic.Sp4Eight.twistClass_fiber_card",
     "Metaplectic.Sp4Eight.unit_coordinate_survives"
   ],
-  "proof_status": "Nine maintained kernel-checked arithmetic modules: G2 sevenfold/twelvefold and Sp4 eightfold. Complete local energies, central compensation, sevenfold principal-preserving cubic readout and full cubic spectrum with formal scaling/Hodge classification. Source representation and actual Gauss/Hecke identifications remain separate cited inputs. No analytic boundary gain.",
+  "proof_status": "Eleven maintained kernel-checked arithmetic modules: G2 sevenfold/twelvefold and Sp4 eightfold. Complete energies, central compensation, full cubic spectrum, all eight principal-preserving Jacobi readouts, native-weight coupled packet reciprocity and nontrivial joint Abel limits. Representation and actual Gauss/Hecke identifications remain separate cited inputs; lifting is explicitly conditional. No analytic boundary gain.",
   "classification_scope": "principal structural mechanisms and selected low-degree cases, not a complete global automorphic classification",
   "overlap_scope": "current repo public/private QRH terminology search and specified prior notes; not exhaustive across sibling repositories",
   "sources": [
@@ -241,6 +267,11 @@
       "url": "https://github.com/openai/math/blob/main/preprints/Primitive-roots-for-every-admissible-integer-base-October-4-2026/build/sections/03-theta.tex",
       "source_blob": "d1fb734792b74e137d10b68624949ff75dc4d0c9",
       "role": "global cubic theta construction with specified central datum over larger fields"
+    },
+    {
+      "id": "kubert_lichtenbaum",
+      "url": "https://www.numdam.org/article/CM_1983__48_1_55_0.pdf",
+      "role": "Classical Jacobi-sum Hecke theory and modified-negative-Gauss Hasse-Davenport lifting, Proposition 2.12. Cited input, not a finite-field Lean theorem here."
     }
   ],
   "cases": [
@@ -616,8 +647,8 @@
       "additive_twist_energy": "1+8*t^2+13*t^4+16*t^6+4*t^8 for arbitrary unit complex g,h,j",
       "coherent_energy": "(1+8*t^2+13*t^4+16*t^6+4*t^8)/(1-t^2)^4",
       "coherent_convergence": "Kernel-checked HasSum over both infinite periods for 0<=t<1.",
-      "phase_information": "The complete second moment is phase blind. The compensated cubic residue/nonresidue projections recover A=g*h/j and its inverse at the same torus bidegree; kernel checked for arbitrary nonzero inputs.",
-      "global_status": "A paired local reciprocal-factor shape is kernel checked. Spherical/global Fourier identification, Hecke-character compatibility and an independent signed estimate remain unestablished.",
+      "phase_information": "Every one of the eight nonprincipal Jacobi triple types is recovered by its own principal-preserving compensated cubic probe. The complete second moment remains phase blind.",
+      "global_status": "Full local native-weight six-root packet, determinant coupling and boundary reciprocity are kernel checked, with a nontrivial joint Abel limit. Global Fourier/Hecke identification and an independent signed estimate remain unestablished.",
       "cubic_readout": {
         "principal": "P0=(1+t^2*X^2*Y^4)*(1+t^2*X*Y^2+t^2*X^4*Y)",
         "residue_grades": [
@@ -750,6 +781,67 @@
         "coverage": "Every sorted nonzero triple with sum zero modulo 7 is one of the eight table entries; exact kernel-checked finite classification.",
         "interpretation": "Classically these formal Gauss multisets have quadratic CM and degree-six CM natural fields before unitary normalization. The field/Galois and global Hecke identifications are not Lean theorems here.",
         "geometry": "Every t/X/Y weight is retained; the six repeated-entry terms are not an unweighted field trace at arbitrary physical torus parameters."
+      },
+      "jacobi_packets": {
+        "indexed_triples": [
+          [
+            1,
+            1,
+            5
+          ],
+          [
+            1,
+            2,
+            4
+          ],
+          [
+            1,
+            3,
+            3
+          ],
+          [
+            2,
+            2,
+            3
+          ],
+          [
+            2,
+            6,
+            6
+          ],
+          [
+            3,
+            5,
+            6
+          ],
+          [
+            4,
+            4,
+            6
+          ],
+          [
+            4,
+            5,
+            5
+          ]
+        ],
+        "probe": "1+((2*P0-S_mask)^3-P0^3)/m, m=3 or 6; all principal coordinates retained",
+        "root": "lambda_i=mean(probe_i)-1=-phase_i*weight_i; Euler probe 2-probe_i has mean 1-lambda_i",
+        "native_scales": "W=t^7*X^8*Y^9, R=t^2*X^7",
+        "determinants": [
+          "lambda_0*lambda_3*lambda_6=lambda_1*W^2",
+          "lambda_2*lambda_4*lambda_7=lambda_5*W^2"
+        ],
+        "paired_products": [
+          "lambda_0*lambda_4=W^2",
+          "R*lambda_2*lambda_6=W^2",
+          "lambda_3*lambda_7=R*W^2"
+        ],
+        "reciprocity": "At R=1, P(W^2*V,U)=W^6*P(U,V) for the homogeneous six-root packet; product of separately averaged probes.",
+        "abel_domain": "At t^2*X0^7=t^2*Y0^7=1, radial X=r*X0,Y=r*Y0, 0<=r<1, satisfies both absolute HasSum bounds. Left-neighborhood filter at r=1 is explicitly nontrivial.",
+        "balanced_corner": "For nonzero u: t=u^7,X0=Y0=u^(-2); all eight weights equal u^15. Dividing compensated mean-minus-one by u^15 yields the Abel limit -phase_i.",
+        "physical_cost": "For u=q^(-1/14), normalization costs q^(15/14). Every individual scalar absolute period box is s>15/14; no QRH gain.",
+        "lifting": "Conditional on -w_r=(-v_r)^n for every positive grade, extracted_i(w)=extracted_i(v)^n. Classical compatible finite-field lifting and torus scaling are separate inputs."
       }
     }
   },
@@ -791,7 +883,7 @@
     },
     {
       "case": "G2 degree 7",
-      "first_test": "Use the completed principal-preserving cubic phase readout to test a compatible global Fourier/Jacobi-Hecke construction, with physical t fixed and the absolute period-box range explicit.",
+      "first_test": "Use the completed all-eight Jacobi extraction and native six-root Abel packet to construct a compatible global Fourier/Jacobi-Hecke object. Retain the explicit q^(15/14) normalization, both periods, negative-Gauss lifting sign, prime seven and infinity types.",
       "advantage_to_test": "Rank two with root orders 7/7 and no mixed Gauss product in an individual functional coordinate; global field/conductor and signal remain to be checked.",
       "failure_condition": "The selected observable erases its target phase, or global reflection and conductor costs do not support a useful independent estimate."
     }

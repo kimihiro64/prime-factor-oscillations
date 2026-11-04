@@ -374,6 +374,67 @@
         "Metaplectic.G2Seven.Spectrum.hodge_repeated_representative",
         "Metaplectic.G2Seven.Spectrum.hodge_residue_representative"
       ]
+    },
+    {
+      "id": "G7-J1",
+      "claim": "Every one of the eight nonprincipal triples has a full source-coordinate masked probe with exact multiplicity 3 or 6, all principal coordinates, both compensated periods and its native phase-times-weight mean.",
+      "status": "kernel_checked_with_explicit_nonzero_gauss_inputs",
+      "declarations": [
+        "Metaplectic.G2Seven.Jacobi.masked_cubic_mean",
+        "Metaplectic.G2Seven.Jacobi.masked_negation",
+        "Metaplectic.G2Seven.Jacobi.probe_mean",
+        "Metaplectic.G2Seven.Jacobi.source_masked_carrier",
+        "Metaplectic.G2Seven.Jacobi.physical_product",
+        "Metaplectic.G2Seven.Jacobi.finite_probe_mean",
+        "Metaplectic.G2Seven.Jacobi.coherent_probe_eq",
+        "Metaplectic.G2Seven.Jacobi.coherent_probe_mean"
+      ]
+    },
+    {
+      "id": "G7-J2",
+      "claim": "The compensated coherent means have nontrivial joint radial Abel limits from the absolute convergence domain. At t=u^7 and X=Y=u^(-2), every weight is u^15, and normalized limits recover all eight negative phases. The fixed-Y filtered extension is not asserted nonvacuous.",
+      "status": "kernel_checked_with_explicit_boundary_and_nonzero_hypotheses",
+      "declarations": [
+        "Metaplectic.G2Seven.Jacobi.finite_mean_continuous_X",
+        "Metaplectic.G2Seven.Jacobi.coherent_mean_tendsto_X",
+        "Metaplectic.G2Seven.Jacobi.radial_domain",
+        "Metaplectic.G2Seven.Jacobi.radial_abel_limit",
+        "Metaplectic.G2Seven.Jacobi.balanced_corner",
+        "Metaplectic.G2Seven.Jacobi.normalized_abel_readout"
+      ]
+    },
+    {
+      "id": "G7-J3",
+      "claim": "All eight native weights satisfy 7*d=15+2*(a+b), and each has exactly the same scalar absolute period-box range s>15/14.",
+      "status": "kernel_checked_scalar_range",
+      "declarations": [
+        "Metaplectic.G2Seven.Jacobi.powers_defect",
+        "Metaplectic.G2Seven.Jacobi.individual_period_box"
+      ]
+    },
+    {
+      "id": "G7-J4",
+      "claim": "Mean-minus-one extracts the negative triple product, and the Euler probe has mean one minus that root. Its power-lifting identity assumes the explicit modified-Gauss amplitude lifting contract; a finite-field Hasse-Davenport theorem is not formalized here.",
+      "status": "kernel_checked_conditional_lifting",
+      "declarations": [
+        "Metaplectic.G2Seven.Jacobi.extracted_eq",
+        "Metaplectic.G2Seven.Jacobi.extracted_lift",
+        "Metaplectic.G2Seven.Jacobi.eigenvalue_eq",
+        "Metaplectic.G2Seven.Jacobi.euler_probe_mean"
+      ]
+    },
+    {
+      "id": "G7-J5",
+      "claim": "The six native roots retain exact quadratic-companion determinants and all torus distortions in their pair products. At the first period boundary their homogeneous packet is reciprocal, and this packet is the actual joint Abel limit of the product of separately averaged compensated probes.",
+      "status": "kernel_checked_full_native_weight_packet_and_abel_limit",
+      "declarations": [
+        "Metaplectic.G2Seven.Jacobi.native_norm_relations",
+        "Metaplectic.G2Seven.Jacobi.native_pair_products",
+        "Metaplectic.G2Seven.Jacobi.native_inverse_pairs",
+        "Metaplectic.G2Seven.Jacobi.packet6_swap",
+        "Metaplectic.G2Seven.Jacobi.native_packet_reciprocity",
+        "Metaplectic.G2Seven.Jacobi.abel_packet_reciprocity"
+      ]
     }
   ],
   "novelty": "Priority for the combined explicit formulas has not been established; source classification and Gauss identities are classical."

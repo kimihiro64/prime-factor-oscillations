@@ -45,6 +45,9 @@ phases; a principal-preserving cubic correlation recovers reciprocal
 sevenfold phase factors at the same torus bidegree. The eightfold case
 has a unique positive normalized central mixture canceling its free
 Jacobi phase with both period factors intact.
+All eight sevenfold Jacobi channels admit individual compensated
+readouts and normalized Abel limits. Their six-channel packet retains
+its native weights and becomes reciprocal at the period boundary.
 The arithmetic proofs are maintained in Lean; classical source inputs
 and global signal questions are stated separately.
 No new zero-free theorem is claimed. The installed local theorem remains
@@ -1000,6 +1003,149 @@ analytic estimate remain open here; the installed boundary stays
 $7/8$. Priority for this combined source-coordinate spectrum is
 not established.
 
+\section{All Jacobi readouts and a coupled boundary packet}
+\label{sec:G2-seven-jacobi}
+
+Number the eight preceding triple rows by $i=0,\ldots,7$, with
+phases $\phi_i$ and native weights $w_i=t^{d_i}X^{a_i}Y^{b_i}$.
+Let $m_i=6$ for rows 1 and 5, and $m_i=3$ otherwise.
+The mask for row $i$ keeps grade zero and the distinct nonzero
+grades in that row. Its full source projection $S_i(a)$ includes
+all six principal coordinates. Define
+\[
+ Q_i(a)=1+\frac{(2P_0-S_i(a))^3-P_0^3}{m_i}.
+\]
+For every row and every nonzero $g,h,j$, the exact theorem is
+\begin{equation}
+ \langle Q_i\rangle=1-\phi_iw_i .
+ \label{eq:all-jacobi-readouts}
+\end{equation}
+All eight source masks and their compensation are kernel checked.
+
+\emph{Proof.} No nonzero opposite pair survives in a mask, and its
+only fully nonprincipal zero-sum triple is the selected row, with
+multiplicity $m_i$. The complete cubic identity therefore gives,
+for arbitrary amplitudes,
+\[
+ \left\langle
+   \left(v_0-\sum_{r\ne0,\ r\ {\rm kept}}v_re_7(ar)\right)^3
+ \right\rangle=v_0^3-m_i\prod_{r\in T_i}v_r .
+\]
+Repeated entries of $T_i$ occur repeatedly in the product.
+Taking $v_0=P_0$ and substituting the actual seven torus amplitudes
+proves the formula, retaining every native weight.
+
+Write $\Delta=(1-t^2X^7)(1-t^2Y^7)$.
+Replace $S_i$ by $\Delta S_i^{\rm coh}$ to define the coherent
+probe $Q_i^{\rm coh}$. For $\Delta\ne0$ it equals $Q_i$
+pointwise. In the domain $|t^2X^7|<1$, $|t^2Y^7|<1$, the
+existing complete two-period summation theorem identifies
+$S_i^{\rm coh}=S_i/\Delta$ with the convergent infinite series.
+Both factors are compensated before cubing.
+
+The extracted native roots and Euler probes are
+\[
+ \lambda_i=\langle Q_i\rangle-1=-\phi_iw_i,\qquad
+ E_i=2-Q_i,\qquad \langle E_i\rangle=1-\lambda_i.
+\]
+The sign matters. Gao's local integral uses ordinary Gauss sums.
+Their norm/trace-compatible Hasse--Davenport lifting has sign
+$(-1)^{n-1}$; modified negative Gauss sums satisfy a power law
+\cite[Proposition 2.12]{KubertLichtenbaum}.
+Our formal lifting theorem explicitly assumes
+$-v'_r=(-v_r)^n$ for every positive grade $r$.
+It proves $\lambda_i(v')=\lambda_i(v)^n$ because
+$-\prod_{r\in T_i}v'_r=\prod_{r\in T_i}(-v'_r)$, a product
+of three factors. Both principal amplitudes remain arbitrary.
+Actual finite-field lifting, compatible torus scaling and choices
+of characters are separate classical inputs, not new Lean theorems.
+
+Put $W=t^7X^8Y^9$ and $R=t^2X^7$. The native roots satisfy
+\begin{align*}
+ \lambda_0\lambda_3\lambda_6&=\lambda_1W^2,&
+ \lambda_2\lambda_4\lambda_7&=\lambda_5W^2,\\
+ \lambda_0\lambda_4&=W^2,&
+ R\lambda_2\lambda_6&=W^2,&
+ \lambda_3\lambda_7&=RW^2.
+\end{align*}
+For the first determinant, $BD/C=A$ and the weights multiply to
+$W^3$; the second uses $C/(BD)=A^{-1}$. Direct substitution
+proves every displayed equality without dividing by $R$ or $W$.
+All are kernel checked with the original weights.
+
+At $R=1$, the three pairs have product $W^2$. Define
+\[
+ {\cal P}(U,V)=
+ \prod_{(i,k)\in\{(0,4),(2,6),(3,7)\}}
+       (U-\lambda_iV)(U-\lambda_kV).
+\]
+The exact homogeneous reciprocity theorem is
+\begin{equation}
+ {\cal P}(W^2V,U)=W^6{\cal P}(U,V).
+ \label{eq:native-packet-reciprocity}
+\end{equation}
+Indeed, for $ab=W^2$,
+\[
+ (W^2V-aU)(W^2V-bU)=W^2(U-aV)(U-bV).
+\]
+Multiply this identity for all three pairs. The proof includes
+$W=0$ and keeps every product cross term. This packet is a
+product of separately averaged probes, not the average of a
+same-twist product.
+
+There is a nonvacuous joint Abel limit. Suppose
+$t^2X_0^7=t^2Y_0^7=1$, and take $X=rX_0,Y=rY_0$ with
+$0\le r<1$. Both period ratios equal $r^7$; both full series
+converge absolutely, and $\Delta=(1-r^7)^2\ne0$.
+Continuity of the compensated finite polynomial gives
+\[
+ \lim_{r\to1^-}\langle Q_i^{\rm coh}(rX_0,rY_0)\rangle
+ =1-\phi_iw_i(t,X_0,Y_0).
+\]
+Lean explicitly verifies that this left-neighborhood filter is
+nontrivial. Subtract one and multiply the six limiting factors:
+the full coherent packet has Abel limit $\mathcal P$, satisfying
+\eqref{eq:native-packet-reciprocity}. No divergent period sum is
+evaluated at its pole. A separate fixed-$Y$ filtered-extension
+theorem is not claimed nonvacuous if its domain is empty.
+
+For $u\ne0$, a canonical common-scale corner is
+\[
+ t=u^7,\qquad X_0=Y_0=u^{-2}.
+\]
+Every row satisfies $7d_i=15+2(a_i+b_i)$, so both boundary
+equations hold and every $w_i=u^{15}$. Thus
+\begin{equation}
+ \lim_{r\to1^-}
+ \frac{\langle Q_i^{\rm coh}(ru^{-2},ru^{-2})\rangle-1}{u^{15}}
+ =-\phi_i .
+ \label{eq:normalized-jacobi-abel}
+\end{equation}
+This all-row normalized limit is kernel checked. It recovers
+the degree-six sector as well as the quadratic pair.
+
+The cost is explicit. With $u=q^{-1/14}$, normalization divides
+by $q^{-15/14}$. Every individual row also satisfies the sharp
+scalar absolute period-box equivalence
+\[
+ \exists\,\xi,\eta<1/7:\quad
+ a_i\xi+b_i\eta=d_i/2-s
+ \quad\Longleftrightarrow\quad s>15/14 .
+\]
+For necessity weight the two strict inequalities by $a_i,b_i>0$.
+For sufficiency take
+$\xi=\eta=(d_i/2-s)/(a_i+b_i)$ and use the exponent identity.
+The equivalence is formalized for all eight rows.
+
+These results expose all Jacobi channels and their coupled
+reciprocal boundary packet. They supply data for a global
+Fourier or Hecke construction beyond the first quadratic sector.
+They do not identify that global object, give a uniform bound
+after normalization, or continue its Euler product to a critical
+strip. No independent signed character estimate or QRH gain
+is proved; the installed boundary stays $7/8$.
+Priority for this combined construction is not established.
+
 \section{A complete twelvefold $G_2$ coordinate calculation}
 \label{sec:G2-coordinates}
 
@@ -1499,5 +1645,9 @@ manuscript v1, 3 November 2026. Source statement only; not audited here.
 \bibitem{Watkins} M. Watkins, \emph{Jacobi sums and Gr\"ossencharacters},
 Publications math\'ematiques de Besan\c{c}on (2018), 111--122.
 \url{https://www.numdam.org/article/PMB_2018____111_0.pdf}.
+\bibitem{KubertLichtenbaum} D. Kubert and S. Lichtenbaum,
+\emph{Jacobi-sum Hecke characters and Gauss-sum identities},
+Compositio Mathematica 48 (1983), 55--87, Proposition 2.12.
+\url{https://www.numdam.org/article/CM_1983__48_1_55_0.pdf}.
 \end{thebibliography}
 \end{document}

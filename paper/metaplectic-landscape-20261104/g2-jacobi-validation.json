@@ -1,0 +1,151 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-04",
+  "scope": "G2 degree-seven full source Jacobi readouts, coupled native-weight packet and joint Abel boundary extraction",
+  "status": "kernel_checked_local_arithmetic; global interpretation and analytic gain open",
+  "new_public_declarations": [
+    "Metaplectic.G2Seven.Jacobi.abel_packet_reciprocity",
+    "Metaplectic.G2Seven.Jacobi.balanced_corner",
+    "Metaplectic.G2Seven.Jacobi.coherent_mean_tendsto_X",
+    "Metaplectic.G2Seven.Jacobi.coherent_probe_eq",
+    "Metaplectic.G2Seven.Jacobi.coherent_probe_mean",
+    "Metaplectic.G2Seven.Jacobi.eigenvalue_eq",
+    "Metaplectic.G2Seven.Jacobi.euler_probe_mean",
+    "Metaplectic.G2Seven.Jacobi.extracted_eq",
+    "Metaplectic.G2Seven.Jacobi.extracted_lift",
+    "Metaplectic.G2Seven.Jacobi.finite_mean_continuous_X",
+    "Metaplectic.G2Seven.Jacobi.finite_probe_mean",
+    "Metaplectic.G2Seven.Jacobi.individual_period_box",
+    "Metaplectic.G2Seven.Jacobi.masked_cubic_mean",
+    "Metaplectic.G2Seven.Jacobi.masked_negation",
+    "Metaplectic.G2Seven.Jacobi.native_inverse_pairs",
+    "Metaplectic.G2Seven.Jacobi.native_norm_relations",
+    "Metaplectic.G2Seven.Jacobi.native_packet_reciprocity",
+    "Metaplectic.G2Seven.Jacobi.native_pair_products",
+    "Metaplectic.G2Seven.Jacobi.normalized_abel_readout",
+    "Metaplectic.G2Seven.Jacobi.packet6_swap",
+    "Metaplectic.G2Seven.Jacobi.physical_product",
+    "Metaplectic.G2Seven.Jacobi.powers_defect",
+    "Metaplectic.G2Seven.Jacobi.probe_mean",
+    "Metaplectic.G2Seven.Jacobi.radial_abel_limit",
+    "Metaplectic.G2Seven.Jacobi.radial_domain",
+    "Metaplectic.G2Seven.Jacobi.source_masked_carrier"
+  ],
+  "source_hashes": [
+    {
+      "path": "PrimeFactorOscillations/Mathlib/NumberTheory/Metaplectic/G2SevenJacobiReadout.lean",
+      "sha256": "D8343291C67A1C2CD890F9125D26036BEEE3FEF07C67C476094CB4B7EA7EB877"
+    },
+    {
+      "path": "PrimeFactorOscillations/Mathlib/NumberTheory/Metaplectic/G2SevenJacobiPackets.lean",
+      "sha256": "59CAAA0F1DD3627F63A7E7B574AB8E676C0C9146A0301B8009BD4DC47038B297"
+    },
+    {
+      "path": "PrimeFactorOscillations/Mathlib/NumberTheory/Metaplectic/All.lean",
+      "sha256": "E5726F872C61241B641D677A07F531F5911315D1130C41329C3A8A7C350030BA"
+    },
+    {
+      "path": "scripts/metaplectic_proof_targets.py",
+      "sha256": "67801516F11979F4006576D2EDA6C8101842C20596DF1B4B3485EAFC8AD974EE"
+    },
+    {
+      "path": "MATHLIB_PORTING.md",
+      "sha256": "893F4686261CD4D6F0982D802C2E7BF60C6B52F91A0CD2C34C672EE6FC170963"
+    },
+    {
+      "path": "paper/metaplectic-landscape-20261104/main.tex",
+      "sha256": "5CB52C54EA52F33EFA71AEB561CEA8D4D196C17C4D68A3FEF9F87F89F95A9787"
+    },
+    {
+      "path": "paper/metaplectic-landscape-20261104/cases.json",
+      "sha256": "86F471833C4D21BA27BEF1C3B8BC85C8EAD4D16972243FE4DC4A14BDF9448824"
+    },
+    {
+      "path": "paper/metaplectic-landscape-20261104/claims.json",
+      "sha256": "B03B4C42BD44301E2C17EC2D921F2E73B0B0D05362076F5DF4B4745BA6CD5B2C"
+    }
+  ],
+  "checks": {
+    "source_compilation": "Both maintained leaves compiled with pinned cached Lean; source gates, license headers and compiler options preserved.",
+    "facade": "Actual Metaplectic.All compiled.",
+    "public_export": "All 26 new declarations checked through import Solution.",
+    "axiom_closures": "Only these 26 new declaration closures audited.",
+    "allowed_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "required_staged_gate": "scripts/check.py --profile fast on all nine intended staged paths, plus Ruff check/format for changed Python registry; exclude five unrelated finite-field edits."
+  },
+  "compiler": {
+    "executable": "C:/Users/jonas/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+    "version": "4.34.0",
+    "flags": [
+      "-j",
+      "1",
+      "-s",
+      "65536",
+      "-M",
+      "8192"
+    ],
+    "options": [
+      "autoImplicit false",
+      "Elab.async false",
+      "maxRecDepth 4096",
+      "maxHeartbeats 4000000"
+    ],
+    "environment": "Existing repository olean and shared primegaps434 objects only; no dependency fetching."
+  },
+  "mathematics": {
+    "quantifiers": "Every i:Fin 8, all complex t,X,Y and nonzero complex g,h,j; boundary and normalization hypotheses explicitly retained.",
+    "readout": "Mean(Q_i)=1-phase_i*weight_i; masks retain all principal coordinates; multiplicity 3 or 6.",
+    "lift": "Conditional algebraic theorem assuming -w_r=(-v_r)^n for all positive grades. Actual finite-field Hasse-Davenport and compatible torus scaling are not proved in Lean here.",
+    "native_coupling": "W=t^7 X^8 Y^9, R=t^2 X^7; lambda0 lambda3 lambda6=lambda1 W^2; lambda2 lambda4 lambda7=lambda5 W^2; lambda0 lambda4=W^2; R lambda2 lambda6=W^2; lambda3 lambda7=R W^2.",
+    "full_consumer": "For t^2 X0^7=t^2 Y0^7=1, the product of six separately averaged compensated coherent roots has a nontrivial radial Abel limit; its complete homogeneous packet P satisfies P(W^2 V,U)=W^6 P(U,V). Every native weight and cross term remains.",
+    "normalization": "t=u^7, X0=Y0=u^(-2), u nonzero, makes every weight u^15. All normalized coherent readouts tend to -phase_i from the joint absolute-convergence domain.",
+    "range": "For each row, exists real xi,eta<1/7 with a_i xi+b_i eta=d_i/2-s iff s>15/14. Physical boundary extraction costs q^(15/14).",
+    "excluded_claims": [
+      "global automorphic Fourier identification",
+      "new finite-field Hasse-Davenport theorem",
+      "global Hecke L-function identity",
+      "independent signed analytic estimate",
+      "improved QRH exponent"
+    ]
+  },
+  "primary_sources": [
+    {
+      "url": "https://arxiv.org/html/1602.01880v3",
+      "role": "Ordinary-Gauss source convention and local coordinate formulas."
+    },
+    {
+      "url": "https://www.numdam.org/article/CM_1983__48_1_55_0.pdf",
+      "role": "Classical modified-negative-Gauss lifting, Proposition 2.12; cited input."
+    }
+  ],
+  "latex": {
+    "status": "compile-failed after successful 26-page XDV typesetting",
+    "blocker": "Built-in compiler cannot embed msam10.pfb: font download/access denied; xdvipdfmx fatal error.",
+    "pdf_success": false
+  },
+  "benchmark_status": "local arithmetic only; no completed global analytic bound",
+  "old_bound": "7/8",
+  "new_bound": "7/8",
+  "components": {
+    "proved": [
+      "all-eight source masks and compensated means",
+      "native determinant and pair coupling",
+      "homogeneous boundary reciprocity",
+      "joint Abel domain and nontrivial limits",
+      "common-scale all-eight extraction",
+      "sharp scalar absolute period-box threshold"
+    ],
+    "unproved": [
+      "global Fourier/Hecke identification",
+      "uniform global estimate after q^(15/14) normalization",
+      "independent signed arithmetic saving"
+    ]
+  },
+  "actuals": null,
+  "first_nonpositive_domain": null,
+  "novelty_priority": "Not established for combined source-coordinate formulas; source representation and Gauss/Jacobi identities are classical."
+}
