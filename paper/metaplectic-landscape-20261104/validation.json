@@ -1,0 +1,244 @@
+{
+  "date": "2026-11-04",
+  "artifact_kind": "historical survey-only validation receipt",
+  "historical_snapshot": true,
+  "current_claim_ledger": "claims.json",
+  "current_lean_receipt": "g2-validation.json",
+  "artifacts": [
+    {
+      "name": "main.tex",
+      "sha256": "5ED5CA91143D26140C6EBB72135A93289ABC892AF330ED0BE471F1D787E13A5B",
+      "bytes": 35041
+    },
+    {
+      "name": "cases.json",
+      "sha256": "FFC114B420BCE2C1B4BE9A3ECC1521F1033342068E40F7B430A44E6578F6B8A4",
+      "bytes": 12629
+    },
+    {
+      "name": "local-classification.mjs",
+      "sha256": "B8D1267474AADFB178E7AAEBC4F97000DD36650DF1C17901EE3EA05F0689098E",
+      "bytes": 2679
+    }
+  ],
+  "local_script": {
+    "exit_code": 0,
+    "command": "C:\\Users\\jonas\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe local-classification.mjs",
+    "result": {
+      "scope": "Exact finite local algebra; no analytic extrapolation",
+      "quintic_isotropic_supported_states": [
+        {
+          "v": [
+            0,
+            0,
+            0
+          ],
+          "power": 0,
+          "height": 0,
+          "defect": 0
+        },
+        {
+          "v": [
+            1,
+            1,
+            1
+          ],
+          "power": 1,
+          "height": 6,
+          "defect": 5
+        },
+        {
+          "v": [
+            2,
+            2,
+            2
+          ],
+          "power": 3,
+          "height": 12,
+          "defect": 9
+        },
+        {
+          "v": [
+            3,
+            3,
+            3
+          ],
+          "power": 4,
+          "height": 18,
+          "defect": 14
+        }
+      ],
+      "quintic_torus_cocycle_on_diagonal": -25,
+      "quintic_pairing_on_diagonal": 50,
+      "g2": [
+        {
+          "n": 7,
+          "rootPeriods": [
+            7,
+            7
+          ],
+          "quotientSize": 49,
+          "orbits": [
+            {
+              "representative": [
+                0,
+                0
+              ],
+              "size": 12
+            },
+            {
+              "representative": [
+                0,
+                2
+              ],
+              "size": 6
+            },
+            {
+              "representative": [
+                0,
+                3
+              ],
+              "size": 6
+            },
+            {
+              "representative": [
+                0,
+                4
+              ],
+              "size": 6
+            },
+            {
+              "representative": [
+                1,
+                3
+              ],
+              "size": 6
+            },
+            {
+              "representative": [
+                1,
+                4
+              ],
+              "size": 6
+            },
+            {
+              "representative": [
+                4,
+                0
+              ],
+              "size": 6
+            },
+            {
+              "representative": [
+                5,
+                3
+              ],
+              "size": 1
+            }
+          ],
+          "freeOrbits": 1
+        },
+        {
+          "n": 12,
+          "rootPeriods": [
+            12,
+            4
+          ],
+          "quotientSize": 48,
+          "orbits": [
+            {
+              "representative": [
+                0,
+                0
+              ],
+              "size": 12
+            },
+            {
+              "representative": [
+                0,
+                2
+              ],
+              "size": 6
+            },
+            {
+              "representative": [
+                1,
+                1
+              ],
+              "size": 6
+            },
+            {
+              "representative": [
+                1,
+                3
+              ],
+              "size": 2
+            },
+            {
+              "representative": [
+                2,
+                0
+              ],
+              "size": 6
+            },
+            {
+              "representative": [
+                2,
+                1
+              ],
+              "size": 6
+            },
+            {
+              "representative": [
+                3,
+                2
+              ],
+              "size": 6
+            },
+            {
+              "representative": [
+                5,
+                1
+              ],
+              "size": 3
+            },
+            {
+              "representative": [
+                5,
+                3
+              ],
+              "size": 1
+            }
+          ],
+          "freeOrbits": 1
+        }
+      ]
+    }
+  },
+  "catalog": {
+    "parse": "passed",
+    "cases": 10,
+    "sources": 16
+  },
+  "latex": {
+    "status": "blocked by unavailable package cache",
+    "successful_compile": false,
+    "pdf_created": false,
+    "attempts": 3,
+    "last_missing_package": "longtable.sty",
+    "cause": "Tectonic package download/open failed with Access is denied (os error 5); no TeX Live installation detected",
+    "source_changes_after_last_attempt": "added higher-degree inverse Euler factor scope section; final source remains uncompiled because the package prerequisite is unavailable"
+  },
+  "mathematics": {
+    "new_analytic_bound": false,
+    "new_lean_theorem": false,
+    "installed_local_boundary": "7/8",
+    "external_boundary_claims_imported": false,
+    "goal_status": "old goal remains paused"
+  },
+  "preservation": {
+    "previous_finite_field_edits": "untouched",
+    "commit_created": false,
+    "push_performed": false
+  }
+}

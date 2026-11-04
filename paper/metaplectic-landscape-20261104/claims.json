@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-04",
+  "scope": "Complete twelvefold G2 arithmetic coordinate model and local additive-twist average; no global QRH claim.",
+  "claims": [
+    {
+      "id": "G2-01",
+      "claim": "The full rectangle has 48 classes and the supported root orbit has exactly 12 coordinates.",
+      "status": "kernel_checked_arithmetic_model",
+      "declarations": [
+        "Metaplectic.G2Twelve.support_card",
+        "Metaplectic.G2Twelve.supported_reflect",
+        "Metaplectic.G2Twelve.path_reaches"
+      ]
+    },
+    {
+      "id": "G2-02",
+      "claim": "Every short and long root step preserves the complete degree/Gauss-phase table; no unrepresented G2 or G10 factor is used.",
+      "status": "kernel_checked_arithmetic_model",
+      "declarations": [
+        "Metaplectic.G2Twelve.degree_reflect",
+        "Metaplectic.G2Twelve.phase_reflect",
+        "Metaplectic.G2Twelve.gaussArgument_allowed",
+        "Metaplectic.G2Twelve.gaussArgument_nonzero"
+      ]
+    },
+    {
+      "id": "G2-03",
+      "claim": "The degree recurrence is unique on the supported orbit.",
+      "status": "kernel_checked",
+      "declarations": [
+        "Metaplectic.G2Twelve.degree_unique"
+      ]
+    },
+    {
+      "id": "G2-04",
+      "claim": "The complete two-variable signed numerator factors as displayed in the paper.",
+      "status": "kernel_checked_with_explicit_nonzero_denominator",
+      "declarations": [
+        "Metaplectic.G2Twelve.signedNumerator_factorization"
+      ]
+    },
+    {
+      "id": "G2-05",
+      "claim": "The residue/period expansion covers every natural coordinate pair exactly once and the arithmetic mass sums to (1-x^3)/(1-x)^3 for 0<=x<1.",
+      "status": "kernel_checked",
+      "declarations": [
+        "Metaplectic.G2Twelve.packetOf_coordinates",
+        "Metaplectic.G2Twelve.coordinates_packetOf",
+        "Metaplectic.G2Twelve.massTerm_hasSum",
+        "Metaplectic.G2Twelve.localTerm_hasSum"
+      ]
+    },
+    {
+      "id": "G2-06",
+      "claim": "The additive-twist grade is Q(a,b) mod 12 and exactly six grades occur, twice each.",
+      "status": "kernel_checked_arithmetic_model",
+      "declarations": [
+        "Metaplectic.G2Twelve.twistClass_eq_quadraticClass",
+        "Metaplectic.G2Twelve.twistClass_fiber_card"
+      ]
+    },
+    {
+      "id": "G2-07",
+      "claim": "All twelve coordinates form six coherent pairs, and the full finite Fourier average retains every same-grade cross term.",
+      "status": "kernel_checked_for_arbitrary_unit_complex_phases",
+      "declarations": [
+        "Metaplectic.G2Twelve.twistNumerator_six_pairs",
+        "Metaplectic.G2Twelve.pairCoefficient_eq_sum",
+        "Metaplectic.G2Twelve.finiteSignal_pairCoefficient",
+        "Metaplectic.G2Twelve.finiteSignal_parseval",
+        "Metaplectic.G2Twelve.additive_twist_energy",
+        "Metaplectic.G2Twelve.pairCoefficient_energy_expansion"
+      ]
+    },
+    {
+      "id": "G2-08",
+      "claim": "Duplication/triplication algebra gives B*C=1, C^2=u, C^4=1 and the reciprocal signed energy.",
+      "status": "kernel_checked_conditional_algebra",
+      "hypotheses": [
+        "g=k*j^2",
+        "g*k=u*h^2",
+        "e^2=1",
+        "u^2=1",
+        "stated nonzero or unit-norm hypotheses"
+      ],
+      "declarations": [
+        "Metaplectic.G2Twelve.coherence_product",
+        "Metaplectic.G2Twelve.coherence_square",
+        "Metaplectic.G2Twelve.coherence_fourth",
+        "Metaplectic.G2Twelve.pairCoefficient_reciprocal_energy"
+      ]
+    },
+    {
+      "id": "G2-09",
+      "claim": "Actual finite-field Gauss sums satisfy the duplication/triplication input relations when q=1 mod 24.",
+      "status": "classical_cited_ordinary_input_not_formalized_here",
+      "sources": [
+        "Evans-Greene (1.5)-(1.6)",
+        "Gauss inverse-pair formula",
+        "quadratic supplementary laws"
+      ]
+    },
+    {
+      "id": "G2-10",
+      "claim": "A=J(chi,chi^5)/sqrt(q), with J in Z[i] and norm q.",
+      "status": "ordinary_proof_in_paper_not_formalized_here",
+      "sources": [
+        "Gauss-Jacobi identity",
+        "cyclotomic automorphism zeta12 -> zeta12^5",
+        "integer ring of Q(i)"
+      ]
+    },
+    {
+      "id": "G2-11",
+      "claim": "The model identifies the chosen source Whittaker-functional coordinates under Gao's unramified hypotheses and convention.",
+      "status": "source_dependent_representation_theoretic_input_not_formalized",
+      "sources": [
+        "Gao Section 3.1, Corollary 3.7, Theorem 7.1"
+      ]
+    },
+    {
+      "id": "G2-12",
+      "claim": "Identify the actual spherical/global Fourier coefficient and its reciprocal target L-factor.",
+      "status": "not_established",
+      "declarations": []
+    },
+    {
+      "id": "G2-13",
+      "claim": "Prove the full moving-twist reflection and an independent signed global estimate improving the installed boundary.",
+      "status": "not_established",
+      "installed_boundary": "7/8",
+      "new_boundary": null,
+      "declarations": []
+    }
+  ],
+  "novelty": "Priority for the combined explicit formulas has not been established; source classification and Gauss identities are classical."
+}

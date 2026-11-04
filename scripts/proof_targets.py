@@ -3,6 +3,7 @@
 from scripts.completed_research_proof_targets import COMPLETED_RESEARCH_THEOREMS
 from scripts.family_rh_proof_targets import FAMILY_RH_THEOREMS
 from scripts.lpf_proof_targets import LPF_THEOREMS
+from scripts.metaplectic_proof_targets import METAPLECTIC_THEOREMS
 from scripts.post_paper_proof_targets import POST_PAPER_THEOREMS
 from scripts.probe_euler_proof_targets import PROBE_EULER_THEOREMS
 from scripts.qrh_proof_targets import QRH_THEOREMS
@@ -238,4 +239,5 @@ THEOREMS = (
     + SPARSE_RH_THEOREMS
     + PROBE_EULER_THEOREMS
     + COMPLETED_RESEARCH_THEOREMS
+    + METAPLECTIC_THEOREMS
 )

@@ -1,0 +1,518 @@
+{
+  "review_date": "2026-11-04",
+  "artifact_kind": "research survey, external-source map and exact local calculations",
+  "old_goal_status": "The prior H1/finite-field line remains paused; the standing goal is active on metaplectic exploration.",
+  "installed_local_boundary": "7/8",
+  "new_local_boundary": null,
+  "new_lean_theorems": [
+    "Metaplectic.G2Twelve.additive_twist_energy",
+    "Metaplectic.G2Twelve.coherence_fourth",
+    "Metaplectic.G2Twelve.coherence_product",
+    "Metaplectic.G2Twelve.coherence_square",
+    "Metaplectic.G2Twelve.coordinates_packetOf",
+    "Metaplectic.G2Twelve.degree_reflect",
+    "Metaplectic.G2Twelve.degree_unique",
+    "Metaplectic.G2Twelve.finiteSignal_pairCoefficient",
+    "Metaplectic.G2Twelve.finiteSignal_parseval",
+    "Metaplectic.G2Twelve.gaussArgument_allowed",
+    "Metaplectic.G2Twelve.gaussArgument_nonzero",
+    "Metaplectic.G2Twelve.localTerm_hasSum",
+    "Metaplectic.G2Twelve.massTerm_hasSum",
+    "Metaplectic.G2Twelve.numerator_factorization",
+    "Metaplectic.G2Twelve.numerator_period_identity",
+    "Metaplectic.G2Twelve.packetOf_coordinates",
+    "Metaplectic.G2Twelve.pairCoefficient_energy",
+    "Metaplectic.G2Twelve.pairCoefficient_energy_expansion",
+    "Metaplectic.G2Twelve.pairCoefficient_eq_sum",
+    "Metaplectic.G2Twelve.pairCoefficient_reciprocal_energy",
+    "Metaplectic.G2Twelve.path_reaches",
+    "Metaplectic.G2Twelve.periodTerm_hasSum",
+    "Metaplectic.G2Twelve.phase_reflect",
+    "Metaplectic.G2Twelve.signedNumerator_factorization",
+    "Metaplectic.G2Twelve.support_card",
+    "Metaplectic.G2Twelve.supported_reflect",
+    "Metaplectic.G2Twelve.twistClass_eq_quadraticClass",
+    "Metaplectic.G2Twelve.twistClass_fiber_card",
+    "Metaplectic.G2Twelve.twistNumerator_six_pairs"
+  ],
+  "proof_status": "Two kernel-checked maintained arithmetic modules; representation theory, finite-field Hasse-Davenport and the Gaussian Jacobi interpretation remain explicitly separated ordinary inputs. No analytic boundary gain.",
+  "classification_scope": "principal structural mechanisms and selected low-degree cases, not a complete global automorphic classification",
+  "overlap_scope": "current repo public/private QRH terminology search and specified prior notes; not exhaustive across sibling repositories",
+  "sources": [
+    {
+      "id": "evans_greene",
+      "url": "https://www.d.umn.edu/~jgreene/papers/Evaluations_Hiroshima.pdf",
+      "role": "Classical duplication and triplication formulas (1.5)-(1.6); cited ordinary inputs, not newly formalized Hasse-Davenport."
+    },
+    {
+      "id": "qrh_original",
+      "url": "https://github.com/openai/math/tree/main/preprints/The-Quasi-Riemann-Hypothesis-September-30-2026",
+      "role": "installed baseline and original signed consumer",
+      "status": "existing local theorem; source consumer read",
+      "source_blob": "268c4e3206d460c617d3d2129742a72b831b3def"
+    },
+    {
+      "id": "de_faveri_fixed_order",
+      "url": "https://arxiv.org/abs/2610.04045v1",
+      "version": "2026-10-02 v1",
+      "status": "external theorem statement read; already known in 2026-10-07 project note",
+      "domain": "fixed r>=3, fixed K containing mu_r, fixed S and family data; r-th-power-free ideals",
+      "kernel": "A+B+A^(1-1/r)*B^(2/r)+A^(2/r)*B^(1-1/r)"
+    },
+    {
+      "id": "gao",
+      "url": "https://arxiv.org/abs/1602.01880v3",
+      "version": "2017-10-06 v3",
+      "status": "unramified local theta classification read",
+      "hypotheses": "characteristic-zero nonarchimedean field, tame unramified BD cover, specified quadratic datum and exceptional genuine character",
+      "theorems": [
+        "1.1",
+        "1.2",
+        "5.3",
+        "6.2",
+        "7.1"
+      ]
+    },
+    {
+      "id": "liu_field",
+      "url": "https://arxiv.org/abs/2610.26835v2",
+      "version": "2026-10-29 v2",
+      "status": "external theorem statement and structural dependency read; proof not audited locally",
+      "boundary": "0.874886647039964...",
+      "scope": "all finite-order Hecke L-functions over all number fields, field-dependent thresholds/constants"
+    },
+    {
+      "id": "liu_latest",
+      "url": "https://hexagonmath.org/pdf/2610.00655v2",
+      "version": "2026-11-03 v2",
+      "status": "external main theorem read; Lean formalization in progress per author; not imported locally",
+      "boundary": "0.87407284766682790777...",
+      "polynomial": [
+        178848,
+        -507168,
+        522846,
+        -231405,
+        37099
+      ],
+      "interval": [
+        "0.87407284",
+        "0.87407285"
+      ]
+    },
+    {
+      "id": "quartic_observation",
+      "url": "https://rstation.ai/problems/riemann_hypothesis/papers/103",
+      "version": "2026-11-03 v1",
+      "status": "author's research manuscript; complete proof not audited here",
+      "domain": "B>=C>=2; fixed smooth profiles; arbitrary bounded first coefficients for the stated comparison",
+      "comparison_error": "(CB)^epsilon C^(1/2) B^(3/4) (C/B)^A",
+      "balanced_error": "X^(5/4+epsilon)",
+      "independent_bound": "not supplied",
+      "zero_free_gain": "none claimed by source"
+    },
+    {
+      "id": "ddhl",
+      "url": "https://arxiv.org/abs/2306.11875v5",
+      "role": "quartic square-index theta information and averaged Type-I / quadratic Type-II"
+    },
+    {
+      "id": "fddh",
+      "url": "https://arxiv.org/abs/2607.07911v2",
+      "role": "Gauss-bias non-orthogonality; not a finite-rank residual-operator theorem"
+    },
+    {
+      "id": "dunn_cusp",
+      "url": "https://arxiv.org/abs/2403.13151v2",
+      "role": "fixed cubic cusp-form prime estimates"
+    },
+    {
+      "id": "broker_hoffstein",
+      "url": "https://arxiv.org/abs/1312.0568",
+      "role": "quintic/sextic rank-one Hecke orbits; conjectures remain labeled as source conjectures"
+    },
+    {
+      "id": "weissman",
+      "url": "https://arxiv.org/abs/1507.01042v2",
+      "role": "covering-group L-groups and local parameterizations"
+    },
+    {
+      "id": "fg_descent",
+      "url": "https://arxiv.org/abs/1403.3930v3",
+      "role": "quartic/sextic descent, with stated conjectural identifications"
+    },
+    {
+      "id": "fg_symplectic",
+      "url": "https://arxiv.org/abs/1601.04970",
+      "role": "symplectic descent and sixfold Sp4 case; general cases retain hypotheses"
+    },
+    {
+      "id": "cg",
+      "url": "https://arxiv.org/abs/0803.0691v2",
+      "role": "multivariable Weyl functional equations, not a moving-twist moment bound"
+    },
+    {
+      "id": "bbf",
+      "url": "https://annals.math.princeton.edu/2011/173-2/p13",
+      "role": "type-A metaplectic Eisenstein coefficient formulas"
+    },
+    {
+      "id": "primitive",
+      "url": "https://github.com/openai/math/blob/main/preprints/Primitive-roots-for-every-admissible-integer-base-October-4-2026/build/sections/03-theta.tex",
+      "source_blob": "d1fb734792b74e137d10b68624949ff75dc4d0c9",
+      "role": "global cubic theta construction with specified central datum over larger fields"
+    }
+  ],
+  "cases": [
+    {
+      "degree": 2,
+      "group": "Weil / Mp",
+      "cyclotomic_degree": 1,
+      "status": "classical structural source; no automatic reciprocal detector"
+    },
+    {
+      "degree": 3,
+      "group": "GL2",
+      "cyclotomic_degree": 2,
+      "status": "installed QRH input",
+      "twist_order": 6
+    },
+    {
+      "degree": 4,
+      "group": "GL2 vector; special GL3 theta",
+      "cyclotomic_degree": 2,
+      "status": "known quartic summation, prior project Gaussian work; new external complete observation to audit"
+    },
+    {
+      "degree": 5,
+      "group": "GL4 special; Sp4",
+      "cyclotomic_degree": 4,
+      "status": "GL4 local model maintained; global bridge open; Sp4 alternative not resolved"
+    },
+    {
+      "degree": 6,
+      "group": "genuine GL2 sextic theta; Sp4",
+      "cyclotomic_degree": 2,
+      "status": "distinct from cubic theta with sextic twists; descent/source hypotheses retained"
+    },
+    {
+      "degree": 7,
+      "group": "special GL6; G2",
+      "cyclotomic_degree": 6,
+      "status": "G2 unramified distinguished model; no constructed QRH detector"
+    },
+    {
+      "degree": 8,
+      "group": "special GL7; Sp4",
+      "cyclotomic_degree": 4,
+      "status": "Sp4 unramified distinguished model; global roots-of-unity requirement unresolved for selected detector",
+      "root_orders": [
+        8,
+        4
+      ]
+    },
+    {
+      "degree": 9,
+      "group": "GL2 vector; special GL8",
+      "cyclotomic_degree": 6,
+      "status": "not constructed as a QRH detector"
+    },
+    {
+      "degree": 10,
+      "group": "Sp4; special GL9",
+      "cyclotomic_degree": 4,
+      "status": "Sp4 distinguished with exceptional-character condition; no QRH detector"
+    },
+    {
+      "degree": 12,
+      "group": "G2; special GL11",
+      "cyclotomic_degree": 4,
+      "status": "Complete G2 functional-coordinate arithmetic model and six-channel average maintained in Lean; no spherical/global QRH detector identified.",
+      "root_orders": [
+        12,
+        4
+      ]
+    }
+  ],
+  "exact_calculations": {
+    "quintic_isotropic_supported_states": [
+      {
+        "v": [
+          0,
+          0,
+          0
+        ],
+        "power": 0,
+        "height": 0,
+        "defect": 0
+      },
+      {
+        "v": [
+          1,
+          1,
+          1
+        ],
+        "power": 1,
+        "height": 6,
+        "defect": 5
+      },
+      {
+        "v": [
+          2,
+          2,
+          2
+        ],
+        "power": 3,
+        "height": 12,
+        "defect": 9
+      },
+      {
+        "v": [
+          3,
+          3,
+          3
+        ],
+        "power": 4,
+        "height": 18,
+        "defect": 14
+      }
+    ],
+    "quintic_pairing_diagonal": 50,
+    "g2": [
+      {
+        "n": 7,
+        "rootPeriods": [
+          7,
+          7
+        ],
+        "quotientSize": 49,
+        "orbits": [
+          {
+            "representative": [
+              0,
+              0
+            ],
+            "size": 12
+          },
+          {
+            "representative": [
+              0,
+              2
+            ],
+            "size": 6
+          },
+          {
+            "representative": [
+              0,
+              3
+            ],
+            "size": 6
+          },
+          {
+            "representative": [
+              0,
+              4
+            ],
+            "size": 6
+          },
+          {
+            "representative": [
+              1,
+              3
+            ],
+            "size": 6
+          },
+          {
+            "representative": [
+              1,
+              4
+            ],
+            "size": 6
+          },
+          {
+            "representative": [
+              4,
+              0
+            ],
+            "size": 6
+          },
+          {
+            "representative": [
+              5,
+              3
+            ],
+            "size": 1
+          }
+        ],
+        "freeOrbits": 1
+      },
+      {
+        "n": 12,
+        "rootPeriods": [
+          12,
+          4
+        ],
+        "quotientSize": 48,
+        "orbits": [
+          {
+            "representative": [
+              0,
+              0
+            ],
+            "size": 12
+          },
+          {
+            "representative": [
+              0,
+              2
+            ],
+            "size": 6
+          },
+          {
+            "representative": [
+              1,
+              1
+            ],
+            "size": 6
+          },
+          {
+            "representative": [
+              1,
+              3
+            ],
+            "size": 2
+          },
+          {
+            "representative": [
+              2,
+              0
+            ],
+            "size": 6
+          },
+          {
+            "representative": [
+              2,
+              1
+            ],
+            "size": 6
+          },
+          {
+            "representative": [
+              3,
+              2
+            ],
+            "size": 6
+          },
+          {
+            "representative": [
+              5,
+              1
+            ],
+            "size": 3
+          },
+          {
+            "representative": [
+              5,
+              3
+            ],
+            "size": 1
+          }
+        ],
+        "freeOrbits": 1
+      }
+    ]
+  },
+  "quantifiers": {
+    "quintic_quantifier": "For every residue triple v in (Z/5Z)^3; the maintained local-model support is periodic modulo 5. This is an exact 125-state algebraic classification, not a prime sample or an analytic estimate.",
+    "g2_quantifier": "For each fixed cover degree n in {7,12}, enumerate every coset of Y/Y_(Q,n) and its complete Weyl orbit. The all-degree statement remains Gao Theorem 7.1, not an extrapolation.",
+    "analytic_gain": "none"
+  },
+  "local_model_results": {
+    "g2_twelve": {
+      "domain": "Tame unramified standard G2 cover, local field containing mu24, q=1 modulo 24. Formal arithmetic model separates this source identification.",
+      "state_space": [
+        12,
+        4
+      ],
+      "support": 12,
+      "twist_classes": [
+        0,
+        1,
+        3,
+        4,
+        7,
+        9
+      ],
+      "class_multiplicity": 2,
+      "coordinate_mass": "(1-x^3)/(1-x)^3, 0<=x<1; x=1/q",
+      "signed_average": "D(t)+2*t^3*(1+t^2)*Re(A)+4*t^4*(Re(B)+Re(C))",
+      "D": "1+3*t^2+4*t^4+3*t^6+t^8",
+      "source_gauss_reduction": "A=J(chi,chi^5)/sqrt(q); B*C=1; C^2=chi^(-3)(3); C^4=1",
+      "source_jacobi_field": "Z[i], norm q; ordinary proof in paper, not a Lean fixed-field theorem",
+      "coherent_period_denominator": "(1-t^2)^4 for averaged squared coherent sum; distinct from coordinate mass",
+      "first_interference": "O(q^(-3/2)) in the rectangle average, all cross terms retained"
+    },
+    "sp4_eight": {
+      "status": "Exact central-quotient/orbit diagnostic only; signed functional-coordinate proof and formalization not completed.",
+      "quadratic_form": "a^2-2*a*b+2*b^2",
+      "root_orders": [
+        8,
+        4
+      ],
+      "central_lattice": "4Z x 4Z",
+      "quotient_size": 16,
+      "orbit_sizes": [
+        8,
+        4,
+        4
+      ],
+      "remaining_datum": "The central character at 4 times the first coroot is not fixed by its value at 8 times that coroot; retain its sign."
+    },
+    "novelty_priority": "Not established. Gao supplies the theta recurrence/classification and Gauss identities are classical; combined explicit coordinate and average calculation is recorded without a priority claim.",
+    "benchmark_status": "Local arithmetic model only; no assembled global analytic improvement.",
+    "old_bound": "7/8 (installed locally)",
+    "new_bound": "7/8 (unchanged)",
+    "components": {
+      "proved": "Exact complete local signed average and arithmetic coordinate mass",
+      "unproved": "Actual spherical/global Fourier identification, moving-twist reflection and independent signed analytic estimate"
+    },
+    "actuals": null,
+    "first_nonpositive_domain": null
+  },
+  "consumer": {
+    "baseline": {
+      "principal": "s-11/16",
+      "original_error": "3/16",
+      "needed_at_three_quarters": "1/16",
+      "needed_saving": "1/8",
+      "scope": "fixed original geometry only"
+    },
+    "quartic": {
+      "assumption": "external full-observation theorem checks, exact original observation and all masks retained",
+      "signal_exponent": "beta+1/2 at B=C=X",
+      "comparison_error": "5/4+epsilon",
+      "absolute_main_envelope": "3/2+epsilon",
+      "independent_bound_required": "|I(X,X)| << X^(5/4+epsilon) for actual Mobius-Hecke coefficient",
+      "status": "not proved here or supplied by cited source"
+    }
+  },
+  "next_cases": [
+    {
+      "case": "Sp4 degree 8",
+      "first_test": "full two-root local coefficient generating series and admissible global reciprocal-factor functional",
+      "advantage_to_test": "rank two, root orders 8/4, squaring closure through quartic/quadratic; field may need mu16",
+      "failure_condition": "no surviving reciprocal signal or global field/conductor costs erase proposed advantage"
+    },
+    {
+      "case": "G2 degree 12",
+      "first_test": "Use the completed functional-coordinate model to identify the actual spherical/global Fourier coefficient and its inverse L-factor; retain Gaussian Jacobi coherence, every period and the moving-twist conductor.",
+      "advantage_to_test": "rank-two mixed-order functional equations instead of rank-ten GL11 root system",
+      "failure_condition": "wrong coefficient index, lost signal, or no improved full signed consumer"
+    },
+    {
+      "case": "complete quartic vector observation",
+      "first_test": "audit cited full comparison; match source observation to current project's exact packets",
+      "advantage_to_test": "explicit comparison with 3/4-compatible error exponent",
+      "failure_condition": "unproved comparison or no independent signed bound; comparison precision alone gives no gain"
+    }
+  ]
+}

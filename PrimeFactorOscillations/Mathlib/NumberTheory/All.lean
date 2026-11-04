@@ -8,8 +8,7 @@ import PrimeFactorOscillations.Mathlib.NumberTheory.ArithmeticFunction.All
 import PrimeFactorOscillations.Mathlib.NumberTheory.Chebyshev.All
 import PrimeFactorOscillations.Mathlib.NumberTheory.DirichletCharacter.All
 import PrimeFactorOscillations.Mathlib.NumberTheory.GaussSum.All
-import PrimeFactorOscillations.Mathlib.NumberTheory.Metaplectic.QuinticCocycle
-import PrimeFactorOscillations.Mathlib.NumberTheory.Metaplectic.QuinticLocalMass
+import PrimeFactorOscillations.Mathlib.NumberTheory.Metaplectic.All
 import PrimeFactorOscillations.Mathlib.NumberTheory.MulChar.SplitNorm
 import PrimeFactorOscillations.Mathlib.NumberTheory.PrimeCounting.WeightedPrefix
 import PrimeFactorOscillations.Mathlib.NumberTheory.Primes.All

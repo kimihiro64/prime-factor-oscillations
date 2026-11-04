@@ -1,0 +1,998 @@
+\documentclass[11pt]{article}
+\setlength{\oddsidemargin}{0pt}
+\setlength{\evensidemargin}{0pt}
+\setlength{\textwidth}{6.5in}
+\setlength{\textheight}{9in}
+\setlength{\topmargin}{-0.5in}
+\usepackage{amsmath,amssymb,hyperref}
+\newcommand{\toprule}{\hline}
+\newcommand{\midrule}{\hline}
+\newcommand{\bottomrule}{\hline}
+\hypersetup{hidelinks}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\newcommand{\QQ}{\mathbb Q}
+\newcommand{\ZZ}{\mathbb Z}
+\newcommand{\GL}{\mathrm{GL}}
+\newcommand{\Sp}{\mathrm{Sp}}
+\newcommand{\Wh}{\mathrm{Wh}}
+\newcommand{\N}{\mathrm N}
+\newcommand{\eps}{\varepsilon}
+\title{Metaplectic forms beyond the cubic QRH construction\\
+\large A structural and analytic research map}
+\author{Research review for the prime-factor oscillations project}
+\date{4 November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We classify the choices that matter when seeking a metaplectic extension
+of the QRH method: covering datum, group, field, automorphic representation,
+Fourier model, coefficient support, transformation law and analytic consumer.
+The cubic construction is a threefold theta representation used with sextic
+characters. Its scalar coefficient identity is not a theorem for every
+higher cover. We identify alternatives on general linear, symplectic and
+exceptional groups, distinguish earlier project attempts from untested
+cases, and give quantitative tests for a candidate's usefulness.
+
+We also compute the complete twelvefold $G_2$ functional-coordinate model
+and its six-channel additive-twist average, with maintained Lean arithmetic
+proofs and explicitly separated classical source inputs.
+No new zero-free theorem is claimed. The installed local theorem remains
+the project's compiled $7/8$ result. Later external theorem statements are
+recorded with their versions and have not been imported or proof-audited
+here. The former $H_1$ research goal remains paused.
+\end{abstract}
+\tableofcontents
+
+\section{What is being classified}
+
+A usable case is a tuple
+\[
+ (F,S,G,n,\mathcal D,\Theta,\mathcal F,\eta,\mathcal T).
+\]
+Here $F$ is a number field, $S$ the bad places, $G$ the reductive group,
+$n$ the covering degree, $\mathcal D$ the covering and splitting data,
+$\Theta$ the automorphic representation, $\mathcal F$ a Fourier functional,
+$\eta$ the target Hecke character, and $\mathcal T$ the test vectors and
+profiles. The cover degree, group rank, residue-character order and
+degree of a polynomial input are different parameters.
+
+For a Brylinski--Deligne cover, one retains its quadratic and extension
+data, not just $n$. On the cocharacter lattice $Y$ the useful invariants
+include
+\[
+ B_Q(y,z)=Q(y+z)-Q(y)-Q(z),\qquad
+ Y_{Q,n}=\{y:B_Q(y,Y)\subset n\ZZ\},\qquad
+ n_\alpha=\frac n{\gcd(n,Q(\alpha^\vee))}.
+\]
+Different root lengths can therefore have different effective orders in
+the same cover. Covering-group $L$-groups provide a structural language,
+but are not a complete classification of global automorphic forms
+or their analytic estimates \cite{Weissman}.
+
+There are four substantially different sources of automorphic input:
+\begin{enumerate}
+\item The Weil representation and classical quadratic theta series.
+Their oscillator and theta-correspondence structure is special to the
+double-cover setting.
+\item Residual or exceptional theta representations, obtained from
+Eisenstein residues. These are closest to the original QRH input.
+\item Full metaplectic Eisenstein series and their Fourier coefficients.
+They retain spectral parameters and scattering matrices that a residue
+may hide.
+\item Cuspidal representations and descent constructions. Their summation
+formulas can be stronger in some respects, but replacing residual theta by
+a cusp form can remove the very residue used to detect a zero.
+\end{enumerate}
+Products, restrictions and theta lifts create further constructions from
+these sources; they must still specify which of these analytic objects
+is actually being estimated.
+
+The Fourier functional is another independent choice. Full Whittaker,
+semi-Whittaker, degenerate Whittaker, Fourier--Jacobi and descent
+coefficients have different supports. A zero full Whittaker model does
+not rule out useful degenerate coefficients. Conversely, a nonzero
+degenerate coefficient does not establish the scalar Euler factor
+needed by a particular detector.
+
+This map covers the principal structural mechanisms, not every
+automorphic representation. General root systems of types $D,E,F$,
+anisotropic inner forms and ramified representations cannot be honestly
+collapsed into a short universal coefficient table.
+
+\section{The cubic baseline and its actual advantages}
+
+The original construction over $\QQ(\sqrt{-3})$ has a cubic theta
+coefficient, a sextic character family and cube completion. Its local
+coefficient support is $0,1\pmod3$, with the remaining class zero.
+The completed ideal index is $c b^3$, with $c$ squarefree; $c,b$ need
+not be coprime. The moving character acts on the whole completed index.
+After Poisson summation, rows take the form $u a^6$ with $u$ sixth-power-free.
+These facts belong together \cite{QRH}.
+
+The mechanism uses the following compatible ingredients.
+\begin{enumerate}
+\item Explicit theta coefficients whose Gauss factors cancel against
+the chosen companion Gauss factors, producing a signed inverse coefficient.
+\item A reflected identity for the completed sum, with every local
+factor and cusp phase retained.
+\item Joint inverse and plain-character witnesses at the same row and
+height; the full Hecke family is closed under the twists that occur.
+\item Arithmetic moment estimates on that actual family, including
+shared-prime zeros and exceptional rows.
+\item Prime compensation that cancels the unwanted principal terms
+without cancelling the target reciprocal pole.
+\end{enumerate}
+The ingredient supplied by a better detector is precision and signal
+retention. A boundary improvement additionally requires an independent
+arithmetic estimate for the resulting signed expression.
+
+In the fixed original Stage-II geometry,
+\[
+ C_{\mathrm{II}}(s)=s-\frac{11}{16},\qquad
+ l_x=\frac{17}{48},\quad b=\frac18,\qquad
+ E_{\rm low}=\frac{l_x}{2}+\frac b{12}=\frac3{16}.
+\]
+The principal exponent at $7/8$ is $3/16$; at $3/4$ it is $1/16$.
+Thus the fixed consumer would need a $1/8$ reduction in the error
+exponent, with all other errors controlled. Removing only $b/12=1/96$
+would leave the boundary $83/96$. This calculation limits that fixed
+geometry, not every metaplectic construction.
+
+The full compensation is an alternating sum over every subset of the
+chosen prime tuple. It cannot be replaced by its preferred principal
+summand. Likewise every numerator, reciprocal $L$-factor, character
+phase and nonunit mask in a reflected row remains part of the target.
+A numerator-only character estimate is not an estimate for that quotient.
+
+\section{Literature changes that affect the research map}
+
+The review date matters. Three developments change the available inputs.
+The October 2 fixed-order large sieve is already a theorem statement,
+not the earlier quartic conjecture. The October number-field QRH papers
+already pursue changing the base field while retaining cubic theta.
+Very recent quartic work treats a complete cusp vector rather than an
+imagined scalar coefficient.
+
+Liu's arXiv version 2 states a boundary
+$B_\flat=0.874886647039964\ldots$ for all finite-order Hecke
+$L$-functions over arbitrary number fields, using an argument over
+$K(\zeta_{12})$ and descent \cite{LiuField}. His November 3 Hexagon
+version 2 states the later boundary
+\[
+ B_{\rm ex}=0.87407284766682790777\ldots,\qquad
+ 178848B^4-507168B^3+522846B^2-231405B+37099=0
+\]
+with the root in $(0.87407284,0.87407285)$.
+The stated mechanism enlarges amplified moment ranges and permits
+complete prime removal with a remaining length excess
+\cite{LiuLatest}. These are external source statements, not newly
+verified local results. Neither is a change to a quartic or higher theta
+cover, and neither reaches $3/4$.
+
+The general-field theta input can be inspected directly in the October 4
+source: its threefold cover uses a specified central datum, nonzero global
+Whittaker functional and fixed bad-place vectors, with exterior support
+$c b^3$. Thus passage to fields containing more roots of unity need not
+require inventing a new higher-order theta representation
+\cite{Primitive}. This field-extension route already exists and should
+not be offered as a new original project.
+
+\section{A structural map by group and Fourier model}
+
+The following are unramified local theta-model statements, with the
+normalizations and exceptional-character conditions of the cited source.
+They do not supply a global detector or estimates at the bad places.
+For Kazhdan--Patterson covers of $\GL_r$, the distinguished cases are
+$n=r$, or $n=r+1$ with a special covering datum.
+For the indicated simply connected groups Gao gives the following list
+\cite[Theorems 1.1, 1.2, 5.3, 6.2, 7.1]{Gao}.
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+Group & Possible distinguished degrees & Qualification\\
+\midrule
+$A_r$ & $r+1,r+2$ & stated classification restricted to $n\le r+2$\\
+$C_r$, $r\ge2$ & $2r+1,4r-2,4r,4r+2$ & exceptional character matters\\
+$B_r$, $r\ge3$ & $2r+1,2r+2$ & exceptional character matters\\
+$G_2$ & $7,12$ & specified standard quadratic datum\\
+\bottomrule
+\end{tabular}
+\end{center}
+For $C_r$ at $n=4r$, every exceptional character has the distinguished
+property. At rank two this makes $\Sp_4$ with degrees $5,6,8,10$
+a concrete shortlist. For $D,E,F$ this table makes no classification claim.
+
+A one-dimensional model makes scalar factorization plausible; it does
+not make the resulting scalar coefficient a linear-index Gauss sum.
+Increasing the rank changes the torus index, determinant height and
+the number of summation coordinates. The cost must be computed after
+choosing the coefficient slice.
+
+For higher-rank theta with no full Whittaker coefficient, semi-Whittaker
+coefficients can be natural replacements. The existing project screen
+already examined the $\GL_r$ orbit partition $(n^a,b)$ when $r=an+b$,
+and particular Shalika integrals. Repeating that screen is not a new route.
+The question for a new integral is its target $L$-factor, all auxiliary
+automorphic input, and a usable moving-twist identity.
+
+Descent gives a second way to change the representation instead of
+changing a scalar coefficient formula. Friedberg--Ginzburg develop
+quartic/sextic descent constructions, with conjectural identifications
+in parts of the general picture \cite{FGDescent}; their symplectic
+construction includes an unconditional sixfold $\Sp_4$ case while
+broader statements retain hypotheses \cite{FGSymplectic}.
+A candidate derived this way must be checked for reduction back to the
+same cubic input before it is credited with independent analytic power.
+
+\section{The degree-by-degree landscape}
+
+The field in the next table is the minimal cyclotomic field containing
+$\mu_n$. It is not a blanket field-of-definition assertion for every
+global construction. Formulas requiring $\mu_{2n}$ can increase the
+degree, particularly for even $n$.
+\begin{center}
+\begin{tabular}{rclp{8.0cm}}
+\toprule
+$n$ & $[\QQ(\zeta_n):\QQ]$ & source type & Main distinction\\
+\midrule
+2 & 1 & Weil/theta & Square support and quadratic transformations;
+not a direct substitute for a linear Gauss-coefficient detector.\\
+3 & 2 & $\GL_2$ theta & Explicit cubic input with sextic twists;
+the installed QRH baseline.\\
+4 & 2 & $\GL_2$ vector / special $\GL_3$ theta &
+Gaussian quartic series have a full cusp-vector reflection;
+the scalar higher-rank alternative is a different representation.\\
+5 & 4 & $\GL_2$, $\GL_4$, $\Sp_4$ &
+The project's $\GL_4$ local model exists; a full global
+transformation is unresolved. $\Sp_4$ offers a different rank-two model.\\
+6 & 2 & genuine sextic theta / $\Sp_4$ &
+Sextic theta is not the cubic theta used with sextic twists.
+Descent and coefficient-orbit information are relevant.\\
+7 & 6 & special $\GL_6$ / $G_2$ &
+$G_2$ gives a rank-two distinguished alternative to increasing
+the general-linear rank.\\
+8 & 4 & special $\GL_7$ / $\Sp_4$ &
+$\Sp_4$ has two root lengths; powers of an order-eight character
+descend to quadratic and principal characters.\\
+9 & 6 & $\GL_2$ vector / special $\GL_8$ &
+Odd-order doubling remains cyclic; large degree and additional
+coefficient data must be paid for.\\
+10 & 4 & $\GL_2$ vector / $\Sp_4$ &
+A rank-two distinguished option with nontrivial fifth-order
+characters after squaring.\\
+12 & 4 & $\GL_2$ vector / $G_2$ &
+Different $G_2$ roots have effective orders $12$ and $4$;
+a mixed-order rather than a scalar quartic problem.\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+For $\GL_2$ higher theta, Hecke relations alone need not determine all
+coefficient orbits. The quintic pattern has the known orbit
+$\{0,3\}$, an undetermined pair $\{1,2\}$ and zero class $4$;
+the sextic pattern also has undetermined sectors
+\cite{BrokerHoffstein}. These are statements about those constructions,
+not a prohibition on all representations of that covering degree.
+
+For quartic theta, Suzuki's square-index evaluations provide information
+even when general coefficients are not explicit. David--Dunn--Hamieh--Lin
+use them with a quadratic large sieve in their quartic prime-sum method;
+their Type-I treatment retains growing square indices and their
+conductor costs \cite{DDHL}. This is a viable source of averaged
+information, not permission to assign guessed values to other indices.
+
+A fixed integer degree is not a sufficient performance score. One should
+compare the root orders, number of genuine torus coordinates, field
+degree, unit quotient, bad-prime vector, coefficient height and
+transformed conductor together. A degree-twelve rank-two construction
+can be structurally simpler than a degree-twelve construction on
+$\GL_{11}$, without necessarily having a better analytic bound.
+
+\section{Available character estimates and their exact meaning}
+
+For a fixed order $r\ge3$, a fixed field containing $\mu_r$ and the
+fixed family data, de Faveri states
+\[
+ \Theta_r(A,B)\ll (AB)^\eps
+ \left(A+B+A^{1-1/r}B^{2/r}+A^{2/r}B^{1-1/r}\right).
+ \tag{6.1}
+\]
+Both ideal variables are $r$th-power-free. The constants depend on the
+fixed field, order and family construction \cite[Theorem 1.1]{deFaveri}.
+There is no asserted uniformity in an arbitrarily growing field,
+cover degree or additional twist.
+
+For $A=Z^a,B=Z^b$, the exponent supplied by (6.1) is, by elementary
+comparison,
+\[
+ e_r(a,b)=\max(a,b)+
+ \frac{\max(0,2\min(a,b)-\max(a,b))}{r}.
+ \tag{6.2}
+\]
+Indeed, if $a\ge b$, the larger mixed exponent is
+$a+(2b-a)/r$; the remaining cases follow by symmetry.
+At equal lengths $A=B=T$, this is $T^{1+1/r}$:
+\[
+\begin{array}{c|rrrrrrrr}
+r&3&4&5&6&7&8&10&12\\ \hline
+1+1/r&4/3&5/4&6/5&7/6&8/7&9/8&11/10&13/12 .
+\end{array}
+\]
+These are exponents of a character-kernel norm, not QRH boundaries.
+When $a\ge2b$ the displayed exponent is already $a$ and this particular
+advantage of increasing $r$ disappears.
+
+The same paper's root-number coupling is methodologically important:
+repeated prime powers are retained as variables and coupled to the
+opposite squarefree kernel before estimating. Their conductor can be
+much smaller than their index norm. Applying its final scalar bound to
+an old squarefree envelope is therefore different from rebuilding an
+actual higher-order moment with that coupling retained. Such a rebuild
+still requires coefficients independent of the outer moving row.
+
+The earlier Rankin--Selberg analysis proves non-orthogonality in cubic
+and quartic families and identifies Gauss bias \cite{FDDH}.
+A lower bound exhibiting a biased vector is not a theorem that the
+entire excess operator has finite rank. Deleting a few bias vectors
+does not establish a sharp bound on the remaining operator.
+
+Cubic cusp-form methods provide another analytic source, including
+power-saving prime sums for a fixed form \cite{DunnCusp}. Constants,
+levels and the cuspidal hypothesis must survive transfer. Removing the
+residual theta component may remove the target zero signal.
+
+\section{What earlier project work already established or attempted}
+
+This review inspected the maintained quintic modules, the prior
+metaplectic screen, the October 7 field comparison and the October 8
+Gaussian bias-removal note, and the October 9 quintic source bridge.
+It searched public and private QRH records for the additional group
+and isotropic terminology. This is not an exhaustive audit of every
+sibling repository or every equivalent unnamed formulation.
+
+\begin{center}
+\begin{tabular}{p{4.1cm}p{9.7cm}}
+\toprule
+Existing direction & Status relevant to this survey\\
+\midrule
+Optimal fixed-order sieve & Already recorded locally on October 7;
+not a new input discovered by this review.\\
+Simple sextic sieve substitution & Earlier complete optimization leaves
+the decisive range unchanged. It must not be restarted as a new strategy.\\
+Gaussian bias projection & Known norm-induced biased directions were
+controlled; the residual image and cross terms were not.
+No full residual-operator estimate was proved.\\
+Quintic $\GL_2$ scalar adapter & Its known cube-index orbit conflicts
+with simultaneous quadratic-reflection and terminal-Gauss conditions.
+This excludes that adapter, not quintic theta in general.\\
+Quintic $\GL_4$ & Compiled finite local support, exponent and cocycle
+algebra; source-dependent linear-index coefficient bridge.
+No compiled global theta identification or moving-twist reflection.\\
+Completion and inverse formulas & Existing defined arithmetic completion
+has no automatic power loss. It does not identify the whole theta slice.\\
+Higher-rank/Shalika screen & Already studied selected general-linear
+cases and their global auxiliary inputs. A new group requires a new
+local and global calculation.\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+In particular, coefficient comparisons and multiplicity recovery do not
+supply an estimate for a new metaplectic moment. Their role is to transport
+or read out a signal after an actual analytic inequality is available.
+
+\section{A checked cancellation tradeoff in the quintic model}
+
+This is an exact calculation in the existing arithmetic model, with no
+global theta identification assumed. The quantified finite domain is
+all $v=(a,b,c)\in(\ZZ/5\ZZ)^3$, using its maintained 24-state support.
+It is not a scan over finitely many primes.
+
+The symmetric prime-interaction form is
+\[
+ B(u,v)=2u_1v_1+3(u_1v_2+u_2v_1)
+ +4(u_1v_3+u_3v_1)+6u_2v_2
+ +8(u_2v_3+u_3v_2)+12u_3v_3.
+\]
+Among supported residue states, $B(v,v)=0\pmod5$ holds exactly at
+\[
+ (0,0,0),\quad(1,1,1),\quad(2,2,2),\quad(3,3,3).
+\]
+This finite classification was checked against every state.
+For $v=(1,1,1)$,
+\[
+ B(mv,nv)=50mn.
+\]
+The unsymmetrized torus cocycle exponent on this ray is $-25mn$,
+also divisible by five. Thus these mixed torus phases cancel for
+arbitrary nonnegative integers $m,n$, not just tested prime pairs.
+
+The model's determinant height is $a+2b+3c$. The three nonzero states
+above have heights $6,12,18$, squared coefficient powers $1,3,4$,
+and defects $5,9,14$. Their first residue-period terms therefore have
+substantial height costs. Periodic translates and target-character
+powers still have to be retained. The ray is not invariant under all
+simple reflections: for example the maintained first reflection sends
+$(1,1,1)$ to $(2,3,1)$ modulo five.
+
+Consequently this calculation identifies where a phase-free restriction
+is expensive; it does not provide a global reflected packet or an
+analytic saving. It has not been promoted as a new Lean theorem.
+Its reproducible scope and exact output are in the companion JSON.
+
+\section{Two rank-two families worth distinguishing explicitly}
+
+\subsection{The $\Sp_4$ degree-eight option}
+
+This option changes the group, not just an exponent in the old
+quintic $\GL_4$ calculation. Its distinguished model exists in the
+unramified classification. With the standard short/long coroot
+quadratic values $1,2$, its effective root orders are $8,4$.
+
+For an order-eight character, repeated squaring has the exact chain
+\[
+ \chi\longmapsto\chi^2\longmapsto\chi^4\longmapsto\chi^8.
+\]
+The last character is principal only on units; it retains its
+nonunit zeros. This chain could permit a simultaneous recursion using
+order-eight, quartic, quadratic and principal families. It is an
+algebraic closure opportunity, not a proved transform or estimate.
+The $\Sp_4$ Weyl group has order eight, whereas the previous $\GL_4$
+semisimple Weyl group has order twenty-four.
+
+The construction must specify whether $\mu_8$ suffices or $\mu_{16}$
+is required globally: the minimal field degrees are four and eight.
+The low number of root coordinates can be offset by this field cost.
+
+The first substantive test is a local generating function in both
+torus indices with all Gauss phases retained. After taking the required
+global residue, does an admissible coefficient functional yield
+$(1-\eta(\mathfrak p)q^{-s})$ times a nonzero harmless factor, at
+the correct linear index? A failure of that test would eliminate the
+proposed scalar detector before a long moment proof. If it succeeds,
+the next calculation is the whole transformed conductor and moment,
+not an isolated quadratic row.
+
+\subsection{The degree-seven and degree-twelve $G_2$ options}
+
+These are structurally distinct from the general-linear screen.
+For short and long simple coroots, the quadratic values are $1,3$.
+The root periods are therefore $(7,7)$ or $(12,4)$.
+The respective minimal cyclotomic field degrees are six and four;
+global constructions may require additional roots of unity.
+
+Here is an independent finite check of the unramified orbit count.
+Write a cocharacter as $(a,b)$, with $\rho=(5,3)$.
+On
+\[
+ Y/Y_{Q,n}=(\ZZ/n\ZZ)\times
+            (\ZZ/(n/\gcd(n,3))\ZZ)
+\]
+the two shifted reflections are
+\[
+ s_1[a,b]=(1-a+3b,b),\qquad
+ s_2[a,b]=(a,1+a-b).
+\]
+The full Weyl group has order twelve. Enumerating every coset gives
+\[
+\begin{array}{c|c|l|c}
+ n& |Y/Y_{Q,n}|&\text{orbit sizes}&\text{free orbits}\\ \hline
+ 7&49&12,6,6,6,6,6,6,1&1\\
+ 12&48&12,6,6,2,6,6,6,3,1&1 .
+\end{array}
+\]
+This checks these two finite cases; the cited structural theorem,
+not extrapolation from this calculation, supplies the all-degree statement.
+
+The degree-twelve case is particularly different: it couples quartic
+and twelfth-order root data in two torus variables. A possible analytic
+advantage would have to come from this mixed root geometry and its
+two-variable functional equations. There is no justification yet for
+assigning it the cubic principal exponent or a $3/4$ boundary.
+The first test is the same explicit reciprocal-factor test as above,
+now on a two-root generating series, with all Weyl terms retained.
+
+Neither option is asserted novel as a representation; both are existing
+mathematical objects. Adapting them to a useful zero comparison is a
+research possibility, not an established new theorem or a completed
+portfolio novelty check.
+
+\section{A complete twelvefold $G_2$ coordinate calculation}
+\label{sec:G2-coordinates}
+
+This section computes the Whittaker-functional coordinates in Gao's
+convention. They are not the values of a spherical Whittaker function:
+that function also involves the spherical-vector expansion. A global
+Fourier coefficient and a moving-twist summation formula are further
+objects. The calculation below does not identify either of them.
+
+Fix a tame unramified local field containing $\mu_{24}$, with residue
+field $\mathbb F_q$, and the standard twelvefold $G_2$ quadratic datum.
+Thus $q\equiv1\pmod{24}$ and the torus section sign is one. Put
+$t=q^{-1/2}$ and let
+\[
+ G_r=q^{-1/2}\sum_{v\in\mathbb F_q^\times}\chi(v)^r\psi^{-1}(v),
+ \qquad
+ (g,h,j,k,e)=(G_1,G_3,G_4,G_5,G_6),
+\]
+where $\chi$ has exact order twelve and $\psi$ is nontrivial.
+Then $|G_r|=1$ for $r\ne0\pmod{12}$,
+$G_rG_{12-r}=1$, and $e^2=1$.
+The coroot quadratic form and its bilinear matrix are
+\[
+ Q(a,b)=a^2-3ab+3b^2,\qquad
+ B_Q=\begin{pmatrix}2&-3\\-3&6\end{pmatrix}.
+\]
+Consequently $Y_{Q,12}=12\ZZ\oplus4\ZZ$.
+
+Normalize the free-orbit functional by $c(0,0)=1$. The source
+equivariance is $c(t_0z)=c(t_0)\bar\chi(z)$, not its inverse.
+The exceptional-character condition gives
+\[
+ c(a+12,b)=q^{-1}c(a,b),\qquad
+ c(a,b+4)=q^{-1}c(a,b).
+ \tag{G2.1}
+\]
+These signs and period directions matter. In the same convention,
+Gao's root recurrence is
+\[
+ c(s_\alpha[y])=
+ q^{\lceil\langle y,\alpha\rangle/n_\alpha\rceil-1}
+ g_{\psi^{-1}}\!\left(Q(\alpha^\vee)
+       (\langle y,\alpha\rangle-1)\right)^{-1}c(y).
+ \tag{G2.2}
+\]
+Here the source $g_{\psi^{-1}}$ has modulus $q^{-1/2}$; the $G_r$
+above have modulus one. See \cite[Section 3.1, Corollary 3.7,
+Theorem 7.1]{Gao}. We use the free-orbit-supported functional supplied
+there; the representation-theoretic identification is a cited input,
+not a theorem formalized in the accompanying arithmetic modules.
+
+\paragraph{Proposition (complete signed rectangle).}
+In $0\le a<12$, $0\le b<4$, the nonzero coordinates are exactly
+\[
+\begin{array}{c|c|r@{\qquad}c|c|r}
+(a,b)&c(a,b)&Q\bmod12&(a,b)&c(a,b)&Q\bmod12\\ \hline
+(0,0)&1&0&(1,0)&tg&1\\
+(0,1)&th&3&(1,2)&t^2ge&7\\
+(4,1)&t^2hj&7&(6,2)&t^3gke&0\\
+(4,0)&tj&4&(6,1)&t^2gke/h&9\\
+(9,0)&t^2jk&9&(10,1)&t^3gkej/h&1\\
+(9,2)&t^3jke&3&(10,2)&t^4gkej&4 .
+\end{array}
+\]
+The remaining thirty-six coordinates vanish.
+Writing $A=gke$, their signed numerator is
+\[
+\begin{split}
+ N(X,Y)={}&(1+tjX^4)(1+thY)(1+t^2A h^{-1}X^6Y)\\
+ &+tX(g+tjkX^8)(1+teY^2).
+\end{split}
+ \tag{G2.3}
+\]
+For every pair of nonnegative integers the period extension is unique,
+and its full squared-coordinate mass is
+\[
+ \sum_{a,b\ge0}|c(a,b)|^2
+ =\frac{1+3x+4x^2+3x^3+x^4}{(1-x^2)^2}
+ =\frac{1-x^3}{(1-x)^3},\qquad x=q^{-1}.
+ \tag{G2.4}
+\]
+
+\textit{Proof.}
+The two shifted reflections and the pairings are
+\[
+ s_1[a,b]=(1-a+3b,b),\quad s_2[a,b]=(a,1+a-b),
+ \qquad 2a-3b,\ -a+2b.
+\]
+Their effective root orders are twelve and four.
+On reduction back to the rectangle, the change in the exponent of $t$ is
+\[
+ 1-2\left\lceil\frac{\langle y,\alpha\rangle}{n_\alpha}\right\rceil
+ -2\left(\left\lfloor\frac{a'}{12}\right\rfloor+
+          \left\lfloor\frac{b'}4\right\rfloor\right),
+\]
+where $(a',b')=s_\alpha[y]$. The Gauss multiplier is
+$G_{Q(\alpha^\vee)(1-\langle y,\alpha\rangle)}$.
+Applying these rules from $(0,0)$ gives the displayed twelve states.
+Every edge on these states obeys the same rules, including both
+length-six routes to the last state; opposite Gauss factors and $e^2=1$
+are retained. Explicit alternating reflection paths from $(0,0)$
+reach every displayed state, proving recurrence uniqueness there.
+The arithmetic checks exhaust all $48$ states and both simple roots;
+this finite reduction is exact and is not a sample of primes.
+
+Expanding (G2.3) gives precisely the twelve displayed monomials.
+Every natural pair has the unique decomposition
+$(a_0+12m,b_0+4n)$ in the rectangle and $m,n\ge0$.
+The period factor in its squared norm is $x^{2m+2n}$.
+The twelve base degrees have multiplicities $1,3,4,3,1$.
+Two convergent geometric series therefore give (G2.4);
+its simplification uses
+$1+3x+4x^2+3x^3+x^4=(1+x)^2(1+x+x^2)$.
+\hfill$\square$
+
+\paragraph{Theorem (six coherent channels and the complete local average).}
+Put
+\[
+ B=\frac{kej}{h},\qquad C=\frac{hj}{ge},\qquad
+ D(t)=1+3t^2+4t^4+3t^6+t^8.
+\]
+For a twelfth root of unity $z$, rescaling the additive character
+gives the complete rectangle signal
+\[
+ T(z)=\sum_{\substack{0\le a<12\\0\le b<4}}c(a,b)z^{Q(a,b)}.
+\]
+The sign choice is absorbed in $z$; as the scaling unit varies, $z$
+takes every twelfth root equally often. Its exact factorization is
+\[
+\begin{split}
+ T(z)={}&(1+t^3A)(1+tjz^4)
+ +t(gz+hz^3)(1+t^2B)\\
+ &+t^2(gez^7+A h^{-1}z^9)(1+C).
+\end{split}
+ \tag{G2.5}
+\]
+In particular,
+\[
+\begin{split}
+ \frac1{12}\sum_{z^{12}=1}|T(z)|^2
+ ={}&(1+t^2)|1+t^3A|^2
+      +2t^2|1+t^2B|^2+2t^4|1+C|^2\\
+ ={}&D(t)+2t^3(1+t^2)\Re A+4t^4(\Re B+\Re C).
+\end{split}
+ \tag{G2.6}
+\]
+These identities also hold for a formal amplitude $t\in\mathbb R$
+with the unit Gauss phases fixed.
+
+For the actual finite-field Gauss phases one has
+\[
+ BC=1,\qquad C^2=\chi^{-3}(3),\qquad C^4=1,
+ \qquad A=\frac{J(\chi,\chi^5)}{\sqrt q}.
+ \tag{G2.7}
+\]
+Moreover $J(\chi,\chi^5)=a_q+ib_q\in\ZZ[i]$ and
+$a_q^2+b_q^2=q$. Thus for some $\epsilon_q\in\{-1,0,1\}$
+the complete average at $t=q^{-1/2}$ is
+\[
+ 1+\frac3q+\frac{4+2a_q+8\epsilon_q}{q^2}
+       +\frac{3+2a_q}{q^3}+\frac1{q^4}.
+ \tag{G2.8}
+\]
+
+\textit{Proof.}
+The Gauss weight of each coordinate is $Q(a,b)\pmod{12}$:
+the exponents of $g,h,j,k,e$ carry weights $1,3,4,5,6$.
+Exactly the classes $0,1,3,4,7,9$ occur, twice each.
+Grouping the twelve terms gives (G2.5). Character orthogonality
+removes precisely the pairs in different classes.
+The six coefficients, in the same order, are
+\[
+ 1+t^3A,\quad tg(1+t^2B),\quad th(1+t^2B),\quad
+ tj(1+t^3A),\quad t^2ge(1+C),\quad t^2A h^{-1}(1+C).
+\]
+Taking their squared norms proves both lines of (G2.6).
+No same-class cross term has been discarded.
+
+For completeness, the Gauss reduction in (G2.7) uses only the
+duplication and triplication instances of Hasse--Davenport
+\cite[(1.5)--(1.6)]{EvansGreene}. In normalized notation they give
+\[
+ G_1/G_5=\chi(4)^{-1}G_2e,\qquad
+ G_2/G_4=\chi(4)^{-2}G_4e,\qquad
+ G_1G_5/G_3=\chi^{-3}(3)G_3.
+\]
+Since $q\equiv1\pmod{24}$, the quadratic characters of $2$ and $3$
+are one. This follows first in the prime field from the quadratic
+supplementary laws, and in extensions by the norm/lift formula.
+Hence $\chi(4)^3=1$, $\chi^{-3}(3)^2=1$ and $e^2=1$.
+It follows that
+\[
+ g=kj^2,\qquad gk=\chi^{-3}(3)h^2.
+\]
+Substitution in the definitions of $B,C$ proves $BC=1$ and
+$C^2=\chi^{-3}(3)$. Since $|C|=1$, $\Re B=\Re C$,
+and $C^4=1$ gives $\Re C\in\{-1,0,1\}$.
+
+The Gauss--Jacobi identity and $G_6^2=1$ give
+$gke=J(\chi,\chi^5)/\sqrt q$.
+This Jacobi sum is an algebraic integer in $\QQ(\zeta_{12})$.
+The automorphism $\zeta_{12}\mapsto\zeta_{12}^5$ swaps its two
+characters, so symmetry of the Jacobi sum fixes it.
+Its fixed field is $\QQ(i)$, whose integers are $\ZZ[i]$.
+The Gauss norm formula gives norm $q$. Expanding (G2.6) now yields
+(G2.8).
+\hfill$\square$
+
+\paragraph{What the cancellation says.}
+The average has no interference of order $q^{-1/2}$ or $q^{-1}$:
+the first non-diagonal term is $O(q^{-3/2})$.
+This is a local cancellation statement with an exact retained correction,
+not a signed global prime estimate. The first correction is a Gaussian
+Jacobi sum, and the next phase has only four possibilities.
+Thus a twelvefold cover does not supply twelve independent arithmetic
+channels in this observable.
+
+The all-coordinate coherent sum has additional period interference.
+Its generating function is
+\[
+ \frac{N(X,Y)}{(1-t^2X^{12})(1-t^2Y^4)}.
+\]
+At $X=Y=1$ its averaged squared norm is (G2.6) divided by
+$(1-t^2)^4$. This differs from the coordinate mass (G2.4);
+neither denominator may be used for the other quantity.
+
+\paragraph{Formalization and priority scope.}
+The maintained \texttt{G2TwelveLocal} module checks the finite support,
+every signed root edge, the quadratic grading, both numerator
+factorizations and the convergent mass on all natural coordinate pairs.
+The accompanying \texttt{G2TwelveFourier} module treats the complete
+finite Fourier average and its signed expansion. Its algebraic
+Hasse--Davenport consumers retain $g=kj^2$, $gk=uh^2$, $e^2=u^2=1$
+as explicit hypotheses. The finite-field Hasse--Davenport theorem,
+the Jacobi fixed-field argument and the representation-theoretic
+identification are cited ordinary inputs, not claimed Lean theorems.
+No global Fourier coefficient, moving-twist reflection or QRH exponent
+improvement follows from these arithmetic modules alone.
+
+The explicit calculation is distinct from the prior quintic
+$\GL_4$ programme. Gao supplies the source recurrence and the
+distinguished-model classification, while the Gauss product identities
+are classical. We have not established literature priority for the
+combined coordinate and average formulas; their role here is to
+replace an unexplored candidate by a completely specified local model.
+
+\section{The quartic vector route now has a concrete comparison to inspect}
+
+A November 3 research manuscript reflects a complete 24-cusp quartic
+Gauss observation, including shared primes and dyadic masks.
+It states, for $B\ge C\ge2$,
+\[
+ I(C,B)=K^*B^{3/4}\widehat\Phi_0(3/4)S_C+
+ O_{A,\eps}\big((CB)^\eps C^{1/2}B^{3/4}(C/B)^A\big),
+ \tag{10.1}
+\]
+where
+\[
+ S_C=\sum_{\substack{c\ {\rm odd\ primary,\ squarefree}\\c\ne1}}
+ \mu(c)\eta(c)\prod_{\mathfrak p\mid c}(1-q_{\mathfrak p}^{-1})
+ (\N c)^{-1/4}\Phi(\N c/C).
+\]
+This is the author's theorem statement, not a proof audited here.
+It expressly gives no new zero-free region \cite{QuarticObservation}.
+The importance for this map is that full vector reflection is a real
+analytic object to inspect, rather than a reason to guess scalar
+quartic theta coefficients.
+
+One can calculate its proposed arithmetic consumer without assuming
+that statement has been locally verified. For fixed unitary $\eta$,
+the underlying Dirichlet series initially has Euler product
+\[
+ \sum_c\frac{\mu(c)\eta(c)\prod_{\mathfrak p\mid c}
+ (1-q_{\mathfrak p}^{-1})}{(\N c)^s}
+ =\frac{H_\eta(s)}{L^{(S)}(s,\eta)},
+\]
+\[
+ H_\eta(s)=\prod_{\mathfrak p\notin S}
+ \frac{1-\eta(\mathfrak p)(1-q_{\mathfrak p}^{-1})q_{\mathfrak p}^{-s}}
+      {1-\eta(\mathfrak p)q_{\mathfrak p}^{-s}} .
+ \tag{10.2}
+\]
+Omitting $c=1$ changes the series by an entire constant. For
+$\Re s>0$, each denominator is nonzero, the numerator is nonzero,
+and the defect is $O(q_{\mathfrak p}^{-1-\Re s})$ on compact subregions.
+Thus $H_\eta$ is analytic and nonzero there. A zero of the denominator
+$L$ is not erased by this correction.
+
+At balanced scales $B=C=X$, a zero at real part $\beta$ gives the
+Mellin pole exponent
+\[
+ X^{3/4}X^{\beta-1/4}=X^{\beta+1/2}.
+\]
+This is a pole/oscillation scale, not a lower bound at every cutoff;
+the smoothing must not vanish at the relevant pole.
+The claimed comparison error is $X^{5/4+\eps}$.
+Therefore an \emph{independently proved} bound
+\[
+ |I(X,X)|\ll_{\eta,\eps}X^{5/4+\eps}
+ \tag{10.3}
+\]
+for this actual signed observation, with the needed compatible analytic
+hypotheses, would have the correct exponents to exclude $\beta>3/4$.
+
+The absolute envelope for $S_X$ is only $X^{3/4+\eps}$, giving a
+main envelope $X^{3/2+\eps}$ for $I$.
+Equation (10.1) alone does not improve it. Its error can be much smaller
+at $B>C$ without providing any bound on $S_C$.
+An estimate for every arbitrary bounded first coefficient cannot give
+the desired saving: replacing the signed coefficient by a positive one
+can saturate this main envelope. The required arithmetic restriction
+is the actual Möbius--Hecke coefficient, not arbitrary bounded data.
+
+Thus the quartic comparison has useful precision if its proof checks;
+it is not already an independent cancellation theorem. This route must
+be compared with the project's older Gaussian packets at the level
+of their exact sums before any old bound is transferred.
+
+\section{How to explore genuinely different mechanisms}
+
+Three distinctions prevent the investigation collapsing into repeated
+versions of the same failed estimate.
+
+\textbf{Retain a vector when the scalar coefficient is not closed.}
+For a finite cusp vector $\mathbf T$ with reflection matrix $M$,
+start with $\mathbf T(s)=M(s)\mathbf T(1-s)$.
+A scalar row must be followed through every component it generates.
+Discarding an unknown component is not a projection theorem.
+If a proposed linear compensation annihilates a residue subspace $E$,
+it preserves the target signal only if that signal has a nonzero
+image in the corresponding quotient. If the signal lies in $E$,
+that compensation necessarily kills it.
+Fixed-level finite dimension also gives no uniform bound when the
+moving conductor enlarges the local data.
+
+\textbf{Use multiple root equations as multiple equations.}
+Weyl group multiple Dirichlet series provide meromorphic continuation
+and functional equations in several variables \cite{CG}.
+Metaplectic Eisenstein Whittaker coefficients admit uniform-degree
+crystal or Gelfand--Tsetlin descriptions in type $A$ \cite{BBF}.
+The opportunity is to retain neighboring-coordinate coupling when
+transforming and averaging. Evaluating the extra variables or bounding
+their sums before using the other functional equations can lose this
+information. Neither theorem supplies a moment saving for free.
+
+\textbf{Compare the effective order and conductor, not the cover's name.}
+A transform of an order-eight family can descend through quartic and
+quadratic characters. An order-ten family cycles through fifth-order
+information. The root-number coupling and conductor of a powered index
+may differ from its norm. An actual route must write these exact
+couplings, their zero masks and the global profile costs before applying
+the appropriate character estimate.
+
+A complete candidate receipt should answer:
+\begin{enumerate}
+\item Which representation, cover, field and global Fourier coefficient?
+What is the nonzero normalization?
+\item Which exact local generating series and coefficient index?
+Does its global product really yield a reciprocal target $L$-factor?
+\item What is the full moving-twist reflection, including auxiliary
+coordinates, small primes, units and archimedean profiles?
+\item What are the actual row and column lengths, conductor, height and
+exceptional families after every transform?
+\item Which \emph{independent} inequality bounds the complete signed
+observable, and what boundary follows after all errors are included?
+\end{enumerate}
+This is a screening framework, not a promise that five routine steps
+finish a new zero-free theorem.
+
+\section{Expanding the target $L$-functions is a separate problem}
+
+There are two goals that should not be conflated: lowering the boundary
+for the existing Hecke family, and reaching new families of $L$-functions.
+The arbitrary-number-field extension already reaches finite-order Hecke
+characters, Dedekind zeta functions and, by induction, monomial Artin
+$L$-functions in its stated scope \cite[Corollary 19.2]{LiuField}.
+An exceptional group in the construction does not by itself turn the
+detected Hecke $L$-function into that group's standard $L$-function.
+
+Here is a concrete coefficient test for genuinely higher-degree targets.
+If an unramified target has local factor
+\[
+ L_{\mathfrak p}(s,\pi)=
+ \prod_{j=1}^d(1-\alpha_{\mathfrak p,j}q_{\mathfrak p}^{-s})^{-1},
+\]
+then its inverse requires the complete polynomial
+\[
+ L_{\mathfrak p}(s,\pi)^{-1}
+ =\sum_{r=0}^d(-1)^r
+ e_r(\alpha_{\mathfrak p,1},\ldots,\alpha_{\mathfrak p,d})
+ q_{\mathfrak p}^{-rs}.
+\]
+For $d=2$ this is
+\[
+ 1-\lambda_\pi(\mathfrak p)q_{\mathfrak p}^{-s}
+   +\omega_\pi(\mathfrak p)q_{\mathfrak p}^{-2s}.
+\]
+The quadratic term is essential. A construction that only produces a
+squarefree Mobius coefficient times a scalar character has not produced
+this inverse, even if it uses a higher-degree metaplectic cover.
+
+Higher-rank or vector coefficients could supply the additional local
+sectors. The first test is to recover every elementary-symmetric term
+with its correct sign and index, with one admissible global functional.
+The global transformation and the analytic estimate would then have to
+include the target representation's conductor and height as well.
+This algebraic test identifies what an extension to degree-two or
+higher automorphic targets must add; it asserts no such detector exists
+yet. It is distinct from simply extending the base field.
+
+\section{Research decisions supported by this review}
+
+The most immediate analytic object to audit is the new complete quartic
+vector observation: its comparison is explicit and its desired
+independent bound can be stated with no guessed exponent.
+That is an external development to inspect, not an accomplishment
+claimed for this project.
+
+The clearest structurally different searches are $\Sp_4$ degree eight
+and $G_2$ degree twelve, alongside the cheap-field sixfold symplectic
+control. They trade the earlier growth of general-linear rank for
+different root geometry. Their next useful output is an exact local
+reciprocal-factor calculation followed by the whole reflected conductor
+ledger; a failed first test should be documented and the case deprioritized.
+
+The existing quintic $\GL_4$ modules remain legitimate inputs.
+Their global bridge remains open; this survey does not restart or
+rename it as a new target. The checked isotropic restriction explains
+why merely erasing its mixed prime phase is not automatically cheap.
+
+Changing only the base field, reproving the fixed-order sieve, repeating
+a few bias projections, or testing more finite prime intervals is not
+a new research mechanism. The new possibilities lie in changing the
+representation/Fourier model, retaining a genuinely coupled vector or
+root system, and then proving a signed estimate for that actual object.
+No boundary improvement is claimed by this review.
+
+\begin{thebibliography}{99}
+\bibitem{QRH} OpenAI, \emph{The Quasi-Riemann Hypothesis: A Zero-Free
+Half-Plane $\Re s>7/8$}, 30 September 2026.
+\url{https://github.com/openai/math/tree/main/preprints/The-Quasi-Riemann-Hypothesis-September-30-2026}.
+\bibitem{Primitive} OpenAI, \emph{Primitive roots for every admissible
+integer base}, 4 October 2026, sections 3--6 and Whittaker appendix.
+\url{https://github.com/openai/math/tree/main/preprints/Primitive-roots-for-every-admissible-integer-base-October-4-2026}.
+\bibitem{LiuField} B. Liu, \emph{Zero-free half-planes for Hecke
+$L$-functions over number fields and Quasi-Riemann Hypothesis},
+arXiv:2610.26835v2, 29 October 2026, Theorem 17.1.
+\url{https://arxiv.org/abs/2610.26835v2}.
+\bibitem{LiuLatest} B. Liu, \emph{An improved zero-free half-plane for Hecke
+$L$-functions over number fields and Quasi-Riemann Hypothesis},
+Hexagon:2610.00655v2, current version 3 November 2026, Theorem 1.1.
+\url{https://hexagonmath.org/pdf/2610.00655v2}.
+\bibitem{Weissman} M. Weissman, \emph{$L$-groups and parameters for
+covering groups}, arXiv:1507.01042v2.
+\url{https://arxiv.org/abs/1507.01042v2}.
+\bibitem{Gao} F. Gao, \emph{Distinguished theta representations for certain
+covering groups}, arXiv:1602.01880v3.
+\url{https://arxiv.org/abs/1602.01880v3}.
+\bibitem{BrokerHoffstein} R. Br\"oker and J. Hoffstein,
+\emph{Fourier coefficients of sextic theta series}, arXiv:1312.0568v1.
+\url{https://arxiv.org/abs/1312.0568}.
+\bibitem{DDHL} C. David, A. Dunn, A. Hamieh and H. Lin,
+\emph{Quartic Gauss sums over primes and metaplectic theta functions},
+arXiv:2306.11875v5.
+\url{https://arxiv.org/abs/2306.11875v5}.
+\bibitem{deFaveri} A. de Faveri, \emph{Optimal large sieve for fixed order
+characters}, arXiv:2610.04045v1, 2 October 2026.
+\url{https://arxiv.org/abs/2610.04045v1}.
+\bibitem{FDDH} A. de Faveri, A. Dunn and J. Hoffstein,
+\emph{Non-orthogonality of the cubic and quartic large sieves via
+Rankin--Selberg}, arXiv:2607.07911v2.
+\url{https://arxiv.org/abs/2607.07911v2}.
+\bibitem{DunnCusp} A. Dunn, \emph{Metaplectic cusp forms and the large
+sieve}, arXiv:2403.13151v2.
+\url{https://arxiv.org/abs/2403.13151v2}.
+\bibitem{FGDescent} S. Friedberg and D. Ginzburg, \emph{Descent and theta
+functions for metaplectic groups}, arXiv:1403.3930v3.
+\url{https://arxiv.org/abs/1403.3930v3}.
+\bibitem{FGSymplectic} S. Friedberg and D. Ginzburg, \emph{Theta functions
+on covers of symplectic groups}, arXiv:1601.04970.
+\url{https://arxiv.org/abs/1601.04970}.
+\bibitem{CG} G. Chinta and P. Gunnells, \emph{Constructing Weyl group
+multiple Dirichlet series}, arXiv:0803.0691v2.
+\url{https://arxiv.org/abs/0803.0691v2}.
+\bibitem{BBF} B. Brubaker, D. Bump and S. Friedberg,
+\emph{Weyl group multiple Dirichlet series, Eisenstein series and crystal
+bases}, Annals of Mathematics 173 (2011), 1081--1120.
+\url{https://annals.math.princeton.edu/2011/173-2/p13}.
+\bibitem{EvansGreene} R. Evans and J. Greene,
+\emph{Evaluations of hypergeometric functions over finite fields},
+Hiroshima Mathematical Journal 39 (2009), 217--235, (1.5)--(1.6).
+\url{https://www.d.umn.edu/~jgreene/papers/Evaluations_Hiroshima.pdf}.
+\bibitem{QuarticObservation} u/bramble\_trace, \emph{A complete quartic
+Gauss observation: resonance and a uniform remainder}, research
+manuscript v1, 3 November 2026. Source statement only; not audited here.
+\url{https://rstation.ai/problems/riemann_hypothesis/papers/103}.
+\end{thebibliography}
+\end{document}
