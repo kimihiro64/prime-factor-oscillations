@@ -1,0 +1,162 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-04",
+  "scope": "Actual complete Fermat-septic character count and its identification with the full principal-compensated sevenfold G2 cubic source observation, including the joint Abel limit.",
+  "status": "kernel_checked_actual_counts_full_cubic_source_and_nontrivial_joint_Abel_consumer",
+  "new_public_declarations": [
+    "Metaplectic.G2Seven.Fermat.affine_count_all_jacobi",
+    "Metaplectic.G2Seven.Fermat.affine_count_coprime",
+    "Metaplectic.G2Seven.Fermat.affine_count_fibers",
+    "Metaplectic.G2Seven.Fermat.affine_count_nondegenerate",
+    "Metaplectic.G2Seven.Fermat.chart_count_nondegenerate",
+    "Metaplectic.G2Seven.Fermat.chart_count_of_card_mod_ne_one",
+    "Metaplectic.G2Seven.Fermat.fermat_abel_readout",
+    "Metaplectic.G2Seven.Fermat.fermat_finite_readout",
+    "Metaplectic.G2Seven.Fermat.fermat_trace_phases",
+    "Metaplectic.G2Seven.Fermat.full_abel_readout",
+    "Metaplectic.G2Seven.Fermat.full_coherent_assembly",
+    "Metaplectic.G2Seven.Fermat.full_coherent_probe_eq",
+    "Metaplectic.G2Seven.Fermat.full_coherent_probe_mean",
+    "Metaplectic.G2Seven.Fermat.full_finite_probe_mean",
+    "Metaplectic.G2Seven.Fermat.full_radial_series",
+    "Metaplectic.G2Seven.Fermat.infinity_count",
+    "Metaplectic.G2Seven.Fermat.inverse_jacobi",
+    "Metaplectic.G2Seven.Fermat.jacobi_inverse_of_mul_eq_one",
+    "Metaplectic.G2Seven.Fermat.nondegenerate_jacobi_phases",
+    "Metaplectic.G2Seven.Fermat.normalized_jacobi_pair",
+    "Metaplectic.G2Seven.Fermat.phase_spectrum_balanced",
+    "Metaplectic.G2Seven.Fermat.phase_spectrum_total",
+    "Metaplectic.G2Seven.Fermat.seventh_power_pushforward"
+  ],
+  "source_hashes": [
+    {
+      "path": "PrimeFactorOscillations/Mathlib/NumberTheory/Metaplectic/G2SevenFermatCount.lean",
+      "sha256": "B3E7A84E1FC1500910A92119531C51DB717EF4B141720B4012E1B9EC7C0569C4"
+    },
+    {
+      "path": "PrimeFactorOscillations/Mathlib/NumberTheory/Metaplectic/G2SevenFermatReadout.lean",
+      "sha256": "9565C536D5FFDFAD4C5399E7C4CE7423D03AAB02EFEFA3114C068662BBA569FB"
+    },
+    {
+      "path": "PrimeFactorOscillations/Mathlib/NumberTheory/Metaplectic/All.lean",
+      "sha256": "4438F24482B970BBF3E50DFB5C91D7984F972C507CA21386D0C552C379486D9B"
+    },
+    {
+      "path": "scripts/metaplectic_proof_targets.py",
+      "sha256": "5415C53065C2DEF7320E674385524A99109DAD25304FB562B99D1B676DDBD69D"
+    },
+    {
+      "path": "MATHLIB_PORTING.md",
+      "sha256": "2276F3095D9AB0454E11AE01E46C6CE93F382E7535939873699B4A3B2AFF0B29"
+    },
+    {
+      "path": "paper/metaplectic-landscape-20261104/main.tex",
+      "sha256": "C67BF94032B0C5D95AA4E4A981C25C849EDE3A94BC4B3D3A8D6533C4AB3B1AE9"
+    },
+    {
+      "path": "paper/metaplectic-landscape-20261104/cases.json",
+      "sha256": "36E2CEE8BD68500B51E2BA4BA830268F9C2E3A289D0A534ADF9ACE90D4954D01"
+    },
+    {
+      "path": "paper/metaplectic-landscape-20261104/claims.json",
+      "sha256": "4ABAAEBAA5F9B716AB4CE9332405E3FB26E0316A50CE28BCA2B0FFFF8FEEE1F5"
+    }
+  ],
+  "checks": {
+    "source_compilation": "Both maintained owners compiled with the pinned cached compiler and preserved elaborator options.",
+    "facade": "The edited Metaplectic.All facade compiled against the successful maintained readout.",
+    "public_export": "All 23 new declarations checked through import Solution; exact coverage verified from the successful check output.",
+    "axiom_closures": "Exactly the 23 new declaration closures audited; unchanged theorem closures were not reaudited.",
+    "allowed_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "staged_gate_requirement": "Before commit: scripts/check.py --profile fast on all nine intended staged paths; changed registry Ruff check/format; exact staged path list, source hashes and whitespace. Preserve all five unrelated finite-field changes."
+  },
+  "compiler": {
+    "version": "4.34.0",
+    "executable": "C:/Users/jonas/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+    "flags": [
+      "-j",
+      "1",
+      "-s",
+      "65536",
+      "-M",
+      "8192"
+    ],
+    "options": [
+      "autoImplicit false",
+      "Elab.async false",
+      "maxRecDepth 4096",
+      "maxHeartbeats 4000000"
+    ],
+    "environment": "Existing repository and shared primegaps434 olean cache only; no dependency fetching or rebuild."
+  },
+  "mathematics": {
+    "quantifiers": "Every finite field F and actual complex MulChar of order seven. The source consumer additionally has a primitive AddChar, nonzero rho with rho^2=card(F), arbitrary nonzero u, and the complete radial range0<=r<1. No RH hypothesis.",
+    "actual_counts": "N_aff=# {(x,y):x^7+y^7=1}; N_chart=N_aff+# {z:z^7=-1}, the two canonical projective normal forms.",
+    "full_fibers": "The proved seventh-power pushforward and full root-fiber law give all36 affine Jacobi terms, with no assumed counting contract.",
+    "inverse_correction": "A whole-field fractional involution proves the inverse-character Jacobi identity, including the x=1 correction. All six inverse pairs contribute exactly -6.",
+    "infinity_correction": "There are exactly seven infinity representatives. Thus N_chart=q+1+S_30.",
+    "all_phase_sectors": "Actual Gauss--Jacobi conversion matches every admitted pair with the exact eight source phases:18 repeated-entry contributions and12 residue-triple contributions.",
+    "principal_compensation": "PC=P0^3+6*P0*(2*t^4*X^3*Y^6+t^6*X^10*Y^6). The full single-twist observation is1+PC-(D*coherentProjection_all)^3; both complete periods are compensated before cubing.",
+    "full_assembly": "Its mean-minus-one is the complete multiplicity-weighted sum of all eight masked mean-minus-one readouts. This is not a product of separately averaged probes.",
+    "finite_consumer": "At t=u^7,X=Y=u^(-2), mean(Q_full_finite)=1+u^15*(q+1-N_chart)/rho.",
+    "abel_consumer": "The full normalized coherent observation tends nontrivially to(q+1-N_chart)/rho. The actual double period series converges throughout0<=r<1; the boundary transfer uses eventual equality after complete compensation.",
+    "nonsplit_branch": "If q%7 is not1, N_aff=q and N_chart=q+1, with no character assumption.",
+    "small_characteristics": "No division by2. Characteristic7 is included in the nonsplit chart identity only; the tame source and smooth genus15 geometric interpretation exclude it.",
+    "geometry_scope": "The Lean arithmetic count is the explicit sum of the two normalized chart counts. Smooth projective geometry and classical Jacobian decompositions are context, not new formal geometry theorems.",
+    "normalization_cost": "Physical u=q^(-1/14) still costs q^(15/14) in normalized trace extraction.",
+    "not_proved": [
+      "rational-prime Euler descent from compatible extension counts",
+      "complete degree30 Jacobi polynomial/source packet identification",
+      "global automorphic Fourier realization",
+      "independent global signed analytic estimate",
+      "improved QRH exponent"
+    ]
+  },
+  "closest_primary_literature": [
+    {
+      "url": "https://arxiv.org/html/1602.01880v3",
+      "role": "Gao's metaplectic source coordinate model; representation-theoretic identification remains cited."
+    },
+    {
+      "url": "https://www.researchgate.net/publication/265705571_On_the_zeta_function_of_some_cyclic_quotients_of_Fermat_curves",
+      "role": "Aoki's classical Jacobi/Fermat-quotient zeta theory."
+    },
+    {
+      "url": "https://arxiv.org/abs/1508.00401",
+      "role": "Hidalgo--Rodriguez Theorems6--7: classical complex Fermat-Jacobian decompositions.",
+      "difference": "The formal source consumer here identifies the entire compensated G2 single-twist cubic observation, including principal cross terms, native scaling and both coherent periods, with the actual finite-field Fermat trace."
+    }
+  ],
+  "latex": {
+    "status": "success",
+    "pdf_success": true,
+    "compiler": "Built-in desktop editor compiler",
+    "source": "paper/metaplectic-landscape-20261104/main.tex"
+  },
+  "benchmark_status": "Complete exact finite-field/source identities; no completed global analytic bound",
+  "old_bound": "7/8",
+  "new_bound": "7/8",
+  "components": {
+    "proved": [
+      "Actual Fermat fibers and all36 Jacobi terms",
+      "Six inverse-pair and seven infinity corrections",
+      "All30 actual nondegenerate phase contributions",
+      "Complete cubic principal and double-period compensation",
+      "Actual finite and nontrivial joint Abel source consumers"
+    ],
+    "open": [
+      "Coupling the two source sectors under Frobenius",
+      "Full degree30 packet rather than only trace",
+      "Rational-prime descent and global Fourier transfer",
+      "Independent signed estimate after normalization"
+    ]
+  },
+  "actuals": null,
+  "first_nonpositive_domain": null,
+  "novelty_priority": "Not established for this precise full compensated G2 source-to-Fermat bridge. Classical Jacobi counting and Fermat geometry are not claimed new.",
+  "overlap_scope": "Current maintained metaplectic owners and private target records searched. The checkpoint already recorded this unproved source consumer. Other Fermat matches concern earlier prime-factor probability work and proof-graph backups, not this finite-field source identity. No complete all-repository priority audit is claimed."
+}

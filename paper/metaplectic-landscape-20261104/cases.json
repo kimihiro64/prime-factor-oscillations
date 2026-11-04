@@ -48,6 +48,29 @@
     "Metaplectic.G2Seven.Curve.seventh_power_bijective",
     "Metaplectic.G2Seven.Curve.seventh_power_iff_character",
     "Metaplectic.G2Seven.Curve.seventh_root_fiber",
+    "Metaplectic.G2Seven.Fermat.affine_count_all_jacobi",
+    "Metaplectic.G2Seven.Fermat.affine_count_coprime",
+    "Metaplectic.G2Seven.Fermat.affine_count_fibers",
+    "Metaplectic.G2Seven.Fermat.affine_count_nondegenerate",
+    "Metaplectic.G2Seven.Fermat.chart_count_nondegenerate",
+    "Metaplectic.G2Seven.Fermat.chart_count_of_card_mod_ne_one",
+    "Metaplectic.G2Seven.Fermat.fermat_abel_readout",
+    "Metaplectic.G2Seven.Fermat.fermat_finite_readout",
+    "Metaplectic.G2Seven.Fermat.fermat_trace_phases",
+    "Metaplectic.G2Seven.Fermat.full_abel_readout",
+    "Metaplectic.G2Seven.Fermat.full_coherent_assembly",
+    "Metaplectic.G2Seven.Fermat.full_coherent_probe_eq",
+    "Metaplectic.G2Seven.Fermat.full_coherent_probe_mean",
+    "Metaplectic.G2Seven.Fermat.full_finite_probe_mean",
+    "Metaplectic.G2Seven.Fermat.full_radial_series",
+    "Metaplectic.G2Seven.Fermat.infinity_count",
+    "Metaplectic.G2Seven.Fermat.inverse_jacobi",
+    "Metaplectic.G2Seven.Fermat.jacobi_inverse_of_mul_eq_one",
+    "Metaplectic.G2Seven.Fermat.nondegenerate_jacobi_phases",
+    "Metaplectic.G2Seven.Fermat.normalized_jacobi_pair",
+    "Metaplectic.G2Seven.Fermat.phase_spectrum_balanced",
+    "Metaplectic.G2Seven.Fermat.phase_spectrum_total",
+    "Metaplectic.G2Seven.Fermat.seventh_power_pushforward",
     "Metaplectic.G2Seven.Jacobi.abel_packet_reciprocity",
     "Metaplectic.G2Seven.Jacobi.balanced_corner",
     "Metaplectic.G2Seven.Jacobi.coherent_mean_tendsto_X",
@@ -167,7 +190,7 @@
     "Metaplectic.Sp4Eight.twistClass_fiber_card",
     "Metaplectic.Sp4Eight.unit_coordinate_survives"
   ],
-  "proof_status": "Fourteen maintained kernel-checked modules: the local G2 and Sp4 models, complete Jacobi readouts, actual finite-field curve bridge, and Frobenius compression of the full source packet in every characteristic residue modulo seven. The exact zero-discrepancy affine branch is proved whenever q is not 1 modulo seven. Projective geometry, Hasse-Davenport lifting, rational-prime descent and global automorphic transfer remain separate. No analytic boundary gain.",
+  "proof_status": "Sixteen maintained kernel-checked modules: local G2 and Sp4 models, complete Jacobi readouts, actual diagonal-curve and full Fermat-septic counting bridges, all-residue Frobenius compression, and the full principal-compensated cubic Fermat observation with its nontrivial joint Abel limit. Actual character fibers, inverse-pair and infinity corrections are proved. Projective geometry, prime-power lifting, rational-prime descent and global automorphic transfer remain separate. No analytic boundary gain.",
   "classification_scope": "principal structural mechanisms and selected low-degree cases, not a complete global automorphic classification",
   "overlap_scope": "current repo public/private QRH terminology search and specified prior notes; not exhaustive across sibling repositories",
   "sources": [
@@ -678,7 +701,7 @@
       "coherent_energy": "(1+8*t^2+13*t^4+16*t^6+4*t^8)/(1-t^2)^4",
       "coherent_convergence": "Kernel-checked HasSum over both infinite periods for 0<=t<1.",
       "phase_information": "Every one of the eight nonprincipal Jacobi triple types is recovered by its own principal-preserving compensated cubic probe. The complete second moment remains phase blind.",
-      "global_status": "Actual finite-field Gauss inputs identify the compensated source packet and Abel trace with the diagonal Jacobi polynomial and affine curve count. Frobenius invariance, all six residue-class orbit factorizations, every signed power trace and the non-split affine vanishing branch are now kernel checked. Rational-prime Euler descent, admissible global metaplectic Fourier realization and an independent signed analytic estimate remain open.",
+      "global_status": "Actual finite-field inputs identify both the diagonal-curve packet and the complete cubic Fermat-septic observation. Every principal cross term, all 30 nondegenerate Jacobi terms and both complete periods are retained. Six-channel Frobenius compression and nonsplit counts are proved; full global automorphic transfer and an independent signed estimate remain open.",
       "cubic_readout": {
         "principal": "P0=(1+t^2*X^2*Y^4)*(1+t^2*X*Y^2+t^2*X^4*Y)",
         "residue_grades": [
@@ -1008,6 +1031,23 @@
           "exceptions": "Characteristic seven is included only in the non-split affine count, and excluded from the tame source and good genus-three interpretation. Characteristic two uses the Kummer model.",
           "descent_status": "The fth-power factorization is over the field containing order-seven characters. A rational-prime numerator requires compatible prime-power counts and geometric/lifting inputs; it is not yet a Lean theorem."
         }
+      },
+      "fermat_readout": {
+        "field_domain": "Every finite field with an actual order-seven complex multiplicative character. The source bridge additionally takes a primitive AddChar, nonzero rho with rho^2=q, and arbitrary nonzero u.",
+        "actual_counts": "N_aff=# {(x,y):x^7+y^7=1}; N_chart=N_aff+# {z:z^7=-1}, the two canonical projective normal forms.",
+        "complete_character_count": "N_aff=q+sum_(r,s=1..6)J(chi^r,chi^s). All 36 terms are retained first.",
+        "endpoint_corrections": "Exactly six inverse-pair Jacobi sums equal -1; there are exactly seven infinity points. Thus N_chart=q+1+S_30.",
+        "phase_identity": "S_30/rho=sum_(i=0..7)m_i*phase_i, where m_i=3 or6; 18 repeated-entry and 12 residue-triple contributions.",
+        "principal_correction": "PC=P0^3+6*P0*(2*t^4*X^3*Y^6+t^6*X^10*Y^6), including every principal-pair cross term.",
+        "full_observable": "Q_full(a)=1+PC-(D*coherentProjection_all(a))^3. Both full periods are multiplied out before cubing. The finite form replaces D*coherentProjection_all by torusProjection_all.",
+        "assembly": "After averaging, Q_full-1 equals the sum over all eight masked mean-minus-one readouts with exact multiplicities. This is the complete single-twist cubic observation, not a product of separate averages.",
+        "exact_finite_consumer": "At t=u^7,X=Y=u^(-2): mean(Q_full_finite)=1+u^15*(q+1-N_chart)/rho.",
+        "abel_consumer": "The normalized (mean(Q_full_coherent)-1)/u^15 tends to (q+1-N_chart)/rho as radial r approaches1 from below. The filter is nontrivial and both complete period series converge for0<=r<1.",
+        "nonsplit_branch": "If q%7 is not1, seventh powering is bijective, N_aff=q and N_chart=q+1, with no character hypothesis.",
+        "small_characteristics": "No division by2 is used. The nonsplit chart-count identity includes characteristic7 as a possibly singular count; the tame metaplectic source and smooth genus15 interpretation exclude characteristic7.",
+        "classical_geometry": "The two normal forms identify the count of X^7+Y^7=Z^7. Its smooth geometry and classical Fermat-Jacobian decomposition are not new Lean geometry theorems.",
+        "normalization_cost": "Physical u=q^(-1/14): normalized trace extraction still costs q^(15/14). No global analytic exponent gain.",
+        "novelty": "Classical Jacobi/Fermat counting and Jacobian decompositions are inputs/context. Priority of the complete compensated G2 source-to-Fermat observation is not established."
       }
     }
   },
@@ -1049,7 +1089,7 @@
     },
     {
       "case": "G2 degree 7",
-      "first_test": "Consume the completed all-residue Frobenius compression and exact non-split affine count. Complete rational-prime Euler descent using the actual prime-power counts, compatible Hasse-Davenport and the point at infinity, then test an admissible global Fourier transfer. Do not reconstruct the completed finite-field bridges.",
+      "first_test": "Consume the completed diagonal-curve and full Fermat-septic source observations. Determine how the two phase sectors couple under Frobenius, keeping exact native scaling, then complete rational-prime descent from actual compatible prime-power counts and test global Fourier realization. Do not reconstruct the completed character counts or Abel transfer.",
       "advantage_to_test": "Rank two with root orders 7/7 and no mixed Gauss product in an individual functional coordinate; global field/conductor and signal remain to be checked.",
       "failure_condition": "The selected observable erases its target phase, or global reflection and conductor costs do not support a useful independent estimate."
     }

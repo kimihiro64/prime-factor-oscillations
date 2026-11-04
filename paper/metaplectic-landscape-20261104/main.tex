@@ -1403,6 +1403,178 @@ factorizations are classical; priority for this exact compensated
 source consumer has not been established.
 
 
+\section{The complete cubic source reads the Fermat septic}
+\label{sec:G2-fermat}
+
+The eight masked readouts have a joint geometric consumer. They
+recover all thirty nondegenerate Jacobi contributions to the Fermat
+septic, with their original multiplicities, and also assemble to a
+single full-source cubic observation. This section states the actual
+finite-field and source identities proved in
+\texttt{G2SevenFermatCount} and \texttt{G2SevenFermatReadout}.
+
+Retain a finite field $F$ of cardinality $q$, an order-seven complex
+character $\chi$, a primitive additive character $\psi$, and
+$\rho\ne0$ with $\rho^2=q$. Write
+\[
+ J_{r,s}=J(\chi^r,\chi^s),\qquad
+ S_{30}=\sum_{\substack{1\le r,s\le6\\r+s\not\equiv0\ (7)}}J_{r,s}.
+\]
+The sum has thirty ordered pairs. Define the actual counts
+\[
+ N_{\rm aff}=\#\{(x,y)\in F^2:x^7+y^7=1\},\qquad
+ N_F=N_{\rm aff}+\#\{z\in F:z^7=-1\}.
+\]
+The second count is the sum of the two canonical projective normal
+forms: $Z=1$, or $(z:1:0)$ at infinity. Every projective point has
+exactly one of these representatives. The Lean count is explicitly
+this finite chart sum; no projective-geometry library theorem is
+assumed in its arithmetic proof.
+
+\paragraph{Complete counting theorem.}
+The exact identities are
+\begin{align}
+ N_{\rm aff}&=q+\sum_{r,s=1}^6J_{r,s}
+             =q-6+S_{30}, \label{eq:fermat-affine}\\
+ \#\{z:z^7=-1\}&=7,\qquad N_F=q+1+S_{30}.
+ \label{eq:fermat-complete}
+\end{align}
+
+\emph{Proof.} The previously proved root-count law gives
+$R(a)=1+\sum_{r=1}^6\chi^r(a)$, including $a=0$.
+The exact seventh-power pushforward yields
+\[
+ N_{\rm aff}=\sum_{a\in F}R(a)R(1-a).
+\]
+Both linear character sums vanish by nonprincipality and the
+permutation $a\mapsto1-a$. The constant contributes $q$, while
+the full product gives all thirty-six $J_{r,s}$.
+
+For $s=7-r$, the correction is $J_{r,7-r}=-1$.
+Here is the endpoint-preserving argument formalized in Lean.
+For any nonprincipal $\eta$ with $\eta(-1)=1$, and
+$\eta\phi=1$, the map
+\[
+ f(x)=
+ \begin{cases}1,&x=1,\\ x/(x-1),&x\ne1\end{cases}
+\]
+is an involution of the entire field. Direct multiplication,
+including $x=1$, gives
+\[
+ \eta(x)\phi(1-x)=\eta(f(x))-\boldsymbol1_{\{x=1\}}.
+\]
+Its sum is $-1$. Apply this to $\eta=\chi^r$,
+$\phi=\chi^{7-r}$. Odd order gives $\eta(-1)=1$.
+Thus exactly six inverse pairs contribute $-6$.
+Finally $\chi(-1)=1$, so the same complete fiber law gives seven
+solutions at infinity. This proves both displayed identities,
+with neither zero fibers nor infinity omitted.
+
+If $q\not\equiv1\bmod7$, seventh powering is bijective instead.
+Then $N_{\rm aff}=q$ and $N_F=q+1$, with no character assumption.
+This chart-count identity includes characteristic seven; the
+smooth degree-seven curve and tame source interpretation use
+characteristic different from seven. No division by two occurs.
+
+\paragraph{All thirty terms match the source.}
+For every nondegenerate pair, the proved Gauss convolution gives
+\[
+ \frac{J_{r,s}}{\rho}=\frac{G_rG_s}{G_{r+s}}.
+\]
+The denominator is nonzero because $\chi^{r+s}$ is nonprincipal.
+Reduce exponents modulo seven and use the proved reciprocal
+Gauss entries. With the eight phases $\phi_i$ and multiplicities
+$m_i$ from Section~\ref{sec:G2-seven-jacobi}, this gives
+\begin{equation}
+ \frac{S_{30}}{\rho}=\sum_{i=0}^7m_i\phi_i,\qquad
+ \frac{q+1-N_F}{\rho}=-\sum_{i=0}^7m_i\phi_i .
+ \label{eq:fermat-phase-total}
+\end{equation}
+There are eighteen repeated-entry contributions, three for each
+of six types, and twelve residue-triple contributions, six for
+each of two types. The formal proof consumes the actual
+Gauss--Jacobi identity on every admitted pair and checks the
+complete finite index classification. It assumes no
+character-to-source identification contract.
+
+\paragraph{A single complete cubic observation.}
+Let $S(a)$ be the full source projection, retaining every
+principal coordinate, and put
+\[
+ {\rm PC}=P_0^3+
+ 6P_0\bigl(2t^4X^3Y^6+t^6X^{10}Y^6\bigr),\qquad
+ Q_{\rm fin}(a)=1+{\rm PC}-S(a)^3.
+\]
+The principal-pair correction is essential: the full cubic has
+nineteen principal resonant ordered grade triples, not only $P_0^3$.
+The completed cubic-spectrum theorem gives
+\[
+ \langle Q_{\rm fin}\rangle=1-\Phi(t,g,h,j,X,Y),\qquad
+ \Phi=\sum_{i=0}^7m_i\phi_iw_i.
+\]
+This equality preserves the full signed spectrum and all native
+weights.
+
+For the full coherent source $S^{\rm coh}$, define
+\[
+ Q_{\rm coh}(a)=1+{\rm PC}-
+       \bigl(\Delta S^{\rm coh}(a)\bigr)^3,\qquad
+ \Delta=(1-t^2X^7)(1-t^2Y^7).
+\]
+When $\Delta\ne0$, compensation of both complete periods gives
+$Q_{\rm coh}=Q_{\rm fin}$ pointwise. Moreover,
+\[
+ \langle Q_{\rm coh}\rangle-1
+ =\sum_{i=0}^7m_i
+       \bigl(\langle Q_i^{\rm coh}\rangle-1\bigr).
+\]
+This is an equality after averaging for the single full cubic
+observation. It is not a product of separately averaged probes.
+The proof subtracts the entire principal correction before
+identifying the weighted eight-mask assembly.
+
+\paragraph{Actual finite and joint Abel theorems.}
+At any nonzero $u$, take
+\[
+ t=u^7,\qquad X_0=Y_0=u^{-2}.
+\]
+All eight native weights equal $u^{15}$. Substitution of
+\eqref{eq:fermat-phase-total} proves the exact source theorem
+\begin{equation}
+ \langle Q_{\rm fin}\rangle
+   =1+u^{15}\frac{q+1-N_F}{\rho}.
+ \label{eq:fermat-finite-source}
+\end{equation}
+For $X=sX_0,Y=sY_0$, $0\le s<1$, both period ratios are $s^7$.
+Their complete double series converge, and
+$\Delta=(1-s^7)^2\ne0$. The full observation has the nontrivial
+joint Abel limit
+\begin{equation}
+ \lim_{s\to1^-}
+ \frac{\langle Q_{\rm coh}(sX_0,sY_0)\rangle-1}{u^{15}}
+ =\frac{q+1-N_F}{\rho}.
+ \label{eq:fermat-abel-source}
+\end{equation}
+To prove it, apply the eight already proved normalized Abel
+limits, multiply by their exact multiplicities, and sum.
+The full-source assembly holds eventually in the same radial
+region, so it transfers this limit to $Q_{\rm coh}$. Lean
+checks the nontrivial filter, actual convergence region and
+complete source consumer.
+
+For characteristic different from seven the Fermat septic is a
+smooth genus-fifteen curve. Its Jacobi theory and Jacobian
+decompositions are classical; compare
+\cite[Theorems 6--7]{HidalgoRodriguez}. The new formal source
+statement is the precise complete compensated observation
+\eqref{eq:fermat-finite-source}--\eqref{eq:fermat-abel-source}.
+Priority for that particular bridge has not been established.
+Rational-prime descent, an admissible global metaplectic Fourier
+realization and an independent signed analytic estimate remain
+open. With $u=q^{-1/14}$ the trace extraction still costs
+$q^{15/14}$; the installed QRH boundary stays $7/8$.
+
+
 \section{A complete twelvefold $G_2$ coordinate calculation}
 \label{sec:G2-coordinates}
 
@@ -1911,5 +2083,11 @@ cyclic quotients of Fermat curves}, Commentarii Mathematici
 Universitatis Sancti Pauli 57 (2008), 163--185.
 Author-uploaded primary text:
 \url{https://www.researchgate.net/publication/265705571_On_the_zeta_function_of_some_cyclic_quotients_of_Fermat_curves}.
+\bibitem{HidalgoRodriguez} R. A. Hidalgo and R. E. Rodr\'iguez,
+\emph{A remark on the decomposition of the Jacobian variety of
+Fermat curves of prime degree}, Archiv der Mathematik 105 (2015),
+333--341, Theorems 6--7.
+\url{https://arxiv.org/abs/1508.00401}.
+
 \end{thebibliography}
 \end{document}

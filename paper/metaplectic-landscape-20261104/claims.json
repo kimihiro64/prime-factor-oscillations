@@ -516,6 +516,71 @@
         "Metaplectic.G2Seven.Curve.jacobi_power_trace",
         "Metaplectic.G2Seven.Curve.native_packet_frobenius"
       ]
+    },
+    {
+      "id": "G7-M1",
+      "claim": "The actual seventh-power pushforward retains every root multiplicity. Applying the complete seventh-root law twice gives the affine Fermat-septic count with all 36 Jacobi terms.",
+      "status": "kernel_checked_actual_Fermat_fibers_and_full_character_count",
+      "declarations": [
+        "Metaplectic.G2Seven.Fermat.affine_count_fibers",
+        "Metaplectic.G2Seven.Fermat.seventh_power_pushforward",
+        "Metaplectic.G2Seven.Fermat.affine_count_all_jacobi"
+      ]
+    },
+    {
+      "id": "G7-M2",
+      "claim": "A complete finite-field fractional involution proves the inverse-character Jacobi correction. The six excluded terms are -1 and the infinity root count is7, giving N_chart=q+1+S_30 with every endpoint retained.",
+      "status": "kernel_checked_inverse_pairs_infinity_and_all_30_terms",
+      "declarations": [
+        "Metaplectic.G2Seven.Fermat.jacobi_inverse_of_mul_eq_one",
+        "Metaplectic.G2Seven.Fermat.inverse_jacobi",
+        "Metaplectic.G2Seven.Fermat.affine_count_nondegenerate",
+        "Metaplectic.G2Seven.Fermat.infinity_count",
+        "Metaplectic.G2Seven.Fermat.chart_count_nondegenerate"
+      ]
+    },
+    {
+      "id": "G7-M3",
+      "claim": "Whenever q is not1 modulo7, the Fermat affine count is q and its complete two-chart count is q+1, without a character assumption; characteristic7 is an affine/chart counting branch only.",
+      "status": "kernel_checked_exact_nonsplit_Fermat_counts",
+      "declarations": [
+        "Metaplectic.G2Seven.Fermat.affine_count_coprime",
+        "Metaplectic.G2Seven.Fermat.chart_count_of_card_mod_ne_one"
+      ]
+    },
+    {
+      "id": "G7-M4",
+      "claim": "Actual Gauss--Jacobi conversion for every nondegenerate pair identifies all30 terms with the weighted eight source phases. Their full sum is exactly the normalized Fermat trace, including both the six-channel and two-phase sectors.",
+      "status": "kernel_checked_actual_all_pair_source_phase_identification",
+      "declarations": [
+        "Metaplectic.G2Seven.Fermat.normalized_jacobi_pair",
+        "Metaplectic.G2Seven.Fermat.nondegenerate_jacobi_phases",
+        "Metaplectic.G2Seven.Fermat.fermat_trace_phases"
+      ]
+    },
+    {
+      "id": "G7-M5",
+      "claim": "The full single-twist cubic source observation keeps PC=P0^3+6*P0*(2*t^4*X^3*Y^6+t^6*X^10*Y^6). Compensating both full periods before cubing gives the same finite mean, and equals the exact multiplicity-weighted assembly of all eight masked means.",
+      "status": "kernel_checked_complete_cubic_principal_and_period_compensation",
+      "declarations": [
+        "Metaplectic.G2Seven.Fermat.phase_spectrum_total",
+        "Metaplectic.G2Seven.Fermat.full_finite_probe_mean",
+        "Metaplectic.G2Seven.Fermat.full_coherent_probe_eq",
+        "Metaplectic.G2Seven.Fermat.full_coherent_probe_mean",
+        "Metaplectic.G2Seven.Fermat.full_coherent_assembly"
+      ]
+    },
+    {
+      "id": "G7-M6",
+      "claim": "At the balanced corner, every phase has scale u^15. The full finite source observation equals1+u^15*(q+1-N_chart)/rho, and its normalized full coherent observation has that actual Fermat trace as a nontrivial joint Abel limit. Both complete period series converge throughout the approach region.",
+      "status": "kernel_checked_full_actual_Fermat_finite_and_Abel_consumers",
+      "declarations": [
+        "Metaplectic.G2Seven.Fermat.phase_spectrum_balanced",
+        "Metaplectic.G2Seven.Fermat.full_radial_series",
+        "Metaplectic.G2Seven.Fermat.full_abel_readout",
+        "Metaplectic.G2Seven.Fermat.fermat_finite_readout",
+        "Metaplectic.G2Seven.Fermat.fermat_abel_readout"
+      ]
     }
   ],
   "novelty": "Priority for the combined explicit formulas has not been established; source classification and Gauss identities are classical."
