@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "date": "2026-11-04",
-  "scope": "Complete G2 sevenfold/twelvefold and Sp4 eightfold arithmetic models, coherent local energies and central compensation; no global QRH claim.",
+  "scope": "Complete G2 sevenfold/twelvefold and Sp4 eightfold arithmetic models, coherent local energies, central compensation and principal-preserving cubic readout; no global QRH claim.",
   "claims": [
     {
       "id": "G2-01",
@@ -294,6 +294,52 @@
       "installed_boundary": "7/8",
       "new_boundary": null,
       "declarations": []
+    },
+    {
+      "id": "G7-C1",
+      "claim": "Exact cubic orthogonality retains every ordered triple; on each four-frequency support, only the all-principal triple and six permutations of the three nonzero frequencies resonate. For arbitrary complex u,A,B,C the mean cube is u^3+6*A*B*C.",
+      "status": "kernel_checked",
+      "declarations": [
+        "Metaplectic.G2Seven.Cubic.cubic_sum",
+        "Metaplectic.G2Seven.Cubic.residue_resonance",
+        "Metaplectic.G2Seven.Cubic.nonresidue_resonance",
+        "Metaplectic.G2Seven.Cubic.residue_cubic_mean",
+        "Metaplectic.G2Seven.Cubic.nonresidue_cubic_mean"
+      ]
+    },
+    {
+      "id": "G7-C2",
+      "claim": "Both full source-coordinate projections contain every principal coordinate. Cubic principal compensation recovers 1-(g*h/j)*z and 1-(j/(g*h))*z at z=t^7*X^8*Y^9.",
+      "status": "kernel_checked_with_explicit_nonzero_gauss_inputs",
+      "declarations": [
+        "Metaplectic.G2Seven.Cubic.residue_compensated_mean",
+        "Metaplectic.G2Seven.Cubic.nonresidue_compensated_mean",
+        "Metaplectic.G2Seven.Cubic.source_residue_carrier",
+        "Metaplectic.G2Seven.Cubic.source_nonresidue_carrier",
+        "Metaplectic.G2Seven.Cubic.residue_probe_mean",
+        "Metaplectic.G2Seven.Cubic.nonresidue_probe_mean"
+      ]
+    },
+    {
+      "id": "G7-C3",
+      "claim": "The product of the two separately averaged probes is 1-(A+A^(-1))*z+z^2. For unit inputs the trace is 2*Re(A) and the determinant is one. This is a local algebraic factor shape, not a global L-function identification.",
+      "status": "kernel_checked",
+      "declarations": [
+        "Metaplectic.G2Seven.Cubic.paired_probe_mean",
+        "Metaplectic.G2Seven.Cubic.paired_probe_unitary"
+      ]
+    },
+    {
+      "id": "G7-C4",
+      "claim": "Both variable-torus coherent periods converge under their explicit norm bounds. Multiplying by both period factors before cubing recovers the finite compensated probes whenever the denominator is nonzero. The exact scalar absolute period-box range for the physical scale is s>15/14.",
+      "status": "kernel_checked",
+      "declarations": [
+        "Metaplectic.G2Seven.Cubic.coherentProbe_eq",
+        "Metaplectic.G2Seven.Cubic.coherent_residue_probe_mean",
+        "Metaplectic.G2Seven.Cubic.coherent_nonresidue_probe_mean",
+        "Metaplectic.G2Seven.Cubic.coherentProjection_hasSum",
+        "Metaplectic.G2Seven.Cubic.absolute_period_box"
+      ]
     }
   ],
   "novelty": "Priority for the combined explicit formulas has not been established; source classification and Gauss identities are classical."

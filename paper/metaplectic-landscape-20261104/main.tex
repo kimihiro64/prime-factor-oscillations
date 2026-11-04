@@ -39,8 +39,10 @@ cases, and give quantitative tests for a candidate's usefulness.
 We compute the complete sevenfold and twelvefold $G_2$ and eightfold
 $\Sp_4$ functional-coordinate models, retaining every character-grade
 cross term. The sevenfold complete energy is independent of all Gauss
-phases; the eightfold case has a unique positive normalized central
-mixture canceling its free Jacobi phase with both period factors intact.
+phases; a principal-preserving cubic correlation recovers reciprocal
+sevenfold phase factors at the same torus bidegree. The eightfold case
+has a unique positive normalized central mixture canceling its free
+Jacobi phase with both period factors intact.
 The arithmetic proofs are maintained in Lean; classical source inputs
 and global signal questions are stated separately.
 No new zero-free theorem is claimed. The installed local theorem remains
@@ -777,14 +779,119 @@ This calculation supplies a useful classification criterion for the
 next analytic work: count the \emph{phases inside each grade}, rather
 than just the number of coordinates or the cover degree.
 The sevenfold total energy retains no information about $g,h,j$.
-A target encoded only in those phases would require a phase-sensitive
-observable. In particular the earlier proposed
-$G_1G_2G_4$ CM phase does not occur in this second-moment expression.
-Higher correlations are a separate question.
-The constructive grade-zero overlaps also show why a smaller coordinate
-mass is not itself a smaller coherent main term.
-No global Fourier identification, moving-twist estimate or improved
-zero-free boundary follows from phase independence alone.
+The cubic observable below recovers the phase $G_1G_2G_4$ that this
+second moment misses. The constructive grade-zero overlaps also show why
+a smaller coordinate mass is not itself a smaller coherent main term.
+
+\section{A principal-preserving cubic readout in the sevenfold model}
+\label{sec:G2-seven-cubic}
+
+Put $e_7(r)=\exp(2\pi i r/7)$ and let brackets denote the complete
+average over $a\in\ZZ/7\ZZ$. Retain the entire principal polynomial
+\[
+ P_0=(1+t^2X^2Y^4)(1+t^2XY^2+t^2X^4Y).
+\]
+Project the complete source-coordinate sum onto grades $\{0,1,2,4\}$
+and $\{0,3,5,6\}$ respectively. The resulting carriers are exactly
+\[
+\begin{split}
+ S_R(a)&=P_0+tgX e_7(a)+t^3hX^4Y^4e_7(2a)
+                     +t^3j^{-1}X^3Y^5e_7(4a),\\
+ S_N(a)&=P_0+tjY e_7(3a)+t^3h^{-1}X^6Y^2e_7(5a)
+                     +t^3g^{-1}X^2Y^6e_7(6a).
+\end{split}
+\]
+Every grade-zero coordinate remains in each carrier. These formulas
+are theorems about the full 49-state arithmetic model, rather than
+definitions that omit the other principal coordinates.
+
+\textbf{Cubic readout theorem.}
+For arbitrary nonzero complex $g,h,j$ and arbitrary complex $t,X,Y$, set
+\[
+ \Phi_R(a)=1+\frac{(2P_0-S_R(a))^3-P_0^3}{6},\qquad
+ \Phi_N(a)=1+\frac{(2P_0-S_N(a))^3-P_0^3}{6}.
+\]
+Then, with $A=gh/j$ and $z=t^7X^8Y^9$,
+\[
+ \langle\Phi_R\rangle=1-Az,\qquad
+ \langle\Phi_N\rangle=1-A^{-1}z,
+\]
+and hence
+\[
+ \langle\Phi_R\rangle\langle\Phi_N\rangle
+       =1-(A+A^{-1})z+z^2.
+\]
+This is the product of two separately averaged probes; identifying
+it with a same-parameter average would require additional cross terms.
+If $|g|=|h|=|j|=1$, its trace coefficient is $2\Re A$.
+
+\emph{Proof.}
+For either frequency triple $(r_1,r_2,r_3)=(1,2,4)$ or $(3,5,6)$,
+expand
+\[
+ C(a)=u+A_1e_7(r_1a)+A_2e_7(r_2a)+A_3e_7(r_3a).
+\]
+Orthogonality applies to each of the $4^3=64$ ordered terms in $C(a)^3$.
+Among triples drawn from $\{0,r_1,r_2,r_3\}$, the zero-frequency
+triples are exactly $(0,0,0)$ and the six permutations of
+$(r_1,r_2,r_3)$. In particular, none with exactly one or two
+nonprincipal factors survives. Therefore
+\[
+ \langle C^3\rangle=u^3+6A_1A_2A_3 .
+\]
+The generic identity holds for arbitrary complex $u,A_1,A_2,A_3$.
+Apply it with $u=P_0$ and negate each nonprincipal coefficient:
+\[
+ \left\langle(2P_0-S_R)^3\right\rangle=P_0^3-6Az,\qquad
+ \left\langle(2P_0-S_N)^3\right\rangle=P_0^3-6A^{-1}z.
+\]
+Both products have degree $t^{1+3+3}$ and torus bidegree
+$(1,0)+(4,4)+(3,5)=(0,1)+(6,2)+(2,6)=(8,9)$.
+Subtraction of $P_0^3$ and division by six give the two means.
+Their product gives the stated polynomial. Under unit inputs,
+$A^{-1}=\overline A$, which proves the real-trace assertion.
+All finite orthogonality, resonance, source-coordinate, compensation
+and paired identities in this proof are maintained Lean theorems.
+
+\textbf{Full coherent periods.}
+Write
+\[
+ D=(1-t^2X^7)(1-t^2Y^7),\qquad F_R(a)=S_R(a)/D,
+ \quad F_N(a)=S_N(a)/D.
+\]
+For $|t^2X^7|<1$ and $|t^2Y^7|<1$, the complete double series is
+\[
+ F_R(a)=\sum_{m,n\ge0}(t^2X^7)^m(t^2Y^7)^nS_R(a),
+\]
+and likewise for $N$. Absolute convergence follows from the product
+of the two norm-geometric series, so multiplication of their sums
+is justified. Both series and their exact sums are formalized.
+Whenever $D\ne0$, replacing $S_R,S_N$ in the probes by $DF_R,DF_N$
+gives exactly the same readout: both period factors are compensated
+\emph{before} cubing.
+
+\textbf{Exact range of this absolute period box.}
+For the physical scale $t=q^{-1/2}$, write $|X|=q^u$ and $|Y|=q^v$.
+The two strict norm bounds become $u,v<1/7$. To have $|z|=q^{-\sigma}$
+requires
+\[
+ 8u+9v=\frac72-\sigma.
+\]
+Such $u,v$ exist if and only if $\sigma>15/14$. Necessity follows
+from $8u+9v<17/7$; sufficiency follows by choosing
+$u=v=(7/2-\sigma)/17$. This exact scalar equivalence is formalized.
+It limits this absolute series representation, not the algebraic
+compensated identity or every possible global continuation.
+
+For actual normalized order-seven Gauss sums, the classical
+Gauss--Jacobi formula interprets $A$ as
+$J(\chi,\chi^2)/\sqrt q$. That classical arithmetic interpretation is
+separate from the kernel-checked arbitrary-phase theorem above.
+A compatible global Hecke character, spherical/global Fourier
+functional and independent signed estimate have not been constructed
+here. In particular, the local reciprocal-factor shape does not
+change the installed $7/8$ boundary. Priority for this particular
+combined readout has not been established.
 
 \section{A complete twelvefold $G_2$ coordinate calculation}
 \label{sec:G2-coordinates}

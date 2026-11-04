@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-04",
+  "scope": "Principal-preserving cubic readout from the complete sevenfold G2 arithmetic model.",
+  "status": "kernel_checked_arithmetic_model",
+  "new_public_declarations": [
+    "Metaplectic.G2Seven.Cubic.absolute_period_box",
+    "Metaplectic.G2Seven.Cubic.coherentProbe_eq",
+    "Metaplectic.G2Seven.Cubic.coherentProjection_hasSum",
+    "Metaplectic.G2Seven.Cubic.coherent_nonresidue_probe_mean",
+    "Metaplectic.G2Seven.Cubic.coherent_residue_probe_mean",
+    "Metaplectic.G2Seven.Cubic.cubic_sum",
+    "Metaplectic.G2Seven.Cubic.nonresidue_compensated_mean",
+    "Metaplectic.G2Seven.Cubic.nonresidue_cubic_mean",
+    "Metaplectic.G2Seven.Cubic.nonresidue_probe_mean",
+    "Metaplectic.G2Seven.Cubic.nonresidue_resonance",
+    "Metaplectic.G2Seven.Cubic.paired_probe_mean",
+    "Metaplectic.G2Seven.Cubic.paired_probe_unitary",
+    "Metaplectic.G2Seven.Cubic.residue_compensated_mean",
+    "Metaplectic.G2Seven.Cubic.residue_cubic_mean",
+    "Metaplectic.G2Seven.Cubic.residue_probe_mean",
+    "Metaplectic.G2Seven.Cubic.residue_resonance",
+    "Metaplectic.G2Seven.Cubic.source_nonresidue_carrier",
+    "Metaplectic.G2Seven.Cubic.source_residue_carrier"
+  ],
+  "checks": {
+    "source_compilation": "G2SevenCubic and G2SevenReadout passed under pinned cached Lean; no dependency fetching.",
+    "changed_facade": "Metaplectic.All compiled after the readout and range proofs.",
+    "public_export": "All 18 declarations checked through import Solution.",
+    "axiom_closures": "Only the 18 new declarations audited; unchanged completed declarations were not re-audited.",
+    "allowed_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "required_staged_release_gate": "scripts/check.py --profile fast; exact intended files staged together; no unrelated finite-field edits included."
+  },
+  "compiler": {
+    "version": "Lean 4.34.0",
+    "commit": "293d5d0c0c3f3dded4688b3ccd6a33939ac5102b",
+    "autoImplicit": false,
+    "elab_async": false,
+    "flags": [
+      "-j",
+      "1",
+      "-s",
+      "65536",
+      "-M",
+      "8192"
+    ]
+  },
+  "source_hashes": [
+    {
+      "path": "PrimeFactorOscillations/Mathlib/NumberTheory/Metaplectic/G2SevenCubic.lean",
+      "sha256": "5BD837649F2B7ADB3304FE656F6BB64DC374B60DD21893CAEB85E264186C5F26"
+    },
+    {
+      "path": "PrimeFactorOscillations/Mathlib/NumberTheory/Metaplectic/G2SevenReadout.lean",
+      "sha256": "DAED6E1E5AC3B5DF94E01EAB30A339E84EA1D3FE95AEA43F5D138E9A965F2684"
+    },
+    {
+      "path": "PrimeFactorOscillations/Mathlib/NumberTheory/Metaplectic/All.lean",
+      "sha256": "A22E03F8790F6FC21327FB9F698E7625EB6CB79C38937E4B204CF81013FC0647"
+    },
+    {
+      "path": "scripts/metaplectic_proof_targets.py",
+      "sha256": "747FD12BEDC7EDE7A4391836231ABD4F2C85C9F22968C87E8503DD36B6C93398"
+    },
+    {
+      "path": "MATHLIB_PORTING.md",
+      "sha256": "0D3384653CA0681562BAC8100B529370C663E342C9062A0E2FC66B63C5DDE38D"
+    },
+    {
+      "path": "paper/metaplectic-landscape-20261104/main.tex",
+      "sha256": "BEA22D27FA445E01F8E1C6D260BD604672EF10F6BF4DF7CD4A8357D10A404A07"
+    },
+    {
+      "path": "paper/metaplectic-landscape-20261104/cases.json",
+      "sha256": "11D37AC69F05A2DB8DB64F2482CCDD0BEB4C47C0944E8E4BEA0F04A820F63EA6"
+    },
+    {
+      "path": "paper/metaplectic-landscape-20261104/claims.json",
+      "sha256": "74E3084840C171C6D1911FC685EE1E5240E80E6B5B055017B1C57EE78B77B4EA"
+    }
+  ],
+  "mathematics": {
+    "principal": "All six grade-zero source coordinates remain in both masked carriers.",
+    "cubic_resonance": "Exactly 000 and six permutations of the three nonzero frequencies survive, out of all 64 ordered terms.",
+    "readout": "1-A*z and 1-A^(-1)*z, with A=g*h/j and z=t^7*X^8*Y^9.",
+    "paired_readout": "Product of separately averaged probes; 1-(A+A^(-1))*z+z^2; real trace and unit determinant under unit inputs.",
+    "periods": "Both norm-geometric series retained; both factors compensated before cubing.",
+    "absolute_period_range": "Exists real u,v<1/7 with 8u+9v=7/2-s iff s>15/14; exact scalar equivalence compiled.",
+    "global_status": "Not an identification of a spherical/global Fourier coefficient or a global Hecke L-function."
+  },
+  "latex": {
+    "status": "PDF compilation failed after successful 22-page XDV typesetting",
+    "source_errors_reported": false,
+    "blocker": "Missing cmr12.pfb; compiler font-bundle request timed out, followed by access-denied errors. PDF generation unconfirmed."
+  },
+  "benchmark_status": "Local arithmetic-model theorem, no global analytic gain.",
+  "old_bound": "7/8",
+  "new_bound": "7/8",
+  "components": {
+    "proved": "Full compensated cubic local readout, reciprocal phase pairing, real trace, both coherent periods, exact scalar absolute-box range.",
+    "unproved": "Compatible global Fourier/Hecke identification and independent signed estimate."
+  },
+  "actuals": null,
+  "first_nonpositive_domain": null,
+  "novelty_priority": "Not established; classical source classification and Gauss/Jacobi identities remain cited inputs."
+}
