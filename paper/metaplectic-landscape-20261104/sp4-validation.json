@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-04",
+  "scope": "Eightfold Sp4 arithmetic functional-coordinate model and unique central compensation; no global automorphic or zero-free claim.",
+  "lean_version": "4.34.0",
+  "lean_commit": "293d5d0c0c3f3dded4688b3ccd6a33939ac5102b",
+  "compiler_mode": "Pinned compiler directly, cached LEAN_PATH, no dependency fetch/build.",
+  "compiled_modules": [
+    "PrimeFactorOscillations.Mathlib.NumberTheory.Metaplectic.Sp4EightLocal",
+    "PrimeFactorOscillations.Mathlib.NumberTheory.Metaplectic.Sp4EightTrace",
+    "PrimeFactorOscillations.Mathlib.NumberTheory.Metaplectic.All"
+  ],
+  "source_sha256": {
+    "PrimeFactorOscillations/Mathlib/NumberTheory/Metaplectic/Sp4EightLocal.lean": "b12eb8b009843cb1bccd66338104f738cfec432c47c753695fc5f128331db768",
+    "PrimeFactorOscillations/Mathlib/NumberTheory/Metaplectic/Sp4EightTrace.lean": "a03d75c7dc644cf790e9d2dff0ff794722f906cdeb521216b7b4790e6827ba28"
+  },
+  "audited_new_theorem_count": 29,
+  "audited_new_theorems": [
+    "Metaplectic.Sp4Eight.additive_twist_energy",
+    "Metaplectic.Sp4Eight.coherentSignal_energy",
+    "Metaplectic.Sp4Eight.coherentSignal_hasSum",
+    "Metaplectic.Sp4Eight.compensated_coherent_trace",
+    "Metaplectic.Sp4Eight.compensatingWeight_pos",
+    "Metaplectic.Sp4Eight.compensatingWeight_unique",
+    "Metaplectic.Sp4Eight.coordinates_packetOf",
+    "Metaplectic.Sp4Eight.degree_reflect",
+    "Metaplectic.Sp4Eight.equal_coherent_trace",
+    "Metaplectic.Sp4Eight.finiteSignal_pairCoefficient",
+    "Metaplectic.Sp4Eight.finiteSignal_parseval",
+    "Metaplectic.Sp4Eight.gaussArgument_nonzero",
+    "Metaplectic.Sp4Eight.localTerm_hasSum",
+    "Metaplectic.Sp4Eight.massTerm_hasSum",
+    "Metaplectic.Sp4Eight.mixture_phase_difference",
+    "Metaplectic.Sp4Eight.numerator_eq",
+    "Metaplectic.Sp4Eight.numerator_period_identity",
+    "Metaplectic.Sp4Eight.packetOf_coordinates",
+    "Metaplectic.Sp4Eight.pairCoefficient_energy",
+    "Metaplectic.Sp4Eight.pairCoefficient_energy_expansion",
+    "Metaplectic.Sp4Eight.pairCoefficient_eq_sum",
+    "Metaplectic.Sp4Eight.periodTerm_hasSum",
+    "Metaplectic.Sp4Eight.phase_reflect",
+    "Metaplectic.Sp4Eight.signedNumerator_factorization",
+    "Metaplectic.Sp4Eight.support_card",
+    "Metaplectic.Sp4Eight.supported_reflect",
+    "Metaplectic.Sp4Eight.twistClass_eq_quadraticClass",
+    "Metaplectic.Sp4Eight.twistClass_fiber_card",
+    "Metaplectic.Sp4Eight.unit_coordinate_survives"
+  ],
+  "axiom_allowlist": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "unchanged_G2_theorems_reaudited": false,
+  "assumptions": "Explicit arithmetic unit norms, quadratic sign relation, and 0<=t<1 for convergent periods; uniqueness only at 0<t<1. Representation and Gauss/Jacobi identifications remain cited ordinary inputs.",
+  "paper_compilation": {
+    "status": "blocked_environment_font_download",
+    "message": "Built-in XeTeX typesetting reached font embedding; PDF generation cannot fetch cmr12.pfb because relay.fullyjustified.net DNS fails. No successful PDF compilation claimed."
+  },
+  "benchmark_status": "Local exact identities; no assembled global arithmetic improvement.",
+  "old_bound": "7/8",
+  "new_bound": "7/8",
+  "components": {
+    "proved": "Complete signed local model, infinite period convergence, exact compensation and uniqueness",
+    "unproved": "Admissible global average, target Fourier/reciprocal factor, zero-signal preservation and signed estimate"
+  },
+  "actuals": null,
+  "first_nonpositive_domain": null,
+  "novelty": "Priority for these combined explicit formulas is not established; source classification and Gauss identities are classical."
+}

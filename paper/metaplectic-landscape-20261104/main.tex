@@ -5,6 +5,8 @@
 \setlength{\textheight}{9in}
 \setlength{\topmargin}{-0.5in}
 \usepackage{amsmath,amssymb,hyperref}
+% Use the available bold metric at every heading size in the built-in compiler.
+\DeclareFontShape{OT1}{cmr}{bx}{n}{<-> cmbx10}{}
 \newcommand{\toprule}{\hline}
 \newcommand{\midrule}{\hline}
 \newcommand{\bottomrule}{\hline}
@@ -34,9 +36,12 @@ higher cover. We identify alternatives on general linear, symplectic and
 exceptional groups, distinguish earlier project attempts from untested
 cases, and give quantitative tests for a candidate's usefulness.
 
-We also compute the complete twelvefold $G_2$ functional-coordinate model
-and its six-channel additive-twist average, with maintained Lean arithmetic
-proofs and explicitly separated classical source inputs.
+We compute the complete twelvefold $G_2$ and eightfold $\Sp_4$
+functional-coordinate models, retaining every character-grade cross term.
+For the latter we prove the unique positive normalized central mixture
+that cancels the free Jacobi phase with both infinite period factors intact.
+The arithmetic proofs are maintained in Lean; classical source inputs
+and global signal questions are stated separately.
 No new zero-free theorem is claimed. The installed local theorem remains
 the project's compiled $7/8$ result. Later external theorem statements are
 recorded with their versions and have not been imported or proof-audited
@@ -423,36 +428,195 @@ Its reproducible scope and exact output are in the companion JSON.
 
 \section{Two rank-two families worth distinguishing explicitly}
 
-\subsection{The $\Sp_4$ degree-eight option}
+\subsection{The complete degree-eight $\Sp_4$ coordinate model}
 
-This option changes the group, not just an exponent in the old
-quintic $\GL_4$ calculation. Its distinguished model exists in the
-unramified classification. With the standard short/long coroot
-quadratic values $1,2$, its effective root orders are $8,4$.
-
-For an order-eight character, repeated squaring has the exact chain
+We now compute this case, including its extra central sign.
+Work at a tame unramified place whose field contains $\mu_{16}$;
+write $q$ for the residue cardinality and $t=q^{-1/2}$.
+Number the short coroot first, reversing Gao's numbering in type $C_2$.
+Then
 \[
- \chi\longmapsto\chi^2\longmapsto\chi^4\longmapsto\chi^8.
+ Q(a,b)=a^2-2ab+2b^2,\quad
+ Y_{Q,8}=4\ZZ\times4\ZZ,\quad
+ Y_{Q,8}^{\mathrm{sc}}=8\ZZ\times4\ZZ.
 \]
-The last character is principal only on units; it retains its
-nonunit zeros. This chain could permit a simultaneous recursion using
-order-eight, quartic, quadratic and principal families. It is an
-algebraic closure opportunity, not a proved transform or estimate.
-The $\Sp_4$ Weyl group has order eight, whereas the previous $\GL_4$
-semisimple Weyl group has order twenty-four.
+The exceptional-character values on the two simple root periods are
+$q^{-1}$. Thus the value at $(4,0)$ is $\sigma t$, where $\sigma=\pm1$,
+and the value at $(0,4)$ is $t^2$.
+Both central extensions are distinguished in Gao's classification
+\cite[Section 5.2.4]{Gao}. The coordinates below are functional
+coordinates in his Section 3.1 convention.
 
-The construction must specify whether $\mu_8$ suffices or $\mu_{16}$
-is required globally: the minimal field degrees are four and eight.
-The low number of root coordinates can be offset by this field cost.
+Let $G_k$ be the normalized Gauss sum of $\chi^k$ for an order-eight
+character $\chi$, and set
+\[
+ g=G_1,\quad h=G_2,\quad j=G_3,\quad e=G_4.
+\]
+All have norm one, $G_{8-k}=G_k^{-1}$ and $e^2=1$.
+Normalize $c(0,0)=1$. The complete nonzero rectangle is
+\[
+\begin{array}{c|c|c}
+(a,b)&c(a,b)&Q(a,b)\bmod8\\ \hline
+(0,0)&1&0\\
+(1,0)&tg&1\\
+(0,1)&th&2\\
+(1,2)&t^2ge&5\\
+(3,1)&t^2hj&5\\
+(0,2)&\sigma t^2gje&0\\
+(3,3)&t^3hje&1\\
+(0,3)&\sigma t^3ghje&2
+\end{array}
+\]
+The other eight rectangle coordinates vanish.
 
-The first substantive test is a local generating function in both
-torus indices with all Gauss phases retained. After taking the required
-global residue, does an admissible coefficient functional yield
-$(1-\eta(\mathfrak p)q^{-s})$ times a nonzero harmless factor, at
-the correct linear index? A failure of that test would eliminate the
-proposed scalar detector before a long moment proof. If it succeeds,
-the next calculation is the whole transformed conductor and moment,
-not an isolated quadratic row.
+Here is a direct verification of the source recurrence, rather than
+a guess based on orbit size. The shifted reflections are
+\[
+ s_1[a,b]=(1-a+2b,b),\qquad s_2[a,b]=(a,1+a-b).
+\]
+Put $P_1=2a-2b$, $P_2=-a+2b$, and $n_1=8,n_2=4$.
+For an unreduced reflected coordinate $(a',b')$, let
+$k=\lfloor a'/4\rfloor$, $\ell=\lfloor b'/4\rfloor$.
+Its period multiplier is $\sigma^k t^{k+2\ell}$.
+With the trivial Hilbert phase supplied by $\mu_{16}$, Gao's
+Corollary 3.7 becomes
+\[
+ \sigma^k t^{k+2\ell}c(a'\bmod4,b'\bmod4)
+ =t^{1-2\lceil P_i/n_i\rceil}
+   G_{Q(\alpha_i^\vee)(P_i-1)}^{-1}c(a,b).
+\]
+Substitution of the displayed table verifies every supported edge;
+the remaining edges preserve zero support. In particular the central
+$\sigma^k$ cannot be omitted. The kernel checks all 32 edges as exact
+degree and Gauss/central-exponent identities.
+The source representation theorem is a separately cited input.
+
+The complete signed numerator factors as
+\[
+\begin{split}
+ N_\sigma(X,Y)={}&
+ (1+thY)(1+\sigma t^2gjeY^2)\\
+ &+tgX(1+teY^2)+t^2hjX^3Y(1+teY^2).
+\end{split}
+\]
+Both unbounded directions are retained in
+\[
+ \mathcal N_\sigma(X,Y)=
+ \frac{N_\sigma(X,Y)}
+ {(1-\sigma tX^4)(1-t^2Y^4)}.
+\]
+The geometric expansion converges absolutely when both period ratios
+have modulus less than one. At $X=Y=1$ it converges for $0\le t<1$;
+this full two-period convergence is also formalized.
+Every natural coordinate pair has the unique form
+$(a+4u,b+4v)$ with $0\le a,b<4$ and $u,v\ge0$.
+Consequently its squared-coordinate mass, with $x=t^2$, is
+\[
+ \frac{1+2x+3x^2+2x^3}{(1-x)(1-x^2)}
+ =\frac{1+x+2x^2}{(1-x)^2},\qquad 0\le x<1.
+\]
+This mass differs from a coherent squared sum.
+
+\paragraph{All four interference channels.}
+Set $A=gje$, $B=hje/g$.
+Grouping by the actual quadratic grade gives, respectively,
+\[
+ 1+\sigma t^2A,\quad
+ tg(1+t^2B),\quad
+ th(1+\sigma t^2A),\quad
+ t^2ge(1+B)
+\]
+in grades $0,1,2,5$.
+Let $S_\sigma(u)$ be the Fourier sum of these four channels against
+the standard additive characters of $\ZZ/8\ZZ$.
+Finite character orthogonality gives the exact identity
+\[
+\begin{split}
+ E_\sigma&=\frac18\sum_{u\bmod8}|S_\sigma(u)|^2\\
+ &=(1+t^2)|1+\sigma t^2A|^2
+       +t^2|1+t^2B|^2+t^4|1+B|^2\\
+ &=D_8(t)+2\sigma t^2(1+t^2)\Re A+4t^4\Re B,\\
+ D_8(t)&=1+2t^2+3t^4+2t^6.
+\end{split}
+\]
+No same-grade cross term is erased.
+As a consistency check, removing all cross terms reproduces the
+eight-coordinate mass numerator $D_8$.
+
+The classical duplication formula gives
+$\chi(4)g/j=he$, hence $B=\chi(4)$.
+Here $\chi(4)=\pm1$: the field contains $\mu_8$, so
+$\sqrt2=\zeta_8+\zeta_8^{-1}$ belongs to it and the quadratic character
+of $2$ is one.
+The Gauss--Jacobi identity gives
+\[
+ A=\frac{J(\chi,\chi^3)}{\sqrt q}.
+\]
+The automorphism $\zeta_8\mapsto\zeta_8^3$ swaps the two Jacobi
+arguments, so fixes this Jacobi sum. Its fixed field is
+$\QQ(\sqrt{-2})$, and integrality and the Gauss norm yield
+\[
+ J(\chi,\chi^3)=a+b\sqrt{-2},\qquad a,b\in\ZZ,\quad a^2+2b^2=q.
+\]
+These are classical finite-field interpretations of the phases.
+The maintained Lean energy theorem instead accepts arbitrary unit
+complex Gauss phases with its stated algebraic hypotheses.
+
+\paragraph{Unique compensation with both infinite periods.}
+Put
+\[
+ F_\sigma(u)=\frac{S_\sigma(u)}
+ {(1-\sigma t)(1-t^2)},\qquad
+ \mathcal E_\sigma=\frac18\sum_{u\bmod8}|F_\sigma(u)|^2
+ =\frac{E_\sigma}{(1-\sigma t)^2(1-t^2)^2}.
+\]
+Averaging the rectangles cancels $\Re A$, but equal averaging of the
+complete expressions gives
+\[
+ \frac{\mathcal E_++\mathcal E_-}{2}
+ =\frac{(1+t^2)(D_8+4t^4\Re B)
+          +4t^3(1+t^2)\Re A}{(1-t^2)^4}.
+\]
+The periods reintroduce the phase. There is, however, an exact remedy.
+
+For every $0<t<1$ the unique normalized mixture
+$w\mathcal E_++(1-w)\mathcal E_-$ that is independent of the free
+real phase $\Re A$ is
+\[
+ w_+(t)=\frac{(1-t)^2}{2(1+t^2)},\qquad
+ w_-(t)=\frac{(1+t)^2}{2(1+t^2)}.
+\]
+Both weights are strictly positive, sum to one, and satisfy
+\[
+ \boxed{\quad
+ w_+\mathcal E_++w_-\mathcal E_-
+ =\frac{D_8(t)+4t^4\Re B}
+ {(1+t^2)(1-t^2)^2}.\quad}
+\]
+To prove uniqueness, the coefficient of $\Re A$ in a general mixture
+is
+\[
+ \frac{2t^2(1+t^2)}
+ {(1-t^2)^4}
+ \left(2w(1+t^2)-(1-t)^2\right).
+\]
+Its prefactor is nonzero for $0<t<1$, forcing the displayed $w$.
+Conversely substitution cancels that coefficient exactly.
+At $t=0$ every mixture is phase independent and uniqueness is not claimed.
+The unit rectangle coordinate remains one.
+These identities, positivity, uniqueness, and the full coherent
+series are maintained Lean theorems.
+
+This gives a precise local design constraint for a higher-cover
+construction. It also records a cost: the compensation removes
+\emph{all} information carried only by $A$. Unit-coordinate survival
+does not establish survival of a target $L$-function zero.
+Furthermore one cannot prescribe the signs $\sigma_{\mathfrak p}$
+independently at every prime and call the result an admissible global
+exceptional-character average. The global character construction,
+the intended spherical Fourier functional, reciprocal target factor,
+moving-twist conductor and independent signed estimate remain open.
+This local theorem changes no certified QRH exponent.
 
 \subsection{The degree-seven and degree-twelve $G_2$ options}
 

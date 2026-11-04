@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "date": "2026-11-04",
-  "scope": "Complete twelvefold G2 arithmetic coordinate model and local additive-twist average; no global QRH claim.",
+  "scope": "Complete G2 twelvefold and Sp4 eightfold arithmetic models and local coherent averages, with unique central compensation; no global QRH claim.",
   "claims": [
     {
       "id": "G2-01",
@@ -128,6 +128,97 @@
     {
       "id": "G2-13",
       "claim": "Prove the full moving-twist reflection and an independent signed global estimate improving the installed boundary.",
+      "status": "not_established",
+      "installed_boundary": "7/8",
+      "new_boundary": null,
+      "declarations": []
+    },
+    {
+      "id": "SP4-01",
+      "claim": "The 4 by 4 central quotient has eight supported coordinates; every root edge retains both Gauss phases and the extra central sign.",
+      "status": "kernel_checked_arithmetic_model",
+      "declarations": [
+        "Metaplectic.Sp4Eight.support_card",
+        "Metaplectic.Sp4Eight.supported_reflect",
+        "Metaplectic.Sp4Eight.degree_reflect",
+        "Metaplectic.Sp4Eight.phase_reflect",
+        "Metaplectic.Sp4Eight.gaussArgument_nonzero"
+      ]
+    },
+    {
+      "id": "SP4-02",
+      "claim": "The complete signed two-variable numerator has the displayed factorization; every natural pair is covered exactly once and the squared-coordinate mass is (1+x+2*x^2)/(1-x)^2 for 0<=x<1.",
+      "status": "kernel_checked",
+      "declarations": [
+        "Metaplectic.Sp4Eight.signedNumerator_factorization",
+        "Metaplectic.Sp4Eight.packetOf_coordinates",
+        "Metaplectic.Sp4Eight.coordinates_packetOf",
+        "Metaplectic.Sp4Eight.localTerm_hasSum"
+      ]
+    },
+    {
+      "id": "SP4-03",
+      "claim": "Exactly four quadratic grades occur twice each, and all coherent pair cross terms survive in the exact Fourier energy.",
+      "status": "kernel_checked_with_explicit_unit_and_quadratic_sign_hypotheses",
+      "declarations": [
+        "Metaplectic.Sp4Eight.twistClass_eq_quadraticClass",
+        "Metaplectic.Sp4Eight.twistClass_fiber_card",
+        "Metaplectic.Sp4Eight.pairCoefficient_eq_sum",
+        "Metaplectic.Sp4Eight.finiteSignal_pairCoefficient",
+        "Metaplectic.Sp4Eight.additive_twist_energy",
+        "Metaplectic.Sp4Eight.pairCoefficient_energy_expansion"
+      ]
+    },
+    {
+      "id": "SP4-04",
+      "claim": "Both infinite coherent period directions converge absolutely for 0<=t<1 and sigma^2=1, with the sign-dependent denominator retained.",
+      "status": "kernel_checked",
+      "declarations": [
+        "Metaplectic.Sp4Eight.coherentSignal_hasSum",
+        "Metaplectic.Sp4Eight.coherentSignal_energy"
+      ]
+    },
+    {
+      "id": "SP4-05",
+      "claim": "Equal central averaging leaves the displayed CM interference; the unique positive normalized weights eliminating the free phase are (1-sigma*t)^2/(2*(1+t^2)) for 0<t<1.",
+      "status": "kernel_checked_for_the_defined_full_coherent_model",
+      "declarations": [
+        "Metaplectic.Sp4Eight.equal_coherent_trace",
+        "Metaplectic.Sp4Eight.compensated_coherent_trace",
+        "Metaplectic.Sp4Eight.compensatingWeight_pos",
+        "Metaplectic.Sp4Eight.mixture_phase_difference",
+        "Metaplectic.Sp4Eight.compensatingWeight_unique"
+      ]
+    },
+    {
+      "id": "SP4-06",
+      "claim": "The unit coordinate survives compensation; this does not establish target zero-signal preservation.",
+      "status": "kernel_checked_unit_coordinate_only",
+      "declarations": [
+        "Metaplectic.Sp4Eight.unit_coordinate_survives"
+      ]
+    },
+    {
+      "id": "SP4-07",
+      "claim": "Actual finite-field phases satisfy A=J(chi,chi^3)/sqrt(q) in Q(sqrt(-2)) and B=chi(4) in {1,-1}.",
+      "status": "classical_cited_ordinary_input_not_formalized_here",
+      "sources": [
+        "Hasse-Davenport duplication",
+        "Gauss-Jacobi identity",
+        "octic Jacobi fixed field"
+      ]
+    },
+    {
+      "id": "SP4-08",
+      "claim": "The arithmetic model identifies source functional coordinates under the stated tame unramified mu16 hypotheses, using the full central lattice and Gao convention.",
+      "status": "source_dependent_representation_theoretic_input_not_formalized",
+      "sources": [
+        "Gao Section 3.1, Corollary 3.7 and Section 5.2.4"
+      ]
+    },
+    {
+      "id": "SP4-09",
+      "claim": "Construct an admissible global central average, spherical Fourier identification, reciprocal target L-factor and independent signed estimate.",
       "status": "not_established",
       "installed_boundary": "7/8",
       "new_boundary": null,

@@ -6,10 +6,12 @@ Authors: Prime Factor Oscillations contributors
 import PrimeFactorOscillations.Mathlib.NumberTheory.Metaplectic.G2TwelveFourier
 import PrimeFactorOscillations.Mathlib.NumberTheory.Metaplectic.QuinticCocycle
 import PrimeFactorOscillations.Mathlib.NumberTheory.Metaplectic.QuinticLocalMass
+import PrimeFactorOscillations.Mathlib.NumberTheory.Metaplectic.Sp4EightTrace
 
 /-!
 # Metaplectic arithmetic candidate exports
 
-Exports the complete G2 twelvefold coordinate and Fourier models and the
+Exports the G2 twelvefold and Sp4 eightfold signed coordinate models,
+their complete local Fourier energies and central compensation, and the
 existing quintic local-mass and cocycle models.
 -/

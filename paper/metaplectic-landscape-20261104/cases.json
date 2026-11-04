@@ -33,9 +33,38 @@
     "Metaplectic.G2Twelve.supported_reflect",
     "Metaplectic.G2Twelve.twistClass_eq_quadraticClass",
     "Metaplectic.G2Twelve.twistClass_fiber_card",
-    "Metaplectic.G2Twelve.twistNumerator_six_pairs"
+    "Metaplectic.G2Twelve.twistNumerator_six_pairs",
+    "Metaplectic.Sp4Eight.additive_twist_energy",
+    "Metaplectic.Sp4Eight.coherentSignal_energy",
+    "Metaplectic.Sp4Eight.coherentSignal_hasSum",
+    "Metaplectic.Sp4Eight.compensated_coherent_trace",
+    "Metaplectic.Sp4Eight.compensatingWeight_pos",
+    "Metaplectic.Sp4Eight.compensatingWeight_unique",
+    "Metaplectic.Sp4Eight.coordinates_packetOf",
+    "Metaplectic.Sp4Eight.degree_reflect",
+    "Metaplectic.Sp4Eight.equal_coherent_trace",
+    "Metaplectic.Sp4Eight.finiteSignal_pairCoefficient",
+    "Metaplectic.Sp4Eight.finiteSignal_parseval",
+    "Metaplectic.Sp4Eight.gaussArgument_nonzero",
+    "Metaplectic.Sp4Eight.localTerm_hasSum",
+    "Metaplectic.Sp4Eight.massTerm_hasSum",
+    "Metaplectic.Sp4Eight.mixture_phase_difference",
+    "Metaplectic.Sp4Eight.numerator_eq",
+    "Metaplectic.Sp4Eight.numerator_period_identity",
+    "Metaplectic.Sp4Eight.packetOf_coordinates",
+    "Metaplectic.Sp4Eight.pairCoefficient_energy",
+    "Metaplectic.Sp4Eight.pairCoefficient_energy_expansion",
+    "Metaplectic.Sp4Eight.pairCoefficient_eq_sum",
+    "Metaplectic.Sp4Eight.periodTerm_hasSum",
+    "Metaplectic.Sp4Eight.phase_reflect",
+    "Metaplectic.Sp4Eight.signedNumerator_factorization",
+    "Metaplectic.Sp4Eight.support_card",
+    "Metaplectic.Sp4Eight.supported_reflect",
+    "Metaplectic.Sp4Eight.twistClass_eq_quadraticClass",
+    "Metaplectic.Sp4Eight.twistClass_fiber_card",
+    "Metaplectic.Sp4Eight.unit_coordinate_survives"
   ],
-  "proof_status": "Two kernel-checked maintained arithmetic modules; representation theory, finite-field Hasse-Davenport and the Gaussian Jacobi interpretation remain explicitly separated ordinary inputs. No analytic boundary gain.",
+  "proof_status": "Four maintained kernel-checked arithmetic modules: G2 twelvefold and Sp4 eightfold, with exact central compensation and full coherent periods. Representation-theoretic and finite-field Gauss/Jacobi identifications are explicitly separate ordinary inputs. No analytic boundary gain.",
   "classification_scope": "principal structural mechanisms and selected low-degree cases, not a complete global automorphic classification",
   "overlap_scope": "current repo public/private QRH terminology search and specified prior notes; not exhaustive across sibling repositories",
   "sources": [
@@ -204,7 +233,7 @@
       "degree": 8,
       "group": "special GL7; Sp4",
       "cyclotomic_degree": 4,
-      "status": "Sp4 unramified distinguished model; global roots-of-unity requirement unresolved for selected detector",
+      "status": "Complete Sp4 eightfold arithmetic coordinate model, four-channel energy and unique central compensation maintained in Lean; source convention uses mu16; no global QRH detector constructed.",
       "root_orders": [
         8,
         4
@@ -452,7 +481,7 @@
       "first_interference": "O(q^(-3/2)) in the rectangle average, all cross terms retained"
     },
     "sp4_eight": {
-      "status": "Exact central-quotient/orbit diagnostic only; signed functional-coordinate proof and formalization not completed.",
+      "status": "Maintained kernel-checked arithmetic model; source representation and finite-field phase interpretation explicitly separated.",
       "quadratic_form": "a^2-2*a*b+2*b^2",
       "root_orders": [
         8,
@@ -465,7 +494,33 @@
         4,
         4
       ],
-      "remaining_datum": "The central character at 4 times the first coroot is not fixed by its value at 8 times that coroot; retain its sign."
+      "support": 8,
+      "central_periods": [
+        "sigma*t",
+        "t^2"
+      ],
+      "sigma": "1 or -1",
+      "twist_classes": [
+        0,
+        1,
+        2,
+        5
+      ],
+      "class_multiplicity": 2,
+      "signed_average": "D8(t)+2*sigma*t^2*(1+t^2)*Re(A)+4*t^4*Re(B)",
+      "D8": "1+2*t^2+3*t^4+2*t^6",
+      "coordinate_mass": "(1+x+2*x^2)/(1-x)^2, 0<=x<1",
+      "source_gauss_reduction": "A=J(chi,chi^3)/sqrt(q), J in Z[sqrt(-2)] with norm q; B=chi(4) in {1,-1}. Classical ordinary inputs.",
+      "coherent_period_denominator": "(1-sigma*t)^2*(1-t^2)^2 for averaged squared coherent sum",
+      "coherent_convergence": "Kernel-checked HasSum over both infinite period indices for 0<=t<1 and sigma^2=1.",
+      "compensating_weights": [
+        "(1-t)^2/(2*(1+t^2))",
+        "(1+t)^2/(2*(1+t^2))"
+      ],
+      "compensated_energy": "(D8(t)+4*t^4*Re(B))/((1+t^2)*(1-t^2)^2)",
+      "uniqueness_domain": "0<t<1; every mixture is phase independent at t=0",
+      "signal_scope": "Unit coordinate survives; all A-only information is erased. No target-zero signal-preservation claim.",
+      "global_obstruction": "An admissible global character average realizing independent local sign compensation has not been constructed."
     },
     "novelty_priority": "Not established. Gao supplies the theta recurrence/classification and Gauss identities are classical; combined explicit coordinate and average calculation is recorded without a priority claim.",
     "benchmark_status": "Local arithmetic model only; no assembled global analytic improvement.",
@@ -498,7 +553,7 @@
   "next_cases": [
     {
       "case": "Sp4 degree 8",
-      "first_test": "full two-root local coefficient generating series and admissible global reciprocal-factor functional",
+      "first_test": "Use the completed two-root model and unique central compensation to test an admissible global Fourier functional and actual reciprocal L-factor. Retain the global constraint on local signs and verify whether erased CM phase carries the intended signal.",
       "advantage_to_test": "rank two, root orders 8/4, squaring closure through quartic/quadratic; field may need mu16",
       "failure_condition": "no surviving reciprocal signal or global field/conductor costs erase proposed advantage"
     },
