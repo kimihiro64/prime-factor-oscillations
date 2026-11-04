@@ -36,10 +36,11 @@ higher cover. We identify alternatives on general linear, symplectic and
 exceptional groups, distinguish earlier project attempts from untested
 cases, and give quantitative tests for a candidate's usefulness.
 
-We compute the complete twelvefold $G_2$ and eightfold $\Sp_4$
-functional-coordinate models, retaining every character-grade cross term.
-For the latter we prove the unique positive normalized central mixture
-that cancels the free Jacobi phase with both infinite period factors intact.
+We compute the complete sevenfold and twelvefold $G_2$ and eightfold
+$\Sp_4$ functional-coordinate models, retaining every character-grade
+cross term. The sevenfold complete energy is independent of all Gauss
+phases; the eightfold case has a unique positive normalized central
+mixture canceling its free Jacobi phase with both period factors intact.
 The arithmetic proofs are maintained in Lean; classical source inputs
 and global signal questions are stated separately.
 No new zero-free theorem is claimed. The installed local theorem remains
@@ -661,6 +662,129 @@ Neither option is asserted novel as a representation; both are existing
 mathematical objects. Adapting them to a useful zero comparison is a
 research possibility, not an established new theorem or a completed
 portfolio novelty check.
+
+\section{A phase-free sevenfold $G_2$ model}
+\label{sec:G2-seven}
+
+The sevenfold case has a different interference structure from both
+models above. Assume the source field contains $\mu_7$ and its residue
+characteristic is not seven, as in Gao's tame hypothesis.
+Then $q\equiv1\pmod7$ and $t=q^{-1/2}$.
+Residue characteristics two and three are not excluded merely by the
+cover degree. An order-seven character satisfies $\chi(-1)=1$, so
+the normalized Gauss factors satisfy $G_{7-k}=G_k^{-1}$.
+Write $g=G_1$, $h=G_2$, $j=G_3$.
+
+Here $Y_{Q,7}=7\ZZ^2$, both root orders are seven, and the central
+exceptional character has no extra sign choice.
+The complete supported table is
+\[
+\begin{array}{c|c|c}
+(a,b)&c(a,b)&Q(a,b)\bmod7\\ \hline
+(0,0)&1&0\\
+(1,0)&tg&1\\
+(0,1)&tj&3\\
+(1,2)&t^2&0\\
+(4,1)&t^2&0\\
+(6,2)&t^3/h&5\\
+(4,4)&t^3h&2\\
+(6,5)&t^4&0\\
+(2,4)&t^2&0\\
+(3,5)&t^3/j&4\\
+(2,6)&t^3/g&6\\
+(3,6)&t^4&0 .
+\end{array}
+\]
+All other 37 rectangle coordinates vanish.
+The same shifted reflections as above, with both periods seven,
+verify the root recurrence on every supported edge.
+For $(a',b')=s_i[a,b]$, its period multiplier is
+$t^{2(\lfloor a'/7\rfloor+\lfloor b'/7\rfloor)}$.
+The recurrence multiplier before this reduction is
+$t^{1-2\lceil P_i/7\rceil}
+G_{Q(\alpha_i^\vee)(P_i-1)}^{-1}$, where
+$P_1=2a-3b$ and $P_2=-a+2b$.
+Direct substitution checks the full degree and phase table.
+These finite checks are kernel theorems. The interpretation as the
+source functional is the separate representation-theoretic input
+\cite[Corollary 3.7 and Theorem 7.1]{Gao}.
+
+The complete signed polynomial is
+\[
+\begin{split}
+N_7(X,Y)={}&
+ (1+t^2X^2Y^4)(1+t^2XY^2+t^2X^4Y)\\
+ &+t(gX+jY)\\
+ &+t^3(hX^4Y^4+h^{-1}X^6Y^2
+             +j^{-1}X^3Y^5+g^{-1}X^2Y^6).
+\end{split}
+\]
+In particular, every nonconstant Gauss phase is a single factor or
+its inverse; no mixed Gauss product is being discarded.
+
+The quadratic grades have multiplicities six at zero and one at
+each of $1,\ldots,6$. Every pair of supported coordinates in the
+same grade has \emph{identical} phase.
+Their seven coherent channel coefficients are
+\[
+\begin{array}{c|ccccccc}
+r&0&1&2&3&4&5&6\\ \hline
+v_r&1+3t^2+2t^4&tg&t^3h&tj&t^3/j&t^3/h&t^3/g .
+\end{array}
+\]
+For $S(u)=\sum_{r\bmod7}v_r e(ur/7)$, orthogonality therefore gives
+\[
+\begin{split}
+ \frac17\sum_{u\bmod7}|S(u)|^2
+ &=(1+3t^2+2t^4)^2+2t^2+4t^6\\
+ &=1+8t^2+13t^4+16t^6+4t^8=:E_7(t).
+\end{split}
+\]
+This exact identity holds for \emph{every} unit complex choice of
+$g,h,j$. It retains the thirty off-diagonal ordered overlaps in the
+grade-zero fiber. There is no unproved Gauss-product relation in it.
+
+Both coherent period directions have ratio $t^2$ at $X=Y=1$.
+Their absolutely convergent sum for $0\le t<1$ gives
+\[
+ F(u)=\frac{S(u)}{(1-t^2)^2},\qquad
+ \frac17\sum_{u\bmod7}|F(u)|^2=\frac{E_7(t)}{(1-t^2)^4}.
+\]
+The channel identity, phase-free energy and full infinite-period
+convergence are maintained Lean theorems.
+
+The squared-coordinate mass has a distinct closed form. For $x=t^2$,
+the finite numerator is
+\[
+ 1+2x+3x^2+4x^3+2x^4=(1+x)^2(1+2x^2).
+\]
+Each coordinate period contributes squared ratio $x^2$, so the mass
+over all natural coordinate pairs is
+\[
+ M_7(x)=\frac{1+2x^2}{(1-x)^2},\qquad0\le x<1.
+\]
+The unique residue/period indexing and this convergent mass are also
+formalized. As algebraic consequences of the three established mass
+formulas, at the same formal $0<x<1$,
+\[
+ M_{12}(x)-M_7(x)=\frac{x}{1-x}>0,\qquad
+ M_{8}(x)-M_{12}(x)=\frac{x^2}{(1-x)^2}>0.
+\]
+These comparisons concern the normalized coordinate models; their
+minimal global fields and conductors differ.
+
+This calculation supplies a useful classification criterion for the
+next analytic work: count the \emph{phases inside each grade}, rather
+than just the number of coordinates or the cover degree.
+The sevenfold total energy retains no information about $g,h,j$.
+A target encoded only in those phases would require a phase-sensitive
+observable. In particular the earlier proposed
+$G_1G_2G_4$ CM phase does not occur in this second-moment expression.
+Higher correlations are a separate question.
+The constructive grade-zero overlaps also show why a smaller coordinate
+mass is not itself a smaller coherent main term.
+No global Fourier identification, moving-twist estimate or improved
+zero-free boundary follows from phase independence alone.
 
 \section{A complete twelvefold $G_2$ coordinate calculation}
 \label{sec:G2-coordinates}

@@ -5,6 +5,27 @@
   "installed_local_boundary": "7/8",
   "new_local_boundary": null,
   "new_lean_theorems": [
+    "Metaplectic.G2Seven.additive_twist_energy",
+    "Metaplectic.G2Seven.coherentSignal_energy",
+    "Metaplectic.G2Seven.coherentSignal_hasSum",
+    "Metaplectic.G2Seven.coordinates_packetOf",
+    "Metaplectic.G2Seven.degree_reflect",
+    "Metaplectic.G2Seven.finiteSignal_pairCoefficient",
+    "Metaplectic.G2Seven.finiteSignal_parseval",
+    "Metaplectic.G2Seven.gaussArgument_nonzero",
+    "Metaplectic.G2Seven.localTerm_hasSum",
+    "Metaplectic.G2Seven.massTerm_hasSum",
+    "Metaplectic.G2Seven.numerator_factorization",
+    "Metaplectic.G2Seven.packetOf_coordinates",
+    "Metaplectic.G2Seven.pairCoefficient_energy",
+    "Metaplectic.G2Seven.pairCoefficient_eq_sum",
+    "Metaplectic.G2Seven.phase_reflect",
+    "Metaplectic.G2Seven.sameGrade_samePhase",
+    "Metaplectic.G2Seven.signedNumerator_factorization",
+    "Metaplectic.G2Seven.support_card",
+    "Metaplectic.G2Seven.supported_reflect",
+    "Metaplectic.G2Seven.twistClass_eq_quadraticClass",
+    "Metaplectic.G2Seven.twistClass_fiber_card",
     "Metaplectic.G2Twelve.additive_twist_energy",
     "Metaplectic.G2Twelve.coherence_fourth",
     "Metaplectic.G2Twelve.coherence_product",
@@ -64,7 +85,7 @@
     "Metaplectic.Sp4Eight.twistClass_fiber_card",
     "Metaplectic.Sp4Eight.unit_coordinate_survives"
   ],
-  "proof_status": "Four maintained kernel-checked arithmetic modules: G2 twelvefold and Sp4 eightfold, with exact central compensation and full coherent periods. Representation-theoretic and finite-field Gauss/Jacobi identifications are explicitly separate ordinary inputs. No analytic boundary gain.",
+  "proof_status": "Six maintained kernel-checked arithmetic modules: G2 sevenfold/twelvefold and Sp4 eightfold. Full signed channels and infinite coherent periods; phase-free sevenfold energy and unique eightfold central compensation. Source representation and actual finite-field phase identifications remain separately cited inputs. No analytic boundary gain.",
   "classification_scope": "principal structural mechanisms and selected low-degree cases, not a complete global automorphic classification",
   "overlap_scope": "current repo public/private QRH terminology search and specified prior notes; not exhaustive across sibling repositories",
   "sources": [
@@ -227,7 +248,7 @@
       "degree": 7,
       "group": "special GL6; G2",
       "cyclotomic_degree": 6,
-      "status": "G2 unramified distinguished model; no constructed QRH detector"
+      "status": "Complete G2 sevenfold signed arithmetic coordinate model, phase-free additive-twist energy and both infinite coherent periods maintained in Lean; no global QRH detector constructed."
     },
     {
       "degree": 8,
@@ -531,7 +552,42 @@
       "unproved": "Actual spherical/global Fourier identification, moving-twist reflection and independent signed analytic estimate"
     },
     "actuals": null,
-    "first_nonpositive_domain": null
+    "first_nonpositive_domain": null,
+    "g2_seven": {
+      "domain": "Tame unramified standard G2 cover, local field containing mu7, residue characteristic different from 7. Generic formal arithmetic model separates source identification.",
+      "root_orders": [
+        7,
+        7
+      ],
+      "central_lattice": "7Z x 7Z",
+      "quotient_size": 49,
+      "support": 12,
+      "twist_class_multiplicities": {
+        "0": 6,
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1,
+        "6": 1
+      },
+      "same_grade_phases": "Identical for every supported same-grade pair; kernel checked without Gauss-product hypotheses.",
+      "channel_coefficients": [
+        "1+3*t^2+2*t^4",
+        "t*g",
+        "t^3*h",
+        "t*j",
+        "t^3/j",
+        "t^3/h",
+        "t^3/g"
+      ],
+      "coordinate_mass": "(1+2*x^2)/(1-x)^2 for 0<=x<1, over every natural coordinate pair",
+      "additive_twist_energy": "1+8*t^2+13*t^4+16*t^6+4*t^8 for arbitrary unit complex g,h,j",
+      "coherent_energy": "(1+8*t^2+13*t^4+16*t^6+4*t^8)/(1-t^2)^4",
+      "coherent_convergence": "Kernel-checked HasSum over both infinite periods for 0<=t<1.",
+      "phase_information": "This complete second moment is independent of every Gauss phase; CM products may require different observables and are not recovered here.",
+      "global_status": "No spherical/global Fourier coefficient, reciprocal target factor or new signed character estimate identified."
+    }
   },
   "consumer": {
     "baseline": {
@@ -568,6 +624,12 @@
       "first_test": "audit cited full comparison; match source observation to current project's exact packets",
       "advantage_to_test": "explicit comparison with 3/4-compatible error exponent",
       "failure_condition": "unproved comparison or no independent signed bound; comparison precision alone gives no gain"
+    },
+    {
+      "case": "G2 degree 7",
+      "first_test": "Use the exact single-Gauss coordinate model to identify a phase-sensitive admissible global Fourier observable; the total additive energy is phase blind.",
+      "advantage_to_test": "Rank two with root orders 7/7 and no mixed Gauss product in an individual functional coordinate; global field/conductor and signal remain to be checked.",
+      "failure_condition": "The selected observable erases its target phase, or global reflection and conductor costs do not support a useful independent estimate."
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "date": "2026-11-04",
-  "scope": "Complete G2 twelvefold and Sp4 eightfold arithmetic models and local coherent averages, with unique central compensation; no global QRH claim.",
+  "scope": "Complete G2 sevenfold/twelvefold and Sp4 eightfold arithmetic models, coherent local energies and central compensation; no global QRH claim.",
   "claims": [
     {
       "id": "G2-01",
@@ -219,6 +219,77 @@
     {
       "id": "SP4-09",
       "claim": "Construct an admissible global central average, spherical Fourier identification, reciprocal target L-factor and independent signed estimate.",
+      "status": "not_established",
+      "installed_boundary": "7/8",
+      "new_boundary": null,
+      "declarations": []
+    },
+    {
+      "id": "G7-01",
+      "claim": "The full 49-state central quotient has 12 supported coordinates; every root edge preserves its exact degree and signed single-Gauss phase.",
+      "status": "kernel_checked_arithmetic_model",
+      "declarations": [
+        "Metaplectic.G2Seven.support_card",
+        "Metaplectic.G2Seven.supported_reflect",
+        "Metaplectic.G2Seven.degree_reflect",
+        "Metaplectic.G2Seven.phase_reflect",
+        "Metaplectic.G2Seven.gaussArgument_nonzero"
+      ]
+    },
+    {
+      "id": "G7-02",
+      "claim": "The additive grade is Q modulo 7; grade zero contains six coordinates and every other grade one. Every same-grade pair has identical phase.",
+      "status": "kernel_checked_arithmetic_model",
+      "declarations": [
+        "Metaplectic.G2Seven.twistClass_eq_quadraticClass",
+        "Metaplectic.G2Seven.twistClass_fiber_card",
+        "Metaplectic.G2Seven.sameGrade_samePhase"
+      ]
+    },
+    {
+      "id": "G7-03",
+      "claim": "The complete signed numerator is the displayed polynomial with only single Gauss factors and inverses; no mixed phase is discarded.",
+      "status": "kernel_checked",
+      "declarations": [
+        "Metaplectic.G2Seven.signedNumerator_factorization"
+      ]
+    },
+    {
+      "id": "G7-04",
+      "claim": "All natural coordinate pairs occur exactly once in the residue/period indexing, with total squared-coordinate mass (1+2*x^2)/(1-x)^2 for 0<=x<1.",
+      "status": "kernel_checked",
+      "declarations": [
+        "Metaplectic.G2Seven.numerator_factorization",
+        "Metaplectic.G2Seven.packetOf_coordinates",
+        "Metaplectic.G2Seven.coordinates_packetOf",
+        "Metaplectic.G2Seven.localTerm_hasSum"
+      ]
+    },
+    {
+      "id": "G7-05",
+      "claim": "The complete additive-twist energy is 1+8*t^2+13*t^4+16*t^6+4*t^8 for arbitrary unit g,h,j; full coherent energy divides by (1-t^2)^4, with both infinite periods convergent for 0<=t<1.",
+      "status": "kernel_checked_for_arbitrary_unit_complex_phases",
+      "declarations": [
+        "Metaplectic.G2Seven.pairCoefficient_eq_sum",
+        "Metaplectic.G2Seven.finiteSignal_pairCoefficient",
+        "Metaplectic.G2Seven.pairCoefficient_energy",
+        "Metaplectic.G2Seven.additive_twist_energy",
+        "Metaplectic.G2Seven.coherentSignal_energy",
+        "Metaplectic.G2Seven.coherentSignal_hasSum"
+      ]
+    },
+    {
+      "id": "G7-06",
+      "claim": "The arithmetic model identifies the selected source Whittaker-functional coordinates under Gao's tame unramified hypotheses. Actual Gauss norms and inverse-pair identities are classical inputs.",
+      "status": "source_dependent_ordinary_input_not_formalized_here",
+      "sources": [
+        "Gao Section 3.1, Corollary 3.7 and Theorem 7.1",
+        "Classical Gauss norm and inverse-pair identities"
+      ]
+    },
+    {
+      "id": "G7-07",
+      "claim": "Construct a phase-sensitive global Fourier functional, reciprocal target factor, moving-twist transfer and independent improved signed estimate.",
       "status": "not_established",
       "installed_boundary": "7/8",
       "new_boundary": null,

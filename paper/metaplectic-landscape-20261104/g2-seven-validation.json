@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-04",
+  "scope": "Sevenfold G2 arithmetic functional-coordinate model and phase-free complete local energy; no global automorphic or zero-free theorem.",
+  "lean_version": "4.34.0",
+  "lean_commit": "293d5d0c0c3f3dded4688b3ccd6a33939ac5102b",
+  "compiler_mode": "Pinned compiler directly, cached LEAN_PATH, no dependency fetch or build.",
+  "compiled_modules": [
+    "PrimeFactorOscillations.Mathlib.NumberTheory.Metaplectic.G2SevenLocal",
+    "PrimeFactorOscillations.Mathlib.NumberTheory.Metaplectic.G2SevenFourier",
+    "PrimeFactorOscillations.Mathlib.NumberTheory.Metaplectic.All"
+  ],
+  "source_sha256": {
+    "PrimeFactorOscillations/Mathlib/NumberTheory/Metaplectic/G2SevenLocal.lean": "c6a78ac7390a6c116ce89333fed2a628c22d6699fc2904138b23945062a763f3",
+    "PrimeFactorOscillations/Mathlib/NumberTheory/Metaplectic/G2SevenFourier.lean": "45f405ecc52bc1142db370f6e1f2996869ede646e79731971ac6d57df472456e"
+  },
+  "audited_new_theorem_count": 21,
+  "audited_new_theorems": [
+    "Metaplectic.G2Seven.additive_twist_energy",
+    "Metaplectic.G2Seven.coherentSignal_energy",
+    "Metaplectic.G2Seven.coherentSignal_hasSum",
+    "Metaplectic.G2Seven.coordinates_packetOf",
+    "Metaplectic.G2Seven.degree_reflect",
+    "Metaplectic.G2Seven.finiteSignal_pairCoefficient",
+    "Metaplectic.G2Seven.finiteSignal_parseval",
+    "Metaplectic.G2Seven.gaussArgument_nonzero",
+    "Metaplectic.G2Seven.localTerm_hasSum",
+    "Metaplectic.G2Seven.massTerm_hasSum",
+    "Metaplectic.G2Seven.numerator_factorization",
+    "Metaplectic.G2Seven.packetOf_coordinates",
+    "Metaplectic.G2Seven.pairCoefficient_energy",
+    "Metaplectic.G2Seven.pairCoefficient_eq_sum",
+    "Metaplectic.G2Seven.phase_reflect",
+    "Metaplectic.G2Seven.sameGrade_samePhase",
+    "Metaplectic.G2Seven.signedNumerator_factorization",
+    "Metaplectic.G2Seven.support_card",
+    "Metaplectic.G2Seven.supported_reflect",
+    "Metaplectic.G2Seven.twistClass_eq_quadraticClass",
+    "Metaplectic.G2Seven.twistClass_fiber_card"
+  ],
+  "axiom_allowlist": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "unchanged_earlier_theorems_reaudited": false,
+  "assumptions": "Arbitrary unit complex g,h,j; 0<=t<1 for infinite periods. No Gauss-product or CM relation is assumed. Source representation and actual finite-field Gauss identification remain cited ordinary inputs.",
+  "exact_energy": "1+8*t^2+13*t^4+16*t^6+4*t^8",
+  "exact_coordinate_mass": "(1+2*x^2)/(1-x)^2, 0<=x<1",
+  "phase_information": "The complete additive second moment is independent of every Gauss phase. No claim that a phase-dependent target survives it.",
+  "paper_compilation": {
+    "status": "blocked_environment_font_download",
+    "typeset_pages": 21,
+    "message": "Built-in XeTeX produced XDV; PDF embedding still requires unavailable cmr12.pfb. Font bundle host DNS fails; successful PDF compilation not claimed."
+  },
+  "benchmark_status": "Exact local comparison only; no assembled global analytic improvement.",
+  "old_bound": "7/8",
+  "new_bound": "7/8",
+  "components": {
+    "proved": "Signed table, quadratic grade/phase rigidity, convergent mass and full coherent phase-free energy",
+    "unproved": "Actual global Fourier observable, reciprocal target factor, moving-twist transfer and independent signed bound"
+  },
+  "actuals": null,
+  "first_nonpositive_domain": null,
+  "novelty": "Priority for the combined explicit local calculation is not established; Gao's classification and Gauss identities are classical."
+}
