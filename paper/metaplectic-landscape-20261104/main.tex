@@ -3612,7 +3612,355 @@ Priority relative to classical CM and Fermat bounds remains
 unestablished. This is a local arithmetic improvement in domain, and
 the global QRH boundary remains \(7/8\).
 
+\section{A different complete probe: a mixed septic ray}
+\label{sec:septic-ray}
+
+This section is a source-dependent research calculation, not a new
+Lean-certified theorem or a proved improvement of QRH. It tests a different
+observable and detector together. The missing formal interfaces are the
+actual covering-group representations, their global Whittaker functions,
+and the Hecke functional equation. The maintained local-coordinate and
+weighted-residue results are inputs; they do not supply those interfaces.
+
+\paragraph{From functional coordinates to a spherical coefficient.}
+Use the incoming-intertwiner kernel description in \cite[Proposition
+3.4]{Gao} and the spherical expansion and big-cell evaluation in
+\cite[Proposition 5.3 and Lemma 6.3]{McNamara}. Write \(T_w\) for an
+unnormalized intertwiner. Its coefficient in the spherical expansion is
+\[
+ \frac{c_{w_0}(w^{-1}\chi)}{c_w(w^{-1}\chi)}
+       =c_{w_0w^{-1}}(\chi).
+\]
+The order follows from \(w_0=(w_0w^{-1})w\), with additive lengths.
+At the exceptional character the relevant root heights are
+\(1,1,2,3,4,5\). The denominators \(1-q^{-h}\) are nonzero; thus the
+unnormalized expansion specializes without a denominator pole.
+For \(w\ne1\), an incoming simple intertwiner is the last map in
+\(T_w\), so the theta Whittaker functional kills that term. Intertwiners
+commute with right translation. The remaining term, with \(w_0=-1\),
+gives the normalization
+\[
+ W(t_{(a,b)})=q^{-a-b}c(-a,-b),\qquad W(1)=c(0,0)=1,
+ \tag{S1}\label{eq:ray-spherical}
+\]
+on the dominant cone. The common nonzero normalizer before setting
+\(W(1)=1\) is
+\((1-q^{-2})(1-q^{-6})/(1-q^{-1})^2\).
+Here the coordinate functional has positive exceptional-character
+equivariance; the genuine-character notation must not be mistaken for
+complex conjugation. This use of the sources requires their same torus
+section and Jacquet orientation. Our tame conventions \(q\equiv1
+\pmod {14}\) remove the sign at \(-1\) for the sevenfold model.
+It does not prove that the global exceptional residual representation
+has a nonzero Whittaker coefficient.
+
+\paragraph{The full ray, rather than one coefficient.}
+Set \(t=q^{-1/2}\) and \(\lambda=(13,7)\). Its simple-root pairings
+are \(5,1\), so it is dominant and primitive. In the sevenfold
+coordinate table, the only nonzero rows with second coordinate zero
+are \(c(0,0)=1\) and \(c(1,0)=tG_1\); either central translation by
+seven multiplies \(c\) by \(t^2\).
+Since \(-k\lambda\equiv(k,0)\pmod7\), \eqref{eq:ray-spherical} gives,
+for every integer \(r\ge0\),
+\[
+ W(t_{7r\lambda})=t^{240r},\qquad
+ W(t_{(7r+1)\lambda})=t^{240r+35}G_1,\qquad
+ W(t_{k\lambda})=0\quad(k\not\equiv0,1\pmod7).
+ \tag{S2}\label{eq:septic-ray-rows}
+\]
+Negative \(k\) lie outside the dominant cone.
+Take the three genuine central characters \(1,2,4\), with the same
+additive character. Their sum is zero modulo seven, so their product
+descends from the cover. Their Gauss factors give
+\[
+ A=G_1G_2G_4=\frac{J(\chi_7,\chi_7^2)}{\sqrt q}=-\alpha,
+ \qquad
+ \sum_{k\ge0}\prod_{i\in\{1,2,4\}}W_i(t_{k\lambda})T^k
+       =\frac{1+t^{105}AT}{1-t^{720}T^7}.
+ \tag{S3}
+\]
+The minus sign is Weil's Jacobi-character normalization, as in
+\cite{Watkins}. It is essential for an inverse \(L\)-factor.
+
+Let \(K=\mathbb Q(\zeta_7)\), let \(\eta\) be a norm-basechanged
+unitary Dirichlet character, and put \(\xi=\bar\alpha\eta\).
+Substituting \(T=\xi(\mathfrak p)q^{105/2-s}\) in (S3) gives
+\[
+ \frac{1-\eta(\mathfrak p)q^{-s}}
+      {1-\xi(\mathfrak p)^7q^{15/2-7s}},\qquad
+ F_\eta^S(s)=
+ \frac{L_K^S(7s-\tfrac{15}{2},\xi^7)}{L_K^S(s,\eta)}.
+ \tag{S4}\label{eq:septic-ray-euler}
+\]
+Here \(S\) contains the finite ramified places, and both series first
+converge absolutely for \(\Re s>17/14\).
+This is a triple Whittaker coefficient integral, not the Fourier
+coefficient of a pointwise product asserted without unfolding.
+
+\paragraph{Why this reference preserves the target zero.}
+For \(3/4<\Re\rho<1\), put \(u=7\rho-15/2\).
+Then \(-9/4<\Re u<-1/2\).
+The normalized Jacobi character has angular weights \(1\) or \(-1\)
+at the complex places; \(\xi^7\) has weights \(7\) or \(-7\).
+Its gamma arguments are
+\[
+ u+\tfrac72=7\rho-4,\qquad \Re(7\rho-4)>5/4.
+\]
+The functional equation reflects the numerator to \(1-u\), of real
+part greater than \(3/2\). Both the gamma quotient and the reflected
+Euler product are finite and nonzero. Deleted finite Euler factors
+are nonzero too, since \(\Re u<0\).
+Thus this numerator cannot cancel a denominator zero in the target
+strip, including a real zero. Norm base change writes the denominator
+as a finite product of Dirichlet \(L\)-functions containing the target
+factor; their zero multiplicities add. No new zero-free hypothesis
+is used here.
+
+There is a cost to this choice. If \(Q_{\xi^7}\) is the absolute
+finite conductor, reflection costs, up to fixed factors,
+\[
+ Q_{\xi^7}^{\,8-7\sigma}
+ (1+|\Im s|)^{\,6(8-7\sigma)}.
+ \tag{S5}\label{eq:septic-ray-height}
+\]
+At \(\sigma=3/4\) these exponents are \(11/4\) and \(33/2\).
+A fixed target height is a constant in \(X\); a moving height or
+conductor must be charged in the global estimate.
+
+\paragraph{Constructing a nonzero local Mellin window.}
+The root \(\beta\) with \(\langle\beta,\lambda\rangle=1\) supplies a
+concrete local construction. For a smooth moderate-growth generic
+representation and its \(\psi\)-Whittaker function,
+\[
+ W_{\pi(x_\beta(u))v}(\lambda(a))
+       =\psi(au)W_v(\lambda(a)).
+\]
+Consequently, averaging the translates against a Schwartz function
+\(\phi\) multiplies the ray by its Fourier transform:
+\[
+ W_{v_\phi}(\lambda(a))=\widehat\phi(a)W_v(\lambda(a)),
+ \qquad v_\phi=\int\phi(u)\pi(x_\beta(u))v\,du .
+ \tag{S6}\label{eq:ray-window}
+\]
+Fix the Fourier sign to agree with this formula. Fourier inversion
+allows any smooth compactly supported multiplier \(h(a)\) on the
+ray. Choose a neighborhood of \(a=1\) where the coefficient is
+nonzero. A bump there, with its phase and
+\(\xi(a)|a|^{\rho-105/2}\) canceled, makes the local Mellin integral
+nonzero at the specified \(\rho\). At archimedean places the
+seminorms of this multiplier grow polynomially with
+\(1+|\Im\rho|\) on the compact real-part band. The same argument at
+finite bad places uses locally constant compactly supported functions.
+
+For a nonfactorized joint bad-place coefficient, one may average
+over the \emph{joint} additive root group at the bad places; the
+averaging kernel need not be a pure tensor. On a common product
+neighborhood where the joint coefficient \(B_j(a_S)\) is nonzero,
+take
+\[
+ h_j(a_S)=\frac{f_0(a_S)\xi_j(a_S)^{-1}}{B_j(a_S)}.
+\]
+Extend this smooth compactly supported function by zero and take its
+joint inverse Fourier transform. Formula (S6), applied to the joint
+root group, makes the bad-place Mellin factor exactly
+\[
+ B(s)=\int f_0(a_S)|a_S|^{s-105/2}\,d^\times a_S,
+\]
+independent of \(j\). The support can be common to a fixed finite
+packet. Choosing the height phase of \(f_0\) to cancel \(\Im\rho\)
+makes \(B(\rho)>0\). This is a local smooth-vector construction under
+global genericity, with its Schwartz seminorms retained; it is not
+a bound for the global period. Good-place uniqueness factors the
+unramified Euler product, without requiring bad-place uniqueness.
+
+This removes the local-window obstruction \emph{provided} the three
+actual global theta representations are globally generic.
+Their global genericity is still an open matching step in this audit.
+The ray integral is over \(\mathbb A_K^\times\): a Whittaker function
+is not generally left invariant by the rational torus, so a quotient
+by \(K^\times\) must not be inserted without a separate unfolding.
+The even-ray obstruction in the twelvefold model is different:
+there \(\lambda(-1)=1\), and an odd character kills every ordinary
+ray integral. Formula (S6) cannot remove that kernel obstruction.
+
+\paragraph{The arithmetic consumer and its actual budget.}
+The coefficient version of \eqref{eq:septic-ray-euler} is
+\[
+ H_{\eta,W}^S(X)=
+ \sum_{\substack{\mathfrak a,\mathfrak c\text{ integral}\\
+                  (\mathfrak a\mathfrak c,S)=1}}
+ (N\mathfrak a)^{15/2}\xi(\mathfrak a)^7
+ \mu_K(\mathfrak c)\eta(\mathfrak c)
+ W\!\left(\frac{(N\mathfrak a)^7N\mathfrak c}{X}\right).
+ \tag{S7}\label{eq:septic-ray-sum}
+\]
+All displayed ideal sums retain their coprimality masks.
+Its Mellin transform in \(X\) is
+\(\widehat W(s)F_\eta^S(s)\).
+For admissible windows nonzero at a target zero, an independent
+bound \(H_{\eta,W}^S(X)\ll X^{3/4+\epsilon}\) would exclude that
+zero. There is no need to remove the reference by a termwise
+deconvolution. Absolute summation gives only
+\(X^{17/14+\epsilon}\), a deficit of \(13/28\) relative to \(3/4\).
+The installed QRH permits a contour shift to \(7/8+\epsilon\)
+for fixed parameters; using that fact is not a new estimate.
+No improved bound for (S7) is asserted.
+
+\paragraph{Using the order of the Carmichael packet.}
+Let \(\eta_0\) be an arbitrary fixed target and
+\(\eta_j=\eta_0\omega^j\), \(0\le j<7\), where \(\omega\) has order
+seven. On the common unramified support,
+\[
+ (\bar\alpha\eta_j)^7=\bar\alpha^7\eta_0^7.
+\]
+The numerator \(R^S(s)=L_K^S(7s-15/2,\bar\alpha^7\eta_0^7)\)
+is therefore common to the entire packet, independently of the
+moving Carmichael character. The target need not have order seven.
+This removes its order-seven twists from the numerator conductor;
+it does not remove the bad Euler factors.
+
+A linear average of \(F_j=R^S/L_j^S\) is not certified to retain
+shared zeros. Use instead the exact signed logarithmic companion:
+\[
+ \mathcal C^S(s):=\sum_{j=0}^6m_j
+    \bigl(L_j^S(s)(F_j)'(s)-(R^S)'(s)\bigr)
+       =-R^S(s)\sum_{j=0}^6m_j\frac{(L_j^S)'(s)}{L_j^S(s)}.
+ \tag{S8}\label{eq:septic-signed-companion}
+\]
+For real \(m_j\ge0\), \(m_0=1\), its residue at a target zero is
+\(-R^S(\rho)\sum_jm_j\operatorname{ord}_\rho L_j^S\ne0\).
+This is the situation covered by the maintained weighted-residue
+theorem, applied to the norm-basechanged Dirichlet factors.
+A positive average of reciprocal \(L\)-series is not a substitute.
+
+For the actual period \(Z_j(s)=B(s)F_j(s)\), the full operator is
+\[
+ \sum_jm_j\bigl(L_j^S Z_j'-B(R^S)'-B'R^S\bigr)
+   =-BR^S\sum_jm_j(L_j^S)'/L_j^S .
+ \tag{S8a}
+\]
+The term \(B'R^S\) must not be lost. The joint Fourier construction
+gives a common \(B\), so this really does correspond to one common
+physical window before applying character orthogonality. No global
+division by \(B\) is used.
+
+For equal weights the character coefficient is exactly
+\(7\,1_{\omega(\mathfrak c)=1}\) on the common coprime support.
+For the integer-scaled native weights \(36,1,\ldots,1\), it is
+\(35+7\,1_{\omega(\mathfrak c)=1}\). These are distinct detectors;
+reweighting does not establish an adapter to every probability law.
+In coefficient space (S8) keeps the whole plain-\(L\) convolution,
+the derivative logarithm, and the subtraction \((R^S)'\).
+Together they give \(R^S\) times the full
+\(\Lambda_K(\mathfrak c)\eta_0(\mathfrak c)
+\sum_jm_j\omega^j(\mathfrak c)\) series, including every prime power.
+Bounding the two terms separately discards this cancellation.
+
+For norm-basechanged characters the plain companion is a product
+of six rational Dirichlet \(L\)-functions. Thus the existing rational
+companion can be used factor by factor; it is not the unresolved
+arbitrary native moving-Hecke companion from the original unit row.
+Any truncated physical realization must nevertheless charge the
+product of all six lengths, its errors, and the window derivatives.
+This is a matching advantage to test, not an installed analytic saving.
+
+\paragraph{Ramification normalization and a conditional exponent test.}
+Write \(\vartheta=\bar\alpha^7\eta_0^7\) and
+\(u(s)=7s-15/2\). Let \(S_q\) be the new good places above a varying
+rational prime \(q\equiv1\pmod7\), away from the fixed bad set, and
+let \(\mathfrak r_q=\prod_{\mathfrak p\in S_q}\mathfrak p\).
+Then \(N\mathfrak r_q=q^6\).
+For the common numerator alone the exact finite-factor identity is
+\[
+ \mu_K(\mathfrak r_q)\bar\vartheta(\mathfrak r_q)
+ (N\mathfrak r_q)^{u(s)}
+ L_K^{S_q}(u(s),\vartheta)
+ =
+ L_K(u(s),\vartheta)
+ \prod_{\mathfrak p\in S_q}
+       \bigl(1-\bar\vartheta(\mathfrak p)(N\mathfrak p)^{u(s)}\bigr).
+ \tag{S9}
+\]
+Fixed bad factors are understood on both sides.
+On \(3/4<\sigma\le7/8\) this last product is nonzero and
+\(1+O(q^{-11/8})\); it cannot erase the common zero signal.
+The imprimitive principal row must use the same omitted primes.
+Restoring its complete \(L\)-function introduces its own analytic,
+nonzero local factor, which must be retained.
+
+The scalar in (S9) has a physical cost. If \(C_q(Y)\) denotes the
+smoothed coefficient function of (S8), and its explicit principal
+pole at \(s=1\) is subtracted, then normalized length and amplitude
+are
+\[
+ Y=q^{42}X,\qquad q^{-45}.
+\]
+Both must be included. A genuinely independent bound
+\[
+ C_q(Y)-\operatorname{Main}_q(Y)
+       \ll q^A Y^{\theta+\epsilon}
+\]
+would give normalized error
+\(q^{A+42\theta-45}X^{\theta+\epsilon}\).
+For \(q\asymp X^\delta\), the resulting exponent budget is
+\[
+ \theta+\delta(A+42\theta-45).
+ \tag{S10}\label{eq:septic-full-budget}
+\]
+At \(\theta=7/8\), reaching \(3/4\) requires
+\(\delta(33/4-A)\ge1/8\).
+At \(\theta=3/4\), a uniform normalization requires
+\(A\le27/2\).
+These are conditional budget tests, not estimates.
+In addition to the signed period estimate, using a moving
+\(q\asymp X^\delta\) requires a family-uniform zero-response theorem
+in that simultaneous range; a fixed-\(q\) pole statement alone does
+not justify (S10) as a zero-free boundary.
+Positive weights guarantee the fixed-packet residue, but a growing
+family and its conductor-dependent windows require their own
+quantified argument.
+
+\paragraph{A local norm test that does not improve the unit row.}
+There is a useful check on ramified-window costs. For the additive
+residue field \(k\), let \(\pi\) be a unitary representation and
+\[
+ P_a=q^{-1}\sum_{u\in k}\overline{\psi(au)}\pi(u),\qquad
+ T_\chi=\sum_{a\in k^\times}\bar\chi(a)P_a .
+\]
+Character orthogonality gives orthogonal projections \(P_a\) summing
+to the identity, and hence
+\[
+ T_\chi^*T_\chi=I-P_0,\qquad
+ \|T_\chi v\|^2=\|v\|^2-\|P_0v\|^2\le\|v\|^2 .
+ \tag{S11}
+\]
+This is the residue-field version of the Fourier cutoff on the
+\(U_\beta(\mathcal O)\)-fixed space. Its nonprincipal Gauss kernel
+has \(\ell^1\)-norm \((q-1)/\sqrt q\), while its operator norm is at
+most one. Thus six split places need not cost \(q^3\) in a
+\emph{unitary-vector} norm. Higher level or Sobolev norms still need
+their actual estimates.
+
+Crucially, the principal cutoff is already \(I-P_0\); its kernel
+has \(\ell^1\)-norm \(2(q-1)/q<2\). Replacing the nonprincipal
+triangle bound by (S11) therefore supplies no power saving on the
+principal row. Nor does a bounded vector norm bound the continued,
+compensated global period in the required strip. This local
+contraction is recorded as a checked rejection of that proposed
+shortcut, and is not being promoted as a route past \(7/8\).
+
+The comparison therefore identifies a different global observable,
+a compatible zero detector, a concrete local-window construction,
+a common-reference benefit from order-seven characters, and the full
+signed consumer. It leaves the actual global genericity and the
+independent signed estimate open. No additional Lean theorem or
+global exponent gain is counted: the certified boundary is \(7/8\).
+
 \begin{thebibliography}{99}
+\bibitem{McNamara} P. J. McNamara, \emph{The metaplectic
+Casselman--Shalika formula}, arXiv:1103.4653v3,
+Proposition 5.3, Lemma 6.3, and Theorem 8.1.
+\url{https://arxiv.org/abs/1103.4653}.
 \bibitem{QRH} OpenAI, \emph{The Quasi-Riemann Hypothesis: A Zero-Free
 Half-Plane $\Re s>7/8$}, 30 September 2026.
 \url{https://github.com/openai/math/tree/main/preprints/The-Quasi-Riemann-Hypothesis-September-30-2026}.

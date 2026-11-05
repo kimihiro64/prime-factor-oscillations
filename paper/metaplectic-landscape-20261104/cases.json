@@ -1743,5 +1743,115 @@
     "unproved": "Nonvanishing, exact coefficients including nonunit rows, all bad-prime factors, its physical-window transfer and the complete low/high/conductor budget. Local uniqueness alone does not discharge them.",
     "endpoint": "The linked quartic consumer would require the full independentX^(5/4+epsilon) observation bound. No arithmetic saving has yet been proved for this descent."
   }
-}
+},
+  "septic_ray_global_matching_20261105": {
+    "status": "Ordinary source-dependent whole-consumer calculation; zero new Lean declarations and no certified exponent gain.",
+    "certified_boundary": "7/8",
+    "target_boundary": "at most3/4",
+    "spherical_matching": {
+      "sources": [
+        "Gao1602.01880 Proposition3.4",
+        "McNamara1103.4653 Proposition5.3 and Lemma6.3"
+      ],
+      "formula": "W_norm(t_(a,b))=q^(-a-b)c(-a,-b), dominant cone; c0=W1=1.",
+      "normalizer": "(1-q^-2)(1-q^-6)/(1-q^-1)^2; nonzero.",
+      "regularity": "Unnormalized incoming intertwiners are regular at the exceptional root parameters; coefficient order usesw0=(w0*w^-1)*w.",
+      "scope": "Ordinary application with matching section/Jacquet conventions, not a global genericity proof or a Lean theorem."
+    },
+    "septic_ray": {
+      "lambda": [
+        13,
+        7
+      ],
+      "root_pairings": [
+        5,
+        1
+      ],
+      "all_coefficients": "W(7r lambda)=t^(240r);W((7r+1)lambda)=t^(240r+35)G1;all other nonnegative k zero, negative k outside dominant cone.",
+      "mixed_characters": [
+        1,
+        2,
+        4
+      ],
+      "series": "(1+t^105*G1G2G4*T)/(1-t^720*T^7)",
+      "jacobi_sign": "G1G2G4=-alpha, normalized Jacobi-sum Hecke character overK=Q(zeta7).",
+      "substitution": "T=(alpha_bar*eta)(p)*q^(105/2-s)",
+      "Euler": "L_K^S(7s-15/2,(alpha_bar*eta)^7)/L_K^S(s,eta)",
+      "absolute_domain": "Re(s)>17/14"
+    },
+    "noncancellation": {
+      "domain": "3/4<Re(rho)<1, including real rho",
+      "reference": "u=7rho-15/2 has -9/4<Re(u)<-1/2; reflected Re(1-u)>3/2.",
+      "gamma": "Infinity weights+/-7; gamma arguments7rho-4 have real part>5/4, so no trivial zero.",
+      "target": "Norm-basechanged Dirichlet denominator factors contain the arbitrary target and add shared-zero multiplicities.",
+      "finite_factors": "Retain all S-factors; none vanish since Re(u)<0 and Re(rho)>0."
+    },
+    "window_localization": {
+      "identity": "For a generic smooth representation and W_v left (U,psi)-equivariant, lambda=(13,7) has beta(lambda)=1. If v_phi=int phi(u)pi(x_beta(u))v du, then W_(v_phi)(lambda(a))=hatphi(a)*W_v(lambda(a)), with the Fourier sign fixed by the chosen convention.",
+      "construction": "Use a joint Schwartz-Bruhat kernel on the additive root groups of all bad places, not necessarily a pure tensor. On one neighborhood where each joint bad coefficient B_j(a_S) is nonzero, choose h_j=f0*xi_j^(-1)/B_j. Joint Fourier inversion gives exact common Mellin factorB(s)=integral f0(a_S)|a_S|^(s-105/2)d^timesa_S. Choosef0's height phase soB(rho)>0. All seminorm/level costs remain explicit.",
+      "height": "Derivatives of h_rho cost polynomial powers of1+|Im(rho)| on the compact real-part band; include these seminorms in any uniform period estimate. This is not a universal zero-free window without parameter dependence.",
+      "factorization": "Good-place uniqueness gives the unramified Euler product. Joint bad-place localization can construct a common window without assuming bad-place uniqueness.",
+      "remaining": "Actual nonzero global Whittaker coefficients of all three exceptional residual representations remain unproved in this audit. Common-window construction is an ordinary argument conditional on that genericity, not a compiled G2 theorem."
+    },
+    "arithmetic_consumer": "Use F_eta itself as the detector; no reference removal is required. H_eta,W(X)=sum_(a,c) N(a)^(15/2)*chi(a)^7*mu(c)*eta(c)*W(N(a)^7*N(c)/X), with all ideals coprime to the fixed bad set. Mellin inX gives W_hat(s)*F_eta(s), initially Re(s)>17/14. Uniform H<<X^(3/4+epsilon), for admissible windows nonzero at a targetrho, excludes every denominator zero Re(rho)>3/4 because numerator and window are nonzero there. Absolute summation only yields X^(17/14+epsilon); the required signed saving relative to that envelope is13/28. The installedQRH transfers through a contour shift to7/8+epsilon, but supplies no new saving. No deconvolution into mu_eta is necessary; doing it termwise would introduce a nonsummable reference weight.",
+    "carmichael_match": {
+      "target": "Any fixed unitary Dirichlet eta0, norm-basechanged toK.",
+      "family": "eta_j=eta0*omega^j,j0..6,omega order7; common imprimitive support excludes all ramified primes.",
+      "shared_reference": "(alpha_bar*eta_j)^7=alpha_bar^7*eta0^7, so the moving order7 twist disappears from the numerator conductor.",
+      "safe_consumer": "C^S=sum_j m_j*(L_j^S*F_j'-(R^S)')=-R^S*sum_jm_j*(L_j^S)'/L_j^S.",
+      "weights": "m_j>=0,m0=1 gives noncancelling shared-zero residue. Equal weights give7*1_kernel on coprime support; integer-scaled native36,1,...,1 gives35+7*1_kernel.",
+      "unsafe_consumer": "Do not average F_j linearly and infer pole retention from positive weights.",
+      "physical_terms": "Plain-L convolution, derivative logarithms, reference subtraction and all prime-power terms remain coupled.",
+      "companion_provider": "PeriodicCompanion.companionContinuation_eq_LFunction_right supplies the rational Dirichlet companion factor. Norm base change has six factors; the complete physical product and all lengths/errors remain to be checked, rather than invoking an arbitrary native-Hecke companion.",
+      "residue_provider": "CarmichaelWeightedSignal.weighted_limit and residue_re_bound apply to the finite norm-basechanged Dirichlet factor packet; R^S(rho) is nonzero.",
+      "scope_warning": "Alternative weighting is a valid analytic detector; it does not automatically satisfy the fixed original probability-law adapter.",
+      "physical_window_operator": "ForZ_j=B*F_j:sum_jm_j*(L_j Z_j'-B R'-B'R)=-B R sum_jm_j L_j'/L_j. TheB'R term is compulsory; no global division byB."
+    },
+    "conductor_height": {
+      "finite": "Q_reference^(8-7sigma)",
+      "height": "(1+|t|)^(6*(8-7sigma))",
+      "at_three_quarters": {
+        "conductor_exponent": "11/4",
+        "height_exponent": "33/2"
+      },
+      "order7_gain": "Q_reference no longer contains the moving order7 twist, outside the retained variable bad Euler factors."
+    },
+    "variable_bad_factors": {
+      "domain": "primeq congruent1mod7 outside fixed bad set; six split places aboveq inK.",
+      "radical_norm": "R=q^6",
+      "identity": "mu(rad)*conj(vartheta(rad))*R^u*L^(S_q)(u,vartheta)=L(u,vartheta)*prod_(p in S_q)(1-conj(vartheta(p))*Np^u).",
+      "signal": "On3/4<sigma<=7/8 normalized finite product=1+O(q^(-11/8)), nonzero.",
+      "principal_row": "Use the same imprimitive support; restoring complete principal L introduces its own nonzero analytic local correction.",
+      "physical_length": "Y=q^42*X",
+      "physical_amplitude": "q^-45",
+      "conditional_budget": "If centered C_q(Y)<<q^A*Y^(theta+epsilon), then normalized error<<q^(A+42theta-45)*X^(theta+epsilon). Forq~X^delta:theta+delta*(A+42theta-45).",
+      "three_quarters_test": "theta7/8 requiresdelta*(33/4-A)>=1/8;theta3/4 requiresA<=27/2 for uniform normalization.",
+      "uniformity_warning": "This parameter arithmetic is not a zero-free result: a simultaneous q~X^delta zero-response theorem with full window/conductor costs is unproved."
+    },
+    "open_edges": [
+      "Nonzero global Whittaker coefficients of all three actual exceptional theta residual representations; local uniqueness alone is insufficient.",
+      "An independent estimate for the entire signed companion period, with full masks, reference subtraction, all six plain-companion factors and ramified normalization.",
+      "A family-uniform detector in any proposed simultaneous q,X range.",
+      "Actual G2 covering-group smooth representation/global-period and HeckeL functional-equation interfaces needed for Lean formalization."
+    ],
+    "benchmark_status": "No independent analytic saving installed; no finite numerical benchmark substituted.",
+    "old_bound": "7/8",
+    "new_bound": "7/8",
+    "components": {
+      "independent_signed_estimate": "unproved",
+      "global_genericity": "unproved",
+      "local_window": "ordinary construction under global genericity",
+      "reference_noncancellation": "ordinary functional-equation calculation",
+      "Lean_delta": 0
+    },
+    "actuals": "No finite experiment run.",
+    "first_nonpositive_domain": "not applicable to this symbolic bound comparison; no universal improved bound installed.",
+    "literature_scope": "Source-dependent construction only. Priority/novelty and complete portfolio-overlap audit not established.",
+    "local_norm_shortcut_rejection": {
+      "identity": "Finite additive-character projectionsP_a are orthogonal and sumI. For|chi(a)|1 on nonzero frequencies,Tchi=sum_nonzero conjchi(a)P_a satisfiesTchi*Tchi=I-P0 and||Tchi v||^2=||v||^2-||P0v||^2.",
+      "nonprincipal": "Gauss kernel l1=(q-1)/sqrtq but unitary operator norm<=1; six split places can avoidq^3 only in that vector norm.",
+      "principal": "PrincipalT=I-P0 already has kernel l1=2(q-1)/q<2, so this removes no principal-row power loss.",
+      "scope": "Unitary contraction does not bound the continued compensated global period or higher level/Sobolev norms. This is a checked failed shortcut, not an exponent gain or new Lean theorem."
+    }
+  }
 }
