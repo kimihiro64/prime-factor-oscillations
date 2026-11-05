@@ -1554,5 +1554,194 @@
       "Metaplectic.G2Seven.Fermat.nonsquare_field_uniform_cubic_constant_iff",
       "Metaplectic.G2Seven.Fermat.nonsquare_field_uniform_cubic_edge"
     ]
+  },
+  "whole_global_qrh_comparison_20261105": {
+  "status": "research_audit_and_global_candidate;not_a_new_bound",
+  "scope": "Redesign the entire global comparison, allowing detector, observable, character class, metaplectic representation and geometry to change together.",
+  "certified_boundary": "7/8",
+  "target_boundary": "at most3/4; ideal1/2",
+  "parameters": {
+    "r": "integer carrier accuracy; coefficient error C*n^(1-r)",
+    "d": "power-reference degree; q_d(s)=(s+d-1)/d",
+    "q_sample": "power-sampling exponent for one fixed QuadraticPrimeLaw",
+    "n_cover": "metaplectic covering degree",
+    "q_mod": "Dirichlet modulus/conductor",
+    "q_local": "finite residue-field cardinality"
+  },
+  "detectors": [
+    {
+      "id": "fixed_quadratic_probability_ratio",
+      "provider": "ProbabilityZeroRecovery.re_zero_le_max_of_powerSamples_probabilityMass_ratio_le",
+      "required": "One fixed QuadraticPrimeLaw, its actual probability odds, positive alpha, q_sample>=1, and the eventual adjacent-mass ratio inequality.",
+      "boundary": "max(1/2,1-2/q_sample)",
+      "examples": {
+        "q_sample=8": "3/4",
+        "q_sample=4": "1/2"
+      },
+      "unproved_edge": "A P-dependent marked carrier is not automatically one fixed law with uniform quadratic-error constants."
+    },
+    {
+      "id": "uniform_dirichlet_carrier",
+      "provider": "DirichletCarrierReadout.exists_unconditional_dirichlet_readout",
+      "required": "r>=2; all-natural chi(n)*vonMangoldt(n), including prime powers and exact small indices.",
+      "error": "C/n^(r-1); C and n0 chosen before r, modulus and character.",
+      "analytic_error_region": "Re(s)>2-r",
+      "data_cost": "The carrier for coefficient n uses a prime in (n^r,2*n^r]. A power reference through x^d can use carrier data through 2*x^(d*r).",
+      "role": "Allows different exact arithmetic observables without reconstruction errors concealing zeros; does not estimate their arithmetic sums."
+    },
+    {
+      "id": "weighted_restricted_packet",
+      "providers": [
+        "CarmichaelWeightedSignal",
+        "CarmichaelDirichletProduct",
+        "CarmichaelPrimePacketSpectrum"
+      ],
+      "required": "Retain all shared-zero multiplicities and distinguished target weight; nonnegative real parts for weighted noncancellation.",
+      "role": "Positive weighted logarithmic derivatives or integer products retain the target zero. A positive average of reciprocal L-functions is not automatically noncancelling."
+    },
+    {
+      "id": "power_reference",
+      "provider": "DirichletCompensatedProbe.powerProbe_order_iff_zero",
+      "boundary": "max(0,1-d/8)",
+      "reference_costs": {
+        "d=2": "3/4",
+        "d=3": "5/8",
+        "d=4": "1/2"
+      },
+      "required": "Positive d, analytic reconstruction error, target off1, affine reference in installed7/8 zero-free region.",
+      "physical_provider": "CarmichaelPhysicalPacket; actual smoothed windows retain both Mellin multipliers.",
+      "cumulative_model": "H_d(x)=A(x)-x^(1-d)*A(x^d); a mathematical Mellin consequence, not a replacement for a smoothed-window identity."
+    },
+    {
+      "id": "completed_quartic_inverse_observation",
+      "provider": "External manuscript paper103, Theorem1 and exact finite-height resonance(6.7); not a newly Lean-verified input",
+      "character_domain": "Gaussian primary ideals; actual fixed Hecke target eta, not arbitrary bounded eta for the independent estimate",
+      "signal": "B^(3/4)*C^(beta-1/4); balanced X^(beta+1/2)",
+      "comparison_error": "(CB)^epsilon*C^(1/2)*B^(3/4)*(C/B)^A",
+      "balanced_consumer": "An independent signed I(X,X)=O(X^(5/4+epsilon)), with nonvanishing signal multiplier, would give boundary3/4",
+      "status": "Complete observation claimed by external source; full independent signed estimate absent."
+    },
+    {
+      "id": "greedy_class_gaussian_response",
+      "provider": "PrimeClassDeletion.greedyDeletedPrimeClass_uniform_zero_response",
+      "response": "Every zeta zero rho with1/2<Re(rho)<1 forces count_deleted(X)>=d*X^(Re(rho)-epsilon) at every sufficiently large realX",
+      "consumer": "An upper bound O(X^c) along an unbounded sequence excludes Re(rho)>c",
+      "difference": "Nonlinear prime-record observable; no established adapter from a metaplectic local point-count bound."
+    }
+  ],
+  "existing_complete_baseline": {
+    "signal": "X^(beta-11/16)",
+    "low": "X^(3/16+epsilon)",
+    "needed_low_at_three_quarters": "X^(1/16+epsilon)",
+    "high": "Must be recalculated too; low saving alone is not a complete new theorem.",
+    "source": "Original QRH compensated probe with all marked/rescaled subsets and every full Euler quotient."
+  },
+  "global_operator_candidate": {
+    "row": "Q_u=C_u*H_u/L_u; C_u=zeta_F^S(6z)*L^S(w,chi_u), L_u=L^S(s,eta*conj(chi_u)); H_u is the full compensated correction.",
+    "identity": "L_u*d_s(Q_u)-C_u*d_s(H_u)=-C_u*H_u*L_u'/L_u.",
+    "advantage_to_test": "Changes the global row to a logarithmic derivative without dividing by H_u or squaring it.",
+    "unproved_edge": "Realize the exact row-dependent native Hecke plain companion in the same physical probe before bounding; rational companion recovery is not this identity.",
+    "costs": "Charge the whole convolution support, all nonunit masks, all derivative/correction terms, moving conductors, heights and window factors.",
+    "status": "algebraic research construction; no new arithmetic estimate"
+  },
+  "septic_global_candidate": {
+    "characters": "Three genuine central characters1,2,4 of a sevenfold cover; their sum is0 mod7.",
+    "local_input": "G1*G2*G4=J(chi,chi^2)/sqrt(q_local), from the maintained Gauss/Jacobi identities.",
+    "global_companion": "Weil's normalization is -J; the Jacobi-sum Hecke character has defining ideal dividing49 over Q(zeta_7). Watkins2018 section2.1. Exact composite Gauss phases and normalization must be retained.",
+    "restricted_classes": "Use the existing prime-order return-packet theorem with l=7; fixed cubic order is not a restriction of that theorem.",
+    "detector_target": "A finite positive Dirichlet packet after norm base change from Q(zeta_7), retaining the arbitrary target character.",
+    "period_to_test": "A mixed trilinear theta period/diagonal Fourier correlation, using three genuine characters, rather than a cubic moment of one form.",
+    "unproved_edges": [
+      "Actual global spherical/Whittaker coefficient and full period unfolding",
+      "Nonzero normalization at a hypothetical target zero",
+      "Complete constant terms, cusps, ramified factors and companion corrections",
+      "All length, conductor and height costs",
+      "Independent bound of the complete compensated mixed period at exponent3/4 or better"
+    ],
+    "status": "global candidate under feasibility analysis; no endpoint certified",
+    "base_change": "For K=Q(zeta7) and norm-basechanged Dirichlet eta, L_K(s,eta o N)=product_(nu mod7)L(s,eta*nu), away fixed bad Euler factors. This retains eta and transfers Dirichlet7/8 to these reference factors only; no such reference is assumed for arbitrary moving Hecke rows over K.",
+    "global_warning": "Local unique Whittaker models (Gao7.1) do not by themselves identify a chosen coordinate functional with the required global spherical Fourier coefficient, or prove its period bound. Central charges1+2+4=0 mod7 alone do not prove a diagonal-extracting convolution is an automorphic period.",
+    "normalization_warning": "The t^3 versus t^7 product cannot be counted as a saving before both signal and global Tate shifts are computed. The minimal cyclotomic field has degree6; archimedean factors, conductor growth and all moving row families must be charged."
+  },
+  "local_branch_status": {
+    "septic_edge": "Valid and promoted in e6e3109. No established insertion into an exponent-improving global estimate.",
+    "cover25_norm_helpers": "Frozen; no further local proof batch before a demonstrated complete global consumer."
+  },
+  "exclusions": [
+    "Critical-line Fourier recovery assumes RH and is excluded from a contradiction to RH.",
+    "A coefficientwise constant-minus-decaying defect is not a global power saving.",
+    "Derivative/window operations must check all pole orders, including constant terms; differentiating raises unwanted poles too.",
+    "No unchanged-source axiom audit is required for this research map."
+  ],
+  "adapters": {
+    "bounded_amplitude": "BoundedAmplitudeDetector supplies marked PrimeClockLaws and signed local-odds accuracy; not by itself a zero exclusion.",
+    "polynomial": "GeneralPolynomialDetector gives degree-uniform PrimeClockLaw adapters with forced-prime reduction; fixed QuadraticPrimeLaw hypotheses must still be matched.",
+    "inverse_clock": "InverseClockDetector reconstructs arithmetic clock to O(1/N) under exact local-inverse and ratio hypotheses.",
+    "gaussian": "LogGaussianZeroResidues retains every xi zero and multiplicity unconditionally, including the left-tail correction."
+  },
+  "quartic_global_audit": {
+    "source": "https://rstation.ai/problems/riemann_hypothesis/papers/103",
+    "scale_domain": "C>=2;B=C^b,b>=1;T>=1;fixed smooth profiles; constants may depend on fixed eta and profiles.",
+    "consumer": "If |I(C,C^b)|<=C^(E(b)+epsilon) independently, its bad-zero signal is C^(beta-1/4+3b/4). Subject to the comparison error and nonzero multiplier, the candidate boundary is E(b)+1/4-3b/4.",
+    "balanced": "b=1 requires E(1)<=5/4 for3/4; the absolute envelope E(1)=3/2 gives only1.",
+    "finite_height": "At T=C^t, bound(1.8) gives exponent(1+b)/2+t/4 plus the two exact cutoff factors. Taking t<1+b saves in this norm bound but also suppresses the resonant term.",
+    "signal_check": "Exact(5.9) implies R_T is O_A(sqrt(CB)*T^(1/4)*(T/(CB))^A) when T<=CB. Exact(6.7) then has D_T cancelling the full inverse signal to this accuracy. Early truncation is not a signal-preserving saving.",
+    "signed_mobius_transfer": "For squarefree c, primitive local additive characters and ordinary zero extension: mu(c)*G4(k,c)=alpha(c)*G2(k,c)*conj(G4(k,c)), with alpha(c)=product_(p|c)(-J(chi_p,chi_p)/sqrt(Np)). CRT twisting cancels in G4^2/G2. Noncoprime numerator rows are retained as zeros, not divided through.",
+    "remaining_joint_row": "Substitute that identity into all of source(1.5): keep every ordinary b, shared prime, dyadic character, U(c,b), additive phase, H_b and L_T. Twisting eta to cancel alpha would change the target L-function and is not authorized as signal preservation.",
+    "large_sieve_check": "G2(k,c)=quadratic_symbol_c(k)*G2(1,c), but conj(G4(k,c)) also depends on k. A quadratic large sieve with fixed coefficients cannot simply be applied. Writing k=k0*r^2 makes a quadratic character in r at each fixed squarefree k0; k0 of full size and r=1 is a retained sector, not estimated by that partial gain.",
+    "comparison_with_general_bounded_weights": "The observation comparison is uniform for bounded first coefficients. No independent power saving of the same strength can be uniform over that entire class: taking eta(c)=mu(c) makes the reciprocal main coefficient mu(c)^2 positive. The desired estimate must use the actual global character class.",
+    "status": "Signed derivation and source-dependent feasibility audit, not a new compiled analytic bound.",
+    "numerator_cubing": "The signed conversion can be rewritten mu(c)*G4(k,c)=alpha(c)*G2(1,c)*conj(G4(k^3,c)) on squarefree c with all zero masks. A numerator-uniform transform must charge norm(k)^3. Adding G2 to avoid the cubing changes the arithmetic Euler object; its zero signal must be recomputed."
+  },
+  "quartic_shalika_candidate": {
+    "primary": "https://arxiv.org/pdf/1403.3929",
+    "object": "Quartic GL3 theta with a quadratic-cover GL2 form; retain all Hilbert-symbol and finite local Whittaker-matrix factors.",
+    "normalized_series": "u=2s-1/2: D_j=sum_(d,m,l) X^[d^-1]_(lj)*g4(d)*(m,d)_S*b_l(md)*tau4(m,1)*(Nm)^(-u)*(Nd)^(-3u).",
+    "local_prime_test": "tau4(p,1)=conj(g4(p))/sqrt(Np); the first-prime term is b_j(p)*conj(G4(p))*(Np)^(-u). An inverse-Dirichlet matching would require this coefficient to be -eta(p), with full mixed-prime and prime-power compatibilities still required.",
+    "status": "A genuine global transformation is available in the primary source, but no matching automorphic form/packet and complete exponent budget is established here."
+  },
+  "observable_sign_test": {
+    "arithmetic": "With A(p)=G1*G2*G4=J/sqrt(q)=-alpha(p), the local readouts 1+A*z and1-A*z give different global Euler objects after the Hecke twist alpha-bar*eta.",
+    "inverse_choice": "1+A*alpha-bar*eta*p^-s=1-eta*p^-s; its Euler product is1/L(s,eta).",
+    "other_choice": "1-A*alpha-bar*eta*p^-s=1+eta*p^-s; its Euler product isL(s,eta)/L(2s,eta^2).",
+    "warning": "The squarefree coefficient sum of the latter admits elementary square-root estimates for fixed Dirichlet eta, but analytic continuation of a numerator L does not exclude its zeros. Taking a logarithmic derivative restores the zero poles and restores the unestimated prime sum.",
+    "status": "Exact sign/consumer calculation; not a newly compiled theorem or exponent improvement."
+  },
+  "primitive_gauss_words": {
+    "domain": "m>=3; nonzero a,b,c modm; a+b+c=0 modm; gcd(m,a,b,c)=1; nontrivial local residue characters and primitive additive character.",
+    "prime_identity": "G_a*G_b*G_c=chi^(a+b)(-1)*J(chi^a,chi^b)/sqrt(q)=-alpha_(a,b)(p). Retain the factor at -1.",
+    "squarefree_identity": "Gamma_a(k,c0)*Gamma_b(k,c0)*Gamma_c(k,c0)=mu(c0)*alpha_(a,b)(c0)*1_{gcd(k,c0)=1}. All CRT phases cancel, rather than being separately bounded.",
+    "quadratic_factor_classification": "Up to permutation and simultaneous inversion: m=2r, triple(a,r-a,r),1<=a<r,gcd(a,r)=1. For evenr the orders are(m,m,2); for oddr they are(m,m/2,2).",
+    "low_degree_options": "(3,3,3),(4,4,2),(6,3,2) all have a degree-two cyclotomic field. (7,7,7) needs degree6; the word in the twelvefold model is(12,12,2).",
+    "global_requirement": "An actual automorphic coefficient/period must realize the word and its masks. The common inverse-L arithmetic identity does not give the same global norm or conductor cost to every word.",
+    "status": "Arithmetic matching derivations; not a new Lean promotion or an analytic gain."
+  },
+  "twelvefold_linear_candidate": {
+    "source_coordinate": "The complete grade-zero functional channel is1+t^3*A*X^6*Y^2, A=G1*G5*G6=-alpha_(1,5). It is already linear, unlike the septic cubic readout.",
+    "checked_field": "Current sign convention assumes mu24, so the direct global field Q(zeta24) has degree8. Q(zeta12),degree4, requires a separate sign/convention transfer.",
+    "dominant_cone": "2a-3b>=0,-a+2b>=0. For residues(12i,4j) and(6+12i,2+4j), putu=2j-3i,v=2i-j. Theni=u+2v,j=2u+3v; the two sectors haveu,v>=0 andu>=1,v>=0.",
+    "positive_coordinate_sum": "(1+t^9*A*X^18*Y^10)/((1-t^6*X^12*Y^8)*(1-t^10*X^24*Y^12)).",
+    "opposite_coordinate_sum": "For c(-lambda) on the same positive lambda cone, the three t exponents are-7,-6,-10. The actual Jacquet orientation must be matched; neither raw rectangle series is asserted to be the spherical Fourier coefficient.",
+    "invariant_period_relation": "For either orientation, writing the nonconstant numerator as A*z, denominator monomials satisfyV1*V2=q*z^2. Any common modulus-character shift preserves this identity.",
+    "formal_mellin_choice": "z=q^-s,V1=q^(-s-1),V2=q^(2-s). With compatible unitary Hecke phases and the inverse-target coefficient twist, the Euler object isL_K(s+1,nu)*zeta_K(s-2)/L_K(s,eta), initially absolutely convergent forRe(s)>3.",
+    "reference_noncancellation": "On1/2<Re(s)<1, L_K(s+1,nu) is nonzero; zeta_K(s-2) reflects tozeta_K(3-s), with no intervening trivial zeros. These factors therefore cannot erase the inverse target pole.",
+    "height_cost": "Fixed totally complex degreeD: reflecting zeta_K(s-2) costs(1+|Im(s)|)^(D*(5/2-Re(s))). AtRe(s)=3/4 this is power7 forK12 and14 forK24. Conductor/mask and physical-period costs remain unbounded here.",
+    "global_matching_edges": [
+      "Match Gao's incoming-simple-intertwiner kernel and torus pairing with McNamara's full spherical expansion; verify the specialization and orientation instead of assuming an individual functional coordinate is spherical.",
+      "Prove global genericity/nonzero Fourier coefficient and factorization for the actual residual representation.",
+      "Realize the Q-grade projection globally. Independent local additive-character choices are not one fixed global Whittaker character; a rational scaling family brings character classes and conductor costs.",
+      "Implement the coefficientwise alpha-bar*eta twist. The numerator coweight(18,10)=2*(9,5) is not primitive; an ordinary torus-character twist need not attain an arbitrary character on this sublattice."
+    ],
+    "status": "New whole-pipeline candidate and explicit normalization calculation; no completed global estimate or improved boundary."
+  },
+  "fourier_jacobi_feasibility": {
+    "role": "A supplementary concrete way to test the twelvefold-to-quartic global edge, without replacing the existing programme or claiming a bound.",
+    "root_data": "The G2 Heisenberg parabolic has a five-dimensional Heisenberg radical and short-root SL2 Levi acting bySym^3. Its coroot hasQ=3, so the12fold cover has effective Levi order4.",
+    "candidate_period": "Integrate the actual G2 theta form against the Heisenberg Weil theta kernel overU(K)\\U(A), then compute its Levi Whittaker coefficient by full root exchange.",
+    "cover_preflight": "Sym^3 has weights3,1,-1,-3 and trace index10. The pullback of the classical double cover must be checked in the chosen BD normalization; do not assume an extra factor2 changes the Levi cover.",
+    "potential_advantage": "Could use a genuine global oscillator period instead of a nonautomorphic Hadamard product, with a quartic output related to the complete quartic observation.",
+    "unproved": "Nonvanishing, exact coefficients including nonunit rows, all bad-prime factors, its physical-window transfer and the complete low/high/conductor budget. Local uniqueness alone does not discharge them.",
+    "endpoint": "The linked quartic consumer would require the full independentX^(5/4+epsilon) observation bound. No arithmetic saving has yet been proved for this descent."
   }
+}
 }

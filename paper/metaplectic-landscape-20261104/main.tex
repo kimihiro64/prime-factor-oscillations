@@ -169,6 +169,543 @@ summand. Likewise every numerator, reciprocal $L$-factor, character
 phase and nonunit mask in a reflected row remains part of the target.
 A numerator-only character estimate is not an estimate for that quotient.
 
+\section{Complete global comparisons with different detectors}
+\label{sec:global-comparisons}
+
+The cubic probe is a baseline, not a constraint on every subsequent
+construction. A candidate consists of a detector, a physical observable,
+its allowed character class, an exact global transformation, and a full
+low/high error budget. A pointwise local estimate is useful for the QRH
+exponent only after insertion into that complete budget. The septic
+bounds above have no such verified global insertion at present.
+
+\paragraph{Different proved detectors have different arithmetic consumers.}
+The maintained declaration
+\texttt{re\_zero\_le\_max\_of\_powerSamples\_probabilityMass\_ratio\_le}
+works for a fixed \texttt{QuadraticPrimeLaw}, a positive rank parameter,
+and its stated eventual adjacent-probability-ratio inequality. Its
+conclusion is
+\[
+ \Re\rho\le\max\{1/2,1-2/q\}.
+\]
+Here \(q\ge1\) is a sampling exponent, not a modulus, a cover degree or a
+polynomial-family input. The choices \(q=8\) and \(q=4\) target \(3/4\)
+and RH respectively. The arithmetic task is its exact probability
+inequality; it is not automatically an estimate for the original cubic
+probe. The law requires a fixed positive \(\nu\) and a uniform quadratic
+local perturbation of the baseline prime weights. A general marked
+carrier does not automatically satisfy that hypothesis.
+
+There is also an unconditional logarithmic-derivative detector.
+\texttt{DirichletZeroReadout.readout\_order\_iff\_zero} retains every
+Dirichlet zero off \(1\) under an analytic reconstruction error.
+\texttt{UniformCarrier.exists\_observation} reconstructs a bounded
+complex prime coefficient on a finite supported block \(T\subset(P,2P]\),
+\(\#T\le P/100\), with error \(O(\#T/P^2)\).
+The constants are chosen before the bounded coefficient function.
+The all-natural von Mangoldt reconstruction and its Mellin continuation
+are maintained in \texttt{DirichletPacketMellin}.
+In contrast, the exact critical-line Fourier recovery theorem assumes RH;
+it cannot be used in a contradiction to RH.
+
+\paragraph{Power compensation changes the observable and the reference cost.}
+Let
+\[
+ R_\chi(s)=-\frac{L'}{L}(s,\chi)+G(s),\qquad
+ q_d(s)=\frac{s+d-1}{d},\quad d>0,
+\]
+where \(G\) is analytic in the positive half-plane. The maintained
+power-probe theorem applies to
+\[
+ R_\chi(s)-\frac{s}{s+d-1}R_\chi(q_d(s)).
+\]
+Every zero off \(1\) with
+\(\Re\rho>\max\{0,1-d/8\}\) survives: the reference is evaluated inside
+the installed zero-free region, since
+\(\Re q_d(\rho)>7/8\). This use of \(7/8\) bounds a reference;
+it is not itself an exponent improvement.
+The rational main-pole remainder is
+\(-\kappa(d-1)/(s+d-1)\), including its factor \(d-1\).
+
+For a fixed character packet with von Mangoldt coefficient \(a(n)\),
+write \(A(x)=\sum_{n\le x}a(n)-\kappa x\), with its actual principal
+multiplicity \(\kappa\). The elementary cumulative-sum Mellin model is
+\[
+ H_d(x)=A(x)-x^{1-d}A(x^d).
+\]
+Indeed, if \(D(s)=s\int_1^\infty A(x)x^{-s-1}\,dx\), then a change of
+variables gives
+\[
+ s\int_1^\infty H_d(x)x^{-s-1}\,dx
+ =D(s)-\frac{s}{s+d-1}D(q_d(s)).
+\]
+This is a mathematical cumulative-sum model, not an identification of
+every maintained smoothed physical window. An actual smoothed
+construction must retain both of its exact Mellin window multipliers.
+The finite-window transfer is already maintained in
+\texttt{CarmichaelPhysicalPacket}.
+
+For fixed packet data, the reference costs from the \(7/8\) character
+estimate are
+\[
+\begin{array}{c|c|c}
+ d&1-d/8&\text{reference margin below }3/4\\ \hline
+ 2&3/4&0\\
+ 3&5/8&1/8\\
+ 4&1/2&1/4
+\end{array}
+\]
+up to arbitrarily small positive losses. The affine map divides the
+imaginary part by \(d\); it does not enlarge the reference height.
+For \(d\ge1\) and \(\Re s>0\), the scalar
+\(\lvert s/(s+d-1)\rvert\le1\).
+The input \(x^d\) is nevertheless real data cost: an estimate
+\(A(y)=O(y^\gamma)\) contributes \(x^{1-d+d\gamma}\) there.
+Estimating both terms separately with the installed exponent therefore
+leaves \(7/8\). A new bound must estimate the new observable itself,
+using its arithmetic and transformation structure.
+
+\paragraph{Restricted classes and all compensation terms stay in the packet.}
+The actual centered power-return packet has Fourier transform
+\[
+ U_B\prod_{p\mid B}\widehat R_{p,k,h}
+   -R_{B,k}\prod_{p\mid B}\widehat U_{p,h},
+\]
+where \(B\) is squarefree, \(U_B\) is the unit count, \(R_{B,k}\) is the
+power-return count, and the local factors are the actual return and
+unit Fourier factors. Both products and every cross term are retained.
+For the separate single-prime vacancy autocorrelation, the surviving
+nonprincipal characters have the proved flat coefficient
+\(1/(\mathrm{index}-1)^2\); the principal coefficient is one.
+These are different packet constructions and cannot be interchanged
+without their proved carrier relation.
+
+The finite weighted logarithmic-derivative and integer-product
+detectors are maintained in \texttt{CarmichaelWeightedSignal} and
+\texttt{CarmichaelDirichletProduct}. Their hypotheses retain all
+shared-zero multiplicities and the distinguished principal signal.
+They allow a restricted character packet to be the target observable;
+one need not first estimate the old inverse-only cubic probe.
+Conductor growth, the sum of absolute spectral weights, and every
+moving twist must still be charged. A fixed local cubic character class
+has different costs from a growing family of such classes.
+
+\paragraph{What must change before a new global boundary is certified.}
+For the original fixed construction the signal is
+\(X^{\beta-11/16}\) and the low bound is \(X^{3/16+\epsilon}\).
+For a new logarithmic-derivative cumulative observable it is instead
+the \(x^\beta\) scale. Its own complete arithmetic, reference, carrier,
+window, truncation and high-row errors must all lie below that scale.
+Changing the detector does not authorize transferring the old physical
+bound with a different normalization.
+
+In particular, a cubic/sextic construction for a restricted cubic
+packet, a quartic vector construction with the power reference, and a
+mixed twelvefold construction have different global obligations.
+The twelvefold local model contains cubic and quartic character orders
+simultaneously, but its global Fourier coefficient and reflected
+summation formula are not identified by the functional coordinates.
+The sevenfold local point-count theorem likewise does not supply those
+global identities. At present none of these new combinations has a
+complete verified budget below \(7/8\). This ledger is a research audit,
+not a new theorem or an exponent improvement.
+
+
+
+\subsection{A common exponent test, without fixing the cubic probe}
+
+For a Mellin-pole construction, first establish the exact transform and
+its nonzero bad-zero multiplier. If its physical signal has exponent
+\(a(\vartheta)\beta-b(\vartheta)\), where \(a(\vartheta)>0\), and the
+\emph{complete} independent signed bound has exponent
+\(\max_j E_j(\vartheta)\), the corresponding comparison threshold is
+\[
+ c(\vartheta)=
+ \max\left\{c_{\rm detector},c_{\rm reference},c_{\rm reconstruction},
+       \frac{b(\vartheta)+\max_j E_j(\vartheta)}{a(\vartheta)}\right\}.
+\]
+Every row, principal correction, support correction, conductor, height
+and range loss must occur among these entries. The admissible domain of
+\(\vartheta\) includes the exact hypotheses of the analytic providers.
+This formula is a design test after those inputs are proved, not an
+estimate supplying them. A probability-ratio detector instead consumes
+its stated one-sided ratio inequality. The greedy Gaussian detector
+consumes a deleted-prime count: its maintained uniform zero response
+forces \(N_{\rm del}(X)\gg X^{\Re\rho-\epsilon}\) at every sufficiently
+large real cutoff. An upper bound along an unbounded sequence can
+therefore suffice. Neither consumer is identified with a theta norm
+merely by naming the same zero.
+
+Carrier precision has a separate physical cost.
+The maintained all-natural coefficient theorem, uniformly for
+\(r\ge2\), has error \(C/n^{r-1}\) and analytic correction on
+\(\Re s>2-r\). Its coefficient at \(n\) uses a prime in
+\((n^r,2n^r]\). Applying a reference through \(x^d\) can thus require
+carrier data through \(2x^{dr}\). The mark already contains the
+coefficient being encoded; an estimate for unrelated characters at the
+carrier prime does not estimate that coefficient. This separates
+accuracy, reference power, cover degree and conductor.
+
+The actual infinite physical-window transfer is already maintained in
+\texttt{CarmichaelInfiniteWindow} and \texttt{CarmichaelNativeWindow}.
+It includes the quartic reference, both window multipliers, the
+principal multiplicity, and all shared zeros. These inputs need not be
+reproved when the arithmetic observable changes.
+
+\subsection{The complete quartic observation has a different budget}
+
+The external research manuscript
+\emph{A complete quartic Gauss observation: resonance and a uniform
+remainder} (3 November 2026,
+\url{https://rstation.ai/problems/riemann_hypothesis/papers/103})
+claims the complete comparison
+\[
+ I(C,B)=K B^{3/4}S_C+
+ O_{A,\epsilon}\bigl((CB)^\epsilon C^{1/2}B^{3/4}(C/B)^A\bigr),
+ \qquad B\ge C\ge2,
+\]
+with a fixed nonzero window constant \(K\) and
+\[
+ S_C=\sum_{\substack{c\ {\rm primary,\ squarefree}\\c\ne1}}
+ \mu(c)\eta(c)\delta(c)(Nc)^{-1/4}\Phi(Nc/C),\qquad
+ \delta(c)=\prod_{\mathfrak p\mid c}(1-(N\mathfrak p)^{-1}).
+\]
+The primary source and this note do not supply the independent signed
+bound. Its full analytic proof has not been Lean-certified here.
+Its reciprocal Euler factor differs from \(1/L(s,\eta)\) by a
+nonvanishing analytic factor on \(\Re s>0\): locally the ratio is
+\[
+ \frac{1-(1-q^{-1})\eta(\mathfrak p)q^{-s}}
+      {1-\eta(\mathfrak p)q^{-s}}=1+O(q^{-1-\Re s}).
+\]
+For \(B=C^b\), \(b\ge1\), the bad-zero signal has exponent
+\(\beta-1/4+3b/4\). An independent bound \(I(C,C^b)\ll
+C^{E(b)+\epsilon}\) therefore has threshold
+\(E(b)+1/4-3b/4\), subject to the comparison error and actual window
+nonvanishing. At \(b=1\), the required bound is \(X^{5/4+\epsilon}\)
+for boundary \(3/4\); the unsigned \(X^{3/2+\epsilon}\) envelope gives
+only boundary \(1\). This is a different consumer from the original
+cubic \(3/16\) estimate.
+
+The finite-height estimate cannot be substituted without a signal
+check. The source's retained resonant part satisfies, for \(T\le CB\),
+\[
+ R_T\ll_A\sqrt{CB}\,T^{1/4}(T/(CB))^A.
+\]
+Its exact formula is \(R_T=K B^{3/4}S_C-D_T\), with
+\[
+ D_T=\rho\sqrt B\,T^{1/4}
+ \sum_c\frac{\mu(c)\eta(c)\delta(c)\Phi(Nc/C)}{\sqrt{Nc}}
+ \sum_{l\ {\rm primary}}V(Nl\,q_c^{1/4}),\qquad
+ q_c=\frac{\pi T}{128NcB}.
+\]
+Thus choosing \(T\) below \(CB\) removes the resonant inverse signal
+to the same accuracy; \(D_T\) is retained, not an independently small
+tail on that range. At balanced scales the bound for \(I_T\) at \(T=X\)
+cannot be passed to the full observation to claim \(X^{5/4}\).
+
+\paragraph{An exact signed conversion to test globally.}
+Write \(G_j(k,c)=g_j(k,c)/\sqrt{Nc}\) with the ordinary characters and
+their nonunit zeros. At an odd prime, set
+\(\alpha(\mathfrak p)=-J(\chi_{\mathfrak p},
+\chi_{\mathfrak p})/\sqrt{N\mathfrak p}\).
+The Gauss--Jacobi identity and the unit norm of the primitive Gauss sum
+give
+\[
+ -G_4(k,\mathfrak p)=
+ \alpha(\mathfrak p)G_2(k,\mathfrak p)
+                    \overline{G_4(k,\mathfrak p)} .
+\]
+For a zero numerator both sides vanish. For squarefree \(c\), CRT
+multiplicativity gives the complete conversion
+\[
+ \mu(c)G_4(k,c)=
+ \alpha(c)G_2(k,c)\overline{G_4(k,c)},\qquad
+ \alpha(c)=\prod_{\mathfrak p\mid c}\alpha(\mathfrak p).
+\]
+Indeed the CRT twist of \(G_4^2\) equals that of \(G_2\), since the
+square of the quartic character is quadratic. This argument retains
+the twists rather than assuming separate Gauss sums multiplicative.
+The standard Jacobi-sum Hecke normalization is \(-J\), not \(J\).
+
+Substitution in the \emph{whole} finite-height observation gives
+\[
+\begin{split}
+ I_T(C,B)={}&\sum_{k\ne0}L_T(k)
+ \sum_{\substack{c\ {\rm primary,\ squarefree}\\c\ne1}}
+ \eta(c)\alpha(c)\chi_c(-2M)G_2(k,c)
+       \overline{G_4(k,c)}\Phi(Nc/C)\\
+ &\quad\cdot\sum_{b\ {\rm primary}}
+ H_b(B)U(c,b)e\bigl(-k(cb)^{-1}/M\bigr)
+                  \overline{\chi_b(2M)G_4(k,b)} .
+\end{split}
+\]
+Here \(M=\lambda^7\); \(L_T,H_b,U\) and every dyadic factor are exactly
+those of the source, and \(b\) remains ordinary, including its shared
+primes with \(c\). This is a research calculation from the classical
+identities, not a newly compiled analytic bound.
+
+This conversion exposes a quadratic character
+\(G_2(k,c)=\chi_c(k)^2G_2(1,c)\), but the factor
+\(\overline{G_4(k,c)}\) still depends on \(k\).
+A quadratic large sieve with coefficients independent of its character
+parameter therefore cannot yet be applied. Factoring the numerator
+into its squarefree core and a square makes a quadratic character in
+the square-root variable on each fixed core, with unit and dyadic
+factors retained. The full-size core with square-root variable \(1\)
+is a separate retained sector. Nor may one absorb \(\alpha\) by
+changing \(\eta\) and claim to have preserved the original target
+\(L\)-function.
+
+The distinction from a uniform operator norm is essential. The
+comparison theorem allows arbitrary bounded first coefficients.
+Taking \(\eta(c)=\mu(c)\) on the squarefree support makes its main
+coefficient positive. Consequently an independent saving of the
+required strength cannot hold for that entire bounded-coefficient
+class. It must use the actual global character structure of the
+target packet. This does not rule out cancellation for that packet.
+
+\subsection{Alternative global realizations and their matching equations}
+
+The septic Gauss word \(G_1G_2G_4=J(\chi,\chi^2)/\sqrt q\) has a
+Jacobi-sum Hecke normalization \(\alpha=-J/\sqrt q\).
+For squarefree ideals the product of its three CRT phases cancels
+because \(1+2+4=7\), giving
+\[
+ \Gamma_1(c)\Gamma_2(c)\Gamma_4(c)
+       =\mu(c)\alpha(c).
+\]
+The two local signs of the cubic readout have different consumers.
+After the twist \(\overline\alpha\,\eta\), the choice \(1+A z\)
+gives \(1-\eta(\mathfrak p)q^{-s}\), whereas \(1-Az\) gives
+\(1+\eta(\mathfrak p)q^{-s}\), since \(A=-\alpha\).
+Their Euler products are respectively
+\[
+ 1/L(s,\eta),\qquad L(s,\eta)/L(2s,\eta^2).
+\]
+Even over \(\mathbb Q\), where elementary square-root estimates for
+squarefree counts with a fixed Dirichlet character are available,
+this only continues a numerator \(L\)-function; it does not exclude
+its zeros. Taking its logarithmic derivative restores the zero poles
+and the arithmetic prime-sum obligation.
+Changing the sign or the detector must therefore be followed through
+its actual Euler object.
+
+For the sevenfold global candidate the natural field is
+\(K=\mathbb Q(\zeta_7)\). At norm-basechanged Dirichlet targets,
+\[
+ L_K(s,\eta\circ N)=\prod_{\nu\bmod7}L(s,\eta\nu)
+\]
+up to fixed bad Euler factors. The target factor is retained, and the
+installed Dirichlet boundary controls these reference factors.
+This does not supply a \(7/8\) theorem for arbitrary moving Hecke rows
+over \(K\). Such rows, the degree-six archimedean factors and their
+conductors require their own estimates.
+
+Gao's local uniqueness theorem for the sevenfold and twelvefold
+\(G_2\) theta representations supplies a meaningful representation
+choice. It does not identify an arbitrary coordinate functional with
+the required global spherical coefficient. Similarly, three genuine
+central characters \(1,2,4\) multiply to a trivial central character,
+but a proposed diagonal-extracting convolution is not thereby an
+automorphic global period. Its unfolding, other Fourier components
+and all cusp terms must be proved. The apparent local \(t^3\) versus
+\(t^7\) cannot be counted as a saving before its Tate shifts and signal
+are normalized together.
+
+There is also a concrete quartic/quadratic global integral, due to
+Friedberg--Ginzburg
+(\url{https://arxiv.org/pdf/1403.3929}, equation (8)).
+With \(u=2s-1/2\), its series has the form
+\[
+ D_j=\sum_{d,m,l}X^{[d^{-1}]}_{lj}\,
+       g_4(d)(m,d)_S\,b_l(md)\tau_4(m,1)
+       (Nm)^{-u}(Nd)^{-3u}.
+\]
+The finite local matrices and the Hilbert symbol are retained.
+Since \(\tau_4(\mathfrak p,1)=\overline{G_4(\mathfrak p)}\),
+its first-prime term is
+\(b_j(\mathfrak p)\overline{G_4(\mathfrak p)}q^{-u}\).
+An inverse-Dirichlet match would require this coefficient to be
+\(-\eta(\mathfrak p)\), and would still require the full mixed-prime
+and prime-power identities. No matching global form or packet, nor
+a complete exponent budget for it, has been established here.
+
+\paragraph{A different row observable.}
+Keep the full original quotient
+\(Q_u=C_uH_u/L_u\), where
+\(C_u=\zeta_F^S(6z)L^S(w,\chi_\bullet(u))\) is independent of \(s\),
+\(L_u=L^S(s,\eta\overline{\chi_\bullet(u)})\), and \(H_u\) is the
+complete compensated correction. With the entire window \(W\), the
+exact meromorphic identity is
+\[
+ L_u\partial_s(WQ_u)-C_u\partial_s(WH_u)
+       =-C_uWH_u\,L_u'/L_u .
+\]
+It divides by neither \(H_u\) nor an omitted Euler factor and retains
+both window derivatives. The existing logarithmic-derivative
+detectors can consume its signal. The unresolved physical step is the
+row-dependent native Hecke companion realizing \(L_u\), with its
+whole convolution support. A rational norm-fiber companion does not
+by itself prove that identification. Contours crossing row zeros
+also retain their residues; a logarithmic derivative cannot be
+bounded as a polylogarithm without the required separation.
+This operator is a candidate for changing the full high-row argument,
+not a proved replacement high estimate.
+
+
+
+\subsection{Zero-sum Gauss words give more than the septic choice}
+
+For an order-\(m\) character, take nonzero exponents \(a,b,c\bmod m\)
+with \(a+b+c=0\). The Gauss--Jacobi formula gives
+\[
+ G_aG_bG_c=
+ \chi^{a+b}(-1)\frac{J(\chi^a,\chi^b)}{\sqrt q}
+ =-\alpha_{a,b}(\mathfrak p).
+\]
+Here the sign and the factor at \(-1\) are part of Weil's
+Jacobi-sum Hecke normalization. On squarefree ideals, all three CRT
+twists cancel. Consequently the full word is
+\[
+ \Gamma_a(k,\mathfrak c)\Gamma_b(k,\mathfrak c)
+ \Gamma_c(k,\mathfrak c)
+ =\mu(\mathfrak c)\alpha_{a,b}(\mathfrak c)
+       {\bf1}_{(k,\mathfrak c)=1}.
+\]
+The coprimality mask is retained. For fixed nonzero \(k\), removing
+these finitely many Euler factors preserves every target zero in the
+positive half-plane. A growing \(k\) requires the corresponding
+uniform mask and conductor estimates. Thus different Gauss words can
+feed the same inverse-\(L\) detector while having different global
+automorphic realizations.
+
+There is an exact arithmetic classification when one factor is
+quadratic. After permutation and simultaneous inversion, write
+\(m=2r\) and the primitive exponent triple as
+\((a,r-a,r)\), where \(1\le a<r\) and \((a,r)=1\).
+If \(r\) is even, both \(a\) and \(r-a\) have order \(m\);
+if \(r\) is odd, their orders are \(m\) and \(m/2\).
+The primitive order patterns are therefore
+\[
+\begin{array}{c|c|c}
+ m&\text{character orders}&\text{minimal cyclotomic degree}\\ \hline
+ 4&(4,4,2)&2\\
+ 6&(6,3,2)&2\\
+ 8&(8,8,2)&4\\
+ 10&(10,5,2)&4\\
+ 12&(12,12,2)&4\\
+ 14&(14,7,2)&6 .
+\end{array}
+\]
+The proof is the displayed coprimality condition and the parity of
+\(r\); this is a universal word classification, not an extrapolation
+from finite fields. The cubic word \((3,3,3)\) is a further
+degree-two option with no quadratic factor.
+
+This identifies a concrete alternative to the septic triple:
+two quartic factors and one classical quadratic factor already
+produce the required Möbius--Hecke coefficient over a quadratic
+cyclotomic field. It does not identify their global period.
+In particular the quadratic-cover theta representation on \(GL_3\)
+has no generic Whittaker coefficient in the Friedberg--Ginzburg
+construction. Inserting a classical quadratic theta factor therefore
+requires an actual degenerate or Fourier--Jacobi period, rather than
+assuming that three prescribed Fourier coefficients multiply inside
+one automorphic form.
+
+There is also a precise cost in the single-quartic conversion above:
+on squarefree support it can be written
+\[
+ \mu(c)G_4(k,c)=
+ \alpha(c)G_2(1,c)\overline{G_4(k^3,c)}.
+\]
+This retains the zero masks. Applying a numerator-uniform quartic
+transformation to \(k^3\) must charge its norm \((Nk)^3\).
+Adding a quadratic Gauss factor removes this cubing but changes the
+Euler coefficient, so it cannot be called a saving until its new
+zero response is computed.
+
+\subsection{A linear inverse seed in the twelvefold model}
+
+The complete twelvefold table has a special feature absent from the
+septic phase-free principal fiber. Its grade-zero numerator is
+\[
+ P_{12,0}(X,Y)=1+t^3 A X^6Y^2,\qquad A=G_1G_5G_6.
+\]
+Here \(A=-\alpha_{1,5}\) is itself the Jacobi word of order pattern
+\((12,12,2)\). After the appropriate coefficient twist, the
+nonconstant term has the sign of an inverse Euler factor.
+This is a linear channel, rather than the septic cubic projection.
+
+Its global use must first respect dominance. In the convention
+\(2a-3b\ge0\), \(-a+2b\ge0\), the two grade-zero residue classes have
+representatives \((12i,4j)\) and \((6+12i,2+4j)\).
+Writing
+\[
+ u=2j-3i,\qquad v=2i-j,\qquad
+ i=u+2v,\quad j=2u+3v
+\]
+gives \(u,v\ge0\) for the first class and \(u\ge1,v\ge0\) for the
+second. Their complete cone sum is therefore
+\[
+ \frac{1+t^9 A X^{18}Y^{10}}
+ {(1-t^6X^{12}Y^8)(1-t^{10}X^{24}Y^{12})}.
+\]
+The first nonconstant dominant representative is \((18,10)\), not
+\((6,2)\). If the eventual Jacquet convention instead evaluates the
+functional on the opposite cone, the corresponding negative-period
+calculation has \(t^{-7}\), \(t^{-6}\), \(t^{-10}\) in these three
+places. The orientation must be identified from the actual induced
+representation and Whittaker pairing before either formula is used
+as a spherical coefficient.
+
+In both cone orientations, including any common modulus-character
+shift, let \(z\) denote the numerator monomial without \(A\), and
+let \(V_1,V_2\) denote the denominator monomials. The exact relation is
+\[
+ V_1V_2=qz^2.
+\]
+This allows a useful \emph{formal} asymmetric Mellin choice:
+\(z=q^{-s}\), \(V_1=q^{-(s+1)}\), \(V_2=q^{-(s-2)}\).
+With compatible Hecke phases and the inverse-target coefficient twist,
+the Euler object would be
+\[
+ \frac{L_K(s+1,\nu)\zeta_K(s-2)}{L_K(s,\eta)}.
+\]
+It is initially defined by absolutely convergent Euler products on
+\(\Re s>3\). Both numerator factors are nonzero on
+\(1/2<\Re s<1\): the first is to the right of \(1\), and the functional
+equation takes the second to \(\zeta_K(3-s)\), also to the right of
+\(1\); there are no trivial zeros in
+\(-3/2<\Re(s-2)<-1\). Thus these reference factors would not cancel
+the bad-zero pole.
+
+For a fixed totally complex field of degree \(D\), this reflection
+has height cost
+\((1+|\Im s|)^{D(5/2-\Re s)}\), up to fixed-strip constants.
+At \(\Re s=3/4\) that power is \(7\) for
+\(\mathbb Q(\zeta_{12})\), and \(14\) for
+\(\mathbb Q(\zeta_{24})\). The currently checked local sign convention
+uses \(\mu_{24}\); passing to the smaller field requires the omitted
+sign analysis. These polynomial height costs are explicit, but no
+physical arithmetic bound has yet been proved for this construction.
+
+Three global edges remain distinct. The coordinate functional must
+be paired with the actual spherical vector and the correct Jacquet
+convention; McNamara's Casselman--Shalika formula
+(\url{https://arxiv.org/pdf/1103.4653}, Theorem 8.1) supplies the
+starting formula. The grade projection must be realized by a global
+operation, rather than by choosing independent additive characters
+at every prime. Finally the coefficient twist must be implemented:
+the vector \((18,10)=2(9,5)\) is not primitive, so an arbitrary
+coefficient character is not automatically the restriction of an
+ordinary torus-character twist. A coefficientwise or quadratic-cover
+transfer requires its own proof and costs. This candidate changes
+the whole observable and its references; its missing global
+transfers are not filled by the local point-count edge.
+
+
 \section{Literature changes that affect the research map}
 
 The review date matters. Three developments change the available inputs.
