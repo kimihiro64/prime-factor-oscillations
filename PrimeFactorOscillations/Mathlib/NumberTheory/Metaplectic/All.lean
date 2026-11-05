@@ -3,6 +3,7 @@ Copyright (c) 2026 Prime Factor Oscillations contributors.
 Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Prime Factor Oscillations contributors
 -/
+import PrimeFactorOscillations.Mathlib.NumberTheory.Metaplectic.DenseCharacterGluing
 import PrimeFactorOscillations.Mathlib.NumberTheory.Metaplectic.G2SevenFrobeniusStability
 import PrimeFactorOscillations.Mathlib.NumberTheory.Metaplectic.G2SevenJacobiPrimeEdge
 import PrimeFactorOscillations.Mathlib.NumberTheory.Metaplectic.G2SevenJacobiUnitCircle

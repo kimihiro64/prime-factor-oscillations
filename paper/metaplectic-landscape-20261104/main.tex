@@ -4242,17 +4242,15 @@ the actual period matching and a nonzero local observation window
 have been established. A holomorphic additive error then cannot cancel
 that pole. This is a concrete distinction from the direct fourth moment.
 
-A proposed adelic realization integrates the product of the two
-Whittaker functions and the genuine torus kernel against
-$\alpha\eta\,|a|^{s-2}$ on $\mathbb A_K^\times$, with the finite
-$S$-place window retained. It is not automatically an integral on
-$K^\times\backslash\mathbb A_K^\times$. Global generic theta data,
-factorization and compatible lifts must first identify it with
-$B(s)F_\eta^S(s)$. The primitive root pairing
-$\langle\alpha_1,\lambda\rangle=1$ permits root-Fourier localization at
-the bad places; uniform bounds for its norms must be charged whenever
-the characters or heights grow. These global analytic objects have not
-been formalized by the eight finite-field/block declarations.
+Section~\ref{sec:quadratic-global-carrier} constructs a genuine
+quadratic $\GL_3$ carrier from classical theta inputs and explains
+the selected global period. Its raw carrier contributes an additional
+$|a|^{1/2}$, so its Mellin weight is
+$\alpha\eta\,|a|^{s-5/2}$; after removing that exponent this agrees
+with the torus-kernel weight $s-2$ used in the local model.
+The exact global completion has axis and central Fourier remainders,
+all of which must be estimated jointly. Those automorphic objects
+are not formalized by the eight finite-field/block declarations.
 
 The physical coefficient is explicitly
 \[
@@ -4353,6 +4351,243 @@ signed estimate. The earlier two-quartic Fourier work already uses
 the Gauss-square and angular-Hecke inputs. The present torus observable
 must be compared with that full consumer, not counted as fresh
 arithmetic cancellation. The certified boundary remains $7/8$.
+
+\section{A global quadratic carrier and its complete signed completion}
+\label{sec:quadratic-global-carrier}
+
+The torus correction in Section~\ref{sec:quartic-weil-inverse} has a
+global realization using a quadratic theta representation on
+$\GL_3$. This section gives an ordinary proof from the stated classical
+automorphic inputs. Only the dense character lemma below is newly
+kernel checked here. Neither an adelic theta library nor the required
+signed analytic estimate is thereby formalized.
+
+\subsection{The full cover cannot be replaced by a determinant scalar}
+For diagonal $t,u$, the block-compatible quartic cocycle is
+\[
+ \sigma_{4,c}(t,u)=
+ \prod_{i<j}(t_i,u_j)_4\,(\det t,\det u)_4^c.
+\]
+Its square contains \emph{both}
+$\prod_{i<j}(t_i,u_j)_2$ and $(\det t,\det u)_2^c$.
+A scalar Weil index of the determinant corrects the second factor only.
+For example $t=\operatorname{diag}(a,a^{-1},1)$ has determinant one
+but the root factor need not be trivial. Thus a product of two
+quartic theta functions needs a genuine quadratic $\GL_3$ carrier,
+not merely a function on the determinant. On the particular ray
+$\lambda(a)$ the root factors disappear; this explains why the earlier
+local Euler calculation remains valid.
+
+\subsection{The exact character-gluing lemma}
+\textbf{Proposition (dense covariance).}
+Let $G$ be a topological group, $i:A\longrightarrow G$ have dense image,
+and $f:G\longrightarrow\mathbb C$ be continuous and nonzero. Suppose
+\[
+ f(i(a)x)=\rho(a)f(x)\qquad(a\in A,\ x\in G).
+\]
+Then $f(1)\ne0$ and there is a continuous character $\chi:G\to
+\mathbb C^\times$ such that
+$f(x)=f(1)\chi(x)$ and $\chi(i(a))=\rho(a)$.
+If every $\rho(a)^2=1$, then every $\chi(x)^2=1$.
+
+\emph{Proof.}
+If $f(1)=0$, covariance makes $f$ zero on the dense image and hence
+everywhere. For fixed $y$, the continuous functions
+$f(zy)f(1)$ and $f(z)f(y)$ agree at every $z=i(a)$, since both values
+are $\rho(a)f(y)f(1)$. They agree everywhere. Dividing this identity
+by $f(1)^2$ shows that $\chi(x)=f(x)/f(1)$ is multiplicative.
+It has value one at the identity and is nonzero because
+$\chi(x)\chi(x^{-1})=1$. Covariance identifies its values on the
+dense image. Finally $\chi^2$ and the constant one function agree on
+that image, so continuity proves the last assertion. $\square$
+
+The maintained owner \texttt{DenseCharacterGluing.lean} proves
+\texttt{nonzero\_at\_one}, \texttt{cross\_multiplicative},
+\texttt{character\_exists} and \texttt{square\_character\_exists} in
+namespace \texttt{Metaplectic.DenseCharacter}.
+The Lean character takes values in the multiplicative monoid
+$\mathbb C$; the group law gives its nonvanishing as above.
+This generic rigidity fact is a classical input, not a priority claim.
+
+\subsection{From the semi-Whittaker ray to one global Hecke character}
+Take $K\supset\mu_8$ and the quadratic Kazhdan--Patterson theta
+representation $\Theta^{(2)}_3$ with the standard exceptional datum.
+Let $P=P_{(1,2)}$ and let
+\[
+ S_\theta(g)=\int_{N(K)\backslash N(\mathbb A_K)}
+       \theta(ng)\psi(-n_{23})\,dn.
+\]
+The classical inputs are the Levi constant-term description and
+nonvanishing of this semi-Whittaker coefficient
+\cite[Theorems 4.3 and 4.4]{CaiSemiWhittaker}.
+At good places its twisted Jacquet space is one dimensional:
+apply the block index formula with blocks $(1,2)$, equivalently the
+quadratic odd-rank case discussed in
+\cite[Theorem 3.43 and Remark 3.46]{CaiSemiWhittaker}.
+The multiple-of-the-cover hypothesis in Theorem 3.44 alone would
+not apply to rank three and cover two.
+
+We spell out the normalization needed to consume those inputs.
+The standard spectral parameter is
+$\Lambda=(1/2,0,-1/2)$; the surviving constant-term parameter on this
+Levi is $w_P\Lambda=(-1/2,1/2,0)$. Since
+$\delta_P^{1/2}(\lambda(a))=|a|$, the raw ray exponent is $1/2$.
+On the square subgroup the first Levi coordinate is central, so its
+ray eigencharacter has value $|a^2|^{1/2}$.
+Here the auxiliary character of the standard exceptional datum is
+chosen trivial on squares; this choice is essential.
+
+Let $\gamma_{\psi,v}$ be the genuine quadratic torus Weil character
+in the same lifts. At a good place the ray therefore has the form
+\[
+ D_v(a)=\gamma_{\psi,v}(a)|a|_v^{1/2}\chi_v(a),
+ \qquad \chi_v(a)^2=1,
+\]
+with $\chi_v$ unramified. Indeed the ratio is an ordinary character,
+the preceding square-subgroup formula makes it trivial on squares,
+and the spherical vector makes it trivial on units.
+The identity $\gamma_{\psi,v}^2=1$ uses $-1\in K_v^{\times2}$.
+It is not a reason to discard the genuine cocycle.
+
+Choose nonzero global data and translate so that $S_\theta(1)\ne0$.
+Choose a nonzero pure tensor in these data and enlarge the finite set
+$S$ to contain its exceptional places, all archimedean places and
+all ramification. Uniqueness outside $S$ factors the coefficient
+there. After dividing by $\gamma_\psi(a)|a|_{\mathbb A}^{1/2}$ its
+remaining $S$-profile $g_S$ is continuous and nonzero. Rational
+invariance and the global Weil product formula give
+\[
+ g_S(k a_S)=\chi^S(k)^{-1}g_S(a_S),\qquad
+ \chi^S=\prod_{v\notin S}\chi_v,\quad k\in K^\times.
+\]
+Weak approximation makes $K^\times$ dense in
+$\prod_{v\in S}K_v^\times$. The proposition gives a continuous
+quadratic $\chi_S$ with $\chi_S(k)=\chi^S(k)^{-1}$.
+Consequently $\chi=\chi_S\chi^S$ is a quadratic Hecke character
+of $K^\times\backslash\mathbb A_K^\times$.
+Twisting $\Theta^{(2)}_3$ by $\chi\circ\det$ removes this character,
+because $\chi^2=1$. For the resulting data,
+\begin{equation}\label{eq:quadratic-global-carrier}
+ S_\theta(\lambda(a))=C\gamma_\psi(a)|a|_{\mathbb A}^{1/2},
+ \qquad C\ne0 .
+\end{equation}
+The carrier and this twist are fixed independently of the target
+character and of a hypothetical zero. This argument glues the
+exceptional places; it does not assume their spherical formulas.
+The cited theta theory, weak approximation, adelic continuity and
+factorization remain ordinary mathematical inputs outside the
+current Lean formalization.
+
+\subsection{The selected global period and its actual exponent}
+Use two quartic Whittaker factors with the conjugate arithmetic
+orientation of Section~\ref{sec:quartic-weil-inverse}, and insert
+\eqref{eq:quadratic-global-carrier}. The correct ray weight is
+\[
+ \alpha\eta\,|a|_{\mathbb A}^{s-5/2}.
+\]
+The carrier contributes $|a|^{1/2}$ and the two quartic modular
+factors contribute $|a|^2$. Thus the resulting arithmetic block
+variable is exactly $\alpha\eta\,q^{-s}$; the half-power is not a
+new analytic saving. With compatible lifts the selected Euler
+period is
+\[
+ \mathcal Z_\eta(s)=B(s)
+       \frac{L_K^S(4s-2,\alpha^4\eta^4)}{L_K^S(s,\eta)}.
+\]
+The integral is on $\mathbb A_K^\times$ with its local observation
+windows; no quotient by $K^\times$ is asserted for a product of
+Whittaker functions. At each exceptional place a right-root
+Fourier multiplier on one quartic vector localizes its ray:
+$\langle\alpha_1,\lambda\rangle=1$.
+Starting where both Whittaker values are nonzero, choose a smooth
+small window with nonzero Mellin integral at the specified
+$\rho$. The carrier never vanishes, and shrinking this window
+prevents cancellation in that integral. Hence $B$ is entire
+and $B(\rho)\ne0$ for the fixed character and height.
+Its dependence on varying conductors, heights and shrinking
+windows has not been estimated uniformly.
+
+This realizes the same inverse-pole detector in the region
+$\Re s>3/4$, where the reference is Euler-nonzero.
+It does not bound the selected period. A useful global estimate
+must still retain the complete completion below.
+
+\subsection{Every Heisenberg return, including the central rows}
+Write $n(x,y,z)\in N$ with simple-root coordinates $x,y$ and central
+coordinate $z=n_{13}$. For smooth automorphic functions $F,H$ put
+\[
+ F_\kappa(g)=\int_{K\backslash\mathbb A_K}
+        F(n(0,0,z)g)\psi(-\kappa z)\,dz
+\]
+and define $H_\kappa$ similarly. The central constant term of
+the product is
+\[
+ (FH)_0(n(x,y,0)g)=
+       \sum_{\kappa\in K}F_\kappa(n(x,y,0)g)
+                              H_{-\kappa}(n(x,y,0)g).
+\]
+For nonzero $\kappa$ the individual terms are not functions on
+the abelian quotient, but their products are. They must not
+be expanded separately into fictitious abelian Fourier rows.
+
+Let $W_F(a,b)$ denote the coefficient for
+$\psi(ax+by)$. Take $H\in\Theta^{(2)}_3$.
+Its generic coefficients vanish, so $W_H(r,t)=0$ when $rt\ne0$,
+but its nonzero central coefficients need not vanish.
+Fourier expansion on the compact unipotent quotients gives the
+exact identity, at every fixed $g$,
+\begin{align}
+ W_{FH}(a,b;g)
+ ={}&\sum_{t\in K}W_F(a,b-t;g)S_H(0,t;g)\notag\\
+ &+\sum_{r\in K}W_F(a-r,b;g)S_H(r,0;g)
+       -W_F(a,b;g)S_H(0,0;g)\notag\\
+ &+\sum_{\kappa\ne0}\int_{(\mathbb A_K/K)^2}
+       F_\kappa(n(x,y,0)g)H_{-\kappa}(n(x,y,0)g)
+                         \psi(-ax-by)\,dx\,dy .
+ \label{eq:quadratic-full-completion}
+\end{align}
+The subtraction at the origin corrects the overlap of the two axes.
+Smoothness on the compact fibers justifies Fourier convolution;
+the central terms are paired before the quotient integral.
+
+At $(a,b)=(-1,-1)$ the $t=-2$ summand is
+$W_F(-1,1)S_H(0,-2)$. Pair it with the external quartic coefficient
+$W_A(1,1)$. Since $K\supset\mu_8$, $-1$ is a fourth power and
+$-2$ is a square. Rational changes of the additive data give
+the selected two-quartic/carrier row with the same good Euler
+blocks. Compatible lifts and the finite observation window
+remain part of this identification.
+
+For a finite physical cutoff and these windows, apply the same
+linear functional to \eqref{eq:quadratic-full-completion}.
+Write $U_\eta=T_\eta-E_\eta$, where $U$ is the selected row,
+$T$ is the completed product coefficient, and $E$ comprises
+all other axis rows, the negative origin correction and
+every nonzero central row, with their displayed signs.
+For the quadratic class product the exact coupled expression is
+\begin{equation}\label{eq:quadratic-full-four-terms}
+ U_0U_1=T_0T_1-T_0E_1-E_0T_1+E_0E_1.
+\end{equation}
+Products here mean Mellin convolution \emph{before} application
+of the shared physical cutoff functional. On the selected good
+Euler coefficients this is the Dirichlet convolution already
+specified above; the exceptional and archimedean windows are
+also convolved and remain in the functional. It is not multiplication
+of independently truncated scalar sums.
+Both divisor supports, their overlaps, unit rows and compensation
+terms are retained. A bound for $T$ alone cannot exclude zeros,
+since $E$ can carry the same pole.
+
+The required estimate for the \emph{whole} expression
+\eqref{eq:quadratic-full-four-terms} is
+$O_{\eta_0,\omega,w,\eps}(X^{3/4+\eps})$ for every $X\ge2$,
+with the smooth-test control specified earlier.
+The coefficient-magnitude envelope for this two-factor packet
+is $O(X\log X)$. No improvement of that envelope is proved here.
+Nor does a fixed-cutoff identity justify an Abel-limit passage
+for its separate pieces: that passage requires a majorant for
+the complete signed expression uniform in the Abel parameter.
+The global QRH boundary remains $7/8$.
 
 \begin{thebibliography}{99}
 \bibitem{McNamara} P. J. McNamara, \emph{The metaplectic
@@ -4462,6 +4697,13 @@ Author-uploaded primary text:
 Fermat curves of prime degree}, Archiv der Mathematik 105 (2015),
 333--341, Theorems 6--7.
 \url{https://arxiv.org/abs/1508.00401}.
+
+\bibitem{CaiSemiWhittaker}
+Yuanqing Cai, \emph{Fourier coefficients for theta representations
+on covers of general linear groups},
+\href{https://arxiv.org/abs/1602.06614}{arXiv:1602.06614},
+version 2 (10 October 2017), especially Theorems 3.43, 4.3, 4.4
+and Remark 3.46.
 
 \end{thebibliography}
 \end{document}

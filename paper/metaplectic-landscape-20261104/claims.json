@@ -936,6 +936,24 @@
         "Metaplectic.QuarticEvenMoment.corrected_block_identity",
         "Metaplectic.QuarticEvenMoment.corrected_blocks_hasSum"
       ]
+    },
+    {
+      "id": "GLUE-1",
+      "status": "kernel_checked_dense_covariance_rigidity",
+      "claim": "For a continuous complex profile on a group with a dense parameter image, left covariance under every dense-image element and nonvanishing somewhere force f(1) nonzero, f(x*y)*f(1)=f(x)*f(y), and a continuous character chi with f=f(1)*chi extending the given covariance factors. No character or homomorphism hypothesis on those factors is assumed. The theta/adele application is separate.",
+      "declarations": [
+        "Metaplectic.DenseCharacter.character_exists",
+        "Metaplectic.DenseCharacter.cross_multiplicative",
+        "Metaplectic.DenseCharacter.nonzero_at_one"
+      ]
+    },
+    {
+      "id": "GLUE-2",
+      "status": "kernel_checked_quadratic_character_gluing",
+      "claim": "If every dense covariance factor has square one, the continuous character obtained by the gluing theorem has square one everywhere. This supplies the exact finite-order extension step for the normalized semi-Whittaker carrier. Weak approximation and the cited automorphic theta inputs are not formalized by this theorem.",
+      "declarations": [
+        "Metaplectic.DenseCharacter.square_character_exists"
+      ]
     }
   ],
   "novelty": "Priority for the combined explicit formulas has not been established; source classification and Gauss identities are classical."
