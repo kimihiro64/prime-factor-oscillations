@@ -970,6 +970,30 @@
       "declarations": [
         "Metaplectic.Sp4FourInverse.whittaker_weyl_sum"
       ]
+    },
+    {
+      "id": "SP4-P1",
+      "status": "kernel_checked_bimultiplicative_power",
+      "claim": "For a bimultiplicative map B on commutative monoids, B(a^m,b^m)=B(a,b)^(m*m). This is an abstract torus-cocycle input; Hilbert symbols and adelic groups are not instantiated by the theorem.",
+      "declarations": [
+        "Metaplectic.Sp4FourInverse.power_pair"
+      ]
+    },
+    {
+      "id": "SP4-P2",
+      "status": "kernel_checked_power_section_splitting",
+      "claim": "A normalized section whose bimultiplicative defect has exponent dividing n restricts to a homomorphism along the m-power map when n divides m*m. The fourfold square-coordinate application is source-dependent; no global automorphic construction or bound is formalized here.",
+      "declarations": [
+        "Metaplectic.Sp4FourInverse.power_section_exists"
+      ]
+    },
+    {
+      "id": "SP4-W1",
+      "status": "kernel_checked_dense_finite_observation",
+      "claim": "Over a complete nontrivially normed scalar field, a dense linear subspace of a topological module matches any finite-dimensional continuous linear observation exactly. The domain needs no norm or completeness. Meromorphic Jacquet continuity, K-finite density in its smooth realization, and quantitative norms remain separate inputs.",
+      "declarations": [
+        "Metaplectic.DenseObservation.exists_same_observation"
+      ]
     }
   ],
   "novelty": "Priority for the combined explicit formulas has not been established; source classification and Gauss identities are classical."

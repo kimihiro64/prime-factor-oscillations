@@ -1,0 +1,276 @@
+\section{Principal data, admissible windows, and exact character extraction}
+\label{sec:sp4-principal-window}
+
+We separate three assertions: a source-dependent automorphic realization,
+an abstract section-selection argument, and an exact arithmetic consumer.
+Only the algebraic power-section and finite-observation inputs below are
+newly kernel checked. None is an independent cancellation estimate.
+
+\paragraph{The principal Hecke character is realized.}
+Let \(K\supset\mathbb Q(\mu_8)\). For the simply connected fourfold
+\(\operatorname{Sp}_4\) cover, choose the diagonal bisector
+\(D(e_i,e_j)=-\delta_{ij}\) and the trivial Brylinski--Deligne
+root-lift parameter. These are the Siegel-Levi parameters \(p=-1,q=0\)
+in \cite[Section 6]{GaoInverseEis}.
+The torus cocycle is
+\[
+ c(t,u)=\prod_{i=1}^2(t_i,u_i)_4^{-1}.
+\]
+Here \(Y_{Q,4}=2Y\), so its centre lies over square coordinates.
+Bimultiplicativity gives
+\((a^2,b^2)_4=(a,b)_4^4=1\): the chosen section is a homomorphism
+on this central torus. Abstractly, if a section has bimultiplicative
+defect of exponent dividing \(n\), its restriction along the
+\(m\)-power map is multiplicative whenever \(n\mid m^2\).
+This is the maintained theorem
+\texttt{Metaplectic.Sp4FourInverse.power\_section\_exists}; its
+bimultiplicative power calculation is
+\texttt{Metaplectic.Sp4FourInverse.power\_pair}.
+It does not itself construct a covering group or an adelic quotient.
+
+On the global central torus define
+\[
+ \chi_0(\zeta,t_1,t_2)
+   =\epsilon(\zeta)\lvert t_1/t_2\rvert_{\mathbb A}^{1/4}.
+\]
+This is genuine and continuous. The product formula makes it trivial
+on the rational torus in the centre, so it is automorphic in the
+convention of \cite[Section 2.6]{GaoInverseEis}.
+The root lifts, with the chosen trivial root-lift parameter, give
+\[
+ \chi_0(h_{\alpha_1}(a^2))=|a|_{\mathbb A},\qquad
+ \chi_0(h_{\alpha_2}(a^4))=|a|_{\mathbb A}^{-1}.
+\]
+Indeed the two torus coordinates are \((a^2,a^{-2})\) and
+\((1,a^4)\), respectively. The datum is Siegel-Levi exceptional and
+unitary on the scalar centre. It is unramified outside finitely many
+places, which we include in \(S\). The source distinguishedness and
+factorization theorems therefore yield
+\begin{equation}\label{eq:sp4-principal-inverse}
+ E_\psi(s)=\frac{B(s)}{\zeta_K^S(4s+2)}.
+\end{equation}
+Thus \(\eta=1\) is available; it is not necessary to assume a fourth
+root of a desired Dirichlet character on a fixed field.
+This application of Gao is an ordinary source-dependent argument,
+not a Lean formalization of his automorphic theorems.
+
+\paragraph{A finite-dimensional observation lemma.}
+Let \(E\) be a topological complex vector space, \(E_{\rm fin}\)
+a dense linear subspace, and \(F:E\to V\) a continuous linear map
+to a finite-dimensional complex normed space. Then
+\[
+ F(E_{\rm fin})=F(E).
+\]
+For \(R=F(E_{\rm fin})\), finite dimensionality makes \(R\) closed.
+Its closed preimage contains the dense subspace, hence equals \(E\).
+This full proof is maintained as
+\texttt{Metaplectic.DenseObservation.exists\_same\_observation}.
+The Lean theorem allows any complete nontrivially normed scalar field;
+it imposes no norm or completeness on \(E\).
+
+\paragraph{Finite-point nonvanishing with \(K\)-finite data.}
+The following analytic interface is explicit. Work in a fixed smooth
+compact-picture space \(E\); its \(K\)-finite vectors form the dense
+linear subspace \(E_{\rm fin}\). Suppose the local Jacquet family is
+a meromorphic family of continuous linear functionals on \(E\), with
+locally finite pole order in that topology. Near \(s_0\), write
+\[
+ W(s)=\sum_{\ell=-r}^{\infty}\lambda_\ell(s-s_0)^\ell,
+ \qquad \lambda_\ell\in E',\quad r\ge0.
+\]
+Also suppose the usual open-Bruhat-cell construction supplies a
+holomorphic smooth section \(h(s)\) with \(W(s)h(s)=1\).
+One takes a Levi vector on which its Whittaker functional is \(1\),
+and a compactly supported smooth function \(\phi\) on the integration
+unipotent satisfying \(\int\phi(u)\psi(u)^{-1}\,du=1\).
+These are representation-theoretic hypotheses, not conclusions of
+the abstract Lean lemma. Gao's local integral in Section 4.2 is the
+relevant interface; using its continuous smooth meromorphic realization
+is an additional analytic input here.
+
+Write \(h(s)=\sum_{j\ge0}h_j(s-s_0)^j\). Apply the observation lemma
+to \(F=(\lambda_{-r},\ldots,\lambda_0)\) and each \(h_j\),
+\(0\le j\le r\). Obtain \(k_j\in E_{\rm fin}\) with the same
+observations, and put
+\[
+ P(s)=\sum_{j=0}^r k_j(s-s_0)^j.
+\]
+For every \(-r\le a\le0\), the coefficient of \((s-s_0)^a\)
+in \(W(s)P(s)\) is
+\(\sum_{0\le j\le a+r}\lambda_{a-j}(k_j)\).
+It equals the corresponding coefficient for \(W(s)h(s)=1\).
+Consequently \(W(s)P(s)\) is holomorphic at \(s_0\) and equals
+\(1\) there. The section \(P\) lies in the span of finitely many
+\(K\)-types and is a polynomial combination of admissible flat
+sections. This avoids inserting a smooth non-\(K\)-finite test directly
+into Gao's \(K\)-finite Eisenstein-series statement.
+
+For distinct finitely many points \(s_i\), with pole orders at most
+\(r_i\), make these finite observations at all points. Vector-valued
+Hermite interpolation gives one polynomial section of degree at most
+\(\sum_i(r_i+1)-1\) with the prescribed jets. The same calculation
+gives value \(1\) at each point. Taking the finite product over bad
+places makes \(B\) holomorphic with \(B(s_i)=1\), under the stated
+local analytic hypotheses. No bound on the selected \(K\)-types,
+coefficients or Sobolev norms as height or conductor grows is asserted.
+
+\paragraph{Extract a chosen Dirichlet character without discarding zeros.}
+Let \(H\) be a finite subgroup of Dirichlet characters containing
+the four characters modulo \(8\), and let \(\chi\in H\).
+Use a common modulus and let \(K\) be the abelian field whose
+character group is \(H\). Then \(K\) contains \(\mathbb Q(\mu_8)\)
+and \([K:\mathbb Q]=d=|H|\). Remove every ramified rational prime
+in the common set \(S\), and use the primitive characters on the
+remaining Euler factors. If the Frobenius element at \(p\notin S\)
+has order \(f\), the elementary character identity is
+\[
+ \prod_{\xi\in H}(1-\xi(p)T)=(1-T^f)^{d/f}.
+\]
+It proves, first for \(\Re u>1\) and then meromorphically,
+\[
+ \zeta_K^S(u)=\prod_{\xi\in H}L_{\mathbb Q}^S(u,\xi).
+\]
+Define the \emph{plain companion product}
+\(C_\chi(u)=\prod_{\xi\in H\setminus\{\chi\}}
+L_{\mathbb Q}^S(u,\xi)\). Equation
+\eqref{eq:sp4-principal-inverse} gives the exact identity
+\begin{equation}\label{eq:sp4-character-extraction}
+ C_\chi(u)E_\psi((u-2)/4)
+   =\frac{B((u-2)/4)}{L_{\mathbb Q}^S(u,\chi)}.
+\end{equation}
+This is a meromorphic identity, including at shared zeros: their orders
+cancel as \(\sum_{\xi\in H}m_\xi-
+\sum_{\xi\ne\chi}m_\xi=m_\chi\). No nonvanishing assumption on
+the companion factors is made. The existing maintained
+\texttt{CarmichaelDirichletProduct.product\_order\_formula}
+and \texttt{CarmichaelWeightedSignal.weighted\_limit} implement
+the product-order and signed local-readout principles; the new
+adelic realization is not asserted by those declarations.
+
+Here is the complete physical inverse consumer. Let \(a_K(n)\) be
+the sum of \(\mu_K(\mathfrak a)\) over ideals of norm \(n\) prime to
+\(S\), and let \(\xi_1,\ldots,\xi_{d-1}\) enumerate
+\(H\setminus\{\chi\}\). For \(w\in C_c^\infty(0,\infty)\),
+\begin{align*}
+ &\sum_{a,b_1,\ldots,b_{d-1}\ge1}
+   a_K(a)\prod_{j=1}^{d-1}\xi_j(b_j)
+   \mathbf1_{(ab_1\cdots b_{d-1},S)=1}
+   w(ab_1\cdots b_{d-1}/X)\\
+ &\hspace{30mm}=\sum_{\substack{n\ge1\\(n,S)=1}}
+      \mu(n)\chi(n)w(n/X).
+\end{align*}
+Each sum is finite because of the displayed common support.
+This follows by the Euler-product coefficient identity
+\(a_K*\xi_1*\cdots*\xi_{d-1}=\mu\chi\), with zero extension at
+\(S\). No pairwise coprimality or independent factor cutoff is added.
+All unit rows and all convolution cross terms remain present.
+For \(K=\mathbb Q(\mu_8)\) and \(\chi=1\), this uses just the three
+fixed quadratic companions. At \(p\equiv1\pmod8\), the local
+calculation is \((1-T)^4(1-T)^{-3}=1-T\). At any other odd
+residue it is
+\((1-T^2)^2/((1-T)(1+T)^2)=1-T\).
+Thus the cancellation is coefficientwise at every prime power,
+not an absolute-value estimate on the separate factors.
+
+Differentiation gives a second full consumer, with \(u=4s+2\):
+\begin{equation}\label{eq:sp4-signed-log-extraction}
+ \zeta_K^S(u)E_\psi'(s)-B'(s)
+ +4B(s)\sum_{\xi\in H\setminus\{\chi\}}
+       \frac{(L_{\mathbb Q}^S)'(u,\xi)}{L_{\mathbb Q}^S(u,\xi)}
+ =-4B(s)\frac{(L_{\mathbb Q}^S)'(u,\chi)}
+                    {L_{\mathbb Q}^S(u,\chi)}.
+\end{equation}
+The derivative \(B'\), the chain factor \(4\), every plain companion
+and every higher prime power are compulsory. For nonprincipal \(\chi\),
+the principal companion cancels the native principal term; for principal
+\(\chi\) that term survives and must be subtracted in the physical sum.
+There is no division by \(B\) away from a chosen nonvanishing window.
+
+\paragraph{The restricted cubic character example has explicit costs.}
+For a primitive cubic character of prime conductor \(q\), take
+\(H=\{\psi\chi^j:\psi\bmod8,\ j=0,1,2\}\). Then
+\(d=12\), the conductor product is \(2^{24}q^8\), and the
+archimedean degree is \(12\). The native logarithmic derivative has
+first-prime coefficient
+\[
+ 12\log p\,\mathbf1_{p\equiv1\ (8),\ \chi(p)=1},\qquad p\notin S.
+\]
+The conductor product follows from the modulo-\(8\) conductors
+\(1,4,8,8\), and the two nontrivial cubic powers of conductor \(q\).
+Its height-dependent analytic conductor has order
+\(2^{24}q^8(1+|t|)^{12}\), up to the fixed convention for gamma factors.
+Extracting just \(\chi\) retains eleven companions. Estimating them
+before exact coefficient cancellation charges every multiplied length,
+not only one factor. Restriction to this prime class is therefore an
+explicit family adapter, not a free all-character estimate.
+
+\paragraph{The full affine window transfer.}
+The physical scale must be changed together with the detector.
+In general suppose \(u=as+b\), with real \(a>0,b\), and an exact
+meromorphic identity \(C(u)E(s)=B(s)/L(u)\).
+For \(c>1\), set \(c'=(c-b)/a\). On finite vertical segments,
+ordinary substitution gives
+\begin{align*}
+ P(X;T)&=\frac1{2\pi i}\int_{c-iT}^{c+iT}
+    \frac{\widehat w(u)B((u-b)/a)}{L(u)}X^u\,du\\
+ &=aX^b\frac1{2\pi i}
+   \int_{c'-iT/a}^{c'+iT/a}
+      E(s)C(as+b)\widehat w(as+b)(X^a)^s\,ds.
+\end{align*}
+Every factor, both endpoints and the Jacobian are retained.
+The substitution is valid without an infinite-contour convergence
+claim. Passing \(T\to\infty\), or shifting either contour, additionally
+requires bounds for the complete integrand and the corresponding
+horizontal and truncation remainders.
+
+Write \(F(Y)\) for the full spectral integral on the second line,
+when justified. Then \(P(X)=aX^bF(X^a)\).
+An independent estimate \(F(Y)\ll Y^{r+\varepsilon}\) gives
+\(P(X)\ll X^{b+ar+a\varepsilon}\). Under the detector's Mellin
+continuation hypotheses, including the small-\(Y\) end, a zero
+\(\rho\) with nonzero window multiplier is excluded whenever
+\(\Re\rho>b+ar\). Thus the boundary budget is \(b+ar\), not
+the numerical exponent imported from another observable.
+If an estimate costs \(q^A\), uses a shifted length \(q^\lambda Y\),
+and has normalization \(q^{-\nu}\), the complete budget for
+\(q\asymp X^\delta\) is instead
+\[
+ b+ar+\delta(A+\lambda r-\nu).
+\]
+Such a moving-family conclusion requires simultaneous window and
+signal bounds in precisely that range; fixed-\(q\) detection is
+insufficient.
+
+For \eqref{eq:sp4-character-extraction}, \(a=4,b=2\),
+\(C=C_\chi\), and \(Y=X^4\). Hence the required spectral exponents
+are
+\[
+ \begin{array}{c|ccc}
+ \text{Euler boundary}&7/8&3/4&1/2\\\hline
+ \text{spectral exponent }r&-9/32&-5/16&-3/8.
+ \end{array}
+\]
+The integral includes \(B\), all companions and all section costs.
+It is not the unweighted coefficient sum unless the multiplier is
+removed with a separately justified window transfer. In particular,
+the finite-point choice \(B(s_\rho)=1\) does not justify global
+division by \(B\) or eliminate its vertical growth.
+
+\paragraph{What exponent the alternative must actually prove.}
+For each fixed \(\chi\), an independent bound
+\[
+ \sum_{\substack{n\ge1\\(n,S)=1}}\mu(n)\chi(n)w(n/X)
+       \ll_{\chi,w,\varepsilon}X^{b+\varepsilon}
+ \quad(X\ge2)
+\]
+for a set of smooth windows detecting every hypothetical zero implies
+the boundary \(\Re\rho\le b\), by Mellin continuation of the reciprocal.
+Equivalently one may bound the correctly centred logarithmic consumer.
+The finite-point section argument removes a pointwise choice issue;
+it does not give this bound. A uniform proof through Eisenstein series
+still needs the physical Bruhat transformation, the continuous local
+interface above, and all moving section and companion costs.
+The usual Weyl reflection \(u\mapsto4-u\) supplies none of this saving.
+The installed cubic estimate remains \(7/8\); \(b=3/4\) requires a
+new signed arithmetic estimate for this consumer. No exponent is
+imported from a different detector's normalization.

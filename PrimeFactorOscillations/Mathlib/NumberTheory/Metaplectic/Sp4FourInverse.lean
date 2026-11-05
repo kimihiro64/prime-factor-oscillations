@@ -61,4 +61,36 @@ theorem whittaker_weyl_sum (q x : K)
   field_simp
   ring
 
+/-! The abstract power-section criterion used for the split central torus. -/
+
+section PowerSection
+
+variable {A C E : Type*} [CommMonoid A] [CommMonoid C] [Monoid E]
+
+theorem power_pair (B : MonoidHom A (MonoidHom A C)) (m : Nat) (a b : A) :
+    B (a ^ m) (b ^ m) = (B a b) ^ (m * m) := by
+  simp only [map_pow, MonoidHom.pow_apply, pow_mul]
+
+theorem power_section_exists (B : MonoidHom A (MonoidHom A C)) (n m : Nat)
+    (hdiv : Dvd.dvd n (m * m))
+    (horder : forall a b : A, (B a b) ^ n = 1)
+    (i : MonoidHom C E) (s : A -> E) (hs : s 1 = 1)
+    (hdefect : forall a b : A, s a * s b = i (B a b) * s (a * b)) :
+    exists f : MonoidHom A E, forall a : A, f a = s (a ^ m) := by
+  have htrivial (a b : A) : B (a ^ m) (b ^ m) = 1 := by
+    rw [power_pair]
+    cases hdiv with
+    | intro r hr =>
+      rw [hr, pow_mul, horder]
+      exact one_pow r
+  let f : MonoidHom A E :=
+    { toFun := fun a => s (a ^ m)
+      map_one' := by simpa only [one_pow] using hs
+      map_mul' := by
+        intro a b
+        rw [hdefect, htrivial, map_one, one_mul, mul_pow] }
+  exact Exists.intro f (fun _ => rfl)
+
+end PowerSection
+
 end Metaplectic.Sp4FourInverse

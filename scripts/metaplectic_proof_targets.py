@@ -17,6 +17,7 @@ METAPLECTIC_THEOREMS = (
     "Metaplectic.DenseCharacter.cross_multiplicative",
     "Metaplectic.DenseCharacter.nonzero_at_one",
     "Metaplectic.DenseCharacter.square_character_exists",
+    "Metaplectic.DenseObservation.exists_same_observation",
     "Metaplectic.G2Seven.Cubic.absolute_period_box",
     "Metaplectic.G2Seven.Cubic.coherentProbe_eq",
     "Metaplectic.G2Seven.Cubic.coherentProjection_hasSum",
@@ -299,6 +300,8 @@ METAPLECTIC_THEOREMS = (
     "Metaplectic.Sp4Eight.twistClass_eq_quadraticClass",
     "Metaplectic.Sp4Eight.twistClass_fiber_card",
     "Metaplectic.Sp4Eight.unit_coordinate_survives",
+    "Metaplectic.Sp4FourInverse.power_pair",
+    "Metaplectic.Sp4FourInverse.power_section_exists",
     "Metaplectic.Sp4FourInverse.scattering_telescope",
     "Metaplectic.Sp4FourInverse.whittaker_weyl_sum",
 )
