@@ -1,0 +1,89 @@
+{
+  "date": "2026-11-04",
+  "result": "Supporting scalar cubic envelope, full low-maximum region and exact false-relaxation counterexample",
+  "module": "PrimeFactorOscillations.Mathlib.NumberTheory.Metaplectic.G2SevenScalarStability",
+  "declarations": [
+    "Metaplectic.G2Seven.Scalar.cubic_envelope",
+    "Metaplectic.G2Seven.Scalar.low_peak_stability",
+    "Metaplectic.G2Seven.Scalar.scalar_constraints_insufficient"
+  ],
+  "claim_id": "G7-SC1",
+  "universal_domain": "Every f:Fin7->Real with sum f=7, sum f^2=49, f_i<=M and 1<M.",
+  "exact_envelope": "42*M*(7-M) <= (M-1)*(343-sum f_i^3).",
+  "exact_residual": "The envelope slack times M-1 is sum_i (M-f_i)*((M-1)*f_i-(M-7))^2.",
+  "certified_region": "For t>0,t^2=1/2 and M<=1+4*t, (6+3*t)*(7-M) <= (343-sum f_i^3)/7.",
+  "false_relaxation": {
+    "vector": "Two entries1+sqrt(15), five entries1-2*sqrt(15)/5.",
+    "constraints": "Exact sum7, sum of squares49 and maximum1+sqrt(15).",
+    "failure": "Desired scalar constant6+3/sqrt(2) fails; deficit is -(6-sqrt(15))*(3/sqrt(2)-2*sqrt(15)/5)<0.",
+    "cyclic_structure": "First cyclic correlation is98/5, not0; this is no obstruction to the full cyclic phase target."
+  },
+  "checks_completed": {
+    "focused_leaf": "exit0",
+    "maintained_facade": "exit0",
+    "solution_exports_and_new_axioms": "Three declarations; only propext, Classical.choice, Quot.sound",
+    "paper": "Built-in compiler success",
+    "saved_metadata": "Exact proposed objects match saved JSON; all62 claim IDs are unique"
+  },
+  "required_staged_checks": [
+    "scripts/check.py --profile fast",
+    "Ruff check and format on the edited registry",
+    "Cached paths, exact source hashes and whitespace"
+  ],
+  "unrestricted_experiments": [
+    {
+      "ansatz": "Cubic full6x6 homogeneous squares and all cyclic correlations, target8",
+      "result": "Inconclusive after30000 projections",
+      "best_coefficient_residual": 0.3539752935744218
+    },
+    {
+      "ansatz": "Cubic affine upper-endpoint7x7 block, target8",
+      "result": "Inconclusive; floating separating-functional candidate only",
+      "best_coefficient_residual": 0.41449346391307706
+    },
+    {
+      "ansatz": "Cubic affine blocks plus every symmetry class of upper-weighted gap products, target8",
+      "result": "Inconclusive; floating dual critical value7.151993664644193 is not an exact obstruction",
+      "best_coefficient_residual": 0.4505209712840532
+    },
+    {
+      "ansatz": "Sharp regional ansatz with multiplier m-(1+2*sqrt(2))/7",
+      "result": "Coefficient identity fitted to1.21e-11, but least-norm matrices indefinite; positive projection inconclusive",
+      "best_positive_coefficient_residual": 3.001357583336379
+    },
+    {
+      "ansatz": "Sharp degree-four Fano triple-gap interactions and coupled maximum-gap square blocks",
+      "result": "Coefficient fit1.59e-11; positive projection remained inconclusive after40000 iterations",
+      "best_positive_coefficient_residual": 365.28631863169426
+    }
+  ],
+  "not_claimed": [
+    "Unrestricted high-maximum inequality",
+    "A compiled phase/Fourier or nearest-orbit-distance consumer",
+    "Infeasibility of any tested certificate class",
+    "Any global QRH improvement"
+  ],
+  "benchmark_status": "Supporting exact scalar input; no assembled global zero-free estimate.",
+  "old_bound": "7/8",
+  "new_bound": "7/8",
+  "components": {
+    "local_scalar_old_constant": "7 by the elementary cubic maximum envelope",
+    "local_scalar_new_constant": "6+3/sqrt(2), only on the stated low-maximum domain",
+    "high_phase_remainder": "Unproved on1+2*sqrt(2)<M<7"
+  },
+  "actuals": {
+    "counterexample": "Symbolically kernel checked",
+    "numerical_phase_samples": "Diagnostic only"
+  },
+  "first_nonpositive_domain": "No analytic prime-count benchmark applies; the exact counterexample disproves the enlarged scalar domain.",
+  "novelty": "This is a supporting classical moment calculation, not a new mathematical research target. The sharp Paley-source theorem and its actual Frobenius consumer are recorded in their separate receipts.",
+  "source_sha256": {
+    "PrimeFactorOscillations/Mathlib/NumberTheory/Metaplectic/G2SevenScalarStability.lean": "B5E9EC1E861549E762A6977BA18792D509091AAF5C466894ECDF9E907C5F375F",
+    "PrimeFactorOscillations/Mathlib/NumberTheory/Metaplectic/All.lean": "582039F3258C49AC0EE2048D2EE994B6F6542561DE0F32B712C0410A98838560",
+    "MATHLIB_PORTING.md": "6D507F6BFF543EAA28A6F1E5280FC4407E148B06973AC24ECD8B84F03EB199F6",
+    "scripts/metaplectic_proof_targets.py": "7C7B774F087EE4A6DD58B095523A78CF71024FC11FCA030B166C0A3763842123",
+    "paper/metaplectic-landscape-20261104/main.tex": "52C6EFED923A8D600ACE19D4EDFD09E7EFE94A9CEFAD1C7007D38C059332124A",
+    "paper/metaplectic-landscape-20261104/cases.json": "075F6C2255AB8572F34269B1FFEA88CAEB396D31B6073B1D09964D371C5B760C",
+    "paper/metaplectic-landscape-20261104/claims.json": "2FDC4C0C87C8C96F5BBC0CAE3F929FF26E0A53C8860B014FF9873C1B7018133B"
+  }
+}

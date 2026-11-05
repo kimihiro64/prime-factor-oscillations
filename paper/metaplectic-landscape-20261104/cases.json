@@ -112,6 +112,9 @@
     "Metaplectic.G2Seven.Paley.sharp_stability",
     "Metaplectic.G2Seven.Paley.tail_nonpos",
     "Metaplectic.G2Seven.Paley.unit_sector_trace",
+    "Metaplectic.G2Seven.Scalar.cubic_envelope",
+    "Metaplectic.G2Seven.Scalar.low_peak_stability",
+    "Metaplectic.G2Seven.Scalar.scalar_constraints_insufficient",
     "Metaplectic.G2Seven.Spectrum.complete_cubic_mean",
     "Metaplectic.G2Seven.Spectrum.cubic_sum",
     "Metaplectic.G2Seven.Spectrum.frequency_resonance",
@@ -205,7 +208,7 @@
     "Metaplectic.Sp4Eight.twistClass_fiber_card",
     "Metaplectic.Sp4Eight.unit_coordinate_survives"
   ],
-  "proof_status": "Eighteen maintained kernel-checked modules: local G2 and Sp4 models, complete Jacobi readouts, actual diagonal-curve and full Fermat-septic counting bridges, all-residue Frobenius compression, and the full principal-compensated cubic Fermat observation with its nontrivial joint Abel limit. Actual character fibers, inverse-pair and infinity corrections are proved. Projective geometry, prime-power lifting, rational-prime descent and global automorphic transfer remain separate. No analytic boundary gain. The Paley phase sector has a sharp uniform cubic-source stability theorem, exact positive-polynomial certificate and symbolic noncoherent attainer. The unrestricted three-phase inequality and arithmetic sector-membership transfer remain open. Source-field Gauss Frobenius and the positive unit normalization now discharge the Paley-sector conditions for p modulo7 equal2 or4 with a Frobenius-invariant primitive additive character; the sharp signed actual Fermat point-count bound is proved.",
+  "proof_status": "Nineteen maintained kernel-checked modules: local G2 and Sp4 models, complete Jacobi readouts, actual diagonal-curve and full Fermat-septic counting bridges, all-residue Frobenius compression, and the full principal-compensated cubic Fermat observation with its nontrivial joint Abel limit. Actual character fibers, inverse-pair and infinity corrections are proved. Projective geometry, prime-power lifting, rational-prime descent and global automorphic transfer remain separate. No analytic boundary gain. The Paley phase sector has a sharp uniform cubic-source stability theorem, exact positive-polynomial certificate and symbolic noncoherent attainer. The unrestricted three-phase inequality and arithmetic sector-membership transfer remain open. Source-field Gauss Frobenius and the positive unit normalization now discharge the Paley-sector conditions for p modulo7 equal2 or4 with a Frobenius-invariant primitive additive character; the sharp signed actual Fermat point-count bound is proved. The scalar two-moment region 1<M<=1+2*sqrt(2) is formally controlled at the proposed sharp constant; unrestricted high-maximum phase geometry remains open. An explicit two-peak vector disproves extension from the first two moments alone and has cyclic correlation98/5, so it does not obstruct the actual phase problem.",
   "classification_scope": "principal structural mechanisms and selected low-degree cases, not a complete global automorphic classification",
   "overlap_scope": "current repo public/private QRH terminology search and specified prior notes; not exhaustive across sibling repositories",
   "sources": [
@@ -1092,6 +1095,22 @@
           "No result here covers p%7=1",
           "No rational-prime descent or global analytic saving"
         ]
+      },
+      "scalar_stability": {
+        "domain": "Every real f:Fin7->Real with sum f=7, sum f^2=49, f_i<=M and 1<M.",
+        "envelope": "42*M*(7-M) <= (M-1)*(343-sum f_i^3).",
+        "exact_residual": "sum_i (M-f_i)*((M-1)*f_i-(M-7))^2 equals (M-1) times the envelope slack.",
+        "low_region": "For 0<t, t^2=1/2 and M<=1+4*t, (6+3*t)*(7-M) <= (343-sum f_i^3)/7.",
+        "status": "kernel_checked_scalar_envelope_and_complete_low_maximum_region",
+        "scope": "Supporting two-moment lemma; unrestricted high-maximum inequality, phase/Fourier consumer and metric identification are not claimed here.",
+        "novelty": "The weighted-squares scalar envelope is a supporting classical calculation, not a new research target or QRH gain.",
+        "counterexample": {
+          "vector": "Two entries 1+sqrt(15), five entries 1-2*sqrt(15)/5.",
+          "moments": "Sum7, sum of squares49, all entries<=1+sqrt(15).",
+          "failure": "The desired constant6+3/sqrt(2) fails on this vector.",
+          "retained_structure": "Its first cyclic correlation is98/5 instead of0; the original joint phase target is not refuted.",
+          "status": "kernel_checked_explicit_false_relaxation_counterexample"
+        }
       }
     }
   },

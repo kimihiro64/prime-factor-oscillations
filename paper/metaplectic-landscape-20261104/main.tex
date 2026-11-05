@@ -2122,6 +2122,66 @@ rational-prime descent, or estimate a global signed moment. In particular
 (P4) is a source-coherence refinement of a point-count bound; it supplies
 no new global zero-free exponent by itself.
 
+\subsection{The scalar region and its exact limitation}
+
+A supporting calculation for the unrestricted phase problem can be
+settled completely. Let \(F_0,\ldots,F_6\) be arbitrary real numbers with
+\[
+ \sum_iF_i=7,\qquad \sum_iF_i^2=49,\qquad F_i\le M,\qquad M>1.
+\]
+The exact weighted-square identity is
+\[
+\begin{split}
+ &\sum_i(M-F_i)\big((M-1)F_i-(M-7)\big)^2\\
+ &\quad=(M-1)\left[(M-1)\left(343-\sum_iF_i^3\right)
+                     -42M(7-M)\right].
+\end{split}
+\]
+Consequently
+\[
+ (M-1)\left(343-\sum_iF_i^3\right)\ge42M(7-M).             \tag{P5}
+\]
+Put \(t=1/\sqrt2\). Throughout the complete range
+\(1<M\le1+4t=1+2\sqrt2\), the additional signed slack is
+\[
+ 42M(7-M)-7(6+3t)(M-1)(7-M)
+   =21t(7-M)(1+4t-M)\ge0.
+\]
+Together with (P5), this proves
+\[
+ \frac{343-\sum_iF_i^3}{7}\ge(6+3t)(7-M).                 \tag{P6}
+\]
+These are kernel-checked statements about every real seven-vector with
+the stated two moments. They are supporting scalar input; a formal
+source-to-real-vector or nearest-phase-distance consumer is not asserted
+by this module.
+
+The limitation of the two-moment relaxation is also exact. Take
+\(v=\sqrt{15}\), two entries \(1+v\), and five entries \(1-2v/5\).
+This vector satisfies both moments and the upper bound \(M=1+v\), but
+\[
+ \frac{343-\sum_iF_i^3}{7}=30-\frac{18}5v
+ <(6+3t)(6-v).
+\]
+The positive difference is
+\((6-v)(3t-2v/5)\). With the two high entries adjacent, its first cyclic
+correlation is
+\[
+ \sum_{i\in\mathbb Z/7\mathbb Z}F_iF_{i+1}=\frac{98}5,
+\]
+rather than zero. Thus this counterexample excludes an extension using
+only those moments; it does not refute the full cyclic phase problem.
+All these scalar statements, including the explicit counterexample and
+its failed cyclic correlation, compile in
+\texttt{G2SevenScalarStability.lean}. The weighted-square envelope is a
+supporting classical calculation, not an originality or QRH claim.
+
+The remaining phase-geometry range is \(1+2\sqrt2<M<7\), after the
+Fourier moment normalization is supplied. The attempted cubic and
+quartic positive-polynomial certificates have not settled that range.
+Their numerical coefficient fits and projected positive matrices are
+diagnostics, not formal theorems or infeasibility proofs.
+
 \section{Expanding the target $L$-functions is a separate problem}
 
 There are two goals that should not be conflated: lowering the boundary
