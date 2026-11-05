@@ -10,6 +10,7 @@ import PrimeFactorOscillations.Mathlib.NumberTheory.Metaplectic.G2SevenNonsquare
 import PrimeFactorOscillations.Mathlib.NumberTheory.Metaplectic.G2SevenScalarStability
 import PrimeFactorOscillations.Mathlib.NumberTheory.Metaplectic.G2SevenUniformStability
 import PrimeFactorOscillations.Mathlib.NumberTheory.Metaplectic.G2TwelveFourier
+import PrimeFactorOscillations.Mathlib.NumberTheory.Metaplectic.QuarticEvenMoment
 import PrimeFactorOscillations.Mathlib.NumberTheory.Metaplectic.QuinticCocycle
 import PrimeFactorOscillations.Mathlib.NumberTheory.Metaplectic.QuinticLocalMass
 import PrimeFactorOscillations.Mathlib.NumberTheory.Metaplectic.Sp4EightTrace
@@ -21,5 +22,6 @@ Exports the G2 sevenfold/twelvefold and Sp4 eightfold signed models,
 their complete Fourier energies, Frobenius packets and full Fermat trace readouts,
 central compensation, global cyclic stability and supporting Jacobi edge algebra,
 the all-order product profile, primary congruence and sharp nonsquare-field edge,
+the complete quartic fourth-moment Euler factor,
 and the existing quintic local-mass and cocycle models.
 -/

@@ -1,5 +1,43 @@
 {
   "review_date": "2026-11-04",
+  "quartic_fourth_moment_consumer_20261105": {
+    "status": "Kernel-checked local block model; global Euler interpretation is an ordinary source-based candidate, not a compiled automorphic theorem.",
+    "owner": "PrimeFactorOscillations/Mathlib/NumberTheory/Metaplectic/QuarticEvenMoment.lean",
+    "declarations": [
+      "Metaplectic.QuarticEvenMoment.actual_blocks_hasSum",
+      "Metaplectic.QuarticEvenMoment.block_identity",
+      "Metaplectic.QuarticEvenMoment.blocks_hasSum",
+      "Metaplectic.QuarticEvenMoment.gauss_fourth_power"
+    ],
+    "source": "Friedberg--Ginzburg, arXiv:1403.3929, final n=4 discussion: tau(p^(4r),1)=q^r and tau(p^(4r+1),1)=q^r*conjugate(G4); the other two classes vanish.",
+    "field": "Retain the source's mu_(2n) convention: K=Q(zeta_8), degree4, with bad primes and ramified character places removed. No unproved descent to Q(i) is used.",
+    "arithmetic_euler_product": "Q_eta^S(s)=L_K^S(s,eta)*L_K^S(4s-4,alpha^8*eta^4)/L_K^S(2s,eta^2). This follows for the explicitly defined multiplicative block model. Its identification with a globally factorizable fourfold theta period is a separate transfer requirement.",
+    "normalization": "lambda(a)=diag(a,1,1), delta_B^(1/2)=q^(-k). Four Whittaker factors supply q^(-4k). Set xi=alpha^2*eta and T=xi*q^(4-s); the local factor becomes (1+eta*q^(-s))/(1-xi^4*q^(4-4s)).",
+    "initial_domain": "Re(s)>5/4 for the Euler product. The kernel-checked local series has the exact norm(q^4*T^4)<1 hypothesis.",
+    "zero_retention": "On 3/4<Re(s)<1, the numerator reference is at u=4s-4 in -1<Re(u)<0. The alpha^8 angular weights are +/-8, so its gamma argument is u+4=4s, with positive real part, and the reflected L-argument 5-4s has real part>1. L_K(2s,eta^2) is Euler-nonzero. These are ordinary Hecke-functional-equation calculations, not Lean-checked here.",
+    "quadratic_packet": "For eta_j=eta_0*omega^j, j=0,1, omega quadratic, both eta_j^2 and eta_j^4 are fixed. Thus Q_j=R*L_j has a common reference; the native two-character Carmichael weights are1,1 and select one quadratic class on the coprime support. Actual family admissibility and any moving-conductor detector uniformity must still be checked.",
+    "signed_consumer": "Sum_j m_j*(Q_j'/Q_j-R'/R)=Sum_j m_j*L_j'/L_j. If the observed period is Z_j=B*Q_j, subtract B'/B as well. R*Q_j'-R'*Q_j=R^2*L_j' is an exact nondivided identity; division by Q_j reintroduces the small-value problem.",
+    "required_independent_input": "A nonvanishing/small-value theorem for the actual continued period on the zero line, or a signed estimate for the inverse/logarithmic detector after all reference and window subtractions. An upper bound for Q alone cannot exclude its zeros. No such independent estimate is installed.",
+    "error_compatibility": "An additive holomorphic encoding error preserves pole locations but can move direct zeros. A direct-zero readout must subtract that error exactly or prove an appropriate small-value/Rouche margin; detector accuracy alone is insufficient.",
+    "reference_cost": "Degree D gives reflected height factor (1+|t|)^(D*(9/2-4*sigma)) and conductor factor Q_ref^(9/2-4*sigma). With K degree4 and sigma=3/4 these are height power6 and conductor power3/2, before bad-place and window costs.",
+    "open_global_edges": [
+      "Global factorizable theta/Whittaker matching with compatible choices at all places, not just the prime-power formula.",
+      "Nonzero ramified/archimedean window at the same hypothetical zero, with uniform conductor/height dependence if parameters grow.",
+      "The independent complete signed small-value or reciprocal-period estimate."
+    ],
+    "novelty": "Active-project exact-term overlap search found no earlier fourth-moment probe; full portfolio and literature priority not established. The Gauss--Jacobi identity is classical.",
+    "benchmark_status": "Structural comparison only; independent analytic estimate unavailable.",
+    "old_bound": "7/8",
+    "new_bound": "7/8",
+    "components": {
+      "local_block_model": "four maintained compiled declarations",
+      "global_period": "not compiled; matching remains a transfer requirement",
+      "reference_noncancellation": "ordinary functional-equation calculation",
+      "independent_small_value_estimate": "unproved"
+    },
+    "actuals": "No finite numerical experiment used.",
+    "first_nonpositive_domain": "Not applicable: no improved universal analytic bound has been installed."
+  },
   "artifact_kind": "research survey, external-source map and exact local calculations",
   "old_goal_status": "The prior H1/finite-field line remains paused; the standing goal is active on metaplectic exploration.",
   "installed_local_boundary": "7/8",
@@ -290,9 +328,13 @@
     "Metaplectic.G2Seven.Edge.septic_nonsquare_norm_not_fixed",
     "Metaplectic.G2Seven.Fermat.nonsquare_field_primary_cubic_edge",
     "Metaplectic.G2Seven.Fermat.nonsquare_field_uniform_cubic_constant_iff",
-    "Metaplectic.G2Seven.Fermat.nonsquare_field_uniform_cubic_edge"
+    "Metaplectic.G2Seven.Fermat.nonsquare_field_uniform_cubic_edge",
+    "Metaplectic.QuarticEvenMoment.actual_blocks_hasSum",
+    "Metaplectic.QuarticEvenMoment.block_identity",
+    "Metaplectic.QuarticEvenMoment.blocks_hasSum",
+    "Metaplectic.QuarticEvenMoment.gauss_fourth_power"
   ],
-  "proof_status": "Fifty-five newly developed kernel-checked arithmetic owners (plus the facade and three existing quintic owners): local G2 and Sp4 models, complete Jacobi readouts, actual diagonal-curve and full Fermat-septic counting bridges, all-residue Frobenius compression, and the full principal-compensated cubic Fermat observation with its nontrivial joint Abel limit. Actual character fibers, inverse-pair and infinity corrections are proved. Projective geometry, prime-power lifting, rational-prime descent and global automorphic transfer remain separate. No analytic boundary gain. The Paley phase sector has a sharp uniform cubic-source stability theorem, exact positive-polynomial certificate and symbolic noncoherent attainer. The sharp unrestricted three-phase inequality and general arithmetic sector-membership transfer remain open. The complete cyclic correlation problem now has a kernel-checked constant-eight stability inequality, uniformly through the high-maximum range. Source-field Gauss Frobenius and the positive unit normalization now discharge the Paley-sector conditions for p modulo7 equal2 or4 with a Frobenius-invariant primitive additive character; the sharp signed actual Fermat point-count bound is proved. The scalar two-moment region 1<M<=1+2*sqrt(2) is formally controlled at the proposed sharp constant; the proposed sharp high-maximum bound remains open; the global constant-eight cyclic bound is proved. An explicit two-peak vector disproves extension from the first two moments alone and has cyclic correlation98/5, so it does not obstruct the actual phase problem. The full unit-circle Laurent certificate, cubic phase-gap bound and two-sided conditional arithmetic consumer are maintained and kernel checked. Actual prime-field anti-invariant nonvanishing and normalized product separation are proved; no global exponent gain. Prime-norm septic cyclotomic nonvanishing and the same-orbit complete beta-product nonzero theorem are maintained and kernel checked. The actual two-character Jacobi counting profile is proved for every natural twist, including the principal row, with exact q-2 mass. Its actual conjugate norms, channel symmetries and prime-field full-beta nonvanishing are now proved; the complete signed norm and normalized phase assembly are now proved. A single natural counting profile with exact nonzero-support mass represents all positive power probes for arbitrary cover degree n, over any commutative semiring with decidable equality. This finite counting adapter is not an analytic gain or a novelty claim. The integral septic anti-invariant is now kernel checked under its explicit coefficient and exponent-two invariance hypotheses: H=m*tau, tau^2=-7, and nonzero m gives normSq(H)>=7. Actual beta=p*H and its final norm-separation assembly are now proved. The actual inverse-coordinate Jacobi symmetry is maintained, including principal characters and its psi(-1) compensation factor. The complete eight-term two-profile integral packet is maintained with explicit coefficient u1-u6+v3+v5+v6-v1-v2-v4. Actual seventh-order characters supply all four Jacobi norms and both symmetries; their prime-field full beta product is nonzero. With a primitive additive character, the exact a*c=b*d relation is proved. The actual normalized1512 phase bound is proved. Its direct scalar point-count specialization is now proved; a global QRH consumer remains separate. The all-order product profile and integral first-moment congruence are now proved. The full septic third jet gives7|m on p=1 mod7, normSq(H)>=343, and the complete74088 normalized and denominator-free Fermat-septic cubic bounds. No global QRH gain or priority claim. Character witnesses have now been discharged for all prime cardinalities p>=3. The complete74088 cubic point-count bound is unconditional on that domain, and its failure at p=2 is proved. Actual character availability is proved for every order dividing q-1. Global QRH stays7/8. The nonsquare-cardinality extension is now kernel checked: every nonsquare q>=3 satisfies the74088 cubic edge. The sharp uniform constant over all nonsquare fields, including q=2, is exactly54000. Primitive additive characters are constructed over every finite field. QRH remains7/8.",
+  "proof_status": "Fifty-six newly developed kernel-checked arithmetic owners (plus the facade and three existing quintic owners): local G2 and Sp4 models, complete Jacobi readouts, actual diagonal-curve and full Fermat-septic counting bridges, all-residue Frobenius compression, and the full principal-compensated cubic Fermat observation with its nontrivial joint Abel limit. Actual character fibers, inverse-pair and infinity corrections are proved. Projective geometry, prime-power lifting, rational-prime descent and global automorphic transfer remain separate. No analytic boundary gain. The Paley phase sector has a sharp uniform cubic-source stability theorem, exact positive-polynomial certificate and symbolic noncoherent attainer. The sharp unrestricted three-phase inequality and general arithmetic sector-membership transfer remain open. The complete cyclic correlation problem now has a kernel-checked constant-eight stability inequality, uniformly through the high-maximum range. Source-field Gauss Frobenius and the positive unit normalization now discharge the Paley-sector conditions for p modulo7 equal2 or4 with a Frobenius-invariant primitive additive character; the sharp signed actual Fermat point-count bound is proved. The scalar two-moment region 1<M<=1+2*sqrt(2) is formally controlled at the proposed sharp constant; the proposed sharp high-maximum bound remains open; the global constant-eight cyclic bound is proved. An explicit two-peak vector disproves extension from the first two moments alone and has cyclic correlation98/5, so it does not obstruct the actual phase problem. The full unit-circle Laurent certificate, cubic phase-gap bound and two-sided conditional arithmetic consumer are maintained and kernel checked. Actual prime-field anti-invariant nonvanishing and normalized product separation are proved; no global exponent gain. Prime-norm septic cyclotomic nonvanishing and the same-orbit complete beta-product nonzero theorem are maintained and kernel checked. The actual two-character Jacobi counting profile is proved for every natural twist, including the principal row, with exact q-2 mass. Its actual conjugate norms, channel symmetries and prime-field full-beta nonvanishing are now proved; the complete signed norm and normalized phase assembly are now proved. A single natural counting profile with exact nonzero-support mass represents all positive power probes for arbitrary cover degree n, over any commutative semiring with decidable equality. This finite counting adapter is not an analytic gain or a novelty claim. The integral septic anti-invariant is now kernel checked under its explicit coefficient and exponent-two invariance hypotheses: H=m*tau, tau^2=-7, and nonzero m gives normSq(H)>=7. Actual beta=p*H and its final norm-separation assembly are now proved. The actual inverse-coordinate Jacobi symmetry is maintained, including principal characters and its psi(-1) compensation factor. The complete eight-term two-profile integral packet is maintained with explicit coefficient u1-u6+v3+v5+v6-v1-v2-v4. Actual seventh-order characters supply all four Jacobi norms and both symmetries; their prime-field full beta product is nonzero. With a primitive additive character, the exact a*c=b*d relation is proved. The actual normalized1512 phase bound is proved. Its direct scalar point-count specialization is now proved; a global QRH consumer remains separate. The all-order product profile and integral first-moment congruence are now proved. The full septic third jet gives7|m on p=1 mod7, normSq(H)>=343, and the complete74088 normalized and denominator-free Fermat-septic cubic bounds. No global QRH gain or priority claim. Character witnesses have now been discharged for all prime cardinalities p>=3. The complete74088 cubic point-count bound is unconditional on that domain, and its failure at p=2 is proved. Actual character availability is proved for every order dividing q-1. Global QRH stays7/8. The nonsquare-cardinality extension is now kernel checked: every nonsquare q>=3 satisfies the74088 cubic edge. The sharp uniform constant over all nonsquare fields, including q=2, is exactly54000. Primitive additive characters are constructed over every finite field. QRH remains7/8. The actual quartic fourth Gauss moment and complete four-class prime-power block series are now kernel checked in four declarations. Their positive numerator gives a direct L-factor; a global period identification and independent small-value or reciprocal-period bound remain separate.",
   "classification_scope": "principal structural mechanisms, all root types in the cited coprime cover range, and selected even/mixed-root cases; not a complete global automorphic classification",
   "overlap_scope": "current repo public/private QRH terminology search and specified prior notes; not exhaustive across sibling repositories",
   "sources": [
@@ -467,7 +509,7 @@
       "degree": 4,
       "group": "GL2 vector; special GL3 theta",
       "cyclotomic_degree": 2,
-      "status": "known quartic summation, prior project Gaussian work; new external complete observation to audit"
+      "status": "known quartic summation, prior project Gaussian work; new external complete observation to audit. A complete fourth-moment prime-power model is now compiled; its direct-zero Euler interpretation and all global matching/small-value estimates are separate. The new source-convention construction uses Q(zeta_8), degree4."
     },
     {
       "degree": 5,
@@ -485,7 +527,7 @@
       "degree": 7,
       "group": "special GL6; G2",
       "cyclotomic_degree": 6,
-      "status": "Complete sevenfold G2 arithmetic model, phase-free second moment, principal-preserving cubic readout and complete cubic spectrum maintained in Lean. All eight nonzero resonance types split into two formal scaling orbits; global Fourier/Hecke transfer remains open. The full cyclic correlation domain now satisfies constant-eight stability. Supporting signed Jacobi edge algebra is compiled; the universal prime-field edge bound is still a candidate."
+      "status": "Complete sevenfold G2 arithmetic model, phase-free second moment, principal-preserving cubic readout and complete cubic spectrum maintained in Lean. All eight nonzero resonance types split into two formal scaling orbits; global Fourier/Hecke transfer remains open. The full cyclic correlation domain now satisfies constant-eight stability. Supporting signed Jacobi edge algebra is compiled; the universal nonsquare-field cubic edge is now proved, with sharp uniform constant54000 including q=2."
     },
     {
       "degree": 8,
@@ -513,7 +555,7 @@
       "degree": 12,
       "group": "G2; special GL11",
       "cyclotomic_degree": 4,
-      "status": "Complete G2 functional-coordinate arithmetic model and six-channel average maintained in Lean; no spherical/global QRH detector identified.",
+      "status": "Complete G2 functional-coordinate arithmetic model and six-channel average maintained in Lean. Source-based spherical ray matching is recorded as ordinary mathematics; global theta genericity/period transfer and a signed exponent-improving estimate remain unproved.",
       "root_orders": [
         12,
         4

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "date": "2026-11-04",
-  "scope": "Complete G2 sevenfold/twelvefold and Sp4 eightfold arithmetic models, local energies, central compensation, cubic readout and complete cubic spectrum; no global QRH claim.",
+  "scope": "Complete G2 sevenfold/twelvefold and Sp4 eightfold arithmetic models, local energies, central compensation, cubic readout and complete cubic spectrum, and the complete quartic fourth-moment block model; no global QRH claim.",
   "claims": [
     {
       "id": "G2-01",
@@ -899,6 +899,24 @@
       "declarations": [
         "Metaplectic.G2Seven.Fermat.nonsquare_field_uniform_cubic_edge",
         "Metaplectic.G2Seven.Fermat.nonsquare_field_uniform_cubic_constant_iff"
+      ]
+    },
+    {
+      "id": "Q4-E1",
+      "status": "kernel_checked_arithmetic_model",
+      "claim": "For every finite field, an order-four multiplicative character and a primitive complex additive character satisfy G(chi)^4=alpha^2 under rho^2=q and rho nonzero, with alpha=-J(chi,chi)/rho. The fourth moment has the positive Jacobi square. This classical Gauss identity is a checked input, not a novelty or QRH claim.",
+      "declarations": [
+        "Metaplectic.QuarticEvenMoment.gauss_fourth_power"
+      ]
+    },
+    {
+      "id": "Q4-E2",
+      "status": "kernel_checked_complete_prime_power_block_model",
+      "claim": "All four residue classes of the quartic source coefficient are retained. Every block has generating term (q^4*T^4)^r*(1+g^4*T); when norm(q^4*T^4)<1 the complete block series sums to (1+g^4*T)/(1-q^4*T^4). Actual finite-field Gauss data replace g^4 by alpha^2. Identification with the global theta coefficient, the global period and its nonvanishing estimate are not formalized here.",
+      "declarations": [
+        "Metaplectic.QuarticEvenMoment.actual_blocks_hasSum",
+        "Metaplectic.QuarticEvenMoment.block_identity",
+        "Metaplectic.QuarticEvenMoment.blocks_hasSum"
       ]
     }
   ],

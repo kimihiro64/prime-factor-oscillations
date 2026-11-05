@@ -28,7 +28,7 @@
 \title{Metaplectic forms beyond the cubic QRH construction\\
 \large A structural and analytic research map}
 \author{Research review for the prime-factor oscillations project}
-\date{4 November 2026}
+\date{5 November 2026}
 \begin{document}
 \maketitle
 {\small Copyright (c) 2026 Prime Factor Oscillations contributors.
@@ -59,6 +59,9 @@ with the diagonal Jacobi polynomial of $z^7=x(1-x)$, and its compensated
 Abel trace with the affine point-count discrepancy.
 The complete cyclic correlation problem also has a uniform constant-eight
 stability theorem, proved by an exact signed polynomial certificate.
+The complete quartic fourth-moment block series is also checked in Lean;
+its positive numerator leads to a direct-zero observable with a different
+nonvanishing requirement.
 The arithmetic proofs are maintained in Lean; classical source inputs,
 projective geometry and global signal questions are stated separately.
 No new zero-free theorem is claimed. The installed local theorem remains
@@ -3956,6 +3959,203 @@ signed consumer. It leaves the actual global genericity and the
 independent signed estimate open. No additional Lean theorem or
 global exponent gain is counted: the certified boundary is \(7/8\).
 
+\section{A quartic fourth-moment probe and its different zero consumer}
+\label{sec:quartic-even-moment}
+
+This construction changes the observable, not just its cover degree.
+The arithmetic block identities below are maintained in Lean. The
+automorphic identification described afterwards is a separate proposed
+transfer: a prime-power formula alone does not establish that a chosen
+global Whittaker coefficient factors at every place. No estimate for
+that continued global period is asserted here.
+
+\subsection{The actual Gauss sign and the complete block series}
+Let $F$ be a finite field of cardinality $q$, let $\chi$ have order four,
+let $\psi$ be primitive, and choose $\rho\ne0$ with $\rho^2=q$. Put
+\[
+ G=\frac{g(\chi,\psi)}{\rho},
+ \qquad \alpha=-\frac{J(\chi,\chi)}{\rho}.
+\]
+Then
+\begin{equation}\label{eq:quartic-gauss-fourth}
+ G^4=\alpha^2 .
+\end{equation}
+Indeed, $\chi^2$ is nonprincipal quadratic and
+$\chi^2(-1)=\chi(-1)^2=\chi(1)=1$. The quadratic Gauss identity therefore
+gives $g(\chi^2,\psi)^2=q$. The Gauss--Jacobi identity gives
+$g(\chi,\psi)^2=J(\chi,\chi)g(\chi^2,\psi)$; squaring and dividing by
+$\rho^4$ proves \eqref{eq:quartic-gauss-fourth}.
+The sign is positive. Replacing this fourth moment by an odd
+M\"obius-signed factor would change the observable.
+
+Define the full arithmetic source sequence, for every $r\ge0$, by
+\[
+ a(4r)=q^r,\qquad a(4r+1)=q^rG,\qquad
+ a(4r+2)=a(4r+3)=0.
+\]
+For every $r$ and complex $T$ its entire block is
+\[
+ \sum_{i=0}^3 a(4r+i)^4T^{4r+i}
+   =(q^4T^4)^r(1+G^4T).
+\]
+Consequently, if $|q^4T^4|<1$, the sum over all blocks is
+\begin{equation}\label{eq:quartic-full-block}
+ \sum_{r\ge0}\sum_{i=0}^3a(4r+i)^4T^{4r+i}
+   =\frac{1+\alpha^2T}{1-q^4T^4}.
+\end{equation}
+Both vanishing residue classes and the denominator from higher prime
+powers are included. The four maintained declarations are
+\texttt{Metaplectic.QuarticEvenMoment.gauss\_fourth\_power},
+\texttt{block\_identity}, \texttt{blocks\_hasSum} and
+\texttt{actual\_blocks\_hasSum}. The latter three use the same namespace.
+The complete statement has its explicit geometric-convergence hypothesis;
+no continuation claim is hidden in that Lean sum.
+
+\subsection{Euler interpretation and the full normalization}
+The quartic $\mathrm{GL}_3$ theta coefficients in the final discussion
+of \cite{FGGlobal} have precisely this four-class pattern, with
+$\overline G$ in place of $G$. Retain the source's convenient
+$\mu_{2n}\subset K$ convention: for $n=4$ take
+$K=\mathbb Q(\zeta_8)$, of degree four. A reduction to
+$\mathbb Q(i)$ would require its own compatibility proof. Remove a
+finite set $S$ containing the bad and character-ramified places.
+
+For the cocharacter $\lambda(a)=\operatorname{diag}(a,1,1)$,
+$\delta_B^{1/2}(\lambda(\varpi^k))=q^{-k}$. Thus four Whittaker
+factors supply $q^{-4k}$ as well as the fourth power of the arithmetic
+coefficient. Write $\alpha$ for the unitary normalized quartic Jacobi
+Hecke character, use a finite-order twist $\eta$, and put
+\[
+ \xi=\alpha^2\eta,\qquad T=\xi(\mathfrak p)q^{4-s},
+ \qquad U=q^{-4}T=\xi(\mathfrak p)q^{-s}.
+\]
+Write $\bar a$ for the conjugate arithmetic source sequence. Applying
+\eqref{eq:quartic-full-block} with block variable $U$ gives
+\[
+ \sum_{k\ge0}q^{-4k}\bar a(k)^4T^k
+ =\frac{1+\overline{\alpha(\mathfrak p)}^{\,2}U}{1-q^4U^4}
+ =\frac{1+\eta(\mathfrak p)q^{-s}}
+        {1-\alpha(\mathfrak p)^8\eta(\mathfrak p)^4q^{4-4s}}.
+\]
+Thus $4-s$ is the Mellin weight before the four
+modular-character factors, and the actual block variable is $U$.
+
+The explicitly defined multiplicative arithmetic model therefore has
+Euler product
+\begin{equation}\label{eq:quartic-direct-euler}
+ Q_\eta^S(s)=
+ \frac{L_K^S(s,\eta)\,
+       L_K^S(4s-4,\alpha^8\eta^4)}
+      {L_K^S(2s,\eta^2)},\qquad \Re s>5/4 .
+\end{equation}
+This uses $1+z=(1-z^2)/(1-z)$, so the direct target factor is
+$L_K(s,\eta)$, not its reciprocal.
+
+A product of four charge-one genuine factors has total central charge
+zero modulo four. This removes that algebraic obstruction to an
+ordinary torus integrand. It does not, by itself, prove a global
+Eulerian integral. To identify \eqref{eq:quartic-direct-euler} with
+such a period one still needs compatible factorizable theta data at
+all places, the stated unramified coefficients for those data, and the
+ramified and archimedean integrals. A nonzero local window at a
+specified hypothetical zero must be proved at that same point.
+If conductors or heights vary, its norms and inverse normalization
+must also be uniform in the range used by the detector.
+
+\subsection{Reference noncancellation and its cost}
+Write
+\[
+ R_\eta^S(s)=
+ \frac{L_K^S(4s-4,\alpha^8\eta^4)}{L_K^S(2s,\eta^2)} .
+\]
+The usual unitary Jacobi-Hecke normalization has angular weights
+$\pm1$ for $\alpha$. On $3/4<\sigma=\Re s<1$, set $u=4s-4$.
+Then $-1<\Re u<0$, whereas $1-u=5-4s$ has real part greater
+than one. The character $\alpha^8\eta^4$ has angular weights
+$\pm8$; its complex gamma factors have argument $u+4=4s$,
+away from their poles. Its functional equation and the absolutely
+convergent reflected Euler product show that its $L$-function is
+finite and nonzero there. Also $\Re(2s)>1$.
+Each removed Euler factor is nonzero in these open strips.
+Thus $R_\eta^S$ is holomorphic and nonzero, and
+\[
+ \operatorname{ord}_{s=\rho}Q_\eta^S(s)
+ =\operatorname{ord}_{s=\rho}L_K^S(s,\eta)
+ \quad(3/4<\Re\rho<1).
+\]
+This is an ordinary Hecke-functional-equation argument, not a
+Lean-checked global analytic theorem.
+
+Reflection is not free. With degree $D=[K:\mathbb Q]$ and analytic
+conductor parameter $\mathcal Q_{\rm ref}$ for the reference character,
+the gamma/conductor quotient has size on a fixed vertical strip
+\[
+ \mathcal Q_{\rm ref}^{\,9/2-4\sigma}
+ (1+|t|)^{D(9/2-4\sigma)}
+\]
+up to constants depending on the fixed strip and infinity type.
+Here $D=4$. At $\sigma=3/4$ the conductor exponent is $3/2$
+and the height exponent is $6$. Ramified integrals and window norms
+are additional costs. They cannot be suppressed when translating a
+period estimate back to a zero detector.
+
+\subsection{A common-reference quadratic packet}
+Let $\omega$ be quadratic and set $\eta_j=\eta_0\omega^j$, $j=0,1$.
+Then $\eta_j^2=\eta_0^2$ and $\eta_j^4=\eta_0^4$. Both reference
+factors in \eqref{eq:quartic-direct-euler} are therefore common:
+\[
+ Q_j=R L_j,\qquad L_j=L_K^S(s,\eta_j).
+\]
+The native index-two weights are $m_0=m_1=1$, and on the coprime
+support their character packet $1+\omega$ selects one quadratic class.
+This is an exact character calculation. Its use for a particular
+Carmichael family additionally requires that family's admissibility
+and the same-height detector transfer. When $\eta_0$ is fixed, the
+reference conductor is fixed even as the conductor of $\omega$ grows;
+the target factors and local windows still have growing conductors.
+
+All reference and window compensation survives in the identities
+\begin{align*}
+ \sum_{j=0}^1m_j\left(\frac{Q_j'}{Q_j}-\frac{R'}R\right)
+   &=\sum_{j=0}^1m_j\frac{L_j'}{L_j},\\
+ RQ_j'-R'Q_j&=R^2L_j'.
+\end{align*}
+These hold meromorphically. If an actual observation is $Z_j=BQ_j$,
+its logarithmic form must subtract $B'/B$ as well.
+The nondivided identity alone is not a logarithmic zero detector:
+division by $Q_j$ is precisely a new small-value requirement.
+
+\subsection{Which estimate could exclude a zero?}
+For an inverse-pole observation $A/L+G$, a zero of $L$ gives a pole
+provided $A(\rho)\ne0$ and $G$ is holomorphic there. An additive
+holomorphic encoding error cannot remove that pole. For the present
+direct observation $AL+G$, the same error can move or remove the
+observed zero. One must subtract $G$ exactly, or prove an appropriate
+small-value or Rouch\'e margin. Extra detector precision is not a
+substitute for this compatibility check.
+
+An upper bound for the continued $Q_\eta$ is consistent with
+$Q_\eta(\rho)=0$ and hence cannot exclude a target zero. A useful
+independent theorem would instead prove nonvanishing of the actual
+continued period on the candidate zero region, or bound a fully
+compensated reciprocal/logarithmic observation with its masks,
+conductors and window costs retained. Neither follows from the
+positive local fourth moment. The positive arithmetic model obtained
+from $|G|^4$ has the same direct-zero issue: positivity in the initial
+half-plane does not provide a lower bound after continuation.
+
+In the installed cubic consumer the zero-response exponent is
+$\beta-11/16$, while the low-row exponent is $3/16$; their comparison
+gives $7/8$. Reaching $3/4$ by that consumer requires the complete
+signed low contribution at exponent $1/16$, together with compatible
+bounds for every other retained term. The quartic identity above
+does not supply that estimate or an independent replacement.
+The status is therefore: four new compiled arithmetic declarations;
+global period matching and the independent small-value estimate
+remain open; old and new certified QRH boundary both $7/8$.
+No finite numerical estimate or originality claim is substituted
+for either missing analytic theorem.
+
 \begin{thebibliography}{99}
 \bibitem{McNamara} P. J. McNamara, \emph{The metaplectic
 Casselman--Shalika formula}, arXiv:1103.4653v3,
@@ -4015,6 +4215,9 @@ Rankin--Selberg}, arXiv:2607.07911v2.
 \bibitem{DunnCusp} A. Dunn, \emph{Metaplectic cusp forms and the large
 sieve}, arXiv:2403.13151v2.
 \url{https://arxiv.org/abs/2403.13151v2}.
+\bibitem{FGGlobal} S. Friedberg and D. Ginzburg, \emph{Metaplectic theta
+functions and global integrals}, arXiv:1403.3929v1.
+\url{https://arxiv.org/abs/1403.3929}.
 \bibitem{FGDescent} S. Friedberg and D. Ginzburg, \emph{Descent and theta
 functions for metaplectic groups}, arXiv:1403.3930v3.
 \url{https://arxiv.org/abs/1403.3930v3}.
