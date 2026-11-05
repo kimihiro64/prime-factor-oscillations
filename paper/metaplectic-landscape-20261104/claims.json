@@ -844,6 +844,23 @@
         "Metaplectic.G2Seven.Fermat.prime_chart_primary_cubic_edge",
         "Metaplectic.G2Seven.Fermat.prime_chart_primary_normalized_edge"
       ]
+    },
+    {
+      "id": "G7-EA12",
+      "status": "kernel_checked_actual_complex_character_availability_for_every_admissible_order",
+      "claim": "For every finite field F and every natural n dividing card(F)-1, a complex multiplicative character of exact order n exists. The proof uses the cyclic unit group, explicit complex roots of unity and finite character duality; there is no assumed character witness. This classical availability result discharges the new local edge consumer and applies to every admissible cover order.",
+      "declarations": [
+        "Metaplectic.CharacterRoots.complex_character_of_order_exists"
+      ]
+    },
+    {
+      "id": "G7-EA13",
+      "status": "kernel_checked_complete_fermat_primary_edge_for_all_primes_at_least_three_and_exception_two",
+      "claim": "For every prime p>=3 and rho>0 with rho^2=p,74088*rho<=(30*rho-abs(N_p-p-1))^3 over ZMod p, with no multiplicative/additive character or primitive-root hypotheses. Split primes use the actual primary packet and constructed characters; every other residue class has exact N_p=p+1, including p=7. At p=2, N_2=3 and54000<74088, and failure of the stronger inequality is separately proved. The root consequence is abs(N_p-p-1)<=30*sqrt(p)-42*p^(1/6). No QRH gain or priority claim.",
+      "declarations": [
+        "Metaplectic.G2Seven.Fermat.prime_field_primary_cubic_edge",
+        "Metaplectic.G2Seven.Fermat.prime_field_primary_cubic_edge_fails_two"
+      ]
     }
   ],
   "novelty": "Priority for the combined explicit formulas has not been established; source classification and Gauss identities are classical."

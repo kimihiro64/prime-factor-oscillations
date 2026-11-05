@@ -2898,6 +2898,44 @@ additional hypotheses. Priority of the strengthened edge has not been
 established. Generalizing the signed orbit relation is a separate
 arithmetic step from the already general product-profile theorem.
 
+\paragraph{Discharging the character witnesses for every prime field.}
+The final point-count theorem has no character or primitive-root hypotheses:
+for every prime $p\ge3$, (P1) and its real-root consequence (P2) hold for
+$N_p$ over $\mathbb F_p=\mathbb Z/p\mathbb Z$.
+
+Here is the complete existence argument used by the formal proof.
+For every finite field $\mathbb F_q$ and every $n\mid(q-1)$, there is a
+complex multiplicative character of exact order $n$.
+The cyclic group $\mathbb F_q^\times$ has order $q-1$.
+Complex roots of every nonzero order are supplied by
+$\exp(2\pi i/m)$, so finite character duality identifies its
+complex character group with $\mathbb F_q^\times$.
+If $q-1=nk$ and $g$ is a generator, $g^k$ has order $n$.
+Transporting $g^k$ through that duality supplies the required character.
+This is classical character availability, included to remove an
+unproved input from the new local consumer.
+
+If $p\equiv1\pmod7$, choose the resulting order-seven character.
+The root $\exp(2\pi i/7)$ is primitive of order seven, and
+\[
+ \psi(a)=\exp(2\pi i/p)^{\,a\bmod p}
+\]
+is a primitive additive character of $\mathbb F_p$.
+These data discharge all the hypotheses of the split-prime edge.
+
+If $p\not\equiv1\pmod7$, the previously proved bijectivity of the
+seventh-power map gives $N_p=p+1$ exactly. For $p\ge3$,
+\[
+ (30\sqrt p)^3=27000p\sqrt p\ge74088\sqrt p,
+\]
+so the same inequality follows. This elementary count also covers $p=7$.
+At $p=2$, $N_2=3$ and the left side of (P1) equals
+$54000\sqrt2<74088\sqrt2$. The exception at two is therefore necessary,
+and its failure is a separate named Lean theorem.
+Both residue-class branches, the universal character-existence theorem,
+and the exceptional-prime statement are maintained and kernel checked.
+No additional finite computation or analytic hypothesis enters this extension.
+
 \begin{thebibliography}{99}
 \bibitem{QRH} OpenAI, \emph{The Quasi-Riemann Hypothesis: A Zero-Free
 Half-Plane $\Re s>7/8$}, 30 September 2026.

@@ -3,6 +3,7 @@
 METAPLECTIC_THEOREMS = (
     "FiniteRootPower.exists_counting_product_profile",
     "FiniteRootPower.exists_counting_profile",
+    "Metaplectic.CharacterRoots.complex_character_of_order_exists",
     "Metaplectic.CyclotomicJet.countingPolynomial_derivative",
     "Metaplectic.CyclotomicJet.countingPolynomial_eval",
     "Metaplectic.CyclotomicJet.countingPolynomial_first_moment_divisible",
@@ -111,6 +112,8 @@ METAPLECTIC_THEOREMS = (
     "Metaplectic.G2Seven.Fermat.prime_chart_normalized_edge",
     "Metaplectic.G2Seven.Fermat.prime_chart_primary_cubic_edge",
     "Metaplectic.G2Seven.Fermat.prime_chart_primary_normalized_edge",
+    "Metaplectic.G2Seven.Fermat.prime_field_primary_cubic_edge",
+    "Metaplectic.G2Seven.Fermat.prime_field_primary_cubic_edge_fails_two",
     "Metaplectic.G2Seven.Fermat.seventh_power_pushforward",
     "Metaplectic.G2Seven.Jacobi.abel_packet_reciprocity",
     "Metaplectic.G2Seven.Jacobi.balanced_corner",
