@@ -1,0 +1,229 @@
+\section{Nontrivial character labels with one fixed zeta denominator}
+\label{sec:sp4-fixed-spectrum}
+
+The fourfold symplectic detector has a different family parameter from
+the cubic character extraction in the preceding sections. One can vary
+the inducing character without varying the target zeta function. The
+companion conductors consequently remain fixed. We give the exact
+application and its limitations. Its algebraic character statements and
+finite-sum obstruction are kernel checked; its automorphic realization
+uses \cite[Section 6.5]{GaoInverseEis} and the explicitly stated local
+analytic interface in Section~\ref{sec:sp4-principal-window}.
+
+\paragraph{The complete kernel of the two root restrictions.}
+Let \(A,C\) be commutative groups. A character \(f:A\times A\to C\)
+satisfies
+\[
+ f(a,a^{-1})=1,\qquad f(1,a^2)=1\quad(a\in A)
+\]
+if and only if
+\[
+ f(a,b)=\kappa(ab),\qquad \kappa(a)^2=1\quad(a\in A)
+\]
+for a character \(\kappa:A\to C\). Indeed set
+\(\kappa(a)=f(1,a)\). The second restriction makes it quadratic.
+The factorization
+\((a,b)=(a,a^{-1})(1,ab)\) proves the formula. Conversely that
+formula gives both restrictions directly. This is
+\texttt{Metaplectic.Sp4FixedSpectrum.fixed\_roots\_iff\_quadratic}.
+
+For two characters \(\tau,\sigma\), their determinant twists agree
+on every square torus coordinate precisely when
+\[
+ \tau(a^2b^2)=\sigma(a^2b^2)\ (a,b\in A)
+ \quad\Longleftrightarrow\quad \tau^2=\sigma^2.
+\]
+Set \(b=1\) for necessity and multiply the two equalities for
+sufficiency. This equivalence is maintained as
+\texttt{square\_torus\_twist\_eq\_iff} in the same namespace.
+The theorem \texttt{quartic\_twist\_fixed\_roots} specializes the
+first characterization to \(\kappa=\tau^2\) when \(\tau^4=1\).
+These are abstract group statements; they do not assert that every
+quadratic Hecke character has a quartic root.
+
+\paragraph{A concrete infinite automorphic family.}
+Fix \(K=\mathbb Q(\mu_8)\) and the principal genuine datum
+\(\chi_0\) of Section~\ref{sec:sp4-principal-window}.
+Twist its Siegel Levi \(M=\operatorname{GL}_2\) by
+\(\tau\circ\det_M\), where \(\tau\) is a finite-order Hecke
+character of \(K\) with \(\tau^4=1\). On the two lifted roots the
+new factors are
+\[
+ \tau(a^2a^{-2})=1,\qquad \tau(a^4)=1.
+\]
+Thus the exceptional Levi value and the target character \(\eta=1\)
+are both unchanged. On the central square coordinates the new factor
+is \(\tau(a^2b^2)=\tau^2(ab)\). The labels are therefore the
+quadratic characters \(\kappa=\tau^2\) that actually occur, rather
+than the two choices of a quartic root. This is not a determinant
+twist of the ambient symplectic group, whose determinant is one.
+
+For an explicit unbounded family take rational primes \(q\equiv1\pmod8\),
+\(q\ge17\), primitive quartic Dirichlet characters \(\rho_q\), and
+\(\tau_q=\rho_q\circ N_{K/\mathbb Q}\). The square is nontrivial:
+the quadratic extension of conductor \(q\) is disjoint from the field
+of conductor \(8\), so its character does not become trivial on
+restriction to \(K\). Different primes give different ramification
+and hence different labels. Conjugate quartic roots at one prime
+give the same square-coordinate label. No neutral label is required
+to detect a zeta zero in this family.
+
+Let \(S_0\) contain the archimedean and dyadic places and fix the
+source measures and additive character. With \(u=4s+2\), Gao's
+factorization for these data gives
+\[
+ E_{\tau,\psi}(s)=\frac{B_\tau(s)}{\zeta_K^{S_q}(u)},
+ \qquad S_q=S_0\cup\{v:v\mid q\}.
+\]
+At a ramified finite place choose a Levi vector with Whittaker
+functional one, and an open-cell section supported on
+\(P w_\ell^{-1}N'(\mathcal O_v)\). On \(w_\ell^{-1}t\) its value
+is that vector times \(\mathbf1_{N'(\mathcal O_v)}(t)\).
+For unramified \(\psi_v\) and volume one the local Jacquet integral
+is exactly one, independently of \(s\). A sufficiently small compact
+subgroup with the appropriate volume normalization handles a fixed
+bad place. Such a compact-modulo-\(P\) section is smooth and finite
+under a suitable compact open subgroup. This is an existence
+statement; its level and Sobolev norms are not bounded here.
+
+The finite-order characters at the complex places are trivial, so
+one fixed admissible archimedean section can be used for all \(q\).
+Under the meromorphic continuity and dense finite-observation
+hypotheses of Section~\ref{sec:sp4-principal-window}, choose it so
+that its factor \(B(s)\) is holomorphic and nonzero at the specified
+candidate zero. Normalize the finite local factors as above. Then
+\(B_\tau=B\), independent of \(q\). This is finite-point
+nonvanishing, not a uniform height or level estimate.
+
+\paragraph{Restore the ramified factors before differentiating.}
+Each such \(q\) splits into four degree-one places of \(K\). Hence
+\begin{align*}
+ P_q(s)&=(1-q^{-u})^4,&
+ Z_\tau(s)&=P_q(s)E_{\tau,\psi}(s)
+             =\frac{B(s)}{\zeta_K^{S_0}(u)},\\
+ P_q'(s)&=16(\log q)q^{-u}(1-q^{-u})^3,&
+ Z_\tau'(s)&=P_qE_{\tau,\psi}'+P_q'E_{\tau,\psi}.
+\end{align*}
+Both differentiated terms are required. Put
+\[
+ C(u)=L(u,\chi_{-4})L(u,\chi_8)L(u,\chi_{-8}).
+\]
+The factorization over the fixed field gives the exact meromorphic
+identity
+\begin{equation}\label{eq:sp4-fixed-spectrum-inverse}
+ C(u)Z_\tau(s)=\frac{B(s)}{\zeta_{\mathbb Q}^{(2)}(u)}.
+\end{equation}
+The notation \((2)\) removes the Euler factor at two. A shared zero
+of the companions causes no loss: its multiplicity cancels on both
+sides, leaving the multiplicity of the rational zeta zero. Since
+\(1-2^{-u}\ne0\) for \(\Re u>0\), this finite removal does not
+change any nontrivial zero in that region. In particular a zero
+\(\rho\) gives a pole at \(s_\rho=(\rho-2)/4\) whenever
+\(B(s_\rho)\ne0\), for every nontrivial label above.
+
+The full signed logarithmic identity is
+\begin{multline}\label{eq:sp4-fixed-spectrum-log}
+ \zeta_K^{S_0}(u)
+   \bigl(P_qE_{\tau,\psi}'+P_q'E_{\tau,\psi}\bigr)-B'(s)
+    +4B(s)\frac{C'(u)}{C(u)}\\
+ =-4B(s)\frac{(\zeta_{\mathbb Q}^{(2)})'(u)}
+                         {\zeta_{\mathbb Q}^{(2)}(u)}.
+\end{multline}
+This follows by differentiating \(Z_\tau=B/\zeta_K^{S_0}\)
+and using \((\zeta_K^{S_0})'/\zeta_K^{S_0}
+=(\zeta_{\mathbb Q}^{(2)})'/\zeta_{\mathbb Q}^{(2)}+C'/C\).
+Every reciprocal in \(C'/C\), the derivative of \(B\), the chain
+factor four and the principal signal remain in the identity.
+
+The inverse consumer is simpler than a moving-character product:
+its three companions have fixed conductors \(4,8,8\).
+The already proved periodic-companion continuation estimate gives
+\[
+ |L(u,\chi)|\le |u|
+   \left(\frac1{|u-1|}+\frac{2m+1}{\Re u}\right)
+ \quad(\Re u>0,\ u\ne1)
+\]
+for a character modulo \(m\). On
+\(1/2\le\Re u\le7/8\), it follows that
+\(|C(u)|\le26\cdot42^2|u|^3=45864|u|^3\).
+This specialization is a mathematical consequence of the compiled
+provider, not an additional compiled declaration. There is no
+growing conductor in this companion bound. The moving inducing
+sections and their norms still have to be estimated independently.
+
+\paragraph{Complete physical support and exponent conversion.}
+Let \(a_K(n)\) be the odd-ideal coefficients of
+\(1/\zeta_K^{S_0}(u)\). For every compactly supported smooth \(w\),
+the exact coefficient cancellation is
+\[
+ \sum_{\substack{a,b_1,b_2,b_3\ge1\\ab_1b_2b_3\ {\rm odd}}}
+ a_K(a)\chi_{-4}(b_1)\chi_8(b_2)\chi_{-8}(b_3)
+       w(ab_1b_2b_3/X)
+ =\sum_{\substack{n\ge1\\n\ {\rm odd}}}\mu(n)w(n/X).
+\]
+Both sides are finite on the displayed common product support.
+There is no additional coprimality restriction, and all unit rows
+are included. The ramified restoration has all five terms
+\[
+ P_q(s)=\sum_{h=0}^{4}(-1)^h\binom4h q^{-2h}(q^{4h})^{-s}.
+\]
+In a Mellin window of scale \(Y\) these give scales
+\(Y/q^{4h}\); differentiation additionally gives the factors
+\(-4h\log q\). A proposed bound on the whole packet must cover
+these shifted scales, including small arguments.
+
+For a finite-height integral let
+\[
+ Q_{\tau,w}(Y;T)=\frac1{2\pi i}
+  \int_{c'-iT/4}^{c'+iT/4}
+    C(4s+2)P_q(s)E_{\tau,\psi}(s)
+    \widehat w(4s+2)Y^s\,ds,
+ \qquad c'=(c-2)/4,\ c>1.
+\]
+The exact substitution \(u=4s+2\) gives
+\[
+ \frac1{2\pi i}\int_{c-iT}^{c+iT}
+    \frac{B((u-2)/4)\widehat w(u)}{\zeta_{\mathbb Q}^{(2)}(u)}
+       X^u\,du
+       =4X^2 Q_{\tau,w}(X^4;T).
+\]
+Passage to an infinite contour requires the usual decay and horizontal
+controls. If an independently proved full geometric period estimate
+and those controls give \(Q(Y)\ll_\epsilon Y^{r+\epsilon}\),
+with a detecting window at each candidate zero, the resulting
+zero-free boundary is \(2+4r\). Thus the installed boundary \(7/8\)
+corresponds to \(r=-9/32\); the target \(3/4\) requires
+\(r=-5/16\), and \(1/2\) requires \(r=-3/8\).
+No such independent improved period estimate is supplied here.
+For \(q\asymp X^\delta\), an additional cost \(q^A\), length
+replacement \(Y\mapsto Yq^\lambda\), and normalization \(q^{-\nu}\)
+would change the boundary to
+\(2+4r+\delta(A+\lambda r-\nu)\); none may be omitted.
+
+\paragraph{A proved obstruction to the wrong physical kernel.}
+For finite fields \(k\), any multiplicative character \(\chi\),
+and any weight \(w:k\to\mathbb C\), set
+\[
+ R_\chi(w)=\sum_{a,b,c\in k}\chi(ac-b^2)w(c).
+\]
+If a unit \(v\) has \(\chi(v)^2\ne1\), the bijection
+\((a,b)\mapsto(v^2a,vb)\) gives
+\(R_\chi(w)=\chi(v)^2R_\chi(w)\), hence \(R_\chi(w)=0\).
+The proof keeps the entire finite sum and is maintained as
+\texttt{Metaplectic.Sp4FixedSpectrum.rank\_one\_probe\_eq\_zero}.
+Consequently \(\chi(\det B)w(B_{22})\) alone cannot represent the
+nonzero rank-one automorphic observation. The full Levi Whittaker
+factor cannot be removed. The existing quadratic reciprocity-energy
+and sextic Eisenstein providers do not identify that factor: the
+latter also has different base field and row hypotheses.
+
+Nontrivial labels retain a common zero signal, but square-frequency
+terms in their arithmetic kernels can still survive. Moreover the
+normalized periods in \eqref{eq:sp4-fixed-spectrum-inverse} are
+identical: any finite linear combination with total coefficient zero
+erases the signal. A useful joint estimate must keep total coefficient
+one and bound the full geometric period with its moving section norms.
+This is a distinct consumer with fixed companions, rather than a
+transfer of the cubic \(X^{3/16}\) error. The certified global
+boundary remains \(7/8\). Priority for this combined application is
+unestablished; the supporting character arguments are not claimed novel.

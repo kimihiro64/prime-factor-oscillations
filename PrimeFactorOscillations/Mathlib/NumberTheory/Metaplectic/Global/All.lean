@@ -5,11 +5,13 @@ Authors: Prime Factor Oscillations contributors
 -/
 import PrimeFactorOscillations.Mathlib.NumberTheory.Metaplectic.DenseCharacterGluing
 import PrimeFactorOscillations.Mathlib.NumberTheory.Metaplectic.DenseFiniteObservation
+import PrimeFactorOscillations.Mathlib.NumberTheory.Metaplectic.Sp4FixedSpectrum
 import PrimeFactorOscillations.Mathlib.NumberTheory.Metaplectic.Sp4FourInverse
 
 /-!
 # Global metaplectic comparison inputs
 
-Exports dense character gluing and the complete fourfold Sp4 rational
-scattering calculation. The adelic applications remain source-dependent.
+Exports dense character gluing, the complete fourfold Sp4 rational
+calculation, its fixed-root character kernel and the rank-one probe
+obstruction. The adelic applications remain source-dependent.
 -/

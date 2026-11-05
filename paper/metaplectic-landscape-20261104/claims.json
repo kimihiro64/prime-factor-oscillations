@@ -994,6 +994,38 @@
       "declarations": [
         "Metaplectic.DenseObservation.exists_same_observation"
       ]
+    },
+    {
+      "id": "SP4-F1",
+      "status": "kernel_checked_fixed_root_character_classification",
+      "claim": "On a commutative product group, characters trivial on (a,a^-1) and (1,a^2) are exactly determinant pullbacks of quadratic characters. The adelic square-coordinate realization is a separate source-dependent application.",
+      "declarations": [
+        "Metaplectic.Sp4FixedSpectrum.fixed_roots_iff_quadratic"
+      ]
+    },
+    {
+      "id": "SP4-F2",
+      "status": "kernel_checked_square_torus_twist_labels",
+      "claim": "Two determinant twists agree on all square torus coordinates if and only if their squares agree. The theorem does not construct Hecke characters or assert an arithmetic estimate.",
+      "declarations": [
+        "Metaplectic.Sp4FixedSpectrum.square_torus_twist_eq_iff"
+      ]
+    },
+    {
+      "id": "SP4-F3",
+      "status": "kernel_checked_quartic_fixed_root_twists",
+      "claim": "Every character of exponent dividing four supplies fixed-root determinant data through its square. The source-dependent Sp4 family keeps a common zeta denominator; that automorphic application is not formalized here.",
+      "declarations": [
+        "Metaplectic.Sp4FixedSpectrum.quartic_twist_fixed_roots"
+      ]
+    },
+    {
+      "id": "SP4-F4",
+      "status": "kernel_checked_bare_rank_one_probe_obstruction",
+      "claim": "Over a finite field, the sum of chi(ac-b^2)w(c) over all a,b,c vanishes if chi(u)^2 is not one for some unit u, for every weight w. The scaling permutation proof retains the whole finite sum. A bare determinant kernel therefore cannot replace the full Levi Whittaker kernel.",
+      "declarations": [
+        "Metaplectic.Sp4FixedSpectrum.rank_one_probe_eq_zero"
+      ]
     }
   ],
   "novelty": "Priority for the combined explicit formulas has not been established; source classification and Gauss identities are classical."
