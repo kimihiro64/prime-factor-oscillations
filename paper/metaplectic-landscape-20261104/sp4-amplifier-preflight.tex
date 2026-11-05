@@ -1,0 +1,171 @@
+\section{Where the quadratic labels disappear, and an amplifier preflight}
+\label{sec:sp4-amplifier-preflight}
+
+This section records a failed transfer of an existing bound, before
+building a new helper pipeline. It identifies the signed expressions
+that such a pipeline would actually have to estimate. It is a
+source-dependent analysis, not an additional Lean theorem or a new
+zero-free result.
+
+\paragraph{Full local integration leaves power resonances.}
+At a good place write \(q\) for the residue cardinality. The completed
+local spherical Jacquet integral is exactly
+\[
+ 1-q^{-4s-2}=1-q^{-2}T^4,\qquad T=q^{-s}.
+\]
+All Weyl terms and all geometric valuation strata have been included
+before this equality is used. If the absolutely convergent initial
+Jacquet integral is grouped by its integral flat-section height \(h\),
+write its coefficients as \(a_h\). An unramified determinant twist
+\(\tau\) inserts \(\tau(\varpi)^h\) at that height. Uniqueness of
+the resulting convergent power series gives
+\[
+ a_0=1,\qquad a_4=-q^{-2},\qquad a_h=0\quad(h\ne0,4).
+\]
+For a quartic twist the surviving phases are
+\(\tau(\varpi)^0=\tau(\varpi)^4=1\).
+In terms of the quadratic label \(\kappa=\tau^2\), both surviving
+half-height classes are squares. Applying a quadratic-character sieve
+\emph{after} this exact integration therefore averages invariant
+columns. The nontrivial label alone gives no power saving there.
+
+This says nothing of the signs of individual geometric summands:
+the vanishing coefficients are signed integrals of entire strata.
+It does not rule out a better estimate of the full geometric expression
+\emph{before} integration, with suitable ramified data and uniform
+norms. In particular it is not an impossibility theorem for the
+original coupled packet. It pinpoints why the ordinary quadratic
+matrix cannot be inserted into the already collapsed Euler factor.
+
+\paragraph{A genuine character-dependent Hecke observable.}
+The metaplectic Satake theorem \cite{McNamaraSatake} supplies a spherical
+Hecke operator whose transform is the orbit sum
+\[
+ z_1+z_2+z_1^{-1}+z_2^{-1}
+\]
+on the square-coordinate lattice \(Y_{Q,4}=2\mathbb Z^2\).
+Here the modified dual roots are \(e_1-e_2,2e_2\).
+The anti-exceptional principal data, with the determinant twist, give
+\[
+ z_1=\kappa(\varpi)q^{1/2-2s},\qquad
+ z_2=\kappa(\varpi)q^{-1/2-2s}.
+\]
+Consequently its eigenvalue is
+\begin{equation}\label{eq:sp4-character-hecke-eigenvalue}
+ \lambda_{\kappa,q}(s)=\kappa(\varpi)L_q(s),\qquad
+ L_q(s)=(q^{1/2}+q^{-1/2})(q^{2s}+q^{-2s}).
+\end{equation}
+The Hecke operator here is defined by its \emph{full inverse Satake
+transform}. Replacing it by an uncomputed raw Cartan double coset
+would discard possible lower terms and is not licensed by this
+calculation. No bound for its geometric kernel is asserted.
+
+Choose a finite set \(\mathcal P\) of rational primes splitting
+completely in \(K\), outside the bad set, and one place above each.
+Write \(\ell\) for their norms. For a fixed candidate zero
+\(\rho=\beta+i\gamma\), set \(s_\rho=(\rho-2)/4\) and take the
+amplifier coefficients
+\(\overline{\lambda_{\kappa,\ell}(s_\rho)}\).
+Its exact eigenvalue is
+\begin{equation}\label{eq:sp4-full-hecke-amplifier}
+ A_{\mathcal P,\rho}(s)
+ =\sum_{\ell\in\mathcal P}\overline{L_\ell(s_\rho)}L_\ell(s).
+\end{equation}
+The two quadratic character phases multiply to one. Thus the
+amplified completed period is still exactly
+\(A_{\mathcal P,\rho}(s)B(s)/\zeta_{\mathbb Q}^{(2)}(4s+2)\).
+All companion and ramified-restoration factors from
+Section~\ref{sec:sp4-fixed-spectrum} remain present.
+
+For fixed finite \(\mathcal P\) the multiplier at the zero is
+\(A_{\mathcal P,\rho}(s_\rho)=\sum|L_\ell(s_\rho)|^2>0\).
+Indeed \(\Re s_\rho<0\) and the reverse triangle inequality gives
+\[
+ |L_\ell(s_\rho)|^2
+ \ge \ell^{3-\beta}(1-\ell^{\beta-2})^2.
+\]
+For \(3/4\le\beta\le7/8\) and \(\ell\ge17\) the constant
+\((1-17^{-9/8})^2\) is a uniform lower factor. Thus a nonempty
+amplifier preserves the pole with its order. Passing to
+\(\mathcal P=\mathcal P(X)\) additionally needs the appropriate
+uniform detector and window estimates; fixed-parameter pole
+nonvanishing alone is not that transfer.
+
+\paragraph{The complete physical dilation identity.}
+Let \(\mathcal M_B(X)\) be the inverse Mellin wave with integrand
+\[
+ \frac{B((u-2)/4)\widehat w(u)}{\zeta_{\mathbb Q}^{(2)}(u)}X^u.
+\]
+One can first use finite vertical segments, so no infinite-contour
+claim is needed for the following finite-sum substitution. Define
+\[
+ b_\ell(\rho)=(\ell+2+\ell^{-1})
+       (\ell^{(\bar\rho-2)/2}+\ell^{(2-\bar\rho)/2}).
+\]
+The full amplified wave is
+\begin{equation}\label{eq:sp4-signed-prime-dilation-packet}
+ \mathcal A_{B,\rho}(X)=
+ \sum_{\ell\in\mathcal P} b_\ell(\rho)
+ \left\{\ell^{-1}\mathcal M_B(X\sqrt\ell)
+                  +\ell\mathcal M_B(X/\sqrt\ell)\right\}.
+\end{equation}
+This follows from \(\ell^{2s}=\ell^{-1}\ell^{u/2}\) and
+\(\ell^{-2s}=\ell\ell^{-u/2}\). Both dilations and both
+conjugate phase terms are retained. The formula is not a sum of
+independent window errors.
+
+Here is the full quantitative preflight. Suppose the already available
+input for this fixed admissible Mellin window is
+\(\mathcal M_B(U)\ll U^\theta\), \(U\ge1\), with
+\(1/2\le\theta\le1\). Take \(\ell\in[P,2P]\), \(P\ge17\),
+and \(P\le X^{2-\eta}\), for a fixed \(\eta>0\). Both dilation
+arguments then grow. Inserting only that input into the two retained
+terms gives the fallback envelope
+\begin{align*}
+ |\mathcal A_{B,\rho}(X)|
+ &\ll X^\theta |\mathcal P|
+   \left(P^{1+(\theta-\beta)/2}
+                 +P^{3-(\beta+\theta)/2}\right)\\
+ &\ll X^\theta |\mathcal P|P^{3-(\beta+\theta)/2}.
+\end{align*}
+This envelope is a test of the \emph{existing-input transfer}, not
+a new estimate of the signed main packet. The second term dominates
+by the factor \(P^{2-\theta}\). The formal zero-response coefficient
+has size at least
+\(c|\mathcal P|P^{3-\beta}X^\beta\). Its power ratio to this
+envelope is
+\begin{equation}\label{eq:sp4-hecke-no-free-boundary-change}
+ X^{\beta-\theta}P^{(\theta-\beta)/2}
+       =(X/\sqrt P)^{\beta-\theta}.
+\end{equation}
+Thus feeding in \(\theta=7/8+\epsilon\), where the fixed-window
+transfer is justified, does not improve that exponent. An independent
+joint estimate of \eqref{eq:sp4-signed-prime-dilation-packet} is still
+required. Taking \(P\) beyond \(X^2\) is not a remedy: the shorter
+window no longer tends to infinity, and the above bound and moving
+zero-response transfer cannot then be reused.
+
+More precisely, if a new estimate saves \(X^\Delta\) against this
+envelope and \(P=X^\xi\), \(0\le\xi<2\), the power comparison
+requires
+\[
+ \Delta>(\theta-\beta)(1-\xi/2).
+\]
+At \(\theta=7/8\), target \(\beta=3/4\), and \(P=X\), this is
+\(\Delta>1/16\) in \(X\). The actual shorter scale is
+\(U=X/\sqrt P=X^{1/2}\), so this is the same \(1/8\) improvement
+in \(U\); the rescaling has not supplied it. Every growing-height,
+Hecke-kernel and moving-window loss must be added to this comparison.
+
+\paragraph{What remains open after the preflight.}
+The permitted next estimate concerns the complete signed packet
+\eqref{eq:sp4-signed-prime-dilation-packet}, or its full geometric
+realization before applying the eigenvalue identity. The existing
+quadratic sieve has not yet been matched to that realization with
+row-independent coefficients. The spherical collapsed factor is
+invariant, and inserting an already known bound into the Hecke
+identity merely transfers that same bound. These are failures of
+two specified transfers, not a proof that the arithmetic programme
+is exhausted. No additional theorem is counted as Lean checked;
+the adelic Satake and Jacquet interfaces remain source-dependent.
+The certified global boundary remains \(7/8\).

@@ -2145,5 +2145,46 @@
     "actuals": "No numerical completion used.",
     "first_nonpositive_domain": "unavailable: no proposed total improved bound",
     "novelty": "Supporting character and scaling lemmas are not claimed novel. Priority of the combined source-dependent family application is unestablished."
+  },
+  "sp4_spherical_resonance_and_hecke_preflight_20261105": {
+    "status": "failed_transfers_documented_not_a_new_kernel_checked_theorem",
+    "paper": "sp4-amplifier-preflight.tex",
+    "sources": [
+      "Gao, Sections4.2 and6.5",
+      "McNamara, arXiv0911.2274v3, Theorems10.1/10.4 and Section11"
+    ],
+    "spherical_transfer_test": "The full unramified Jacquet integral is1-q^-2*T^4. After complete flat-height integration only h0,4 remain. Quartic twists and quadratic half-height labels are invariant on those terms. Post-collapse quadratic averaging gives no saving; this is not a statement about unsigned individual geometric summands.",
+    "exact_observable": "Use the FULL inverse Satake transform of z1+z2+z1^-1+z2^-1, not an uncomputed raw Cartan double coset. Its eigenvalue is kappa(p)*(p^.5+p^-.5)*(p^(2s)+p^(-2s)).",
+    "finite_amplifier": "s_rho=(rho-2)/4, A(s)=sum_p conjugate(L_p(s_rho))*L_p(s). At s_rho its value is sum|L_p(s_rho)|^2>0; lower bound c*#P*P^(3-beta), beta in[3/4,7/8], P>=17. Growing P additionally requires the full uniform readout and window controls.",
+    "complete_signed_consumer": "sum_p b_p(rho)*(p^-1*M_B(X*sqrt(p))+p*M_B(X/sqrt(p))); b_p=(p+2+p^-1)*(p^((bar(rho)-2)/2)+p^((2-bar(rho))/2)). Keep both dilations, conjugate phases, companions and ramified factors.",
+    "available_input": "Conditional transfer preflight: M_B(U)<<U^theta, U>=1, 1/2<=theta<=1, with its actual fixed-window continuation/decay hypotheses. Installed rational Mertens power is7/8+epsilon where that multiplier transfer is justified.",
+    "failed_quantitative_transfer": "For p in[P,2P], P<=X^(2-eta), envelope X^theta*#P*(P^(1+(theta-beta)/2)+P^(3-(beta+theta)/2)). Response/envelope power ratio=(X/sqrt(P))^(beta-theta); inserting theta7/8 does not lower the boundary.",
+    "independent_saving_required": "A new signed saving X^-Delta at P=X^xi needs Delta>(theta-beta)*(1-xi/2), after all losses. Target3/4 fromtheta7/8 atP=X needsDelta>1/16 inX, equivalently1/8 in the shorter scaleU=sqrt(X). No such saving is supplied.",
+    "scope_of_failure": "Only quadratic averaging after exact spherical collapse and transfer of the same existing rate through the Hecke identity are ruled out as new improvements. The full geometric packet before collapse is not proved impossible or exhausted.",
+    "formalization_boundary": "No new Lean declarations. Covering-group Satake, Jacquet integrals and moving amplifiers are source-dependent. This record must not be promoted as a formalized theorem.",
+    "detector_error": "Finite-Mellin and finite-amplifier identities exact; growing-family detector errors not installed.",
+    "family_adapter": "Fixed-spectrum Sp4 family fromf79cd7f, with all unit and square-frequency contributions retained.",
+    "uncancelled_main_terms": "The complete signed two-dilation sum remains. No triangle bound is presented as a new arithmetic attempt.",
+    "low_estimate_provenance": "Existing available-bound transfer only; no independent improved low or full-packet estimate.",
+    "parameter_domain": "Fixed candidate rho, 3/4<=beta<=7/8; nonempty finite set of split rational Hecke primes p in[P,2P], P>=17, outside the bad set; P<=X^(2-eta) for the growing-scale preflight.",
+    "attainable_endpoint": "Unchanged7/8 from the installed input. Target3/4 remains open.",
+    "benchmark_status": "no_independent_analytic_bound_installed",
+    "old_bound": "7/8",
+    "new_bound": "7/8",
+    "components": [
+      "exact spherical power-resonance localization",
+      "complete Satake-observable identity",
+      "full signed physical dilation formula",
+      "same-domain no-improvement power comparison"
+    ],
+    "actuals": "No numerical completion.",
+    "first_nonpositive_domain": "unavailable: no claimed improved total bound",
+    "proof_counts": {
+      "scope": 105,
+      "registry": 307,
+      "claims": 101,
+      "owners": 60
+    },
+    "novelty": "No originality claim. This is source-dependent failed-route documentation, not a completed novel theorem."
   }
 }
