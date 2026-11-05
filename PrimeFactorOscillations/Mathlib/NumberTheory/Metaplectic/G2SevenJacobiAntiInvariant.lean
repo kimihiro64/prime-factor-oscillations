@@ -110,4 +110,80 @@ theorem septic_anti_invariant_norm_gap
   rw [Complex.normSq_mul, Complex.normSq_intCast, htauNorm]
   nlinarith
 
+noncomputable def septicEval (z : Complex) (v : Fin 7 -> Int) (r : Nat) :
+    Complex :=
+  (Finset.univ : Finset (Fin 7)).sum
+    (fun i => (v i : Complex) * (z ^ r) ^ i.val)
+
+/-- Both profiles and all eight signed terms are retained in the coefficient. -/
+theorem septic_integral_packet (z : Complex) (hz : IsPrimitiveRoot z 7)
+    (u v : Fin 7 -> Int)
+    (hu2 : septicEval z u 2 = septicEval z u 1)
+    (hu5 : septicEval z u 5 = septicEval z u 6) :
+    (septicEval z u 1 + septicEval z v 3 -
+        septicEval z v 1 - septicEval z v 2) -
+      (septicEval z u 6 + septicEval z v 4 -
+        septicEval z v 6 - septicEval z v 5) =
+      (((u 1 - u 6 +
+        (v 3 + v 5 + v 6 - v 1 - v 2 - v 4) : Int) : Complex)) *
+        (z + z ^ 2 + z ^ 4 - z ^ 3 - z ^ 5 - z ^ 6) := by
+  let S : Int := v 3 + v 5 + v 6 - v 1 - v 2 - v 4
+  let w : Fin 7 -> Int := fun i =>
+    if i.val = 0 then 0 else
+    if i.val = 1 then u 1 - u 6 + S else
+    if i.val = 2 then u 2 - u 5 + S else
+    if i.val = 3 then u 3 - u 4 - S else
+    if i.val = 4 then -(u 3 - u 4 - S) else
+    if i.val = 5 then -(u 2 - u 5 + S) else -(u 1 - u 6 + S)
+  have hpow (k : Nat) : z ^ k = z ^ (k % 7) := by
+    calc
+      z ^ k = z ^ (k % 7 + 7 * (k / 7)) := by rw [Nat.mod_add_div]
+      _ = z ^ (k % 7) := by
+        rw [pow_add, pow_mul, hz.pow_eq_one, one_pow, mul_one]
+  have h8 := hpow 8
+  have h9 := hpow 9
+  have h10 := hpow 10
+  have h12 := hpow 12
+  have h15 := hpow 15
+  have h16 := hpow 16
+  have h18 := hpow 18
+  have h20 := hpow 20
+  have h24 := hpow 24
+  have h25 := hpow 25
+  have h30 := hpow 30
+  have h36 := hpow 36
+  norm_num at h8 h9 h10 h12 h15 h16 h18 h20 h24 h25 h30 h36
+  have hS1 : (Finset.univ : Finset (Fin 7)).sum
+      (fun i => (w i : Complex) * z ^ i.val) =
+      (septicEval z u 1 + septicEval z v 3 -
+        septicEval z v 1 - septicEval z v 2) -
+      (septicEval z u 6 + septicEval z v 4 -
+        septicEval z v 6 - septicEval z v 5) := by
+    norm_num [septicEval, w, S, Fin.sum_univ_succ]
+    ring_nf
+    simp only [h8, h9, h10, h12, h15, h16, h18, h20, h24, h25, h30, h36]
+    ring
+  have hS2 : (Finset.univ : Finset (Fin 7)).sum
+      (fun i => (w i : Complex) * (z ^ 2) ^ i.val) =
+      (septicEval z u 2 + septicEval z v 6 -
+        septicEval z v 2 - septicEval z v 4) -
+      (septicEval z u 5 + septicEval z v 1 -
+        septicEval z v 5 - septicEval z v 3) := by
+    norm_num [septicEval, w, S, Fin.sum_univ_succ]
+    ring_nf
+    simp only [h8, h9, h10, h12, h15, h16, h18, h20, h24, h25, h30, h36]
+    ring
+  have hfixed : (Finset.univ : Finset (Fin 7)).sum
+      (fun i => (w i : Complex) * z ^ i.val) =
+      (Finset.univ : Finset (Fin 7)).sum
+        (fun i => (w i : Complex) * (z ^ 2) ^ i.val) := by
+    rw [hS1, hS2, hu2, hu5]
+    ring
+  have he := septic_integral_anti_invariant z hz w
+    (by norm_num [w]) (by norm_num [w])
+    (by norm_num [w]) (by norm_num [w]) hfixed
+  have hw1 : w 1 = u 1 - u 6 + S := by norm_num [w]
+  rw [hw1] at he
+  simpa only [S] using hS1.symm.trans he
+
 end Metaplectic.G2Seven.Edge

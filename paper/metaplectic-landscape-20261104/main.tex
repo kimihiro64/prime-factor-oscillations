@@ -2546,11 +2546,75 @@ The zero term vanishes on both sides. The declaration
 the \(\psi(-1)\) factor and is maintained in
 \texttt{JacobiPowerProfile.lean}.
 
-This establishes the nonzero-product step for the exact integer
-coefficient orbit. The actual two-character counting profile is now
-proved above. Instantiating the conjugate norm and orbit identities
-and applying the maintained integral quadratic anti-invariant
-remain separate formal obligations.
+\paragraph{The complete coupled integral packet (proved).}
+For \(u,v\in\mathbb Z^7\), put
+\(U_r=\sum_{j=0}^6u_jz^{rj}\) and
+\(V_r=\sum_{j=0}^6v_jz^{rj}\).
+If \(U_2=U_1\) and \(U_5=U_6\), the maintained declaration
+\texttt{septic\_integral\_packet} proves
+\[
+ (U_1+V_3-V_1-V_2)-(U_6+V_4-V_6-V_5)=M\tau,
+ \qquad
+ M=u_1-u_6+v_3+v_5+v_6-v_1-v_2-v_4\in\mathbb Z.
+\]
+Here every sum has the same support \(\{0,\ldots,6\}\).
+For a direct proof, put \(S=v_3+v_5+v_6-v_1-v_2-v_4\) and take
+\[
+ w=(0,M,u_2-u_5+S,u_3-u_4-S,
+       -(u_3-u_4-S),-(u_2-u_5+S),-M).
+\]
+Reduction by \(z^7=1\) identifies \(T_w(z)\) with the complete
+eight-term expression above, while
+\[
+ T_w(z^2)=(U_2+V_6-V_2-V_4)-(U_5+V_1-V_5-V_3).
+\]
+The two hypotheses make these evaluations equal. The preceding
+integral anti-invariant theorem gives \(T_w(z)=w_1\tau=M\tau\).
+The full proof, including both finite polynomial identities, is
+kernel checked in \texttt{G2SevenJacobiAntiInvariant.lean}.
+
+\paragraph{Actual character norms, symmetries and beta nonvanishing (proved).}
+Let \(F\) be a finite field of prime characteristic \(p\), let
+\(q=\#F\), and let \(\chi\) have exact order seven. Write
+\(B_r=J(\chi^r,\chi^r)\), \(b=B_1\), \(c=B_3\), \(d=B_2\), and
+\(a=J(\chi,\chi^2)\). The maintained arithmetic packet proves
+\[
+ |B_1|^2=|B_2|^2=|B_3|^2=|B_4|^2=q,\qquad
+ J(\chi^2,\chi^4)=a,\quad J(\chi,\chi^3)=c,\quad \chi(-1)=1.
+\]
+The norm proof consumes the existing Jacobi inverse-product identity
+and character conjugation. The two symmetries consume the actual
+inverse-coordinate identity, with their odd-order sign factors
+discharged by the existing character theorem.
+
+If additionally \(q=p\), the complete actual product satisfies
+\[
+ (B_1-B_3)(B_2-B_6)(B_4-B_5)\ne0.
+\]
+To prove this, apply the simultaneous counting profile to \((\chi,\chi)\)
+and cast that one natural vector to integers. Its evaluations at
+\(z^r\) are exactly the \(B_r\). The three required norm hypotheses
+at \(r=1,2,4\) are now the actual norms proved above, so the
+maintained cyclotomic nonvanishing theorem applies directly.
+This application needs no additive character.
+
+For a primitive additive character \(\psi\), put \(g_r=g(\chi^r,\psi)\).
+The four existing Gauss--Jacobi identities give
+\[
+ bg_2=g_1^2,\qquad dg_4=g_2^2,\qquad
+ ag_3=g_1g_2,\qquad cg_4=g_1g_3.
+\]
+Their exact coupled subtraction yields
+\((ac-bd)g_3g_4=0\). Primitivity and the nontriviality of
+\(\chi^3,\chi^4\) give \(g_3g_4\ne0\), hence \(ac=bd\).
+These three actual-family declarations are kernel checked in
+\texttt{G2SevenJacobiArithmetic.lean}. They are supporting arithmetic
+applications; no new analytic bound or priority claim is made here.
+
+The actual same-orbit norm and nonvanishing applications are now
+proved above. The next step is to instantiate the coupled integral
+profile identity on the mixed and diagonal channels and assemble
+the complete quantitative beta norm.
 
 The proposed arithmetic route is to prove an integral nonzero
 anti-invariant \(m\) giving
@@ -2565,9 +2629,9 @@ discrepancies, this would imply
  |N_p-p-1|\le30\sqrt p-6\sqrt[3]7\,p^{1/6}.
 \]
 This prime-field theorem is a candidate, not a completed formal
-result. The common Jacobi coefficient profile is proved, while its
-septic conjugate-norm application and complete quantitative beta
-assembly still need proofs. The full complex sum-of-squares
+result. The actual norms, complete beta nonvanishing and mixed-product
+identity are proved; their coupled integer-factor and quantitative
+normalization remain to be assembled. The full complex sum-of-squares
 consumer and the prime-norm cyclotomic nonvanishing theorem are
 kernel checked in their maintained owners.
 An exact diagnostic checked the Jacobi norm identities and proposed
