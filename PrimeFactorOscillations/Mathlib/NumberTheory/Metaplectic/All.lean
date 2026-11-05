@@ -20,5 +20,6 @@ import PrimeFactorOscillations.Mathlib.NumberTheory.Metaplectic.Sp4EightTrace
 Exports the G2 sevenfold/twelvefold and Sp4 eightfold signed models,
 their complete Fourier energies, Frobenius packets and full Fermat trace readouts,
 central compensation, global cyclic stability and supporting Jacobi edge algebra,
+the all-order product profile and split-prime primary congruence,
 and the existing quintic local-mass and cocycle models.
 -/

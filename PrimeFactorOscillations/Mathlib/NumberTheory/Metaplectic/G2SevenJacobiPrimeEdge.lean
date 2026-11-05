@@ -38,7 +38,7 @@ private theorem seventh_inverse_power {G : Type*} [Group G]
     _ = (t ^ 6) ^ r := by rw [<- mul_assoc, inv_mul_cancel, one_mul]
     _ = t ^ (6 * r) := by rw [pow_mul]
 
-private theorem septic_star_row {F : Type*} [Field F] [Fintype F]
+theorem septic_star_row {F : Type*} [Field F] [Fintype F]
     (chi eta : MulChar F Complex) (hchi : chi ^ 7 = 1)
     (heta : eta ^ 7 = 1) (r : Nat) :
     star (jacobiSum (chi ^ r) (eta ^ r)) =
@@ -213,7 +213,7 @@ theorem septic_actual_packet_norm_gap {F : Type*} [Field F] [Fintype F]
     exact septic_anti_invariant_norm_gap z hz m hmne
 
 
-private theorem normalized_packet_product
+theorem normalized_packet_product
     (b c d H : Complex) (p rho : Real) (hrho : 0 < rho)
     (hrhosq : rho ^ 2 = p)
     (hb : Complex.normSq b = p)

@@ -798,6 +798,52 @@
       "status": "kernel_checked_complete_actual_fermat_scalar_readout_and_prime_field_edge",
       "id": "G7-EA7",
       "claim": "The complete thirty-term Fermat-septic readout equals the four-channel real scalar Phi=6*Re((b+c+d)/rho)+12*Re(a/rho) over every finite field with actual order-seven character data and rho>0,rho^2=card(F). This preserves all principal and infinity corrections. On prime-cardinality fields, the proved actual arithmetic edge yields1512<=p*(30-abs((N-p-1)/rho))^3 and1512*rho<=(30*rho-abs(N-p-1))^3. The latter implies the ordinary real-root bound abs(N-p-1)<=30*sqrt(p)-6*cubert(7)*p^(1/6). The exact normalized and denominator-free cubic inequalities are named Lean declarations; no angular-sector hypothesis remains. Priority and global QRH implications remain unestablished."
+    },
+    {
+      "id": "G7-EA8",
+      "status": "kernel_checked_all_order_supported_product_profile_and_integral_first_moment",
+      "claim": "For every finite field, nonzero character order n and primitive nth root, one natural diagonal Jacobi profile preserves all natural twists including the principal q-2 row and its full supported product1. The same finite vector preserves mass, every positive power sum and product in the generic semiring theorem. Its integral counting polynomial has n dividing P'(1), with no characteristic-two exception.",
+      "declarations": [
+        "FiniteRootPower.exists_counting_product_profile",
+        "Metaplectic.JacobiPower.diagonal_supported_product",
+        "Metaplectic.JacobiPower.actual_diagonal_counting_product_profile",
+        "Metaplectic.CyclotomicJet.countingPolynomial_derivative",
+        "Metaplectic.CyclotomicJet.countingPolynomial_eval",
+        "Metaplectic.CyclotomicJet.countingPolynomial_first_moment_divisible"
+      ]
+    },
+    {
+      "id": "G7-EA9",
+      "status": "kernel_checked_complete_signed_septic_third_jet_divisibility",
+      "claim": "Every integral polynomial relation at a primitive seventh root has third derivative at1 divisible by7. The full signed beta polynomial has third derivative -48*P'(1)^3 and the septic tau polynomial has third derivative -162. Hence the complete beta-p*m*tau relation, 7|P'(1), and 7|(p-1) imply7|m, retaining all Leibniz cross terms.",
+      "declarations": [
+        "Metaplectic.CyclotomicJet.septic_third_derivative_divisible",
+        "Metaplectic.CyclotomicJet.septic_beta_third_derivative",
+        "Metaplectic.CyclotomicJet.septic_tau_third_derivative",
+        "Metaplectic.CyclotomicJet.septic_signed_product_divisibility",
+        "Metaplectic.CyclotomicJet.septic_signed_primary_divisibility"
+      ]
+    },
+    {
+      "id": "G7-EA10",
+      "status": "kernel_checked_actual_split_prime_primary_packet_norm_and_unit_edge",
+      "claim": "For actual order-seven prime-field data with p=1 mod7, the product-profile and signed jet relation give H=m*tau with7|m. Actual nonvanishing strengthens normSq(H)>=7 to normSq(H)>=343. The complete signed normalized consumer gives74088<=p*(30-abs(Phi))^3. Primitive additive character and primitive seventh root remain explicit. Existing conjugate-row and normalization providers are publicly reusable. No global QRH exponent improvement or priority claim.",
+      "declarations": [
+        "Metaplectic.G2Seven.Edge.Actual.normalized_packet_product",
+        "Metaplectic.G2Seven.Edge.Actual.septic_star_row",
+        "Metaplectic.G2Seven.Edge.Actual.septic_actual_primary_packet",
+        "Metaplectic.G2Seven.Edge.Actual.septic_actual_primary_norm_gap",
+        "Metaplectic.G2Seven.Edge.Actual.septic_actual_primary_unit_edge"
+      ]
+    },
+    {
+      "id": "G7-EA11",
+      "status": "kernel_checked_complete_actual_fermat_primary_cubic_edge",
+      "claim": "On the same actual split-prime data domain p=1 mod7, all thirty Fermat-septic terms and every principal/infinity correction give74088<=p*(30-abs((N-p-1)/rho))^3 and74088*rho<=(30*rho-abs(N-p-1))^3, rho>0,rho^2=p. Their mathematical real-root consequence is abs(N-p-1)<=30*sqrt(p)-42*p^(1/6). The first possible split prime is29; smaller primes are outside this data domain. The global QRH boundary stays7/8 and priority is unestablished.",
+      "declarations": [
+        "Metaplectic.G2Seven.Fermat.prime_chart_primary_cubic_edge",
+        "Metaplectic.G2Seven.Fermat.prime_chart_primary_normalized_edge"
+      ]
     }
   ],
   "novelty": "Priority for the combined explicit formulas has not been established; source classification and Gauss identities are classical."

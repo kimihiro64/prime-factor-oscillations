@@ -4,7 +4,7 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Prime Factor Oscillations contributors
 -/
 import PrimeFactorOscillations.Mathlib.NumberTheory.Metaplectic.G2SevenFermatReadout
-import PrimeFactorOscillations.Mathlib.NumberTheory.Metaplectic.G2SevenJacobiPrimeEdge
+import PrimeFactorOscillations.Mathlib.NumberTheory.Metaplectic.G2SevenJacobiPrimaryCongruence
 
 /-!
 # The actual septic arithmetic edge as a Fermat point-count bound
@@ -162,6 +162,43 @@ theorem prime_chart_cubic_edge {F : Type*} [Field F] [Fintype F]
   have he := prime_chart_normalized_edge p hcard chi horder psi hpsi z hz
     rho hrho hrhosq
   change 1512 <= (p : Real) * (30 - abs (t / rho)) ^ 3 at he
+  have hscale : (p : Real) * (30 - abs (t / rho)) ^ 3 * rho =
+      (30 * rho - abs t) ^ 3 := by
+    rw [abs_div, abs_of_pos hrho, <- hrhosq]
+    field_simp [ne_of_gt hrho]
+  have hm := mul_le_mul_of_nonneg_right he (le_of_lt hrho)
+  rw [hscale] at hm
+  exact hm
+
+/-- The primary packet strengthens the complete Fermat-septic edge. -/
+theorem prime_chart_primary_normalized_edge {F : Type*} [Field F] [Fintype F]
+    (p : Nat) [Fact p.Prime] [CharP F p] (hcard : Fintype.card F = p)
+    (hp : p % 7 = 1) (chi : MulChar F Complex) (horder : orderOf chi = 7)
+    (psi : AddChar F Complex) (hpsi : psi.IsPrimitive)
+    (z : Complex) (hz : IsPrimitiveRoot z 7)
+    (rho : Real) (hrho : 0 < rho) (hrhosq : rho ^ 2 = (p : Real)) :
+    74088 <= (p : Real) *
+      (30 - abs (((chartCount F : Real) - (p : Real) - 1) / rho)) ^ 3 := by
+  have hq : rho ^ 2 = (Fintype.card F : Real) := by rw [hcard]; exact hrhosq
+  have hread := chart_trace_four_channels p chi horder psi hpsi rho hrho hq
+  rw [hcard] at hread
+  rw [hread]
+  exact Edge.Actual.septic_actual_primary_unit_edge p hcard hp chi horder psi hpsi z hz
+    rho hrho hrhosq
+
+/-- A denominator-free positive gap below both Fermat-septic Hasse edges. -/
+theorem prime_chart_primary_cubic_edge {F : Type*} [Field F] [Fintype F]
+    (p : Nat) [Fact p.Prime] [CharP F p] (hcard : Fintype.card F = p)
+    (hp : p % 7 = 1) (chi : MulChar F Complex) (horder : orderOf chi = 7)
+    (psi : AddChar F Complex) (hpsi : psi.IsPrimitive)
+    (z : Complex) (hz : IsPrimitiveRoot z 7)
+    (rho : Real) (hrho : 0 < rho) (hrhosq : rho ^ 2 = (p : Real)) :
+    74088 * rho <=
+      (30 * rho - abs ((chartCount F : Real) - (p : Real) - 1)) ^ 3 := by
+  let t : Real := (chartCount F : Real) - (p : Real) - 1
+  have he := prime_chart_primary_normalized_edge p hcard hp chi horder psi hpsi z hz
+    rho hrho hrhosq
+  change 74088 <= (p : Real) * (30 - abs (t / rho)) ^ 3 at he
   have hscale : (p : Real) * (30 - abs (t / rho)) ^ 3 * rho =
       (30 * rho - abs t) ^ 3 := by
     rw [abs_div, abs_of_pos hrho, <- hrhosq]

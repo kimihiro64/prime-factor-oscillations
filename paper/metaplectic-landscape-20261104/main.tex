@@ -2776,6 +2776,128 @@ representation/Fourier model, retaining a genuinely coupled vector or
 root system, and then proving a signed estimate for that actual object.
 No boundary improvement is claimed by this review.
 
+\section{Primary congruence of the complete septic packet}
+\label{sec:septic-primary}
+
+The arithmetic edge above admits a further uniform strengthening on
+prime fields with $p\equiv1\pmod7$. Write $N_p$ for the same complete
+Fermat-septic chart count, including its points at infinity.
+For the actual character data of the preceding theorem,
+\[
+ \boxed{\quad
+ (30\sqrt p-|N_p-p-1|)^3\ge74088\sqrt p .
+ \quad}                                                     \tag{P1}
+\]
+Consequently, by monotonicity of the real cube,
+\[
+ |N_p-p-1|\le30\sqrt p-42p^{1/6}.                             \tag{P2}
+\]
+The named Lean statements are the normalized and denominator-free cubic
+forms of (P1); (P2) is their real-root consequence.
+The previous cubic constant was $1512$, so (P1) improves that
+constant by $49$. This is a local arithmetic improvement, not a change
+of the certified global QRH boundary $7/8$.
+
+\paragraph{The common profile preserves the product.}
+This part holds for every nonzero character order $n$, not just seven.
+Let $\zeta$ be a primitive $n$th root and $\chi^n=1$. There is one
+vector $v:\{0,\ldots,n-1\}\to\mathbb N$ such that, simultaneously,
+\[
+ \sum_jv_j=q-2,\qquad
+ J(\chi^r,\chi^r)=\sum_jv_j\zeta^{jr}\quad(r\ge0),\qquad
+ \prod_j(\zeta^j)^{v_j}=1.                                  \tag{P3}
+\]
+Here the zeroth row uses $J(1,1)=q-2$ directly; no zero value is
+replaced by its zeroth power. To prove the product assertion, put
+$S=\mathbb F_q\setminus\{0,1\}$ and $A=\prod_{x\in S}\chi(x)$.
+Both $x\mapsto1-x$ and $x\mapsto x^{-1}$ permute this exact support.
+The first permutation makes the supported product of
+$\chi(x)\chi(1-x)$ equal to $A^2$; the second gives
+\[
+ A^2=A\prod_{x\in S}\chi(x^{-1})
+     =\prod_{x\in S}\chi(xx^{-1})=1.
+\]
+Induction on the finite support constructs the same counting vector for
+the mass, every positive moment, and this product. Thus (P3) contains
+more data than an arbitrary witness for the power sums alone.
+It remains valid in characteristic two, including the empty support
+when $q=2$.
+
+\paragraph{The first integral moment and all third-jet cross terms.}
+Set $P(X)=\sum_jv_jX^j\in\mathbb Z[X]$.
+Equation (P3) implies $\zeta^{P'(1)}=1$, hence
+$n\mid P'(1)$, for every $n$.
+Now take $n=7$ and define
+\[
+ B_P(X)=(P(X)-P(X^3))(P(X^2)-P(X^6))
+                         (P(X^4)-P(X^5)),\qquad
+ T(X)=X+X^2+X^4-X^3-X^5-X^6 .
+\]
+Each of the three factors of $B_P$ vanishes at $1$.
+Leibniz's rule, keeping every cross term, gives
+\[
+ B_P'''(1)=-48P'(1)^3,\qquad T'''(1)=-162.                   \tag{P4}
+\]
+If $R(\zeta)=0$ for an integral polynomial $R$, then
+$R=\Phi_7Q$ in $\mathbb Z[X]$. The four jets of $\Phi_7$ at $1$ are
+$7,21,70,210$, so
+\[
+ R'''(1)=210Q(1)+210Q'(1)+63Q''(1)+7Q'''(1)
+          \equiv0\pmod7.                                  \tag{P5}
+\]
+These are exact integral identities.
+
+\paragraph{Apply the jets to the actual signed packet.}
+Retain the preceding notation
+$a=J(\chi,\chi^2)$, $b=J(\chi,\chi)$,
+$c=J(\chi^3,\chi^3)$ and $d=J(\chi^2,\chi^2)$, and put
+$H=(a+c-b-d)-\overline{a+c-b-d}$.
+The already proved identities are
+\[
+ H=mT(\zeta),\qquad
+ (b-c)(d-\bar b)(\bar c-\bar d)=pH,\qquad m\in\mathbb Z .
+\]
+The common profile in (P3) identifies this full product with
+$B_P(\zeta)$. Therefore
+$R=B_P-pmT$ vanishes at $\zeta$.
+Combining (P4)--(P5) with $7\mid P'(1)$ yields
+\[
+ 7\mid162pm,\qquad 7\mid pm,\qquad 7\mid m,                  \tag{P6}
+\]
+where the last step uses $p\equiv1\pmod7$.
+Prime-field nonvanishing gives $m\ne0$. Since
+$|T(\zeta)|^2=7$, (P6) strengthens the packet norm to
+\[
+ |H|^2=7m^2\ge343.                                         \tag{P7}
+\]
+
+\paragraph{Carry the improvement through the complete consumer.}
+For $\rho>0$, $\rho^2=p$, let $B=b/\rho$, $C=c/\rho$, $D=d/\rho$.
+The previously checked signed normalization is
+\[
+ p\,|1-BD|^2|B-C|^2|C-D|^2=|H|^2.
+\]
+The same six-square certificate used for the absolute phase edge gives
+\[
+ p(30-|\Phi|)^3
+ \ge216p\,|1-BD|^2|B-C|^2|C-D|^2
+ \ge216\cdot343=74088 .
+\]
+The complete thirty-term readout is
+$\Phi=(N_p-p-1)/\rho$. Multiplication by $\rho$ gives (P1).
+No character phase, reciprocal factor, principal term, infinity term,
+or compensation cross term has been discarded.
+
+The formal domain retains an exact-order-seven multiplicative
+character, a primitive additive character and a primitive seventh root.
+Together with $p\equiv1\pmod7$, its smallest prime is $29$.
+No smaller prime is silently treated as belonging to this split domain.
+The profile theorem itself covers every finite field and every
+nonzero order $n$; only the subsequent prime-field edge has these
+additional hypotheses. Priority of the strengthened edge has not been
+established. Generalizing the signed orbit relation is a separate
+arithmetic step from the already general product-profile theorem.
+
 \begin{thebibliography}{99}
 \bibitem{QRH} OpenAI, \emph{The Quasi-Riemann Hypothesis: A Zero-Free
 Half-Plane $\Re s>7/8$}, 30 September 2026.
