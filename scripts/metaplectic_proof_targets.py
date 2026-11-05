@@ -299,4 +299,6 @@ METAPLECTIC_THEOREMS = (
     "Metaplectic.Sp4Eight.twistClass_eq_quadraticClass",
     "Metaplectic.Sp4Eight.twistClass_fiber_card",
     "Metaplectic.Sp4Eight.unit_coordinate_survives",
+    "Metaplectic.Sp4FourInverse.scattering_telescope",
+    "Metaplectic.Sp4FourInverse.whittaker_weyl_sum",
 )

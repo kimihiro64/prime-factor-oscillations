@@ -1,0 +1,118 @@
+\section{A complete direct inverse model on fourfold \(\mathrm{Sp}_4\)}
+\label{sec:sp4-direct-inverse}
+
+Gao's Theorem~6.5 \cite{GaoInverseEis} supplies a global alternative to
+the three-theta quartic product. It assumes \(K\supset\mu_8\), the
+specified fourfold cover of \(\mathrm{Sp}_4\), an exceptional automorphic
+character \(\chi\) on the Siegel Levi center, and a finite set \(S\)
+containing all ramified places and places above \(2\). The Levi theta
+representation is distinguished. The source proves
+\[
+ E_\psi(1,f_s,\Theta(\chi))
+ =\frac{B_\chi(s)}{L_K^S(4s+3,\chi_{\alpha_2})},
+ \qquad B_\chi(s)=\prod_{v\in S}W_{f_{s,v}}(1).
+\]
+This global factorization is an external input. The two rational
+identities below are kernel checked; no adelic or automorphic
+formalization is claimed for them.
+
+\paragraph{Normalize the actual \(L\)-variable first.}
+For unitary central inducing data, the real torus exponents satisfy
+\(2(\lambda_1-\lambda_2)=1\) and \(\lambda_1+\lambda_2=0\), hence
+\((\lambda_1,\lambda_2)=(1/4,-1/4)\). Since \(n_{\alpha_2}=4\),
+write \(\chi_{\alpha_2}=\eta|\cdot|^{-1}\) with \(\eta\) unitary. Thus
+\[
+ u=4s+2,\qquad E_\psi(1,f_s,\Theta(\chi))
+                 =B_\chi(s)/L_K^S(u,\eta).
+\]
+The character-image adapter is separate. A determinant twist by \(\tau\)
+changes \(\eta\) to \(\eta\tau^4\); the source does not assert that every
+desired character occurs. A zeta application must exhibit \(\eta=1\),
+or a proved packet containing the Riemann-zeta factor.
+
+\paragraph{Keep the complete Weyl sum and scattering quotient.}
+Set \(q=Nv\) and \(x=\chi'_s(\overline h_{\alpha_2}(\varpi^4))\), where
+\(\chi'=w_M\chi\). Source relation (46) gives coordinates \(x,qx,q^2x\).
+The four surviving cells on pages 512--514 are
+\[
+\begin{split}
+ A&=\frac{1-x/q}{1-q^2x},\\
+ B&=\frac{1-x/q}{1-qx}\frac{1-q^{-1}}{1-(q^2x)^{-1}},\\
+ C&=\frac{1-x/q}{1-x}\frac{1-q^{-1}}{1-(qx)^{-1}},\\
+ D&=\frac{1-q^{-1}}{1-(qx)^{-1}}
+       \frac{1-q^{-1}}{1-x^{-1}}
+       +q^{-1}\frac{1-x}{1-(qx)^{-1}}.
+\end{split}
+\]
+In particular the last denominator in \(D\) contains the inverse.
+The complete identity \(A+B+C+D=1-x/q\) is maintained as
+\texttt{Metaplectic.Sp4FourInverse.whittaker\_weyl\_sum},
+over any field with \(q,x\ne0\) and
+\(1-x,1-qx,1-q^2x\ne0\). Continuation to singular coordinates belongs
+to the source, not to division in this field identity.
+
+The independent three-root scattering product is
+\[
+ \frac{1-x/q}{1-x}\frac{1-x}{1-qx}\frac{1-qx}{1-q^2x}
+ =\frac{1-x/q}{1-q^2x}.
+\]
+This is maintained as
+\texttt{Metaplectic.Sp4FourInverse.scattering\_telescope}.
+It needs only \(1-x,1-qx\ne0\), retaining the last denominator.
+Now \(x=\eta(v)q^{-4s-1}\). Its product, initially for \(\Re u>4\), is
+\[
+ c^S(s)=\frac{L_K^S(u-3,\eta)}{L_K^S(u,\eta)}.
+\]
+This is the unramified scalar. Every ramified intertwining operator,
+archimedean factor, section norm and moving parameter remains in the
+full global transformation.
+
+\paragraph{Carry the model to its actual exponent consumer.}
+A hypothetical zero \(\rho\) is read at
+\[
+ s_\rho=(\rho-2)/4,\qquad
+ 7/8\longleftrightarrow-9/32,\qquad
+ 3/4\longleftrightarrow-5/16.
+\]
+Detection also requires local data with \(B_\chi\) holomorphic and
+nonzero at \(s_\rho\). Neither that choice nor its moving-family norms
+are discharged by quoting the factorization.
+
+For \(w\in C_c^\infty(0,\infty)\), the inverse arithmetic observable is
+\[
+ A_\eta(X;w)=
+ \sum_{\substack{\mathfrak a\ne0\\(\mathfrak a,S)=1}}
+ \mu_K(\mathfrak a)\eta(\mathfrak a)w(N\mathfrak a/X)
+ =\frac1{2\pi i}\int_{\Re z=c}
+       \frac{\widehat w(z)X^z}{L_K^S(z,\eta)}\,dz,\quad c>1.
+\]
+An independent bound \(A_\eta(X;w)\ll_{\eta,w,\epsilon}
+X^{3/4+\epsilon}\) for all \(X\ge2\), with windows detecting every
+hypothetical zero, would prove the corresponding native boundary.
+There is no quartic reference convolution in this observable.
+
+The logarithmic detector is also available. Put
+\(L_\eta(s)=L_K^S(4s+2,\eta)\). Its exact operator is
+\[
+ L_\eta(s)E_\psi'(s)-B_\chi'(s)
+ =-4B_\chi(s)\frac{(L_K^S)'(4s+2,\eta)}{L_K^S(4s+2,\eta)}.
+\]
+Both \(B_\chi'\) and the chain factor \(4\) are compulsory.
+Multiplication by \(L_\eta\) means Mellin convolution before the common
+physical cutoff. The resulting prime-power sum keeps its principal
+subtraction, all higher prime powers and finite \(S\)-corrections.
+
+This comparison removes two global adapters: the quartic reference
+factor and completion of a three-theta product. It does not transfer
+the cubic \(3/16\) moment exponent or a quadratic-prefix norm to the
+new observable. The actual character image, local nonvanishing,
+physical transformation and independent signed estimate must still
+match. Spectral reflection sends \(u\) to \(4-u\), not \(1-u\);
+the unitary axis is \(\Re u=2\). Unitarity there does not exclude poles
+in the negative spectral strip. Dropping the reciprocal in \(c^S\)
+would discard the zero signal.
+
+The benchmark is unchanged: old bound \(7/8\), new bound \(7/8\).
+The two algebraic proofs check a complete source calculation; they
+supply no independent \(3/4\) estimate and carry no novelty claim for
+Gao's construction.
