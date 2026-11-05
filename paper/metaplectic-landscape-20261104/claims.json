@@ -725,7 +725,7 @@
     },
     {
       "id": "G7-EA3",
-      "claim": "For every rational prime p, primitive seventh root z and arbitrary integer coefficient vector v, normSq(T_v(z))=p implies T_v(z) is not T_v(z^3). If the conjugate norms at z,z^2,z^4 are all p, the complete signed beta product (T1-T3)*(T2-T6)*(T4-T5) is nonzero. The proof consumes the existing cyclotomic coefficient relation and excludes an integer square equal to p. The actual same-orbit prime-field beta nonvanishing is now proved in G7-EA5; quantitative beta norm assembly remains separate.",
+      "claim": "For every rational prime p, primitive seventh root z and arbitrary integer coefficient vector v, normSq(T_v(z))=p implies T_v(z) is not T_v(z^3). If the conjugate norms at z,z^2,z^4 are all p, the complete signed beta product (T1-T3)*(T2-T6)*(T4-T5) is nonzero. The proof consumes the existing cyclotomic coefficient relation and excludes an integer square equal to p. The actual same-orbit prime-field beta nonvanishing is now proved in G7-EA5; its actual signed norm and phase consumer is proved in G7-EA6.",
       "status": "kernel_checked_prime_norm_cyclotomic_nonvanishing_with_explicit_conjugate_hypotheses",
       "declarations": [
         "Metaplectic.G2Seven.Edge.septic_prime_norm_not_fixed",
@@ -750,7 +750,7 @@
     },
     {
       "id": "G7-EA4",
-      "claim": "Every integral septic coefficient vector with zero constant, opposite conjugate coefficients and exponent-two fixedness equals its first coefficient times tau=z+z^2+z^4-z^3-z^5-z^6. The primitive-root coefficient relation proves tau^2=-7, and every nonzero integral multiple has squared norm at least7. Full quantitative prime-field beta norm assembly remains separate; no universal point-count bound is asserted yet. For arbitrary integral profiles u,v with U2=U1 and U5=U6, the full eight-term packet U1+V3-V1-V2-U6-V4+V6+V5 equals (u1-u6+v3+v5+v6-v1-v2-v4)*tau. The finite support is Fin7 throughout.",
+      "claim": "Every integral septic coefficient vector with zero constant, opposite conjugate coefficients and exponent-two fixedness equals its first coefficient times tau=z+z^2+z^4-z^3-z^5-z^6. The primitive-root coefficient relation proves tau^2=-7, and every nonzero integral multiple has squared norm at least7. Actual prime-field signed norm and phase assembly are proved in G7-EA6; direct scalar point-count specialization remains separate. For arbitrary integral profiles u,v with U2=U1 and U5=U6, the full eight-term packet U1+V3-V1-V2-U6-V4+V6+V5 equals (u1-u6+v3+v5+v6-v1-v2-v4)*tau. The finite support is Fin7 throughout.",
       "status": "kernel_checked_integral_anti_invariant_and_nonzero_norm_gap_with_explicit_hypotheses",
       "declarations": [
         "Metaplectic.G2Seven.Edge.septic_tau_square",
@@ -769,13 +769,24 @@
     },
     {
       "id": "G7-EA5",
-      "claim": "For actual order-seven complex characters on any finite field of prime characteristic p, all four diagonal Jacobi squared norms at powers1,2,3,4 equal q=card(F), J(chi^2,chi^4)=J(chi,chi^2), J(chi,chi^3)=J(chi^3,chi^3), and chi(-1)=1. If q=p and z is primitive of order7, the complete actual beta product (B1-B3)*(B2-B6)*(B4-B5) is nonzero. With a primitive additive character, the exact mixed/diagonal relation a*c=b*d is proved by the four Gauss-Jacobi identities together. Full quantitative beta norm assembly remains separate.",
+      "claim": "For actual order-seven complex characters on any finite field of prime characteristic p, all four diagonal Jacobi squared norms at powers1,2,3,4 equal q=card(F), J(chi^2,chi^4)=J(chi,chi^2), J(chi,chi^3)=J(chi^3,chi^3), and chi(-1)=1. If q=p and z is primitive of order7, the complete actual beta product (B1-B3)*(B2-B6)*(B4-B5) is nonzero. With a primitive additive character, the exact mixed/diagonal relation a*c=b*d is proved by the four Gauss-Jacobi identities together. The complete actual signed norm and normalized1512 phase bound are proved in G7-EA6.",
       "status": "kernel_checked_actual_character_packet_beta_nonvanishing_and_product_relation",
       "declarations": [
         "Metaplectic.G2Seven.Edge.Actual.septic_actual_beta_nonzero",
         "Metaplectic.G2Seven.Edge.Actual.septic_jacobi_arithmetic",
         "Metaplectic.G2Seven.Edge.Actual.septic_jacobi_product"
       ]
+    },
+    {
+      "claim": "For actual exact-order-seven characters on finite fields of prime cardinality p, the complete eight-term packet H is an integral multiple m*tau of the septic quadratic anti-invariant. The full beta=p*H identity and actual beta nonvanishing force normSq(H)>=7. For rho>0 and rho^2=p, the normalized product equals normSq(H), and1512<=p*(30-abs(Phi))^3 for Phi=6*Re((b+c+d)/rho)+12*Re(a/rho). A primitive additive character and primitive seventh root are explicit inputs. The direct scalar point-count specialization and novelty audit remain separate; no global QRH gain.",
+      "status": "kernel_checked_actual_prime_field_signed_packet_and_unit_edge",
+      "declarations": [
+        "Metaplectic.G2Seven.Edge.Actual.septic_actual_beta_identity",
+        "Metaplectic.G2Seven.Edge.Actual.septic_actual_integral_packet",
+        "Metaplectic.G2Seven.Edge.Actual.septic_actual_packet_norm_gap",
+        "Metaplectic.G2Seven.Edge.Actual.septic_actual_unit_edge"
+      ],
+      "id": "G7-EA6"
     }
   ],
   "novelty": "Priority for the combined explicit formulas has not been established; source classification and Gauss identities are classical."

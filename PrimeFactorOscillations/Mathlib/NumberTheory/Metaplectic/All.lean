@@ -5,7 +5,7 @@ Authors: Prime Factor Oscillations contributors
 -/
 import PrimeFactorOscillations.Mathlib.NumberTheory.Metaplectic.G2SevenFermatReadout
 import PrimeFactorOscillations.Mathlib.NumberTheory.Metaplectic.G2SevenFrobeniusStability
-import PrimeFactorOscillations.Mathlib.NumberTheory.Metaplectic.G2SevenJacobiArithmetic
+import PrimeFactorOscillations.Mathlib.NumberTheory.Metaplectic.G2SevenJacobiPrimeEdge
 import PrimeFactorOscillations.Mathlib.NumberTheory.Metaplectic.G2SevenJacobiUnitCircle
 import PrimeFactorOscillations.Mathlib.NumberTheory.Metaplectic.G2SevenScalarStability
 import PrimeFactorOscillations.Mathlib.NumberTheory.Metaplectic.G2SevenUniformStability

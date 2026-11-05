@@ -2530,8 +2530,8 @@ Thus \(|\tau|^2=7\), and every nonzero integral multiple obeys
 \(|m\tau|^2=7m^2\ge7\), as proved by
 \texttt{septic\_anti\_invariant\_norm\_gap}.
 These three declarations are kernel checked in
-\texttt{G2SevenJacobiAntiInvariant.lean}; their explicit hypotheses
-must still be instantiated on the actual Jacobi beta expression.
+\texttt{G2SevenJacobiAntiInvariant.lean}. Their actual Jacobi
+instantiation and signed quantitative consumer are proved below.
 
 \paragraph{Actual inverse-coordinate Jacobi symmetry (proved).}
 For arbitrary complex multiplicative characters on any finite field,
@@ -2611,29 +2611,66 @@ These three actual-family declarations are kernel checked in
 \texttt{G2SevenJacobiArithmetic.lean}. They are supporting arithmetic
 applications; no new analytic bound or priority claim is made here.
 
-The actual same-orbit norm and nonvanishing applications are now
-proved above. The next step is to instantiate the coupled integral
-profile identity on the mixed and diagonal channels and assemble
-the complete quantitative beta norm.
-
-The proposed arithmetic route is to prove an integral nonzero
-anti-invariant \(m\) giving
+\paragraph{Complete actual arithmetic phase edge (proved).}
+Let \(F\) have rational-prime cardinality \(p\), let \(\chi\) have
+exact order seven, and choose a primitive additive character.
+Put
 \[
- p\,|1-BD_0|^2|B-C|^2|C-D_0|^2=7m^2.
+ a=J(\chi,\chi^2),\quad b=J(\chi,\chi),\quad
+ c=J(\chi^3,\chi^3),\quad d=J(\chi^2,\chi^2).
 \]
-Combined with the joint sum-of-squares estimate for these three
-discrepancies, this would imply
+For any \(\rho>0\) with \(\rho^2=p\), set
+\(B=b/\rho,\ C=c/\rho,\ D_0=d/\rho,\ A=a/\rho\). Then
 \[
- p(30-|\Phi|)^3\ge1512,
- \qquad
+ \Phi=6\Re(B+C+D_0)+12\Re A,\qquad
+ \boxed{\ p(30-|\Phi|)^3\ge1512\ }.
+\]
+All arithmetic premises of this phase bound are discharged.
+
+\emph{Proof.}
+The actual counting profiles \(u,v:\{0,\ldots,6\}\to\mathbb Z\)
+represent respectively \(J(\chi^r,\chi^{2r})\) and
+\(J(\chi^r,\chi^r)\) at every natural twist \(r\).
+Mixed-channel symmetry gives \(U_2=U_1\); conjugation gives
+\(U_5=U_6\). The complete integral packet therefore yields
+\[
+ H=(a+c-b-d)-\overline{a+c-b-d}=m\tau,\qquad
+ m=u_1-u_6+v_3+v_5+v_6-v_1-v_2-v_4,
+\]
+where \(\tau^2=-7\). No term of either profile is discarded.
+The full signed algebraic identity and \(ac=bd\) give
+\[
+ \beta=(b-c)(d-\bar b)(\bar c-\bar d)=pH.
+\]
+Actual same-orbit prime-field nonvanishing gives \(\beta\ne0\),
+hence \(m\ne0\) and \(|H|^2=7m^2\ge7\).
+The norm identities imply \(|B|=|C|=|D_0|=1\), and
+\(ac=bd,\ c\bar c=p\) imply \(A=BD_0\bar C\).
+Exact positive normalization now gives
+\[
+ p\,|1-BD_0|^2|B-C|^2|C-D_0|^2=|H|^2\ge7.
+\]
+The already proved two-sided unit-phase inequality applies, giving
+the displayed constant \(1512\).
+The four maintained declarations are
+\texttt{septic\_actual\_integral\_packet},
+\texttt{septic\_actual\_beta\_identity},
+\texttt{septic\_actual\_packet\_norm\_gap} and
+\texttt{septic\_actual\_unit\_edge} in
+\texttt{G2SevenJacobiPrimeEdge.lean}.
+
+For the previously defined Fermat count \(N_p\), the remaining
+formal scalar specialization of the full readout is
+\[
+ (N_p-p-1)/\rho=6\Re(B+C+D_0)+12\Re(a/\rho).
+\]
+With this specialization, the phase theorem gives the candidate
+point-count consequence
+\[
  |N_p-p-1|\le30\sqrt p-6\sqrt[3]7\,p^{1/6}.
 \]
-This prime-field theorem is a candidate, not a completed formal
-result. The actual norms, complete beta nonvanishing and mixed-product
-identity are proved; their coupled integer-factor and quantitative
-normalization remain to be assembled. The full complex sum-of-squares
-consumer and the prime-norm cyclotomic nonvanishing theorem are
-kernel checked in their maintained owners.
+The phase theorem is complete; this direct scalar point-count
+consumer has not yet been checked as a named Lean declaration.
 An exact diagnostic checked the Jacobi norm identities and proposed
 bound at all \(377\) primes \(p\le20000\) with \(p\equiv1\pmod7\).
 The earlier Laurent residual check has been replaced by the maintained

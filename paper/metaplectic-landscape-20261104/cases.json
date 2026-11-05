@@ -53,7 +53,11 @@
     "Metaplectic.G2Seven.Curve.seventh_power_iff_character",
     "Metaplectic.G2Seven.Curve.seventh_root_fiber",
     "Metaplectic.G2Seven.Curve.source_gauss_frobenius",
+    "Metaplectic.G2Seven.Edge.Actual.septic_actual_beta_identity",
     "Metaplectic.G2Seven.Edge.Actual.septic_actual_beta_nonzero",
+    "Metaplectic.G2Seven.Edge.Actual.septic_actual_integral_packet",
+    "Metaplectic.G2Seven.Edge.Actual.septic_actual_packet_norm_gap",
+    "Metaplectic.G2Seven.Edge.Actual.septic_actual_unit_edge",
     "Metaplectic.G2Seven.Edge.Actual.septic_jacobi_arithmetic",
     "Metaplectic.G2Seven.Edge.Actual.septic_jacobi_product",
     "Metaplectic.G2Seven.Edge.septic_anti_invariant_norm_gap",
@@ -252,7 +256,7 @@
     "Metaplectic.Sp4Eight.twistClass_fiber_card",
     "Metaplectic.Sp4Eight.unit_coordinate_survives"
   ],
-  "proof_status": "Forty-eight maintained kernel-checked modules: local G2 and Sp4 models, complete Jacobi readouts, actual diagonal-curve and full Fermat-septic counting bridges, all-residue Frobenius compression, and the full principal-compensated cubic Fermat observation with its nontrivial joint Abel limit. Actual character fibers, inverse-pair and infinity corrections are proved. Projective geometry, prime-power lifting, rational-prime descent and global automorphic transfer remain separate. No analytic boundary gain. The Paley phase sector has a sharp uniform cubic-source stability theorem, exact positive-polynomial certificate and symbolic noncoherent attainer. The sharp unrestricted three-phase inequality and general arithmetic sector-membership transfer remain open. The complete cyclic correlation problem now has a kernel-checked constant-eight stability inequality, uniformly through the high-maximum range. Source-field Gauss Frobenius and the positive unit normalization now discharge the Paley-sector conditions for p modulo7 equal2 or4 with a Frobenius-invariant primitive additive character; the sharp signed actual Fermat point-count bound is proved. The scalar two-moment region 1<M<=1+2*sqrt(2) is formally controlled at the proposed sharp constant; the proposed sharp high-maximum bound remains open; the global constant-eight cyclic bound is proved. An explicit two-peak vector disproves extension from the first two moments alone and has cyclic correlation98/5, so it does not obstruct the actual phase problem. The full unit-circle Laurent certificate, cubic phase-gap bound and two-sided conditional arithmetic consumer are maintained and kernel checked. Prime-field nonzero anti-invariant and product separation remain open; no global exponent gain. Prime-norm septic cyclotomic nonvanishing and the same-orbit complete beta-product nonzero theorem are maintained and kernel checked. The actual two-character Jacobi counting profile is proved for every natural twist, including the principal row, with exact q-2 mass. Its actual conjugate norms, channel symmetries and prime-field full-beta nonvanishing are now proved; the final quantitative coupled assembly remains open. A single natural counting profile with exact nonzero-support mass represents all positive power probes for arbitrary cover degree n, over any commutative semiring with decidable equality. This finite counting adapter is not an analytic gain or a novelty claim. The integral septic anti-invariant is now kernel checked under its explicit coefficient and exponent-two invariance hypotheses: H=m*tau, tau^2=-7, and nonzero m gives normSq(H)>=7. Actual beta=p*H and its final norm-separation assembly remain open. The actual inverse-coordinate Jacobi symmetry is maintained, including principal characters and its psi(-1) compensation factor. The complete eight-term two-profile integral packet is maintained with explicit coefficient u1-u6+v3+v5+v6-v1-v2-v4. Actual seventh-order characters supply all four Jacobi norms and both symmetries; their prime-field full beta product is nonzero. With a primitive additive character, the exact a*c=b*d relation is proved. No point-count or QRH gain is asserted before the remaining signed assembly.",
+  "proof_status": "Forty-nine maintained kernel-checked modules: local G2 and Sp4 models, complete Jacobi readouts, actual diagonal-curve and full Fermat-septic counting bridges, all-residue Frobenius compression, and the full principal-compensated cubic Fermat observation with its nontrivial joint Abel limit. Actual character fibers, inverse-pair and infinity corrections are proved. Projective geometry, prime-power lifting, rational-prime descent and global automorphic transfer remain separate. No analytic boundary gain. The Paley phase sector has a sharp uniform cubic-source stability theorem, exact positive-polynomial certificate and symbolic noncoherent attainer. The sharp unrestricted three-phase inequality and general arithmetic sector-membership transfer remain open. The complete cyclic correlation problem now has a kernel-checked constant-eight stability inequality, uniformly through the high-maximum range. Source-field Gauss Frobenius and the positive unit normalization now discharge the Paley-sector conditions for p modulo7 equal2 or4 with a Frobenius-invariant primitive additive character; the sharp signed actual Fermat point-count bound is proved. The scalar two-moment region 1<M<=1+2*sqrt(2) is formally controlled at the proposed sharp constant; the proposed sharp high-maximum bound remains open; the global constant-eight cyclic bound is proved. An explicit two-peak vector disproves extension from the first two moments alone and has cyclic correlation98/5, so it does not obstruct the actual phase problem. The full unit-circle Laurent certificate, cubic phase-gap bound and two-sided conditional arithmetic consumer are maintained and kernel checked. Actual prime-field anti-invariant nonvanishing and normalized product separation are proved; no global exponent gain. Prime-norm septic cyclotomic nonvanishing and the same-orbit complete beta-product nonzero theorem are maintained and kernel checked. The actual two-character Jacobi counting profile is proved for every natural twist, including the principal row, with exact q-2 mass. Its actual conjugate norms, channel symmetries and prime-field full-beta nonvanishing are now proved; the complete signed norm and normalized phase assembly are now proved. A single natural counting profile with exact nonzero-support mass represents all positive power probes for arbitrary cover degree n, over any commutative semiring with decidable equality. This finite counting adapter is not an analytic gain or a novelty claim. The integral septic anti-invariant is now kernel checked under its explicit coefficient and exponent-two invariance hypotheses: H=m*tau, tau^2=-7, and nonzero m gives normSq(H)>=7. Actual beta=p*H and its final norm-separation assembly are now proved. The actual inverse-coordinate Jacobi symmetry is maintained, including principal characters and its psi(-1) compensation factor. The complete eight-term two-profile integral packet is maintained with explicit coefficient u1-u6+v3+v5+v6-v1-v2-v4. Actual seventh-order characters supply all four Jacobi norms and both symmetries; their prime-field full beta product is nonzero. With a primitive additive character, the exact a*c=b*d relation is proved. The actual normalized1512 phase bound is proved. Its direct scalar point-count specialization and a global QRH consumer remain separate.",
   "classification_scope": "principal structural mechanisms, all root types in the cited coprime cover range, and selected even/mixed-root cases; not a complete global automorphic classification",
   "overlap_scope": "current repo public/private QRH terminology search and specified prior notes; not exhaustive across sibling repositories",
   "sources": [
@@ -1192,20 +1196,21 @@
         "novelty": "Specific uniform cyclic refinement is a potential originality prospect; priority is not established."
       },
       "septic_edge_candidate": {
-        "domain": "Rational primes p congruent1 mod7, order-seven character; not arbitrary prime-power fields.",
+        "domain": "Prime-cardinality fields with an actual complex character of exact order7, primitive additive character, primitive seventh root and rho>0 with rho^2=p. A nonsquare-cardinality extension remains open.",
         "candidate": "p*(30-abs(N_p-p-1)/sqrt(p))^3 >= 1512.",
         "arithmetic_target": "p*abs(1-B*D)^2*abs(B-C)^2*abs(C-D)^2=7*m^2 with a nonzero integer m.",
         "proved_support": [
           "The complete signed eight-term beta identity over every commutative ring",
-          "The nonnegative three-variable product inequality27*a*b*c<=(a+b+c)^3"
+          "The nonnegative three-variable product inequality27*a*b*c<=(a+b+c)^3",
+          "Actual same-orbit Jacobi norms, both channel symmetries and nonzero full beta product",
+          "Complete actual H=m*tau and beta=p*H identities, nonzero packet norm at least7, and normalized1512 unit-phase edge bound"
         ],
         "evidence": "Corrected Laurent SOS has zero exact symbolic residual; full integer Jacobi/norm and candidate edge inequalities pass all377 primes p<=20000 with p congruent1 mod7.",
-        "status": "arithmetic_prime_field_theorem_not_formalized; only_supporting_algebra_kernel_checked",
+        "status": "actual_signed_arithmetic_and_phase_edge_kernel_checked_point_count_specialization_pending",
         "remaining": [
-          "Integer seventh-root coefficient/Galois transport",
-          "Nonzero anti-invariant using prime nonsquareness",
-          "Complex Laurent SOS and complete prime-field assembly",
-          "Primary-literature and portfolio novelty check"
+          "Direct scalar point-count specialization of the existing complete Fermat readout",
+          "Primary-literature and portfolio novelty check",
+          "Complete global signed consumer before any QRH exponent claim"
         ],
         "qrh_gain": false
       }
@@ -1287,7 +1292,7 @@
     "status": "maintained_kernel_checked",
     "domain": "Arbitrary unit complex B,C,D; real p>=0. A=B*D*conj(C).",
     "complete_consumer": "7<=p*normSq(1-B*D)*normSq(B-C)*normSq(C-D) implies1512<=p*(30-abs(6*Re(B+C+D)+12*Re(A)))^3.",
-    "arithmetic_input": "Not yet assembled for every rational prime. Actual Jacobi norms, both channel symmetries, complete prime-field beta nonvanishing, a*c=b*d and the generic coupled integral packet are proved; final signed quantitative assembly remains.",
+    "arithmetic_input": "The full actual signed packet, beta=p*H, normSq(H)>=7 and normalized1512 phase bound are proved in G2SevenJacobiPrimeEdge. Direct scalar point-count specialization, nonsquare-cardinality extension and novelty audit remain separate.",
     "priority": "Not established; no new QRH boundary claimed.",
     "declarations": [
       "Metaplectic.G2Seven.Edge.unit_absolute_gap",
@@ -1302,7 +1307,7 @@
     "status": "maintained_kernel_checked",
     "domain": "All rational primes p, primitive seventh roots z and arbitrary v:Fin7->Int. Single-factor theorem requires normSq(T_v(z))=p; full product requires the conjugate norms at z,z^2,z^4 all equal p.",
     "complete_product": "(T_v(z)-T_v(z^3))*(T_v(z^2)-T_v(z^6))*(T_v(z^4)-T_v(z^5)) is nonzero.",
-    "remaining_arithmetic": "Actual prime-field beta nonvanishing is now instantiated. Complete beta=p*H, coupled integral-profile specialization and quantitative normalized product assembly remain.",
+    "remaining_arithmetic": "The full actual signed packet, beta=p*H, normSq(H)>=7 and normalized1512 phase bound are proved in G2SevenJacobiPrimeEdge. Direct scalar point-count specialization, nonsquare-cardinality extension and novelty audit remain separate.",
     "declarations": [
       "Metaplectic.G2Seven.Edge.septic_full_beta_nonzero",
       "Metaplectic.G2Seven.Edge.septic_prime_norm_not_fixed"
@@ -1335,7 +1340,7 @@
     "status": "maintained_kernel_checked",
     "domain": "Primitive seventh root z; arbitrary integral coefficients v with v0=0, v6=-v1, v5=-v2, v4=-v3 and exponent-two fixedness.",
     "conclusion": "The coefficient sum equals v1*tau. The actual primitive-root relation proves tau^2=-7; every nonzero integral multiple has squared norm at least7.",
-    "remaining_arithmetic": "Specialize the coupled integral packet to actual mixed and diagonal Jacobi profiles, then combine beta=p*H and nonvanishing to obtain normSq(H)>=7.",
+    "remaining_arithmetic": "The full actual signed packet, beta=p*H, normSq(H)>=7 and normalized1512 phase bound are proved in G2SevenJacobiPrimeEdge. Direct scalar point-count specialization, nonsquare-cardinality extension and novelty audit remain separate.",
     "declarations": [
       "Metaplectic.G2Seven.Edge.septic_tau_square",
       "Metaplectic.G2Seven.Edge.septic_integral_anti_invariant",
@@ -1351,11 +1356,28 @@
     "beta_domain": "Additionally card(F)=p and z is a primitive seventh root. The complete same-orbit beta product (B1-B3)*(B2-B6)*(B4-B5) is nonzero, where Br=J(chi^r,chi^r).",
     "product_domain": "For any primitive additive character psi, a*c=b*d with a=J(chi,chi^2), b=J(chi,chi), c=J(chi^3,chi^3), d=J(chi^2,chi^2).",
     "symmetries": "J(chi^2,chi^4)=a; J(chi,chi^3)=c; chi(-1)=1.",
-    "remaining": "Instantiate the full coupled integral packet, beta=p*H and its quantitative normalized product bound before consuming1512.",
+    "remaining": "The full actual signed packet, beta=p*H, normSq(H)>=7 and normalized1512 phase bound are proved in G2SevenJacobiPrimeEdge. Direct scalar point-count specialization, nonsquare-cardinality extension and novelty audit remain separate.",
     "declarations": [
       "Metaplectic.G2Seven.Edge.Actual.septic_actual_beta_nonzero",
       "Metaplectic.G2Seven.Edge.Actual.septic_jacobi_arithmetic",
       "Metaplectic.G2Seven.Edge.Actual.septic_jacobi_product"
     ]
+  },
+  "actual_septic_prime_edge_20261105": {
+    "domain": "Prime-cardinality fields, actual order-seven character, primitive additive character, primitive seventh root z, rho>0 and rho^2=p.",
+    "edge": "1512<=p*(30-abs(Phi))^3 with Phi=6*Re(B+C+D)+12*Re(a/rho), and a/rho=B*D*conj(C).",
+    "priority": "Not established.",
+    "full_packet": "H=(a+c-b-d)-conj(a+c-b-d)=m*tau with m integral; beta=(b-c)*(d-conj(b))*(conj(c)-conj(d))=p*H; actual beta is nonzero and normSq(H)>=7.",
+    "declarations": [
+      "Metaplectic.G2Seven.Edge.Actual.septic_actual_beta_identity",
+      "Metaplectic.G2Seven.Edge.Actual.septic_actual_integral_packet",
+      "Metaplectic.G2Seven.Edge.Actual.septic_actual_packet_norm_gap",
+      "Metaplectic.G2Seven.Edge.Actual.septic_actual_unit_edge"
+    ],
+    "qrh_gain": false,
+    "normalized_product": "For B=b/rho,C=c/rho,D=d/rho, p*normSq(1-B*D)*normSq(B-C)*normSq(C-D)=normSq(H). All compensation cross terms are retained.",
+    "owner": "PrimeFactorOscillations/Mathlib/NumberTheory/Metaplectic/G2SevenJacobiPrimeEdge.lean",
+    "remaining": "Direct scalar Fermat point-count specialization, novelty audit, nonsquare-cardinality extension and global signed QRH consumer.",
+    "status": "maintained_kernel_checked"
   }
 }
