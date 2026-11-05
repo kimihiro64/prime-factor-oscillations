@@ -53,8 +53,11 @@
     "Metaplectic.G2Seven.Curve.seventh_power_iff_character",
     "Metaplectic.G2Seven.Curve.seventh_root_fiber",
     "Metaplectic.G2Seven.Curve.source_gauss_frobenius",
+    "Metaplectic.G2Seven.Edge.septic_anti_invariant_norm_gap",
     "Metaplectic.G2Seven.Edge.septic_full_beta_nonzero",
+    "Metaplectic.G2Seven.Edge.septic_integral_anti_invariant",
     "Metaplectic.G2Seven.Edge.septic_prime_norm_not_fixed",
+    "Metaplectic.G2Seven.Edge.septic_tau_square",
     "Metaplectic.G2Seven.Edge.signed_beta_identity",
     "Metaplectic.G2Seven.Edge.triple_product_bound",
     "Metaplectic.G2Seven.Edge.unit_absolute_gap",
@@ -213,6 +216,8 @@
     "Metaplectic.G2Twelve.twistClass_eq_quadraticClass",
     "Metaplectic.G2Twelve.twistClass_fiber_card",
     "Metaplectic.G2Twelve.twistNumerator_six_pairs",
+    "Metaplectic.JacobiPower.actual_counting_profile",
+    "Metaplectic.JacobiPower.inverse_symmetry",
     "Metaplectic.Sp4Eight.additive_twist_energy",
     "Metaplectic.Sp4Eight.coherentSignal_energy",
     "Metaplectic.Sp4Eight.coherentSignal_hasSum",
@@ -243,7 +248,7 @@
     "Metaplectic.Sp4Eight.twistClass_fiber_card",
     "Metaplectic.Sp4Eight.unit_coordinate_survives"
   ],
-  "proof_status": "Forty-five maintained kernel-checked modules: local G2 and Sp4 models, complete Jacobi readouts, actual diagonal-curve and full Fermat-septic counting bridges, all-residue Frobenius compression, and the full principal-compensated cubic Fermat observation with its nontrivial joint Abel limit. Actual character fibers, inverse-pair and infinity corrections are proved. Projective geometry, prime-power lifting, rational-prime descent and global automorphic transfer remain separate. No analytic boundary gain. The Paley phase sector has a sharp uniform cubic-source stability theorem, exact positive-polynomial certificate and symbolic noncoherent attainer. The sharp unrestricted three-phase inequality and general arithmetic sector-membership transfer remain open. The complete cyclic correlation problem now has a kernel-checked constant-eight stability inequality, uniformly through the high-maximum range. Source-field Gauss Frobenius and the positive unit normalization now discharge the Paley-sector conditions for p modulo7 equal2 or4 with a Frobenius-invariant primitive additive character; the sharp signed actual Fermat point-count bound is proved. The scalar two-moment region 1<M<=1+2*sqrt(2) is formally controlled at the proposed sharp constant; the proposed sharp high-maximum bound remains open; the global constant-eight cyclic bound is proved. An explicit two-peak vector disproves extension from the first two moments alone and has cyclic correlation98/5, so it does not obstruct the actual phase problem. The full unit-circle Laurent certificate, cubic phase-gap bound and two-sided conditional arithmetic consumer are maintained and kernel checked. Prime-field nonzero anti-invariant and product separation remain open; no global exponent gain. Prime-norm septic cyclotomic nonvanishing and the same-orbit complete beta-product nonzero theorem are maintained and kernel checked. Actual Jacobi integer-coefficient transport and integral anti-invariant assembly remain open. A single natural counting profile with exact nonzero-support mass represents all positive power probes for arbitrary cover degree n, over any commutative semiring with decidable equality. This finite counting adapter is not an analytic gain or a novelty claim.",
+  "proof_status": "Forty-seven maintained kernel-checked modules: local G2 and Sp4 models, complete Jacobi readouts, actual diagonal-curve and full Fermat-septic counting bridges, all-residue Frobenius compression, and the full principal-compensated cubic Fermat observation with its nontrivial joint Abel limit. Actual character fibers, inverse-pair and infinity corrections are proved. Projective geometry, prime-power lifting, rational-prime descent and global automorphic transfer remain separate. No analytic boundary gain. The Paley phase sector has a sharp uniform cubic-source stability theorem, exact positive-polynomial certificate and symbolic noncoherent attainer. The sharp unrestricted three-phase inequality and general arithmetic sector-membership transfer remain open. The complete cyclic correlation problem now has a kernel-checked constant-eight stability inequality, uniformly through the high-maximum range. Source-field Gauss Frobenius and the positive unit normalization now discharge the Paley-sector conditions for p modulo7 equal2 or4 with a Frobenius-invariant primitive additive character; the sharp signed actual Fermat point-count bound is proved. The scalar two-moment region 1<M<=1+2*sqrt(2) is formally controlled at the proposed sharp constant; the proposed sharp high-maximum bound remains open; the global constant-eight cyclic bound is proved. An explicit two-peak vector disproves extension from the first two moments alone and has cyclic correlation98/5, so it does not obstruct the actual phase problem. The full unit-circle Laurent certificate, cubic phase-gap bound and two-sided conditional arithmetic consumer are maintained and kernel checked. Prime-field nonzero anti-invariant and product separation remain open; no global exponent gain. Prime-norm septic cyclotomic nonvanishing and the same-orbit complete beta-product nonzero theorem are maintained and kernel checked. The actual two-character Jacobi counting profile is proved for every natural twist, including the principal row, with exact q-2 mass. Its septic conjugate-norm application and integral anti-invariant assembly remain open. A single natural counting profile with exact nonzero-support mass represents all positive power probes for arbitrary cover degree n, over any commutative semiring with decidable equality. This finite counting adapter is not an analytic gain or a novelty claim. The integral septic anti-invariant is now kernel checked under its explicit coefficient and exponent-two invariance hypotheses: H=m*tau, tau^2=-7, and nonzero m gives normSq(H)>=7. Actual Jacobi beta instantiation remains open. The actual inverse-coordinate Jacobi symmetry is maintained, including principal characters and its psi(-1) compensation factor.",
   "classification_scope": "principal structural mechanisms, all root types in the cited coprime cover range, and selected even/mixed-root cases; not a complete global automorphic classification",
   "overlap_scope": "current repo public/private QRH terminology search and specified prior notes; not exhaustive across sibling repositories",
   "sources": [
@@ -1278,7 +1283,7 @@
     "status": "maintained_kernel_checked",
     "domain": "Arbitrary unit complex B,C,D; real p>=0. A=B*D*conj(C).",
     "complete_consumer": "7<=p*normSq(1-B*D)*normSq(B-C)*normSq(C-D) implies1512<=p*(30-abs(6*Re(B+C+D)+12*Re(A)))^3.",
-    "arithmetic_input": "Not proved for every rational prime. Integral nonzero anti-invariant and its exact prime-field transport remain open.",
+    "arithmetic_input": "Not proved for every rational prime. The common actual Jacobi profile and generic integral anti-invariant are proved; their complete prime-field beta and norm specialization remains open.",
     "priority": "Not established; no new QRH boundary claimed.",
     "declarations": [
       "Metaplectic.G2Seven.Edge.unit_absolute_gap",
@@ -1293,7 +1298,7 @@
     "status": "maintained_kernel_checked",
     "domain": "All rational primes p, primitive seventh roots z and arbitrary v:Fin7->Int. Single-factor theorem requires normSq(T_v(z))=p; full product requires the conjugate norms at z,z^2,z^4 all equal p.",
     "complete_product": "(T_v(z)-T_v(z^3))*(T_v(z^2)-T_v(z^6))*(T_v(z^4)-T_v(z^5)) is nonzero.",
-    "remaining_arithmetic": "Actual Jacobi simultaneous integer coefficient expansion; integral anti-invariant; quantitative norm separation.",
+    "remaining_arithmetic": "Actual Jacobi conjugate-norm and orbit specialization; instantiate the maintained integral anti-invariant and quantitative product consumer.",
     "declarations": [
       "Metaplectic.G2Seven.Edge.septic_full_beta_nonzero",
       "Metaplectic.G2Seven.Edge.septic_prime_norm_not_fixed"
@@ -1307,6 +1312,30 @@
     "consumer": "Common integer coefficient orbit for actual character-power Jacobi sums after their root-value and power identities are discharged.",
     "declarations": [
       "FiniteRootPower.exists_counting_profile"
+    ]
+  },
+  "actual_jacobi_counting_profile_20261105": {
+    "owner": "PrimeFactorOscillations/Mathlib/NumberTheory/Metaplectic/JacobiPowerProfile.lean",
+    "status": "maintained_kernel_checked",
+    "domain": "Every finite field F, positive natural degree n, primitive nth root z and two multiplicative characters chi,psi with chi^n=psi^n=1.",
+    "conclusion": "One natural vector v:Fin n->Nat, of exact mass card(F)-2, represents J(chi^r,psi^r) for every natural r including0.",
+    "scope": "Both mixed and diagonal channels; q=2 included. The principal row uses J(1,1)=q-2, not pointwise zeroth powers.",
+    "declarations": [
+      "Metaplectic.JacobiPower.actual_counting_profile",
+      "Metaplectic.JacobiPower.inverse_symmetry"
+    ],
+    "inverse_symmetry": "For all chi,psi: J(chi,psi)=psi(-1)*J((chi*psi)^(-1),psi). Principal characters and the zero coordinate are included."
+  },
+  "septic_integral_anti_invariant_20261105": {
+    "owner": "PrimeFactorOscillations/Mathlib/NumberTheory/Metaplectic/G2SevenJacobiAntiInvariant.lean",
+    "status": "maintained_kernel_checked",
+    "domain": "Primitive seventh root z; arbitrary integral coefficients v with v0=0, v6=-v1, v5=-v2, v4=-v3 and exponent-two fixedness.",
+    "conclusion": "The coefficient sum equals v1*tau. The actual primitive-root relation proves tau^2=-7; every nonzero integral multiple has squared norm at least7.",
+    "remaining_arithmetic": "Instantiate the full Jacobi beta identity and actual conjugate norm/orbit hypotheses before claiming the prime-field 1512 bound.",
+    "declarations": [
+      "Metaplectic.G2Seven.Edge.septic_tau_square",
+      "Metaplectic.G2Seven.Edge.septic_integral_anti_invariant",
+      "Metaplectic.G2Seven.Edge.septic_anti_invariant_norm_gap"
     ]
   }
 }

@@ -2459,8 +2459,30 @@ For a nonzero value choose one of its prescribed power labels and
 increment that coefficient. The same label works for all \(r\ge1\).
 This is a standard finite counting argument. Its role here is to
 preserve one common integer coefficient vector across all character
-powers; it supplies no analytic character-sum estimate. Applying it
-to a Jacobi family requires its actual root-value and power identities.
+powers; it supplies no analytic character-sum estimate.
+
+\paragraph{Actual simultaneous Jacobi twists, including the principal row (proved).}
+Let \(F\) be any finite field of cardinality \(q\), let \(n>0\),
+let \(z\) be a primitive \(n\)-th root, and let \(\chi,\psi\)
+be multiplicative characters with \(\chi^n=\psi^n=1\).
+The maintained theorem
+\texttt{Metaplectic.JacobiPower.actual\_counting\_profile}
+provides one vector \(v\in\mathbb N^n\) satisfying
+\[
+ \sum_jv_j=q-2,\qquad
+ J(\chi^r,\psi^r)=\sum_{j=0}^{n-1}v_jz^{jr}
+ \quad\text{for every integer }r\ge0.
+\]
+For \(r>0\), apply the counting theorem to
+\(f(x)=\chi(x)\psi(1-x)\). Its nonzero support is exactly
+\(F\setminus\{0,1\}\), and \(f(x)^n=1\) there.
+For \(r=0\), use the actual principal value
+\(J(1,1)=q-2\); this avoids incorrectly raising a zero
+character value to the zeroth power. The case \(q=2\) has zero
+mass and is included. This applies to both diagonal and mixed
+Jacobi channels, without assuming that either character has exact
+order \(n\). It discharges their common counting-profile bridge;
+it is not an analytic bound or an originality claim.
 
 \paragraph{Cyclotomic nonvanishing (proved).}
 For arbitrary integers \(v_0,\ldots,v_6\), a primitive seventh root
@@ -2485,10 +2507,50 @@ Apply the same argument at the primitive roots \(z^2,z^4\);
 their third powers are \(z^6,z^5\), respectively. No individual
 beta factor is discarded or replaced by an unsigned average.
 
+\paragraph{The integral quadratic anti-invariant (proved).}
+Let \(z\) be primitive of order seven, and let \(v\in\mathbb Z^7\)
+satisfy
+\[
+ v_0=0,\quad v_6=-v_1,\quad v_5=-v_2,\quad v_4=-v_3,
+ \qquad T_v(z^2)=T_v(z).
+\]
+The maintained theorem \texttt{septic\_integral\_anti\_invariant}
+proves
+\[
+ T_v(z)=v_1\tau,\qquad
+ \tau=z+z^2+z^4-z^3-z^5-z^6,\qquad \tau^2=-7.
+\]
+The square identity is separately maintained as
+\texttt{septic\_tau\_square}. The complete cyclotomic coefficient
+relation applied to \(T_v(z)-T_v(z^2)\) forces equality of the
+three quadratic-residue coefficients; the opposite-coefficient
+conditions determine the remaining three. Reducing the square of
+\(\tau\) by \(1+z+\cdots+z^6=0\) gives the displayed identity.
+Thus \(|\tau|^2=7\), and every nonzero integral multiple obeys
+\(|m\tau|^2=7m^2\ge7\), as proved by
+\texttt{septic\_anti\_invariant\_norm\_gap}.
+These three declarations are kernel checked in
+\texttt{G2SevenJacobiAntiInvariant.lean}; their explicit hypotheses
+must still be instantiated on the actual Jacobi beta expression.
+
+\paragraph{Actual inverse-coordinate Jacobi symmetry (proved).}
+For arbitrary complex multiplicative characters on any finite field,
+including principal characters, the maintained identity is
+\[
+ J(\chi,\psi)=\psi(-1)J((\chi\psi)^{-1},\psi).
+\]
+It follows by the bijection \(x\mapsto x^{-1}\), with zero fixed,
+and \(1-x^{-1}=-(1-x)x^{-1}\) for \(x\ne0\).
+The zero term vanishes on both sides. The declaration
+\texttt{Metaplectic.JacobiPower.inverse\_symmetry} retains
+the \(\psi(-1)\) factor and is maintained in
+\texttt{JacobiPowerProfile.lean}.
+
 This establishes the nonzero-product step for the exact integer
-coefficient orbit. Instantiating that orbit with the actual Jacobi
-sums and extracting the integral quadratic anti-invariant are
-separate remaining formal obligations.
+coefficient orbit. The actual two-character counting profile is now
+proved above. Instantiating the conjugate norm and orbit identities
+and applying the maintained integral quadratic anti-invariant
+remain separate formal obligations.
 
 The proposed arithmetic route is to prove an integral nonzero
 anti-invariant \(m\) giving
@@ -2503,9 +2565,9 @@ discrepancies, this would imply
  |N_p-p-1|\le30\sqrt p-6\sqrt[3]7\,p^{1/6}.
 \]
 This prime-field theorem is a candidate, not a completed formal
-result. Actual simultaneous Jacobi coefficient transport, integral
-anti-invariant extraction and the quantitative arithmetic product
-separation still need proofs. The full complex sum-of-squares
+result. The common Jacobi coefficient profile is proved, while its
+septic conjugate-norm application and complete quantitative beta
+assembly still need proofs. The full complex sum-of-squares
 consumer and the prime-norm cyclotomic nonvanishing theorem are
 kernel checked in their maintained owners.
 An exact diagnostic checked the Jacobi norm identities and proposed
@@ -2513,8 +2575,10 @@ bound at all \(377\) primes \(p\le20000\) with \(p\equiv1\pmod7\).
 The earlier Laurent residual check has been replaced by the maintained
 universal ring proof and complete complex consumer above. The finite
 prime computations remain falsification evidence only.
-The prime-field restriction is essential: square extension fields
-can reach a Hasse edge. Priority and the relation to existing
+Square extension fields can reach a Hasse edge, so a uniform claim
+over all finite fields is excluded. This does not show that prime
+fields are the maximal valid domain; a nonsquare-cardinality extension
+remains to be proved. Priority and the relation to existing
 CM/Fermat point-count bounds have not been established. Even a
 proof of this candidate would require a further global signed
 consumer before it could give a QRH exponent improvement.

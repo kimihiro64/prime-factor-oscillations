@@ -725,7 +725,7 @@
     },
     {
       "id": "G7-EA3",
-      "claim": "For every rational prime p, primitive seventh root z and arbitrary integer coefficient vector v, normSq(T_v(z))=p implies T_v(z) is not T_v(z^3). If the conjugate norms at z,z^2,z^4 are all p, the complete signed beta product (T1-T3)*(T2-T6)*(T4-T5) is nonzero. The proof consumes the existing cyclotomic coefficient relation and excludes an integer square equal to p. Actual Jacobi coefficient expansion, integral anti-invariant extraction and quantitative product separation remain separate.",
+      "claim": "For every rational prime p, primitive seventh root z and arbitrary integer coefficient vector v, normSq(T_v(z))=p implies T_v(z) is not T_v(z^3). If the conjugate norms at z,z^2,z^4 are all p, the complete signed beta product (T1-T3)*(T2-T6)*(T4-T5) is nonzero. The proof consumes the existing cyclotomic coefficient relation and excludes an integer square equal to p. The actual Jacobi profile and generic integral anti-invariant are now proved; their conjugate-norm specialization and quantitative beta assembly remain separate.",
       "status": "kernel_checked_prime_norm_cyclotomic_nonvanishing_with_explicit_conjugate_hypotheses",
       "declarations": [
         "Metaplectic.G2Seven.Edge.septic_prime_norm_not_fixed",
@@ -738,6 +738,32 @@
       "status": "kernel_checked_simultaneous_all_positive_powers_and_exact_counting_mass",
       "declarations": [
         "FiniteRootPower.exists_counting_profile"
+      ]
+    },
+    {
+      "id": "MP-PROFILE-02",
+      "claim": "For every finite field, positive n, primitive nth root z and characters chi,psi with nth powers one, one natural vector of exact mass q-2 represents every simultaneous Jacobi twist J(chi^r,psi^r), including r=0. The nonzero support is F minus0,1; the principal row uses its actual Jacobi value. Both diagonal and mixed channels and q=2 are included. No analytic gain or novelty claim.",
+      "status": "kernel_checked_actual_two_character_profile_all_natural_twists_and_exact_mass",
+      "declarations": [
+        "Metaplectic.JacobiPower.actual_counting_profile"
+      ]
+    },
+    {
+      "id": "G7-EA4",
+      "claim": "Every integral septic coefficient vector with zero constant, opposite conjugate coefficients and exponent-two fixedness equals its first coefficient times tau=z+z^2+z^4-z^3-z^5-z^6. The primitive-root coefficient relation proves tau^2=-7, and every nonzero integral multiple has squared norm at least7. The complete actual Jacobi beta specialization remains separate; no universal prime-field bound is asserted yet.",
+      "status": "kernel_checked_integral_anti_invariant_and_nonzero_norm_gap_with_explicit_hypotheses",
+      "declarations": [
+        "Metaplectic.G2Seven.Edge.septic_tau_square",
+        "Metaplectic.G2Seven.Edge.septic_integral_anti_invariant",
+        "Metaplectic.G2Seven.Edge.septic_anti_invariant_norm_gap"
+      ]
+    },
+    {
+      "id": "MP-JACOBI-SYM-01",
+      "claim": "For arbitrary complex multiplicative characters chi,psi on every finite field, J(chi,psi)=psi(-1)*J((chi*psi)^(-1),psi), including principal characters. The proof uses the complete inverse-coordinate bijection, keeps the psi(-1) factor and treats the zero coordinate exactly. This classical structural identity is an actual-family adapter, not an analytic gain or originality claim.",
+      "status": "kernel_checked_actual_inverse_coordinate_Jacobi_symmetry",
+      "declarations": [
+        "Metaplectic.JacobiPower.inverse_symmetry"
       ]
     }
   ],
