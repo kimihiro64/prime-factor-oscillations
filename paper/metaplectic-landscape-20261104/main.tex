@@ -4589,6 +4589,172 @@ for its separate pieces: that passage requires a majorant for
 the complete signed expression uniform in the Abel parameter.
 The global QRH boundary remains $7/8$.
 
+\section{An explicit prime-class consumer for the global period}
+\label{sec:quartic-prime-class-consumer}
+
+This is a worked end-to-end consumer calculation, not a new proved
+estimate. It uses the maintained weighted logarithmic readout rather
+than multiplying two inverse detectors. In particular it does not
+assume that the original cubic error exponent transfers to this
+different observable.
+
+\subsection{A quadratic packet and its actual rational prime class}
+Keep $K=\mathbb Q(\zeta_8)$. Let $\chi$ be a fixed Dirichlet character,
+let $\eta_0=\chi\circ N_{K/\mathbb Q}$, and let
+$\omega=\chi_{-3}\circ N_{K/\mathbb Q}$. Then $\omega$ has order two
+over $K$; it is not one of the characters defining $K/\mathbb Q$.
+Set $\eta_1=\eta_0\omega$ and enlarge $S$ to all places above the
+rational bad primes. Write
+\[
+ L_j=L_K^S(s,\eta_j),\quad
+ \vartheta_\chi=\alpha^4\eta_0^4,\quad
+ R=L_K^S(4s-2,\vartheta_\chi).
+\]
+The reference is common since $\omega^4=1$.
+For this fixed finite packet choose the exceptional-place observation
+window in the common kernel of its finite-order characters.
+The selected periods then have a common multiplier $B$:
+$Z_j=BR/L_j$. The exact operator is
+\begin{equation}\label{eq:quartic-log-companion}
+ \sum_{j=0}^1\{L_jZ_j'-(BR)'\}
+       =-BR\left(\frac{L_0'}{L_0}+\frac{L_1'}{L_1}\right).
+\end{equation}
+Both $B'R$ and $BR'$ occur in each subtraction.
+The maintained \texttt{CarmichaelWeightedSignal.weighted\_limit}
+and \texttt{residue\_re\_bound} apply with weights one.
+They use local analytic factorizations, not RH. At a common zero
+the residue is $-B(\rho)R(\rho)$ times the sum of the multiplicities,
+so shared zeros cannot cancel.
+
+The four characters defining $K$ and their $\chi_{-3}$ twists
+are exactly the eight characters modulo $24$. Thus, outside $S$,
+\[
+ L_0L_1=\prod_{\psi\;(\mathrm{mod}\;24)}L_{\mathbb Q}(s,\chi\psi).
+\]
+At a rational prime the logarithmic coefficient of this product is
+$8\chi(p)\log p$ if $p\equiv1\pmod{24}$, and zero otherwise.
+All higher prime powers remain. Put
+\[
+ P_\chi(Y)=8\sum_{\substack{p\le Y,\ p\notin S\\p\equiv1\ (24)}}
+                          \chi(p)\log p,\qquad
+ \kappa_\chi=\#\{\psi:\chi\psi\text{ is principal}\}.
+\]
+Here $\kappa_\chi$ is zero or one. It is one for the zeta target.
+This class has emerged from the actual character packet, not from
+discarding unwanted frequencies.
+
+\subsection{The signed target, including the reference centering}
+Let $\mathcal C_\chi(X)$ be the sharp cumulative coefficient sum
+of $R[-L_0'/L_0-L_1'/L_1]$. Its exact reference convolution sums
+over every integral $\mathfrak d$ coprime to $S$ with
+$\N\mathfrak d\le X^{1/4}$, with coefficient
+$\vartheta_\chi(\mathfrak d)(\N\mathfrak d)^2$.
+There is no additional coprimality condition with the prime variable.
+Define the still-signed main packet
+\begin{equation}\label{eq:quartic-progression-main}
+ \mathcal M_\chi(X)=
+ \sum_{\substack{\mathfrak d\text{ integral},\,(\mathfrak d,S)=1\\
+                         \N\mathfrak d\le X^{1/4}}}
+ \vartheta_\chi(\mathfrak d)(\N\mathfrak d)^2
+ \left[
+ P_\chi\!\left(\frac{X}{(\N\mathfrak d)^4}\right)
+       -\kappa_\chi\frac{X}{(\N\mathfrak d)^4}
+ \right].
+\end{equation}
+In particular its unit row is $P_\chi(X)-\kappa_\chi X$.
+The Jacobi phases, the centering at every divisor and that unit row
+are retained together.
+
+The remaining terms can be bounded independently at the target scale:
+\begin{equation}\label{eq:quartic-progression-remainder}
+ \mathcal C_\chi(X)-\kappa_\chi
+             L_K^S(2,\vartheta_\chi)X
+ =\mathcal M_\chi(X)+O_{K,S,\chi}
+                    \bigl(X^{3/4}\log^5(2X)\bigr).
+\end{equation}
+Here is the calculation. At each rational prime, each higher-power
+coefficient has modulus at most $8\log p$.
+Consequently their total through $Y$ is
+$O(\sqrt Y\log^2(2Y))$, using only
+$\sum_{r\ge2,p^r\le Y}\log p=O(\sqrt Y\log^2(2Y))$.
+The ideal-counting bound
+\[
+ A_K(T)\le T(1+\log T)^3\qquad(T\ge1)
+\]
+follows by coefficient comparison with the fourth divisor function
+and summing three harmonic factors. Therefore the convolved
+higher-power allowance is at most a constant times
+\[
+ \sqrt X\,\log^2(2X)A_K(X^{1/4})
+       \ll_K X^{3/4}\log^5(2X).
+\]
+The principal reference was truncated at $X^{1/4}$ in the exact
+sum. Its missing signed tail is
+$-\kappa_\chi X\sum_{\N\mathfrak d>X^{1/4}}
+  \vartheta_\chi(\mathfrak d)(\N\mathfrak d)^{-2}$.
+Partial summation bounds this by
+$O_K(X^{3/4}\log^3(2X))$. These absolute estimates concern only
+the explicitly separated remainders; no triangle inequality has
+been applied to \eqref{eq:quartic-progression-main}.
+
+For $\sigma>3/4$ the reference has uniform Euler bounds
+\[
+ \zeta_K(4\sigma-2)^{-1}\le |R(\sigma+it)|
+                         \le\zeta_K(4\sigma-2).
+\]
+Their constants depend on the distance from $3/4$, not on $t$ or
+the conductor of $\chi$. Thus no reflected reference height loss
+is hidden in this consumer.
+
+\subsection{What would prove the boundary, and what is still missing}
+An independent estimate
+\[
+ \mathcal M_\chi(X)\ll_{\chi,S,\eps}X^{3/4+\eps}
+       \qquad\text{for every }X\ge2
+\]
+with the required smooth-window control would make the centered
+logarithmic companion holomorphic for $\Re s>3/4$.
+Its nonzero residues would exclude every zero there of the eight
+factors above. For $\chi=1$ this includes every zeta zero;
+for all fixed $\chi$ it would give the corresponding global
+Dirichlet QRH boundary. The constants need not be uniform in
+$\chi$ for this logical implication. Proving the estimate by
+moving-character moments would nevertheless require their actual
+uniform conductor and height bounds.
+
+The full automorphic expression for this target is obtained from
+$Z_j=T_j-E_j$ in \eqref{eq:quartic-log-companion}:
+\[
+ \sum_{j=0}^1
+       \{L_jT_j'-L_jE_j'-B'R-BR'\}.
+\]
+It retains all the axis, origin and central terms of
+\eqref{eq:quadratic-full-completion}. In physical space all
+convolutions and logarithmic weights are formed before the
+shared cutoff and window functional. A separately truncated
+product is not this expression. The plain companion $L_j$ is
+a product of four rational Dirichlet factors, at the same
+character and height as the inverse row. Any moment argument
+must charge all four lengths and their joint conductor, rather
+than one factor's length. This estimate has not been proved.
+
+The installed $7/8$ theorem is only the benchmark here:
+inserting its progression error into
+\eqref{eq:quartic-progression-main} recovers $X^{7/8+\eps}$.
+It supplies no new saving. All separated corrections already
+fit $3/4+\eps$; the decisive gap is an independent bound on the
+displayed signed main packet through the global transform.
+
+Nor is $3/4$ an impossibility statement for a different detector.
+The guaranteed Euler-nonzero region of this reference ends at
+$3/4$. For an RH endpoint the maintained $d=4$ power-compensated
+logarithmic detector instead has reference scale $x^{1/2+\eps}$
+from the installed QRH input. It must be compared before the
+quartic reference expansion and its $X^{3/4}$ tail allowance.
+Its own signed arithmetic estimate remains unproved.
+The present calculation therefore supplies an explicit alternative
+consumer, not a new exponent and not a newly formalized theorem.
+
 \begin{thebibliography}{99}
 \bibitem{McNamara} P. J. McNamara, \emph{The metaplectic
 Casselman--Shalika formula}, arXiv:1103.4653v3,

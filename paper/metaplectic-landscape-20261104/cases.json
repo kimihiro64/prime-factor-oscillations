@@ -1,5 +1,25 @@
 {
   "review_date": "2026-11-04",
+  "quartic_prime_class_consumer_20261105": {
+    "status": "End-to-end consumer calculation; no new theorem or improved estimate claimed.",
+    "field": "K=Q(zeta8)",
+    "characters": "eta0=chi composed with Norm; eta1=eta0*(chi_-3 composed with Norm), for any fixed Dirichlet chi. The base-change packet is the eight rational twists chi*psi, psi modulo24.",
+    "observable": "Common-reference logarithmic companion: sum_j[L_j*Z_j'-(B*R)']=-B*R*sum_j L_j'/L_j. Both B'*R and B*R' remain.",
+    "retained_prime_class": "p=1 modulo24; first-prime coefficient8*chi(p)*log p. Every prime power and bad-prime mask retained.",
+    "main_packet": "M_chi(X)=sum_(Nd<=X^(1/4),(d,S)=1) vartheta_chi(d)*Nd^2*[8*sum_(p<=X/Nd^4,p=1mod24,p outsideS) chi(p)log p-kappa_chi*X/Nd^4]. Unit row retained; no main-term triangle bound.",
+    "remainder_bound": "C_chi(X)-kappa_chi*L_K^S(2,vartheta_chi)*X = M_chi(X)+O_(K,S,chi)(X^(3/4)*log^5(2X)). Higher-prime-power and principal-reference-tail allowances only.",
+    "full_signed_consumer": "sum_j[L_j*T_j'-L_j*E_j'-B'*R-B*R']; all axis, origin and central rows remain, convolution before shared cutoff.",
+    "independent_estimate": "M_chi(X)=O_(fixed chi,S,epsilon)(X^(3/4+epsilon)) for everyX>=2, with physical smooth-window control: UNPROVED.",
+    "conductor_and_length": "Each plain L_j is four rational Dirichlet factors, at the same character and height as the inverse row; charge all four lengths and joint conductor in any moving-family estimate.",
+    "reference": "R=L_K^S(4s-2,alpha^4*eta0^4) is Euler-nonzero forRe(s)>3/4, with zeta_K(4sigma-2)^(-1)<=|R|<=zeta_K(4sigma-2), independent of height and conductor.",
+    "half_line_alternative": "The maintained d4 power-compensated logarithmic detector has reference scale x^(1/2+epsilon); compare before the quartic reference expansion. Its signed arithmetic estimate is unproved.",
+    "benchmark_status": "Explicit alternative signed consumer; corrections fit endpoint; decisive estimate open.",
+    "old_bound": "7/8",
+    "new_bound": "7/8",
+    "attainable_endpoint": "3/4 conditionally on the stated independent main-packet estimate; no unconditional new endpoint.",
+    "actuals": "No finite experiment used.",
+    "first_nonpositive_domain": "not applicable; improved universal bound not installed."
+  },
   "quadratic_global_carrier_20261105": {
     "status": "Four generic character-gluing proofs compiled. A source-level global quadratic theta carrier and complete signed product decomposition are derived in the paper; the automorphic inputs and application are not Lean-certified.",
     "owner": "PrimeFactorOscillations/Mathlib/NumberTheory/Metaplectic/DenseCharacterGluing.lean",
