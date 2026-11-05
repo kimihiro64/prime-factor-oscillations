@@ -5,7 +5,9 @@ Authors: Prime Factor Oscillations contributors
 -/
 import PrimeFactorOscillations.Mathlib.NumberTheory.Metaplectic.G2SevenFermatReadout
 import PrimeFactorOscillations.Mathlib.NumberTheory.Metaplectic.G2SevenFrobeniusStability
+import PrimeFactorOscillations.Mathlib.NumberTheory.Metaplectic.G2SevenJacobiEdgeAlgebra
 import PrimeFactorOscillations.Mathlib.NumberTheory.Metaplectic.G2SevenScalarStability
+import PrimeFactorOscillations.Mathlib.NumberTheory.Metaplectic.G2SevenUniformStability
 import PrimeFactorOscillations.Mathlib.NumberTheory.Metaplectic.G2TwelveFourier
 import PrimeFactorOscillations.Mathlib.NumberTheory.Metaplectic.QuinticCocycle
 import PrimeFactorOscillations.Mathlib.NumberTheory.Metaplectic.QuinticLocalMass
@@ -16,5 +18,6 @@ import PrimeFactorOscillations.Mathlib.NumberTheory.Metaplectic.Sp4EightTrace
 
 Exports the G2 sevenfold/twelvefold and Sp4 eightfold signed models,
 their complete Fourier energies, Frobenius packets and full Fermat trace readouts,
-central compensation, and the existing quintic local-mass and cocycle models.
+central compensation, global cyclic stability and supporting Jacobi edge algebra,
+and the existing quintic local-mass and cocycle models.
 -/

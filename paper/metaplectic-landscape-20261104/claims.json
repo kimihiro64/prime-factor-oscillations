@@ -648,6 +648,68 @@
         "Metaplectic.G2Seven.Scalar.low_peak_stability",
         "Metaplectic.G2Seven.Scalar.scalar_constraints_insufficient"
       ]
+    },
+    {
+      "id": "G7-U1",
+      "claim": "The full signed cyclic sevenfold geometry proves2<=7*m<=7 from peak dominance and all three vanishing correlations; multiplicative automorphisms preserve mass, peak constraints and the required correlation zeros.",
+      "status": "kernel_checked_full_cyclic_geometry",
+      "declarations": [
+        "Metaplectic.G2Seven.Uniform.admissible_peak",
+        "Metaplectic.G2Seven.Uniform.mass_permute",
+        "Metaplectic.G2Seven.Uniform.upper_permute",
+        "Metaplectic.G2Seven.Uniform.correlation_permute",
+        "Metaplectic.G2Seven.Uniform.permuted_zero"
+      ]
+    },
+    {
+      "id": "G7-U2",
+      "claim": "The exact79-column integer certificate satisfies every one of its80 coefficient identities, and its first39 weights are nonnegative. These are exact kernel arithmetic checks, not numerical fits.",
+      "status": "kernel_checked_exact_integer_certificate",
+      "declarations": [
+        "Metaplectic.G2Seven.Uniform.Certificate.coefficient_identity",
+        "Metaplectic.G2Seven.Uniform.Certificate.positive_weights"
+      ]
+    },
+    {
+      "id": "G7-U3",
+      "claim": "Every one of the79 source-defined polynomial columns has the exact cyclic-orbit expansion. Sixteen bounded blocks and the exhaustive finite-index assembly verify these identities without a sampling assumption.",
+      "status": "kernel_checked_all_polynomial_columns",
+      "declarations": [
+        "Metaplectic.G2Seven.Uniform.Certificate.Block00.expansion",
+        "Metaplectic.G2Seven.Uniform.Certificate.Block01.expansion",
+        "Metaplectic.G2Seven.Uniform.Certificate.Block02.expansion",
+        "Metaplectic.G2Seven.Uniform.Certificate.Block03.expansion",
+        "Metaplectic.G2Seven.Uniform.Certificate.Block04.expansion",
+        "Metaplectic.G2Seven.Uniform.Certificate.Block05.expansion",
+        "Metaplectic.G2Seven.Uniform.Certificate.Block06.expansion",
+        "Metaplectic.G2Seven.Uniform.Certificate.Block07.expansion",
+        "Metaplectic.G2Seven.Uniform.Certificate.Block08.expansion",
+        "Metaplectic.G2Seven.Uniform.Certificate.Block09.expansion",
+        "Metaplectic.G2Seven.Uniform.Certificate.Block10.expansion",
+        "Metaplectic.G2Seven.Uniform.Certificate.Block11.expansion",
+        "Metaplectic.G2Seven.Uniform.Certificate.Block12.expansion",
+        "Metaplectic.G2Seven.Uniform.Certificate.Block13.expansion",
+        "Metaplectic.G2Seven.Uniform.Certificate.Block14.expansion",
+        "Metaplectic.G2Seven.Uniform.Certificate.Block15.expansion",
+        "Metaplectic.G2Seven.Uniform.Certificate.column_expansion"
+      ]
+    },
+    {
+      "id": "G7-U4",
+      "claim": "For every real y:Fin6->Real, with x=(1-sum(y),y), m=x0>=all other coordinates and cyclic correlations at shifts1,2,3 equal0, the complete signed certificate proves7*(1-sum_i x_i^3)>=8*(1-m). All positive-square and Fano terms are retained, and all40 signed ideal terms vanish by the actual correlation equations. The proposed sharper constant remains open.",
+      "status": "kernel_checked_complete_uniform_cyclic_stability",
+      "declarations": [
+        "Metaplectic.G2Seven.Uniform.normalized_stability"
+      ]
+    },
+    {
+      "id": "G7-EA1",
+      "claim": "The complete signed beta product equals p times the anti-conjugate combination under the five explicit Jacobi norm/product algebra relations, over any commutative ring. The supporting nonnegative three-variable product inequality is proved. No universal prime-field norm separation or point-count theorem is asserted by these algebraic statements.",
+      "status": "kernel_checked_supporting_Jacobi_edge_algebra_only",
+      "declarations": [
+        "Metaplectic.G2Seven.Edge.signed_beta_identity",
+        "Metaplectic.G2Seven.Edge.triple_product_bound"
+      ]
     }
   ],
   "novelty": "Priority for the combined explicit formulas has not been established; source classification and Gauss identities are classical."

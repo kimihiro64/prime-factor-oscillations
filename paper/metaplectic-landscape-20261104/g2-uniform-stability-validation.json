@@ -1,0 +1,371 @@
+{
+  "schema_version": 1,
+  "validation_date": "2026-11-05",
+  "scope": "Kernel proof, newly added axiom closures and synchronized paper/metadata; local commit, no publication claimed",
+  "parent_head": "940880feed70b7f20dc789ababce829144e2ab62",
+  "statement": {
+    "declaration": "Metaplectic.G2Seven.Uniform.normalized_stability",
+    "domain": "Every y:Fin6->Real; m=1-sum(y), x=(m,y); all yi<=m and cyclic correlations at1,2,3 are zero.",
+    "conclusion": "7*(1-sum_i x_i^3)>=8*(1-m)",
+    "nonnegative_coordinates_required": false
+  },
+  "certificate": {
+    "columns": 79,
+    "nonnegative_weight_columns": 39,
+    "signed_zero_ideal_columns": 40,
+    "cyclic_monomial_orbits": 80,
+    "maximum_degree": 5,
+    "integer_normalizer": "235085993889816576311765157984666540141133198301913457943358475317247902439921993661067807749666424264260927667883927091335909688994404895309820964205336194930112189539966351061350109487655497889568133638423693602817269237986224255472418058079447631305597778557451191586072416032",
+    "normalizer_decimal_digits": 279,
+    "exact_kernel_integer_check": true,
+    "polynomial_blocks": 16,
+    "all_polynomial_columns_checked": true
+  },
+  "maintained": {
+    "new_modules": 23,
+    "total_metaplectic_modules": 42,
+    "new_declarations": 27,
+    "total_registered_declarations": 229,
+    "claim_groups": 67
+  },
+  "new_declarations": [
+    "Metaplectic.G2Seven.Edge.signed_beta_identity",
+    "Metaplectic.G2Seven.Edge.triple_product_bound",
+    "Metaplectic.G2Seven.Uniform.Certificate.Block00.expansion",
+    "Metaplectic.G2Seven.Uniform.Certificate.Block01.expansion",
+    "Metaplectic.G2Seven.Uniform.Certificate.Block02.expansion",
+    "Metaplectic.G2Seven.Uniform.Certificate.Block03.expansion",
+    "Metaplectic.G2Seven.Uniform.Certificate.Block04.expansion",
+    "Metaplectic.G2Seven.Uniform.Certificate.Block05.expansion",
+    "Metaplectic.G2Seven.Uniform.Certificate.Block06.expansion",
+    "Metaplectic.G2Seven.Uniform.Certificate.Block07.expansion",
+    "Metaplectic.G2Seven.Uniform.Certificate.Block08.expansion",
+    "Metaplectic.G2Seven.Uniform.Certificate.Block09.expansion",
+    "Metaplectic.G2Seven.Uniform.Certificate.Block10.expansion",
+    "Metaplectic.G2Seven.Uniform.Certificate.Block11.expansion",
+    "Metaplectic.G2Seven.Uniform.Certificate.Block12.expansion",
+    "Metaplectic.G2Seven.Uniform.Certificate.Block13.expansion",
+    "Metaplectic.G2Seven.Uniform.Certificate.Block14.expansion",
+    "Metaplectic.G2Seven.Uniform.Certificate.Block15.expansion",
+    "Metaplectic.G2Seven.Uniform.Certificate.coefficient_identity",
+    "Metaplectic.G2Seven.Uniform.Certificate.column_expansion",
+    "Metaplectic.G2Seven.Uniform.Certificate.positive_weights",
+    "Metaplectic.G2Seven.Uniform.admissible_peak",
+    "Metaplectic.G2Seven.Uniform.correlation_permute",
+    "Metaplectic.G2Seven.Uniform.mass_permute",
+    "Metaplectic.G2Seven.Uniform.normalized_stability",
+    "Metaplectic.G2Seven.Uniform.permuted_zero",
+    "Metaplectic.G2Seven.Uniform.upper_permute"
+  ],
+  "checks": {
+    "compiler": "Lean4.34.0, pinned direct compiler with existing cached dependencies; no resolver invocation",
+    "focused_builds": [
+      {
+        "target": "GeometryDocumentedBuild",
+        "exit_code": 0,
+        "seconds": 20.2082145
+      },
+      {
+        "target": "DataDocumentedBuild",
+        "exit_code": 0,
+        "seconds": 163.1201152
+      },
+      {
+        "target": "Block00LargeBuild",
+        "exit_code": 0,
+        "seconds": 355.1792432
+      },
+      {
+        "target": "Block01LargeBuild",
+        "exit_code": 0,
+        "seconds": 361.2614349
+      },
+      {
+        "target": "Block02LargeBuild",
+        "exit_code": 0,
+        "seconds": 364.6706839
+      },
+      {
+        "target": "Block03LargeBuild",
+        "exit_code": 0,
+        "seconds": 272.793837
+      },
+      {
+        "target": "Block04LargeBuild",
+        "exit_code": 0,
+        "seconds": 246.2046099
+      },
+      {
+        "target": "Block05LargeBuild",
+        "exit_code": 0,
+        "seconds": 221.1148907
+      },
+      {
+        "target": "Block06LargeBuild",
+        "exit_code": 0,
+        "seconds": 211.0931522
+      },
+      {
+        "target": "Block07LargeBuild",
+        "exit_code": 0,
+        "seconds": 151.2884809
+      },
+      {
+        "target": "Block08LargeBuild",
+        "exit_code": 0,
+        "seconds": 75.2269132
+      },
+      {
+        "target": "Block09LargeBuild",
+        "exit_code": 0,
+        "seconds": 78.5668543
+      },
+      {
+        "target": "Block10LargeBuild",
+        "exit_code": 0,
+        "seconds": 78.6945647
+      },
+      {
+        "target": "Block11LargeBuild",
+        "exit_code": 0,
+        "seconds": 76.4356441
+      },
+      {
+        "target": "Block12LargeBuild",
+        "exit_code": 0,
+        "seconds": 69.3240743
+      },
+      {
+        "target": "Block13LargeBuild",
+        "exit_code": 0,
+        "seconds": 70.2946498
+      },
+      {
+        "target": "Block14LargeBuild",
+        "exit_code": 0,
+        "seconds": 70.7337669
+      },
+      {
+        "target": "Block15LargeBuild",
+        "exit_code": 0,
+        "seconds": 58.6421046
+      },
+      {
+        "target": "JacobiAlgebraMaintainedBuild",
+        "exit_code": 0,
+        "seconds": 10.2117247
+      },
+      {
+        "target": "NewAxiomBuild",
+        "exit_code": 0,
+        "seconds": 25.0616919
+      },
+      {
+        "target": "BlocksHighBuild",
+        "exit_code": 0,
+        "seconds": 10.0492442
+      },
+      {
+        "target": "BlocksLowBuild",
+        "exit_code": 0,
+        "seconds": 9.8136922
+      },
+      {
+        "target": "ColumnsGroupedBuild",
+        "exit_code": 0,
+        "seconds": 10.8405098
+      },
+      {
+        "target": "StabilityGroupedBuild",
+        "exit_code": 0,
+        "seconds": 56.5799814
+      },
+      {
+        "target": "AllGroupedBuild",
+        "exit_code": 0,
+        "seconds": 15.1623932
+      },
+      {
+        "target": "SolutionGroupedBuild",
+        "exit_code": 0,
+        "seconds": 30.5725658
+      },
+      {
+        "target": "ColumnExportAxiomBuild",
+        "exit_code": 0,
+        "seconds": 24.0409672
+      }
+    ],
+    "source_policy": "PASS:23 new sources plus facade; configured direct-owned-import limit verified before compilation",
+    "new_axiom_audit": {
+      "status": "PASS",
+      "declarations": 27,
+      "empty_axiom_sets": 1,
+      "permitted_axioms": [
+        "Classical.choice",
+        "propext",
+        "Quot.sound"
+      ],
+      "unchanged_declarations_reaudited": 0
+    },
+    "metadata": "PASS:229 registered names,27 new names in5 new claim groups,67 groups total",
+    "python_registry": "Ruff check/format, strict MyPy (Linux target), and repository Python Pytest suite PASS",
+    "latex": "Built-in saved-document compiler reports success after the full theorem, representative certificate record and licence notice",
+    "grouped_exports": {
+      "direct_import_budget": 12,
+      "imports_in_each_group": 8,
+      "column_assembler_imports": 2,
+      "definition_changes": false,
+      "changed_column_axiom_audit": "PASS: one changed declaration only; remaining receipts retained"
+    }
+  },
+  "benchmark_status": "A proved uniform cyclic-stability coefficient improvement; no new global analytic zero-free bound",
+  "old_bound": "For F=7*x, M=7*m and2<=M<7, the compiled scalar envelope implies Delta>=(6*M/(M-1))*(7-M). Its coefficient has infimum7 as M tends to7. This displayed rescaling is a mathematical consequence of the compiled scalar envelope.",
+  "new_bound": "The full cyclic theorem gives Delta>=8*(7-M). Retaining both gives coefficient max(8,6*M/(M-1)); the improvement is strict for4<M<7. These rescalings are mathematical consequences, not separately named compiled corollaries.",
+  "components": [
+    "All six multiplicative automorphisms",
+    "38 weighted-square columns",
+    "The Fano correction",
+    "All40 signed correlation-ideal columns",
+    "Exact integer coefficient matching"
+  ],
+  "actuals": "The proof is uniform over the stated real domain; finite arithmetic counts are not substituted for any unresolved analytic term.",
+  "first_nonpositive_domain": null,
+  "first_nonpositive_domain_reason": "This is a nonnegative stability theorem, not a prime-count positivity sweep. The coherent vector has equality; no complete equality classification is asserted.",
+  "qrh": {
+    "old_certified_boundary": "7/8",
+    "new_certified_boundary": "7/8",
+    "improved_boundary_claimed": false,
+    "missing_consumer": "Independent global signed arithmetic estimate and automorphic transfer"
+  },
+  "arithmetic_edge_research": {
+    "status": "candidate_not_a_proved_prime_field_theorem",
+    "candidate": "p*(30-abs(N_p-p-1)/sqrt(p))^3>=1512 for rational primes p congruent1 mod7",
+    "proved_support": "The complete signed beta product and classical triple-product inequality are compiled in the maintained Edge algebra module.",
+    "evidence_only": {
+      "all_primes_through": 20000,
+      "admissible_prime_count": 377,
+      "checks": "Exact integer Jacobi and norm identities and edge inequality; exact Laurent SOS expansion"
+    },
+    "not_covered": "Integer nonzero anti-invariant transport and complete prime-field assembly; priority not established."
+  },
+  "source_sha256": [
+    {
+      "path": "MATHLIB_PORTING.md",
+      "sha256": "AA27498A500239BD49035AA83E731452303EAC5DF54DE5D99E28343D39E1CB5C"
+    },
+    {
+      "path": "PrimeFactorOscillations/Mathlib/NumberTheory/Metaplectic/All.lean",
+      "sha256": "FC096C668BEEE251E5987BAC0C19E89FBB257373E3E5C898740C42DC18F67CB7"
+    },
+    {
+      "path": "PrimeFactorOscillations/Mathlib/NumberTheory/Metaplectic/G2SevenCyclicGeometry.lean",
+      "sha256": "6EAAA2F67BFF4EDF6679520BE79835CA8E5DD15C6E13D5C0A1DBD8BA7A712CFD"
+    },
+    {
+      "path": "PrimeFactorOscillations/Mathlib/NumberTheory/Metaplectic/G2SevenJacobiEdgeAlgebra.lean",
+      "sha256": "E707B43F2C137273876A39FDDC309D644691B2DFFEF5BBD462846CAB9908FDD0"
+    },
+    {
+      "path": "PrimeFactorOscillations/Mathlib/NumberTheory/Metaplectic/G2SevenUniformCertificateBlock00.lean",
+      "sha256": "927BB94F0B3D33BDCFF5D7F6F89D2367739579F48707671DAFABD453A795CD07"
+    },
+    {
+      "path": "PrimeFactorOscillations/Mathlib/NumberTheory/Metaplectic/G2SevenUniformCertificateBlock01.lean",
+      "sha256": "051DF18FFC60CD79380F96ADC8CE06FA595A02CADB31B2084819278AA1090205"
+    },
+    {
+      "path": "PrimeFactorOscillations/Mathlib/NumberTheory/Metaplectic/G2SevenUniformCertificateBlock02.lean",
+      "sha256": "6B5D73215DFC5FE624B3F3232276ED007AB6F403615E89F1230AC2DA49D89FFA"
+    },
+    {
+      "path": "PrimeFactorOscillations/Mathlib/NumberTheory/Metaplectic/G2SevenUniformCertificateBlock03.lean",
+      "sha256": "F9D6C3934C5DB7AE1D37BC3C72DD7102CC10F2F571AB01DF90F145D07F92651D"
+    },
+    {
+      "path": "PrimeFactorOscillations/Mathlib/NumberTheory/Metaplectic/G2SevenUniformCertificateBlock04.lean",
+      "sha256": "A54B7754C1C58AC9C4F222B15769D20543A79365CE65430F09E99114062DA9C1"
+    },
+    {
+      "path": "PrimeFactorOscillations/Mathlib/NumberTheory/Metaplectic/G2SevenUniformCertificateBlock05.lean",
+      "sha256": "DE4C55D385042F3727256C132C358F1BD1FC26AE95BB9849575270B6DF0B0B2D"
+    },
+    {
+      "path": "PrimeFactorOscillations/Mathlib/NumberTheory/Metaplectic/G2SevenUniformCertificateBlock06.lean",
+      "sha256": "BF62397CBB70D22DF76C16A7CB550DBF9967401ABB44D5B81F69D4ACFC1D5479"
+    },
+    {
+      "path": "PrimeFactorOscillations/Mathlib/NumberTheory/Metaplectic/G2SevenUniformCertificateBlock07.lean",
+      "sha256": "59FDFBEAFE3D3277496C6F45ABC452832C7654EB51351C6C64C996C53D4AA8FF"
+    },
+    {
+      "path": "PrimeFactorOscillations/Mathlib/NumberTheory/Metaplectic/G2SevenUniformCertificateBlock08.lean",
+      "sha256": "F933C40DDF39EC4DD9310CF66BFC4E46263F54DEFDC371C88D20CEC63E1F4381"
+    },
+    {
+      "path": "PrimeFactorOscillations/Mathlib/NumberTheory/Metaplectic/G2SevenUniformCertificateBlock09.lean",
+      "sha256": "B59C3D73A0F9B8E19EB26023FB239DC3E42A18CAEA0C07F2EC4F0FF42932A7D1"
+    },
+    {
+      "path": "PrimeFactorOscillations/Mathlib/NumberTheory/Metaplectic/G2SevenUniformCertificateBlock10.lean",
+      "sha256": "420F50FA7D4F5D0B83770BC7424BB769157A9E4286773511BC3A6FEBC0192592"
+    },
+    {
+      "path": "PrimeFactorOscillations/Mathlib/NumberTheory/Metaplectic/G2SevenUniformCertificateBlock11.lean",
+      "sha256": "A6BCB57B241DE0D05B5A7EB0EBD7A0B5BBC02C768D37187FA8FB9334A43FF4F2"
+    },
+    {
+      "path": "PrimeFactorOscillations/Mathlib/NumberTheory/Metaplectic/G2SevenUniformCertificateBlock12.lean",
+      "sha256": "AB4B9DA046CA251E7FE869D96615E43CF0BA27A90439C157E1517D656CAE6556"
+    },
+    {
+      "path": "PrimeFactorOscillations/Mathlib/NumberTheory/Metaplectic/G2SevenUniformCertificateBlock13.lean",
+      "sha256": "9A5D7372CFD995001FCE8C847F4FE58DBE3A2CE2FDC3AFFE98967F96F2C0EE6B"
+    },
+    {
+      "path": "PrimeFactorOscillations/Mathlib/NumberTheory/Metaplectic/G2SevenUniformCertificateBlock14.lean",
+      "sha256": "11F6B934DA8D6F72565DAC09C10C66BEC3E010FB070A6055D473822EC0711426"
+    },
+    {
+      "path": "PrimeFactorOscillations/Mathlib/NumberTheory/Metaplectic/G2SevenUniformCertificateBlock15.lean",
+      "sha256": "A07BBE09BBDE0648880BE99434903BB6B18B09BDEC1C484078B28DCCD8E2865F"
+    },
+    {
+      "path": "PrimeFactorOscillations/Mathlib/NumberTheory/Metaplectic/G2SevenUniformCertificateBlocksHigh.lean",
+      "sha256": "D6C2F42700349CFD35F10586B1C65E96656EDB90A3EFDE6F85930E4CC7C960F7"
+    },
+    {
+      "path": "PrimeFactorOscillations/Mathlib/NumberTheory/Metaplectic/G2SevenUniformCertificateBlocksLow.lean",
+      "sha256": "E2F267473015696A4DBA7C6C70E6CEABF9634CAB0B3F7C119A525C6A1FB43A04"
+    },
+    {
+      "path": "PrimeFactorOscillations/Mathlib/NumberTheory/Metaplectic/G2SevenUniformCertificateColumns.lean",
+      "sha256": "DAA57B3EF5A357952110986EBA9EA5E72E9EB977C99F40789B01D2693602F990"
+    },
+    {
+      "path": "PrimeFactorOscillations/Mathlib/NumberTheory/Metaplectic/G2SevenUniformCertificateData.lean",
+      "sha256": "80A2DE0F80549CE33F0974A6C23DBC302C5F4D2111DBF9B0ADD2EEBCBE3EEA06"
+    },
+    {
+      "path": "PrimeFactorOscillations/Mathlib/NumberTheory/Metaplectic/G2SevenUniformStability.lean",
+      "sha256": "678D1092249BE6C6DEEEBFD193B4BAF7507834B62F8697F5DA001D869E194755"
+    },
+    {
+      "path": "paper/metaplectic-landscape-20261104/cases.json",
+      "sha256": "C97FA2BFBB72969C2485155C9AC97669465ED676D82BA31DC0B8226B412C5393"
+    },
+    {
+      "path": "paper/metaplectic-landscape-20261104/claims.json",
+      "sha256": "82E77823018D9D8A153EB9B696E8A194A6F67C72AF7A35E739CD9DFB010E599B"
+    },
+    {
+      "path": "paper/metaplectic-landscape-20261104/main.tex",
+      "sha256": "62D216E3C6FCBD16122B8EAF206E3609C89895FC33D8D26BEFFFA37E39204C3C"
+    },
+    {
+      "path": "scripts/metaplectic_proof_targets.py",
+      "sha256": "F856FB51298B2D90F77566C181520222BAD096AECF62016BA9F597DBC74F97EB"
+    }
+  ],
+  "source_hash_normalization": "UTF-8 text with LF line endings"
+}

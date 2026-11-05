@@ -1,3 +1,4 @@
+% SPDX-License-Identifier: Apache-2.0
 \documentclass[11pt]{article}
 \setlength{\oddsidemargin}{0pt}
 \setlength{\evensidemargin}{0pt}
@@ -30,6 +31,9 @@
 \date{4 November 2026}
 \begin{document}
 \maketitle
+{\small Copyright (c) 2026 Prime Factor Oscillations contributors.
+This document is released under the
+\href{https://www.apache.org/licenses/LICENSE-2.0}{Apache License 2.0 (Apache-2.0)}.}
 \begin{abstract}
 We classify the choices that matter when seeking a metaplectic extension
 of the QRH method: covering datum, group, field, automorphic representation,
@@ -53,6 +57,8 @@ its native weights and becomes reciprocal at the period boundary.
 Actual finite-field Gauss inputs identify the six-channel packet
 with the diagonal Jacobi polynomial of $z^7=x(1-x)$, and its compensated
 Abel trace with the affine point-count discrepancy.
+The complete cyclic correlation problem also has a uniform constant-eight
+stability theorem, proved by an exact signed polynomial certificate.
 The arithmetic proofs are maintained in Lean; classical source inputs,
 projective geometry and global signal questions are stated separately.
 No new zero-free theorem is claimed. The installed local theorem remains
@@ -242,6 +248,51 @@ construction includes an unconditional sixfold $\Sp_4$ case while
 broader statements retain hypotheses \cite{FGSymplectic}.
 A candidate derived this way must be checked for reduction back to the
 same cubic input before it is credited with independent analytic power.
+
+\subsection{An all-type screen in the coprime cover range}
+
+For split simply-connected almost-simple groups with the primitive
+quadratic datum, Gao--Qiu
+give an infinite-family screen, rather than a finite degree list
+\cite[Section 3, Table 6, (3.5)]{GaoQiu}. The local field contains
+$\mu_n$; retain the tame, unramified and exceptional-character setup.
+Writing $e_1,\ldots,e_r$ for the Weyl exponents,
+\[
+ \dim\operatorname{Wh}_{\psi}(\Theta^{(n)})
+   =\frac{\prod_i(n-e_i)}{|W|}
+\]
+in the following admissible range:
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+Type & Admissible $n$ & Dimension-one degree $h+1$\\
+\midrule
+$A_r$ & $\gcd(n,r+1)=1$ & $r+2$\\
+$B_r,C_r$ & $n$ odd & $2r+1$\\
+$D_r$ & $n$ odd & $2r-1$\\
+$G_2$ & $\gcd(n,6)=1$ & $7$\\
+$F_4,E_6$ & $\gcd(n,6)=1$ & $13$\\
+$E_7$ & $\gcd(n,6)=1$ & $19$\\
+$E_8$ & $\gcd(n,30)=1$ & $31$\\
+\bottomrule
+\end{tabular}
+\end{center}
+The final column follows from the formula: each smaller admissible
+positive integer is an exponent, whereas exponent duality gives
+$\prod_i(h+1-e_i)=|W|$. Above $h+1$ every factor increases.
+Thus this column is exhaustive within the indicated range.
+This is a consequence of cited literature, not a new Lean theorem
+or a global Fourier-coefficient identification.
+
+Outside that range, the earlier even-degree and mixed-root cases
+remain separate. Current wavefront-set results also give a systematic
+way to select degenerate Fourier models: positive real Satake
+parameters give an upper bound with equality in specified cases
+\cite{GaoWangWavefront}; for Kazhdan--Patterson and Savin general-linear
+covers, highest derivatives determine the wavefront set
+\cite{GaoWangZouWavefront}. General covering duality retains conjectural
+cases \cite{CoveringBV}. These support a structural screen, not an
+analytic estimate for a moving prime-sampled row.
 
 \section{The degree-by-degree landscape}
 
@@ -2050,7 +2101,8 @@ consumer are kernel checked in
 \texttt{G2SevenPaleyStability.lean}. In particular the statement is
 uniform, not an inference from a numerical scan.
 
-The unrestricted three-phase extension remains a conjecture. A finite
+The unrestricted three-phase extension at the sharp sector constant
+remains a conjecture. A finite
 diagnostic on 132768 grid and random triples, followed by numerical
 optimization, found the same candidate constant; this is neither a proof
 nor a global QRH estimate. Two low-degree polynomial certificate attempts
@@ -2176,11 +2228,184 @@ its failed cyclic correlation, compile in
 \texttt{G2SevenScalarStability.lean}. The weighted-square envelope is a
 supporting classical calculation, not an originality or QRH claim.
 
-The remaining phase-geometry range is \(1+2\sqrt2<M<7\), after the
+At the proposed sharp constant, the remaining phase-geometry range is
+\(1+2\sqrt2<M<7\), after the
 Fourier moment normalization is supplied. The attempted cubic and
 quartic positive-polynomial certificates have not settled that range.
 Their numerical coefficient fits and projected positive matrices are
 diagnostics, not formal theorems or infeasibility proofs.
+
+\section{A uniform cyclic stability theorem}
+
+The earlier sharp sector calculation has a weaker uniform extension
+on the complete cyclic correlation domain. This extension uses all
+correlations, not merely the first two moments.
+
+\paragraph{Statement.}
+Let \(y_0,\ldots,y_5\) be arbitrary real numbers, put
+\[
+ m=1-\sum_{r=0}^5y_r,\qquad
+ x=(m,y_0,\ldots,y_5),\qquad
+ C_h(x)=\sum_{i\in\ZZ/7\ZZ}x_ix_{i+h},
+\]
+and assume \(y_r\le m\) for every \(r\) and
+\(C_1(x)=C_2(x)=C_3(x)=0\). Then
+\begin{equation}\label{eq:uniform-eight}
+ 7\left(1-\sum_{i=0}^6x_i^3\right)\ge8(1-m).
+\end{equation}
+The coordinates need not be nonnegative. There is no sampling,
+Frobenius-sector or asymptotic hypothesis. The compiled declaration is
+\texttt{Metaplectic.G2Seven.Uniform.}\allowbreak
+\texttt{normalized\_stability}.
+
+\paragraph{Proof by an exact signed certificate.}
+First, the correlation equations, unit mass and peak condition imply
+\[
+ \sum_i x_i^2=1,\qquad 2\le7m,\qquad m\le1.
+\]
+The six multiplicative automorphisms of \(\ZZ/7\ZZ\) fix coordinate zero,
+preserve its dominance, and carry \(C_1\) into the three assumed
+correlations or their reverses. Thus every transported first
+correlation is exactly zero. These facts are proved in
+\texttt{G2SevenCyclicGeometry.lean}.
+
+Set
+\[
+ T(y)=7\left(1-\sum_i x_i^3\right)-8(1-m).
+\]
+The complete certificate is specified by the integer data in
+\texttt{G2SevenUniformCertificateData.lean}. It consists of
+\(79\) source-defined polynomial columns \(P_j\), integer weights
+\(w_j\), an explicit positive integer \(D\), and the exact identity
+\begin{equation}\label{eq:uniform-eight-certificate}
+ D\cdot704643072\,T(y)=\sum_{j=0}^{78}w_jP_j(y).
+\end{equation}
+The data file gives every coefficient and weight; they are not
+floating-point approximations. Its first \(39\) weights are
+nonnegative. The remaining \(40\) weights retain their signs.
+
+Here is the structure that makes the identity a proof.
+The first \(38\) columns are positive constant multiples of sums of
+squares over all six multiplicative automorphisms. Their extra factors
+are respectively \(m-y_r\), \(1-m\), or \(7m-2\), which are nonnegative.
+Column \(38\) is a positive constant multiple of
+\[
+ (1-m)\bigl[
+ (m-y_0)(m-y_1)(m-y_3)
+ +(m-y_2)(m-y_4)(m-y_5)\bigr],
+\]
+and is nonnegative too. Each of the final \(40\) columns is a sum
+of a transported first correlation times its prescribed monomial.
+Every such column vanishes; no estimate by its absolute value is used.
+
+For completeness, identity~\eqref{eq:uniform-eight-certificate}
+is checked coefficient by coefficient in the \(80\) cyclic monomial
+orbits of the degree-at-most-five polynomial space used by the
+certificate. The \(79\) individual polynomial expansions are proved
+by exact ring identities in the sixteen bounded modules
+\texttt{G2SevenUniformCertificateBlock00.lean} through
+\texttt{Block15.lean}. The columns module assembles these identities.
+The integer coefficient identities and the nonnegative-weight check
+then give~\eqref{eq:uniform-eight-certificate} over the reals.
+Consequently its right side is nonnegative. Division by the positive
+factor \(704643072D\) proves \(T(y)\ge0\), which is
+\eqref{eq:uniform-eight}. The complete signed assembly and final
+inequality compile in \texttt{G2SevenUniformStability.lean}.
+\(\square\)
+
+\paragraph{One complete column record.}
+The orbit basis is unambiguous: take distinct monomial orbits under
+multiplication on the nonzero residues modulo \(7\), sum each orbit
+without repetitions, and order representatives first by increasing
+degree and then by decreasing lexicographic exponent tuple
+\((a_0,\ldots,a_5)\). There are \(1,1,4,10,22,42\) such orbits in
+degrees \(0,1,2,3,4,5\), respectively.
+
+For column \(j=38\), the normalization is \(s=704643072\), and
+\(P_{38}/s\) is exactly the bracketed Fano polynomial above, including
+its factor \(1-m\). Its coefficient vector divided by \(s\), in this
+ordered basis, starts with
+\[
+ \begin{gathered}
+0,2,-7,-14,-14,-14,8,25,24,25\\
+24,24,49,51,49,49,-3,-13,-12,-13\\
+-12,-12,-20,-38,-42,-38,-38,-18,-38,-37\\
+-37,-38,-38,-37,-18,-79,-76,-76,0,0
+ \end{gathered}
+\]
+at indices \(0,\ldots,37\), and every coefficient at indices
+\(38,\ldots,79\) is zero. Its integer weight \(w_{38}\) is obtained
+by concatenating the following decimal lines:
+\begin{quote}\small\ttfamily
+286105408823985556996573140820681364628834890004\\
+906256298699824475477629399121996992813147441358\\
+375819839913511439612448084272302987244478252721\\
+126090830377190399655865404928538494634294919766\\
+129056694624404262727450490774991051960175599889\\
+300983338219247017915030777948228508416
+\end{quote}
+Thus the record specifies its index, normalization, full polynomial,
+all \(80\) coefficients and exact weight. Nonnegativity follows from
+the four displayed nonnegative factors and \(w_{38}\ge0\); kernel
+ring identities verify the expansion. The data module contains all
+\(79\) records and their common positive normalizer, as part of the
+same maintained source tree. Public release links for this new
+certificate remain pending publication.
+
+This theorem covers the entire feasible peak range at constant \(8\).
+It does not establish the sharper candidate \(6+3/\sqrt2\) on that
+range. A separately compiled Fourier or matrix-distance transport,
+arithmetic membership statement and global automorphic estimate are
+not part of this declaration. In particular the QRH boundary remains
+\(7/8\).
+
+\subsection{A concrete signed arithmetic edge candidate}
+
+There is an arithmetic question beyond the uniform phase geometry.
+For a rational prime \(p\equiv1\pmod7\), let \(a,b,c,d\) denote the
+unnormalized Jacobi sums \(J_{1,2},J_{1,1},J_{1,3},J_{2,2}\), and
+write \(A=a/\sqrt p\), \(B=b/\sqrt p\), \(C=c/\sqrt p\), \(D_0=d/\sqrt p\).
+The already proved full Fermat phase formula retains
+\[
+ \Phi=6\Re(B+C+D_0)+12\Re(A),\qquad A=BD_0/C.
+\]
+The signed algebra behind a possible stronger estimate is
+\[
+ (b-c)(d-\overline b)(\overline c-\overline d)
+   =p\bigl[(a+c-b-d)-\overline{(a+c-b-d)}\bigr].
+\]
+It follows by an eight-term expansion from
+\(b\overline b=c\overline c=d\overline d=p\),
+\(ac=bd\), and its conjugate. The generic commutative-ring identity
+and the supporting inequality
+\(27uvw\le(u+v+w)^3\) for \(u,v,w\ge0\) are maintained in
+\texttt{G2SevenJacobiEdgeAlgebra.lean}; neither is claimed as a new
+classical inequality.
+
+The proposed arithmetic route is to prove an integral nonzero
+anti-invariant \(m\) giving
+\[
+ p\,|1-BD_0|^2|B-C|^2|C-D_0|^2=7m^2.
+\]
+Combined with the joint sum-of-squares estimate for these three
+discrepancies, this would imply
+\[
+ p(30-|\Phi|)^3\ge1512,
+ \qquad
+ |N_p-p-1|\le30\sqrt p-6\sqrt[3]7\,p^{1/6}.
+\]
+This prime-field theorem is a candidate, not a completed formal
+result. Integer coefficient transport, nonvanishing, the complex
+sum-of-squares consumer and the full assembly still need proofs.
+An exact diagnostic checked the Jacobi norm identities and proposed
+bound at all \(377\) primes \(p\le20000\) with \(p\equiv1\pmod7\).
+The Laurent polynomial sum-of-squares residual was checked to be
+identically zero. Those checks are falsification evidence only.
+The prime-field restriction is essential: square extension fields
+can reach a Hasse edge. Priority and the relation to existing
+CM/Fermat point-count bounds have not been established. Even a
+proof of this candidate would require a further global signed
+consumer before it could give a QRH exponent improvement.
 
 \section{Expanding the target $L$-functions is a separate problem}
 
@@ -2271,6 +2496,23 @@ covering groups}, arXiv:1507.01042v2.
 \bibitem{Gao} F. Gao, \emph{Distinguished theta representations for certain
 covering groups}, arXiv:1602.01880v3.
 \url{https://arxiv.org/abs/1602.01880v3}.
+\bibitem{GaoQiu} F. Gao and Y. Qiu, \emph{Two-sided cells of Weyl groups
+and certain splitting Whittaker polynomials}, arXiv:2311.02350v3,
+7 January 2026, Section 3.
+\url{https://arxiv.org/abs/2311.02350v3}.
+\bibitem{GaoWangWavefront} F. Gao and R. Wang, \emph{Geometric wavefront
+sets of genuine Iwahori-spherical representations}, arXiv:2601.15670v1.
+\url{https://arxiv.org/abs/2601.15670v1}.
+\bibitem{GaoWangZouWavefront} F. Gao, R. Wang and J. Zou,
+\emph{Wavefront sets for genuine representations of GL-covers of
+Kazhdan--Patterson or Savin types}, arXiv:2604.01585v3,
+27 October 2026.
+\url{https://arxiv.org/abs/2604.01585v3}.
+\bibitem{CoveringBV} F. Gao, B. Liu, C.-H. Lo and F. Shahidi,
+\emph{Covering Barbasch--Vogan duality and wavefront sets of genuine
+representations}, arXiv:2511.14750v2.
+\url{https://arxiv.org/abs/2511.14750v2}.
+
 \bibitem{BrokerHoffstein} R. Br\"oker and J. Hoffstein,
 \emph{Fourier coefficients of sextic theta series}, arXiv:1312.0568v1.
 \url{https://arxiv.org/abs/1312.0568}.

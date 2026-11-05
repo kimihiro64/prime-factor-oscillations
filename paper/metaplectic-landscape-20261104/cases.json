@@ -52,6 +52,8 @@
     "Metaplectic.G2Seven.Curve.seventh_power_iff_character",
     "Metaplectic.G2Seven.Curve.seventh_root_fiber",
     "Metaplectic.G2Seven.Curve.source_gauss_frobenius",
+    "Metaplectic.G2Seven.Edge.signed_beta_identity",
+    "Metaplectic.G2Seven.Edge.triple_product_bound",
     "Metaplectic.G2Seven.Fermat.affine_count_all_jacobi",
     "Metaplectic.G2Seven.Fermat.affine_count_coprime",
     "Metaplectic.G2Seven.Fermat.affine_count_fibers",
@@ -128,6 +130,31 @@
     "Metaplectic.G2Seven.Spectrum.source_cubic_mean",
     "Metaplectic.G2Seven.Spectrum.source_full_carrier",
     "Metaplectic.G2Seven.Spectrum.stabilizer_classification",
+    "Metaplectic.G2Seven.Uniform.Certificate.Block00.expansion",
+    "Metaplectic.G2Seven.Uniform.Certificate.Block01.expansion",
+    "Metaplectic.G2Seven.Uniform.Certificate.Block02.expansion",
+    "Metaplectic.G2Seven.Uniform.Certificate.Block03.expansion",
+    "Metaplectic.G2Seven.Uniform.Certificate.Block04.expansion",
+    "Metaplectic.G2Seven.Uniform.Certificate.Block05.expansion",
+    "Metaplectic.G2Seven.Uniform.Certificate.Block06.expansion",
+    "Metaplectic.G2Seven.Uniform.Certificate.Block07.expansion",
+    "Metaplectic.G2Seven.Uniform.Certificate.Block08.expansion",
+    "Metaplectic.G2Seven.Uniform.Certificate.Block09.expansion",
+    "Metaplectic.G2Seven.Uniform.Certificate.Block10.expansion",
+    "Metaplectic.G2Seven.Uniform.Certificate.Block11.expansion",
+    "Metaplectic.G2Seven.Uniform.Certificate.Block12.expansion",
+    "Metaplectic.G2Seven.Uniform.Certificate.Block13.expansion",
+    "Metaplectic.G2Seven.Uniform.Certificate.Block14.expansion",
+    "Metaplectic.G2Seven.Uniform.Certificate.Block15.expansion",
+    "Metaplectic.G2Seven.Uniform.Certificate.coefficient_identity",
+    "Metaplectic.G2Seven.Uniform.Certificate.column_expansion",
+    "Metaplectic.G2Seven.Uniform.Certificate.positive_weights",
+    "Metaplectic.G2Seven.Uniform.admissible_peak",
+    "Metaplectic.G2Seven.Uniform.correlation_permute",
+    "Metaplectic.G2Seven.Uniform.mass_permute",
+    "Metaplectic.G2Seven.Uniform.normalized_stability",
+    "Metaplectic.G2Seven.Uniform.permuted_zero",
+    "Metaplectic.G2Seven.Uniform.upper_permute",
     "Metaplectic.G2Seven.additive_twist_energy",
     "Metaplectic.G2Seven.coherentSignal_energy",
     "Metaplectic.G2Seven.coherentSignal_hasSum",
@@ -208,8 +235,8 @@
     "Metaplectic.Sp4Eight.twistClass_fiber_card",
     "Metaplectic.Sp4Eight.unit_coordinate_survives"
   ],
-  "proof_status": "Nineteen maintained kernel-checked modules: local G2 and Sp4 models, complete Jacobi readouts, actual diagonal-curve and full Fermat-septic counting bridges, all-residue Frobenius compression, and the full principal-compensated cubic Fermat observation with its nontrivial joint Abel limit. Actual character fibers, inverse-pair and infinity corrections are proved. Projective geometry, prime-power lifting, rational-prime descent and global automorphic transfer remain separate. No analytic boundary gain. The Paley phase sector has a sharp uniform cubic-source stability theorem, exact positive-polynomial certificate and symbolic noncoherent attainer. The unrestricted three-phase inequality and arithmetic sector-membership transfer remain open. Source-field Gauss Frobenius and the positive unit normalization now discharge the Paley-sector conditions for p modulo7 equal2 or4 with a Frobenius-invariant primitive additive character; the sharp signed actual Fermat point-count bound is proved. The scalar two-moment region 1<M<=1+2*sqrt(2) is formally controlled at the proposed sharp constant; unrestricted high-maximum phase geometry remains open. An explicit two-peak vector disproves extension from the first two moments alone and has cyclic correlation98/5, so it does not obstruct the actual phase problem.",
-  "classification_scope": "principal structural mechanisms and selected low-degree cases, not a complete global automorphic classification",
+  "proof_status": "Forty-two maintained kernel-checked modules: local G2 and Sp4 models, complete Jacobi readouts, actual diagonal-curve and full Fermat-septic counting bridges, all-residue Frobenius compression, and the full principal-compensated cubic Fermat observation with its nontrivial joint Abel limit. Actual character fibers, inverse-pair and infinity corrections are proved. Projective geometry, prime-power lifting, rational-prime descent and global automorphic transfer remain separate. No analytic boundary gain. The Paley phase sector has a sharp uniform cubic-source stability theorem, exact positive-polynomial certificate and symbolic noncoherent attainer. The sharp unrestricted three-phase inequality and general arithmetic sector-membership transfer remain open. The complete cyclic correlation problem now has a kernel-checked constant-eight stability inequality, uniformly through the high-maximum range. Source-field Gauss Frobenius and the positive unit normalization now discharge the Paley-sector conditions for p modulo7 equal2 or4 with a Frobenius-invariant primitive additive character; the sharp signed actual Fermat point-count bound is proved. The scalar two-moment region 1<M<=1+2*sqrt(2) is formally controlled at the proposed sharp constant; the proposed sharp high-maximum bound remains open; the global constant-eight cyclic bound is proved. An explicit two-peak vector disproves extension from the first two moments alone and has cyclic correlation98/5, so it does not obstruct the actual phase problem.",
+  "classification_scope": "principal structural mechanisms, all root types in the cited coprime cover range, and selected even/mixed-root cases; not a complete global automorphic classification",
   "overlap_scope": "current repo public/private QRH terminology search and specified prior notes; not exhaustive across sibling repositories",
   "sources": [
     {
@@ -343,6 +370,26 @@
       "id": "aoki_fermat_quotients",
       "url": "https://www.researchgate.net/publication/265705571_On_the_zeta_function_of_some_cyclic_quotients_of_Fermat_curves",
       "role": "Author-uploaded primary paper: Aoki (2008), introduction equation (2), genus and classical Jacobi-polynomial zeta function of cyclic Fermat quotients. This classical interpretation is separate from the new source-to-Jacobi Lean bridge."
+    },
+    {
+      "id": "gao_qiu_whittaker_polynomials",
+      "url": "https://arxiv.org/abs/2311.02350v3",
+      "role": "External source theorem: Whittaker dimensions for primitive split simply-connected oasitic covers, Section3 Table6 and (3.5). The all-type h+1 dimension-one screen is a consequence of this formula, not a newly formalized automorphic theorem."
+    },
+    {
+      "id": "gao_wang_wavefront",
+      "url": "https://arxiv.org/abs/2601.15670v1",
+      "role": "External positive-real-Satake wavefront upper bound, with equality in specified cases; not a general equality or moving-character estimate."
+    },
+    {
+      "id": "gao_wang_zou_wavefront",
+      "url": "https://arxiv.org/abs/2604.01585v3",
+      "role": "External classification of wavefront sets by highest derivatives for Kazhdan-Patterson and Savin GL covers; version3,27October2026."
+    },
+    {
+      "id": "covering_bv",
+      "url": "https://arxiv.org/abs/2511.14750v2",
+      "role": "External covering Barbasch-Vogan duality and upper-bound conjecture; proved for specified general-linear covers, not every cover."
     }
   ],
   "cases": [
@@ -381,7 +428,7 @@
       "degree": 7,
       "group": "special GL6; G2",
       "cyclotomic_degree": 6,
-      "status": "Complete sevenfold G2 arithmetic model, phase-free second moment, principal-preserving cubic readout and complete cubic spectrum maintained in Lean. All eight nonzero resonance types split into two formal scaling orbits; global Fourier/Hecke transfer remains open."
+      "status": "Complete sevenfold G2 arithmetic model, phase-free second moment, principal-preserving cubic readout and complete cubic spectrum maintained in Lean. All eight nonzero resonance types split into two formal scaling orbits; global Fourier/Hecke transfer remains open. The full cyclic correlation domain now satisfies constant-eight stability. Supporting signed Jacobi edge algebra is compiled; the universal prime-field edge bound is still a candidate."
     },
     {
       "degree": 8,
@@ -1076,7 +1123,7 @@
         "certificate": "Exact sextic residual factorization into 144*(c+t/2)^2*Q_t(c), with a five-term positive Bernstein certificate for Q on [-7/8,t/2] and separate signed tail treatment.",
         "status": "kernel_checked_sharp_sector_source_bound_and_optimal_constant",
         "not_claimed": [
-          "Unrestricted three-phase stability",
+          "Sharp unrestricted three-phase stability at constant6+3/sqrt(2); the separate constant-eight cyclic theorem is proved",
           "A proved Euclidean orbit-distance formula",
           "Automatic Frobenius-sector membership of all arithmetic inputs",
           "Any global QRH exponent improvement"
@@ -1102,7 +1149,7 @@
         "exact_residual": "sum_i (M-f_i)*((M-1)*f_i-(M-7))^2 equals (M-1) times the envelope slack.",
         "low_region": "For 0<t, t^2=1/2 and M<=1+4*t, (6+3*t)*(7-M) <= (343-sum f_i^3)/7.",
         "status": "kernel_checked_scalar_envelope_and_complete_low_maximum_region",
-        "scope": "Supporting two-moment lemma; unrestricted high-maximum inequality, phase/Fourier consumer and metric identification are not claimed here.",
+        "scope": "The scalar module alone proves the stated two-moment region. The separate uniform cyclic theorem proves constant8 on the full correlation domain; the sharp high-maximum constant, phase/Fourier consumer and metric identification remain separate.",
         "novelty": "The weighted-squares scalar envelope is a supporting classical calculation, not a new research target or QRH gain.",
         "counterexample": {
           "vector": "Two entries 1+sqrt(15), five entries 1-2*sqrt(15)/5.",
@@ -1111,6 +1158,39 @@
           "retained_structure": "Its first cyclic correlation is98/5 instead of0; the original joint phase target is not refuted.",
           "status": "kernel_checked_explicit_false_relaxation_counterexample"
         }
+      },
+      "uniform_stability": {
+        "domain": "Every real y:Fin6->Real, x=(1-sum(y),y0,...,y5), peak m=x0>=every yi, and cyclic correlations at shifts1,2,3 equal0; no positivity assumed for the coordinates.",
+        "bound": "7*(1-sum_i x_i^3) >= 8*(1-m).",
+        "peak": "The full correlation and peak constraints imply2<=7*m and m<=1.",
+        "certificate": "Exact signed integer coefficient identity in80 cyclic monomial orbits with79 columns:38 nonnegative weighted-square columns, one nonnegative Fano correction, and40 signed correlation-ideal columns. The first39 integer weights are nonnegative; the last40 may have either sign.",
+        "compiler": "Twenty-two maintained modules, including16 bounded polynomial expansion blocks, compile the complete certificate and final consumer.",
+        "status": "kernel_checked_complete_uniform_cyclic_constant_eight",
+        "sharper_endpoint": "The sharp sector constant6+3/sqrt(2) is not proved on the full three-phase domain.",
+        "not_claimed": [
+          "A separately compiled Euclidean matrix-distance or Fourier transport corollary",
+          "A new automorphic realization",
+          "A QRH exponent improvement"
+        ],
+        "novelty": "Specific uniform cyclic refinement is a potential originality prospect; priority is not established."
+      },
+      "septic_edge_candidate": {
+        "domain": "Rational primes p congruent1 mod7, order-seven character; not arbitrary prime-power fields.",
+        "candidate": "p*(30-abs(N_p-p-1)/sqrt(p))^3 >= 1512.",
+        "arithmetic_target": "p*abs(1-B*D)^2*abs(B-C)^2*abs(C-D)^2=7*m^2 with a nonzero integer m.",
+        "proved_support": [
+          "The complete signed eight-term beta identity over every commutative ring",
+          "The nonnegative three-variable product inequality27*a*b*c<=(a+b+c)^3"
+        ],
+        "evidence": "Corrected Laurent SOS has zero exact symbolic residual; full integer Jacobi/norm and candidate edge inequalities pass all377 primes p<=20000 with p congruent1 mod7.",
+        "status": "arithmetic_prime_field_theorem_not_formalized; only_supporting_algebra_kernel_checked",
+        "remaining": [
+          "Integer seventh-root coefficient/Galois transport",
+          "Nonzero anti-invariant using prime nonsquareness",
+          "Complex Laurent SOS and complete prime-field assembly",
+          "Primary-literature and portfolio novelty check"
+        ],
+        "qrh_gain": false
       }
     }
   },
@@ -1156,5 +1236,33 @@
       "advantage_to_test": "Rank two with root orders 7/7 and no mixed Gauss product in an individual functional coordinate; global field/conductor and signal remain to be checked.",
       "failure_condition": "The selected observable erases its target phase, or global reflection and conductor costs do not support a useful independent estimate."
     }
-  ]
+  ],
+  "external_classification": {
+    "status": "cited_literature_with_explicit_elementary_specialization_not_a_new_Lean_automorphic_theorem",
+    "domain": "Split simply-connected almost simple local group, primitive quadratic form with Q(short coroot)=1, field containing mu_n, tame unramified exceptional-character setup.",
+    "formula": "dim Wh(theta^(n))=product_i(n-e_i)/order(W), in the source's oasitic range.",
+    "admissible_degrees": {
+      "A_r": "gcd(n,r+1)=1",
+      "B_r": "n odd",
+      "C_r": "n odd",
+      "D_r": "n odd",
+      "G2": "gcd(n,6)=1",
+      "F4": "gcd(n,6)=1",
+      "E6": "gcd(n,6)=1",
+      "E7": "gcd(n,6)=1",
+      "E8": "gcd(n,30)=1"
+    },
+    "dimension_one": "Exactly n=h+1 within that range; smaller admissible positive n occur among the exponents, and the product is strictly increasing above h+1.",
+    "exceptional_degrees": {
+      "F4": 13,
+      "E6": 13,
+      "E7": 19,
+      "E8": 31
+    },
+    "limits": [
+      "Even or mixed-root covers outside the admissible range require separate treatment.",
+      "Whittaker dimension does not identify the global Fourier coefficient or prove any signed prime-row bound.",
+      "No novelty or analytic boundary gain claimed."
+    ]
+  }
 }
