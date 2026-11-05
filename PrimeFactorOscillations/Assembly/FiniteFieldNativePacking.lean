@@ -10,7 +10,7 @@ import PrimeFactorOscillations.Assembly.FiniteFieldNativeFullCapacity
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeFullSparseConflicts
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeHeightCapacity
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeHeightPacking
-import PrimeFactorOscillations.Assembly.FiniteFieldNativeNoncentralRecurrence
+import PrimeFactorOscillations.Assembly.FiniteFieldNativeProfileCapacity
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeSignedFamilies
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeVertexGreedy
 import PrimeFactorOscillations.Assembly.FiniteFieldNativeVertexReservoir
@@ -47,4 +47,7 @@ The complete negative-phase signed cancellation, exact arithmetic obstruction
 criterion and two-phase probability dichotomy on arbitrary prime graphs are included.
 The exact noncentral arithmetic recurrence criterion, full positive mass and
 necessary and sufficient eventual rigidity law are exported.
+The explicit one-bit-per-vertex centrality code and sharp universal capacity
+of mutually independent actual central/noncentral statuses are included,
+with triangle-with-spokes attainment and all small-vertex exceptions.
 -/

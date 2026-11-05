@@ -18135,7 +18135,179 @@ asserted. The multiplicative character and positive-mass mechanisms
 are classical; historical priority of this specific native arithmetic
 classification remains unestablished.
 
+\section{Sharp capacity of independent native centrality statuses}
+\label{sec:native-profile-capacity}
+
+Fix a finite set \(P\) of actual primes, let \(n=|P|\), and let
+\(G\subseteq E(P)\) be a strict graph with \(m=|G|\).
+A Boolean profile \(a\) prescribes centrality of each actual native
+weight, with \(1\) meaning noncentral.
+Write \(\mathbb P_U(a)\) for its reciprocal-prime mass on
+\(\mathcal I_U\), divided by the complete reciprocal-prime band mass.
+The fair independent centrality law means
+\[
+                  \mathbb P_U(a)\longrightarrow 2^{-m}
+                           \quad\text{for every profile }a.
+\]
+This is independence of the Boolean statuses in the limiting law.
+The vertex set stays fixed before the field scale varies.
+
+\begin{theorem}[Sharp universal native centrality capacity]
+\label{thm:native-profile-capacity}
+For
+\[
+ c(n)=
+ \begin{cases}
+  0,&\text{if }n\leq1,\\
+  1,&\text{if }n=2,\\
+  n,&\text{if }n\geq3,
+ \end{cases}
+\]
+every graph on \(P\) with the fair independent centrality law has
+at most \(c(n)\) edges. For every actual \(P\), some graph has
+exactly \(c(n)\) edges and this complete fair law.
+
+For \(n\geq3\), choose the smallest vertex \(p\) and two other
+vertices \(q<r\). The attaining graph is
+\begin{equation}\label{eq:native-triangle-fan}
+             \{(q,r)\}\ \cup\
+                    \{(p,s):s\in P\setminus\{p\}\}.
+\end{equation}
+Every one of its \(2^n\) actual centrality profiles has limiting
+probability \(2^{-n}\), without vertex/gap squareclass independence.
+
+More generally, above a fixed cutoff beyond five and all vertices,
+at most \(2^n\) different profiles on any \(G\subseteq E(P)\) can
+be realized by actual prime fields.
+\end{theorem}
+
+\begin{proof}
+For an odd field prime beyond all vertices, put
+\[
+                         \sigma=\chi_\ell(-1),
+                  \qquad t_p=\chi_\ell(p).
+\]
+All these values are signs. The proved exact endpoint readout gives
+\[
+              \operatorname{trace}_{p,q}(\ell)^2
+                                 =2+2\sigma t_pt_q.
+\]
+For field primes at least five, the common affine weight readout
+identifies centrality with zero trace. The weight on \((p,q)\)
+is therefore noncentral precisely when \(\sigma t_pt_q=1\).
+The original gap factors are fully accounted for in this exact
+endpoint identity.
+
+If \(P\) is nonempty, fix an anchor \(r_0\in P\) and set
+\(u_p=t_pt_{r_0}\). Then
+\[
+                        u_{r_0}=1,\qquad u_pu_q=t_pt_q.
+\]
+Encode the required sign data by one subset \(S\subseteq P\):
+\[
+ \begin{aligned}
+ r_0\in S&\quad\Longleftrightarrow\quad\sigma=1,\\
+ p\in S\quad(p\ne r_0)&\quad\Longleftrightarrow\quad u_p=1.
+ \end{aligned}
+\]
+To decode, set the anchor vertex sign to one, recover the other
+\(u_p\) from membership, recover \(\sigma\) from the anchor bit,
+and assign an edge the noncentral flag when \(\sigma u_pu_q=1\).
+This reproduces every actual status on \(G\).
+The normalization frees exactly the anchor bit for the common phase;
+there is no extra independent phase bit.
+
+There are \(2^n\) possible subsets \(S\), so the decoder image has
+at most \(2^n\) profiles. Every prime-field profile beyond the stated
+cutoff belongs to this same finite image.
+Formally a profile is represented by its subset of noncentral
+edges in \(G\). Uniqueness of the Boolean flag at each actual weight
+identifies every realized subset with its decoded subset.
+This proves the complete realized-profile bound.
+For empty \(P\), the strict graph is empty and the bound is immediate.
+
+Now suppose \(G\) has the fair law.
+Each of its \(2^m\) profiles has positive limiting mass \(2^{-m}\)
+and hence an actual prime-field realizer above every bound.
+Indeed otherwise all summands of that profile's mass would vanish
+in a sufficiently late band, contradicting the positive limit.
+Choose a cutoff beyond all vertices and five.
+All \(2^m\) profiles occur in its realized family, so
+\[
+                              2^m\leq2^n,\qquad m\leq n.
+\]
+Thus the upper bound is connected to the actual probability law
+and actual prime realizers.
+
+For attainment use \eqref{eq:native-triangle-fan}.
+Every spoke is a valid strict edge because \(p\) is the smallest
+vertex. The edge \((q,r)\) is valid and is not a spoke.
+There are therefore \(n-1+1=n\) distinct edges.
+Consider an Eulerian mask \(C\) in this graph.
+Every vertex \(s\notin\{p,q,r\}\) is incident only to its spoke.
+If that spoke belonged to \(C\), the degree of \(s\) in \(C\)
+would be one, contradicting evenness.
+Thus \(C\) lies inside the triangle
+\(\{(p,q),(q,r),(p,r)\}\).
+
+An even-cardinality Eulerian mask in this triangle is empty, by the
+proved small-mask theorem. Hence the entire even Eulerian family
+is \(\{\varnothing\}\) and \(N_{\rm even}(P,G)=1\).
+Every Boolean profile is compatible with the universal native
+centrality law, since its sole constraint is the empty product.
+That maintained actual-weight profile theorem gives
+\[
+          \mathbb P_U(a)\longrightarrow
+                2^{-|G|}N_{\rm even}(P,G)=2^{-n}
+                         \quad\text{for every }a.
+\]
+This proves the complete fair law. For every \(P\) with \(n\geq3\),
+successive finite minima supply \(p<q<r\); the formal construction
+checks their membership, distinctness and all spoke orientations.
+
+With at most one vertex there are no strict edges.
+The empty graph has its unique profile with probability one.
+With two vertices there is at most one strict edge; choose it.
+Its two profiles have limiting probability \(1/2\), by the proved
+small-graph profile law.
+These attain the stated small capacities and complete both the
+universal bound and attainment for every actual prime set.
+\end{proof}
+
+The graph mechanism is classical. The augmented binary incidence
+matrix represents an even-cycle matroid
+\cite{GueninEvenCycleMatroids}; the lift rank formulas appear in
+Zaslavsky's outline \cite{ZaslavskyOtherMatroids},
+sections I.B.3 and II.B.
+Here the explicit physical code and the universal actual-weight
+profile law establish the sharp native probabilistic capacity.
+Historical priority of this application remains unestablished.
+
+The code and realized-profile bound are maintained in
+\texttt{FiniteFieldNativeProfileCode.lean}; the exact fan geometry
+and even-mask exclusion are in \texttt{NativePrimeTriangleFan.lean};
+the full capacity consumer, attaining graphs and all small cases
+are in \texttt{FiniteFieldNativeProfileCapacity.lean}.
+The claim ledger records twenty-nine proof closures and nine
+definition interfaces separately.
+
+The theorem concerns centrality statuses, rather than full signed
+rows or three-valued traces. Empty graphs, isolated vertices and
+prime vertex \(2\) are included. All limits keep \(P\) fixed.
+There is no growing-graph uniformity, effective first realizer,
+integer prime-gap transfer, or RH/QRH exponent gain.
+In particular the capacity depends on \(|P|\), rather than its
+integer gap sizes, and supplies no new bound on \(H_1\).
+
 \begin{thebibliography}{99}
+\bibitem{GueninEvenCycleMatroids}
+B. Guenin, \emph{Matroid}, research overview, section on even-cycle
+and even-cut matroids.
+\url{https://www.math.uwaterloo.ca/~bguenin/matroid.html}.
+\bibitem{ZaslavskyOtherMatroids}
+T. Zaslavsky, \emph{Other Matroids from Graphs (Outline)}, April 2008,
+sections I.B.3 and II.B.
+\url{https://people.math.binghamton.edu/zaslav/Tpapers/omgo.pdf}.
 \bibitem{KarpVaziraniVazirani}
 R. M. Karp, U. V. Vazirani and V. V. Vazirani,
 \emph{An optimal algorithm for on-line bipartite matching},
