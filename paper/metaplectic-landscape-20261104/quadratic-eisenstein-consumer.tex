@@ -1,0 +1,139 @@
+\section{A quadratic Levi with a complete cubic-packet consumer}
+\label{sec:quadratic-eisenstein-consumer}
+
+This is a further source-dependent comparison, not a new analytic
+estimate or a newly formalized automorphic theorem. It uses
+\cite[Propositions 5.9--5.10 and Theorem 5.11]{GaoInverseEis} for
+the double Kazhdan--Patterson cover of \(\mathrm{GL}_3\), with
+\(p=0,q=1\). The inducing theta representation is on its
+\(\mathrm{GL}_2\times\mathrm{GL}_1\) Levi. It is not the
+nongeneric theta representation on \(\mathrm{GL}_3\) itself.
+
+\paragraph{The exceptional datum and character image.}
+Take \(K=\mathbb Q(i)\), so the source hypothesis \(\mu_4\subset K\)
+holds. For the upper-triangular bisector with diagonal zero and
+off-diagonal parameter one, the central torus has coordinates
+\((ta^2,tb^2,t)\). Its cocycle is \((t,u)_2\).
+Use the normalized quadratic Weil cochain \(\gamma_\psi\), with
+\[
+ \gamma_\psi(t)\gamma_\psi(u)
+      =(t,u)_2\gamma_\psi(tu),\qquad
+ \gamma_\psi(a^2)=1.
+\]
+Its adelic rational product formula is the usual global Weil-index
+input; the local convention is as in \cite[Section 2.1]{PrasannaWeil}.
+This input is not formalized here. Define
+\[
+ \chi_0(\zeta,t_1,t_2,t_3)
+    =\epsilon(\zeta)\gamma_\psi(t_3)
+      |t_1/t_2|_{\mathbb A}^{1/4}.
+\]
+The cochain identity proves multiplicativity on the covered centre,
+and the product formulas prove rational descent. Its root values are
+\[
+ (\chi_0)_{\alpha_1}=|\cdot|_{\mathbb A},\qquad
+ (\chi_0)_{\alpha_2}=|\cdot|_{\mathbb A}^{-1/2}.
+\]
+For example the root lifts at \(a^2\) have coordinates
+\((a^2,a^{-2},1)\) and \((1,a^2,a^{-2})\); their Weil factors
+are \(1\). Both Levi central norm exponents vanish.
+Twisting by \(\tau\circ\det_{\mathrm{GL}_2}\) preserves
+exceptionality and multiplies the second root character by \(\tau^2\).
+Consequently every finite odd-order Hecke character \(\eta\)
+is realized on this fixed quadratic field, by choosing \(\tau^2=\eta\).
+The source factorization becomes
+\begin{equation}\label{eq:quadratic-gl3-native}
+ E_{\eta,\psi}(s)=B_\eta(s)/L_K^S(2s+3/2,\eta).
+\end{equation}
+The earlier finite-point window argument applies with its same
+explicit analytic hypotheses and no moving norm assertion.
+
+\paragraph{What cancels in the entire unramified integral.}
+The integration unipotent is abelian of dimension two. Gao's exact
+shell argument leaves the integral region and the joint shell
+\((v(x_1),v(x_2))=(-1,-1)\); mixed negative supports vanish.
+Write \(Q\) for the residue cardinality,
+\(a_v=\chi(h_{\alpha_2}(\varpi^2))\), and \(g\ne0\) for the
+normalized nonprincipal quadratic Gauss integral with the source
+additive convention. The joint shell, including its Levi value, is
+\[
+ Q^{-2s}\left(Q^{-1}a_vg^{-1}\right)
+                 \left(-Q^{-1}\right)g
+       =-a_vQ^{-2s-2}.
+\]
+The integral region contributes \(1\). Since
+\(a_v=Q^{1/2}\eta(v)\), the full result is
+\(1-\eta(v)Q^{-2s-3/2}\), as required by
+\eqref{eq:quadratic-gl3-native}. No Gauss factor has been bounded
+in this calculation: its inverse cancels it with its phase intact.
+The principal Ramanujan factor \(-Q^{-1}\) survives.
+Thus improving the isolated nonprincipal Gauss norm is not an
+independent estimate of this global inverse observable.
+
+\paragraph{A restricted cubic packet with its principal row retained.}
+Let \(\chi\) be primitive cubic of prime conductor \(q\), and put
+\(\eta_j=\chi^j\circ N_{K/\mathbb Q}\), \(j=0,1,2\).
+For \(u=2s+3/2\), define
+\[
+ F_j(u)=L_{\mathbb Q}^S(u,\chi^j),\quad
+ M_j(u)=L_{\mathbb Q}^S(u,\chi^j\chi_{-4}),\quad
+ L_j(u)=F_j(u)M_j(u)=L_K^S(u,\eta_j).
+\]
+Then \(E_j(s)=B_j(s)/L_j(u)\). Put
+\(B_* = B_0B_1B_2\) and
+\(B_{\ne j}=\prod_{k\ne j}B_k\). Product differentiation gives
+the complete signed operator
+\begin{equation}\label{eq:quadratic-full-cubic-packet}
+ \sum_{j=0}^2 B_{\ne j}(s)L_j(u)E_j'(s)-B_*'(s)
+ +2B_*(s)\sum_{j=0}^2\frac{M_j'(u)}{M_j(u)}
+ =-2B_*(s)\sum_{j=0}^2\frac{F_j'(u)}{F_j(u)}.
+\end{equation}
+Indeed each differentiated native identity contributes
+\(B_j'-2B_jL_j'/L_j\); the \(B_j'\) terms sum to \(B_*'\),
+and \(L_j'/L_j=F_j'/F_j+M_j'/M_j\). This is a meromorphic
+identity. It retains the reciprocal \(M_j\), every section derivative,
+the row \(j=0\), and all common-window convolutions.
+It uses a sum of logarithmic readouts, not a product of three
+inverse detectors with all six \(L\)-factor lengths multiplied.
+Each row still has its actual two-factor plain companion, and
+moments of different rows retain their cross terms.
+
+At a zeta zero the residue on the right, in coordinate \(u\), is
+\(-2B_*(s_\rho)(m_\zeta+m_\chi+m_{\chi^2})\).
+It is nonzero if the chosen window multiplier is nonzero.
+The two nonprincipal characters need not share that zero.
+This is a zero-free-packet implication including zeta; a bound for
+the whole packet is not asserted equivalent to RH for zeta alone.
+
+Its physical prime-power expression, up to the displayed window
+multiplier and finite \(S\)-corrections, is the centred sum
+\[
+ 3\sum_{\substack{p^k\le X,\ p\notin S\\\chi(p)^k=1}}
+           \log p-X.
+\]
+All \(k\ge1\) occur. In particular, when \(3\mid k\), every
+\(p\notin S\) occurs, even if \(\chi(p)\ne1\).
+The main term is \(X\), not \(3X\), because just the principal
+Dirichlet row has a pole at \(u=1\).
+
+\paragraph{The full cost and rate comparison.}
+The three native denominators have total degree six and conductor
+product \(2^6q^4\): the principal one has conductor \(4\),
+and each other one has conductor \(4q^2\). A single nonprincipal
+row has degree two, conductor \(4q^2\), and one quadratic-twisted
+rational companion isolates its chosen \(F_j\). The logarithmic
+packet \eqref{eq:quadratic-full-cubic-packet} uses its actual row
+lengths, rather than the length of the inverse-product detector.
+This reduces representation and conductor costs compared with the
+Sp4 cubic packet, but gives no saving on its own.
+
+The affine window map is now \(Y=X^2\) with amplitude \(2X^{3/2}\),
+so a complete spectral rate \(r\) would give boundary \(3/2+2r\).
+The corresponding rates for \(7/8,3/4,1/2\) are respectively
+\(-5/16,-3/8,-1/2\). Every ramified \(q\)-window, archimedean
+norm, reciprocal companion, height and truncation loss must enter
+that rate. No cubic \(3/16\) or prefix-sieve bound transfers to it
+by identity alone. The independent global estimate remains open;
+the certified boundary is \(7/8\). The point of this comparison is
+the complete alternative consumer and the exact surviving signed
+term, not a claim that a local calculation has improved the boundary.

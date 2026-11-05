@@ -2051,7 +2051,14 @@
     "full_inverse_consumer": "a_K * product_(xi in H exceptchi) xi = mu*chi coefficientwise, with a_K the ideal-Mobius norm coefficients and common S-depletion. One product cutoff, no extra coprimality, all unit rows and cross terms retained.",
     "full_log_consumer": "zeta_K^S(u)Epsi'(s)-B'(s)+4B(s)sum_(xi exceptchi)Lxi'/Lxi(u)=-4B(s)Lchi'/Lchi(u), u=4s+2. Shared zeros cancel with multiplicity; principal companion cancels the main term exactly when chi is nonprincipal.",
     "affine_window_transfer": "For u=a*s+b, a>0: P(X;T)=a*X^b*F(X^a;T/a) with full companions, B and both endpoints retained. An independent spectral rate r gives boundary b+a*r. A moving q cost q^A, length q^lambda and normalization q^-nu gives b+a*r+delta*(A+lambda*r-nu), subject to uniform detector and tail hypotheses.",
-    "sp4_spectral_budget": {"scale": "Y=X^4", "amplitude": "4*X^2", "boundary": "2+4*r", "7/8": "r=-9/32", "3/4": "r=-5/16", "1/2": "r=-3/8"},
+    "sp4_spectral_budget": {
+      "scale": "Y=X^4",
+      "amplitude": "4*X^2",
+      "boundary": "2+4*r",
+      "7/8": "r=-9/32",
+      "3/4": "r=-5/16",
+      "1/2": "r=-3/8"
+    },
     "zeta_specialization": "K=Q(mu8), degree4, three fixed quadratic companions; all odd local products reduce exactly to1-T.",
     "cubic_character_specialization": "Primitive cubic chi of prime conductorq: degree12, eleven companions, conductor product2^24*q^8, analytic conductor of order2^24*q^8*(1+|t|)^12. Native prime mask p=1mod8 and chi(p)=1, weighted12logp.",
     "detector_error": "Exact identities only; section selection has no quantified moving norm estimate.",
@@ -2070,6 +2077,36 @@
       "signed_bound": "unproved"
     },
     "actuals": "No finite numerical completion used as analytic input.",
-    "first_nonpositive_domain": "unavailable: no new full analytic bound installed"
+    "first_nonpositive_domain": "unavailable: no new full analytic bound installed",
+    "odd_order_fixed_field_adapter": "For individual odd-order eta, determinant twisting realizes eta=tau^4 on fixedQ(mu8). A cubic Dirichlet target has native degree4, conductor product2^8*q^4 and three companions, rather than the principal-field degree12 example. Keeping all three cubic powers to retain the positive zeta packet restores total native degree12; this individual-row optimization is not itself an RH improvement."
+  },
+  "quadratic_gl3_signed_cubic_consumer_20261105": {
+    "status": "Source-dependent full global comparison and exact signed-shell calculation; no new Lean declaration, originality claim or analytic saving.",
+    "source": "Gao2021 Propositions5.9-5.10, Theorem5.11 and Example5.12; normalized global quadratic Weil cochain and its rational product formula; paper quadratic-eisenstein-consumer.tex.",
+    "source_hypotheses": "Double KP coverGL3 with p0,q1 and trivial BD root-lift parameter; K=Q(i),mu4 subsetK; genuine exceptional Siegel-Levi datum from gamma_psi(t3)*|t1/t2|^(1/4); S contains all bad places. This is Eisenstein induction from theta onGL2, not a generic theta coefficient onGL3.",
+    "family_adapter": "The central torus has common squareclass(t*a^2,t*b^2,t), cocycleHilbert2(t,u). Weil cochain gives the genuine datum. A determinant twist tau multiplies eta by tau^2, so every finite odd-order eta has a root on the fixed quadratic field. Cubic eta_j=chi^j Norm uses tau=chi^(2j) Norm.",
+    "complete_joint_shell": "Integral region1, mixed negative supports0, and joint(-1,-1) contributionQ^(-2s)*(Q^-1*a_v/g)*(-Q^-1)*g=-a_v*Q^(-2s-2), with full g reciprocal retained. Sincea_v=Q^(1/2)*eta(v), full result1-eta(v)*Q^(-2s-3/2). Isolated nonprincipal Gauss norms cancel exactly; principal Ramanujan row survives.",
+    "full_log_consumer": "u=2s+3/2; E_j=B_j/L_j, L_j=F_j*M_j, F_j=L_Q(chi^j), M_j=L_Q(chi^j*chi_-4). WithBstar=productB_j, sum_jB_ne_j*L_j*E_j'-Bstar'+2Bstar*sum_jM_j'/M_j=-2Bstar*sum_jF_j'/F_j. Keep all reciprocal companions, common cutoff and cross terms.",
+    "zero_signal": "At a zeta zero, residue in u is-2Bstar*(m_zeta+m_chi+m_chi2), nonzero when the chosen window is nonzero. The nonprincipal rows need not share the zero. The principal j0 row cannot be omitted.",
+    "physical_prime_power_packet": "3*sum_(p^k<=X,p notinS,chi(p)^k=1)logp-X. All k>=1 retained, including every allowed p when3 dividesk. Only one principal Dirichlet pole gives mainX.",
+    "conductor_and_lengths": "Three native degree2 rows: principal conductor4, other two4*q^2, total degree6 and conductor product2^6*q^4. Single odd-order target has one rational companion. The LOG SUM uses each two-factor row length, not the multiplied length of the inverse product; row cross terms and section-product norms remain.",
+    "full_affine_window_budget": "Y=X^2, amplitude2*X^(3/2), boundary3/2+2*r. Spectral rates for7/8,3/4,1/2 are-5/16,-3/8,-1/2. For movingq~X^delta, adddelta*(A+lambda*r-nu) from actual q^A norm, shifted lengthq^lambda and normalizationq^-nu.",
+    "detector_error": "Exact meromorphic identities only. Finite-point K-finite nonvanishing is conditional on the stated continuous meromorphic Jacquet realization; no moving section norm is bounded.",
+    "uncancelled_main_terms": "Principal j0 row, Bstar', all three reciprocalM_j, local bad-place and archimedean operators, cross-row moments and all higher prime powers.",
+    "low_estimate_provenance": "No independent full signed spectral estimate proved. Gauss cancellation is exact source algebra, not an improved analytic bound. No cubic3/16 or quadratic-prefix norm is transferred.",
+    "parameter_domain": "Primitive cubicchi of any prime conductorq, j0,1,2 and allX>=2; fixed-character implications need no conductor uniformity, while moving-family estimation requires every conductor,height,window and tail cost in that actual range.",
+    "attainable_endpoint": "3/4 if the complete spectral rate is at most-3/8 after all losses;1/2 requires at most-1/2. Neither bound established.",
+    "formalization_boundary": "This comparison adds no compiled result. The public checked algebraic/topological library is unchanged; genuine covers, global Weil-index descent and Gao's analytic theorems are classical source inputs, not Lean-complete.",
+    "benchmark_status": "no_independent_analytic_gain",
+    "old_bound": "7/8",
+    "new_bound": "7/8",
+    "components": {
+      "source_factorization": "classical source theorem applied",
+      "joint_shell": "exact full signed source calculation",
+      "character_and_window_interfaces": "ordinary source-dependent construction",
+      "global_signed_estimate": "unproved"
+    },
+    "actuals": "No finite numerical completion used.",
+    "first_nonpositive_domain": "unavailable: no new analytic bound installed"
   }
 }
