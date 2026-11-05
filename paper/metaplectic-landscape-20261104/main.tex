@@ -2382,6 +2382,60 @@ and the supporting inequality
 \texttt{G2SevenJacobiEdgeAlgebra.lean}; neither is claimed as a new
 classical inequality.
 
+\paragraph{Theorem (complete unit-phase edge certificate).}
+Let \(B,C,D_0\) be arbitrary complex numbers of modulus one and put
+\(A=BD_0\overline C\). Define
+\[
+ \Delta=30-6\Re(B+C+D_0)-12\Re A,\quad
+ (e_1,e_2,e_3)=(|1-BD_0|^2,|B-C|^2,|C-D_0|^2).
+\]
+Then
+\[
+ \Delta\ge2(e_1+e_2+e_3),\qquad
+ \Delta^3\ge216e_1e_2e_3.
+\]
+Consequently, for any real \(p\ge0\), the explicit arithmetic premise
+\(pe_1e_2e_3\ge7\) implies
+\[
+ p\bigl(30-|6\Re(B+C+D_0)+12\Re A|\bigr)^3\ge1512.
+\]
+No angular-sector hypothesis is required.
+\emph{Proof.}
+Set
+\[
+ U_1=\overline{BD_0},\qquad U_2=D_0\overline C,\qquad
+ U_3=C\overline B,
+\]
+and retain the complete six-square packet
+\[
+\begin{aligned}
+ L_1&=2(1+U_1)-U_1(A+B+C+D_0),\\
+ L_2&=2(1+U_2)-(A+D_0+\overline B+\overline C),\\
+ L_3&=2(1+U_3)-(\overline A+\overline B+C+D_0),\\
+ R_1&=(1+U_1)(1-U_2),\\
+ R_2&=(1+U_2)(1-U_3),\\
+ R_3&=(1+U_3)(1-U_1).
+\end{aligned}
+\]
+The exact signed identity is
+\[
+ 4\bigl[\Delta-2(e_1+e_2+e_3)\bigr]
+ =\sum_{j=1}^3|L_j|^2+\sum_{j=1}^3|R_j|^2
+   +12|1-A|^2.
+\]
+Its proof is a polynomial identity modulo
+\(B\overline B=C\overline C=D_0\overline{D_0}=1\);
+the maintained commutative-ring proof has an exact signed ideal
+certificate, and its complex specialization checks every conjugation.
+Nonnegativity gives the first inequality. The three-variable product
+inequality then gives
+\(\Delta^3\ge8(e_1+e_2+e_3)^3\ge216e_1e_2e_3\).
+Negating all three phases also negates \(A\) and the complete trace,
+while preserving every \(e_j\). Applying the same argument at both
+edges and multiplying by \(p\ge0\) proves the last assertion.
+All five declarations, including this absolute-value consumer, are
+maintained in \texttt{G2SevenJacobiUnitCircle.lean}.\hfill\(\square\)
+
 The proposed arithmetic route is to prove an integral nonzero
 anti-invariant \(m\) giving
 \[
@@ -2395,12 +2449,15 @@ discrepancies, this would imply
  |N_p-p-1|\le30\sqrt p-6\sqrt[3]7\,p^{1/6}.
 \]
 This prime-field theorem is a candidate, not a completed formal
-result. Integer coefficient transport, nonvanishing, the complex
-sum-of-squares consumer and the full assembly still need proofs.
+result. Integer coefficient transport, nonvanishing and the actual
+arithmetic product separation still need proofs. The full complex
+sum-of-squares inequality and its two-sided conditional arithmetic
+consumer are now kernel checked in the maintained library.
 An exact diagnostic checked the Jacobi norm identities and proposed
 bound at all \(377\) primes \(p\le20000\) with \(p\equiv1\pmod7\).
-The Laurent polynomial sum-of-squares residual was checked to be
-identically zero. Those checks are falsification evidence only.
+The earlier Laurent residual check has been replaced by the maintained
+universal ring proof and complete complex consumer above. The finite
+prime computations remain falsification evidence only.
 The prime-field restriction is essential: square extension fields
 can reach a Hasse edge. Priority and the relation to existing
 CM/Fermat point-count bounds have not been established. Even a
