@@ -5,6 +5,7 @@
   "installed_local_boundary": "7/8",
   "new_local_boundary": null,
   "new_lean_theorems": [
+    "FiniteRootPower.exists_counting_profile",
     "Metaplectic.G2Seven.Cubic.absolute_period_box",
     "Metaplectic.G2Seven.Cubic.coherentProbe_eq",
     "Metaplectic.G2Seven.Cubic.coherentProjection_hasSum",
@@ -52,6 +53,8 @@
     "Metaplectic.G2Seven.Curve.seventh_power_iff_character",
     "Metaplectic.G2Seven.Curve.seventh_root_fiber",
     "Metaplectic.G2Seven.Curve.source_gauss_frobenius",
+    "Metaplectic.G2Seven.Edge.septic_full_beta_nonzero",
+    "Metaplectic.G2Seven.Edge.septic_prime_norm_not_fixed",
     "Metaplectic.G2Seven.Edge.signed_beta_identity",
     "Metaplectic.G2Seven.Edge.triple_product_bound",
     "Metaplectic.G2Seven.Edge.unit_absolute_gap",
@@ -240,7 +243,7 @@
     "Metaplectic.Sp4Eight.twistClass_fiber_card",
     "Metaplectic.Sp4Eight.unit_coordinate_survives"
   ],
-  "proof_status": "Forty-three maintained kernel-checked modules: local G2 and Sp4 models, complete Jacobi readouts, actual diagonal-curve and full Fermat-septic counting bridges, all-residue Frobenius compression, and the full principal-compensated cubic Fermat observation with its nontrivial joint Abel limit. Actual character fibers, inverse-pair and infinity corrections are proved. Projective geometry, prime-power lifting, rational-prime descent and global automorphic transfer remain separate. No analytic boundary gain. The Paley phase sector has a sharp uniform cubic-source stability theorem, exact positive-polynomial certificate and symbolic noncoherent attainer. The sharp unrestricted three-phase inequality and general arithmetic sector-membership transfer remain open. The complete cyclic correlation problem now has a kernel-checked constant-eight stability inequality, uniformly through the high-maximum range. Source-field Gauss Frobenius and the positive unit normalization now discharge the Paley-sector conditions for p modulo7 equal2 or4 with a Frobenius-invariant primitive additive character; the sharp signed actual Fermat point-count bound is proved. The scalar two-moment region 1<M<=1+2*sqrt(2) is formally controlled at the proposed sharp constant; the proposed sharp high-maximum bound remains open; the global constant-eight cyclic bound is proved. An explicit two-peak vector disproves extension from the first two moments alone and has cyclic correlation98/5, so it does not obstruct the actual phase problem. The full unit-circle Laurent certificate, cubic phase-gap bound and two-sided conditional arithmetic consumer are maintained and kernel checked. Prime-field nonzero anti-invariant and product separation remain open; no global exponent gain.",
+  "proof_status": "Forty-five maintained kernel-checked modules: local G2 and Sp4 models, complete Jacobi readouts, actual diagonal-curve and full Fermat-septic counting bridges, all-residue Frobenius compression, and the full principal-compensated cubic Fermat observation with its nontrivial joint Abel limit. Actual character fibers, inverse-pair and infinity corrections are proved. Projective geometry, prime-power lifting, rational-prime descent and global automorphic transfer remain separate. No analytic boundary gain. The Paley phase sector has a sharp uniform cubic-source stability theorem, exact positive-polynomial certificate and symbolic noncoherent attainer. The sharp unrestricted three-phase inequality and general arithmetic sector-membership transfer remain open. The complete cyclic correlation problem now has a kernel-checked constant-eight stability inequality, uniformly through the high-maximum range. Source-field Gauss Frobenius and the positive unit normalization now discharge the Paley-sector conditions for p modulo7 equal2 or4 with a Frobenius-invariant primitive additive character; the sharp signed actual Fermat point-count bound is proved. The scalar two-moment region 1<M<=1+2*sqrt(2) is formally controlled at the proposed sharp constant; the proposed sharp high-maximum bound remains open; the global constant-eight cyclic bound is proved. An explicit two-peak vector disproves extension from the first two moments alone and has cyclic correlation98/5, so it does not obstruct the actual phase problem. The full unit-circle Laurent certificate, cubic phase-gap bound and two-sided conditional arithmetic consumer are maintained and kernel checked. Prime-field nonzero anti-invariant and product separation remain open; no global exponent gain. Prime-norm septic cyclotomic nonvanishing and the same-orbit complete beta-product nonzero theorem are maintained and kernel checked. Actual Jacobi integer-coefficient transport and integral anti-invariant assembly remain open. A single natural counting profile with exact nonzero-support mass represents all positive power probes for arbitrary cover degree n, over any commutative semiring with decidable equality. This finite counting adapter is not an analytic gain or a novelty claim.",
   "classification_scope": "principal structural mechanisms, all root types in the cited coprime cover range, and selected even/mixed-root cases; not a complete global automorphic classification",
   "overlap_scope": "current repo public/private QRH terminology search and specified prior notes; not exhaustive across sibling repositories",
   "sources": [
@@ -1283,6 +1286,27 @@
       "Metaplectic.G2Seven.Edge.unit_cubic_gap",
       "Metaplectic.G2Seven.Edge.unit_phase_gap",
       "Metaplectic.G2Seven.Edge.unit_sos_identity"
+    ]
+  },
+  "septic_cyclotomic_nonvanishing_20261105": {
+    "owner": "PrimeFactorOscillations/Mathlib/NumberTheory/Metaplectic/G2SevenCyclotomicNonvanishing.lean",
+    "status": "maintained_kernel_checked",
+    "domain": "All rational primes p, primitive seventh roots z and arbitrary v:Fin7->Int. Single-factor theorem requires normSq(T_v(z))=p; full product requires the conjugate norms at z,z^2,z^4 all equal p.",
+    "complete_product": "(T_v(z)-T_v(z^3))*(T_v(z^2)-T_v(z^6))*(T_v(z^4)-T_v(z^5)) is nonzero.",
+    "remaining_arithmetic": "Actual Jacobi simultaneous integer coefficient expansion; integral anti-invariant; quantitative norm separation.",
+    "declarations": [
+      "Metaplectic.G2Seven.Edge.septic_full_beta_nonzero",
+      "Metaplectic.G2Seven.Edge.septic_prime_norm_not_fixed"
+    ]
+  },
+  "finite_root_power_profile_20261105": {
+    "owner": "PrimeFactorOscillations/Mathlib/NumberTheory/Metaplectic/FiniteRootPowerExpansion.lean",
+    "status": "maintained_kernel_checked",
+    "quantifiers": "Every natural n including0; every finite support S; commutative semiring R with decidable equality; f(x)=0 or f(x)=z^j for some j:Fin n.",
+    "conclusion": "One v:Fin n->Nat has total mass exactly card(S filtered by f(x) nonzero) and represents S.sum(f(x)^r) for every positive natural r simultaneously.",
+    "consumer": "Common integer coefficient orbit for actual character-power Jacobi sums after their root-value and power identities are discharged.",
+    "declarations": [
+      "FiniteRootPower.exists_counting_profile"
     ]
   }
 }

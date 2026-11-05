@@ -1,6 +1,7 @@
 """New metaplectic arithmetic-model targets; no automorphic identification is implied."""
 
 METAPLECTIC_THEOREMS = (
+    "FiniteRootPower.exists_counting_profile",
     "Metaplectic.G2Seven.Cubic.absolute_period_box",
     "Metaplectic.G2Seven.Cubic.coherentProbe_eq",
     "Metaplectic.G2Seven.Cubic.coherentProjection_hasSum",
@@ -48,6 +49,8 @@ METAPLECTIC_THEOREMS = (
     "Metaplectic.G2Seven.Curve.seventh_power_iff_character",
     "Metaplectic.G2Seven.Curve.seventh_root_fiber",
     "Metaplectic.G2Seven.Curve.source_gauss_frobenius",
+    "Metaplectic.G2Seven.Edge.septic_full_beta_nonzero",
+    "Metaplectic.G2Seven.Edge.septic_prime_norm_not_fixed",
     "Metaplectic.G2Seven.Edge.signed_beta_identity",
     "Metaplectic.G2Seven.Edge.triple_product_bound",
     "Metaplectic.G2Seven.Edge.unit_absolute_gap",

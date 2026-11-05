@@ -2436,6 +2436,60 @@ edges and multiplying by \(p\ge0\) proves the last assertion.
 All five declarations, including this absolute-value consumer, are
 maintained in \texttt{G2SevenJacobiUnitCircle.lean}.\hfill\(\square\)
 
+\paragraph{A common counting profile for every positive power (proved).}
+A mathematical specialization of the maintained general semiring theorem
+\texttt{FiniteRootPower.exists\_counting\_profile} is the following.
+Let \(n\ge0\), let \(S\) be a finite subset of an arbitrary index set,
+and let a complex-valued function \(f\) take values in
+\(\{0,z^0,\ldots,z^{n-1}\}\). There are natural numbers \(v_j\)
+such that the same vector satisfies
+\[
+ \sum_{j=0}^{n-1}v_j=\#\{x\in S:f(x)\ne0\},\qquad
+ \sum_{x\in S}f(x)^r=\sum_{j=0}^{n-1}v_jz^{jr}
+ \quad\text{for every integer }r\ge1.
+\]
+The case \(n=0\) is included, and no primitive-root or distinctness
+hypothesis is needed. The maintained declaration works over every
+commutative semiring with decidable equality, rather than only
+over the complex numbers.
+
+For a proof, add the elements of \(S\) one at a time. A zero value
+changes neither the nonzero count nor any positive-power sum.
+For a nonzero value choose one of its prescribed power labels and
+increment that coefficient. The same label works for all \(r\ge1\).
+This is a standard finite counting argument. Its role here is to
+preserve one common integer coefficient vector across all character
+powers; it supplies no analytic character-sum estimate. Applying it
+to a Jacobi family requires its actual root-value and power identities.
+
+\paragraph{Cyclotomic nonvanishing (proved).}
+For arbitrary integers \(v_0,\ldots,v_6\), a primitive seventh root
+\(z\), and a rational prime \(p\), write
+\(T_r=\sum_{j=0}^6v_jz^{rj}\).
+If \(|T_1|^2=p\), then \(T_1\ne T_3\). If also
+\(|T_2|^2=|T_4|^2=p\), then the full signed product satisfies
+\[
+ (T_1-T_3)(T_2-T_6)(T_4-T_5)\ne0.
+\]
+Both assertions are maintained and kernel checked in
+\texttt{G2SevenCyclotomicNonvanishing.lean}.
+
+Indeed, the existing primitive-root coefficient theorem says that an
+integer linear combination of all seven powers vanishes precisely
+when all seven coefficients agree. Apply it to \(T_1-T_3\).
+Its zeroth coefficient is zero, so every coefficient difference is
+zero. Multiplication by three permutes the six nonzero residues
+in one cycle. Thus \(v_1=\cdots=v_6\), whence
+\(T_1=v_0-v_1\) is an integer, contradicting \(|T_1|^2=p\).
+Apply the same argument at the primitive roots \(z^2,z^4\);
+their third powers are \(z^6,z^5\), respectively. No individual
+beta factor is discarded or replaced by an unsigned average.
+
+This establishes the nonzero-product step for the exact integer
+coefficient orbit. Instantiating that orbit with the actual Jacobi
+sums and extracting the integral quadratic anti-invariant are
+separate remaining formal obligations.
+
 The proposed arithmetic route is to prove an integral nonzero
 anti-invariant \(m\) giving
 \[
@@ -2449,10 +2503,11 @@ discrepancies, this would imply
  |N_p-p-1|\le30\sqrt p-6\sqrt[3]7\,p^{1/6}.
 \]
 This prime-field theorem is a candidate, not a completed formal
-result. Integer coefficient transport, nonvanishing and the actual
-arithmetic product separation still need proofs. The full complex
-sum-of-squares inequality and its two-sided conditional arithmetic
-consumer are now kernel checked in the maintained library.
+result. Actual simultaneous Jacobi coefficient transport, integral
+anti-invariant extraction and the quantitative arithmetic product
+separation still need proofs. The full complex sum-of-squares
+consumer and the prime-norm cyclotomic nonvanishing theorem are
+kernel checked in their maintained owners.
 An exact diagnostic checked the Jacobi norm identities and proposed
 bound at all \(377\) primes \(p\le20000\) with \(p\equiv1\pmod7\).
 The earlier Laurent residual check has been replaced by the maintained
