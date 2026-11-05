@@ -4156,6 +4156,204 @@ remain open; old and new certified QRH boundary both $7/8$.
 No finite numerical estimate or originality claim is substituted
 for either missing analytic theorem.
 
+\section{Restoring the quartic inverse signal with a torus Weil index}
+\label{sec:quartic-weil-inverse}
+
+The direct fourth moment is not the only quartic observable.
+Let $G_2=g(\chi^2,\psi)/\rho$ in the notation of
+Section~\ref{sec:quartic-even-moment}. The same actual Gauss--Jacobi
+identity, with the quadratic Gauss identity retained, gives
+\[
+ G^2G_2=-\alpha,\qquad G_2^2=1.
+\]
+The first equality is now the maintained theorem
+\texttt{Metaplectic.QuarticEvenMoment.gauss\_square\_corrected}.
+For the parity correction $h(k)=1$ for even $k$ and $h(k)=G_2$ for odd
+$k$, the complete block calculation is
+\[
+ \sum_{k\ge0}a(k)^2h(k)U^k
+   =\frac{1-\alpha U}{1-q^2U^4},
+ \qquad |q^2U^4|<1.
+\]
+The new declarations \texttt{corrected\_block\_identity},
+\texttt{corrected\_blocks\_hasSum} and
+\texttt{actual\_corrected\_blocks\_hasSum} check this statement, including
+both zero residue classes. The formal parity model does not assume that
+a global Weil kernel has already been constructed.
+
+\subsection{The covering cocycle, rather than a fictitious theta coefficient}
+For the quartic $\mathrm{GL}_3$ source, uniqueness of the Whittaker
+model requires the cover parameter $c$ to be odd
+\cite[\S2]{FGGlobal}. In block-compatible coordinates the actual
+torus restriction is, by \cite[Proposition 2.1(v)]{TakedaTensor},
+\[
+ \sigma_c(\lambda(a),\lambda(b))=(a,b)_4^c .
+\]
+Its square is $(a,b)_2$. The normalized quadratic Weil index satisfies
+\[
+ \mu_\psi(ab)=(a,b)_2\mu_\psi(a)\mu_\psi(b),\qquad
+ \mu_\psi(a^2)=1 .
+\]
+See \cite[\S2.1]{PrasannaWeil} for the normalized splitting identity.
+At a good odd place with unramified additive character, the defining
+Gaussian integral reduces to the quadratic residue-field Gauss sum.
+Since $-1$ is a square in $K$, its value on $\varpi^k$ is precisely
+the above even/odd weight, with the compatible additive convention.
+
+This is a torus kernel. It is not a unary theta Fourier coefficient at
+a prime. Nor can it be discarded as an ordinary Hecke character.
+The change from block-compatible local coordinates to the adelic
+cocycle also matters. If $\tau=\sigma\,\delta b$, put
+\[
+ \gamma_\tau(a)=b(\lambda(a))^{-2}\mu_\psi(a).
+\]
+Then
+\[
+ \gamma_\tau(ab)=\tau(\lambda(a),\lambda(b))^2
+                   \gamma_\tau(a)\gamma_\tau(b).
+\]
+Two transported charge-one Whittaker factors acquire $b(\lambda(a))^2$;
+their product with $\gamma_\tau$ is therefore section-independent.
+The cochain is part of the integrand, not an omitted unit phase.
+The compatible local/global cochains are described in
+\cite[\S\S2.1,3.2]{TakedaTensor}. To use the quoted prime-power source
+formula one must match its lifts and additive character in these same
+coordinates. This matching is a global-transfer requirement, not a
+consequence of the finite-field calculation alone.
+
+\subsection{The complete inverse Euler model and its natural region}
+For two conjugate quartic source factors, include the modular contribution
+$q^{-2k}$. Put $\xi=\alpha\eta$ and use the pre-modular Mellin weight
+$\xi(\mathfrak p)q^{2-s}$. The actual block variable is
+$U=\xi(\mathfrak p)q^{-s}$. The corrected local model is
+\[
+ \frac{1-\eta(\mathfrak p)q^{-s}}
+      {1-\alpha(\mathfrak p)^4\eta(\mathfrak p)^4q^{2-4s}}.
+\]
+Thus its complete arithmetic Euler product is
+\begin{equation}\label{eq:quartic-weil-euler}
+ F_\eta^S(s)=\frac{R_\eta^S(s)}{L_K^S(s,\eta)},\qquad
+ R_\eta^S(s)=L_K^S(4s-2,\alpha^4\eta^4),\qquad \Re s>1.
+\end{equation}
+For $\Re s>3/4$ the reference is already Euler-nonzero.
+There is no reflected reference gamma quotient in this region.
+Consequently every target zero there gives an inverse pole, provided
+the actual period matching and a nonzero local observation window
+have been established. A holomorphic additive error then cannot cancel
+that pole. This is a concrete distinction from the direct fourth moment.
+
+A proposed adelic realization integrates the product of the two
+Whittaker functions and the genuine torus kernel against
+$\alpha\eta\,|a|^{s-2}$ on $\mathbb A_K^\times$, with the finite
+$S$-place window retained. It is not automatically an integral on
+$K^\times\backslash\mathbb A_K^\times$. Global generic theta data,
+factorization and compatible lifts must first identify it with
+$B(s)F_\eta^S(s)$. The primitive root pairing
+$\langle\alpha_1,\lambda\rangle=1$ permits root-Fourier localization at
+the bad places; uniform bounds for its norms must be charged whenever
+the characters or heights grow. These global analytic objects have not
+been formalized by the eight finite-field/block declarations.
+
+The physical coefficient is explicitly
+\[
+ a_\eta(\mathfrak n)=
+ \sum_{\substack{\mathfrak d^4\mathfrak b=\mathfrak n\\
+                  (\mathfrak d\mathfrak b,S)=1}}
+ \mu_K(\mathfrak b)\eta(\mathfrak b)
+ \alpha(\mathfrak d)^4\eta(\mathfrak d)^4(\N\mathfrak d)^2.
+\]
+There is no coprimality condition between $\mathfrak b$ and
+$\mathfrak d$: their overlap supplies the $4r+1$ terms.
+For fixed admissible $\eta$ and every $w\in C_c^\infty((1,2))$, the
+independent bound that would deliver this endpoint is
+\begin{equation}\label{eq:quartic-weil-target}
+ \sum_{\substack{\mathfrak n\\X<\N\mathfrak n<2X}}
+       a_\eta(\mathfrak n)w(\N\mathfrak n/X)
+ \ll_{\eta,w,\eps}X^{3/4+\eps}\qquad(X\ge2),
+\end{equation}
+with the smooth-test control needed for Mellin localization.
+It would give holomorphy of the inverse detector beyond $3/4$.
+The unsigned count gives an $X$ envelope instead.
+No estimate \eqref{eq:quartic-weil-target} has been proved here.
+Indeed the fourth-power reference convolution has absolute weight
+$\sum_{\mathfrak d}(\N\mathfrak d)^{2-4\theta}$, convergent for
+$\theta>3/4$; inversion has the same threshold. Merely rewriting the
+M\"obius sum in this form supplies no saving. The potential new input
+is the signed global two-theta/Weil transfer, not that convolution.
+
+\subsection{Restricted classes without cancellation between residues}
+For quadratic $\omega$, set $\eta_j=\eta_0\omega^j$, $j=0,1$.
+The references in \eqref{eq:quartic-weil-euler} are common. Use the
+product $P=F_0F_1$, rather than assuming the linear sum of reciprocal
+$L$-functions retains every pole. The exact identity is
+\[
+ \frac{P}{R^2}=\frac1{L_0L_1}
+ =\prod_{\substack{\mathfrak p\notin S\\\omega(\mathfrak p)=1}}
+          (1-\eta_0(\mathfrak p)(\N\mathfrak p)^{-s})^2
+  \prod_{\substack{\mathfrak p\notin S\\\omega(\mathfrak p)=-1}}
+          (1-\eta_0(\mathfrak p)^2(\N\mathfrak p)^{-2s}).
+\]
+The second product is holomorphic and nonzero for $\Re s>1/2$.
+Thus a single quadratic prime class retains the target pole signal.
+At a shared zero its order is the sum of the two multiplicities,
+so opposite complex residues do not erase it.
+
+This extends algebraically to a character $\omega$ of prime order
+$\ell$. For equal weights, at a prime outside its kernel,
+\[
+ \prod_{j=0}^{\ell-1}(1-\eta_0(\mathfrak p)
+                 \omega(\mathfrak p)^j z)=1-(\eta_0(\mathfrak p)z)^\ell;
+\]
+inside the kernel the product is $(1-\eta_0(\mathfrak p)z)^\ell$.
+The nonkernel Euler correction is therefore nonzero for
+$\Re s>1/\ell$. All individual references $R_{\eta_j}$ remain
+nonzero for $\Re s>3/4$, even when they are not common.
+Hence the product construction is not confined to mod-eight characters.
+
+Equal weights are a changed observable. The native Carmichael weights
+are $m_0=(\ell-1)^2$, $m_j=1$ for $j>0$. Their exact product includes
+the extra principal factor
+\[
+ \prod_j L_j^{-m_j}
+   =L_0^{-\ell(\ell-2)}\left(\prod_jL_j\right)^{-1}.
+\]
+For $\ell=2$ the extra factor disappears; for $\ell=3$ it is $L_0^{-3}$.
+It must not be dropped when consuming a proved native-family criterion.
+All these positive integer products preserve shared-zero multiplicities;
+their use for a given probability family still needs its actual adapter.
+
+The physical product packet is the full Dirichlet convolution
+$a_{\eta_0}*a_{\eta_0\omega}$ (or the corresponding many-factor
+convolution for the chosen weights). Its required joint estimate is
+\[
+ \sum_{\substack{\mathfrak n\\X<\N\mathfrak n<2X}}
+ (a_{\eta_0}*a_{\eta_0\omega})(\mathfrak n)
+ w(\N\mathfrak n/X)
+ \ll_{\eta_0,\omega,w,\eps}X^{3/4+\eps}\quad(X\ge2).
+\]
+The unsigned convolution envelope is $O(X\log(2X))$ for two fixed
+factors, or $O(X(\log(2X))^{M-1})$ for $M$ fixed factors.
+Neither is the required saving. Both divisor supports and all
+cross terms remain, including the ranges where one factor is the unit.
+An estimate on each dyadic factor must charge their multiplied length
+and every growing conductor/window cost.
+A pointwise fourth power at one torus variable is a different
+observable from this product of Mellin transforms.
+
+Alternatively, if $Z_j=BR/L_j$ with a common window, the signed
+logarithmic consumer is exactly
+\[
+ \sum_jm_j\bigl(L_jZ_j'-(BR)'\bigr)
+    =-BR\sum_jm_jL_j'/L_j .
+\]
+Estimating its plain companions separately can recover an $X$ loss;
+the subtraction and the full joint packet are essential.
+Neither this identity nor the class restriction proves the missing
+signed estimate. The earlier two-quartic Fourier work already uses
+the Gauss-square and angular-Hecke inputs. The present torus observable
+must be compared with that full consumer, not counted as fresh
+arithmetic cancellation. The certified boundary remains $7/8$.
+
 \begin{thebibliography}{99}
 \bibitem{McNamara} P. J. McNamara, \emph{The metaplectic
 Casselman--Shalika formula}, arXiv:1103.4653v3,
@@ -4215,6 +4413,14 @@ Rankin--Selberg}, arXiv:2607.07911v2.
 \bibitem{DunnCusp} A. Dunn, \emph{Metaplectic cusp forms and the large
 sieve}, arXiv:2403.13151v2.
 \url{https://arxiv.org/abs/2403.13151v2}.
+\bibitem{TakedaTensor} S. Takeda, \emph{Metaplectic tensor products for
+automorphic representation of $\widetilde{\mathrm{GL}}(r)$},
+Canadian Journal of Mathematics 68 (2016), 179--240.
+\url{https://doi.org/10.4153/CJM-2014-046-2}.
+\bibitem{PrasannaWeil} K. Prasanna, \emph{Arithmetic properties of the
+Shimura--Shintani--Waldspurger correspondence}, with an appendix by
+B. Conrad, Section 2.1.
+\url{https://virtualmath1.stanford.edu/~conrad/papers/prasanna-inv.pdf}.
 \bibitem{FGGlobal} S. Friedberg and D. Ginzburg, \emph{Metaplectic theta
 functions and global integrals}, arXiv:1403.3929v1.
 \url{https://arxiv.org/abs/1403.3929}.
