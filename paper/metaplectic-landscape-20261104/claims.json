@@ -861,6 +861,45 @@
         "Metaplectic.G2Seven.Fermat.prime_field_primary_cubic_edge",
         "Metaplectic.G2Seven.Fermat.prime_field_primary_cubic_edge_fails_two"
       ]
+    },
+    {
+      "id": "G7-EA14",
+      "status": "kernel_checked_nonsquare_integer_norm_and_complete_beta_nonvanishing",
+      "claim": "Every nonsquare integer norm rules out exponent-three invariance of an integral septic value. Three conjugate norm equalities give the full signed beta product nonzero. Prime-norm results remain compatibility corollaries. No finite numerical completion or global QRH gain.",
+      "declarations": [
+        "Metaplectic.G2Seven.Edge.septic_nonsquare_norm_not_fixed",
+        "Metaplectic.G2Seven.Edge.septic_nonsquare_full_beta_nonzero"
+      ]
+    },
+    {
+      "id": "G7-EA15",
+      "status": "kernel_checked_full_cardinality_beta_identity_and_primary_packet",
+      "claim": "Over every finite field q, actual order-seven Jacobi data satisfy beta=q*H. If q=1 mod7, the same counting-and-product profile and full signed third jet give H=m*tau with7|m. The characteristic prime p is separate from q; no nonsquare hypothesis is needed for these identities, and m may vanish over square fields.",
+      "declarations": [
+        "Metaplectic.G2Seven.Edge.Actual.septic_actual_beta_identity_card",
+        "Metaplectic.G2Seven.Edge.Actual.septic_actual_primary_packet_card"
+      ]
+    },
+    {
+      "id": "G7-EA16",
+      "status": "kernel_checked_complete_primary_edge_over_every_nonsquare_field_at_least_three",
+      "claim": "A primitive complex additive character is constructed over every finite field by the nondegenerate trace pairing. For nonsquare q, actual full beta nonvanishing and the primary packet give normSq(H)>=343 and the74088 unit edge. For every nonsquare q>=3, without character hypotheses,74088*rho<=(30*rho-abs(N_q-q-1))^3, rho>0,rho^2=q. Full thirty-term, principal and infinity corrections are retained. The real-root consequence is abs(N_q-q-1)<=30*sqrt(q)-42*q^(1/6). QRH stays7/8; priority is unestablished.",
+      "declarations": [
+        "Metaplectic.CharacterRoots.complex_primitive_additive_exists",
+        "Metaplectic.G2Seven.Edge.Actual.septic_actual_beta_nonzero_nonsquare",
+        "Metaplectic.G2Seven.Edge.Actual.septic_actual_primary_norm_gap_nonsquare",
+        "Metaplectic.G2Seven.Edge.Actual.septic_actual_primary_unit_edge_nonsquare",
+        "Metaplectic.G2Seven.Fermat.nonsquare_field_primary_cubic_edge"
+      ]
+    },
+    {
+      "id": "G7-EA17",
+      "status": "kernel_checked_optimal_uniform_cubic_constant_over_all_nonsquare_fields",
+      "claim": "Every nonsquare finite field, including q=2, satisfies54000*rho<=(30*rho-abs(N_q-q-1))^3. A real constant C works uniformly over exactly this class if and only if C<=54000. Necessity is equality over F_2; sufficiency uses the stronger74088 bound for q>=3. This optimality does not assert that74088 is optimal after excluding q=2. No global QRH gain or priority claim.",
+      "declarations": [
+        "Metaplectic.G2Seven.Fermat.nonsquare_field_uniform_cubic_edge",
+        "Metaplectic.G2Seven.Fermat.nonsquare_field_uniform_cubic_constant_iff"
+      ]
     }
   ],
   "novelty": "Priority for the combined explicit formulas has not been established; source classification and Gauss identities are classical."

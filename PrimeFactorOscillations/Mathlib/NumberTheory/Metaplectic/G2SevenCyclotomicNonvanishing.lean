@@ -10,7 +10,7 @@ import Mathlib.Tactic.NormNum
 import Mathlib.Tactic.Ring
 
 /-!
-# A prime-norm septic cyclotomic integer is not fixed by exponent three
+# A nonsquare-norm septic cyclotomic integer is not fixed by exponent three
 
 The existing primitive-root coefficient relation is consumed directly.
 No positivity restriction is imposed on the integer coefficients.
@@ -23,8 +23,8 @@ set_option maxHeartbeats 8000000
 
 namespace Metaplectic.G2Seven.Edge
 
-theorem septic_prime_norm_not_fixed
-    (p : Nat) (hp : p.Prime) (z : Complex)
+theorem septic_nonsquare_norm_not_fixed
+    (p : Nat) (hp : Not (IsSquare p)) (z : Complex)
     (hz : IsPrimitiveRoot z 7) (v : Fin 7 -> Int)
     (hnorm : Complex.normSq ((Finset.univ : Finset (Fin 7)).sum
       (fun i => (v i : Complex) * z ^ i.val)) = (p : Real)) :
@@ -95,20 +95,74 @@ theorem septic_prime_norm_not_fixed
     exact_mod_cast hnorm
   have hnat := congrArg Int.natAbs hint
   simp only [Int.natAbs_mul, Int.natAbs_natCast] at hnat
-  have hdvd : Dvd.dvd (v 0 - v 1).natAbs p := by
-    apply Exists.intro (v 0 - v 1).natAbs
-    exact hnat.symm
-  cases (Nat.dvd_prime hp).mp hdvd with
-  | inl hone =>
-    rw [hone] at hnat
-    have hp2 := hp.two_le
-    nlinarith
-  | inr hprime =>
-    rw [hprime] at hnat
-    have hp2 := hp.two_le
-    nlinarith
+  apply hp
+  refine Exists.intro (v 0 - v 1).natAbs ?_
+  nlinarith [hnat]
 
 /-- All three signed beta factors are nonzero on the same septic orbit. -/
+theorem septic_nonsquare_full_beta_nonzero
+    (p : Nat) (hp : Not (IsSquare p)) (z : Complex)
+    (hz : IsPrimitiveRoot z 7) (v : Fin 7 -> Int)
+    (hnorm1 : Complex.normSq ((Finset.univ : Finset (Fin 7)).sum
+      (fun i => (v i : Complex) * z ^ i.val)) = (p : Real))
+    (hnorm2 : Complex.normSq ((Finset.univ : Finset (Fin 7)).sum
+      (fun i => (v i : Complex) * (z ^ 2) ^ i.val)) = (p : Real))
+    (hnorm4 : Complex.normSq ((Finset.univ : Finset (Fin 7)).sum
+      (fun i => (v i : Complex) * (z ^ 4) ^ i.val)) = (p : Real)) :
+    Not ((((Finset.univ : Finset (Fin 7)).sum
+          (fun i => (v i : Complex) * z ^ i.val)) -
+        ((Finset.univ : Finset (Fin 7)).sum
+          (fun i => (v i : Complex) * (z ^ 3) ^ i.val))) *
+      (((Finset.univ : Finset (Fin 7)).sum
+          (fun i => (v i : Complex) * (z ^ 2) ^ i.val)) -
+        ((Finset.univ : Finset (Fin 7)).sum
+          (fun i => (v i : Complex) * (z ^ 6) ^ i.val))) *
+      (((Finset.univ : Finset (Fin 7)).sum
+          (fun i => (v i : Complex) * (z ^ 4) ^ i.val)) -
+        ((Finset.univ : Finset (Fin 7)).sum
+          (fun i => (v i : Complex) * (z ^ 5) ^ i.val))) = 0) := by
+  have h1 := septic_nonsquare_norm_not_fixed p hp z hz v hnorm1
+  have h2 := septic_nonsquare_norm_not_fixed p hp (z ^ 2)
+    (hz.pow_of_coprime 2 (by decide)) v hnorm2
+  have h4 := septic_nonsquare_norm_not_fixed p hp (z ^ 4)
+    (hz.pow_of_coprime 4 (by decide)) v hnorm4
+  have hz2 : (z ^ 2) ^ 3 = z ^ 6 := by ring
+  have hz4 : (z ^ 4) ^ 3 = z ^ 5 := by
+    calc
+      (z ^ 4) ^ 3 = z ^ 7 * z ^ 5 := by ring
+      _ = z ^ 5 := by rw [hz.pow_eq_one, one_mul]
+  rw [hz2] at h2
+  rw [hz4] at h4
+  exact mul_ne_zero (mul_ne_zero (sub_ne_zero.mpr h1)
+    (sub_ne_zero.mpr h2)) (sub_ne_zero.mpr h4)
+
+private theorem prime_not_square (p : Nat) (hp : p.Prime) :
+    Not (IsSquare p) := by
+  intro hs
+  cases hs with
+  | intro t ht =>
+    have hdvd : Dvd.dvd t p := Exists.intro t (by nlinarith [ht])
+    cases (Nat.dvd_prime hp).mp hdvd with
+    | inl hone =>
+      rw [hone] at ht
+      have hp2 := hp.two_le
+      nlinarith
+    | inr hprime =>
+      rw [hprime] at ht
+      have hp2 := hp.two_le
+      nlinarith
+
+theorem septic_prime_norm_not_fixed
+    (p : Nat) (hp : p.Prime) (z : Complex)
+    (hz : IsPrimitiveRoot z 7) (v : Fin 7 -> Int)
+    (hnorm : Complex.normSq ((Finset.univ : Finset (Fin 7)).sum
+      (fun i => (v i : Complex) * z ^ i.val)) = (p : Real)) :
+    Not (((Finset.univ : Finset (Fin 7)).sum
+      (fun i => (v i : Complex) * z ^ i.val)) =
+      ((Finset.univ : Finset (Fin 7)).sum
+        (fun i => (v i : Complex) * (z ^ 3) ^ i.val))) := by
+  exact septic_nonsquare_norm_not_fixed p (prime_not_square p hp) z hz v hnorm
+
 theorem septic_full_beta_nonzero
     (p : Nat) (hp : p.Prime) (z : Complex)
     (hz : IsPrimitiveRoot z 7) (v : Fin 7 -> Int)
@@ -130,19 +184,7 @@ theorem septic_full_beta_nonzero
           (fun i => (v i : Complex) * (z ^ 4) ^ i.val)) -
         ((Finset.univ : Finset (Fin 7)).sum
           (fun i => (v i : Complex) * (z ^ 5) ^ i.val))) = 0) := by
-  have h1 := septic_prime_norm_not_fixed p hp z hz v hnorm1
-  have h2 := septic_prime_norm_not_fixed p hp (z ^ 2)
-    (hz.pow_of_coprime 2 (by decide)) v hnorm2
-  have h4 := septic_prime_norm_not_fixed p hp (z ^ 4)
-    (hz.pow_of_coprime 4 (by decide)) v hnorm4
-  have hz2 : (z ^ 2) ^ 3 = z ^ 6 := by ring
-  have hz4 : (z ^ 4) ^ 3 = z ^ 5 := by
-    calc
-      (z ^ 4) ^ 3 = z ^ 7 * z ^ 5 := by ring
-      _ = z ^ 5 := by rw [hz.pow_eq_one, one_mul]
-  rw [hz2] at h2
-  rw [hz4] at h4
-  exact mul_ne_zero (mul_ne_zero (sub_ne_zero.mpr h1)
-    (sub_ne_zero.mpr h2)) (sub_ne_zero.mpr h4)
+  exact septic_nonsquare_full_beta_nonzero p (prime_not_square p hp) z hz v
+    hnorm1 hnorm2 hnorm4
 
 end Metaplectic.G2Seven.Edge

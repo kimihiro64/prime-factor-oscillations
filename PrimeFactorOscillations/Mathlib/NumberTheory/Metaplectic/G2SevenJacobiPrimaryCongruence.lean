@@ -22,10 +22,11 @@ set_option maxHeartbeats 2000000
 
 namespace Metaplectic.G2Seven.Edge.Actual
 
-/-- The complete prime-field packet has the extra primary factor seven. -/
-theorem septic_actual_primary_packet {F : Type*} [Field F] [Fintype F]
-    (p : Nat) [Fact p.Prime] [CharP F p] (hcard : Fintype.card F = p)
-    (hp : p % 7 = 1) (chi : MulChar F Complex) (horder : orderOf chi = 7)
+/-- The complete finite-field packet has the extra primary factor seven. -/
+theorem septic_actual_primary_packet_card {F : Type*} [Field F] [Fintype F]
+    (p : Nat) [Fact p.Prime] [CharP F p]
+    (q : Nat) (hcard : Fintype.card F = q)
+    (hp : q % 7 = 1) (chi : MulChar F Complex) (horder : orderOf chi = 7)
     (psi : AddChar F Complex) (hpsi : psi.IsPrimitive)
     (z : Complex) (hz : IsPrimitiveRoot z 7) :
     Exists fun m : Int => Dvd.dvd (7 : Int) m /\
@@ -52,9 +53,9 @@ theorem septic_actual_primary_packet {F : Type*} [Field F] [Fintype F]
     have hS : Dvd.dvd (7 : Int) (P.derivative.eval 1) :=
       Metaplectic.CyclotomicJet.countingPolynomial_first_moment_divisible
         7 v z hz hv.2.2
-    have hpint : Dvd.dvd (7 : Int) ((p : Int) - 1) := by
-      refine Exists.intro ((p / 7 : Nat) : Int) ?_
-      have ht := Nat.mod_add_div p 7
+    have hpint : Dvd.dvd (7 : Int) ((q : Int) - 1) := by
+      refine Exists.intro ((q / 7 : Nat) : Int) ?_
+      have ht := Nat.mod_add_div q 7
       rw [hp] at ht
       have htt := congrArg (fun a : Nat => (a : Int)) ht
       simp only [Nat.cast_add, Nat.cast_mul, Nat.cast_ofNat, Nat.cast_one] at htt
@@ -81,20 +82,35 @@ theorem septic_actual_primary_packet {F : Type*} [Field F] [Fintype F]
     | intro m hm =>
       refine Exists.intro m (And.intro ?_ hm)
       apply Metaplectic.CyclotomicJet.septic_signed_primary_divisibility
-        z hz P (p : Int) m ?_ hS hpint
-      have hraw := septic_actual_beta_identity p hcard chi horder psi hpsi
+        z hz P (q : Int) m ?_ hS hpint
+      have hraw := septic_actual_beta_identity_card p chi horder psi hpsi
+      rw [hcard] at hraw
       rw [hs1, hs2, hs3, hm] at hraw
       calc
         Polynomial.aeval z
             (Metaplectic.CyclotomicJet.septicBeta P -
-              Polynomial.C ((p : Int) * m) * Metaplectic.CyclotomicJet.septicTau) =
+              Polynomial.C ((q : Int) * m) * Metaplectic.CyclotomicJet.septicTau) =
             (jacobiSum chi chi - jacobiSum (chi ^ 3) (chi ^ 3)) *
                 (jacobiSum (chi ^ 2) (chi ^ 2) - jacobiSum (chi ^ 6) (chi ^ 6)) *
                 (jacobiSum (chi ^ 4) (chi ^ 4) - jacobiSum (chi ^ 5) (chi ^ 5)) -
-              (p : Complex) * ((m : Complex) *
+              (q : Complex) * ((m : Complex) *
                 (z + z ^ 2 + z ^ 4 - z ^ 3 - z ^ 5 - z ^ 6)) := by
           simp [heval, htau, mul_assoc]
         _ = 0 := sub_eq_zero.mpr hraw
+
+/-- The prime-cardinality specialization preserves the earlier public interface. -/
+theorem septic_actual_primary_packet {F : Type*} [Field F] [Fintype F]
+    (p : Nat) [Fact p.Prime] [CharP F p] (hcard : Fintype.card F = p)
+    (hp : p % 7 = 1) (chi : MulChar F Complex) (horder : orderOf chi = 7)
+    (psi : AddChar F Complex) (hpsi : psi.IsPrimitive)
+    (z : Complex) (hz : IsPrimitiveRoot z 7) :
+    Exists fun m : Int => Dvd.dvd (7 : Int) m /\
+      (jacobiSum chi (chi ^ 2) + jacobiSum (chi ^ 3) (chi ^ 3) -
+          jacobiSum chi chi - jacobiSum (chi ^ 2) (chi ^ 2)) -
+        star (jacobiSum chi (chi ^ 2) + jacobiSum (chi ^ 3) (chi ^ 3) -
+          jacobiSum chi chi - jacobiSum (chi ^ 2) (chi ^ 2)) =
+        (m : Complex) * (z + z ^ 2 + z ^ 4 - z ^ 3 - z ^ 5 - z ^ 6) := by
+  exact septic_actual_primary_packet_card p p hcard hp chi horder psi hpsi z hz
 
 /-- Primary divisibility strengthens the nonzero packet norm from seven to 343. -/
 theorem septic_actual_primary_norm_gap {F : Type*} [Field F] [Fintype F]

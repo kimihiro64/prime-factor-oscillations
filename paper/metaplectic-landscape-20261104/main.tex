@@ -2701,10 +2701,10 @@ No angular-sector premise or unresolved arithmetic estimate remains
 in these declarations.
 
 Square extension fields can reach a Hasse edge, so a uniform claim
-over all finite fields is excluded. This does not show that prime
-fields are the maximal valid domain; a nonsquare-cardinality extension
-remains to be proved. Priority and the relation to existing
-CM/Fermat point-count bounds have not been established.
+over all finite fields is excluded. The nonsquare-cardinality extension
+is proved in Section~\ref{sec:nonsquare-septic}, including its small-field
+completion. Priority and the relation to existing CM/Fermat point-count
+bounds have not been established.
 A further global signed consumer is required before this local
 point-count theorem can imply a QRH exponent improvement.
 
@@ -2935,6 +2935,145 @@ and its failure is a separate named Lean theorem.
 Both residue-class branches, the universal character-existence theorem,
 and the exceptional-prime statement are maintained and kernel checked.
 No additional finite computation or analytic hypothesis enters this extension.
+
+\section{The nonsquare-cardinality extension and its exact small-field constant}
+\label{sec:nonsquare-septic}
+
+Write \(q=\#F\), and let \(N_q\) be the full Fermat-septic chart count
+already used above. The characteristic prime and the cardinality \(q\)
+are distinct parameters throughout this section.
+
+\paragraph{Theorem.}
+For every finite field with nonsquare cardinality \(q\ge3\),
+\[
+ 74088\sqrt q\le
+ \bigl(30\sqrt q-|N_q-q-1|\bigr)^3.
+\]
+Consequently
+\[
+ |N_q-q-1|\le30\sqrt q-42q^{1/6}.
+\]
+For every nonsquare cardinality, including \(q=2\), the cubic constant
+\(54000\) is valid. A real constant \(C\) is valid uniformly in
+\[
+ C\sqrt q\le\bigl(30\sqrt q-|N_q-q-1|\bigr)^3
+\]
+over all nonsquare finite fields if and only if \(C\le54000\).
+This last optimality assertion includes the two-element field; it does
+not assert optimality of \(74088\) on the restricted domain \(q\ge3\).
+\paragraph{Proof.}
+First suppose \(q\equiv1\pmod7\). Choose an order-seven complex
+multiplicative character \(\chi\). Such a character exists because the
+unit group is cyclic of order \(q-1\), and its complex character group
+has the same cyclic order. A primitive complex additive character also
+exists: compose a primitive character of the prime field with the field
+trace. The nondegenerate trace pairing proves primitivity, including
+when the trace of \(1\) itself vanishes. Thus neither character is an
+additional hypothesis of the point-count theorem.
+
+Put \(J_r=J(\chi^r,\chi^r)\), and fix a primitive seventh root \(z\).
+The same natural counting profile \(v_0,\ldots,v_6\) satisfies
+\[
+ P(z^r)=J_r,\qquad P(X)=\sum_{j=0}^6v_jX^j,\qquad
+ \sum_jv_j=q-2,\qquad \prod_j(z^j)^{v_j}=1.
+\]
+The last equality follows from the product over the actual common
+support \(F\setminus\{0,1\}\); no principal-row convention or independent
+choice of profiles is being substituted. It implies \(7\mid P'(1)\).
+The usual nontrivial Jacobi norm calculation gives
+\(|J_r|^2=q\) for \(r=1,2,3,4,5,6\).
+
+We need nonvanishing over this larger domain. An integral septic value
+\(P(z)\) fixed by \(z\mapsto z^3\) is a rational integer: this automorphism
+generates the degree-six cyclotomic Galois group, and the value is an
+algebraic integer. Equivalently, the cyclotomic coefficient relation
+forces all six nonconstant coefficients to agree. Its squared complex
+norm would therefore be an integer square. Since \(q\) is nonsquare,
+none of
+\[
+ J_1-J_3,\qquad J_2-J_6,\qquad J_4-J_5
+\]
+vanishes. Here the same argument is applied at \(z,z^2,z^4\), with the
+same profile and the same norm \(q\). Hence the complete product
+\[
+ B=(J_1-J_3)(J_2-J_6)(J_4-J_5)
+\]
+is nonzero.
+
+All the signed Jacobi identities from the prime-field proof are
+identities over an arbitrary finite field. In particular the complete
+eight-term packet \(H\) satisfies
+\[
+ B=qH,\qquad H=m\tau,\qquad m\in\mathbb Z,\qquad
+ \tau=z+z^2+z^4-z^3-z^5-z^6,\qquad \tau^2=-7.
+\]
+The factor here is the cardinality \(q\), not the characteristic.
+To retain the primary congruence, define
+\[
+ \mathcal B_P(X)=(P(X)-P(X^3))(P(X^2)-P(X^6))
+                         (P(X^4)-P(X^5)),
+\]
+and \(T(X)=X+X^2+X^4-X^3-X^5-X^6\).
+The polynomial \(R=\mathcal B_P-qmT\) vanishes at \(z\), so
+\(\Phi_7\) divides \(R\) in \(\mathbb Z[X]\).
+The full third-derivative calculation is
+\[
+ \mathcal B_P'''(1)=-48P'(1)^3,\qquad T'''(1)=-162.
+\]
+The four jets \(\Phi_7(1),\Phi_7'(1),\Phi_7''(1),\Phi_7'''(1)\)
+are \(7,21,70,210\). Leibniz's rule therefore gives \(7\mid R'''(1)\).
+Since \(7\mid P'(1)\) and \(q\equiv1\pmod7\), it follows that \(7\mid m\).
+Write \(m=7k\). Nonvanishing of \(B\) gives \(k\ne0\), and thus
+\[
+ |H|^2=343k^2\ge343.
+\]
+These steps retain the same supported product, the full beta product,
+and every term of the anti-invariant packet.
+
+Set \(\rho=\sqrt q\), \(b=J_1/\rho\), \(c=J_3/\rho\),
+\(d=J_2/\rho\), and \(a=J(\chi,\chi^2)/\rho\).
+All four are units. The Gauss--Jacobi relation gives \(ac=bd\),
+and the exact normalization of \(B=qH\) yields
+\[
+ q\,|1-bd|^2|b-c|^2|c-d|^2=|H|^2\ge343.
+\]
+The complete signed unit-circle certificate already proved above,
+applied to
+\(\Phi=6\Re(b+c+d)+12\Re(a)\), gives
+\[
+ (30-|\Phi|)^3
+ \ge216|1-bd|^2|b-c|^2|c-d|^2.
+\]
+The full thirty-term Fermat readout, with its principal and infinity
+corrections, is \((N_q-q-1)/\rho=\Phi\). Consequently
+\[
+ q(30-|\Phi|)^3\ge216\cdot343=74088.
+\]
+Multiplication by \(\rho>0\), using \(\rho^2=q\), proves the stated
+denominator-free cubic bound. Taking the increasing real cube root
+gives its displayed point-count consequence.
+
+If \(q\not\equiv1\pmod7\), seventh powering is bijective and the exact
+count is \(N_q=q+1\). The cubic expression is then
+\(27000q\sqrt q\), which is at least \(74088\sqrt q\) for \(q\ge3\).
+This also covers characteristic seven without a smoothness assertion.
+
+Every finite field has at least two elements. For \(q\ge3\), the stronger
+constant implies the \(54000\) bound. At \(q=2\), the exact count is
+\(N_2=3\), and the cubic expression equals \(54000\sqrt2\).
+This proves the uniform bound and forces \(C\le54000\) for any uniform
+constant \(C\). Conversely, every \(C\le54000\) follows by multiplication
+by the positive \(\sqrt q\) and transitivity. \hfill\(\square\)
+
+All eleven new declarations, including the exact constant equivalence,
+are maintained in the Lean owners recorded in claims G7-EA14--G7-EA17.
+The real-root display is a mathematical consequence of the compiled
+cubic theorem, rather than a separately compiled fractional-power
+declaration. Square-cardinality counterexamples exclude an all-fields
+claim; they did not exclude this nonsquare extension.
+Priority relative to classical CM and Fermat bounds remains
+unestablished. This is a local arithmetic improvement in domain, and
+the global QRH boundary remains \(7/8\).
 
 \begin{thebibliography}{99}
 \bibitem{QRH} OpenAI, \emph{The Quasi-Riemann Hypothesis: A Zero-Free

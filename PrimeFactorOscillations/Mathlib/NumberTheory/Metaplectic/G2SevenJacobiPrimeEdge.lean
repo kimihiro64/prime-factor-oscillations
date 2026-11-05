@@ -127,7 +127,44 @@ theorem septic_actual_integral_packet {F : Type*} [Field F] [Fintype F]
     (u 1 - u 6 + (v 3 + v 5 + v 6 - v 1 - v 2 - v 4))
     (by simpa only [A, B, eta, pow_one] using hpacket)
 
-/-- The full signed beta product equals the characteristic times the packet. -/
+/-- The full signed beta product equals the field cardinality times the packet. -/
+theorem septic_actual_beta_identity_card {F : Type*} [Field F] [Fintype F]
+    (p : Nat) [Fact p.Prime] [CharP F p]
+    (chi : MulChar F Complex) (horder : orderOf chi = 7)
+    (psi : AddChar F Complex) (hpsi : psi.IsPrimitive) :
+    (jacobiSum chi chi - jacobiSum (chi ^ 3) (chi ^ 3)) *
+        (jacobiSum (chi ^ 2) (chi ^ 2) - star (jacobiSum chi chi)) *
+        (star (jacobiSum (chi ^ 3) (chi ^ 3)) -
+          star (jacobiSum (chi ^ 2) (chi ^ 2))) =
+      (Fintype.card F : Complex) *
+        ((jacobiSum chi (chi ^ 2) + jacobiSum (chi ^ 3) (chi ^ 3) -
+            jacobiSum chi chi - jacobiSum (chi ^ 2) (chi ^ 2)) -
+          star (jacobiSum chi (chi ^ 2) + jacobiSum (chi ^ 3) (chi ^ 3) -
+            jacobiSum chi chi - jacobiSum (chi ^ 2) (chi ^ 2))) := by
+  have hd := septic_jacobi_arithmetic p chi horder
+  have hconj (w : Complex) (hw : Complex.normSq w = (Fintype.card F : Real)) :
+      w * star w = (Fintype.card F : Complex) := by
+    calc
+      w * star w = (Complex.normSq w : Complex) := by
+        simpa only [Complex.star_def] using Complex.mul_conj w
+      _ = (Fintype.card F : Complex) := by rw [hw]; simp
+  have hprod := septic_jacobi_product chi horder psi hpsi
+  have hstarprod := congrArg star hprod
+  simp only [star_mul] at hstarprod
+  have hid := signed_beta_identity
+    (jacobiSum chi (chi ^ 2)) (star (jacobiSum chi (chi ^ 2)))
+    (jacobiSum chi chi) (star (jacobiSum chi chi))
+    (jacobiSum (chi ^ 3) (chi ^ 3))
+    (star (jacobiSum (chi ^ 3) (chi ^ 3)))
+    (jacobiSum (chi ^ 2) (chi ^ 2))
+    (star (jacobiSum (chi ^ 2) (chi ^ 2))) (Fintype.card F : Complex)
+    (hconj (jacobiSum chi chi) hd.1)
+    (hconj (jacobiSum (chi ^ 3) (chi ^ 3)) hd.2.2.1)
+    (hconj (jacobiSum (chi ^ 2) (chi ^ 2)) hd.2.1)
+    hprod (by simpa only [mul_comm] using hstarprod)
+  simpa only [star_sub, star_add] using hid
+
+/-- The prime-cardinality specialization retains the original public signature. -/
 theorem septic_actual_beta_identity {F : Type*} [Field F] [Fintype F]
     (p : Nat) [Fact p.Prime] [CharP F p] (hcard : Fintype.card F = p)
     (chi : MulChar F Complex) (horder : orderOf chi = 7)
@@ -141,29 +178,8 @@ theorem septic_actual_beta_identity {F : Type*} [Field F] [Fintype F]
             jacobiSum chi chi - jacobiSum (chi ^ 2) (chi ^ 2)) -
           star (jacobiSum chi (chi ^ 2) + jacobiSum (chi ^ 3) (chi ^ 3) -
             jacobiSum chi chi - jacobiSum (chi ^ 2) (chi ^ 2))) := by
-  have hd := septic_jacobi_arithmetic p chi horder
-  rw [hcard] at hd
-  have hconj (w : Complex) (hw : Complex.normSq w = (p : Real)) :
-      w * star w = (p : Complex) := by
-    calc
-      w * star w = (Complex.normSq w : Complex) := by
-        simpa only [Complex.star_def] using Complex.mul_conj w
-      _ = (p : Complex) := by rw [hw]; simp
-  have hprod := septic_jacobi_product chi horder psi hpsi
-  have hstarprod := congrArg star hprod
-  simp only [star_mul] at hstarprod
-  have hid := signed_beta_identity
-    (jacobiSum chi (chi ^ 2)) (star (jacobiSum chi (chi ^ 2)))
-    (jacobiSum chi chi) (star (jacobiSum chi chi))
-    (jacobiSum (chi ^ 3) (chi ^ 3))
-    (star (jacobiSum (chi ^ 3) (chi ^ 3)))
-    (jacobiSum (chi ^ 2) (chi ^ 2))
-    (star (jacobiSum (chi ^ 2) (chi ^ 2))) (p : Complex)
-    (hconj (jacobiSum chi chi) hd.1)
-    (hconj (jacobiSum (chi ^ 3) (chi ^ 3)) hd.2.2.1)
-    (hconj (jacobiSum (chi ^ 2) (chi ^ 2)) hd.2.1)
-    hprod (by simpa only [mul_comm] using hstarprod)
-  simpa only [star_sub, star_add] using hid
+  have h := septic_actual_beta_identity_card p chi horder psi hpsi
+  simpa only [hcard] using h
 
 /-- Prime-field arithmetic forces a nonzero integral quadratic packet. -/
 theorem septic_actual_packet_norm_gap {F : Type*} [Field F] [Fintype F]
