@@ -312,4 +312,10 @@ METAPLECTIC_THEOREMS = (
     "PrimeFactorOscillations.CarmichaelWeightedSignal.powerProbe_nonreal_zero_not_analytic",
     "PrimeFactorOscillations.CarmichaelWeightedSignal.real_packet_power_nonreal_zero_not_analytic",
     "PrimeFactorOscillations.CarmichaelWeightedSignal.real_packet_scaled_residue",
+    "PrimeFactorOscillations.GaussianBandlimitedTypeI.affine_sum_zero",
+    "PrimeFactorOscillations.GaussianBandlimitedTypeI.character_coset_sum_zero",
+    "PrimeFactorOscillations.GaussianBandlimitedTypeI.scaled_coset_sum_zero",
+    "PrimeFactorOscillations.GaussianBandlimitedTypeI.typeI_zero",
+    "PrimeFactorOscillations.GaussianBandlimitedTypeI.wavelet_bandlimited",
+    "PrimeFactorOscillations.GaussianBandlimitedTypeI.wavelet_typeI_zero",
 )

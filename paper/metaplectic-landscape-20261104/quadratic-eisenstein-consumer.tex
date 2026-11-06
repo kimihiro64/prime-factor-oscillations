@@ -296,3 +296,103 @@ the unchanged cubic consumer needs a full low error at most
 The theorem proved here supplies signal preservation only. No
 independent arithmetic saving or improved QRH boundary is asserted;
 the certified boundary remains \(7/8\).
+
+\subsection{An exact band-limited Type I estimate}
+\label{sec:bandlimited-type-i}
+
+A different window class removes the principal Type I block exactly.
+Here \emph{Gaussian} refers to the lattice \(\mathbb Z[i]\).
+An exponential Gaussian test function is not band-limited.
+
+Let \(g\) be a complex Schwartz function on \(\mathbb C\), with
+\(\widehat g(0)=0\) and \(\widehat g(\xi)=0\) for \(|\xi|\ge1\).
+For every real \(q>0\), \(X>0\), \(q^2\le X\), and \(r\in\mathbb C\),
+\begin{equation}\label{eq:bandlimited-coset-zero}
+ \sum_{n\in\mathbb Z^2}
+   g\!\left(\frac{qn+r}{\sqrt X}\right)=0.
+\end{equation}
+The sum is absolutely convergent. Identifying \(n=n_1+in_2\),
+affine Poisson summation gives
+\[
+ \frac{X}{q^2}\sum_{k\in\mathbb Z^2}
+   e^{2\pi i\, k\cdot r/q}\,
+   \widehat g\!\left(\frac{\sqrt X}{q}k\right).
+\]
+The zero frequency vanishes by hypothesis. Every other frequency has
+norm at least \(\sqrt X/q\ge1\), and vanishes by support.
+Every shift phase remains in this calculation.
+For an integer \(q\ge1\), the complete combination of all \(q^2\)
+cosets with weights \(\chi(r_1^2+r_2^2)\) therefore also vanishes,
+for any Dirichlet character modulo \(q\). The theorem includes
+\(q=1,2\) and composite moduli.
+
+Suppose \(g(z)=V(|z|^2)\) and \(V(0)=0\). For nonzero ideals and
+a nonzero ideal \(H\), write
+\[
+ S_H(V;X)=\sum_{\substack{C\ne0\\(C,H)=1}}V(N(C)/X).
+\]
+The four-unit reindexing and complete divisor mask give
+\[
+ S_H(V;X)=\sum_{E\mid H}\mu(E)
+          \sum_{C\ne0}V\bigl(N(C)/(X/N(E))\bigr).
+\]
+Hence \(S_H(V;X)=0\) whenever \(N(H)\le X\). For any finite sets
+\(A,B\) of nonzero ideals, the entire signed block satisfies
+\begin{equation}\label{eq:bandlimited-type-i-zero}
+ \sum_{a\in A}\sum_{b\in B}\mu(a)\mu(b)
+       S_H\!\left(V;\frac{D}{N(a)N(b)}\right)=0
+\end{equation}
+if \(D>0\) and \(N(H)N(a)N(b)\le D\) for every retained pair.
+All divisor terms, including ramified and repeated factors, remain.
+No norm estimate is applied to this main block.
+
+The existing three-scale wavelet supplies both origin conditions.
+If \(f(z)=W(|z|^2)\) and \(\widehat f(\xi)=0\) for \(|\xi|\ge1/2\),
+then \(g=\operatorname{wavelet}(f)\) has Fourier support inside the
+unit disk, \(g(0)=\widehat g(0)=0\), and
+\(V=\operatorname{window}(W)\). The dilation identity
+\[
+ \widehat{f(\sqrt a\,\cdot)}(\xi)
+       =a^{-1}\widehat f(\xi/\sqrt a)
+\]
+proves the support statement for \(a=2,4\).
+The maintained owner is
+\texttt{Assembly/DetectorPackets/GaussianBandlimitedTypeI.lean},
+including \texttt{wavelet\_typeI\_zero} and
+\texttt{character\_coset\_sum\_zero}.
+
+\paragraph{Its complete consumer and remaining corrections.}
+The earlier generic estimate was
+\[
+ |T_I-\mathrm{main}_I|
+       \le (81/4)C_f\,\tau(H)\,UV.
+\]
+On the new window class the entire block is zero under
+\(N(H)UV\le D\). Fixed masks thus permit \(U,V\) of order
+\(\sqrt D\), rather than imposing \(UV\le D^{3/4}\) merely to
+fit a \(D^{3/4}\) allowance. This is a component estimate.
+
+Finite support remains explicit. If \(L_{\le Y}\) is the low-low
+block in a finite ideal prefix, the theorem concerns its full
+cofactor counterpart \(L_\infty\). Set
+\(L_{\rm out}=L_\infty-L_{\le Y}\). After the required reindexing,
+the two-cutoff identity retains
+\[
+ P_{\le Y}=E_U+E_V-L_{\le Y}+H_{\le Y}
+          =E_U+E_V+H_{\le Y}+L_{\rm out},
+ \qquad L_\infty=0.
+\]
+The outside correction has a plus sign. A total-ideal coprimality
+restriction also restricts \(a,b\); a cofactor-only mask cannot
+replace it. The endpoint, outside-tail and high-high bounds, their
+energy cross terms, and the twisted-ideal adapter remain separate.
+Removing the physical origin from the character coset sum also
+uses \(g(0)=0\).
+
+The wavelet multiplier is nonzero throughout the critical strip.
+Applying this window class to zero exclusion additionally requires
+a nonzero base Mellin response at the hypothetical zero; Fourier
+support alone does not establish that condition. This section
+proves component vanishing, not a completed band-limited RH
+criterion. Novelty priority is unestablished. The certified
+boundary remains \(7/8\).

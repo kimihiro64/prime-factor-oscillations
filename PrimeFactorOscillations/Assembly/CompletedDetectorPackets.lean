@@ -6,6 +6,7 @@ Authors: Prime Factor Oscillations contributors
 
 import PrimeFactorOscillations.Assembly.DetectorPackets.Collection01
 import PrimeFactorOscillations.Assembly.DetectorPackets.Collection02
+import PrimeFactorOscillations.Assembly.DetectorPackets.GaussianBandlimitedTypeI
 import PrimeFactorOscillations.Assembly.DetectorPackets.RamifiedGramComparison
 import PrimeFactorOscillations.Assembly.PrimeGapClosedInput
 import PrimeFactorOscillations.Helpers.LocalRankTilt
