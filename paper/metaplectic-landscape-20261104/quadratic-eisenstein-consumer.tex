@@ -1607,6 +1607,169 @@ multiplicity bound. The certified zero-free boundary remains \(7/8\).
 The limited primary-literature comparison does not establish publication
 priority for this coefficient-region theorem.
 
+\subsection{Sharp fifth-multiplicity stability}
+\label{sec:fifth-multiplicity-stability}
+
+For the same finite reflected spectra and common-weak set \(U\), define
+\[
+ R_5=\sum_{\substack{\rho\in U\\m_\rho\ge5}}\frac1{\gamma_\rho^2},
+ \qquad \Delta=C-39P-Q.
+\]
+Every sum is over the displayed finite support. The quantity \(R_5\)
+counts each zero of order at least five once, with inverse-square-height
+weight.
+
+\paragraph{Theorem (optimal fifth-tail coefficient).}
+For real \(c\), the inequality
+\[
+ 39P+Q+cR_5\le C
+\]
+holds for every finite reflected positive-natural-multiplicity spectrum
+in \([1/8,7/8]\) if and only if \(c\le4\). In particular,
+\begin{equation}\label{eq:fifth-tail-stability}
+ \boxed{\qquad \Delta\ge4R_5.\qquad}
+\end{equation}
+Equality in the preceding joint support bound, \(\Delta=0\), forces
+every common-weak multiplicity to be at most four.
+
+\paragraph{Proof.}
+Use the exact charged weight \(F_i\) of
+Section~\ref{sec:multiplicity-support-region}, retaining both half
+charges. At a right-hand point the atom itself is not common-weak, and
+\(D_i\le w_i\); hence, in addition to \(F_i\ge u_i\), we have
+\[
+ F_i\ge w_i-\frac12D_i\ge\frac12w_i.
+\]
+If a common-weak source \(i\) has \(m_i\ge5\), its quadratic reference
+has integer multiplicity \(m_j\) satisfying \(5\le m_i\le2m_j\).
+Thus \(m_j\ge3\), and its height is \(\gamma_i/2\), giving
+\[
+ F_j\ge\frac32\,\gamma_j^{-2}=6u_i.
+\]
+For every other common-weak source the existing bound \(F_j\ge4u_i\)
+still applies. Consequently the complete quadratic image satisfies
+\[
+ \sum_{j\in q_2(U)}F_j\ge4P+2R_5.
+\]
+The complete quartic image retains its previous bound \(16P\).
+The two images are disjoint and strictly right of \(1/2\), and their
+reflected copies are disjoint from them. Nonnegativity and symmetry
+therefore give
+\[
+ A-E_U-Q=\sum_{i\in S}F_i
+ \ge2(4P+2R_5+16P)=40P+4R_5.
+\]
+Substitution of \(A=C+P+E_U\) proves
+\eqref{eq:fifth-tail-stability}. This is a joint signed budget:
+the quadratic gain is inserted before the complete reflection sum,
+with both compensation charges present.
+
+Every unit weight is strictly positive. Therefore \(R_5=0\) if and
+only if every atom in \(U\) has multiplicity at most four.
+Together with \(\Delta\ge4R_5\) and \(R_5\ge0\), this proves the
+equality-rigidity assertion.
+
+To prove optimality, fix any \(H>0\) and take the following seventeen
+points. Each pair in a table row has the indicated common height and
+multiplicity.
+\[
+ \begin{array}{c|c|c}
+ \text{real parts}&\text{height}&\text{multiplicity}\\ \hline
+ 1/2&H&5\\
+ 1/4,\;3/4&H/2&3\\
+ 1/8,\;7/8&H/4&2\\
+ 3/8,\;5/8&H/4&2\\
+ 3/16,\;13/16&H/8&1\\
+ 7/16,\;9/16&H/8&1\\
+ 7/32,\;25/32&H/16&1\\
+ 5/16,\;11/16&H/8&1\\
+ 5/32,\;27/32&H/16&1
+ \end{array}
+\]
+Reflection fixes the center and exchanges the eight pairs. All points
+are distinct and belong to the required closed strip. To check every
+reference, let \(a_i=64\Re\rho_i\) and
+\(b_i=H/\Im\rho_i\). The complete quadratic real-coordinate ownership
+condition is
+\[
+ 2a_j=a_i+64,
+\]
+and the quartic condition is \(4a_j=a_i+192\).
+Every matching pair also satisfies \(b_j=2b_i\), respectively
+\(b_j=4b_i\); thus these are exact point identities, not merely
+real-coordinate matches. All other references are absent.
+
+The quadratic references of the four common-weak points are
+\[
+ \begin{aligned}
+ (1/2,H)&\longmapsto(3/4,H/2),&
+ (1/4,H/2)&\longmapsto(5/8,H/4),\\
+ (1/8,H/4)&\longmapsto(9/16,H/8),&
+ (3/8,H/4)&\longmapsto(11/16,H/8).
+ \end{aligned}
+\]
+Here a displayed pair records real part and height.
+The four additional right-hand quadratic references are
+\[
+ \begin{aligned}
+ (3/4,H/2)&\longmapsto(7/8,H/4),&
+ (5/8,H/4)&\longmapsto(13/16,H/8),\\
+ (9/16,H/8)&\longmapsto(25/32,H/16),&
+ (11/16,H/8)&\longmapsto(27/32,H/16).
+ \end{aligned}
+\]
+The only quartic references are those of the four common-weak points,
+with targets
+\[
+ (7/8,H/4),\quad (13/16,H/8),\quad
+ (25/32,H/16),\quad (27/32,H/16),
+\]
+in the same source order. These complete rows show that \(U\) consists
+exactly of \((1/2,H),(1/4,H/2),(1/8,H/4),(3/8,H/4)\).
+Summing their actual orders and the full complementary carrier gives
+\[
+ P=Q=\frac{37}{H^2},\qquad R_5=\frac1{H^2},\qquad
+ W=\frac{81}{H^2},\qquad A=\frac{1565}{H^2},\qquad
+ C=\frac{1484}{H^2}.
+\]
+Thus \(\Delta=4/H^2=4R_5\), with \(R_5>0\). Any universal coefficient
+must satisfy \(c\le4\). Conversely every \(c\le4\) follows from
+\eqref{eq:fifth-tail-stability} and \(R_5\ge0\), including negative \(c\).
+
+Finally use the full atomic readout
+\(R(s)=-\sum_{\rho\in S}m_\rho/(s-\rho)\).
+Its complete compensated residues, retaining all the displayed
+quadratic collisions, are nonzero for every real \(d>1\).
+The scaled local limits and the strict projection identity identify
+the same carrier with the actual quadratic-quartic readout union.
+The equality witness therefore preserves the full detector.
+\hfill\textit{QED.}
+
+For actual zeta windows the existing unconditional strip and exact
+order-transfer theorems give the same bound without RH:
+\[
+ \sum_{\substack{\rho\in U_T\\m_\rho\ge5}}\gamma_\rho^{-2}
+ \le\frac14\left(
+       C_T-39\sum_{\rho\in U_T}\gamma_\rho^{-2}
+          -\sum_{\substack{\rho\in U_T\\m_\rho\ge2}}\gamma_\rho^{-2}
+           \right).
+\]
+Exact joint equality forces every common-weak zeta order in the window
+to be at most four. The formal readout version retains the analytic
+regular part and both complete local-limit hypotheses.
+The previous \(11/12\) carrier bound continues to apply; this stability
+estimate strengthens the multiplicity-support component.
+
+The exact universal theorem is
+\texttt{universal\_fifth\_support\_coefficient\_iff}.
+The actual-zeta statements are
+\texttt{zeta\_fifth\_tail\_bound} and
+\texttt{zeta\_weak\_order\_le\_four\_of\_joint\_equality}.
+The finite-model optimality statement asserts no zeta realization of
+the seventeen points. A pointwise ceiling for actual zeta zeros still
+requires the stated carrier-gap condition; no independent small-gap
+estimate or improved zero-free boundary is supplied.
+
 \subsection{Exact Mellin action on general windows}
 \label{sec:general-window-mellin}
 

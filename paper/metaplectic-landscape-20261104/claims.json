@@ -4,6 +4,93 @@
   "scope": "Complete G2 sevenfold/twelvefold and Sp4 eightfold arithmetic models, local energies, central compensation, cubic readout and complete cubic spectrum, and the complete quartic fourth-moment block model; no global QRH claim.",
   "claims": [
     {
+      "id": "F5-C",
+      "status": "kernel_checked_fifth_multiplicity_stability",
+      "claim": "For every finite reflected spectrum in[1/8,7/8], the full joint gap satisfies C-39P-Q>=4R5. Every compensation charge and reference image is retained. A zero fifth tail is equivalent to all common-weak orders<=4; exact joint equality forces that ceiling.",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.ReflectedSpectrum.fifthUnitAt_nonneg",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.ReflectedSpectrum.weakFifthUnitMass_nonneg",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.ReflectedSpectrum.multiplicitySupportWeight_right_half_mass",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.ReflectedSpectrum.reference_two_fifth_weight_le",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.ReflectedSpectrum.fifth_support_budget",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.ReflectedSpectrum.carrier_fifth_support_bound",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.ReflectedSpectrum.weakFifthUnitMass_eq_zero_iff",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.ReflectedSpectrum.weak_order_le_four_of_joint_equality"
+      ]
+    },
+    {
+      "id": "F5-S",
+      "status": "kernel_checked_fifth_multiplicity_stability",
+      "claim": "A complete17point reflected spectrum is valid for every H>0. Pure integer-coordinate and height ownership certificates classify every quadratic and quartic target, including all collisions.",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.seventeenHeightDenominator_pos",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.seventeenTwoTarget_iff",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.seventeenFourTarget_iff",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.seventeenTwoTarget_height",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.seventeenFourTarget_height",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.seventeenPoint_injective",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.seventeenPoint_power_re",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.seventeenPoint_power_im"
+      ]
+    },
+    {
+      "id": "F5-R",
+      "status": "kernel_checked_fifth_multiplicity_stability",
+      "claim": "The actual atomic orders of every quadratic/quartic reference are evaluated. The common-weak support is exactly indices0,1,3,5. Full nonzero complex residues for every d>1, actual local limits and the sign-projection equivalence are preserved.",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.seventeenPoint_two_of_target",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.seventeenPoint_four_of_target",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.seventeenPoint_two_absent",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.seventeenPoint_four_absent",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.seventeenSpectrum_two_order",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.seventeenSpectrum_four_order",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.seventeenSpectrum_weak_iff",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.seventeenSpectrum_weakIndices",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.seventeenSpectrum_den_ne",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.seventeenSpectrum_full_residue_ne_zero",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.seventeenSpectrum_readout_scaled_limit",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.seventeenSpectrum_projection_negative_iff"
+      ]
+    },
+    {
+      "id": "F5-M",
+      "status": "kernel_checked_fifth_multiplicity_stability",
+      "claim": "Uniformly for H>0, the17point spectrum has A=1565/H^2,W=81/H^2,C=1484/H^2,P=Q=37/H^2,R5=1/H^2 and C-39P-Q=4R5, with positive R5.",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.seventeenSpectrum_totalMass",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.seventeenSpectrum_weakMass",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.seventeenSpectrum_weakUnitMass",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.seventeenSpectrum_weakRepeatedUnitMass",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.seventeenSpectrum_weakFifthUnitMass",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.seventeenSpectrum_carrierMass",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.seventeenSpectrum_totalMass_pos",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.seventeenSpectrum_weakFifthUnitMass_pos",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.seventeenSpectrum_fifth_gap"
+      ]
+    },
+    {
+      "id": "F5-Z",
+      "status": "kernel_checked_fifth_multiplicity_stability",
+      "claim": "For every actual zeta height window, without RH, the common-weak fifth-order unit tail is at most one quarter of the full joint carrier gap. Exact joint equality forces all common-weak zero orders<=4. Full compensated readout hypotheses remain explicit.",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.zetaSpectrum_weakFifthUnitMass",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.zeta_carrier_fifth_support_bound",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.zeta_fifth_tail_bound",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.zeta_weakFifth_zero_iff",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.zeta_weak_order_le_four_of_joint_equality",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.zeta_readout_carrier_fifth_bound"
+      ]
+    },
+    {
+      "id": "F5-O",
+      "status": "kernel_checked_fifth_multiplicity_stability",
+      "claim": "The universal coefficient c in C>=39P+Q+cR5 is admissible iff c<=4. The exact17point full-readout model realizes sharpness for every H>0. This is finite-model optimality, not a new zeta zero-free boundary or zeta realization claim.",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.universal_fifth_support_coefficient_iff",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.seventeenSpectrum_joint_readout_carrier"
+      ]
+    },
+    {
       "id": "MS-W",
       "status": "kernel_checked_multiplicity_support",
       "claim": "Nonnegative real reflection-invariant charged weights retain both half compensation charges, including reflection fixed points; repeated-unit and support-cost comparisons are exact.",
