@@ -4,6 +4,143 @@
   "scope": "Complete G2 sevenfold/twelvefold and Sp4 eightfold arithmetic models, local energies, central compensation, cubic readout and complete cubic spectrum, and the complete quartic fourth-moment block model; no global QRH claim.",
   "claims": [
     {
+      "id": "DY-W1",
+      "status": "kernel_checked_free_dyadic_word_coding",
+      "claim": "All finite words have distinct real coordinates in[1/7,3/7], including different lengths; the finite support is exactly length<=N and score<=2*length.",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.wordReal_bounds",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.wordReal_false_bounds",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.wordReal_true_bounds",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.wordReal_injective",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.wordScore_le_twice_length",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.mem_wordSupport",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.wordScore_le_of_mem"
+      ]
+    },
+    {
+      "id": "DY-W2",
+      "status": "kernel_checked_natural_tree_masses",
+      "claim": "The finite tree has positive natural multiplicities, exact parent/child balances and mass rootMass*2^score. Its full word sum satisfies T_(N+1)=1+6*T_N and5*T_N+1=6^(N+1).",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.wordHeight_pos",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.wordMultiplicity_pos",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.rootMass_pos",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.wordMultiplicity_scale",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.wordMass_eq",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.wordHeight_false",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.wordHeight_true",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.wordMultiplicity_false",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.wordMultiplicity_true",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.wordWeight_nil",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.wordWeight_false",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.wordWeight_true",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.treeWeight_zero",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.treeWeight_succ",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.treeWeight_lower",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.treeWeight_pos",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.five_treeWeight_add_one"
+      ]
+    },
+    {
+      "id": "DY-P1",
+      "status": "kernel_checked_injective_reflected_tree_geometry",
+      "claim": "The two point rails are globally injective, remain in[1/7,6/7], and satisfy both left-child power references and the nested right-child quadratic collision.",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.wordPoint_im",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.wordPoint_bounds",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.wordPoint_injective",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.wordPoint_reflection",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.wordPoint_left_two",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.wordPoint_left_four",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.wordPoint_right_false_two"
+      ]
+    },
+    {
+      "id": "DY-F1",
+      "status": "kernel_checked_complete_finite_atomic_references",
+      "claim": "Finite reflected spectra retain positive natural multiplicities and exact atomic reference orders; weak rows force reference existence and mass transport without an estimated carrier bound in the data.",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.ReflectedSpectrum.mass_nonneg",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.ReflectedSpectrum.mass_pos",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.ReflectedSpectrum.mirror_injective",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.ReflectedSpectrum.mass_mirror",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.ReflectedSpectrum.reference_exists",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.ReflectedSpectrum.point_referenceIndex",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.ReflectedSpectrum.rowOrder_referenceIndex",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.ReflectedSpectrum.referenceIndex_injOn",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.ReflectedSpectrum.mass_le_reference"
+      ]
+    },
+    {
+      "id": "DY-F2",
+      "status": "kernel_checked_universal_finite_eleven_twelfths_bound",
+      "claim": "For every finite reflected positive-natural-multiplicity spectrum in[1/8,7/8] with positive heights, common weak mass is at most totalMass/12 and carrierMass is at least11*totalMass/12. Both reference images and their reflected masses are retained.",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.ReflectedSpectrum.weak_re_le_half",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.ReflectedSpectrum.weak_reference_two_bounds",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.ReflectedSpectrum.weak_reference_four_lower",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.ReflectedSpectrum.weak_reference_images_disjoint",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.ReflectedSpectrum.reflected_right_mass_le",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.ReflectedSpectrum.twelve_weakMass_le_totalMass",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.ReflectedSpectrum.totalMass_eq_weakMass_add_carrierMass",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.ReflectedSpectrum.eleven_twelfths_carrier_bound"
+      ]
+    },
+    {
+      "id": "DY-S1",
+      "status": "kernel_checked_actual_dyadic_atomic_realization",
+      "claim": "For every natural depth and positive root height the tree is an actual finite reflected spectrum in[1/7,6/7]. Its atomic compensated readout has the exact local limits and a nonzero full residue at every atom for every real power d>1.",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.treeRaw_injective",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.treeSpectrum_inner_strip",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.treeSpectrum_mass",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.treeSpectrum_den_ne",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.treeSpectrum_full_residue_ne_zero",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.treeSpectrum_readout_scaled_limit"
+      ]
+    },
+    {
+      "id": "DY-R1",
+      "status": "kernel_checked_complete_dyadic_reference_classification",
+      "claim": "Every quadratic and quartic reference order is evaluated in the full finite atomic spectrum, including missing children, right-root and right-four exceptions, and the right-two/right-four collision. Common weak rows are exactly nonterminal left nodes.",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.treeOrder_at_word",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.tree_left_two_order",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.tree_left_four_order",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.tree_right_four_zero",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.tree_right_two_zero_of_re",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.tree_right_two_order",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.tree_left_weak_iff",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.tree_right_not_weak",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.tree_weak_iff"
+      ]
+    },
+    {
+      "id": "DY-M1",
+      "status": "kernel_checked_exact_dyadic_carrier_ratio",
+      "claim": "At depth N+1 with arbitrary positive root height, A=2*rootMass*T_(N+1), W=rootMass*T_N and C=A-W. The exact ratio is11/12+5/(12*(6^(N+2)-1)), with A>0.",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.tree_word_sum",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.treeSpectrum_totalMass",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.treeSpectrum_weakMass_succ",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.treeSpectrum_carrierMass_succ",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.treeSpectrum_totalMass_pos",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.treeSpectrum_carrier_ratio",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.treeSpectrum_carrier_ratio_closed"
+      ]
+    },
+    {
+      "id": "DY-O1",
+      "status": "kernel_checked_optimal_finite_carrier_coefficient",
+      "claim": "For every epsilon>0 a finite natural-multiplicity tree inside[1/7,6/7], uniformly in all positive root heights, has positive total mass and carrier ratio below11/12+epsilon. A coefficient works for every reflected finite spectrum in[1/8,7/8] exactly when it is<=11/12. The carrier is the actual strict-negative union of the two complete compensated residue projections.",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.exists_depth_carrier_ratio_lt",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.universal_carrier_coefficient_iff",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.treeSpectrum_projection_negative_iff",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.treeSpectrum_joint_readout_carrier"
+      ]
+    },
+    {
       "id": "G2-01",
       "claim": "The full rectangle has 48 classes and the supported root orbit has exactly 12 coordinates.",
       "status": "kernel_checked_arithmetic_model",

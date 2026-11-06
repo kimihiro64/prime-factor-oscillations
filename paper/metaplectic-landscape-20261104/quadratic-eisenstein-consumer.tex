@@ -1055,6 +1055,163 @@ individual multiplicities. The geometric transport summation is
 elementary; publication priority for this particular coupled
 compensated-residue application has not been established.
 
+\subsection{Optimal fixed-strip quadratic and quartic carriers}
+\label{sec:dyadic-fixed-strip-sharpness}
+
+The coefficient \(11/12\) has an exact finite-model interpretation.
+It is optimal using only a fixed zero strip, reflection, positive natural
+multiplicities and the full quadratic and quartic compensation references.
+The models below are finite rational logarithmic readouts; they are not
+asserted to be zero sets of zeta or of an Euler product.
+
+Let \(S\) be a finite set of distinct points \(\rho=\beta+i\gamma\), with
+\(\gamma>0\), \(1/8\le\beta\le7/8\), and positive natural multiplicities
+\(m(\rho)\). Suppose \(1-\overline\rho\in S\) with the same multiplicity.
+Extend \(m\) by zero outside \(S\), and put
+\[
+ A=\sum_{\rho\in S}\frac{m(\rho)}{\gamma^2},\qquad
+ U=\{\rho\in S:m(\rho)\le2m(q_2(\rho)),\
+                       m(\rho)\le4m(q_4(\rho))\},
+ \qquad C=\sum_{\rho\in S\setminus U}\frac{m(\rho)}{\gamma^2}.
+\]
+Every summation here has the displayed finite support. For the actual
+rational readout \(R(s)=-\sum_{\rho\in S}m(\rho)/(s-\rho)\), write
+\[
+ P_a(s)=R(s)-\frac{s}{s+a-1}R(q_a(s)),\qquad
+ r_a(\rho)=\lim_{s\to\rho}(s-\rho)P_a(s).
+\]
+Its complete residue is
+\[
+ r_a(\rho)=-m(\rho)+\frac{a\rho}{\rho+a-1}m(q_a(\rho)).
+\]
+Consequently \(S\setminus U\) is exactly the union of the strict-negative
+projected residue carriers for \(a=2,4\).
+
+\paragraph{Theorem (Optimal fixed-strip carrier coefficient).}
+\label{thm:dyadic-fixed-strip-optimality}
+Every such spectrum satisfies \(C\ge(11/12)A\).
+Conversely, for every \(\epsilon>0\) there is a finite spectrum already
+inside \(1/7\le\Re\rho\le6/7\), with \(A>0\), such that
+\[
+ \frac CA<\frac{11}{12}+\epsilon.
+\]
+The witnesses have positive natural multiplicities and actual atomic
+readouts. Every one of their full complex residues is nonzero for every
+real compensation power \(a>1\). Thus a real coefficient \(c\) satisfies
+\(C\ge cA\) for all spectra in the stated class if and only if
+\(c\le11/12\).
+
+\paragraph{Proof of the universal bound.}
+Write \(W=\sum_{\rho\in U}m(\rho)/\gamma^2\), so \(A=W+C\).
+For \(\rho\in U\), the positive multiplicity forces both reference
+points to belong to \(S\). The upper bound on \(q_4(\rho)\) gives
+\(\beta\le1/2\). Hence
+\[
+ 9/16\le\Re q_2(\rho)\le3/4,\qquad
+ 25/32\le\Re q_4(\rho)\le7/8.
+\]
+Both reference maps are injective and their images of \(U\) are disjoint.
+For \(a=2,4\), their actual masses satisfy
+\[
+ \frac{m(q_a(\rho))}{(\gamma/a)^2}
+ \ge a\,\frac{m(\rho)}{\gamma^2}.
+\]
+Thus the union of these images has mass at least \(6W\).
+It lies strictly to the right of \(1/2\), so its reflected image is
+disjoint, has the same mass and also belongs to \(S\).
+Therefore \(A\ge12W\). Substituting \(A=W+C\) proves \(C\ge11A/12\).
+No reference image or reflection overlap has been counted twice.
+\hfill\textit{QED.}
+
+\paragraph{Construction and complete reference classification.}
+Use words in the two letters \(2,4\). The root and child coordinates are
+\[
+ x_{\varnothing}=1/4,\qquad
+ x_{2w}=(1-x_w)/2,\qquad x_{4w}=(1-x_w)/4.
+\]
+All \(x_w\) lie in \([1/7,3/7]\); the two child images lie respectively
+in \([2/7,3/7]\) and \([1/7,3/14]\). They are disjoint, and the root
+lies strictly in the intervening gap. Induction on words therefore
+proves injectivity across all finite lengths, including the empty word.
+
+Fix a depth \(N\ge1\) and any \(H>0\). Let \(s(w)\) count a letter \(2\)
+with weight one and a letter \(4\) with weight two. For every word of
+length at most \(N\), include the two points
+\[
+ L_w=x_w+iH2^{-s(w)},\qquad
+ R_w=1-x_w+iH2^{-s(w)},\qquad
+ m(L_w)=m(R_w)=2^{\,2N-s(w)}.
+\]
+Since \(s(w)\le2|w|\le2N\), every multiplicity is a positive natural
+number. The two rails are disjoint, all points are distinct, and their
+real parts lie in \([1/7,6/7]\).
+
+The full reference table is
+\[
+\begin{array}{c|cc}
+ \text{source}&q_2\text{ reference}&q_4\text{ reference}\\ \hline
+ L_w,\ |w|<N&R_{2w}&R_{4w}\\
+ L_w,\ |w|=N&\text{absent}&\text{absent}\\
+ R_{2w}&R_{4w}&\text{absent}\\
+ R_{\varnothing},\ R_{4w}&\text{absent}&\text{absent}.
+\end{array}
+\]
+The child identities follow directly from the coordinates and heights.
+Injectivity excludes any replacement reference when a child lies beyond
+the depth cutoff. No reference hits the left rail. For the other absent
+cases, \(q_2(R_{\varnothing})\) has real part \(7/8>6/7\);
+\(q_2(R_{4w})\) and every \(q_4(R_w)\) have real part at least
+\(25/28>6/7\). The right-child quadratic collision is present:
+\(q_2(R_{2w})=R_{4w}\), with
+\(m(R_{2w})=2m(R_{4w})\). Its quadratic projection vanishes, but its
+quartic reference is absent. The internal left multiplicities satisfy
+\(m(L_w)=2m(R_{2w})=4m(R_{4w})\).
+It follows that \(U\) is exactly the nonterminal left nodes.
+
+\paragraph{Exact masses and sharpness.}
+Put \(b_N=2^{2N}/H^2>0\). Each point at word \(w\) has mass
+\(b_N2^{s(w)}\). The sum of the word weights at level \(k\) is \(6^k\).
+Writing \(T_N=\sum_{k=0}^N6^k=(6^{N+1}-1)/5\), we obtain
+\[
+ A_N=2b_NT_N,\qquad W_N=b_NT_{N-1},\qquad C_N=A_N-W_N,
+\]
+and therefore
+\begin{equation}\label{eq:dyadic-fixed-strip-ratio}
+ \frac{C_N}{A_N}
+ =\frac{11}{12}+\frac{5}{12(6^{N+1}-1)}.
+\end{equation}
+The final term tends to zero, uniformly in every \(H>0\).
+The formal epsilon witness can alternatively use the elementary bound
+\(T_N\ge N+1\); no infinite spectrum or interchange of limits is required.
+
+Finally, the actual atomic readout has the displayed local scaled limits.
+For every \(a>1\) and every point \(\rho=\beta+i\gamma\) of the model,
+\[
+ \Im\!\left(r_a(\rho)(\rho+a-1)\overline\rho\right)
+   =m(\rho)(a-1)\gamma>0.
+\]
+Thus its full residue cannot vanish, including at every cancelled
+projected row in the table. This proves the asserted realization and
+completes the sharpness proof.
+\hfill\textit{QED.}
+
+The maintained headline declarations are
+\texttt{CarmichaelDyadicSharpness.universal\_carrier\_coefficient\_iff},
+\texttt{exists\_depth\_carrier\_ratio\_lt}, and
+\texttt{treeSpectrum\_joint\_readout\_carrier}.
+The exact formula is
+\texttt{treeSpectrum\_carrier\_ratio\_closed}; its Lean depth is \(N+1\)
+for a natural parameter \(N\), so its exponent is \(N+2\).
+The finite lower-bound owner is
+\texttt{Assembly/CarmichaelFiniteCarrier.lean}.
+
+This settles optimality within the stated finite-spectrum class.
+Additional arithmetic information about actual zeta zeros may still
+give stronger conclusions. The theorem proves neither simplicity nor
+a new upper multiplicity estimate, and the certified zero-free boundary
+remains \(7/8\). Publication priority for this particular finite
+compensated-residue optimality statement is unestablished.
+
 \subsection{Exact Mellin action on general windows}
 \label{sec:general-window-mellin}
 
