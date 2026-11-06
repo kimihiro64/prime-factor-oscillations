@@ -2461,6 +2461,86 @@ include the explicit degree, both local orders, the strict error
 threshold and the positive-pair ambiguity example.
 Priority is unestablished, and the certified zero-free boundary remains \(7/8\).
 
+\subsection{Exact spacing at every compensation degree}
+\label{sec:exact-strip-residue-spacing}
+
+Write
+\[
+ c_d(\rho;a,b)=-a+\frac{d\rho}{\rho+d-1}b,\quad
+ H=|\Im\rho|,\quad D=|\rho+d-1|,\quad p=d(d-1).
+\]
+The reference coordinate is retained throughout.
+
+\paragraph{Theorem (full strip spacing).}
+For every integer \(d\ge2\), every \(0\le\Re\rho\le1\) with
+\(H\ge2\), and every nonzero \((a,b)\in\mathbb Z^2\),
+\[
+ |c_d(\rho;a,b)|\ge \lambda_d(\rho),\qquad
+ \lambda_d(\rho)=\min\{1,p/D\}.
+\]
+This is the exact minimum: \((1,0)\) attains \(1\), while
+\((d,1)\) attains \(p/D\). In particular, unit spacing holds
+if and only if \(D\le p\). Both integer coordinates are unrestricted.
+
+\paragraph{Proof.}
+If \(H\ge p\), the earlier high-height lattice theorem gives
+\(p\le D|c_d|\), and \(D\ge H\ge p\).
+Suppose instead \(2\le H<p\); then \(d\ge3\).
+Put \(\beta=\Re\rho\) and \(v=d\rho/(\rho+d-1)\).
+The exact imaginary coordinate is
+\[
+ |\Im v|=\frac{pH}{D^2},\qquad
+ D^2=(\beta+d-1)^2+H^2\le d^2+H^2\le2pH.
+\]
+Here \(d^2\le2p\le pH\) and \(H^2\le pH\).
+Consequently every row \(|b|\ge2\) has \(|c_d|\ge1\).
+The row \(b=0\) follows from integer separation, and simultaneous
+negation reduces \(b=-1\) to \(b=1\).
+
+In that remaining row keep the full numerator
+\[
+ N=c_d(\rho;a,1)(\rho+d-1)
+   =(d-a)\rho-(d-1)a.
+\]
+For \(a\ge d\), its real part is at most \(-p\), so
+\(|N|\ge p\). For \(a\le0\),
+\[
+ |\Im N|\ge dH\ge d+H\ge D.
+\]
+If \(2\le a\le d-1\), the strip gives
+\(\Re N\le-d(a-1)\le-d\), whereas
+\(|\Im N|\ge H\). Hence \(|N|^2\ge d^2+H^2\ge D^2\).
+Finally, for \(a=1\),
+\[
+ |N|^2\ge(d-1)^2H^2\ge d^2+H^2\ge D^2,
+\]
+since \(d(d-2)H^2\ge4d(d-2)\ge d^2\) for \(d\ge3\).
+These cases establish \(D|c_d|\ge\min\{D,p\}\).
+The two explicit attaining pairs prove equality of the minimum.
+Applying the bound to integer differences proves the pair separation.
+
+\paragraph{Joint multiplicity certification.}
+If two candidate residues have total distance from the same observation
+strictly below \(\lambda_d(\rho)\), they have the same two integer
+coordinates, by the triangle inequality and pair separation.
+The actual-zeta consumer identifies those coordinates with
+\[
+ m(\rho),\qquad m((\rho+d-1)/d),
+\]
+using the full compensated local residue. It assumes an analytic
+correction on the open strip and the stated achieved observation error;
+it assumes neither RH, reference nonvanishing nor a multiplicity cap.
+Thus the previous sufficient restriction \(d\ge2H\) is replaced by
+an exact disk criterion for unit spacing, and every smaller degree
+has its exact spacing available as well.
+
+The maintained owners are \texttt{IntegerResidueStrip} and
+\texttt{CarmichaelStripMultiplicity}. The seven lattice statements
+and the actual-zeta consumer are kernel checked. This is a conditioning
+and multiplicity theorem; no uniform observation-error estimate or new
+zero-free exponent is asserted. Priority is unestablished, and the
+certified boundary remains \(7/8\).
+
 \subsection{Exact Mellin action on general windows}
 \label{sec:general-window-mellin}
 

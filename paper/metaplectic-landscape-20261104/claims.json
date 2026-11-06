@@ -2231,6 +2231,21 @@
         "PrimeFactorOscillations.CarmichaelWeightedSignal.zeta_adaptive_readout_certifies_orders",
         "PrimeFactorOscillations.CarmichaelWeightedSignal.zeta_large_power_readout_certifies_orders"
       ]
+    },
+    {
+      "id": "RS-ALL",
+      "status": "kernel_checked_exact_residue_spacing",
+      "claim": "Every integer power d>=2, every 0<=Re(rho)<=1 with abs(Im(rho))>=2, and every nonzero integer multiplicity difference have exact minimum compensated-residue norm min(1,d(d-1)/norm(rho+d-1)). Both candidates are attained, unit spacing is equivalent to norm(rho+d-1)<=d(d-1), and two observations within a total error below the spacing identify both integer coordinates. No observation-error estimate or QRH improvement is asserted. The actual-zeta transfer is compiled for analytic corrections on the open strip, retaining the target and reference analytic orders and the achieved-error hypothesis.",
+      "declarations": [
+        "Complex.integerResidueCode_strip_attains",
+        "Complex.integerResidueCode_strip_pair_separation",
+        "Complex.integerResidueCode_strip_scaled_separation",
+        "Complex.integerResidueCode_strip_separation",
+        "Complex.integerResidueCode_strip_unique",
+        "Complex.integerResidueCode_strip_unit_iff",
+        "Complex.integerResidueReference_half",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.zeta_strip_readout_certifies_orders"
+      ]
     }
   ],
   "novelty": "Priority for the combined explicit formulas has not been established; source classification and Gauss identities are classical."
