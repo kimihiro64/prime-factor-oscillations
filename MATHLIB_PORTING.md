@@ -5,6 +5,14 @@ Reusable mathematics intended for possible upstreaming lives under
 The child generator replaces `PrimeFactorOscillations` with the configured project
 namespace.
 
+## Integer compensated-residue decoding
+
+| Module | Proposed destination | Readiness | Scope |
+| --- | --- | --- | --- |
+| `PrimeFactorOscillations.Mathlib.Analysis.Complex.IntegerResidueLattice` | `Mathlib/Analysis/Complex/IntegerResidueLattice.lean` | project-verified | Exact minimum spacing d*(d-1)/norm(z+d-1) for the full integer affine-residue lattice when d>=2 and abs(Im z)>=d*(d-1), including an attaining pair and unrestricted integer coordinates. |
+| `PrimeFactorOscillations.Mathlib.Analysis.Complex.IntegerResidueDecoding` | `Mathlib/Analysis/Complex/IntegerResidueDecoding.lean` | project-verified | Unique identification below half the exact spacing, sharp midpoint ambiguity at equality and every larger radius, and integer resonance forced by a small residue. |
+| `PrimeFactorOscillations.Mathlib.Analysis.Complex.All` | `Mathlib/Analysis/Complex/All.lean` | project-verified | Narrow complex-analysis export surface for Abel bounds, affine zero escape and integer residue decoding; no project-specific imports. |
+
 ## Positive natural square classes
 
 | Module | Proposed destination | Readiness | Scope |

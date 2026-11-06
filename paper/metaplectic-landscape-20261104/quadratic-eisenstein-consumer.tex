@@ -2254,6 +2254,107 @@ and \texttt{zeta\_readout\_carrier\_global\_excess\_bound}
 certify the inequality, coefficient sharpness and full-readout
 transfer.
 
+\subsection{Sharp recovery from the integer residue lattice}
+\label{sec:integer-residue-decoding}
+
+Exact multiplicity recovery has an arithmetic refinement: the two local
+orders are integers. This gives a sharp noise threshold even when the
+reference point is itself a zero. For \(d\in\mathbb N\), \(d\ge2\), write
+\[
+ c_d(\rho;a,b)=-a+\frac{d\rho}{\rho+d-1}b,\qquad
+ D_d=\rho+d-1,\qquad \gamma=\Im\rho.
+\]
+Here \(a,b\in\mathbb Z\); actual orders are nonnegative, but differences of
+two order pairs range over all integers.
+
+\paragraph{Theorem (exact high-height separation).}
+\label{thm:integer-residue-separation}
+Suppose \(|\gamma|\ge d(d-1)\). For every two distinct integer pairs,
+\[
+ |c_d(\rho;a,b)-c_d(\rho;a',b')|\,|D_d|\ge d(d-1).
+\]
+The constant is attained by the pairs \((d,1)\) and \((0,0)\).
+Thus the minimum distance of the full residue lattice is exactly
+\(d(d-1)/|D_d|\), with no upper bound on either integer coordinate.
+\paragraph{Proof.}
+Linearity reduces the assertion to a nonzero pair \((a,b)\). Keep the
+complete complex numerator:
+\[
+ D_dc_d(\rho;a,b)=\rho(db-a)-(d-1)a.
+\]
+Put \(k=db-a\in\mathbb Z\). If \(k\ne0\), its imaginary coordinate has
+absolute value \(|k\gamma|\ge|\gamma|\ge d(d-1)\). If \(k=0\), then
+\(a=db\) and \(b\ne0\); the complete numerator is the nonzero real number
+\(-d(d-1)b\), whose absolute value is at least \(d(d-1)\).
+For \((a,b)=(d,1)\) it is exactly \(-d(d-1)\). Since \(\gamma\ne0\),
+\(D_d\ne0\), and division gives the stated distance.
+
+\paragraph{Corollary (optimal worst-case noise tolerance).}
+\label{cor:integer-residue-noise}
+Under the same height condition, a complex observation \(v\) is compatible
+with at most one integer pair satisfying
+\[
+ |c_d(\rho;a,b)-v|<\frac{d(d-1)}{2|D_d|}.
+\]
+The inequality must be strict. The midpoint
+\(v=c_d(\rho;d,1)/2\) has exactly this distance from both
+\(c_d(\rho;d,1)\) and \(c_d(\rho;0,0)\), so every larger radius also
+admits ambiguity.
+\paragraph{Proof.}
+Two compatible pairs would have distance strictly smaller than the
+minimum in the separation theorem. The displayed
+midpoint and the attaining pair prove sharpness. The triangle inequality
+here controls measurement errors; the signed main residue was kept
+exact throughout the separation proof.
+
+There is a second, larger accuracy scale. At every nonreal \(\rho\), if
+\[
+ |c_d(\rho;a,b)-c_d(\rho;a',b')|\,|D_d|<|\gamma|,
+\]
+the integer imaginary coordinate forces
+\[
+ a-a'=d(b-b'),\qquad a\equiv a'\pmod d.
+\]
+Consequently two candidate residues each within
+\(|\gamma|/(2|D_d|)\) of one observation must have the same target
+multiplicity modulo \(d\). This statement does not require the
+high-height condition. In particular, for fixed real part and increasing
+height, the modular accuracy threshold tends to \(1/2\), whereas the
+unrestricted two-order threshold is of order \(1/|\gamma|\).
+An independently established target-order range \(0\le a<d\) turns this
+modular information into its exact order; no such range is assumed here.
+
+For the actual zeta readout, let
+\[
+ R_G(s)=-\frac{\zeta'}{\zeta}(s)+G(s),\qquad
+ P_{d,G}(s)=R_G(s)-\frac{s}{s+d-1}R_G(q_d(s)).
+\]
+If \(G\) is analytic throughout \(0<\Re s<1\), the previously proved
+full local limit at every nonreal point \(\rho\) in that strip is
+\[
+ \lim_{s\to\rho}(s-\rho)P_{d,G}(s)
+ =c_d\bigl(\rho;m(\rho),m(q_d(\rho))\bigr).
+\]
+The separation and modular conclusions therefore apply to the actual
+analytic orders, including a zero at the reference point. No RH,
+reference nonvanishing, simple-zero hypothesis or multiplicity cap is
+used. Sharpness refers to the abstract residue model; no realization
+of its extremizing order pairs by zeta zeros is asserted. The accuracy
+bounds on an observed residue remain explicit hypotheses, rather than
+new estimates for those observations.
+
+These are integer-amplitude statements at a known spectral point.
+They differ from continuous-parameter local stability in confluent
+Prony reconstruction, such as
+\href{https://arxiv.org/abs/1106.1137}{Batenkov--Yomdin,
+On the accuracy of solving confluent Prony systems}.
+Novelty priority is unestablished.
+The maintained owners are \texttt{IntegerResidueLattice},
+\texttt{IntegerResidueDecoding} and
+\texttt{CarmichaelMultiplicityDecoding}; all local multiplicities and
+compensation terms occur in their compiled statements.
+The certified zero-free boundary remains \(7/8\).
+
 \subsection{Exact Mellin action on general windows}
 \label{sec:general-window-mellin}
 

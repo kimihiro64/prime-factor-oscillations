@@ -2154,6 +2154,44 @@
         "PrimeFactorOscillations.CarmichaelStripCarrier.zeta_two_three_readout_carrier_seven_eighths",
         "PrimeFactorOscillations.CarmichaelStripCarrier.zeta_two_four_readout_carrier_seven_eighths"
       ]
+    },
+    {
+      "id": "LD-L",
+      "status": "kernel_checked_exact_multiplicity_decoding",
+      "claim": "For every d>=2 and every complex rho with abs(Im rho)>=d*(d-1), all distinct integer compensated-multiplicity pairs have normalized distance at least d*(d-1). Pair(d,1)attains equality, including the resonant row. No RH or multiplicity cap is assumed.",
+      "declarations": [
+        "Complex.integerResidueCode_attains",
+        "Complex.integerResidueCode_integer_im",
+        "Complex.integerResidueCode_mul_den",
+        "Complex.integerResidueCode_nonresonant_separation",
+        "Complex.integerResidueCode_pair_separation",
+        "Complex.integerResidueCode_separation",
+        "Complex.integerResidueCode_sub"
+      ]
+    },
+    {
+      "id": "LD-D",
+      "status": "kernel_checked_exact_multiplicity_decoding",
+      "claim": "The strict half-spacing error threshold uniquely identifies both integer coordinates. The explicit midpoint witnesses ambiguity at the endpoint and every larger radius. A residue smaller than the full-height scale forces a=d*b, preserving the compensation reference.",
+      "declarations": [
+        "Complex.integerResidueCode_midpoint_distances",
+        "Complex.integerResidueCode_radius_sharp",
+        "Complex.integerResidueCode_sharp_separation",
+        "Complex.integerResidueCode_small_forces_relation",
+        "Complex.integerResidueCode_unique_of_error_sum_lt",
+        "Complex.integerResidueCode_unique_of_half_error",
+        "Complex.integerResidueCode_zero"
+      ]
+    },
+    {
+      "id": "LD-Z",
+      "status": "kernel_checked_exact_multiplicity_decoding",
+      "claim": "Actual full compensated zeta residues identify both analytic multiplicities under the sharp high-height measurement tolerances. At arbitrary nonreal strip points, the larger half-height tolerance identifies the target order modulo d. Every reference order and analytic correction is retained; no RH, simplicity or new zero-free exponent is assumed.",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.zetaCanonicalPowerResidue_eq_integerCode",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.zeta_power_readout_certifies_order_mod",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.zeta_power_readout_certifies_orders"
+      ]
     }
   ],
   "novelty": "Priority for the combined explicit formulas has not been established; source classification and Gauss identities are classical."
