@@ -4,6 +4,125 @@
   "scope": "Complete G2 sevenfold/twelvefold and Sp4 eightfold arithmetic models, local energies, central compensation, cubic readout and complete cubic spectrum, and the complete quartic fourth-moment block model; no global QRH claim.",
   "claims": [
     {
+      "id": "MS-W",
+      "status": "kernel_checked_multiplicity_support",
+      "claim": "Nonnegative real reflection-invariant charged weights retain both half compensation charges, including reflection fixed points; repeated-unit and support-cost comparisons are exact.",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.ReflectedSpectrum.repeatedUnitAt_nonneg",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.ReflectedSpectrum.repeatedUnitAt_le_unitMass",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.ReflectedSpectrum.multiplicitySupportCost_eq",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.ReflectedSpectrum.multiplicitySupportCost_nonneg",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.ReflectedSpectrum.multiplicitySupportCost_le_mass",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.ReflectedSpectrum.multiplicitySupportCost_le_twice_excess",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.ReflectedSpectrum.multiplicitySupportCost_mirror",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.ReflectedSpectrum.weakRepeatedUnitMass_nonneg",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.ReflectedSpectrum.weakRepeatedUnitMass_le_unit",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.ReflectedSpectrum.multiplicitySupportCharge_le",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.ReflectedSpectrum.multiplicitySupportWeight_nonneg",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.ReflectedSpectrum.multiplicitySupportWeight_mirror",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.ReflectedSpectrum.reflected_right_weight_le",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.ReflectedSpectrum.multiplicitySupportWeight_right",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.ReflectedSpectrum.sum_multiplicitySupportCharge",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.ReflectedSpectrum.sum_multiplicitySupportWeight"
+      ]
+    },
+    {
+      "id": "MS-J",
+      "status": "kernel_checked_multiplicity_support",
+      "claim": "For every finite reflected positive-natural-multiplicity spectrum in[1/8,7/8], C>=39P+Q. Every a<=39,a+b<=40 yields C>=aP+bQ, with full reference images and symmetric charges retained.",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.ReflectedSpectrum.reference_unit_mass_eq",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.ReflectedSpectrum.multiplicity_support_budget",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.ReflectedSpectrum.carrier_multiplicity_support_bound",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.ReflectedSpectrum.carrier_affine_support_bound"
+      ]
+    },
+    {
+      "id": "MS-T",
+      "status": "kernel_checked_multiplicity_support",
+      "claim": "The exact excess decomposition E=Q+T3 yields C+(20/21)*T3>=(20/21)*A; a strict deficit forces a common-weak atom of multiplicity>=3. Weak-double orders alone suffice for C>=(20/21)*A.",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.ReflectedSpectrum.tripleExcessAt_nonneg",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.ReflectedSpectrum.weakTripleExcessMass_nonneg",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.ReflectedSpectrum.excessMassAt_eq_repeated_add_triple",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.ReflectedSpectrum.weakExcessMass_eq_repeated_add_triple",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.ReflectedSpectrum.weakTripleExcessMass_eq_zero_of_double",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.ReflectedSpectrum.carrier_triple_excess_bound",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.ReflectedSpectrum.carrier_triple_compensated_bound",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.ReflectedSpectrum.double_weak_carrier_bound",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.ReflectedSpectrum.triple_weak_atom_of_deficit",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.ReflectedSpectrum.totalMass_sub_triple_nonneg"
+      ]
+    },
+    {
+      "id": "MS-S",
+      "status": "kernel_checked_multiplicity_support",
+      "claim": "The five-point reflected spectrum with center(1/2,H)of multiplicity2 and points(1/4,H/2),(3/4,H/2),(1/8,H/4),(7/8,H/4)of multiplicity1 is valid for every H>0, with all three present reference maps explicit.",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.fivePoint_injective",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.fivePoint_power_re",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.fivePoint_power_im",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.fivePoint_two_center",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.fivePoint_four_center",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.fivePoint_two_right"
+      ]
+    },
+    {
+      "id": "MS-R",
+      "status": "kernel_checked_multiplicity_support",
+      "claim": "All actual quadratic and quartic orders of the five-point model are computed, including the right quadratic collision; the common-weak support is exactly the center. Full residues remain nonzero for every real d>1 and the actual local limits are retained.",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.fiveSpectrum_two_order",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.fiveSpectrum_four_order",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.fiveSpectrum_weak_iff",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.fiveSpectrum_weakIndices",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.fiveSpectrum_den_ne",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.fiveSpectrum_full_residue_ne_zero",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.fiveSpectrum_readout_scaled_limit"
+      ]
+    },
+    {
+      "id": "MS-M",
+      "status": "kernel_checked_multiplicity_support",
+      "claim": "For every H>0 the five-point model has P=Q=1/H^2,W=2/H^2,C=40/H^2,A=42/H^2,T3=0 and C/A=20/21, attaining the joint bound exactly.",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.fiveSpectrum_totalMass",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.fiveSpectrum_weakMass",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.fiveSpectrum_weakUnitMass",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.fiveSpectrum_weakRepeatedUnitMass",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.fiveSpectrum_weakTripleExcessMass",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.fiveSpectrum_carrierMass",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.fiveSpectrum_totalMass_pos",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.fiveSpectrum_carrier_ratio",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.fiveSpectrum_joint_equality",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.fiveSpectrum_double_weak"
+      ]
+    },
+    {
+      "id": "MS-Z",
+      "status": "kernel_checked_multiplicity_support",
+      "claim": "The joint multiplicity-support and triple-excess bounds transfer to every actual zeta height window without RH; a carrier deficit below20/21forces a common-weak zero of multiplicity>=3. Full compensated readout hypotheses are explicit; the installed7/8boundary is unchanged.",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.zetaSpectrum_weakUnitMass",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.zetaSpectrum_weakRepeatedUnitMass",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.zetaSpectrum_weakTripleExcessMass",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.zeta_carrier_multiplicity_support_bound",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.zeta_carrier_triple_excess_bound",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.zeta_triple_weak_zero_of_deficit",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.zeta_readout_carrier_triple_bound"
+      ]
+    },
+    {
+      "id": "MS-O",
+      "status": "kernel_checked_multiplicity_support",
+      "claim": "The complete universal affine region is exactly a<=39,a+b<=40. Both the universal coefficient of A-T3 and the carrier coefficient for common-weak multiplicities<=2 are exactly20/21. Sharpness is in the finite model class, not a claim of zeta realization.",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.universal_affine_multiplicity_support_iff",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.universal_triple_compensated_coefficient_iff",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.universal_double_weak_carrier_coefficient_iff"
+      ]
+    },
+    {
       "id": "SS-W",
       "status": "kernel_checked_simple_carrier_sharpness",
       "claim": "The complete finite simple-tree weight satisfies T0=1, T(N+1)=1+20*T(N), T(N)>=N+1 and19*T(N)+1=20^(N+1).",

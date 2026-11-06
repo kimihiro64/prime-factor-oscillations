@@ -1437,6 +1437,176 @@ The five maintained owners are \texttt{CarmichaelSimpleTreeWeights},
 The exact universal statement is
 \texttt{universal\_simple\_carrier\_coefficient\_iff}.
 
+\subsection{Sharp multiplicity-support region and triple-zero certificates}
+\label{sec:multiplicity-support-region}
+
+Keep the finite reflected spectra in the closed strip
+\([1/8,7/8]\), with positive heights and positive natural multiplicities.
+Reference orders are the actual atomic orders, including zero for an absent
+reference. Let \(U\) be the common-weak set for the complete powers \(2,4\);
+thus \(m_\rho\le2m_{q_2(\rho)}\) and
+\(m_\rho\le4m_{q_4(\rho)}\). All sums below are over the indicated finite
+support. Define
+\[
+ P=\sum_{\rho\in U}\frac1{\gamma_\rho^2},\qquad
+ Q=\sum_{\substack{\rho\in U\\m_\rho\ge2}}\frac1{\gamma_\rho^2},\qquad
+ T_3=\sum_{\rho\in U}\frac{(m_\rho-2)_+}{\gamma_\rho^2},
+ \qquad (t)_+=\max(t,0).
+\]
+Write \(A=\sum_{\rho\in S}m_\rho/\gamma_\rho^2\) and
+\(C=\sum_{\rho\in S\setminus U}m_\rho/\gamma_\rho^2\).
+Then \(0\le Q\le P\), \(E_U=Q+T_3\), and
+\[
+ A=C+P+Q+T_3.
+\]
+
+\paragraph{Theorem (complete affine support region).}
+For real \(a,b\), the inequality \(aP+bQ\le C\) holds for every such
+finite reflected spectrum if and only if
+\[
+ \boxed{\quad a\le39,\qquad a+b\le40.\quad}
+\]
+In particular,
+\begin{equation}\label{eq:joint-multiplicity-support}
+ \boxed{\quad C\ge39P+Q.\quad}
+\end{equation}
+Consequently
+\begin{equation}\label{eq:triple-excess-carrier}
+ \boxed{\quad C+\frac{20}{21}T_3\ge\frac{20}{21}A.\quad}
+\end{equation}
+The coefficient \(20/21\) is optimal both in
+\(c(A-T_3)\le C\) on the full class and in \(cA\le C\) when every
+common-weak multiplicity is at most two. Multiplicities on the carrier
+itself need not be bounded.
+
+\paragraph{Proof.}
+Index the atoms by \(i\), write \(i^*\) for reflection, and set
+\[
+ u_i=\gamma_i^{-2},\quad w_i=m_i u_i,\quad e_i=(m_i-1)u_i,\quad
+ D_i=e_i+\mathbf1_{\{m_i\ge2\}}u_i.
+\]
+For \(m_i=1\), \(D_i=0\); for \(m_i\ge2\), \(D_i=w_i\).
+Hence
+\[
+ 0\le D_i\le w_i,\qquad D_i\le2e_i,\qquad D_{i^*}=D_i.
+\]
+Retain both compensation charges by defining the real weight
+\[
+ F_i=w_i-\frac12\mathbf1_U(i)D_i
+          -\frac12\mathbf1_U(i^*)D_i.
+\]
+Both deductions are at most \(D_i/2\), so \(F_i\ge0\).
+Reflection interchanges the two deductions, so \(F_{i^*}=F_i\), and
+\[
+ \sum_{i\in S}F_i=A-E_U-Q.
+\]
+This remains valid at a reflection-fixed atom: the two half charges add
+to the full charge. The weight may vanish and is not asserted to define
+a positive-natural-multiplicity spectrum.
+
+Every common-weak atom lies at real part at most \(1/2\), by the existing
+complete-reference argument. Therefore, at a point with real part \(>1/2\),
+the first charge is absent, and
+\[
+ F_i\ge w_i-\frac12D_i\ge w_i-e_i=u_i.
+\]
+Let \(B=q_2(U)\cup q_4(U)\), interpreted through the actual reference
+indices. Both maps are injective on \(U\); their images lie respectively
+in \([9/16,3/4]\) and \([25/32,7/8]\), so they are disjoint and strictly
+right of \(1/2\). Their heights are \(\gamma/2,\gamma/4\). Thus
+\[
+ \sum_{i\in B}F_i\ge\sum_{i\in B}u_i=(4+16)P=20P.
+\]
+The sets \(B,B^*\) are disjoint. Nonnegativity and reflection symmetry
+give
+\[
+ A-E_U-Q=\sum_{i\in S}F_i
+ \ge2\sum_{i\in B}F_i\ge40P.
+\]
+Substitute \(A=C+P+E_U\) to obtain
+\eqref{eq:joint-multiplicity-support}. No compensation cross charge or
+reference order has been discarded. If \(a\le39\) and \(a+b\le40\), then
+\[
+ aP+bQ=a(P-Q)+(a+b)Q
+ \le39(P-Q)+40Q=39P+Q\le C.
+\]
+
+For necessity of \(a\le39\), restrict to the simple spectra of
+Section~\ref{sec:simple-carrier-sharpness}. There \(Q=0\) and \(A=C+P\).
+If \(a>39\), then \(a+1>0\), and \(aP\le C\) would imply
+\[
+ C\ge\frac{a}{a+1}A,\qquad \frac{a}{a+1}>\frac{39}{40},
+\]
+contradicting the proved simple-spectrum optimality.
+
+The second face has an exact finite witness. For every \(H>0\), take
+\[
+ \begin{array}{c|ccccc}
+ \rho&\frac12+iH&
+       \frac14+iH/2&\frac34+iH/2&
+       \frac18+iH/4&\frac78+iH/4\\ \hline
+ m_\rho&2&1&1&1&1 .
+ \end{array}
+\]
+Reflection fixes the center and exchanges each displayed pair.
+The center has quadratic and quartic reference orders one. The right
+point \(3/4+iH/2\) has quadratic reference \(7/8+iH/4\), of order one.
+All other quadratic references and all other quartic references are
+absent, as their real coordinates show. Thus the common-weak set is
+exactly the center, and
+\[
+ P=Q=E_U=\frac1{H^2},\qquad T_3=0,\qquad
+ A=\frac{42}{H^2},\qquad C=\frac{40}{H^2}.
+\]
+The inequality \(aP+bQ\le C\) therefore forces \(a+b\le40\).
+
+Finally, \(Q\le P\) gives
+\(39P+Q\ge20(P+Q)\). Using \(A=C+P+Q+T_3\) yields
+\(21C+20T_3\ge20A\), proving \eqref{eq:triple-excess-carrier}.
+The five-point model has \(C/A=20/21\), \(T_3=0\), and weak multiplicity
+two, so neither universal coefficient can be enlarged.
+For smaller real coefficients, \(A-T_3=C+P+Q\ge0\) justifies the
+monotone coefficient comparison, including negative coefficients.
+
+These are full readout examples. The complete atomic readout is
+\(R(s)=-\sum_{\rho\in S}m_\rho/(s-\rho)\). Its actual scaled limits
+retain every reference multiplicity, and its full complex residue is
+nonzero at every atom for every real \(d>1\).
+At the center the quadratic scalar projection vanishes, but the full
+quadratic residue is \(-2/(\rho+1)\ne0\); the two facts are compatible.
+\hfill\textit{QED.}
+
+For each actual zeta window \(V_T\) used above, define \(P,Q,T_3\) by
+the same finite sums with actual analytic orders. The existing
+unconditional \(7/8\) strip and reflection theorem supply precisely
+the finite-spectrum hypotheses, and complete transformed orders agree
+with the finite model because the transformed height decreases.
+Consequently \eqref{eq:joint-multiplicity-support} and
+\eqref{eq:triple-excess-carrier} hold for actual zeta zeros without RH.
+In particular,
+\[
+ C<\frac{20}{21}A
+ \quad\Longrightarrow\quad
+ \text{some common-weak zeta zero in }V_T\text{ has multiplicity at least }3.
+\]
+The complete compensated local-limit identities identify the same
+carrier with the union of the two strict negative residue projections.
+The formal readout theorem retains the analytic regular part and both
+local-limit hypotheses.
+
+The exact classification is
+\texttt{universal\_affine\_multiplicity\_support\_iff};
+the two optimal scalar coefficients are
+\texttt{universal\_triple\_compensated\_coefficient\_iff} and
+\texttt{universal\_double\_weak\_carrier\_coefficient\_iff}.
+The actual-zeta certificate is
+\texttt{zeta\_triple\_weak\_zero\_of\_deficit}.
+Finite-model sharpness does not assert realization of the five points
+as actual zeta zeros, prove any multiple zeta zero, or supply an upper
+multiplicity bound. The certified zero-free boundary remains \(7/8\).
+The limited primary-literature comparison does not establish publication
+priority for this coefficient-region theorem.
+
 \subsection{Exact Mellin action on general windows}
 \label{sec:general-window-mellin}
 
