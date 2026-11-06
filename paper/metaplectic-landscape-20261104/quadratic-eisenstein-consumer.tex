@@ -594,6 +594,126 @@ The main declarations are
 The geometry and analytic factorization used here are classical;
 priority for this combined comparison has not been established.
 
+\subsection{Signed height weights and surviving multiplicity carriers}
+\label{sec:power-weighted-trace}
+
+The squared-energy estimate has a signed linear companion, uniform over
+an entire class of height weights. Keep the finite set \(S_T\), the map
+\(q_d\), and the actual residues \(r_d\) from
+Section~\ref{sec:power-multiplicity-energy}. Let \(d\ge2\), \(T\in\mathbb R\),
+\(c\ge0\), and \(w:\mathbb R\to\mathbb R\) satisfy
+\begin{equation}\label{eq:power-trace-weight}
+ w(t)\ge0,\qquad d\,w(dt)\le c\,w(t)\qquad(t>0).
+\end{equation}
+No continuity or differentiability of \(w\) is required. Define
+\[
+ A_w=\sum_{\rho\in S_T}m(\rho)w(\gamma_\rho),\quad
+ B_w=\sum_{\rho\in S_T}d\,m(q_d(\rho))w(\gamma_\rho),\quad
+ H_w=A_w-B_w.
+\]
+These sums use ordinary multiplicity, rather than its square.
+
+\emph{Theorem (weighted signed trace and carrier).}
+Under \eqref{eq:power-trace-weight},
+\begin{equation}\label{eq:power-weighted-trace}
+ (2-c)A_w\le2H_w
+ =-2\sum_{\rho\in S_T}
+       \frac{w(\gamma_\rho)}{\gamma_\rho}
+       \Im\bigl((\rho+d-1)r_d(\rho)\bigr).
+\end{equation}
+Moreover, let
+\[
+ C_{d,T}=\{\rho\in S_T:
+              \Im((\rho+d-1)r_d(\rho))<0\}.
+\]
+Then
+\begin{equation}\label{eq:power-weighted-carrier}
+ \sum_{\rho\in C_{d,T}}m(\rho)w(\gamma_\rho)
+ \ge (1-c/2)A_w.
+\end{equation}
+The lower proportions are positive when \(c<2\) and \(A_w>0\).
+Both assertions are unconditional for the normalized zeta readout
+with any correction analytic throughout the open critical strip.
+
+\emph{Proof.}
+Retain the complete nonzero reference support
+\(P=\{\rho\in S_T:m(q_d(\rho))>0\}\) and \(Q=q_d(P)\).
+The previously proved geometry gives an injection onto \(Q\), with
+\(Q\) lying in the right half of \(S_T\). Changing variables in the
+finite sum gives the exact transport identity
+\[
+ B_w=d\sum_{\tau\in Q}m(\tau)w(d\gamma_\tau)
+       \le c\sum_{\tau\in Q}m(\tau)w(\gamma_\tau).
+\]
+Reflection supplies a disjoint left copy of the complete right-half
+zero set, preserving both multiplicity and height. Nonnegativity
+therefore gives
+\[
+ 2\sum_{\tau\in Q}m(\tau)w(\gamma_\tau)\le A_w,\qquad
+ 2B_w\le cA_w.
+\]
+No separate norm of the signed trace is introduced: subtract exactly,
+\[
+ 2H_w-(2-c)A_w=cA_w-2B_w\ge0.
+\]
+The full canonical residue
+\eqref{eq:canonical-power-multiplicity-residue} satisfies
+\[
+ \Im((\rho+d-1)r_d(\rho))
+   =\gamma_\rho\bigl(d\,m(q_d(\rho))-m(\rho)\bigr),
+\]
+which proves the equality in \eqref{eq:power-weighted-trace}.
+The actual punctured limits equal these canonical residues by the
+proved scaled-limit theorem and uniqueness of limits.
+
+For the carrier assertion, put
+\(U=\{\rho\in S_T:m(\rho)\le d\,m(q_d(\rho))\}\).
+On this precise support the nonnegative weights give
+\[
+ \sum_{\rho\in U}m(\rho)w(\gamma_\rho)
+ \le\sum_{\rho\in U}d\,m(q_d(\rho))w(\gamma_\rho)
+ \le B_w\le(c/2)A_w.
+\]
+The displayed imaginary-part identity and \(\gamma_\rho>0\) identify
+\(C_{d,T}=S_T\setminus U\). Subtracting its complement mass from
+\(A_w\) proves \eqref{eq:power-weighted-carrier}. \(\square\)
+
+Two explicit weight choices are checked in Lean. For \(w(t)=1/t\),
+the scaling constant is \(c=1\), and
+\begin{equation}\label{eq:inverse-height-signed-trace}
+ \sum_{\rho\in S_T}
+       \frac{m(\rho)-d\,m(q_d(\rho))}{\gamma_\rho}
+ \ge\frac12\sum_{\rho\in S_T}\frac{m(\rho)}{\gamma_\rho}.
+\end{equation}
+For \(w(t)=1/t^2\), the scaling constant is \(c=1/d\), giving
+\[
+ H_{1/t^2}\ge(1-1/(2d))A_{1/t^2},\qquad
+ \sum_{\rho\in C_{d,T}}\frac{m(\rho)}{\gamma_\rho^2}
+ \ge(1-1/(2d))\sum_{\rho\in S_T}\frac{m(\rho)}{\gamma_\rho^2}.
+\]
+In particular the last all-\(d\) theorem implies, at \(d=2\), that at
+least three quarters of the inverse-square-height multiplicity mass
+has the strict desired residue sign. This is a weighted mass fraction,
+not an unweighted density of zeros and not a zero-free exponent.
+
+Thus the generalized detector retains a quantitatively large carrier
+for one signed real projection, even with reference-zero collisions.
+It remains necessary to prove an independent upper estimate for that
+response to obtain a numerical multiplicity upper bound or a simplicity
+result. No QRH exponent improvement follows from these lower estimates
+alone; the installed boundary remains \(7/8\). The finite support remains
+the original zero set \(S_T\), with \(T\) a zero-height cutoff.
+
+The owner is \texttt{Assembly/CarmichaelPowerTrace.lean}.
+The principal maintained declarations are
+\texttt{zeta\_power\_readout\_weighted\_trace\_lower},
+\texttt{zeta\_power\_readout\_carrier\_weight\_lower}, and
+\texttt{zeta\_power\_inverse\_square\_height\_carrier\_lower}, under
+\texttt{PrimeFactorOscillations.CarmichaelWeightedSignal}.
+The affine-map geometry is reused from
+\texttt{Assembly/CarmichaelPowerEnergy.lean} with unchanged proof bodies.
+Priority for the combined weighted comparison has not been established.
+
 \subsection{Exact Mellin action on general windows}
 \label{sec:general-window-mellin}
 

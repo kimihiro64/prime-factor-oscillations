@@ -1102,6 +1102,43 @@
       ]
     },
     {
+      "id": "TRC-T1",
+      "status": "kernel_checked_unconditional_weighted_signed_trace",
+      "claim": "For every real d>=2, real T, c>=0 and w nonnegative on positive heights satisfying d*w(d*t)<=c*w(t), define A=sum_S m(rho)*w(Im(rho)) and H=sum_S (m(rho)-d*m(q_d(rho)))*w(Im(rho)) over all distinct zeta zeros in the positive-height window. Then (2-c)*A<=2*H. The actual compensated logarithmic-readout residues give H=-sum_S w(gamma)/gamma*Im((rho+d-1)*r(rho)), including all reference zeros. No RH or simplicity hypothesis is used.",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.powerMap_im_identity",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.powerMap_injective",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.powerMap_window",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.power_weighted_reference_half",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.zetaCanonicalPowerResidue_im",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.zetaCanonicalPowerResidue_weighted_projection",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.zeta_power_readout_residue_eq",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.zeta_power_readout_weighted_trace_lower",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.zeta_power_weighted_trace_lower",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.zeta_right_half_weight_le",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.zeta_weighted_right_half_le"
+      ]
+    },
+    {
+      "id": "TRC-C1",
+      "status": "kernel_checked_actual_strict_sign_carrier_mass",
+      "claim": "Under the same uniform weight assumptions, zeros satisfying m(rho)<=d*m(q_d(rho)) carry at most c/2 of the total weighted multiplicity mass. The actual residue carrier Im((rho+d-1)*r(rho))<0 carries at least 1-c/2 of that mass. For w(t)=1/t^2 the compiled all-d specialization retains at least 1-1/(2*d). This is a weighted multiplicity-mass statement, not an unweighted zero density or a new zero-free boundary.",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.zeta_power_weak_weight_mass_upper",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.zeta_power_readout_carrier_weight_lower",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.zeta_power_inverse_square_height_carrier_lower"
+      ]
+    },
+    {
+      "id": "TRC-W1",
+      "status": "kernel_checked_inverse_height_trace_specializations",
+      "claim": "For every real d>=2 and real T, the full signed inverse-height multiplicity trace H_1 is at least A_1/2, and the inverse-square-height trace H_2 is at least (1-1/(2*d))*A_2. Both A_k use ordinary multiplicity m(rho), not squared multiplicity. No independent response upper bound or numerical multiplicity bound is asserted.",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.zeta_power_inverse_height_trace_lower",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.zeta_power_inverse_square_height_trace_lower"
+      ]
+    },
+    {
       "id": "BL-TI1",
       "status": "kernel_checked_bandlimited_coset_and_principal_typeI_vanishing",
       "claim": "A Schwartz window with zero Fourier value at the origin and Fourier support inside the open unit disk has zero sum on every affine Gaussian lattice of mesh norm at most one. All shifted q-congruence-coset sums and their full norm-character combination vanish for q^2<=X, for every positive integer q. For radial windows with zero physical origin, the full coprimality-masked principal Type I block vanishes when N(H)N(a)N(b)<=D for every retained pair. The existing three-scale wavelet supplies both origins and needs only half-unit initial Fourier support. Finite-prefix outside tails, the nonzero Mellin witness in this profile class, the character-ideal reindexing and the retained Type II estimate are not asserted discharged; QRH remains7/8.",

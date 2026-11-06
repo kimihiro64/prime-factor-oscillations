@@ -48,7 +48,7 @@ theorem finite_compensated_energy_lower {I : Type*} (S : Finset I)
 def powerReferenceMass (d : Real) (rho : Complex) : Real :=
   d * (analyticOrderNatAt riemannZeta (powerMap d rho) : Real) / rho.im
 
-private theorem powerMap_im_identity (d : Real) (hd : 0 < d) (rho : Complex) :
+theorem powerMap_im_identity (d : Real) (hd : 0 < d) (rho : Complex) :
     (powerMap d rho).im * d = rho.im := by
   have hdC : Not ((d : Complex) = 0) := by exact_mod_cast hd.ne'
   have h : powerMap d rho * (d : Complex) = rho + (d : Complex) - 1 := by
@@ -56,7 +56,7 @@ private theorem powerMap_im_identity (d : Real) (hd : 0 < d) (rho : Complex) :
     field_simp [hdC]
   simpa using congrArg Complex.im h
 
-private theorem powerMap_injective (d : Real) (hd : 0 < d) :
+theorem powerMap_injective (d : Real) (hd : 0 < d) :
     Function.Injective (powerMap d) := by
   have hdC : Not ((d : Complex) = 0) := by exact_mod_cast hd.ne'
   intro x y hxy
@@ -65,7 +65,7 @@ private theorem powerMap_injective (d : Real) (hd : 0 < d) :
   field_simp [hdC] at h
   linear_combination h
 
-private theorem powerMap_window (d T : Real) (hd : 2 <= d) (rho : Complex)
+theorem powerMap_window (d T : Real) (hd : 2 <= d) (rho : Complex)
     (hw : zetaZeroWindow T rho)
     (hm : 0 < analyticOrderNatAt riemannZeta (powerMap d rho)) :
     zetaZeroWindow T (powerMap d rho) /\ (1 / 2 : Real) < (powerMap d rho).re := by
