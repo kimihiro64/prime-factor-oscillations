@@ -2089,6 +2089,171 @@ and \texttt{zeta\_readout\_fifth\_minimal\_configuration} certify the
 minimum, complete smallest-model classification, and actual full-readout
 transfer, respectively.
 
+\subsection{A sharp global offcritical multiplicity budget}
+\label{sec:global-offcritical-excess}
+
+The weak tails can be coupled to the multiplicities of every offcritical
+point. Define
+\[
+ R_9=\sum_{\substack{i\in U\\m_i\ge9}}u_i,\qquad
+ J_3=\sum_{\substack{i\in S\\\Re\rho_i<1/2}}(m_i-3)_+u_i,
+ \qquad \Delta=C-39P-Q.
+\]
+Here \((m-3)_+=\max(m-3,0)\). The sum defining \(J_3\) has no weak-set
+restriction: it counts one representative of each reflected offcritical
+pair, including pairs outside \(U\).
+
+\paragraph{Theorem (global multiplicity profile and sharp coefficients).}
+For every finite reflected positive-natural-multiplicity spectrum in
+\([1/8,7/8]\),
+\begin{equation}\label{eq:global-offcritical-excess}
+ \boxed{\Delta\ge4R_5+16R_9+J_3.}
+\end{equation}
+The coefficient vector \((4,16,1)\) is maximal under coordinatewise
+enlargement: if \(a\ge4\), \(b\ge16\), \(c\ge1\), and
+\[
+ \Delta\ge aR_5+bR_9+cJ_3
+\]
+holds for every finite spectrum, then \(a=4\), \(b=16\), \(c=1\).
+This is a sharpness statement for the displayed vector, not a
+classification of all other admissible triples.
+
+\paragraph{Proof of the signed inequality.}
+Retain the complete charged weight \(F\) and all its original
+compensation terms. Put
+\[
+ e_i=1_{\Re\rho_i<1/2}(m_i-3)_+u_i,\qquad
+ K_i=F_i-\frac{e_i+e_{i^*}}2.
+\]
+The weight \(K\) is symmetric. At a point strictly right of the
+critical line, \(e_i=0\) and
+\(e_{i^*}=(m_i-3)_+u_i\). If \(m_i\le2\), the excess vanishes and
+\(K_i=F_i\ge u_i\). If \(m_i\ge3\), the already proved half-mass
+floor gives
+\[
+ K_i\ge\frac{m_i u_i}{2}-\frac{(m_i-3)u_i}{2}
+       =\frac32u_i.
+\]
+Thus \(K_i\ge u_i\) at every right point, with the stronger
+three-half floor whenever its order is at least three. Reflection
+proves nonnegativity on the left. On the critical line both new
+charges vanish, so \(K=F\ge0\). The exact total is
+\[
+ \sum_{i\in S}K_i=A-E_U-Q-J_3.
+\]
+
+For a common-weak source of order at least five, its quadratic
+reference has order at least three and unit weight \(4u_i\).
+Its contribution is at least \(6u_i\). Every other quadratic
+reference still contributes at least \(4u_i\). Therefore
+\[
+ \sum_{q_2(U)}K_i\ge4P+2R_5.
+\]
+For a common-weak source of order at least nine, its quartic
+reference has order at least three and unit weight \(16u_i\).
+It contributes at least \(24u_i\), while every other quartic
+reference contributes at least \(16u_i\). Consequently
+\[
+ \sum_{q_4(U)}K_i\ge16P+8R_9.
+\]
+Both maps are injective on \(U\), and the two images are disjoint
+and strictly right of \(1/2\). The complete reflection budget gives
+\[
+ A-E_U-Q-J_3=\sum_S K
+ \ge2(4P+2R_5+16P+8R_9)
+ =40P+4R_5+16R_9.
+\]
+Substituting \(A=C+P+E_U\) proves
+\eqref{eq:global-offcritical-excess}. The excess charge has been
+subtracted before applying the budget; it is not an unsigned
+estimate of a remainder.
+
+\paragraph{Three exact all-height witnesses.}
+All entries in the following table are in units of \(H^{-2}\),
+for arbitrary \(H>0\):
+\[
+\begin{array}{c|rrrrrr}
+ \text{model}&P&Q&R_5&R_9&J_3&\Delta\\ \hline
+ 17\text{ points, central order }5&37&37&1&0&0&4\\
+ 17\text{ points, central order }7&37&37&1&0&4&8\\
+ 29\text{ points, central order }9&229&229&5&1&8&44
+\end{array}
+\]
+The first model is the existing fifth-tail attainer.
+For the second, keep its seventeen locations, raise the central
+order to seven, and raise the first order-three reflected pair
+to order four. All other orders remain unchanged. The weak set
+is still the same four-point set; direct summation gives
+\(A=1575/H^2\), \(W=87/H^2\), and \(C=1488/H^2\).
+
+For completeness, the twenty-nine-point model is specified by
+the following seven weak sources and their reference orders:
+\[
+\begin{array}{c|c|c|r|rr}
+ &\Re\rho&\Im\rho&m_\rho&m_{q_2(\rho)}&m_{q_4(\rho)}\\ \hline
+ 0&1/2&H&9&5&3\\
+ a&1/4&H/2&5&3&2\\
+ b&1/8&H/4&3&2&1\\
+ c&3/8&H/4&3&2&1\\
+ d&3/16&H/8&2&1&1\\
+ e&7/16&H/8&2&1&1\\
+ f&5/16&H/8&2&1&1
+\end{array}
+\]
+Take the central point together with all fourteen displayed
+reference points and their fourteen reflections, assigning the
+same order to reflected partners. The fourteen right reference
+points are distinct, and all seven source orders agree with
+the assigned orders at their reflected locations. The exact
+quadratic and quartic target tables show that these seven
+sources, and only these, are common weak. They also verify every
+absent reference. Finite summation yields
+\[
+ A=\frac{9713}{H^2},\quad W=\frac{509}{H^2},\quad
+ C=\frac{9204}{H^2},
+\]
+and the last row of the witness table follows.
+All three models attain \eqref{eq:global-offcritical-excess}.
+For the twenty-nine-point model, the full compensated residues have
+the established scaled limits and retain the reference orders.
+
+\paragraph{Proof of sharpness.}
+Applying a proposed universal coefficient bound to the three
+witnesses gives, respectively,
+\[
+ a\le4,\qquad a+4c\le8,\qquad 5a+b+8c\le44.
+\]
+Under \(a\ge4\), \(b\ge16\), \(c\ge1\), these force first \(a=4\),
+then \(c=1\), then \(b=16\), proving the claim.
+
+\paragraph{Actual zeta multiplicity certificates.}
+Every actual zeta window and both full residue readouts inherit
+\eqref{eq:global-offcritical-excess}, with the analytic correction
+and the local-limit hypotheses retained. Define its observable
+remainder by
+\[
+ {\cal E}(T)=C(T)-39P(T)-Q(T)-4R_5(T)-16R_9(T).
+\]
+Then \({\cal E}(T)\ge J_3(T)\ge0\). For each offcritical zero
+\(\rho=\beta+i\gamma\) in that window, its actual analytic order
+satisfies
+\[
+ \frac{(m_\rho-3)_+}{\gamma^2}\le{\cal E}(T).
+\]
+In particular, \({\cal E}(T)=0\) forces every offcritical zero in
+the window to have order at most three, without a weak-set
+restriction and without assuming RH. Critical-line multiplicities
+are outside the definition of \(J_3\); no bound on all
+critical-line orders is asserted. No actual-zeta realization
+of the extremal finite models is asserted.
+
+The maintained Lean declarations
+\texttt{carrier\_global\_excess\_bound},
+\texttt{global\_excess\_coefficients\_pareto\_optimal},
+and \texttt{zeta\_readout\_carrier\_global\_excess\_bound}
+certify the inequality, coefficient sharpness and full-readout
+transfer.
+
 \subsection{Exact Mellin action on general windows}
 \label{sec:general-window-mellin}
 

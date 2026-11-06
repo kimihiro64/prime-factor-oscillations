@@ -2,6 +2,7 @@
 
 from scripts.carrier_stability_proof_targets import CARRIER_STABILITY_THEOREMS
 from scripts.dyadic_carrier_proof_targets import DYADIC_CARRIER_THEOREMS
+from scripts.global_excess_proof_targets import GLOBAL_EXCESS_THEOREMS
 from scripts.minimal_carrier_proof_targets import MINIMAL_CARRIER_THEOREMS
 from scripts.multiplicity_carrier_proof_targets import MULTIPLICITY_CARRIER_THEOREMS
 from scripts.multiplicity_support_proof_targets import MULTIPLICITY_SUPPORT_THEOREMS
@@ -436,4 +437,5 @@ METAPLECTIC_THEOREMS = tuple(sorted(
     + CARRIER_STABILITY_THEOREMS
     + TWO_TAIL_THEOREMS
     + MINIMAL_CARRIER_THEOREMS
+    + GLOBAL_EXCESS_THEOREMS
 ))
