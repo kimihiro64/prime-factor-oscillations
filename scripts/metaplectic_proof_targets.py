@@ -10,6 +10,7 @@ from scripts.multiplicity_carrier_proof_targets import MULTIPLICITY_CARRIER_THEO
 from scripts.multiplicity_lattice_proof_targets import MULTIPLICITY_LATTICE_THEOREMS
 from scripts.multiplicity_support_proof_targets import MULTIPLICITY_SUPPORT_THEOREMS
 from scripts.optimal_residue_degree_proof_targets import OPTIMAL_RESIDUE_DEGREE_THEOREMS
+from scripts.residue_panel_proof_targets import RESIDUE_PANEL_THEOREMS
 from scripts.simple_carrier_sharpness_proof_targets import SIMPLE_CARRIER_SHARPNESS_THEOREMS
 from scripts.strip_carrier_proof_targets import STRIP_CARRIER_THEOREMS
 from scripts.two_tail_proof_targets import TWO_TAIL_THEOREMS
@@ -445,5 +446,5 @@ METAPLECTIC_THEOREMS = tuple(sorted(
     + MULTIPLICITY_LATTICE_THEOREMS
     + ADAPTIVE_MULTIPLICITY_THEOREMS
     + EXACT_RESIDUE_SPACING_THEOREMS
-    + OPTIMAL_RESIDUE_DEGREE_THEOREMS
+    + OPTIMAL_RESIDUE_DEGREE_THEOREMS + RESIDUE_PANEL_THEOREMS
 ))

@@ -2276,6 +2276,45 @@
       "declarations": [
         "PrimeFactorOscillations.CarmichaelWeightedSignal.zeta_minimal_degree_readout_certifies_orders"
       ]
+    },
+    {
+      "id": "RP-G",
+      "status": "kernel_checked_residue_panel_spacing",
+      "claim": "In the closed strip at height at least2, every nonresonant power row of degree at least3 has unit separation for unrestricted integer target and reference orders. Degree2 has the explicit target +/-1 exception; resonant norms are exact and their reference fraction is monotone in degree.",
+      "declarations": [
+        "Complex.integerResidueCode_numerator_re",
+        "Complex.integerResidueCode_nonresonant_unit",
+        "Complex.integerResidueCode_two_nonresonant_unit",
+        "Complex.integerResidueCode_resonant_norm",
+        "Complex.residueReferenceFraction_mono"
+      ]
+    },
+    {
+      "id": "RP-P",
+      "status": "kernel_checked_residue_panel_spacing",
+      "claim": "For every nonempty finite panel D of degrees at least2, with common unrestricted integer target and all supported reference coordinates, the exact minimum maximum norm is min(1,lcm(D)*(max(D)-1)/norm(z+max(D)-1)); it is attained, positive, and gives the exact unit-spacing criterion and robust joint uniqueness. The cubic/quartic radius is min(1,36/norm(z+3)).",
+      "declarations": [
+        "Complex.residuePanelPeriod_pos",
+        "Complex.residuePanelPeriod_dvd_target",
+        "Complex.residuePanelPeriod_le_abs",
+        "Complex.residuePanelNorm_separation",
+        "Complex.residuePanel_resonant_profile",
+        "Complex.residuePanelNorm_attains",
+        "Complex.residuePanel_unique",
+        "Complex.residuePanelRadius_pos",
+        "Complex.residuePanel_unit_iff",
+        "Complex.residuePanelRadius_three_four",
+        "Complex.residuePanelNorm_three_four",
+        "Complex.residuePanel_three_four_separation"
+      ]
+    },
+    {
+      "id": "RP-Z",
+      "status": "kernel_checked_residue_panel_spacing",
+      "claim": "Under the actual local residue limits and analytic correction on the open strip, a finite panel certifies the zeta target and every supported reference order when each row has total observation error below the exact panel spacing. No RH, multiplicity cap, reference nonvanishing, achieved uniform error estimate, or QRH improvement is assumed or asserted.",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.zeta_panel_readout_certifies_orders"
+      ]
     }
   ],
   "novelty": "Priority for the combined explicit formulas has not been established; source classification and Gauss identities are classical."

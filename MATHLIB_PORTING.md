@@ -13,6 +13,8 @@ namespace.
 | `PrimeFactorOscillations.Mathlib.Analysis.Complex.IntegerResidueAdaptive` | `Mathlib/Analysis/Complex/IntegerResidueAdaptive.lean` | project-verified | Every closed-strip point of height H>=2 and integer power d>=2H has unit residue spacing and sharp half-unit decoding. Explicit degree max(4,ceil(2H)); both coordinates and all reference terms retained. |
 | `PrimeFactorOscillations.Mathlib.Analysis.Complex.IntegerResidueStrip` | `Mathlib/Analysis/Complex/IntegerResidueStrip.lean` | project-verified | Exact shortest residue min(1,d(d-1)/norm(z+d-1)) for every d>=2 in the closed strip at height>=2; attainment, exact unit-spacing criterion, and robust joint multiplicity decoding. |
 | `PrimeFactorOscillations.Mathlib.Analysis.Complex.IntegerResidueOptimalDegree` | `Mathlib/Analysis/Complex/IntegerResidueOptimalDegree.lean` | project-verified | Exact minimum unit-spacing degree from one test at ceil(sqrt(H)); all feasible degrees form its upward interval, with strict sqrt(H)<d_min<sqrt(H)+2 for H>=2 in the closed strip. |
+| `PrimeFactorOscillations.Mathlib.Analysis.Complex.IntegerResiduePanelGeometry` | `Mathlib/Analysis/Complex/IntegerResiduePanelGeometry.lean` | project-verified | Unit nonresonant spacing with the degree-two exceptional targets explicit; exact resonant norm and monotone reference fraction. |
+| `PrimeFactorOscillations.Mathlib.Analysis.Complex.IntegerResiduePanel` | `Mathlib/Analysis/Complex/IntegerResiduePanel.lean` | project-verified | Exact attained spacing for every finite nonempty compensation panel: min(1,lcm(D)*(max(D)-1)/norm(z+max(D)-1)); joint uniqueness and cubic/quartic specialization. |
 
 ## Integer compensated-residue decoding
 

@@ -2622,6 +2622,142 @@ The maintained owners are \texttt{IntegerResidueOptimalDegree} and
 \texttt{CarmichaelOptimalMultiplicity}; their fifteen degree statements
 and actual-zeta consumer are kernel checked. Priority is unestablished.
 
+\subsection{Exact spacing of a finite compensation panel}
+\label{sec:residue-panel-spacing}
+
+Several powers can be measured together without discarding any reference
+multiplicity. Let \(D\subset\{2,3,\ldots\}\) be finite and nonempty, and put
+\[
+ K=\max D,\qquad L=\operatorname{lcm}\{d:d\in D\},\qquad
+ c_d(z;a,b_d)=-a+\frac{dz}{z+d-1}b_d.
+\]
+The integer \(a\) is shared by every row, whereas each \(b_d\) is retained
+independently. For \(0\le\Re z\le1\), \(H=|\Im z|\ge2\), define
+\[
+ \|c\|_D=\max_{d\in D}|c_d(z;a,b_d)|,\qquad
+ \lambda_D(z)=\min\left(1,\frac{L(K-1)}{|z+K-1|}\right).
+\]
+Here a tuple is nonzero if \(a\ne0\), or \(b_d\ne0\) for some \(d\in D\).
+No assertion concerns coordinates outside this finite support.
+
+\paragraph{Theorem (exact panel spacing).}
+The minimum of \(\|c\|_D\) over all nonzero supported integer tuples is
+exactly \(\lambda_D(z)>0\). Both competing values are attained: the tuple
+\(a=1,\ b_d=0\) has norm \(1\), and
+\(a=L,\ b_d=L/d\) has norm \(L(K-1)/|z+K-1|\).
+Consequently all nonzero tuples have norm at least \(1\) if and only if
+\[
+ |z+K-1|\le L(K-1).
+\]
+There is no bound on the integer target or on any reference coordinate.
+
+\paragraph{Proof.}
+Write \(z=\beta+i\gamma\), \(t_d=\beta+d-1\), and retain the full numerator
+\[
+ N_d=c_d(z;a,b_d)(z+d-1)
+     =k_d(z+d-1)-d(d-1)b_d,\qquad k_d=db_d-a\in\mathbb Z.
+\]
+Thus \(\Re N_d=k_dt_d-d(d-1)b_d\) and
+\(\Im N_d=k_d\gamma\), including the compensation term.
+First suppose \(d\ge3\) and \(k_d\ne0\). Simultaneous negation lets us assume
+\(k_d\ge1\). If \(k_d\ge d-1\), then
+\[
+ |N_d|^2\ge(d-1)^2H^2\ge d^2+H^2\ge|z+d-1|^2;
+\]
+the middle inequality follows from \(H\ge2\) and \(d\ge3\).
+If \(1\le k_d\le d-2\), then \(b_d=0\) gives \(|c_d|=k_d\ge1\).
+For \(b_d\ge1\), use \(t_d\le d\) to obtain \(\Re N_d\le-d\);
+for \(b_d\le-1\), use \(t_d\ge d-1\) to obtain \(\Re N_d\ge d\).
+In both remaining cases \(|N_d|^2\ge d^2+H^2\), proving \(|c_d|\ge1\).
+
+For \(d=2\), the same conclusion holds when \(k_d\ne0\) and
+\(a\notin\{-1,1\}\). Indeed \(k_d\ge2\) is controlled by the imaginary
+part. When \(k_d=1\), the excluded targets remove \(b_d=0,1\);
+all remaining integers have \(|\Re N_d|\ge2\). The exception is real:
+\(d=2,z=1+2i,a=b_d=1\) has \(|c_d|^2=1/2\).
+If \(K\ge3\) and this exceptional target occurs in a selected degree-two
+row, the row of degree \(K\) is necessarily nonresonant, since
+\(K b_K=\pm1\) is impossible. It therefore supplies unit norm itself.
+If \(K=2\), the entire panel is \(D=\{2\}\), and the already proved
+single-degree strip formula gives the stated radius, including its exception.
+Thus whenever any row is nonresonant and \(K\ge3\), the panel norm is at least
+\(1\), hence at least \(\lambda_D(z)\).
+
+If every row is resonant, then \(db_d=a\) for all \(d\in D\), so \(L\mid a\).
+A nonzero supported tuple has \(a\ne0\); otherwise every \(b_d\) would vanish.
+It follows that \(|a|\ge L\), and the exact norm of each row is
+\[
+ |c_d|=\frac{|a|(d-1)}{|z+d-1|}.
+\]
+The reference fraction increases with \(d\). For completeness, with
+\(t=d-1\), \(u=e-1\), \(d\le e\), the cross-multiplied square difference is
+\[
+ u^2\bigl((\beta+t)^2+\gamma^2\bigr)
+ -t^2\bigl((\beta+u)^2+\gamma^2\bigr)
+ =(u-t)\bigl(2tu\beta+(\beta^2+\gamma^2)(u+t)\bigr)\ge0.
+\]
+All denominators are positive because \(H\ge2\).
+Hence the maximum resonant norm occurs at \(K\), proving its lower bound
+\(L(K-1)/|z+K-1|\). Taking \(a=L,b_d=L/d\) attains that value, while
+\(a=1,b_d=0\) attains \(1\). Taking the better of these tuples completes
+the exact minimum and the unit-spacing classification.
+
+\paragraph{Robust simultaneous decoding and the actual zeta readout.}
+For two integer tuples \((a,b_d)\), \((a',b'_d)\) and observations \(w_d\),
+if, for every \(d\in D\),
+\[
+ |c_d(z;a,b_d)-w_d|+|c_d(z;a',b'_d)-w_d|<\lambda_D(z),
+\]
+then \(a=a'\) and \(b_d=b'_d\) for every \(d\in D\).
+Indeed subtraction preserves the same shared target difference in every row;
+the triangle inequality would give a nonzero difference tuple norm strictly
+below its proved minimum. The strict inequality is essential at a spacing tie.
+
+This transfers to the full compensated zeta readout with analytic correction
+\(G\) on \(0<\Re s<1\). Fix \(D\), and assume the actual local residue limits
+\[
+ r_d=\lim_{s\to\rho}(s-\rho)
+   \mathcal R_d[\mathrm{zetaMultiplicityReadout}(G)](s),\qquad d\in D,
+\]
+where \(\mathcal R_d\) denotes the existing affine power readout and the
+limit is punctured. The proved transfer identifies
+\[
+ r_d=c_d\bigl(\rho;m_\zeta(\rho),m_\zeta(q_d(\rho))\bigr),\qquad
+ q_d(s)=\frac{s+d-1}{d}.
+\]
+If nonnegative candidate orders \(A,B_d\) and observations \(w_d\) satisfy
+\[
+ |r_d-w_d|+|c_d(\rho;A,B_d)-w_d|<\lambda_D(\rho)
+ \quad(d\in D),
+\]
+then \(m_\zeta(\rho)=A\) and \(m_\zeta(q_d(\rho))=B_d\) for every selected row.
+This requires neither RH, reference nonvanishing, nor a multiplicity cap.
+The local-limit and error hypotheses remain explicit: no uniform achieved
+observation-error estimate or growing-panel sampling limit is supplied here.
+
+\paragraph{Cubic and quartic measurements.}
+For \(D=\{3,4\}\), we have \(K=4\), \(L=12\), and exactly
+\[
+ \lambda_{\{3,4\}}(z)=\min\left(1,\frac{36}{|z+3|}\right),\qquad
+ \|c\|_{\{3,4\}}=\max(|c_3|,|c_4|).
+\]
+The quartic row alone has spacing \(\min(1,12/|z+3|)\).
+The joint panel therefore gives a factor of three when \(|z+3|\ge36\),
+a factor \(|z+3|/12\) when \(12<|z+3|<36\), and equality when
+\(|z+3|\le12\). This charges two measurements and certifies both reference
+orders. It is an exact robustness gain, not a new arithmetic error estimate
+or an improvement of the certified QRH boundary \(7/8\).
+
+The reusable geometry, full panel theorem, and actual-zeta consumer are
+kernel checked in \texttt{IntegerResiduePanelGeometry},
+\texttt{IntegerResiduePanel}, and \texttt{CarmichaelPanelMultiplicity}.
+The closest robustness comparison is CRT decoding with bounded uncertain
+remainders, for example Guo--Xia, \emph{Exact Dynamic Range--Robustness Tradeoff
+for Chinese Remainder Theorem under Non-Uniformly Bounded Remainder Errors}
+(arXiv:2609.22615). Here the exact norm minimum concerns complex compensated
+quotient coordinates and unrestricted integers. This distinction is proved;
+priority for the resulting spacing theorem is not established by that comparison.
+
 \subsection{Exact Mellin action on general windows}
 \label{sec:general-window-mellin}
 
