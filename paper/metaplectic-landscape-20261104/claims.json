@@ -2383,6 +2383,37 @@
         "PrimeFactorOscillations.CarmichaelWeightedSignal.zeta_cubic_orbit_scalar_decode",
         "PrimeFactorOscillations.CarmichaelWeightedSignal.zeta_cubic_orbit_negative_signal"
       ]
+    },
+    {
+      "id": "DL-R",
+      "status": "kernel_checked_dirichlet_scalar_orbit",
+      "claim": "For every character of every nonzero modulus, including principal characters and modulus1, the local order is positive exactly at a zero away from1. The corrected logarithmic derivative has scaled limit minus the actual multiplicity, and affine power compensation for every real d>1 has its full target/reference residue at every open-strip point, including real points. No RH or nonreal hypothesis is used.",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.LFunction_order_pos_iff_zero",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.dirichlet_readout_scaled_limit",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.dirichlet_power_readout_scaled_limit"
+      ]
+    },
+    {
+      "id": "DL-O",
+      "status": "kernel_checked_dirichlet_scalar_orbit",
+      "claim": "For every Dirichlet character and every real or complex point with0<Re rho<1, the unconditional7/8 provider anchors the second cubic reference. Two actual real residue limits are(-A+tB,-B); half-unit errors recover both orders by the explicit scalar decoder. Either orbit point is a zero iff the exact minimum is<=-1, equivalently the observed minimum is<-1/2 under the stated error hypotheses. Tolerance is independent of character, modulus and height; no finite-sample error rate or improved QRH boundary is asserted.",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.dirichlet_cubic_orbit_terminal_order",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.dirichlet_cubic_orbit_scalar_values",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.dirichlet_cubic_orbit_real_limits",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.dirichlet_cubic_orbit_scalar_decode",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.dirichlet_cubic_orbit_zero_signal",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.dirichlet_cubic_orbit_noisy_zero_iff"
+      ]
+    },
+    {
+      "id": "DL-C",
+      "status": "kernel_checked_dirichlet_scalar_orbit",
+      "claim": "At rho=1/2 the single cubic integer residue vanishes exactly for the nonzero pair(3,5). This is a code-model collision, not an assertion about realized Dirichlet zero multiplicities. The anchored second coordinate distinguishes it.",
+      "declarations": [
+        "Complex.cubicScalar_central_collision"
+      ]
     }
   ],
   "novelty": "Priority for the combined explicit formulas has not been established; source classification and Gauss identities are classical."

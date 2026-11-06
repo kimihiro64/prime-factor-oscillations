@@ -166,6 +166,12 @@ theorem cubicScalar_no_uniform_spacing (eps : Real) (hE : 0 < eps) :
     rw [hzH] at hBound
     exact hBound.trans_lt hFrac
 
+/-- A single cubic coordinate can cancel completely at the real central point.
+This is an integer-code example, not an assertion about actual L-zero orders. -/
+theorem cubicScalar_central_collision :
+    integerResidueCode 3 (1 / 2 : Complex) 3 5 = 0 := by
+  norm_num [integerResidueCode]
+
 end Complex
 
 end

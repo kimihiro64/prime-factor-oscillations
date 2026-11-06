@@ -12,6 +12,7 @@ from scripts.multiplicity_support_proof_targets import MULTIPLICITY_SUPPORT_THEO
 from scripts.optimal_residue_degree_proof_targets import OPTIMAL_RESIDUE_DEGREE_THEOREMS
 from scripts.residue_panel_proof_targets import RESIDUE_PANEL_THEOREMS
 from scripts.scalar_cubic_orbit_proof_targets import SCALAR_CUBIC_ORBIT_THEOREMS
+from scripts.dirichlet_scalar_orbit_proof_targets import DIRICHLET_SCALAR_ORBIT_THEOREMS
 from scripts.simple_carrier_sharpness_proof_targets import SIMPLE_CARRIER_SHARPNESS_THEOREMS
 from scripts.strip_carrier_proof_targets import STRIP_CARRIER_THEOREMS
 from scripts.two_power_degree_proof_targets import TWO_POWER_DEGREE_THEOREMS
@@ -443,8 +444,7 @@ METAPLECTIC_THEOREMS = tuple(sorted(
     + MULTIPLICITY_SUPPORT_THEOREMS + CARRIER_STABILITY_THEOREMS
     + TWO_TAIL_THEOREMS + MINIMAL_CARRIER_THEOREMS
     + GLOBAL_EXCESS_THEOREMS + MULTIPLICITY_LATTICE_THEOREMS
-    + ADAPTIVE_MULTIPLICITY_THEOREMS
-    + EXACT_RESIDUE_SPACING_THEOREMS
+    + ADAPTIVE_MULTIPLICITY_THEOREMS + EXACT_RESIDUE_SPACING_THEOREMS
     + OPTIMAL_RESIDUE_DEGREE_THEOREMS + RESIDUE_PANEL_THEOREMS + TWO_POWER_DEGREE_THEOREMS
-    + SCALAR_CUBIC_ORBIT_THEOREMS
+    + SCALAR_CUBIC_ORBIT_THEOREMS + DIRICHLET_SCALAR_ORBIT_THEOREMS
 ))

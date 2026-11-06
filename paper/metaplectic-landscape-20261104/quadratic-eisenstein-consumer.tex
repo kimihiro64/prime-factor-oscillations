@@ -3026,6 +3026,138 @@ the scalar-only cubic-orbit theorem for the full compensated zeta readout;
 priority for that application remains unestablished. No transfer of a global
 metaplectic or character estimate is asserted here.
 
+\subsection{All-character scalar recovery, including real strip points}
+\label{sec:dirichlet-scalar-orbit}
+
+The scalar cubic-orbit construction extends to every Dirichlet character,
+including principal characters and modulus~\(1\). More significantly, the
+local residue calculation can be established on the real axis, where the
+nonreal residue wedge used earlier gives no information.
+Write \(L_\chi(s)=L(s,\chi)\), and for \(\rho\ne1\) put
+\[
+ m_\chi(\rho)=\operatorname{ord}_\rho L_\chi\in\mathbb N_0,
+ \qquad R_{\chi,G}(s)=-\frac{L_\chi'(s)}{L_\chi(s)}+G(s),
+ \qquad q_d(s)=\frac{s+d-1}{d}.
+\]
+The order here is finite, including at a nonzero point where it is zero.
+The modulus is any positive integer; no primitivity, nonprincipality or
+nonreal-point hypothesis is imposed.
+
+\paragraph{Theorem (exact all-character affine residues).}
+For every \(\rho\ne1\) and \(G\) analytic at \(\rho\),
+\[
+ \lim_{s\to\rho,\ s\ne\rho}(s-\rho)R_{\chi,G}(s)=-m_\chi(\rho).
+\]
+If \(d>1\), \(0<\Re\rho<1\), and \(G\) is analytic throughout that open
+strip, define
+\[
+ P_{\chi,d,G}(s)=R_{\chi,G}(s)
+       -\frac{s}{s+d-1}R_{\chi,G}(q_d(s)).
+\]
+Then the actual punctured-neighborhood limit exists and equals
+\begin{equation}
+ \mathcal R_{\chi,d}(\rho)
+ :=\lim_{s\to\rho}(s-\rho)P_{\chi,d,G}(s)
+ =-m_\chi(\rho)
+   +\frac{d\rho}{\rho+d-1}m_\chi(q_d(\rho)).
+ \label{eq:dirichlet-power-multiplicity}
+\end{equation}
+In particular, the conclusion does not assume the existence of a residue
+limit, does not discard the reference multiplicity, and is independent of
+\(G\).
+
+\paragraph{Proof.}
+The maintained finite-factorization theorem gives
+\(L_\chi(s)=(s-\rho)^n g(s)\) near \(\rho\ne1\), with \(g\) analytic
+and \(g(\rho)\ne0\). Finiteness follows from analyticity off~\(1\) and
+nonvanishing at~\(2\), so the identically zero case is excluded. Uniqueness
+of analytic order identifies \(n=m_\chi(\rho)\); it is positive precisely
+when \(L_\chi(\rho)=0\). The logarithmic derivative of the factorization
+has residue \(n\), while \((s-\rho)G(s)\to0\). This proves the first
+limit. For the affine reference, \(q_d(s)-q_d(\rho)=(s-\rho)/d\).
+Consequently its scaled residue is \(-d\,m_\chi(q_d(\rho))\), and the
+subtraction in \(P_{\chi,d,G}\) supplies the plus sign and the coefficient
+\(d\rho/(\rho+d-1)\) in~\eqref{eq:dirichlet-power-multiplicity}.
+Both points stay inside the open strip, and \(\Re(\rho+d-1)>0\), so neither
+the pole at~\(1\) nor a zero denominator is encountered. This proof applies
+to real \(\rho\) without change.
+
+\paragraph{Theorem (uniform scalar cubic-orbit inverse and zero test).}
+For every character \(\chi\) and every \(0<\Re\rho<1\), set
+\[
+ A=m_\chi(\rho),\quad B=m_\chi(q_3(\rho)),\quad
+ t=\Re\frac{3\rho}{\rho+2},\qquad
+ r_0=\Re\mathcal R_{\chi,3}(\rho),\quad
+ r_1=\Re\mathcal R_{\chi,3}(q_3(\rho)).
+\]
+The two limits exist and satisfy
+\begin{equation}
+ (r_0,r_1)=(-A+tB,-B).
+ \label{eq:dirichlet-scalar-orbit}
+\end{equation}
+For observations \(y_0,y_1\) with \(|r_j-y_j|<1/2\) for \(j=0,1\),
+\[
+ \widehat B=\left\lfloor-y_1+\frac12\right\rfloor=B,
+ \qquad
+ \widehat A=\left\lfloor t\widehat B-y_0+\frac12\right\rfloor=A.
+\]
+There are also the exact equivalences
+\begin{align*}
+ L_\chi(\rho)=0\ \text{or}\ L_\chi(q_3(\rho))=0
+ &\iff \min(r_0,r_1)\le-1,\\
+ &\iff \min(y_0,y_1)<-\frac12
+       \quad\text{under the stated observation-error hypotheses}.
+\end{align*}
+The Boolean test needs no evaluation of \(t\); the multiplicity inverse
+uses its exact value. The recovered pair distinguishes a zero at the target
+from one only at the first reference.
+
+\paragraph{Proof.}
+The twice-iterated point is \(q_3(q_3(\rho))=q_9(\rho)\), with
+\[
+ \Re q_9(\rho)=\frac{\Re\rho+8}{9}>\frac89>\frac78,
+ \qquad \Re q_9(\rho)<1.
+\]
+The installed unconditional all-character QRH theorem therefore gives
+\(L_\chi(q_9(\rho))\ne0\). Its principal-character exception is avoided
+because this point is not~\(1\). The terminal order is zero. Applying
+\eqref{eq:dirichlet-power-multiplicity} at the first two orbit points and
+taking real parts gives~\eqref{eq:dirichlet-scalar-orbit}.
+The second observation recovers the integer \(B\) first. Substituting that
+exact integer into the first rounding step avoids amplifying its observation
+error by \(t\), and recovers \(A\) under the same half-unit tolerance.
+If \(B\ge1\), then \(r_1\le-1\); if \(B=0\) and \(A\ge1\), then
+\(r_0=-A\le-1\). If both orders vanish, both residues are zero. This proves
+the first equivalence. Strict half-unit error moves a coordinate at most
+\(-1\) below \(-1/2\), while both zero coordinates remain above \(-1/2\),
+which proves the noisy equivalence with every compensation term retained.
+
+\paragraph{Why the real-axis extension matters.}
+At \(\rho=1/2\) the cubic coefficient is exactly \(3/5\). Thus the
+nonzero integer pair \((A,B)=(3,5)\) has
+\[
+ -3+\frac{3(1/2)}{1/2+2}\,5=0,
+ \qquad (r_0,r_1)=(0,-5).
+\]
+Even a complex observation of the first residue alone loses this pair,
+whereas the second scalar coordinate restores it. The reference points are
+\(q_3(1/2)=5/6\) and \(q_9(1/2)=17/18\); the QRH endpoint argument removes
+the latter order, not the former. This is an exact integer-code example,
+not a claim that an actual character has zero orders \((3,5)\).
+
+The local limits and order criterion are kernel checked in
+\texttt{CarmichaelDirichletResidues}; all-character endpoint nonvanishing,
+the two real limits, the decoder and both zero tests are checked in
+\texttt{CarmichaelDirichletScalarOrbit}. The central collision is checked in
+\texttt{AnchoredScalarMultiplicity}. The tolerance is independent of
+conductor, height and multiplicity. Convergence is asserted pointwise:
+no common finite observation radius or arithmetic sampling-error rate is
+proved. Standard analytic continuation and the principal-character pole
+are classical background (DLMF, Section~25.15); the proposed application is
+the coupled all-character scalar recovery, and its literature priority
+remains unestablished. The QRH boundary stays \(7/8\); none of these recovery
+theorems excludes a zero or supplies the missing arithmetic cancellation.
+
 \subsection{Exact Mellin action on general windows}
 \label{sec:general-window-mellin}
 
