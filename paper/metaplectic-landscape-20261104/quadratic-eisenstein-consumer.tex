@@ -3158,6 +3158,125 @@ the coupled all-character scalar recovery, and its literature priority
 remains unestablished. The QRH boundary stays \(7/8\); none of these recovery
 theorems excludes a zero or supplies the missing arithmetic cancellation.
 
+\subsection{Three quadratic scalar channels and a two-channel obstruction}
+\label{sec:quadratic-scalar-chain}
+
+Cubic rows are not required for scalar multiplicity recovery. Three quadratic
+rows suffice uniformly, and an exact two-row collision explains the additional
+channel in the order-only model.
+
+\paragraph{Theorem (finite anchored scalar chains).}
+Let \(N\ge0\), \(m_0,\ldots,m_N\in\mathbb Z\), \(m_N=0\), and let
+\(t_0,\ldots,t_{N-1}\in\mathbb R\) be arbitrary. Put
+\[
+ r_j=-m_j+t_jm_{j+1}\quad(0\le j<N).
+\]
+For observations with \(|r_j-y_j|<1/2\), the backward recursion
+\[
+ \widehat m_N=0,\qquad
+ \widehat m_j=\left\lfloor t_j\widehat m_{j+1}-y_j+\frac12\right\rfloor
+ \quad(j=N-1,\ldots,0)
+\]
+recovers every \(m_j\) exactly. The tolerance is independent of the chain
+length and the sizes or signs of the coefficients. If the orders are
+nonnegative, there are also the equivalences
+\begin{equation}
+ \exists j<N:\ m_j>0
+ \quad\Longleftrightarrow\quad \exists j<N:\ r_j\le-1
+ \quad\Longleftrightarrow\quad \exists j<N:\ y_j<-\frac12,
+ \label{eq:anchored-chain-sign}
+\end{equation}
+where the last equivalence uses the observation-error hypotheses. The empty
+chain \(N=0\) is included, with all three existential statements false.
+
+\paragraph{Proof.}
+Start from the known terminal integer. If the successor is already recovered,
+then \(t_j\widehat m_{j+1}-y_j=m_j+(r_j-y_j)\); its distance from \(m_j\)
+is strictly below \(1/2\), so the displayed floor is \(m_j\). Backward
+induction proves the inverse. In particular, an uncertainty in an observation
+is never substituted as a successor order, so there is no error amplification
+by \(t_j\) or by the length of the chain.
+For nonnegative orders, select the largest index with positive order. Its
+successor order is zero, including when the successor is the terminal point,
+and its entire signed row is \(-m_j\le-1\). If there is no positive order,
+every supported row is zero. This proves the first equivalence. Strict
+half-unit errors then give the second: a row at most \(-1\) stays below
+\(-1/2\), while every zero row stays above \(-1/2\). Every reference term
+is retained until its vanishing follows from the selected index.
+
+\paragraph{Theorem (three quadratic-only Dirichlet observations).}
+For every Dirichlet character of positive modulus, let
+\[
+ z_0=\rho,\qquad z_{j+1}=q_2(z_j)=\frac{z_j+1}{2},\qquad
+ m_j=m_\chi(z_j),\qquad
+ t_j=\Re\frac{2z_j}{z_j+1}.
+\]
+Suppose \(0<\Re\rho<1\) and \(G\) is analytic on that open strip. The
+actual quadratic real residue limits at every \(z_j\) exist and equal
+\[
+ r_j=\Re\mathcal R_{\chi,2}(z_j)=-m_j+t_jm_{j+1}.
+\]
+The first three observations \(j=0,1,2\), each with error below \(1/2\),
+therefore recover the three orders \(m_0,m_1,m_2\) by the preceding recursion.
+Furthermore,
+\begin{align*}
+ \exists j\in\{0,1,2\}: L_\chi(z_j)=0
+ &\iff \exists j\in\{0,1,2\}: r_j\le-1,\\
+ &\iff \exists j\in\{0,1,2\}: y_j<-\frac12
+       \quad\text{under the stated errors}.
+\end{align*}
+This includes principal characters, modulus~\(1\), and real strip points.
+It needs no multiplicity cap. The inverse uses the exact coefficients
+\(t_j\); the Boolean signed test does not need their numerical values.
+
+\paragraph{Proof.}
+Induction gives \(z_j=1+(\rho-1)/2^j\), and all these points remain in the
+open strip. In particular,
+\[
+ z_3=\frac{\rho+7}{8},\qquad \frac78<\Re z_3<1.
+\]
+The installed unconditional all-character QRH theorem gives
+\(L_\chi(z_3)\ne0\), hence \(m_3=0\); its principal-character exception
+is avoided because \(z_3\ne1\). The exact affine-residue theorem applies
+at every \(z_j\), including real points, with \(d=2\). Thus its target
+and reference orders give precisely the rows above. Apply the finite-chain
+theorem with \(N=3\). Finally, finite analytic order is positive exactly
+at a zero, giving both zero tests. All three observations use the same
+quadratic compensated readout at different strip points; no unproved
+probability-family or growing-cutoff transfer is implicit.
+
+\paragraph{Exact two-row blindness in the order model.}
+Take \(\rho=1/2\). The consecutive points are
+\[
+ (z_0,z_1,z_2,z_3)=\left(\frac12,\frac34,\frac78,\frac{15}{16}\right).
+\]
+The positive integer orders \((m_0,m_1,m_2)=(4,6,7)\) give
+\[
+ -4+\frac{2(1/2)}{1/2+1}\,6=0,\qquad
+ -6+\frac{2(3/4)}{3/4+1}\,7=0.
+\]
+Both complete complex residues, and therefore both scalar observations,
+are exactly zero. The strict zero-free input \(\Re s>7/8\) permits this
+order model at its three support points: its last point is exactly \(7/8\).
+It does not provide a terminal anchor after only two quadratic steps.
+After the third step the terminal order is zero and the third row is
+\(-7\), exposing the pattern. Consequently three channels are sufficient
+for the actual all-character theorem, while two cannot uniformly distinguish
+all order codes allowed by nonnegative integrality and that strict
+zero-free input. No claim is made that an actual \(L\)-function realizes
+\((4,6,7)\), or that further arithmetic information could not rule it out.
+
+The generic inverse and signed tests, together with the exact collision,
+are kernel checked in \texttt{AnchoredScalarChain}. The actual endpoint,
+row limits, inverse and zero tests are checked in
+\texttt{CarmichaelQuadraticScalarChain}. Back substitution is classical
+nearest-plane or successive-interference-cancellation decoding; the proposed
+application is the quadratic-only all-character residue construction and
+its exact order-model obstruction. Literature priority for that application
+remains unestablished. Convergence is pointwise; no uniform finite observation
+radius or arithmetic error rate has been proved. The global QRH boundary
+remains \(7/8\).
+
 \subsection{Exact Mellin action on general windows}
 \label{sec:general-window-mellin}
 

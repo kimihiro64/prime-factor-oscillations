@@ -2414,6 +2414,39 @@
       "declarations": [
         "Complex.cubicScalar_central_collision"
       ]
+    },
+    {
+      "id": "QC-G",
+      "status": "kernel_checked_quadratic_scalar_chain",
+      "claim": "Every finite anchored integer chain r_j=-m_j+t_j*m_(j+1), with arbitrary real coefficients and terminal order zero, has an explicit backward floor decoder recovering every order under errors<1/2 in each row. For nonnegative orders, positive mass somewhere in the finite chain is equivalent to some exact row<=-1 and, under the stated observation errors, to some observed row<-1/2. No norm estimate or coefficient sign assumption is used.",
+      "declarations": [
+        "Complex.scalarChainDecode_exact",
+        "Complex.scalarChainDecode_all",
+        "Complex.scalarChain_negative_iff",
+        "Complex.scalarChain_noisy_negative_iff"
+      ]
+    },
+    {
+      "id": "QC-O",
+      "status": "kernel_checked_quadratic_scalar_chain",
+      "claim": "All quadratic iterate points have the exact closed form1+(rho-1)/2^j. For every Dirichlet character of every positive modulus and every real or complex point in0<Re rho<1, the first three quadratic real residue limits recover all three orders with per-row error<1/2. The third reference(rho+7)/8 lies strictly to the right of7/8 and has order zero by the installed unconditional theorem. Exact and noisy signed zero tests hold for the three observed orbit points. No RH, multiplicity cap, nonprincipal or nonreal restriction is assumed. Coefficients are exact; convergence is pointwise and no arithmetic sampling-error rate is supplied.",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.quadraticOrbitPoint_closed_form",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.dirichlet_quadratic_chain_terminal_order",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.dirichlet_quadratic_chain_scalar_values",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.dirichlet_quadratic_chain_real_limits",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.dirichlet_quadratic_chain_decode",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.dirichlet_quadratic_chain_zero_iff",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.dirichlet_quadratic_chain_noisy_zero_iff"
+      ]
+    },
+    {
+      "id": "QC-C",
+      "status": "kernel_checked_quadratic_scalar_chain",
+      "claim": "Two quadratic integer-code residues both vanish for the positive order pattern(4,6,7) at consecutive points(1/2,3/4,7/8). Thus the two-row order model can be blind while respecting the strict7/8 zero-free constraint. This is not an assertion of realized L-zero orders or a lower bound for actual L-functions with additional arithmetic information.",
+      "declarations": [
+        "Complex.quadraticScalar_two_channel_collision"
+      ]
     }
   ],
   "novelty": "Priority for the combined explicit formulas has not been established; source classification and Gauss identities are classical."
