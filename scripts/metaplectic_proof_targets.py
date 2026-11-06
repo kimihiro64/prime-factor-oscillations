@@ -1,5 +1,6 @@
 """New metaplectic arithmetic-model targets; no automorphic identification is implied."""
 
+from scripts.adaptive_multiplicity_proof_targets import ADAPTIVE_MULTIPLICITY_THEOREMS
 from scripts.carrier_stability_proof_targets import CARRIER_STABILITY_THEOREMS
 from scripts.dyadic_carrier_proof_targets import DYADIC_CARRIER_THEOREMS
 from scripts.global_excess_proof_targets import GLOBAL_EXCESS_THEOREMS
@@ -440,4 +441,5 @@ METAPLECTIC_THEOREMS = tuple(sorted(
     + MINIMAL_CARRIER_THEOREMS
     + GLOBAL_EXCESS_THEOREMS
     + MULTIPLICITY_LATTICE_THEOREMS
+    + ADAPTIVE_MULTIPLICITY_THEOREMS
 ))

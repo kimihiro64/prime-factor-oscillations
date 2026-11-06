@@ -2355,6 +2355,112 @@ The maintained owners are \texttt{IntegerResidueLattice},
 compensation terms occur in their compiled statements.
 The certified zero-free boundary remains \(7/8\).
 
+\subsection{Adaptive powers attain the optimal absolute tolerance}
+\label{sec:adaptive-multiplicity-decoding}
+
+A larger compensation power gives a different regime from the preceding
+spacing theorem, with an exact, height-independent optimal tolerance. Keep
+\[
+ c_d(\rho;a,b)=-a+v_db,\qquad
+ v_d=\frac{d\rho}{\rho+d-1},\qquad
+ \beta=\Re\rho,\quad H=|\Im\rho|.
+\]
+
+\paragraph{Theorem (optimal adaptive multiplicity decoding).}
+Suppose \(0\le\beta\le1\), \(H\ge2\), and \(d\in\mathbb N\) satisfies
+\(d\ge2H\). The full integer residue lattice has minimum distance exactly
+one:
+\[
+ |c_d(\rho;a,b)-c_d(\rho;a',b')|\ge1
+ \quad\text{whenever }(a,b)\ne(a',b').
+\]
+It follows that an observation \(w\) is compatible with at most one
+integer pair satisfying
+\[
+ |c_d(\rho;a,b)-w|<\frac12.
+\]
+The explicit choice
+\[
+ d_*(\rho)=\max\{4,\lceil2|\Im\rho|\rceil\}
+\]
+always satisfies the degree condition. Neither integer coordinate has an
+upper bound. The absolute tolerance \(1/2\) is globally optimal over all
+compensation powers, including powers outside the preceding small-power
+regime.
+
+\paragraph{Proof of the degree estimate.}
+Retain the entire complex reference coefficient. Its exact imaginary part is
+\[
+ \Im v_d=\frac{d(d-1)\Im\rho}
+                 {(\beta+d-1)^2+(\Im\rho)^2}.
+\]
+The hypotheses imply \(d\ge4\), \(0\le\beta+d-1\le d\), and \(H\le d/2\).
+Therefore
+\[
+ |\rho+d-1|^2
+   =(\beta+d-1)^2+H^2
+   \le d^2+H^2
+   \le\frac54d^2,
+ \qquad
+ d(d-1)H\ge2d(d-1)\ge\frac32d^2.
+\]
+The denominator is positive, so \(|\Im v_d|\ge1\).
+
+\paragraph{Proof of exact spacing and recovery.}
+Linearity reduces a difference of two residues to
+\(c_d(\rho;a,b)\) at a nonzero integer pair. If \(b\ne0\), then
+\[
+ |\Im c_d(\rho;a,b)|=|\Im v_d|\,|b|\ge1.
+\]
+If \(b=0\), then \(a\ne0\) and
+\(|c_d(\rho;a,0)|=|a|\ge1\). The pair \((1,0)\) attains one exactly.
+Two residues within strict distance \(1/2\) of one observation would
+have distance less than one, which is impossible. The degree choice
+\(d_*\) satisfies \(d_*\ge4\) and \(d_*\ge2H\) by the defining ceiling
+inequality.
+
+\paragraph{Proof of global optimality, including positive orders.}
+For every power \(d\) and every point \(\rho\), the strictly positive
+integer pairs \((1,1)\) and \((2,1)\) have residues differing by exactly
+one. Their midpoint
+\[
+ w=c_d(\rho;1,1)-\frac12
+\]
+has distance exactly \(1/2\) from both. Consequently closed error balls
+of radius \(1/2\), and open balls of every larger radius, admit
+ambiguity. The adaptive construction attains the largest possible
+worst-case strict radius. This sharpness statement concerns the integer
+residue model; it does not assert that zeta realizes those two order
+pairs at one spectral point.
+
+\paragraph{Actual zeta certificate.}
+Let \(G\) be analytic throughout the open critical strip, and use the full
+readout \(P_{d,G}\) from the preceding section. For every point \(\rho\)
+with \(0<\Re\rho<1\), \(H\ge2\), and \(d\ge2H\), let
+\[
+ r=\lim_{s\to\rho}(s-\rho)P_{d,G}(s)
+   =c_d\bigl(\rho;m(\rho),m(q_d(\rho))\bigr).
+\]
+If an observation \(w\) and candidate natural orders \(A,B\) satisfy
+\[
+ |r-w|<\frac12,\qquad |c_d(\rho;A,B)-w|<\frac12,
+\]
+then \(A=m(\rho)\) and \(B=m(q_d(\rho))\).
+Both reference and target orders remain in this statement. It assumes
+neither RH nor a multiplicity cap nor reference nonvanishing.
+The power \(d_*(\rho)\) is fixed for each spectral point before taking
+its local limit; no simultaneous sampling or height limit is used.
+
+The new result concerns the exact conditioning threshold of the
+compensated observable. A uniform estimate guaranteeing the required
+measurement error for increasing degrees remains an analytic input.
+The maintained owners are \texttt{IntegerResidueUnitLattice},
+\texttt{IntegerResidueAdaptive} and
+\texttt{CarmichaelAdaptiveMultiplicity}. Their compiled statements
+include the explicit degree, both local orders, the strict error
+threshold and the positive-pair ambiguity example.
+Priority is unestablished, and the certified zero-free boundary remains \(7/8\).
+
 \subsection{Exact Mellin action on general windows}
 \label{sec:general-window-mellin}
 

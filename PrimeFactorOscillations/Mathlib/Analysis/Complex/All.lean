@@ -6,6 +6,6 @@ Authors: Prime Factor Oscillations contributors
 
 import PrimeFactorOscillations.Mathlib.Analysis.Complex.AbelBound
 import PrimeFactorOscillations.Mathlib.Analysis.Complex.AffineZeroEscape
-import PrimeFactorOscillations.Mathlib.Analysis.Complex.IntegerResidueDecoding
+import PrimeFactorOscillations.Mathlib.Analysis.Complex.IntegerResidueAdaptive
 
 /-! Complex analysis candidates, including sharp integer residue decoding. -/

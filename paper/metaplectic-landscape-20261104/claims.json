@@ -2192,6 +2192,45 @@
         "PrimeFactorOscillations.CarmichaelWeightedSignal.zeta_power_readout_certifies_order_mod",
         "PrimeFactorOscillations.CarmichaelWeightedSignal.zeta_power_readout_certifies_orders"
       ]
+    },
+    {
+      "id": "AD-U",
+      "status": "kernel_checked_optimal_adaptive_multiplicity",
+      "claim": "If the full affine reference coefficient has imaginary part of absolute value at least 1, the unrestricted integer residue lattice has exact unit spacing and strict half-unit unique decoding. Positive pairs (1,1) and (2,1) give midpoint ambiguity at 1/2 for every compensation power, proving the global worst-case upper threshold.",
+      "declarations": [
+        "Complex.integerResidueCode_im",
+        "Complex.integerResidueCode_spacing_le_one",
+        "Complex.integerResidueCode_unit_attains",
+        "Complex.integerResidueCode_unit_midpoint",
+        "Complex.integerResidueCode_unit_pair_separation",
+        "Complex.integerResidueCode_unit_radius_sharp",
+        "Complex.integerResidueCode_unit_separation",
+        "Complex.integerResidueCode_unit_unique"
+      ]
+    },
+    {
+      "id": "AD-A",
+      "status": "kernel_checked_optimal_adaptive_multiplicity",
+      "claim": "For 0 <= Re rho <= 1, H = abs(Im rho) >= 2 and every natural d >= 2H, the full reference coefficient satisfies the unit vertical bound. The exact lattice spacing is 1 and both unrestricted integer coordinates are recoverable below absolute half-unit error. Explicit degree max(4,ceil(2H)) satisfies the condition; no RH or multiplicity cap is used.",
+      "declarations": [
+        "Complex.adaptiveResidueDegree_ge_four",
+        "Complex.adaptiveResidueDegree_ge_height",
+        "Complex.integerResidueCode_adaptive_spacing",
+        "Complex.integerResidueCode_adaptive_unique",
+        "Complex.integerResidueCode_large_power_spacing",
+        "Complex.integerResidueCode_large_power_unique",
+        "Complex.integerResidueReference_im",
+        "Complex.integerResidueReference_unit"
+      ]
+    },
+    {
+      "id": "AD-Z",
+      "status": "kernel_checked_optimal_adaptive_multiplicity",
+      "claim": "Actual full compensated zeta readouts with an analytic correction throughout the open critical strip certify both target and reference analytic orders at H >= 2, using any d >= 2H or the explicit adaptive degree, provided the actual and candidate residues are each within 1/2 of the observation. No uniform observation-error estimate, RH, reference nonvanishing or exponent improvement is asserted.",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.zeta_adaptive_readout_certifies_orders",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.zeta_large_power_readout_certifies_orders"
+      ]
     }
   ],
   "novelty": "Priority for the combined explicit formulas has not been established; source classification and Gauss identities are classical."

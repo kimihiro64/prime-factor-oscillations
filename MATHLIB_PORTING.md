@@ -5,6 +5,13 @@ Reusable mathematics intended for possible upstreaming lives under
 The child generator replaces `PrimeFactorOscillations` with the configured project
 namespace.
 
+## Optimal adaptive multiplicity decoding
+
+| Module | Proposed destination | Readiness | Scope |
+| --- | --- | --- | --- |
+| `PrimeFactorOscillations.Mathlib.Analysis.Complex.IntegerResidueUnitLattice` | `Mathlib/Analysis/Complex/IntegerResidueUnitLattice.lean` | project-verified | Exact unit spacing under a full reference coefficient with abs(imaginary part)>=1; sharp absolute half-unit recovery tolerance, with ambiguity already among positive integer pairs and a universal unit-spacing upper bound. |
+| `PrimeFactorOscillations.Mathlib.Analysis.Complex.IntegerResidueAdaptive` | `Mathlib/Analysis/Complex/IntegerResidueAdaptive.lean` | project-verified | Every closed-strip point of height H>=2 and integer power d>=2H has unit residue spacing and sharp half-unit decoding. Explicit degree max(4,ceil(2H)); both coordinates and all reference terms retained. |
+
 ## Integer compensated-residue decoding
 
 | Module | Proposed destination | Readiness | Scope |
