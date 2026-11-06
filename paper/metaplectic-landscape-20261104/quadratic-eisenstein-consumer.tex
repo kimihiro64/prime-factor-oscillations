@@ -1770,6 +1770,183 @@ the seventeen points. A pointwise ceiling for actual zeta zeros still
 requires the stated carrier-gap condition; no independent small-gap
 estimate or improved zero-free boundary is supplied.
 
+\subsection{The complete two-tail coefficient region}
+\label{sec:two-tail-region}
+
+The fifth tail has a spatial refinement. Keep the finite support \(S\),
+the common-weak set \(U\), the unit weights \(u_i=\gamma_i^{-2}\), and
+\(\Delta=C-39P-Q\) from the preceding section, and put
+\[
+ V_3=\sum_{\substack{i\in U\\ \Re\rho_i<1/2\\m_i\ge3}}u_i.
+\]
+The strict left-half condition is part of the definition: central
+multiple zeros contribute to \(R_5\), but never to \(V_3\).
+
+\paragraph{Theorem (complete coefficient region).}
+For every real pair \(a,b\), the inequality
+\begin{equation}\label{eq:two-tail-region}
+ 39P+Q+aR_5+bV_3\le C
+\end{equation}
+holds for every finite reflected positive-natural-multiplicity spectrum
+in \([1/8,7/8]\) if and only if
+\begin{equation}\label{eq:two-tail-facets}
+ \boxed{\quad a\le16,\qquad b\le1,\qquad a+4b\le4.\quad}
+\end{equation}
+In particular the two coupled inequalities are
+\begin{equation}\label{eq:two-tail-budgets}
+ \Delta\ge V_3,\qquad \Delta+3V_3\ge16R_5.
+\end{equation}
+If \(V_3=0\), the fifth-tail bound improves to \(\Delta\ge16R_5\).
+If \(\Delta=4R_5\), then necessarily \(V_3=4R_5\).
+
+\paragraph{Proof of the coupled budgets.}
+Write \(i^*\) for reflection. Retain the exact charged weight
+\(F_i=w_i-D_i1_U(i)/2-D_i1_U(i^*)/2\) of
+Section~\ref{sec:multiplicity-support-region}, where
+\(w_i=m_i u_i\) and \(D_i=(m_i-1+1_{m_i\ge2})u_i\).
+Define the one-sided marker and two symmetric weights by
+\[
+ t_i=1_U(i)1_{\Re\rho_i<1/2}1_{m_i\ge3}u_i,\qquad
+ K_i=F_i-\frac{t_i+t_{i^*}}2,\qquad
+ L_i=F_i+\frac32(t_i+t_{i^*}).
+\]
+Every charge, reference order and mirror remains present. The exact sums are
+\[
+ \sum_{i\in S}K_i=A-E_U-Q-V_3,\qquad
+ \sum_{i\in S}L_i=A-E_U-Q+3V_3.
+\]
+Both weights are symmetric.
+
+At a point strictly right of \(1/2\), \(t_i=0\).
+If \(m_i\ge3\), then
+\(F_i\ge w_i/2\ge3u_i/2\), while \(t_{i^*}\le u_i\).
+Hence \(K_i\ge u_i\). If \(m_i<3\), reflection preserves multiplicity,
+so \(t_{i^*}=0\), and the same conclusion follows from \(F_i\ge u_i\).
+Reflection proves nonnegativity of \(K\) also on the strict left half;
+on the critical line both markers vanish and \(K=F\ge0\).
+
+Consequently the complete quadratic and quartic reference images carry,
+respectively, at least \(4P\) and \(16P\) in the \(K\) weight.
+The images are disjoint and strictly right of \(1/2\); applying the
+symmetric nonnegative reflection budget gives
+\[
+ A-E_U-Q-V_3=\sum_{i\in S}K_i\ge2(4P+16P)=40P.
+\]
+Together with \(A=C+P+E_U\), this is \(\Delta\ge V_3\).
+
+For \(L\), nonnegativity and the right unit floor follow from those of
+\(F\). If a right-hand point has \(m_i\ge3\) and its mirror belongs to
+\(U\), then \(t_{i^*}=u_i\), giving \(L_i\ge3u_i\).
+If its mirror is not in \(U\), both original charges vanish at that
+pair, so \(F_i=w_i\ge3u_i\), and again \(L_i\ge3u_i\).
+A common-weak source of order at least five has quadratic reference
+order at least three and reference unit weight \(4u_i\).
+That reference therefore supplies at least \(12u_i\), rather than
+the baseline \(4u_i\). Summing injectively over the complete quadratic
+image yields \(4P+8R_5\). The complete quartic image still supplies
+\(16P\). The same disjoint reflection budget now gives
+\[
+ A-E_U-Q+3V_3=\sum_{i\in S}L_i
+ \ge2(4P+8R_5+16P)=40P+16R_5.
+\]
+This proves the second inequality in~\eqref{eq:two-tail-budgets}.
+In particular, the earlier coefficient four is obtained by eliminating
+the spatial tail, not by dropping it.
+
+\paragraph{Sufficiency of all three facets.}
+Both tails are nonnegative. If \(b\le-3\), then \(a\le16\) gives
+\(aR_5+bV_3\le16R_5-3V_3\le\Delta\).
+For \(-3\le b\le1\), multiply the first inequality in
+\eqref{eq:two-tail-budgets} by \(b+3\) and the second by \(1-b\).
+Adding and dividing by four gives
+\[
+ \Delta\ge4(1-b)R_5+bV_3.
+\]
+The condition \(a+4b\le4\) completes
+\eqref{eq:two-tail-region}. This includes all negative coefficients.
+If \(\Delta=4R_5\), the two budgets give
+\(V_3\le4R_5\) and \(V_3\ge4R_5\), proving the stated rigidity.
+
+\paragraph{Necessity and full-readout extremizers.}
+All three facets are attained by explicit finite models for every \(H>0\).
+The seventeen-point spectrum is the one in
+Section~\ref{sec:fifth-multiplicity-stability}.
+For the nine-point model retain its center and the four reflected pairs
+whose left real parts are \(1/4,1/8,7/16,7/32\), with their original
+heights and multiplicities. For the thirteen-point model remove instead
+the two pairs whose left real parts are \(7/16,7/32\), change the central
+multiplicity to two, and change the multiplicities at real parts
+\(1/8,7/8\) to one. All remaining heights and orders are unchanged.
+
+For each restriction every reference order is recomputed on the restricted
+support. The complete integer ownership conditions remain
+\(2a_j=a_i+64\), \(4a_j=a_i+192\), with the matching height denominators
+multiplied by two or four. A removed target contributes order zero.
+In the nine-point model the common-weak points are exactly
+\((1/2,H)\) and \((1/8,H/4)\). In the thirteen-point model they are
+exactly \((1/2,H),(1/4,H/2),(3/8,H/4)\).
+Direct finite sums give the following homogeneous values:
+\[
+ \begin{array}{c|rrrrrr}
+ \#S&H^2P&H^2Q&H^2R_5&H^2V_3&H^2C&H^2\Delta\\ \hline
+ 9&17&17&1&0&696&16\\
+ 13&21&21&0&4&844&4\\
+ 17&37&37&1&4&1484&4
+ \end{array}
+\]
+The nine-point model forces \(a\le16\); the thirteen-point model forces
+\(b\le1\); and the seventeen-point model forces \(a+4b\le4\).
+This proves necessity and completes the coefficient classification.
+
+These are full-readout models. For any finite reflected spectrum \(S\),
+positive imaginary parts make every denominator
+\(\rho_i+d-1\) nonzero. The existing atomic residue theorem proves
+that the complete affine-power residue at each atom is nonzero for every
+real \(d>1\), and the actual scaled local limit holds for every \(d>0\).
+The strict projection identity then identifies the same joint carrier.
+Thus the sharpness examples do not replace a compensated residue by a
+numerator-only or phase-free surrogate. No claim identifies any finite
+model with the actual zeta zeros.
+
+\paragraph{Actual zeta and deficit certificates.}
+For every real height cutoff \(T\), use the actual positive-height zeta
+zeros up to \(T\), their actual analytic orders and their complete affine
+references. The established unconditional \(7/8\) strip supplies the
+finite reflected spectrum, so~\eqref{eq:two-tail-budgets} and every
+coefficient in~\eqref{eq:two-tail-facets} hold without assuming RH.
+In particular,
+\[
+ V_3(T)=0\quad\Longrightarrow\quad
+ R_5(T)\le\frac{C(T)-39P(T)-Q(T)}{16}.
+\]
+Conversely, if
+\[
+ C(T)<39P(T)+Q(T)+16R_5(T),
+\]
+then the window contains a common-weak zero with real part strictly
+less than \(1/2\) and analytic multiplicity at least three.
+This is a conditional certificate from a measured carrier deficit,
+not a proof that such a zero exists.
+
+The same inequalities hold with \(C(T)\) read from the union of the
+strict negative projections of both complete compensated readouts.
+The Lean theorem retains an analytic correction on \(0<\Re s<1\)
+and both actual scaled local-limit hypotheses, at every zero in the
+finite window. It does not assume RH or simplicity.
+The result concerns spatial multiplicity tails; the certified global
+zero-free boundary remains \(7/8\).
+
+\paragraph{Relation to earlier multiset criteria.}
+The transformed-power-sum half-plane criteria of
+\href{https://arxiv.org/abs/1304.7895}{Sekatskii} and the finite-multiset
+pair-correlation inequalities used by
+\href{https://arxiv.org/html/2609.07918v2}{Wang}
+provide related multiset viewpoints.
+The theorem here classifies the exact coefficients of two spatial
+multiplicity tails for the complete quadratic/quartic affine reference
+carriers. Priority for this particular classification has not been
+established by the limited literature review.
+
 \subsection{Exact Mellin action on general windows}
 \label{sec:general-window-mellin}
 

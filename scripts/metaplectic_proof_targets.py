@@ -6,6 +6,7 @@ from scripts.multiplicity_carrier_proof_targets import MULTIPLICITY_CARRIER_THEO
 from scripts.multiplicity_support_proof_targets import MULTIPLICITY_SUPPORT_THEOREMS
 from scripts.simple_carrier_sharpness_proof_targets import SIMPLE_CARRIER_SHARPNESS_THEOREMS
 from scripts.strip_carrier_proof_targets import STRIP_CARRIER_THEOREMS
+from scripts.two_tail_proof_targets import TWO_TAIL_THEOREMS
 
 METAPLECTIC_THEOREMS = (
     "FiniteRootPower.exists_counting_product_profile",
@@ -432,4 +433,5 @@ METAPLECTIC_THEOREMS = tuple(sorted(
     + MULTIPLICITY_CARRIER_THEOREMS + SIMPLE_CARRIER_SHARPNESS_THEOREMS
     + MULTIPLICITY_SUPPORT_THEOREMS
     + CARRIER_STABILITY_THEOREMS
+    + TWO_TAIL_THEOREMS
 ))
