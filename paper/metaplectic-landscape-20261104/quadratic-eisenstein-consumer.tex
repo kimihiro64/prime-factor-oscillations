@@ -1947,6 +1947,148 @@ multiplicity tails for the complete quadratic/quartic affine reference
 carriers. Priority for this particular classification has not been
 established by the limited literature review.
 
+\subsection{The smallest fifth-tail extremizers}
+\label{sec:minimal-fifth-carrier}
+
+The seventeen-point model is forced at the smallest support size, rather
+than merely being one sharpness witness. All multiplicities below are
+positive integers; the support consists of distinct points with positive
+imaginary part and is closed under reflection about the critical line.
+
+\paragraph{Theorem (minimum and complete smallest-model classification).}
+Let \(S\) be any such finite spectrum in \([1/8,7/8]\). Suppose
+\[
+ R_5>0,\qquad C=39P+Q+4R_5.
+\]
+Then \(|S|\ge17\). If \(|S|=17\), there are \(H>0\) and
+\(M\in\{5,6\}\) such that, up to relabelling, the entire spectrum is
+the following table. Each row listing two real parts represents two
+distinct points with the displayed common height and order.
+\[
+\begin{array}{c|c|c}
+ \text{real part(s)}&\text{imaginary part}&\text{multiplicity}\\ \hline
+ 1/2&H&M\\
+ 1/4,\ 3/4&H/2&3\\
+ 1/8,\ 7/8&H/4&2\\
+ 3/8,\ 5/8&H/4&2\\
+ 3/16,\ 13/16&H/8&1\\
+ 7/16,\ 9/16&H/8&1\\
+ 7/32,\ 25/32&H/16&1\\
+ 5/16,\ 11/16&H/8&1\\
+ 5/32,\ 27/32&H/16&1
+\end{array}
+\]
+Conversely, for every \(H>0\), both \(M=5\) and \(M=6\) give
+spectra satisfying the equality and \(R_5>0\). Thus seventeen is the
+exact least support size, and the table lists every smallest attainer.
+
+\paragraph{Equality saturates the complete signed budget.}
+Keep the charged weight \(F\) from the preceding proofs and write
+\(q_d(\rho)=(\rho+d-1)/d\). Let \(B_2=q_2(U)\),
+\(B_4=q_4(U)\), and \(B=B_2\cup B_4\). The images are injective
+on \(U\), disjoint, and strictly right of \(1/2\). The already proved
+pointwise floors and reflection bound give
+\[
+ \sum_{B_2}F\ge4P+2R_5,\qquad
+ \sum_{B_4}F\ge16P,\qquad
+ \sum_S F\ge2\sum_B F.
+\]
+On the other hand the assumed equality and
+\(A=C+P+E_U\) give
+\[
+ \sum_S F=A-E_U-Q=40P+4R_5.
+\]
+Consequently every displayed inequality is an equality. Each row slack
+is nonnegative, so equality of the finite sums forces, for every
+\(i\in U\),
+\[
+ F_{q_2(i)}=4u_i+2\,1_{m_i\ge5}u_i,\qquad
+ F_{q_4(i)}=16u_i.
+\]
+Moreover \(B\) and its reflected image \(B^*\) are disjoint,
+\(\sum_{B^*}F=\sum_BF\), and
+\(\sum_SF=2\sum_BF\). Nonnegativity therefore gives
+\(F_i=0\) at every point outside \(B\cup B^*\).
+This uses the full compensated weight; none of its charges is omitted.
+
+\paragraph{The central root and its forced weak descendants.}
+At every right-hand point \(j\),
+\[
+ F_j\ge u_j>0,\qquad F_j\ge m_j u_j/2.
+\]
+The same positivity holds on the strict left half by reflection.
+Since \(u_{q_2(i)}=4u_i\), the saturated quadratic floor is at most
+\(3u_{q_2(i)}/2\), and hence its order is at most three.
+The quartic floor is exactly \(u_{q_4(i)}\), so its order is at most
+two. Every noncentral point belongs to \(B\cup B^*\); thus every
+noncentral point has order at most three.
+
+Choose a common-weak point of order at least five, which exists since
+\(R_5>0\). It must therefore be
+\(\rho_0=1/2+iH\), \(H>0\). Weakness gives
+\(m_0\le2m_{q_2(\rho_0)}\), so the quadratic reference has order
+exactly three and \(m_0\in\{5,6\}\). The quartic reference has order
+exactly two. At both references the saturated floor is half the mass.
+If the reflected reference were not weak, both charges at that pair
+would vanish and \(F\) would equal the full mass, a contradiction.
+Their reflections are consequently weak points
+\[
+ a=1/4+iH/2,\quad m_a=3,\qquad
+ b=1/8+iH/4,\quad m_b=2.
+\]
+The quadratic reference of \(a\) has the unit floor, order exactly
+two, and a weak reflection
+\[
+ c=3/8+iH/4,\qquad m_c=2.
+\]
+The four weak sources \(\rho_0,a,b,c\) have eight distinct right-hand
+quadratic and quartic references. Their eight reflections and the
+central root are seventeen distinct points, exactly those in the table.
+This proves the support lower bound without a cardinality assumption.
+
+\paragraph{Rigidity at seventeen points and converse.}
+If there are exactly seventeen points, the forced embedding exhausts
+the support. The five terminal left points in the table have no
+quadratic target anywhere in that support: applying \(q_2\) to their
+real coordinates produces an absent real coordinate. They therefore
+cannot be weak. At each of their right-hand partners the charges
+vanish. The saturated floor is the unit weight, while \(F\) is now
+the full mass, forcing order one. The internal orders were already
+forced to be three, two and two, so all multiplicities are classified.
+
+For the converse, the reference table is unchanged when the central
+order changes from five to six. The common-weak set remains precisely
+\(\{\rho_0,a,b,c\}\). Direct finite summation, valid for every \(H>0\),
+gives
+\[
+ A=\frac{1560+M}{H^2},\quad
+ W=\frac{76+M}{H^2},\quad
+ P=Q=\frac{37}{H^2},\quad R_5=\frac1{H^2},\quad
+ C=\frac{1484}{H^2}.
+\]
+These identities prove equality for both central orders and complete
+the classification.
+
+\paragraph{Actual zeta and full-readout consequences.}
+The theorem applies to each actual reflected zeta window used above.
+If its carrier mass satisfies the displayed equality and its fifth
+tail is positive, the window contains at least seventeen distinct
+zeros; every offcritical zero in it has order at most three.
+If it contains exactly seventeen, the same table classifies both its
+locations and its analytic orders. The carrier can equivalently be
+specified by the negative-projection union of the full quadratic and
+quartic compensated residue readouts, retaining the analytic correction
+and both local-limit hypotheses. These are unconditional implications
+under the stated measured equality, with no RH assumption. They do not
+assert that actual zeta zeros realize either finite extremal model.
+
+The Lean declarations
+\texttt{fifthEqualitySupportSize\_isLeast},
+\texttt{fifth\_minimal\_configuration\_classification},
+and \texttt{zeta\_readout\_fifth\_minimal\_configuration} certify the
+minimum, complete smallest-model classification, and actual full-readout
+transfer, respectively.
+
 \subsection{Exact Mellin action on general windows}
 \label{sec:general-window-mellin}
 
