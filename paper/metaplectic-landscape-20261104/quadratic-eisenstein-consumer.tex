@@ -468,6 +468,132 @@ No RH, simplicity, or zero-free reference premise is used.
 The separate arithmetic upper estimate remains open and the certified
 QRH boundary is \(7/8\). No novelty priority is asserted here.
 
+\subsection{Unconditional multiplicity energy survives compensation}
+\label{sec:power-multiplicity-energy}
+
+Here the symmetry of the actual zeta zero set gives a global estimate,
+rather than only a pointwise residue identity. For \(T\in\mathbb R\), let
+\[
+ S_T=\{\rho:\zeta(\rho)=0,\quad 0<\Re\rho<1,\quad
+                         0<\Im\rho\le T\},
+ \qquad m(\rho)=\operatorname{ord}_{\rho}\zeta.
+\]
+The elements of \(S_T\) are distinct zeros; multiplicity is carried by
+\(m\), not by repetition in the set. This set is finite unconditionally.
+If \(T\le0\), it is empty. Write \(\gamma_\rho=\Im\rho\).
+
+\emph{Theorem (multiplicity-energy coercivity).}
+For every real \(d\ge2\), put
+\[
+ q_d(\rho)=\frac{\rho+d-1}{d},\qquad
+ a_\rho=\frac{m(\rho)}{\gamma_\rho},\qquad
+ b_\rho=\frac{d\,m(q_d(\rho))}{\gamma_\rho},
+ \qquad E_T=\sum_{\rho\in S_T}a_\rho^2.
+\]
+At a nonzero value of zeta the analytic order is zero. Then
+\begin{equation}\label{eq:power-multiplicity-energy}
+ \frac{E_T}{12}\le
+ H_{d,T}:=\sum_{\rho\in S_T}(a_\rho-b_\rho)^2 .
+\end{equation}
+There is no RH, zero-free-strip, simplicity, or zero-free-reference
+hypothesis.
+
+\emph{Proof.}
+Conjugation of zeta and its functional equation preserve analytic
+multiplicities and give
+\[
+ m(1-\overline\rho)=m(\rho),\qquad
+ \Im(1-\overline\rho)=\gamma_\rho.
+\]
+Consider the finite support
+\(P=\{\rho\in S_T:m(q_d(\rho))\ne0\}\), and its image
+\(Q=q_d(P)\). The map is injective. Every \(\tau=q_d(\rho)\in Q\)
+is a zeta zero, with
+\[
+ \tfrac12<\Re\tau<1,\qquad
+ 0<\Im\tau=\gamma_\rho/d\le T/d\le T.
+\]
+Thus \(Q\subseteq S_T\), and its reflection
+\(Q^*=\{1-\overline\tau:\tau\in Q\}\) is a disjoint subset of
+\(S_T\) with exactly the same multiplicity-height energy. Keeping the
+complete reference support, including all reference zeros, gives
+\[
+ B_{d,T}:=\sum_{\rho\in S_T}b_\rho^2
+ =\sum_{\tau\in Q}\frac{m(\tau)^2}{(\Im\tau)^2}
+ \le\frac12\sum_{\rho\in S_T}\frac{m(\rho)^2}{\gamma_\rho^2}
+ =\frac{E_T}{2}.
+\]
+The cross term is not estimated separately. Direct expansion gives
+the exact certificate
+\begin{equation}\label{eq:power-energy-certificate}
+ 12H_{d,T}
+ =E_T+2\sum_{\rho\in S_T}(2a_\rho-3b_\rho)^2
+       +3(E_T-2B_{d,T}).
+\end{equation}
+Both retained corrections are nonnegative, proving
+\eqref{eq:power-multiplicity-energy}. \(\square\)
+
+This estimate applies to the actual logarithmic readout. Let
+\(G:\mathbb C\to\mathbb C\) be analytic at every point of
+\(0<\Re s<1\), and define
+\[
+ R_G(s)=-\frac{\zeta'(s)}{\zeta(s)}+G(s),\qquad
+ P_dR_G(s)=R_G(s)-\frac{s}{s+d-1}R_G(q_d(s)).
+\]
+For \(d>1\) and a nonreal \(\rho\) in that strip, local analytic
+factorization at both \(\rho\) and \(q_d(\rho)\) gives the punctured limit
+\begin{equation}\label{eq:canonical-power-multiplicity-residue}
+ r_d(\rho):=\lim_{\substack{s\to\rho\\s\ne\rho}}
+                 (s-\rho)P_dR_G(s)
+ =-m(\rho)+\frac{d\rho}{\rho+d-1}m(q_d(\rho)).
+\end{equation}
+Indeed, \(\zeta(s)=(s-\rho)^m u(s)\), with \(u\) analytic and
+nonzero near \(\rho\), gives residue \(-m\) for \(R_G\).
+The affine substitution contributes the factor \(d\) at the reference.
+Both points remain inside the strip; no analyticity at the pole \(1\)
+is required of \(G\). The rational denominator is nonzero because
+\(\rho\) is nonreal.
+
+Keeping the full residue and taking one real projection yields
+\[
+ \frac{\Im(r_d(\rho)(\rho+d-1))}{\gamma_\rho^2}
+ =\frac{d\,m(q_d(\rho))-m(\rho)}{\gamma_\rho}
+ =b_\rho-a_\rho.
+\]
+Consequently, for every real \(d\ge2\) and \(T\),
+\begin{equation}\label{eq:actual-power-readout-energy}
+ \frac1{12}\sum_{\rho\in S_T}\frac{m(\rho)^2}{\gamma_\rho^2}
+ \le
+ \sum_{\rho\in S_T}
+ \left(\frac{\Im(r_d(\rho)(\rho+d-1))}{\gamma_\rho^2}\right)^2.
+\end{equation}
+The result also holds for any function of residues specified by the
+actual punctured limits, by uniqueness of those limits.
+
+Thus a single real projection retains a fixed proportion of the
+multiplicity energy, even when target and reference zeros collide.
+This is an unconditional lower bound on the detector response, or
+equivalently an inverse estimate for multiplicity energy from that
+response. An independent upper bound for the right-hand side would
+bound the left-hand side. No such new arithmetic upper bound, numerical
+multiplicity bound, simplicity theorem, or zero-free improvement is
+claimed here. The cutoff \(T\) is a zero-height cutoff, not a sampling
+or divisor cutoff. The sums include original zeta zeros only, and do
+not assert an identity for every additional reference-only detector
+pole. General complex-character portfolios require their own
+conjugation and reflection adapters.
+
+The maintained owners are
+\texttt{Helpers/ZetaPowerGeometry.lean} and
+\texttt{Assembly/CarmichaelPowerEnergy.lean}.
+The main declarations are
+\texttt{zeta\_power\_multiplicity\_energy\_lower},
+\texttt{zeta\_power\_readout\_scaled\_limit}, and
+\texttt{zeta\_power\_readout\_residue\_energy\_lower}, under
+\texttt{PrimeFactorOscillations.CarmichaelWeightedSignal}.
+The geometry and analytic factorization used here are classical;
+priority for this combined comparison has not been established.
+
 \subsection{Exact Mellin action on general windows}
 \label{sec:general-window-mellin}
 

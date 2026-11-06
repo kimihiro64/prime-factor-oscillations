@@ -1064,6 +1064,44 @@
       ]
     },
     {
+      "id": "PWR-G1",
+      "status": "kernel_checked_unconditional_zero_reflection_and_half_energy",
+      "claim": "The finite set of upper-half zeta zeros in the critical strip has natural analytic multiplicities invariant under reflection rho -> 1-conj(rho). Every finite right-half subset has at most half the full squared multiplicity-height mass. No RH or simplicity hypothesis is used.",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.zetaMultiplicity_conj",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.mem_upperZeroFinset",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.zeroReflection_re",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.zeroReflection_im",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.zeroReflection_involutive",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.zetaMultiplicity_reflection",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.mem_upperZeroValues",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.reflection_mem_upperZeroValues",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.zetaHeightMass_reflection",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.zeta_right_half_energy_le"
+      ]
+    },
+    {
+      "id": "PWR-E1",
+      "status": "kernel_checked_unconditional_compensated_multiplicity_energy",
+      "claim": "For every real d>=2 and every real height cutoff T, let S be the distinct zeta zeros with 0<Re(rho)<1 and 0<Im(rho)<=T. With a=m(rho)/Im(rho) and b=d*m((rho+d-1)/d)/Im(rho), sum_S (a-b)^2 >= (1/12)*sum_S a^2. The proof preserves all cross terms and bounds the full reference energy by reflection.",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.finite_compensated_energy_lower",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.power_reference_energy_half",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.zeta_power_multiplicity_energy_lower"
+      ]
+    },
+    {
+      "id": "PWR-E2",
+      "status": "kernel_checked_actual_logarithmic_readout_energy",
+      "claim": "For R=-logDeriv(zeta)+G with G analytic in the critical strip, the affine compensated readout has canonical scaled residue r=-m(rho)+d*rho*m((rho+d-1)/d)/(rho+d-1), including any reference zero. For real d>=2 its single real projection satisfies sum_S (Im(r*(rho+d-1))/Im(rho)^2)^2 >= (1/12)*sum_S (m(rho)/Im(rho))^2. This is a lower response-energy bound, not an independent upper multiplicity estimate or a QRH exponent improvement.",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.zetaCanonicalPowerResidue_projection",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.zeta_power_readout_energy_lower",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.zeta_power_readout_scaled_limit",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.zeta_power_readout_residue_energy_lower"
+      ]
+    },
+    {
       "id": "BL-TI1",
       "status": "kernel_checked_bandlimited_coset_and_principal_typeI_vanishing",
       "claim": "A Schwartz window with zero Fourier value at the origin and Fourier support inside the open unit disk has zero sum on every affine Gaussian lattice of mesh norm at most one. All shifted q-congruence-coset sums and their full norm-character combination vanish for q^2<=X, for every positive integer q. For radial windows with zero physical origin, the full coprimality-masked principal Type I block vanishes when N(H)N(a)N(b)<=D for every retained pair. The existing three-scale wavelet supplies both origins and needs only half-unit initial Fourier support. Finite-prefix outside tails, the nonzero Mellin witness in this profile class, the character-ideal reindexing and the retained Type II estimate are not asserted discharged; QRH remains7/8.",
