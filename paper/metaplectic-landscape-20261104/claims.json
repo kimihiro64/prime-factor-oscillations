@@ -4,6 +4,52 @@
   "scope": "Complete G2 sevenfold/twelvefold and Sp4 eightfold arithmetic models, local energies, central compensation, cubic readout and complete cubic spectrum, and the complete quartic fourth-moment block model; no global QRH claim.",
   "claims": [
     {
+      "id": "MC-G",
+      "status": "kernel_checked_multiplicity_carrier",
+      "claim": "Every finite reflected natural-multiplicity spectrum in[1/8,7/8] satisfies C>=max(11*A/12,39*A/40-E_weak). Simple spectra satisfy C>=39*A/40; a strict deficit certifies a repeated common-weak atom.",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.ReflectedSpectrum.unitMass_nonneg",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.ReflectedSpectrum.excessMassAt_nonneg",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.ReflectedSpectrum.mass_eq_unit_add_excess",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.ReflectedSpectrum.weakExcessMass_nonneg",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.ReflectedSpectrum.weakExcessMass_le_total",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.ReflectedSpectrum.weakMass_eq_unit_add_excess",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.ReflectedSpectrum.reference_unit_mass_le",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.ReflectedSpectrum.forty_weakUnitMass_le_totalMass",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.ReflectedSpectrum.carrier_excess_bound",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.ReflectedSpectrum.carrier_excess_bound_total",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.ReflectedSpectrum.carrier_max_bound",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.ReflectedSpectrum.simple_carrier_bound",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.ReflectedSpectrum.repeated_weak_atom_of_deficit"
+      ]
+    },
+    {
+      "id": "MC-Z",
+      "status": "kernel_checked_multiplicity_carrier",
+      "claim": "Every actual finite positive-height zeta window is a reflected spectrum in the established unconditional[1/8,7/8] strip. For every real d>=2 its atomic reference order equals the actual zeta order at q_d(rho), including zero reference orders.",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.window_re_upper",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.zetaSpectrum_rowOrder",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.sum_zetaIndex",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.zetaSpectrum_totalMass"
+      ]
+    },
+    {
+      "id": "MC-R",
+      "status": "kernel_checked_multiplicity_carrier",
+      "claim": "The exact actual-zeta quadratic-quartic projected carrier obeys the multiplicity-sensitive max bound without RH. The same bound holds for analytic-perturbed compensated readouts with their stated local residue limits, and a carrier deficit forces an actual repeated common-weak zero.",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.sum_zetaIndex_filter",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.zetaSpectrum_carrierMass",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.zetaSpectrum_weakExcessMass",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.zeta_carrier_excess_bound",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.zeta_carrier_max_bound",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.zeta_simple_window_carrier_bound",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.zeta_repeated_weak_zero_of_deficit",
+        "PrimeFactorOscillations.CarmichaelDyadicSharpness.zeta_readout_carrier_max_bound"
+      ]
+    },
+    {
       "id": "DY-W1",
       "status": "kernel_checked_free_dyadic_word_coding",
       "claim": "All finite words have distinct real coordinates in[1/7,3/7], including different lengths; the finite support is exactly length<=N and score<=2*length.",

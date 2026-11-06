@@ -1212,6 +1212,116 @@ a new upper multiplicity estimate, and the certified zero-free boundary
 remains \(7/8\). Publication priority for this particular finite
 compensated-residue optimality statement is unestablished.
 
+\subsection{Multiplicity-sensitive carriers and actual zeta certificates}
+\label{sec:multiplicity-sensitive-carriers}
+
+The complete complex readout recovers multiplicity even when its affine
+reference is another zero. The projected carrier asks a different question:
+how much weighted zero mass has a negative signed projection in at least one
+of the quadratic and quartic rows? The following estimate quantifies how
+excess multiplicity can reduce that projected mass.
+
+Let \(S=\{\rho_i:i\in I\}\) be a finite injectively indexed spectrum with
+positive natural multiplicities \(m_i\), positive heights
+\(\gamma_i=\Im\rho_i\), and real parts in \([1/8,7/8]\).
+Assume reflection \(\rho\mapsto1-\overline\rho\) preserves the spectrum
+and multiplicities. Extend the atomic order \(m(z)\) by zero off \(S\).
+With \(q_d(\rho)=(\rho+d-1)/d\), define the finite sets and masses
+\[
+ U=\{i\in I:m_i\le2m(q_2(\rho_i)),\
+                   m_i\le4m(q_4(\rho_i))\},\qquad V=I\setminus U,
+\]
+\[
+ A=\sum_{i\in I}\frac{m_i}{\gamma_i^2},\quad
+ C=\sum_{i\in V}\frac{m_i}{\gamma_i^2},\quad
+ P_U=\sum_{i\in U}\frac1{\gamma_i^2},\quad
+ E_U=\sum_{i\in U}\frac{m_i-1}{\gamma_i^2}.
+\]
+Every displayed sum is over its indicated finite support.
+
+\paragraph{Theorem (multiplicity-sensitive carrier bound).}
+For every such spectrum,
+\[
+ A\ge40P_U,\qquad
+ C\ge\max\left\{\frac{11}{12}A,\frac{39}{40}A-E_U\right\}.
+\]
+In particular, if all multiplicities are one then \(C\ge39A/40\).
+If \(C<39A/40\), some \(i\in U\) has \(m_i\ge2\).
+No simplicity or RH hypothesis is used in the general estimate.
+Optimality of the simple-spectrum coefficient is not asserted here.
+
+\paragraph{Proof.}
+For \(i\in U\), positivity of \(m_i\) forces both actual reference
+orders to be positive. Hence the reference points belong to \(S\),
+and their natural multiplicities are at least one. The established
+weak-row geometry places every source in \(\Re\rho_i\le1/2\).
+The quadratic reference image lies in \(1/2<\Re z\le3/4\);
+the quartic reference image lies in \(\Re z\ge25/32\).
+Both maps are injective and these images are disjoint.
+Since \(\Im q_d(\rho_i)=\gamma_i/d\), their combined mass is at least
+\[
+ \sum_{i\in U}\left(\frac4{\gamma_i^2}
+                         +\frac{16}{\gamma_i^2}\right)=20P_U.
+\]
+Their reflected copies have equal mass and lie strictly to the left
+of \(1/2\), so are disjoint from both right-hand images. Thus
+\(A\ge40P_U\). The exact finite partition gives
+\(A=C+P_U+E_U\), whence \(C\ge39A/40-E_U\).
+Combine this with the preceding independently proved \(11A/12\) bound.
+All excess summands are nonnegative; if every weak atom were simple
+then \(E_U=0\), contradicting a strict deficit.
+\hfill\textit{QED.}
+
+\paragraph{Theorem (unconditional actual-zeta specialization).}
+For every real \(T\), take the actual finite set
+\[
+ S_T=\{\rho:\zeta(\rho)=0,\ 0<\Re\rho<1,\ 0<\Im\rho\le T\}
+\]
+with \(m(\rho)=\operatorname{ord}_{\rho}\zeta\).
+The same max bound and repeated-weak-zero certificate hold, with both
+reference orders evaluated in the actual zeta function.
+
+\paragraph{Proof.}
+The established unconditional seven-eighths theorem and reflection put
+\(S_T\) in \([1/8,7/8]\). Reflection preserves both heights and analytic
+multiplicities, which are positive natural numbers at these zeros.
+For \(d\ge2\), if the actual order at \(q_d(\rho)\) is positive,
+the proved power-map window theorem places that reference inside \(S_T\).
+Injectivity of the indexing then makes its atomic order equal to its
+actual zeta order. If that order is zero, no indexed zero can equal the
+reference, and its atomic order is also zero.
+Thus the complete reference orders agree in every case.
+Transporting the finite sums through the subtype indexing proves the claim.
+\hfill\textit{QED.}
+
+To state the observable version, let \(G\) be analytic on
+\(0<\Re s<1\), and let \(r_2(\rho),r_4(\rho)\) be the local scaled limits
+of the corresponding affine compensated readouts of
+\(\operatorname{zetaMultiplicityReadout}(G)\).
+The local-limit hypotheses are retained explicitly in the Lean statement.
+The exact residue identity gives
+\[
+ \Im\bigl(r_d(\rho)(\rho+d-1)\bigr)
+   =\bigl(d\,m(q_d(\rho))-m(\rho)\bigr)\Im\rho.
+\]
+Consequently \(C\) is precisely the mass on the union of the two
+negative-projection supports, and the same max bound holds for that
+observable carrier. Theorem
+\texttt{zeta\_readout\_carrier\_max\_bound} formalizes this transfer.
+
+The certificate is one-sided: it provides a lower bound for weak excess
+when the carrier has a deficit, not an upper bound for multiplicities.
+Under RH the affine references of nontrivial zeros are not zeros, so
+\(U\) is empty and \(C=A\), regardless of whether a critical-line zero
+is multiple. Thus this carrier test alone does not settle simplicity.
+It complements the full complex residue recovery and the existing
+RH-dependent second-moment multiplicity budget.
+
+The maintained owners are \texttt{CarmichaelMultiplicityCarrier},
+\texttt{CarmichaelZetaFiniteSpectrum}, and
+\texttt{CarmichaelZetaMultiplicityCarrier}. Their hypotheses and proofs
+retain every reference order, finite-window endpoint and compensation term.
+
 \subsection{Exact Mellin action on general windows}
 \label{sec:general-window-mellin}
 
