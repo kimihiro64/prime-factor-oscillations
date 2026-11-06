@@ -355,4 +355,121 @@ theorem powerProbe_nonreal_zero_not_analytic
   rw [he] at h
   exact h
 
+private theorem integer_power_residue_im (d A B : Nat) (rho r : Complex)
+    (hd : 1 < d) (hIm : Not (rho.im = 0))
+    (hden : Not (rho + (d : Complex) - 1 = 0))
+    (hr : r = -(A : Complex) + (d : Complex) * rho /
+      (rho + (d : Complex) - 1) * (B : Complex)) :
+    (r * (rho + (d : Complex) - 1)).im =
+      ((d : Real) * (B : Real) - (A : Real)) * rho.im := by
+  have hdR : (1 : Real) < (d : Real) := by exact_mod_cast hd
+  have ha := power_residue_target_multiplicity (d : Real) (A : Real) (B : Real)
+    rho hdR hIm (by simpa only [Complex.ofReal_natCast] using hden)
+  have hb := power_residue_reference_multiplicity (d : Real) (A : Real) (B : Real)
+    rho hdR hIm (by simpa only [Complex.ofReal_natCast] using hden)
+  simp only [Complex.ofReal_natCast] at ha hb
+  rw [<- hr] at ha hb
+  unfold powerReferenceMultiplicity at hb
+  simp only [Complex.ofReal_natCast] at hb
+  rw [ha] at hb
+  have hdiv := (div_eq_iff (ne_of_gt (zero_lt_one.trans hdR))).mp hb
+  have he : (r * (rho + (d : Complex) - 1)).im / rho.im =
+      (d : Real) * (B : Real) - (A : Real) := by
+    linear_combination hdiv
+  exact (div_eq_iff hIm).mp he
+
+theorem power_residue_integer_separation (d A B : Nat) (rho r : Complex)
+    (hd : 1 < d) (hIm : Not (rho.im = 0))
+    (hden : Not (rho + (d : Complex) - 1 = 0))
+    (hr : r = -(A : Complex) + (d : Complex) * rho /
+      (rho + (d : Complex) - 1) * (B : Complex))
+    (hNot : Not (A = d * B)) :
+    abs rho.im <= norm r * norm (rho + (d : Complex) - 1) := by
+  have hgap : (1 : Real) <= abs ((d : Real) * (B : Real) - (A : Real)) := by
+    rcases lt_or_gt_of_ne hNot with hlt | hgt
+    . have hn := Nat.succ_le_of_lt hlt
+      have he : (A : Real) + 1 <= (d : Real) * (B : Real) := by exact_mod_cast hn
+      exact (show (1 : Real) <= (d : Real) * (B : Real) - (A : Real)
+        by linarith).trans (le_abs_self _)
+    . have hn := Nat.succ_le_of_lt hgt
+      have he : (d : Real) * (B : Real) + 1 <= (A : Real) := by exact_mod_cast hn
+      exact (show (1 : Real) <= -((d : Real) * (B : Real) - (A : Real))
+        by linarith).trans (neg_le_abs _)
+  have h := Complex.abs_im_le_norm (r * (rho + (d : Complex) - 1))
+  rw [integer_power_residue_im d A B rho r hd hIm hden hr, abs_mul, norm_mul] at h
+  have hh := (mul_le_mul_of_nonneg_right hgap (abs_nonneg rho.im)).trans h
+  simpa only [one_mul] using hh
+
+theorem power_residue_small_forces_multiplicity_relation
+    (d A B : Nat) (rho r : Complex)
+    (hd : 1 < d) (hIm : Not (rho.im = 0))
+    (hden : Not (rho + (d : Complex) - 1 = 0))
+    (hr : r = -(A : Complex) + (d : Complex) * rho /
+      (rho + (d : Complex) - 1) * (B : Complex))
+    (hsmall : norm r * norm (rho + (d : Complex) - 1) < abs rho.im) :
+    A = d * B := by
+  by_contra hNot
+  exact (not_le_of_gt hsmall)
+    (power_residue_integer_separation d A B rho r hd hIm hden hr hNot)
+
+theorem coprime_powers_force_large_residue
+    (d e A B C : Nat) (rho rd re : Complex)
+    (hd : 1 < d) (he : 1 < e) (hcop : Nat.Coprime d e)
+    (hA : 0 < A) (hsize : A < d * e)
+    (hIm : Not (rho.im = 0))
+    (hdenD : Not (rho + (d : Complex) - 1 = 0))
+    (hdenE : Not (rho + (e : Complex) - 1 = 0))
+    (hrD : rd = -(A : Complex) + (d : Complex) * rho /
+      (rho + (d : Complex) - 1) * (B : Complex))
+    (hrE : re = -(A : Complex) + (e : Complex) * rho /
+      (rho + (e : Complex) - 1) * (C : Complex)) :
+    abs rho.im <= norm rd * norm (rho + (d : Complex) - 1) \/
+      abs rho.im <= norm re * norm (rho + (e : Complex) - 1) := by
+  by_cases hD : abs rho.im <= norm rd * norm (rho + (d : Complex) - 1)
+  . exact Or.inl hD
+  . apply Or.inr
+    by_contra hE
+    have hEqD := power_residue_small_forces_multiplicity_relation d A B rho rd
+      hd hIm hdenD hrD (lt_of_not_ge hD)
+    have hEqE := power_residue_small_forces_multiplicity_relation e A C rho re
+      he hIm hdenE hrE (lt_of_not_ge hE)
+    have hdA : Dvd.dvd d A := by
+      rw [hEqD]
+      exact dvd_mul_right d B
+    have heA : Dvd.dvd e A := by
+      rw [hEqE]
+      exact dvd_mul_right e C
+    have hprod : Dvd.dvd (d * e) A := hcop.mul_dvd_of_dvd_of_dvd hdA heA
+    exact (not_le_of_gt hsize) (Nat.le_of_dvd hA hprod)
+
+theorem affinePowerReadout_integer_residue_dichotomy
+    (R : Complex -> Complex) (d A B : Nat) (rho : Complex)
+    (hd : 1 < d) (hIm : Not (rho.im = 0))
+    (hden : Not (rho + (d : Complex) - 1 = 0))
+    (hA : Filter.Tendsto (fun s => (s - rho) * R s)
+      (nhdsWithin rho (Set.compl {rho})) (nhds (-(A : Complex))))
+    (hB : Filter.Tendsto
+      (fun s => (s - DirichletCompensatedProbe.powerMap (d : Real) rho) * R s)
+      (nhdsWithin (DirichletCompensatedProbe.powerMap (d : Real) rho)
+        (Set.compl {DirichletCompensatedProbe.powerMap (d : Real) rho}))
+      (nhds (-(B : Complex)))) :
+    exists r : Complex,
+      Filter.Tendsto (fun s => (s - rho) * affinePowerReadout R (d : Real) s)
+        (nhdsWithin rho (Set.compl {rho})) (nhds r) /\
+      (A = d * B \/ abs rho.im <= norm r * norm (rho + (d : Complex) - 1)) := by
+  have hdR : (1 : Real) < (d : Real) := by exact_mod_cast hd
+  have hlimit := affinePowerReadout_scaled_limit R (d : Real)
+    (zero_lt_one.trans hdR) rho
+    (by simpa only [Complex.ofReal_natCast] using hden) (A : Real) (B : Real)
+    (by simpa only [Complex.ofReal_natCast] using hA)
+    (by simpa only [Complex.ofReal_natCast] using hB)
+  let r : Complex := -(A : Complex) + (d : Complex) * rho /
+    (rho + (d : Complex) - 1) * (B : Complex)
+  refine Exists.intro r (And.intro ?_ ?_)
+  . simpa only [r, Complex.ofReal_natCast] using hlimit
+  . by_cases hEq : A = d * B
+    . exact Or.inl hEq
+    . exact Or.inr (power_residue_integer_separation d A B rho r
+        hd hIm hden rfl hEq)
+
 end PrimeFactorOscillations.CarmichaelWeightedSignal

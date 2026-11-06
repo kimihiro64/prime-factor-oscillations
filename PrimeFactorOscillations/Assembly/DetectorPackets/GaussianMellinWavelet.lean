@@ -4,6 +4,7 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Prime Factor Oscillations contributors
 -/
 
+import Mathlib.Analysis.MellinTransform
 import PrimeFactorOscillations.Assembly.DetectorPackets.GaussianCenteredPoisson
 
 /-!
@@ -251,5 +252,68 @@ theorem multiplier_norm_lower (s : Complex) (hlo : 0 < s.re) (hhi : s.re < 1) :
   have h6 : norm (6 : Complex) = (6 : Real) := by norm_num
   rw [h6]
   exact div_le_div_of_nonneg_right hp (by norm_num)
+
+private theorem two_cpow_neg_eq_phase (s : Complex) :
+    (2 : Complex) ^ (-s) = dyadicPhase s := by
+  rw [Complex.cpow_def_of_ne_zero (by norm_num : Not ((2 : Complex) = 0))]
+  have hl : Complex.log (2 : Complex) = (Real.log (2 : Real) : Complex) :=
+    (Complex.ofReal_log (by norm_num : (0 : Real) <= 2)).symm
+  rw [hl]
+  unfold dyadicPhase
+  congr 1
+  ring
+
+theorem window_hasMellin (W : Real -> Complex) (s : Complex)
+    (hW : MellinConvergent W s) :
+    HasMellin (window W) s (multiplier s * mellin W s) := by
+  have h2 : MellinConvergent (fun t : Real => W (2 * t)) s :=
+    (MellinConvergent.comp_mul_left (by norm_num : (0 : Real) < 2)).mpr hW
+  have h4 : MellinConvergent (fun t : Real => W (4 * t)) s :=
+    (MellinConvergent.comp_mul_left (by norm_num : (0 : Real) < 4)).mpr hW
+  have hm2 : mellin (fun t : Real => W (2 * t)) s =
+      dyadicPhase s * mellin W s := by
+    rw [mellin_comp_mul_left W s (by norm_num : (0 : Real) < 2)]
+    simpa only [Complex.ofReal_ofNat, smul_eq_mul] using
+      congrArg (fun z : Complex => z * mellin W s) (two_cpow_neg_eq_phase s)
+  have he4 : (fun t : Real => W (4 * t)) =
+      (fun t : Real => W (2 * (2 * t))) := by
+    funext t
+    congr 1
+    ring
+  have hm4 : mellin (fun t : Real => W (4 * t)) s =
+      dyadicPhase s ^ 2 * mellin W s := by
+    rw [he4, mellin_comp_mul_left (fun t : Real => W (2 * t)) s
+      (by norm_num : (0 : Real) < 2), hm2]
+    simp only [Complex.ofReal_ofNat, smul_eq_mul, two_cpow_neg_eq_phase]
+    ring
+  have h3 := hasMellin_const_smul h2 (3 : Complex)
+  have h24 := hasMellin_const_smul h4 (2 : Complex)
+  have hs := hasMellin_sub hW h3.1
+  have ha := hasMellin_add hs.1 h24.1
+  have hf := hasMellin_const_smul ha.1 (1 / 6 : Complex)
+  simp only [smul_eq_mul] at h3 h24 hs ha hf
+  have he : window W = (fun t : Real =>
+      (1 / 6 : Complex) * ((W t - 3 * W (2 * t)) + 2 * W (4 * t))) := by
+    funext t
+    unfold window
+    ring
+  rw [he]
+  refine And.intro hf.1 ?_
+  rw [hf.2, ha.2, hs.2, h3.2, h24.2, hm2, hm4]
+  unfold multiplier
+  ring
+
+theorem window_mellin_ne_zero (W : Real -> Complex) (s : Complex)
+    (hW : MellinConvergent W s) (hlo : 0 < s.re) (hhi : s.re < 1)
+    (hn : Not (mellin W s = 0)) :
+    Not (mellin (window W) s = 0) := by
+  rw [(window_hasMellin W s hW).2]
+  exact mul_ne_zero (multiplier_ne_zero s hlo hhi) hn
+
+theorem window_mellin_norm_lower (W : Real -> Complex) (s : Complex)
+    (hW : MellinConvergent W s) (hlo : 0 < s.re) (hhi : s.re < 1) :
+    gap s * norm (mellin W s) <= norm (mellin (window W) s) := by
+  rw [(window_hasMellin W s hW).2, norm_mul]
+  exact mul_le_mul_of_nonneg_right (multiplier_norm_lower s hlo hhi) (norm_nonneg _)
 
 end PrimeFactorOscillations.GaussianMellinWavelet

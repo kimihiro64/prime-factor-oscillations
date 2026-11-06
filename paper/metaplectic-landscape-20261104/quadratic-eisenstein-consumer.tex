@@ -391,6 +391,127 @@ Thus an independent amplitude or excess-energy bound can yield
 multiplicity results without a better QRH exponent. The identities
 and readout stability alone do not supply that bound.
 
+\subsection{Integer powers constrain weak zero responses}
+\label{sec:integer-power-multiplicity}
+
+Fix the same underlying logarithmic readout \(R\) as in
+Section~\ref{sec:nonreal-power-compensation}, and let \(\rho\) be a nonreal
+target zero. For an integer \(d\ge2\), write \(m\in\mathbb N\) for its
+target order and \(n_d\in\mathbb N\) for the order at \(q_d(\rho)\).
+Put \(\gamma=\Im\rho\ne0\), \(C_d=\rho+d-1\), and
+\[
+ r_d=\lim_{s\to\rho,\ s\ne\rho}(s-\rho)P_dR(s)
+       =-m+\frac{d\rho}{C_d}n_d.
+\]
+For a single \(L\)-function the coefficient of its logarithmic derivative
+is normalized to one. The argument also applies to integer-weighted
+packets with integral aggregate orders. It does not assume integrality
+for general real-weighted aggregates.
+
+There is the following exact alternative:
+\begin{equation}\label{eq:integer-residue-alternative}
+ m=d n_d
+ \qquad\hbox{or}\qquad
+ |\gamma|\le |r_d|\,|C_d|.
+\end{equation}
+In particular,
+\begin{equation}\label{eq:small-residue-multiplicity}
+ |r_d|\,|C_d|<|\gamma|
+ \quad\Longrightarrow\quad m=d n_d.
+\end{equation}
+Thus a weak response forces divisibility of the target multiplicity
+and identifies the reference order exactly.
+
+\emph{Proof.}
+Keep the full reference term and multiply before estimating:
+\[
+ r_d C_d=\rho(d n_d-m)-(d-1)m,\qquad
+ \Im(r_d C_d)=(d n_d-m)\gamma.
+\]
+If the integer \(d n_d-m\) is nonzero, its absolute value is at least
+one. Therefore
+\[
+ |\gamma|\le |d n_d-m|\,|\gamma|
+ =|\Im(r_d C_d)|\le |r_d C_d|=|r_d|\,|C_d|,
+\]
+which proves both assertions. The norm is applied to the full
+compensated residue after its signed reference contribution has been
+retained. No separate arithmetic main-term estimate is used.
+\(\square\)
+
+Two powers give a joint consequence. Let \(d,e\ge2\) be coprime
+integers, apply both compensations to the same \(R\) at the same \(\rho\),
+and suppose \(0<m<de\). Then at least one of
+\begin{equation}\label{eq:coprime-power-response}
+ |\gamma|\le |r_d|\,|\rho+d-1|,
+ \qquad
+ |\gamma|\le |r_e|\,|\rho+e-1|
+\end{equation}
+holds, irrespective of the two reference orders.
+Indeed, if both strict reverse inequalities held,
+\eqref{eq:small-residue-multiplicity} would give \(d\mid m\) and
+\(e\mid m\). Coprimality would give \(de\mid m\), contrary to
+\(0<m<de\). This is a multiplicity restriction from joint weak responses;
+it supplies no new upper estimate for those responses.
+
+The maintained declarations are
+\texttt{power\_residue\_integer\_separation},
+\texttt{power\_residue\_small\_forces\_multiplicity\_relation}, and
+\texttt{coprime\_powers\_force\_large\_residue}, under
+\texttt{PrimeFactorOscillations.CarmichaelWeightedSignal}.
+The companion theorem
+\texttt{affinePowerReadout\_integer\_residue\_dichotomy}
+takes the two actual scaled-limit premises and produces the compensated
+limit with \eqref{eq:integer-residue-alternative}. Their owner is
+\texttt{Assembly/CarmichaelPowerSignal.lean}.
+No RH, simplicity, or zero-free reference premise is used.
+The separate arithmetic upper estimate remains open and the certified
+QRH boundary is \(7/8\). No novelty priority is asserted here.
+
+\subsection{Exact Mellin action on general windows}
+\label{sec:general-window-mellin}
+
+Let
+\[
+ \mathcal M W(s)=\int_0^\infty x^{s-1}W(x)\,dx,\qquad
+ \widetilde W(x)=\frac{W(x)-3W(2x)+2W(4x)}6.
+\]
+For every \(s\in\mathbb C\) where the first integral is absolutely
+convergent, the filtered integral is also absolutely convergent and
+\begin{equation}\label{eq:general-window-mellin}
+ \mathcal M\widetilde W(s)
+ =\frac{(1-2^{-s})(1-2^{1-s})}{6}\,\mathcal M W(s).
+\end{equation}
+This is an integral identity for a general window, not only a calculation
+on the formal power response \(D^s\).
+
+\emph{Proof.}
+For any positive real \(a\), the substitution \(u=ax\) gives
+\[
+ \mathcal M[W(a\,\cdot)](s)=a^{-s}\mathcal M W(s)
+\]
+and preserves Mellin convergence. Linearity applied to the three
+convergent integrals gives the coefficient
+\((1-3\cdot2^{-s}+2\cdot4^{-s})/6\), which factors as in
+\eqref{eq:general-window-mellin}. \(\square\)
+
+If \(0<\beta=\Re s<1\), the existing multiplier estimate now applies
+directly to the actual integral:
+\[
+ \frac{(1-2^{-\beta})(2^{1-\beta}-1)}6\,|\mathcal M W(s)|
+ \le |\mathcal M\widetilde W(s)|.
+\]
+Its coefficient is positive. Thus a nonzero base Mellin value survives
+the filter. The base value itself is still present in this bound;
+no uniform lower bound for it in height is asserted.
+The maintained proofs are
+\texttt{GaussianMellinWavelet.window\_hasMellin},
+\texttt{window\_mellin\_ne\_zero}, and
+\texttt{window\_mellin\_norm\_lower}, in
+\texttt{Assembly/DetectorPackets/GaussianMellinWavelet.lean}.
+The construction of a responsive radial bandlimited base window
+remains a separate obligation.
+
 \subsection{An exact band-limited Type I estimate}
 \label{sec:bandlimited-type-i}
 

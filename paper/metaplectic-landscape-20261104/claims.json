@@ -1043,6 +1043,27 @@
       ]
     },
     {
+      "id": "MELLIN-W1",
+      "status": "kernel_checked_general_window_mellin_transfer",
+      "claim": "For every complex s at which W is Mellin-convergent, the three-scale window (W(x)-3W(2x)+2W(4x))/6 is Mellin-convergent with transform multiplier(s)*mellin(W,s). On 0<Re(s)<1 the multiplier preserves nonzero Mellin values, with lower factor gap(s)>0 depending only on Re(s). This proves the actual integral transfer; it does not construct a responsive radial bandlimited base window or estimate the signed Type II packet.",
+      "declarations": [
+        "PrimeFactorOscillations.GaussianMellinWavelet.window_hasMellin",
+        "PrimeFactorOscillations.GaussianMellinWavelet.window_mellin_ne_zero",
+        "PrimeFactorOscillations.GaussianMellinWavelet.window_mellin_norm_lower"
+      ]
+    },
+    {
+      "id": "PWR-DIV1",
+      "status": "kernel_checked_integer_power_multiplicity_separation",
+      "claim": "For integer d>1 and natural target/reference orders A,B, the full residue r=-A+d*rho/(rho+d-1)*B at a nonreal rho satisfies |Im(rho)|<=|r|*|rho+d-1| unless A=d*B. A strict reverse inequality forces that exact multiplicity relation. Two coprime powers d,e at the same rho and same positive target order A<d*e cannot both be weak, whatever their reference orders. The actual affine compensated scaled limits have this dichotomy. General real-weighted packets are excluded from the integer gap. The portfolio retains the explicit size hypothesis A<d*e; no RH, simplicity or reference-zero-free hypothesis, arithmetic saving or improved QRH boundary is asserted.",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.affinePowerReadout_integer_residue_dichotomy",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.coprime_powers_force_large_residue",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.power_residue_integer_separation",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.power_residue_small_forces_multiplicity_relation"
+      ]
+    },
+    {
       "id": "BL-TI1",
       "status": "kernel_checked_bandlimited_coset_and_principal_typeI_vanishing",
       "claim": "A Schwartz window with zero Fourier value at the origin and Fourier support inside the open unit disk has zero sum on every affine Gaussian lattice of mesh norm at most one. All shifted q-congruence-coset sums and their full norm-character combination vanish for q^2<=X, for every positive integer q. For radial windows with zero physical origin, the full coprimality-masked principal Type I block vanishes when N(H)N(a)N(b)<=D for every retained pair. The existing three-scale wavelet supplies both origins and needs only half-unit initial Fourier support. Finite-prefix outside tails, the nonzero Mellin witness in this profile class, the character-ideal reindexing and the retained Type II estimate are not asserted discharged; QRH remains7/8.",
