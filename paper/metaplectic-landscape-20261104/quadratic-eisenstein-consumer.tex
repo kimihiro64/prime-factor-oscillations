@@ -3277,6 +3277,163 @@ remains unestablished. Convergence is pointwise; no uniform finite observation
 radius or arithmetic error rate has been proved. The global QRH boundary
 remains \(7/8\).
 
+\subsection{A vanished real channel forces a high-order reference zero}
+\label{sec:scalar-erasure-cost}
+
+The scalar-chain inverse prevents loss by adding observations. A different
+question is what an actual loss in a single real channel would cost. Here
+that cost can be bounded sharply in terms of zero multiplicity, without
+assuming RH or any multiplicity upper bound.
+
+Fix an integer \(d\ge2\), a character \(\chi\) of positive modulus, and
+\(\rho=\beta+i\gamma\) with \(0<\beta<1\). Write
+\[
+ A=m_\chi(\rho),\qquad B=m_\chi(q_d(\rho)),\qquad
+ r=\Re\mathcal R_{\chi,d}(\rho),\qquad
+ x=\beta+d-1,\quad k=d(d-1).
+\]
+The actual local limit defining \(r\) exists by the all-character residue
+theorem for every analytic reconstruction error \(G\) on the open strip.
+An erasure means \(r=0\) while at least one of the target or reference
+points is a zero. Thus the nontriviality condition is \(A+B>0\); the
+ordinary zero value at a pair of nonzeros is excluded.
+
+\paragraph{Theorem (unconditional erasure constraints).}
+Every such erasure satisfies
+\begin{equation}
+ d\le7,\qquad B\ge1,\qquad \beta\le1-\frac d8.
+ \label{eq:scalar-erasure-domain}
+\end{equation}
+If \(d\ge3\), or if \(B\ge2\), then
+\begin{equation}
+ 64\gamma^2+49d^2\le56d^2(d-1)B.
+ \label{eq:scalar-erasure-height}
+\end{equation}
+The remaining case is exactly \(d=2,B=1\); in that case
+\begin{equation}
+ A=1,\qquad \beta^2+\gamma^2=1.
+ \label{eq:scalar-erasure-unit}
+\end{equation}
+In particular its height is strictly below~\(1\). All characters are
+allowed, including principal characters and modulus~\(1\); real points
+are included. The statements are necessary constraints on an erasure,
+not assertions that any such zero pattern is realized.
+
+\paragraph{Proof: the integer cost and the complete denominator.}
+The real coefficient has the exact defect
+\begin{equation}
+ \delta_d(\rho):=d-\Re\frac{d\rho}{\rho+d-1}
+   =\frac{kx}{x^2+\gamma^2},\qquad 0<\delta_d(\rho)<d.
+ \label{eq:scalar-erasure-defect}
+\end{equation}
+The upper inequality uses \(\beta>0\); the lower one already holds for
+\(\beta\ge0\). Retaining the entire reference contribution gives
+\[
+ r=dB-A-\delta_d(\rho)B.
+\]
+If \(B=0\), erasure gives \(A=0\), contrary to nontriviality. Therefore
+\(B\ge1\), and erasure makes
+\[
+ I:=dB-A=\delta_d(\rho)B>0.
+\]
+The left side is an integer, so \(I\ge1\). Multiplying by the positive
+exact denominator yields
+\begin{equation}
+ I(x^2+\gamma^2)=kBx,\qquad x^2+\gamma^2\le kBx.
+ \label{eq:scalar-erasure-circle}
+\end{equation}
+This preserves the phase-dependent real coefficient: no term has been
+estimated separately or discarded. The identity also describes each
+integer erasure circle exactly.
+
+\paragraph{Proof: the actual reference strip and the height maximum.}
+The positive order \(B\) makes the affine reference an actual zero. Since
+its real part is below~\(1\), it avoids the principal-character pole. The
+installed unconditional all-character \(7/8\) theorem then implies
+\[
+ \Re q_d(\rho)=\frac{\beta+d-1}{d}\le\frac78.
+\]
+This gives \(\beta\le1-d/8\), and \(\beta>0\) gives \(d<8\), proving
+\eqref{eq:scalar-erasure-domain}. Put \(U=7d/8\); thus \(x\le U\).
+In the regular cases the required monotonicity inequality is
+\[
+ kB\ge2U.
+\]
+For \(d\ge3\), it follows from \(B\ge1\) and
+\(d(d-1)\ge2d\ge7d/4\). For \(d=2,B\ge2\), it is \(2B\ge7/2\).
+The complete height comparison is
+\[
+ \bigl(kBU-U^2\bigr)-\bigl(kBx-x^2\bigr)
+   =(U-x)(kB-U-x)\ge0.
+\]
+Combining this with~\eqref{eq:scalar-erasure-circle} gives
+\(\gamma^2+U^2\le kBU\). Substituting \(U=7d/8\) and multiplying by
+\(64\) proves~\eqref{eq:scalar-erasure-height}.
+In the exceptional case, \(B=1\) and
+\(A=2-\delta_2(\rho)\) is an integer strictly between~\(0\) and~\(2\).
+Hence \(A=1\). The exact circle identity then reduces to
+\(\beta^2+\gamma^2=1\). Conversely, the fixed integer code \((A,B)=(1,1)\)
+has zero real quadratic residue precisely on that unit circle. This completes
+all degree and reference-order cases.
+
+\paragraph{Sharpness of the regular cost in the order model.}
+More generally, let \(0\le\beta\le u\), put \(U=u+d-1\), and suppose
+\(M\ge1\) and \(kM\ge2U\). The same proof gives
+\[
+ \gamma^2+U^2\le kMU
+\]
+for every erased code with reference order \(B=M\). Equality is attained by
+the explicit positive-integer code
+\[
+ A=dM-1,\qquad B=M,\qquad
+ \rho=u+i\sqrt{kMU-U^2}.
+\]
+The radicand is nonnegative because \(kM\ge2U\) and \(U>0\). At this
+point \(I=1\), so the exact denominator identity verifies \(r=0\).
+For \(2\le d\le7\) in the regular cases, take \(u=1-d/8\). The target
+is inside the open strip, its reference has real part exactly~\(7/8\),
+and equality holds in~\eqref{eq:scalar-erasure-height}. This proves
+optimality using only nonnegative integer orders and that strict zero-free
+strip. It asserts no realized Dirichlet zero example.
+
+Numerical specializations of the general checked inequality are
+\[
+\begin{array}{c|c|l}
+ d&\beta\text{ upper bound}&\text{regular height cost}\\ \hline
+ 2&3/4&64\gamma^2+196\le224B\quad(B\ge2)\\
+ 3&5/8&64\gamma^2+441\le1008B\\
+ 4&1/2&64\gamma^2+784\le2688B\\
+ 5&3/8&64\gamma^2+1225\le5600B\\
+ 6&1/4&64\gamma^2+1764\le10080B\\
+ 7&1/8&64\gamma^2+2401\le16464B.
+\end{array}
+\]
+For a cubic channel the bound is equivalently
+\[
+ B\ge\frac4{63}\gamma^2+\frac7{16}.
+\]
+Thus, given an independent reference-order cap \(B\le M\), the strict
+condition \(1008M<64\gamma^2+441\) prevents erasure of any nontrivial cubic
+signal. This cap-dependent consumer is also formalized. It does not install
+such a cap. For example, as a direct specialization of the checked bound,
+a cubic erasure with \( |\gamma|>\sqrt{567}/8\) requires reference multiplicity at
+least two.
+
+The generic defect, integer cost, circle equivalence, height optimization,
+quadratic exception and attaining model are kernel checked in
+\texttt{ScalarResidueErasure}. The actual degree restriction, reference
+strip, regular cost, complete case split, cubic cap consumer and
+QRH-compatible attaining model are checked in \texttt{CarmichaelScalarErasure}.
+The degree restriction agrees with the earlier power-probe detection band
+\(\Re\rho>1-d/8\); the new cost quantifies the complementary region in
+which a reference zero can survive. Classical zero-count estimates, such
+as Bennett--Martin--O'Bryant--Rechnitzer, \textit{Counting Zeros of Dirichlet
+L-Functions} (arXiv:2005.02989), concern total zero counts. No new version of
+those estimates is assumed or proved here. The proposed contribution is the
+sharp erasure/multiplicity constraint for the affine readout; literature
+priority remains unestablished. No arithmetic sampling-error rate or
+improved global zero-free exponent is claimed. The QRH boundary remains~\(7/8\).
+
 \subsection{Exact Mellin action on general windows}
 \label{sec:general-window-mellin}
 

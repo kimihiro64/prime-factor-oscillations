@@ -2447,6 +2447,44 @@
       "declarations": [
         "Complex.quadraticScalar_two_channel_collision"
       ]
+    },
+    {
+      "id": "SE-G",
+      "status": "kernel_checked_scalar_erasure_cost",
+      "claim": "The exact real compensated residue is the integer dB-A minus a positive defect times B. Nontrivial erasure forces B>0 and defect*B>=1. Exact denominator multiplication characterizes the erasure circle, and optimization on an upper real strip gives the sharp height inequality under its explicit monotonicity condition. The quadratic reference-order-one case has target order1 and lies on the unit circle; the corresponding fixed(1,1) circle condition is an equivalence.",
+      "declarations": [
+        "Complex.scalarResidueDefect_formula",
+        "Complex.scalarResidueDefect_pos",
+        "Complex.integerResidueCode_real_decomposition",
+        "Complex.scalar_erasure_cost",
+        "Complex.scalarResidueDefect_lt_degree",
+        "Complex.integerResidueCode_real_mul_den",
+        "Complex.integerResidueCode_re_zero_iff",
+        "Complex.scalar_erasure_height",
+        "Complex.quadratic_scalar_unit_erasure",
+        "Complex.quadratic_scalar_unit_circle_iff"
+      ]
+    },
+    {
+      "id": "SE-A",
+      "status": "kernel_checked_scalar_erasure_cost",
+      "claim": "For every Dirichlet character, every positive modulus and every integer d>=2 at an open-strip point, a vanished real residue with a zero at target or reference forces d<=7, positive reference multiplicity B and Re rho<=1-d/8. Unless d2,B1,64(Im rho)^2+49d^2<=56d^2(d-1)B. The exceptional case has target order1 and |rho|^2=1. For cubic degree, a proved or assumed reference-order cap B<=M and1008M<64(Im rho)^2+441 exclude scalar erasure. No new order upper bound, RH assumption or zero-free exponent gain is asserted.",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.dirichlet_scalar_erasure_constraints",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.dirichlet_scalar_erasure_height",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.dirichlet_quadratic_scalar_unit_erasure",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.dirichlet_scalar_erasure_classification",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.dirichlet_cubic_scalar_nonzero_of_order_bound"
+      ]
+    },
+    {
+      "id": "SE-S",
+      "status": "kernel_checked_scalar_erasure_cost",
+      "claim": "The regular height bound is attained by a positive integer-code model at the upper real endpoint, with target order dM-1, reference order M and an explicit square-root height. For2<=d<=7 and the stated regular-case condition, the constructed target lies in the open strip and its affine reference lies exactly on Re=7/8. This proves sharpness under the order and strip constraints; it does not assert a realized L-zero pattern.",
+      "declarations": [
+        "Complex.scalar_erasure_height_attains",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.scalar_erasure_qrh_model_attains"
+      ]
     }
   ],
   "novelty": "Priority for the combined explicit formulas has not been established; source classification and Gauss identities are classical."
