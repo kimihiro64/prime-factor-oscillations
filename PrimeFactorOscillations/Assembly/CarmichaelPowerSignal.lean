@@ -70,6 +70,75 @@ private theorem power_residue_ne_zero (d A B : Real) (rho : Complex)
       (mul_ne_zero (ne_of_gt hA) (ne_of_gt (sub_pos.mpr hd))) hIm)
   exact (not_lt_of_ge hb) hp
 
+
+/-- Recover the target local order from the full complex compensated residue. -/
+def powerTargetMultiplicity (d : Real) (rho r : Complex) : Real :=
+  ((r * (rho + (d : Complex) - 1)) * star rho).im / ((d - 1) * rho.im)
+
+/-- Recover the reference local order, retaining its signed contribution. -/
+def powerReferenceMultiplicity (d : Real) (rho r : Complex) : Real :=
+  ((r * (rho + (d : Complex) - 1)).im / rho.im +
+    powerTargetMultiplicity d rho r) / d
+
+theorem power_residue_target_multiplicity (d A B : Real) (rho : Complex)
+    (hd : 1 < d) (hIm : Not (rho.im = 0))
+    (hden : Not (rho + (d : Complex) - 1 = 0)) :
+    powerTargetMultiplicity d rho
+      (-(A : Complex) + (d : Complex) * rho /
+        (rho + (d : Complex) - 1) * (B : Complex)) = A := by
+  unfold powerTargetMultiplicity
+  rw [power_residue_wedge d A B rho hden]
+  apply (div_eq_iff (mul_ne_zero (ne_of_gt (sub_pos.mpr hd)) hIm)).mpr
+  ring
+
+theorem power_residue_reference_multiplicity (d A B : Real) (rho : Complex)
+    (hd : 1 < d) (hIm : Not (rho.im = 0))
+    (hden : Not (rho + (d : Complex) - 1 = 0)) :
+    powerReferenceMultiplicity d rho
+      (-(A : Complex) + (d : Complex) * rho /
+        (rho + (d : Complex) - 1) * (B : Complex)) = B := by
+  unfold powerReferenceMultiplicity
+  rw [power_residue_target_multiplicity d A B rho hd hIm hden]
+  have he :
+      ((-(A : Complex) + (d : Complex) * rho /
+        (rho + (d : Complex) - 1) * (B : Complex)) *
+        (rho + (d : Complex) - 1)).im = (d * B - A) * rho.im := by
+    have hc :
+        (-(A : Complex) + (d : Complex) * rho /
+          (rho + (d : Complex) - 1) * (B : Complex)) *
+          (rho + (d : Complex) - 1) =
+        rho * ((d : Complex) * (B : Complex) - (A : Complex)) -
+          (A : Complex) * ((d : Complex) - 1) := by
+      field_simp [hden]
+      ring
+    rw [hc]
+    simp only [Complex.mul_im, Complex.mul_re, Complex.sub_re,
+      Complex.sub_im, Complex.ofReal_re, Complex.ofReal_im,
+      Complex.one_re, Complex.one_im]
+    ring
+  rw [he, (div_eq_iff hIm).mpr (rfl : (d * B - A) * rho.im =
+    (d * B - A) * rho.im)]
+  apply (div_eq_iff (ne_of_gt (zero_lt_one.trans hd))).mpr
+  ring
+
+/-- Only the separate measurement error is estimated by a norm. -/
+theorem powerTargetMultiplicity_error_bound (d : Real) (rho r r' : Complex)
+    (hd : 1 < d) (hIm : Not (rho.im = 0)) :
+    abs ((d - 1) * rho.im) *
+      abs (powerTargetMultiplicity d rho r - powerTargetMultiplicity d rho r') <=
+        norm (r - r') * norm (rho + (d : Complex) - 1) * norm rho := by
+  have he :
+      ((d - 1) * rho.im) *
+        (powerTargetMultiplicity d rho r - powerTargetMultiplicity d rho r') =
+      (((r - r') * (rho + (d : Complex) - 1)) * star rho).im := by
+    unfold powerTargetMultiplicity
+    simp only [sub_mul, Complex.sub_im]
+    field_simp [ne_of_gt (sub_pos.mpr hd), hIm] <;> ring
+  have h := Complex.abs_im_le_norm
+    (((r - r') * (rho + (d : Complex) - 1)) * star rho)
+  rw [<- he, abs_mul] at h
+  simpa only [norm_mul, norm_star] using h
+
 open DirichletCompensatedProbe
 
 def affinePowerReadout (R : Complex -> Complex) (d : Real) (s : Complex) : Complex :=
@@ -138,6 +207,37 @@ theorem affinePowerReadout_scaled_limit
     ring
   rw [hf]
   (convert hA.sub (hsc.mul href) using 1; ring)
+
+
+/-- Two real components of the compensated observable recover both local orders. -/
+theorem affinePowerReadout_multiplicity_recovery
+    (R : Complex -> Complex) (d : Real) (hd : 1 < d)
+    (rho : Complex) (hIm : Not (rho.im = 0))
+    (hden : Not (rho + (d : Complex) - 1 = 0)) (A B : Real)
+    (hA : Filter.Tendsto (fun s => (s - rho) * R s)
+      (nhdsWithin rho (Set.compl {rho})) (nhds (-(A : Complex))))
+    (hB : Filter.Tendsto (fun s => (s - powerMap d rho) * R s)
+      (nhdsWithin (powerMap d rho) (Set.compl {powerMap d rho}))
+      (nhds (-(B : Complex)))) :
+    Filter.Tendsto
+      (fun s => powerTargetMultiplicity d rho ((s - rho) * affinePowerReadout R d s))
+      (nhdsWithin rho (Set.compl {rho})) (nhds A) /\
+    Filter.Tendsto
+      (fun s => powerReferenceMultiplicity d rho ((s - rho) * affinePowerReadout R d s))
+      (nhdsWithin rho (Set.compl {rho})) (nhds B) := by
+  have hL := affinePowerReadout_scaled_limit R d (zero_lt_one.trans hd)
+    rho hden A B hA hB
+  have hcA : Continuous (powerTargetMultiplicity d rho) := by
+    unfold powerTargetMultiplicity
+    fun_prop
+  have hcB : Continuous (powerReferenceMultiplicity d rho) := by
+    unfold powerReferenceMultiplicity
+    fun_prop (disch := exact hcA)
+  have htA := hcA.continuousAt.tendsto.comp hL
+  have htB := hcB.continuousAt.tendsto.comp hL
+  rw [power_residue_target_multiplicity d A B rho hd hIm hden] at htA
+  rw [power_residue_reference_multiplicity d A B rho hd hIm hden] at htB
+  exact And.intro htA htB
 
 private theorem nonzero_scaled_limit_not_analytic (R : Complex -> Complex)
     (rho r : Complex) (hr : Not (r = 0))

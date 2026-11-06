@@ -297,6 +297,100 @@ The theorem proved here supplies signal preservation only. No
 independent arithmetic saving or improved QRH boundary is asserted;
 the certified boundary remains \(7/8\).
 
+\subsection{Two-point multiplicity recovery and stability}
+\label{sec:power-multiplicity-recovery}
+
+The complex residue above contains more information than nonvanishing.
+Write \(\gamma=\Im\rho\ne0\), \(a=d-1>0\), and define, for \(z\in\mathbb C\),
+\[
+ {\cal A}(z)=
+ \frac{\Im\!\left(z(\rho+a)\overline\rho\right)}{a\gamma},
+ \qquad
+ {\cal B}(z)=
+ \frac{\Im\!\left(z(\rho+a)\right)/\gamma+{\cal A}(z)}{d}.
+\]
+For the full signed residue \(r=-A+d\rho B/(\rho+a)\), one has
+\[
+ {\cal A}(r)=A,\qquad {\cal B}(r)=B.
+\]
+Indeed, multiplication gives
+\[
+ r(\rho+a)=\rho(dB-A)-aA,
+\]
+so its imaginary part is \(\gamma(dB-A)\), while multiplying once
+more by \(\overline\rho\) gives imaginary part \(aA\gamma\).
+These two equations prove the assertion. They retain the entire
+reference contribution, including shared zeros and repeated zeros.
+Only reality of \(A,B\) is needed for the inversion. For a single
+\(L\)-function they are its two local integer orders; for a weighted
+packet they are the two weighted totals, not the individual orders
+of its constituent rows.
+
+Both readout maps are continuous real linear functions of \(z\).
+Consequently, applying them to
+\((s-\rho)P_dR(s)\) recovers \(A\) and \(B\) in the limit.
+This is formalized by
+\texttt{affinePowerReadout\_multiplicity\_recovery}, using the same
+local scaled-limit hypotheses as the preceding residue theorem.
+
+The recovery also has an explicit stability cost. For arbitrary
+\(z,z'\in\mathbb C\), the exact difference identity implies
+\begin{equation}\label{eq:power-multiplicity-stability}
+ |a\gamma|\,|{\cal A}(z)-{\cal A}(z')|
+ \le |z-z'|\,|\rho+a|\,|\rho|.
+\end{equation}
+Here the norm estimates only the separate observation error;
+no signed arithmetic main term or compensation term is discarded.
+Taking \(z=r+e\), \(z'=r\), and \(|e|\le\varepsilon\), gives
+\[
+ |{\cal A}(r+e)-A|
+ \le \varepsilon\,\frac{|\rho+a|\,|\rho|}{a|\gamma|}.
+\]
+For a single function, a right side below \(1/2\) uniquely
+determines the integer \(A\) by rounding. This rounding statement is
+an elementary consequence of the displayed proved error bound.
+The height cost is explicit and is not uniform as \(\gamma\to0\);
+at real targets the two real equations lose rank.
+
+The additional maintained declarations in
+\texttt{Assembly/CarmichaelPowerSignal.lean} are
+\texttt{power\_residue\_target\_multiplicity},
+\texttt{power\_residue\_reference\_multiplicity}, and
+\texttt{powerTargetMultiplicity\_error\_bound}, together with the
+limit theorem just named. These are multiplicity readouts, not an
+independent upper estimate for their values or a proof of simplicity.
+
+\paragraph{Relation to the thin probability detector.}
+The existing \texttt{Helpers/ProbabilityZeroRecovery.lean} uses two
+adjacent Bernoulli masses at one moving rank, with known centering
+and normalization, at quartic cutoffs \(N=n^4\).
+For a qualified quadratic prime law, its eventual comparison is
+equivalent to RH. Under RH its harmonic coefficient at frequency
+\(\gamma\) is exactly
+\[
+ \frac{m(1/2+i\gamma)}{1/4+\gamma^2}.
+\]
+The RH assumption on this reconstruction must be distinguished
+from the unconditional logical equivalence.
+The single eventual comparison retains less information than the
+values of the normalized observable. The generalized compensated
+residue retains multiplicity information, but does not by itself
+provide the probability-law adapter and harmonic limit for every
+new family.
+
+There is also an existing multiplicity energy theorem in
+\texttt{Helpers/XiMultiplicityBudget.lean}. Under RH, its excess
+energy can be written as
+\[
+ {\cal D}=
+ \sum_{\substack{\rho=1/2+i\gamma\\\text{distinct zeros}}}
+ \frac{m(\rho)(m(\rho)-1)}{(1/4+\gamma^2)^2}\ge0,
+\]
+and \({\cal D}=0\) if and only if every zero is simple.
+Thus an independent amplitude or excess-energy bound can yield
+multiplicity results without a better QRH exponent. The identities
+and readout stability alone do not supply that bound.
+
 \subsection{An exact band-limited Type I estimate}
 \label{sec:bandlimited-type-i}
 

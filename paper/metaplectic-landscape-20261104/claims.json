@@ -1029,11 +1029,15 @@
     },
     {
       "id": "PWR-NR1",
-      "status": "kernel_checked_nonreal_power_packet_signal",
-      "claim": "For any finite Dirichlet character packet with nonnegative real weights, analytic correction on the positive half-plane and any real d>1, a nonreal zero of a positive-weight row gives a nonzero scaled residue of the affine power compensation. All target and reference multiplicities are retained; no RH or reference zero-free premise is used. The exact residue wedge gives its height cost. This strengthens this power probe only; no arithmetic estimate, novelty priority or QRH exponent gain is asserted.",
+      "status": "kernel_checked_nonreal_power_packet_signal_and_multiplicity",
+      "claim": "For any finite Dirichlet character packet with nonnegative real weights, analytic correction on the positive half-plane and any real d>1, a nonreal zero of a positive-weight row gives a nonzero scaled residue of the affine power compensation. All target and reference multiplicities are retained; no RH or reference zero-free premise is used. The exact residue wedge gives its height cost. This strengthens this power probe only; no arithmetic estimate, novelty priority or QRH exponent gain is asserted. The full complex residue recovers both target and reference weighted local orders, with an explicit measurement-error bound. The limit readouts require real residues and a nonreal target; for a packet they return weighted totals, not individual row multiplicities.",
       "declarations": [
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.affinePowerReadout_multiplicity_recovery",
         "PrimeFactorOscillations.CarmichaelWeightedSignal.affinePowerReadout_scaled_limit",
         "PrimeFactorOscillations.CarmichaelWeightedSignal.powerProbe_nonreal_zero_not_analytic",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.powerTargetMultiplicity_error_bound",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.power_residue_reference_multiplicity",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.power_residue_target_multiplicity",
         "PrimeFactorOscillations.CarmichaelWeightedSignal.real_packet_power_nonreal_zero_not_analytic",
         "PrimeFactorOscillations.CarmichaelWeightedSignal.real_packet_scaled_residue"
       ]
