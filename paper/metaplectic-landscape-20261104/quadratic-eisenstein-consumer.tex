@@ -2885,6 +2885,147 @@ constraints. Our objective is instead the exact minimum complex norm for
 unrestricted compensated quotient codes. This supplies a precise distinction;
 it does not establish a literature priority claim.
 
+\subsection{Uniform scalar recovery on a cubic orbit}
+\label{sec:scalar-cubic-orbit}
+
+The previous optimum treats different powers at one fixed point and allows
+independent reference orders. A different observation pattern exploits the
+coherence of the references themselves. Two real measurements of the same
+cubic compensated readout, taken at successive power-map points, suffice for
+uniform multiplicity recovery. The installed unconditional \(7/8\) theorem
+supplies the terminal nonvanishing input.
+
+Write
+\[
+ q(s)=\frac{s+2}{3},\qquad q(q(s))=\frac{s+8}{9},\qquad
+ t(\rho)=\Re\frac{3\rho}{\rho+2}.
+\]
+Here cubic means the parameter \(d=3\) in the affine power compensation.
+Fix a nonreal \(\rho\) with \(0<\Re\rho<1\), and an analytic correction
+\(G\) on that strip. With the full readout \(\mathcal R_3\) used above, put
+\[
+ r_0=\lim_{s\to\rho}\Re\bigl((s-\rho)
+     \mathcal R_3[\mathrm{zetaMultiplicityReadout}(G)](s)\bigr),
+\]
+\[
+ r_1=\lim_{s\to q(\rho)}\Re\bigl((s-q(\rho))
+     \mathcal R_3[\mathrm{zetaMultiplicityReadout}(G)](s)\bigr).
+\]
+Both are punctured local limits. Their existence is proved, rather than
+assumed. Set \(A=m_\zeta(\rho)\), \(B=m_\zeta(q(\rho))\).
+
+\paragraph{Theorem (two real channels, uniform half-unit recovery).}
+The exact scalar values are
+\[
+ (r_0,r_1)=(-A+t(\rho)B,-B).
+\]
+For real observations \(y_0,y_1\) satisfying
+\(|r_0-y_0|<1/2\) and \(|r_1-y_1|<1/2\), define
+\[
+ \widehat B=\left\lfloor-y_1+\frac12\right\rfloor,\qquad
+ \widehat A=\left\lfloor t(\rho)\widehat B-y_0+\frac12\right\rfloor.
+\]
+Then \(\widehat A=A\) and \(\widehat B=B\).
+There is no height lower bound, multiplicity cap, or RH hypothesis.
+The point \(\rho\), and hence the coefficient \(t(\rho)\), is fixed exactly;
+the noise hypotheses concern the two scalar observations.
+
+\paragraph{Proof of the endpoint and limits.}
+Both \(q(\rho)\) and \(q(q(\rho))\) remain in the open strip, and are nonreal.
+Moreover
+\[
+ \Re q(q(\rho))=\frac{\Re\rho+8}{9}>\frac89>\frac78.
+\]
+The already proved unconditional nonvanishing theorem therefore gives
+\(m_\zeta(q(q(\rho)))=0\). This input is compatible with a zero at
+\(\rho\) or \(q(\rho)\); neither is excluded in the argument.
+The existing unconditional local-limit theorem identifies the full complex
+residues as
+\[
+ -A+\frac{3\rho}{\rho+2}B,
+ \qquad
+ -B+\frac{3q(\rho)}{q(\rho)+2}\,m_\zeta(q(q(\rho)))=-B.
+\]
+Taking real parts is continuous and proves the two asserted real limits.
+Every target and reference term has been retained until the terminal
+reference vanishes by the proved arithmetic input. The analytic correction
+is covered by the local-limit theorem. No RH-dependent Fourier limit is used.
+
+\paragraph{Proof of recovery and sharpness.}
+For any real \(t\) and integers \(a,b\), consider the scalar code
+\[
+ T_t(a,b)=(-a+tb,-b).
+\]
+If \((a,b)\ne(0,0)\), its maximum coordinate magnitude is at least \(1\):
+when \(b\ne0\), the second coordinate supplies that bound; when \(b=0\),
+the first is \(-a\). Equality is attained at \((a,b)=(1,0)\).
+Thus the exact code spacing is \(1\), independently of \(t\).
+
+For the explicit inverse, the elementary floor identity
+\[
+ |x-a|<\frac12,\quad a\in\mathbb Z
+ \quad\Longrightarrow\quad \left\lfloor x+\frac12\right\rfloor=a
+\]
+first gives \(\widehat B=B\). With that integer recovered exactly,
+\(t\widehat B-y_0-A=r_0-y_0\), so the same identity gives \(\widehat A=A\).
+There is no coefficient-times-noise error propagated from the second row.
+In the unrestricted integer-code model, the half-unit threshold is sharp:
+the observation \((-1/2,0)\) is at maximum-coordinate distance exactly
+\(1/2\) from both \(T_t(0,0)\) and \(T_t(1,0)\).
+This sharpness is a code-model statement, not a claim that every integer
+order pair is realized by the fixed zeta function.
+
+The formula holds for all real coefficients. If the coefficient itself is
+perturbed, its error is multiplied by the recovered integer \(B\); the stated
+uniform noise theorem does not include such a perturbation. It also does not
+supply a uniform finite-sampling error estimate for the residue observations.
+
+\paragraph{A signed quantized signal.}
+For nonnegative integers \(A,B\) with \(A+B\ge1\),
+\[
+ \min(r_0,r_1)\le-1.
+\]
+Indeed \(B\ge1\) implies \(r_1=-B\le-1\); otherwise \(B=0\), so
+\(A\ge1\) and \(r_0=-A\le-1\). This is a one-sided joint statement:
+the first row may contain the full compensating reference contribution,
+while the second row determines that reference exactly.
+It is a nonzero-signal theorem, not an independent inequality ruling out
+such a signal. The certified QRH boundary remains \(7/8\).
+
+\paragraph{Why the second scalar channel matters.}
+Even bounded nonzero integer orders can become invisible to a single
+unrotated scalar measurement. In the algebraic code model take
+\(a=3,b=1\), \(z=\beta+i\gamma\), \(0\le\beta\le1\), \(H=|\gamma|\ge2\).
+The complete cubic code is
+\[
+ c_3(z;3,1)=-3+\frac{3z}{z+2}=-\frac6{z+2},\qquad
+ \Re c_3(z;3,1)=-\frac{6(\beta+2)}{(\beta+2)^2+H^2}.
+\]
+Hence
+\[
+ |\Re c_3(z;3,1)|\le\frac{18}{H^2}.
+\]
+For every \(\varepsilon>0\), choosing
+\(z=1/4+i(2+20/\varepsilon)\) makes this magnitude less than
+\(\varepsilon\). At that fixed real part the first reference has real part
+\(3/4\), while the terminal reference has real part \(11/12\), so the
+endpoint nonvanishing input alone does not remove the intermediate integer.
+The second scalar channel remains \(-1\) and prevents the loss.
+This is a uniform code-model obstruction; it asserts no arithmetic example
+with zeta orders \((3,1)\).
+
+The generic scalar spacing, explicit floor inverse, sharpness and one-channel
+obstruction are kernel checked in \texttt{AnchoredScalarMultiplicity}.
+The endpoint, unconditional real limits, actual inverse and signed signal
+are proved in \texttt{CarmichaelScalarCubicOrbit}.
+Triangular integer rounding is classical, related to Babai's nearest-plane
+method (\emph{Combinatorica} 6 (1986), DOI:10.1007/BF02579403) and subsequent
+successive-interference-cancellation decoding, for example Liu--Ling--Stehle,
+\emph{Decoding by Sampling} (arXiv:1003.0064). The proposed new application is
+the scalar-only cubic-orbit theorem for the full compensated zeta readout;
+priority for that application remains unestablished. No transfer of a global
+metaplectic or character estimate is asserted here.
+
 \subsection{Exact Mellin action on general windows}
 \label{sec:general-window-mellin}
 

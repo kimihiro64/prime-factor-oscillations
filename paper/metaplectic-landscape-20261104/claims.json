@@ -2349,6 +2349,40 @@
       "declarations": [
         "PrimeFactorOscillations.CarmichaelWeightedSignal.zeta_two_power_cube_root_certifies_orders"
       ]
+    },
+    {
+      "id": "SC-G",
+      "status": "kernel_checked_scalar_cubic_orbit",
+      "claim": "The anchored real integer code (-a+t*b,-b) has exact max-norm minimum1 for every real coefficient and unrestricted integer orders. An explicit floor decoder recovers both orders when each scalar error is below1/2; the midpoint ambiguity proves the half-unit threshold sharp. Nonzero nonnegative orders force at least one signed row<=-1. The triangular rounding mechanism is classical supporting mathematics.",
+      "declarations": [
+        "Complex.integerResidueCode_re_scalar",
+        "Complex.anchoredScalar_unit",
+        "Complex.anchoredScalar_unit_attains",
+        "Complex.anchoredScalar_decode",
+        "Complex.anchoredScalar_half_noise_sharp",
+        "Complex.anchoredScalar_negative_signal"
+      ]
+    },
+    {
+      "id": "SC-O",
+      "status": "kernel_checked_scalar_cubic_orbit",
+      "claim": "For the bounded integer pair(a,b)=(3,1), the unrotated real part of the cubic residue code is bounded by18/H^2 throughout the closed strip at H>=2. For every positive epsilon there is a point with real part1/4 and H>=2 where this scalar signal is below epsilon. This is an algebraic code-model obstruction, not an arithmetic zeta counterexample.",
+      "declarations": [
+        "Complex.cubicScalar_resonance_bound",
+        "Complex.cubicScalar_no_uniform_spacing"
+      ]
+    },
+    {
+      "id": "SC-Z",
+      "status": "kernel_checked_scalar_cubic_orbit",
+      "claim": "The installed unconditional7/8 theorem makes the twice-cubic reference nonzero. For every nonreal point in the open strip and analytic correction G, two actual cubic real residue limits exist without assuming them, and equal(-a+Re(3*rho/(rho+2))*b,-b). The explicit scalar decoder recovers the target and first reference orders under half-unit errors in each channel; positive total multiplicity forces a signed scalar residue<=-1. The coefficient is fixed exactly, observation errors remain hypotheses, no RH is assumed and QRH remains7/8.",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.zeta_cubic_orbit_terminal_order",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.zeta_cubic_orbit_scalar_values",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.zeta_cubic_orbit_real_limits",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.zeta_cubic_orbit_scalar_decode",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.zeta_cubic_orbit_negative_signal"
+      ]
     }
   ],
   "novelty": "Priority for the combined explicit formulas has not been established; source classification and Gauss identities are classical."
