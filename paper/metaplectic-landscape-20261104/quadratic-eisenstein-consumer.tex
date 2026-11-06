@@ -2541,6 +2541,87 @@ and multiplicity theorem; no uniform observation-error estimate or new
 zero-free exponent is asserted. Priority is unestablished, and the
 certified boundary remains \(7/8\).
 
+\subsection{The exact minimum compensation degree}
+\label{sec:optimal-residue-degree}
+
+The full spacing formula solves the degree-selection problem completely.
+Let \(H=|\Im\rho|\ge2\), \(0\le\Re\rho\le1\), and set
+\[
+ n=\lceil\sqrt H\rceil,\qquad
+ D_d=|\rho+d-1|,\qquad p_d=d(d-1).
+\]
+Define the explicit integer
+\[
+ d_*(\rho)=
+ \begin{cases}
+ n,&D_n\le p_n,\\
+ n+1,&D_n>p_n.
+ \end{cases}
+\]
+Thus only one exact disk test is needed.
+
+\paragraph{Theorem (complete degree classification).}
+For every integer \(d\ge2\),
+\[
+ \bigl[\ |c_d(\rho;a,b)|\ge1\text{ for every nonzero }(a,b)\in\mathbb Z^2\ \bigr]
+ \quad\Longleftrightarrow\quad d\ge d_*(\rho).
+\]
+Furthermore,
+\[
+ \sqrt H<d_*(\rho)<\sqrt H+2.
+\]
+In particular \(d_*\) is the exact minimum degree attaining unit spacing
+in the unrestricted integer-code model, including disk-boundary equality.
+
+\paragraph{Proof.}
+We have \(n\ge2\) and \(H\le n^2\). The degree \(n+1\) always passes:
+\[
+ D_{n+1}^2\le(n+1)^2+H^2
+ \le(n+1)^2+n^4\le n^2(n+1)^2=p_{n+1}^2.
+\]
+The final polynomial margin is \(2n^3-2n-1>0\) for \(n\ge2\).
+Every feasible degree satisfies
+\[
+ H\le D_d\le d(d-1)<d^2,
+\]
+so \(\sqrt H<d\) and hence \(n\le d\).
+If degree \(n\) passes, it is therefore minimal; if it fails,
+\(n+1\) is minimal. This also proves that \(d_*\) itself passes.
+
+To classify every larger degree, retain the complete denominator.
+For integers \(e\ge d\ge2\), the triangle inequality gives
+\[
+ D_e\le D_d+(e-d),\qquad
+ p_e-p_d-(e-d)=(e-d)(e+d-2)\ge0.
+\]
+Thus disk feasibility is upward closed. Combine this with the proved
+unit-spacing equivalence \(D_d\le p_d\) to obtain the asserted
+classification. Applying \(\sqrt H<d\) to \(d_*\) proves the lower
+bound. For the upper bound use
+\(d_*\le n+1<\sqrt H+2\).
+
+\paragraph{Actual-zeta consumer and quantitative scope.}
+At this exact minimum degree the full local residue remains
+\[
+ r=-m(\rho)+\frac{d_*\rho}{\rho+d_*-1}\,
+            m((\rho+d_*-1)/d_*).
+\]
+The compiled actual-zeta consumer certifies both orders if the actual
+and candidate residues have total distance below \(1\) from the same
+observation. The analytic correction is required on the open strip;
+RH, reference nonvanishing and upper multiplicity assumptions are absent.
+
+The previous explicit sufficient choice was
+\(\max\{4,\lceil2H\rceil\}\), of order \(H\).
+The new choice is exact and of order \(\sqrt H\), while retaining
+unit spacing. An independent estimate achieving the observation error
+as the degree varies remains necessary for numerical or arithmetic use.
+No new zero-free exponent is asserted.
+
+The maintained owners are \texttt{IntegerResidueOptimalDegree} and
+\texttt{CarmichaelOptimalMultiplicity}; their fifteen degree statements
+and actual-zeta consumer are kernel checked. Priority is unestablished.
+
 \subsection{Exact Mellin action on general windows}
 \label{sec:general-window-mellin}
 

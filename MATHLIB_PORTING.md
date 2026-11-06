@@ -12,6 +12,7 @@ namespace.
 | `PrimeFactorOscillations.Mathlib.Analysis.Complex.IntegerResidueUnitLattice` | `Mathlib/Analysis/Complex/IntegerResidueUnitLattice.lean` | project-verified | Exact unit spacing under a full reference coefficient with abs(imaginary part)>=1; sharp absolute half-unit recovery tolerance, with ambiguity already among positive integer pairs and a universal unit-spacing upper bound. |
 | `PrimeFactorOscillations.Mathlib.Analysis.Complex.IntegerResidueAdaptive` | `Mathlib/Analysis/Complex/IntegerResidueAdaptive.lean` | project-verified | Every closed-strip point of height H>=2 and integer power d>=2H has unit residue spacing and sharp half-unit decoding. Explicit degree max(4,ceil(2H)); both coordinates and all reference terms retained. |
 | `PrimeFactorOscillations.Mathlib.Analysis.Complex.IntegerResidueStrip` | `Mathlib/Analysis/Complex/IntegerResidueStrip.lean` | project-verified | Exact shortest residue min(1,d(d-1)/norm(z+d-1)) for every d>=2 in the closed strip at height>=2; attainment, exact unit-spacing criterion, and robust joint multiplicity decoding. |
+| `PrimeFactorOscillations.Mathlib.Analysis.Complex.IntegerResidueOptimalDegree` | `Mathlib/Analysis/Complex/IntegerResidueOptimalDegree.lean` | project-verified | Exact minimum unit-spacing degree from one test at ceil(sqrt(H)); all feasible degrees form its upward interval, with strict sqrt(H)<d_min<sqrt(H)+2 for H>=2 in the closed strip. |
 
 ## Integer compensated-residue decoding
 

@@ -2246,6 +2246,36 @@
         "Complex.integerResidueReference_half",
         "PrimeFactorOscillations.CarmichaelWeightedSignal.zeta_strip_readout_certifies_orders"
       ]
+    },
+    {
+      "id": "OD-D",
+      "status": "kernel_checked_optimal_residue_degree",
+      "claim": "For every closed-strip rho of height H>=2, n=ceil(sqrt(H)) and the degree-n disk test select the exact least integer compensation degree dstar>=2 with unit spacing for unrestricted integer multiplicity coordinates. For every d>=2, unit spacing holds iff dstar<=d. Moreover sqrt(H)<dstar<sqrt(H)+2; all boundary tests use the nonstrict disk inequality.",
+      "declarations": [
+        "Complex.integerResidueCode_disk_height_lt",
+        "Complex.integerResidueCode_disk_mono",
+        "Complex.integerResidueCode_optimal_degree_iff",
+        "Complex.integerResidueCode_optimal_spacing",
+        "Complex.optimalUnitResidueDegree_disk",
+        "Complex.optimalUnitResidueDegree_ge_base",
+        "Complex.optimalUnitResidueDegree_ge_two",
+        "Complex.optimalUnitResidueDegree_height_bounds",
+        "Complex.optimalUnitResidueDegree_le_successor",
+        "Complex.optimalUnitResidueDegree_minimal",
+        "Complex.unitResidueDegreeBase_ge_two",
+        "Complex.unitResidueDegreeBase_height",
+        "Complex.unitResidueDegreeBase_le_of_disk",
+        "Complex.unitResidueDegreeBase_square",
+        "Complex.unitResidueDegreeBase_successor_disk"
+      ]
+    },
+    {
+      "id": "OD-Z",
+      "status": "kernel_checked_optimal_residue_degree",
+      "claim": "The actual full compensated zeta readout at the exact minimum unit-spacing degree certifies both target and reference analytic orders when their total observation error is below1, with analytic correction on the open strip. No RH, reference nonvanishing, multiplicity cap, uniform achieved-error estimate, or QRH improvement is asserted.",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.zeta_minimal_degree_readout_certifies_orders"
+      ]
     }
   ],
   "novelty": "Priority for the combined explicit formulas has not been established; source classification and Gauss identities are classical."
