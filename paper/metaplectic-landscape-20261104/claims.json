@@ -2315,6 +2315,40 @@
       "declarations": [
         "PrimeFactorOscillations.CarmichaelWeightedSignal.zeta_panel_readout_certifies_orders"
       ]
+    },
+    {
+      "id": "TP-P",
+      "status": "kernel_checked_two_power_degree_budget",
+      "claim": "For every degree cap K>=3 and every ordered pair 2<=d<=e<=K, including duplicate degrees, the exact unrestricted integer panel spacing is at most min(1,K*(K-1)^2/norm(z+K-1)). The consecutive pair K-1,K attains the bound. The unit-spacing existential criterion is exactly norm(z+K-1)<=K*(K-1)^2, at height>=2 in the closed strip.",
+      "declarations": [
+        "Complex.residuePanelPeriod_pair",
+        "Complex.residuePanelRadius_pair",
+        "Complex.twoPowerPeriod_le_budget",
+        "Complex.residuePanelRadius_pair_le_budget",
+        "Complex.residuePanelRadius_consecutive",
+        "Complex.twoPowerBudgetRadius_unit_iff",
+        "Complex.twoPowerBudget_unit_iff"
+      ]
+    },
+    {
+      "id": "TP-H",
+      "status": "kernel_checked_two_power_degree_budget",
+      "claim": "For the unrestricted two-power code model, unit spacing requires H<K^3 and is guaranteed by H<=(K-1)^3. For every nonnegative real cube root R of H>=2, K=ceil(R)+1 is admissible and sufficient; all sufficient caps satisfy R<K, and one lies strictly below R+2. This establishes the optimal cube-root degree exponent in this model, without an achieved arithmetic observation-error estimate.",
+      "declarations": [
+        "Complex.twoPowerBudget_height_necessary",
+        "Complex.twoPowerBudget_height_sufficient",
+        "Complex.twoPowerBudget_cube_root_lower",
+        "Complex.twoPowerBudget_ceil_cube_root",
+        "Complex.twoPowerBudget_cube_root_degree"
+      ]
+    },
+    {
+      "id": "TP-Z",
+      "status": "kernel_checked_two_power_degree_budget",
+      "claim": "With both actual local zeta residue limits and analytic correction retained, the powers ceil(cuberoot(H)) and its successor certify the target and both reference orders when each row has total true-plus-candidate observation error below1. No RH, multiplicity cap or reference nonvanishing is assumed. Degree optimality concerns the unrestricted integer-code model, not the smaller tuple set obtained by imposing additional zero-free information. QRH remains7/8.",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.zeta_two_power_cube_root_certifies_orders"
+      ]
     }
   ],
   "novelty": "Priority for the combined explicit formulas has not been established; source classification and Gauss identities are classical."

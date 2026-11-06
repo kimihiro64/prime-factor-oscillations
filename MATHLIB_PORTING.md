@@ -15,6 +15,7 @@ namespace.
 | `PrimeFactorOscillations.Mathlib.Analysis.Complex.IntegerResidueOptimalDegree` | `Mathlib/Analysis/Complex/IntegerResidueOptimalDegree.lean` | project-verified | Exact minimum unit-spacing degree from one test at ceil(sqrt(H)); all feasible degrees form its upward interval, with strict sqrt(H)<d_min<sqrt(H)+2 for H>=2 in the closed strip. |
 | `PrimeFactorOscillations.Mathlib.Analysis.Complex.IntegerResiduePanelGeometry` | `Mathlib/Analysis/Complex/IntegerResiduePanelGeometry.lean` | project-verified | Unit nonresonant spacing with the degree-two exceptional targets explicit; exact resonant norm and monotone reference fraction. |
 | `PrimeFactorOscillations.Mathlib.Analysis.Complex.IntegerResiduePanel` | `Mathlib/Analysis/Complex/IntegerResiduePanel.lean` | project-verified | Exact attained spacing for every finite nonempty compensation panel: min(1,lcm(D)*(max(D)-1)/norm(z+max(D)-1)); joint uniqueness and cubic/quartic specialization. |
+| `PrimeFactorOscillations.Mathlib.Analysis.Complex.IntegerResidueTwoPower` | `Mathlib/Analysis/Complex/IntegerResidueTwoPower.lean` | project-verified | Exact optimal unrestricted two-power spacing at cap K, attained by K-1,K; exact unit criterion, cubic-height thresholds and formal cube-root degree bounds. |
 
 ## Integer compensated-residue decoding
 
