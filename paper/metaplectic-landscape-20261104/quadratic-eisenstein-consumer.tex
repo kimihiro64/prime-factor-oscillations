@@ -714,6 +714,183 @@ The affine-map geometry is reused from
 \texttt{Assembly/CarmichaelPowerEnergy.lean} with unchanged proof bodies.
 Priority for the combined weighted comparison has not been established.
 
+\subsection{Sharp joint carriers for coprime affine powers}
+\label{sec:coprime-power-carrier-sharpness}
+
+For the actual zeta readout, the preceding theorem immediately gives
+\[
+ \sum_{\rho\in C_{d,T}\cup C_{e,T}}\frac{m(\rho)}{\gamma_\rho^2}
+ \ge \left(1-\frac1{2e}\right)
+       \sum_{\rho\in S_T}\frac{m(\rho)}{\gamma_\rho^2}
+ \qquad(2\le d<e).
+\]
+The union counts each zero once, and both residues come from the same
+readout. The following construction shows how closely this coefficient
+can be approached by finite symmetric spectra, even while every full
+complex zero signal survives.
+
+\emph{Theorem (coprime-power spectral sharpness).}
+Let \(d,e\) be coprime integers with \(2\le d<e\).
+For every \(\varepsilon>0\), there is a finite positive-height spectrum
+in the open critical strip, invariant under
+\(\rho\mapsto1-\overline\rho\), with positive natural multiplicities
+preserved by reflection, for which the joint strict-sign carrier of the
+\(d\)- and \(e\)-power compensations has inverse-square-height
+multiplicity fraction less than
+\[
+ 1-\frac1{2e}+\varepsilon.
+\]
+The readout is an actual finite logarithmic-derivative sum.
+At every spectral point, its full compensated residue is nonzero for
+every real power \(c>1\), including when the affine reference is another
+spectral point. More precisely, the explicit models below satisfy
+\begin{equation}\label{eq:coprime-carrier-gap}
+ 0\le \frac{U_n}{A_n}-\left(1-\frac1{2e}\right)
+ \le \frac1e\left(\frac de\right)^n
+ \qquad(n\ge0).
+\end{equation}
+
+\emph{Proof.}
+For \(0\le i,j\le n\), put
+\[
+ \gamma_{ij}=(e/d)^i e^j,\qquad
+ \mu_{ij}=e^{i+j}d^{n-i},\qquad
+ \delta_n=\frac1{4\gamma_{nn}},
+\]
+and take both points
+\[
+ \rho^R_{ij}=1-\delta_n\gamma_{ij}+\mathrm i\gamma_{ij},
+ \qquad
+ \rho^L_{ij}=\delta_n\gamma_{ij}+\mathrm i\gamma_{ij},
+\]
+each with multiplicity \(\mu_{ij}\).
+The bases \(e/d\) and \(e\) exceed one, so
+\(0<\delta_n\gamma_{ij}\le1/4\). The two rails lie on opposite
+sides of the critical line and are reflected copies with equal weights.
+Their heights are all distinct: an equality of two heights gives
+\[
+ e^{i+j}d^k=e^{k+\ell}d^i.
+\]
+Coprimality first forces \(i=k\); since \(e>1\), it then forces
+\(j=\ell\). Thus the displayed atoms have exactly the stated
+multiplicities, without hidden collisions. Crucially,
+\begin{equation}\label{eq:coprime-grid-linear-weight}
+ \mu_{ij}=d^n\gamma_{ij}.
+\end{equation}
+
+Let \(\mathcal S_n\) be this finite set, extend its multiplicity by zero
+outside \(\mathcal S_n\), and define, away from its poles,
+\[
+ R_n(s)=-\sum_{\rho\in\mathcal S_n}
+                  \frac{\mu(\rho)}{s-\rho},
+ \qquad
+ R_{n,c}(s)=R_n(s)-\frac{s}{s+c-1}R_n(q_c(s)).
+\]
+Equivalently, \(R_n\) is the finite weighted sum of negative logarithmic
+derivatives of \(s-\rho\). Local factorization, followed by the proved
+affine scaled-limit transfer, gives the complete residue
+\begin{equation}\label{eq:coprime-model-residue}
+ r_{n,c}(\rho)=
+ -\mu(\rho)+\frac{c\rho}{\rho+c-1}\mu(q_c(\rho)).
+\end{equation}
+This formula includes every target and reference atom.
+
+All reference supports can be determined exactly. For \(c\ge2\), the
+reference of a left-rail atom is absent. A right-rail reference cannot
+hit the left rail. Indeed, using its imaginary part to fix the target
+height and then comparing real parts would force, respectively,
+\(\delta_n\gamma_{ij}=1/2\) or
+\(\delta_n\gamma_{ij}=c/2\), contrary to the quarter bound
+(the left-to-left case would require \(c=1\)).
+On the right rail,
+\[
+ q_e(\rho^R_{i,j+1})=\rho^R_{ij},\qquad
+ q_d(\rho^R_{i,j+1})=\rho^R_{i+1,j}.
+\]
+Height injectivity proves that these are the only possible matches.
+Consequently an \(e\)-reference is present exactly when \(j>0\),
+and a \(d\)-reference exactly when \(i<n\) and \(j>0\).
+
+Whenever a reference is present, its height is \(\gamma_\rho/c\);
+\eqref{eq:coprime-grid-linear-weight} therefore gives
+\(c\mu(q_c(\rho))=\mu(\rho)\). Hence the exact selected projection is
+\[
+ Y_c(\rho):=\Im\bigl((\rho+c-1)r_{n,c}(\rho)\bigr)
+ =
+ \begin{cases}
+ 0,&q_c(\rho)\in\mathcal S_n,\\
+ -\mu(\rho)\gamma_\rho,&q_c(\rho)\notin\mathcal S_n.
+ \end{cases}
+\]
+For the two specified powers the common zero-projection set is exactly
+\(\{\rho^R_{ij}:i<n,\ 1\le j\le n\}\).
+All other atoms belong to the joint strict-negative carrier.
+The full residue has not vanished on the common set: when a reference
+is present, \eqref{eq:coprime-model-residue} becomes
+\[
+ r_{n,c}(\rho)=-\frac{(c-1)\mu(\rho)}{\rho+c-1}\ne0.
+\]
+When it is absent, the residue is \(-\mu(\rho)\ne0\).
+This nonvanishing argument works for every \(c>1\).
+
+Set \(a=d/e\), \(b=1/e\), and
+\(G_k(x)=\sum_{r=0}^{k-1}x^r\).
+Each atom has mass
+\[
+ \frac{\mu_{ij}}{\gamma_{ij}^2}=d^n a^i b^j.
+\]
+Keeping both rails and every boundary row, the total mass and the mass
+missing from the joint carrier are therefore
+\[
+ A_n=2d^nG_{n+1}(a)G_{n+1}(b)>0,\qquad
+ W_n=d^nG_n(a)\bigl(G_{n+1}(b)-1\bigr).
+\]
+Thus \(U_n=A_n-W_n\) and
+\[
+ \frac{U_n}{A_n}
+ =1-\frac{G_n(a)\bigl(G_{n+1}(b)-1\bigr)}
+            {2G_{n+1}(a)G_{n+1}(b)}.
+\]
+For completeness, put
+\(x=a^n/G_{n+1}(a)\) and
+\(y=b^{n+1}/G_{n+1}(b)\).
+The finite geometric identities give the exact gap
+\[
+ \frac{U_n}{A_n}-\left(1-\frac b2\right)
+ =\frac{b x+(1-x)y}{2}.
+\]
+Since \(0<b\le a<1\), both geometric blocks are at least one,
+\(0\le x\le1\), and \(0\le y\le b a^n\).
+It follows that the gap lies between zero and \(b a^n\).
+This proves \eqref{eq:coprime-carrier-gap}; the geometric decay supplies
+the required \(n\) for every \(\varepsilon>0\). \(\square\)
+
+The construction shows that adding a second coprime power cannot force
+a uniformly larger joint sign-carrier fraction from reflection and
+natural multiplicities alone in this finite spectral class.
+It also separates loss of one chosen real projection from loss of the
+full multiplicity signal. Additional arithmetic information can exclude these spectra. In particular,
+the rightmost rail tends to \(\Re\rho=1\), so the established \(7/8\)
+strip excludes long grids as zeta models. No Euler-product realization
+is claimed. The result identifies the scope of the reflection-only
+carrier argument; it supplies no new numerical upper bound on zero
+multiplicity and leaves the certified QRH boundary at \(7/8\).
+
+The maintained owners are
+\texttt{Helpers/CarmichaelTraceRatios.lean},
+\texttt{Assembly/CarmichaelTraceGrid.lean},
+\texttt{Assembly/CarmichaelTraceAtoms.lean},
+\texttt{Assembly/CarmichaelTraceModel.lean}, and
+\texttt{Assembly/CarmichaelTraceSharpness.lean}.
+The headline declarations are
+\texttt{coprime\_power\_carrier\_sharpness} and
+\texttt{model\_carrier\_ratio\_gap\_bounds}, under
+\texttt{PrimeFactorOscillations.CarmichaelTraceSharpness}.
+The actual-zeta union bound is
+\texttt{zeta\_two\_power\_carrier\_lower}.
+The local residue calculus and reflection mechanism are classical;
+priority for this finite-grid sharpness construction has not been established.
+
 \subsection{Exact Mellin action on general windows}
 \label{sec:general-window-mellin}
 

@@ -1139,6 +1139,104 @@
       ]
     },
     {
+      "id": "TRS-R1",
+      "status": "kernel_checked_uniform_rectangular_carrier_ratio",
+      "claim": "For all real 0<=b<=a<1 and every natural n, the exact rectangular carrier ratio exceeds 1-b/2 by a nonnegative amount at most b*a^n. Every positive epsilon admits a finite n with ratio below 1-b/2+epsilon. All denominator positivity is proved; this is an all-parameter finite identity and limit.",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelTraceSharpness.geomBlock_ge_one",
+        "PrimeFactorOscillations.CarmichaelTraceSharpness.rectangularCarrierRatio_gap",
+        "PrimeFactorOscillations.CarmichaelTraceSharpness.rectangularCarrierRatio_gap_bounds",
+        "PrimeFactorOscillations.CarmichaelTraceSharpness.rectangularCarrierRatio_near_limit"
+      ]
+    },
+    {
+      "id": "TRS-G1",
+      "status": "kernel_checked_complete_coprime_affine_grid_geometry",
+      "claim": "For coprime natural 2<=d<e, the full height grid is injective. Its finite reflected rails lie in the open critical strip. Left-rail references for every real power at least2 are absent; right references cannot hit the left rail. Exact iff classifications retain both boundary rows and all possible right-reference collisions for d and e.",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelTraceSharpness.gridHeight_formula",
+        "PrimeFactorOscillations.CarmichaelTraceSharpness.gridHeight_pos",
+        "PrimeFactorOscillations.CarmichaelTraceSharpness.gridHeight_injective",
+        "PrimeFactorOscillations.CarmichaelTraceSharpness.gridHeight_top_bound",
+        "PrimeFactorOscillations.CarmichaelTraceSharpness.mem_gridIndices",
+        "PrimeFactorOscillations.CarmichaelTraceSharpness.gridPoint_im",
+        "PrimeFactorOscillations.CarmichaelTraceSharpness.gridDelta_pos",
+        "PrimeFactorOscillations.CarmichaelTraceSharpness.gridDelta_height_bounds",
+        "PrimeFactorOscillations.CarmichaelTraceSharpness.gridPoint_strip",
+        "PrimeFactorOscillations.CarmichaelTraceSharpness.gridLeft_eq_reflection",
+        "PrimeFactorOscillations.CarmichaelTraceSharpness.gridPoint_injective",
+        "PrimeFactorOscillations.CarmichaelTraceSharpness.powerMap_gridRight_e",
+        "PrimeFactorOscillations.CarmichaelTraceSharpness.powerMap_gridRight_d",
+        "PrimeFactorOscillations.CarmichaelTraceSharpness.powerMap_gridLeft_ne_point",
+        "PrimeFactorOscillations.CarmichaelTraceSharpness.powerMap_gridRight_ne_left",
+        "PrimeFactorOscillations.CarmichaelTraceSharpness.powerMap_gridRight_e_iff",
+        "PrimeFactorOscillations.CarmichaelTraceSharpness.powerMap_gridRight_d_iff"
+      ]
+    },
+    {
+      "id": "TRS-A1",
+      "status": "kernel_checked_actual_finite_atomic_readouts",
+      "claim": "Finite natural-weighted sums of logarithmic derivatives have their exact atomic local orders as scaled limits at every complex point. Affine compensation retains the entire target/reference residue, its signed projection, and nonzero full signal at every positive target order for real power greater than1 and nonreal target. These are actual finite readouts, with no arithmetic L-function identification asserted.",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelTraceSharpness.atomicOrder_at",
+        "PrimeFactorOscillations.CarmichaelTraceSharpness.atomicOrder_zero",
+        "PrimeFactorOscillations.CarmichaelTraceSharpness.atomicReadout_scaled_limit",
+        "PrimeFactorOscillations.CarmichaelTraceSharpness.atomicPower_scaled_limit",
+        "PrimeFactorOscillations.CarmichaelTraceSharpness.realPowerResidue_projection",
+        "PrimeFactorOscillations.CarmichaelTraceSharpness.atomicPower_projection",
+        "PrimeFactorOscillations.CarmichaelTraceSharpness.atomicPowerResidue_ne_zero"
+      ]
+    },
+    {
+      "id": "TRS-M1",
+      "status": "kernel_checked_integer_symmetric_grid_and_joint_carrier",
+      "claim": "The finite coprime grid has positive natural multiplicities mu_ij=e^(i+j)*d^(n-i)=d^n*gamma_ij, reflection invariance, distinct strip points and exact target orders. Every supported reference balances the selected projection exactly; every unsupported reference gives strict negative projection. Both specified projections vanish precisely on right rows i<n,j>0, while every full complex compensated residue remains nonzero for every real power greater than1.",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelTraceSharpness.modelPoint_injective",
+        "PrimeFactorOscillations.CarmichaelTraceSharpness.modelPoint_im",
+        "PrimeFactorOscillations.CarmichaelTraceSharpness.modelPoint_im_pos",
+        "PrimeFactorOscillations.CarmichaelTraceSharpness.modelPoint_strip",
+        "PrimeFactorOscillations.CarmichaelTraceSharpness.modelReflection_point",
+        "PrimeFactorOscillations.CarmichaelTraceSharpness.modelReflection_involutive",
+        "PrimeFactorOscillations.CarmichaelTraceSharpness.modelReflection_multiplicity",
+        "PrimeFactorOscillations.CarmichaelTraceSharpness.modelMultiplicity_pos",
+        "PrimeFactorOscillations.CarmichaelTraceSharpness.modelMultiplicity_eq_height",
+        "PrimeFactorOscillations.CarmichaelTraceSharpness.modelOrder_at",
+        "PrimeFactorOscillations.CarmichaelTraceSharpness.model_den_ne",
+        "PrimeFactorOscillations.CarmichaelTraceSharpness.model_reference_balanced",
+        "PrimeFactorOscillations.CarmichaelTraceSharpness.modelProjection_eq",
+        "PrimeFactorOscillations.CarmichaelTraceSharpness.modelProjection_neg_iff",
+        "PrimeFactorOscillations.CarmichaelTraceSharpness.model_full_residue_ne_zero",
+        "PrimeFactorOscillations.CarmichaelTraceSharpness.modelReference_right",
+        "PrimeFactorOscillations.CarmichaelTraceSharpness.modelReference_e_iff",
+        "PrimeFactorOscillations.CarmichaelTraceSharpness.modelReference_d_iff",
+        "PrimeFactorOscillations.CarmichaelTraceSharpness.model_joint_carrier_iff"
+      ]
+    },
+    {
+      "id": "TRS-S1",
+      "status": "kernel_checked_coprime_power_spectral_sharpness",
+      "claim": "For every coprime natural 2<=d<e and every epsilon>0, an explicit finite reflected integer-weighted strip spectrum has joint d/e strict-sign carrier fraction below 1-1/(2e)+epsilon. Its exact fraction satisfies 0<=U_n/A_n-(1-1/(2e))<=(1/e)*(d/e)^n for all n, with A_n>0 and every actual full compensated scaled residue nonzero for all real powers greater than1. This limits a uniform sign-carrier improvement in this finite spectral class; no Euler-product realization, multiplicity upper bound, arithmetic optimality or QRH exponent gain is asserted.",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelTraceSharpness.modelAtomMass_eq",
+        "PrimeFactorOscillations.CarmichaelTraceSharpness.modelTotalMass_eq",
+        "PrimeFactorOscillations.CarmichaelTraceSharpness.modelWeakMass_eq",
+        "PrimeFactorOscillations.CarmichaelTraceSharpness.model_carrier_add_weak",
+        "PrimeFactorOscillations.CarmichaelTraceSharpness.modelTotalMass_pos",
+        "PrimeFactorOscillations.CarmichaelTraceSharpness.model_carrier_ratio_eq",
+        "PrimeFactorOscillations.CarmichaelTraceSharpness.model_carrier_ratio_gap_bounds",
+        "PrimeFactorOscillations.CarmichaelTraceSharpness.coprime_power_carrier_sharpness"
+      ]
+    },
+    {
+      "id": "TRS-Z1",
+      "status": "kernel_checked_actual_zeta_joint_carrier_lower",
+      "claim": "For two actual affine-power residues of the same zeta readout with a correction analytic throughout the critical strip, powers d,e>=2 and every real height cutoff T, the union of their strict-negative projection carriers retains at least 1-1/(2e) of inverse-square-height multiplicity mass. The larger-power comparison alone gives the bound; overlap is counted once. No RH or simplicity assumption and no improved zero-free boundary is asserted.",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelTraceSharpness.zeta_two_power_carrier_lower"
+      ]
+    },
+    {
       "id": "BL-TI1",
       "status": "kernel_checked_bandlimited_coset_and_principal_typeI_vanishing",
       "claim": "A Schwartz window with zero Fourier value at the origin and Fourier support inside the open unit disk has zero sum on every affine Gaussian lattice of mesh norm at most one. All shifted q-congruence-coset sums and their full norm-character combination vanish for q^2<=X, for every positive integer q. For radial windows with zero physical origin, the full coprimality-masked principal Type I block vanishes when N(H)N(a)N(b)<=D for every retained pair. The existing three-scale wavelet supplies both origins and needs only half-unit initial Fourier support. Finite-prefix outside tails, the nonzero Mellin witness in this profile class, the character-ideal reindexing and the retained Type II estimate are not asserted discharged; QRH remains7/8.",
