@@ -1248,7 +1248,8 @@ For every such spectrum,
 In particular, if all multiplicities are one then \(C\ge39A/40\).
 If \(C<39A/40\), some \(i\in U\) has \(m_i\ge2\).
 No simplicity or RH hypothesis is used in the general estimate.
-Optimality of the simple-spectrum coefficient is not asserted here.
+The simple-spectrum coefficient is optimal in this finite model class;
+Section~\ref{sec:simple-carrier-sharpness} proves sharpness.
 
 \paragraph{Proof.}
 For \(i\in U\), positivity of \(m_i\) forces both actual reference
@@ -1321,6 +1322,120 @@ The maintained owners are \texttt{CarmichaelMultiplicityCarrier},
 \texttt{CarmichaelZetaFiniteSpectrum}, and
 \texttt{CarmichaelZetaMultiplicityCarrier}. Their hypotheses and proofs
 retain every reference order, finite-window endpoint and compensation term.
+
+\subsection{Sharp simple-spectrum carriers}
+\label{sec:simple-carrier-sharpness}
+
+The preceding \(39/40\) coefficient is optimal over the stated finite
+simple-spectrum class. This is a statement about complete atomic readouts,
+not a claim that zeta zeros realize the examples.
+
+\paragraph{Theorem (exact universal simple coefficient).}
+For a real number \(c\), the following are equivalent:
+\[
+ \begin{gathered}
+ \text{every finite reflected spectrum in }[1/8,7/8]
+ \text{ with }m_i=1\text{ satisfies }cA\le C;\\
+ c\le39/40.
+ \end{gathered}
+\]
+For every \(\varepsilon>0\), a finite depth can be chosen independently
+of every positive root height \(H\), giving a complete simple atomic
+readout with \(A>0\) and \(C/A<39/40+\varepsilon\).
+All its points already lie in \([1/7,6/7]\), and its full complex
+compensated residues are nonzero for every real \(d>1\).
+
+\paragraph{Construction and exact finite support.}
+For a finite word \(w\) in \(0,1\), let
+\[
+ x_{\varnothing}=\frac14,\quad
+ x_{0w}=\frac{1-x_w}{2},\quad
+ x_{1w}=\frac{1-x_w}{4},\qquad
+ s(\varnothing)=0,\quad s(0w)=s(w)+1,\quad s(1w)=s(w)+2.
+\]
+At depth \(N+1\), retain both points
+\[
+ L_w=x_w+iH2^{-s(w)},\qquad
+ R_w=1-x_w+iH2^{-s(w)}
+       \quad (|w|\le N+1),
+\]
+each with multiplicity exactly one. The established word geometry makes
+this entire finite indexing injective, including different word lengths;
+it gives \(1/7\le x_w\le3/7\) and reflection interchanging the two rails.
+Thus every point belongs to \([1/7,6/7]\) and has positive height.
+
+For a nonterminal left point the actual references are
+\[
+ q_2(L_w)=R_{0w},\qquad q_4(L_w)=R_{1w}.
+\]
+Both reference orders are one. For a terminal left point the child words
+are outside the finite support and both reference orders are zero.
+For every right point,
+\(\Re q_4(R_w)=1-x_w/4\ge25/28>6/7\), so its quartic reference order
+is zero. Hence the common weak set is exactly
+\[
+ U=\{L_w:|w|\le N\}.
+\]
+The right quadratic row, including its possible reference collisions,
+remains in the actual atomic readout. Its value cannot remove a right
+point from the union carrier because that point's quartic signed
+projection is already negative.
+
+\paragraph{Exact mass and sharpness proof.}
+Put
+\[
+ T_n=\sum_{|w|\le n}4^{s(w)}.
+\]
+The root and the two disjoint child supports give
+\[
+ T_0=1,\qquad T_{n+1}=1+(4+16)T_n=1+20T_n,\qquad
+ 19T_n+1=20^{n+1}.
+\]
+All sums here are over the indicated finite word support.
+With every multiplicity one, \(E_U=0\), and the complete two-rail and
+common-weak masses are
+\[
+ A=\frac{2T_{N+1}}{H^2}>0,\qquad W=\frac{T_N}{H^2},\qquad C=A-W.
+\]
+Consequently
+\[
+ \frac CA
+ =1-\frac{T_N}{2T_{N+1}}
+ =\frac{39}{40}+\frac1{40T_{N+1}}
+ =\frac{39}{40}
+       +\frac{19}{40(20^{N+2}-1)}.
+\]
+No term from the finite carrier or compensation has been omitted.
+The denominator is positive. Also \(T_n\ge n+1\); choosing
+\(N>1/(40\varepsilon)\) makes the correction smaller than
+\(\varepsilon\), uniformly in \(H>0\).
+Thus every coefficient strictly larger than \(39/40\) fails on some
+finite simple spectrum. The converse is the preceding simple-spectrum
+lower bound, together with nonnegativity of \(A\).
+
+Finally use the complete atomic readout
+\[
+ R(s)=-\sum_{\rho\in S}\frac1{s-\rho}.
+\]
+Its scaled local limits give the actual target and reference orders.
+The proved nonreal residue identity preserves a nonzero full complex
+residue for every \(d>1\). Its quadratic-quartic negative-projection
+union is exactly the carrier used above, so the examples are readout
+realizations of the sharp constant.
+\hfill\textit{QED.}
+
+The unrestricted positive-natural-multiplicity class has sharp
+coefficient \(11/12\); the all-simple subclass has sharp coefficient
+\(39/40\). The excess-multiplicity certificate quantifies the difference.
+These finite-model optimality statements provide no new upper bound on
+actual zeta multiplicities and do not change the established \(7/8\)
+zero-free boundary.
+
+The five maintained owners are \texttt{CarmichaelSimpleTreeWeights},
+\texttt{CarmichaelSimpleTreeSpectrum}, \texttt{CarmichaelSimpleTreeRows},
+\texttt{CarmichaelSimpleTreeMass}, and \texttt{CarmichaelSimpleTreeSharpness}.
+The exact universal statement is
+\texttt{universal\_simple\_carrier\_coefficient\_iff}.
 
 \subsection{Exact Mellin action on general windows}
 \label{sec:general-window-mellin}

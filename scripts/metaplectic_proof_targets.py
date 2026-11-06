@@ -2,6 +2,7 @@
 
 from scripts.dyadic_carrier_proof_targets import DYADIC_CARRIER_THEOREMS
 from scripts.multiplicity_carrier_proof_targets import MULTIPLICITY_CARRIER_THEOREMS
+from scripts.simple_carrier_sharpness_proof_targets import SIMPLE_CARRIER_SHARPNESS_THEOREMS
 from scripts.strip_carrier_proof_targets import STRIP_CARRIER_THEOREMS
 
 METAPLECTIC_THEOREMS = (
@@ -426,5 +427,5 @@ METAPLECTIC_THEOREMS = (
 
 METAPLECTIC_THEOREMS = tuple(sorted(
     METAPLECTIC_THEOREMS + STRIP_CARRIER_THEOREMS + DYADIC_CARRIER_THEOREMS
-    + MULTIPLICITY_CARRIER_THEOREMS
+    + MULTIPLICITY_CARRIER_THEOREMS + SIMPLE_CARRIER_SHARPNESS_THEOREMS
 ))
