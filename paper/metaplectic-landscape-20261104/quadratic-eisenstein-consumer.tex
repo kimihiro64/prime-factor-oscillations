@@ -891,6 +891,170 @@ The actual-zeta union bound is
 The local residue calculus and reflection mechanism are classical;
 priority for this finite-grid sharpness construction has not been established.
 
+\subsection{A zero strip strengthens joint multiplicity carriers}
+\label{sec:strip-joint-carriers}
+
+The reflection-only sharpness theorem permits zeros arbitrarily close to
+the edge of the critical strip. A known smaller zero strip supplies an
+additional constraint. Two reference maps couple that constraint to
+multiplicity mass, including when the powers are not coprime.
+
+Fix \(T>0\), and let
+\[
+ S_T=\{\rho:\zeta(\rho)=0,\ 0<\Re\rho<1,\ 0<\Im\rho\le T\},
+ \qquad m(\rho)=\operatorname{ord}_{\rho}\zeta,\qquad
+ w(\rho)=\frac{m(\rho)}{(\Im\rho)^2}.
+\]
+All sums below run over explicitly specified finite sets. Write
+\(A_T=\sum_{\rho\in S_T}w(\rho)\), and, for real \(d,e\ge2\), set
+\[
+ \begin{split}
+ U_{d,e}(T)&=\{\rho\in S_T:
+ m(\rho)\le d\,m(q_d(\rho)),\
+ m(\rho)\le e\,m(q_e(\rho))\},\\
+ \mathcal C_{d,e}(T)&=S_T\setminus U_{d,e}(T),\qquad
+ q_a(s)=\frac{s+a-1}{a}.
+ \end{split}
+\]
+Thus \(\mathcal C_{d,e}(T)\) is a union, and an overlap is counted once.
+
+\paragraph{Theorem (Strip-dependent joint carrier mass).}
+\label{thm:strip-joint-carrier}
+Let \(2\le d<e\), \(1/2\le\sigma<1\), and suppose every
+\(\rho\in S_T\) with \(\Re\rho>1/2\) satisfies \(\Re\rho\le\sigma\).
+Put \(r=e/d\). If \(L\ge1\) is an integer such that
+\[
+ r^L(1-\sigma)\ge\frac12,\qquad H_L=\sum_{j=0}^{L-1}r^j,
+\]
+then
+\[
+ \sum_{\rho\in\mathcal C_{d,e}(T)}w(\rho)
+ \ \ge\
+ \left(1-\frac{1-H_L^{-1}}{2e}\right)A_T.
+\]
+No RH or simplicity assumption is made. In particular, coprimality of
+\(d,e\) is not required.
+
+\paragraph{Proof.}
+Let \(R_T=\{\tau\in S_T:\Re\tau>1/2\}\), and define functions on
+the entire complex plane by zero extension:
+\[
+ b(\tau)=
+ \begin{cases}w(\tau),&\tau\in R_T,\\0,&\tau\notin R_T,\end{cases}
+ \qquad
+ c(\tau)=
+ \begin{cases}
+ e\,w(s_e(\tau)),&s_e(\tau)\in U_{d,e}(T),\\
+ 0,&s_e(\tau)\notin U_{d,e}(T),
+ \end{cases}
+ \quad s_e(\tau)=e\tau-(e-1).
+\]
+If \(\rho\in U_{d,e}(T)\), positivity of \(m(\rho)\) forces both
+reference multiplicities to be positive. For \(a=d,e\), the reference
+\(q_a(\rho)\) lies in \(R_T\): its real part is greater than \(1/2\)
+and less than \(1\), and its height is \(\Im\rho/a\le T\).
+The corresponding weak inequality gives the exact weighted comparison
+\[
+ a\,w(\rho)\le w(q_a(\rho)).
+\]
+For \(a=e\) this proves \(0\le c\le b\), including outside \(R_T\).
+
+The other reference map must be retained at the same source. Its
+transport on the \(e\)-reference coordinate is
+\[
+ M(\tau)=q_d(s_e(\tau))=1-r(1-\tau).
+\]
+The \(d\)-comparison gives
+\[
+ c(\tau)\le r\,b(M(\tau))
+\]
+on the whole complex plane. Set \(D=b-c\). Both \(c\) and \(D\) are
+nonnegative and supported on \(R_T\). In particular, the complete signed
+recurrence is
+\[
+ b(\tau)\le D(\tau)+r\,b(M(\tau)).
+\]
+Iteration, with every term retained, yields
+\[
+ b(\tau)\le
+ \sum_{j=0}^{L-1}r^jD(M^j(\tau))
+ +r^Lb(M^L(\tau)).
+\]
+For \(\tau\in R_T\),
+\[
+ \Re M^L(\tau)=1-r^L(1-\Re\tau)
+ \le1-r^L(1-\sigma)\le\frac12,
+\]
+so the terminal term is zero. Each \(M^j\) is injective, and \(D\)
+vanishes outside the finite set \(R_T\). Consequently
+\[
+ \sum_{\tau\in R_T}D(M^j(\tau))
+ \le\sum_{\tau\in R_T}D(\tau).
+\]
+Writing \(B=\sum_{\tau\in R_T}b(\tau)\) and
+\(C=\sum_{\tau\in R_T}c(\tau)\), summation gives
+\[
+ B\le H_L(B-C),\qquad C\le(1-H_L^{-1})B.
+\]
+
+Reflection \(\rho\mapsto1-\overline{\rho}\) preserves height and
+multiplicity, pairs the right and left half-planes, and leaves
+nonnegative mass on the critical line. Thus \(2B\le A_T\).
+The map \(q_e\) is injective, is inverse to \(s_e\), and sends
+\(U_{d,e}(T)\) into \(R_T\). The definition of \(c\) therefore gives
+\[
+ C=e\sum_{\rho\in U_{d,e}(T)}w(\rho).
+\]
+Since \(H_L\ge1\), these inequalities imply
+\[
+ \sum_{\rho\in U_{d,e}(T)}w(\rho)
+ \le\frac{1-H_L^{-1}}{2e}A_T.
+\]
+Subtract this finite mass from \(A_T\).
+\hfill\textit{QED.}
+
+The statement applies to the actual compensated residues. For a
+correction analytic throughout the critical strip, the previously proved
+local identity gives
+\[
+ \Im\!\bigl(r_a(\rho)(\rho+a-1)\bigr)
+   =\bigl(a\,m(q_a(\rho))-m(\rho)\bigr)\Im\rho.
+\]
+Thus membership in \(\mathcal C_{d,e}(T)\) is exactly strict negativity
+of at least one of these two projected residues. Both reference
+multiplicities and every common-reference overlap remain in the proof.
+
+\paragraph{Theorem (Unconditional fixed-power consequences).}
+\label{thm:strip-carrier-seven-eighths}
+For every \(T>0\), actual zeta compensated readouts satisfy
+\[
+ \sum_{\rho\in\mathcal C_{2,3}(T)}w(\rho)\ge\frac{111}{130}A_T,
+ \qquad
+ \sum_{\rho\in\mathcal C_{2,4}(T)}w(\rho)\ge\frac{11}{12}A_T.
+\]
+\paragraph{Proof.}
+Use the installed unconditional nonvanishing theorem for
+\(\Re s>7/8\), so \(\sigma=7/8\) is admissible.
+For \((d,e)=(2,3)\), take \(L=4\). Then
+\[
+ (3/2)^4(1/8)=81/128\ge1/2,\qquad H_4=65/8,
+\]
+and the carrier coefficient is \(111/130\).
+For \((d,e)=(2,4)\), take \(L=2\). Then
+\(2^2(1/8)=1/2\), \(H_2=3\), and the coefficient is \(11/12\).
+\hfill\textit{QED.}
+
+The reflection-only guarantees for these fixed pairs are respectively
+\(5/6\) and \(7/8\). The new coefficients are larger by \(4/195\)
+and \(1/24\). There is no conflict with the earlier finite-model
+sharpness theorem: its long models approach \(\Re\rho=1\), whereas
+the present theorem uses a fixed upper strip. This is a quantitative
+improvement in multiplicity mass retained by specified observables.
+It proves neither a smaller zero-free boundary nor an upper bound on
+individual multiplicities. The geometric transport summation is
+elementary; publication priority for this particular coupled
+compensated-residue application has not been established.
+
 \subsection{Exact Mellin action on general windows}
 \label{sec:general-window-mellin}
 

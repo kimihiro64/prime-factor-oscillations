@@ -1248,6 +1248,80 @@
         "PrimeFactorOscillations.GaussianBandlimitedTypeI.wavelet_bandlimited",
         "PrimeFactorOscillations.GaussianBandlimitedTypeI.wavelet_typeI_zero"
       ]
+    },
+    {
+      "id": "ST-T1",
+      "status": "kernel_checked_finite_signed_transport_defect",
+      "claim": "For any finite support, nonnegative deficit and injective transport, finite escape in L steps gives B<=H_L*(B-C) and C<=(1-1/H_L)*B. The complete signed deficit is retained; this is the summation input for the actual zeta carrier theorem.",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelStripCarrier.transportIter_injective",
+        "PrimeFactorOscillations.CarmichaelStripCarrier.finite_support_comp_sum_le",
+        "PrimeFactorOscillations.CarmichaelStripCarrier.signed_transport_iter_bound",
+        "PrimeFactorOscillations.CarmichaelStripCarrier.finite_nilpotent_transport_mass_defect",
+        "PrimeFactorOscillations.CarmichaelStripCarrier.finite_nilpotent_transport_covered_mass"
+      ]
+    },
+    {
+      "id": "ST-G1",
+      "status": "kernel_checked_zero_strip_transport_geometry",
+      "claim": "The coupled map M=q_d o inverse(q_e) expands real deficit and height by e/d. Explicit strip and depth inequalities force finite escape from right-half support. The existing unconditional7/8nonvanishing theorem supplies the actual zeta strip; the boundary is unchanged.",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelStripCarrier.stripTransport_re",
+        "PrimeFactorOscillations.CarmichaelStripCarrier.stripTransport_im",
+        "PrimeFactorOscillations.CarmichaelStripCarrier.stripTransport_injective",
+        "PrimeFactorOscillations.CarmichaelStripCarrier.stripTransport_iter_re",
+        "PrimeFactorOscillations.CarmichaelStripCarrier.powerSource_im",
+        "PrimeFactorOscillations.CarmichaelStripCarrier.powerMap_powerSource",
+        "PrimeFactorOscillations.CarmichaelStripCarrier.powerSource_powerMap",
+        "PrimeFactorOscillations.CarmichaelStripCarrier.powerMap_powerSource_eq_transport",
+        "PrimeFactorOscillations.CarmichaelStripCarrier.zetaSquareMass_nonneg",
+        "PrimeFactorOscillations.CarmichaelStripCarrier.rightZeroMass_nonneg",
+        "PrimeFactorOscillations.CarmichaelStripCarrier.rightZeroMass_support",
+        "PrimeFactorOscillations.CarmichaelStripCarrier.zeta_order_pos_of_window",
+        "PrimeFactorOscillations.CarmichaelStripCarrier.rightZeroSupport_seven_eighths",
+        "PrimeFactorOscillations.CarmichaelStripCarrier.strip_transport_escape",
+        "PrimeFactorOscillations.CarmichaelStripCarrier.rightZeroMass_escape"
+      ]
+    },
+    {
+      "id": "ST-A1",
+      "status": "kernel_checked_joint_weak_multiplicity_lift",
+      "claim": "For actual zeta zeros and both power compensation rows, the transported common-weak mass satisfies0<=c<=b and c<=(e/d)*b o M, is supported on the right-half zero set, and has total mass exactly e times the common-weak inverse-square-height multiplicity mass. All reference collisions and finite supports are retained.",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelStripCarrier.weak_reference_window",
+        "PrimeFactorOscillations.CarmichaelStripCarrier.weak_source_mass_le_reference",
+        "PrimeFactorOscillations.CarmichaelStripCarrier.jointWeak_reference_mem_right",
+        "PrimeFactorOscillations.CarmichaelStripCarrier.jointWeakLift_nonneg",
+        "PrimeFactorOscillations.CarmichaelStripCarrier.jointWeakLift_le_rightMass",
+        "PrimeFactorOscillations.CarmichaelStripCarrier.jointWeakLift_transport",
+        "PrimeFactorOscillations.CarmichaelStripCarrier.jointWeakLift_support",
+        "PrimeFactorOscillations.CarmichaelStripCarrier.jointWeakLift_at_reference",
+        "PrimeFactorOscillations.CarmichaelStripCarrier.jointWeakLift_sum",
+        "PrimeFactorOscillations.CarmichaelStripCarrier.rightZeroMass_sum"
+      ]
+    },
+    {
+      "id": "ST-C1",
+      "status": "kernel_checked_strip_dependent_joint_carrier",
+      "claim": "For powers d,e>=2, every finite height cutoff T and every explicit strip/depth pair with L>=1 and (e/d)^L*(1-sigma)>=1/2, the joint carrier retains at least1-(1-1/H_L)/(2e)of inverse-square-height multiplicity mass. The actual7/8strip gives111/130for powers2,3. No RH, simplicity or improved zero-free exponent is asserted.",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelStripCarrier.zeta_joint_weak_mass_strip_bound",
+        "PrimeFactorOscillations.CarmichaelStripCarrier.joint_carrier_mass_split",
+        "PrimeFactorOscillations.CarmichaelStripCarrier.zeta_joint_carrier_strip_bound",
+        "PrimeFactorOscillations.CarmichaelStripCarrier.zeta_two_three_carrier_seven_eighths"
+      ]
+    },
+    {
+      "id": "ST-R1",
+      "status": "kernel_checked_actual_readout_strip_carriers",
+      "claim": "The joint multiplicity carrier is exactly the union of strict-negative projected residues of two actual compensated zeta readouts with a correction analytic throughout the strip and the stated local limits. The unconditional7/8input gives111/130for powers2,3and11/12for powers2,4. Both reference multiplicities remain in the proof; no upper multiplicity estimate is claimed.",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelStripCarrier.readout_projection_negative_iff",
+        "PrimeFactorOscillations.CarmichaelStripCarrier.joint_readout_carrier_eq",
+        "PrimeFactorOscillations.CarmichaelStripCarrier.zeta_joint_readout_strip_bound",
+        "PrimeFactorOscillations.CarmichaelStripCarrier.zeta_two_three_readout_carrier_seven_eighths",
+        "PrimeFactorOscillations.CarmichaelStripCarrier.zeta_two_four_readout_carrier_seven_eighths"
+      ]
     }
   ],
   "novelty": "Priority for the combined explicit formulas has not been established; source classification and Gauss identities are classical."
