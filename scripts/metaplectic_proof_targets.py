@@ -308,4 +308,8 @@ METAPLECTIC_THEOREMS = (
     "Metaplectic.Sp4FourInverse.power_section_exists",
     "Metaplectic.Sp4FourInverse.scattering_telescope",
     "Metaplectic.Sp4FourInverse.whittaker_weyl_sum",
+    "PrimeFactorOscillations.CarmichaelWeightedSignal.affinePowerReadout_scaled_limit",
+    "PrimeFactorOscillations.CarmichaelWeightedSignal.powerProbe_nonreal_zero_not_analytic",
+    "PrimeFactorOscillations.CarmichaelWeightedSignal.real_packet_power_nonreal_zero_not_analytic",
+    "PrimeFactorOscillations.CarmichaelWeightedSignal.real_packet_scaled_residue",
 )

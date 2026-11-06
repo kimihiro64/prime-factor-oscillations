@@ -116,6 +116,44 @@ All \(k\ge1\) occur. In particular, when \(3\mid k\), every
 The main term is \(X\), not \(3X\), because just the principal
 Dirichlet row has a pole at \(u=1\).
 
+\paragraph{An alternative consumer that keeps all six factors.}
+For detecting a zeta zero it is unnecessary to subtract the quadratic
+companions. Keeping them as positive rows avoids that subtraction.
+With a common analytic window \(R\), put \(Z_j=RE_j\). The native
+factorization gives the complete alternative operator
+\begin{equation}\label{eq:quadratic-positive-six-packet}
+ \sum_{j=0}^2 B_{\ne j}L_j Z_j'
+       -3R'B_*-RB_*'
+   =-2RB_*\sum_{j=0}^2\frac{L_j'}{L_j}.
+\end{equation}
+All quantities on the left are evaluated at \(s\), and the
+logarithmic derivatives on the right at \(u=2s+3/2\).
+This is a direct product-rule consequence of
+\eqref{eq:quadratic-gl3-native}: each row contributes
+\(R'B_*+RB_{\ne j}B_j'-2RB_*L_j'/L_j\).
+It retains every section and window derivative. There is no
+companion-logarithmic-derivative subtraction in this consumer.
+
+The six rational factors \(F_j,M_j\) all have weight one.
+At a zeta zero their orders add, so the native-coordinate residue
+is \(-R(s_\rho)B_*(s_\rho)\sum_j(m_{F_j}+m_{M_j})\).
+Thus it is nonzero under the explicit window condition
+\(R(s_\rho)B_*(s_\rho)\ne0\). This condition and the global native
+identity must still be discharged for any analytic application;
+the present algebra does not supply them. The unwindowed arithmetic
+readout, including every prime power and the principal centering, is
+\[
+ 6\!\!\sum_{\substack{p^k\le X,\ p\notin S\\
+             \chi(p)^k=1,\ \chi_{-4}(p)^k=1}}\log p-X.
+\]
+For the cubic character modulo seven these are exactly the powers
+\(p^k\equiv1,13\pmod{28}\), away from the excluded primes.
+This changes the observable and its arithmetic estimate, rather than
+merely inserting another local coefficient into the old cubic proof.
+The three native rows still carry their full degree-two lengths and
+all mixed terms. No estimate of this restricted prime-power sum is
+deduced from positivity of the zero multiplicities.
+
 \paragraph{The full cost and rate comparison.}
 The three native denominators have total degree six and conductor
 product \(2^6q^4\): the principal one has conductor \(4\),
@@ -137,3 +175,124 @@ by identity alone. The independent global estimate remains open;
 the certified boundary is \(7/8\). The point of this comparison is
 the complete alternative consumer and the exact surviving signed
 term, not a claim that a local calculation has improved the boundary.
+
+\subsection{Reference-independent nonreal power compensation}
+\label{sec:nonreal-power-compensation}
+
+The power probe admits a stronger signal theorem than the previously used
+reference-strip argument. Let \(L_i(s)=L(s,\chi_i)\) be a finite collection
+of Dirichlet \(L\)-functions of a common positive modulus, let
+\(w_i\in\mathbb R_{\ge0}\), and let \(G\) be analytic on
+\(\Re s>0\). Put
+\[
+ R(s)=-\sum_i w_i\frac{L_i'(s)}{L_i(s)}+G(s),\qquad
+ q_d(s)=\frac{s+d-1}{d},\qquad
+ P_dR(s)=R(s)-\frac{s}{s+d-1}R(q_d(s)).
+\]
+Here \(d>1\) is any fixed real number. If
+\(\Re\rho>0\), \(\Im\rho\ne0\), and \(L_{i_0}(\rho)=0\)
+for an index of positive weight, then \(P_dR\) is not analytic at
+\(\rho\). No zero-free hypothesis at \(q_d(\rho)\), no RH
+hypothesis, and no simplicity or disjointness assumption on the zeros
+is needed.
+
+\emph{Proof.}
+Neither \(\rho\) nor \(q_d(\rho)\) equals \(1\), and both have positive
+real part. Local analytic factorization gives finite nonnegative
+orders \(n_i\) at \(\rho\) and \(m_i\) at \(q_d(\rho)\).
+Set
+\[
+ A=\sum_iw_i n_i>0,\qquad B=\sum_iw_i m_i\in\mathbb R.
+\]
+The analytic correction has zero scaled residue. Keeping the reference
+zeros, the affine derivative \(q_d'=1/d\), and the complete scalar
+factor gives
+\[
+ \lim_{s\to\rho,\ s\ne\rho}(s-\rho)P_dR(s)
+   =r=-A+\frac{d\rho}{\rho+d-1}B.
+\]
+The denominator is nonzero since its real part is positive. Direct
+multiplication, without estimating the reference term separately, yields
+\[
+ \Im\bigl(r(\rho+d-1)\overline{\rho}\bigr)
+       =A(d-1)\Im\rho.
+\]
+The right side is nonzero. Thus \(r\ne0\); analyticity would instead
+force the displayed limit to be zero. Moreover the same identity gives
+the quantitative certificate
+\begin{equation}\label{eq:power-residue-height-cost}
+ |r|\ \ge\
+ \frac{A(d-1)|\Im\rho|}{|\rho+d-1|\,|\rho|}.
+\end{equation}
+This proves the assertion with every shared-zero multiplicity retained.
+\(\square\)
+
+The maintained Lean declarations are
+\texttt{CarmichaelWeightedSignal.real\_packet\_scaled\_residue},
+\texttt{affinePowerReadout\_scaled\_limit},
+\texttt{real\_packet\_power\_nonreal\_zero\_not\_analytic}, and
+\texttt{powerProbe\_nonreal\_zero\_not\_analytic}, all under
+\texttt{PrimeFactorOscillations}. Their owner is
+\texttt{Assembly/CarmichaelPowerSignal.lean}.
+
+Real weights are essential to this proof: the reference residue \(B\)
+is real, so its contribution to the displayed imaginary part vanishes.
+Nonnegative real parts of arbitrary complex weights do not supply that
+argument. The assertion also excludes real target zeros. It is a
+one-way signal-preservation theorem, not a pointwise equivalence between
+all poles of the compensated probe and target zeros: reference zeros
+can introduce additional poles.
+
+\paragraph{Its place in the complete exponent argument.}
+The old theorem \texttt{powerProbe\_order\_iff\_zero} uses
+\(\Re\rho>1-d/8\) to place the reference in the installed
+\(7/8\) zero-free region. The new nonreal theorem removes that premise;
+powers \(d=1+\varepsilon\), with fixed \(\varepsilon>0\), are therefore
+admissible for signal preservation. It does not remove the physical
+reference scale \(x^d\), the height and \(d-1\) losses in
+\eqref{eq:power-residue-height-cost}, or any mixed compensation term.
+The rational main-pole remainder remains
+\(-\kappa(d-1)/(s+d-1)\).
+
+This is not a new ability of the overall detector library to see the
+critical strip. The existing three-scale Mellin wavelet already has
+multiplier
+\[
+ m(s)=\frac{(1-2^{-s})(1-2^{1-s})}{6},
+\]
+which is nonzero for \(0<\Re s<1\). Its constant dilations preserve
+critical-strip zeros and cancel the origin and radial principal
+Poisson mode. That alternative must be compared with power compensation
+using its own arithmetic consumer, rather than the cubic moment
+consumer by default.
+
+In particular, for the previously proved fixed smooth compact
+character-portfolio estimate, the complete difference between the
+power-compensated and original signed quadratic packets is bounded by
+\[
+ \frac73 K^2\left(
+  2D^{(15-d)/8+(d+1)u}+D^{(8-d)/4+2du}\right).
+\]
+Here \(d\) is a natural number, \(u>0\), \(7/8+u\le2\);
+\(K\) depends on the fixed window, character portfolio and depletion
+mask, but not on \(D>0\) or the divisor cutoff. This is
+\texttt{CarmichaelPowerCompensation.portfolio\_power\_compensation\_bound}.
+It retains the mixed terms in the difference and leaves the original
+signed packet unestimated. It is not uniform in a growing conductor
+or an arbitrary noncompact carrier. At the \(D^{3/2}\) target scale its
+first exponent requires \(d\ge3\) as \(u\downarrow0\), with slack
+needed at \(d=3\); at the \(D\) scale it requires \(d\ge7\).
+Consequently making \(d\) approach one in the new signal theorem cannot
+by itself improve this arithmetic consumer. There is also no transfer
+here from the natural-power estimate to nonintegral \(d\).
+
+A new global construction may replace both this packet estimate and
+the old cubic moment stage. It must supply its own exact transformed
+observable, signal normalization, full signed arithmetic bound, and
+conductor, height, window and truncation costs. The quadratic
+\(\mathrm{GL}_3\) consumer above needs \(r\le-3/8\) to reach \(3/4\);
+the unchanged cubic consumer needs a full low error at most
+\(X^{1/16+o(1)}\), together with control of every other error.
+The theorem proved here supplies signal preservation only. No
+independent arithmetic saving or improved QRH boundary is asserted;
+the certified boundary remains \(7/8\).
