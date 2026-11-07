@@ -3131,6 +3131,55 @@
         "PrimeFactorOscillations.threeLineClusterWindowConstant_nonneg",
         "PrimeFactorOscillations.zeta_finite_cluster_one_sixteenth_window"
       ]
+    },
+    {
+      "id": "EWP-KERNEL",
+      "status": "kernel_checked_exact_rectangle_optimizer",
+      "claim": "The actual signed three-line axis rational is strictly decreasing on every nonnegative squared height. A strict66-term tensor Bernstein certificate controls the full transverse difference for abs(u)<=3/8 and v^2<=9/400. For every0<=h<=3/20, K3(0,h) is the exact rectangle minimum on abs(u)<=3/8,abs(v)<=h; equality occurs exactly when u=0 and v^2=h^2. The optimal-charge equivalence retains arbitrary real candidate charges. No all-kernel or h>3/20 optimality is asserted.",
+      "declarations": [
+        "PrimeFactorOscillations.threeLineAxisDen_pos",
+        "PrimeFactorOscillations.threeLineAxisRational_mul_den",
+        "PrimeFactorOscillations.threeLineKernel_axis_formula",
+        "PrimeFactorOscillations.threeLineAxisDifference_pos",
+        "PrimeFactorOscillations.threeLineAxis_difference_identity",
+        "PrimeFactorOscillations.threeLineAxisRational_strictAnti",
+        "PrimeFactorOscillations.threeLineAxisRational_anti",
+        "PrimeFactorOscillations.threeLineExactWindowCharge_pos",
+        "PrimeFactorOscillations.threeLineExactWindowCharge_eq_axis",
+        "PrimeFactorOscillations.threeLineWindowTransverseCertificate_identity",
+        "PrimeFactorOscillations.threeLineWindowTransverseCertificate_pos",
+        "PrimeFactorOscillations.threeLineWindowTransverse_pos",
+        "PrimeFactorOscillations.threeLineWindowDen_pos",
+        "PrimeFactorOscillations.threeLineWindow_transverse_identity",
+        "PrimeFactorOscillations.threeLineKernel_axis_strict_min",
+        "PrimeFactorOscillations.threeLineKernel_axis_min",
+        "PrimeFactorOscillations.threeLineKernel_rectangle_min",
+        "PrimeFactorOscillations.threeLineKernel_rectangle_eq_iff",
+        "PrimeFactorOscillations.threeLineKernel_optimal_window_charge"
+      ]
+    },
+    {
+      "id": "EWP-TRACE",
+      "status": "kernel_checked_complete_exact_window_transport",
+      "claim": "The exact rectangle charge is transferred to every full finite multiplicity fiber in the actual height interval. Every finite W in the open critical strip is covered through the existing disjoint multiplicity union and exact signed transport. No zero sampling, common-ordinate assumption, or omitted multiplicity copy is used.",
+      "declarations": [
+        "PrimeFactorOscillations.xi_exact_window_finite_mass",
+        "PrimeFactorOscillations.zeta_finite_exact_window_charge_trace"
+      ]
+    },
+    {
+      "id": "EWP-GLOBAL",
+      "status": "kernel_checked_unconditional_continuous_window_profile",
+      "claim": "For every0<=h<=3/20, abs(T)>=2 and finite critical-strip W with abs(Im(w)-T)<=h, N_W<=c(h)*log(abs(T))+C(h) unconditionally, with c(h)=sum(c_j)/(2*K3(0,h)) and C(h)=g/K3(0,h)*C3. Exact compiled coefficients are0.13552138824988824 at h=1/16,0.1461648796700179 at h=1/8, and0.15261102438831797 at h=3/20. The entire h=3/20 right side is no larger than the previous h=1/16 CMC bound, including its additive constant. The global coefficient, numerical simplicity window and zero-free boundary are unchanged.",
+      "declarations": [
+        "PrimeFactorOscillations.threeLineExactWindowCoefficient_pos",
+        "PrimeFactorOscillations.threeLineExactWindowConstant_nonneg",
+        "PrimeFactorOscillations.zeta_finite_exact_window_bound",
+        "PrimeFactorOscillations.zeta_finite_exact_sixteenth_window",
+        "PrimeFactorOscillations.zeta_finite_exact_eighth_window",
+        "PrimeFactorOscillations.zeta_finite_exact_maximum_window",
+        "PrimeFactorOscillations.threeLine_exact_maximum_dominates_old_sixteenth"
+      ]
     }
   ],
   "novelty": "Priority for the combined explicit formulas has not been established; source classification and Gauss identities are classical."

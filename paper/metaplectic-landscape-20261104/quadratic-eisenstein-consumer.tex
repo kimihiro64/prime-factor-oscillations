@@ -4855,6 +4855,198 @@ and the explicit interval coefficient.  No finite sample of zeta zeros
 or numerical completion of an unresolved term is used.  External priority
 for this quantitative refinement is not asserted.
 
+\subsection{The exact window profile and every minimizing point}
+\label{sec:exact-window-profile}
+
+The preceding quadratic envelope can be replaced by the exact rectangle
+minimum of the fixed signed three-line kernel.  Define
+\[
+ q(h)=K_3(0,h)=\sum_{j=1}^3\frac{c_ja_j}{a_j^2+h^2},\qquad
+ c(h)=\frac{\sum_{j=1}^3c_j}{2q(h)},\qquad
+ C(h)=\frac{g}{q(h)}C_3.
+\]
+The charge \(q(h)\) is positive for every real \(h\).  The geometric
+minimum theorem below is asserted on \(0\le h\le3/20\).
+
+\paragraph{Exact minimum theorem.}
+For every \(0\le h\le3/20\), \(|u|\le3/8\), and \(|v|\le h\),
+\begin{equation}
+ K_3(u,v)\ge q(h),\qquad
+ K_3(u,v)=q(h)\quad\Longleftrightarrow\quad u=0\ \hbox{and}\ v^2=h^2.
+ \label{eq:exact-window-minimum}
+\end{equation}
+Thus the minimizing points are precisely \((0,h)\) and \((0,-h)\),
+coinciding when \(h=0\).  In particular, for every real candidate charge
+\(b\),
+\[
+ \bigl(\forall |u|\le3/8,\ |v|\le h:\ b\le K_3(u,v)\bigr)
+ \quad\Longleftrightarrow\quad b\le q(h).
+\]
+This is optimality of the uniform pointwise charge for this fixed kernel
+and these rectangles.  No optimization over all signed filters, or over
+widths beyond \(3/20\), is asserted.
+
+\paragraph{Unconditional continuous window theorem.}
+Let \(|T|\ge2\), and let \(W\) be any finite set in the open critical
+strip with \(|T-\Im w|\le h\) for every \(w\in W\), where
+\(0\le h\le3/20\).  Then
+\begin{equation}
+ N_W=\sum_{w\in W}m(w)\le c(h)\log|T|+C(h).
+ \label{eq:exact-window-count}
+\end{equation}
+Here \(m(w)\) is the actual zeta order, including order zero at nonzeros.
+The constant is fixed explicitly before \(T\) and \(W\) vary.
+Three compiled specializations have the following exact coefficients:
+\[
+ \begin{array}{c|c|c}
+ h & c(h) & \text{decimal value}\\\hline
+\frac{1}{16} & \frac{24507727000183581493}{180840288877455431220} & 0.1355213882\ldots \\
+\frac{1}{8} & \frac{3307467502813082321}{22628332539800442840} & 0.1461648797\ldots \\
+\frac{3}{20} & \frac{319946206530171}{2096481612731132} & 0.1526110244\ldots \\
+ \end{array}
+\]
+The \(3/20\)-window has \(12/5\) times the width of the earlier
+\(1/16\)-window.  Nevertheless, for every \(|T|\ge2\), its entire
+right-hand side satisfies
+\begin{equation}
+ \frac{319946206530171}{2096481612731132}\log|T|+C(3/20)
+ \le\frac{4625194854}{28457195785}\log|T|+C_{\rm win}.
+ \label{eq:exact-window-domination}
+\end{equation}
+The comparison includes the additive constants, not only the logarithmic
+coefficient.
+
+\paragraph{Strict signed axis decrease.}
+Write \(r(y)=\sum_jc_ja_j/(a_j^2+y)\) and
+\[
+ L(y)=\prod_{j=1}^3(a_j^2+y)=d+py+sy^2+y^3,
+\]
+where \(d=\prod_ja_j^2\), \(p=\sum_{i<j}a_i^2a_j^2\), and
+\(s=\sum_ja_j^2\).  With \(\tau=\sum_jc_ja_j\), set
+\[
+ a_0=gd,\qquad a_1=s\tau-\sum_jc_ja_j^3,\qquad a_2=\tau.
+\]
+Exact common-denominator algebra gives
+\(r(y)L(y)=a_0+a_1y+a_2y^2\).  Put
+\[
+ b_0=a_0p-a_1d,\qquad b_1=a_0s-a_2d,\qquad
+ b_2=a_0+a_1s-a_2p.
+\]
+All six rational numbers \(a_0,a_1,a_2,b_0,b_1,b_2\) are strictly
+positive for the stated filter.  The complete signed divided difference is
+\begin{align*}
+ &(r(y)-r(z))L(y)L(z)=(z-y)H(y,z),\\
+ &H(y,z)=b_0+b_1(y+z)+a_0(y^2+z^2)+b_2yz
+       +a_1yz(y+z)+a_2y^2z^2.
+\end{align*}
+For \(y,z\ge0\), both denominators and \(H\) are positive.
+Consequently \(r\) is strictly decreasing on the whole nonnegative
+axis.  This proves \(K_3(0,v)\ge K_3(0,h)\) when \(v^2\le h^2\),
+with equality exactly when \(v^2=h^2\).  The negative second weight
+is retained until the full divided difference has been formed.
+
+\paragraph{Strict transverse difference.}
+Retain \(d_j(x,y)\), \(D(x,y)\), and \(N(x,y)\) from the preceding
+subsection.  Define the polynomial
+\[
+ Q(x,y)=L(y)\sum_{j=1}^3c_ja_j(a_j^2-x-3y)
+       \prod_{k\in\{1,2,3\}\setminus\{j\}}d_k(x,y)(a_k^2+y).
+\]
+The full coordinate identity is
+\begin{equation}
+ (K_3(u,v)-K_3(0,v))D(u^2,v^2)D(0,v^2)
+   =u^2Q(u^2,v^2).
+ \label{eq:exact-window-transverse}
+\end{equation}
+It includes every signed numerator, denominator, and cross term.
+On \(|u|\le3/8\) all denominator factors are positive.  We prove the
+strict polynomial inequality
+\[
+ Q(x,y)>0\qquad(0\le x\le9/64,\ 0\le y\le9/400)
+\]
+by the following finite exact certificate.
+
+Set \(F(X,Y)=Q((9/64)X,(9/400)Y)=\sum f_{k\ell}X^kY^\ell\).
+Its degree is at most five in \(X\) and ten in \(Y\).  For
+\(0\le i\le5\), \(0\le j\le10\), define
+\[
+ \beta_{ij}=\sum_{k=0}^i\sum_{\ell=0}^j f_{k\ell}
+  \frac{\binom{i}{k}}{\binom{5}{k}}
+  \frac{\binom{j}{\ell}}{\binom{10}{\ell}}.
+\]
+There are exactly 66 such rational coefficients, and all are positive.
+Let \(\mu=\tfrac12\min_{i,j}\beta_{ij}\).  For the exact positive
+integers
+\[
+ \begin{aligned}
+ \mathcal S&=524288000000000000000000000000000000000000000000000000000,\\
+ \mathcal R&=40321255493226389739445755074329909385682279296615625.
+ \end{aligned}
+\]
+we have \(\mathcal R=\mathcal S\mu\), and the integers
+\(A_{ij}=\mathcal S(\beta_{ij}-\mu)\binom{5}{i}\binom{10}{j}\)
+are all positive.  The full identity is
+\begin{equation}
+ \mathcal S F(X,Y)=\mathcal R+
+ \sum_{i=0}^{5}\sum_{j=0}^{10}A_{ij}
+ X^i(1-X)^{5-i}Y^j(1-Y)^{10-j}.
+ \label{eq:exact-window-transverse-certificate}
+\end{equation}
+For completeness, the smallest integer coefficient in each full row
+\(j\in\{0,\ldots,10\}\) is:
+\[
+ \begin{array}{r|r}
+ i & \min_{0\le j\le10}A_{ij}\\\hline
+0 & 2870406609453477111160584812007246766270563877749384375 \\
+1 & 9947799725668726895996096356930895890586117186239621875 \\
+2 & 12990638596670728413070009382405025451020679898015268750 \\
+3 & 7629558311328276010151636439797677080787054426043325000 \\
+4 & 1757676171139975286866002944292490643097126717377409375 \\
+5 & 40321255493226389739445755074329909385682279296615625 \\
+ \end{array}
+\]
+The 66 explicit coefficients and the positive constant reserve appear in
+the maintained Lean definition.  Ring normalization checks the whole
+identity, and the signs of the Bernstein factors prove positivity on the
+entire closed unit square.  No grid of values of \(u,v,h\) is used.
+
+It now follows from \eqref{eq:exact-window-transverse} that
+\(K_3(u,v)\ge K_3(0,v)\), strictly when \(u\ne0\), throughout the
+stated physical box.  Combining this with strict axis decrease proves
+\eqref{eq:exact-window-minimum} and both equality conditions.  Testing
+any proposed uniform charge at \((0,h)\) proves its optimality statement.
+
+\paragraph{Complete multiplicity consumer.}
+The proved unconditional canonical strip places every actual divisor
+index at \(|\Re\rho-1/2|\le3/8\).  Form the finite union of every
+multiplicity fiber above \(W\), retaining all copies.  The physical
+window hypothesis and \eqref{eq:exact-window-minimum} charge each copy
+by \(q(h)\).  All other terms in the full joint kernel are nonnegative.
+The complete signed trace estimate therefore gives
+\[
+ q(h)N_W\le B_3(T)\le
+ \frac{\sum_jc_j}{2}\log|T|+gC_3.
+\]
+Division by the proved positive charge yields
+\eqref{eq:exact-window-count}.  Exact rational evaluation gives the
+three displayed coefficients.  The new \(3/20\) coefficient is smaller
+than the old \(1/16\) coefficient, and
+\[
+ \frac{g}{q(3/20)}\le\frac{g}{g-3/16}.
+\]
+Since \(C_3\ge0\) and \(\log|T|\ge0\), these two inequalities prove
+\eqref{eq:exact-window-domination} through the full signed consumer.
+
+\paragraph{Scope and formal status.}
+The continuous family, strict minimum classification, arbitrary-candidate
+optimal-charge equivalence, all three numerical specializations, and the
+comparison of entire right-hand sides have real Lean proofs.  All 28 new
+declarations are maintained in the repository.  The global pointwise
+coefficient \(c_3\), numerical simplicity window, and zero-free boundary
+are unchanged.  This exact profile is established on the declared width
+range only; no largest possible width or optimality among all filters
+is claimed.  External priority for the refinement is not asserted.
+
 \subsection{Effective constants and a numerical simplicity window}
 \label{sec:effective-multiplicity-window}
 
