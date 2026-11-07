@@ -4688,6 +4688,173 @@ and rigidity theorem, have real Lean proofs.  No finite zero samples
 or numerical completion of an unresolved term enter the argument.
 No priority over the external multiplicity literature is asserted.
 
+\subsection{Signed two-dimensional control of a zero cluster}
+\label{sec:cluster-multiplicity}
+
+The exact-ordinate restriction can be removed while retaining the horizontal
+charge.  Let \(W\) be any finite set of distinct points in the open critical
+strip, let \(T\) be a real center height, and define
+\[
+ N_W=\sum_{w\in W}m(w),\qquad
+ H_W=\sum_{w\in W}m(w)(\Re w-\tfrac12)^2,\qquad
+ V_{T,W}=\sum_{w\in W}m(w)(T-\Im w)^2.
+\]
+Here \(m(w)=\operatorname{ord}_w\zeta\), including order zero at nonzeros.
+Retain \(g>0\), \(c_3\), \(C_3\), and
+\(B(T)=c_3\log|T|+C_3\) from the preceding results.
+
+\paragraph{Theorem.}
+Unconditionally, for every such \(W\) and every \(|T|\ge2\),
+\begin{equation}
+ gN_W+\frac{13}{2}H_W-48V_{T,W}\le gB(T).
+ \label{eq:cluster-budget}
+\end{equation}
+Equivalently, with \(\lambda=13/(2g)\) and \(\nu=48/g\),
+\[
+ N_W+\lambda H_W-\nu V_{T,W}\le B(T).
+\]
+If \(N_W\ge(1-\eta)B(T)\), the retained moments satisfy
+\[
+ \lambda H_W\le\eta B(T)+\nu V_{T,W}.
+\]
+Thus near-saturation forces horizontal concentration up to the explicitly
+measured vertical spread.  No equality of the ordinates in \(W\) is assumed.
+
+If \(h\ge0\), \(|T-\Im w|\le h\) for every \(w\in W\), and
+\(48h^2<g\), then
+\begin{equation}
+ (g-48h^2)N_W+\frac{13}{2}H_W\le gB(T),\qquad
+ N_W\le\frac{g}{g-48h^2}B(T).
+ \label{eq:cluster-window}
+\end{equation}
+In particular, for the whole physical height interval of half-width
+\(1/16\),
+\begin{equation}
+ N_W\le\frac{4625194854}{28457195785}\log|T|+C_{\rm win},\qquad
+ C_{\rm win}=\frac{g}{g-3/16}C_3\ge0.
+ \label{eq:cluster-sixteenth}
+\end{equation}
+Its logarithmic coefficient is \(0.162531645385733\ldots\).
+Every sum here has the stated finite support \(W\), and every order is the
+actual zeta multiplicity.
+
+\paragraph{The complete signed polynomial.}
+For \(x=u^2\), \(y=v^2\), write
+\[
+ d_j(x,y)=(a_j^2+y-x)^2+4xy,\qquad D(x,y)=\prod_{j=1}^3d_j(x,y),
+\]
+\[
+ N(x,y)=\sum_{j=1}^3 c_ja_j(a_j^2+y-x)\prod_{k\ne j}d_k(x,y).
+\]
+The product in the final expression is over
+\(k\in\{1,2,3\}\setminus\{j\}\).
+The exact earlier kernel identity gives \(K_3(u,v)D(x,y)=N(x,y)\).
+The required new difference is the full polynomial
+\[
+ P(x,y)=N(x,y)-(g+\tfrac{13}{2}x-48y)D(x,y).
+\]
+In particular, the negative signed resolvent coefficient and every product
+cross term remain inside \(P\).
+
+\paragraph{Exact tensor Bernstein certificate.}
+Set \(w_0=9/64\), \(y_0=1/24\), and
+\[
+ F(X,Y)=P(w_0X,y_0Y)=\sum_{k,\ell=0}^{10}f_{k\ell}X^kY^\ell,
+\]
+with zero coefficients where necessary.  For \(0\le i,j\le10\), put
+\[
+ b_{ij}=\sum_{k=0}^i\sum_{\ell=0}^j
+ f_{k\ell}\frac{\binom{i}{k}}{\binom{10}{k}}
+             \frac{\binom{j}{\ell}}{\binom{10}{\ell}},\qquad
+ A_{ij}=S\binom{10}{i}\binom{10}{j}b_{ij},
+\]
+where the exact positive integer scale is
+\[
+ S=26759767523328000000000000000000000000000.
+\]
+The complete polynomial identity is
+\begin{equation}
+ S F(X,Y)=\sum_{i=0}^{10}\sum_{j=0}^{10}
+ A_{ij}X^i(1-X)^{10-i}Y^j(1-Y)^{10-j}.
+ \label{eq:cluster-bernstein}
+\end{equation}
+Exact rational arithmetic gives \(A_{00}=0\); the other 120 coefficients
+are positive integers.  The following table records the smallest positive
+coefficient in each row.  Its finite column support is
+\(\mathcal J_0=\{1,\ldots,10\}\) and
+\(\mathcal J_i=\{0,\ldots,10\}\) for \(1\le i\le10\).
+\[
+ \begin{array}{r|r|r}
+ i & |\mathcal J_i| & \min_{j\in\mathcal J_i} A_{ij}\\\hline
+0 & 10 & 1435847826288335768930567676541692542976 \\
+1 & 11 & 17386041839141102685814931482663059456 \\
+2 & 11 & 657650302994114246236600720014550331904 \\
+3 & 11 & 3976432714679260747692425618268304194816 \\
+4 & 11 & 11183214666950463932447398711242303533454 \\
+5 & 11 & 18170199061297069792264357664937309720381 \\
+6 & 11 & 18438698474708211172663650782479899051831 \\
+7 & 11 & 11909751902478525826565523601745700696354 \\
+8 & 11 & 4767611498538405883252717447699100918316 \\
+9 & 11 & 1078752928337332422699563211742274310129 \\
+10 & 11 & 105347705440134657307317366740398145631 \\
+ \end{array}
+\]
+All coefficients, rather than sampled values of \(X,Y\), are checked in
+the maintained Lean certificate.  The universal identity is proved by
+ring normalization and its nonnegativity by the signs of the displayed
+Bernstein factors.  Consequently \(P(x,y)\ge0\) throughout
+\(0\le x\le9/64\), \(0\le y\le1/24\).
+
+For \(|u|\le3/8\), every factor of \(D(u^2,v^2)\) is strictly positive.
+On \(v^2\le1/24\), division of the preceding certificate therefore proves
+\[
+ K_3(u,v)\ge g+\tfrac{13}{2}u^2-48v^2.
+\]
+For \(v^2>1/24\), the same right side is negative, because
+\(g+(13/2)(9/64)<2=48/24\), while the full joint kernel is positive.
+Thus the inequality holds for every real \(v\), with no truncation or
+unestimated tail.
+
+\paragraph{Full signed consumer and physical-window proof.}
+For any real function \(q\) on the finite set \(W\), complete disjoint
+multiplicity-fiber transport gives
+\[
+ \sum_{w\in W}m(w)q(w)
+ =\sum_{p\in S_W}q(\rho_p),
+\]
+where \(S_W\) is the finite union of all canonical multiplicity fibers.
+This exact identity permits signed \(q\).  Apply it to
+\(q(w)=g+(13/2)(\Re w-1/2)^2-48(T-\Im w)^2\).
+The new all-frequency kernel bound charges the resulting finite sum.
+The full kernel is nonnegative on the actual canonical seven-eighths
+strip, so its finite sum is at most the full absolutely convergent
+signed xi trace.  The already proved signed trace estimate is
+\(B_3(T)\le gB(T)\).  These facts prove
+\eqref{eq:cluster-budget} without taking absolute values of its main terms.
+The rigidity inequality follows by subtracting the assumed lower bound
+for \(N_W\).
+
+Under the physical-window hypothesis, each
+\((T-\Im w)^2\le h^2\), and multiplication by \(m(w)\ge0\) and summation
+give \(V_{T,W}\le h^2N_W\).  Substitution into the same signed inequality
+proves the first part of \eqref{eq:cluster-window}.  Since \(H_W\ge0\)
+and \(g-48h^2>0\), division gives its second part.
+For \(h=1/16\), the loss is \(48h^2=3/16<g\); exact rational
+simplification yields \eqref{eq:cluster-sixteenth}.
+
+\paragraph{Comparison and formal status.}
+The preceding theorem required an exact common ordinate.  The new theorem
+allows arbitrary heights and measures their effect with the retained
+negative vertical second moment.  Its physical-window corollary has a
+fixed explicit additive constant independent of \(T\) and \(W\).
+The global coefficient \(c_3\), the numerical simplicity window, and the
+zero-free boundary remain unchanged.  The fifteen new declarations have
+real Lean proofs, including the complete tensor identity, signed finite
+transport, unconditional moment budget, strict denominator conditions,
+and the explicit interval coefficient.  No finite sample of zeta zeros
+or numerical completion of an unresolved term is used.  External priority
+for this quantitative refinement is not asserted.
+
 \subsection{Effective constants and a numerical simplicity window}
 \label{sec:effective-multiplicity-window}
 

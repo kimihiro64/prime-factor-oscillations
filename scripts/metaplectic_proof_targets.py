@@ -2,6 +2,7 @@
 
 from scripts.adaptive_multiplicity_proof_targets import ADAPTIVE_MULTIPLICITY_THEOREMS
 from scripts.carrier_stability_proof_targets import CARRIER_STABILITY_THEOREMS
+from scripts.cluster_multiplicity_proof_targets import CLUSTER_MULTIPLICITY_THEOREMS
 from scripts.dirichlet_scalar_orbit_proof_targets import DIRICHLET_SCALAR_ORBIT_THEOREMS
 from scripts.dyadic_carrier_proof_targets import DYADIC_CARRIER_THEOREMS
 from scripts.effective_multiplicity_proof_targets import EFFECTIVE_MULTIPLICITY_THEOREMS
@@ -63,6 +64,7 @@ METAPLECTIC_THEOREMS: tuple[str, ...] = tuple(
         + SIMPLICITY_AREA_THEOREMS
         + THREE_LINE_MULTIPLICITY_THEOREMS
         + HORIZONTAL_MULTIPLICITY_THEOREMS
+        + CLUSTER_MULTIPLICITY_THEOREMS
         + SCALAR_ERASURE_COST_THEOREMS
         + SINGLE_REAL_ZETA_THEOREMS
     )

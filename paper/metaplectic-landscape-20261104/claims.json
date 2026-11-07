@@ -3095,6 +3095,42 @@
         "PrimeFactorOscillations.zeta_multiplicity_horizontal_profile",
         "PrimeFactorOscillations.zeta_finite_horizontal_rigidity"
       ]
+    },
+    {
+      "id": "CMC-CERT",
+      "status": "kernel_checked_full_bivariate_charge",
+      "claim": "For every real u,v with abs(u)<=3/8, the full signed three-line kernel satisfies K3(u,v)>=g+(13/2)*u^2-48*v^2. The complete exact tensor Bernstein polynomial has120 positive integer coefficients and one zero corner coefficient on u^2 in[0,9/64],v^2 in[0,1/24]. Outside that box, actual kernel positivity proves the same bound. All polynomial cross terms and signed weights are retained.",
+      "declarations": [
+        "PrimeFactorOscillations.threeLineClusterCertificate_identity",
+        "PrimeFactorOscillations.threeLineClusterCertificate_nonneg",
+        "PrimeFactorOscillations.threeLineClusterDefect_nonneg",
+        "PrimeFactorOscillations.threeLineKernel_cluster_charge"
+      ]
+    },
+    {
+      "id": "CMC-TRANSPORT",
+      "status": "kernel_checked_arbitrary_finite_height_transport",
+      "claim": "Exact finite multiplicity transport holds for every real weight function, including signed weights, using the complete disjoint canonical fibers. It transfers the full bivariate kernel charge to every finite W in the open critical strip at arbitrary heights. No common-ordinate or positivity assumption on the transported weight is imposed.",
+      "declarations": [
+        "PrimeFactorOscillations.zeta_finite_multiplicity_transport",
+        "PrimeFactorOscillations.xi_threeLine_finite_cluster_charge",
+        "PrimeFactorOscillations.zeta_finite_cluster_charge_trace"
+      ]
+    },
+    {
+      "id": "CMC-GLOBAL",
+      "status": "kernel_checked_unconditional_physical_window_bound",
+      "claim": "For abs(T)>=2 and arbitrary finite critical-strip W: N_W+(13/(2*g))*M_horizontal-(48/g)*M_vertical<=c3*log(abs(T))+C3 unconditionally. The uniform physical-window bound requires48*h^2<g. For half-width1/16 the multiplicity count is at most(4625194854/28457195785)*log(abs(T))+C_window, with C_window=(g/(g-3/16))*C3>=0. Both moments, near-saturation rigidity, every compensation term, and all multiplicity copies are retained. Global coefficient, numerical simplicity window and zero-free boundary unchanged.",
+      "declarations": [
+        "PrimeFactorOscillations.zeta_finite_cluster_budget_unscaled",
+        "PrimeFactorOscillations.zeta_finite_cluster_budget",
+        "PrimeFactorOscillations.zeta_finite_cluster_rigidity",
+        "PrimeFactorOscillations.zetaClusterVerticalMoment_le_window",
+        "PrimeFactorOscillations.zeta_finite_cluster_window_charge",
+        "PrimeFactorOscillations.zeta_finite_cluster_window_count",
+        "PrimeFactorOscillations.threeLineClusterWindowConstant_nonneg",
+        "PrimeFactorOscillations.zeta_finite_cluster_one_sixteenth_window"
+      ]
     }
   ],
   "novelty": "Priority for the combined explicit formulas has not been established; source classification and Gauss identities are classical."
