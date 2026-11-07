@@ -21,6 +21,7 @@ from scripts.rational_single_real_proof_targets import RATIONAL_SINGLE_REAL_THEO
 from scripts.residue_panel_proof_targets import RESIDUE_PANEL_THEOREMS
 from scripts.scalar_cubic_orbit_proof_targets import SCALAR_CUBIC_ORBIT_THEOREMS
 from scripts.scalar_erasure_proof_targets import SCALAR_ERASURE_COST_THEOREMS
+from scripts.sharp_resolvent_proof_targets import SHARP_RESOLVENT_THEOREMS
 from scripts.simple_carrier_sharpness_proof_targets import SIMPLE_CARRIER_SHARPNESS_THEOREMS
 from scripts.single_real_zeta_proof_targets import SINGLE_REAL_ZETA_THEOREMS
 from scripts.strip_carrier_proof_targets import STRIP_CARRIER_THEOREMS
@@ -53,6 +54,7 @@ METAPLECTIC_THEOREMS: tuple[str, ...] = tuple(
         + NEAR_IDENTITY_PANEL_THEOREMS
         + PHASE_MULTIPLICITY_THEOREMS
         + LOCALIZED_MULTIPLICITY_THEOREMS
+        + SHARP_RESOLVENT_THEOREMS
         + SCALAR_ERASURE_COST_THEOREMS
         + SINGLE_REAL_ZETA_THEOREMS
     )

@@ -8,5 +8,6 @@ import PrimeFactorOscillations.Assembly.CarmichaelGlobalExcessSharpness
 import PrimeFactorOscillations.Assembly.CarmichaelLocalizedMultiplicity
 import PrimeFactorOscillations.Assembly.CarmichaelNearIdentityPanel
 import PrimeFactorOscillations.Assembly.CarmichaelPhaseMultiplicity
+import PrimeFactorOscillations.Assembly.CarmichaelSharpMultiplicity
 
 /-! Multiplicity carrier bounds and certified compensated-residue decoding. -/

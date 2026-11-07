@@ -4234,6 +4234,150 @@ arXiv:math/0501434. The contribution here is the proved compensated
 strip-to-coefficient argument and its consumption of the installed
 \(7/8\) strip. Novelty priority for the coefficient is unestablished.
 
+\subsection{Exact finite-radius optimization of the multiplicity coefficient}
+\label{sec:sharp-finite-resolvent}
+
+The preceding sufficient condition loses information when the two radii
+are unequal. Keeping their full dependence gives an exact classification.
+For \(0\le w<r<R\), put
+\[
+ a=\sqrt{r^2-w^2},\qquad b=\sqrt{R^2-w^2}.
+\]
+Then the maintained theorem \texttt{pairedResolventStrip\_nonneg\_iff} proves
+\begin{equation}\label{eq:sharp-finite-strip}
+ \bigl[K_{r,R}(x,y)\ge0\quad\text{for all }|x|\le w,
+                       \ y\in\mathbb R\bigr]
+ \quad\Longleftrightarrow\quad a+b\ge2w.
+\end{equation}
+This includes every imaginary displacement; no zero phase is discarded.
+
+\paragraph{Proof of the exact strip condition.}
+Let \(H(x,y)\) denote the square-bracket numerator in
+\eqref{eq:paired-resolvent-numerator}. Its boundary value is
+\[
+ H(w,y)=(y^2-ab)^2+\bigl((a+b)^2-4w^2\bigr)y^2.
+\]
+Moreover, for every \(|x|\le w\),
+\[
+ H(x,y)-H(w,y)
+ =(w^2-x^2)(r^2+R^2+6y^2-x^2-w^2)\ge0.
+\]
+The denominator and the prefactor in
+\eqref{eq:paired-resolvent-numerator} are positive. Thus \(a+b\ge2w\)
+implies positivity on the whole strip. Conversely, \(a,b>0\), and the
+explicit choice \(x=w\), \(y=\sqrt{ab}\) gives
+\[
+ H(w,\sqrt{ab})=ab\bigl((a+b)^2-4w^2\bigr).
+\]
+It is negative if \(a+b<2w\). This proves both directions, including
+an explicit counterexample when the condition fails. The algebraic
+identities, monotonicity across the strip, equivalence and negative
+witness are formalized in \texttt{PairedResolventSharpStrip.lean}.
+
+\paragraph{The complete constrained optimizer for width \(3/8\).}
+Restrict to the compensated two-line class with weight \(r/R\), and to
+\(1/2\le r<R\). Define
+\[
+ \ell=\frac{\sqrt7}{8},\qquad
+ R_* = \frac{\sqrt{13-3\sqrt7}}4,\qquad
+ c(r,R)=\frac{rR}{2(r+R)},\qquad
+ c_* = \frac{\sqrt{13-3\sqrt7}}
+              {4(2+\sqrt{13-3\sqrt7})}.
+\]
+Among every pair satisfying \eqref{eq:sharp-finite-strip} for
+\(w=3/8\), the maintained optimizer proves
+\begin{equation}\label{eq:sharp-finite-coefficient}
+ c(r,R)\ge c_*,\qquad
+ c(r,R)=c_*\ \Longleftrightarrow\ r=1/2,\ R=R_*.
+\end{equation}
+The ordering of the radii removes the swapped equality case.
+
+Here is the optimization proof. Write
+\(u=\sqrt{r^2-w^2}\), \(v=\sqrt{R^2-w^2}\). Then
+\[
+ \ell\le u<v,\qquad u+v\ge2w=\frac34,
+ \qquad g(t)=\frac1{\sqrt{w^2+t^2}}.
+\]
+On \([\ell,\infty)\), \(g\) is strictly decreasing and strictly convex:
+\[
+ g'(t)=-t(w^2+t^2)^{-3/2},\qquad
+ g''(t)=(2t^2-w^2)(w^2+t^2)^{-5/2}>0,
+ \qquad 2\ell^2-w^2=\frac5{64}>0.
+\]
+For a strictly decreasing strictly convex function on this interval,
+\[
+ g(u)+g(v)\le g(\ell)+g(2w-\ell),
+\]
+with equality precisely at the two endpoints in the displayed order.
+Indeed, if \(v\ge2w-\ell\), monotonicity gives the result, strictly
+unless both coordinates are endpoints. Otherwise both coordinates
+lie between the endpoints. Apply their strict chord inequalities and
+add: the constraint \(u+v\ge2w\), together with
+\(g(\ell)>g(2w-\ell)\), bounds the resulting chord sum by the endpoint
+sum. This also gives strictness in the interior. These statements,
+including the equality case, are formalized for general strictly
+convex decreasing functions in \texttt{ReciprocalRadiusConvexity.lean}.
+Finally,
+\[
+ g(u)+g(v)=\frac1r+\frac1R
+ \le 2+\frac1{R_*},\qquad
+ c(r,R)=\frac1{2(1/r+1/R)}.
+\]
+The positive-denominator comparison proves
+\eqref{eq:sharp-finite-coefficient}. The exact endpoint identities and
+unique optimizer are formalized in \texttt{PairedResolventOptimizer.lean}.
+Optimality here concerns this two-line compensation class; it is not
+an optimality claim among all zero observables or multiplicity bounds.
+
+\paragraph{Euler-admissible approximation and the actual zero bound.}
+The endpoint \(r=1/2\) itself is outside the independent Euler estimate.
+For each \(\varepsilon>0\), set
+\[
+ d=\min\left\{\frac{R_*-1/2}{2},\varepsilon\right\},\qquad
+ r=\frac12+d,\qquad R=R_*.
+\]
+Then \(1/2<r<R\). Increasing the inner radius preserves
+\eqref{eq:sharp-finite-strip}, and the exact rational comparison gives
+\[
+ c(r,R_*)\le c(1/2,R_*)+\frac{r-1/2}{2}<c_*+\varepsilon.
+\]
+This entire approximation, with its quantified positive epsilon,
+is formalized; it is not a finite numerical test.
+
+For these fixed radii the canonical xi zero enumeration and
+\eqref{eq:sharp-finite-strip} give the finite mass inequality
+\[
+ \sum_{j\in S}K_{r,R}(\beta_j-1/2,T-\gamma_j)
+ \le A_r(T)-\frac rR A_R(T)
+\]
+for every finite subset \(S\) of the enumeration, which includes all
+multiplicity copies. The same-height minimum charges the full fiber
+of a zero \(\rho\) by \(m(\rho)(1/r-r/R^2)\). Retaining the exact signed
+compensation and the independent bounds on \(A_r\) and \(A_r-A_R\)
+therefore proves, for \(|\gamma|\ge2\),
+\[
+ m(\rho)(r+R)
+ \le rR\left(\frac12\log|\gamma|+C_0+rL\right).
+\]
+Consequently the maintained theorem
+\texttt{zeta\_multiplicity\_seven\_eighths\_sharp\_log\_bound} proves
+\begin{equation}\label{eq:sharp-global-multiplicity}
+ \forall\varepsilon>0\ \exists C_\varepsilon>0\ \forall\rho:
+ \quad 0<\Re\rho<1,\ |\Im\rho|\ge2
+ \ \Longrightarrow\quad
+ m(\rho)\le(c_*+\varepsilon)\log|\Im\rho|+C_\varepsilon.
+\end{equation}
+The radii are chosen after epsilon and before the zero height. The
+constant may diverge as epsilon decreases: no assertion of
+\(c_*\log|\gamma|+O(1)\) is made. The closed-form coefficient is about
+\(0.132354\), compared with \(3\sqrt2/32\approx0.132583\) above.
+The weighted mass and fixed-radius analytic bound are formalized in
+\texttt{Helpers/XiSharpMultiplicity.lean}; the actual installed \(7/8\)
+specialization is in \texttt{Assembly/CarmichaelSharpMultiplicity.lean}.
+The unconditional zero-free boundary remains \(7/8\); this theorem
+bounds multiplicity mass, and does not prove simplicity or RH.
+Novelty priority for the coefficient remains unestablished.
+
 \subsection{Exact Mellin action on general windows}
 \label{sec:general-window-mellin}
 
