@@ -6770,6 +6770,180 @@ that the same coefficient is optimal after imposing a fixed bounded
 height budget.  The installed global simplicity and zero-free-boundary
 conclusions are unchanged.
 
+\subsection{The sharp directional coefficient region}
+\label{sec:directional-parity-stability}
+
+Retaining the sign of the discrepancy gives a stronger positive branch.
+Write
+\[
+ A=1-2\delta,\qquad
+ \beta_+=A^2(1+\delta)=\Gamma+4\delta^3>\Gamma,
+ \qquad D_+=\max(D,0).
+\]
+For \(M>0\), define
+\[
+ \mathcal C(M,D)=\delta|D|+
+ \begin{cases}
+   \beta_+D^2/M,&D\ge0,\\
+   \Gamma D^2/M,&D<0.
+ \end{cases}
+\]
+In particular,
+\begin{equation}\label{eq:directional-exact-gain}
+ \mathcal C(M,D)
+ =\delta|D|+\Gamma D^2/M+4\delta^3D_+^2/M.
+\end{equation}
+
+\paragraph{Theorem (sharp directional stability).}
+For every finite support \(I\), nonnegative real weights \(a_i\), and
+coordinates \(y_i\ge0\) with
+\[
+ M=\sum_{i\in I}a_i y_i=\sum_{i\in I}a_i y_i^2>0,
+ \quad
+ D=M-\sum_{i\in I}a_i{\bf1}_{y_i\ge\delta},
+ \quad
+ E=\sum_{i\in I}a_i y_i(y_i-1)^2,
+\]
+one has \(E\ge\mathcal C(M,D)\).
+More generally, keep the linear coefficient \(\delta\) fixed and use
+quadratic coefficient \(c_+\) on \(D\ge0\) and \(c_-\) on \(D<0\).
+This inequality holds for every such real-weight profile if and only if
+\begin{equation}\label{eq:directional-coefficient-region}
+ c_+\le\beta_+,\qquad c_-\le\Gamma.
+\end{equation}
+
+\paragraph{Proof of the positive bound.}
+Use the complete compensated residual \(R_+\) and transport \(k_+\)
+from the preceding sections, and put \(q=1+\delta>0\).
+For \(y\ge1\), the exact polynomial identity
+\[
+ \begin{split}
+ &y^2(y+\delta)-q(2\delta y+A)^2\\
+ &\qquad=(y-1)\bigl(y^2+q(1-4\delta^2)y+qA^2\bigr)\ge0
+ \end{split}
+\]
+has only nonnegative factors on the stated domain.
+The factorizations
+\(R_+=(y+\delta)(y-1)^2\) and
+\(k_+=(2\delta y+A)(y-1)\) imply
+\[
+ q k_+(y)^2\le y^2R_+(y).
+\]
+For every \(u\ge0\) and \(y\ge0\), it follows that
+\begin{equation}\label{eq:directional-positive-packet}
+ R_+(y)-quk_+(y)+\frac q4 y^2u^2\ge0.
+\end{equation}
+On \(0\le y\le1\), use \(R_+\ge0\) and \(k_+\le0\).
+For \(y>1\), the exact square completion is
+\[
+ qy^2\left(R_+-quk_++\frac q4 y^2u^2\right)
+   =\left(\frac q2y^2u-qk_+\right)^2+
+      q\bigl(y^2R_+-qk_+^2\bigr)\ge0.
+\]
+The moment identities retain both compensation terms:
+\[
+ \sum_{i\in I}a_iR_+(y_i)=E-\delta D,\qquad
+ \sum_{i\in I}a_i k_+(y_i)=AD.
+\]
+Summing the complete packet gives
+\[
+ 0\le E-\delta D-quAD+\frac q4Mu^2.
+\]
+For \(D\ge0\), choose \(u=2AD/M\ge0\).
+Then \(E\ge\delta D+qA^2D^2/M\), with \(qA^2=\beta_+\).
+For \(D<0\), apply the already proved symmetric sharp coefficient
+\(\Gamma\).  This proves the full directional inequality and
+\eqref{eq:directional-exact-gain}.
+
+\paragraph{Positive-side sharpness.}
+Let \(0<e<1/2\), and set
+\[
+ u=\delta-e^2,\qquad z=1+e,\qquad
+ w=\frac{z(z-1)}{u(1-u)}.
+\]
+Since \(\delta>1/4\), one has \(0<u<\delta<1\), \(z>1\), and \(w>0\).
+Take two coordinates \(u,z\) with real weights \(w,1\).
+The exact moment equation is
+\[
+ wu^2+z^2=wu+z=M.
+\]
+Only the upper coordinate is selected, so \(D=M-1>0\).
+Direct calculation gives
+\[
+ M=\frac{z(z-u)}{1-u},\qquad
+ D=\frac{e(z+1-u)}{1-u},\qquad E=ze(z-u).
+\]
+Define the polynomial
+\[
+ P(e)=1-\delta^2+(3-4\delta)e+(3-2\delta)e^2+2e^3+e^4.
+\]
+The threshold equation \(2\delta^2-4\delta+1=0\) gives the exact identity
+\[
+ z(z-u)(1-u)-\delta(z+1-u)=eP(e).
+\]
+Consequently,
+\[
+ E-\delta D=\frac{e^2P(e)}{1-u},\qquad
+ M(E-\delta D)=R(e)D^2,
+ \quad
+ R(e)=\frac{z(z-u)P(e)}{(z+1-u)^2}.
+\]
+This reduced ratio is continuous at \(e=0\); its denominator there is
+\((2-\delta)^2>0\).  Its value is
+\[
+ R(0)=\frac{(1-\delta)(1-\delta^2)}{(2-\delta)^2}
+      =A^2(1+\delta)=\beta_+,
+\]
+where \(1-\delta=A(2-\delta)\).
+Thus every \(c_+>\beta_+\) admits some \(0<e<1/2\) with \(R(e)<c_+\).
+Since \(M,D>0\), that profile satisfies
+\[
+ E<\delta D+c_+D^2/M.
+\]
+This proves positive-side necessity for every proposed larger coefficient.
+The reduced ratio is a continuous extension after cancellation; no
+value of the raw \(0/0\) expression is used.
+
+\paragraph{Completion of the coefficient classification.}
+The preceding even-integral family has \(D_n<0\) and violates every
+coefficient \(c_->\Gamma\), independently of \(c_+\).
+Together with the positive-side family, this proves both necessary
+conditions in~\eqref{eq:directional-coefficient-region}.
+Conversely, \(D^2/M\ge0\), so decreasing the applicable coefficient
+preserves the directional inequality.  This proves sufficiency for
+every real pair \((c_+,c_-)\).
+The optimal-pair statement is for real weights.  The positive-side
+counterexample weights are not asserted to be even integers or realized
+analytic orders of zeta zeros.
+
+\paragraph{The complete actual signed gain.}
+Retain the actual finite-cluster hypotheses, including \(|T|\ge2\),
+same height, reflection closure, \(N>0\), and \(M_1>0\).
+Put \(t=Q/M_1>0\), \(\kappa=M_1^2/Q>0\), and
+\(D=\kappa-K_\delta\).
+The exact rescaling of the moment profile, the full signed kernel
+charge, and the installed height budget give
+\begin{equation}\label{eq:actual-directional-signed-gain}
+ \mathcal B_2+\tau t^3
+   \left(\delta|D|+\Gamma D^2/\kappa\right)
+   +\tau t^3\,\frac{4\delta^3D_+^2}{\kappa}
+ \le gB(T),\qquad K_\delta\in2\mathbb N.
+\end{equation}
+Every compensation term is retained.  The added charge is positive
+when \(D>0\), and its exact coefficient is independent of the height
+and the chosen finite cluster.  The full-kernel linear constraint
+remains available.
+
+The packet certificate, weighted bound, complete real-weight coefficient
+region, counterexamples, and actual signed gain are proved in
+\texttt{DirectionalParityStability},
+\texttt{DirectionalParityOptimality}, and
+\texttt{CarmichaelDirectionalParity}.
+This improves the signed finite-cluster bound while retaining the
+positive-horizontal-moment hypothesis.  It supplies neither an
+independent global small-value-area estimate nor a new numerical
+simplicity window or zero-free boundary.
+
 \subsection{Signed two-dimensional control of a zero cluster}
 \label{sec:cluster-multiplicity}
 

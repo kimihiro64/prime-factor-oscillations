@@ -4,6 +4,7 @@ from scripts.adaptive_multiplicity_proof_targets import ADAPTIVE_MULTIPLICITY_TH
 from scripts.carrier_stability_proof_targets import CARRIER_STABILITY_THEOREMS
 from scripts.cluster_multiplicity_proof_targets import CLUSTER_MULTIPLICITY_THEOREMS
 from scripts.compensated_moment_proof_targets import COMPENSATED_MOMENT_THEOREMS
+from scripts.directional_parity_proof_targets import DIRECTIONAL_PARITY_THEOREMS
 from scripts.dirichlet_scalar_orbit_proof_targets import DIRICHLET_SCALAR_ORBIT_THEOREMS
 from scripts.dyadic_carrier_proof_targets import DYADIC_CARRIER_THEOREMS
 from scripts.effective_multiplicity_proof_targets import EFFECTIVE_MULTIPLICITY_THEOREMS
@@ -92,6 +93,7 @@ METAPLECTIC_THEOREMS: tuple[str, ...] = tuple(
         + SHARP_PARITY_STABILITY_THEOREMS
         + PARITY_RIGIDITY_THEOREMS
         + EVEN_INTEGRAL_PARITY_THEOREMS
+        + DIRECTIONAL_PARITY_THEOREMS
         + FIXED_SCALE_KERNEL_THEOREMS
         + SCALAR_ERASURE_COST_THEOREMS
         + SINGLE_REAL_ZETA_THEOREMS

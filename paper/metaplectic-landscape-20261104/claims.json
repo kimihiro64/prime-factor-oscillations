@@ -3921,6 +3921,85 @@
         "PrimeFactorOscillations.evenParityCoordinates_nonneg",
         "PrimeFactorOscillations.evenParityCoefficientAdmissible_iff"
       ]
+    },
+    {
+      "id": "DP-COEF",
+      "status": "compiled_strict_positive_coefficient_gain",
+      "claim": "The positive coefficient beta_plus=(1-2*delta)^2*(1+delta) equals Gamma+4*delta^3 and is strictly larger than Gamma.",
+      "declarations": [
+        "PrimeFactorOscillations.positiveParityCoefficient_gain",
+        "PrimeFactorOscillations.positiveParityCoefficient_gt_sharp",
+        "PrimeFactorOscillations.positiveParityCoefficient_pos"
+      ]
+    },
+    {
+      "id": "DP-CERT",
+      "status": "compiled_full_positive_signed_packet",
+      "claim": "The polynomial high-coordinate certificate (1+delta)*k_plus^2<=y^2*R_plus and the transport sign below1 yield the full positive-sign compensated quadratic and its exact finite weighted sum.",
+      "declarations": [
+        "PrimeFactorOscillations.positiveParity_square_certificate",
+        "PrimeFactorOscillations.positiveParity_quadratic_nonneg",
+        "PrimeFactorOscillations.finiteWeightedParity_positive_quadratic"
+      ]
+    },
+    {
+      "id": "DP-WEIGHTED",
+      "status": "compiled_directional_stability_and_exact_gain",
+      "claim": "All finite nonnegative equal-moment profiles with positive mass satisfy directional stability with beta_plus for D>=0 and Gamma for D<0. Its exact difference from the symmetric sharp cost is4*delta^3*max(D,0)^2/M>=0.",
+      "declarations": [
+        "PrimeFactorOscillations.finiteWeightedParity_positive_stability",
+        "PrimeFactorOscillations.finiteWeightedParity_directional_stability",
+        "PrimeFactorOscillations.directionalParityStabilityCost_gain",
+        "PrimeFactorOscillations.directionalParityStabilityCost_dominates"
+      ]
+    },
+    {
+      "id": "DP-TRANSFER",
+      "status": "compiled_scaled_and_full_kernel_consumers",
+      "claim": "Directional stability survives exact rescaling and the complete signed kernel charge, with the same ranges0<t<=9/64 and0<=x_i<=1/4.",
+      "declarations": [
+        "PrimeFactorOscillations.finiteWeightedParity_directional_stability_scaled",
+        "PrimeFactorOscillations.threeLineWeightedDirectionalParityStability_charge"
+      ]
+    },
+    {
+      "id": "DP-POS-OPT",
+      "status": "compiled_every_positive_coefficient_counterexample",
+      "claim": "For every c>beta_plus a positive-discrepancy real-weight two-atom profile violates that coefficient. The coordinates delta-e^2 and1+e have exact moment balance, the lower coordinate is unselected, and the reduced ratio is continuous at0 with value beta_plus.",
+      "declarations": [
+        "PrimeFactorOscillations.positiveParityLow_bounds",
+        "PrimeFactorOscillations.positiveParityHigh_gt_one",
+        "PrimeFactorOscillations.positiveParityWeight_pos",
+        "PrimeFactorOscillations.positiveParityMass_formula",
+        "PrimeFactorOscillations.positiveParityDiscrepancy_formula",
+        "PrimeFactorOscillations.positiveParityEnergy_formula",
+        "PrimeFactorOscillations.positiveParity_moment",
+        "PrimeFactorOscillations.positiveParityMass_pos",
+        "PrimeFactorOscillations.positiveParityDiscrepancy_pos",
+        "PrimeFactorOscillations.positiveParity_excess_polynomial",
+        "PrimeFactorOscillations.positiveParityEnergy_excess",
+        "PrimeFactorOscillations.positiveParity_exact_ratio",
+        "PrimeFactorOscillations.positiveParityRatio_zero",
+        "PrimeFactorOscillations.positiveParityRatio_continuousAt_zero",
+        "PrimeFactorOscillations.positiveParity_counterexample"
+      ]
+    },
+    {
+      "id": "DP-REGION",
+      "status": "compiled_complete_real_weight_directional_region",
+      "claim": "With the linear coefficient delta fixed, directional admissibility on every finite nonnegative real-weight equal-moment profile with M>0 is equivalent to c_plus<=beta_plus and c_minus<=Gamma. The negative necessity reuses the proved even-integral family. Positive-side integral optimality and actual-zero realization are not asserted.",
+      "declarations": [
+        "PrimeFactorOscillations.directionalParityCoefficientAdmissible_iff"
+      ]
+    },
+    {
+      "id": "DP-ACTUAL",
+      "status": "compiled_complete_actual_signed_positive_gain",
+      "claim": "For finite same-height reflection-closed actual strip zero clusters with abs(T)>=2,N>0,M1>0, the actual threshold order is even and B2+tau*t^3*sharpCost(kappa,D)+tau*t^3*4*delta^3*max(D,0)^2/kappa<=gB. This is an explicit surviving charge gain at D>0; no new numerical simplicity window or7/8 improvement is asserted.",
+      "declarations": [
+        "PrimeFactorOscillations.zeta_finite_directional_parity_bound",
+        "PrimeFactorOscillations.zeta_directional_parity_explicit_gain"
+      ]
     }
   ],
   "novelty": "Priority for the combined explicit formulas has not been established; source classification and Gauss identities are classical."
