@@ -5505,6 +5505,216 @@ and additive constant are unchanged.  The central case \(M=0\) remains
 outside the moment-ratio statement; this theorem gives neither a larger
 certified simplicity window nor a new zero-free boundary.
 
+\subsection{The full signed-kernel parity penalty}
+\label{sec:full-kernel-parity}
+
+The energy bound in the preceding subsection can retain its exact
+rational curvature.  Write
+\[
+ \mathcal H(x,z)=
+ \sum_{j=1}^3\frac{c_j}{r_j(r_j^2-x)(r_j^2-z)^2},
+ \qquad
+ \tau=\mathcal H(0,0)=\sum_{j=1}^3\frac{c_j}{r_j^7},
+ \qquad
+ C(t)=\delta\mathcal H(\delta t,t),
+\]
+where \(r=(5001/10000,7/10,6/5)\) and \(c\) is the fixed signed
+three-pole weight vector.  In particular
+\[
+ \tau=
+ \frac{37413639865876325411850661752657392635}
+      {263902928706162612461624933697712128}
+ \approx141.77.
+\]
+The symbol \(\mathcal H\) here is the tangent remainder of the
+size-biased profile \(F\), rather than that of \(\Phi\).
+
+\paragraph{Theorem (full kernel charge and sharp universal cubic constant).}
+Let \(W,T,N,M,Q,t,\kappa,\mathcal B_2,K_\delta\) satisfy the
+actual-zero hypotheses of the preceding compensated parity theorem.
+Then \(0<t\le9/64\), \(K_\delta\) is even, and
+\begin{equation}
+ \mathcal B_2+C(t)t^3|\kappa-K_\delta|\le gB(T),
+ \qquad C(t)>\delta\tau>\delta.
+ \label{eq:full-kernel-parity}
+\end{equation}
+If \(\kappa\) is an odd integer, this gives
+\begin{equation}
+ \mathcal B_2+C(t)t^3\le gB(T),\qquad
+ \mathcal B_2+\delta\tau t^3\le gB(T).
+ \label{eq:full-kernel-parity-odd}
+\end{equation}
+The same lower profile charge holds for every finite even integer-weight
+moment model with \(0\le x_i\le1/4\), \(0<t\le9/64\),
+\(\sum a_i x_i^2=t\sum a_i x_i\), and odd normalized count
+\(\sum a_i x_i/t\).  The constant \(\delta\tau\) is the largest
+universal cubic coefficient over this finite-model class.
+
+\paragraph{The signed curvature floor.}
+We first retain the complete rational remainder.  For
+\(x\le y\le1/4\) and \(z\le1/4\),
+\[
+ \mathcal H(y,z)-\mathcal H(x,z)
+ =(y-x)\sum_{j=1}^3
+ \frac{c_j}{r_j(r_j^2-x)(r_j^2-y)(r_j^2-z)^2}.
+\]
+The signed sum on the right is positive.  To see this without dropping
+the negative second pole, its first denominator is no larger than its
+second; both are positive.  Their reciprocals \(q_1,q_2\) therefore
+satisfy \(q_1\ge q_2>0\), and the third reciprocal satisfies \(q_3>0\).
+Since \(c_1>0\), \(c_1+c_2>0\), and \(c_3>0\),
+\[
+ c_1q_1+c_2q_2+c_3q_3
+  =c_1(q_1-q_2)+(c_1+c_2)q_2+c_3q_3>0.
+\]
+Thus \(\mathcal H\) is increasing in its first argument.
+The already proved cubic divided difference
+\[
+ D(u,v)=\sum_{j=1}^3
+ \frac{c_j}{r_j^5(r_j^2-u)(r_j^2-v)}>0
+ \quad(u,v\le9/64)
+\]
+also gives the exact anchor identity
+\[
+ \mathcal H(0,z)-\tau=z\{D(z,z)+D(0,z)\}.
+\]
+Consequently \(\mathcal H(x,z)\ge\tau\) for
+\(0\le x\le1/4\), \(0\le z\le9/64\), and the inequality is strict
+when \(z>0\).  Taking \(x=\delta t,z=t\) proves
+\(C(t)>\delta\tau\).  The rational value above has \(\tau>1\).
+
+\paragraph{The coupled low-threshold comparison.}
+Fix \(0\le t\le9/64\) and \(0\le y\le\delta\), and put
+\[
+ A=2-2\delta-y,\quad D_0=2-y-\delta,\quad L=2t\delta D_0,
+ \quad P_j=r_j^2A-L,\quad
+ \mathcal D_j=r_j(r_j^2-t)^2(r_j^2-ty)(r_j^2-t\delta).
+\]
+All \(\mathcal D_j\) are positive.
+The bounds \(\delta<3/10\), \(D_0\le(4/3)A\) give
+\[
+ A>0,\qquad 0\le L\le(9/80)A,\qquad
+ \tfrac12r_j^2A\le P_j\le r_j^2A,\qquad P_j>0.
+\]
+For every \(u\ge0\),
+\[
+ \tfrac32(r_1^2-u)\le r_2^2-u.
+\]
+Applying this to the four retained denominator factors gives
+\(\mathcal D_2\ge(81/16)\mathcal D_1\ge4\mathcal D_1\).
+Also \(r_2^2\le2r_1^2\), so
+\[
+ P_2\mathcal D_1
+ \le r_2^2A\mathcal D_1
+ \le2r_1^2A\mathcal D_1
+ \le\tfrac12r_1^2A\mathcal D_2
+ \le P_1\mathcal D_2.
+\]
+Hence \(P_1/\mathcal D_1\ge P_2/\mathcal D_2>0\), and the same
+signed-pair argument yields
+\[
+ L_{\rm low}(t,y):=\sum_{j=1}^3c_jP_j/\mathcal D_j>0.
+\]
+The exact numerator factorization using
+\(2\delta^2-4\delta+1=0\) is
+\[
+ (y-1)^2\mathcal H(ty,t)
+  -\delta(2-y)\mathcal H(t\delta,t)
+   =(\delta-y)L_{\rm low}(t,y)\ge0.
+\]
+Every numerator, reciprocal and signed pole remains in this identity.
+
+\paragraph{From the pointwise comparison to the complete profile.}
+For \(t>0\), \(t\le9/64\), \(y\ge0\), and \(ty\le1/4\), the low
+comparison just proved and the high comparison from monotonicity give
+\begin{equation}
+ -y(y-1)^2\mathcal H(ty,t)
+ \le C(t)\{2y-y^2-b_\delta(y)\}
+ \le y(y-1)^2\mathcal H(ty,t).
+ \label{eq:full-kernel-pointwise}
+\end{equation}
+For the high case \(y\ge\delta\), the middle bracket is
+\(-(y-1)^2\) and
+\(y\mathcal H(ty,t)\ge\delta\mathcal H(t\delta,t)=C(t)\).
+For the low case its upper bound is the preceding exact
+factorization multiplied by \(y\); its lower bound is nonnegative
+against a nonpositive left side.
+
+Now let \(a_i\ge0\), \(0\le x_i\le1/4\), and
+\(\sum a_i x_i^2=t\sum a_i x_i\).
+Set \(y_i=x_i/t\).  Sum the two signed inequalities
+\eqref{eq:full-kernel-pointwise} with weights \(a_i\), and use the exact
+compensated ledger
+\[
+ \sum_i a_i(y_i-b_\delta(y_i))
+   =\sum_i a_i(2y_i-y_i^2-b_\delta(y_i)).
+\]
+After rescaling,
+\[
+ C(t)t^3\left|\frac{\sum_i a_ix_i}{t}
+             -\sum_i a_i b_\delta(x_i/t)\right|
+ \le\sum_i a_ix_i(x_i-t)^2\mathcal H(x_i,t).
+\]
+Independently, the exact \(F\)-tangent identity gives
+\begin{equation}
+ \sum_i a_i\Phi(x_i)
+   =g\sum_i a_i+F(t)\sum_i a_ix_i
+      +\sum_i a_ix_i(x_i-t)^2\mathcal H(x_i,t).
+ \label{eq:full-kernel-weighted-ledger}
+\end{equation}
+The entire slope term is
+\(F'(t)\{\sum a_ix_i^2-t\sum a_ix_i\}=0\).
+Thus the displayed charge is a lower bound for the complete profile
+sum, including its constant and linear terms.
+
+Apply this result to the actual orders \(a_i=m_\rho\).
+The canonical strip supplies \(t\le9/64\), while the full signed
+profile upper bound supplies \(\sum m_\rho\Phi(x_\rho)\le gB(T)\).
+The constant and linear part of
+\eqref{eq:full-kernel-weighted-ledger} is precisely \(\mathcal B_2\).
+Reflection makes \(K_\delta\) even, proving
+\eqref{eq:full-kernel-parity}.  Odd \(\kappa\) has distance at least
+one from \(K_\delta\), proving \eqref{eq:full-kernel-parity-odd}.
+For even integer weights the threshold mass is even directly, giving
+the finite-model version.
+
+\paragraph{Sharpness of the universal cubic coefficient.}
+Use the previously proved atoms \(a_n,b_n\), with weights \(2,2n\).
+For \(n\ge1\) and \(0<t\le1/16\), put \(x_1=ta_n,x_2=tb_n\);
+both coordinates lie in \([0,1/4]\).  Their moments are exactly
+\[
+ M=t(2n+1),\qquad Q=t^2(2n+1),\qquad \kappa=2n+1.
+\]
+Define their full kernel defect by
+\[
+ \Delta_n(t)=2\Phi(ta_n)+2n\Phi(tb_n)
+   -\{(2+2n)g+t(2n+1)F(t)\}.
+\]
+The braces are exactly their moment-ratio minimum \(\mathcal B_2\).
+Without discarding any compensation term,
+\[
+ \Delta_n(t)=t^3J_n(t),\qquad
+ J_n(t)=2a_n(a_n-1)^2\mathcal H(ta_n,t)
+       +2nb_n(b_n-1)^2\mathcal H(tb_n,t).
+\]
+For each fixed \(n\), \(J_n\) is continuous at zero and
+\(J_n(0)=\tau E_n\), where \(\delta\le E_n\le\delta+1/n\).
+
+Given any \(c>\delta\tau\), first choose a natural \(n\ge1\) with
+\(E_n<c/\tau\), using the already proved sharp even-weight energy
+family.  Continuity then supplies a positive \(t\le1/16\) with
+\(J_n(t)<c\), so \(\Delta_n(t)<ct^3\).
+This is a counterexample to every larger universal cubic coefficient
+within the stated finite even-weight model class.  Combined with the
+general lower bound, it proves optimality of \(\delta\tau\).
+
+The sharpness models are not asserted to be realized by zeta zeros.
+The complete budget \(B(T)\), its logarithmic coefficient and additive
+constant, the numerical simplicity window and the installed \(7/8\)
+zero-free boundary are unchanged.  The strengthened contribution is the
+horizontal parity penalty; the central case \(M=0\) remains outside
+this moment-ratio statement.
+
 \subsection{Signed two-dimensional control of a zero cluster}
 \label{sec:cluster-multiplicity}
 

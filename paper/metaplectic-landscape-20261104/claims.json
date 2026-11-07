@@ -3487,6 +3487,83 @@
         "PrimeFactorOscillations.zeta_compensated_odd_effective_gap",
         "PrimeFactorOscillations.compensatedParityPenalty_stronger"
       ]
+    },
+    {
+      "id": "HKP-FLOOR",
+      "status": "compiled_signed_remainder_monotonicity_and_sharp_cubic_floor",
+      "claim": "The full size-biased remainder H has positive signed x divided difference. The exact anchor identity H(0,z)-tau=z*(D(z,z)+D(0,z)) reuses the completed cubic differences. Hence H(x,z)>=tau on0<=x<=1/4,0<=z<=9/64, strictly for z>0; tau=H(0,0) is explicit.",
+      "declarations": [
+        "PrimeFactorOscillations.threeLineSignedOrdered_pos",
+        "PrimeFactorOscillations.threeLineSignedReciprocal_pos",
+        "PrimeFactorOscillations.threeLineKernel_one_xdifference",
+        "PrimeFactorOscillations.threeLineKernelXStep_pos",
+        "PrimeFactorOscillations.threeLineSizeBiasedRemainder_xdifference",
+        "PrimeFactorOscillations.threeLineSizeBiasedRemainder_mono_x",
+        "PrimeFactorOscillations.threeLineSizeBiasedRemainder_origin",
+        "PrimeFactorOscillations.threeLineKernel_one_anchor",
+        "PrimeFactorOscillations.threeLineSizeBiasedRemainder_anchor_identity",
+        "PrimeFactorOscillations.threeLineSizeBiasedRemainder_ge_tau",
+        "PrimeFactorOscillations.threeLineSizeBiasedRemainder_gt_tau"
+      ]
+    },
+    {
+      "id": "HKP-COUPLED",
+      "status": "compiled_scale_dependent_full_signed_kernel_charge",
+      "claim": "For0<t<=9/64,y>=0,ty<=1/4, the full signed low-threshold quotient is positive and the high side follows H monotonicity. Exact moment compensation gives C(t)*t^3*abs(M/t-K)<=sum a*x*(x-t)^2*H(x,t), with C(t)=delta*H(delta*t,t)>delta*tau>delta. The exact weighted Phi ledger retains every constant, linear, slope and rational remainder term. No factor N or main-term absolute envelope is used.",
+      "declarations": [
+        "PrimeFactorOscillations.momentRoundThreshold_lt_three_tenths",
+        "PrimeFactorOscillations.threeLineKernelLow_geometry",
+        "PrimeFactorOscillations.threeLineKernelLow_L_bound",
+        "PrimeFactorOscillations.threeLineKernelLowNumerator_lower",
+        "PrimeFactorOscillations.threeLineKernelLowNumerator_upper",
+        "PrimeFactorOscillations.threeLineKernelLowNumerator_pos",
+        "PrimeFactorOscillations.threeLineKernelLow_arguments",
+        "PrimeFactorOscillations.threeLineKernelLowDenominator_pos",
+        "PrimeFactorOscillations.threeLineKernelLowDenominator_order",
+        "PrimeFactorOscillations.threeLineKernelLow_ratio_order",
+        "PrimeFactorOscillations.threeLineKernelLowDifference_pos",
+        "PrimeFactorOscillations.threeLineKernel_one_low_identity",
+        "PrimeFactorOscillations.threeLineKernel_low_identity",
+        "PrimeFactorOscillations.threeLineKernelParityCoefficient_ge_tau",
+        "PrimeFactorOscillations.threeLineKernelParityCoefficient_gt_tau",
+        "PrimeFactorOscillations.threeLineKernelParityCoefficient_pos",
+        "PrimeFactorOscillations.threeLineKernelParityCoefficient_gt_delta",
+        "PrimeFactorOscillations.threeLineKernel_compensated_bounds",
+        "PrimeFactorOscillations.threeLineWeightedCompensatedKernel_deviation",
+        "PrimeFactorOscillations.threeLineWeightedCompensatedKernel_scaled",
+        "PrimeFactorOscillations.threeLineWeightedKernel_ledger",
+        "PrimeFactorOscillations.threeLineWeightedCompensatedKernel_charge"
+      ]
+    },
+    {
+      "id": "HKP-SHARP",
+      "status": "compiled_full_kernel_models_and_optimal_uniform_cubic_coefficient",
+      "claim": "Natural even-weight models2,2n have scaled moments M=t*(2n+1),Q=t^2*(2n+1), odd effective mass2n+1 and exact B2. Their complete kernel defect is t^3*J_n(t), with J_n continuous at0 and J_n(0)=tau*E_n. Every c>delta*tau fails at some natural n>=1 and positive t<=1/16. Sharpness is for finite moment models, not realization by actual zeta zeros.",
+      "declarations": [
+        "PrimeFactorOscillations.threeLineOddKernel_scaled_arguments",
+        "PrimeFactorOscillations.threeLineKernel_one_cost",
+        "PrimeFactorOscillations.threeLineOddKernel_scaled_moments",
+        "PrimeFactorOscillations.threeLineOddKernel_model_charge",
+        "PrimeFactorOscillations.threeLineOddKernel_effective_mass",
+        "PrimeFactorOscillations.threeLineOddKernelDefect_factorization",
+        "PrimeFactorOscillations.threeLineOddKernelNormalized_zero",
+        "PrimeFactorOscillations.threeLineOddKernelNormalized_continuousAt_zero",
+        "PrimeFactorOscillations.threeLineKernelParity_larger_coefficient_fails"
+      ]
+    },
+    {
+      "id": "HKP-ACTUAL",
+      "status": "compiled_general_even_weight_and_actual_zero_full_budget_consumers",
+      "claim": "Finite even integer-weight models with odd normalized moment count have full profile penalty C(t)*t^3 and uniform penalty delta*tau*t^3. Every finite same-height reflection-closed critical-strip zero cluster at |T|>=2, N>0,M>0 satisfies B2+C(t)*t^3*abs(kappa-Kdelta)<=g*B(T), with actual Kdelta even. Odd kappa gives the C(t) and uniform delta*tau penalties. Both preceding penalties are strictly improved on their stated domains. Complete B(T), leading coefficient, simplicity window and7/8 boundary are unchanged.",
+      "declarations": [
+        "PrimeFactorOscillations.threeLineEvenWeightedKernel_odd_charge",
+        "PrimeFactorOscillations.threeLineEvenWeightedKernel_uniform_odd_charge",
+        "PrimeFactorOscillations.zeta_finite_kernel_parity_bound",
+        "PrimeFactorOscillations.zeta_kernel_parity_odd_effective_gap",
+        "PrimeFactorOscillations.zeta_kernel_parity_uniform_odd_gap",
+        "PrimeFactorOscillations.kernelParityPenalty_stronger",
+        "PrimeFactorOscillations.kernelParityPenalty_stronger_than_squared"
+      ]
     }
   ],
   "novelty": "Priority for the combined explicit formulas has not been established; source classification and Gauss identities are classical."

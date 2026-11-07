@@ -12,6 +12,7 @@ from scripts.exact_window_profile_proof_targets import EXACT_WINDOW_PROFILE_THEO
 from scripts.finite_real_packet_proof_targets import FINITE_REAL_PACKET_THEOREMS
 from scripts.global_excess_proof_targets import GLOBAL_EXCESS_THEOREMS
 from scripts.horizontal_multiplicity_proof_targets import HORIZONTAL_MULTIPLICITY_THEOREMS
+from scripts.kernel_parity_proof_targets import KERNEL_PARITY_THEOREMS
 from scripts.localized_multiplicity_proof_targets import LOCALIZED_MULTIPLICITY_THEOREMS
 from scripts.metaplectic_base_proof_targets import METAPLECTIC_BASE_THEOREMS
 from scripts.minimal_carrier_proof_targets import MINIMAL_CARRIER_THEOREMS
@@ -77,6 +78,7 @@ METAPLECTIC_THEOREMS: tuple[str, ...] = tuple(
         + PARITY_CUBIC_THEOREMS
         + MOMENT_RATIO_THEOREMS
         + COMPENSATED_MOMENT_THEOREMS
+        + KERNEL_PARITY_THEOREMS
         + SCALAR_ERASURE_COST_THEOREMS
         + SINGLE_REAL_ZETA_THEOREMS
     )
