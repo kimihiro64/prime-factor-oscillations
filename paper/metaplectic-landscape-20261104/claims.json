@@ -4000,6 +4000,68 @@
         "PrimeFactorOscillations.zeta_finite_directional_parity_bound",
         "PrimeFactorOscillations.zeta_directional_parity_explicit_gain"
       ]
+    },
+    {
+      "id": "SP-SCALAR",
+      "status": "compiled_strict_scalar_packets",
+      "claim": "The positive-direction polynomial certificate is strict above one; the full positive packet is strictly positive at every positive coordinate and positive tilt.",
+      "declarations": [
+        "PrimeFactorOscillations.positiveParity_square_certificate_strict",
+        "PrimeFactorOscillations.positiveParity_quadratic_pos"
+      ]
+    },
+    {
+      "id": "SP-STRICT",
+      "status": "compiled_strict_full_signed_transfer",
+      "claim": "Every finite nonnegative equal-moment profile of positive mass has strict directional stability when D is nonzero. The strictness survives normalization, positive rescaling and the full three-line signed kernel charge.",
+      "declarations": [
+        "PrimeFactorOscillations.finiteWeightedParity_positive_quadratic_strict",
+        "PrimeFactorOscillations.finiteWeightedParity_positive_stability_strict",
+        "PrimeFactorOscillations.finiteWeightedParity_directional_stability_strict",
+        "PrimeFactorOscillations.finiteWeightedParity_directional_stability_scaled_strict",
+        "PrimeFactorOscillations.threeLineWeightedDirectionalParityStability_charge_strict"
+      ]
+    },
+    {
+      "id": "SP-ROOT",
+      "status": "compiled_exact_balancing_root_and_gain",
+      "claim": "For every kappa>0 the explicit rationalized root x lies in (0,1), equates the positive branch cost at x to the negative branch cost at 2-x, and gives a positive allowance Sstar strictly larger than delta+Gamma/kappa.",
+      "declarations": [
+        "PrimeFactorOscillations.parityBranchCost_order",
+        "PrimeFactorOscillations.parityBranchCost_strict_order",
+        "PrimeFactorOscillations.shiftedParityWidth_equation",
+        "PrimeFactorOscillations.shiftedParityWidth_bounds",
+        "PrimeFactorOscillations.shiftedParityAllowance_matching",
+        "PrimeFactorOscillations.shiftedParityAllowance_pos",
+        "PrimeFactorOscillations.shiftedParityAllowance_strict_gain"
+      ]
+    },
+    {
+      "id": "SP-OPT",
+      "status": "compiled_unique_optimum_for_two_costs",
+      "claim": "Among bands D in (r-2,r) with 0<=r<=2, the minimum of the two endpoint directional costs is maximized uniquely by r=x. This optimality concerns the retained two costs, not all possible arithmetic information.",
+      "declarations": [
+        "PrimeFactorOscillations.shiftedParityAllowance_maximal",
+        "PrimeFactorOscillations.shiftedParityAllowance_unique_maximum"
+      ]
+    },
+    {
+      "id": "SP-INVERSE",
+      "status": "compiled_shifted_open_unit_band",
+      "claim": "For every mass>0, strict directional cost below Sstar at nonzero D forces abs(D+1-x)<1, including D=0.",
+      "declarations": [
+        "PrimeFactorOscillations.directionalParity_shifted_unit_bound"
+      ]
+    },
+    {
+      "id": "SP-ACTUAL",
+      "status": "compiled_enlarged_closed_actual_recovery",
+      "claim": "For finite same-height reflection-closed actual strip clusters with abs(T)>=2,N>0,M1>0, the raw closed budget gB-B2<=tau*t^3*Sstar(kappa) implies abs((kappa+1-x)-K)<1 and identifies K as the unique even natural in that open unit band. No numerical simplicity-window, global simplicity, or QRH exponent gain is asserted.",
+      "declarations": [
+        "PrimeFactorOscillations.zeta_finite_directional_parity_stability_strict",
+        "PrimeFactorOscillations.zeta_shifted_parity_closed_unit_bound",
+        "PrimeFactorOscillations.zeta_shifted_parity_closed_unique_even_order"
+      ]
     }
   ],
   "novelty": "Priority for the combined explicit formulas has not been established; source classification and Gauss identities are classical."

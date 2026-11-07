@@ -6944,6 +6944,144 @@ positive-horizontal-moment hypothesis.  It supplies neither an
 independent global small-value-area estimate nor a new numerical
 simplicity window or zero-free boundary.
 
+\subsection{An optimal shift enlarges the closed recovery budget}
+\label{sec:shifted-parity-recovery}
+
+The asymmetric coefficient region has a quantitative consequence that is lost
+if the rounding center is kept at the effective mass.  Throughout this
+subsection write
+\[
+ d=\delta,\qquad \gamma=\Gamma,\qquad
+ b_+=\beta_+=(1-2d)^2(1+d),\qquad g_0=b_+-\gamma=4d^3>0.
+\]
+For every \(\kappa>0\) put
+\[
+ f_c(u)=du+\frac{c}{\kappa}u^2,\qquad
+ b=2d\kappa+4\gamma,\qquad
+ x=\frac{2b}{b+\sqrt{b^2+4g_0b}},\qquad S_*=f_{b_+}(x).
+\]
+All denominators here are positive.  The shift and allowance depend on
+\(\kappa\); no finite restriction on that parameter is imposed.
+
+\paragraph{Theorem (optimal shifted closed-budget recovery).}
+One has \(0<x<1\) and
+\begin{equation}
+ g_0x^2+bx=b,\qquad
+ S_*=f_{b_+}(x)=f_\gamma(2-x)
+   >d+\frac{\gamma}{\kappa}.
+ \label{eq:shifted-parity-matching}
+\end{equation}
+For \(0\le r\le2\),
+\begin{equation}
+ \min\{f_{b_+}(r),f_\gamma(2-r)\}\le S_*,
+ \qquad\text{with equality exactly when }r=x.
+ \label{eq:shifted-parity-optimum}
+\end{equation}
+Thus \(S_*\) is the uniquely optimal endpoint allowance obtained from these
+two costs by using a band \(D\in(r-2,r)\) of width two containing zero.
+This optimality statement does not claim that no further arithmetic
+information could yield a stronger recovery theorem.
+
+For an actual finite same-height reflection-closed strip cluster, retain the
+hypotheses \(|T|\ge2\), \(N>0\), \(M_1>0\), and the definitions
+\(t=Q/M_1\), \(\kappa=M_1^2/Q\), and
+\(K=K_\delta\in2\mathbb N\).  Write
+\(D=\kappa-K\) and let \(\mathcal B_2\) denote the same full moment-ratio
+charge as above.  The closed raw budget
+\begin{equation}
+ gB(T)-\mathcal B_2\le \tau t^3 S_*
+ \label{eq:shifted-parity-raw-budget}
+\end{equation}
+implies
+\begin{equation}
+ -(2-x)<D<x,\qquad
+ \left|(\kappa+1-x)-K\right|<1.
+ \label{eq:shifted-parity-recovered-order}
+\end{equation}
+In particular, \(K\) is the unique even natural number in the open unit
+neighborhood of the shifted center \(\kappa+1-x\).  The permitted raw budget
+in \eqref{eq:shifted-parity-raw-budget} is strictly larger than the previous
+centered allowance \(\tau t^3(d+\gamma/\kappa)\).
+
+\paragraph{Proof of strict directional stability.}
+The endpoint inclusion requires a strict inequality, rather than a weak
+bound followed by rounding.  In the positive-direction certificate from
+\eqref{eq:directional-positive-packet}, the high-coordinate factorization is
+\[
+ y^2(y+d)-(1+d)(2dy+1-2d)^2
+ =(y-1)\{y^2+(1+d)(1-4d^2)y+(1-2d)^2(1+d)\}.
+\]
+For \(y>1\) the right side is strictly positive, since \(0<d<1/2\).
+Consequently, after multiplication by \((y-1)^2\),
+\[
+ (1+d)k_+(y)^2<y^2R_+(y).
+\]
+Square completion shows that the full positive packet is strictly positive
+on this range.  For \(0<y\le1\) and \(u>0\), its term
+\((1+d)y^2u^2/4\) is strictly positive, while
+\(R_+(y)\ge0\) and \(- (1+d)u k_+(y)\ge0\).
+Therefore the packet is strictly positive at every positive coordinate
+when \(u>0\).
+
+A finite nonnegative profile with \(M>0\) has at least one index with
+\(a_i y_i>0\).  Summing the packets retains a strictly positive term.
+The exact compensation identities remain
+\[
+ \sum_i a_iR_+(y_i)=E-dD,\qquad
+ \sum_i a_i k_+(y_i)=(1-2d)D,\qquad
+ \sum_i a_i y_i^2=M.
+\]
+When \(D>0\), the optimizing tilt \(u=2(1-2d)D/M\) is strictly positive,
+so the resulting bound is \(E>dD+b_+D^2/M\).  When \(D<0\), the already
+proved sharp rigidity theorem gives \(E>d|D|+\gamma D^2/M\).
+Positive rescaling and the full signed kernel ledger preserve strictness.
+For the actual cluster this proves, whenever \(D\ne0\),
+\begin{equation}
+ \mathcal B_2+\tau t^3\mathcal C(\kappa,D)<gB(T),
+ \label{eq:shifted-parity-strict-consumer}
+\end{equation}
+where \(\mathcal C\) is the complete directional cost, including both
+compensation contributions.  No separate norm estimate is used.
+
+\paragraph{Proof of the root, optimality, and recovery.}
+Here \(b>0\) and \(g_0>0\).  The previously proved rationalized quadratic
+inverse gives \(g_0x^2+bx=b\).  Positivity of the displayed quotient gives
+\(x>0\), and comparison with the quadratic at one gives \(x<1\).
+A direct identity retains every term:
+\[
+ \kappa\{f_{b_+}(x)-f_\gamma(2-x)\}
+ =g_0x^2+bx-b=0.
+\]
+Since \(f_\gamma\) is strictly increasing on the nonnegative reals and
+\(2-x>1\), this also proves the strict gain in
+\eqref{eq:shifted-parity-matching}.  For \(r<x\), the first endpoint cost
+is strictly below \(f_{b_+}(x)\); for \(r>x\), the second is strictly below
+\(f_\gamma(2-x)\).  At \(r=x\) both equal \(S_*\), proving
+\eqref{eq:shifted-parity-optimum} with its uniqueness assertion.
+
+If \(D\ge x\), then \(D>0\), and the strict consumer and the closed
+budget would give
+\[
+ S_*\le f_{b_+}(D)=\mathcal C(\kappa,D)
+ <\frac{gB(T)-\mathcal B_2}{\tau t^3}\le S_*,
+\]
+a contradiction.  If \(D\le x-2\), the same argument uses
+\(f_\gamma(-D)\ge f_\gamma(2-x)=S_*\).  Both denominators are positive
+because \(t,\tau>0\).  The case \(D=0\) is already inside the required
+band.  This proves \eqref{eq:shifted-parity-recovered-order}.  Two distinct
+even natural numbers differ by at least two, so an open interval of length
+two contains at most one of them; the actual even order supplies existence.
+
+The twenty new theorem bodies, including the strict scalar and weighted
+transfers, the unique optimal shift, and the actual recovery statement, are
+implemented in \texttt{Helpers/DirectionalParityRigidity.lean},
+\texttt{Helpers/ShiftedParityRecovery.lean}, and
+\texttt{Assembly/CarmichaelShiftedParity.lean}.  This is an exact increase
+of the allowable recovery slack.  It does not enlarge the certified numerical
+simplicity window or prove global simplicity.  In particular, the hypothesis
+\(M_1>0\) excludes clusters supported entirely on the critical line; their
+individual multiplicities require the separate observable estimates.
+
 \subsection{Signed two-dimensional control of a zero cluster}
 \label{sec:cluster-multiplicity}
 
