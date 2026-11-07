@@ -3303,6 +3303,52 @@
         "PrimeFactorOscillations.zeta_finite_odd_horizontal_parity_budget",
         "PrimeFactorOscillations.zeta_odd_horizontal_parity_cost"
       ]
+    },
+    {
+      "id": "CPG-TAIL",
+      "status": "compiled_exact_signed_cubic_tail",
+      "claim": "The fixed profile has the exact expansion Phi(x)=g+ell*x+sigma*x^2+x^3*R(x), with R(0)=tau=37413639865876325411850661752657392635/263902928706162612461624933697712128. Its exact signed divided difference is positive on x,y<=9/64: the negative second pole is retained and paired jointly against the first positive pole. Hence R is strictly increasing.",
+      "declarations": [
+        "PrimeFactorOscillations.threeLineParityCubicCoefficient_pos",
+        "PrimeFactorOscillations.threeLineHorizontalCubicTail_zero",
+        "PrimeFactorOscillations.threeLineHorizontal_one_cubic",
+        "PrimeFactorOscillations.threeLineHorizontal_one_cubic_difference",
+        "PrimeFactorOscillations.threeLineHorizontal_cubic_identity",
+        "PrimeFactorOscillations.threeLineHorizontalResidual_cubic_identity",
+        "PrimeFactorOscillations.threeLineHorizontalCubicTail_difference",
+        "PrimeFactorOscillations.threeLineHorizontalCubicDifference_pos",
+        "PrimeFactorOscillations.threeLineHorizontalCubicTail_mono",
+        "PrimeFactorOscillations.threeLineHorizontalCubicTail_strict"
+      ]
+    },
+    {
+      "id": "CPG-SHARP",
+      "status": "compiled_uniform_cubic_bound_and_exact_optimality",
+      "claim": "For every real N>1 and0<=M<=(9/64)(N-1), Pi_N(M)>=tau*(2N-1)*M^3/(N^2*(N-1)^2), strictly for M>0. The exact normalized profile is continuous at0 with value and limit tau. For each fixed N>1 and every real c, the bound with coefficient c throughout the whole admissible M interval holds if and only if c<=tau; every larger coefficient fails at a positive admissible M. This is fixed-kernel sharpness, not actual-zeta attainment.",
+      "declarations": [
+        "PrimeFactorOscillations.threeLineParityCubicScale_pos",
+        "PrimeFactorOscillations.threeLineParityNormalizedCost_identity",
+        "PrimeFactorOscillations.threeLineParityNormalizedCost_zero",
+        "PrimeFactorOscillations.threeLineParityNormalizedCost_continuousAt_zero",
+        "PrimeFactorOscillations.threeLineParityNormalizedCost_origin_limit",
+        "PrimeFactorOscillations.threeLineParityCost_cubic_factorization",
+        "PrimeFactorOscillations.threeLineParityNormalizedCost_ge",
+        "PrimeFactorOscillations.threeLineParityNormalizedCost_gt",
+        "PrimeFactorOscillations.threeLineParityCost_cubic_lower",
+        "PrimeFactorOscillations.threeLineParityCost_cubic_strict",
+        "PrimeFactorOscillations.threeLineParityCost_larger_coefficient_fails",
+        "PrimeFactorOscillations.threeLineParityCubicCoefficient_optimal"
+      ]
+    },
+    {
+      "id": "CPG-ACTUAL",
+      "status": "compiled_complete_actual_cluster_slack_consumer",
+      "claim": "For actual reflection-closed finite common-height critical-strip W, abs(t)>=2, odd total order N>1, the previous full nonlinear-plus-quartic charge plus tau*(2N-1)*M^3/(N^2*(N-1)^2) is at most g*B(t). Thus tau*(2N-1)*M^3<=N^2*(N-1)^2*Delta, with Delta defined using the entire old charge, and the normalized slack bound is strict when M>0. The simplicity window, logarithmic coefficient and zero-free boundary remain unchanged.",
+      "declarations": [
+        "PrimeFactorOscillations.zeta_finite_odd_horizontal_cubic_budget",
+        "PrimeFactorOscillations.zeta_odd_horizontal_cubic_inverse",
+        "PrimeFactorOscillations.zeta_odd_horizontal_cubic_slack_strict"
+      ]
     }
   ],
   "novelty": "Priority for the combined explicit formulas has not been established; source classification and Gauss identities are classical."
