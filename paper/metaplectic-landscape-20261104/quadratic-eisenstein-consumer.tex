@@ -6498,7 +6498,8 @@ Hence the exact excess ratio is
 Given \(c>\Gamma\), choose \(z=(1+c/\Gamma)/2\).
 Then \(1<z<c/\Gamma\), so this profile violates the bound with
 \(c\) in place of \(\Gamma\).  This proves real-weight sharpness.
-It does not assert sharpness for integer multiplicities or actual zeros.
+This proof concerns real weights.  Section~\ref{sec:even-integral-parity}
+settles the even integral case; actual-zero sharpness is not asserted.
 
 \paragraph{The actual signed consumer.}
 Retain the preceding actual-cluster hypotheses, including the same-height
@@ -6647,6 +6648,127 @@ This improves an aggregate even-order recovery criterion.  It supplies
 neither an independent global small-value-area estimate nor a larger
 numerical simplicity window.  The positive-horizontal-moment hypothesis
 is unchanged.
+
+\subsection{The complete coefficient classification for even integral weights}
+\label{sec:even-integral-parity}
+
+The sharp coefficient remains optimal after restricting the weights to
+even natural numbers.  This is stronger than sharpness over arbitrary
+nonnegative real weights.  It uses a different family from the earlier
+models with exactly odd effective mass.
+
+For \(c\in\mathbb R\), let \(\operatorname{Adm}_{\mathrm{even}}(c)\)
+mean that, for every finite support \(I=\{1,\ldots,m\}\), every
+\(a_i\in2\mathbb N\), and every \(y_i\ge0\) satisfying
+\[
+ M=\sum_{i\in I}a_i y_i=\sum_{i\in I}a_i y_i^2>0,
+\]
+one has
+\[
+ E=\sum_{i\in I}a_i y_i(y_i-1)^2
+ \ge \delta|D|+cD^2/M,\qquad
+ D=M-\sum_{i\in I}a_i{\bf1}_{y_i\ge\delta}.
+\]
+Zero weights are allowed; the positive-mass hypothesis excludes the
+degenerate zero denominator.
+
+\paragraph{Theorem (complete even-integral coefficient classification).}
+For every real \(c\),
+\begin{equation}\label{eq:even-integral-classification}
+ \operatorname{Adm}_{\mathrm{even}}(c)
+ \quad\Longleftrightarrow\quad c\le\Gamma=1-3\delta.
+\end{equation}
+For every \(c>\Gamma\), two positive even natural weights already suffice
+to violate the proposed bound.  There are no unspecified asymptotic
+constants in the witness rule below.
+
+\paragraph{The exact family.}
+Put \(A=1-2\delta>0\) and \(C=2(1-\delta)=\sqrt2\).
+For any natural \(n\ge1\), set
+\[
+ z_n=\frac{1+\sqrt{1+2A/n}}2.
+\]
+Take the two coordinates \(\delta,z_n\) with weights \(2,2n\).
+The radical gives the exact identity
+\[
+ z_n(z_n-1)=\frac A{2n}>0.
+\]
+Since \(z_n>0\), this implies \(z_n>1\).
+Moreover,
+\begin{equation}\label{eq:even-integral-excess}
+ 0<z_n-1<\frac A{2n},
+\end{equation}
+because \(z_n(z_n-1)-(z_n-1)=(z_n-1)^2>0\).
+
+Let \(M_n,D_n,E_n\) denote the resulting mass, discrepancy and energy:
+\[
+ \begin{split}
+ M_n&=2\delta+2nz_n,\\
+ D_n&=M_n-(2+2n),\\
+ E_n&=2\delta(\delta-1)^2+2nz_n(z_n-1)^2.
+ \end{split}
+\]
+Both coordinates are selected by the threshold convention
+\(y\ge\delta\).  The mass is positive and the moment identity holds:
+\[
+ 2\delta^2+2nz_n^2=M_n.
+\]
+One way to check every term is to use the previously proved real model.
+Its lower weight is
+\[
+ w(z_n)=\frac{2z_n(z_n-1)}A=\frac1n.
+\]
+Scaling that complete model by \(2n\) produces exactly the weights
+\(2,2n\).  Mass, discrepancy and signed energy all scale by the same
+positive factor.  Its exact ratio therefore gives
+\begin{equation}\label{eq:even-integral-exact-ratio}
+ M_n(E_n-\delta|D_n|)=\Gamma z_nD_n^2.
+\end{equation}
+The discrepancy has the additional exact description
+\begin{equation}\label{eq:even-integral-discrepancy}
+ D_n=\frac A{z_n}-C,\qquad -C<D_n<-1.
+\end{equation}
+Indeed \(2n(z_n-1)=A/z_n\), and \(C-A=1\).
+Thus these even-weight profiles lie outside the unit-distance band.
+They do not replace the earlier family whose effective mass was
+constrained to be exactly odd.
+
+\paragraph{Proof of the classification.}
+If \(c\le\Gamma\), the compiled real-weight theorem gives
+\(E\ge\delta|D|+\Gamma D^2/M\).
+Since \(D^2/M\ge0\), this implies the inequality with coefficient \(c\)
+on the entire even-natural-weight class.
+
+Conversely, let \(c>\Gamma\) and put \(q=c/\Gamma>1\).
+Choose any natural number satisfying the explicit bound
+\begin{equation}\label{eq:even-integral-witness}
+ n>\max\left\{1,\frac A{2q(q-1)}\right\}.
+\end{equation}
+Such an \(n\) exists by the Archimedean property.
+The denominator is positive, and the bound implies
+\[
+ z_n(z_n-1)=\frac A{2n}<q(q-1).
+\]
+The function \(u(u-1)\) is strictly increasing for \(u\ge1\):
+its difference at \(v\ge u\ge1\) is
+\((v-u)(v+u-1)\).
+Consequently \(z_n<q\).
+The exact ratio~\eqref{eq:even-integral-exact-ratio}, together with
+\(M_n>0\) and \(D_n\ne0\), now gives
+\[
+ E_n<\delta|D_n|+cD_n^2/M_n.
+\]
+This contradicts admissibility and proves the converse for every
+\(c>\Gamma\).
+
+The finite weights, nonnegative coordinates, complete finite-sum
+admissibility predicate, uniform witness and equivalence are proved in
+\texttt{EvenIntegralParityOptimality}.
+This settles the optimal coefficient in the even integral moment class.
+It does not assert that these profiles are realized by zeta zeros, or
+that the same coefficient is optimal after imposing a fixed bounded
+height budget.  The installed global simplicity and zero-free-boundary
+conclusions are unchanged.
 
 \subsection{Signed two-dimensional control of a zero cluster}
 \label{sec:cluster-multiplicity}

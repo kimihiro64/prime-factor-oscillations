@@ -8,6 +8,7 @@ from scripts.dirichlet_scalar_orbit_proof_targets import DIRICHLET_SCALAR_ORBIT_
 from scripts.dyadic_carrier_proof_targets import DYADIC_CARRIER_THEOREMS
 from scripts.effective_multiplicity_proof_targets import EFFECTIVE_MULTIPLICITY_THEOREMS
 from scripts.effective_parity_threshold_proof_targets import EFFECTIVE_PARITY_THRESHOLD_THEOREMS
+from scripts.even_integral_parity_proof_targets import EVEN_INTEGRAL_PARITY_THEOREMS
 from scripts.exact_residue_spacing_proof_targets import EXACT_RESIDUE_SPACING_THEOREMS
 from scripts.exact_window_profile_proof_targets import EXACT_WINDOW_PROFILE_THEOREMS
 from scripts.finite_real_packet_proof_targets import FINITE_REAL_PACKET_THEOREMS
@@ -90,6 +91,7 @@ METAPLECTIC_THEOREMS: tuple[str, ...] = tuple(
         + INVERSE_PARITY_GEOMETRY_THEOREMS
         + SHARP_PARITY_STABILITY_THEOREMS
         + PARITY_RIGIDITY_THEOREMS
+        + EVEN_INTEGRAL_PARITY_THEOREMS
         + FIXED_SCALE_KERNEL_THEOREMS
         + SCALAR_ERASURE_COST_THEOREMS
         + SINGLE_REAL_ZETA_THEOREMS

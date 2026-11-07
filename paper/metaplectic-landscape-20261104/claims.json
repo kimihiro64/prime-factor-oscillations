@@ -3818,7 +3818,7 @@
     {
       "id": "SS-OPTIMAL",
       "status": "compiled_real_weight_sharpness",
-      "claim": "For every coefficient c>1-3*delta a two-atom nonnegative real-weight profile at delta and z>1 satisfies the moment equation and violates the proposed c bound. No integer-weight or actual-zero sharpness is asserted.",
+      "claim": "For every coefficient c>1-3*delta a two-atom nonnegative real-weight profile at delta and z>1 satisfies the moment equation and violates the proposed c bound. This real-weight proof alone does not establish integral sharpness; EIP-CLASSIFY now settles even natural weights. Actual-zero sharpness is not asserted.",
       "declarations": [
         "PrimeFactorOscillations.sharpParityModelWeight_pos",
         "PrimeFactorOscillations.sharpParityModel_moment",
@@ -3874,6 +3874,52 @@
       "declarations": [
         "PrimeFactorOscillations.zeta_sharp_parity_closed_unit_bound",
         "PrimeFactorOscillations.zeta_sharp_parity_closed_unique_even_order"
+      ]
+    },
+    {
+      "id": "EIP-MODEL",
+      "status": "compiled_exact_even_integral_model",
+      "claim": "For every natural n>0, the coordinate z_n=(1+sqrt(1+2*A/n))/2 rescales the proved real model to weights2,2*n, preserving the exact moment equation, positive mass, negative discrepancy and ratio M*(E-delta*abs(D))/D^2=Gamma*z_n.",
+      "declarations": [
+        "PrimeFactorOscillations.evenParityCoordinate_quadratic",
+        "PrimeFactorOscillations.evenParityCoordinate_gt_one",
+        "PrimeFactorOscillations.evenParityCoordinate_scaled_weight",
+        "PrimeFactorOscillations.evenParityPair_mass_scaled",
+        "PrimeFactorOscillations.evenParityPair_discrepancy_scaled",
+        "PrimeFactorOscillations.evenParityPair_energy_scaled",
+        "PrimeFactorOscillations.evenParityPair_moment",
+        "PrimeFactorOscillations.evenParityPair_mass_pos",
+        "PrimeFactorOscillations.evenParityPair_discrepancy_neg",
+        "PrimeFactorOscillations.evenParityPair_exact_ratio"
+      ]
+    },
+    {
+      "id": "EIP-UNIFORM",
+      "status": "compiled_all_coefficient_finite_witness",
+      "claim": "Every c>Gamma has an exact even-natural-weight counterexample. With q=c/Gamma>1, any natural n>max(1,A/(2*q*(q-1))) suffices. Also0<z_n-1<A/(2*n); no finite diagnostic substitutes for a uniform proof.",
+      "declarations": [
+        "PrimeFactorOscillations.evenParityCoordinate_lt_of_nat_bound",
+        "PrimeFactorOscillations.evenParityPair_counterexample",
+        "PrimeFactorOscillations.evenParityCoordinate_excess_bounds"
+      ]
+    },
+    {
+      "id": "EIP-LOCATION",
+      "status": "compiled_outside_unit_band_location",
+      "claim": "For every n>0, D_n=A/z_n-C and -C<D_n<-1, where C=sqrt(2). These profiles lie outside the open unit-distance band and differ from the older exactly odd-effective-mass model.",
+      "declarations": [
+        "PrimeFactorOscillations.evenParityPair_discrepancy_formula",
+        "PrimeFactorOscillations.evenParityPair_discrepancy_location"
+      ]
+    },
+    {
+      "id": "EIP-CLASSIFY",
+      "status": "compiled_complete_integral_coefficient_classification",
+      "claim": "A real c satisfies the compensated stability bound on every finite nonnegative equal-moment profile with positive mass and even natural weights iff c<=Gamma. Exact finite weights and coordinates are included in the formal predicate. Actual zeta realization and sharpness under a fixed bounded height budget are not asserted.",
+      "declarations": [
+        "PrimeFactorOscillations.evenParityWeights_even",
+        "PrimeFactorOscillations.evenParityCoordinates_nonneg",
+        "PrimeFactorOscillations.evenParityCoefficientAdmissible_iff"
       ]
     }
   ],
