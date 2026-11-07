@@ -3014,6 +3014,54 @@
         "PrimeFactorOscillations.coprimalityCarrier_area_on_effective_window",
         "PrimeFactorOscillations.zeta_global_simplicity_iff_coprimality_area_outside_window"
       ]
+    },
+    {
+      "id": "TLM-CERT",
+      "status": "kernel_checked_full_strip_certificate",
+      "claim": "For radii5001/10000,7/10,6/5 and weights1209493/1000000,-1059063/1000000,56907/500000, the full signed reflected kernel is strictly positive for abs(u)<=3/8 and every real v. At v=0 its charge is at least g=7004201657/7001400000 for abs(u)<=1/2. The exact joint polynomial certificate keeps every cross term. Its normalized leading coefficient is4625194854/35021008285<1321/10000.",
+      "declarations": [
+        "PrimeFactorOscillations.threeLineNumerator_certificate",
+        "PrimeFactorOscillations.threeLineBoundary_pos",
+        "PrimeFactorOscillations.threeLineCorrection_nonneg",
+        "PrimeFactorOscillations.threeLineNumerator_pos",
+        "PrimeFactorOscillations.threeLineCharge_pos",
+        "PrimeFactorOscillations.threeLinePolynomialDen_eq",
+        "PrimeFactorOscillations.threeLineKernel_mul_den",
+        "PrimeFactorOscillations.threeLineKernel_pos",
+        "PrimeFactorOscillations.resolventSquareMargin_pos",
+        "PrimeFactorOscillations.pairedResolventMean_at_zero",
+        "PrimeFactorOscillations.threeLineDiagonal_pos",
+        "PrimeFactorOscillations.threeLineKernel_same_height_ge",
+        "PrimeFactorOscillations.threeLineLeadingCoefficient_eq",
+        "PrimeFactorOscillations.threeLineLeadingCoefficient_lt"
+      ]
+    },
+    {
+      "id": "TLM-TRACE",
+      "status": "kernel_checked_complete_signed_consumer",
+      "claim": "The absolutely convergent single-line xi identities assemble the complete signed three-line trace. Its finite-mass bound charges the full multiplicity fiber, and the existing independent height/Lipschitz estimates give m<=c3*log(T)+C3 uniformly for T>=2 under the canonical7/8 zero-strip hypothesis. C3 is fixed explicitly; the negative weight remains in the leading coefficient and absolute values control only radius-deviation remainders.",
+      "declarations": [
+        "PrimeFactorOscillations.xi_threeLine_kernel_summable",
+        "PrimeFactorOscillations.xi_threeLine_kernel_trace",
+        "PrimeFactorOscillations.xi_threeLine_finite_mass",
+        "PrimeFactorOscillations.zeta_multiplicity_le_threeLine_trace",
+        "PrimeFactorOscillations.xi_threeLine_base_height",
+        "PrimeFactorOscillations.xi_threeLine_radius_deviation",
+        "PrimeFactorOscillations.xi_threeLine_trace_upper",
+        "PrimeFactorOscillations.zeta_multiplicity_le_threeLine_bound"
+      ]
+    },
+    {
+      "id": "TLM-GLOBAL",
+      "status": "kernel_checked_unconditional_leading_gain",
+      "claim": "Using the already proved unconditional canonical7/8 strip, every w with0<Re(w)<1 and abs(Im w)>=2 has analytic zeta order at most c3*log(abs Im w)+C3, where c3=4625194854/35021008285 and C3 is the explicitly defined nonnegative fixed constant. The exact comparison c3<1321/10000<c_star proves a strict improvement over the completed two-line coefficient. No optimality for all kernels, enlarged numerical simplicity window, RH assumption, or improved zero-free boundary is asserted.",
+      "declarations": [
+        "PrimeFactorOscillations.threeLineMultiplicityConstant_nonneg",
+        "PrimeFactorOscillations.threeLine_rational_lt_twoLine_optimum",
+        "PrimeFactorOscillations.threeLineLeadingCoefficient_lt_twoLine_optimum",
+        "PrimeFactorOscillations.zeta_multiplicity_threeLine_log_bound",
+        "PrimeFactorOscillations.zeta_multiplicity_threeLine_rational_log_bound"
+      ]
     }
   ],
   "novelty": "Priority for the combined explicit formulas has not been established; source classification and Gauss identities are classical."

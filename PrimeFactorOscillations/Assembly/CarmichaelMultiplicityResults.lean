@@ -11,5 +11,6 @@ import PrimeFactorOscillations.Assembly.CarmichaelNearIdentityPanel
 import PrimeFactorOscillations.Assembly.CarmichaelPhaseMultiplicity
 import PrimeFactorOscillations.Assembly.CarmichaelSharpMultiplicity
 import PrimeFactorOscillations.Assembly.CarmichaelSimplicityCriterion
+import PrimeFactorOscillations.Assembly.CarmichaelThreeLineMultiplicity
 
 /-! Multiplicity carrier bounds and certified compensated-residue decoding. -/

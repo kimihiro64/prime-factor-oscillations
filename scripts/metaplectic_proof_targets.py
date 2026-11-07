@@ -27,6 +27,7 @@ from scripts.simple_carrier_sharpness_proof_targets import SIMPLE_CARRIER_SHARPN
 from scripts.simplicity_area_proof_targets import SIMPLICITY_AREA_THEOREMS
 from scripts.single_real_zeta_proof_targets import SINGLE_REAL_ZETA_THEOREMS
 from scripts.strip_carrier_proof_targets import STRIP_CARRIER_THEOREMS
+from scripts.three_line_multiplicity_proof_targets import THREE_LINE_MULTIPLICITY_THEOREMS
 from scripts.two_power_degree_proof_targets import TWO_POWER_DEGREE_THEOREMS
 from scripts.two_tail_proof_targets import TWO_TAIL_THEOREMS
 
@@ -59,6 +60,7 @@ METAPLECTIC_THEOREMS: tuple[str, ...] = tuple(
         + SHARP_RESOLVENT_THEOREMS
         + EFFECTIVE_MULTIPLICITY_THEOREMS
         + SIMPLICITY_AREA_THEOREMS
+        + THREE_LINE_MULTIPLICITY_THEOREMS
         + SCALAR_ERASURE_COST_THEOREMS
         + SINGLE_REAL_ZETA_THEOREMS
     )

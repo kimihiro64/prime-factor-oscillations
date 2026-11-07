@@ -4378,6 +4378,197 @@ The unconditional zero-free boundary remains \(7/8\); this theorem
 bounds multiplicity mass, and does not prove simplicity or RH.
 Novelty priority for the coefficient remains unestablished.
 
+\subsection{A three-line kernel strictly improves the multiplicity coefficient}
+\label{sec:three-line-multiplicity}
+
+The sharp constant \(c_*\) above belongs to the compensated two-line
+class \(K_{r,R}\). It is not a lower bound for general signed finite
+combinations of reflected resolvents. We now give an explicit strict
+improvement using three lines.
+
+\paragraph{Theorem.}
+Put
+\begin{align*}
+ (a_1,a_2,a_3)&=\left(\frac{5001}{10000},\frac7{10},\frac65\right),\\
+ (c_1,c_2,c_3)&=\left(\frac{1209493}{1000000},
+             -\frac{1059063}{1000000},\frac{56907}{500000}\right),\\
+ g&=\sum_{j=1}^3\frac{c_j}{a_j}
+       =\frac{7004201657}{7001400000},\qquad S=\sum_{j=1}^3c_j,\\
+ c_3^{\rm new}&=\frac{S}{2g}
+       =\frac{4625194854}{35021008285}
+       =0.1320691516\ldots.
+\end{align*}
+There is a fixed explicitly defined \(C_3\ge0\) such that every
+\(w\) with \(0<\Re w<1\), \(T=|\Im w|\ge2\), satisfies
+\begin{equation}\label{eq:three-line-global-multiplicity}
+ \operatorname{ord}_w\zeta
+       \le c_3^{\rm new}\log T+C_3
+       \le\frac{1321}{10000}\log T+C_3.
+\end{equation}
+The exact strict comparison is
+\[
+ c_3^{\rm new}<\frac{1321}{10000}<c_*.
+\]
+This uses the installed unconditional \(7/8\) strip, rather than RH.
+
+\paragraph{The full signed kernel.}
+For real \(u,v\), write
+\[
+ \mathcal R_a(u,v)=\frac12\left(
+ \frac{a-u}{(a-u)^2+v^2}+\frac{a+u}{(a+u)^2+v^2}\right),\qquad
+ K_3(u,v)=\sum_{j=1}^3 c_j\mathcal R_{a_j}(u,v).
+\]
+The two geometric statements proved below are
+\begin{align}
+ K_3(u,v)&>0&&(|u|\le3/8,\ v\in\mathbb R),\label{eq:three-line-positive}\\
+ K_3(u,0)&\ge g&&(|u|\le1/2).\label{eq:three-line-charge}
+\end{align}
+All imaginary displacements and all cross terms are retained. The first
+horizontal moment is \(\sum_{j=1}^3c_ja_j=1001493/10^{10}>0\).
+The single-line trace identities are absolutely convergent, so this
+retained tail is included in the assembly.
+
+\paragraph{Exact polynomial proof of positivity.}
+Let \(W=9/64\), and define the explicit rational polynomials
+\begin{align*}
+ d_j(x,y)&=(a_j^2+y-x)^2+4xy,\\
+ N(x,y)&=\sum_{i=1}^3 c_i a_i(a_i^2+y-x)
+           \prod_{\substack{1\le j\le3\\j\ne i}}d_j(x,y),\\
+ Q(q,y)&=N(W-q,y)=\sum_{i=0}^5\sum_{j=0}^5Q_{ij}q^iy^j.
+\end{align*}
+Coefficients outside the degree-five support are zero. These definitions
+specify every coefficient by rational arithmetic from the displayed
+radii and weights.
+Set
+\[
+ \alpha=-Q_{14}>0,\qquad \eta=-Q_{22}>0,\qquad\delta=-Q_{41}>0,
+\]
+and let \(B(y)=\sum_{j=0}^5b_jy^j\), where \(b_j=Q_{0j}\) for
+\(j\ne4\), and \(b_4=Q_{04}-\alpha W\).
+Exact expansion gives the identity
+\begin{align*}
+ Q(q,y)=B(y)
+ &+q\{Q_{10}+(Q_{11}-\delta W^3)y
+                   +(Q_{12}-\eta W)y^2+Q_{13}y^3\}\\
+ &+\delta q(W-q)(W^2+Wq+q^2)y+\eta q(W-q)y^2\\
+ &+q^2(Q_{20}+Q_{21}y+Q_{23}y^3)
+       +q^3(Q_{30}+Q_{31}y+Q_{32}y^2)\\
+ &+Q_{40}q^4+Q_{50}q^5+\alpha(W-q)y^4.
+\end{align*}
+Every coefficient in the braces and in the remaining correction terms
+is strictly positive. For \(0\le q\le W\), \(y\ge0\), these corrections
+are therefore nonnegative.
+
+It remains to check \(B(y)>0\). Here \(b_2,b_3,b_4,b_5>0\).
+Put \(p_0=B(1/4)\), \(p_1=B'(1/4)\), and
+\[
+ R(y)=b_3(y+1/2)+b_4(y^2+y/2+3/16)
+             +b_5(y^3+y^2/2+3y/16+1/16).
+\]
+Then \(R(y)\ge0\) for \(y\ge0\), and the exact identity
+\[
+ 4b_2B(y)=\{2b_2(y-1/4)+p_1\}^2
+      +(4b_2p_0-p_1^2)+4b_2(y-1/4)^2R(y)
+\]
+proves strict positivity. The unscaled rational remainder is
+\[
+ p_0-\frac{p_1^2}{4b_2}
+ =\frac{42582294214966263093549136221118761182085742929055283}
+ {952122753923491722551436902400000000000000000000000000000}>0.
+\]
+This is the same certificate after division by the positive integer
+scale used in Lean. Its polynomial identity, coefficient signs and
+strict discriminant are checked exactly, without a frequency grid.
+
+For \(x=u^2\), \(y=v^2\), the denominator product is positive because
+\(|u|\le3/8<a_j\), and
+\[
+ K_3(u,v)\prod_{j=1}^3 d_j(u^2,v^2)=N(u^2,v^2).
+\]
+Taking \(q=W-u^2\) now proves \eqref{eq:three-line-positive}.
+
+\paragraph{The full zero-fiber charge.}
+The same-height statement has the larger domain \(|u|\le1/2\).
+To see this, put
+\[
+ s=\sum_{j=1}^3a_j^2,\quad
+ p=\sum_{1\le i<j\le3}a_i^2a_j^2,\quad
+ \tau=\sum_{j=1}^3c_ja_j,\quad
+ \nu=\sum_{j=1}^3c_ja_j^3,
+\]
+\[
+ A_0=\nu-s\tau+gp,\quad A_1=\tau-gs,\quad
+ R_0=A_0+A_1/4+g/16>0,\quad R_1=-A_1-g/2>0.
+\]
+Direct rational algebra gives
+\[
+ \{K_3(u,0)-g\}\prod_{j=1}^3(a_j^2-u^2)
+   =u^2\{R_0+R_1(1/4-u^2)+g(1/4-u^2)^2\}\ge0.
+\]
+Every denominator factor is positive, proving
+\eqref{eq:three-line-charge}. This argument applies to every point
+in the open critical strip, including points of analytic order zero.
+
+\paragraph{The complete analytic consumer and its constant.}
+Use the same \(A_a(t)\) as in the preceding trace theorem. Absolute
+summability and the exact single-line identity give
+\[
+ B_3(T):=\sum_{j=1}^3c_jA_{a_j}(T)
+ =\sum_{p\in\mathcal Z_\xi}
+ K_3(\Re\rho_p-1/2,T-\Im\rho_p),
+\]
+where \(\mathcal Z_\xi\) is the canonical zero enumeration with every
+multiplicity copy included. The installed strip puts every summand in
+\eqref{eq:three-line-positive}. Applying the finite-subset inequality
+to the entire fiber of \(w\), then using
+\eqref{eq:three-line-charge}, yields
+\[
+                  \operatorname{ord}_w\zeta\,g\le B_3(\Im w).
+\]
+
+For completeness the additive constant is fixed as follows. Let
+\(\sigma=1/2+a_1=10001/10000\),
+\(E(a)=|\zeta'(a)/\zeta(a)|\) for real \(a>1\), and
+\begin{align*}
+ H&=\frac1{\sigma-1}+E(\sigma)+\frac{|\log\pi|}{2}
+       +\frac{\sigma+8+|\log3|+|\gamma_E|}{2},\\
+ L&=\frac{2E(1+(\sigma-1)/2)}{(\sigma-1)/2}
+       +\frac1{(\sigma-1)^2}
+       +\frac14\sum_{n=0}^{\infty}\frac1{(n+1)^2},\\
+ \mathcal R&=|c_2||a_2-a_1|+|c_3||a_3-a_1|,
+       \qquad C_3=\frac{SH+L\mathcal R}{g}\ge0.
+\end{align*}
+Here \(\gamma_E\) is Euler's constant. These finite constants are the
+maintained \texttt{xiExplicitHeight} and \texttt{xiExplicitLipschitz}
+values. The independent Euler and gamma estimates already proved give
+\[
+ A_{a_1}(T)\le\tfrac12\log|T|+H\quad(|T|\ge2),\qquad
+ |A_a(T)-A_{a_1}(T)|\le L|a-a_1|\quad(a\ge a_1).
+\]
+Retain the signed main term before estimating the differences:
+\begin{align*}
+ B_3(T)&=S A_{a_1}(T)
+       +c_2\{A_{a_2}(T)-A_{a_1}(T)\}
+       +c_3\{A_{a_3}(T)-A_{a_1}(T)\}\\
+ &\le \frac S2\log|T|+SH+L\mathcal R.
+\end{align*}
+In particular the negative weight \(c_2\) remains in \(S\).
+Dividing by \(g>0\) proves
+\eqref{eq:three-line-global-multiplicity}. The strict comparison with
+\(c_*\) is also checked algebraically; for example
+\(\sqrt7<53/20\) gives the required rational lower bound on
+\(\sqrt{13-3\sqrt7}\).
+
+The maintained proofs are in
+\texttt{Helpers/ThreeLineResolventCertificate.lean},
+\texttt{Helpers/XiThreeLineMultiplicity.lean}, and
+\texttt{Assembly/CarmichaelThreeLineMultiplicity.lean}.
+This is a strict improvement over the completed two-line leading
+coefficient. The additive constant has not been optimized for numerical
+simplicity, and the effective window in the next subsection is unchanged.
+The certified zero-free boundary remains \(7/8\). Priority beyond this
+explicit comparison has not been established.
+
 \subsection{Effective constants and a numerical simplicity window}
 \label{sec:effective-multiplicity-window}
 
