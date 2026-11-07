@@ -4032,6 +4032,208 @@ The phase specialization and strip-to-count envelope are elementary
 consequences, with no claim of established novelty priority.
 The certified zero-free boundary remains \(7/8\).
 
+\subsection{The seven-eighths strip bounds localized multiplicity mass}
+\label{sec:localized-paired-multiplicity}
+
+The preceding positive global budget can be localized more efficiently.
+Let \(F=\xi'/\xi\), and let
+\[
+ A_r(T)=\frac12\left\{\Re F\left(\tfrac12+r+iT\right)
+                   +\Re F\left(\tfrac12+r-iT\right)\right\}.
+\]
+The installed unconditional \(7/8\) theorem and the functional equation
+place every xi zero \(\rho=\beta+i\gamma\) in
+\(1/8\le\beta\le7/8\), with its full analytic multiplicity \(m(\rho)\).
+The maintained theorem
+\texttt{zeta\_multiplicity\_seven\_eighths\_log\_bound} proves
+\begin{equation}\label{eq:localized-multiplicity-log-bound}
+ \exists C>0\quad
+ m(\beta+i\gamma)\le\frac{3\sqrt2}{32}\log|\gamma|+C
+ \qquad(0<\beta<1,\ |\gamma|\ge2).
+\end{equation}
+The constant is independent of the zero. The formal theorem also allows
+nonzeros, where the analytic order is zero. The leading coefficient is
+approximately \(0.13258\); the additive constant is existential, and no
+numerical starting height is supplied.
+
+\paragraph{A jointly positive compensated kernel.}
+For real \(x,y\) and \(|x|<r<R\), define
+\[
+ Q_r(x,y)=\frac12\left\{
+ \frac{r-x}{(r-x)^2+y^2}+\frac{r+x}{(r+x)^2+y^2}\right\},
+ \qquad K_{r,R}=Q_r-\frac rR Q_R,
+\]
+and
+\[
+ D_r=((r-x)^2+y^2)((r+x)^2+y^2).
+\]
+The complete numerator identity is
+\begin{equation}\label{eq:paired-resolvent-numerator}
+ K_{r,R}(x,y)=\frac{r(R^2-r^2)}{D_rD_R}
+ \left\{(r^2+y^2-x^2)(R^2+y^2-x^2)-4x^2y^2\right\}.
+\end{equation}
+All four resolvent terms remain in this identity. Set \(k=r^2-2x^2\).
+If \(k\ge0\), its expression in braces equals
+\[
+ ((y-x)^2+k)((y+x)^2+k)
+ +(R^2-r^2)(r^2+y^2-x^2)\ge0.
+\]
+Thus \(K_{r,R}(x,y)\ge0\) for every \(y\) whenever
+\(2x^2\le r^2\).
+The infinitesimal threshold is sharp: the first product is nonnegative
+for every \(y\) if and only if \(2x^2\le r^2\).
+For necessity, setting \(y=x\) gives \(r^4-4x^4\).
+
+At the zero's own ordinate,
+\[
+ K_{r,R}(x,0)=
+ \frac{r(R^2-r^2)}{(r^2-x^2)(R^2-x^2)}
+ \ge K_{r,R}(0,0)=\frac1r-\frac r{R^2}>0.
+\]
+Indeed both denominator factors are positive and their product is at
+most \(r^2R^2\). These identities, positivity statements, sharpness,
+and the central minimum are proved in
+\texttt{Mathlib/Analysis/Complex/PairedResolventKernel.lean}.
+
+\paragraph{The actual complete zero trace.}
+The genus-one Hadamard formula has the same polynomial constant at
+every evaluation point:
+\[
+ F(s)=B+\sum_\rho m(\rho)\left\{\frac1{s-\rho}+\frac1\rho\right\}.
+\]
+For each fixed \(r>1/2,T\), subtract the formulas at
+\(s_\pm=1/2\pm r+iT\). The constant \(B\) and every reciprocal
+correction cancel exactly. Both points are separated from the zero
+strip. The inverse-square xi-zero summability theorem therefore
+justifies the subtraction and taking real parts. More explicitly,
+if \(|s-\rho|\ge\delta>0\), then
+\[
+ \left|\frac1{s-\rho}+\frac1\rho\right|
+ =\frac{|s|}{|\rho|\,|s-\rho|}
+ \le \frac{|s|(\delta+|s|)}{\delta|\rho|^2},
+\]
+using \(|\rho|\le|s-\rho|+|s|\).
+
+The functional equation gives \(F(1-s)=-F(s)\), hence
+\[
+ A_r(T)=\sum_\rho m(\rho)
+ Q_r\left(\beta-\tfrac12,T-\gamma\right).
+\]
+In particular, with no reindexing or loss of reciprocal terms,
+\begin{equation}\label{eq:complete-compensated-xi-trace}
+ A_r(T)-\frac rR A_R(T)=
+ \sum_\rho m(\rho)
+ K_{r,R}\left(\beta-\tfrac12,T-\gamma\right).
+\end{equation}
+Every sum here is absolutely convergent after the displayed real
+pairing, at each fixed \(T\). No simultaneous growing-height
+interchange is used.
+
+For \(r>1/2\) and \(r^2\ge9/32\), the \(7/8\) strip ensures
+\(2(\beta-1/2)^2\le r^2\). Every term of
+\eqref{eq:complete-compensated-xi-trace} is nonnegative.
+Charging the entire canonical index fibre of a chosen zero, rather
+than one representative, gives the compiled inequality
+\begin{equation}\label{eq:qrh-compensated-multiplicity}
+ m(\rho)\left(\frac1r-\frac r{R^2}\right)
+ \le A_r(\gamma)-\frac rR A_R(\gamma).
+\end{equation}
+The canonical fibre has cardinality \(m(\rho)\), by the existing
+xi--zeta multiplicity equivalence. This is the actual \(7/8\)
+consumer, proved as
+\texttt{zeta\_multiplicity\_le\_compensated\_xi\_trace}.
+
+\paragraph{Independent bounds with the logarithmic coefficient retained.}
+For \(\Re s>1\), the exact shifted-gamma identity is
+\[
+ F(s)=\frac{\zeta'}{\zeta}(s)+\frac1{s-1}
+       -\frac12\log\pi+\frac12\psi(s/2+1).
+\]
+The shift by one absorbs the separate \(1/s\) term.
+The existing Euler-product theorem bounds
+\(|\zeta'/\zeta(\sigma+it)|\le1/(\sigma-1)+C_E\)
+uniformly in \(t\), for every \(\sigma>1\).
+On any fixed closed half-plane \(\Re s\ge a>1\), Cauchy's estimate
+on balls of radius \((a-1)/2\), followed by the convex-domain
+mean-value inequality, also gives a uniform Lipschitz constant for
+\(\zeta'/\zeta\). The pole term has the same property.
+
+For completeness, the sharp gamma estimate is obtained directly
+from its convergent series, for \(1\le\Re z\le b\) and
+\(|\Im z|\ge1\). Put \(N=\lceil|\Im z|\rceil+1\). Then
+\[
+ \psi(z)+\gamma_E
+ =H_N-\sum_{n<N}\frac1{z+n}
+   +\sum_{n\ge N}\left(\frac1{n+1}-\frac1{z+n}\right).
+\]
+The inverse-resolvent head has norm at most
+\(N/|\Im z|\le3\). The full tail has norm at most \(b+2\):
+\[
+ \left|\frac1{n+1}-\frac1{z+n}\right|
+ \le\frac{|z|+1}{(n+1)^2},\qquad
+ \sum_{n\ge N}\frac1{(n+1)^2}\le\frac1N,\qquad
+ |z|+1\le(b+2)N.
+\]
+Also \(H_N\le\log|\Im z|+1+\log3\). Consequently
+\[
+ \Re\psi(z)\le\log|\Im z|
+       +b+6+\log3+|\gamma_E|.
+\]
+For \(\Re z,\Re w\ge1\), subtracting the two complete digamma series
+and retaining their common harmonic cancellation gives
+\[
+ |\psi(z)-\psi(w)|
+ \le |z-w|\sum_{n\ge0}\frac1{(n+1)^2}.
+\]
+These two estimates are compiled in
+\texttt{Helpers/RealDigammaHeight.lean}. Their Euler and pole
+consumers in \texttt{Helpers/XiVerticalLogDerivative.lean} prove:
+for each fixed \(r>1/2\), there exist \(C_0,L\ge0\) such that
+\[
+ A_r(T)\le\tfrac12\log|T|+C_0\quad(|T|\ge2),\qquad
+ A_r(T)-A_R(T)\le L(R-r)\quad(R>r),
+\]
+uniformly in height. The estimates are independent of an assumed
+zero. Absolute estimates are used for these bounded arithmetic and
+gamma remainders, after the signed zero trace has been retained.
+
+\paragraph{Cancelling the common scale and taking the endpoint.}
+Preserve the subtraction as
+\[
+ A_r-\frac rR A_R
+ =\frac{R-r}{R}A_r+\frac rR(A_r-A_R).
+\]
+Substitution into \eqref{eq:qrh-compensated-multiplicity} yields
+\[
+ m(\rho)\left(\frac1r-\frac r{R^2}\right)
+ \le\frac{R-r}{R}\left(\tfrac12\log|\gamma|+C_0\right)
+     +\frac rR L(R-r).
+\]
+For \(R>r\), multiplication by \(rR^2/(R-r)>0\) gives
+\[
+ m(\rho)(R+r)
+ \le rR\left(\tfrac12\log|\gamma|+C_0+rL\right).
+\]
+Both sides are continuous polynomials in \(R\). The right-hand
+limit \(R\downarrow r\) therefore proves
+\[
+ m(\rho)\le\frac r4\log|\gamma|
+                 +\frac r2 C_0+\frac{r^2}2L.
+\]
+Choose \(r=3\sqrt2/8>1/2\), so \(r^2=9/32\), and enlarge the
+constant to obtain \eqref{eq:localized-multiplicity-log-bound}.
+The maintained general-radius theorem and its radical specialization
+are in \texttt{Assembly/CarmichaelLocalizedMultiplicity.lean}.
+
+This bounds the multiplicity mass of each zero through an independently
+controlled signed observable. It supplies neither simplicity nor a
+smaller zero-free boundary. The classical unconditional order
+\(m(\rho)=O(\log|\gamma|)\) is not claimed as new; see A.~Ivi\'c,
+\emph{On the multiplicity of zeros of the zeta-function},
+arXiv:math/0501434. The contribution here is the proved compensated
+strip-to-coefficient argument and its consumption of the installed
+\(7/8\) strip. Novelty priority for the coefficient is unestablished.
+
 \subsection{Exact Mellin action on general windows}
 \label{sec:general-window-mellin}
 

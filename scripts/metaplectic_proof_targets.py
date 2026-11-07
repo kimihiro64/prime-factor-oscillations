@@ -7,6 +7,7 @@ from scripts.dyadic_carrier_proof_targets import DYADIC_CARRIER_THEOREMS
 from scripts.exact_residue_spacing_proof_targets import EXACT_RESIDUE_SPACING_THEOREMS
 from scripts.finite_real_packet_proof_targets import FINITE_REAL_PACKET_THEOREMS
 from scripts.global_excess_proof_targets import GLOBAL_EXCESS_THEOREMS
+from scripts.localized_multiplicity_proof_targets import LOCALIZED_MULTIPLICITY_THEOREMS
 from scripts.metaplectic_base_proof_targets import METAPLECTIC_BASE_THEOREMS
 from scripts.minimal_carrier_proof_targets import MINIMAL_CARRIER_THEOREMS
 from scripts.multiplicity_carrier_proof_targets import MULTIPLICITY_CARRIER_THEOREMS
@@ -51,6 +52,7 @@ METAPLECTIC_THEOREMS: tuple[str, ...] = tuple(
         + FINITE_REAL_PACKET_THEOREMS
         + NEAR_IDENTITY_PANEL_THEOREMS
         + PHASE_MULTIPLICITY_THEOREMS
+        + LOCALIZED_MULTIPLICITY_THEOREMS
         + SCALAR_ERASURE_COST_THEOREMS
         + SINGLE_REAL_ZETA_THEOREMS
     )

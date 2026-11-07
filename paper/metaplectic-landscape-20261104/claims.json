@@ -2712,6 +2712,81 @@
         "PrimeFactorOscillations.xi_distinct_finite_count_le",
         "PrimeFactorOscillations.xi_distinct_finite_count_one_twentieth"
       ]
+    },
+    {
+      "id": "LPM-K",
+      "status": "kernel_checked_localized_multiplicity",
+      "claim": "The compensated reflected kernel has its exact rational numerator, is nonnegative on abs(x)<r<R with 2*x^2<=r^2, has the sharp infinitesimal threshold, and is minimized at x=0 along the target ordinate.",
+      "declarations": [
+        "Complex.pairedResolventDen",
+        "Complex.pairedResolventMean",
+        "Complex.pairedResolventGram",
+        "Complex.pairedResolventDifference",
+        "Complex.pairedResolventDen_pos",
+        "Complex.pairedResolventMean_formula",
+        "Complex.pairedResolventGram_nonneg",
+        "Complex.pairedResolventGram_sharp",
+        "Complex.pairedResolventDifference_formula",
+        "Complex.pairedResolventDifference_nonneg",
+        "Complex.pairedResolventDifference_center",
+        "Complex.pairedResolventDifference_center_pos",
+        "Complex.pairedResolventDifference_same_height_min"
+      ]
+    },
+    {
+      "id": "LPM-T",
+      "status": "kernel_checked_localized_multiplicity",
+      "claim": "The actual xi functional equation and common Hadamard polynomial give the complete absolutely convergent reflected trace and its two-line compensation, retaining all reciprocal cancellations and finite multiplicity-index mass.",
+      "declarations": [
+        "PrimeFactorOscillations.xiResolventPoint",
+        "PrimeFactorOscillations.xiPairedLogTrace",
+        "PrimeFactorOscillations.xi_genus_summable_of_distance",
+        "PrimeFactorOscillations.xi_point_genus_summable",
+        "PrimeFactorOscillations.xi_logDeriv_one_sub",
+        "PrimeFactorOscillations.xi_logDeriv_sub_eq_tsum",
+        "PrimeFactorOscillations.xiResolventPoint_away",
+        "PrimeFactorOscillations.xiResolventPoint_reflection",
+        "PrimeFactorOscillations.xiResolvent_real_difference",
+        "PrimeFactorOscillations.xi_paired_resolvent_summable",
+        "PrimeFactorOscillations.xi_paired_resolvent_trace",
+        "PrimeFactorOscillations.xi_compensated_resolvent_summable",
+        "PrimeFactorOscillations.xi_compensated_resolvent_trace",
+        "PrimeFactorOscillations.xi_compensated_resolvent_finite_mass"
+      ]
+    },
+    {
+      "id": "LPM-G",
+      "status": "kernel_checked_localized_multiplicity",
+      "claim": "For 1<=Re(z)<=b and abs(Im(z))>=1, Re digamma(z)<=log(abs(Im(z)))+b+6+log(3)+abs(gamma_E). The digamma difference is bounded by norm(z-w) times the convergent square sum throughout Re(z),Re(w)>=1.",
+      "declarations": [
+        "PrimeFactorOscillations.digamma_re_height_upper",
+        "PrimeFactorOscillations.digamma_lipschitz_right"
+      ]
+    },
+    {
+      "id": "LPM-E",
+      "status": "kernel_checked_localized_multiplicity",
+      "claim": "The Euler log derivative is independently bounded and uniformly Lipschitz on every Re(s)>=a>1. The exact shifted-gamma identity yields Re xi'/xi(s)<=one-half log(abs(Im(s)))+C on fixed right strips and a uniform horizontal Lipschitz bound.",
+      "declarations": [
+        "PrimeFactorOscillations.zetaEulerLogDeriv",
+        "PrimeFactorOscillations.zetaEulerLogDeriv_differentiable",
+        "PrimeFactorOscillations.zetaEulerLogDeriv_uniform_bound",
+        "PrimeFactorOscillations.zetaEulerLogDeriv_uniform_lipschitz",
+        "PrimeFactorOscillations.xi_logDeriv_euler_gamma",
+        "PrimeFactorOscillations.xi_logDeriv_height_upper",
+        "PrimeFactorOscillations.xi_logDeriv_uniform_lipschitz"
+      ]
+    },
+    {
+      "id": "LPM-M",
+      "status": "kernel_checked_localized_multiplicity",
+      "claim": "Using the installed unconditional7/8 strip, there exists C>0 such that every w with 0<Re(w)<1 and abs(Im(w))>=2 has analytic zeta multiplicity at most (3*sqrt(2)/32)*log(abs(Im(w)))+C. The proof charges the entire zero fiber to the positive compensated trace and takes the R-down-to-r limit after cancelling R-r. The additive constant is existential; no simplicity or improved zero-free boundary is claimed.",
+      "declarations": [
+        "PrimeFactorOscillations.xi_compensated_qrh_strip",
+        "PrimeFactorOscillations.zeta_multiplicity_le_compensated_xi_trace",
+        "PrimeFactorOscillations.zeta_multiplicity_log_bound_of_strip_radius",
+        "PrimeFactorOscillations.zeta_multiplicity_seven_eighths_log_bound"
+      ]
     }
   ],
   "novelty": "Priority for the combined explicit formulas has not been established; source classification and Gauss identities are classical."
