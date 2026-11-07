@@ -6359,6 +6359,181 @@ The numerical simplicity window and the \(7/8\) boundary remain
 unchanged, and no actual realization of any particular slack
 configuration is asserted.
 
+\subsection{The sharp signed stability coefficient}
+\label{sec:sharp-parity-stability}
+
+The preceding finite-mass inequality can be strengthened without changing
+its linear term or discarding either compensation term.  Write
+\[
+ d=\delta=1-\frac{\sqrt2}{2},\qquad A=1-2d,\qquad
+ C=2(1-d)=\sqrt2,\qquad
+ \Gamma=1-3d=\frac{3\sqrt2-4}{2}.
+\]
+Thus \(A,C,\Gamma>0\), \(A^2=C\Gamma\), and
+\[
+ \Gamma=2C(d-\tfrac14)=2\sqrt2(d-\tfrac14).
+\]
+The new quadratic coefficient is approximately \(0.12132034\);
+the preceding coefficient was approximately \(0.04289322\).
+The linear coefficient remains \(d\).
+
+\paragraph{Theorem (sharp real-weight compensated stability).}
+Let \(S\) be finite, and let \(a_i,y_i\ge0\), for \(i\in S\), satisfy
+\[
+ M=\sum_{i\in S}a_i y_i
+   =\sum_{i\in S}a_i y_i^2>0.
+\]
+Define
+\[
+ K=\sum_{i\in S}a_i{\bf1}_{y_i\ge d},\qquad
+ D=M-K,\qquad E=\sum_{i\in S}a_i y_i(y_i-1)^2.
+\]
+Then
+\begin{equation}\label{eq:sharp-compensated-stability}
+ E\ge d|D|+\Gamma\,\frac{D^2}{M}.
+\end{equation}
+The coefficient \(\Gamma\) cannot be increased over this class of
+nonnegative real weights.
+
+\paragraph{Proof of the bound.}
+Put \(v(y)=2y-y^2-{\bf1}_{y\ge d}\), \(h(y)=y(y-1)\), and, for
+\(\sigma\in\{1,-1\}\), put
+\[
+ R_\sigma(y)=y(y-1)^2-\sigma d\,v(y),\qquad
+ k_\sigma(y)=h(y)+\sigma A\,v(y).
+\]
+The full compensated residual is nonnegative.  For \(y\ge d\),
+\[
+ R_+(y)=(y+d)(y-1)^2,\qquad
+ R_-(y)=(y-d)(y-1)^2.
+\]
+For \(0\le y<d\),
+\[
+ R_+(y)=y(d-y)(C-y),\qquad
+ R_-(y)=y(y-1)^2+d\,y(2-y),
+\]
+which are also nonnegative.
+
+The key extra sign is \(k_\sigma(y)\le0\) for \(0\le y\le1\).
+Indeed, below \(d\) the two transports are
+\[
+ k_+(y)=2dy(y-d),\qquad
+ k_-(y)=y(Cy+4d-3).
+\]
+Here \(Cd=A\), so \(Cy+4d-3\le2d-2<0\).
+On \(d\le y\le1\), they are
+\[
+ k_+(y)=(2dy+A)(y-1),\qquad
+ k_-(y)=C(y-d)(y-1),
+\]
+and both are nonpositive.
+
+For \(y\ge1\) the sharper squared estimate is
+\begin{equation}\label{eq:sharp-transport-square}
+ k_\sigma(y)^2\le Cy^2R_\sigma(y).
+\end{equation}
+For the positive sign, \(0\le2dy+A\le y\) and \(C(y+d)\ge1\),
+so the displayed factorization proves the estimate.
+For the negative sign its difference factors as
+\[
+ Cy^2R_-(y)-k_-(y)^2
+   =C(y-d)(y-1)^3(y-A)\ge0.
+\]
+Consequently, for every \(u\ge0\) and \(y\ge0\),
+\begin{equation}\label{eq:sharp-one-sided-packet}
+ R_\sigma(y)-u k_\sigma(y)+\frac C4y^2u^2\ge0.
+\end{equation}
+For \(y\le1\), each retained term is nonnegative.
+For \(y>1\), multiply by \(Cy^2>0\) and use the exact identity
+\[
+ Cy^2\left(R_\sigma-u k_\sigma+\frac C4y^2u^2\right)
+ =\left(\frac C2y^2u-k_\sigma\right)^2
+   +Cy^2R_\sigma-k_\sigma^2.
+\]
+This preserves the signed transport rather than bounding its magnitude
+on the entire domain.
+
+The moment constraint gives
+\[
+ \sum_{i\in S}a_i h(y_i)=0,\qquad
+ \sum_{i\in S}a_i v(y_i)=D.
+\]
+Summing the complete packet~\eqref{eq:sharp-one-sided-packet} therefore yields
+\[
+ 0\le\frac C4 M u^2-u\sigma A D+E-\sigma dD.
+\]
+Choose \(\sigma D=|D|\) and \(u=2A|D|/(CM)\ge0\).
+The resulting inequality is
+\[
+ E\ge d|D|+\frac{A^2}{C}\frac{D^2}{M}
+       =d|D|+\Gamma\frac{D^2}{M},
+\]
+as required.
+
+\paragraph{Proof of sharpness.}
+For any \(z>1\), take two coordinates \(d,z\) with respective weights
+\[
+ w=\frac{2z(z-1)}A,\qquad1.
+\]
+Both weights are positive and both coordinates belong to the threshold
+set.  The moment relation follows from \(2d(1-d)=A\):
+\[
+ wd^2+z^2=wd+z=M.
+\]
+For this model,
+\[
+ M=z(Cz-A),\qquad
+ D=-(z-1)((C+2)z-1)<0,\qquad
+ E-d|D|=(z-d)(z-1)^2.
+\]
+The identities \(Cd=A\), \(Ad=\Gamma\),
+\(\Gamma(C+2)=A\), and \(A(C+2)=C\) imply
+\[
+ (Cz-A)(z-d)=\Gamma((C+2)z-1)^2.
+\]
+Hence the exact excess ratio is
+\[
+ \frac{M(E-d|D|)}{D^2}=\Gamma z.
+\]
+Given \(c>\Gamma\), choose \(z=(1+c/\Gamma)/2\).
+Then \(1<z<c/\Gamma\), so this profile violates the bound with
+\(c\) in place of \(\Gamma\).  This proves real-weight sharpness.
+It does not assert sharpness for integer multiplicities or actual zeros.
+
+\paragraph{The actual signed consumer.}
+Retain the preceding actual-cluster hypotheses, including the same-height
+reflection condition and \(M_1>0\), and put
+\(t=Q/M_1\), \(\kappa=M_1^2/Q\), and \(d_0=|\kappa-K_\delta|\).
+Rescale \(y_w=(\Re w-\tfrac12)^2/t\), with weights equal to the
+actual analytic orders.  The exact second-moment relation holds.
+Applying~\eqref{eq:sharp-compensated-stability}, multiplying by
+\(\tau t^3\), retaining the full signed kernel charge, and using the
+installed height budget gives
+\begin{equation}\label{eq:actual-sharp-parity-stability}
+ \mathcal B_2+\tau t^3
+   \left(\delta d_0+\Gamma\frac{d_0^2}{\kappa}\right)
+ \le gB(T),\qquad K_\delta\in2\mathbb N.
+\end{equation}
+Compared with the preceding stability consumer, its additional retained
+charge is exactly
+\[
+ \tau t^3\bigl(\Gamma-(\delta-\tfrac14)\bigr)\frac{d_0^2}{\kappa}
+ \ge0,
+\]
+and is positive when \(d_0>0\).  The full-kernel linear inequality remains
+available as an additional constraint.
+The new scalar, weighted, sharpness and actual-cluster assertions are
+proved in the maintained Lean modules
+\texttt{SharpCompensatedParityStability} and
+\texttt{CarmichaelSharpParityStability}.
+This is a specialized sharp moment inequality within the general
+\href{https://epubs.siam.org/doi/10.1137/S1052623401399903}
+{moment-optimization framework of Bertsimas and Popescu}.
+It does not provide an independent global small-value-area estimate,
+extend the certified numerical simplicity window, or improve the
+installed \(7/8\) boundary.  Central clusters with \(M_1=0\) remain
+outside this consumer.
+
 \subsection{Signed two-dimensional control of a zero cluster}
 \label{sec:cluster-multiplicity}
 

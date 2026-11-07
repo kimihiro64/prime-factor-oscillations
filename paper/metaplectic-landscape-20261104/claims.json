@@ -3780,6 +3780,63 @@
       "declarations": [
         "PrimeFactorOscillations.zeta_parity_inverse_effective_recovery"
       ]
+    },
+    {
+      "id": "SS-CERT",
+      "status": "compiled_signed_second_moment_certificate",
+      "claim": "For nonnegative u the full compensated packet is nonnegative with carrier C*y^2/4, where C=2*(1-delta). The transport sign on0<=y<=1 is retained.",
+      "declarations": [
+        "PrimeFactorOscillations.sharpParityCarrier_pos",
+        "PrimeFactorOscillations.sharpParityCoefficient_pos",
+        "PrimeFactorOscillations.sharpParityCoefficient_identity",
+        "PrimeFactorOscillations.compensatedParityTransport_nonpos_below_one",
+        "PrimeFactorOscillations.compensatedParity_positive_second_moment",
+        "PrimeFactorOscillations.compensatedParity_negative_second_moment",
+        "PrimeFactorOscillations.compensatedParity_one_sided_quadratic"
+      ]
+    },
+    {
+      "id": "SS-MOMENT",
+      "status": "compiled_sharper_complete_moment_bound",
+      "claim": "Every finite nonnegative real-weight equal-moment profile with M>0 satisfies E>=delta*abs(D)+(1-3*delta)*D^2/M, with scaled and full signed kernel-charge consumers.",
+      "declarations": [
+        "PrimeFactorOscillations.finiteWeightedParity_one_sided_quadratic",
+        "PrimeFactorOscillations.finiteWeightedParity_sharp_stability",
+        "PrimeFactorOscillations.finiteWeightedParity_sharp_stability_scaled",
+        "PrimeFactorOscillations.threeLineWeightedSharpParityStability_charge"
+      ]
+    },
+    {
+      "id": "SS-GAIN",
+      "status": "compiled_strict_coefficient_gain",
+      "claim": "The sharp quadratic coefficient exceeds delta-1/4 and equals2*C*(delta-1/4), an exact factor2*sqrt(2). The linear term is unchanged.",
+      "declarations": [
+        "PrimeFactorOscillations.sharpParityCoefficient_improves",
+        "PrimeFactorOscillations.sharpParityCoefficient_gain"
+      ]
+    },
+    {
+      "id": "SS-OPTIMAL",
+      "status": "compiled_real_weight_sharpness",
+      "claim": "For every coefficient c>1-3*delta a two-atom nonnegative real-weight profile at delta and z>1 satisfies the moment equation and violates the proposed c bound. No integer-weight or actual-zero sharpness is asserted.",
+      "declarations": [
+        "PrimeFactorOscillations.sharpParityModelWeight_pos",
+        "PrimeFactorOscillations.sharpParityModel_moment",
+        "PrimeFactorOscillations.sharpParityModel_mass_formula",
+        "PrimeFactorOscillations.sharpParityModel_discrepancy_formula",
+        "PrimeFactorOscillations.sharpParityModel_discrepancy_neg",
+        "PrimeFactorOscillations.sharpParityModel_energy_formula",
+        "PrimeFactorOscillations.sharpParityModel_exact_ratio",
+        "PrimeFactorOscillations.sharpParityCoefficient_optimal"
+      ]
+    },
+    {
+      "id": "SS-ACTUAL",
+      "status": "compiled_actual_signed_zero_cluster_bound",
+      "claim": "For every finite same-height reflection-closed actual strip zero cluster with abs(T)>=2, positive multiplicity mass and positive horizontal moment, the full signed charge bound holds with sharpParityStabilityCost and the actual threshold order remains even. No global simplicity, larger numerical simplicity window or7/8 gain is claimed.",
+      "declarations": [
+        "PrimeFactorOscillations.zeta_finite_sharp_parity_stability_bound"
+      ]
     }
   ],
   "novelty": "Priority for the combined explicit formulas has not been established; source classification and Gauss identities are classical."

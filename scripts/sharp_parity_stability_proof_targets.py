@@ -1,0 +1,26 @@
+"""Proof-audit targets for sharp compensated parity stability."""
+
+SHARP_PARITY_STABILITY_THEOREMS: tuple[str, ...] = (
+    "PrimeFactorOscillations.compensatedParityTransport_nonpos_below_one",
+    "PrimeFactorOscillations.compensatedParity_negative_second_moment",
+    "PrimeFactorOscillations.compensatedParity_one_sided_quadratic",
+    "PrimeFactorOscillations.compensatedParity_positive_second_moment",
+    "PrimeFactorOscillations.finiteWeightedParity_one_sided_quadratic",
+    "PrimeFactorOscillations.finiteWeightedParity_sharp_stability",
+    "PrimeFactorOscillations.finiteWeightedParity_sharp_stability_scaled",
+    "PrimeFactorOscillations.sharpParityCarrier_pos",
+    "PrimeFactorOscillations.sharpParityCoefficient_gain",
+    "PrimeFactorOscillations.sharpParityCoefficient_identity",
+    "PrimeFactorOscillations.sharpParityCoefficient_improves",
+    "PrimeFactorOscillations.sharpParityCoefficient_optimal",
+    "PrimeFactorOscillations.sharpParityCoefficient_pos",
+    "PrimeFactorOscillations.sharpParityModelWeight_pos",
+    "PrimeFactorOscillations.sharpParityModel_discrepancy_formula",
+    "PrimeFactorOscillations.sharpParityModel_discrepancy_neg",
+    "PrimeFactorOscillations.sharpParityModel_energy_formula",
+    "PrimeFactorOscillations.sharpParityModel_exact_ratio",
+    "PrimeFactorOscillations.sharpParityModel_mass_formula",
+    "PrimeFactorOscillations.sharpParityModel_moment",
+    "PrimeFactorOscillations.threeLineWeightedSharpParityStability_charge",
+    "PrimeFactorOscillations.zeta_finite_sharp_parity_stability_bound",
+)
