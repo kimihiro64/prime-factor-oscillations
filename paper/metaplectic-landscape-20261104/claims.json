@@ -3349,6 +3349,89 @@
         "PrimeFactorOscillations.zeta_odd_horizontal_cubic_inverse",
         "PrimeFactorOscillations.zeta_odd_horizontal_cubic_slack_strict"
       ]
+    },
+    {
+      "id": "MR-ROUND",
+      "status": "compiled_weighted_variance_and_rounding_energy",
+      "claim": "For finite nonnegative weights with positive total mass and y>=0, threshold rounding b(y)=1 when y>=1/2 gives (sum a*y-sum a*b)^2<=2*(sum a)*sum a*y*(y-1)^2. Its dimensional rescaling to x/t is exact. The weighted variance expansion retains all cross terms.",
+      "declarations": [
+        "PrimeFactorOscillations.finiteWeightedVariance_expansion",
+        "PrimeFactorOscillations.finiteWeightedVariance_nonneg",
+        "PrimeFactorOscillations.finiteWeightedSquareSum_le",
+        "PrimeFactorOscillations.halfRoundIndicator_square_error",
+        "PrimeFactorOscillations.finiteWeightedRound_deviation",
+        "PrimeFactorOscillations.finiteWeighted_div_sum",
+        "PrimeFactorOscillations.finiteWeighted_rescale_energy",
+        "PrimeFactorOscillations.finiteWeightedRound_scaled"
+      ]
+    },
+    {
+      "id": "MR-SIGNED",
+      "status": "compiled_signed_size_biased_profile_and_curvature",
+      "claim": "On0<=x,z<=1/4, Phi(x)=g+x*F(x) and the exact F tangent remainder H1(x,z)*(x-z)^2 has H1>1. The negative second pole is retained; its denominator is compared jointly with the first, using d1<=d2<=a2^7<c1+c2.",
+      "declarations": [
+        "PrimeFactorOscillations.threeLineMomentRatio_denominators_pos",
+        "PrimeFactorOscillations.threeLineSizeBiased_one_identity",
+        "PrimeFactorOscillations.threeLineSizeBiased_identity",
+        "PrimeFactorOscillations.threeLineSizeBiased_one_tangent",
+        "PrimeFactorOscillations.threeLineSizeBiased_tangent_identity",
+        "PrimeFactorOscillations.threeLineSizeBiasedRemainder_gt_one",
+        "PrimeFactorOscillations.threeLineSizeBiased_strong_tangent"
+      ]
+    },
+    {
+      "id": "MR-JOINT",
+      "status": "compiled_joint_weighted_minimum_equality_and_rounding_consumer",
+      "claim": "For finite nonnegative weights on0<=x<=1/4 centered at t=Q/M, the full kernel cost is at least N*g+M*F(t)+sum a*x*(x-t)^2. Equality in the continuous baseline is equivalent to all positive-weight displaced coordinates equaling t. Positive N,M imply Q>0 and0<t<=1/4. The complete finite rounding penalty is bounded by twice the total mass times the full kernel slack.",
+      "declarations": [
+        "PrimeFactorOscillations.finiteWeightedTangentLedger",
+        "PrimeFactorOscillations.threeLineMomentRatio_phi_ledger",
+        "PrimeFactorOscillations.threeLineMomentRatio_energy_nonneg",
+        "PrimeFactorOscillations.threeLineMomentRatio_weighted_charge",
+        "PrimeFactorOscillations.threeLineMomentRatio_mean_bounds",
+        "PrimeFactorOscillations.threeLineMomentRatio_equality_iff",
+        "PrimeFactorOscillations.threeLineMomentRatio_rounding_charge"
+      ]
+    },
+    {
+      "id": "MR-SHARP",
+      "status": "compiled_two_atom_sharpness_and_complete_residual_comparison",
+      "claim": "For M,Q>0, M^2<=NQ and Q<=M/4, atoms of weights N-M^2/Q at0 and M^2/Q at Q/M realize the moments and attain the continuous baseline exactly. For L>0,M>0,M^2<=LQ,Q/M<=9/64, that baseline dominates sigma*Q+(N-L)*g+L*Psi(M/L), strictly if M^2<LQ, retaining every old signed term. The exact size-biased cubic identity supplies the comparison.",
+      "declarations": [
+        "PrimeFactorOscillations.threeLineSizeBiased_cubic_identity",
+        "PrimeFactorOscillations.threeLineMomentRatio_two_atom_model",
+        "PrimeFactorOscillations.threeLineMomentRatio_residual_comparison"
+      ]
+    },
+    {
+      "id": "MR-ACTUAL",
+      "status": "compiled_actual_even_count_full_bound_and_odd_effective_gap",
+      "claim": "For reflection-closed finite critical-strip W at a common abs(height)>=2 with positive actual mass N and second horizontal moment M, define Q,t=Q/M,kappa=M^2/Q and the actual order K over the inclusive threshold x/t>=1/2. Q>0 and K is an even natural number. The full continuous baseline plus its positive energy is at most g*B(height), and t^3*(kappa-K)^2<=2N*(g*B-baseline). An odd integer kappa forces t^3<=2N*(g*B-baseline). The complete finite profile trace adapter and exact natural-to-real threshold transfer are implemented.",
+      "declarations": [
+        "PrimeFactorOscillations.zetaFiniteHorizontalFourthMoment_nested",
+        "PrimeFactorOscillations.zeta_horizontal_square_bounds",
+        "PrimeFactorOscillations.zetaFiniteHorizontalMomentRatio_bounds",
+        "PrimeFactorOscillations.zetaHorizontalThresholdSet_mem",
+        "PrimeFactorOscillations.zetaHorizontalThresholdOrder_cast",
+        "PrimeFactorOscillations.zetaHorizontalThresholdSet_reflection",
+        "PrimeFactorOscillations.zetaHorizontalThresholdOrder_parity",
+        "PrimeFactorOscillations.zeta_finite_horizontal_profile_upper",
+        "PrimeFactorOscillations.zeta_finite_moment_ratio_even_bound",
+        "PrimeFactorOscillations.zeta_moment_ratio_odd_effective_gap"
+      ]
+    },
+    {
+      "id": "MR-GEOMETRY",
+      "status": "compiled_actual_comparisons_and_even_integer_equality",
+      "claim": "Actual moments satisfy M^2<=NQ and Q/M<=9/64. For odd N>1, removing one actual central canonical copy gives M^2<=(N-1)Q. Hence the new baseline dominates both the complete earlier nonlinear-plus-quartic charge and its full odd-parity refinement, with the precise strict-variance conditions. Equality of the finite kernel sum with the new baseline forces kappa to equal the even natural threshold order K. The global logarithmic coefficient, simplicity window and7/8 boundary are unchanged.",
+      "declarations": [
+        "PrimeFactorOscillations.zetaFiniteHorizontalMoments_feasible",
+        "PrimeFactorOscillations.zetaFiniteHorizontalMomentRatio_strip",
+        "PrimeFactorOscillations.zeta_odd_horizontal_moments_feasible",
+        "PrimeFactorOscillations.zeta_moment_ratio_dominates_full",
+        "PrimeFactorOscillations.zeta_moment_ratio_dominates_odd",
+        "PrimeFactorOscillations.zeta_moment_ratio_equality_quantized"
+      ]
     }
   ],
   "novelty": "Priority for the combined explicit formulas has not been established; source classification and Gauss identities are classical."

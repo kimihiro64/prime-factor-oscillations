@@ -14,6 +14,7 @@ from scripts.horizontal_multiplicity_proof_targets import HORIZONTAL_MULTIPLICIT
 from scripts.localized_multiplicity_proof_targets import LOCALIZED_MULTIPLICITY_THEOREMS
 from scripts.metaplectic_base_proof_targets import METAPLECTIC_BASE_THEOREMS
 from scripts.minimal_carrier_proof_targets import MINIMAL_CARRIER_THEOREMS
+from scripts.moment_ratio_proof_targets import MOMENT_RATIO_THEOREMS
 from scripts.multiplicity_carrier_proof_targets import MULTIPLICITY_CARRIER_THEOREMS
 from scripts.multiplicity_lattice_proof_targets import MULTIPLICITY_LATTICE_THEOREMS
 from scripts.multiplicity_support_proof_targets import MULTIPLICITY_SUPPORT_THEOREMS
@@ -73,6 +74,7 @@ METAPLECTIC_THEOREMS: tuple[str, ...] = tuple(
         + NONLINEAR_HORIZONTAL_THEOREMS
         + PARITY_GEOMETRY_THEOREMS
         + PARITY_CUBIC_THEOREMS
+        + MOMENT_RATIO_THEOREMS
         + SCALAR_ERASURE_COST_THEOREMS
         + SINGLE_REAL_ZETA_THEOREMS
     )

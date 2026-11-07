@@ -5121,6 +5121,211 @@ separate central-copy theorem, without division by \(N-1\).
 The global logarithmic coefficient, certified numerical simplicity
 window and seven-eighths boundary are unchanged.
 
+\subsection{A two-moment minimum and an even-multiplicity gap}
+\label{sec:moment-ratio-lattice}
+
+The fourth horizontal moment can be used jointly with the second, rather
+than only as an additive correction.  The underlying moment-optimization
+principle is classical; see, for general moment methods,
+\href{https://www.mit.edu/~dbertsim/papers/MomentProblems/Optimal-inequalities-in-probability-theory-A-convex-optimization-approach-SIAM15.pdf}
+{Bertsimas and Popescu's convex-optimization framework}.
+Here the conclusion is an explicit minimum for the fixed signed
+three-line kernel, together with a quantitative restriction coming from
+actual integer multiplicities and same-height reflection.
+
+Define the size-biased profile
+\[
+ F(x)=\sum_{j=1}^3\frac{c_j}{a_j(a_j^2-x)},\qquad
+ \Phi(x)=g+xF(x).
+\]
+The second identity is exact.  All denominators are positive on
+\([0,1/4]\), since \(a_1=0.5001>1/2\).
+For a finite common-height critical-strip set \(W\), retain the actual
+orders \(m(w)\), put \(x_w=(\Re w-1/2)^2\), and write
+\[
+ N=\sum_{w\in W}m(w),\quad
+ M=\sum_{w\in W}m(w)x_w,\quad
+ Q=\sum_{w\in W}m(w)x_w^2.
+\]
+Suppose \(N>0\) and \(M>0\).  Then \(Q>0\), so the ratios
+\[
+ t=\frac QM,\qquad \kappa=\frac{M^2}{Q}=\frac Mt
+\]
+are well defined and positive.  The unconditional canonical strip bound
+gives \(t\le9/64\); the generic moment inequality below needs only
+\(t\le1/4\).  Define
+\begin{align}
+ \mathcal B_2(N,M,Q)
+   &=Ng+MF(t)=Ng+\kappa\bigl(\Phi(t)-g\bigr),
+       \label{eq:moment-ratio-base}\\
+ \mathcal E_W&=\sum_{w\in W}m(w)x_w(x_w-t)^2,\qquad
+ K=\sum_{\substack{w\in W\\1/2\le x_w/t}}m(w).
+       \label{eq:moment-ratio-threshold}
+\end{align}
+The threshold is inclusive, and \(K\) counts total order, not distinct
+points.
+
+\paragraph{Theorem (joint moment bound and even-mass gap).}
+Let \(|T|\ge2\), suppose every point of \(W\) has ordinate \(T\),
+and suppose \(W\) is closed under \(w\mapsto1-\overline w\).  Then
+\begin{equation}\label{eq:moment-ratio-strong-bound}
+ \mathcal B_2(N,M,Q)+\mathcal E_W\le gB(T).
+\end{equation}
+The integer \(K\) is even, and
+\begin{equation}\label{eq:moment-ratio-lattice-cross}
+ t^3(\kappa-K)^2\le2N\mathcal E_W
+ \le2N\bigl(gB(T)-\mathcal B_2(N,M,Q)\bigr).
+\end{equation}
+In particular, if \(\kappa\) is an odd integer,
+\begin{equation}\label{eq:moment-ratio-odd-gap}
+ \mathcal B_2(N,M,Q)+\frac{t^3}{2N}\le gB(T).
+\end{equation}
+All denominators in these normalized statements are positive.
+The coefficient of the rounding penalty is a certified positive value;
+we assert no optimality for that coefficient.
+
+For nonnegative real weights, the continuous two-moment minimum is
+exactly \(\mathcal B_2\).  Equality in
+\(\sum_{w\in W}m(w)\Phi(x_w)\ge\mathcal B_2\) requires every
+positive-weight displaced coordinate to equal \(t\); zero coordinates
+are allowed.  For actual reflection-closed zero clusters this equality
+forces \(\kappa=K\), an even natural number.  These equality assertions
+refer to the finite kernel sum, not attainment of the analytic ceiling
+\(gB(T)\).
+
+\paragraph{Proof: the signed curvature estimate.}
+The exact tangent identity for \(F\) is
+\[
+ F(x)-F(z)-F'(z)(x-z)=H_1(x,z)(x-z)^2,\qquad
+ H_1(x,z)=\sum_{j=1}^3
+ \frac{c_j}{a_j(a_j^2-x)(a_j^2-z)^2}.
+\]
+We prove \(H_1(x,z)>1\) for \(0\le x,z\le1/4\) while retaining
+the negative second-pole contribution.  Put
+\(d_j=a_j(a_j^2-x)(a_j^2-z)^2\).
+Every \(d_j\) is positive, and
+\[
+ d_1\le d_2\le a_2^7=0.0823543
+ <c_1+c_2=0.150430.
+\]
+Because \(c_1>0\),
+\[
+ c_1d_2+c_2d_1-d_1d_2
+ =(c_1+c_2-d_2)d_1+c_1(d_2-d_1)>0.
+\]
+Thus \(c_1/d_1+c_2/d_2>1\), and \(c_3/d_3>0\) proves the claim.
+Consequently
+\begin{equation}\label{eq:moment-ratio-strong-tangent}
+ F(x)\ge F(z)+F'(z)(x-z)+(x-z)^2.
+\end{equation}
+This estimates the complete signed rational expression; it does not
+replace its negative pole by an absolute-value bound.
+
+\paragraph{Proof: size bias, equality and the sharp continuous minimum.}
+The finite weighted variance identity gives
+\[
+ NQ-M^2=N\sum_{w\in W}m(w)(x_w-M/N)^2\ge0.
+\]
+Since \(M>0\) and \(N>0\), this also proves \(Q>0\).
+The elementary bound \(x_w^2\le(1/4)x_w\) yields \(t\le1/4\).
+For the sharper \(9/64\) endpoint, transport \(M,Q\) to the canonical
+multiplicity copies, apply the proved seven-eighths strip to every copy,
+and use the same pointwise inequality with \(9/64\).
+No strip assertion is required for points of order zero.
+
+The weights \(p_w=m(w)x_w/M\) form a probability law with mean
+\(\sum_{w\in W}p_wx_w=t\).
+Apply \eqref{eq:moment-ratio-strong-tangent} at \(z=t\), multiply by
+\(m(w)x_w\), and sum.  All linear compensation terms cancel exactly:
+\(\sum_{w\in W}m(w)x_w(x_w-t)=Q-tM=0\).
+Using \(\Phi(x)=g+xF(x)\), we obtain
+\[
+ \sum_{w\in W}m(w)\Phi(x_w)
+ \ge Ng+MF(t)+\mathcal E_W.
+\]
+The complete finite-profile trace bound is
+\(\sum_{w\in W}m(w)\Phi(x_w)\le gB(T)\), proving
+\eqref{eq:moment-ratio-strong-bound}.
+
+If the finite kernel sum equals \(\mathcal B_2\), the nonnegative
+energy must vanish.  Every term with \(m(w)>0\) and \(x_w>0\)
+then has \(x_w=t\).  Conversely, that support condition gives equality
+by the exact profile identity.  For arbitrary real moment data with
+\(M,Q>0\), \(M^2\le NQ\), and \(Q\le M/4\), take the two atoms
+\[
+ (x,\text{weight})=(0,N-\kappa),\qquad(t,\kappa).
+\]
+Their weights are nonnegative, and their mass, first moment and second
+moment are respectively \(N,M,Q\), since
+\(\kappa t=M\) and \(\kappa t^2=Q\).
+Their kernel cost is exactly \(\mathcal B_2\).  This proves sharpness
+of the continuous minimum and describes its complete equality support.
+Actual integer multiplicities impose the additional restriction below.
+
+\paragraph{Proof: the rounding energy and parity.}
+Put \(y_w=x_w/t\), and let \(b(y)=1\) for \(y\ge1/2\), and
+\(b(y)=0\) otherwise.  For every \(y\ge0\),
+\[
+ (y-b(y))^2\le2y(y-1)^2.
+\]
+For \(y\ge1/2\), the difference is
+\((2y-1)(y-1)^2\ge0\); for \(y<1/2\), it is
+\(y(1-2y)(2-y)\ge0\).
+Write \(\delta_w=y_w-b(y_w)\) and
+\(\bar\delta=N^{-1}\sum_{w\in W}m(w)\delta_w\).
+The full weighted variance identity retains every cross term:
+\[
+ N\sum_{w\in W}m(w)\delta_w^2
+ -\left(\sum_{w\in W}m(w)\delta_w\right)^2
+ =N\sum_{w\in W}m(w)(\delta_w-\bar\delta)^2\ge0.
+\]
+Now \(\sum_{w\in W}m(w)y_w=M/t=\kappa\),
+\(\sum_{w\in W}m(w)b(y_w)=K\), and
+\[
+ t^3\sum_{w\in W}m(w)y_w(y_w-1)^2=\mathcal E_W.
+\]
+Combining these identities with the pointwise rounding inequality proves
+\(t^3(\kappa-K)^2\le2N\mathcal E_W\).
+
+Same-height reflection preserves both \(x_w\) and actual order.
+The threshold subset is therefore reflection closed and contains no
+central point, because a central coordinate gives \(y_w=0\).
+If its total order \(K\) were odd, the already proved odd-order theorem
+would force a positive-order central point in that subset, a contradiction.
+Thus \(K\) is even, without assuming RH.  This proves
+\eqref{eq:moment-ratio-lattice-cross}.
+If \(\kappa\) is an odd integer, it differs from the even integer
+\(K\), so \((\kappa-K)^2\ge1\), yielding
+\eqref{eq:moment-ratio-odd-gap}.
+Finally, under equality in the finite continuous minimum, each
+positive-weight \(y_w\) is zero or one.  Hence \(y_w=b(y_w)\)
+for every contributing point and \(\kappa=K\).
+
+\paragraph{Comparison with the complete earlier charges.}
+This joint estimate retains the preceding nonlinear, quartic and parity
+information.  Let \(L>0\), \(r=M/L\), and suppose
+\(M^2\le LQ\), \(t=Q/M\le9/64\).
+Then \(0<r\le t\le9/64\).  The cubic tail from the previous subsection
+satisfies \(R(r)\ge\tau>0\) and \(R(t)\ge R(r)\).
+Using \(F(t)=\ell+\sigma t+t^2R(t)\) and
+\(\Psi(r)=g+\ell r+r^3R(r)\), the exact difference is
+\begin{align*}
+ \mathcal B_2-&\bigl[\sigma Q+(N-L)g+L\Psi(M/L)\bigr]\\
+ &=M\bigl[(t^2-r^2)R(r)+t^2(R(t)-R(r))\bigr]\ge0.
+\end{align*}
+It is strictly positive if \(M^2<LQ\).
+Taking \(L=N\) proves domination of the full earlier charge
+\(N\Phi(M/N)+\sigma V_W\).
+For odd \(N>1\), remove the compulsory central canonical copy.
+Its second and fourth moments are zero, and the weighted variance identity
+on the remaining \(N-1\) copies gives \(M^2\le(N-1)Q\).
+Taking \(L=N-1\) therefore proves domination of the entire odd-parity
+charge \(\sigma Q+g+(N-1)\Psi(M/(N-1))\), with the stated strictness.
+Every old signed term is retained in these comparisons.
+The case \(M=0\) remains the central configuration and is outside the
+ratio definitions used here.  The global logarithmic coefficient,
+certified simplicity window and seven-eighths boundary are unchanged.
+
 \subsection{Signed two-dimensional control of a zero cluster}
 \label{sec:cluster-multiplicity}
 
