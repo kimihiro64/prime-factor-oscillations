@@ -1,0 +1,28 @@
+"""Proof targets for exact lattice sharpness and strict nonlinear charges."""
+
+NONLINEAR_INTEGER_SHARPNESS_THEOREMS: tuple[str, ...] = (
+    "PrimeFactorOscillations.finiteWeightedThreshold_nonlinear_scaled_strict",
+    "PrimeFactorOscillations.finiteWeightedThreshold_nonlinear_strict",
+    "PrimeFactorOscillations.finiteWeightedThreshold_positive_strict",
+    "PrimeFactorOscillations.threeLineWeightedNonlinearThreshold_strict",
+    "PrimeFactorOscillations.thresholdBandMass_even_weights",
+    "PrimeFactorOscillations.thresholdEvenApproximable_iff_lattice",
+    "PrimeFactorOscillations.thresholdEvenApproximable_lattice",
+    "PrimeFactorOscillations.thresholdEvenApproximable_of_lattice",
+    "PrimeFactorOscillations.thresholdEven_integer_lower",
+    "PrimeFactorOscillations.thresholdLatticeDisc_zero",
+    "PrimeFactorOscillations.thresholdLatticeEnergy_zero",
+    "PrimeFactorOscillations.thresholdLatticeHigh_zero",
+    "PrimeFactorOscillations.thresholdLatticeResidual_nonneg",
+    "PrimeFactorOscillations.thresholdLatticeResidual_quadratic",
+    "PrimeFactorOscillations.thresholdLatticeResidual_zero",
+    "PrimeFactorOscillations.thresholdLattice_first_moment",
+    "PrimeFactorOscillations.thresholdLattice_perturbation",
+    "PrimeFactorOscillations.thresholdLattice_second_moment",
+    "PrimeFactorOscillations.thresholdPositivePacket_zero_coordinate",
+    "PrimeFactorOscillations.thresholdThree_admissible",
+    "PrimeFactorOscillations.thresholdThree_energy",
+    "PrimeFactorOscillations.thresholdThree_sum",
+    "PrimeFactorOscillations.zeta_finite_nonlinear_threshold_strict",
+    "PrimeFactorOscillations.zeta_nonlinear_threshold_strict_gain",
+)

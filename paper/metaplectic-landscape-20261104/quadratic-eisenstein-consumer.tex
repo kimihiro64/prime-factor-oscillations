@@ -7540,6 +7540,152 @@ still have \(M_1=0\) and lie outside this normalization; this result does
 not discharge the independent area estimate in the global simplicity
 criterion.
 
+\subsection{Exactly when even integral weights preserve the nonlinear infimum}
+\label{sec:nonlinear-integer-sharpness}
+
+The arithmetic penalty raises a further question: exactly when can even
+integral profiles still approach the continuous nonlinear cost?  Its answer
+is a lattice condition, with an explicit converse construction preserving
+both moments and the selected order.  This determines where the gap is zero;
+it does not assert an exact formula for the optimal positive gap elsewhere.
+
+\paragraph{Theorem (complete lattice sharpness classification).}
+Fix \(0<d<1\), an integer \(k>0\), and \(M\ge K=2k\).  Let \(z=z_+(d,M,K)\)
+and \(p=M-Kz\).  The following assertions are equivalent:
+\begin{enumerate}
+\item For every \(\epsilon>0\), there is a finite profile with nonnegative
+coordinates and weights in \(2\mathbb N\), whose two moments are exactly
+\(M\), selected mass is exactly \(K\), and energy is less than
+\(\mathcal F_d(M,K)+\epsilon\).
+\item \(p\in2d\mathbb N\).
+\end{enumerate}
+On the second branch, three grouped atoms with fixed even weights
+\((2m,2k,2)\) suffice, where \(p=2dm\).  Off the lattice, every admissible
+profile satisfies the positive gap already proved:
+\[
+ E\ge\mathcal F_d(M,K)+J_d(M,K)>\mathcal F_d(M,K).
+\]
+Even on the lattice, if \(K<M\) no finite nonnegative real-weight profile
+attains \(\mathcal F_d(M,K)\) exactly.  Thus approachability and attainment
+are distinct in this classification.
+
+The background includes classical convex moment optimization and
+Chebyshev-type quadrature with prescribed equal weights.
+For the latter see K.-J.~F\"orster and G.-P.~Ostermeyer,
+\emph{On Weighted Chebyshev-Type Quadrature Formulas},
+Math. Comp. 46 (1986), 591--599.
+The specific conclusion here fixes both equal moments and threshold order
+and characterizes approachability by the predicted-band lattice.  Broad
+priority for that conclusion is not claimed from the limited literature check.
+
+\paragraph{Proof of necessity.}
+For weights \(a_i=2b_i\), \(b_i\in\mathbb N\), the interior-band mass is
+\[
+ L=2\sum_{i\in S}b_i\mathbf1_{d/2\le y_i<d}\in2\mathbb N.
+\]
+The integer-corrected lower bound therefore applies to every such profile.
+If \(p\notin2d\mathbb N\), its gap satisfies \(J_d(M,K)>0\).  Taking
+\(\epsilon=J_d(M,K)/2\) contradicts approachability.  This proof is
+uniform over arbitrary finite supports and arbitrary natural weights.
+
+\paragraph{Proof of sufficiency by exact moment preservation.}
+Suppose \(p=2dm\), \(m\in\mathbb N\).  The root relation and mass identity
+become
+\begin{equation}
+ M=2(kz+md),\qquad kz(z-1)=md(1-d),\qquad z\ge1.
+ \label{eq:lattice-sharpness-constraints}
+\end{equation}
+For a small positive parameter \(e\), define
+\begin{align*}
+ u_e&=d-e,& R_e&=kz+me,& S_e&=kz^2+2mde-me^2,\\
+ D_e&=k\{(k+1)S_e-R_e^2\},&
+ w_e&=\frac{R_e-\sqrt{D_e}}{k+1},&
+ v_e&=\frac{R_e-w_e}{k}.
+\end{align*}
+Both denominators are positive.  At zero,
+\[
+ D_0=(kz)^2>0,\qquad w_0=0,\qquad v_0=z>d.
+\]
+Continuity consequently gives, for all sufficiently small positive \(e\),
+\(0<u_e<d\), \(D_e>0\), \(w_e<d\), and \(v_e>d\).
+Nonnegativity of the residual is an additional algebraic fact, rather than
+a consequence of continuity at its zero value.  Indeed,
+\begin{align*}
+ R_e^2-kS_e&=2km(z-d)e+m(m+k)e^2\ge0,\\
+ R_e^2-D_e&=(k+1)(R_e^2-kS_e)\ge0.
+\end{align*}
+Since \(R_e>0\), these imply \(\sqrt{D_e}\le R_e\), hence \(w_e\ge0\).
+The residual root satisfies the exact quadratic identity
+\[
+ (k+1)w_e^2-2R_ew_e+R_e^2-kS_e=0,
+\]
+so the high coordinate satisfies \(kv_e^2+w_e^2=S_e\).  Together with
+\eqref{eq:lattice-sharpness-constraints}, this proves both exact moments:
+\begin{align*}
+ 2mu_e+2kv_e+2w_e&=M,\\
+ 2mu_e^2+2kv_e^2+2w_e^2&=M.
+\end{align*}
+Only \(v_e\) is selected; its weight is exactly \(2k=K\).
+Let \(E_e\) be the energy of these three grouped atoms.  It is continuous
+at zero, and the exact signed identity is
+\[
+ E_0-M(1-d)(z-1)
+ =2(z+d-2)\{kz(z-1)-md(1-d)\}=0.
+\]
+Thus \(E_e\to\mathcal F_d(M,K)\).  For any prescribed \(\epsilon>0\),
+choose \(e>0\) small enough for all the coordinate, discriminant and
+energy conditions simultaneously.  The Lean construction uses a single
+continuous minimum margin for this choice, and supplies a finite profile
+with the exact required moments, threshold order and energy inequality.
+The case \(m=0\) is included; zero weights and zero coordinates are allowed.
+This proves sufficiency.
+
+\paragraph{Proof of finite nonattainment.}
+The positive cubic packet has a simple equality condition on its whole
+nonnegative domain:
+\[
+ Q_+(y)=0\quad\Longrightarrow\quad y=z\mathbf1_{y\ge d}.
+\]
+Below \(d\), both remaining factors in \(y(d-y)(c-y)\) are positive,
+forcing \(y=0\).  Above \(d\), \(y-b>0\), so its square factor forces
+\(y=z\).  If a finite profile attained \(\mathcal F_d\), the exact
+nonnegative packet sum would be zero.  Each term of positive weight would
+therefore satisfy that equality condition.  Summing it gives \(M=zK\).
+Substituting into the root relation gives
+\(Kz(z-1)=0\), hence \(z=1\).  But \(K<M\) forces \(z>1\), a
+contradiction.  Therefore \(E>\mathcal F_d(M,K)\) on that branch, for
+all finite nonnegative real-weight profiles, without any parity assumption.
+
+\paragraph{Theorem (strict complete actual signed consumer).}
+Retain every actual-cluster hypothesis in
+\eqref{eq:nonlinear-threshold-actual-signed}, and assume \(K<\kappa\).
+Then the complete former nonlinear consumer is strict:
+\begin{equation}
+ \mathcal B_2+\tau t^3\mathcal F_d(\kappa,K)
+ =\mathcal B_2+\tau t^3\mathcal C(\kappa,\kappa-K)
+   +\tau t^3G(\kappa,K)<gB(T),\qquad d=\delta.
+ \label{eq:lattice-sharpness-actual-strict}
+\end{equation}
+Normalize exactly as before.  The finite strict energy inequality, multiplied
+by \(t^3>0\) and \(\tau>0\), remains strict.  The unchanged signed kernel
+ledger, remainder floor and actual profile upper bound preserve it through
+to \eqref{eq:lattice-sharpness-actual-strict}.  Thus the lattice zero-gap
+cases cannot be mistaken for finite equality cases.  No other signed charge
+has been removed.
+
+The twenty-four new theorem bodies are implemented in
+\texttt{Helpers/ThresholdLatticeProfile.lean},
+\texttt{Helpers/ThresholdLatticePerturbation.lean},
+\texttt{Helpers/ThresholdEvenSharpness.lean},
+\texttt{Helpers/ThresholdNonlinearRigidity.lean}, and
+\texttt{Assembly/CarmichaelThresholdSharpness.lean}.
+The sharpness witnesses are moment profiles, with no claim that they occur
+as zeta zero clusters.  The classification resolves exactly when parity
+alone leaves this nonlinear envelope sharp; it does not settle the independent
+global small-value area estimate.  The certified simplicity window and
+\(7/8\) boundary are unchanged, and \(M_1>0\) remains required for the
+actual normalized consumer.
+
 \subsection{Signed two-dimensional control of a zero cluster}
 \label{sec:cluster-multiplicity}
 

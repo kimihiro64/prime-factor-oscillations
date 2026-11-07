@@ -4290,6 +4290,65 @@
         "PrimeFactorOscillations.thresholdBand_two_atom_gap",
         "PrimeFactorOscillations.thresholdBand_two_atom_exists"
       ]
+    },
+    {
+      "id": "NIS-PROFILE",
+      "status": "compiled",
+      "claim": "Exact three-atom residual root, nonnegative residual, two moment identities, endpoint values and endpoint energy identity at the lattice constraints.",
+      "declarations": [
+        "PrimeFactorOscillations.thresholdLatticeDisc_zero",
+        "PrimeFactorOscillations.thresholdLatticeResidual_zero",
+        "PrimeFactorOscillations.thresholdLatticeHigh_zero",
+        "PrimeFactorOscillations.thresholdLatticeResidual_quadratic",
+        "PrimeFactorOscillations.thresholdLattice_first_moment",
+        "PrimeFactorOscillations.thresholdLattice_second_moment",
+        "PrimeFactorOscillations.thresholdLatticeResidual_nonneg",
+        "PrimeFactorOscillations.thresholdLatticeEnergy_zero"
+      ]
+    },
+    {
+      "id": "NIS-PERTURBATION",
+      "status": "compiled",
+      "claim": "For every0<d<1,k>0,m>=0,z>=1 and epsilon>0, an admissible positive perturbation parameter exists with both low coordinates below d, selected high coordinate above d, positive discriminant and energy within epsilon of its endpoint value.",
+      "declarations": [
+        "PrimeFactorOscillations.thresholdLattice_perturbation"
+      ]
+    },
+    {
+      "id": "NIS-IFF",
+      "status": "compiled",
+      "claim": "For every integer k>0 and M>=2k, finite even-natural weighted exact moment profiles approach the continuous nonlinear cost iff M-2k*zplus belongs to2d*N. Sufficiency uses three grouped atoms and necessity consumes the complete integer penalty.",
+      "declarations": [
+        "PrimeFactorOscillations.thresholdBandMass_even_weights",
+        "PrimeFactorOscillations.thresholdEven_integer_lower",
+        "PrimeFactorOscillations.thresholdEvenApproximable_lattice",
+        "PrimeFactorOscillations.thresholdThree_sum",
+        "PrimeFactorOscillations.thresholdThree_energy",
+        "PrimeFactorOscillations.thresholdThree_admissible",
+        "PrimeFactorOscillations.thresholdEvenApproximable_of_lattice",
+        "PrimeFactorOscillations.thresholdEvenApproximable_iff_lattice"
+      ]
+    },
+    {
+      "id": "NIS-RIGIDITY",
+      "status": "compiled",
+      "claim": "Finite nonattainment: K<M implies E>F for every finite nonnegative real-weight equal-moment profile. The strict inequality is transferred through exact rescaling and the complete signed kernel ledger.",
+      "declarations": [
+        "PrimeFactorOscillations.thresholdPositivePacket_zero_coordinate",
+        "PrimeFactorOscillations.finiteWeightedThreshold_positive_strict",
+        "PrimeFactorOscillations.finiteWeightedThreshold_nonlinear_strict",
+        "PrimeFactorOscillations.finiteWeightedThreshold_nonlinear_scaled_strict",
+        "PrimeFactorOscillations.threeLineWeightedNonlinearThreshold_strict"
+      ]
+    },
+    {
+      "id": "NIS-ACTUAL",
+      "status": "compiled",
+      "claim": "For actual finite same-height reflection-closed strip clusters with abs(T)>=2,N>0,M1>0 and K<kappa, the complete signed bound B2+tau*t^3*F=B2+tau*t^3*Cquad+tau*t^3*G is strictly less than gB(T). No global simplicity or new window.",
+      "declarations": [
+        "PrimeFactorOscillations.zeta_finite_nonlinear_threshold_strict",
+        "PrimeFactorOscillations.zeta_nonlinear_threshold_strict_gain"
+      ]
     }
   ],
   "novelty": "Priority for the combined explicit formulas has not been established; source classification and Gauss identities are classical."
