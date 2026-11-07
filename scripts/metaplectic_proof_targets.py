@@ -20,6 +20,7 @@ from scripts.multiplicity_support_proof_targets import MULTIPLICITY_SUPPORT_THEO
 from scripts.near_identity_panel_proof_targets import NEAR_IDENTITY_PANEL_THEOREMS
 from scripts.nonlinear_horizontal_proof_targets import NONLINEAR_HORIZONTAL_THEOREMS
 from scripts.optimal_residue_degree_proof_targets import OPTIMAL_RESIDUE_DEGREE_THEOREMS
+from scripts.parity_geometry_proof_targets import PARITY_GEOMETRY_THEOREMS
 from scripts.phase_multiplicity_proof_targets import PHASE_MULTIPLICITY_THEOREMS
 from scripts.quadratic_scalar_chain_proof_targets import QUADRATIC_SCALAR_CHAIN_THEOREMS
 from scripts.rational_single_real_proof_targets import RATIONAL_SINGLE_REAL_THEOREMS
@@ -69,6 +70,7 @@ METAPLECTIC_THEOREMS: tuple[str, ...] = tuple(
         + CLUSTER_MULTIPLICITY_THEOREMS
         + EXACT_WINDOW_PROFILE_THEOREMS
         + NONLINEAR_HORIZONTAL_THEOREMS
+        + PARITY_GEOMETRY_THEOREMS
         + SCALAR_ERASURE_COST_THEOREMS
         + SINGLE_REAL_ZETA_THEOREMS
     )

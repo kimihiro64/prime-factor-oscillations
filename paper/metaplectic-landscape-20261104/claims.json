@@ -3231,6 +3231,78 @@
         "PrimeFactorOscillations.zeta_horizontal_quartic_charge_dominates_old",
         "PrimeFactorOscillations.zeta_horizontal_quartic_charge_strict"
       ]
+    },
+    {
+      "id": "PHG-REFLECTION",
+      "status": "compiled_unconditional_order_reflection",
+      "claim": "Actual zeta orders are invariant under conjugation and same-height reflection w ->1-conj(w), without an RH hypothesis. The derivative-level conjugation and finite analytic-order argument are implemented.",
+      "declarations": [
+        "PrimeFactorOscillations.deriv_conj_equivariant",
+        "PrimeFactorOscillations.iteratedDeriv_conj_equivariant",
+        "PrimeFactorOscillations.analyticOrderNatAt_conj_equivariant",
+        "PrimeFactorOscillations.zetaOrder_conj",
+        "PrimeFactorOscillations.zetaHorizontalReflection_re",
+        "PrimeFactorOscillations.zetaHorizontalReflection_im",
+        "PrimeFactorOscillations.zetaHorizontalReflection_involutive",
+        "PrimeFactorOscillations.zetaHorizontalReflection_injective",
+        "PrimeFactorOscillations.zetaHorizontalReflection_critical",
+        "PrimeFactorOscillations.zetaOrder_reflection",
+        "PrimeFactorOscillations.zetaHorizontalCoord_reflection"
+      ]
+    },
+    {
+      "id": "PHG-KERNEL",
+      "status": "compiled_strict_residual_and_parity_cost",
+      "claim": "For Psi(x)=Phi(x)-sigma*x^2 on[0,9/64], the exact residual tangent is nonnegative and strict off its center. Removing a central copy gives the finite residual and profile Jensen bounds with exact equality. For N>1 and0<=M<=(9/64)(N-1), the full parity cost is nonnegative, positive for M>0 and zero for M=0. The natural even and odd optimizing model cost identities are proved.",
+      "declarations": [
+        "PrimeFactorOscillations.threeLineHorizontalTangentCertificate_pos",
+        "PrimeFactorOscillations.threeLineHorizontalRemainder_gt",
+        "PrimeFactorOscillations.threeLineHorizontalResidualProfile_zero",
+        "PrimeFactorOscillations.threeLineHorizontalResidual_tangent_identity",
+        "PrimeFactorOscillations.threeLineHorizontalResidual_tangent_le",
+        "PrimeFactorOscillations.threeLineHorizontalResidual_tangent_lt",
+        "PrimeFactorOscillations.threeLineHorizontalResidual_centered_charge",
+        "PrimeFactorOscillations.threeLineHorizontalResidual_jensen_eq_iff",
+        "PrimeFactorOscillations.threeLineHorizontalResidual_central_removal",
+        "PrimeFactorOscillations.threeLineHorizontalResidual_mean_shift_nonneg",
+        "PrimeFactorOscillations.threeLineHorizontalResidual_mean_shift_pos",
+        "PrimeFactorOscillations.threeLineHorizontal_central_optimizer",
+        "PrimeFactorOscillations.threeLineParityCost_means",
+        "PrimeFactorOscillations.threeLineParityCost_nonneg",
+        "PrimeFactorOscillations.threeLineParityCost_pos",
+        "PrimeFactorOscillations.threeLineParityCost_zero",
+        "PrimeFactorOscillations.threeLineParity_odd_model_cost",
+        "PrimeFactorOscillations.threeLineParity_even_model_cost"
+      ]
+    },
+    {
+      "id": "PHG-ACTUAL",
+      "status": "compiled_actual_odd_cluster_trace",
+      "claim": "For reflection-closed critical-strip W, odd total actual zeta order forces a positive-order central point and a genuine canonical central multiplicity index. Total order1 has second moment0. For odd mass greater than1 and a centered residual mean z, the full quartic-plus-erased-residual charge is bounded by the complete xi trace under the actual canonical7/8 strip hypothesis.",
+      "declarations": [
+        "PrimeFactorOscillations.zetaFiniteTotalOrder_cast",
+        "PrimeFactorOscillations.zetaHorizontalReflection_image_eq",
+        "PrimeFactorOscillations.finset_signed_power_product",
+        "PrimeFactorOscillations.zetaSignedHorizontalProduct_zero_of_odd",
+        "PrimeFactorOscillations.zeta_odd_total_order_has_critical_point",
+        "PrimeFactorOscillations.xiFiniteMultiplicityUnion_card_eq_totalOrder",
+        "PrimeFactorOscillations.zeta_odd_total_order_has_central_index",
+        "PrimeFactorOscillations.zeta_total_order_one_horizontal_moment_zero",
+        "PrimeFactorOscillations.zeta_finite_odd_horizontal_charge_trace"
+      ]
+    },
+    {
+      "id": "PHG-GLOBAL",
+      "status": "compiled_unconditional_parity_budget",
+      "claim": "For every reflection-closed finite common-height critical-strip W at abs(t)>=2, odd mass N>1 satisfies M<=(9/64)(N-1) and sigma*Q+g+(N-1)*Psi(M/(N-1))<=g*B(t). Equivalently the previous full nonlinear-plus-variance charge plus the exact parity cost is bounded by g*B(t). The cost is strictly positive for M>0. Mass1 has M=Q=0. No global simplicity, numerical-window or zero-free-boundary improvement is asserted.",
+      "declarations": [
+        "PrimeFactorOscillations.zetaFiniteTotalOrder_eq_mass",
+        "PrimeFactorOscillations.zeta_total_order_one_horizontal_geometry",
+        "PrimeFactorOscillations.zeta_finite_odd_horizontal_budget",
+        "PrimeFactorOscillations.zeta_horizontal_full_charge_residual_identity",
+        "PrimeFactorOscillations.zeta_finite_odd_horizontal_parity_budget",
+        "PrimeFactorOscillations.zeta_odd_horizontal_parity_cost"
+      ]
     }
   ],
   "novelty": "Priority for the combined explicit formulas has not been established; source classification and Gauss identities are classical."

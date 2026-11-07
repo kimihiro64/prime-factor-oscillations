@@ -4863,6 +4863,143 @@ intervals, see
 The present bounds constrain the joint horizontal geometry of a finite
 same-height cluster.
 
+\subsection{Parity strengthens the full nonlinear horizontal budget}
+\label{sec:parity-horizontal-geometry}
+
+Retain \(\Phi,g,\sigma,B(T),N_W,M_W,M_{4,W},V_W\) from the
+preceding subsection, and put
+\[
+ \Psi(x)=\Phi(x)-\sigma x^2,\qquad 0\le x\le 9/64.
+\]
+The reflection used here preserves the ordinate:
+\(r(w)=1-\overline w\).  Reflection closure of \(W\), rather than an
+arbitrary selection of zeros at height \(T\), is essential.
+The elementary parity principle is classical; the refinement here is its
+explicit positive cost in the signed three-line nonlinear budget.
+
+\paragraph{Theorem (parity-refined nonlinear cluster budget).}
+\label{thm:parity-horizontal-budget}
+Let \(|T|\ge2\), and let \(W\) be a finite subset of the open critical
+strip with every point of ordinate \(T\), closed under \(r\).
+Give each point its actual zeta order \(m(w)\); points of order zero
+contribute nothing.  Suppose that \(N=N_W=\sum_{w\in W}m(w)\) is odd.
+If \(N=1\), then \(M_W=M_{4,W}=0\).  If \(N>1\), put \(M=M_W\).
+Then
+\begin{equation}\label{eq:odd-horizontal-budget}
+ 0\le M\le\frac9{64}(N-1),\qquad
+ \sigma M_{4,W}+g+(N-1)\Psi\!\left(\frac M{N-1}\right)
+ \le gB(T).
+\end{equation}
+Equivalently, with \(\mu=M/N\),
+\begin{equation}\label{eq:full-horizontal-parity-cost}
+ N\Phi(\mu)+\sigma V_W+\Pi_N(M)\le gB(T),
+\quad
+ \Pi_N(M)=g+(N-1)\Psi\!\left(\frac M{N-1}\right)-N\Psi(\mu).
+\end{equation}
+On \(N>1\), \(0\le M\le(9/64)(N-1)\), the correction satisfies
+\(\Pi_N(M)\ge0\), with strict inequality if \(M>0\), and
+\(\Pi_N(0)=0\).  Thus the improvement retains the entire earlier
+quartic variance charge; it does not trade that charge for parity.
+\paragraph{Proof.}
+First, reflection preserves the actual order without any RH hypothesis.
+The identity \(\zeta(\overline w)=\overline{\zeta(w)}\) gives equality
+of the orders at \(w\) and \(\overline w\): conjugation commutes with
+successive derivatives in this identity, so the first nonzero Taylor
+coefficient has the same index.  Analyticity and finite order hold in the
+open strip.  The completed-xi functional equation identifies orders at
+\(\overline w\) and \(1-\overline w\); its nonvanishing local factors
+identify these xi orders with zeta orders.  Therefore
+\(m(r(w))=m(w)\).
+
+Consider the finite signed product
+\[
+ P_W=\prod_{w\in W}(\Re w-\tfrac12)^{m(w)}.
+\]
+Reindexing by the involution \(r\), including all multiplicities, gives
+\(P_W=(-1)^NP_W\).  Oddness forces \(P_W=0\), hence a central point
+has positive order.  A zero exponent cannot account for the vanishing
+factor, since \(0^0=1\).  The existing weighted-fiber transport therefore
+provides an actual central multiplicity copy \(a\) in the canonical
+finite xi index \(S\).  We have \(|S|=N\) and, for
+\(x_i=(\Re\rho_i-1/2)^2\), \(x_a=0\),
+\[
+  \sum_{i\in S}x_i=M,\qquad
+  \sum_{i\in S}x_i^2=M_{4,W}.
+\]
+If \(N=1\), this central copy is the entire multiplicity index, so both
+moments vanish.  No quotient with denominator \(N-1\) is used in this case.
+
+For \(N>1\), erase only that one copy and write
+\(R=S\setminus\{a\}\), \(|R|=N-1\),
+\(z=M/(N-1)\).  The unconditional seven-eighths strip gives
+\(0\le x_i\le9/64\).  Consequently \(0\le z\le9/64\) and the stated
+upper bound for \(M\).  The exact tangent remainder from the preceding
+subsection is
+\[
+ \Psi(x)-\Psi(z)-(L(z)-2\sigma z)(x-z)
+   =(H(x,z)-\sigma)(x-z)^2\ge0.
+\]
+It is strictly positive when \(x\ne z\): the already proved positive
+Bernstein certificate gives \(H(x,z)>\sigma\) if \(x>0\) or \(z>0\);
+the only remaining point is \((0,0)\), where \(x=z\).
+Summing the tangent inequality over \(R\), its linear terms cancel
+because \(\sum_{i\in R}x_i=(N-1)z\).  Restoring the erased central copy
+and using \(\Psi(0)=g\) gives
+\[
+ g+(N-1)\Psi(z)\le\sum_{i\in S}\Psi(x_i).
+\]
+Add \(\sigma\sum_{i\in S}x_i^2\) to obtain the left side of
+\eqref{eq:odd-horizontal-budget}, bounded by \(\sum_{i\in S}\Phi(x_i)\).
+The exact common-height kernel identity and the complete signed trace
+bound give
+\[
+ \sum_{i\in S}\Phi(x_i)
+ \le\mathcal T_3(T)\le gB(T).
+\]
+All copies and the original additive constant are retained.
+
+The previous variance identity gives
+\[
+ N\Phi(\mu)+\sigma V_W=\sigma M_{4,W}+N\Psi(\mu),
+\]
+which proves \eqref{eq:full-horizontal-parity-cost}.
+For the correction, apply the residual tangent inequality at \(\mu\)
+to the two coordinates \(0,z\), with weights \(1,N-1\).
+The linear terms cancel since \((N-1)z=N\mu=M\), proving
+\(\Pi_N(M)\ge0\).  If \(M>0\), then \(\mu>0\), so the tangent
+inequality at coordinate zero is strict and \(\Pi_N(M)>0\).
+At \(M=0\) the displayed formula and \(\Psi(0)=g\) give zero directly.
+Every denominator has been restricted to its positive domain.
+\paragraph{Sharp finite-spectrum geometry.}
+These statements concern abstract reflected finite multisets of
+coordinates \(u_i\in[-3/8,3/8]\), with natural multiplicities.
+For fixed total mass \(N\) and \(M=\sum_i u_i^2\), the minimum of
+\(\sum_i\Phi(u_i^2)\) is
+\[
+ \begin{cases}
+  N\Phi(M/N),&N=2k,\ k\ge1,\ 0\le M\le(9/64)N,\\
+  g+(N-1)\Phi(M/(N-1)),&N=2k+1,\ k\ge1,
+       \ 0\le M\le(9/64)(N-1).
+ \end{cases}
+\]
+For even \(N\), strict Jensen equality requires all squared coordinates
+to equal \(M/N\).  At \(M>0\) reflection then forces precisely \(k\)
+copies at each of \(\pm\sqrt{M/N}\), which attains the minimum.
+For odd \(N>1\), erase a central copy as above.  Strict Jensen equality
+requires every remaining squared coordinate to equal \(M/(N-1)\).
+At \(M>0\), this is exactly one central copy and \(k\) copies at each
+of \(\pm\sqrt{M/(N-1)}\), again attaining the stated minimum.
+The compiled odd and even model identities also verify that the full
+quartic charges cancel exactly in these optimizing configurations.
+If \(M=0\), every positive-multiplicity copy is central; the named
+support points coalesce, rather than giving distinct zeros.
+Mass one has only this central configuration.  The optimizer and equality
+statements follow from the compiled finite Jensen equivalence and the
+compiled central-copy optimizer theorem.  No attainment by actual zeta
+zeros of the analytic trace ceiling \(gB(T)\) is claimed.
+The logarithmic coefficient, effective simplicity window and global
+seven-eighths boundary are unchanged.
+
 \subsection{Signed two-dimensional control of a zero cluster}
 \label{sec:cluster-multiplicity}
 
