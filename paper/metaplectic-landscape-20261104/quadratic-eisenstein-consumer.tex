@@ -6017,6 +6017,157 @@ multiplicity-geometry constraint; no larger numerical simplicity
 window, global simplicity theorem, or change to the \(7/8\) boundary
 is claimed.
 
+\subsection{An explicit parameter range for the parity gain}
+\label{sec:effective-parity-threshold}
+
+The continuity argument in the preceding subsection can be made
+effective without replacing the signed kernel by an unsigned norm.
+Keep \(\gamma=\delta-1/4\), \(\tau=\mathcal H(0,0)\), and
+\(C(t)=\delta\mathcal H(t\delta,t)\).
+
+\paragraph{Theorem (explicit coefficient margin).}
+For every \(B>0\) and \(0\le t\le1/16\) with \(1024Bt\le1\),
+\begin{equation}
+ C(t)+\frac3B
+ <\tau\left(\delta+\frac{\gamma}{B}\right).
+ \label{eq:explicit-parity-coefficient-margin}
+\end{equation}
+In particular the interval
+\[
+ 0<t\le\min\left\{\frac1{16},\frac1{1024B}\right\}
+\]
+is an explicit nonempty range of improvement.  The numerical
+constants are conservative; optimality is not claimed.
+
+\paragraph{Proof.}
+For \(r>0\), introduce the exact coordinate quantities
+\[
+ \begin{split}
+ \mathcal N_r(d,t)&=(d+2)r^4-(2d+1)r^2t+dt^2,\\
+ \mathcal D_r(d,t)&=r^7(r^2-dt)(r^2-t)^2,\\
+ e(c,r,d,t)&=\frac{c}{r(r^2-dt)(r^2-t)^2}-\frac{c}{r^7}.
+ \end{split}
+\]
+If \(r^2-dt,r^2-t>0\), direct algebra gives
+\begin{equation}
+ e(c,r,d,t)\mathcal D_r(d,t)=tc\,\mathcal N_r(d,t).
+ \label{eq:coordinate-increment-identity}
+\end{equation}
+For \(0\le d\le3/10\), \(0\le t\le1/16\), and \(r\ge1/2\),
+all denominators here are positive: \(dt\le3/160\),
+\(r^2-dt\ge37/160\), and \(r^2-t\ge3/16\).
+
+For the fixed radii and signed coefficients, the following entirely
+rational estimates suffice:
+\[
+ \begin{array}{c|c|c|c}
+ j&\text{denominator estimate}
+   &\text{numerator estimate}&e(c_j,r_j,d,t)\\ \hline
+ 1&\mathcal D_{r_1}\ge1/16000
+   &c_1\mathcal N_{r_1}\le3/16&\le3000t\\
+ 2&\mathcal D_{r_2}>0
+   &\mathcal N_{r_2}\ge0,\ c_2<0&\le0\\
+ 3&\mathcal D_{r_3}\ge1
+   &c_3\mathcal N_{r_3}\le1&\le t .
+ \end{array}
+\]
+Here are the details behind the bounds.
+For the first coordinate,
+\[
+ r_1^7\ge1/128,\qquad r_1^2-dt\ge37/160,\qquad
+ r_1^2-t\ge3/16,
+\]
+so \(\mathcal D_{r_1}\ge1/16000\).
+Also \(t^2\le1/256\), \(dt^2\le3/2560\), and the subtracted
+middle term of \(\mathcal N_{r_1}\) is nonnegative.
+Using the exact rational value \(r_1=5001/10000\) gives
+\(\mathcal N_{r_1}\le3/20\), hence
+\(c_1\mathcal N_{r_1}\le3/16\).
+For the second coordinate,
+\[
+ (2d+1)r_2^2t\le(8/5)r_2^2/16,\qquad dt^2\ge0;
+\]
+substitution of \(r_2=7/10\) gives
+\(\mathcal N_{r_2}\ge0\).
+For the third coordinate, \(r_3=6/5\) gives
+\(r_3^7,r_3^2-dt,r_3^2-t\ge1\), and the same
+numerator calculation gives \(\mathcal N_{r_3}\le5\), hence
+\(c_3\mathcal N_{r_3}\le1\).
+The last column follows from
+\eqref{eq:coordinate-increment-identity}, positivity of the
+denominator and \(t\ge0\).
+
+Apply the estimates at \(d=\delta<3/10\).
+The signed origin is retained exactly:
+\[
+ \tau=\sum_{j=1}^3\frac{c_j}{r_j^7},\qquad
+ C(t)-\delta\tau=\delta\sum_{j=1}^3e(c_j,r_j,\delta,t).
+\]
+Consequently
+\begin{equation}
+ C(t)-\delta\tau\le3001\delta t\le1024t
+ \qquad(0\le t\le1/16).
+ \label{eq:explicit-kernel-increment}
+\end{equation}
+In particular the negative second-pole increment has its actual
+sign; its signed contribution to \(\tau\) has not been removed.
+
+Finally, \(\tau>128\) follows from its exact rational formula.
+The threshold identity and \(\delta>1/4\) imply
+\(\delta>9/32\), so \(\gamma>1/32\) and
+\[
+ \tau\gamma>4.
+\]
+Together with \(1024Bt\le1\), equation
+\eqref{eq:explicit-kernel-increment} gives
+\[
+ BC(t)+3\le B\delta\tau+4
+ <B\delta\tau+\tau\gamma.
+\]
+Division by the positive \(B\) proves
+\eqref{eq:explicit-parity-coefficient-margin}.
+
+\paragraph{Theorem (complete effective height gap).}
+Let \(W\) be a finite same-height, reflection-closed critical-strip
+zero cluster at \(|T|\ge2\), with \(N>0\) and nonzero horizontal
+moment.  Use the preceding definitions of \(t,\kappa,\mathcal B_2\)
+and the complete budget \(B(T)\).  If \(\kappa\) is an odd integer
+and
+\[
+ t\le\min\left\{\frac1{16},\frac1{1024B(T)}\right\},
+\]
+then
+\begin{equation}
+ \mathcal B_2+C(t)t^3+\frac{3t^3}{B(T)}<gB(T).
+ \label{eq:effective-actual-parity-gap}
+\end{equation}
+Thus, under the same cluster and scale hypotheses, if the left
+side is at least \(gB(T)\), the effective mass cannot be an odd
+integer.
+
+\paragraph{Proof.}
+The existing feasibility and height estimates give
+\(0<\kappa\le B(T)\), hence \(B(T)>0\).
+The displayed scale condition implies \(0<t\le1/16\) and
+\(1024B(T)t\le1\).  Multiply
+\eqref{eq:explicit-parity-coefficient-margin} by \(t^3>0\),
+add \(\mathcal B_2\), and apply the previously proved complete
+finite-height charge
+\[
+ \mathcal B_2+\tau t^3\left(\delta+\frac{\gamma}{B(T)}\right)
+ \le gB(T).
+\]
+This proves \eqref{eq:effective-actual-parity-gap}.
+The odd-mass obstruction is its direct contrapositive.
+
+This makes the earlier improvement range explicit in the installed
+height budget and normalized moment.  The added charge is more
+than \(3t^3/B(T)\) throughout the stated range.  The theorem still
+requires a positive horizontal moment and odd integral effective
+mass; it does not assert that a zero cluster lies in this range.
+No enlargement of the numerical simplicity window, proof of
+global simplicity, or improvement of the \(7/8\) boundary is claimed.
+
 \subsection{Signed two-dimensional control of a zero cluster}
 \label{sec:cluster-multiplicity}
 

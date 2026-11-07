@@ -3671,6 +3671,59 @@
         "PrimeFactorOscillations.zeta_parity_stability_odd_height_gap",
         "PrimeFactorOscillations.zeta_parity_stability_odd_combined_gap"
       ]
+    },
+    {
+      "id": "EPT-IDENTITY",
+      "status": "compiled_exact_signed_coordinate_increment",
+      "claim": "For positive radius and denominator factors, the full signed coordinate increment times D_r equals t*c*N_r. A scalar slope estimate follows by positive multiplication, with no absolute value replacement.",
+      "declarations": [
+        "PrimeFactorOscillations.threeLineScale_arguments",
+        "PrimeFactorOscillations.threeLineScale_coordinate_identity",
+        "PrimeFactorOscillations.threeLineScale_coordinate_upper"
+      ]
+    },
+    {
+      "id": "EPT-COORDINATES",
+      "status": "compiled_uniform_rational_coordinate_bounds",
+      "claim": "Uniformly for 0<=d<=3/10 and 0<=t<=1/16, the three signed coordinate increments are <=3000*t, <=0, and <=t. First denominator>=1/16000 and weighted numerator<=3/16; third denominator>=1 and weighted numerator<=1. The negative second increment retains its sign.",
+      "declarations": [
+        "PrimeFactorOscillations.threeLineScale_first_denominator",
+        "PrimeFactorOscillations.threeLineScale_first_numerator",
+        "PrimeFactorOscillations.threeLineScale_first_increment",
+        "PrimeFactorOscillations.threeLineScale_second_numerator_nonneg",
+        "PrimeFactorOscillations.threeLineScale_second_increment",
+        "PrimeFactorOscillations.threeLineScale_third_denominator",
+        "PrimeFactorOscillations.threeLineScale_third_numerator",
+        "PrimeFactorOscillations.threeLineScale_third_increment"
+      ]
+    },
+    {
+      "id": "EPT-INCREMENT",
+      "status": "compiled_complete_signed_kernel_increment",
+      "claim": "The exact signed origin tau is retained and C(t)-delta*tau<=1024*t for every0<=t<=1/16. This is a one-sided upper increment estimate for the complete signed kernel.",
+      "declarations": [
+        "PrimeFactorOscillations.threeLineKernelParityCoefficient_increment",
+        "PrimeFactorOscillations.threeLineKernelParityCoefficient_explicit_increment"
+      ]
+    },
+    {
+      "id": "EPT-MARGIN",
+      "status": "compiled_explicit_positive_coefficient_margin",
+      "claim": "delta>9/32 and tau*(delta-1/4)>4. For B>0,0<=t<=1/16,1024*B*t<=1, C(t)+3/B<tau*(delta+(delta-1/4)/B). Constants are conservative, with no optimality claim.",
+      "declarations": [
+        "PrimeFactorOscillations.momentRoundThreshold_gt_nine_thirtyseconds",
+        "PrimeFactorOscillations.threeLineParityStability_margin_gt_four",
+        "PrimeFactorOscillations.threeLineParityStability_explicit_margin"
+      ]
+    },
+    {
+      "id": "EPT-ACTUAL",
+      "status": "compiled_complete_actual_height_gap_and_obstruction",
+      "claim": "Actual finite same-height reflection-closed critical-strip clusters at |T|>=2,N>0,M1>0, odd integral kappa and t<=min(1/16,1/(1024*B(T))) satisfy B2+C(t)*t^3+3*t^3/B(T)<g*B(T). If this augmented charge is >=g*B(T) under the same cluster/scale hypotheses, kappa cannot be an odd integer. No actual realization, larger numerical simplicity window, global simplicity, or7/8 gain is asserted.",
+      "declarations": [
+        "PrimeFactorOscillations.zeta_parity_effective_height_gap",
+        "PrimeFactorOscillations.zeta_parity_effective_odd_obstruction"
+      ]
     }
   ],
   "novelty": "Priority for the combined explicit formulas has not been established; source classification and Gauss identities are classical."
