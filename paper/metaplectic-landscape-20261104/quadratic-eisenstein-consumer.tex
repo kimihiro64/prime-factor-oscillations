@@ -7880,6 +7880,208 @@ from the limited literature check.  The numerical simplicity window and
 certified \(7/8\) boundary are unchanged.  Clusters supported entirely on
 the critical line still require the independent small-value area estimate.
 
+\subsection{Complete feasible-mass region and the sharp inverse count}
+
+The preceding phase diagram fixes the moment mass and the selected order.
+We now determine exactly which such pairs can occur.  This is an existence
+classification for finite profiles with even natural weights, together with
+its necessary consequence for actual reflected zeta clusters.
+Throughout this subsection the cutoff is inclusive:
+\(I_d(y)=1\) when \(y\ge d\), and zero otherwise.
+
+\paragraph{Theorem (complete threshold feasibility).}
+Let \(0<d<1\), let \(k>0\) be an integer, and put \(K=2k\).  Define
+\begin{equation}
+ R_d(K)=d(K-2)+1+\sqrt{1+2(K-2)d(1-d)}.
+ \label{eq:threshold-minimum-mass}
+\end{equation}
+For every real \(M\), the following statements are equivalent:
+\begin{enumerate}
+\item There is a finite profile with weights \(a_i\in2\mathbb N\),
+coordinates \(y_i\ge0\), and
+\[
+ \sum_i a_i y_i=\sum_i a_i y_i^2=M,
+ \qquad \sum_i a_i I_d(y_i)=K.
+\]
+\item Such a profile exists on two sites, allowing a zero weight.
+\item \(M\ge R_d(K)\).
+\end{enumerate}
+In particular the minimum is attained, and
+\[
+ 2\le R_d(K)\le K,\qquad dK<R_d(K).
+\]
+For every admissible profile one also has the inverse count bound
+\begin{equation}
+ K\le C_d(M):=
+ \frac{M+d-\sqrt{d^2+2(1-d)M}}d.
+ \label{eq:threshold-inverse-count}
+\end{equation}
+These are constraints on the moment data themselves, independent of a
+subsequent energy estimate.
+
+\paragraph{Proof of necessity: exact ledgers and cross terms.}
+Write
+\[
+ x_i=(y_i-d)I_d(y_i),\quad
+ X=\sum_i a_i x_i,\quad
+ Y=\sum_i a_i y_i(1-I_d(y_i)),
+\]
+\[
+ U=\sum_i a_i x_i^2,\qquad
+ V=\sum_i a_i y_i^2(1-I_d(y_i)).
+\]
+All five quantities are nonnegative.  The first and second moments give
+exactly
+\begin{equation}
+ M-dK=X+Y,\qquad M=d^2K+2dX+U+V.
+ \label{eq:threshold-feasibility-ledgers}
+\end{equation}
+On every unselected site, \(0\le y_i<d\), so \(V\le dY\).
+For each nonzero even weight, \(a_i\ge2\).  Consequently
+\[
+ 2a_i x_i^2\le(a_i x_i)^2,
+ \qquad
+ 2U\le\sum_i(a_i x_i)^2\le\Bigl(\sum_i a_i x_i\Bigr)^2=X^2.
+\]
+The last inequality retains all the nonnegative cross terms; it is not a
+Cauchy--Schwarz relaxation.  Substituting into the full second ledger yields
+\[
+ 2M\le2d^2K+4dX+X^2+2dY
+       \le2d^2K+4d(X+Y)+(X+Y)^2.
+\]
+The second inequality has precisely the slack
+\(2dY+2XY+Y^2\ge0\).  Hence
+\begin{equation}
+ (M-dK)^2+(4d-2)M-2d^2K\ge0.
+ \label{eq:threshold-feasibility-quadratic}
+\end{equation}
+Since \(d>0\) and \(K>0\), the first ledger implies \(M>0\).
+The already proved equal-moment witness theorem then gives \(dK<M\).
+
+For completeness, set
+\(D=1+2(K-2)d(1-d)\) and \(A=1+d(K-2)\).
+Here \(D\ge1\), and \(R=A+\sqrt D\) is an exact root of the
+quadratic in \eqref{eq:threshold-feasibility-quadratic}.  Its other root
+is \(A-\sqrt D\le dK-2d<dK\).
+Thus the admissible branch \(M>dK\) forces \(M\ge R\).
+Also \(R\ge2\), \(R-dK=1-2d+\sqrt D>0\), and, with
+\(B=1+(K-2)(1-d)\),
+\[
+ B^2-D=(K-2)K(1-d)^2\ge0.
+\]
+Since \(B\ge0\), this proves \(\sqrt D\le B\) and \(R\le K\).
+Finally the quadratic can equally be written
+\[
+ (M+d-dK)^2\ge d^2+2(1-d)M.
+\]
+Its left base is positive because \(dK<M\).  Taking the nonnegative
+square root and dividing by \(d>0\) proves
+\eqref{eq:threshold-inverse-count}.
+
+\paragraph{Proof of sufficiency: every mass, not just the boundary.}
+For real \(m\ge0\), \(n>0\), and \(0\le u\le1\), put
+\[
+ v_{m,n}(u)=\frac{1+\sqrt{1+4(m/n)u(1-u)}}2,\qquad
+ H_{m,n}(u)=2mu+2nv_{m,n}(u).
+\]
+The radical is at least one, so \(v_{m,n}(u)\ge1\).  Direct squaring,
+with the displayed nonnegative root, proves the exact identity
+\[
+ mu^2+nv_{m,n}(u)^2=mu+nv_{m,n}(u).
+\]
+Thus the two sites \(u,v_{m,n}(u)\) with weights \(2m,2n\) have equal
+moments \(H_{m,n}(u)\).  This function is continuous, and
+\[
+ H_{m,n}(0)=2n,\qquad H_{m,n}(1)=2m+2n.
+\]
+
+If \(R_d(K)\le M\le K\), take the integer weights
+\(m=k-1\), \(n=1\), and vary \(u\) over \([d,1]\).
+Both sites are selected throughout this interval, so their selected order
+is \(2(k-1)+2=K\).  The endpoint masses are
+\[
+ H_{k-1,1}(d)=R_d(2k),\qquad H_{k-1,1}(1)=2k.
+\]
+The intermediate value theorem supplies every intervening mass \(M\).
+This includes \(k=1\): the first weight is then zero and the endpoint
+interval consists only of mass two.  At the minimum the two coordinates
+are exactly \(d,v_{k-1,1}(d)\).
+
+If \(M\ge K\), choose a natural number \(n>M/d\) and use the integer
+weights \(2n,2k\).  Vary \(u\) over \([0,d/2]\), taking the high site
+\(v_{n,k}(u)\).  The low site is strictly below \(d\), and the high site
+is at least one, so the selected order is exactly \(2k=K\).
+Now
+\[
+ H_{n,k}(0)=K,\qquad
+ H_{n,k}(d/2)\ge nd+K>M.
+\]
+Continuity again gives the prescribed mass.  No monotonicity assumption
+on either continuous family is needed.  This proves the equivalence and
+attainment at the lower endpoint.
+
+\paragraph{Theorem (actual reflection-paired inverse count).}
+Let \(W\) be any finite set of strip points, stable under
+\(\rho\mapsto1-\overline\rho\), with their actual analytic zeta orders
+\(a_\rho\).  Assume \(N>0\) and \(M_1>0\), and retain the earlier
+normalizations
+\[
+ t=Q/M_1>0,\qquad \kappa=M_1^2/Q,\qquad
+ y_\rho=(\operatorname{Re}\rho-1/2)^2/t.
+\]
+For every \(0<d<1\), let \(K_d=\sum_{\rho\in W}a_\rho I_d(y_\rho)\).
+Then
+\begin{equation}
+ R_d(K_d)\le\kappa,\qquad K_d\le C_d(\kappa).
+ \label{eq:actual-threshold-feasibility}
+\end{equation}
+The installed compensated-order specialization follows by setting
+\(d=\delta\).  No common-height or lower-height hypothesis is needed for
+this structural result.
+
+\paragraph{Proof without individual-order evenness.}
+The normalized first and second moments both equal \(\kappa\), by exact
+rescaling.  Positive-threshold reflection parity already proves
+\(K_d=2k\); the equal-moment witness gives \(K_d>0\), hence \(k>0\).
+It remains to replace the even-weight square estimate: individual orders
+may be odd.  Set \(x_\rho=(y_\rho-d)I_d(y_\rho)\) and
+\(X=\sum_{\rho\in W}a_\rho x_\rho\).
+Whenever \(a_\rho x_\rho>0\), the point is off the critical line and
+has a distinct reflected partner in \(W\).  The partner has the same
+coordinate and the same positive integral order.  Both orders are at
+least one, so, retaining these two contributions to the nonnegative sum,
+\[
+ X\ge a_\rho x_\rho+a_{1-\overline\rho}x_{1-\overline\rho}
+   \ge2x_\rho.
+\]
+Multiplying by \(a_\rho x_\rho\ge0\) and summing, including the zero
+terms, gives
+\[
+ 2\sum_{\rho\in W}a_\rho x_\rho^2\le X^2.
+\]
+The same exact ledgers therefore prove
+\eqref{eq:threshold-feasibility-quadratic} for \((\kappa,K_d)\).
+The already established admissible-root and inverse-count implications
+prove \eqref{eq:actual-threshold-feasibility}.
+
+The thirty-six new proof bodies are maintained in
+\texttt{Helpers/ThresholdFeasibilityEnvelope.lean},
+\texttt{Helpers/ThresholdFeasibilityRoot.lean},
+\texttt{Helpers/ThresholdFeasibilityModels.lean},
+\texttt{Helpers/ThresholdFeasibilityExistence.lean}, and
+\texttt{Assembly/CarmichaelThresholdFeasibility.lean}.
+The previous work classified equality and approachability for an energy
+cost; this theorem instead classifies existence at prescribed moment mass
+and selected order.  Its exact minimum is the first member of the previous
+negative exceptional-mass spectrum when that spectrum is nonempty.
+Classical moment optimization and equal-weight quadrature remain the
+background discussed above; broad priority is not asserted.
+The two-site witnesses certify sharpness in the abstract even-weight
+profile class, not realization by zeta zeros.  The actual result constrains
+finite off-critical cluster data.  It supplies no independent global
+small-value area estimate, and it changes neither the numerical simplicity
+window nor the certified \(7/8\) boundary.
+
 \subsection{Signed two-dimensional control of a zero cluster}
 \label{sec:cluster-multiplicity}
 

@@ -4417,6 +4417,77 @@
         "PrimeFactorOscillations.zeta_negative_integer_gain_pos",
         "PrimeFactorOscillations.zeta_negative_integer_gain_pos_off_spectrum"
       ]
+    },
+    {
+      "id": "TFR-ENVELOPE",
+      "status": "compiled",
+      "claim": "The selected-excess and unselected-mass ledgers retain every cross term. Either even-natural atom weights or distinct equal-coordinate unit-weight partners prove2*sum(a*x^2)<=(sum(a*x))^2. Equal moments then imply(M-dK)^2+(4d-2)M-2d^2K>=0.",
+      "declarations": [
+        "PrimeFactorOscillations.thresholdExcess_nonneg",
+        "PrimeFactorOscillations.thresholdLow_nonneg",
+        "PrimeFactorOscillations.thresholdFeasibility_point",
+        "PrimeFactorOscillations.thresholdLow_square",
+        "PrimeFactorOscillations.finiteWeighted_atom_square",
+        "PrimeFactorOscillations.finiteWeighted_paired_square",
+        "PrimeFactorOscillations.finiteWeighted_threshold_ledger",
+        "PrimeFactorOscillations.finiteWeighted_threshold_quadratic",
+        "PrimeFactorOscillations.thresholdEvenAdmissible_quadratic"
+      ]
+    },
+    {
+      "id": "TFR-ROOT",
+      "status": "compiled",
+      "claim": "For0<d<1,K>=2 and dK<M, the quadratic feasibility envelope implies M>=R_d(K)=d(K-2)+1+sqrt(1+2(K-2)d(1-d)); it also gives K<=(M+d-sqrt(d^2+2(1-d)M))/d. The boundary lies in[2,K] and strictly above dK.",
+      "declarations": [
+        "PrimeFactorOscillations.thresholdMinimumMass_radical",
+        "PrimeFactorOscillations.thresholdMinimumMass_bounds",
+        "PrimeFactorOscillations.thresholdMinimumMass_quadratic",
+        "PrimeFactorOscillations.thresholdQuadratic_mass_floor",
+        "PrimeFactorOscillations.thresholdQuadratic_inverse_count",
+        "PrimeFactorOscillations.thresholdEvenAdmissible_domain",
+        "PrimeFactorOscillations.thresholdEvenAdmissible_mass_floor",
+        "PrimeFactorOscillations.thresholdEvenAdmissible_inverse_count"
+      ]
+    },
+    {
+      "id": "TFR-MODELS",
+      "status": "compiled",
+      "claim": "The continuous two-atom family v=(1+sqrt(1+4(m/n)u(1-u)))/2 satisfies m*u^2+n*v^2=m*u+n*v. The two threshold regimes and the exact minimum-mass endpoint are proved.",
+      "declarations": [
+        "PrimeFactorOscillations.thresholdModelHigh_bounds",
+        "PrimeFactorOscillations.thresholdModelHigh_moment",
+        "PrimeFactorOscillations.thresholdModelMass_continuous",
+        "PrimeFactorOscillations.thresholdModelMass_zero",
+        "PrimeFactorOscillations.thresholdModelMass_one",
+        "PrimeFactorOscillations.thresholdModelMass_lower",
+        "PrimeFactorOscillations.thresholdPair_admissible",
+        "PrimeFactorOscillations.thresholdModel_all_selected",
+        "PrimeFactorOscillations.thresholdModel_high_selected",
+        "PrimeFactorOscillations.thresholdModelMass_minimum"
+      ]
+    },
+    {
+      "id": "TFR-EXISTENCE",
+      "status": "compiled",
+      "claim": "For every0<d<1,positive integer k and real M, a finite even-natural weighted nonnegative profile with equal moments M and selected order2k exists iff M>=R_d(2k). Two atoms suffice for every feasible M, and the minimum is attained.",
+      "declarations": [
+        "PrimeFactorOscillations.thresholdEven_exists_bounded",
+        "PrimeFactorOscillations.thresholdEven_exists_unbounded",
+        "PrimeFactorOscillations.thresholdEven_two_atom_feasibility",
+        "PrimeFactorOscillations.thresholdEven_finite_feasibility",
+        "PrimeFactorOscillations.thresholdEven_minimum_attained"
+      ]
+    },
+    {
+      "id": "TFR-ACTUAL",
+      "status": "compiled",
+      "claim": "For every0<d<1,finite reflected strip clusters with N>0 and M1>0 satisfy R_d(K_d)<=kappa and K_d<=(kappa+d-sqrt(d^2+2(1-d)kappa))/d. Reflection supplies the paired square estimate without individual-order evenness. The installed compensated-order specialization is included. No new simplicity window or QRH exponent is asserted.",
+      "declarations": [
+        "PrimeFactorOscillations.zeta_thresholdExcess_paired_square",
+        "PrimeFactorOscillations.zeta_finite_threshold_quadratic",
+        "PrimeFactorOscillations.zeta_finite_threshold_feasibility",
+        "PrimeFactorOscillations.zeta_compensated_order_inverse_bound"
+      ]
     }
   ],
   "novelty": "Priority for the combined explicit formulas has not been established; source classification and Gauss identities are classical."
