@@ -1,0 +1,25 @@
+"""Proof targets for joint inverse parity geometry and robust even-order recovery."""
+
+INVERSE_PARITY_GEOMETRY_THEOREMS: tuple[str, ...] = (
+    "PrimeFactorOscillations.compensatedParityInverseRadius_bound",
+    "PrimeFactorOscillations.compensatedParityInverseRadius_crossover",
+    "PrimeFactorOscillations.compensatedParityInverseRadius_lt_one_iff",
+    "PrimeFactorOscillations.compensatedParityInverseRadius_nonneg",
+    "PrimeFactorOscillations.compensatedParityJointRadius_lt_one",
+    "PrimeFactorOscillations.compensatedQuadraticCost_order",
+    "PrimeFactorOscillations.compensatedQuadraticCost_strict_order",
+    "PrimeFactorOscillations.compensatedQuadraticRadius_bound_iff",
+    "PrimeFactorOscillations.compensatedQuadraticRadius_denominator_pos",
+    "PrimeFactorOscillations.compensatedQuadraticRadius_equation",
+    "PrimeFactorOscillations.compensatedQuadraticRadius_lt_iff",
+    "PrimeFactorOscillations.compensatedQuadraticRadius_nonneg",
+    "PrimeFactorOscillations.compensatedQuadraticRadius_zero",
+    "PrimeFactorOscillations.evenNatural_closed_unit_not_unique",
+    "PrimeFactorOscillations.evenNatural_unique_abs_lt_one",
+    "PrimeFactorOscillations.evenNatural_unique_in_radius",
+    "PrimeFactorOscillations.zeta_parity_inverse_effective_recovery",
+    "PrimeFactorOscillations.zeta_parity_inverse_radius_lt_one",
+    "PrimeFactorOscillations.zeta_parity_inverse_threshold_recovery",
+    "PrimeFactorOscillations.zeta_parity_inverse_unique_even_order",
+    "PrimeFactorOscillations.zeta_parity_joint_inverse_bound",
+)

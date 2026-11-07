@@ -3724,6 +3724,62 @@
         "PrimeFactorOscillations.zeta_parity_effective_height_gap",
         "PrimeFactorOscillations.zeta_parity_effective_odd_obstruction"
       ]
+    },
+    {
+      "id": "IQ-QUADRATIC",
+      "status": "compiled_positive_quadratic_inverse",
+      "claim": "For a>=0,b>0,z>=0 the rationalized radius2*z/(b+sqrt(b^2+4*a*z)) is nonnegative, satisfies a*r^2+b*r=z, and exactly inverts the nonnegative quadratic cost in both weak and strict order. Zero slack is treated explicitly; division by a is never required.",
+      "declarations": [
+        "PrimeFactorOscillations.compensatedQuadraticRadius_denominator_pos",
+        "PrimeFactorOscillations.compensatedQuadraticRadius_nonneg",
+        "PrimeFactorOscillations.compensatedQuadraticRadius_equation",
+        "PrimeFactorOscillations.compensatedQuadraticCost_order",
+        "PrimeFactorOscillations.compensatedQuadraticCost_strict_order",
+        "PrimeFactorOscillations.compensatedQuadraticRadius_bound_iff",
+        "PrimeFactorOscillations.compensatedQuadraticRadius_lt_iff",
+        "PrimeFactorOscillations.compensatedQuadraticRadius_zero"
+      ]
+    },
+    {
+      "id": "IQ-INVERSE",
+      "status": "compiled_finite_mass_inverse_and_exact_crossover",
+      "claim": "For M>0,S>=0, a compensated cost <=S gives abs(D)<=R(M,S). R<1 iff S<delta+gamma/M. For S>0,c>0, R<S/c iff gamma*S>M*c*(c-delta). The joint minimum radius is <1 when S<max(c,delta+gamma/M).",
+      "declarations": [
+        "PrimeFactorOscillations.compensatedParityInverseRadius_nonneg",
+        "PrimeFactorOscillations.compensatedParityInverseRadius_bound",
+        "PrimeFactorOscillations.compensatedParityInverseRadius_lt_one_iff",
+        "PrimeFactorOscillations.compensatedParityInverseRadius_crossover",
+        "PrimeFactorOscillations.compensatedParityJointRadius_lt_one"
+      ]
+    },
+    {
+      "id": "IQ-LATTICE",
+      "status": "compiled_unique_even_order_and_endpoint_counterexample",
+      "claim": "Two even naturals each at distance<1 from the same real number are equal. A known even witness in a closed radius<1 band is unique. Closed unit radius does not give uniqueness: center3 and even candidates2,4 are a formal counterexample. No actual-zeta realization is asserted.",
+      "declarations": [
+        "PrimeFactorOscillations.evenNatural_unique_abs_lt_one",
+        "PrimeFactorOscillations.evenNatural_unique_in_radius",
+        "PrimeFactorOscillations.evenNatural_closed_unit_not_unique"
+      ]
+    },
+    {
+      "id": "IQ-ACTUAL",
+      "status": "compiled_complete_joint_actual_inverse_band",
+      "claim": "Actual finite same-height reflection-closed strip clusters at |T|>=2,N>0,M1>0 have S=(g*B-B2)/(tau*t^3)>=0, c=C(t)/tau>0, an even natural Kdelta, and abs(kappa-Kdelta)<=min(R(kappa,S),S/c). The count is uniquely recovered when the joint radius<1, in particular when S<max(c,delta+gamma/kappa). No oddness or integrality assumption on kappa is used.",
+      "declarations": [
+        "PrimeFactorOscillations.zeta_parity_joint_inverse_bound",
+        "PrimeFactorOscillations.zeta_parity_inverse_radius_lt_one",
+        "PrimeFactorOscillations.zeta_parity_inverse_unique_even_order",
+        "PrimeFactorOscillations.zeta_parity_inverse_threshold_recovery"
+      ]
+    },
+    {
+      "id": "IQ-EXPANDED",
+      "status": "compiled_explicit_increase_in_recoverable_slack",
+      "claim": "In the explicit range t<=min(1/16,1/(1024*B(T))), raw slack L=g*B-B2<= (C(t)+3/B(T))*t^3 guarantees unique even threshold-order recovery for every positive real kappa. This extends the linear-band allowance L<C(t)*t^3 by a positive closed interval of length3*t^3/B(T). Central clusters, individual simplicity, a larger numerical simplicity window, and7/8 gains are not claimed.",
+      "declarations": [
+        "PrimeFactorOscillations.zeta_parity_inverse_effective_recovery"
+      ]
     }
   ],
   "novelty": "Priority for the combined explicit formulas has not been established; source classification and Gauss identities are classical."

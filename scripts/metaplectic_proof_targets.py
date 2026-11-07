@@ -14,6 +14,7 @@ from scripts.finite_real_packet_proof_targets import FINITE_REAL_PACKET_THEOREMS
 from scripts.fixed_scale_kernel_proof_targets import FIXED_SCALE_KERNEL_THEOREMS
 from scripts.global_excess_proof_targets import GLOBAL_EXCESS_THEOREMS
 from scripts.horizontal_multiplicity_proof_targets import HORIZONTAL_MULTIPLICITY_THEOREMS
+from scripts.inverse_parity_geometry_proof_targets import INVERSE_PARITY_GEOMETRY_THEOREMS
 from scripts.kernel_parity_proof_targets import KERNEL_PARITY_THEOREMS
 from scripts.localized_multiplicity_proof_targets import LOCALIZED_MULTIPLICITY_THEOREMS
 from scripts.metaplectic_base_proof_targets import METAPLECTIC_BASE_THEOREMS
@@ -84,6 +85,7 @@ METAPLECTIC_THEOREMS: tuple[str, ...] = tuple(
         + KERNEL_PARITY_THEOREMS
         + PARITY_STABILITY_THEOREMS
         + EFFECTIVE_PARITY_THRESHOLD_THEOREMS
+        + INVERSE_PARITY_GEOMETRY_THEOREMS
         + FIXED_SCALE_KERNEL_THEOREMS
         + SCALAR_ERASURE_COST_THEOREMS
         + SINGLE_REAL_ZETA_THEOREMS

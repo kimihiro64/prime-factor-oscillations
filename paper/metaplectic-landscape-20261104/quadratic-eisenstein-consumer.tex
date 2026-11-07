@@ -6168,6 +6168,197 @@ mass; it does not assert that a zero cluster lies in this range.
 No enlargement of the numerical simplicity window, proof of
 global simplicity, or improvement of the \(7/8\) boundary is claimed.
 
+\subsection{A joint inverse band and robust recovery of the even order}
+\label{sec:joint-inverse-parity}
+
+The finite-mass estimate has a consequence for every positive real
+effective mass, without an oddness or integrality assumption on that
+mass.  It gives a nonlinear inverse band, which can be combined with
+the stronger full-kernel linear band rather than replacing it.
+
+Write \(\gamma=\delta-1/4>0\).  For \(M>0\), \(S\ge0\), define
+\[
+ R(M,S)=
+ \frac{2MS}{\delta M+\sqrt{(\delta M)^2+4\gamma MS}},
+ \qquad
+ R_{\rm joint}(M,S,c)=\min\{R(M,S),S/c\}\quad(c>0).
+\]
+The rationalized formula for \(R\) has a positive denominator,
+including at \(S=0\).
+
+\paragraph{Theorem (inverse compensated parity cost).}
+For \(M>0,S\ge0\), a discrepancy \(D\) satisfying
+\[
+ \delta|D|+\frac{\gamma D^2}{M}\le S
+\]
+obeys \(|D|\le R(M,S)\).  Moreover,
+\begin{equation}
+ R(M,S)<1
+ \quad\Longleftrightarrow\quad
+ S<\delta+\frac{\gamma}{M}.
+ \label{eq:inverse-parity-unit-threshold}
+\end{equation}
+For \(S>0,c>0\), the exact comparison with the linear radius is
+\begin{equation}
+ R(M,S)<S/c
+ \quad\Longleftrightarrow\quad
+ \gamma S>Mc(c-\delta).
+ \label{eq:inverse-parity-crossover}
+\end{equation}
+At \(S=0\) both radii are zero.
+Consequently
+\[
+ S<\max\{c,\delta+\gamma/M\}
+ \quad\Longrightarrow\quad R_{\rm joint}(M,S,c)<1.
+\]
+
+\paragraph{Proof.}
+The underlying inversion works more generally for \(a\ge0,b>0,z\ge0\):
+\[
+ \rho(a,b,z)=\frac{2z}{b+\sqrt{b^2+4az}}.
+\]
+Its denominator is positive, \(\rho\ge0\), and direct multiplication
+using \((\sqrt{b^2+4az})^2=b^2+4az\) gives
+\[
+ a\rho^2+b\rho=z.
+\]
+On the nonnegative half-line the cost \(ax^2+bx\) is strictly
+increasing, since
+\[
+ (ay^2+by)-(ax^2+bx)=(y-x)\bigl(a(x+y)+b\bigr).
+\]
+Thus, for \(x,r\ge0\),
+\[
+ ax^2+bx\le z\iff x\le\rho,\qquad
+ \rho<r\iff z<ar^2+br.
+\]
+These statements include \(a=0\); the proof never divides by \(a\).
+
+Apply this with \(a=\gamma,b=\delta M,z=MS,x=|D|\).
+Multiplication of the compensated cost by the positive \(M\)
+proves the inverse bound.  Taking \(r=1\) proves
+\eqref{eq:inverse-parity-unit-threshold}.
+For \(r=S/c>0\), use the exact identity
+\[
+ \gamma(S/c)^2+\delta M(S/c)-MS
+ =\frac{S}{c^2}\bigl(\gamma S-Mc(c-\delta)\bigr).
+\]
+The factor \(S/c^2\) is positive, proving
+\eqref{eq:inverse-parity-crossover}.
+If \(S=0\), the numerator defining \(\rho\) vanishes.
+Finally, if the maximum in the displayed threshold is \(c\),
+then \(S/c<1\); if it is \(\delta+\gamma/M\), equation
+\eqref{eq:inverse-parity-unit-threshold} gives \(R<1\).
+Taking the minimum proves the joint statement.
+
+\paragraph{Theorem (actual joint inverse geometry).}
+Let \(W\) be a finite same-height, reflection-closed critical-strip
+zero cluster at \(|T|\ge2\), with \(N>0\) and positive horizontal
+moment.  Use the previously established quantities
+\(t,\kappa,\mathcal B_2,K_\delta,\tau,C(t)\), and put
+\[
+ L=gB(T)-\mathcal B_2,\qquad
+ S=\frac{L}{\tau t^3},\qquad c=\frac{C(t)}{\tau}.
+\]
+Then \(S\ge0\), \(c>0\), \(K_\delta\) is an even natural number, and
+\begin{equation}
+ |\kappa-K_\delta|
+ \le R_{\rm joint}(\kappa,S,c).
+ \label{eq:actual-joint-inverse-band}
+\end{equation}
+If \(R_{\rm joint}(\kappa,S,c)<1\), exactly one even natural number
+lies in this closed band.  In particular this unique recovery holds
+whenever
+\begin{equation}
+ S<\max\left\{c,\delta+\frac{\gamma}{\kappa}\right\}.
+ \label{eq:actual-joint-recovery-threshold}
+\end{equation}
+
+\paragraph{Proof.}
+The established moment bounds give \(t>0,\kappa>0\);
+the signed kernel gives \(C(t)>0\), and \(\tau>0\).
+The two complete height-budget inequalities imply, for
+\(d=|\kappa-K_\delta|\),
+\[
+ \delta d+\frac{\gamma d^2}{\kappa}\le S,\qquad cd\le S.
+\]
+The first of these also proves \(S\ge0\), since both terms of
+its left side are nonnegative.  Thus nonnegativity of the slack is
+a consequence of the complete signed consumer, not an extra
+assumption about its definition.
+The inverse cost theorem gives \(d\le R(\kappa,S)\), while the
+second inequality gives \(d\le S/c\).
+This proves \eqref{eq:actual-joint-inverse-band}, with both
+previously proved constraints retained.
+Reflection supplies the evenness of \(K_\delta\).
+
+For uniqueness, if two even natural numbers \(a,b\) satisfy
+\(|\kappa-a|,|\kappa-b|\le r<1\), then
+\[
+ |a-b|\le|\kappa-a|+|\kappa-b|<2.
+\]
+Distinct even integers are separated by at least two, hence \(a=b\).
+The actual \(K_\delta\) supplies existence in the band.
+Equation \eqref{eq:actual-joint-recovery-threshold} forces \(r<1\)
+by the preceding inverse theorem.
+
+The strict unit-radius condition cannot be replaced by a closed
+unit-radius condition using lattice information alone: both \(2\)
+and \(4\) are even and have distance one from \(3\).
+This counterexample is also proved in Lean.  It is a statement
+about the abstract even lattice, not an assertion that both
+candidates are realized by actual zero clusters.
+
+\paragraph{Theorem (an explicit increase in recoverable slack).}
+Under the same cluster hypotheses, suppose additionally
+\[
+ t\le\min\left\{\frac1{16},\frac1{1024B(T)}\right\}.
+\]
+Then the closed allowance
+\begin{equation}
+ L\le\left(C(t)+\frac3{B(T)}\right)t^3
+ \label{eq:expanded-inverse-recovery-allowance}
+\end{equation}
+already guarantees the unique even order in
+\eqref{eq:actual-joint-inverse-band}.  No integrality or parity
+assumption on \(\kappa\) is required.
+
+\paragraph{Proof.}
+The existing height estimate gives \(0<\kappa\le B(T)\).
+The explicit coefficient margin proved in the preceding subsection
+gives
+\[
+ C(t)+3/B(T)<\tau\bigl(\delta+\gamma/B(T)\bigr).
+\]
+Multiply by \(t^3>0\), combine with
+\eqref{eq:expanded-inverse-recovery-allowance}, and divide by
+\(\tau t^3>0\).  The result is
+\[
+ S<\delta+\frac{\gamma}{B(T)}
+ \le\delta+\frac{\gamma}{\kappa}
+ \le\max\{c,\delta+\gamma/\kappa\}.
+\]
+Thus \eqref{eq:actual-joint-recovery-threshold} applies.
+The inequality involving reciprocal masses uses \(\gamma>0\);
+in Lean it is obtained from the existing finite-budget cost
+provider at unit discrepancy, preserving its exact hypotheses.
+
+The full-kernel linear band alone gives unique recovery from
+\(L<C(t)t^3\).  In the explicit scale range,
+\eqref{eq:expanded-inverse-recovery-allowance} includes an additional
+closed slack interval of length \(3t^3/B(T)>0\).
+The new joint band is never larger than the former linear band;
+equation \eqref{eq:inverse-parity-crossover} specifies exactly when
+the quadratic information makes it strictly smaller.
+
+The recovered quantity is an aggregate analytic-order count
+selected by the horizontal threshold.  The theorem concerns
+stability of that count.  Individual simplicity and the central
+case with zero horizontal moment are outside its conclusion.
+The numerical simplicity window and the \(7/8\) boundary remain
+unchanged, and no actual realization of any particular slack
+configuration is asserted.
+
 \subsection{Signed two-dimensional control of a zero cluster}
 \label{sec:cluster-multiplicity}
 
