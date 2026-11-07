@@ -7082,6 +7082,93 @@ simplicity window or prove global simplicity.  In particular, the hypothesis
 \(M_1>0\) excludes clusters supported entirely on the critical line; their
 individual multiplicities require the separate observable estimates.
 
+\subsection{The directional region is unchanged by even integral weights}
+\label{sec:even-directional-region}
+
+The positive-side sharpness construction above used real weights.  This is
+a genuine distinction from an even integral multiplicity constraint: a
+small real weight need not itself be a permitted multiplicity.  Nevertheless,
+the full directional coefficient region survives that restriction exactly.
+
+\paragraph{Theorem (even-integral directional classification).}
+For every pair of real coefficients \(c_+,c_-\), the inequality
+\begin{equation}
+ E\ge \delta|D|+
+ \begin{cases}c_+D^2/M,&D\ge0,\\c_-D^2/M,&D<0\end{cases}
+ \label{eq:even-directional-classification-bound}
+\end{equation}
+holds for every finite nonnegative equal-moment profile of positive mass
+whose weights are even natural numbers if and only if
+\begin{equation}
+ c_+\le\beta_+,\qquad c_-\le\Gamma.
+ \label{eq:even-directional-classification-region}
+\end{equation}
+Equivalently, admissibility in this two-coefficient class for all even-natural
+weights is the same as admissibility for all nonnegative real weights.
+Moreover, for every \(c>\beta_+\), there is an integer \(N>0\) such that
+for every integer \(n\ge N\) a counterexample to the positive branch exists
+with weights exactly \((2,2n)\).  These models have positive discrepancy and
+mass greater than \(2n\).
+
+\paragraph{Proof by exact weight tuning.}
+Use the already proved positive model, with
+\[
+ u(e)=\delta-e^2,\qquad z(e)=1+e,\qquad
+ W(e)=\frac{z(e)(z(e)-1)}{u(e)(1-u(e))},\qquad 0<e<1/2.
+\]
+Its real weights are \((W(e),1)\), its high coordinate alone is selected,
+and its exact identities include
+\[
+ W(e)u(e)^2+z(e)^2=M(e),\qquad D(e)=M(e)-1>0,
+ \qquad M(e)\{E(e)-\delta D(e)\}=R(e)D(e)^2.
+\]
+The reduced ratio \(R\) is continuous at zero and
+\(R(0)=\beta_+\).  Fix \(c>\beta_+\).  Choose \(0<r<1/2\) sufficiently
+small that \(R(e)<c\) for every \(0\le e\le r\).  This follows from the
+proved continuity; the endpoint \(r\) is chosen strictly inside the resulting
+neighborhood.  On \([0,r]\) one has \(0<u(e)<1\), so \(W\) is continuous,
+\(W(0)=0\), and \(W(r)>0\).
+
+Choose an integer \(N>\max\{1,1/W(r)\}\).  For every integer \(n\ge N\),
+\(0<1/n<W(r)\).  The intermediate value theorem supplies
+\(e_n\in[0,r]\) with \(W(e_n)=1/n\).  Since \(W(0)=0\), this parameter
+is positive.  Therefore
+\[
+ 0<e_n\le r<1/2,\qquad (2n)W(e_n)=2,\qquad R(e_n)<c.
+\]
+Multiplying both original weights by \(2n\) gives the required even
+natural weights \((2,2n)\), with exactly preserved moment and threshold
+identities.  More explicitly,
+\[
+ M_n=2u(e_n)+2nz(e_n)=2nM(e_n),\quad
+ D_n=M_n-2n=2nD(e_n)>0,\quad E_n=2nE(e_n).
+\]
+There is no rounding or approximation of a weight.  The exact signed ratio
+scales as
+\[
+ M_n\{E_n-\delta D_n\}=R(e_n)D_n^2<cD_n^2.
+\]
+Because \(M_n>0\), this is precisely
+\(E_n<\delta D_n+cD_n^2/M_n\).  Also \(u(e_n)>0\) and \(z(e_n)>1\)
+give \(M_n>2n\).  This proves positive necessity at every sufficiently large
+integer scale.  The previously proved negative-discrepancy family with
+weights \((2,2n)\) proves \(c_-\le\Gamma\).  Sufficiency is the existing
+real-weight directional theorem applied to the natural weights after casting
+them to nonnegative reals.  This proves both directions of
+\eqref{eq:even-directional-classification-region}.
+
+The sixteen new theorem bodies are implemented in
+\texttt{Helpers/EvenDirectionalWeightTuning.lean} and
+\texttt{Helpers/EvenDirectionalParityOptimality.lean}.  The intermediate
+value step, exact scaled moments, positive discrepancy, all sufficiently
+large weight scales, and the complete coefficient region are formalized.
+The countermodels are finite moment profiles, not claimed realizations as
+zeta zero clusters.  Thus the theorem shows exactly that even-integral
+weights alone cannot increase either universal directional coefficient.
+It leaves room for additional arithmetic constraints on actual clusters.
+The full actual signed bound, the numerical simplicity window, and the
+certified \(7/8\) boundary are unchanged.
+
 \subsection{Signed two-dimensional control of a zero cluster}
 \label{sec:cluster-multiplicity}
 

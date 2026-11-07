@@ -4062,6 +4062,57 @@
         "PrimeFactorOscillations.zeta_shifted_parity_closed_unit_bound",
         "PrimeFactorOscillations.zeta_shifted_parity_closed_unique_even_order"
       ]
+    },
+    {
+      "id": "ED-TUNE",
+      "status": "compiled_all_large_integer_weight_tuning",
+      "claim": "The positive profile weight is continuous on every [0,r] with 0<r<1/2 and vanishes at zero. For every c>beta_plus, every sufficiently large integer n admits a parameter 0<e<1/2 with 2*n*W(e)=2 and R(e)<c, using the exact intermediate value theorem.",
+      "declarations": [
+        "PrimeFactorOscillations.positiveParityWeight_zero",
+        "PrimeFactorOscillations.positiveParityWeight_continuousOn",
+        "PrimeFactorOscillations.positiveParityWeight_reciprocal",
+        "PrimeFactorOscillations.positiveParityWeight_integral_scales"
+      ]
+    },
+    {
+      "id": "ED-SCALE",
+      "status": "compiled_exact_even_model_moments",
+      "claim": "Scaling the existing positive model under 2*n*W(e)=2 gives weights (2,2*n) and exactly preserves its mass, discrepancy, energy and equality of first and second moments.",
+      "declarations": [
+        "PrimeFactorOscillations.evenPositiveParity_mass_scaled",
+        "PrimeFactorOscillations.evenPositiveParity_discrepancy_scaled",
+        "PrimeFactorOscillations.evenPositiveParity_energy_scaled",
+        "PrimeFactorOscillations.evenPositiveParity_moment"
+      ]
+    },
+    {
+      "id": "ED-MASS",
+      "status": "compiled_positive_unbounded_model_mass",
+      "claim": "For n>0 and 0<e<1/2 the tuned model has positive mass, positive discrepancy and mass>2*n. Thus the countermodel scales are not confined to a bounded mass range.",
+      "declarations": [
+        "PrimeFactorOscillations.evenPositiveParity_mass_pos",
+        "PrimeFactorOscillations.evenPositiveParity_discrepancy_pos",
+        "PrimeFactorOscillations.evenPositiveParity_mass_gt_weight"
+      ]
+    },
+    {
+      "id": "ED-RATIO",
+      "status": "compiled_positive_sharpness_at_all_large_even_scales",
+      "claim": "The scaled even model keeps the exact ratio M*(E-delta*D)=R(e)*D^2. Every c>beta_plus fails at weights (2,2*n) for every sufficiently large integer n; the coordinates are nonnegative and threshold selection retains only the high coordinate.",
+      "declarations": [
+        "PrimeFactorOscillations.evenPositiveParity_exact_ratio",
+        "PrimeFactorOscillations.evenPositiveParityCoordinates_nonneg",
+        "PrimeFactorOscillations.evenPositiveParity_counterexamples"
+      ]
+    },
+    {
+      "id": "ED-REGION",
+      "status": "compiled_complete_even_natural_directional_region",
+      "claim": "For every real cp,cm, validity for every finite nonnegative equal-moment profile of positive mass with even natural weights is equivalent both to cp<=beta_plus and cm<=Gamma and to the corresponding real-weight admissibility. The countermodels are moment profiles, not actual zeta zero sets. The actual observable bound, simplicity window and7/8 boundary are unchanged.",
+      "declarations": [
+        "PrimeFactorOscillations.evenDirectionalParityCoefficientAdmissible_iff",
+        "PrimeFactorOscillations.evenDirectionalParityCoefficientAdmissible_iff_real"
+      ]
     }
   ],
   "novelty": "Priority for the combined explicit formulas has not been established; source classification and Gauss identities are classical."
