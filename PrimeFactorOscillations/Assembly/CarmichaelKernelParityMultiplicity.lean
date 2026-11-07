@@ -4,7 +4,7 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Prime Factor Oscillations contributors
 -/
 import PrimeFactorOscillations.Assembly.CarmichaelCompensatedMomentParity
-import PrimeFactorOscillations.Helpers.ThreeLineCompensatedKernelSharpness
+import PrimeFactorOscillations.Helpers.ThreeLineFixedScaleOptimality
 
 /-! # The sharp full-kernel parity penalty on actual zero clusters -/
 

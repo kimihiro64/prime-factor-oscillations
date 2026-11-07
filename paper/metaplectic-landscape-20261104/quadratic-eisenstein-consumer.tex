@@ -5715,6 +5715,106 @@ zero-free boundary are unchanged.  The strengthened contribution is the
 horizontal parity penalty; the central case \(M=0\) remains outside
 this moment-ratio statement.
 
+\subsection{Exact optimality at every fixed positive scale}
+\label{sec:fixed-scale-kernel-optimality}
+
+The preceding sharpness statement lets the scale tend to zero.  The
+stronger conclusion below fixes the scale first.  Write
+\[
+ C(t)=\delta\mathcal H(t\delta,t),\qquad
+ a_n=\frac{2n+1-\sqrt{n(2n+1)}}{2(n+1)},\qquad
+ b_n=1+\frac{1/2-a_n}{n}
+\]
+and, for each integer \(n\ge1\), put
+\[
+ \begin{split}
+ J_n(t)={}&2a_n(a_n-1)^2\mathcal H(ta_n,t)\\
+ &+2n b_n(b_n-1)^2\mathcal H(tb_n,t),\\
+ \Delta_n(t)={}&2\Phi(ta_n)+2n\Phi(tb_n)
+ -(2+2n)g-t(2n+1)F(t).
+ \end{split}
+\]
+All three signed poles in \(\mathcal H\) are retained.
+
+\paragraph{Theorem (exact fixed-scale parity cost).}
+For every fixed \(0<t\le9/64\),
+\[
+ J_n(t)\ge C(t),\qquad
+ \lim_{n\to\infty}J_n(t)=C(t),\qquad
+ \Delta_n(t)=t^3J_n(t).
+\]
+Consequently, for every real \(c\),
+\[
+ \bigl[c\,t^3\le\Delta_n(t)\text{ for every integer }n\ge1\bigr]
+ \quad\Longleftrightarrow\quad c\le C(t).
+\]
+These models have even integral weights \(2,2n\), odd effective mass
+\(2n+1\), and even threshold count \(2n+2\).
+
+\paragraph{Proof.}
+The previously established model bounds give
+\[
+ \delta\le a_n<\tfrac12,\quad
+ 1<b_n<\tfrac32,\quad
+ n(a_n-\delta)\le\tfrac14,\quad
+ 2a_n+2nb_n=2a_n^2+2nb_n^2=2n+1.
+\]
+Thus \(0\le ta_n,tb_n\le1/4\); in fact
+\(tb_n<27/128<1/4\).  The exact tangent-remainder identity,
+applied to the two model radii and added with their weights, gives
+\(\Delta_n=t^3J_n\).  Its linear tangent term cancels because
+\[
+ 2a_n(a_n-1)+2nb_n(b_n-1)=0.
+\]
+To obtain the lower bound, use the lower half of the signed
+pointwise kernel comparison at \(a_n,b_n\).  Both threshold
+indicators equal one.  Their compensated sum is exactly
+\[
+ 2(2a_n-a_n^2-1)+2n(2b_n-b_n^2-1)=-1.
+\]
+The resulting inequality is \(-J_n(t)\le-C(t)\).
+
+For the limit, it is useful to avoid any separate norm estimate.
+Define a two-variable continuous extension
+\[
+ \begin{split}
+ G_t(a,u)={}&2a(a-1)^2\mathcal H(ta,t)\\
+ &+2\bigl(1+(\tfrac12-a)u\bigr)(\tfrac12-a)^2u\,
+ \mathcal H\bigl(t(1+(\tfrac12-a)u),t\bigr).
+ \end{split}
+\]
+For \(n\ge1\), exact algebra gives \(G_t(a_n,1/n)=J_n(t)\).
+Every denominator at \((a,u)=(\delta,0)\) is nonzero:
+the relevant factors are \(r_j^2-t\delta\) and \(r_j^2-t\),
+both positive for the stated range of \(t\).
+Hence \(G_t\) is continuous there, with its signed coefficients intact.
+The identity \(2(1-\delta)^2=1\) yields
+\[
+ G_t(\delta,0)=\delta\mathcal H(t\delta,t)=C(t).
+\]
+Moreover \(0\le a_n-\delta\le1/(4n)\), so
+\((a_n,1/n)\to(\delta,0)\).  This proves the asserted limit.
+In the Lean proof the convergence is stated explicitly: for every
+\(\varepsilon>0\) there is an integer \(N\ge1\) such that
+\(|J_n(t)-C(t)|<\varepsilon\) for every \(n\ge N\).
+
+If \(c>C(t)\), choose such an \(n\) with
+\(|J_n(t)-C(t)|<c-C(t)\).  Then
+\(\Delta_n(t)<c\,t^3\), contradicting the proposed uniform
+larger coefficient.  Conversely, \(c\le C(t)\), the lower bound
+and \(t^3>0\) give the required inequality for every \(n\).
+
+This is optimality within the abstract finite-model class with radii
+in \([0,1/4]\).  Its total weight \(2+2n\) grows without bound.
+No realization by actual zeta zeros is asserted, and a fixed-height
+multiplicity budget may impose additional restrictions.
+There is also an explicit endpoint distinction: since \(b_n>1\),
+\(tb_n>t\) for every \(t>0\).  At \(t=9/64\) these sharpness models
+therefore exceed the canonical \(7/8\)-strip radius bound \(x\le9/64\).
+The theorem does not claim sharpness in that narrower endpoint class.
+The complete height budget, numerical simplicity window and
+\(7/8\) boundary remain unchanged.
+
 \subsection{Signed two-dimensional control of a zero cluster}
 \label{sec:cluster-multiplicity}
 

@@ -10,6 +10,7 @@ from scripts.effective_multiplicity_proof_targets import EFFECTIVE_MULTIPLICITY_
 from scripts.exact_residue_spacing_proof_targets import EXACT_RESIDUE_SPACING_THEOREMS
 from scripts.exact_window_profile_proof_targets import EXACT_WINDOW_PROFILE_THEOREMS
 from scripts.finite_real_packet_proof_targets import FINITE_REAL_PACKET_THEOREMS
+from scripts.fixed_scale_kernel_proof_targets import FIXED_SCALE_KERNEL_THEOREMS
 from scripts.global_excess_proof_targets import GLOBAL_EXCESS_THEOREMS
 from scripts.horizontal_multiplicity_proof_targets import HORIZONTAL_MULTIPLICITY_THEOREMS
 from scripts.kernel_parity_proof_targets import KERNEL_PARITY_THEOREMS
@@ -79,6 +80,7 @@ METAPLECTIC_THEOREMS: tuple[str, ...] = tuple(
         + MOMENT_RATIO_THEOREMS
         + COMPENSATED_MOMENT_THEOREMS
         + KERNEL_PARITY_THEOREMS
+        + FIXED_SCALE_KERNEL_THEOREMS
         + SCALAR_ERASURE_COST_THEOREMS
         + SINGLE_REAL_ZETA_THEOREMS
     )

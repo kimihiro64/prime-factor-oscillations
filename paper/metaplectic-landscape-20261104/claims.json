@@ -3564,6 +3564,46 @@
         "PrimeFactorOscillations.kernelParityPenalty_stronger",
         "PrimeFactorOscillations.kernelParityPenalty_stronger_than_squared"
       ]
+    },
+    {
+      "id": "KFO-MODEL",
+      "status": "compiled_full_scale_model_factorization",
+      "claim": "The even-weight sharpness models have radii in [0,1/4] for 0<=t<=9/64 and exact full signed defect factorization Delta_n(t)=t^3*J_n(t). A two-variable extension G_t(a_n,1/n)=J_n(t) retains every signed pole.",
+      "declarations": [
+        "PrimeFactorOscillations.threeLineKernelModelExtension_model",
+        "PrimeFactorOscillations.threeLineOddKernelDefect_extended_factorization",
+        "PrimeFactorOscillations.threeLineOddKernel_extended_arguments"
+      ]
+    },
+    {
+      "id": "KFO-LIMIT",
+      "status": "compiled_fixed_positive_scale_convergence",
+      "claim": "For every fixed 0<t<=9/64, J_n(t) tends to C(t)=delta*H(delta*t,t), with an explicit forall-epsilon, exists-N, forall-n>=N Lean statement. Continuity is proved at (delta,0) and quantitative model proximity retains all signed terms.",
+      "declarations": [
+        "PrimeFactorOscillations.compensatedOdd_parameters_close",
+        "PrimeFactorOscillations.threeLineKernelModelExtension_continuousAt",
+        "PrimeFactorOscillations.threeLineKernelModelExtension_origin",
+        "PrimeFactorOscillations.threeLineOddKernel_fixed_scale_limit"
+      ]
+    },
+    {
+      "id": "KFO-OPT",
+      "status": "compiled_exact_optimal_coefficient_iff",
+      "claim": "For fixed 0<t<=9/64, C(t)<=J_n(t) for every n>=1. Every larger coefficient fails at some natural n, and (forall n>=1, c*t^3<=Delta_n(t)) iff c<=C(t). This sharpness is for the abstract finite-model class, with unbounded total weight, and asserts no actual-zeta realization or improvement in the simplicity window or7/8 boundary.",
+      "declarations": [
+        "PrimeFactorOscillations.threeLineKernelParity_fixed_scale_defect_sharp",
+        "PrimeFactorOscillations.threeLineKernelParity_fixed_scale_optimal_iff",
+        "PrimeFactorOscillations.threeLineKernelParity_fixed_scale_sharp",
+        "PrimeFactorOscillations.threeLineOddKernel_fixed_scale_lower"
+      ]
+    },
+    {
+      "id": "KFO-ENDPOINT",
+      "status": "compiled_endpoint_scope_distinction",
+      "claim": "For n>=1 and t>0, t*b_n>t. At t=9/64 the extremizing models exceed the actual canonical-strip radius bound x<=9/64; sharpness in that narrower endpoint class is not claimed.",
+      "declarations": [
+        "PrimeFactorOscillations.threeLineOddKernel_high_exceeds_scale"
+      ]
     }
   ],
   "novelty": "Priority for the combined explicit formulas has not been established; source classification and Gauss identities are classical."
