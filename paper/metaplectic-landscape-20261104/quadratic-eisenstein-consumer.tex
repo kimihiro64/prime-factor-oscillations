@@ -8082,6 +8082,200 @@ finite off-critical cluster data.  It supplies no independent global
 small-value area estimate, and it changes neither the numerical simplicity
 window nor the certified \(7/8\) boundary.
 
+\subsection{The complete region at fixed total order}
+
+The preceding theorem allows the total weight of a profile to vary.  Fixing
+it gives a second, genuinely restrictive face of the feasible region.
+The upper quadratic argument is a classical two-moment dual argument,
+consistent with the Bertsimas--Popescu framework cited above.  The result
+here combines that face with the attained arithmetic lower face and gives
+finite even-weight realizations of every permitted mass.
+
+\paragraph{Theorem (complete fixed-total threshold region).}
+Let \(0<d<1\) and let \(0<k\le n\) be integers.  Put \(N=2n\),
+\(K=2k\), and define
+\begin{equation}
+ U_d(N,K)=d(N-K)+\frac K2+
+   \sqrt{\frac{K^2}4+K(N-K)d(1-d)}.
+ \label{eq:threshold-total-upper}
+\end{equation}
+For a real \(M\), there exists a finite profile with
+\[
+ a_i\in2\mathbb N,\quad y_i\ge0,\quad
+ \sum_i a_i=N,\quad
+ \sum_i a_i y_i=\sum_i a_i y_i^2=M,\quad
+ \sum_i a_i I_d(y_i)=K
+\]
+if and only if
+\begin{equation}
+ \begin{cases}
+ R_d(K)\le M\le K,&n=k,\\
+ R_d(K)\le M<U_d(N,K),&k<n.
+ \end{cases}
+ \label{eq:threshold-total-complete-region}
+\end{equation}
+Three sites suffice in every feasible case, allowing zero weights.
+The lower endpoint is always attained.  When \(n=k\), the upper endpoint
+is attained as well.  When \(k<n\),
+\[
+ K<U_d(N,K)<N,
+\]
+and \(U_d(N,K)\) is an unattained supremum: every positive tolerance
+admits an exact profile with mass strictly between
+\(U_d(N,K)-\epsilon\) and \(U_d(N,K)\).
+The theorem explicitly concerns positive selected order; its parameter
+range is \(0<k\le n\).
+
+\paragraph{Proof of the upper face with every compensation term.}
+Write \(J=N-K\).  For \(J\ge0\) and \(K>0\), set
+\[
+ v=\frac{1+\sqrt{1+4(J/K)d(1-d)}}2.
+\]
+Then \(v\ge1>d\),
+\begin{equation}
+ Jd^2+Kv^2=Jd+Kv,
+ \qquad U_d(N,K)=Jd+Kv.
+ \label{eq:threshold-total-root-balance}
+\end{equation}
+The second identity follows by scaling the nonnegative square root by
+\(K/2>0\); its squared radical is exactly
+\(K^2/4+KJd(1-d)\).
+Consider the full signed packet
+\[
+ P_{d,v}(y)=(y-v)^2-(d-v)^2(1-I_d(y)).
+\]
+If \(y\ge d\), this is \((y-v)^2\ge0\).
+If \(y<d\), its exact factorization is
+\[
+ P_{d,v}(y)=(y-d)(y+d-2v)>0.
+\]
+No term is estimated separately before this cancellation.
+The exact summed identity, using both moment equalities, is
+\begin{align}
+ \sum_i a_i P_{d,v}(y_i)
+   &=(1-2v)M+v^2N-(d-v)^2(N-K)\\
+   &=(2v-1)\{U_d(N,K)-M\}.
+ \label{eq:threshold-total-signed-ledger}
+\end{align}
+The last equality uses the complete root balance
+\eqref{eq:threshold-total-root-balance}.
+When \(J>0\), at least one unselected site has positive weight, since
+\[
+ \sum_i a_i(1-I_d(y_i))=N-K=J>0.
+\]
+Its packet is strictly positive.  All other weighted packets are
+nonnegative, so the left side of
+\eqref{eq:threshold-total-signed-ledger} is positive.  Since \(2v-1>0\),
+this proves \(M<U_d(N,K)\).
+This argument works for arbitrary nonnegative real weights; it uses
+neither evenness nor individual lower bounds on nonzero weights.
+
+For the closed face \(N=K\), the exact variance identity
+\[
+ \sum_i a_i(y_i-1)^2=N-M\ge0
+\]
+gives \(M\le K\).  The preceding arithmetic feasibility theorem gives
+\(R_d(K)\le M\) in both cases.
+Finally \(U_d(K,K)=K\).  If \(J>0\), the root balance implies
+\[
+ U_d(N,K)-K=Jd+K(v-1)>0,
+\]
+\[
+ N-U_d(N,K)=J(d-1)^2+K(v-1)^2>0.
+\]
+This proves all necessary inequalities and the scalar endpoint bounds.
+
+\paragraph{Proof that every permitted mass is realized.}
+For \(R_d(K)\le M\le K\), use the preceding bounded construction:
+weights \(2(k-1),2\), coordinates \(u,v_{k-1,1}(u)\), and
+\(u\in[d,1]\).  Add a zero-coordinate site of weight \(2(n-k)\).
+Since \(d>0\), this padding is unselected and changes neither moment
+nor selected order.  It makes the total weight exactly \(2n\).
+The exact endpoint and continuity argument already proved supplies every
+such \(M\), including the lower endpoint and the case \(k=1\).
+The zero padding weight when \(n=k\) causes no exception.
+
+For \(K\le M<U_d(N,K)\), use the fixed weights
+\(2(n-k),2k\) and coordinates
+\[
+ u,\quad v_{n-k,k}(u),\qquad 0\le u\le d.
+\]
+Their common moment \(H_{n-k,k}(u)\) is continuous, with
+\[
+ H_{n-k,k}(0)=K,\qquad H_{n-k,k}(d)=U_d(N,K).
+\]
+The intermediate value theorem therefore gives the prescribed mass.
+The chosen parameter cannot equal \(d\), because \(M<U_d(N,K)\).
+Thus its low site is strictly unselected, its high site is at least one,
+and its selected order is exactly \(2k\).  Two sites suffice on this
+branch; padding by a zero weight gives the uniform three-site statement.
+No monotonicity assumption is used.
+
+For an explicit supremum witness, when \(k<n\) put
+\[
+ e=\min\{\epsilon,U_d(N,K)-K\}>0,\qquad
+ M=U_d(N,K)-e/2.
+\]
+Then \(K\le M<U_d(N,K)\) and \(U_d(N,K)-\epsilon<M\), so the
+upper-branch construction gives an exact two-site profile.
+At \(n=k\), the bounded family at \(u=1\) attains mass \(K\).
+This proves sufficiency, all endpoint statements, and the claimed supremum.
+
+\paragraph{Theorem (joint actual total-order region).}
+Retain a finite reflected strip cluster \(W\), its actual orders,
+\(N>0\), \(M_1>0\), and the normalized data
+\(t=Q/M_1\), \(\kappa=M_1^2/Q\), \(y_\rho=(\Re\rho-1/2)^2/t\).
+For every \(0<d<1\), let \(K_d=\sum_{\rho\in W}a_\rho I_d(y_\rho)\).
+Then the compiled actual consumer gives all of
+\begin{equation}
+ R_d(K_d)\le\kappa,\qquad K_d\le C_d(\kappa),\qquad K_d\le N,
+ \label{eq:actual-total-region-counts}
+\end{equation}
+and
+\begin{equation}
+ \begin{cases}
+ \kappa\le N,&K_d=N,\\
+ \kappa<U_d(N,K_d),&K_d<N.
+ \end{cases}
+ \label{eq:actual-total-region-upper}
+\end{equation}
+The strict upper inequality itself does not require reflection.
+In particular, no evenness assumption on the actual total order \(N\)
+is made: odd total order, including central multiplicity, is covered.
+The installed compensated-order specialization \(d=\delta\) is also
+compiled, with every inequality in the same conclusion.
+
+\paragraph{Proof of the actual consumer.}
+Exact rescaling makes both normalized moments equal \(\kappa\), and
+preserves the total weight \(N\) and selected weight \(K_d\).
+The equal-moment witness theorem gives \(K_d>0\).
+Since \(0\le I_d\le1\), summing against actual nonnegative orders gives
+\(K_d\le N\).  If this is strict, apply the full signed packet identity
+\eqref{eq:threshold-total-signed-ledger} to the actual normalized data;
+the real-weight version applies directly.  If \(K_d=N\), the installed
+moment feasibility inequality gives \(\kappa\le N\).
+The previous reflection-paired theorem supplies both remaining inequalities
+in \eqref{eq:actual-total-region-counts}.  The already proved equality
+between normalized selected mass and compensated order gives the
+\(d=\delta\) specialization.
+
+The twenty-seven new proof bodies are maintained in
+\texttt{Helpers/ThresholdTotalPackets.lean},
+\texttt{Helpers/ThresholdTotalBoundary.lean},
+\texttt{Helpers/ThresholdTotalModels.lean},
+\texttt{Helpers/ThresholdTotalFeasibility.lean}, and
+\texttt{Assembly/CarmichaelThresholdTotal.lean}.
+Unlike the earlier kernel minimum at fixed total mass, this theorem fixes
+both normalized moments and the inclusive selected order.  Its upper
+quadratic mechanism belongs to classical moment optimization; the specific
+joint arithmetic-weight classification and reflected-cluster consumer are
+the conclusions established here.  Broad priority is not asserted.
+The finite profile realizations are not asserted to be zeta-zero
+realizations.  This result adds an independent total-order constraint to
+the cluster geometry, not an independent analytic upper bound proving
+simplicity of all zeros; the numerical simplicity window and certified
+\(7/8\) boundary remain unchanged.
+
 \subsection{Signed two-dimensional control of a zero cluster}
 \label{sec:cluster-multiplicity}
 

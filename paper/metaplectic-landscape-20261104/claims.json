@@ -4488,6 +4488,68 @@
         "PrimeFactorOscillations.zeta_finite_threshold_feasibility",
         "PrimeFactorOscillations.zeta_compensated_order_inverse_bound"
       ]
+    },
+    {
+      "id": "TTR-PACKET",
+      "status": "compiled",
+      "claim": "The full compensated cutoff packet(y-v)^2-(d-v)^2*(1-I_d(y)) is nonnegative for v>d and strictly positive below the inclusive cutoff. Its exact finite signed ledger retains both moment and total/selected-weight terms; positive unselected mass forces a strict sum. The equal-moment total ceiling is also checked.",
+      "declarations": [
+        "PrimeFactorOscillations.thresholdTotalPacket_selected",
+        "PrimeFactorOscillations.thresholdTotalPacket_low_pos",
+        "PrimeFactorOscillations.thresholdTotalPacket_nonneg",
+        "PrimeFactorOscillations.finiteWeighted_total_packet_ledger",
+        "PrimeFactorOscillations.finiteWeighted_unselected_witness",
+        "PrimeFactorOscillations.finiteWeighted_total_packet_pos",
+        "PrimeFactorOscillations.finiteWeighted_equal_moment_le_total"
+      ]
+    },
+    {
+      "id": "TTR-UPPER",
+      "status": "compiled",
+      "claim": "For0<d<1,0<K<N and nonnegative real weights with equal moments M, the complete packet gives M<U_d(N,K)=d(N-K)+K/2+sqrt(K^2/4+K(N-K)d(1-d)). K<U<N. At N=K the root is K and equal moments give M<=N. Even-profile specializations are included.",
+      "declarations": [
+        "PrimeFactorOscillations.thresholdTotalUpper_formula",
+        "PrimeFactorOscillations.thresholdTotalUpper_diagonal",
+        "PrimeFactorOscillations.thresholdTotalUpper_open_bounds",
+        "PrimeFactorOscillations.finiteWeighted_threshold_total_upper",
+        "PrimeFactorOscillations.thresholdEvenAdmissible_total_upper",
+        "PrimeFactorOscillations.thresholdEvenAdmissible_le_total"
+      ]
+    },
+    {
+      "id": "TTR-MODELS",
+      "status": "compiled",
+      "claim": "Zero-coordinate padding preserves both moments and inclusive selected order while adding exact total weight. At total2n and selected2k, all masses from R_d(2k) through2k have three-site witnesses; all masses from2k to the strict upper face have two-site witnesses.",
+      "declarations": [
+        "PrimeFactorOscillations.thresholdPair_total",
+        "PrimeFactorOscillations.thresholdTotalAdmissible_pad",
+        "PrimeFactorOscillations.thresholdTotalUpper_even",
+        "PrimeFactorOscillations.thresholdTotal_exists_bounded",
+        "PrimeFactorOscillations.thresholdTotal_exists_upper"
+      ]
+    },
+    {
+      "id": "TTR-FEASIBILITY",
+      "status": "compiled",
+      "claim": "For every0<d<1 and integers0<k<=n, all real feasible masses are exactly[R_d(2k),2k] when n=k and[R_d(2k),U_d(2n,2k)) when k<n. Three sites suffice; the lower face is attained, the diagonal upper face is attained, and the off-diagonal upper face is approachable to every positive tolerance but is not attained.",
+      "declarations": [
+        "PrimeFactorOscillations.thresholdTotalAdmissible_region",
+        "PrimeFactorOscillations.thresholdTotal_three_site_feasibility",
+        "PrimeFactorOscillations.thresholdTotal_finite_feasibility",
+        "PrimeFactorOscillations.thresholdTotal_minimum_attained",
+        "PrimeFactorOscillations.thresholdTotal_diagonal_upper_attained",
+        "PrimeFactorOscillations.thresholdTotal_upper_approximable"
+      ]
+    },
+    {
+      "id": "TTR-ACTUAL",
+      "status": "compiled",
+      "claim": "Actual finite reflected strip clusters with N>0,M1>0 satisfy R_d(K_d)<=kappa,K_d<=C_d(kappa),K_d<=N and the complete upper face: kappa<=N if K_d=N, and kappa<U_d(N,K_d) otherwise. The strict upper inequality alone does not need reflection. Odd N and the installed compensated-order specialization are covered. No new global simplicity window or exponent is asserted.",
+      "declarations": [
+        "PrimeFactorOscillations.zeta_finite_threshold_total_upper",
+        "PrimeFactorOscillations.zeta_finite_threshold_total_region",
+        "PrimeFactorOscillations.zeta_compensated_order_total_region"
+      ]
     }
   ],
   "novelty": "Priority for the combined explicit formulas has not been established; source classification and Gauss identities are classical."
