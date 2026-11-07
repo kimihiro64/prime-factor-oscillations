@@ -4688,6 +4688,181 @@ and rigidity theorem, have real Lean proofs.  No finite zero samples
 or numerical completion of an unresolved term enter the argument.
 No priority over the external multiplicity literature is asserted.
 
+\subsection{Sharp nonlinear horizontal geometry of a zero cluster}
+\label{sec:nonlinear-horizontal-geometry}
+
+Retain the preceding exact radii \(a_j\), signed coefficients \(c_j\),
+charge \(g\), and complete budget \(B(T)=c_3\log|T|+C_3\).
+For \(0\le x\le9/64\), define
+\[
+ \Phi(x)=\sum_{j=1}^3\frac{c_ja_j}{a_j^2-x},\qquad
+ L(z)=\sum_{j=1}^3\frac{c_ja_j}{(a_j^2-z)^2}.
+\]
+The exact same-height identity is \(K_3(u,0)=\Phi(u^2)\) for
+\(|u|\le3/8\), and \(\Phi(0)=g\).  Put
+\begin{align*}
+ \ell=L(0)&=\frac{9127021347318871247}{1372823364650976000}
+             =6.648358108\ldots,\\
+ \sigma=\sum_{j=1}^3\frac{c_j}{a_j^5}
+   &=\frac{8724025982765199771011463287}{269181019586315111382051840}
+             =32.409513851\ldots.
+\end{align*}
+In particular, \(\ell>13/2\) and \(\sigma>0\).
+
+For a finite same-ordinate set \(W\) as above, suppose its total
+multiplicity \(N_W\) is positive.  Write
+\[
+ x_w=(\Re w-\tfrac12)^2,\qquad
+ \mu_W=\frac{M_W}{N_W},\qquad
+ M_{4,W}=\sum_{w\in W}m(w)x_w^2,\qquad
+ V_W=\sum_{w\in W}m(w)(x_w-\mu_W)^2.
+\]
+Points of order zero make no contribution.
+
+\paragraph{Theorem (nonlinear joint geometry).}
+Unconditionally, for every such finite \(W\) at every \(|T|\ge2\),
+\(0\le\mu_W\le9/64\) and
+\begin{equation}
+ N_W\Phi(\mu_W)+\sigma V_W\le gB(T).
+ \label{eq:nonlinear-horizontal-budget}
+\end{equation}
+Consequently,
+\begin{equation}
+ gN_W+\ell M_W+\sigma M_{4,W}\le gB(T).
+ \label{eq:quartic-horizontal-budget}
+\end{equation}
+The left side of \eqref{eq:quartic-horizontal-budget} exceeds the
+previous \(gN_W+(13/2)M_W\) by exactly
+\[
+ (\ell-13/2)M_W+\sigma M_{4,W}\ge0,
+\]
+and the improvement is strict whenever \(M_W>0\).
+Every term in the old analytic upper bound, including \(C_3\), is retained.
+
+\paragraph{Proof of the signed tangent estimate.}
+All denominators below are positive on the closed square
+\(0\le x,z\le w_0:=9/64\).  The exact identity
+\begin{equation}
+ \Phi(x)-\Phi(z)-L(z)(x-z)=H(x,z)(x-z)^2,
+ \qquad
+ H(x,z)=\sum_{j=1}^3
+ \frac{c_ja_j}{(a_j^2-x)(a_j^2-z)^2}
+ \label{eq:nonlinear-horizontal-tangent}
+\end{equation}
+follows by clearing each summand's denominators.  The negative second
+coefficient remains inside \(H\).
+We prove the uniform, sharp floor
+\begin{equation}
+ H(x,z)\ge\sigma\quad(0\le x,z\le9/64).
+ \label{eq:nonlinear-horizontal-remainder-floor}
+\end{equation}
+Here sharp means that \(\sigma\) is the largest constant lower bound
+for \(H\) on this square: \(H(0,0)=\sigma\).
+
+The following exact certificate proves the floor without a grid test.
+Set
+\[
+ B_j(x,z)=(a_j^2-x)(a_j^2-z)^2,\qquad
+ D(x,z)=\prod_{j=1}^3B_j(x,z),\qquad
+ U(x,z)=\sum_{j=1}^3c_ja_j\!\prod_{k\ne j}B_k(x,z).
+\]
+Then \(HD=U\).  Write
+\[
+ P(X,Z)=U(w_0X,w_0Z)-\sigma D(w_0X,w_0Z)
+       =\sum_{k=0}^{3}\sum_{l=0}^{6}p_{kl}X^kZ^l.
+\]
+For \(0\le i\le3\), \(0\le j\le6\), define the exact rational numbers
+\[
+ \beta_{ij}=\sum_{k=0}^{i}\sum_{l=0}^{j}p_{kl}
+       \frac{\binom{i}{k}}{\binom{3}{k}}
+       \frac{\binom{j}{l}}{\binom{6}{l}}.
+\]
+With the positive integer
+\[
+ \mathcal S=743392281267463253945801192243200000000000000000000000000000000000,
+\]
+the integers \(A_{ij}=\mathcal S\beta_{ij}\binom{3}{i}\binom{6}{j}\)
+satisfy \(A_{00}=0\); the remaining twenty-seven are positive.
+For completeness, their row minima are
+\[
+ \begin{array}{c|c|r}
+ i&\text{indices included}&\min A_{ij}\\\hline
+0 & 1\le j\le6 & 50887375665861953576851511269639925474434771031682231601158402048 \\
+1 & 0\le j\le6 & 81448516441444037642357369142454676442889767037974549895550337024 \\
+2 & 0\le j\le6 & 126567896707499144913908861729990991379108675655992874202228681267 \\
+3 & 0\le j\le6 & 37530468824846874813723019000311986185373140352803836208877888247 \\
+ \end{array}
+\]
+The coefficient formula specifies every entry, and exact expansion gives
+\begin{equation}
+ \mathcal SP(X,Z)=
+ \sum_{i=0}^{3}\sum_{j=0}^{6}A_{ij}
+ X^i(1-X)^{3-i}Z^j(1-Z)^{6-j}.
+ \label{eq:nonlinear-horizontal-bernstein}
+\end{equation}
+Every term on the right is nonnegative on the unit square.  Since
+\(\mathcal S>0\) and \(D>0\), this proves
+\eqref{eq:nonlinear-horizontal-remainder-floor}.  The full integer
+identity, signs and rational tangent identity are checked in Lean.
+It follows that
+\begin{equation}
+ \Phi(z)+L(z)(x-z)+\sigma(x-z)^2\le\Phi(x).
+ \label{eq:nonlinear-horizontal-strong-tangent}
+\end{equation}
+
+\paragraph{Joint cancellation and equality configurations.}
+For any finite collection of squared horizontal coordinates \(x_r\)
+in \([0,9/64]\), with mean \(\mu\), summing
+\eqref{eq:nonlinear-horizontal-strong-tangent} gives
+\begin{equation}
+ n\Phi(\mu)+\sigma\sum_r(x_r-\mu)^2\le\sum_r\Phi(x_r),
+ \label{eq:nonlinear-horizontal-centered}
+\end{equation}
+because the entire linear term is exactly
+\(L(\mu)\sum_r(x_r-\mu)=0\).  No separate absolute estimate is applied
+to these deviations.  Moreover,
+\[
+ \sum_r\Phi(x_r)=n\Phi(\mu)
+ \quad\Longleftrightarrow\quad
+ x_r=\mu\ \text{for every index }r.
+\]
+Indeed, \(\sigma>0\) forces every square to vanish in the forward
+direction, and the reverse direction is immediate.
+Thus \(n\Phi(\mu)\) is the exact minimum profile cost at prescribed
+mass and mean.  This sharpness statement concerns the kernel cost;
+it makes no attainment assertion about the analytic trace ceiling.
+
+Apply this finite identity to the canonical multiplicity copies of the
+points of \(W\).  The existing weighted-fiber transport identifies
+\(n=N_W\), the mean with \(\mu_W\), and the squared deviation sum
+with \(V_W\).  The proved seven-eighths strip puts every canonical
+squared horizontal coordinate in \([0,9/64]\), which also proves the
+stated bound on \(\mu_W\).  The complete trace inequality is
+\[
+ \sum_r K_3(\Re\rho_r-\tfrac12,0)
+ \le\mathcal T_3(T)\le gB(T).
+\]
+Combining it with \eqref{eq:nonlinear-horizontal-centered} proves
+\eqref{eq:nonlinear-horizontal-budget} with all multiplicity copies
+and compensation terms retained.
+
+Finally, put \(z=0\) in \eqref{eq:nonlinear-horizontal-strong-tangent}:
+\(\Phi(x)\ge g+\ell x+\sigma x^2\).  The exact variance balance is
+\[
+ V_W=M_{4,W}-2\mu_WM_W+\mu_W^2N_W
+     =M_{4,W}-N_W\mu_W^2.
+\]
+Substituting these two identities into
+\eqref{eq:nonlinear-horizontal-budget} proves
+\eqref{eq:quartic-horizontal-budget} and the displayed comparison.
+The global pointwise logarithmic coefficient, numerical simplicity
+window and zero-free boundary are unchanged.
+For comparison with bounds obtained from zeta values and short
+intervals, see
+\href{https://arxiv.org/abs/1706.08268}{Ivi\'c's multiplicity analysis}.
+The present bounds constrain the joint horizontal geometry of a finite
+same-height cluster.
+
 \subsection{Signed two-dimensional control of a zero cluster}
 \label{sec:cluster-multiplicity}
 

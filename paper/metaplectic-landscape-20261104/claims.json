@@ -3180,6 +3180,57 @@
         "PrimeFactorOscillations.zeta_finite_exact_maximum_window",
         "PrimeFactorOscillations.threeLine_exact_maximum_dominates_old_sixteenth"
       ]
+    },
+    {
+      "id": "NLH-KERNEL",
+      "status": "kernel_checked_sharp_signed_horizontal_tangent_and_centered_profile",
+      "claim": "The signed three-line horizontal profile Phi has the exact tangent identity Phi(x)-Phi(z)-L(z)*(x-z)=H(x,z)*(x-z)^2. On[0,9/64]^2 the minimum of H is the explicit positive rational sigma=8724025982765199771011463287/269181019586315111382051840, attained at(0,0). Every centered finite profile sum is at least card*Phi(z)+sigma*variance. Equality in the unpenalized Jensen bound holds exactly when every squared horizontal coordinate equals z. The exact slope at0 is9127021347318871247/1372823364650976000>13/2.",
+      "declarations": [
+        "PrimeFactorOscillations.threeLineHorizontalVarianceCoefficient_pos",
+        "PrimeFactorOscillations.threeLineHorizontalSlope_zero",
+        "PrimeFactorOscillations.threeLineHorizontalSlope_zero_gt",
+        "PrimeFactorOscillations.threeLineHorizontalProfile_zero",
+        "PrimeFactorOscillations.threeLineHorizontal_denominators_pos",
+        "PrimeFactorOscillations.threeLineHorizontalRemainderDen_pos",
+        "PrimeFactorOscillations.threeLineHorizontalTangentCertificate_identity",
+        "PrimeFactorOscillations.threeLineHorizontalTangentCertificate_nonneg",
+        "PrimeFactorOscillations.threeLineHorizontalRemainder_mul_den",
+        "PrimeFactorOscillations.threeLineHorizontalRemainder_ge",
+        "PrimeFactorOscillations.threeLineHorizontalRemainder_zero",
+        "PrimeFactorOscillations.threeLineHorizontalRemainder_optimal_floor",
+        "PrimeFactorOscillations.threeLineHorizontal_one_tangent",
+        "PrimeFactorOscillations.threeLineHorizontal_tangent_identity",
+        "PrimeFactorOscillations.threeLineHorizontal_strong_tangent",
+        "PrimeFactorOscillations.threeLineHorizontal_quartic_charge",
+        "PrimeFactorOscillations.threeLineKernel_horizontal_profile",
+        "PrimeFactorOscillations.threeLineHorizontal_mean_bounds",
+        "PrimeFactorOscillations.threeLineHorizontal_centered_charge",
+        "PrimeFactorOscillations.threeLineHorizontal_jensen_eq_iff"
+      ]
+    },
+    {
+      "id": "NLH-TRACE",
+      "status": "kernel_checked_complete_nonlinear_multiplicity_transport",
+      "claim": "For every finite W of critical-strip points at a common ordinate t, positive multiplicity mass and a centered squared horizontal coordinate z, the canonical7/8 strip hypothesis implies0<=z<=9/64 and N*Phi(z)+sigma*sum_W m(w)*(u(w)^2-z)^2<=the complete three-line xi trace. Every multiplicity copy is transported with the existing general weighted-fiber identity.",
+      "declarations": [
+        "PrimeFactorOscillations.zeta_finite_horizontal_nonlinear_charge_trace"
+      ]
+    },
+    {
+      "id": "NLH-GLOBAL",
+      "status": "kernel_checked_unconditional_nonlinear_and_quartic_geometry",
+      "claim": "Unconditionally for abs(t)>=2 and positive-mass finite common-ordinate W, put mu=M2/N. Then0<=mu<=9/64 and N*Phi(mu)+sigma*V<=g*B(t). This implies g*N+ell*M2+sigma*M4<=g*B(t), with ell=6.648358108... and sigma=32.409513851..., strictly stronger than the previous g*N+(13/2)*M2 bound whenever M2>0. The same full additive constant and global leading coefficient are retained. No simplicity-window or zero-free-boundary gain is claimed.",
+      "declarations": [
+        "PrimeFactorOscillations.zetaFiniteHorizontalVariance_nonneg",
+        "PrimeFactorOscillations.zetaFiniteHorizontalFourthMoment_nonneg",
+        "PrimeFactorOscillations.zetaFiniteHorizontalMean_balance",
+        "PrimeFactorOscillations.zetaFiniteHorizontalVariance_identity",
+        "PrimeFactorOscillations.zeta_finite_horizontal_nonlinear_budget",
+        "PrimeFactorOscillations.zeta_horizontal_joint_charge_dominates_quartic",
+        "PrimeFactorOscillations.zeta_finite_horizontal_quartic_budget",
+        "PrimeFactorOscillations.zeta_horizontal_quartic_charge_dominates_old",
+        "PrimeFactorOscillations.zeta_horizontal_quartic_charge_strict"
+      ]
     }
   ],
   "novelty": "Priority for the combined explicit formulas has not been established; source classification and Gauss identities are classical."
