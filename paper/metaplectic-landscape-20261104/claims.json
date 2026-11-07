@@ -4220,6 +4220,76 @@
         "PrimeFactorOscillations.zeta_nonlinear_threshold_explicit_gain",
         "PrimeFactorOscillations.zeta_nonlinear_threshold_gain_pos"
       ]
+    },
+    {
+      "id": "TIB-LATTICE",
+      "status": "compiled",
+      "claim": "Canonical distance to the nonnegative2d lattice and the optimized quadratic/linear joint-tilt penalty, with nonnegative and strict-positive domains.",
+      "declarations": [
+        "PrimeFactorOscillations.thresholdBandGap_cell",
+        "PrimeFactorOscillations.thresholdBandGap_nonneg",
+        "PrimeFactorOscillations.thresholdBandGap_le_distance",
+        "PrimeFactorOscillations.thresholdBandGap_pos",
+        "PrimeFactorOscillations.thresholdBandGap_pos_small",
+        "PrimeFactorOscillations.thresholdBandPenalty_le",
+        "PrimeFactorOscillations.thresholdBandPenalty_nonneg",
+        "PrimeFactorOscillations.thresholdBandPenalty_pos"
+      ]
+    },
+    {
+      "id": "TIB-PACKET",
+      "status": "compiled",
+      "claim": "Low-band linear coercivity, high-band quadratic coercivity and one coupled tilted cubic packet retaining every signed cross term.",
+      "declarations": [
+        "PrimeFactorOscillations.thresholdBand_constants_pos",
+        "PrimeFactorOscillations.thresholdBand_low_coercivity",
+        "PrimeFactorOscillations.thresholdBand_high_coercivity",
+        "PrimeFactorOscillations.thresholdBand_tilted_packet"
+      ]
+    },
+    {
+      "id": "TIB-ENERGY",
+      "status": "compiled",
+      "claim": "Exact positive-packet defect, nonnegative predicted band mass, finite joint tilt, integer-corrected equal-moment energy and nonnegative complete correction.",
+      "declarations": [
+        "PrimeFactorOscillations.thresholdPositiveRoot_band_prediction",
+        "PrimeFactorOscillations.finiteWeightedThreshold_exact_positive_defect",
+        "PrimeFactorOscillations.finiteWeightedThreshold_joint_tilt",
+        "PrimeFactorOscillations.finiteWeightedThreshold_integer_cost",
+        "PrimeFactorOscillations.thresholdIntegerCorrection_nonneg"
+      ]
+    },
+    {
+      "id": "TIB-TRANSFER",
+      "status": "compiled",
+      "claim": "Normalization and the full signed kernel ledger with both nonlinear cost and integer correction retained.",
+      "declarations": [
+        "PrimeFactorOscillations.finiteWeightedThreshold_integer_scaled",
+        "PrimeFactorOscillations.threeLineWeightedIntegerThreshold_charge"
+      ]
+    },
+    {
+      "id": "TIB-ACTUAL",
+      "status": "compiled",
+      "claim": "Reflection forces even total interior-band order; cast and actual application give B2+tau*t^3*Cquad+tau*t^3*G+tau*t^3*J<=gB. Strict extra charge requires positive lattice gap, K<=kappa, N>0,M1>0; no new window or global simplicity.",
+      "declarations": [
+        "PrimeFactorOscillations.zetaThresholdBandOrder_cast",
+        "PrimeFactorOscillations.zetaThresholdBandOrder_even",
+        "PrimeFactorOscillations.zetaThresholdBand_even_mass",
+        "PrimeFactorOscillations.zeta_finite_integer_threshold_bound",
+        "PrimeFactorOscillations.zeta_integer_threshold_explicit_gain",
+        "PrimeFactorOscillations.zeta_integer_threshold_gain_pos"
+      ]
+    },
+    {
+      "id": "TIB-NONVACUOUS",
+      "status": "compiled",
+      "claim": "A uniform feasible even-weight two-atom family for every0<d<1/2 has a strictly positive canonical gap and correction.",
+      "declarations": [
+        "PrimeFactorOscillations.thresholdIntegerCorrection_pos",
+        "PrimeFactorOscillations.thresholdBand_two_atom_gap",
+        "PrimeFactorOscillations.thresholdBand_two_atom_exists"
+      ]
     }
   ],
   "novelty": "Priority for the combined explicit formulas has not been established; source classification and Gauss identities are classical."

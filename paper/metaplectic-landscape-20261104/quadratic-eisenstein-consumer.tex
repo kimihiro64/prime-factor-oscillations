@@ -7364,6 +7364,182 @@ The hypothesis \(M_1>0\) remains essential to this normalization; clusters
 supported entirely on the critical line still require a separate observable
 estimate for their individual multiplicities.
 
+\subsection{An arithmetic band gap beyond the real-weight moment relaxation}
+\label{sec:threshold-integer-band}
+
+The preceding nonlinear costs use real weights.  Reflection supplies an
+additional restriction on actual clusters: the total order in any symmetric
+band separated from the critical line is even.  Applying that restriction to
+an interior band gives a computable extra cost.  The argument uses a coupled
+tilt of the full cubic packet; it does not separately estimate its two sides.
+The general convex-moment method is classical, as cited above.  Priority for
+this particular arithmetic refinement is not asserted beyond the portfolio
+comparison recorded with the proof.
+
+\paragraph{Theorem (integer band separation).}
+Retain the finite equal-moment profile, mass \(M>0\), selected mass \(K\),
+energy \(E\), and \(0<d<1\) from
+\eqref{eq:nonlinear-threshold-cost}.  Suppose also that
+\[
+ L=\sum_{i\in S}a_i\mathbf1_{d/2\le y_i<d}\in2\mathbb N.
+\]
+For \(K\le M\), define
+\[
+ z=z_+,\quad b=-\frac{(z-d)^2}{2z-d},\quad c=2z+b-d,\quad
+ p=M-Kz,\quad A=\frac d2(c-d),\quad C=d-b,\quad B=K/C.
+\]
+Then \(p\ge0\) and \(A,C,B>0\).  Put
+\[
+ n=\left\lfloor\frac{p}{2d}\right\rfloor,\qquad
+ \eta=\min\{p-2dn,\,2d(n+1)-p\},
+\]
+and define
+\begin{equation}
+ J_d(M,K)=
+ \begin{cases}
+ \eta^2/B,&K\le M,\ 2\eta\le AB,\\
+ A\eta-A^2B/4,&K\le M,\ 2\eta>AB,\\
+ 0,&K>M.
+ \end{cases}
+ \label{eq:threshold-integer-band-cost}
+\end{equation}
+Every displayed denominator is positive on its stated branch.  One has
+\begin{equation}
+ E\ge\mathcal F_d(M,K)+J_d(M,K),\qquad J_d(M,K)\ge0.
+ \label{eq:threshold-integer-band-bound}
+\end{equation}
+For \(K\le M\), the correction is strictly positive whenever
+\(p\notin2d\mathbb N\).  In particular \(0<p<2d\) suffices.
+No integrality or parity is assumed for an individual weight.
+
+\paragraph{Proof of the coupled packet estimate.}
+For the positive packet already proved above, the exact defect identity is
+\[
+ \Delta=E-\mathcal F_d(M,K)=\sum_{i\in S}a_iQ_+(y_i).
+\]
+The root relation gives
+\[
+ p=\frac{Kz(z-1)}{1-d}\ge0.
+\]
+Write \(I(y)=\mathbf1_{y\ge d}\) and
+\(H(y)=\mathbf1_{d/2\le y<d}\).  Below the threshold,
+\(Q_+(y)=y(d-y)(c-y)\).  If \(y<d/2\), then
+\((d-y)(c-y)\ge(d/2)(c-d)=A\), so \(Q_+(y)\ge Ay\).
+If \(d/2\le y<d\), then \(y(c-y)\ge A\), so
+\(Q_+(y)\ge A(d-y)\).  Together these say
+\[
+ Q_+(y)\ge A|y-dH(y)|\qquad(0\le y<d).
+\]
+On the selected side, its exact factorization gives
+\[
+ Q_+(y)=(y-z)^2(y-b)\ge C(y-z)^2\qquad(y\ge d).
+\]
+For either \(s=1\) or \(s=-1\), and every \(0\le\lambda\le A\),
+these two estimates prove the single pointwise inequality
+\begin{equation}
+ Q_+(y)+\frac{\lambda^2}{4C}I(y)
+ -\lambda s\{y-zI(y)-dH(y)\}\ge0.
+ \label{eq:threshold-integer-band-tilt}
+\end{equation}
+Indeed, below the threshold use \(\lambda|y-dH(y)|\le Q_+(y)\).
+Above it, retain the cross term and complete the square exactly:
+\[
+ C(y-z)^2-\lambda s(y-z)+\frac{\lambda^2}{4C}
+ =\frac{\{C(y-z)-\lambda s/2\}^2}{C}\ge0.
+\]
+Multiply \eqref{eq:threshold-integer-band-tilt} by \(a_i\), sum over
+\(S\), and use the exact identities for \(M,K,L,\Delta\).  Choosing
+\(s\) according to the sign of \(p-dL\) gives
+\begin{equation}
+ \lambda|p-dL|\le\Delta+B\lambda^2/4
+ \qquad(0\le\lambda\le A).
+ \label{eq:threshold-integer-band-joint}
+\end{equation}
+Thus all moment and threshold compensation terms remain present in the
+same signed expression.
+
+\paragraph{Proof of the arithmetic cost.}
+The floor cell is \(2dn\le p<2d(n+1)\).  For every natural \(m\),
+if \(m\le n\) the distance \(|p-2dm|\) is at least \(p-2dn\);
+if \(m\ge n+1\) it is at least \(2d(n+1)-p\).  Hence
+\(0\le\eta\le|p-2dm|\) for every \(m\).  Since \(L=2m\),
+\eqref{eq:threshold-integer-band-joint} gives
+\[
+ \Delta\ge\lambda\eta-B\lambda^2/4\qquad(0\le\lambda\le A).
+\]
+When \(2\eta\le AB\), choose \(\lambda=2\eta/B\); otherwise choose
+\(\lambda=A\).  These admissible choices give precisely the first two
+branches of \eqref{eq:threshold-integer-band-cost}.  The first is positive
+for \(\eta>0\); in the second branch,
+\(A\eta-A^2B/4>A^2B/4>0\).  The floor cell gives \(\eta>0\) away
+from \(2d\mathbb N\).  The branch \(K>M\) is the already proved
+nonlinear inequality with zero added correction.  This proves
+\eqref{eq:threshold-integer-band-bound} on the complete stated domain.
+
+\paragraph{The correction is nonvacuous on feasible even weights.}
+For every \(0<d<1/2\), put
+\[
+ u=d/2,\qquad v=\frac{1+\sqrt{1+4u(1-u)}}2>1.
+\]
+The two atoms with weights \((2,2)\) satisfy
+\(u^2+v^2=u+v\), \(M=2(u+v)>2\), \(K=2\), and \(L=2\).
+For their threshold root \(z\), the proved identity for \(p\) gives
+\(p>0\).  Moreover,
+\[
+ \{z-(u+v-d)\}\{z+u+v-2d\}=-2(u-d)(v-d)>0.
+\]
+The second factor is positive, so \(z>u+v-d\), which gives \(p<2d\).
+Thus \(J_d(M,2)>0\).  The Lean existence theorem establishes this
+family uniformly in \(d\), together with its exact moment identity and
+strict correction.  These are finite moment models, not asserted
+realizations as actual zeta zero clusters.
+
+\paragraph{Theorem (complete actual signed arithmetic gain).}
+For the actual reflected same-height strip clusters in
+\eqref{eq:nonlinear-threshold-actual-signed}, retain every hypothesis,
+including \(M_1>0\).  The total order in the normalized interior band
+\(d/2\le x_i/t<d\) is even.  At \(d=\delta\), one has
+\begin{equation}
+ \mathcal B_2+\tau t^3\mathcal C(\kappa,\kappa-K)
+  +\tau t^3G(\kappa,K)+\tau t^3J_d(\kappa,K)\le gB(T).
+ \label{eq:threshold-integer-band-actual}
+\end{equation}
+Its last term is strictly positive on the positive branch whenever the
+canonical lattice gap is positive.
+
+\paragraph{Proof of parity and the actual consumer.}
+Filter the original finite cluster by the displayed band.  The filter
+preserves reflection because its coordinate is
+\((\operatorname{Re}\rho-1/2)^2/t\).  An odd total order in a reflected
+strip set would force a critical-line point, by the proved odd-order
+reflection theorem.  Such a point has normalized square zero and is
+excluded by \(d/2>0\).  The band order is therefore even; this proves the
+required condition on its total weight without assuming even individual
+orders.  Apply \eqref{eq:threshold-integer-band-bound} to the normalized
+coordinates.  The exact energy rescaling, unchanged kernel ledger,
+remainder floor \(\tau\), and actual profile upper bound give
+\[
+ \mathcal B_2+\tau t^3\{\mathcal F_d(\kappa,K)+J_d(\kappa,K)\}
+ \le gB(T).
+\]
+Insert \eqref{eq:nonlinear-threshold-exact-gain} to obtain
+\eqref{eq:threshold-integer-band-actual}.  No former signed charge has
+been removed or replaced.
+
+The twenty-eight new theorem bodies are implemented in
+\texttt{Helpers/ThresholdBandLattice.lean},
+\texttt{Helpers/ThresholdBandPackets.lean},
+\texttt{Helpers/ThresholdBandIntegerCost.lean},
+\texttt{Helpers/ThresholdBandSharpness.lean},
+\texttt{Helpers/ThresholdBandTransfer.lean}, and
+\texttt{Assembly/CarmichaelThresholdBand.lean}.
+This refines the complete finite-cluster observable bound by an explicit
+arithmetic cost.  The numerical simplicity window and the certified
+\(7/8\) boundary are unchanged.  Clusters entirely on the critical line
+still have \(M_1=0\) and lie outside this normalization; this result does
+not discharge the independent area estimate in the global simplicity
+criterion.
+
 \subsection{Signed two-dimensional control of a zero cluster}
 \label{sec:cluster-multiplicity}
 

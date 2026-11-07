@@ -48,6 +48,7 @@ from scripts.simplicity_area_proof_targets import SIMPLICITY_AREA_THEOREMS
 from scripts.single_real_zeta_proof_targets import SINGLE_REAL_ZETA_THEOREMS
 from scripts.strip_carrier_proof_targets import STRIP_CARRIER_THEOREMS
 from scripts.three_line_multiplicity_proof_targets import THREE_LINE_MULTIPLICITY_THEOREMS
+from scripts.threshold_integer_gap_proof_targets import THRESHOLD_INTEGER_GAP_THEOREMS
 from scripts.two_power_degree_proof_targets import TWO_POWER_DEGREE_THEOREMS
 from scripts.two_tail_proof_targets import TWO_TAIL_THEOREMS
 
@@ -86,6 +87,7 @@ METAPLECTIC_THEOREMS: tuple[str, ...] = tuple(
         + EXACT_WINDOW_PROFILE_THEOREMS
         + NONLINEAR_HORIZONTAL_THEOREMS
         + NONLINEAR_THRESHOLD_THEOREMS
+        + THRESHOLD_INTEGER_GAP_THEOREMS
         + PARITY_GEOMETRY_THEOREMS
         + PARITY_CUBIC_THEOREMS
         + MOMENT_RATIO_THEOREMS
