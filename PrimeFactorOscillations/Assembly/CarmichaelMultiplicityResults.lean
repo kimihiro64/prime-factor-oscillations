@@ -6,6 +6,7 @@ Authors: Prime Factor Oscillations contributors
 
 import PrimeFactorOscillations.Assembly.CarmichaelEffectiveMultiplicity
 import PrimeFactorOscillations.Assembly.CarmichaelGlobalExcessSharpness
+import PrimeFactorOscillations.Assembly.CarmichaelHorizontalMultiplicity
 import PrimeFactorOscillations.Assembly.CarmichaelLocalizedMultiplicity
 import PrimeFactorOscillations.Assembly.CarmichaelNearIdentityPanel
 import PrimeFactorOscillations.Assembly.CarmichaelPhaseMultiplicity

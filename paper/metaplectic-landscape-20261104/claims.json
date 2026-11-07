@@ -3062,6 +3062,39 @@
         "PrimeFactorOscillations.zeta_multiplicity_threeLine_log_bound",
         "PrimeFactorOscillations.zeta_multiplicity_threeLine_rational_log_bound"
       ]
+    },
+    {
+      "id": "HMC-CHARGE",
+      "status": "kernel_checked_uniform_quadratic_charge",
+      "claim": "For every real u with abs(u)<=1/2, the actual signed three-line kernel has K3(u,0)>=g+(13/2)*u^2. An exact rational polynomial certificate with three positive coefficients proves the retained horizontal penalty, including all endpoint cases.",
+      "declarations": [
+        "PrimeFactorOscillations.threeLineHorizontalCoefficients_pos",
+        "PrimeFactorOscillations.threeLineKernel_quadratic_charge"
+      ]
+    },
+    {
+      "id": "HMC-FIBER",
+      "status": "kernel_checked_full_multiplicity_fibers",
+      "claim": "Finite complete multiplicity fibers have the exact analytic zeta orders, and distinct complex points have disjoint fibers. For every finite W of critical-strip points sharing an ordinate t, their sum of m(w)*(g+(13/2)*(Re(w)-1/2)^2) is at most the full signed three-line xi trace, under the stated canonical strip hypothesis.",
+      "declarations": [
+        "PrimeFactorOscillations.xiFiniteMultiplicityFiber_mem",
+        "PrimeFactorOscillations.xiFiniteMultiplicityFiber_card",
+        "PrimeFactorOscillations.xi_threeLine_finite_horizontal_charge",
+        "PrimeFactorOscillations.zeta_finite_horizontal_charge_trace",
+        "PrimeFactorOscillations.zeta_multiplicity_horizontal_charge_trace"
+      ]
+    },
+    {
+      "id": "HMC-GLOBAL",
+      "status": "kernel_checked_unconditional_horizontal_rigidity",
+      "claim": "The proved7/8 strip discharges the canonical strip hypothesis. For abs(t)>=2, every finite W of critical-strip points at height t satisfies N_W+(13/(2*g))*M_W<=c3*log(abs(t))+C3, where M_W=sum_W m(w)*(Re(w)-1/2)^2. The individual multiplicity profile and near-saturation rigidity lambda*M_W<=eta*B(t) are unconditional. Neither the global coefficient, simplicity window nor zero-free boundary changes.",
+      "declarations": [
+        "PrimeFactorOscillations.zetaFiniteHorizontalMoment_nonneg",
+        "PrimeFactorOscillations.zeta_finite_horizontal_budget",
+        "PrimeFactorOscillations.zeta_finite_horizontal_budget_normalized",
+        "PrimeFactorOscillations.zeta_multiplicity_horizontal_profile",
+        "PrimeFactorOscillations.zeta_finite_horizontal_rigidity"
+      ]
     }
   ],
   "novelty": "Priority for the combined explicit formulas has not been established; source classification and Gauss identities are classical."
