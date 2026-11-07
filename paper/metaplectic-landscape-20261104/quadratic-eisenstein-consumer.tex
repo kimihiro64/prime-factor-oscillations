@@ -3434,6 +3434,105 @@ sharp erasure/multiplicity constraint for the affine readout; literature
 priority remains unestablished. No arithmetic sampling-error rate or
 improved global zero-free exponent is claimed. The QRH boundary remains~\(7/8\).
 
+\subsection{One original real coordinate recovers both zeta orders}
+\label{sec:single-real-zeta}
+
+The preceding integer-code erasure examples need not be realized by actual
+zeta zeros. A global positive zero budget rules them out for zeta, for every
+integer power degree, without an assumption on zero multiplicities or RH.
+Write
+\[
+ S=\gamma_E+2-\log(4\pi)\le\frac1{20},\qquad
+ q_d(\rho)=\frac{\rho+d-1}{d},\qquad
+ \delta_d(\rho)=d-\Re\frac{d\rho}{\rho+d-1}.
+\]
+
+\paragraph{Theorem (one-real-coordinate recovery).}
+Let \(d\ge2\) be an integer and \(0<\Re\rho<1\), including real \(\rho\).
+Set \(w=q_d(\rho)\), \(A=\operatorname{ord}_{\rho}\zeta\),
+\(B=\operatorname{ord}_{w}\zeta\), and
+\(r=\Re\mathcal R_{\zeta,d}(\rho)\). Then
+\[
+ 0<\delta_d(\rho),\qquad 0\le\delta_d(\rho)B\le\frac3{10},\qquad
+ r=dB-A-\delta_d(\rho)B.
+\]
+In particular, \(r=0\) if and only if \(A=B=0\). A zero at either
+point therefore survives in the original real coordinate, without rotating
+or taking the imaginary part of the residue. For a real observation \(y\)
+satisfying
+\[
+ |r-y|<\frac7{20},\qquad |r-y|<\frac{\delta_d(\rho)}2,
+\]
+both orders are recovered by
+\[
+ I=\left\lfloor y+\frac{13}{20}\right\rfloor,\qquad
+ B=\left\lfloor\frac{I-y}{\delta_d(\rho)}+\frac12\right\rfloor,
+ \qquad A=dB-I.
+\]
+If \(G\) is analytic throughout the open strip, the actual compensated
+readout satisfies
+\[
+ \lim_{s\to\rho,\ s\ne\rho}
+ \Re\!\left((s-\rho)\,
+ \operatorname{affinePowerReadout}
+ (-\zeta'/\zeta+G,d)(s)\right)=r.
+\]
+There is no nonreal-point hypothesis in this limit.
+
+\paragraph{Proof.}
+For any strip point \(z\), put
+\[
+ \lambda(z)=\Re\frac1{z(1-z)}
+ =\frac{\Re z}{|z|^2}+\frac{1-\Re z}{|1-z|^2}>0.
+\]
+The existing unconditional Hadamard identity, with zeros counted according
+to analytic multiplicity, gives
+\(\sum_j\lambda(\rho_j)=S\). Absolute summability follows from the
+installed symmetric QRH strip \(1/8\le\Re\rho_j\le7/8\).
+The complete fibre at \(w\) has exactly \(B\) indices, including when
+\(B=0\). Positivity of every remaining summand therefore gives
+\[
+ B\Re(1/w)\le B\lambda(w)\le S\le\frac1{20}.
+\]
+No conjugate, reflected zero, or multiplicity copy is dropped from the
+sum used in this comparison. The affine identity gives exactly
+\[
+ \delta_d(\rho)=(d-1)\Re(1/w)>0.
+\]
+If \(B>0\), the installed QRH theorem forces \(\Re w\le7/8\).
+Since \(d\Re w=\Re\rho+d-1\) and \(\Re\rho>0\), this implies
+\(d<8\), hence \(d\le7\). Thus
+\(\delta_d(\rho)B\le(d-1)/20\le3/10\). If \(B=0\), the same
+bound is immediate, with no upper restriction on \(d\).
+
+Now \(r=I-\delta_d(\rho)B\), where \(I=dB-A\) is an integer.
+If \(r=0\), then \(\delta_d(\rho)B\) is an integer in
+\([0,3/10]\), so it vanishes; positivity of \(\delta_d(\rho)\)
+gives \(B=0\), then \(A=0\). The converse is immediate.
+For noisy recovery, \(r\in[I-3/10,I]\) and \(|r-y|<7/20\)
+imply \(I<y+13/20<I+1\), proving the first rounding formula.
+The fine error condition then gives
+\(\left|(I-y)/\delta_d(\rho)-B\right|<1/2\), proving the second.
+The last formula is the integer identity \(A=dB-I\).
+Finally, the all-character local-factorization limit at the principal
+character of modulus one gives the displayed zeta limit, including the
+real axis; continuity of the real projection preserves it.
+
+\paragraph{Formal status and scope.}
+The multiplicity-weighted zero budget is checked in
+\texttt{Helpers.NicolasZeroMassBudget}; the general one-sided rounding
+argument is checked in \texttt{Complex.ScalarBudgetDecode}; all seven
+actual zeta statements are checked in
+\texttt{Assembly.CarmichaelSingleRealZeta}. The trace identity and integer
+rounding are classical inputs. For comparison, Lagarias,
+\textit{Li Coefficients for Automorphic L-Functions}
+(arXiv:math/0404394), treats global Li coefficients and Weil functionals;
+the statement here is a pointwise affine-residue decoder using one original
+real coordinate. Priority remains unestablished. The result does not assert
+an achieved sampling-error rate, an upper bound on multiplicities, or a
+transfer of the constant \(1/20\) to general Dirichlet characters.
+The certified global QRH boundary remains \(7/8\).
+
 \subsection{Exact Mellin action on general windows}
 \label{sec:general-window-mellin}
 

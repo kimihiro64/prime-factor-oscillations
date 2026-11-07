@@ -2485,6 +2485,42 @@
         "Complex.scalar_erasure_height_attains",
         "PrimeFactorOscillations.CarmichaelWeightedSignal.scalar_erasure_qrh_model_attains"
       ]
+    },
+    {
+      "id": "SRZ-G",
+      "status": "kernel_checked_single_real_zeta",
+      "claim": "A bounded nonnegative one-sided real defect admits two-stage integer recovery from one real observation: the coarse level error is strictly less than(1-c)/2 and the divided-defect error is strictly less than delta/2. There is no cap on either integer.",
+      "declarations": [
+        "Real.scalarBudgetInteger",
+        "Real.scalarBudgetReference",
+        "Real.scalarBudgetDecode",
+        "Real.scalarBudgetInteger_eq",
+        "Real.scalarBudgetReference_eq",
+        "Real.scalarBudgetDecode_eq"
+      ]
+    },
+    {
+      "id": "SRZ-B",
+      "status": "kernel_checked_single_real_zeta",
+      "claim": "Unconditionally, the full counted xi-zero sum bounds each actual zeta multiplicity times Re(1/w) by1/20. The affine defect equals(d-1)Re(1/w); a positive reference order forces integer degree d<=7, so the actual defect times reference order lies in[0,3/10] for every integer d>=2 and every open-strip target point, including real points.",
+      "declarations": [
+        "PrimeFactorOscillations.zeta_zero_product_mass_le",
+        "PrimeFactorOscillations.zeta_inverse_zero_mass_le",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.zeta_scalar_defect_reference_identity",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.zeta_scalar_reference_degree_le",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.zeta_scalar_defect_mass_bound"
+      ]
+    },
+    {
+      "id": "SRZ-A",
+      "status": "kernel_checked_single_real_zeta",
+      "claim": "One original unrotated real compensated zeta residue vanishes exactly when both actual orders vanish. A zero at either target or reference gives a nonzero real signal. Both orders are recovered with errors strictly less than7/20 and delta/2, without RH or a multiplicity cap. The real residue is the actual analytic readout limit throughout the open strip, including the real axis. No achieved sampling-error estimate or improved zero-free boundary is asserted.",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.zeta_single_real_residue_zero_iff",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.zeta_single_real_residue_nonzero",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.zeta_single_real_decode",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.zeta_single_real_limit"
+      ]
     }
   ],
   "novelty": "Priority for the combined explicit formulas has not been established; source classification and Gauss identities are classical."
