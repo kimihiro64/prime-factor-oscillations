@@ -7686,6 +7686,200 @@ global small-value area estimate.  The certified simplicity window and
 \(7/8\) boundary are unchanged, and \(M_1>0\) remains required for the
 actual normalized consumer.
 
+\subsection{The negative branch: exact extremizers and a finite exceptional spectrum}
+\label{sec:negative-integer-phase}
+
+The negative branch has a different attainment geometry.  Both zeros of its
+selected packet, \(d\) and \(z_-\), belong to the selected set.  Consequently
+its arithmetic sharp cases are exact finite extremizers.  The same calculation
+also supplies the missing negative-branch charge in the full signed bound.
+
+\paragraph{Theorem (negative arithmetic penalty).}
+Retain the finite nonnegative equal-moment profile with positive mass \(M\),
+selected mass \(K\), energy \(E\), and \(0<d<1\).  Suppose \(M<K\), and put
+\[
+ z=z_- =\frac{M(1-d)}{M-dK}\ge1,\quad g=z-d>0,\quad
+ p=M-dK>0,\quad h=\frac{d+z}{2},\quad A=\frac{g^2}{4},\quad C=\frac g2,\quad B=K/C.
+\]
+The previously proved domain gives \(K>0\) and \(dK<M\), so every denominator
+is positive.  Suppose that the upper selected mass
+\(L=\sum_{i\in S}a_i\mathbf1_{y_i\ge h}\) is even integral.  Define
+\[
+ n=\left\lfloor\frac p{2g}\right\rfloor,\qquad
+ \eta_- =\min\{p-2gn,\,2g(n+1)-p\},
+\]
+and
+\begin{equation}
+ J^-_d(M,K)=
+ \begin{cases}
+ \eta_-^2/B,&M<K,\ 2\eta_-\le AB,\\
+ A\eta_--A^2B/4,&M<K,\ 2\eta_->AB,\\
+ 0,&K\le M.
+ \end{cases}
+ \label{eq:negative-integer-cost}
+\end{equation}
+Then
+\begin{equation}
+ E\ge\mathcal F_d(M,K)+J^-_d(M,K),\qquad J^-_d(M,K)\ge0.
+ \label{eq:negative-integer-energy}
+\end{equation}
+On the negative branch the added cost is positive whenever
+\(p\notin2g\mathbb N\).
+
+\paragraph{Proof with both threshold compensations retained.}
+The installed negative packet gives the exact defect
+\[
+ \Delta=E-\mathcal F_d(M,K)=\sum_{i\in S}a_iQ_-(y_i).
+\]
+Write \(I_d(y)=\mathbf1_{y\ge d}\) and \(H(y)=\mathbf1_{y\ge h}\).
+Below \(d\), its factorization gives
+\[
+ Q_-(y)=y\{(y-d)(y-2z)+z^2\}\ge z^2y\ge Ay.
+\]
+For \(d\le y<h\), one has \((y-z)^2\ge g^2/4=A\), hence
+\(Q_-(y)\ge A(y-d)\).  Thus throughout \(0\le y<h\),
+\[
+ Q_-(y)\ge A\{y-dI_d(y)\},\qquad y-dI_d(y)\ge0.
+\]
+For \(y\ge h\), the selected factorization instead gives
+\(Q_-(y)=(y-d)(y-z)^2\ge C(y-z)^2\).
+For either sign \(s=\pm1\) and every \(0\le\lambda\le A\), these bounds
+combine into the single nonnegative packet
+\begin{equation}
+ Q_-(y)+\frac{\lambda^2}{4C}H(y)
+  -\lambda s\{y-dI_d(y)-gH(y)\}\ge0.
+ \label{eq:negative-integer-tilt}
+\end{equation}
+On the upper region its proof is the exact square completion
+\[
+ C(y-z)^2-\lambda s(y-z)+\frac{\lambda^2}{4C}
+ =\frac{\{C(y-z)-\lambda s/2\}^2}{C}\ge0.
+\]
+Sum \eqref{eq:negative-integer-tilt} with weights \(a_i\) and choose the
+sign of \(p-gL\).  Since \(h>d\), the upper count satisfies \(0\le L\le K\).
+Only the explicitly quadratic compensation is enlarged in the following bound:
+\begin{equation}
+ \lambda|p-gL|\le\Delta+\frac{L}{C}\frac{\lambda^2}{4}
+ \le\Delta+\frac{K}{C}\frac{\lambda^2}{4},\qquad0\le\lambda\le A.
+ \label{eq:negative-integer-joint}
+\end{equation}
+The signed linear expression and both indicator subtractions are unchanged.
+Because \(L\in2\mathbb N\), the canonical gap satisfies
+\(\eta_-\le|p-gL|\).  Choosing \(\lambda=2\eta_-/B\) when this is at most
+\(A\), and \(\lambda=A\) otherwise, proves
+\eqref{eq:negative-integer-energy}.  The previously proved floor-cell and
+penalty lemmas give nonnegativity and strict positivity off the lattice.
+
+\paragraph{Theorem (exact negative attainment spectrum).}
+Fix an integer \(k>0\), \(K=2k\), and \(dK<M<K\).  Among finite profiles
+with weights in \(2\mathbb N\), the following are equivalent:
+\begin{enumerate}
+\item With both moments fixed at \(M\) and selected order fixed at \(K\),
+the continuous nonlinear cost is approachable to every positive tolerance.
+\item Some such finite profile attains that cost exactly.
+\item \(M-dK\in2(z_--d)\mathbb N\).
+\item For an integer \(1\le\ell<k\),
+\begin{equation}
+ M=M_\ell(d,k):=2d(k-\ell)+\ell+
+ \sqrt{\ell^2+4\ell(k-\ell)d(1-d)}.
+ \label{eq:negative-exceptional-spectrum}
+\end{equation}
+\end{enumerate}
+Thus the exceptional masses are given by a finite explicit list.  In every
+sharp case, the two atoms at \(d,z_-\), with weights
+\((2(k-\ell),2\ell)\), are exact extremizers.  No realization of these
+moment profiles as actual zeta clusters is asserted.
+
+\paragraph{Proof of the classification and finite list.}
+Even natural weights force every upper threshold mass to be even integral.
+If the lattice condition failed, the strictly positive penalty in
+\eqref{eq:negative-integer-energy} would contradict approachability by
+taking half that penalty as the tolerance.  Exact attainment implies
+approachability directly.
+
+Conversely suppose \(p=2g\ell\).  Positivity of \(p,g\) forces \(\ell>0\).
+If \(\ell\ge k\), then
+\(M=dK+2g\ell\ge dK+gK=zK\ge K\), contradicting \(M<K\).
+Hence \(0<\ell<k\), and
+\[
+ 2(k-\ell)d+2\ell z=M.
+\]
+The negative root identity \(dzK=M(z-1+d)\) then gives
+\[
+ 2(k-\ell)d^2+2\ell z^2=M.
+\]
+Both atoms are selected, with total weight \(K\).  Their negative packets
+vanish exactly, so the summed defect is zero and their energy equals
+\(\mathcal F_d(M,K)\).  This proves all three logical implications.
+
+Subtracting the two exact moment identities gives
+\(\ell z(z-1)=(k-\ell)d(1-d)\).  Therefore
+\[
+ (2\ell z-\ell)^2=\ell^2+4\ell(k-\ell)d(1-d).
+\]
+Since \(z\ge1\) and \(\ell>0\), the left square has a nonnegative base;
+taking its square root proves \eqref{eq:negative-exceptional-spectrum}.
+In the reverse direction, that explicit mass identity gives
+\[
+ (M-dK)^2=2\ell\{M(1-d)-d(M-dK)\}.
+\]
+The exact identity \((M-dK)z=M(1-d)\), with \(M-dK>0\), reduces this
+to \(M-dK=2\ell(z-d)\), proving the converse without selecting an
+extraneous quadratic root.
+
+Together with the preceding positive-branch theorem, this is a complete
+approachability phase diagram for \(dK<M\) and fixed even \(K\).
+For \(K<M\), the sharp lattice profiles are limiting profiles and finite
+equality is impossible.  For \(M<K\), sharpness is equivalent to finite
+attainment at the two selected boundary points.  The balanced case remains
+covered by the preceding positive-branch criterion.
+
+\paragraph{Theorem (complete two-sided actual signed bound).}
+Retain the finite same-height reflected strip-cluster hypotheses, including
+\(|T|\ge2\), \(N>0\), and \(M_1>0\).  Write \(J^+_d\) for the previous
+positive-branch integer correction, and set
+\(J_d=J^+_d+J^-_d\).  At the installed threshold \(d=\delta\), one has
+\begin{equation}
+ \mathcal B_2+\tau t^3\mathcal F_d(\kappa,K)+\tau t^3J_d(\kappa,K)
+ =\mathcal B_2+\tau t^3\mathcal C(\kappa,\kappa-K)
+     +\tau t^3G(\kappa,K)+\tau t^3J_d(\kappa,K)\le gB(T).
+ \label{eq:two-sided-integer-actual}
+\end{equation}
+If \(\kappa<K=2k\) and \(\kappa\) avoids the finite list
+\eqref{eq:negative-exceptional-spectrum}, the new negative-branch term
+\(\tau t^3J^-_d(\kappa,K)\) is strictly positive.
+
+\paragraph{Proof of the actual transfer.}
+For any positive cutoff \(h\), filter the actual cluster by
+\(h\le(\operatorname{Re}\rho-1/2)^2/t\).  The filter preserves reflection
+and excludes the critical line.  An odd total order would therefore
+contradict the proved odd-order reflection theorem.  Its total order is
+even; no evenness assumption on individual zero orders is used.
+Apply this to \(h=(d+z_-)/2>0\).  The negative integer-cost theorem then
+applies to the normalized coordinates whenever \(\kappa<K\).  Exact
+energy rescaling, the unchanged full kernel ledger, its floor \(\tau\),
+and the actual profile upper bound preserve the entire cost.  On the other
+branch, use the installed positive integer-cost consumer.  The inactive
+correction is zero in each case, giving
+\eqref{eq:two-sided-integer-actual}.  Finally, the finite-list equivalence
+implies a positive canonical gap off that list, so the compiled positivity
+consumer gives the stated strict charge.
+
+The thirty-three new theorem bodies are implemented in
+\texttt{Helpers/NegativeThresholdPackets.lean},
+\texttt{Helpers/NegativeThresholdIntegerCost.lean},
+\texttt{Helpers/NegativeThresholdSharpness.lean},
+\texttt{Helpers/NegativeThresholdTransfer.lean}, and
+\texttt{Assembly/CarmichaelNegativeInteger.lean}.
+The result supplies a new quantitative term on the branch where the earlier
+integer correction vanished, and an exact attainment classification there.
+Classical moment duality and equal-weight quadrature remain the background
+cited above; the specific compensated-threshold phase diagram and full
+signed application are the conclusions here.  Broad priority is not asserted
+from the limited literature check.  The numerical simplicity window and
+certified \(7/8\) boundary are unchanged.  Clusters supported entirely on
+the critical line still require the independent small-value area estimate.
+
 \subsection{Signed two-dimensional control of a zero cluster}
 \label{sec:cluster-multiplicity}
 

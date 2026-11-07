@@ -27,6 +27,7 @@ from scripts.multiplicity_carrier_proof_targets import MULTIPLICITY_CARRIER_THEO
 from scripts.multiplicity_lattice_proof_targets import MULTIPLICITY_LATTICE_THEOREMS
 from scripts.multiplicity_support_proof_targets import MULTIPLICITY_SUPPORT_THEOREMS
 from scripts.near_identity_panel_proof_targets import NEAR_IDENTITY_PANEL_THEOREMS
+from scripts.negative_threshold_proof_targets import NEGATIVE_THRESHOLD_THEOREMS
 from scripts.nonlinear_horizontal_proof_targets import NONLINEAR_HORIZONTAL_THEOREMS
 from scripts.nonlinear_integer_sharpness_proof_targets import NONLINEAR_INTEGER_SHARPNESS_THEOREMS
 from scripts.nonlinear_threshold_proof_targets import NONLINEAR_THRESHOLD_THEOREMS
@@ -89,6 +90,7 @@ METAPLECTIC_THEOREMS: tuple[str, ...] = tuple(
         + NONLINEAR_HORIZONTAL_THEOREMS
         + NONLINEAR_THRESHOLD_THEOREMS
         + NONLINEAR_INTEGER_SHARPNESS_THEOREMS
+        + NEGATIVE_THRESHOLD_THEOREMS
         + THRESHOLD_INTEGER_GAP_THEOREMS
         + PARITY_GEOMETRY_THEOREMS
         + PARITY_CUBIC_THEOREMS
