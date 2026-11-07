@@ -28,6 +28,7 @@ from scripts.multiplicity_lattice_proof_targets import MULTIPLICITY_LATTICE_THEO
 from scripts.multiplicity_support_proof_targets import MULTIPLICITY_SUPPORT_THEOREMS
 from scripts.near_identity_panel_proof_targets import NEAR_IDENTITY_PANEL_THEOREMS
 from scripts.nonlinear_horizontal_proof_targets import NONLINEAR_HORIZONTAL_THEOREMS
+from scripts.nonlinear_threshold_proof_targets import NONLINEAR_THRESHOLD_THEOREMS
 from scripts.optimal_residue_degree_proof_targets import OPTIMAL_RESIDUE_DEGREE_THEOREMS
 from scripts.parity_cubic_proof_targets import PARITY_CUBIC_THEOREMS
 from scripts.parity_geometry_proof_targets import PARITY_GEOMETRY_THEOREMS
@@ -84,6 +85,7 @@ METAPLECTIC_THEOREMS: tuple[str, ...] = tuple(
         + CLUSTER_MULTIPLICITY_THEOREMS
         + EXACT_WINDOW_PROFILE_THEOREMS
         + NONLINEAR_HORIZONTAL_THEOREMS
+        + NONLINEAR_THRESHOLD_THEOREMS
         + PARITY_GEOMETRY_THEOREMS
         + PARITY_CUBIC_THEOREMS
         + MOMENT_RATIO_THEOREMS

@@ -7169,6 +7169,201 @@ It leaves room for additional arithmetic constraints on actual clusters.
 The full actual signed bound, the numerical simplicity window, and the
 certified \(7/8\) boundary are unchanged.
 
+\subsection{Explicit nonlinear costs beyond both sharp quadratics}
+\label{sec:nonlinear-threshold-cost}
+
+The sharp quadratic coefficients do not exhaust the information in the two
+moment constraints.  Cubic dual packets retain an additional positive cost
+on both discrepancy signs.  Polynomial dual certificates belong to the
+classical moment-optimization framework.\footnote{D.~Bertsimas and I.~Popescu,
+\emph{Optimal Inequalities in Probability Theory: A Convex Optimization
+Approach}, SIAM J. Optim. 15 (2005), 780--804,
+DOI \texttt{10.1137/S1052623401399903}.}
+The result here supplies explicit compensated threshold costs and their
+complete signed detector consumer.  Standalone priority for the abstract
+moment inequalities is not asserted.
+
+\paragraph{Theorem (two nonlinear threshold costs).}
+Let \(S\) be finite, let \(a_i,y_i\ge0\), and suppose
+\[
+ M=\sum_{i\in S}a_i y_i=\sum_{i\in S}a_i y_i^2>0,\qquad
+ K=\sum_{i\in S}a_i\mathbf1_{y_i\ge d},\qquad
+ E=\sum_{i\in S}a_i y_i(y_i-1)^2,\qquad 0<d<1.
+\]
+Then \(K>0\), \(dK<M\), and \(E\ge\mathcal F_d(M,K)\), where
+\begin{equation}
+ \mathcal F_d(M,K)=
+ \begin{cases}
+ M(1-d)(z_+-1),&K\le M,\\[2pt]
+ \displaystyle\frac{dM(1-d)(K-M)}{M-dK},&K>M,
+ \end{cases}
+ \qquad
+ z_+=\frac{d+\sqrt{d^2+4(1-d)M/K}}2.
+ \label{eq:nonlinear-threshold-cost}
+\end{equation}
+All denominators in this statement are positive.  No assertion about the
+global infimum over profiles is needed for this lower-bound theorem.
+
+\paragraph{Proof of the admissible domain.}
+There is an index with \(a_i>0\) and \(y_i>d\): otherwise every positive
+weight would have \(y_i\le d\), giving
+\(M=\sum a_i y_i^2\le d\sum a_i y_i=dM<M\).
+That index contributes positively to \(K\).  At every index,
+\(y_i-d\mathbf1_{y_i\ge d}\ge0\), and the displayed index contributes
+strictly positively to its weighted sum.  Hence
+\(M-dK=\sum_{i\in S}a_i(y_i-d\mathbf1_{y_i\ge d})>0\).
+
+\paragraph{Proof of both costs, with the moment compensations retained.}
+For a parameter \(z\ge1\), put
+\[
+ b=-\frac{(z-d)^2}{2z-d}<0,\qquad c=2z+b-d>d.
+\]
+The positive packet is
+\[
+ Q_+(y)=y^3-(2z+b)y^2+(z^2+2bz)y-bz^2\mathbf1_{y\ge d}.
+\]
+For \(0\le y<d\) it equals \(y(y-d)(y-c)\ge0\); for \(y\ge d\) it equals
+\((y-z)^2(y-b)\ge0\).  The denominator \(2z-d\) is positive, and
+\[
+ c-d=\frac{(z-d)(3z-d)}{2z-d}>0.
+\]
+The negative packet is
+\[
+ Q_-(y)=y^3-(2z+d)y^2+(z^2+2dz)y-dz^2\mathbf1_{y\ge d}.
+\]
+On the selected side it equals \((y-d)(y-z)^2\ge0\).  On the unselected
+side it equals \(y\{(y-d)(y-2z)+z^2\}\ge0\), since both factors in the
+product are nonpositive.
+
+The exact finite summation identity, for arbitrary real \(p,q,r\), is
+\begin{align*}
+ &\sum_{i\in S}a_i
+    (y_i^3-py_i^2+qy_i-r\mathbf1_{y_i\ge d})\\
+ &\quad=E-(p-q-1)M-rK
+      +(2-p)\left(\sum_{i\in S}a_i y_i^2-M\right)
+      =E-(p-q-1)M-rK.
+\end{align*}
+Thus neither threshold subtraction nor either moment contribution is
+discarded.  For the positive packet this gives
+\[
+ E\ge (2z+b-z^2-2bz-1)M+bz^2K.
+\]
+When \(K\le M\), the root \(z=z_+\) is at least one and satisfies
+\(Kz(z-d)=(1-d)M\).  The exact algebraic difference between the right side
+and \(M(1-d)(z-1)\), multiplied by \(2z-d\), is
+\[
+ z(z-d)\{(1-d)M-Kz(z-d)\}=0.
+\]
+This proves the first branch of \eqref{eq:nonlinear-threshold-cost}.
+
+For the negative packet the summed bound is
+\[
+ E\ge(2z+d-z^2-2dz-1)M+dz^2K.
+\]
+When \(K\ge M\), choose \(z=M(1-d)/(M-dK)\ge1\).  It satisfies
+\(dzK=M(z-1+d)\), and the difference between the right side and
+\(dz(K-M)\) is exactly
+\[
+ (z-1)\{dzK-M(z-1+d)\}=0.
+\]
+The second branch follows, including the balanced value at \(K=M\).
+
+\paragraph{Theorem (the surviving gain at the installed threshold).}
+Now set \(d=\delta\), \(\gamma=\Gamma\), and \(\beta=\beta_+\).  On
+\(M>0\), \(K>0\), \(dK<M\), one has the exact identity
+\begin{equation}
+ \mathcal F_d(M,K)=\mathcal C(M,M-K)+G(M,K),\qquad G\ge0,
+ \qquad K\ne M\Longrightarrow G>0,
+ \label{eq:nonlinear-threshold-exact-gain}
+\end{equation}
+where \(\mathcal C\) is the full directional quadratic cost already proved.
+The gain is explicit.  For \(K\le M\), with \(z=z_+\),
+\[
+ R(z)=\frac{(1-d)z(z^2-d^2)}{(z+1-d)^2},\qquad
+ G(M,K)=\frac{(R(z)-\beta)(M-K)^2}{M}.
+\]
+For \(U=K-M>0\),
+\begin{equation}
+ \mathcal F_d(M,K)=dU+\gamma\frac{U^2}{M}
+   +\frac{d^3U^3}{(1-d)M(M-dK)},\qquad
+ G(M,K)=\frac{d^3U^3}{(1-d)M(M-dK)}>0.
+ \label{eq:nonlinear-threshold-negative-gain}
+\end{equation}
+
+\paragraph{Proof of the exact gain.}
+The threshold equation gives
+\(\gamma=d^2/(1-d)\) and
+\(\beta(2-d)^2=(1-d)(1-d^2)\).  Direct division proves
+\eqref{eq:nonlinear-threshold-negative-gain} with its positive denominator.
+For the positive branch the root relation gives
+\[
+ M=\frac{Kz(z-d)}{1-d},\qquad
+ M-K=\frac{K(z-1)(z+1-d)}{1-d},\qquad
+ \mathcal F_d(M,K)-d(M-K)=K(z-1)^2(z+d).
+\]
+Consequently
+\(M\{\mathcal F_d(M,K)-d(M-K)\}=R(z)(M-K)^2\), proving its gain formula.
+Finally, put
+\[
+ P(z)=(1-d)z^2+(1-d-\beta)z+\beta(1-d)^2.
+\]
+Since \(1-d-\beta=2d(1-2d^2)>0\), one has \(P(z)>0\) for \(z\ge1\).
+The exact factorization is
+\[
+ R(z)-\beta=\frac{(z-1)P(z)}{(z+1-d)^2}.
+\]
+For \(K<M\), the root relation forces \(z>1\), so this gain is strictly
+positive.  At \(K=M\) its factor \((M-K)^2\) vanishes.  This proves
+\eqref{eq:nonlinear-threshold-exact-gain} on both signs.  The higher-order
+gain is compatible with the previously proved sharpness of both quadratic
+coefficients.
+
+\paragraph{Theorem (complete actual signed consumer).}
+For a finite same-height reflection-closed actual strip cluster, retain
+\(|T|\ge2\), \(N>0\), \(M_1>0\), \(t=Q/M_1\),
+\(\kappa=M_1^2/Q\), and its actual even threshold order \(K\).
+The normalized coordinates \(y_i=x_i/t\),
+\(x_i=(\operatorname{Re}\rho_i-1/2)^2\), satisfy both moment constraints
+with mass \(\kappa\).  In particular \(K>0\) and \(dK<\kappa\).
+The full moment-ratio charge remains
+\(\mathcal B_2=gN+\Phi_{\rm sb}(t)M_1\), with the same complete fixed
+rational profile \(\Phi_{\rm sb}\) as above.  One has
+\begin{equation}
+ \mathcal B_2+\tau t^3\mathcal F_d(\kappa,K)
+ =\mathcal B_2+\tau t^3\mathcal C(\kappa,\kappa-K)
+       +\tau t^3G(\kappa,K)\le gB(T).
+ \label{eq:nonlinear-threshold-actual-signed}
+\end{equation}
+The added charge is strictly positive whenever \(\kappa\ne K\).
+
+\paragraph{Proof of the actual transfer.}
+Normalization gives the exact energy identity
+\[
+ \sum_{i\in S}a_i x_i(x_i-t)^2
+   =t^3\sum_{i\in S}a_i y_i(y_i-1)^2
+   \ge t^3\mathcal F_d(\kappa,K).
+\]
+The unchanged full kernel ledger, its proved remainder floor \(\tau>0\),
+and the profile upper bound then give
+\(\mathcal B_2+\tau t^3\mathcal F_d(\kappa,K)\le gB(T)\).
+Substitution of \eqref{eq:nonlinear-threshold-exact-gain} proves
+\eqref{eq:nonlinear-threshold-actual-signed}; positivity of \(t\), \(\tau\),
+and \(G\) proves its strict increment.  The fixed signed profile and all
+moment compensations have remained coupled throughout.
+
+The fifty-one new theorem bodies are implemented in
+\texttt{Helpers/ThresholdMomentPackets.lean},
+\texttt{Helpers/ThresholdNonlinearCost.lean},
+\texttt{Helpers/ThresholdNonlinearComparison.lean},
+\texttt{Helpers/ThresholdNonlinearTransfer.lean}, and
+\texttt{Assembly/CarmichaelNonlinearThreshold.lean}.
+This is an explicit improvement of the complete finite-cluster observable
+bound on every nonzero discrepancy.  It does not by itself evaluate a new
+numerical simplicity window or improve the certified \(7/8\) boundary.
+The hypothesis \(M_1>0\) remains essential to this normalization; clusters
+supported entirely on the critical line still require a separate observable
+estimate for their individual multiplicities.
+
 \subsection{Signed two-dimensional control of a zero cluster}
 \label{sec:cluster-multiplicity}
 

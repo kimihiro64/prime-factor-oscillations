@@ -4113,6 +4113,113 @@
         "PrimeFactorOscillations.evenDirectionalParityCoefficientAdmissible_iff",
         "PrimeFactorOscillations.evenDirectionalParityCoefficientAdmissible_iff_real"
       ]
+    },
+    {
+      "id": "NTC-DOMAIN",
+      "status": "compiled_positive_selected_mass_and_strict_domain",
+      "claim": "Every finite nonnegative profile with equal first and second moments M>0 has a positive-weight coordinate above any d<1. Thus its selected mass satisfies K>0 and d*K<M, with every threshold term retained.",
+      "declarations": [
+        "PrimeFactorOscillations.thresholdIndicator_nonneg",
+        "PrimeFactorOscillations.thresholdIndicator_defect_nonneg",
+        "PrimeFactorOscillations.finiteWeightedThreshold_witness",
+        "PrimeFactorOscillations.finiteWeightedThreshold_domain"
+      ]
+    },
+    {
+      "id": "NTC-PACKETS",
+      "status": "compiled_complete_signed_cubic_certificates",
+      "claim": "For 0<d<1 and z>=1 both cubic threshold packets are nonnegative on all y>=0, with explicit selected and unselected factorizations. Their exact finite weighted sum retains both moment constraints and supplies the full positive and negative parameterized lower bounds.",
+      "declarations": [
+        "PrimeFactorOscillations.thresholdPositiveMultiplier_bounds",
+        "PrimeFactorOscillations.thresholdPositivePacket_selected",
+        "PrimeFactorOscillations.thresholdPositivePacket_unselected",
+        "PrimeFactorOscillations.thresholdPositivePacket_nonneg",
+        "PrimeFactorOscillations.thresholdNegativePacket_selected",
+        "PrimeFactorOscillations.thresholdNegativePacket_unselected",
+        "PrimeFactorOscillations.thresholdNegativePacket_nonneg",
+        "PrimeFactorOscillations.finiteWeightedThreshold_packet_sum",
+        "PrimeFactorOscillations.finiteWeightedThreshold_positive_packet",
+        "PrimeFactorOscillations.finiteWeightedThreshold_negative_packet"
+      ]
+    },
+    {
+      "id": "NTC-COST",
+      "status": "compiled_both_explicit_nonlinear_lower_costs",
+      "claim": "For every finite nonnegative equal-moment profile of positive mass, E>=F_d(M,K): if K<=M use z=(d+sqrt(d^2+4*(1-d)*M/K))/2 and F=M*(1-d)*(z-1); if K>M use F=d*M*(1-d)*(K-M)/(M-d*K). All root and denominator domains are proved. Global infimum optimality is not asserted.",
+      "declarations": [
+        "PrimeFactorOscillations.thresholdPositiveRoot_equation",
+        "PrimeFactorOscillations.thresholdPositiveRoot_relation",
+        "PrimeFactorOscillations.thresholdPositiveRoot_bounds",
+        "PrimeFactorOscillations.thresholdPositiveRoot_gt_one",
+        "PrimeFactorOscillations.thresholdNegativeRoot_relation",
+        "PrimeFactorOscillations.thresholdNegativeRoot_ge_one",
+        "PrimeFactorOscillations.thresholdNegativeCost_root",
+        "PrimeFactorOscillations.thresholdPositiveValue_identity",
+        "PrimeFactorOscillations.thresholdNegativeValue_identity",
+        "PrimeFactorOscillations.finiteWeightedThreshold_positive_cost",
+        "PrimeFactorOscillations.finiteWeightedThreshold_negative_cost",
+        "PrimeFactorOscillations.finiteWeightedThreshold_nonlinear_cost"
+      ]
+    },
+    {
+      "id": "NTC-POS",
+      "status": "compiled_exact_positive_branch_gain",
+      "claim": "At d=delta the positive nonlinear cost has exact ratio R(z)=(1-delta)*z*(z^2-delta^2)/(z+1-delta)^2. The difference R(z)-beta_plus factors as (z-1)*P(z)/(z+1-delta)^2 with P(z)>0 for z>=1, proving a strictly positive additional cost when K<M.",
+      "declarations": [
+        "PrimeFactorOscillations.positiveParityCoefficient_boundary_identity",
+        "PrimeFactorOscillations.positiveParityCoefficient_lt_one_sub",
+        "PrimeFactorOscillations.thresholdPositiveGainPolynomial_pos",
+        "PrimeFactorOscillations.thresholdPositiveBoundaryRatio_gain",
+        "PrimeFactorOscillations.thresholdPositiveBoundaryRatio_ge",
+        "PrimeFactorOscillations.thresholdPositiveBoundaryRatio_gt",
+        "PrimeFactorOscillations.thresholdPositiveRoot_mass_formula",
+        "PrimeFactorOscillations.thresholdPositiveRoot_discrepancy_formula",
+        "PrimeFactorOscillations.thresholdPositiveCost_excess",
+        "PrimeFactorOscillations.thresholdPositiveCost_exact_ratio",
+        "PrimeFactorOscillations.thresholdPositiveCost_gain"
+      ]
+    },
+    {
+      "id": "NTC-NEG",
+      "status": "compiled_exact_negative_branch_gain",
+      "claim": "At d=delta, for M>0 and delta*K<M, Fminus=delta*(K-M)+Gamma*(K-M)^2/M+delta^3*(K-M)^3/((1-delta)*M*(M-delta*K)). The extra term is positive when K>M.",
+      "declarations": [
+        "PrimeFactorOscillations.sharpParityCoefficient_quotient",
+        "PrimeFactorOscillations.thresholdNegativeCost_gain"
+      ]
+    },
+    {
+      "id": "NTC-GAIN",
+      "status": "compiled_complete_nonlinear_quadratic_comparison",
+      "claim": "On M>0,K>0,delta*K<M, the full nonlinear cost equals the installed directional quadratic cost plus an explicit gain G>=0. The gain is strictly positive whenever K is not M; both signs are treated by the same exact identity.",
+      "declarations": [
+        "PrimeFactorOscillations.thresholdNonlinearGain_identity",
+        "PrimeFactorOscillations.thresholdNonlinearGain_pos",
+        "PrimeFactorOscillations.thresholdNonlinearGain_nonneg",
+        "PrimeFactorOscillations.thresholdNonlinearCost_dominates",
+        "PrimeFactorOscillations.thresholdNonlinearCost_strict"
+      ]
+    },
+    {
+      "id": "NTC-TRANSFER",
+      "status": "compiled_full_normalized_signed_kernel_transfer",
+      "claim": "Positive rescaling preserves both admissible selected-mass domains and the nonlinear energy lower bound. The full three-line signed kernel ledger yields B2+tau*t^3*F_delta(kappa,K)<=profile on the installed t<=9/64 domain.",
+      "declarations": [
+        "PrimeFactorOscillations.finiteWeightedThreshold_scaled_domain",
+        "PrimeFactorOscillations.finiteWeightedThreshold_nonlinear_scaled",
+        "PrimeFactorOscillations.threeLineWeightedNonlinearThreshold_charge"
+      ]
+    },
+    {
+      "id": "NTC-ACTUAL",
+      "status": "compiled_complete_actual_signed_strict_increment",
+      "claim": "For actual finite same-height reflection-closed strip clusters with abs(T)>=2,N>0,M1>0, K is even, K>0 and delta*K<kappa. The actual complete bound is B2+tau*t^3*directionalCost(kappa,kappa-K)+tau*t^3*G(kappa,K)<=gB, and its added charge is strictly positive for kappa not equal to K. The numerical simplicity window and7/8 boundary remain unchanged.",
+      "declarations": [
+        "PrimeFactorOscillations.zeta_finite_nonlinear_threshold_domain",
+        "PrimeFactorOscillations.zeta_finite_nonlinear_threshold_bound",
+        "PrimeFactorOscillations.zeta_nonlinear_threshold_explicit_gain",
+        "PrimeFactorOscillations.zeta_nonlinear_threshold_gain_pos"
+      ]
     }
   ],
   "novelty": "Priority for the combined explicit formulas has not been established; source classification and Gauss identities are classical."
