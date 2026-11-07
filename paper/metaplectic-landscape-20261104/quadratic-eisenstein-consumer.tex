@@ -8676,6 +8676,161 @@ improvement would require information beyond these finite moment and total
 constraints.  This optimality theorem does not enlarge the numerical
 simplicity window or change the certified \(7/8\) boundary.
 
+\subsection{Sharp block response and residual zero-copy certificates}
+\label{sec:residual-block}
+
+The global logarithmic multiplicity envelope is not an intrinsic height
+limit of the compensated trace.  The following finite certificate retains
+the actual trace, subtracts independently certified contributions of known
+zeros, and charges any remaining zero copies.  It makes the numerical
+input needed to enlarge a simplicity window explicit; it does not supply
+that input by itself.
+
+Write
+\[
+ K(x,y)=\frac{18}{5}D_{2,3}(x,y),\qquad
+ q(H)=\frac{36}{(4+H^2)(9+H^2)},
+\]
+where \(D_{2,3}\) is the full paired resolvent difference, including its
+\(2/3\) compensation.  Thus neither reflection nor compensation terms
+are discarded.
+
+\paragraph{Sharp block theorem.}
+For every \(0\le H\le1\), \(|x|\le1/2\), and \(|y|\le H\),
+\begin{equation}
+ K(x,y)\ge q(H)>0.
+ \label{eq:sharp-block-charge}
+\end{equation}
+The constant is optimal, with equality at \((x,y)=(0,H)\).  In particular,
+\(q(0)=1\) and \(q(1)=18/25\).  Equivalently, a real constant \(c\)
+is a valid lower bound throughout this rectangle if and only if
+\(c\le q(H)\).
+
+\paragraph{Proof.}
+Put \(v=x^2\), \(w=y^2\), so that \(0\le v\le1/4\) and
+\(0\le w\le1\), and set
+\[
+ \begin{aligned}
+ A_2&=(4+w)^2+(2w-8)v+v^2,\\
+ A_3&=(9+w)^2+(2w-18)v+v^2,\\
+ G&=(4+w)(9+w)-(13+6w)v+v^2,\\
+ F&=G(4+w)(9+w)-A_2A_3.
+ \end{aligned}
+\]
+The exact paired-resolvent formula gives
+\(K(x,y)=36G/(A_2A_3)\).  Both \(A_2\) and \(A_3\) are positive:
+they are respectively the products
+\(((r-x)^2+y^2)((r+x)^2+y^2)\) for \(r=2,3\), and \(|x|<r\).
+The signed defect has the exact identity
+\[
+ \begin{aligned}
+ F=v\bigl[&\tfrac7{64}
+ +(1-w)(418+127w+10w^2)
+ +vw(39-5w)\\
+ &+4v^2(1-w)
+ +(\tfrac14-v)(v^2-\tfrac{87}{4}v+\tfrac{3193}{16})\bigr].
+ \end{aligned}
+\]
+Every term in the brackets is nonnegative on the stated domain.  For the
+last factor, \(v^2-87v/4+3193/16\ge3193/16-87/16>0\).
+Consequently \(F\ge7v/64\ge0\).  Dividing by the positive denominators
+yields
+\[
+ K(x,y)\ge\frac{36}{(4+y^2)(9+y^2)}\ge q(H).
+\]
+The second inequality uses \(y^2\le H^2\).  At \(x=0\), the first
+inequality is equality, so \(K(0,H)=q(H)\), proving optimality.
+The formulas at \(H=0,1\) follow directly.  The denominators defining
+\(q(H)\) are positive for every real \(H\). \(\square\)
+
+Let \(\mathcal I\) be the existing xi divisor index, which includes
+\emph{one index for each multiplicity copy}.  For \(p\in\mathcal I\),
+write \(\rho_p=\beta_p+i\gamma_p\).  The exact compensated trace is
+\[
+ \mathcal T(t)=\frac{18}{5}
+ \left(\operatorname{Tr}_{\xi}(2,t)
+       -\frac23\operatorname{Tr}_{\xi}(3,t)\right)
+ =\sum_{p\in\mathcal I}K(\beta_p-\tfrac12,t-\gamma_p).
+\]
+Here the trace parameters \(2,3\) correspond to evaluation points
+\(5/2+it,7/2+it\), respectively.  The full open critical strip implies
+the positivity hypotheses of the existing exact trace theorem.  Thus,
+unconditionally, every finite \(W\subset\mathcal I\) satisfies
+\[
+ \sum_{p\in W}K(\beta_p-\tfrac12,t-\gamma_p)\le\mathcal T(t).
+\]
+In particular, no RH or QRH assumption is needed for this application.
+
+\paragraph{Residual certificate.}
+Fix \(t\in\mathbb R\), \(0\le H\le1\), a finite known-copy set
+\(S\subset\mathcal I\), and real lower weights \(\ell_p\) on \(S\).
+Suppose the independently validated inputs satisfy
+\[
+ \mathcal T(t)\le U,\qquad
+ \ell_p\le K(\beta_p-\tfrac12,t-\gamma_p)\quad(p\in S).
+\]
+For every finite \(P\subset\mathcal I\setminus S\) with
+\(|t-\gamma_p|\le H\) for \(p\in P\), one has
+\begin{equation}
+ q(H)|P|\le U-\sum_{p\in S}\ell_p.
+ \label{eq:residual-copy-budget}
+\end{equation}
+If the right side is strictly less than \(q(H)\), every copy in the
+block belongs to \(S\).  If, in addition, the map
+\(p\mapsto\rho_p\) is injective on \(S\), then
+\[
+ \operatorname{ord}_w\zeta\le1
+ \qquad(0<\Re w<1,\ |t-\Im w|\le H).
+\]
+If all values \(\rho_p\), \(p\in S\), lie on the critical line,
+then every positive-order point in this block lies on that line.
+The latter conclusion does not require injectivity.
+
+\paragraph{Proof.}
+Disjointness of \(S\) and \(P\), with all supports retained, gives
+\[
+ \begin{aligned}
+ \sum_{p\in S}\ell_p+q(H)|P|
+ &\le\sum_{p\in S}K(\beta_p-\tfrac12,t-\gamma_p)
+      +\sum_{p\in P}K(\beta_p-\tfrac12,t-\gamma_p)\\
+ &=\sum_{p\in S\cup P}K(\beta_p-\tfrac12,t-\gamma_p)
+ \le\mathcal T(t)\le U.
+ \end{aligned}
+\]
+This proves \eqref{eq:residual-copy-budget}.  If an unaccounted block
+copy existed, taking its singleton as \(P\) would contradict the strict
+budget.  For each \(w\) in the open strip, the existing finite
+multiplicity fiber has cardinality \(\operatorname{ord}_w\zeta\).
+All its copies belong to \(S\).  Injectivity of the value map on \(S\)
+forces that fiber to have cardinality at most one.  If the order is
+positive, the fiber is nonempty, and any one of its copies transfers
+the critical-line condition on \(S\) to \(w\). \(\square\)
+
+The certificate does not assume the known zeros are simple.  It asks for
+one chosen copy per distinct certified value; the residual argument rules
+out further copies.  The lower bounds may use zeros outside the target
+block, but each chosen copy is subtracted only once.  It is also valid
+with a lower weight below zero; positivity is needed for the full kernel
+and the block charge, not for the supplied lower weights.
+
+The completeness method through explicit formulas has classical precedents,
+including B\"uthe's 2013 method (arXiv:1308.6704).  No priority claim is made
+for that general principle.  The contribution here is the specific sharp
+rational block charge, its signed polynomial proof, and its formal consumer
+on the actual xi multiplicity-copy index.  These results permit a larger
+window to be tested using certified trace and witness bounds at each height.
+They do not yet verify such bounds, enlarge the current numerical simplicity
+window, or change the certified \(7/8\) boundary.
+
+The 21 proof bodies are maintained in the following four owners and exported
+through the multiplicity facade:
+\begin{itemize}
+\item \texttt{Helpers/ResolventBlockPolynomial.lean}: two signed defect proofs;
+\item \texttt{Helpers/ResolventBlockKernel.lean}: eleven kernel and sharpness proofs;
+\item \texttt{Helpers/PositiveTraceResidual.lean}: two finite residual proofs;
+\item \texttt{Assembly/CarmichaelResidualCertificate.lean}: six actual xi/zeta consumers.
+\end{itemize}
+
 \subsection{Signed two-dimensional control of a zero cluster}
 \label{sec:cluster-multiplicity}
 

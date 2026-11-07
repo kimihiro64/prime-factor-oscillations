@@ -4657,6 +4657,55 @@
         "PrimeFactorOscillations.thresholdTotal_lattice_feasibility_iff",
         "PrimeFactorOscillations.thresholdTotal_lattice_fixed_sharpness"
       ]
+    },
+    {
+      "id": "RB-POLY",
+      "status": "compiled",
+      "claim": "For all v,w with 0<=v<=1/4 and 0<=w<=1, the exact signed paired-resolvent polynomial defect has the displayed nonnegative decomposition and is at least 7*v/64.",
+      "declarations": [
+        "PrimeFactorOscillations.unitBlockDefect_identity",
+        "PrimeFactorOscillations.unitBlockDefect_lower"
+      ]
+    },
+    {
+      "id": "RB-KERNEL",
+      "status": "compiled",
+      "claim": "For all 0<=H<=1, |x|<=1/2 and |y|<=H, the full normalized compensated kernel (18/5)*pairedResolventDifference(2,3,x,y) is at least q(H)=36/((4+H^2)*(9+H^2)); this constant is optimal, attained at x=0,y=H, and q(1)=18/25. Denominators and q are positive for every real H.",
+      "declarations": [
+        "PrimeFactorOscillations.unitBlockDenTwo_eq_resolvent",
+        "PrimeFactorOscillations.unitBlockDenThree_eq_resolvent",
+        "PrimeFactorOscillations.unitBlockGram_eq_resolvent",
+        "PrimeFactorOscillations.unitResolventKernel_formula",
+        "PrimeFactorOscillations.unitResolventBlockCharge_pos",
+        "PrimeFactorOscillations.unitResolventKernel_center",
+        "PrimeFactorOscillations.unitResolventKernel_horizontal_lower",
+        "PrimeFactorOscillations.unitResolventBlockCharge_le",
+        "PrimeFactorOscillations.unitResolventKernel_block_lower",
+        "PrimeFactorOscillations.unitResolventKernel_block_sharp",
+        "PrimeFactorOscillations.unitResolventBlockCharge_one"
+      ]
+    },
+    {
+      "id": "RB-RESIDUAL",
+      "status": "compiled",
+      "claim": "For any finite known set S and disjoint finite candidate set P, a bound on every finite sum of f, lower weights ell<=f on S and per-copy charge q<=f on P imply q*card(P)<=U-sum(S,ell). If U-sum(S,ell)<q, every candidate belongs to S. All sums retain their finite supports.",
+      "declarations": [
+        "PrimeFactorOscillations.finite_trace_residual_card",
+        "PrimeFactorOscillations.finite_trace_residual_contains"
+      ]
+    },
+    {
+      "id": "RB-ACTUAL",
+      "status": "compiled",
+      "claim": "Unconditionally, for the full xi divisor-copy index and actual signed trace (18/5)*(xiPairedLogTrace(2,t)-(2/3)*xiPairedLogTrace(3,t)), the finite residual cardinality and completeness inequalities hold for 0<=H<=1. With a certified strict residual budget below q(H) and injective zero values on the finite known-copy set, every zeta order in the open critical strip with |t-Im(w)|<=H is at most one. If known copies lie on the critical line, every positive-order point in the block lies there. Numerical trace and witness bounds remain hypotheses; no larger numerical window or QRH improvement is claimed.",
+      "declarations": [
+        "PrimeFactorOscillations.xi_unit_resolvent_finite_mass",
+        "PrimeFactorOscillations.xi_unit_resolvent_block_charge",
+        "PrimeFactorOscillations.xi_unit_residual_card",
+        "PrimeFactorOscillations.xi_unit_residual_contains",
+        "PrimeFactorOscillations.zeta_unit_residual_simplicity",
+        "PrimeFactorOscillations.zeta_unit_residual_positive_order_line"
+      ]
     }
   ],
   "novelty": "Priority for the combined explicit formulas has not been established; source classification and Gauss identities are classical."

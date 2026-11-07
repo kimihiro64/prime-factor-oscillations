@@ -1,0 +1,25 @@
+# Sharp compensated block response and actual zero-copy residual certificates.
+
+RESIDUAL_BLOCK_THEOREMS: tuple[str, ...] = (
+    "PrimeFactorOscillations.finite_trace_residual_card",
+    "PrimeFactorOscillations.finite_trace_residual_contains",
+    "PrimeFactorOscillations.unitBlockDefect_identity",
+    "PrimeFactorOscillations.unitBlockDefect_lower",
+    "PrimeFactorOscillations.unitBlockDenThree_eq_resolvent",
+    "PrimeFactorOscillations.unitBlockDenTwo_eq_resolvent",
+    "PrimeFactorOscillations.unitBlockGram_eq_resolvent",
+    "PrimeFactorOscillations.unitResolventBlockCharge_le",
+    "PrimeFactorOscillations.unitResolventBlockCharge_one",
+    "PrimeFactorOscillations.unitResolventBlockCharge_pos",
+    "PrimeFactorOscillations.unitResolventKernel_block_lower",
+    "PrimeFactorOscillations.unitResolventKernel_block_sharp",
+    "PrimeFactorOscillations.unitResolventKernel_center",
+    "PrimeFactorOscillations.unitResolventKernel_formula",
+    "PrimeFactorOscillations.unitResolventKernel_horizontal_lower",
+    "PrimeFactorOscillations.xi_unit_residual_card",
+    "PrimeFactorOscillations.xi_unit_residual_contains",
+    "PrimeFactorOscillations.xi_unit_resolvent_block_charge",
+    "PrimeFactorOscillations.xi_unit_resolvent_finite_mass",
+    "PrimeFactorOscillations.zeta_unit_residual_positive_order_line",
+    "PrimeFactorOscillations.zeta_unit_residual_simplicity",
+)

@@ -12,9 +12,9 @@ import PrimeFactorOscillations.Assembly.CarmichaelLocalizedMultiplicity
 import PrimeFactorOscillations.Assembly.CarmichaelNearIdentityPanel
 import PrimeFactorOscillations.Assembly.CarmichaelPhaseMultiplicity
 import PrimeFactorOscillations.Assembly.CarmichaelRadialSupport
+import PrimeFactorOscillations.Assembly.CarmichaelResidualCertificate
 import PrimeFactorOscillations.Assembly.CarmichaelSharpMultiplicity
 import PrimeFactorOscillations.Assembly.CarmichaelSimplicityCriterion
-import PrimeFactorOscillations.Assembly.CarmichaelThreeLineMultiplicity
 import PrimeFactorOscillations.Helpers.ThresholdFixedTotalSharpness
 
 /-! Multiplicity carrier bounds and certified compensated-residue decoding. -/
