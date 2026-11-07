@@ -2965,6 +2965,55 @@
         "PrimeFactorOscillations.zeta_multiplicity_effective_high",
         "PrimeFactorOscillations.zeta_simplicity_window"
       ]
+    },
+    {
+      "id": "GSA-AREA",
+      "status": "kernel_checked_local_area_equivalence",
+      "claim": "For any complex analytic function with finite analytic order at w, order at most one is equivalent to sublevel area o(epsilon) in some ball around w. Linear lower and quadratic upper bounds prove both directions. This is planar area; no height-uniform constant is required.",
+      "declarations": [
+        "PrimeFactorOscillations.complex_ball_area",
+        "PrimeFactorOscillations.complex_closedBall_area",
+        "PrimeFactorOscillations.sublevelArea_measure_ne_top",
+        "PrimeFactorOscillations.sublevelArea_le_of_linear_lower",
+        "PrimeFactorOscillations.sublevelAreaVanishingAt_of_linear_lower",
+        "PrimeFactorOscillations.not_sublevelAreaVanishingAt_of_quadratic_upper",
+        "PrimeFactorOscillations.real_self_le_pow_of_nat_le_one",
+        "PrimeFactorOscillations.real_pow_le_sq_of_nat_ge_two",
+        "PrimeFactorOscillations.analytic_linear_lower_of_order_le_one",
+        "PrimeFactorOscillations.analytic_quadratic_upper_of_order_ge_two",
+        "PrimeFactorOscillations.analyticOrderNatAt_le_one_iff_sublevelAreaVanishingAt"
+      ]
+    },
+    {
+      "id": "GSA-CARRIER",
+      "status": "kernel_checked_unconditional_probability_carrier",
+      "claim": "The coprimality coefficients totient(n)/n lie in [0,1] and equal finite coprimality probabilities. Their convergent Dirichlet series on Re(s)>1 is zeta(s)/zeta(s+1). This carrier is analytic and preserves finite zeta zero order for Re(w)>0, w not equal to 1, unconditionally.",
+      "declarations": [
+        "PrimeFactorOscillations.coprimalityTotient_apply",
+        "PrimeFactorOscillations.coprimalityProbability_nonneg",
+        "PrimeFactorOscillations.coprimalityProbability_le_one",
+        "PrimeFactorOscillations.coprimalityProbability_eq_card_ratio",
+        "PrimeFactorOscillations.coprimalityTotient_convolution_one",
+        "PrimeFactorOscillations.coprimalityTotient_LSeriesSummable",
+        "PrimeFactorOscillations.coprimality_probability_term",
+        "PrimeFactorOscillations.coprimality_probability_LSeriesSummable",
+        "PrimeFactorOscillations.coprimalityDirichletCarrier_eq_LSeries",
+        "PrimeFactorOscillations.coprimalityDirichletCarrier_analyticAt",
+        "PrimeFactorOscillations.analyticOrderAt_coprimalityDirichletCarrier",
+        "PrimeFactorOscillations.analyticOrderNatAt_coprimalityDirichletCarrier",
+        "PrimeFactorOscillations.analyticOrderAt_coprimalityDirichletCarrier_ne_top"
+      ]
+    },
+    {
+      "id": "GSA-GLOBAL",
+      "status": "kernel_checked_global_simplicity_criterion",
+      "claim": "All nontrivial zeta zeros are simple if and only if the coprimality carrier has local sublevel area o(epsilon) at every point of the critical strip. The condition holds in the proved 2<=abs(Im w)<exp(63/20) window, so only its complement remains in the equivalent global criterion. No independent global area bound or proof of global simplicity is asserted.",
+      "declarations": [
+        "PrimeFactorOscillations.coprimalityCarrier_local_simplicity_iff",
+        "PrimeFactorOscillations.zeta_global_simplicity_iff_coprimality_area",
+        "PrimeFactorOscillations.coprimalityCarrier_area_on_effective_window",
+        "PrimeFactorOscillations.zeta_global_simplicity_iff_coprimality_area_outside_window"
+      ]
     }
   ],
   "novelty": "Priority for the combined explicit formulas has not been established; source classification and Gauss identities are classical."

@@ -24,6 +24,7 @@ from scripts.scalar_cubic_orbit_proof_targets import SCALAR_CUBIC_ORBIT_THEOREMS
 from scripts.scalar_erasure_proof_targets import SCALAR_ERASURE_COST_THEOREMS
 from scripts.sharp_resolvent_proof_targets import SHARP_RESOLVENT_THEOREMS
 from scripts.simple_carrier_sharpness_proof_targets import SIMPLE_CARRIER_SHARPNESS_THEOREMS
+from scripts.simplicity_area_proof_targets import SIMPLICITY_AREA_THEOREMS
 from scripts.single_real_zeta_proof_targets import SINGLE_REAL_ZETA_THEOREMS
 from scripts.strip_carrier_proof_targets import STRIP_CARRIER_THEOREMS
 from scripts.two_power_degree_proof_targets import TWO_POWER_DEGREE_THEOREMS
@@ -57,6 +58,7 @@ METAPLECTIC_THEOREMS: tuple[str, ...] = tuple(
         + LOCALIZED_MULTIPLICITY_THEOREMS
         + SHARP_RESOLVENT_THEOREMS
         + EFFECTIVE_MULTIPLICITY_THEOREMS
+        + SIMPLICITY_AREA_THEOREMS
         + SCALAR_ERASURE_COST_THEOREMS
         + SINGLE_REAL_ZETA_THEOREMS
     )

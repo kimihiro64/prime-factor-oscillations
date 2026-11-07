@@ -4548,6 +4548,98 @@ This finite window does not establish simplicity at unbounded heights;
 the positive logarithmic term still grows. No improvement of the
 certified zero-free boundary is asserted.
 
+\subsection{A probability-carrier criterion for simplicity of all nontrivial zeros}
+
+The numerical window above is now established. The corresponding global
+question admits an exact criterion in terms of small values of a positive
+probability Dirichlet series. Define
+\[
+ a_n=\frac{\varphi(n)}n\quad(n\ge1),\qquad a_0=0,\qquad
+ \mathcal P(s)=\frac{\zeta(s)}{\zeta(s+1)}.
+\]
+The number \(a_n\in[0,1]\) is the probability that a uniform residue modulo
+\(n\) is coprime to \(n\). For \(\Re s>1\),
+\[
+ \mathcal P(s)=\sum_{n\ge1}a_n n^{-s}.
+\]
+For \(w\) in the open critical strip, let
+\[
+ A_{w,R}(\varepsilon)=\operatorname{Area}
+ \{z\in\mathbb C:|z-w|<R,\ |\mathcal P(z)|\le\varepsilon\},
+\]
+where Area denotes two-dimensional Lebesgue measure.
+
+\paragraph{Global simplicity criterion.}
+All nontrivial zeros of \(\zeta\) are simple if and only if
+\[
+ \forall w\ (0<\Re w<1)\quad\exists R>0\quad
+ A_{w,R}(\varepsilon)=o(\varepsilon)
+       \qquad(\varepsilon\downarrow0).
+\]
+Explicitly, after choosing \(R\), for every \(c>0\) there is
+\(\delta>0\) such that
+\(0<\varepsilon<\delta\) implies
+\(A_{w,R}(\varepsilon)\le c\varepsilon\).
+The radius and constants may depend on \(w\). This is a local condition
+at every point of the strip; no uniformity in height is assumed.
+
+\paragraph{Proof of the carrier identity and order transfer.}
+The exact arithmetic convolution
+\(\sum_{d\mid n}\varphi(d)=n\) gives
+\[
+ \left(\sum_{n\ge1}\varphi(n)n^{-(s+1)}\right)\zeta(s+1)=\zeta(s).
+\]
+All products and sums here converge absolutely when \(\Re s>1\):
+\(0\le\varphi(n)\le n\) bounds the first series by the ordinary
+zeta series at \(\Re s\). Dividing by the nonzero \(\zeta(s+1)\)
+and shifting each term proves the probability-series identity.
+If \(\Re w>0\) and \(w\ne1\), then \(\zeta\) is analytic at \(w\),
+while \(\zeta(w+1)\) is analytic and nonzero because
+\(\Re(w+1)>1\). Thus \(\mathcal P\) is analytic there and
+\[
+ \operatorname{ord}_w\mathcal P=\operatorname{ord}_w\zeta.
+\]
+These orders are finite, as follows also from the existing nonzero entire
+xi function and its local unit factorization. No RH hypothesis enters.
+
+\paragraph{Proof of the area threshold.}
+For an analytic function \(f\) of finite order \(m\) at \(w\), write
+\(f(z)=(z-w)^m g(z)\) near \(w\), where \(g\) is analytic and
+\(g(w)\ne0\). If \(m\le1\), shrink a ball of radius at most one
+so that \(|g(z)|\ge c>0\). Then
+\(|f(z)|\ge c|z-w|\), including the case \(m=0\). Hence
+\[
+ \operatorname{Area}\{|z-w|<R,\ |f(z)|\le\varepsilon\}
+       \le\pi(\varepsilon/c)^2=o(\varepsilon).
+\]
+Conversely, if \(m\ge2\), shrink a ball of radius at most one so
+that \(|g(z)|\le C\), with \(C>0\). On that ball,
+\(|f(z)|\le C|z-w|^2\). For every sufficiently small positive
+\(\varepsilon\), the disk of radius \(\sqrt{\varepsilon/C}\)
+is contained in both that ball and any proposed ball in the criterion.
+Its area is \(\pi\varepsilon/C\), so the sublevel area cannot be
+\(o(\varepsilon)\). This proves the equivalence. Applying it to
+\(\mathcal P\) and using exact order transfer proves the assertion.
+The distinction between planar area and length along a line is essential.
+
+\paragraph{What the numerical window already supplies.}
+The area condition is proved for every \(w\) with
+\(0<\Re w<1\) and \(2\le|\Im w|<e^{63/20}\). Consequently global
+simplicity is equivalent to the same condition only on the complement
+of this window, namely \(|\Im w|<2\) or \(|\Im w|\ge e^{63/20}\).
+The low-height complement has not been silently removed.
+
+The three maintained modules
+\texttt{ZeroSmallValueArea}, \texttt{CoprimalityDirichletCarrier}, and
+\texttt{CarmichaelSimplicityCriterion} contain the full proofs, including
+the probability interpretation, convergence, both geometric implications,
+and the window specialization. The criterion does not itself establish
+the independent global small-value estimate. Positive coefficients alone
+do not imply such an estimate, and the logarithmic multiplicity bound
+still grows with height. No proof of global simplicity or improvement
+of the certified \(7/8\) zero-free boundary is claimed. The local analytic
+mechanism is standard; novelty priority for this formulation is unestablished.
+
 \subsection{Exact Mellin action on general windows}
 \label{sec:general-window-mellin}
 
