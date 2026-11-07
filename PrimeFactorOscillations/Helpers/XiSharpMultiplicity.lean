@@ -100,41 +100,43 @@ theorem zeta_multiplicity_le_positive_strip_trace {w : Complex}
     <- pairedResolventDifference_center r R hr0 hR]
   exact hFinite.trans hTotal
 
-theorem zeta_multiplicity_log_bound_of_positive_strip (width r R : Real)
+def multiplicityBoundConstant (r R H L : Real) : Real :=
+  r * R / (r + R) * (H + r * L)
+
+theorem zeta_multiplicity_bound_with_constants (width r R H L : Real)
     (hwidth : 0 <= width) (hwidthr : width < r)
     (hr : 1 / 2 < r) (hR : r < R)
     (hPos : 2 * width <= Real.sqrt (r ^ 2 - width ^ 2) + Real.sqrt (R ^ 2 - width ^ 2))
     (hStrip : forall p : RiemannXiDivisorZeroIndex,
-      abs ((riemannXiDivisorZeroValue p).re - 1 / 2) <= width) :
-    Exists (fun C : Real => And (0 <= C)
-      (forall w : Complex, And (0 < w.re) (w.re < 1) -> 2 <= abs w.im ->
-        (analyticOrderNatAt riemannZeta w : Real) <=
-          Real.pairedResolventCoefficient r R * Real.log (abs w.im) + C)) := by
+      abs ((riemannXiDivisorZeroValue p).re - 1 / 2) <= width)
+    (hHeight : forall s : Complex, 1 / 2 + r <= s.re -> s.re <= 1 / 2 + r ->
+      2 <= abs s.im -> (logDeriv riemannXi s).re <= (1 / 2 : Real) * Real.log (abs s.im) + H)
+    (hLip : forall s z : Complex, 1 / 2 + r <= s.re -> 1 / 2 + r <= z.re ->
+      norm (logDeriv riemannXi z - logDeriv riemannXi s) <= L * norm (z - s)) :
+    forall w : Complex, And (0 < w.re) (w.re < 1) -> 2 <= abs w.im ->
+      (analyticOrderNatAt riemannZeta w : Real) <=
+        Real.pairedResolventCoefficient r R * Real.log (abs w.im) +
+          multiplicityBoundConstant r R H L := by
   let a : Real := 1 / 2 + r
   have hr0 : 0 < r := by linarith only [hr]
   have hR0 : 0 < R := hr0.trans hR
-  have ha : 1 < a := by dsimp only [a]; linarith only [hr]
-  choose C0 hC0 hHeight using xi_logDeriv_height_upper a a ha
-  choose L hL hLip using xi_logDeriv_uniform_lipschitz a ha
-  let C : Real := r * R / (r + R) * (C0 + r * L) + 1
-  have hC : 0 <= C := by dsimp only [C]; positivity
-  refine Exists.intro C (And.intro hC ?_)
+  let C : Real := multiplicityBoundConstant r R H L
   intro w hw ht
   let m : Real := (analyticOrderNatAt riemannZeta w : Real)
-  let A : Real := (1 / 2 : Real) * Real.log (abs w.im) + C0 + r * L
+  let A : Real := (1 / 2 : Real) * Real.log (abs w.im) + H + r * L
   have hRe (u t : Real) : (xiResolventPoint u t).re = 1 / 2 + u := by
     simp [xiResolventPoint]
   have hIm (u t : Real) : (xiResolventPoint u t).im = t := by
     simp [xiResolventPoint]
   have hH (t : Real) (ht0 : 2 <= abs t) :
       (logDeriv riemannXi (xiResolventPoint r t)).re <=
-        (1 / 2 : Real) * Real.log (abs t) + C0 := by
+        (1 / 2 : Real) * Real.log (abs t) + H := by
     have hh := hHeight (xiResolventPoint r t)
       (by rw [hRe]) (by rw [hRe])
       (by rw [hIm]; exact ht0)
     rwa [hIm] at hh
   have hTraceHeight : xiPairedLogTrace r w.im <=
-      (1 / 2 : Real) * Real.log (abs w.im) + C0 := by
+      (1 / 2 : Real) * Real.log (abs w.im) + H := by
     have h0 := hH w.im ht
     have h1 := hH (-w.im) (by simpa using ht)
     rw [abs_neg] at h1
@@ -156,7 +158,7 @@ theorem zeta_multiplicity_log_bound_of_positive_strip (width r R : Real)
         (logDeriv riemannXi (xiResolventPoint r t)).re -
           (logDeriv riemannXi (xiResolventPoint R t)).re <= L * (R - r) := by
       have hh := hLip (xiResolventPoint R t) (xiResolventPoint r t)
-        (by rw [hRe]; dsimp only [a]; linarith only [hR])
+        (by rw [hRe]; linarith only [hR])
         (by rw [hRe])
       rw [hDistance] at hh
       have hReal := Complex.re_le_norm
@@ -171,7 +173,7 @@ theorem zeta_multiplicity_log_bound_of_positive_strip (width r R : Real)
       dsimp only [xiPairedLogTrace]
       linarith only [h0, h1]
     have hObservable : xiPairedLogTrace r w.im - r / R * xiPairedLogTrace R w.im <=
-        (R - r) / R * ((1 / 2 : Real) * Real.log (abs w.im) + C0) +
+        (R - r) / R * ((1 / 2 : Real) * Real.log (abs w.im) + H) +
           (r / R) * L * (R - r) := by
       have h0 := mul_le_mul_of_nonneg_left hTraceHeight
         (div_nonneg (sub_nonneg.mpr hR.le) hR0.le)
@@ -200,13 +202,34 @@ theorem zeta_multiplicity_log_bound_of_positive_strip (width r R : Real)
       field_simp [(add_pos hr0 hR0).ne', (add_pos hR0 hr0).ne'] <;> ring
   have hExpand : r * R / (r + R) * A =
       Real.pairedResolventCoefficient r R * Real.log (abs w.im) +
-        r * R / (r + R) * (C0 + r * L) := by
+        r * R / (r + R) * (H + r * L) := by
     dsimp only [A, Real.pairedResolventCoefficient]
     field_simp [(add_pos hr0 hR0).ne']
     ring
   rw [hExpand] at hRaw
   change m <= Real.pairedResolventCoefficient r R * Real.log (abs w.im) + C
-  dsimp only [C]
-  linarith only [hRaw]
+  simpa only [C, multiplicityBoundConstant] using hRaw
+
+theorem zeta_multiplicity_log_bound_of_positive_strip (width r R : Real)
+    (hwidth : 0 <= width) (hwidthr : width < r)
+    (hr : 1 / 2 < r) (hR : r < R)
+    (hPos : 2 * width <= Real.sqrt (r ^ 2 - width ^ 2) + Real.sqrt (R ^ 2 - width ^ 2))
+    (hStrip : forall p : RiemannXiDivisorZeroIndex,
+      abs ((riemannXiDivisorZeroValue p).re - 1 / 2) <= width) :
+    Exists (fun C : Real => And (0 <= C)
+      (forall w : Complex, And (0 < w.re) (w.re < 1) -> 2 <= abs w.im ->
+        (analyticOrderNatAt riemannZeta w : Real) <=
+          Real.pairedResolventCoefficient r R * Real.log (abs w.im) + C)) := by
+  let a : Real := 1 / 2 + r
+  have hr0 : 0 < r := by linarith only [hr]
+  have hR0 : 0 < R := hr0.trans hR
+  have ha : 1 < a := by dsimp only [a]; linarith only [hr]
+  choose H hH hHeight using xi_logDeriv_height_upper a a ha
+  choose L hL hLip using xi_logDeriv_uniform_lipschitz a ha
+  let C : Real := multiplicityBoundConstant r R H L
+  have hC : 0 <= C := by dsimp only [C, multiplicityBoundConstant]; positivity
+  refine Exists.intro C (And.intro hC ?_)
+  exact zeta_multiplicity_bound_with_constants width r R H L hwidth hwidthr hr hR
+    hPos hStrip hHeight hLip
 
 end PrimeFactorOscillations

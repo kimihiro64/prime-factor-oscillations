@@ -4,6 +4,7 @@ from scripts.adaptive_multiplicity_proof_targets import ADAPTIVE_MULTIPLICITY_TH
 from scripts.carrier_stability_proof_targets import CARRIER_STABILITY_THEOREMS
 from scripts.dirichlet_scalar_orbit_proof_targets import DIRICHLET_SCALAR_ORBIT_THEOREMS
 from scripts.dyadic_carrier_proof_targets import DYADIC_CARRIER_THEOREMS
+from scripts.effective_multiplicity_proof_targets import EFFECTIVE_MULTIPLICITY_THEOREMS
 from scripts.exact_residue_spacing_proof_targets import EXACT_RESIDUE_SPACING_THEOREMS
 from scripts.finite_real_packet_proof_targets import FINITE_REAL_PACKET_THEOREMS
 from scripts.global_excess_proof_targets import GLOBAL_EXCESS_THEOREMS
@@ -55,6 +56,7 @@ METAPLECTIC_THEOREMS: tuple[str, ...] = tuple(
         + PHASE_MULTIPLICITY_THEOREMS
         + LOCALIZED_MULTIPLICITY_THEOREMS
         + SHARP_RESOLVENT_THEOREMS
+        + EFFECTIVE_MULTIPLICITY_THEOREMS
         + SCALAR_ERASURE_COST_THEOREMS
         + SINGLE_REAL_ZETA_THEOREMS
     )

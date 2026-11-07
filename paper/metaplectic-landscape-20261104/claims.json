@@ -2853,6 +2853,118 @@
         "PrimeFactorOscillations.zeta_multiplicity_log_bound_of_positive_strip",
         "PrimeFactorOscillations.zeta_multiplicity_seven_eighths_sharp_log_bound"
       ]
+    },
+    {
+      "id": "EMC-EXPLICIT",
+      "status": "kernel_checked_effective_witness",
+      "claim": "The near-optimal epsilon-dependent multiplicity constant has an explicit fixed-abscissa Euler/gamma witness. This particular coarse witness exceeds two; this does not obstruct other constants or the separate direct trace estimate.",
+      "declarations": [
+        "PrimeFactorOscillations.effectiveMultiplicityConstant_gt_two",
+        "PrimeFactorOscillations.effectiveMultiplicity_bound_gt_two",
+        "PrimeFactorOscillations.effectiveMultiplicity_parameters",
+        "PrimeFactorOscillations.xiEulerBound_nonneg",
+        "PrimeFactorOscillations.xiExplicitHeight_ge_pole",
+        "PrimeFactorOscillations.xiExplicitHeight_nonneg",
+        "PrimeFactorOscillations.xiExplicitLipschitz_nonneg",
+        "PrimeFactorOscillations.xi_logDeriv_explicit_height",
+        "PrimeFactorOscillations.xi_logDeriv_explicit_lipschitz",
+        "PrimeFactorOscillations.zetaEulerLogDeriv_explicit_lipschitz",
+        "PrimeFactorOscillations.zetaEulerLogDeriv_explicit_uniform",
+        "PrimeFactorOscillations.zeta_multiplicity_bound_with_constants",
+        "PrimeFactorOscillations.zeta_multiplicity_seven_eighths_effective_bound"
+      ]
+    },
+    {
+      "id": "EMC-GAMMA",
+      "status": "kernel_checked_compensated_remainder",
+      "claim": "For every complex z with Re z>=1, abs(Re digamma z-log(norm z)+(1/2)*Re(1/z))<=1/(8*(Re z)^2). The finite trapezoid endpoint correction and all unit errors are retained, then telescoped and passed through the digamma/harmonic limits.",
+      "declarations": [
+        "Complex.digammaReciprocal_ne_zero",
+        "Complex.digammaReciprocalProfile_hasDerivAt",
+        "Complex.digammaReciprocalSlope_hasDerivAt",
+        "Complex.digammaReciprocalCurvature_abs_le",
+        "Complex.digammaReciprocal_log_primitive",
+        "Complex.digammaReciprocalCurvature_continuousAt",
+        "Complex.digammaTrapezoidAntiderivative_hasDerivAt",
+        "Complex.digamma_trapezoid_identity",
+        "Complex.digammaReciprocalSlope_ofReal",
+        "Complex.digammaReciprocalCurvature_ofReal",
+        "Complex.digamma_trapezoid_error",
+        "Complex.digammaReciprocal_integral",
+        "Complex.digammaReciprocalProfile_shift",
+        "Complex.digammaTrapezoidSum_succ",
+        "Complex.digammaTrapezoidSum_succ_abs_le",
+        "Complex.digammaTrapezoidSum_abs_le",
+        "Complex.digammaReciprocalProfile_nat_abs_le",
+        "Complex.digammaReciprocalProfile_nat_tendsto",
+        "Complex.digamma_log_norm_nat_tendsto",
+        "Complex.digamma_harmonic_profile_tendsto",
+        "Complex.digamma_real_log_norm_remainder"
+      ]
+    },
+    {
+      "id": "EMC-EULER",
+      "status": "kernel_checked_complete_euler_estimate",
+      "claim": "A complete logarithmic Dirichlet-series tail and exact rational head certificates prove B(5/2)<=3/10. For every Re s>1 and0<=lambda<=1, the full common-height quotient difference zetaEulerLogDeriv(s)-lambda*zetaEulerLogDeriv(s+1) has norm at most B(Re s), retaining the coefficient1-lambda/n before estimation.",
+      "declarations": [
+        "PrimeFactorOscillations.eulerLogPrimitive_hasDerivAt",
+        "PrimeFactorOscillations.eulerLogProfile_hasDerivAt",
+        "PrimeFactorOscillations.eulerLogProfile_antitone",
+        "PrimeFactorOscillations.eulerLogProfile_sum_tail_upper",
+        "PrimeFactorOscillations.eulerHalfPower_eq",
+        "PrimeFactorOscillations.eulerThreeHalfPower_eq",
+        "PrimeFactorOscillations.eulerSqrt_lower",
+        "PrimeFactorOscillations.eulerSqrt_upper",
+        "PrimeFactorOscillations.eulerLogProfile_le",
+        "PrimeFactorOscillations.eulerLogProfile_head_tail_certificate",
+        "PrimeFactorOscillations.eulerHalfPower_ge",
+        "PrimeFactorOscillations.eulerZeta_head_certificate",
+        "PrimeFactorOscillations.eulerLogProfile_tsum_bound",
+        "PrimeFactorOscillations.eulerLogProfile_term_norm",
+        "PrimeFactorOscillations.eulerLogSeries_norm_bound",
+        "PrimeFactorOscillations.eulerOne_term_norm",
+        "PrimeFactorOscillations.eulerZeta_norm_lower",
+        "PrimeFactorOscillations.xiEulerBound_five_halves",
+        "PrimeFactorOscillations.eulerTerm_successor",
+        "PrimeFactorOscillations.xiEulerBound_as_norm_tsum",
+        "PrimeFactorOscillations.zetaEulerLogDeriv_compensated_bound"
+      ]
+    },
+    {
+      "id": "EMC-SIGNED",
+      "status": "kernel_checked_signed_constants",
+      "claim": "The gamma logarithms, inverse endpoint correction and rational pole terms yield the complete normalized xi bound at radii2 and3. Its additive allowances are at most4/5 for abs height>=2 and11/100 for abs height>=6, with logarithmic coefficient3/5. All logarithmic ratio bounds hold on their full q intervals.",
+      "declarations": [
+        "PrimeFactorOscillations.compensated_div_compare",
+        "PrimeFactorOscillations.compensated_div_upper",
+        "PrimeFactorOscillations.simplicity_log_six_lt_two",
+        "PrimeFactorOscillations.simplicity_log_two_pi_gt",
+        "PrimeFactorOscillations.compensatedGammaLog_ratio",
+        "PrimeFactorOscillations.compensatedGammaLog_low",
+        "PrimeFactorOscillations.compensatedGammaLog_high",
+        "PrimeFactorOscillations.compensatedPoleSquared_low",
+        "PrimeFactorOscillations.compensatedPoleSquared_high",
+        "PrimeFactorOscillations.compensatedInverseSquared_nonneg",
+        "PrimeFactorOscillations.compensated_log_norm_vertical",
+        "PrimeFactorOscillations.compensated_digamma_real_upper",
+        "PrimeFactorOscillations.compensatedXiScalar_low",
+        "PrimeFactorOscillations.compensatedXiScalar_high",
+        "PrimeFactorOscillations.xi_logDeriv_point_euler_gamma",
+        "PrimeFactorOscillations.xi_compensated_scalar_bound"
+      ]
+    },
+    {
+      "id": "EMC-WINDOW",
+      "status": "kernel_checked_numerical_simplicity",
+      "claim": "For every w with0<Re w<1, analytic zeta order is at most(3/5)*log(abs Im w)+4/5 for abs Im w>=2, and at most(3/5)*log(abs Im w)+11/100 for abs Im w>=6. Consequently the analytic order is at most one for2<=abs Im w<exp(63/20). No RH hypothesis or smaller zero-free exponent is asserted.",
+      "declarations": [
+        "PrimeFactorOscillations.xiPairedLogTrace_effective_low",
+        "PrimeFactorOscillations.xiPairedLogTrace_effective_high",
+        "PrimeFactorOscillations.zeta_multiplicity_le_effective_trace",
+        "PrimeFactorOscillations.zeta_multiplicity_effective_low",
+        "PrimeFactorOscillations.zeta_multiplicity_effective_high",
+        "PrimeFactorOscillations.zeta_simplicity_window"
+      ]
     }
   ],
   "novelty": "Priority for the combined explicit formulas has not been established; source classification and Gauss identities are classical."

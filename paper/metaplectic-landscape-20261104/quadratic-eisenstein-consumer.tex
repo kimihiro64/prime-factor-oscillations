@@ -4378,6 +4378,176 @@ The unconditional zero-free boundary remains \(7/8\); this theorem
 bounds multiplicity mass, and does not prove simplicity or RH.
 Novelty priority for the coefficient remains unestablished.
 
+\subsection{Effective constants and a numerical simplicity window}
+\label{sec:effective-multiplicity-window}
+
+The additive constant in \eqref{eq:sharp-global-multiplicity} can be
+made explicit. Put \(B(a)=|\zeta'(a)/\zeta(a)|\),
+\(h=(a-1)/2\), and
+\begin{align*}
+ H(a)&=\frac1{a-1}+B(a)+\frac{|\log\pi|}{2}
+       +\frac{a+8+|\log3|+|\gamma_E|}{2},\\
+ L(a)&=\frac{2B(1+h)}h+\frac1{(a-1)^2}
+           +\frac14\sum_{n\ge0}\frac1{(n+1)^2}.
+\end{align*}
+For the radii \(r=r_\varepsilon\), \(R=R_*\) selected above,
+\(a=1/2+r\), the maintained explicit witness is
+\[
+ C_\varepsilon^{\rm coarse}
+       =\frac{rR}{r+R}\bigl(H(a)+rL(a)\bigr).
+\]
+This witness is greater than two. That fact concerns this particular
+witness, not the existence of a better constant. A direct signed
+estimate at fixed radii gives the following different tradeoff.
+
+\paragraph{Effective multiplicity and simplicity window.}
+For every \(w\) with \(0<\Re w<1\), writing
+\(T=|\Im w|\) and \(m(w)=\operatorname{ord}_w\zeta\),
+\begin{align*}
+ T\ge2&\quad\Longrightarrow\quad
+       m(w)\le\frac35\log T+\frac45,\\
+ T\ge6&\quad\Longrightarrow\quad
+       m(w)\le\frac35\log T+\frac{11}{100}.
+\end{align*}
+In particular, every nontrivial zero with
+\[
+                   2\le T<e^{63/20}\approx23.34
+\]
+is simple. The two inequalities hold without assuming RH and do not
+require the narrower \(7/8\) strip.
+
+\paragraph{Proof.}
+We retain the two-line compensation at \(r=2\), \(R=3\).
+The positive finite-strip kernel is valid on the entire critical strip,
+and its same-height charge is \(g=1/r-r/R^2=5/18\).
+Thus the proved zero-fiber inequality gives
+\[
+ m(w)\le\frac{18}{5}\left(A_2(\Im w)-\frac23A_3(\Im w)\right).
+\]
+We give every independent analytic input to the upper bound.
+
+First, the real Euler bound is
+\(B(5/2)\le3/10\). Its certificate uses the convergent logarithmic
+Dirichlet series and the exact von Mangoldt convolution:
+\[
+ B(5/2)\,|\zeta(5/2)|
+     =\left|\sum_{n\ge1}\frac{\log n}{n^{5/2}}\right|.
+\]
+The following rational bounds are proved with infinite tails retained:
+\[
+ \sum_{n=1}^{6}\frac{\log n}{n^{5/2}}
+   +6^{-3/2}\left(\frac23\log6+\frac49\right)
+       \le\frac{159}{400},\qquad
+ \sum_{n=1}^{12}n^{-5/2}\ge\frac{53}{40}.
+\]
+Indeed \(f(x)=x^{-5/2}\log x\) decreases for \(x\ge6\), and
+\(-x^{-3/2}(\frac23\log x+\frac49)\) is its exact primitive.
+The finite sum--integral inequality bounds every partial tail by its
+value at six; summability then passes the inequality to the full tail.
+The rational certificate uses
+\(\log2<0.693148\), \(\log3<1.098613\),
+\(\log5\le\log6-1/6\), and rational square-root enclosures.
+The ratio \((159/400)/(53/40)\) is exactly \(3/10\).
+
+The common-height Euler comparison is essential. For \(\Re s=a>1\)
+and \(0\le\lambda\le1\), the entire compensated quotient satisfies
+\[
+ \left|\frac{\zeta'}{\zeta}(s)
+       -\lambda\frac{\zeta'}{\zeta}(s+1)\right|\le B(a).
+\]
+Before estimation, its von Mangoldt coefficient is
+\(\Lambda(n)n^{-s}(1-\lambda/n)\), up to the common minus sign.
+The factor \(1-\lambda/n\) lies in \([0,1]\); no separate bounds
+on the two Euler quotients are substituted. At \(a=5/2\),
+\(\lambda=2/3\), the normalized Euler allowance is therefore
+\((18/5)(3/10)=27/25\).
+
+For the gamma contribution the maintained remainder theorem proves
+\[
+ \left|\Re\psi(z)-\log|z|+\frac12\Re\frac1z\right|
+       \le\frac1{8(\Re z)^2}\qquad(\Re z\ge1).
+\]
+For completeness, set \(f_z(x)=\Re(1/(z+x))\). The finite
+trapezoid identity retains its endpoint term, and on each unit interval
+its error is bounded by
+\[
+ \frac1{8(u+n)^2}-\frac1{8(u+n+1)^2},\qquad u=\Re z.
+\]
+This follows from the Peano weight \(x(1-x)/2\) and
+\(|f_z''(x)|\le2/(u+x)^3\). Summing telescopes; the digamma series
+and harmonic logarithm limit give the displayed remainder. In
+particular, the inverse endpoint correction is retained when taking
+upper and lower bounds on the two gamma terms.
+
+Put \(q=1/T^2\), \(y=T^2\), and define
+\begin{align*}
+ D(q)&=\log(1+81q/4)-\frac23\log(1+121q/4),\\
+ P(y)&=\frac{3/2}{9/4+y}-\frac{5/3}{25/4+y},\\
+ J(y)&=\frac{9/4}{81/16+y/4}-\frac{11/6}{121/16+y/4}.
+\end{align*}
+Using the exact identity
+\[
+ \frac{\xi'}{\xi}(s)=\frac{\zeta'}{\zeta}(s)+\frac1{s-1}
+             -\frac12\log\pi+\frac12\psi(s/2+1),
+\]
+the complete normalized signed bound is
+\begin{align*}
+ m(w)\le{}&\frac35\log T+\frac{27}{25}-\frac35\log(2\pi)
+              +\frac{70}{1089}\\
+          &+\frac9{10}D(1/T^2)+\frac{18}{5}P(T^2)
+                                      -\frac9{10}J(T^2).
+\end{align*}
+The remainder \(70/1089\) is the sum of the two explicit gamma
+errors at real parts \(9/4\) and \(11/4\), after compensation
+and division by \(g\). The same bound applies at both signs of the
+height, so averaging gives the required paired trace.
+
+All remaining inequalities are rational or elementary logarithmic
+inequalities, proved on their complete ranges:
+\begin{align*}
+ 0\le q\le1/4&:\quad D(q)\le1/2,\\
+ 0\le q\le1/36&:\quad \frac9{10}D(q)\le\frac{17043}{449440},\\
+ y\ge4&:\quad \frac{18}{5}P(y)\le\frac7{25},\\
+ y\ge36&:\quad P(y)\le0,\qquad
+ y\ge0:\quad J(y)\ge0.
+\end{align*}
+For example, \(3D(q)\) is the logarithm of
+\((1+81q/4)^3/(1+121q/4)^2\). On the first range this ratio is at
+most \(49/16=(7/4)^2\), so \(\log x\le x-1\) proves
+\(D(q)\le1/2\). On the second range the ratio is at most
+\(50625/44944\); the same logarithmic inequality gives the stated
+bound. These ratio bounds are polynomial inequalities on the full
+intervals, not finite samples.
+
+Finally \(\log(2\pi)>9/5\), so the Euler allowance is canceled
+by the retained constant \(-(3/5)\log(2\pi)\). The remaining
+allowances are
+\[
+ \frac{70}{1089}+\frac9{20}+\frac7{25}<\frac45,
+ \qquad
+ \frac{70}{1089}+\frac{17043}{449440}<\frac{11}{100}.
+\]
+This proves both multiplicity bounds. For \(2\le T\le6\),
+\(\log6<2\) makes the first bound strictly less than two.
+For \(6\le T<e^{63/20}\), the second is strictly less than two.
+Integrality of the analytic order completes the proof.
+
+The effective constant \(4/5<2\) uses logarithmic coefficient
+\(3/5\), not a coefficient arbitrarily close to \(c_*\).
+The near-optimal asymptotic theorem is retained separately.
+The maintained declarations are
+\texttt{zeta\_multiplicity\_effective\_low},
+\texttt{zeta\_multiplicity\_effective\_high}, and
+\texttt{zeta\_simplicity\_window} in
+\texttt{Assembly/CarmichaelEffectiveMultiplicity.lean}.
+The independent analytic inputs are in
+\texttt{Helpers/RealDigammaRemainder.lean},
+\texttt{Helpers/EulerRealHalfIntegerBounds.lean}, and
+\texttt{Helpers/CompensatedXiConstants.lean}.
+This finite window does not establish simplicity at unbounded heights;
+the positive logarithmic term still grows. No improvement of the
+certified zero-free boundary is asserted.
+
 \subsection{Exact Mellin action on general windows}
 \label{sec:general-window-mellin}
 
