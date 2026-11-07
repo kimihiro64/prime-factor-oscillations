@@ -11,6 +11,7 @@ import PrimeFactorOscillations.Mathlib.Analysis.Complex.AnchoredScalarMultiplici
 import PrimeFactorOscillations.Mathlib.Analysis.Complex.IntegerResidueOptimalDegree
 import PrimeFactorOscillations.Mathlib.Analysis.Complex.IntegerResidueTwoPower
 import PrimeFactorOscillations.Mathlib.Analysis.Complex.RationalResidueBudget
+import PrimeFactorOscillations.Mathlib.Analysis.Complex.RealResiduePacket
 import PrimeFactorOscillations.Mathlib.Analysis.Complex.ScalarBudgetDecode
 import PrimeFactorOscillations.Mathlib.Analysis.Complex.ScalarResidueErasure
 

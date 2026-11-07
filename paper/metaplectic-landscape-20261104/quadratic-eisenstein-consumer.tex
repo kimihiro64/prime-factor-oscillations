@@ -3624,6 +3624,144 @@ powers arbitrarily close to the identity. As in the preceding section,
 literature priority is unestablished and no achieved sampling-error rate
 or improved global zero-free boundary is asserted.
 
+\subsection{No finite cancellation in one original real coordinate}
+\label{sec:finite-real-packet}
+
+The preceding pointwise decoder has a finite-set strengthening that does
+not multiply its defect budget by the number of observations. Fix integers
+\(n\ge1\), \(1\le k\le19\), and \(d=1+k/n\). Let \(S\) be any finite
+set of distinct complex points with \(0<\Re\rho<1\). Put
+\[
+ A_S=\sum_{\rho\in S}\operatorname{ord}_{\rho}\zeta,\qquad
+ B_S=\sum_{\rho\in S}\operatorname{ord}_{q_d(\rho)}\zeta,\qquad
+ R_S=\sum_{\rho\in S}\Re\mathcal R_{\zeta,d}(\rho),
+\]
+where \(q_d(\rho)=(\rho+d-1)/d\), and retain the exact signed quantities
+\[
+ I_S=(n+k)B_S-nA_S\in\mathbb Z,\qquad
+ U_S=n\sum_{\rho\in S}\delta_d(\rho)
+            \operatorname{ord}_{q_d(\rho)}\zeta.
+\]
+All sums are over the displayed finite sets. Target and reference locations
+may overlap, and real points and the empty set are allowed.
+
+\paragraph{Theorem (finite-packet separation and recovery).}
+For every such \(S,n,k\),
+\begin{equation}\label{eq:finite-real-packet-budget}
+ nR_S=I_S-U_S,\qquad 0\le U_S\le k/20<1,\qquad
+ R_S=0\ \Longleftrightarrow\ A_S=B_S=0.
+\end{equation}
+If \(H\ge0\) and \(|\Im\rho|\le H\) for every \(\rho\in S\), define
+\[
+ L_d(H)=\frac{d(d-1)^2}{d^2+H^2},\qquad
+ \ell(n,k,H)=\frac{\min\{1-k/20,nL_d(H)\}}{n}>0.
+\]
+Then
+\[
+ A_S+B_S>0\quad\Longrightarrow\quad |R_S|\ge\ell(n,k,H).
+\]
+Consequently any real observation \(y\) with
+\(|R_S-y|<\ell(n,k,H)/2\) satisfies the exact threshold test
+\[
+ A_S+B_S>0\quad\Longleftrightarrow\quad |y|\ge\ell(n,k,H)/2.
+\]
+The coarser accuracy condition
+\[
+ |n(R_S-y)|<(1-k/20)/2
+\]
+recovers the signed aggregate index:
+\[
+ I_S=\left\lfloor ny+\frac{1+k/20}{2}\right\rfloor.
+\]
+In particular, for \(n=k=1\), so that \(d=2\), constant accuracy
+\(|R_S-y|<19/40\) recovers the parity of the total target multiplicity:
+\[
+ A_S\equiv-\left\lfloor y+\frac{21}{40}\right\rfloor\pmod2.
+\]
+Neither the budget nor these tolerances contains \(|S|\).
+
+\paragraph{Proof of the global finite-set budget.}
+Let \(\mathcal Z\) denote the set of distinct completed-zeta zeros, and
+let \(m(w)\) be their full analytic multiplicity. Exact regrouping of the
+already established convergent canonical zero sum gives
+\[
+ \sum_{w\in\mathcal Z}m(w)\Re\frac1{w(1-w)}
+   =\gamma_E+2-\log(4\pi)\le\frac1{20}.
+\]
+The existing unconditional \(7/8\) theorem supplies the fixed strip
+needed for this convergence argument; no RH premise enters it.
+For \(0<\Re w<1\), the identity
+\[
+ \frac1{w(1-w)}=\frac1w+\frac1{1-w}
+\]
+shows that its real part is nonnegative and at least \(\Re(1/w)\).
+Regular strip points have order zero. Thus every finite strip set \(T\)
+satisfies
+\[
+ \sum_{w\in T}\operatorname{ord}_w\zeta\,\Re(1/w)\le\frac1{20}.
+\]
+The affine map \(q_d\) is injective and sends \(S\) into the strip.
+Apply this estimate once to \(T=q_d(S)\), retaining each full
+multiplicity fiber exactly once. Since \(n\delta_d(\rho)=k\Re(1/q_d(\rho))\),
+this proves \(U_S\le k/20\); positivity of the defects proves \(U_S\ge0\).
+Summing the exact pointwise residue identity proves
+\(nR_S=I_S-U_S\), with its signs unchanged.
+
+If \(R_S=0\), the integer \(I_S\) belongs to \([0,k/20]\subset[0,1)\).
+Hence \(I_S=U_S=0\). Every defect is strictly positive and every order
+is nonnegative, so \(U_S=0\) forces \(B_S=0\); the integer relation then
+forces \(A_S=0\). The converse is immediate.
+
+\paragraph{Proof of the quantitative conclusions.}
+Write \(\rho=\sigma+i\tau\). The exact defect formula gives
+\[
+ \delta_d(\rho)=
+ \frac{d(d-1)(\sigma+d-1)}
+      {(\sigma+d-1)^2+\tau^2}\ge L_d(H),
+\]
+since \(0<\sigma<1\) and \(|\tau|\le H\).
+If \(I_S\ne0\), the signed integer separation and \(0\le U_S\le k/20\)
+give \(|I_S-U_S|\ge1-k/20\). If \(I_S=0\) and \(A_S+B_S>0\),
+then \(B_S\ge1\), and therefore
+\(U_S\ge nL_d(H)B_S\ge nL_d(H)\).
+These two cases give the claimed lower bound after division by \(n>0\).
+The observation threshold follows by applying the triangle inequality
+only to the observation error after this signed lower bound has been proved.
+Finally the coarse error condition places
+\(ny+(1+k/20)/2\) in \([I_S,I_S+1)\), giving its floor.
+At \(n=k=1\), \(I_S=2B_S-A_S\), which proves the parity formula.
+
+\paragraph{Actual finite readout and formal scope.}
+For every analytic strip correction \(G\), the same aggregate is the
+actual common-increment readout limit
+\[
+ \lim_{\substack{t\to0\\t\ne0}}
+ \sum_{\rho\in S}\Re\!\left(
+ t\,\operatorname{affinePowerReadout}(-\zeta'/\zeta+G,d)(\rho+t)
+ \right)=R_S.
+\]
+For each fixed \(\rho\), translation \(t\mapsto\rho+t\) sends the punctured
+neighborhood of zero into the punctured neighborhood of \(\rho\).
+Compose the proved pointwise residue limit with this translation and
+take the finite sum. This argument includes real points and coincident
+target/reference locations.
+
+The finite zero-mass bound is checked in
+\texttt{Helpers.NicolasFiniteZeroMass}; the height and signed integer
+lemmas are checked in \texttt{Mathlib.Analysis.Complex.RealResiduePacket};
+the full actual packet theorem, threshold, index, parity, and analytic
+limit are checked in \texttt{Assembly.CarmichaelFiniteRealPacket}.
+The old pointwise summation would only give \(U_S\le |S|k/20\);
+the global finite-set argument gives \(U_S\le k/20\) for every finite \(S\).
+A single aggregate is not claimed to recover \(A_S\) and \(B_S\)
+separately, because the individual defects vary. The local limit keeps
+\(S\) fixed and supplies no growing-packet sampling rate. Classical
+trace, positivity, and integer rounding are inputs; the finite original-real
+affine-residue application is distinct from the global Li/Weil functionals
+discussed above. Literature priority remains unestablished.
+This is a finite-packet observability result; the certified global
+zero-free boundary remains \(7/8\).
+
 \subsection{Exact Mellin action on general windows}
 \label{sec:general-window-mellin}
 

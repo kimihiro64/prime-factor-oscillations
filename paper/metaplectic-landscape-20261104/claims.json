@@ -2562,6 +2562,54 @@
         "PrimeFactorOscillations.CarmichaelWeightedSignal.zeta_rational_single_real_decode",
         "PrimeFactorOscillations.CarmichaelWeightedSignal.zeta_rational_single_real_limit"
       ]
+    },
+    {
+      "id": "FRP-G",
+      "status": "kernel_checked_finite_real_packet",
+      "claim": "Positive height scale d(d-1)^2/(d^2+H^2), exact defect lower bound on the full closed real strip, positive inverse-product kernel and inverse comparison, and signed integer-budget zero, margin, and floor recovery lemmas. The signed main level is never replaced by an unsigned mass.",
+      "declarations": [
+        "Complex.realResidueHeightScale",
+        "Complex.realResidueHeightScale_pos",
+        "Complex.realPowerResidueDefect_height_lower",
+        "Complex.inverse_product_re_nonneg",
+        "Complex.inverse_re_le_inverse_product_re",
+        "Real.integer_sub_budget_zero",
+        "Real.integer_sub_budget_abs_lower",
+        "Real.integer_sub_budget_index"
+      ]
+    },
+    {
+      "id": "FRP-B",
+      "status": "kernel_checked_finite_real_packet",
+      "claim": "Exact multiplicity-fiber regrouping gives the real canonical zero HasSum. Every finite set of strip points has product mass at most gamma+2-log(4*pi), and inverse mass at most1/20, including regular points with zero order. The unconditional installed QRH strip is used for convergence; no RH premise or cardinality factor occurs.",
+      "declarations": [
+        "PrimeFactorOscillations.nicolas_distinct_product_real_hasSum",
+        "PrimeFactorOscillations.zeta_finite_product_mass_le",
+        "PrimeFactorOscillations.zeta_finite_inverse_mass_le"
+      ]
+    },
+    {
+      "id": "FRP-A",
+      "status": "kernel_checked_finite_real_packet",
+      "claim": "For every finite distinct strip set S, every n>=1 and1<=k<=19, the original real residue aggregate satisfies nR=I-U with I=(n+k)B-nA and0<=U<=k/20. It vanishes exactly when both total orders vanish. On height H the nonzero signal is at least min(1-k/20,n*d*(d-1)^2/(d^2+H^2))/n. Half-radius scalar noise gives an exact zero test; coarse noise recovers I; at n=k=1, error below19/40 recovers total target parity. The common-increment finite analytic readout has the actual aggregate limit. No separate two-total decoder, growing-set sampling rate, or improved zero-free boundary is asserted.",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.zetaPacketTargetOrder",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.zetaPacketReferenceOrder",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.zetaPacketResidue",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.zetaPacketDefect",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.zetaPacketLevel",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.zetaPacketRadius",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.zeta_packet_signed_identity",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.zeta_packet_defect_budget",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.zeta_packet_defect_height_lower",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.zeta_packet_zero_iff",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.zeta_packet_radius_pos",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.zeta_packet_abs_lower",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.zeta_packet_threshold",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.zeta_packet_index",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.zeta_packet_quadratic_parity",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.zeta_packet_common_increment_limit"
+      ]
     }
   ],
   "novelty": "Priority for the combined explicit formulas has not been established; source classification and Gauss identities are classical."
