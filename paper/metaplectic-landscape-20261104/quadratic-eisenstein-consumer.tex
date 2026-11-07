@@ -3533,6 +3533,97 @@ an achieved sampling-error rate, an upper bound on multiplicities, or a
 transfer of the constant \(1/20\) to general Dirichlet characters.
 The certified global QRH boundary remains \(7/8\).
 
+\subsection{Rational powers approaching the identity}
+\label{sec:rational-single-real-zeta}
+
+The integer-degree restriction is unnecessary for a specified infinite
+rational family. Let \(n\ge1\) and \(1\le k\le19\) be integers and put
+\[
+ d=1+\frac{k}{n},\qquad q_d(\rho)=\frac{\rho+d-1}{d},\qquad
+ \delta=d-\Re\frac{d\rho}{\rho+d-1}.
+\]
+Here \(d\) parametrizes the affine compensator and \(n\) is its denominator
+parameter. Coprimality is not required; duplicate degree representations
+are allowed. For fixed \(k\), these degrees approach \(1\) from above.
+
+\paragraph{Theorem (rational one-coordinate recovery).}
+For every \(0<\Re\rho<1\), including real \(\rho\), write
+\[
+ A=\operatorname{ord}_{\rho}\zeta,\qquad
+ B=\operatorname{ord}_{q_d(\rho)}\zeta,\qquad
+ r=\Re\mathcal R_{\zeta,d}(\rho).
+\]
+Then \(\delta>0\) and
+\begin{equation}\label{eq:rational-real-budget}
+ nr=(n+k)B-nA-u,\qquad
+ u=n\delta B=kB\Re(1/q_d(\rho)),\qquad
+ 0\le u\le\frac{k}{20}<1.
+\end{equation}
+Consequently \(r=0\) if and only if \(A=B=0\). A target or reference zero
+always gives a nonzero original real residue in this family.
+For a real observation \(y\), assume the two explicit scaled error bounds
+\[
+ |n(r-y)|<\frac{1-k/20}{2},\qquad
+ |n(r-y)|<\frac{n\delta}{2}.
+\]
+Then both multiplicities are recovered by
+\[
+ I=\left\lfloor ny+\frac{1+k/20}{2}\right\rfloor,\qquad
+ B=\left\lfloor\frac{I-ny}{n\delta}+\frac12\right\rfloor,
+ \qquad A=\frac{(n+k)B-I}{n}.
+\]
+The last quotient is exact integer division. There is no multiplicity cap
+and no RH hypothesis. For every analytic strip correction \(G\), the
+actual compensated logarithmic readout has the real residue limit
+\[
+ \lim_{s\to\rho,\ s\ne\rho}
+ \Re\!\left((s-\rho)\,
+ \operatorname{affinePowerReadout}(-\zeta'/\zeta+G,d)(s)\right)=r.
+\]
+The scaled tolerance stays explicit in the denominator parameter; the
+required error in the original observation decreases with \(n\).
+
+\paragraph{Proof.}
+The exact real-degree geometry gives
+\[
+ \delta=\frac{d(d-1)(\Re\rho+d-1)}
+ {(\Re\rho+d-1)^2+(\Im\rho)^2}>0,
+ \qquad \delta=(d-1)\Re(1/q_d(\rho)).
+\]
+Since \(n(d-1)=k\), the already proved multiplicity-weighted zeta budget
+at the strip point \(q_d(\rho)\) gives
+\[
+ n\delta B=kB\Re(1/q_d(\rho))\le\frac{k}{20}.
+\]
+The full signed residue is \(r=dB-A-\delta B\). Multiplying by \(n\)
+and using \(nd=n+k\) proves~\eqref{eq:rational-real-budget}.
+If \(r=0\), the integer \(I=(n+k)B-nA\) equals \(u\in[0,1)\),
+so \(u=I=0\). Positivity of \(n\delta\) gives \(B=0\), and then
+\(A=0\). The converse follows directly from the residue formula.
+
+For recovery, apply the preceding one-sided integer decoder with budget
+\(c=k/20\), coefficient \(n+k\), defect \(n\delta\), target integer
+\(nA\), reference integer \(B\), and observation \(ny\).
+It returns exactly \((nA,B)\). Division by the nonzero integer \(n\)
+then returns \(A\). Every term of the scaled residue is retained in this
+application. Finally, specialize the existing all-character real-degree
+local-factorization limit to the principal character of modulus one and
+take its continuous real projection. This proves the actual limit,
+including real target points.
+
+\paragraph{Formal status and scope.}
+The real-degree defect identities, integer erasure cost and complete
+scaled decoder are checked in
+\texttt{Mathlib.Analysis.Complex.RationalResidueBudget}; the actual
+zeta reference budget, zero test, recovery and analytic limit are checked
+in \texttt{Assembly.CarmichaelRationalSingleRealZeta}. The stated family
+is precisely \(d=1+k/n\), \(n\ge1\), \(1\le k\le19\); maximality
+among rational degrees is not claimed. Classical trace and rounding inputs
+support this extension from integer-degree observability to rational
+powers arbitrarily close to the identity. As in the preceding section,
+literature priority is unestablished and no achieved sampling-error rate
+or improved global zero-free boundary is asserted.
+
 \subsection{Exact Mellin action on general windows}
 \label{sec:general-window-mellin}
 

@@ -2521,6 +2521,47 @@
         "PrimeFactorOscillations.CarmichaelWeightedSignal.zeta_single_real_decode",
         "PrimeFactorOscillations.CarmichaelWeightedSignal.zeta_single_real_limit"
       ]
+    },
+    {
+      "id": "RSR-G",
+      "status": "kernel_checked_rational_single_real",
+      "claim": "Real-degree compensated residue geometry, positive defect and exact inverse-reference identity. For d=1+k/n, scaling by positive n gives an integral level and an erasure cost of at least one. The two-stage decoder recovers both unbounded integer orders and cancels the exact target factor n by integer division.",
+      "declarations": [
+        "Complex.rationalPowerDegree",
+        "Complex.realPowerResidueCode",
+        "Complex.realPowerResidueDefect",
+        "Complex.rationalPowerDegree_gt_one",
+        "Complex.rationalPowerDegree_mul_den",
+        "Complex.realPowerResidueDefect_formula",
+        "Complex.realPowerResidueDefect_pos",
+        "Complex.realPowerResidueDefect_reference_identity",
+        "Complex.realPowerResidueCode_real_decomposition",
+        "Complex.rationalPowerResidueCode_scaled_real",
+        "Complex.rationalPowerResidue_zero_cost",
+        "Complex.rationalPowerDecode",
+        "Complex.rationalPowerDecode_eq"
+      ]
+    },
+    {
+      "id": "RSR-B",
+      "status": "kernel_checked_rational_single_real",
+      "claim": "For every n>=1 and k>=1, the actual scaled zeta reference defect equals k times the multiplicity-weighted real inverse reference and lies in[0,k/20]. This uses all multiplicity copies in the proved global zero budget; it does not require the reference to leave the zero strip.",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.zetaRationalReferenceOrder",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.zeta_rational_scaled_defect_identity",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.zeta_rational_defect_mass_bound"
+      ]
+    },
+    {
+      "id": "RSR-A",
+      "status": "kernel_checked_rational_single_real",
+      "claim": "For d=1+k/n with every n>=1 and1<=k<=19, one original real compensated zeta residue vanishes exactly when both actual multiplicities vanish, including real target points. The complete two-order decoder has scaled errors strictly less than(1-k/20)/2 and n*delta/2. The actual real residue limit holds for every analytic strip correction. No RH premise, multiplicity cap, achieved sampling rate or improved zero-free boundary is claimed.",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.zeta_rational_single_real_zero_iff",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.zeta_rational_single_real_nonzero",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.zeta_rational_single_real_decode",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.zeta_rational_single_real_limit"
+      ]
     }
   ],
   "novelty": "Priority for the combined explicit formulas has not been established; source classification and Gauss identities are classical."
