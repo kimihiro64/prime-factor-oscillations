@@ -5326,6 +5326,185 @@ The case \(M=0\) remains the central configuration and is outside the
 ratio definitions used here.  The global logarithmic coefficient,
 certified simplicity window and seven-eighths boundary are unchanged.
 
+\subsection{Compensating rounding with the exact second moment}
+\label{sec:compensated-moment-lattice}
+
+The preceding squared rounding estimate has a denominator proportional
+to the total order \(N\).  An exact cancellation removes that loss.
+Put
+\[
+ \delta=1-\frac{\sqrt2}{2},\qquad
+ b_\delta(y)=\begin{cases}1&y\ge\delta,\\0&y<\delta.\end{cases}
+\]
+Thus \(0<\delta<1/2\), \(\delta>1/4\), and
+\(2\delta^2-4\delta+1=0\).  Retain the definitions
+\(N,M,Q,t=Q/M,\kappa=M^2/Q,\mathcal B_2\) and
+\(\mathcal E=\sum_{\rho\in W}m_\rho x_\rho(x_\rho-t)^2\)
+from the preceding subsection.
+
+\paragraph{Theorem (compensated parity charge).}
+Let \(W\) be a finite subset of the open critical strip, all of whose
+points have imaginary part \(T\), where \(|T|\ge2\).
+Suppose \(W\) is closed under \(\rho\mapsto1-\overline\rho\), and
+\(N>0\), \(M>0\).  Count every point with its actual analytic order
+\(m_\rho\), and define
+\[
+ K_\delta=\sum_{\substack{\rho\in W\\x_\rho/t\ge\delta}}m_\rho.
+\]
+Then \(K_\delta\) is an even nonnegative integer and
+\begin{equation}
+ \delta t^3|\kappa-K_\delta|\le\mathcal E,\qquad
+ \mathcal B_2+\delta t^3|\kappa-K_\delta|\le gB(T).
+ \label{eq:compensated-moment-charge}
+\end{equation}
+In particular, if \(\kappa\) is an odd integer,
+\begin{equation}
+ \mathcal B_2+\delta t^3\le gB(T).
+ \label{eq:compensated-moment-odd}
+\end{equation}
+For \(N\ge2\), this penalty is strictly larger than
+\(t^3/(2N)\), the preceding squared rounding penalty.
+
+\paragraph{Proof of the exact compensation.}
+The following argument holds for any finite nonnegative weights
+\(a_i\) and nonnegative \(y_i\) satisfying
+\[
+ \sum_i a_i y_i^2=\sum_i a_i y_i.
+\]
+Write \(S=\sum_i a_i y_i\), \(K=\sum_i a_i b_\delta(y_i)\), and
+\(E_0=\sum_i a_i y_i(y_i-1)^2\).  Before estimating anything, cancel
+the full second-moment identity:
+\begin{equation}
+ S-K=\sum_i a_i
+ \bigl[y_i-b_\delta(y_i)-y_i(y_i-1)\bigr]
+ =\sum_i a_i\bigl[2y_i-y_i^2-b_\delta(y_i)\bigr].
+ \label{eq:compensated-round-ledger}
+\end{equation}
+This identity retains the signed linear error and every quadratic term.
+For all \(y\ge0\),
+\begin{equation}
+ -y(y-1)^2\le
+ \delta\bigl[2y-y^2-b_\delta(y)\bigr]\le y(y-1)^2.
+ \label{eq:compensated-round-pointwise}
+\end{equation}
+Indeed, for \(y\ge\delta\) the middle bracket is
+\(-(y-1)^2\); the lower bound uses \(y\ge\delta\), and the upper
+bound follows from nonnegativity.  For \(0\le y<\delta\) it is
+\(y(2-y)\ge0\).  Its upper bound follows from the exact factorization
+\[
+ (y-1)^2-\delta(2-y)
+   =(\delta-y)(2-2\delta-y)\ge0.
+\]
+Multiplying \eqref{eq:compensated-round-pointwise} by each \(a_i\),
+summing the two signed inequalities and only then using
+\eqref{eq:compensated-round-ledger} gives
+\[
+ -E_0\le\delta(S-K)\le E_0,\qquad \delta|S-K|\le E_0.
+\]
+There is no Cauchy--Schwarz step or factor \(N\).
+
+For the actual cluster, take \(a_i=m_\rho\) and \(y_i=x_\rho/t\).
+The definitions give
+\[
+ \sum_{\rho\in W}m_\rho y_\rho^2
+  =\frac Q{t^2}
+  =\frac M t
+  =\kappa
+  =\sum_{\rho\in W}m_\rho y_\rho,
+ \qquad t^3E_0=\mathcal E.
+\]
+Since \(t>0\), the normalized bound proves the first inequality in
+\eqref{eq:compensated-moment-charge}.  The threshold set is closed
+under reflection.  Its fixed points have \(x_\rho=0\) and are excluded
+because \(\delta t>0\).  Reflection preserves the actual analytic
+order, so its total order \(K_\delta\) is even.  Equivalently, the
+maintained threshold-order theorem applies at ratio \(2\delta t\),
+since \(x/(2\delta t)\ge1/2\) is exactly \(x/t\ge\delta\).
+The already proved full signed profile bound
+\(\mathcal B_2+\mathcal E\le gB(T)\) now gives the second inequality.
+Odd \(\kappa\) has distance at least one from the even integer
+\(K_\delta\), proving \eqref{eq:compensated-moment-odd}.
+Finally \(1/(2N)\le1/4<\delta\) when \(N\ge2\), and \(t^3>0\).
+
+\paragraph{Threshold and constant.}
+More generally, replacing \(\delta\) by \(d\) in both the coefficient
+and the threshold gives the pointwise certificate whenever
+\[
+ 0\le d\le\tfrac12,\qquad 2d^2-4d+1\ge0.
+\]
+On this interval the latter condition is equivalent to \(d\le\delta\).
+At the fixed threshold \(\delta\), the lower pointwise inequality
+evaluated at \(y=\delta\) forces any admissible coefficient to be at
+most \(\delta\).  The stronger sharpness statement below concerns
+the full moment identity and natural even weights, rather than merely
+this pointwise argument.
+
+\paragraph{Theorem (sharpness for even integer-weight moment models).}
+For every integer \(n\ge1\), set
+\[
+ a_n=\frac{2n+1-\sqrt{n(2n+1)}}{2(n+1)},\qquad
+ b_n=1+\frac{1/2-a_n}{n}.
+\]
+Place weight \(2\) at \(a_n\) and weight \(2n\) at \(b_n\).  Then
+\[
+ \delta\le a_n<\tfrac12,\qquad 1<b_n<\tfrac32,\qquad
+ 2a_n+2nb_n=2a_n^2+2nb_n^2=2n+1.
+\]
+The effective mass is the odd integer \(2n+1\), the rounded mass is
+the even integer \(2n+2\), and the discrepancy has absolute value one.
+Its energy
+\[
+ E_n=2a_n(a_n-1)^2+2nb_n(b_n-1)^2
+\]
+satisfies
+\begin{equation}
+ \delta\le E_n\le\delta+\frac1n.
+ \label{eq:compensated-moment-sharp}
+\end{equation}
+Consequently every \(c>\delta\) fails as a universal lower bound
+\(E_0\ge c\) for odd effective mass, even when every weight is a natural
+even integer.
+
+\paragraph{Proof of sharpness.}
+Squaring the defining radical gives the exact relation
+\[
+ n(2a_n-a_n^2-\tfrac12)=(\tfrac12-a_n)^2.
+\]
+The radical lies strictly between \(n\) and \(2n+1\), giving
+\(0<a_n<1/2\).  Factoring the quadratic against its root \(\delta\)
+then gives \(a_n\ge\delta\) and
+\[
+ n(a_n-\delta)\le\tfrac14.
+\]
+The definition of \(b_n\), followed by the displayed quadratic
+relation, proves both moment identities.  Both atoms lie above
+the threshold, so their rounded mass is \(2+2n\).
+The energy expansion is
+\[
+ E_n=2a_n(a_n-1)^2+
+       \frac{2(1/2-a_n)^2}{n}
+       +\frac{2(1/2-a_n)^3}{n^2}.
+\]
+Here \(2(a_n-1)^2\le1\), \(2(1/2-a_n)^2\le1/2\), and
+\(2(1/2-a_n)^3\le1/4\).  Hence
+\[
+ E_n\le a_n+\frac1{2n}+\frac1{4n^2}
+ \le\delta+\frac1{4n}+\frac1{2n}+\frac1{4n^2}
+ \le\delta+\frac1n.
+\]
+The compensated lower bound gives \(E_n\ge\delta\).
+For \(c>\delta\), choose a natural \(n>\max\{1,1/(c-\delta)\}\)
+to obtain \(E_n<c\).  This proves
+\eqref{eq:compensated-moment-sharp} and the claimed optimality.
+
+These sharpness examples are finite moment models; they are not
+asserted to be actual zeta zero configurations.  The sharp coefficient
+concerns the energy inequality, not optimality of the complete rational
+kernel penalty.  The complete \(B(T)\), its logarithmic coefficient
+and additive constant are unchanged.  The central case \(M=0\) remains
+outside the moment-ratio statement; this theorem gives neither a larger
+certified simplicity window nor a new zero-free boundary.
+
 \subsection{Signed two-dimensional control of a zero cluster}
 \label{sec:cluster-multiplicity}
 
