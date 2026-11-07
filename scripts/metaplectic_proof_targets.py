@@ -12,6 +12,7 @@ from scripts.minimal_carrier_proof_targets import MINIMAL_CARRIER_THEOREMS
 from scripts.multiplicity_carrier_proof_targets import MULTIPLICITY_CARRIER_THEOREMS
 from scripts.multiplicity_lattice_proof_targets import MULTIPLICITY_LATTICE_THEOREMS
 from scripts.multiplicity_support_proof_targets import MULTIPLICITY_SUPPORT_THEOREMS
+from scripts.near_identity_panel_proof_targets import NEAR_IDENTITY_PANEL_THEOREMS
 from scripts.optimal_residue_degree_proof_targets import OPTIMAL_RESIDUE_DEGREE_THEOREMS
 from scripts.quadratic_scalar_chain_proof_targets import QUADRATIC_SCALAR_CHAIN_THEOREMS
 from scripts.rational_single_real_proof_targets import RATIONAL_SINGLE_REAL_THEOREMS
@@ -47,6 +48,7 @@ METAPLECTIC_THEOREMS: tuple[str, ...] = tuple(
         + QUADRATIC_SCALAR_CHAIN_THEOREMS
         + RATIONAL_SINGLE_REAL_THEOREMS
         + FINITE_REAL_PACKET_THEOREMS
+        + NEAR_IDENTITY_PANEL_THEOREMS
         + SCALAR_ERASURE_COST_THEOREMS
         + SINGLE_REAL_ZETA_THEOREMS
     )

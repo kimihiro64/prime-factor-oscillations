@@ -3762,6 +3762,168 @@ discussed above. Literature priority remains unestablished.
 This is a finite-packet observability result; the certified global
 zero-free boundary remains \(7/8\).
 
+\subsection{Effective finite panels arbitrarily close to the identity}
+\label{sec:near-identity-panel}
+
+A finite panel removes the shrinking single-row accuracy requirement when
+the aim is to recover the total target multiplicity. Let \(S\) be a finite
+strip set, and suppose
+\[
+ 0<s,\qquad H\ge0,\qquad
+ s\le\Re\rho<1,\quad |\Im\rho|\le H\quad(\rho\in S).
+\]
+For \(j\ge0\), define
+\[
+ d_j=1+\frac1{j+1},\qquad
+ q_j(\rho)=\frac{(j+1)\rho+1}{j+2},\qquad
+ A=\sum_{\rho\in S}\operatorname{ord}_\rho\zeta,
+\]
+\[
+ B_j=\sum_{\rho\in S}\operatorname{ord}_{q_j(\rho)}\zeta,\qquad
+ r_j=\sum_{\rho\in S}\Re\mathcal R_{\zeta,d_j}(\rho),\qquad
+ \lambda=\frac{s}{1+H^2}>0.
+\]
+The natural index \(j=0\) is allowed; its denominator parameter is one.
+A parameter is called contaminated when \(B_j>0\).
+
+\paragraph{Theorem (effective near-identity panel recovery).}
+For every finite \(T\subset\mathbb N\),
+\begin{equation}\label{eq:near-identity-bad-budget}
+ \lambda\,\#\{j\in T:B_j>0\}\le\frac{|S|}{20}.
+\end{equation}
+The set of all contaminated natural parameters is finite.
+Every row satisfies \(r_j\ge-A\), and \(B_j=0\) implies \(r_j=-A\).
+Consequently, if \(T\ne\varnothing\) and
+\[
+ \lambda |T|>\frac{|S|}{20},
+\]
+then any real observations satisfying \(|r_j-y_j|<1/2\) for every \(j\in T\)
+recover the full target total by the explicit formula
+\begin{equation}\label{eq:near-identity-panel-decode}
+ A=\max_{j\in T}\left\lfloor-y_j+\frac12\right\rfloor.
+\end{equation}
+No bound on \(A\) or on an individual zero multiplicity is an input.
+
+In particular put
+\[
+ M=\left\lfloor\frac{|S|(1+H^2)}{20s}\right\rfloor.
+\]
+For every base \(b\ge0\), the block \(T=\{b,b+1,\ldots,b+M\}\) has
+exactly \(M+1\) observations and satisfies the required strict size inequality.
+The same decoder works on every such block, while all its powers obey
+\[
+ 1<d_j\le1+\frac1{b+1}\qquad(j\in T).
+\]
+Thus the panel can lie arbitrarily close to the identity without shrinking
+the half-unit accuracy allowance. The number of rows depends on the
+rectangle and \(|S|\), but is independent of the base \(b\).
+
+\paragraph{Proof of the parameter budget.}
+Write \(t_j=(j+1)/(j+2)\). Then \(0<t_j<1\) and
+\[
+ q_j(\rho)=t_j\rho+(1-t_j).
+\]
+For fixed \(\rho\ne1\), the map \(j\mapsto q_j(\rho)\) is injective:
+equality of two values gives
+\((t_j-t_k)(\rho-1)=0\), hence \(t_j=t_k\), and then \(j=k\).
+Furthermore
+\[
+ \Re q_j(\rho)\ge\Re\rho\ge s,\qquad
+ \Re q_j(\rho)<1,\qquad |\Im q_j(\rho)|\le H.
+\]
+It follows that
+\[
+ \Re\frac1{q_j(\rho)}
+ =\frac{\Re q_j(\rho)}{|q_j(\rho)|^2}
+ \ge \frac{s}{1+H^2}=\lambda.
+\]
+
+For fixed \(\rho\), apply the proved global finite-set inverse-zero budget
+to the injective image \(q_T(\rho)=\{q_j(\rho):j\in T\}\):
+\[
+ \sum_{j\in T}\operatorname{ord}_{q_j(\rho)}\zeta\,
+                  \Re(1/q_j(\rho))\le\frac1{20}.
+\]
+Define the complete nonnegative weight
+\[
+ W_j=\sum_{\rho\in S}\operatorname{ord}_{q_j(\rho)}\zeta\,
+                         \Re(1/q_j(\rho)).
+\]
+Finite summation in the parameter direction first gives
+\[
+ \sum_{j\in T}W_j\le\frac{|S|}{20},\qquad W_j\ge\lambda B_j.
+\]
+If \(B_j>0\), integrality gives \(B_j\ge1\), so \(W_j\ge\lambda\).
+Summing over contaminated rows proves~\eqref{eq:near-identity-bad-budget}.
+Images from different target points may overlap; the proof charges their
+separate orbits through the displayed factor \(|S|\) and never assumes
+disjointness across different \(\rho\).
+If the contaminated natural-parameter set were infinite, it would contain
+a finite subset of size \(M+1\); the same budget would contradict
+\(\lambda(M+1)>|S|/20\). This also proves its global finiteness.
+
+\paragraph{Proof of the signed envelope and recovery.}
+Keep the exact original residue:
+\[
+ r_j=-A+
+ \sum_{\rho\in S}
+  \Re\!\left(\frac{d_j\rho}{\rho+d_j-1}\right)
+                  \operatorname{ord}_{q_j(\rho)}\zeta.
+\]
+Every retained reference coefficient is nonnegative. Indeed, for
+\(\rho=\sigma+i\tau\),
+\[
+ \Re\!\left(\frac{d\rho}{\rho+d-1}\right)
+ =\frac{d\sigma(\sigma+d-1)+d\tau^2}
+        {(\sigma+d-1)^2+\tau^2}\ge0
+ \qquad(d>1,\ \sigma\ge0).
+\]
+This proves \(r_j\ge-A\). If \(B_j=0\), all its nonnegative integer
+summands vanish, so the full reference contribution vanishes and
+\(r_j=-A\).
+
+The strict size inequality and~\eqref{eq:near-identity-bad-budget}
+force a clean \(j\in T\). For every row the noise bound and \(r_j\ge-A\)
+give \(y_j>-A-1/2\), whence
+\(\lfloor-y_j+1/2\rfloor\le A\).
+For a clean row, \(|-A-y_j|<1/2\) gives equality.
+Taking the finite maximum proves~\eqref{eq:near-identity-panel-decode}.
+Finally, \(M+1>|S|/(20\lambda)\) proves the explicit block-size condition,
+and monotonicity of \(1/(j+1)\) proves the power bound.
+
+\paragraph{Actual analytic observations and formal scope.}
+For an arbitrary analytic strip correction \(G\), use the actual observations
+\[
+ y_j(t)=\sum_{\rho\in S}
+ \Re\!\left(t\,\operatorname{affinePowerReadout}
+       (-\zeta'/\zeta+G,d_j)(\rho+t)\right).
+\]
+The completed finite-packet limit gives \(y_j(t)\to r_j\) as
+\(t\to0,\ t\ne0\). For fixed finite \(T\), all the strict half-unit
+error inequalities therefore hold simultaneously in a punctured neighborhood
+of zero. The floor-maximum decoder is consequently exactly equal to \(A\)
+throughout that neighborhood. The set, rectangle, base, and panel are fixed
+before taking this limit; no uniform step-size or sampling-rate bound is claimed.
+
+The affine geometry and full signed coefficient inequality are checked in
+\texttt{Mathlib.Analysis.Complex.NearIdentityResiduePanel}; the actual zero
+budget, contamination count, clean-row existence, decoder, block construction,
+power bound, and eventual analytic recovery are checked in
+\texttt{Assembly.CarmichaelNearIdentityPanel}.
+The preceding fixed-degree real aggregate recovered an index and quadratic
+parity. This panel recovers the target total by using several real observations;
+it does not recover all the varying reference orders.
+
+The background includes global Li coefficients and Weil functionals
+(Lagarias, arXiv:math/0404394), and global inverse-power zero sums
+(Sekatskii, \textit{On the Sums over Inverse Powers of Zeroes of the Hurwitz
+Zeta-Function}, 2024,
+\url{https://www.preprints.org/manuscript/202401.0068/v1/download}).
+Here the global budget instead controls collisions across compensation
+parameters and gives a finite stable inverse formula. Targeted searches
+found no matching near-identity finite-panel statement; priority remains
+unestablished. The certified global zero-free boundary remains \(7/8\).
+
 \subsection{Exact Mellin action on general windows}
 \label{sec:general-window-mellin}
 

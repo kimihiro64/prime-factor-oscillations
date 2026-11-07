@@ -2610,6 +2610,60 @@
         "PrimeFactorOscillations.CarmichaelWeightedSignal.zeta_packet_quadratic_parity",
         "PrimeFactorOscillations.CarmichaelWeightedSignal.zeta_packet_common_increment_limit"
       ]
+    },
+    {
+      "id": "NIP-G",
+      "status": "kernel_checked_near_identity_panel",
+      "claim": "For every natural j the real fraction(j+1)/(j+2) is strictly between0 and1 and injective. Its affine orbit is injective in j at every z!=1. On Re z>=s>0,Re z<1,abs Im z<=H it stays in the rectangle and has inverse real part at least s/(1+H^2). The full real-degree compensated coefficient is nonnegative and its signed residue is at least minus the target integer.",
+      "declarations": [
+        "Complex.nearIdentityFraction",
+        "Complex.nearIdentityPoint",
+        "Complex.nearIdentityFraction_mul_den",
+        "Complex.nearIdentityFraction_bounds",
+        "Complex.nearIdentityFraction_injective",
+        "Complex.nearIdentityPoint_parameter_injective",
+        "Complex.nearIdentityPoint_bounds",
+        "Complex.nearIdentityPoint_inverse_lower",
+        "Complex.realPowerResidueCoefficient_nonneg",
+        "Complex.realPowerResidueCode_target_lower"
+      ]
+    },
+    {
+      "id": "NIP-B",
+      "status": "kernel_checked_near_identity_panel",
+      "claim": "The near-identity affine point is exactly powerMap at d_j=1+1/(j+1). For any finite S and parameter set T, summing the global inverse-zero mass along each injective parameter orbit gives sum_T W_j<=card(S)/20, retaining all cross-target image overlaps. If Re rho>=s>0 and height<=H on S, lambda*card(contaminated rows in T)<=card(S)/20 with lambda=s/(1+H^2). Every larger finite panel has a row with all reference orders zero; globally the contaminated parameter set is finite. The explicit extra=floor(card(S)*(1+H^2)/(20*s)) makes extra+1 observations sufficient independently of their base.",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.near_identity_point_eq_powerMap",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.nearIdentityReferenceOrder",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.nearIdentityReferenceWeight",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.near_identity_orbit_mass_le",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.near_identity_panel_weight_budget",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.near_identity_weight_lower",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.near_identity_bad_parameter_bound",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.near_identity_exists_clean",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.nearIdentityPanelExtra",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.near_identity_explicit_width",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.near_identity_bad_set_finite"
+      ]
+    },
+    {
+      "id": "NIP-A",
+      "status": "kernel_checked_near_identity_panel",
+      "claim": "Every original real aggregate is at least minus the total target order, and a clean row attains that value. With error strictly below1/2 at each row, the finite maximum of floor(-y_j+1/2) recovers the full uncapped target total. The explicit consecutive block has extra+1 rows, may begin at any base, and its powers are at most1+1/(base+1). Fixed finite panels of the actual common-increment analytic readouts eventually decode exactly as the increment tends to zero through nonzero complex values. No uniform step-size, growing-panel rate, recovery of all varying reference orders, or improved zero-free boundary is asserted.",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.near_identity_residue_target_lower",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.near_identity_clean_residue",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.nearIdentityPanelDecode",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.near_identity_floor_le_target",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.near_identity_clean_floor",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.near_identity_panel_decode",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.nearIdentityBlockDecode",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.near_identity_block_decode",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.near_identity_degree_upper",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.nearIdentityPanelObservation",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.near_identity_panel_eventual_decode",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.near_identity_explicit_block_decode"
+      ]
     }
   ],
   "novelty": "Priority for the combined explicit formulas has not been established; source classification and Gauss identities are classical."
