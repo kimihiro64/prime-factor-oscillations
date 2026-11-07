@@ -3604,6 +3604,73 @@
       "declarations": [
         "PrimeFactorOscillations.threeLineOddKernel_high_exceeds_scale"
       ]
+    },
+    {
+      "id": "PST-SCALAR",
+      "status": "compiled_signed_pointwise_quadratic_certificate",
+      "claim": "For y>=0, sigma=+1 or-1, R=f-sigma*delta*g and k=h+sigma*(1-2*delta)*g satisfy k^2<=4*y*R and y*u^2-u*k+R>=0. All four threshold/sign cases are proved, retaining the jump and compensation.",
+      "declarations": [
+        "PrimeFactorOscillations.compensatedParity_positive_high",
+        "PrimeFactorOscillations.compensatedParity_positive_low",
+        "PrimeFactorOscillations.compensatedParity_negative_high",
+        "PrimeFactorOscillations.compensatedParity_negative_low",
+        "PrimeFactorOscillations.compensatedParity_transport_square",
+        "PrimeFactorOscillations.compensatedParity_quadratic_nonneg"
+      ]
+    },
+    {
+      "id": "PST-STABILITY",
+      "status": "compiled_finite_weighted_stability",
+      "claim": "For finite nonnegative weighted y with sum a*y^2=sum a*y=M>0 and D=M-sum a*1_(y>=delta), E=sum a*y*(y-1)^2 satisfies 4*M*(E-delta*abs(D))>=(1-2*delta)^2*D^2. The exact summed quadratic retains its signed transport cross term.",
+      "declarations": [
+        "PrimeFactorOscillations.finiteWeightedParity_quadratic",
+        "PrimeFactorOscillations.finiteWeightedParity_signed_discriminant",
+        "PrimeFactorOscillations.finiteWeightedParity_stability",
+        "PrimeFactorOscillations.finiteWeightedParity_stability_cost"
+      ]
+    },
+    {
+      "id": "PST-SCALED",
+      "status": "compiled_cubic_scale_and_full_kernel_consumer",
+      "claim": "The stability cost has the unit-discrepancy gap, rescales exactly by t^3, and enters the full signed three-pole weighted profile ledger using its proved kernel floor tau, for 0<t<=9/64 and x in[0,1/4].",
+      "declarations": [
+        "PrimeFactorOscillations.compensatedParityStabilityCost_unit_gap",
+        "PrimeFactorOscillations.finiteWeightedParity_stability_scaled",
+        "PrimeFactorOscillations.threeLineWeightedParityStability_charge"
+      ]
+    },
+    {
+      "id": "PST-GAMMA",
+      "status": "compiled_positive_inverse_effective_mass_excess",
+      "claim": "gamma=delta-1/4=(1-2*delta)^2/4>0. M*(E-delta*abs(D))>=gamma*D^2, and the cost equals delta*abs(D)+gamma*D^2/M. If 0<M<=B and abs(D)>=1, the cost is at least delta+gamma/B>delta. Optimality of gamma is not claimed.",
+      "declarations": [
+        "PrimeFactorOscillations.finiteWeightedParity_stability_gamma",
+        "PrimeFactorOscillations.compensatedParityStabilityCost_formula",
+        "PrimeFactorOscillations.compensatedParityStabilityCost_unit_budget",
+        "PrimeFactorOscillations.compensatedParityStability_budget_strict"
+      ]
+    },
+    {
+      "id": "PST-COMPARISON",
+      "status": "compiled_strict_improvement_near_zero",
+      "claim": "C(t) is continuous at0 with C(0)=tau*delta. For every B>0 there is eta_B>0 such that 0<t<eta_B implies C(t)<tau*(delta+gamma/B). This is a nonempty scalar regime; no actual-zero realization is asserted.",
+      "declarations": [
+        "PrimeFactorOscillations.threeLineKernelParityCoefficient_continuousAt_zero",
+        "PrimeFactorOscillations.threeLineKernelParityCoefficient_zero",
+        "PrimeFactorOscillations.parityStability_stronger_near_zero"
+      ]
+    },
+    {
+      "id": "PST-ACTUAL",
+      "status": "compiled_complete_actual_height_stability_consumers",
+      "claim": "Finite same-height reflection-closed critical-strip zero clusters at |T|>=2, N>0,M1>0 have 0<kappa<=B(T) and B2+tau*t^3*(delta*abs(D)+gamma*D^2/kappa)<=g*B(T). Odd integral kappa gives the stronger-of-two charge B2+t^3*max(C(t),tau*(delta+gamma/B(T)))<=g*B(T), with full budget unchanged. Central M1=0, larger numerical simplicity windows, global simplicity and any7/8 improvement are not asserted.",
+      "declarations": [
+        "PrimeFactorOscillations.zeta_effective_mass_le_height_budget",
+        "PrimeFactorOscillations.zeta_finite_parity_stability_bound",
+        "PrimeFactorOscillations.zeta_parity_stability_odd_effective_gap",
+        "PrimeFactorOscillations.zeta_parity_stability_odd_height_gap",
+        "PrimeFactorOscillations.zeta_parity_stability_odd_combined_gap"
+      ]
     }
   ],
   "novelty": "Priority for the combined explicit formulas has not been established; source classification and Gauss identities are classical."

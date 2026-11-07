@@ -5815,6 +5815,208 @@ The theorem does not claim sharpness in that narrower endpoint class.
 The complete height budget, numerical simplicity window and
 \(7/8\) boundary remain unchanged.
 
+\subsection{Finite-effective-mass stability of the parity penalty}
+\label{sec:finite-mass-parity-stability}
+
+The preceding optimality theorem permits the effective mass to tend
+to infinity.  At finite effective mass there is an additional
+quantitative cost.  Set
+\[
+ \gamma=\delta-\frac14=\frac{(1-2\delta)^2}{4}>0,
+ \qquad
+ \delta=1-\frac1{\sqrt2}.
+\]
+The coefficient \(\gamma\) below is a proved stability coefficient;
+its optimality is not asserted.
+
+\paragraph{Theorem (compensated moment stability).}
+Let \(S\) be finite, \(a_i,y_i\ge0\), and suppose
+\[
+ M=\sum_{i\in S}a_i y_i=\sum_{i\in S}a_i y_i^2>0.
+\]
+Define
+\[
+ K=\sum_{i\in S}a_i\,1_{\{y_i\ge\delta\}},\quad
+ D=M-K,\quad E=\sum_{i\in S}a_i y_i(y_i-1)^2.
+\]
+Then
+\begin{equation}
+ M(E-\delta|D|)\ge\gamma D^2,\qquad
+ E\ge\delta|D|+\frac{\gamma D^2}{M}.
+ \label{eq:finite-mass-stability}
+\end{equation}
+In particular, if \(M\) is an odd integer and every weight \(a_i\)
+is an even nonnegative integer, then
+\[
+ E\ge\delta+\frac{\gamma}{M}.
+\]
+If additionally \(M\le B\), the last lower bound is at least
+\(\delta+\gamma/B>\delta\).
+
+\paragraph{Proof.}
+Write
+\[
+ f(y)=y(y-1)^2,\quad
+ g(y)=2y-y^2-1_{\{y\ge\delta\}},\quad
+ h(y)=y(y-1),\quad A=1-2\delta.
+\]
+The two exact moment identities give
+\[
+ \sum_{i\in S}a_i h(y_i)=0,\qquad
+ \sum_{i\in S}a_i g(y_i)=D.
+\]
+For \(\sigma\in\{-1,1\}\), define the coupled residual and transport
+\[
+ R_\sigma(y)=f(y)-\sigma\delta g(y),\qquad
+ k_\sigma(y)=h(y)+\sigma A g(y).
+\]
+The key pointwise certificate, valid for every \(y\ge0\), is
+\begin{equation}
+ k_\sigma(y)^2\le4yR_\sigma(y).
+ \label{eq:parity-transport-square}
+\end{equation}
+Here is a full verification, retaining the threshold jump.
+
+For \(y\ge\delta\), one has
+\[
+ \begin{array}{ll}
+ R_+(y)=(y+\delta)(y-1)^2,&
+ k_+(y)=(2\delta y+1-2\delta)(y-1),\\
+ R_-(y)=(y-\delta)(y-1)^2,&
+ k_-(y)=2(1-\delta)(y-\delta)(y-1).
+ \end{array}
+\]
+The identity \(2\delta^2-4\delta+1=0\) gives
+\[
+ 0\le2\delta y+1-2\delta\le2y,\qquad
+ 4(1-\delta)^2=2.
+\]
+Thus the positive-sign square is at most
+\(4y^2(y-1)^2\le4yR_+(y)\), while
+\(k_-(y)^2=2(y-\delta)R_-(y)\le4yR_-(y)\).
+
+For \(0\le y<\delta\), the positive-sign expressions factor as
+\[
+ R_+(y)=y(\delta-y)(2-2\delta-y),\qquad
+ k_+(y)=2\delta y(y-\delta).
+\]
+Since \(\delta^2\le1\) and
+\(\delta-y\le2-2\delta-y\), this also proves the certificate.
+For the negative sign, write
+\[
+ R_-(y)=yq(y),\quad
+ k_-(y)=yv(y),\quad
+ q(y)=(y-1)^2+\delta(2-y),\quad
+ v(y)=2(1-\delta)y+4\delta-3.
+\]
+One has
+\[
+ q(y)-1=(\delta-y)(2-y)\ge0,\qquad -2\le v(y)\le0,
+\]
+using \(1/4<\delta<1/2\) and its quadratic identity.
+Consequently \(v(y)^2\le4\le4q(y)\), proving
+\eqref{eq:parity-transport-square} in the remaining case.
+
+For every real \(u\), the square certificate implies
+\[
+ yu^2-u k_\sigma(y)+R_\sigma(y)\ge0.
+\]
+At \(y=0\) the expression vanishes.  At \(y>0\), multiply it by
+\(4y\): it is the sum of
+\((2yu-k_\sigma(y))^2\) and
+\(4yR_\sigma(y)-k_\sigma(y)^2\), both nonnegative.
+Multiplying by the weights and summing the complete expression gives
+\[
+ 0\le Mu^2-\sigma A D u+E-\sigma\delta D.
+\]
+No transport or compensation cross term has been separated.
+Choose \(u=\sigma A D/(2M)\), then choose
+\(\sigma D=|D|\).  This yields
+\[
+ E-\delta|D|\ge\frac{A^2D^2}{4M}
+ =\frac{\gamma D^2}{M},
+\]
+as required.  In the integral parity case, \(K\) is even and \(M\)
+is odd, so \(|D|\ge1\) and \(D^2\ge1\).  Finally
+\(0<M\le B\) implies \(\gamma/M\ge\gamma/B>0\).
+
+\paragraph{Theorem (complete actual-height consumer).}
+Let \(W\) be a finite same-height, reflection-closed critical-strip
+zero cluster at \(|T|\ge2\), with \(N>0,M_1>0\), and let
+\[
+ t=\frac{Q}{M_1},\quad \kappa=\frac{M_1^2}{Q},\quad
+ \mathcal B_2=gN+M_1F(t),\quad
+ D=\kappa-K_\delta .
+\]
+Then \(0<t\le9/64\), \(K_\delta\) is even,
+\(0<\kappa\le B(T)\), and
+\begin{equation}
+ \mathcal B_2+\tau t^3
+   \left(\delta|D|+\frac{\gamma D^2}{\kappa}\right)
+ \le gB(T).
+ \label{eq:actual-parity-stability}
+\end{equation}
+If \(\kappa\) is an odd integer, both
+\[
+ \mathcal B_2+\tau t^3
+   \left(\delta+\frac{\gamma}{\kappa}\right)\le gB(T),
+ \qquad
+ \mathcal B_2+\tau t^3
+   \left(\delta+\frac{\gamma}{B(T)}\right)\le gB(T)
+\]
+hold.  Combining the latter with the full signed-kernel theorem gives
+\begin{equation}
+ \mathcal B_2+t^3
+ \max\left\{C(t),\,\tau\left(\delta+\frac{\gamma}{B(T)}\right)\right\}
+ \le gB(T).
+ \label{eq:combined-parity-stability}
+\end{equation}
+
+\paragraph{Proof.}
+Apply \eqref{eq:finite-mass-stability} with actual analytic-order
+weights and normalized radii \(y=x/t\), where
+\(x=(\Re w-1/2)^2\).  The normalized first and second moments
+are both \(\kappa\).  The exact signed-kernel ledger is
+\[
+ \sum_{w\in W}m_w\Phi(x_w)
+ =\mathcal B_2+
+   \sum_{w\in W}m_w x_w(x_w-t)^2\mathcal H(x_w,t).
+\]
+The previously proved signed-kernel floor
+\(\mathcal H(x,t)\ge\tau\), valid on the entire retained domain,
+and the exact cubic rescaling give
+\eqref{eq:actual-parity-stability} after applying the full trace
+upper budget.  The floor includes the negative pole coefficient;
+it is not an unsigned replacement of that kernel.
+The existing moment feasibility inequality gives \(\kappa\le N\);
+the cluster-window theorem at window width zero gives \(N\le B(T)\).
+Reflection gives the evenness of \(K_\delta\).
+The odd case follows from \(|D|\ge1\), and the maximum combines
+two proved complete lower charges against the same upper budget.
+
+\paragraph{A nonempty regime of strict improvement.}
+For every fixed \(B>0\), there is an \(\eta_B>0\) such that
+\[
+ 0<t<\eta_B
+ \quad\Longrightarrow\quad
+ C(t)<\tau\left(\delta+\frac{\gamma}{B}\right).
+\]
+Indeed \(C\) is continuous at zero, \(C(0)=\tau\delta\), and
+\(\tau\gamma/B>0\).  This neighborhood statement is also proved
+in Lean.  Thus \eqref{eq:combined-parity-stability} is strictly
+stronger than the earlier full-kernel odd charge in a proved
+small-scale regime at every fixed positive height budget.
+There is no conflict with fixed-scale sharpness: those extremizing
+models require unbounded effective mass.
+
+The result assumes a nonzero horizontal moment and an odd integral
+effective mass for its odd-gap corollaries.  It neither asserts that
+actual zeros realize these moment configurations nor treats a
+central cluster with \(M_1=0\).  It supplies an additional
+multiplicity-geometry constraint; no larger numerical simplicity
+window, global simplicity theorem, or change to the \(7/8\) boundary
+is claimed.
+
 \subsection{Signed two-dimensional control of a zero cluster}
 \label{sec:cluster-multiplicity}
 
