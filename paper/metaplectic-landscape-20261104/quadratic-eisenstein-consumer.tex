@@ -8516,6 +8516,166 @@ asserted unconditionally.  These results supply geometric restrictions, not
 an independent global observable estimate proving simplicity.  The numerical
 simplicity window and the certified \(7/8\) boundary are unchanged.
 
+\subsection{Fixed total order and sharp arithmetic energy}
+\label{sec:fixed-total-energy-sharpness}
+
+The preceding fixed-total feasibility theorem does not automatically increase
+the sharp nonlinear energy lower bound.  We now determine exactly when that
+bound remains approachable at a prescribed total order.  The issue is a fixed
+parameter problem: the total order stays fixed as the approximation error
+tends to zero.
+
+Fix \(0<d<1\), integers \(k>0\), \(n\ge0\), and \(M\ge K=2k\).
+For finite nonnegative even weights and nonnegative coordinates write
+\[
+ N=\sum_{i\in S}a_i=2n,\qquad
+ \sum_{i\in S}a_i y_i=\sum_{i\in S}a_i y_i^2=M,\qquad
+ \sum_{i\in S}a_i I_d(y_i)=K.
+\]
+Their energy and the positive-branch root are
+\[
+ E=\sum_{i\in S}a_i y_i(y_i-1)^2,\qquad
+ z=\frac{d+\sqrt{d^2+4(1-d)M/K}}{2}\ge1.
+\]
+The installed lower bound is
+\(E\ge F_d(M,K)=M(1-d)(z-1)\).
+Call the bound approachable at total \(2n\) if, for every
+\(\epsilon>0\), a finite profile with exactly these \(M,N,K\)
+has \(E<F_d(M,K)+\epsilon\).
+
+\paragraph{Theorem (complete fixed-total sharpness criterion).}
+The energy bound is approachable at total \(2n\) if and only if some
+integer \(m\ge0\) satisfies
+\begin{equation}
+ M-2kz=2dm,\qquad
+ \begin{cases}
+ n\ge k,&m=0,\\
+ n\ge k+m+1,&m>0.
+ \end{cases}
+ \label{eq:fixed-total-energy-criterion}
+\end{equation}
+For \(m=0\), one has \(z=1\), \(M=K\), and an exact zero-energy
+profile with at most two sites exists.  For \(m>0\), every admissible
+profile has \(E>F_d(M,K)\), but profiles with at most four sites approach
+this bound at every permitted fixed total.  More strongly, on each lattice
+row \(M-2kz=2dm\), fixed-total feasibility and fixed-total
+approachability are equivalent.  Thus the prescribed total introduces an
+exact feasibility threshold, but no positive additive energy correction on
+any feasible lattice row.
+
+\paragraph{Proof of the signed order threshold.}
+The root relation and lattice identity give
+\begin{equation}
+ M=2(kz+md),\qquad kz(z-1)=md(1-d).
+ \label{eq:fixed-total-lattice-moments}
+\end{equation}
+When \(m>0\), these imply \(M>K\).  The equal-moment variance identity
+\(N-M=\sum_{i\in S}a_i(y_i-1)^2\ge0\) then gives \(N>K\),
+so there is a positive-weight unselected site.  Keep the complete signed
+cutoff packet
+\[
+ T_{d,z}(y)=(y-z)^2-(d-z)^2(1-I_d(y)).
+\]
+Its selected branch is \((y-z)^2\ge0\).  On the unselected branch,
+\(y<d<z\) gives
+\(T_{d,z}(y)=(y-d)(y+d-2z)>0\).
+Consequently its full weighted sum is strictly positive.  Both moment
+constraints give the exact ledger
+\begin{align}
+ 0<&\sum_{i\in S}a_i T_{d,z}(y_i)\notag\\
+  ={}&(1-2z)M+z^2N-(d-z)^2(N-K)\notag\\
+  ={}&d(2z-d)\bigl(N-2(k+m)\bigr).
+ \label{eq:fixed-total-energy-signed-order}
+\end{align}
+The last equality uses \eqref{eq:fixed-total-lattice-moments}; it retains
+the product subtraction and all mixed terms.  Since \(d(2z-d)>0\),
+we obtain \(N>2(k+m)\).  With \(N=2n\), integrality is exactly
+\(n\ge k+m+1\).
+
+If \(m=0\), the second identity in
+\eqref{eq:fixed-total-lattice-moments}, together with \(k>0\) and
+\(z\ge1\), forces \(z=1\); the first gives \(M=K\).
+Selected weight never exceeds total weight, hence \(n\ge k\).
+Conversely the sites of weights \(2k,2(n-k)\) at coordinates \(1,0\)
+give the required exact profile, with energy and nonlinear cost both zero.
+This includes \(n=k\), where the zero-coordinate padding has weight zero.
+
+\paragraph{Proof of fixed-total approachability.}
+Retain a lattice row with \(m>0\).  The existing three-site perturbation
+has fixed weights \(2m,2k,2\).  Explicitly, for sufficiently small
+\(e>0\), put
+\begin{align*}
+ R_e&=kz+me,& S_e&=kz^2+2mde-me^2,\\
+ D_e&=k\bigl((k+1)S_e-R_e^2\bigr),&
+ w_e&=\frac{R_e-\sqrt{D_e}}{k+1},\\
+ v_e&=\frac{R_e-w_e}{k},&u_e&=d-e.
+\end{align*}
+The proved perturbation theorem gives
+\(0\le u_e<d<v_e\), \(0\le w_e<d\), and \(D_e>0\).
+The first moment is identically
+\[
+ 2m u_e+2k v_e+2w_e=2(kz+md)=M.
+\]
+The quadratic identity defining \(w_e\), combined with the second
+identity in \eqref{eq:fixed-total-lattice-moments}, gives
+\[
+ 2m u_e^2+2k v_e^2+2w_e^2=M.
+\]
+Only the high site is selected, so its selected weight is exactly \(2k\).
+The total weight is exactly \(2(k+m+1)\), independent of \(e\).
+As \(e\) tends to zero from above, the three coordinates tend to
+\(d,z,0\), and continuity of the cubic energy gives
+\begin{align*}
+ E_e&\longrightarrow 2md(d-1)^2+2kz(z-1)^2\\
+    &=2(kz+md)(1-d)(z-1)=F_d(M,K).
+\end{align*}
+The final equality uses the root balance.  The limiting low site is at the
+inclusive cutoff and is not itself asserted admissible.  Every approximating
+low site remains strictly below the cutoff; the selected weight is constant.
+
+If \(n\ge k+m+1\), add one site at coordinate zero with weight
+\(2(n-k-m-1)\).  Its first moment, second moment, selected weight and
+energy are all zero.  It raises the total to precisely \(2n\), leaving
+all other identities and the limiting energy unchanged.  Thus for every
+\(\epsilon>0\) there is a four-site witness at the prescribed total.
+The weights, including the padding weight, are fixed independently of
+\(\epsilon\).  The case of zero padding causes no exception.
+
+\paragraph{Proof that these are all the cases.}
+Forgetting the total constraint in a fixed-total approaching family gives
+an unrestricted arithmetic approaching family.  The previously proved
+lattice-necessity theorem therefore supplies an integer \(m\ge0\)
+with \(M-2kz=2dm\).  Selecting any one admissible member of the family
+and applying the signed order threshold gives exactly the budget in
+\eqref{eq:fixed-total-energy-criterion}.  Conversely the constructions
+above supply approaching families for every permitted budget.  This proves
+the full criterion for arbitrary \(n\), without a preassigned inequality
+\(k\le n\).  On a fixed lattice row the same threshold applies to any
+admissible profile, independently of its energy; hence feasibility alone
+already implies approachability.  The reverse implication follows by taking
+any positive approximation tolerance.
+
+For \(m>0\), the lattice identities give \(M>K\), so the previously
+proved strict nonlinear energy theorem applies to every finite profile and
+gives \(E>F_d(M,K)\).  Together with fixed-total approachability this
+identifies the exact, unattained infimum.  In particular, a proposed uniform
+correction \(c(d,M,N,K)>0\) would fail on a witness with energy below
+\(F_d(M,K)+c/2\).
+
+The twelve new proof bodies are maintained in
+\texttt{Helpers/ThresholdFixedTotalLattice.lean} and
+\texttt{Helpers/ThresholdFixedTotalSharpness.lean}.
+The nonattainment assertion uses the existing strict-energy theorem.
+Classical moment optimization supplies the general background; the specific
+conclusion here classifies the interaction of fixed even total order, the
+inclusive threshold and the arithmetic lattice.  Broad priority is not
+asserted.  In the signed zero-cluster consumer, this result identifies the
+optimal \(F_d\) contribution at fixed \(N\); all other proved signed
+corrections retain their original hypotheses and values.  A zeta-specific
+improvement would require information beyond these finite moment and total
+constraints.  This optimality theorem does not enlarge the numerical
+simplicity window or change the certified \(7/8\) boundary.
+
 \subsection{Signed two-dimensional control of a zero cluster}
 \label{sec:cluster-multiplicity}
 

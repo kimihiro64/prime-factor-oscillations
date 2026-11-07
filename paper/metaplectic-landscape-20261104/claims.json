@@ -4624,6 +4624,39 @@
         "PrimeFactorOscillations.zeta_negative_branch_distinct_points",
         "PrimeFactorOscillations.zeta_finite_two_layer_inverse"
       ]
+    },
+    {
+      "id": "FTS-ORDER",
+      "status": "compiled",
+      "claim": "For every even-weight exact equal-moment profile on a positive arithmetic lattice row, the full signed total packet is d*(2*z-d)*(N-2*(k+m)). If m>0 and total order is N=2n, strict positivity forces k+m+1<=n. The root data and both exact moment constraints are retained.",
+      "declarations": [
+        "PrimeFactorOscillations.thresholdTotal_lattice_ledger",
+        "PrimeFactorOscillations.thresholdTotalAdmissible_lattice_order",
+        "PrimeFactorOscillations.thresholdPositiveRoot_lattice_data",
+        "PrimeFactorOscillations.thresholdTotalAdmissible_lattice_budget"
+      ]
+    },
+    {
+      "id": "FTS-WITNESS",
+      "status": "compiled",
+      "claim": "The arithmetic three-site perturbation has exact total2*(k+m+1), and adding a zero-coordinate site changes neither equal moments, selected order nor cubic energy. For every prescribed n>=k+m+1 and epsilon>0, a four-site fixed-total profile lies within epsilon of the nonlinear energy bound. The m=0 case instead has M=K, zero cost and an exact two-site realization for every n>=k.",
+      "declarations": [
+        "PrimeFactorOscillations.thresholdThree_total",
+        "PrimeFactorOscillations.thresholdEvenEnergy_pad",
+        "PrimeFactorOscillations.thresholdPositiveRoot_zero_lattice",
+        "PrimeFactorOscillations.thresholdTotal_zero_lattice_exact",
+        "PrimeFactorOscillations.thresholdTotal_lattice_near_minimum"
+      ]
+    },
+    {
+      "id": "FTS-CLASSIFICATION",
+      "status": "compiled",
+      "claim": "For every0<d<1,k>0,n:Nat,M>=2k, fixed-total approximability at N=2n,K=2k holds iff there exists m:Nat with M-2k*z=2d*m and the exact budget n>=k when m=0, n>=k+m+1 otherwise. On each lattice row, fixed-total feasibility and fixed-total sharpness are equivalent. This is an infimum/optimality classification, not a new global simplicity or QRH estimate.",
+      "declarations": [
+        "PrimeFactorOscillations.thresholdTotalApproximable_iff_lattice_order",
+        "PrimeFactorOscillations.thresholdTotal_lattice_feasibility_iff",
+        "PrimeFactorOscillations.thresholdTotal_lattice_fixed_sharpness"
+      ]
     }
   ],
   "novelty": "Priority for the combined explicit formulas has not been established; source classification and Gauss identities are classical."
