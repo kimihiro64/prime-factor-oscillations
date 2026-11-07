@@ -14,6 +14,7 @@ from scripts.multiplicity_lattice_proof_targets import MULTIPLICITY_LATTICE_THEO
 from scripts.multiplicity_support_proof_targets import MULTIPLICITY_SUPPORT_THEOREMS
 from scripts.near_identity_panel_proof_targets import NEAR_IDENTITY_PANEL_THEOREMS
 from scripts.optimal_residue_degree_proof_targets import OPTIMAL_RESIDUE_DEGREE_THEOREMS
+from scripts.phase_multiplicity_proof_targets import PHASE_MULTIPLICITY_THEOREMS
 from scripts.quadratic_scalar_chain_proof_targets import QUADRATIC_SCALAR_CHAIN_THEOREMS
 from scripts.rational_single_real_proof_targets import RATIONAL_SINGLE_REAL_THEOREMS
 from scripts.residue_panel_proof_targets import RESIDUE_PANEL_THEOREMS
@@ -49,6 +50,7 @@ METAPLECTIC_THEOREMS: tuple[str, ...] = tuple(
         + RATIONAL_SINGLE_REAL_THEOREMS
         + FINITE_REAL_PACKET_THEOREMS
         + NEAR_IDENTITY_PANEL_THEOREMS
+        + PHASE_MULTIPLICITY_THEOREMS
         + SCALAR_ERASURE_COST_THEOREMS
         + SINGLE_REAL_ZETA_THEOREMS
     )

@@ -13,6 +13,7 @@ import PrimeFactorOscillations.Mathlib.Analysis.Complex.IntegerResidueTwoPower
 import PrimeFactorOscillations.Mathlib.Analysis.Complex.NearIdentityResiduePanel
 import PrimeFactorOscillations.Mathlib.Analysis.Complex.RationalResidueBudget
 import PrimeFactorOscillations.Mathlib.Analysis.Complex.RealResiduePacket
+import PrimeFactorOscillations.Mathlib.Analysis.Complex.ResidueReferencePhase
 import PrimeFactorOscillations.Mathlib.Analysis.Complex.ScalarBudgetDecode
 import PrimeFactorOscillations.Mathlib.Analysis.Complex.ScalarResidueErasure
 

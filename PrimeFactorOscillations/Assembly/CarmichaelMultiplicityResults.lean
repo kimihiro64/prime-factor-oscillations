@@ -6,5 +6,6 @@ Authors: Prime Factor Oscillations contributors
 
 import PrimeFactorOscillations.Assembly.CarmichaelGlobalExcessSharpness
 import PrimeFactorOscillations.Assembly.CarmichaelNearIdentityPanel
+import PrimeFactorOscillations.Assembly.CarmichaelPhaseMultiplicity
 
 /-! Multiplicity carrier bounds and certified compensated-residue decoding. -/

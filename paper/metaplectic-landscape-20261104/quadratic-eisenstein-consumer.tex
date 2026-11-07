@@ -3924,6 +3924,114 @@ parameters and gives a finite stable inverse formula. Targeted searches
 found no matching near-identity finite-panel statement; priority remains
 unestablished. The certified global zero-free boundary remains \(7/8\).
 
+\subsection{Phase multiplicity profiles and the QRH zero-mass budget}
+\label{sec:phase-multiplicity-mass}
+
+Write \(m(z)=\operatorname{ord}_z\zeta\), and retain the full residue
+\[
+ R_d(\rho)=-m(\rho)+\frac{d\rho}{\rho+d-1}m(q_d\rho),
+ \qquad q_d\rho=(\rho+d-1)/d.
+\]
+For \(d>1\) and \(\Im\rho\ne0\), define the normalized phase
+\[
+ \Phi_d(\rho)=
+ \frac{|\rho+d-1|^2}{d(d-1)\Im\rho}\Im R_d(\rho).
+\]
+Then
+\begin{equation}\label{eq:phase-reference-order}
+ \Phi_d(\rho)=m(q_d\rho).
+\end{equation}
+Indeed,
+\[
+ \Im\frac{d\rho}{\rho+d-1}
+   =\frac{d(d-1)\Im\rho}{|\rho+d-1|^2};
+\]
+the target term is real and disappears from this component.
+No reference order is discarded or assumed zero.
+
+Set \(\rho_{d,t}=\tfrac12+i\,dt\), \(t\ne0\), and
+\(P(d,t)=\Phi_d(\rho_{d,t})\). The exact identity becomes
+\begin{equation}\label{eq:critical-phase-profile}
+ P(d,t)=m\left(1-\frac1{2d}+it\right)\in\mathbb Z_{\ge0}.
+\end{equation}
+Every nonreal \(z\) with \(\tfrac12<\Re z<1\) occurs uniquely, with
+\(d=1/(2(1-\Re z))\) and \(t=\Im z\).
+For each \(b\ge\tfrac12\) and integer \(M\ge0\), the following are
+therefore equivalent:
+\begin{enumerate}
+ \item \(m(z)\le M\) at every nonreal \(z\) with \(b<\Re z<1\);
+ \item \(P(d,t)\le M\) whenever \(d>1\), \(t\ne0\), and
+       \(b<1-1/(2d)\).
+\end{enumerate}
+This is an equivalence of the complete multiplicity profile, not only
+a Boolean zero detector. In particular, the maintained theorem
+\texttt{critical\_phase\_three\_quarters\_subunit\_iff} proves
+\[
+ [\,P(d,t)<1\text{ for every }d>2,\ t\ne0\,]
+ \quad\Longleftrightarrow\quad
+ [\,\zeta(z)\ne0\text{ for every nonreal }
+       z\text{ with }3/4<\Re z<1\,].
+\]
+The integer gap makes the strict bound below one sufficient.
+This statement explicitly concerns nonreal zeros; it does not provide
+a phase test for real zeros of general Dirichlet \(L\)-functions.
+
+These are actual analytic observations. For any correction \(G\)
+analytic on the strip, the scaled compensated readout converges to
+\(R_d(\rho)\); its normalized imaginary part converges to
+\(m(q_d\rho)\). The maintained declaration is
+\texttt{critical\_phase\_readout\_limit}. This is a limit theorem at
+each fixed center, not a uniform finite-sample error estimate.
+
+\paragraph{Independent zero mass supplied by the existing QRH theorem.}
+The already proved complete positive trace is
+\[
+ \sum_{\rho\ {\rm distinct}}m(\rho)K(\rho)=C_\zeta,\qquad
+ K(\rho)=\Re\frac1{\rho(1-\rho)},\qquad
+ C_\zeta=\gamma_E+2-\log(4\pi)\le\frac1{20}.
+\]
+Its maintained proof already consumes the unconditional \(7/8\)
+provider to control the full zero strip and convergence.
+Reflection gives \(1/8\le\beta=\Re\rho\le7/8\).
+For \(u=(\Im\rho)^2\), \(c=\beta(1-\beta)\),
+\[
+ K(\rho)=\frac{u+c}{u^2+(1-2c)u+c^2},\qquad
+ \frac1{K(\rho)}
+   =u+1-3c+\frac{c(4c-1)}{u+c}.
+\]
+Here \(7/64\le c\le1/4\), so
+\(1\le(u+43/64)K(\rho)\).
+For every finite set \(S\) of distinct nontrivial zeros with
+\(|\Im\rho|\le T\), \(T\ge0\), summing this inequality yields
+\begin{equation}\label{eq:qrh-finite-multiplicity-budget}
+ \sum_{\rho\in S}m(\rho)
+ \le C_\zeta(T^2+43/64)
+ \le \frac{T^2+43/64}{20}.
+\end{equation}
+No cardinality factor is introduced. The maintained count theorem
+uses a finite set of distinct xi zeros and their full multiplicities,
+including both signs of the ordinate. Xi and zeta multiplicities
+agree at these strip zeros.
+
+The QRH theorem also gives \(P(d,t)=0\) for every \(d>4\).
+Thus the open interval \(2<d\le4\) is the precise additional phase
+range needed for the nonreal \(3/4\) boundary. The independent
+quadratic budget above does not give a subunit phase bound there,
+nor does it prove simplicity. It is much weaker in height than
+classical zero-counting estimates and is recorded as a consumer
+of the existing trace, not as an improved zero-density estimate.
+Local residue recovery, its global profile equivalence, and an
+independent sharp observable estimate are separate mathematical steps.
+
+The generic owner is
+\texttt{Mathlib/Analysis/Complex/ResidueReferencePhase.lean};
+the actual consumers are in
+\texttt{Assembly/CarmichaelPhaseMultiplicity.lean}.
+The existing multiplicity-recovery theorems are reused.
+The phase specialization and strip-to-count envelope are elementary
+consequences, with no claim of established novelty priority.
+The certified zero-free boundary remains \(7/8\).
+
 \subsection{Exact Mellin action on general windows}
 \label{sec:general-window-mellin}
 

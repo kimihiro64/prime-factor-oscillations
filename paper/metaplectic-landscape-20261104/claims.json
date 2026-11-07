@@ -2664,6 +2664,54 @@
         "PrimeFactorOscillations.CarmichaelWeightedSignal.near_identity_panel_eventual_decode",
         "PrimeFactorOscillations.CarmichaelWeightedSignal.near_identity_explicit_block_decode"
       ]
+    },
+    {
+      "id": "PMM-G",
+      "status": "kernel_checked_phase_multiplicity_mass",
+      "claim": "Exact imaginary coordinate of the full affine residue code isolates the reference order. Critical-line anchor, inverse degree parametrization, and positive strip-product kernel retain all horizontal terms. The7/8 strip gives1<=(Im(z)^2+43/64)*Re(1/(z*(1-z))).",
+      "declarations": [
+        "Complex.residuePhaseCoefficient",
+        "Complex.residueReferencePhase",
+        "Complex.realPowerResidueCode_im",
+        "Complex.residuePhaseCoefficient_pos",
+        "Complex.residueReferencePhase_code",
+        "Complex.criticalPhaseAnchor",
+        "Complex.criticalPhaseReference",
+        "Complex.criticalPhaseDegree",
+        "Complex.criticalPhaseDegree_mul",
+        "Complex.criticalPhaseDegree_gt_one",
+        "Complex.criticalPhaseReference_degree",
+        "Complex.inverse_product_strip_lower",
+        "Complex.inverse_product_seven_eighths_lower"
+      ]
+    },
+    {
+      "id": "PMM-P",
+      "status": "kernel_checked_phase_multiplicity_mass",
+      "claim": "For d>1 and t nonzero, the actual normalized critical-line phase equals the full shifted zeta order. Actual compensated readouts converge to this phase. Global nonreal right-strip multiplicity caps are equivalent to the corresponding phase caps. Uniform phase below1 on every d>2 is equivalent to nonvanishing in the nonreal open strip3/4<Re(z)<1. Installed QRH gives phase zero for d>4. No real-axis or finite-sampling conclusion is inferred.",
+      "declarations": [
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.powerMap_criticalPhaseAnchor",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.criticalPhaseMultiplicity",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.critical_phase_multiplicity",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.critical_phase_nonneg",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.critical_phase_readout_limit",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.NonrealRightMultiplicityCap",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.CriticalPhaseCap",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.critical_phase_cap_iff",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.critical_phase_three_quarters_iff",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.nonreal_right_zero_cap_iff",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.critical_phase_three_quarters_subunit_iff",
+        "PrimeFactorOscillations.CarmichaelWeightedSignal.critical_phase_beyond_four"
+      ]
+    },
+    {
+      "id": "PMM-M",
+      "status": "kernel_checked_phase_multiplicity_mass",
+      "claim": "For every finite distinct xi-zero set S with absolute heights at most T>=0, the full multiplicity count is at most C_zeta*(T^2+43/64)<=(T^2+43/64)/20. The proof consumes the existing unconditional7/8 strip, positive global zero mass and exact multiplicity regrouping. This quadratic budget is not a new zero-density or simplicity estimate.",
+      "declarations": [
+        "PrimeFactorOscillations.xi_distinct_finite_count_le",
+        "PrimeFactorOscillations.xi_distinct_finite_count_one_twentieth"
+      ]
     }
   ],
   "novelty": "Priority for the combined explicit formulas has not been established; source classification and Gauss identities are classical."
