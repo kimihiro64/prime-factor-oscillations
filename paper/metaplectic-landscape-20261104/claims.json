@@ -4550,6 +4550,80 @@
         "PrimeFactorOscillations.zeta_finite_threshold_total_region",
         "PrimeFactorOscillations.zeta_compensated_order_total_region"
       ]
+    },
+    {
+      "id": "RSI-WITNESS",
+      "status": "compiled",
+      "claim": "For nonnegative finite equal-moment profiles of positive mass, a single positive-weight selected radius forces M>=K. Thus M<K forces two distinct selected coordinate values, and K<N supplies a third positive-weight unselected coordinate. No individual multiplicity-evenness hypothesis is used.",
+      "declarations": [
+        "PrimeFactorOscillations.finiteWeighted_threshold_le_total",
+        "PrimeFactorOscillations.finiteWeighted_single_selected_radius",
+        "PrimeFactorOscillations.finiteWeighted_two_selected_radii",
+        "PrimeFactorOscillations.finiteWeighted_three_radii"
+      ]
+    },
+    {
+      "id": "RSI-CARD",
+      "status": "compiled",
+      "claim": "The radial support is the image of positive-weight sites, including coordinate zero when its weight is positive. Its cardinality is at most the site count and at least one at positive moment mass. M<K<N forces at least three radial values. At most one radial value forces M=N=K.",
+      "declarations": [
+        "PrimeFactorOscillations.thresholdRadialSupport_mem",
+        "PrimeFactorOscillations.thresholdRadialSupport_card_le",
+        "PrimeFactorOscillations.thresholdRadialSupport_card_le_fin",
+        "PrimeFactorOscillations.finiteWeighted_radius_card_pos",
+        "PrimeFactorOscillations.finiteWeighted_three_radius_card",
+        "PrimeFactorOscillations.finiteWeighted_constant_radius_rigid",
+        "PrimeFactorOscillations.finiteWeighted_one_radius_rigid"
+      ]
+    },
+    {
+      "id": "RSI-MINIMUM",
+      "status": "compiled",
+      "claim": "Within the complete feasible fixed-total even-weight region, the exact minimum number of distinct positive-weight coordinate values is1 at M=N=K,3 at M<K<N,and2 otherwise. Every minimum is attained. For every L, a profile with radial count<=L exists iff the feasible-region condition holds and this minimum is<=L.",
+      "declarations": [
+        "PrimeFactorOscillations.finiteWeighted_minimum_radius_card",
+        "PrimeFactorOscillations.thresholdTotalAdmissible_minimum_card",
+        "PrimeFactorOscillations.thresholdTotal_one_site",
+        "PrimeFactorOscillations.thresholdTotal_bounded_two_site",
+        "PrimeFactorOscillations.thresholdTotal_minimal_support_witness",
+        "PrimeFactorOscillations.thresholdTotal_radius_count_feasibility",
+        "PrimeFactorOscillations.thresholdTotal_minimum_card_attained"
+      ]
+    },
+    {
+      "id": "RSI-REFLECTION",
+      "status": "compiled",
+      "claim": "Three pairwise distinct radius values with two nonfixed coordinate-preserving reflection pairs produce five distinct points. If the third point is nonfixed, its reflection produces six. The full finite-set cardinalities are exact.",
+      "declarations": [
+        "PrimeFactorOscillations.finite_reflected_five_card",
+        "PrimeFactorOscillations.finite_reflected_six_card"
+      ]
+    },
+    {
+      "id": "RSI-INVERSE",
+      "status": "compiled",
+      "claim": "For0<d<1,0<K<N,the ordered two-layer equal-moment model exists iff K<=M<U_d(N,K), and is unique. It has0<M<N and u=(M-sqrt(K*M*(N-M)/(N-K)))/N,v=(M+sqrt((N-K)*M*(N-M)/K))/N. The exact finite weighted function and moment adapter preserves all supported coefficients.",
+      "declarations": [
+        "PrimeFactorOscillations.thresholdTwoLayer_bounds",
+        "PrimeFactorOscillations.thresholdTwoLayer_inverse",
+        "PrimeFactorOscillations.thresholdTwoLayer_unique",
+        "PrimeFactorOscillations.thresholdTwoLayer_upper",
+        "PrimeFactorOscillations.thresholdTwoLayer_exists",
+        "PrimeFactorOscillations.thresholdTwoLayer_feasibility_iff",
+        "PrimeFactorOscillations.thresholdTwoLayer_unique_exists",
+        "PrimeFactorOscillations.finiteWeighted_two_layer_function",
+        "PrimeFactorOscillations.finiteWeighted_two_layer_moments"
+      ]
+    },
+    {
+      "id": "RSI-ACTUAL",
+      "status": "compiled",
+      "claim": "For finite reflected strip clusters with N>0,M1>0 and kappa<K_d<N, the positive-analytic-order support has at least five distinct points, or six if every positive-order point is offcritical. Actual two-layer profiles split by the cutoff have both normalized squared radii uniquely reconstructed from N,kappa,K_d. Reflection is not required for the inverse. Odd total order is covered. No unconditional existence of such configurations or new global simplicity estimate is asserted.",
+      "declarations": [
+        "PrimeFactorOscillations.zeta_finite_radial_moments",
+        "PrimeFactorOscillations.zeta_negative_branch_distinct_points",
+        "PrimeFactorOscillations.zeta_finite_two_layer_inverse"
+      ]
     }
   ],
   "novelty": "Priority for the combined explicit formulas has not been established; source classification and Gauss identities are classical."

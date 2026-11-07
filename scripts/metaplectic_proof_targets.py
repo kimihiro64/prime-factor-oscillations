@@ -38,6 +38,7 @@ from scripts.parity_rigidity_proof_targets import PARITY_RIGIDITY_THEOREMS
 from scripts.parity_stability_proof_targets import PARITY_STABILITY_THEOREMS
 from scripts.phase_multiplicity_proof_targets import PHASE_MULTIPLICITY_THEOREMS
 from scripts.quadratic_scalar_chain_proof_targets import QUADRATIC_SCALAR_CHAIN_THEOREMS
+from scripts.radial_support_inverse_proof_targets import RADIAL_SUPPORT_INVERSE_THEOREMS
 from scripts.rational_single_real_proof_targets import RATIONAL_SINGLE_REAL_THEOREMS
 from scripts.residue_panel_proof_targets import RESIDUE_PANEL_THEOREMS
 from scripts.scalar_cubic_orbit_proof_targets import SCALAR_CUBIC_ORBIT_THEOREMS
@@ -77,6 +78,7 @@ METAPLECTIC_THEOREMS: tuple[str, ...] = tuple(
         + SCALAR_CUBIC_ORBIT_THEOREMS
         + DIRICHLET_SCALAR_ORBIT_THEOREMS
         + QUADRATIC_SCALAR_CHAIN_THEOREMS
+        + RADIAL_SUPPORT_INVERSE_THEOREMS
         + RATIONAL_SINGLE_REAL_THEOREMS
         + FINITE_REAL_PACKET_THEOREMS
         + NEAR_IDENTITY_PANEL_THEOREMS

@@ -8276,6 +8276,246 @@ the cluster geometry, not an independent analytic upper bound proving
 simplicity of all zeros; the numerical simplicity window and certified
 \(7/8\) boundary remain unchanged.
 
+\subsection{Sharp radial support and exact two-layer reconstruction}
+\label{sec:radial-support-inverse}
+
+Fix a finite index set \(S\), nonnegative weights \(a_i\), nonnegative
+coordinates \(y_i\), and \(0<d<1\).  Throughout this subsection put
+\[
+ N=\sum_{i\in S}a_i,\qquad
+ M=\sum_{i\in S}a_i y_i=\sum_{i\in S}a_i y_i^2>0,\qquad
+ K=\sum_{i\in S}a_i I_d(y_i),\qquad I_d(y)=\mathbf1_{y\ge d}.
+\]
+The radial support is the finite set
+\[
+ \mathcal R(S,a,y)=\{y_i:i\in S,\ a_i>0\}.
+\]
+It includes zero whenever a positive-weight site has coordinate zero.
+Thus a radial level always means a value of positive weight, not necessarily
+a strictly positive coordinate.  No sites of weight zero are counted.
+
+\paragraph{Lemma (rigidity and the third radial level).}
+Always \(K\le N\) and \(\#\mathcal R\ge1\).  If all positive-weight
+selected sites have the same coordinate \(v\), then \(v\ge1\) and
+\(K\le M\).  Consequently \(M<K\) forces two distinct selected radial
+levels, and \(M<K<N\) forces at least three radial levels.  If
+\(\#\mathcal R\le1\), then \(M=N=K\).
+
+\paragraph{Proof.}
+The inequality \(0\le I_d\le1\) gives \(K\le N\); positive first
+moment supplies a positive-weight site.  The equal-moment witness lemma
+supplies a positive-weight coordinate above every \(r\in(0,1)\).
+In particular selected sites exist.  If their common value \(v\) were
+less than one, then \(d\le v<r=(v+1)/2<1\); the witness at \(r\)
+would be a selected site with coordinate strictly greater than \(v\),
+a contradiction.  Hence every selected contribution satisfies
+\(a_i I_d(y_i)=a_i\le a_i y_i\), whereas every unselected contribution
+satisfies \(0\le a_i y_i\).  Summation gives \(K\le M\).
+Its contrapositive supplies two distinct selected values if \(M<K\).
+If also \(K<N\), some positive weight is unselected; its coordinate is
+less than \(d\), different from both selected values.  Finally, if the
+whole support has at most one value \(v\), the moment identity gives
+\(M=vM\).  Since \(M>0\), \(v=1\), so both total and selected mass
+are \(M\).  This also proves the claimed one-level rigidity.
+
+\paragraph{Theorem (complete sharp radial-support classification).}
+Suppose now that the weights are even nonnegative integers, \(N=2n\),
+\(K=2k\), where \(n,k\) are integers and \(0<k\le n\).  Use the
+previously established endpoints
+\begin{align*}
+ R_d(K)&=d(K-2)+1+\sqrt{1+2(K-2)d(1-d)},\\
+ U_d(N,K)&=d(N-K)+\frac K2+
+   \sqrt{\frac{K^2}{4}+K(N-K)d(1-d)}.
+\end{align*}
+Within the complete feasible region
+\begin{equation}
+ R_d(K)\le M,\qquad
+ \begin{cases}M\le K,&N=K,\\M<U_d(N,K),&K<N,\end{cases}
+ \label{eq:radial-support-region}
+\end{equation}
+the exact minimum number of radial levels is
+\begin{equation}
+ s_{\min}(M,N,K)=
+ \begin{cases}
+ 1,&M=N=K,\\
+ 3,&M<K<N,\\
+ 2,&\text{otherwise in the feasible region}.
+ \end{cases}
+ \label{eq:radial-support-minimum}
+\end{equation}
+Every minimum is attained by a finite profile with the prescribed moments,
+total weight and selected weight.  More precisely, for every integer
+\(L\ge0\), such a profile with at most \(L\) radial levels exists if
+and only if \eqref{eq:radial-support-region} holds and
+\(s_{\min}(M,N,K)\le L\).
+
+\paragraph{Proof.}
+The preceding lemma gives all lower bounds: one level requires
+\(M=N=K\), three are necessary when \(M<K<N\), and otherwise at
+least two are necessary.  For \(M=N=K\), one site of weight \(K\)
+at coordinate one attains the bound.  If \(N=K\) and \(M<K\), use
+the preceding two-site arithmetic feasibility theorem.  Its selected
+weight is \(K\), and its total is at least \(K\).  Were its total
+strictly greater than \(K\), the preceding three-level necessity would
+contradict its having only two sites.  Its total is therefore exactly
+\(N=K\), giving the required two-level realization.  If \(K<N\)
+and \(M\ge K\), the preceding fixed-total upper-branch construction
+uses two sites and realizes every \(K\le M<U_d(N,K)\).  Finally, if
+\(M<K<N\), the preceding bounded construction uses at most three
+sites, including its zero-coordinate padding, and fixes the total at
+\(N\).  Three levels are necessary, so its support has exactly three.
+These constructions exhaust \eqref{eq:radial-support-region}, including
+its closed lower face, its closed \(N=K\) upper face and the strict
+\(K<N\) upper face.  The old feasibility theorem supplies necessity
+of the region; the lower bounds and attaining constructions prove the
+assertion for every \(L\), with no finite-domain restriction.
+
+\paragraph{Theorem (unique two-layer inverse and its exact domain).}
+For this theorem the weights and totals may be real.  Suppose \(0<K<N\)
+and write \(J=N-K>0\).  A two-layer profile is a pair satisfying
+\begin{equation}
+ 0\le u<d\le v,\qquad Ju+Kv=Ju^2+Kv^2=M.
+ \label{eq:two-layer-profile}
+\end{equation}
+Such a pair exists if and only if
+\begin{equation}
+ K\le M<U_d(N,K).
+ \label{eq:two-layer-domain}
+\end{equation}
+When it exists, \(0<M<N\), \(v\ge1\), and the pair is unique:
+\begin{align}
+ u&=\frac{M-\sqrt{KM(N-M)/(N-K)}}{N},
+ \label{eq:two-layer-low-inverse}\\
+ v&=\frac{M+\sqrt{(N-K)M(N-M)/K}}{N}.
+ \label{eq:two-layer-high-inverse}
+\end{align}
+Every denominator in these formulas is strictly positive on the stated
+domain.  The case \(N=K\) belongs to the support classification above
+and is excluded from this inverse theorem.
+
+\paragraph{Proof of necessity and inversion.}
+The moment balance is
+\[
+ K v(v-1)=J u(1-u)\ge0.
+\]
+Since \(v\ge d>0\), it follows that \(v\ge1\), hence
+\(M=Ju+Kv\ge K>0\).  Keeping both layers gives
+\[
+ N-M=J(u-1)^2+K(v-1)^2>0;
+\]
+the strict inequality follows from \(J>0\) and \(u<d<1\).
+The previously proved strict fixed-total upper inequality applies to these
+two real-weight sites and gives \(M<U_d(N,K)\).
+For the inverse, expansion of both moments, retaining the mixed term, gives
+\begin{equation}
+ NM-M^2=JK(v-u)^2.
+ \label{eq:two-layer-exact-variance}
+\end{equation}
+Since \(v-u>0\), the two positive square roots occurring in
+\eqref{eq:two-layer-low-inverse}--\eqref{eq:two-layer-high-inverse}
+are respectively \(K(v-u)\) and \(J(v-u)\).  Substitution into
+\(M=Ju+Kv\), with \(N=J+K\), gives the displayed formulas and
+uniqueness.  No mixed contribution has been discarded.
+
+\paragraph{Proof of existence.}
+For \(0\le u\le d\), use the continuous high root
+\[
+ v(u)=\frac12+\sqrt{\frac14+\frac JK u(1-u)}\ge1
+\]
+and the common moment \(F(u)=Ju+Kv(u)\).  This is the same
+root-balance construction as the fixed-total models, now with arbitrary
+positive real \(J,K\); equivalently it is one half of the installed
+model mass with parameters \(J,K\).  Its endpoint values are
+\[
+ F(0)=K,\qquad F(d)=U_d(N,K).
+\]
+The intermediate value theorem supplies every mass in
+\eqref{eq:two-layer-domain}; because \(M<U_d(N,K)\), a chosen
+parameter realizing \(M\) cannot equal \(d\).  Thus \(u<d\)
+and \(v(u)\ge1>d\), proving \eqref{eq:two-layer-profile}.
+The already proved inverse gives uniqueness, including the lower endpoint
+\(M=K\).
+
+\paragraph{Finite-profile adapter.}
+Suppose all positive-weight coordinates in a finite profile belong to
+\(\{u,v\}\), where \(u<d\le v\).  For every function \(f\)
+on the real line, the exact finite identity is
+\begin{equation}
+ \sum_{i\in S}a_i f(y_i)=(N-K)f(u)+Kf(v).
+ \label{eq:two-layer-function-adapter}
+\end{equation}
+Indeed, at a site of positive weight the threshold indicator distinguishes
+\(u\) from \(v\); at a site of weight zero both sides of the
+sitewise decomposition vanish.  Summing this decomposition gives
+\eqref{eq:two-layer-function-adapter}.  Taking \(f(y)=y\) and
+\(f(y)=y^2\) gives both equations in \eqref{eq:two-layer-profile}.
+This adapter retains all finite coefficients, including zero-weight sites,
+and is not an approximation of the underlying distribution.
+
+\paragraph{Theorem (actual five-point and six-point forcing).}
+Let \(W\) be a finite reflected subset of the open critical strip, with
+actual orders \(a_\rho=\operatorname{ord}_\rho\zeta\), total
+\(N=\sum_{\rho\in W}a_\rho>0\), and positive horizontal moment
+\(M_1=\sum_{\rho\in W}a_\rho(\Re\rho-1/2)^2>0\).
+Put
+\[
+ Q=\sum_{\rho\in W}a_\rho(\Re\rho-1/2)^4,\quad
+ t=Q/M_1>0,\quad \kappa=M_1^2/Q>0,\quad
+ y_\rho=(\Re\rho-1/2)^2/t,\quad
+ K_d=\sum_{\rho\in W}a_\rho I_d(y_\rho).
+\]
+If \(\kappa<K_d<N\), then \(W\) contains at least five distinct
+points of positive analytic order.  If every positive-order point of
+\(W\) is off the critical line, it contains at least six such points.
+No common-ordinate assumption and no evenness assumption on \(N\) or
+on individual orders is required.
+
+\paragraph{Proof.}
+Exact rescaling gives
+\[
+ \sum_{\rho\in W}a_\rho y_\rho
+ =\sum_{\rho\in W}a_\rho y_\rho^2=\kappa.
+\]
+The three-level lemma therefore supplies two distinct selected values
+and a third unselected value.  The selected coordinates are at least
+\(d>0\), so each corresponding point is offcritical and differs from
+its reflection \(\rho\mapsto1-\overline\rho\).  Reflection preserves
+both the radial coordinate and the actual order.  The two selected values
+therefore give two disjoint reflection pairs, accounting for four distinct
+positive-order points.  A point at the third radial value differs from all
+four and gives the fifth.  If it too is offcritical, its reflection is a
+sixth distinct positive-order point.  The finite cardinality argument keeps
+all these distinctions explicitly; the fifth point may instead be central.
+The conclusion counts distinct points, not their total multiplicity.
+
+\paragraph{Theorem (actual two-layer reconstruction).}
+Reflection is unnecessary for the inverse statement.  Retain a finite strip
+set with the positive moments above.  Suppose its positive-order radial
+coordinates lie in \(\{u,v\}\), with \(0\le u<d\le v\), and
+\(K_d<N\).  Then \(0<K_d\le\kappa<N\), and
+\eqref{eq:two-layer-low-inverse}--\eqref{eq:two-layer-high-inverse}
+recover \(u,v\) with \(M=\kappa\) and \(K=K_d\).
+Indeed the equal-moment witness gives \(K_d>0\), the exact adapter gives
+both layer equations, and the inverse theorem applies with the actual total
+order.  Thus odd total orders and possible critical-line points are covered.
+All-critical clusters have \(M_1=0\) and are outside these hypotheses.
+
+The thirty-two proof bodies are maintained in
+\texttt{Helpers/ThresholdRadialWitness.lean},
+\texttt{Helpers/ThresholdRadialCard.lean},
+\texttt{Helpers/ThresholdRadialMinimal.lean},
+\texttt{Helpers/ReflectedRadialCard.lean},
+\texttt{Helpers/ThresholdTwoLayerInverse.lean}, and
+\texttt{Assembly/CarmichaelRadialSupport.lean}.
+The elementary two-point mean--variance inverse is classical.  The specific
+conclusions here are the complete arithmetic support classification and its
+observable-conditioned actual zero-cluster geometry; broad priority is not
+asserted.  Arithmetic feasibility witnesses are not asserted to occur as
+zeta-zero configurations, and the hypotheses \(\kappa<K_d<N\) are not
+asserted unconditionally.  These results supply geometric restrictions, not
+an independent global observable estimate proving simplicity.  The numerical
+simplicity window and the certified \(7/8\) boundary are unchanged.
+
 \subsection{Signed two-dimensional control of a zero cluster}
 \label{sec:cluster-multiplicity}
 
