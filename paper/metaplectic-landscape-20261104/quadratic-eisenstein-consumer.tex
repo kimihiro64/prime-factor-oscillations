@@ -6534,6 +6534,120 @@ extend the certified numerical simplicity window, or improve the
 installed \(7/8\) boundary.  Central clusters with \(M_1=0\) remain
 outside this consumer.
 
+\subsection{Equality rigidity and recovery at the closed endpoint}
+\label{sec:sharp-parity-rigidity}
+
+The sharp coefficient has a stronger equality statement.  Use a finite
+support \(I\), and retain the profile hypotheses
+of~\eqref{eq:sharp-compensated-stability}, including
+\(M>0\), and write \(\Gamma=1-3\delta\).
+
+\paragraph{Theorem (exact equality classification).}
+One has
+\[
+ E=\delta|D|+\Gamma D^2/M
+ \quad\Longleftrightarrow\quad
+ \text{every coordinate with positive weight belongs to }\{0,1\}.
+\]
+In particular every equality profile has \(D=E=0\), and
+\begin{equation}\label{eq:sharp-parity-strict}
+ D\ne0\quad\Longrightarrow\quad
+ E>\delta|D|+\Gamma D^2/M.
+\end{equation}
+Thus the preceding two-atom sharpness sequence approaches the best
+coefficient through strict inequalities.
+
+\paragraph{Proof.}
+Denote the left side of the pointwise packet
+\eqref{eq:sharp-one-sided-packet} by
+\[
+ \mathcal Q_\sigma(y,u)
+   =R_\sigma(y)-u k_\sigma(y)+Cy^2u^2/4.
+\]
+For \(0<y\le1\) and \(u>0\), the last term is positive while
+\(R_\sigma\ge0\) and \(-u k_\sigma\ge0\).  Hence
+\(\mathcal Q_\sigma(y,u)>0\).
+For \(y>1\), the squared certificate is strict:
+\[
+ k_\sigma(y)^2<Cy^2R_\sigma(y).
+\]
+For the positive sign this follows from
+\((2\delta y+A)^2\le y^2\), \(C(y+\delta)>1\), and
+\((y-1)^2>0\).
+For the negative sign the exact difference is
+\(C(y-\delta)(y-1)^3(y-A)>0\).
+The square-completion identity from the preceding proof therefore gives
+\(\mathcal Q_\sigma(y,u)>0\) for \(y>1\) as well.
+
+Since \(M=\sum_{i\in I}a_i y_i>0\), at least one summand has both
+\(a_i>0\) and \(y_i>0\).  The complete weighted packet consequently has
+strictly positive sum whenever \(u>0\).
+For \(D\ne0\), the previous optimizer
+\(u=2A|D|/(CM)\) is positive.  Substitution proves
+\eqref{eq:sharp-parity-strict}.
+
+Suppose equality holds.  Strictness forces \(D=0\), so equality becomes
+\(E=0\).  Each summand \(a_i y_i(y_i-1)^2\) is nonnegative.
+A positive-weight coordinate must therefore be \(0\) or \(1\).
+Conversely, for such a profile,
+\({\bf1}_{y_i\ge\delta}=y_i\) at every positive-weight coordinate,
+and \(y_i(y_i-1)^2=0\).  Thus \(D=E=0\) and equality holds.
+Zero-weight coordinates are unrestricted.
+
+\paragraph{Theorem (actual recovery at the closed endpoint).}
+Retain the actual-cluster hypotheses of
+\eqref{eq:actual-sharp-parity-stability}.  Put
+\[
+ L=gB(T)-\mathcal B_2,\qquad S=\frac{L}{\tau t^3},
+ \qquad \kappa=M_1^2/Q>0.
+\]
+Then
+\begin{equation}\label{eq:closed-parity-recovery}
+ S\le\delta+\frac{\Gamma}{\kappa}
+ \quad\Longrightarrow\quad
+ |\kappa-K_\delta|<1.
+\end{equation}
+Consequently \(K_\delta\) is the unique even natural number at distance
+strictly less than \(1\) from \(\kappa\).
+The premise includes equality in its slack threshold and places no
+integrality or oddness assumption on \(\kappa\).
+
+\paragraph{Proof.}
+If \(d_0=|\kappa-K_\delta|>0\), strict weighted stability, multiplication by
+the positive \(\tau t^3\), the full signed kernel charge, and the weak
+height-budget upper bound give the strict actual inequality
+\[
+ \mathcal B_2+\tau t^3
+   \left(\delta d_0+\Gamma d_0^2/\kappa\right)<gB(T).
+\]
+Thus \(\delta d_0+\Gamma d_0^2/\kappa<S\).
+If \(d_0\ge1\), positivity of \(\delta,\Gamma,\kappa\) gives
+\[
+ S>\delta d_0+\Gamma d_0^2/\kappa
+   \ge\delta+\Gamma/\kappa,
+\]
+contradicting the premise.
+The case \(d_0=0\) is immediate.
+The actual \(K_\delta\) is even.  Two distinct even natural numbers are
+separated by at least \(2\), so two of them cannot both lie at distance
+strictly less than \(1\) from the same real \(\kappa\).
+
+The strict arithmetic inequality is essential at this endpoint.
+A closed radius-one lattice band alone can contain two even integers:
+both \(2\) and \(4\) are at distance \(1\) from \(3\).
+The theorem proves that the actual profile lies in the open band,
+even under the closed slack assumption.
+The full-kernel linear recovery condition remains available.
+
+The equality classification, strict scaling and charge transfers, and
+closed-endpoint actual recovery are proved in
+\texttt{CompensatedParityRigidity} and
+\texttt{CarmichaelParityRigidity}.
+This improves an aggregate even-order recovery criterion.  It supplies
+neither an independent global small-value-area estimate nor a larger
+numerical simplicity window.  The positive-horizontal-moment hypothesis
+is unchanged.
+
 \subsection{Signed two-dimensional control of a zero cluster}
 \label{sec:cluster-multiplicity}
 

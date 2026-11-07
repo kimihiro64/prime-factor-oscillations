@@ -3837,6 +3837,44 @@
       "declarations": [
         "PrimeFactorOscillations.zeta_finite_sharp_parity_stability_bound"
       ]
+    },
+    {
+      "id": "PRIG-STRICT",
+      "status": "compiled_strict_signed_packet_bound",
+      "claim": "For u>0 and y>0 the full one-sided compensated packet is positive. Every finite nonnegative equal-moment profile with M>0 and nonzero discrepancy has strict sharp stability.",
+      "declarations": [
+        "PrimeFactorOscillations.compensatedParity_high_square_strict",
+        "PrimeFactorOscillations.compensatedParity_one_sided_quadratic_pos",
+        "PrimeFactorOscillations.finiteWeightedParity_one_sided_quadratic_strict",
+        "PrimeFactorOscillations.finiteWeightedParity_sharp_stability_strict"
+      ]
+    },
+    {
+      "id": "PRIG-EQUALITY",
+      "status": "compiled_exact_equality_classification",
+      "claim": "Equality in sharp stability holds iff every positive-weight coordinate is0 or1. Thus every equality profile has D=0 and E=0; nonzero-discrepancy sharpness is approached but never attained.",
+      "declarations": [
+        "PrimeFactorOscillations.finiteWeightedParity_sharp_equality_iff"
+      ]
+    },
+    {
+      "id": "PRIG-TRANSFER",
+      "status": "compiled_strict_actual_signed_consumer",
+      "claim": "Strictness survives positive scaling and the complete kernel charge. The actual reflection-closed same-height strip cluster has strict charge below its height budget whenever kappa-K_delta is nonzero, with N>0,M1>0 and abs(T)>=2.",
+      "declarations": [
+        "PrimeFactorOscillations.finiteWeightedParity_sharp_stability_scaled_strict",
+        "PrimeFactorOscillations.threeLineWeightedSharpParityStability_charge_strict",
+        "PrimeFactorOscillations.zeta_finite_sharp_parity_stability_strict"
+      ]
+    },
+    {
+      "id": "PRIG-CLOSED",
+      "status": "compiled_closed_endpoint_even_order_recovery",
+      "claim": "Raw slack L<=tau*t^3*(delta+Gamma/kappa), with equality allowed, forces abs(kappa-K_delta)<1 and uniquely recovers the even threshold order for every positive real kappa under the actual cluster hypotheses. Individual simplicity, a larger numerical simplicity window and a7/8 improvement are not asserted.",
+      "declarations": [
+        "PrimeFactorOscillations.zeta_sharp_parity_closed_unit_bound",
+        "PrimeFactorOscillations.zeta_sharp_parity_closed_unique_even_order"
+      ]
     }
   ],
   "novelty": "Priority for the combined explicit formulas has not been established; source classification and Gauss identities are classical."

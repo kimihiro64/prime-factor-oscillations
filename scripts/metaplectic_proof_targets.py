@@ -28,6 +28,7 @@ from scripts.nonlinear_horizontal_proof_targets import NONLINEAR_HORIZONTAL_THEO
 from scripts.optimal_residue_degree_proof_targets import OPTIMAL_RESIDUE_DEGREE_THEOREMS
 from scripts.parity_cubic_proof_targets import PARITY_CUBIC_THEOREMS
 from scripts.parity_geometry_proof_targets import PARITY_GEOMETRY_THEOREMS
+from scripts.parity_rigidity_proof_targets import PARITY_RIGIDITY_THEOREMS
 from scripts.parity_stability_proof_targets import PARITY_STABILITY_THEOREMS
 from scripts.phase_multiplicity_proof_targets import PHASE_MULTIPLICITY_THEOREMS
 from scripts.quadratic_scalar_chain_proof_targets import QUADRATIC_SCALAR_CHAIN_THEOREMS
@@ -88,6 +89,7 @@ METAPLECTIC_THEOREMS: tuple[str, ...] = tuple(
         + EFFECTIVE_PARITY_THRESHOLD_THEOREMS
         + INVERSE_PARITY_GEOMETRY_THEOREMS
         + SHARP_PARITY_STABILITY_THEOREMS
+        + PARITY_RIGIDITY_THEOREMS
         + FIXED_SCALE_KERNEL_THEOREMS
         + SCALAR_ERASURE_COST_THEOREMS
         + SINGLE_REAL_ZETA_THEOREMS
