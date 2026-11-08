@@ -4905,6 +4905,44 @@
         "PrimeFactorOscillations.zeta_finite_threshold_linear_stability",
         "PrimeFactorOscillations.zeta_finite_threshold_zero_slack"
       ]
+    },
+    {
+      "id": "TT-STABILITY",
+      "status": "compiled",
+      "claim": "For every finite nonnegative real-weight profile with arbitrary real coordinates, equal first and second moments, 0<d<1 and positive inclusive selected weight K, the fixed-total root v gives nonnegative gap Delta=U-M and exact packet mass D=(2*v-1)*Delta. The complete low-square/linear-low/high-square ledger yields 2*(v-d)*L<=D and Q<=D. Every globally 1-Lipschitz full statistic differs from (N-K)*phi(d)+K*phi(v) by at most D/(2*(v-d))+sqrt(K*D). The reference at the inclusive boundary has selected weight N, so no discontinuous cutoff-count transfer is asserted.",
+      "declarations": [
+        "PrimeFactorOscillations.thresholdTotalPacket_layers",
+        "PrimeFactorOscillations.thresholdTotalLayer_nonneg",
+        "PrimeFactorOscillations.finiteWeighted_total_layer_control",
+        "PrimeFactorOscillations.finiteWeighted_total_high_distance",
+        "PrimeFactorOscillations.thresholdTotal_residual_bound",
+        "PrimeFactorOscillations.finiteWeighted_total_statistic_cost",
+        "PrimeFactorOscillations.finiteWeighted_total_packet_stability",
+        "PrimeFactorOscillations.finiteWeighted_total_upper_ledger",
+        "PrimeFactorOscillations.finiteWeighted_threshold_total_stability"
+      ]
+    },
+    {
+      "id": "TT-SQRT-SHARP",
+      "status": "compiled",
+      "claim": "At fixed d=1/2, N=16 and K=4, the explicit even weights12,2,2 and coordinates1/2-s^2,3/2-s^2 plus/minus s*sqrt(2-4*s^2), for every0<s<=1/4, give nonnegative coordinates, total16, inclusive selected4 and both moments12-16*s^2. The fixed globally1-Lipschitz test abs(y-3/2) has statistic error at least4*s. The exact upper reference has v=3/2,U=12; for every epsilon>0 the compiled family supplies0<Delta<epsilon with error at least sqrt(Delta). This is a sharp square-root lower rate in the abstract fixed integer-weight class, without a zeta realization claim.",
+      "declarations": [
+        "PrimeFactorOscillations.thresholdUpperSharpRadius_bounds",
+        "PrimeFactorOscillations.thresholdUpperSharp_profile",
+        "PrimeFactorOscillations.thresholdUpperSharp_statistic",
+        "PrimeFactorOscillations.thresholdUpperSharp_small_gap",
+        "PrimeFactorOscillations.thresholdUpperSharp_boundary",
+        "PrimeFactorOscillations.thresholdUpperSharp_test_lipschitz",
+        "PrimeFactorOscillations.thresholdUpperSharp_arbitrarily_small"
+      ]
+    },
+    {
+      "id": "TT-STABILITY-ZETA",
+      "status": "compiled",
+      "claim": "For every finite open-strip complex set with actual zeta analytic orders, positive total order and positive horizontal first moment, exact normalized moments transfer the upper-boundary low-displacement bound, selected-square bound and all globally1-Lipschitz statistic bound to the entire actual cluster. No reflection, order-parity, common-height, lower-height or RH hypothesis is used. Critical-line orders remain at normalized coordinate zero. No independent global gap estimate or global simplicity/exponent improvement is asserted.",
+      "declarations": [
+        "PrimeFactorOscillations.zeta_finite_threshold_total_stability"
+      ]
     }
   ],
   "novelty": "Priority for the combined explicit formulas has not been established; source classification and Gauss identities are classical."

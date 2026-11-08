@@ -9032,6 +9032,172 @@ the cluster geometry, not an independent analytic upper bound proving
 simplicity of all zeros; the numerical simplicity window and certified
 \(7/8\) boundary remain unchanged.
 
+\subsection{Sharp stability at the fixed-total upper boundary}
+\label{subsec:threshold-total-stability}
+
+The fixed-total supremum has a quantitative inverse with a different rate
+from the lower integer-feasibility boundary.  Approaching this upper face
+forces two-layer concentration.  Its limiting low layer lies at the
+inclusive cutoff itself.
+
+\paragraph{Theorem (two-layer upper-boundary stability).}
+Let \(S\) be finite, \(a_i\ge0\), \(y_i\in\mathbb R\), and \(0<d<1\).
+Assume
+\[
+ N=\sum_{i\in S}a_i,\qquad
+ M=\sum_{i\in S}a_i y_i=\sum_{i\in S}a_i y_i^2,\qquad
+ K=\sum_{\substack{i\in S\\y_i\ge d}}a_i>0.
+\]
+There is no integrality or nonnegative-coordinate hypothesis.
+Write
+\[
+ v=\frac{1+\sqrt{1+4((N-K)/K)d(1-d)}}2,\quad
+ U=(N-K)d+Kv,\quad \Delta=U-M,\quad D=(2v-1)\Delta.
+\]
+Then \(K\le N\), \(v\ge1>d\), and \(\Delta,D\ge0\).
+Define the low displacement and selected squared displacement by
+\[
+ L=\sum_{\substack{i\in S\\y_i<d}}a_i(d-y_i),\qquad
+ Q=\sum_{\substack{i\in S\\y_i\ge d}}a_i(y_i-v)^2.
+\]
+They satisfy
+\[
+ 2(v-d)L\le D,\qquad Q\le D.
+\]
+For every globally \(1\)-Lipschitz \(\varphi:\mathbb R\to\mathbb R\),
+\begin{equation}
+ \left|\sum_{i\in S}a_i\varphi(y_i)
+       -(N-K)\varphi(d)-K\varphi(v)\right|
+ \le \frac{D}{2(v-d)}+\sqrt{KD}.
+ \label{eq:threshold-total-stability}
+\end{equation}
+The reference measure \((N-K)\delta_d+K\delta_v\) has total weight \(N\)
+and equal first and second moments \(U\).  If \(K<N\), it has closed
+selected weight \(N\), although the approximating profiles have selected
+weight \(K\).  Thus the assertion controls Lipschitz statistics and does
+not claim continuity of the inclusive threshold indicator.
+
+\paragraph{Proof: the full signed packet.}
+With \(I_d(y)=\mathbf1_{y\ge d}\), the exact pointwise decomposition is
+\begin{align*}
+ &(y-v)^2-(d-v)^2(1-I_d(y))\\
+ &\qquad=(d-y)^2(1-I_d(y))
+       +2(v-d)(d-y)(1-I_d(y))+(y-v)^2I_d(y).
+\end{align*}
+All three contributions on the second line are nonnegative.  In the
+unselected case \(y<d\), the middle factor has \(d-y>0\); in the
+selected case the two low contributions are zero.
+
+The root balance
+\[
+ (N-K)d^2+Kv^2=(N-K)d+Kv
+\]
+and both moment constraints give, before estimating any term,
+\begin{align*}
+ D&=\sum_{i\in S}a_i\bigl\{(y_i-v)^2-(d-v)^2(1-I_d(y_i))\bigr\}\\
+  &=\sum_{\substack{i\in S\\y_i<d}}a_i(d-y_i)^2+2(v-d)L+Q.
+\end{align*}
+This proves \(D\ge0\), the two layer bounds, and \(\Delta\ge0\), since
+\(2v-1>0\).  When \(K<N\), the earlier strict packet argument gives
+\(\Delta>0\); when \(K=N\), the same inverse remains valid on the closed
+face \(U=N\).
+
+\paragraph{Proof: the combined statistic bound.}
+Put
+\[
+ H=\sum_{\substack{i\in S\\y_i\ge d}}a_i|y_i-v|.
+\]
+The complete weighted variance of the selected displacements gives
+\[
+ 0\le\sum_{\substack{i\in S\\y_i\ge d}}
+        a_i\{K|y_i-v|-H\}^2=K^2Q-KH^2.
+\]
+Since \(K>0\), \(H^2\le KQ\le KD\), hence \(H\le\sqrt{KD}\).
+Sending every low coordinate to \(d\) and every selected coordinate to
+\(v\), with every weight retained, gives the exact residual
+\[
+ \sum_{i\in S}a_i\{\varphi(y_i)-(1-I_d(y_i))\varphi(d)
+                                      -I_d(y_i)\varphi(v)\}.
+\]
+Its absolute value is at most \(L+H\) by the Lipschitz hypothesis.
+The layer bounds therefore prove
+\eqref{eq:threshold-total-stability}.
+The root balance also proves both stated moments of the reference.
+\hfill\(\square\)
+
+\paragraph{Theorem (fixed even-weight square-root lower rate).}
+The square-root scale occurs already at the fixed parameters
+\[
+ d=\tfrac12,\qquad N=16,\qquad K=4,\qquad v=\tfrac32,\qquad U=12.
+\]
+For every \(\epsilon>0\), an exact three-site profile with weights
+\(12,2,2\) has \(0<\Delta<\epsilon\), both moments equal to \(U-\Delta\),
+closed selected weight \(4\), and, for the single fixed \(1\)-Lipschitz
+test \(\varphi(y)=|y-\tfrac32|\),
+\[
+ \sum_{i=0}^2a_i\varphi(y_i)-12\varphi(\tfrac12)-4\varphi(\tfrac32)
+ \ge\sqrt{\Delta}.
+\]
+Consequently these exact integer-weight profiles exhibit a square-root
+lower rate at arbitrarily small gaps, while
+\eqref{eq:threshold-total-stability} supplies the matching upper order.
+
+\paragraph{Proof: every weight and cutoff stays fixed.}
+For \(0<s\le1/4\), put
+\[
+ r=s\sqrt{2-4s^2},\qquad
+ u=\tfrac12-s^2,\qquad c=\tfrac32-s^2,
+ \qquad (y_0,y_1,y_2)=(u,c+r,c-r).
+\]
+The natural multiplicities are \(6,1,1\), hence the even weights are
+\(12,2,2\).  The exact identities and bounds are
+\[
+ r^2=2s^2-4s^4,\qquad s\le r\le\tfrac12,\qquad
+ 0\le u<\tfrac12<c-r\le c+r.
+\]
+Thus only the two weight-two sites are selected.  Direct expansion gives
+\[
+ 12u+4c=12-16s^2,\qquad
+ 12u^2+4(c^2+r^2)=12-16s^2.
+\]
+Therefore \(\Delta=16s^2>0\).  Since \(r\ge s\ge s^2\), the fixed test
+has exactly
+\[
+ 12|u-\tfrac32|+2|c+r-\tfrac32|+2|c-r-\tfrac32|-12
+ =12s^2+4r\ge4s=\sqrt{\Delta}.
+\]
+To obtain arbitrarily small gaps, choose
+\(s=\min\{1/4,\epsilon/32\}>0\).  Then
+\(16s^2\le4s\le\epsilon/8<\epsilon\).
+The boundary values \(v=3/2\), \(U=12\), the Lipschitz property of this
+fixed test, and the complete arbitrary-small-gap lower bound are all
+formalized.
+\hfill\(\square\)
+
+\paragraph{Actual zeta-order consumer.}
+Let \(W\) be any finite subset of the open strip, with actual analytic
+orders \(a_w=\operatorname{ord}_w\zeta\), positive total order and positive
+horizontal first moment.  Use the already proved normalization
+\[
+ t=M_2/M_1>0,\qquad M=M_1^2/M_2>0,\qquad
+ y_w=(\Re w-\tfrac12)^2/t.
+\]
+Both weighted normalized moments equal \(M\).  For every \(0<d<1\), the
+selected mass is positive, so the preceding theorem applies to these
+actual orders and proves both layer bounds and
+\eqref{eq:threshold-total-stability} for the full cluster.
+No reflection, parity, common-height, lower-height or RH premise is needed.
+All critical-line orders remain in the low layer at \(y_w=0\).
+The finite sharpness profiles above are not claimed to be zeta-zero
+realizations.  This result gives an inverse for observable cluster
+geometry, without supplying an independent global estimate for its gap.
+
+The quadratic moment optimization background is classical, as discussed
+for the preceding fixed-total theorem.  The explicit layer ledger,
+finite-profile inverse, fixed integer-weight rate witness and actual-order
+consumer are the results proved here; the limited literature check does
+not establish general priority.
+
 \subsection{Sharp radial support and exact two-layer reconstruction}
 \label{sec:radial-support-inverse}
 

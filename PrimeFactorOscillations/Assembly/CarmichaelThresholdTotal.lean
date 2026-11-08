@@ -5,6 +5,8 @@ Authors: Prime Factor Oscillations contributors
 -/
 import PrimeFactorOscillations.Assembly.CarmichaelThresholdFeasibility
 import PrimeFactorOscillations.Helpers.ThresholdTotalFeasibility
+import PrimeFactorOscillations.Helpers.ThresholdTotalStability
+import PrimeFactorOscillations.Helpers.ThresholdTotalStabilitySharpness
 
 /-! # The complete necessary total/selected-order region for actual zeta clusters -/
 
@@ -138,5 +140,41 @@ theorem zeta_compensated_order_total_region (W : Finset Complex)
   dsimp only at h
   rw [hK] at h
   exact h
+
+theorem zeta_finite_threshold_total_stability (W : Finset Complex) (d : Real)
+    (hd : And (0 < d) (d < 1))
+    (hStrip : forall w, Membership.mem W w -> And (0 < w.re) (w.re < 1))
+    (hN : 0 < zetaFiniteMultiplicityMass W) (hM : 0 < zetaFiniteHorizontalMoment W) :
+    let t := zetaFiniteHorizontalMomentRatio W
+    let M := zetaFiniteHorizontalEffectiveMass W
+    let N := zetaFiniteMultiplicityMass W
+    let K := thresholdSelectedMass d W (fun w => (analyticOrderNatAt riemannZeta w : Real))
+      (fun w => (w.re - 1 / 2) ^ 2 / t)
+    let v := thresholdModelHigh (N - K) K d
+    let D := (2 * v - 1) * (thresholdTotalUpper d N K - M)
+    And (2 * (v - d) * Finset.sum W (fun w => (analyticOrderNatAt riemannZeta w : Real) *
+      thresholdTotalLowDistance d ((w.re - 1 / 2) ^ 2 / t)) <= D)
+      (And (Finset.sum W (fun w => (analyticOrderNatAt riemannZeta w : Real) *
+        thresholdTotalHighSquare d v ((w.re - 1 / 2) ^ 2 / t)) <= D)
+        (forall phi : Real -> Real,
+          (forall u z : Real, abs (phi u - phi z) <= abs (u - z)) ->
+          abs (Finset.sum W (fun w => (analyticOrderNatAt riemannZeta w : Real) *
+            phi ((w.re - 1 / 2) ^ 2 / t)) - thresholdTotalStatistic d v N K phi) <=
+              D / (2 * (v - d)) + Real.sqrt (K * D))) := by
+  dsimp only
+  have hn := zeta_finite_normalized_horizontal_moments W hStrip hN hM
+  have hMoment := hn.2.2.2.trans hn.2.2.1.symm
+  have ha : forall w, Membership.mem W w -> 0 <= (analyticOrderNatAt riemannZeta w : Real) :=
+    fun _ _ => Nat.cast_nonneg _
+  have hDomain := finiteWeightedThreshold_domain W
+    (fun w => (analyticOrderNatAt riemannZeta w : Real))
+    (fun w => (w.re - 1 / 2) ^ 2 / zetaFiniteHorizontalMomentRatio W) d hd.2 ha
+    (fun w _ => div_nonneg (sq_nonneg _) hn.1.le) hMoment
+    (by rw [hn.2.2.1]; exact hn.2.1)
+  have hNew := finiteWeighted_threshold_total_stability W
+    (fun w => (analyticOrderNatAt riemannZeta w : Real))
+    (fun w => (w.re - 1 / 2) ^ 2 / zetaFiniteHorizontalMomentRatio W) d hd ha hMoment hDomain.1
+  rw [hn.2.2.1] at hNew
+  exact hNew
 
 end PrimeFactorOscillations
