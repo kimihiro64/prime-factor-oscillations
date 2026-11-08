@@ -9118,6 +9118,27 @@ estimate must control that retained reference term.  The new estimate is
 that the actual probability-carrier correction stays uniformly small
 on the changing scale, with an undiluted multiplicity signal.
 
+\paragraph{Two-scale inverse regularization.}
+Let \(f(s)=(s-\rho)^m g(s)\) in a neighborhood of \(\rho\), where
+\(m\) is a natural number, \(g\) is continuous at \(\rho\), and
+\(g(\rho)\ne0\). For every nonzero complex \(c\),
+\[
+ \lim_{\substack{h\to0\\h\ne0}}
+ h^m\left(\frac1{f(\rho+h)}-\frac1{f(\rho+ch)}\right)
+ =\frac{1-c^{-m}}{g(\rho)}.
+\]
+Indeed, for sufficiently small nonzero \(h\), the expression on the
+left equals
+\(g(\rho+h)^{-1}-c^{-m}g(\rho+ch)^{-1}\); continuity gives the limit.
+This identity retains both inverse terms and the scale factor.
+It is formalized by
+\texttt{Complex.tendsto\_pow\_mul\_inverse\_difference\_of\_factor} in
+\texttt{Mathlib/Analysis/Complex/TwoScaleInverse.lean}.
+It supplies a local analytic interface, with no RH premise.
+It does not give an upper bound on the inverse difference or on
+multiplicity, and no inverse-carrier estimate is inferred from the
+additive logarithmic-derivative error bound above.
+
 \subsection{Signed two-dimensional control of a zero cluster}
 \label{sec:cluster-multiplicity}
 

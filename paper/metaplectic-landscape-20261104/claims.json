@@ -4777,6 +4777,14 @@
         "PrimeFactorOscillations.DirichletDensityNormalization.densityReadout_order",
         "PrimeFactorOscillations.DirichletDensityNormalization.densityReadout_zero_iff"
       ]
+    },
+    {
+      "id": "INV-TWO-SCALE",
+      "status": "compiled",
+      "claim": "Classical local analysis: for arbitrary natural m, nonzero complex c, a local factorization f(s)=(s-rho)^m*g(s), continuity of g at rho and g(rho) nonzero, the punctured complex limit of h^m*(1/f(rho+h)-1/f(rho+c*h)) is (1-c^(-m))/g(rho). Both inverse terms and the scale factor are retained. This support lemma gives no upper inverse bound or absolute multiplicity cap, and assumes no RH.",
+      "declarations": [
+        "Complex.tendsto_pow_mul_inverse_difference_of_factor"
+      ]
     }
   ],
   "novelty": "Priority for the combined explicit formulas has not been established; source classification and Gauss identities are classical."

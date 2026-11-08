@@ -9,6 +9,7 @@ import PrimeFactorOscillations.Mathlib.Analysis.Analytic.FactorialRatioDerivativ
 import PrimeFactorOscillations.Mathlib.Analysis.Analytic.FactorialSeries
 import PrimeFactorOscillations.Mathlib.Analysis.Calculus.IteratedDeriv.LinearProduct
 import PrimeFactorOscillations.Mathlib.Analysis.Complex.All
+import PrimeFactorOscillations.Mathlib.Analysis.Complex.TwoScaleInverse
 import PrimeFactorOscillations.Mathlib.Analysis.Fourier.All
 import PrimeFactorOscillations.Mathlib.Analysis.Polynomial.SignIntervals
 import PrimeFactorOscillations.Mathlib.Analysis.SpecialFunctions.Exp.All
