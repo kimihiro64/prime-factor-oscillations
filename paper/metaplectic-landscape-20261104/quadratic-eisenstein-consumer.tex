@@ -8564,6 +8564,162 @@ finite off-critical cluster data.  It supplies no independent global
 small-value area estimate, and it changes neither the numerical simplicity
 window nor the certified \(7/8\) boundary.
 
+\subsection{Linear stability at the integer feasibility boundary}
+\label{subsec:threshold-feasibility-linear-stability}
+
+The feasibility envelope also has an inverse theorem.  Its discrete weight
+constraint recovers a minimal-multiplicity atom and gives an error linear
+in the full quadratic slack.  There is no cubic-energy hypothesis.
+
+\paragraph{Theorem (linear feasibility inverse).}
+Let \(a_i\in\mathbb N\), let \(y_i\ge0\) on a finite index set, and let
+\(0<d<1\).  Write \(w_i=2a_i\) and assume
+\[
+ N=\sum_iw_i,\qquad
+ M=\sum_iw_i y_i=\sum_iw_i y_i^2>0,\qquad
+ K=\sum_{y_i\ge d}w_i.
+\]
+Put
+\[
+ A=M-dK>0,\qquad
+ P=A^2+(4d-2)M-2d^2K\ge0,\qquad c=d+A/2.
+\]
+The displayed signs follow from the proved domain and feasibility
+inequalities.  Suppose
+\[
+ P\le dA,\qquad P<A^2/8.
+\]
+Then \(2\le K\le N\), there is an index \(j\) with
+\(a_j=1\) and \(y_j>d\), and the nonnegative reference measure
+\[
+ \nu=(N-K)\delta_0+(K-2)\delta_d+2\delta_c
+\]
+satisfies, for every globally \(1\)-Lipschitz
+\(\varphi:\mathbb R\to\mathbb R\),
+\[
+ \left|\sum_iw_i\varphi(y_i)-\int\varphi\,d\nu\right|
+ \le \frac Pd+\frac{4P}{A}.
+\]
+The reference has moments
+\[
+ \int1\,d\nu=N,\qquad
+ \int y\,d\nu=M,\qquad
+ \int y^2\,d\nu=M+P/2.
+\]
+In particular, at zero feasibility slack every Lipschitz statistic agrees
+exactly with this explicit reference, which then satisfies both moment
+constraints.  The selected atom of weight two is present in this case too.
+
+\paragraph{Proof: the complete slack ledger.}
+Retain the five quantities from the feasibility proof:
+\[
+ x_i=(y_i-d)I_d(y_i),\quad
+ X=\sum_iw_ix_i,\quad
+ Y=\sum_iw_i y_i(1-I_d(y_i)),
+\]
+\[
+ U=\sum_iw_i x_i^2,\qquad
+ V=\sum_iw_i y_i^2(1-I_d(y_i)).
+\]
+Here \(I_d(y)=1\) for \(y\ge d\), so the cutoff itself is selected.
+The exact first and second ledgers give
+\[
+ A=X+Y,\qquad M=d^2K+2dX+U+V.
+\]
+Substituting these identities, before making any estimate, yields
+\[
+ P=(X^2-2U)+2XY+Y^2+2dY+2(dY-V).
+\]
+All five summands are nonnegative.  Indeed \(X,Y\ge0\), \(V\le dY\),
+and the already proved even-atom square inequality gives \(2U\le X^2\).
+Writing \(E=X^2-2U\), we therefore have
+\[
+ 0\le E\le P,\qquad 2dY\le P.
+\]
+The first smallness condition implies \(Y\le A/2\), hence
+\(X\ge A/2>0\).  The second gives
+\[
+ E\le P<A^2/8\le X^2/2.
+\]
+
+\paragraph{Proof: recovering the smallest allowed weight.}
+Choose \(j\) with largest \(x_j\) among indices with positive weight.
+Such an index exists because \(X>0\), and \(x_j>0\).
+The complete nonnegative sum gives
+\[
+ U\le x_jX,\qquad w_jx_j\le X.
+\]
+If \(a_j\ge2\), then \(w_j\ge4\), so \(4x_j\le X\) and
+\[
+ E=X^2-2U\ge X^2-2x_jX\ge X^2/2,
+\]
+a contradiction.  Thus \(a_j=1\), \(w_j=2\), and \(y_j>d\).
+Set
+\[
+ R=X-2x_j=\sum_{i\ne j}w_i x_i\ge0.
+\]
+Keeping all remaining contributions in \(X\) and \(U\) gives
+\[
+ XR=X^2-2x_jX\le X^2-2U=E\le P.
+\]
+Consequently
+\[
+ Y\le\frac{P}{2d},\qquad
+ R\le\frac{P}{X}\le\frac{2P}{A}.
+\]
+This argument is formalized first in its project-independent form:
+for natural weights \(m_i\), if
+\(T=\sum_i m_i x_i>0\), \(Q=\sum_i m_i x_i^2\), and
+\(T^2-Q<T^2/2\), a largest positive-weight coordinate has \(m_j=1\)
+and
+\[
+ 0\le T-x_j,\qquad T(T-x_j)\le T^2-Q.
+\]
+The even-weight argument is its exact rescaling by two.
+
+\paragraph{Proof: the full statistic and zero slack.}
+Compare the original profile with \(\nu\) by sending every unselected
+atom to zero, every selected atom except \(j\) to \(d\), and the weight-two
+atom at \(y_j\) to \(c\).  The first two costs are exactly \(Y\) and \(R\).
+No selected weight is lost: the remaining cutoff weight is \(K-2\).
+The first ledger gives the exact compensation
+\[
+ 2(c-y_j)=Y+R\ge0.
+\]
+Thus the last cost is \(2|c-y_j|=Y+R\).
+For a \(1\)-Lipschitz test function, summing all these contributions proves
+\[
+ \left|\sum_iw_i\varphi(y_i)
+ -(N-K)\varphi(0)-(K-2)\varphi(d)-2\varphi(c)\right|
+ \le2(Y+R)\le P/d+4P/A.
+\]
+The inequalities \(K\ge2\) and \(N\ge K\) follow respectively from the
+selected weight-two atom and the nonnegativity of all weights.
+Also \(c>d>0\), so \(\nu\) is a nonnegative measure with closed selected
+mass \(K\).
+Direct expansion of its three weighted contributions gives the displayed
+total, first and second moments; the last excess is exactly \(P/2\).
+
+If \(P=0\), then \(A>0\) makes both smallness conditions automatic.
+The bound reduces to zero, proving the asserted equality of every
+Lipschitz statistic, with the minimal selected atom retained.
+\hfill\(\square\)
+
+This is a feasibility-slack inverse theorem for even integer weights.
+The earlier square-root theorem estimates cubic-energy excess for arbitrary
+nonnegative real weights; its rate-optimality construction varies weights
+continuously.  The new proof uses the discrete alternative \(w_i=2\) or
+\(w_i\ge4\) and the entire quadratic ledger.
+Its constants are explicit, but no optimal leading constant is asserted.
+
+The finite even-weight conclusion does not by itself identify individual
+zeta orders as even: reflection gives even combined order on pairs.
+Applying this inverse theorem directly to an actual reflected cluster
+requires an orbit-profile construction or a proved paired version.
+The actual reflection-paired feasibility inequality above remains available;
+the present result does not assume that actual zeros meet its small-slack
+hypotheses.
+
 \subsection{The complete region at fixed total order}
 
 The preceding theorem allows the total weight of a profile to vary.  Fixing

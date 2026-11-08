@@ -10,6 +10,7 @@ import PrimeFactorOscillations.Mathlib.Algebra.Order.BigOperators.Group.InverseS
 import PrimeFactorOscillations.Mathlib.Algebra.Order.BigOperators.Ring.FiberCovariance
 import PrimeFactorOscillations.Mathlib.Algebra.Order.BigOperators.Ring.MarkerMoments
 import PrimeFactorOscillations.Mathlib.Algebra.Order.BigOperators.Ring.ProductError
+import PrimeFactorOscillations.Mathlib.Algebra.Order.BigOperators.Ring.WeightedConcentration
 import PrimeFactorOscillations.Mathlib.Algebra.Order.BigOperators.Ring.WeightedCount
 import PrimeFactorOscillations.Mathlib.Algebra.Order.BigOperators.Ring.WeightedDrift
 import PrimeFactorOscillations.Mathlib.Algebra.Order.BigOperators.Ring.WeightedReweighting

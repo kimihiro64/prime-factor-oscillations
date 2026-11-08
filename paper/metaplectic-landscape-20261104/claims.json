@@ -4863,6 +4863,28 @@
         "PrimeFactorOscillations.thresholdNegativeSplit_arbitrarily_small",
         "PrimeFactorOscillations.thresholdNegativeSplit_no_better_holder"
       ]
+    },
+    {
+      "id": "TF-LINEAR-CORE",
+      "status": "compiled",
+      "claim": "For finite natural weighted nonnegative coordinates, quadratic deficit below half the squared first sum recovers a unit-weight maximal atom and bounds the entire weighted remainder. The even-weight specialization and exact threshold slack identity retain every cross term and imply E<=P and 2*d*Y<=P.",
+      "declarations": [
+        "Finset.exists_unit_weight_of_small_square_defect",
+        "PrimeFactorOscillations.finiteEven_atom_concentration",
+        "PrimeFactorOscillations.finiteWeighted_threshold_slack_identity",
+        "PrimeFactorOscillations.finiteEven_threshold_slack_control"
+      ]
+    },
+    {
+      "id": "TF-LINEAR-INVERSE",
+      "status": "compiled",
+      "claim": "Every even integer weighted nonnegative equal-moment profile with 0<d<1 and M>0 has A=M-d*K>0 and P>=0. If P<=d*A and P<A^2/8, it has a selected atom of weight exactly two, 2<=K<=N, and every globally 1-Lipschitz statistic differs from the explicit (N-K,K-2,2) reference by at most P/d+4*P/A. The reference has moments N,M,M+P/2; at P=0 every Lipschitz statistic agrees exactly. No energy-minimum hypothesis, actual-cluster parity adapter, or global multiplicity/exponent gain is asserted.",
+      "declarations": [
+        "PrimeFactorOscillations.thresholdFeasibilityReference_moments",
+        "PrimeFactorOscillations.finiteEven_threshold_lipschitz_reference",
+        "PrimeFactorOscillations.thresholdEvenAdmissible_linear_stability",
+        "PrimeFactorOscillations.thresholdEvenAdmissible_zero_slack_statistic"
+      ]
     }
   ],
   "novelty": "Priority for the combined explicit formulas has not been established; source classification and Gauss identities are classical."

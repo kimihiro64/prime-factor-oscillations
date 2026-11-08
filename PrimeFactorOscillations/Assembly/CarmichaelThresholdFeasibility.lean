@@ -5,6 +5,7 @@ Authors: Prime Factor Oscillations contributors
 -/
 import PrimeFactorOscillations.Assembly.CarmichaelNegativeInteger
 import PrimeFactorOscillations.Helpers.ThresholdFeasibilityExistence
+import PrimeFactorOscillations.Helpers.ThresholdFeasibilityStability
 
 /-! # Sharp selected-order feasibility for actual reflected zeta clusters -/
 
