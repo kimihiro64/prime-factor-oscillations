@@ -4,7 +4,7 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Prime Factor Oscillations contributors
 -/
 import PrimeFactorOscillations.Assembly.CarmichaelNonlinearThreshold
-import PrimeFactorOscillations.Helpers.NegativeThresholdTransport
+import PrimeFactorOscillations.Helpers.NegativeThresholdRateSharpness
 import PrimeFactorOscillations.Helpers.ThresholdFixedTotalSharpness
 import PrimeFactorOscillations.Helpers.ThresholdTransportStability
 

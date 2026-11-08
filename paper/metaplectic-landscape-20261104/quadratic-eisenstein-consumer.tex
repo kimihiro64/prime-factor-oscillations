@@ -8209,6 +8209,159 @@ In particular, the signed term \(B_2\) is retained throughout.
 No reflection assumption on \(W\) is used.
 \hfill\(\square\)
 
+\subsection{The square-root inverse exponent is optimal on the negative branch}
+\label{subsec:negative-threshold-rate-sharpness}
+
+The inverse theorem can be closed in the other direction: its square-root
+exponent cannot be improved using only the real-weight moment constraints.
+The parameters and the total mass remain fixed throughout the construction.
+
+\paragraph{Theorem (fixed-moment rate optimality).}
+Fix
+\[
+ 0<d<1,\qquad 0<M<K,\qquad dK<M,\qquad N\ge K.
+\]
+Let \(z=M(1-d)/(M-dK)\) and let \(\mu_*\) be the negative canonical
+profile of the preceding subsection.  The function
+\(\varphi(y)=|y-z|\) is globally \(1\)-Lipschitz.
+For every \(h>1/2\), \(C\ge0\), and \(\varepsilon>0\), there is a
+nonnegative measure \(\mu\) on at most four nonnegative points such that
+\[
+ \int1\,d\mu=N,\qquad
+ \int y\,d\mu=\int y^2\,d\mu=M,\qquad
+ \mu([d,\infty))=K,
+\]
+and, writing
+\[
+ \Delta=\int y(y-1)^2\,d\mu-F_-(d,M,K),\qquad
+ D=\left|\int\varphi\,d\mu-\int\varphi\,d\mu_*\right|,
+\]
+one has
+\[
+ 0<\Delta<\varepsilon,\qquad D>C\Delta^h.
+\]
+Thus no uniform local inverse estimate \(D\le C\Delta^h\), with
+\(h>1/2\), holds even at fixed \(d,M,K,N\) in this moment class.
+
+\paragraph{Proof.}
+Put
+\[
+ g=z-d,\qquad A=M-dK,\qquad
+ B=\frac{A}{g},\qquad
+ \alpha=K-B=\frac{Kz-M}{g},\qquad
+ \eta=\min\left\{\frac14,\frac{\alpha}{2K}\right\}.
+\]
+All of \(g,A,B,\alpha,\eta\) are positive: the preceding root
+inequality gives \(z\ge1>d\), and \(Kz-M\ge K-M>0\).
+In particular \(0<B<K\).
+For \(0<q\le\eta\), define
+\[
+ v=1+q^2,\qquad
+ u=\frac{gq^2}{v},\qquad r=\frac{gq}{v},\qquad b=Bv,
+\]
+\[
+ \mu_q=(N-K)\delta_0+(K-b)\delta_d+
+       \frac b2\delta_{z-u-r}+\frac b2\delta_{z-u+r}.
+\]
+These are rational functions of the parameters and \(q\); no rationality
+assumption on the parameters is needed.
+Since \(q\le1/4<1\) and \(q\le\alpha/(2K)\),
+\[
+ Bq^2\le Kq\le\alpha/2,\qquad
+ K-b=\alpha-Bq^2\ge\alpha/2>0.
+\]
+The two moving coordinates satisfy
+\[
+ z-u-r-d=\frac{g(1-q)}{1+q^2}>0,\qquad
+ z-u+r-d=\frac{g(1+q)}{1+q^2}>0.
+\]
+Hence all coordinates and weights are nonnegative, the selected mass
+under the closed cutoff is exactly \(K\), and the total mass is \(N\).
+The origin has zero weight when \(N=K\), which is why the assertion
+allows fewer than four atoms.
+
+We verify the full moments before estimating any term.
+The first-moment identity is
+\[
+ (K-b)d+b(z-u)=(K-B)d+Bz=M,
+\]
+because \(bg-bu=Bg\).  For the second moment, the exact cancellation is
+\[
+ (b-B)g^2-2bzu+b(u^2+r^2)
+       +2d(b-B)g=0.
+\]
+Indeed \(bu=Bgq^2\), \(b-B=Bq^2\), and
+\(b(u^2+r^2)=Bg^2q^2\); the left side is
+\(2Bgq^2(g-z+d)=0\).
+It follows that
+\[
+ (K-b)d^2+b\bigl((z-u)^2+r^2\bigr)
+       =(K-B)d^2+Bz^2=M.
+\]
+Thus the moving low weight compensates both high atoms exactly.
+
+Expand the cubic energy with all three selected contributions:
+\[
+\begin{split}
+ &(K-b)d(d-1)^2
+ +\frac b2(z-u-r)(z-u-r-1)^2\\
+ &\qquad+\frac b2(z-u+r)(z-u+r-1)^2\\
+ &=(K-B)d(d-1)^2+Bz(z-1)^2
+   +\frac{Bg^3q^2(1-q^2)}{(1+q^2)^2}.
+\end{split}
+\]
+The first two terms are exactly \(F_-\), so
+\[
+ \Delta(q)=\frac{Ag^2q^2(1-q^2)}{(1+q^2)^2}>0.
+\]
+For the statistic, \(r>u\ge0\).  The two moving atoms therefore
+contribute \(br=Aq\) to its difference from the canonical high atom.
+The change in the cutoff weight contributes
+\(-(b-B)g=-Aq^2\); the origin weight is unchanged.
+Keeping this compensation gives the exact signed difference
+\[
+ \int|y-z|\,d\mu_q-\int|y-z|\,d\mu_*
+       =Aq(1-q)>0.
+\]
+In particular
+\[
+ D(q)=Aq(1-q),\qquad
+ 0<\Delta(q)\le Ag^2q^2,\qquad D(q)\ge Aq/2>0,
+\]
+and hence
+\[
+ \Delta(q)\le L D(q)^2,\qquad L=\frac{4g^2}{A}>0.
+\]
+
+Positive deficits can be made arbitrarily small.  For any \(e>0\),
+take \(q=\min\{\eta/2,e/(2Ag^2)\}\).
+Then \(0<q\le\eta\), and \(q<1\) gives
+\(\Delta(q)\le Ag^2q^2\le Ag^2q\le e/2<e\).
+
+Finally fix \(h>1/2\), \(C\ge0\), and \(\varepsilon>0\).
+Since \(2h-1>0\), continuity at zero supplies \(e>0\) such that
+\[
+ LC^2\delta^{2h-1}<1\qquad(0<\delta<e).
+\]
+Choose the preceding profile with
+\(0<\Delta<\min\{e,\varepsilon\}\).
+If \(D\le C\Delta^h\), nonnegativity and the quadratic relation give
+\[
+ \Delta\le LD^2\le LC^2\Delta^{2h}.
+\]
+Division by the positive \(\Delta\) contradicts the choice of \(e\).
+Thus \(D>C\Delta^h\).
+The Lipschitz assertion for \(|y-z|\) is the reverse triangle inequality.
+\hfill\(\square\)
+
+This proves optimality of the exponent, not of the leading constant.
+It concerns arbitrary nonnegative real weights in the fixed moment
+problem.  Integer multiplicities, reflection, and the arithmetic
+conditions on actual zeta zeros remain additional restrictions;
+the construction does not assert that such zero clusters exist.
+A stronger inverse theorem on those restricted classes would therefore
+need to use information beyond the moment constraints alone.
+
 \subsection{Complete feasible-mass region and the sharp inverse count}
 
 The preceding phase diagram fixes the moment mass and the selected order.
