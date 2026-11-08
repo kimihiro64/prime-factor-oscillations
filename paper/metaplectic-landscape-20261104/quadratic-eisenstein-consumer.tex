@@ -7686,6 +7686,166 @@ global small-value area estimate.  The certified simplicity window and
 \(7/8\) boundary are unchanged, and \(M_1>0\) remains required for the
 actual normalized consumer.
 
+\subsection{Quantitative inverse stability of near-minimal threshold profiles}
+\label{subsec:threshold-transport-stability}
+
+The nonlinear cost also determines the geometry of a nearly minimizing
+profile.  The following estimate controls every Lipschitz test statistic,
+without a factor depending on the total weight.  It complements the earlier
+band-count estimate, whose discontinuous indicator is outside this test class.
+
+\paragraph{Theorem (Quantitative inverse profile theorem).}
+\label{thm:threshold-transport-stability}
+Let \(I\) be finite, \(a_i,y_i\ge0\), and
+\[
+ N=\sum_{i\in I}a_i,\qquad
+ M=\sum_{i\in I}a_i y_i=\sum_{i\in I}a_i y_i^2>0,\qquad
+ K=\sum_{\substack{i\in I\\y_i\ge d}}a_i\le M,\qquad 0<d<1.
+\]
+Define
+\[
+ z=\frac{d+\sqrt{d^2+4(1-d)M/K}}2,\quad
+ b=-\frac{(z-d)^2}{2z-d},\quad
+ S=\frac d2(2z+b-2d),\quad C=d-b,
+\]
+and
+\[
+ E=\sum_{i\in I}a_i y_i(y_i-1)^2,\quad
+ F=M(1-d)(z-1),\quad \Delta=E-F,\quad
+ L=\frac{M-Kz}{d}.
+\]
+Then \(K,S,C>0\) and \(\Delta\ge0\).  For every globally
+\(1\)-Lipschitz function \(\varphi:\mathbb R\to\mathbb R\), put
+\[
+ T_\varphi=N\varphi(0)+L\{\varphi(d)-\varphi(0)\}
+                   +K\{\varphi(z)-\varphi(0)\}.
+\]
+For every \(0\le\ell\le S\),
+\begin{equation}\label{eq:threshold-transport-tilt}
+ \ell\left|\sum_{i\in I}a_i\varphi(y_i)-T_\varphi\right|
+ \le 2\Delta+\frac{K\ell^2}{2C}.
+\end{equation}
+Consequently,
+\begin{equation}\label{eq:threshold-transport-inverse}
+ \left|\sum_{i\in I}a_i\varphi(y_i)-T_\varphi\right|
+ \le
+ \begin{cases}
+  2\sqrt{K\Delta/C},&\Delta\le KS^2/(4C),\\
+  2\Delta/S+KS/(2C),&\Delta>KS^2/(4C).
+ \end{cases}
+\end{equation}
+If \(K<M\), then \(L>0\) and \(N-K-L>0\).  Thus \(T_\varphi\)
+is the statistic of the explicit positive three-atom measure
+\[
+ \mu_*=(N-K-L)\delta_0+L\delta_d+K\delta_z.
+\]
+
+
+\paragraph{Proof.}
+Use the complete positive cubic packet \(Q_{d,z}\) established above.
+Its exact moment ledger is
+\[
+ \sum_{i\in I}a_iQ_{d,z}(y_i)=E-F=\Delta.
+\]
+In particular no cutoff or moment-compensation term is omitted.
+Subtract the affine interpolant of \(\varphi\) at \(0,d\):
+\[
+ \Psi(y)=\varphi(y)-\varphi(0)
+                 -\frac{y}{d}\{\varphi(d)-\varphi(0)\}.
+\]
+The function \(\Psi\) vanishes at \(0,d\) and is \(2\)-Lipschitz.
+Write \(A(y)=1_{\{y\ge d\}}\) and
+\(J(y)=1_{\{d/2\le y<d\}}\).  The rounded coordinate is
+\(zA(y)+dJ(y)\), so
+\[
+ |\Psi(y)-A(y)\Psi(z)|
+ \le 2|y-zA(y)-dJ(y)|.
+\]
+The already proved complete tilted packet, at the two signs, gives
+\[
+ \ell|y-zA(y)-dJ(y)|
+ \le Q_{d,z}(y)+\frac{\ell^2}{4C}A(y),
+ \qquad 0\le\ell\le S.
+\]
+Multiplication by \(a_i\), summation, and the exact defect ledger
+therefore yield
+\[
+ \ell\left|\sum_{i\in I}a_i\{\Psi(y_i)-A(y_i)\Psi(z)\}\right|
+ \le2\Delta+\frac{K\ell^2}{2C}.
+\]
+Expanding \(\Psi\) identifies the sum on the left with
+\(\sum_{i\in I}a_i\varphi(y_i)-T_\varphi\), proving
+\eqref{eq:threshold-transport-tilt}.
+
+For the atom weights, the root relation
+\(Kz(z-d)=(1-d)M\) and \(K<M\) imply \(z>1\) and
+\((1-d)(M-Kz)=Kz(z-1)>0\), hence \(L>0\).
+The complete fixed-total packet
+\(T_{d,z}(y)=(y-z)^2-(d-z)^2(1-A(y))\) has the exact identity
+\[
+ \sum_{i\in I}a_i T_{d,z}(y_i)
+ =(2z-d)\{d(N-K)-M+Kz\}.
+\]
+Its strict positivity, because \(K<N\), proves \(N-K-L>0\).
+Finally divide \eqref{eq:threshold-transport-tilt} by \(\ell>0\).
+The unconstrained minimizing choice is
+\(\ell=2\sqrt{C\Delta/K}\); use this when it is at most \(S\),
+and use \(\ell=S\) otherwise.  At \(\Delta=0\) let
+\(\ell\downarrow0\).  This proves \eqref{eq:threshold-transport-inverse}.
+\hfill\(\square\)
+
+The atom at \(d\) is a boundary atom approached from the unselected
+side.  When \(K<M\), the limiting measure \(\mu_*\) itself has selected
+weight \(K+L\), rather than \(K\), under the closed cutoff \(y\ge d\).
+Thus the inverse theorem is consistent with finite nonattainment.
+For fixed \(M,K,N,d\), every sequence with \(\Delta\to0\) converges
+to this same three-atom measure in every Lipschitz test statistic.
+The error estimate is unchanged by adding weight at \(y=0\).
+
+\paragraph{Corollary (The full signed zero-cluster consumer).}
+\label{cor:threshold-transport-zero-budget}
+Let \(W\) be a finite set in the open critical strip, all at the same
+height \(T\), with \(|T|\ge2\), and use the actual analytic zero orders
+as weights.  Assume \(N>0\), \(M_1>0\), and \(K\le\kappa\), in the
+notation of the nonlinear threshold criterion.  Set
+\[
+ t=\frac{M_2}{M_1},\qquad \kappa=\frac{M_1^2}{M_2},\qquad
+ y_w=\frac{(\Re w-\tfrac12)^2}{t},\qquad d=\delta,
+\]
+and form \(z,S,C,T_\varphi\) from \(M=\kappa\) and the actual
+threshold order \(K\).  With the complete signed charge \(B_2\) and
+the existing budget \(gB\), put
+\[
+ \mathcal R=\frac{gB-B_2}{\tau t^3}-F_d(\kappa,K).
+\]
+Then, for every globally \(1\)-Lipschitz \(\varphi\) and
+\(0\le\ell\le S\),
+\[
+ \ell\left|\sum_{w\in W}m(w)\varphi(y_w)-T_\varphi\right|
+ \le2\mathcal R+\frac{K\ell^2}{2C}.
+\]
+
+\paragraph{Proof.}
+Normalization gives equal first and second moments \(\kappa\).
+The complete weighted kernel ledger, its proved remainder floor
+\(\tau\), and the actual horizontal-profile upper bound give
+\[
+ B_2+\tau t^3 E\le gB.
+\]
+Since \(\tau t^3>0\), this implies \(\Delta\le\mathcal R\).
+Substitute that inequality into
+\eqref{eq:threshold-transport-tilt}.  The full signed term \(B_2\)
+is retained throughout.
+\hfill\(\square\)
+
+The general dual-polynomial approach to moment inequalities is classical;
+see Bertsimas and Popescu, \emph{Optimal Inequalities in Probability
+Theory: A Convex Optimization Approach}, SIAM J.\ Optim.\ 15 (2005),
+780--804, doi:10.1137/S1052623401399903.  The result here is the explicit
+inverse estimate for this cutoff cost, including its boundary atom and
+the full signed zero-cluster application.  No global priority claim is
+made for the abstract method.
+
 \subsection{The negative branch: exact extremizers and a finite exceptional spectrum}
 \label{sec:negative-integer-phase}
 

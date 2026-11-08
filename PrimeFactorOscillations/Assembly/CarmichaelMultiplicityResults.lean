@@ -14,7 +14,7 @@ import PrimeFactorOscillations.Assembly.CarmichaelPhaseMultiplicity
 import PrimeFactorOscillations.Assembly.CarmichaelRadialSupport
 import PrimeFactorOscillations.Assembly.CarmichaelSharpMultiplicity
 import PrimeFactorOscillations.Assembly.CarmichaelSimplicityCriterion
+import PrimeFactorOscillations.Assembly.CarmichaelThresholdStability
 import PrimeFactorOscillations.Helpers.DirichletDensityNormalization
-import PrimeFactorOscillations.Helpers.ThresholdFixedTotalSharpness
 
 /-! Multiplicity carrier bounds and certified compensated-residue decoding. -/
