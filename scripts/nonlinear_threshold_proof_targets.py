@@ -1,6 +1,11 @@
 """Proof-audit targets for nonlinear threshold costs and inverse profile stability."""
 
 NONLINEAR_THRESHOLD_THEOREMS: tuple[str, ...] = (
+    "PrimeFactorOscillations.finiteWeightedNegative_canonical_weights",
+    "PrimeFactorOscillations.finiteWeightedNegative_lipschitz_inverse",
+    "PrimeFactorOscillations.finiteWeightedNegative_lipschitz_packet",
+    "PrimeFactorOscillations.finiteWeightedNegative_lipschitz_stability",
+    "PrimeFactorOscillations.finiteWeightedNegative_residual_sum",
     "PrimeFactorOscillations.finiteWeightedThreshold_canonical_weights",
     "PrimeFactorOscillations.finiteWeightedThreshold_domain",
     "PrimeFactorOscillations.finiteWeightedThreshold_lipschitz_inverse",
@@ -16,6 +21,9 @@ NONLINEAR_THRESHOLD_THEOREMS: tuple[str, ...] = (
     "PrimeFactorOscillations.finiteWeightedThreshold_residual_sum",
     "PrimeFactorOscillations.finiteWeightedThreshold_scaled_domain",
     "PrimeFactorOscillations.finiteWeightedThreshold_witness",
+    "PrimeFactorOscillations.negativeThresholdAffineResidual_bound",
+    "PrimeFactorOscillations.negativeThresholdAffineResidual_tilt",
+    "PrimeFactorOscillations.negativeThresholdCanonicalStatistic_three_atoms",
     "PrimeFactorOscillations.positiveParityCoefficient_boundary_identity",
     "PrimeFactorOscillations.positiveParityCoefficient_lt_one_sub",
     "PrimeFactorOscillations.sharpParityCoefficient_quotient",
@@ -25,6 +33,7 @@ NONLINEAR_THRESHOLD_THEOREMS: tuple[str, ...] = (
     "PrimeFactorOscillations.thresholdCanonicalStatistic_three_atoms",
     "PrimeFactorOscillations.thresholdIndicator_defect_nonneg",
     "PrimeFactorOscillations.thresholdIndicator_nonneg",
+    "PrimeFactorOscillations.thresholdNegativeCanonical_moments",
     "PrimeFactorOscillations.thresholdNegativeCost_gain",
     "PrimeFactorOscillations.thresholdNegativeCost_root",
     "PrimeFactorOscillations.thresholdNegativePacket_nonneg",
@@ -56,9 +65,11 @@ NONLINEAR_THRESHOLD_THEOREMS: tuple[str, ...] = (
     "PrimeFactorOscillations.thresholdPositiveRoot_mass_formula",
     "PrimeFactorOscillations.thresholdPositiveRoot_relation",
     "PrimeFactorOscillations.thresholdPositiveValue_identity",
+    "PrimeFactorOscillations.zeta_finite_negative_threshold_transport_tilt",
     "PrimeFactorOscillations.zeta_finite_nonlinear_threshold_bound",
     "PrimeFactorOscillations.zeta_finite_nonlinear_threshold_domain",
     "PrimeFactorOscillations.zeta_finite_threshold_transport_tilt",
     "PrimeFactorOscillations.zeta_nonlinear_threshold_explicit_gain",
     "PrimeFactorOscillations.zeta_nonlinear_threshold_gain_pos",
+    "Real.le_piecewise_of_quadratic_tilt",
 )

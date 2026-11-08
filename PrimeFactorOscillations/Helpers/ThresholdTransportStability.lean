@@ -5,6 +5,7 @@ Authors: Prime Factor Oscillations contributors
 -/
 import PrimeFactorOscillations.Helpers.ThresholdNonlinearRigidity
 import PrimeFactorOscillations.Helpers.ThresholdTotalPackets
+import PrimeFactorOscillations.Mathlib.Algebra.Order.QuadraticControl
 
 /-! # Quantitative Lipschitz inverse stability of threshold moment profiles -/
 
@@ -267,49 +268,6 @@ theorem finiteWeightedThreshold_canonical_weights {Iota : Type*} (S : Finset Iot
     rw [hId]
     exact hBracket
 
-private theorem threshold_tilt_small_square (x e k c s : Real)
-    (hx : 0 <= x) (hk : 0 < k) (hc : 0 < c) (hs : 0 < s)
-    (he : e <= k * s ^ 2 / (4 * c))
-    (hTilt : forall l : Real, And (0 <= l) (l <= s) ->
-      l * x <= 2 * e + k * l ^ 2 / (2 * c)) :
-    c * x ^ 2 <= 4 * k * e := by
-  have hsTilt := hTilt s (And.intro hs.le le_rfl)
-  have hDiv : (k * s ^ 2 / (2 * c)) * (2 * c) = k * s ^ 2 := by
-    field_simp [hc.ne']
-  have he' := mul_le_mul_of_nonneg_right he (show 0 <= 4 * c by positivity)
-  have hCancel : (k * s ^ 2 / (4 * c)) * (4 * c) = k * s ^ 2 := by
-    field_simp [hc.ne']
-  rw [hCancel] at he'
-  have hs' := mul_le_mul_of_nonneg_right hsTilt (show 0 <= 2 * c by positivity)
-  have hCap : c * x <= k * s := by
-    by_contra hn
-    have hP := mul_pos hs (sub_pos.mpr (lt_of_not_ge hn))
-    nlinarith only [hs', hDiv, he', hP]
-  let l := c * x / k
-  have hl : And (0 <= l) (l <= s) := by
-    constructor
-    case left => exact div_nonneg (mul_nonneg hc.le hx) hk.le
-    case right =>
-      have hh := mul_le_mul_of_nonneg_right hCap (show 0 <= 1 / k by positivity)
-      have hL : c * x * (1 / k) = l := by dsimp [l]; ring
-      have hR : k * s * (1 / k) = s := by field_simp [hk.ne']
-      rwa [hL, hR] at hh
-  have ht := hTilt l hl
-  have hMultiply := mul_le_mul_of_nonneg_right ht (show 0 <= 2 * c * k by positivity)
-  have hLeft : (l * x) * (2 * c * k) = 2 * c ^ 2 * x ^ 2 := by
-    dsimp [l]
-    field_simp [hk.ne']
-  have hRight : (2 * e + k * l ^ 2 / (2 * c)) * (2 * c * k) =
-      4 * c * k * e + c ^ 2 * x ^ 2 := by
-    dsimp [l]
-    field_simp [hk.ne', hc.ne']
-    ring
-  rw [hLeft, hRight] at hMultiply
-  by_contra hn
-  have hP := mul_pos hc (sub_pos.mpr (lt_of_not_ge hn))
-  nlinarith only [hMultiply, hP]
-
-
 theorem thresholdCanonicalStatistic_three_atoms (d z M K N : Real) (phi : Real -> Real) :
     thresholdCanonicalStatistic d z M K N phi =
       (N - K - (M - K * z) / d) * phi 0 +
@@ -358,34 +316,6 @@ theorem finiteWeightedThreshold_lipschitz_inverse {Iota : Type*} (S : Finset Iot
       l * abs R <= 2 * e + K * l ^ 2 / (2 * c) := by
     intro l hl
     exact finiteWeightedThreshold_lipschitz_stability S a y d l phi hd ha hy hMoment hMass hKM hl hphi
-  by_cases hSmall : e <= K * s ^ 2 / (4 * c)
-  case pos =>
-    rw [ite_eq_left hSmall]
-    have hSquare := threshold_tilt_small_square (abs R) e K c s (abs_nonneg _) hK hc hs hSmall hTilt
-    have hQ : 0 <= K * e / c := div_nonneg (mul_nonneg hK.le he) hc.le
-    have hRoot : c * (2 * Real.sqrt (K * e / c)) ^ 2 = 4 * K * e := by
-      calc
-        _ = 4 * c * (Real.sqrt (K * e / c)) ^ 2 := by ring
-        _ = 4 * c * (K * e / c) := by rw [Real.sq_sqrt hQ]
-        _ = _ := by field_simp [hc.ne']
-    by_contra hn
-    have hlt : 2 * Real.sqrt (K * e / c) < abs R := lt_of_not_ge hn
-    have hP : 0 < c * (abs R - 2 * Real.sqrt (K * e / c)) *
-        (abs R + 2 * Real.sqrt (K * e / c)) :=
-      mul_pos (mul_pos hc (sub_pos.mpr hlt))
-        (by linarith only [hlt, Real.sqrt_nonneg (K * e / c)])
-    nlinarith only [hSquare, hRoot, hP]
-  case neg =>
-    rw [ite_eq_right hSmall]
-    have ht := hTilt s (And.intro hs.le le_rfl)
-    have hIdentity : s * (2 * e / s + K * s / (2 * c)) =
-        2 * e + K * s ^ 2 / (2 * c) := by
-      field_simp [hs.ne', hc.ne']
-    have hScaled : s * abs R <= s * (2 * e / s + K * s / (2 * c)) := by
-      rw [hIdentity]
-      exact ht
-    by_contra hn
-    have hP := mul_pos hs (sub_pos.mpr (lt_of_not_ge hn))
-    nlinarith only [hScaled, hP]
+  exact Real.le_piecewise_of_quadratic_tilt (abs R) e K c s (abs_nonneg _) he hK hc hs hTilt
 
 end PrimeFactorOscillations

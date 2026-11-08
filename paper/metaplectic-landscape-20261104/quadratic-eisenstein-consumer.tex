@@ -8040,6 +8040,175 @@ from the limited literature check.  The numerical simplicity window and
 certified \(7/8\) boundary are unchanged.  Clusters supported entirely on
 the critical line still require the independent small-value area estimate.
 
+\subsection{Quantitative inverse stability on the negative branch}
+\label{subsec:negative-threshold-transport}
+
+The negative packet also controls the whole profile, with an admissible
+cutoff atom.  We work first with arbitrary nonnegative real weights;
+the previously established integer restrictions remain additional constraints.
+
+\paragraph{Theorem (negative-branch Lipschitz inverse).}
+Let \(S\) be finite, \(a_i,y_i\ge0\), \(0<d<1\), and
+\[
+ N=\sum_{i\in S}a_i,\qquad
+ M=\sum_{i\in S}a_i y_i=\sum_{i\in S}a_i y_i^2>0,\qquad
+ K=\sum_{\substack{i\in S\\y_i\ge d}}a_i>M.
+\]
+The moment domain gives \(dK<M\).  Put
+\[
+ z=\frac{M(1-d)}{M-dK},\qquad
+ s_-=\frac{(z-d)^2}{4},\qquad c_-=\frac{z-d}{2},
+\]
+\[
+ F_-=\frac{dM(1-d)(K-M)}{M-dK},\qquad
+ \Delta_-=\sum_{i\in S}a_i y_i(y_i-1)^2-F_-\ge0.
+\]
+Then \(z\ge1\), \(s_-,c_->0\), and the measure
+\[
+ \mu_*=(N-K)\delta_0+
+       \frac{Kz-M}{z-d}\delta_d+
+       \frac{M-dK}{z-d}\delta_z
+\]
+has nonnegative weights, with both selected weights positive.
+It has total mass \(N\), selected mass \(K\), first and second
+moments \(M\), and energy \(F_-\).
+For every globally \(1\)-Lipschitz
+\(\varphi:\mathbb R\to\mathbb R\), write
+\(T_\varphi=\int\varphi\,d\mu_*\).  For every \(0\le\ell\le s_-\),
+\[
+ \ell\left|\sum_{i\in S}a_i\varphi(y_i)-T_\varphi\right|
+ \le 2\Delta_-+\frac{K\ell^2}{2c_-}.
+\]
+Consequently,
+\[
+ \left|\sum_{i\in S}a_i\varphi(y_i)-T_\varphi\right|
+ \le
+ \begin{cases}
+  2\sqrt{K\Delta_-/c_-},
+      &\Delta_-\le Ks_-^2/(4c_-),\\[2pt]
+  2\Delta_-/s_-+Ks_-/(2c_-),
+      &\Delta_->Ks_-^2/(4c_-).
+ \end{cases}
+\]
+There is no total-mass factor \(N\) in this error estimate.
+
+\paragraph{Proof.}
+Write \(I(y)=1_{\{y\ge d\}}\),
+\(J(y)=1_{\{y\ge(d+z)/2\}}\), and
+\[
+ m_\varphi=\frac{\varphi(z)-\varphi(d)}{z-d},\qquad
+ r_\varphi(y)=\varphi(y)-\varphi(0)-ym_\varphi
+ -I(y)\bigl(\varphi(d)-\varphi(0)-dm_\varphi\bigr).
+\]
+Since \(|m_\varphi|\le1\), subtraction of this affine function
+has Lipschitz constant at most \(2\).  At the anchors \(0,d,z\)
+the residual vanishes.  Choosing the anchor \(0\) for \(y<d\),
+\(d\) for \(d\le y<(d+z)/2\), and \(z\) above that midpoint gives
+\[
+ |r_\varphi(y)|
+ \le2|y-dI(y)-(z-d)J(y)|.
+\]
+The complete negative packet is
+\[
+ Q_-(y)=y^3-(2z+d)y^2+(z^2+2dz)y-dz^2I(y).
+\]
+On the selected set it equals \((y-d)(y-z)^2\).
+For \(0\le y<d\), its unselected expression is
+\[
+ Q_-(y)=y\bigl((y-z)^2+d(2z-y)\bigr)\ge z^2y\ge s_-y.
+\]
+For \(d\le y<(d+z)/2\), \(Q_-(y)\ge s_-(y-d)\);
+above the midpoint, \(Q_-(y)\ge c_-(y-z)^2\).
+These are the already proved negative coercivity inequalities.
+Completing the square in the upper region, and using
+\(0\le\ell\le s_-\) below it, proves for both \(\sigma=1,-1\)
+\[
+ Q_-(y)+\frac{\ell^2}{4c_-}J(y)
+ -\ell\sigma\bigl(y-dI(y)-(z-d)J(y)\bigr)\ge0.
+\]
+Thus
+\[
+ \ell |r_\varphi(y)|
+ \le2Q_-(y)+\frac{\ell^2}{2c_-}J(y).
+\]
+The exact root relation \(dzK=M(z-1+d)\), together with the two
+moment equalities, gives
+\(\sum_{i\in S}a_iQ_-(y_i)=\Delta_-\).
+The residual sum is exactly
+\[
+ \sum_{i\in S}a_ir_\varphi(y_i)
+ =\sum_{i\in S}a_i\varphi(y_i)
+ -\left[N\varphi(0)+K(\varphi(d)-\varphi(0))
+ +(M-dK)m_\varphi\right].
+\]
+The bracket is \(T_\varphi\).
+Sum the pointwise inequality with nonnegative weights and use
+\(\sum_{i\in S}a_iJ(y_i)\le K\) to obtain the asserted tilt.
+
+For completeness, the tilt optimization is a scalar statement now shared
+by both branches in Lean.  If \(x\ge0\) satisfies
+\(\ell x\le2e+k\ell^2/(2c)\) for \(0\le\ell\le s\), with
+\(e\ge0\) and \(k,c,s>0\), then \(e\le ks^2/(4c)\) first implies
+\(cx\le ks\) by taking \(\ell=s\).
+The admissible choice \(\ell=cx/k\) gives \(cx^2\le4ke\).
+In the other regime, \(\ell=s\) gives the stated linear bound.
+
+Finally \(K\le N\), and \(K>M\), \(z\ge1\) imply \(Kz-M>0\);
+\(M-dK>0\) supplies the other positive weight.
+Their sum is \(K\), their first moment is \(M\), and the root relation
+gives their second moment \(M\) and energy \(F_-\).
+All coordinates \(d,z\) are selected under the closed cutoff.
+This verifies admissibility and attainment for the real-weight problem.
+\hfill\(\square\)
+
+In particular, at fixed \(d,M,K,N\), energy excess tending to zero forces
+convergence of every Lipschitz statistic to this single explicit profile.
+At zero excess all these statistics agree exactly.  This complements the
+positive branch, where the cutoff atom is approached from the unselected
+side and fails the closed selected-mass constraint at the limit.
+It does not replace the separate discontinuous band-count estimates,
+nor remove the integer-lattice conditions for actual order weights.
+
+\paragraph{Corollary (complete signed zero-cluster consumer).}
+Let \(W\) be a finite cluster in \(0<\Re w<1\) at one height \(T\),
+\(|T|\ge2\), with weights \(a_w=\operatorname{ord}_w\zeta\).
+Write \(x_w=(\Re w-\tfrac12)^2\),
+\(M_1=\sum_Wa_wx_w>0\), \(M_2=\sum_Wa_wx_w^2\),
+\(N=\sum_Wa_w>0\), \(t=M_2/M_1\), and
+\(\kappa=M_1^2/M_2\).
+Use the proved threshold \(d=\texttt{momentRoundThreshold}\) and let
+\(K=\sum_{x_w/t\ge d}a_w>\kappa\).
+The normalized coordinates \(y_w=x_w/t\) have equal first and
+second moments \(\kappa\).
+With \(B_2\), \(g\mathcal B(T)\), and \(\tau>0\) denoting the
+complete signed second-order charge, profile upper budget, and proved
+cubic remainder floor from the preceding kernel ledger, set
+\[
+ \mathcal R_-=
+ \frac{g\mathcal B(T)-B_2}{\tau t^3}
+       -F_-(d,\kappa,K)\ge0.
+\]
+The same canonical profile, with \(M=\kappa\), satisfies
+\[
+ \ell\left|\sum_{w\in W}a_w\varphi(y_w)-T_\varphi\right|
+ \le2\mathcal R_-+\frac{K\ell^2}{2c_-},
+ \qquad 0\le\ell\le s_-.
+\]
+
+\paragraph{Proof.}
+The full signed ledger, the cubic remainder floor and the actual profile
+upper bound give
+\[
+ B_2+\tau t^3\sum_{w\in W}a_wy_w(y_w-1)^2
+ \le g\mathcal B(T).
+\]
+Divide by the positive \(\tau t^3\) and subtract the proved negative
+cost to obtain \(0\le\Delta_-\le\mathcal R_-\).
+Substitute in the finite weighted tilt above.
+In particular, the signed term \(B_2\) is retained throughout.
+No reflection assumption on \(W\) is used.
+\hfill\(\square\)
+
 \subsection{Complete feasible-mass region and the sharp inverse count}
 
 The preceding phase diagram fixes the moment mass and the selected order.
