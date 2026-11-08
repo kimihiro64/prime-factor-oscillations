@@ -8714,11 +8714,129 @@ Its constants are explicit, but no optimal leading constant is asserted.
 
 The finite even-weight conclusion does not by itself identify individual
 zeta orders as even: reflection gives even combined order on pairs.
-Applying this inverse theorem directly to an actual reflected cluster
-requires an orbit-profile construction or a proved paired version.
-The actual reflection-paired feasibility inequality above remains available;
-the present result does not assume that actual zeros meet its small-slack
-hypotheses.
+The exact orbit-profile construction in the next subsection transfers this
+inverse theorem while retaining the full critical-line multiplicity at zero.
+
+\subsection{The paired inverse for actual zeta orders}
+\label{subsec:paired-threshold-feasibility-stability}
+
+Reflection supplies the even weights needed by the preceding inverse theorem,
+without requiring any individual zeta order to be even.  The critical-line
+mass remains present throughout the construction and its compensation.
+
+\paragraph{Theorem (reflection-paired linear inverse).}
+Let \(W\) be any finite subset of \(0<\Re w<1\), closed under
+\(r(w)=1-\overline w\).  Write \(a_w=\operatorname{ord}_w\zeta\), with
+order zero at nonzeros, and put
+\[
+ N=\sum_{w\in W}a_w,\qquad
+ M_1=\sum_{w\in W}a_w(\Re w-\tfrac12)^2,\qquad
+ M_2=\sum_{w\in W}a_w(\Re w-\tfrac12)^4.
+\]
+Assume \(N>0\) and \(M_1>0\).  Then \(M_2>0\), and define
+\[
+ t=M_2/M_1>0,\qquad M=M_1^2/M_2>0,\qquad
+ y_w=(\Re w-\tfrac12)^2/t.
+\]
+For any \(0<d<1\), set
+\[
+ K=\sum_{\substack{w\in W\\y_w\ge d}}a_w,\qquad
+ A=M-dK,\qquad P=A^2+(4d-2)M-2d^2K.
+\]
+The proved moment and paired-feasibility inequalities imply \(A>0\)
+and \(P\ge0\).  Suppose further that
+\[
+ P\le dA,\qquad P<A^2/8.
+\]
+There is \(w\in W\) with \(\Re w>1/2\) and \(y_w>d\) whose distinct
+reflected partner also lies in \(W\), and
+\[
+ \operatorname{ord}_w\zeta=\operatorname{ord}_{r(w)}\zeta=1.
+\]
+Thus both members of this selected pair are simple zeros.
+For every globally \(1\)-Lipschitz \(\varphi:\mathbb R\to\mathbb R\),
+\[
+ \left|\sum_{w\in W}a_w\varphi(y_w)
+ -(N-K)\varphi(0)-(K-2)\varphi(d)
+ -2\varphi(d+A/2)\right|
+ \le P/d+4P/A.
+\]
+In particular, when \(P=0\), the selected simple pair is present and every
+such statistic agrees exactly with the displayed three-point reference.
+There is no common-height, lower-height or RH hypothesis.
+
+\paragraph{Proof: a simultaneous orbit profile.}
+Let \(R=\{w\in W:\Re w>1/2\}\), let
+\(L=\{w\in W:\Re w<1/2\}\), and retain the full central mass
+\[
+ C=\sum_{\substack{w\in W\\\Re w=1/2}}a_w.
+\]
+The zeta functional equation gives \(a_{r(w)}=a_w\) throughout the open
+strip, and \(y_{r(w)}=y_w\).  Reflection is a bijection from \(L\) to
+\(R\); every central point has \(y_w=0\).  Hence, for every function
+\(\varphi:\mathbb R\to\mathbb R\), without any regularity condition,
+\[
+ \sum_{w\in W}a_w\varphi(y_w)
+ =2\sum_{w\in R}a_w\varphi(y_w)+C\varphi(0).
+\]
+Choose a bijection from \(R\) to \(\{0,\ldots,n-1\}\) and let
+\(b_i\in\mathbb N\), \(z_i\ge0\) be the order and normalized coordinate
+of its inverse image.  This single profile satisfies, simultaneously for
+every \(\varphi\),
+\[
+ \sum_{w\in W}a_w\varphi(y_w)
+ =\sum_{i=0}^{n-1}2b_i\varphi(z_i)+C\varphi(0).
+\]
+Each \(i\) retains its actual right-half-plane carrier in \(W\), including
+both its individual order \(b_i\) and its coordinate \(z_i\).
+
+\paragraph{Proof: transfer of all moments and compensation.}
+The definitions and \(M_1,M_2>0\) give
+\[
+ \sum_{w\in W}a_wy_w=M_1/t=M,\qquad
+ \sum_{w\in W}a_wy_w^2=M_2/t^2=M.
+\]
+Use the simultaneous profile with \(\varphi(y)=y\) and \(y^2\).
+Since both vanish at zero, the profile has equal first and second
+moments \(M\).  Use it with the closed indicator
+\(I_d(y)=1_{\{y\ge d\}}\).  Because \(d>0\), \(I_d(0)=0\), so its
+selected mass is exactly the original \(K\).  Finally use the constant
+function one to obtain
+\[
+ N=N_p+C,\qquad N_p=\sum_{i=0}^{n-1}2b_i.
+\]
+The domain inequality gives \(A>0\), and paired feasibility gives \(P\ge0\).
+
+Apply the preceding integer feasibility inverse to the profile
+\((2b_i,z_i)\).  It produces an index \(j\) with \(b_j=1\), \(z_j>d\),
+and the bound \(P/d+4P/A\) relative to the reference with total mass
+\(N_p\).  Its carrier \(w\in R\) has order one and \(y_w>d\).
+The strip reflection identity gives order one at \(r(w)\).
+It is distinct from \(w\), because \(\Re w>1/2\).
+
+For clarity, if \(T_H(\varphi)\) denotes
+\[
+ T_H(\varphi)=(H-K)\varphi(0)+(K-2)\varphi(d)
+                  +2\varphi(d+A/2),
+\]
+then the full, exact compensation is
+\[
+ \sum_{w\in W}a_w\varphi(y_w)-T_N(\varphi)
+ =\sum_{i=0}^{n-1}2b_i\varphi(z_i)-T_{N_p}(\varphi).
+\]
+Indeed the \(C\varphi(0)\) contribution occurs on both sides of the
+comparison after \(N=N_p+C\) is substituted.  No central order is discarded.
+The profile bound now proves the stated full-cluster inequality.
+When \(P=0\), \(A>0\) makes both smallness conditions automatic, and
+the error is zero, while the selected simple pair persists.
+\hfill\(\square\)
+
+This gives a structural criterion on actual analytic orders, extending the
+abstract even-weight inverse through its exact orbit profile.  It does not
+prove that zeta clusters satisfy the small-slack assumptions independently;
+it therefore supplies neither global simplicity nor a new zero-free
+boundary.  The folding and finite reindexing use classical symmetry
+arguments; no general priority claim is made.
 
 \subsection{The complete region at fixed total order}
 

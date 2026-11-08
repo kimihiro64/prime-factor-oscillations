@@ -42,7 +42,13 @@ THRESHOLD_FEASIBILITY_THEOREMS: tuple[str, ...] = (
     "PrimeFactorOscillations.thresholdQuadratic_inverse_count",
     "PrimeFactorOscillations.thresholdQuadratic_mass_floor",
     "PrimeFactorOscillations.zeta_compensated_order_inverse_bound",
+    "PrimeFactorOscillations.zeta_finite_normalized_horizontal_moments",
+    "PrimeFactorOscillations.zeta_finite_reflection_profile",
+    "PrimeFactorOscillations.zeta_finite_reflection_statistic_fold",
     "PrimeFactorOscillations.zeta_finite_threshold_feasibility",
+    "PrimeFactorOscillations.zeta_finite_threshold_linear_stability",
     "PrimeFactorOscillations.zeta_finite_threshold_quadratic",
+    "PrimeFactorOscillations.zeta_finite_threshold_slack_domain",
+    "PrimeFactorOscillations.zeta_finite_threshold_zero_slack",
     "PrimeFactorOscillations.zeta_thresholdExcess_paired_square",
 )
