@@ -13,6 +13,7 @@ from scripts.even_directional_parity_proof_targets import EVEN_DIRECTIONAL_PARIT
 from scripts.even_integral_parity_proof_targets import EVEN_INTEGRAL_PARITY_THEOREMS
 from scripts.exact_residue_spacing_proof_targets import EXACT_RESIDUE_SPACING_THEOREMS
 from scripts.exact_window_profile_proof_targets import EXACT_WINDOW_PROFILE_THEOREMS
+from scripts.finite_euler_trace_proof_targets import FINITE_EULER_TRACE_THEOREMS
 from scripts.finite_real_packet_proof_targets import FINITE_REAL_PACKET_THEOREMS
 from scripts.fixed_scale_kernel_proof_targets import FIXED_SCALE_KERNEL_THEOREMS
 from scripts.fixed_total_sharpness_proof_targets import FIXED_TOTAL_SHARPNESS_THEOREMS
@@ -84,6 +85,7 @@ METAPLECTIC_THEOREMS: tuple[str, ...] = tuple(
         + RATIONAL_SINGLE_REAL_THEOREMS
         + RESIDUAL_BLOCK_THEOREMS
         + FINITE_REAL_PACKET_THEOREMS
+        + FINITE_EULER_TRACE_THEOREMS
         + NEAR_IDENTITY_PANEL_THEOREMS
         + PHASE_MULTIPLICITY_THEOREMS
         + LOCALIZED_MULTIPLICITY_THEOREMS

@@ -4706,6 +4706,50 @@
         "PrimeFactorOscillations.zeta_unit_residual_simplicity",
         "PrimeFactorOscillations.zeta_unit_residual_positive_order_line"
       ]
+    },
+    {
+      "id": "FT-TAIL",
+      "status": "compiled",
+      "claim": "For every integer N>=6, the complete sum of log(n)*n^(-5/2) over n>N is at most R_N=((2/3)*log N+4/9)/(N*sqrt N). Summability and the finite-integral comparison are proved. At N=100, R_N<1/250. No height restriction or finite sampling supplies the universal estimate.",
+      "declarations": [
+        "PrimeFactorOscillations.eulerUniformTail_eq_primitive",
+        "PrimeFactorOscillations.eulerLogProfile_summable",
+        "PrimeFactorOscillations.eulerLogProfile_sum_tail_from",
+        "PrimeFactorOscillations.eulerLogProfile_tsum_tail_from",
+        "PrimeFactorOscillations.eulerUniformTail_hundred"
+      ]
+    },
+    {
+      "id": "FT-PACKET",
+      "status": "compiled",
+      "claim": "For every real t and every integer N>=6, the full complex compensated Euler value zetaEulerLogDeriv(5/2+it)-(2/3)*zetaEulerLogDeriv(7/2+it) differs from the signed finite head over 0<=n<=N by norm at most R_N. The finite head retains coefficients Lambda(n)*(1-2/(3*n)) and all complex phases; only the omitted tail is bounded absolutely. The reflected real packet is even.",
+      "declarations": [
+        "PrimeFactorOscillations.compensatedEulerTerm_eq",
+        "PrimeFactorOscillations.compensatedEulerTerm_norm_le",
+        "PrimeFactorOscillations.compensatedEulerTerm_summable",
+        "PrimeFactorOscillations.compensatedEulerTerm_tsum",
+        "PrimeFactorOscillations.compensatedEulerPacket_error",
+        "PrimeFactorOscillations.compensatedEulerPacket_upper",
+        "PrimeFactorOscillations.compensatedEulerPacket_even"
+      ]
+    },
+    {
+      "id": "FT-ACTUAL",
+      "status": "compiled",
+      "claim": "For every N>=6 and |t|>=2, the actual xi zero-copy trace is at most an explicit finite signed arithmetic main term M_N(t) plus 70/1089+(18/5)*R_N, retaining the compensated gamma, inverse and pole corrections. Critical-line ordinate enclosures give known-copy lower weights q(|t-a_p|+e_p). Their residual budget certifies completeness and simplicity; U_N(t)<2 also bounds zeta order by one without witnesses. At N=100 the Euler tail consumes less than 1/50 of q(1), and the tail plus gamma allowance consumes less than 3/25 of q(1); hence a finite main residual below (22/25)*q(1) certifies a unit block, provided known values are distinct. No larger numerical window or new QRH boundary is asserted.",
+      "declarations": [
+        "PrimeFactorOscillations.compensatedXiScalar_neg",
+        "PrimeFactorOscillations.xi_finite_euler_scalar_upper",
+        "PrimeFactorOscillations.xi_finite_euler_trace_upper",
+        "PrimeFactorOscillations.zeta_multiplicity_finite_euler_bound",
+        "PrimeFactorOscillations.zeta_simplicity_finite_euler_bound",
+        "PrimeFactorOscillations.xi_unit_copy_enclosure_lower",
+        "PrimeFactorOscillations.finite_euler_residual_contains",
+        "PrimeFactorOscillations.finite_euler_residual_simplicity",
+        "PrimeFactorOscillations.finiteEuler_hundred_tail_charge",
+        "PrimeFactorOscillations.finiteEuler_hundred_full_error_charge",
+        "PrimeFactorOscillations.finite_euler_hundred_residual_simplicity"
+      ]
     }
   ],
   "novelty": "Priority for the combined explicit formulas has not been established; source classification and Gauss identities are classical."

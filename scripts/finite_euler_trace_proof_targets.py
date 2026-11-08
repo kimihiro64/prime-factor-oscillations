@@ -1,0 +1,27 @@
+# Finite signed Euler trace and quantitative residual simplicity certificates.
+
+FINITE_EULER_TRACE_THEOREMS: tuple[str, ...] = (
+    "PrimeFactorOscillations.compensatedEulerPacket_error",
+    "PrimeFactorOscillations.compensatedEulerPacket_even",
+    "PrimeFactorOscillations.compensatedEulerPacket_upper",
+    "PrimeFactorOscillations.compensatedEulerTerm_eq",
+    "PrimeFactorOscillations.compensatedEulerTerm_norm_le",
+    "PrimeFactorOscillations.compensatedEulerTerm_summable",
+    "PrimeFactorOscillations.compensatedEulerTerm_tsum",
+    "PrimeFactorOscillations.compensatedXiScalar_neg",
+    "PrimeFactorOscillations.eulerLogProfile_sum_tail_from",
+    "PrimeFactorOscillations.eulerLogProfile_summable",
+    "PrimeFactorOscillations.eulerLogProfile_tsum_tail_from",
+    "PrimeFactorOscillations.eulerUniformTail_eq_primitive",
+    "PrimeFactorOscillations.eulerUniformTail_hundred",
+    "PrimeFactorOscillations.finiteEuler_hundred_full_error_charge",
+    "PrimeFactorOscillations.finiteEuler_hundred_tail_charge",
+    "PrimeFactorOscillations.finite_euler_hundred_residual_simplicity",
+    "PrimeFactorOscillations.finite_euler_residual_contains",
+    "PrimeFactorOscillations.finite_euler_residual_simplicity",
+    "PrimeFactorOscillations.xi_finite_euler_scalar_upper",
+    "PrimeFactorOscillations.xi_finite_euler_trace_upper",
+    "PrimeFactorOscillations.xi_unit_copy_enclosure_lower",
+    "PrimeFactorOscillations.zeta_multiplicity_finite_euler_bound",
+    "PrimeFactorOscillations.zeta_simplicity_finite_euler_bound",
+)

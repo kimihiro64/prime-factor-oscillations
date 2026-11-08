@@ -8831,6 +8831,201 @@ through the multiplicity facade:
 \item \texttt{Assembly/CarmichaelResidualCertificate.lean}: six actual xi/zeta consumers.
 \end{itemize}
 
+\subsection{A finite arithmetic certificate with height-independent error}
+\label{sec:finite-euler-trace}
+
+The abstract upper bound \(U\) in Section~\ref{sec:residual-block} can be
+replaced by a finite signed arithmetic expression.  The number of Euler
+terms needed for a fixed analytic error does not increase with the center
+height.  This statement concerns truncation accuracy; it does not assert
+that the remaining signed budget is favorable at every height.
+
+For \(N\ge6\), define
+\[
+ R_N=\frac{\frac23\log N+\frac49}{N\sqrt N}.
+\]
+Put \(\Lambda(0)=0\) in the finite sums, with the zeroth summand interpreted
+as zero, and write
+\[
+ \begin{aligned}
+ A_N(t)&=-\sum_{n=1}^{N}
+   \frac{\Lambda(n)(1-\frac{2}{3n})}{n^{5/2+it}},\\
+ e_N(t)&=\frac{\Re A_N(t)+\Re A_N(-t)}2.
+ \end{aligned}
+\]
+These are the finite complex-power definitions maintained in Lean.
+Their usual real expansion is
+\[
+ e_N(t)=-\sum_{n=1}^{N}
+  \Lambda(n)\left(1-\frac{2}{3n}\right)n^{-5/2}\cos(t\log n).
+\]
+Thus every phase in the retained finite packet is kept.  The real expansion
+is a mathematical rewriting of the finite complex-power definition; the
+consumer uses that definition directly.
+
+Retain the complete compensated archimedean corrections
+\[
+ \begin{aligned}
+ G(u)&=\log(1+\tfrac{81}{4}u)
+       -\tfrac23\log(1+\tfrac{121}{4}u),\\
+ P(y)&=\frac{3/2}{(3/2)^2+y}
+       -\frac23\frac{5/2}{(5/2)^2+y},\\
+ J(y)&=\frac{9/4}{(9/4)^2+y/4}
+       -\frac23\frac{11/4}{(11/4)^2+y/4}.
+ \end{aligned}
+\]
+For \(|t|\ge2\), set
+\[
+ \begin{aligned}
+ M_N(t)={}&\frac35\log|t|-\frac35\log(2\pi)
+  +\frac9{10}G(1/t^2)+\frac{18}{5}P(t^2)\\
+ &-\frac9{10}J(t^2)+\frac{18}{5}e_N(t),\\
+ U_N(t)={}&M_N(t)+\frac{70}{1089}+\frac{18}{5}R_N.
+ \end{aligned}
+\]
+
+\paragraph{Finite trace theorem.}
+Unconditionally, for every integer \(N\ge6\) and every real \(t\),
+\begin{equation}
+ \left|\frac{\zeta'}{\zeta}(\tfrac52+it)
+       -\frac23\frac{\zeta'}{\zeta}(\tfrac72+it)-A_N(t)\right|
+ \le R_N.
+ \label{eq:finite-euler-error}
+\end{equation}
+For every \(|t|\ge2\), the actual trace from the preceding section satisfies
+\begin{equation}
+ \mathcal T(t)\le U_N(t).
+ \label{eq:finite-euler-trace}
+\end{equation}
+Consequently every \(w\) in the open critical strip with \(|\Im w|\ge2\)
+satisfies
+\[
+ \operatorname{ord}_w\zeta\le U_N(\Im w).
+\]
+In particular, \(U_N(\Im w)<2\) certifies order at most one without requiring
+any list of zero witnesses.
+
+\paragraph{Proof.}
+The logarithmic derivative series converges absolutely on both evaluation
+lines.  Its complete compensation has coefficient
+\(\Lambda(n)(1-2/(3n))\), since the second evaluation line is one unit to
+the right of the first.  For \(n\ge1\),
+\[
+ 0\le1-\frac{2}{3n}\le1,\qquad 0\le\Lambda(n)\le\log n.
+\]
+Only after subtracting the entire signed finite head do we take the norm
+of the omitted series.  Its norm is at most
+\(\sum_{n>N}\log n\,n^{-5/2}\), uniformly in \(t\).
+
+The function \(f(x)=\log x\,x^{-5/2}\) is nonnegative and decreasing for
+\(x\ge6\), because
+\(f'(x)=x^{-7/2}(1-\frac52\log x)\le0\) there.  Its primitive is
+\[
+ F(x)=-x^{-3/2}\left(\frac23\log x+\frac49\right).
+\]
+For every finite tail length \(L\), monotonicity gives
+\[
+ \sum_{j=1}^{L}f(N+j)
+ \le\int_N^{N+L}f(x)\,dx
+ =F(N+L)-F(N)\le-F(N).
+\]
+The log-series summability theorem justifies the limit \(L\to\infty\),
+which proves \eqref{eq:finite-euler-error}.  In particular, this is not
+a numerical check at selected heights.
+
+Use the previously proved exact xi logarithmic-derivative identity on the
+two lines, and its compensated real digamma estimate at
+\(9/4+it/2\) and \(11/4+it/2\).  Substitute the finite Euler upper bound,
+retaining the pole term \(P\), the inverse correction \(J\), and both
+gamma logarithms in \(G\).  Normalize by \(18/5\), then average the
+identities at \(t\) and \(-t\).  The signed finite Euler part becomes
+\(e_N(t)\), and the existing gamma remainder is \(70/1089\).
+This gives \eqref{eq:finite-euler-trace}.  Combining it with the existing
+full-strip multiplicity lower charge gives the order bound; integrality
+gives the simplicity test. \(\square\)
+
+\paragraph{Enclosed-witness certificate.}
+Let \(S\) be any finite set of xi multiplicity copies whose values are on
+the critical line.  Suppose \(a_p\in\mathbb R\), \(d_p\ge0\), and
+\[
+ |\gamma_p-a_p|\le d_p\qquad(p\in S).
+\]
+The contribution of each chosen copy has the explicit lower bound
+\[
+ K(0,t-\gamma_p)\ge
+ \ell_p(t):=q\bigl(|t-a_p|+d_p\bigr).
+\]
+This holds even when the witness lies outside the target block:
+the center identity \(K(0,y)=q(y)\) and monotonicity of \(q\) in
+\(|y|\) hold for all real \(y\).  Indeed,
+\[
+ |t-\gamma_p|\le |t-a_p|+|\gamma_p-a_p|\le |t-a_p|+d_p.
+\]
+Therefore, for \(0\le H\le1\), the entirely explicit inequality
+\begin{equation}
+ U_N(t)-\sum_{p\in S}\ell_p(t)<q(H)
+ \label{eq:finite-euler-enclosed-budget}
+\end{equation}
+implies that every zero copy in the block \(|t-\gamma|\le H\) belongs
+to \(S\).  If the values of the chosen copies are distinct, every zeta
+order in that block is at most one.  This is the actual residual theorem
+with its former abstract upper-bound hypothesis discharged by
+\eqref{eq:finite-euler-trace} and its individual lower-weight hypotheses
+discharged by the enclosure inequality.
+
+\paragraph{A fixed 100-term budget.}
+The following strict rational allowances are proved:
+\[
+ \frac{18}{5}R_{100}<\frac1{50}q(1),\qquad
+ \frac{70}{1089}+\frac{18}{5}R_{100}<\frac3{25}q(1),
+ \qquad q(1)=\frac{18}{25}.
+\]
+For the first inequality, \(\log100<5\), \(\sqrt{100}=10\), and the
+tail formula give \(R_{100}<1/250\); multiplication by \(18/5\)
+finishes the comparison.  The second is then rational arithmetic.
+For completeness, the logarithm certificate uses
+\[
+ \log5-\log6\le-\frac16,\quad
+ \log6=\log2+\log3<\frac95,\quad
+ \log100=2(\log2+\log5)<5,
+\]
+with the existing explicit bounds on \(\log2,\log3\).
+
+It follows that
+\begin{equation}
+ M_{100}(t)-\sum_{p\in S}\ell_p(t)
+    <\frac{22}{25}q(1)
+ \label{eq:hundred-euler-budget}
+\end{equation}
+certifies simplicity throughout the unit block, under the same distinctness
+and enclosure hypotheses.  The Euler tail alone consumes less than 2\%
+of one-copy charge; the tail and the retained gamma allowance together
+consume less than 12\%.  These percentages are uniform for every
+\(|t|\ge2\).  Increasing height therefore does not force more Euler terms
+for this analytic allowance, although argument-evaluation precision and
+the work of covering a whole height range remain separate costs.
+
+The remaining condition is \eqref{eq:hundred-euler-budget} itself:
+the favorable sign and size of the finite main residual have not been
+proved at arbitrary heights.  Neither the 88\% allowance nor the
+height-independent truncation error establishes a new numerical window,
+a simplicity theorem for all zeros, or a QRH improvement.  Certified
+transcendental evaluations and zero witnesses are still needed to apply
+the finite certificate to a larger range.
+
+Dirichlet-series truncation and the general completeness principle cited
+in the preceding section are classical.  The specific maintained result
+is their explicit coupling to the sharp rational block charge and the
+actual xi divisor-copy index, including the fixed 100-term allowance.
+Broad priority for this general strategy is not asserted.
+The 23 new proof bodies are maintained in:
+\begin{itemize}
+\item \texttt{Helpers/EulerUniformTail.lean}: five universal tail proofs;
+\item \texttt{Helpers/CompensatedEulerPacket.lean}: seven signed-packet proofs;
+\item \texttt{Assembly/CarmichaelFiniteTraceCertificate.lean}: eleven actual
+trace, enclosure and multiplicity consumers.
+\end{itemize}
+
 \subsection{Signed two-dimensional control of a zero cluster}
 \label{sec:cluster-multiplicity}
 
