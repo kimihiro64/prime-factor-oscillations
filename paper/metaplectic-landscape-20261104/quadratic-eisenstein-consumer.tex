@@ -9139,6 +9139,27 @@ It does not give an upper bound on the inverse difference or on
 multiplicity, and no inverse-carrier estimate is inferred from the
 additive logarithmic-derivative error bound above.
 
+\paragraph{Three-scale quotient regularization.}
+Under the same local factorization, the complete quotient satisfies
+\[
+ \lim_{\substack{h\to0\\h\ne0}}
+ \frac{f(\rho+h)\,f(\rho+3h)^3}{f(\rho+2h)^4}
+ =\left(\frac{27}{16}\right)^m.
+\]
+For sufficiently small nonzero \(h\), its denominator is nonzero and
+the quotient equals
+\[
+ \left(\frac{27}{16}\right)^m
+ \frac{g(\rho+h)\,g(\rho+3h)^3}{g(\rho+2h)^4}.
+\]
+The last factor tends to one by continuity and \(g(\rho)\ne0\).
+This classical local calculation is formalized by
+\texttt{Complex.tendsto\_three\_scale\_ratio\_of\_factor} in
+\texttt{Mathlib/Analysis/Complex/TwoScaleInverse.lean}, for every
+natural \(m\), including zero, without an RH premise.
+The independent arithmetic upper bound on this quotient remains open;
+no absolute multiplicity bound is claimed.
+
 \subsection{Signed two-dimensional control of a zero cluster}
 \label{sec:cluster-multiplicity}
 
