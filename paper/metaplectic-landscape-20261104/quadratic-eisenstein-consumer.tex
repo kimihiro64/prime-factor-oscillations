@@ -9198,6 +9198,197 @@ finite-profile inverse, fixed integer-weight rate witness and actual-order
 consumer are the results proved here; the limited literature check does
 not establish general priority.
 
+\subsection{A sharp linear inverse for one selected radial level}
+\label{subsec:single-selected-linear}
+
+The square-root loss in the preceding theorem comes from variation
+\emph{within} the selected layer.  When that layer has only one level,
+the moment identity retains its signed displacement and gives a linear
+inverse.  Minimum positive even selected order supplies this hypothesis
+automatically.
+
+\paragraph{Theorem (exact cost and sharp linear stability).}
+Let \(S\) be finite, \(a_i\geq0\), \(y_i\in\mathbb R\), and \(0<d<1\).
+Write
+\[
+ I_d(y)=\mathbf1_{\{y\geq d\}},\quad
+ N=\sum_{i\in S}a_i,\quad
+ K=\sum_{i\in S}a_iI_d(y_i)>0,\quad
+ \sum_{i\in S}a_i y_i=\sum_{i\in S}a_i y_i^2=M.
+\]
+Suppose the selected weighted law is a single point mass: for some \(h\),
+\[
+ \sum_{i\in S}a_iI_d(y_i)\phi(y_i)=K\phi(h)
+ \qquad\text{for every }\phi:\mathbb R\longrightarrow\mathbb R.
+\]
+Set
+\[
+ v=\frac{1+\sqrt{1+4(N-K)d(1-d)/K}}2,\quad
+ U=(N-K)d+Kv,\quad \Delta=U-M,
+ \qquad L=\sum_{\substack{i\in S\\y_i<d}}a_i(d-y_i).
+\]
+Then \(v\geq1>d\), \(\Delta\geq0\), and the exact globally
+\(1\)-Lipschitz statistic error is
+\begin{align}
+ \mathcal C&:=
+ \sup_{\operatorname{Lip}(\phi)\leq1}
+ \left|\sum_{i\in S}a_i\phi(y_i)-(N-K)\phi(d)-K\phi(v)\right| \notag\\
+ &=L+|\Delta-L|
+ \leq c(d,v)\Delta,\qquad
+ c(d,v)=\max\left\{1,\frac{v+d-1}{v-d}\right\}.
+ \label{eq:single-selected-linear}
+\end{align}
+The single test \(\phi_v(y)=|y-v|\) attains this supremum.
+If \(d\leq\tfrac12\), then \(c(d,v)=1\) and
+\(\mathcal C=\Delta\).
+
+For every fixed \(J=N-K>0\), \(K>0\), and \(0<d<1\), this coefficient
+is optimal even arbitrarily close to the upper boundary: for every
+\(c<c(d,v)\) and \(\eta>0\), a nonnegative two-site profile with these
+same masses satisfies \(0<\Delta<\eta\) and
+\(\mathcal C>c\Delta\).  For \(J=2m\), \(K=2\), \(m\geq1\) integral,
+the witnesses have even integer weights \(2m,2\).
+The positive-gap sharpness assertion requires \(J>0\).
+On the diagonal \(N=K\), a single selected level instead forces
+\(h=v=1\), so \(\Delta=\mathcal C=0\).
+
+\paragraph{Proof.}
+For any finite nonnegative weighted law and any \(v\geq d\), let
+\[
+ H=\sum_{\substack{i\in S\\y_i\geq d}}a_i|y_i-v|.
+\]
+Transporting each unselected coordinate to \(d\) and each selected
+coordinate to \(v\), and using the Lipschitz inequality on each signed
+difference, gives an error at most \(L+H\).  For the single test
+\(\phi_v\), every difference has exactly that sign and magnitude:
+\(\phi_v(y)-\phi_v(d)=d-y\) when \(y<d\), while
+\(\phi_v(y)-\phi_v(v)=|y-v|\) when \(y\geq d\).
+Thus the bound is attained, without a moment assumption.
+More generally this exact cost has the signed overshoot identity
+\[
+ L+H=U-M+
+       2\sum_{i\in S}a_i\max(y_i-v,0).
+\]
+This is an equality, retaining all overshoots.
+
+Under the single-selected-level hypothesis,
+\[
+ L=d(N-K)-M+Kh,\qquad
+ H=K|h-v|=|\Delta-L|.
+\]
+The full upper-boundary packet from the preceding section is
+\[
+ (2v-1)\Delta
+ =\sum_{\substack{i\in S\\y_i<d}}a_i(d-y_i)^2
+       +2(v-d)L
+       +\sum_{\substack{i\in S\\y_i\geq d}}a_i(y_i-v)^2.
+\]
+All three terms are nonnegative, so
+\(2(v-d)L\leq(2v-1)\Delta\).
+If \(L\leq\Delta\), then \(L+|\Delta-L|=\Delta\).
+If \(L>\Delta\), the same exact signed expression is \(2L-\Delta\),
+which is at most
+\[
+ \left(\frac{2v-1}{v-d}-1\right)\Delta
+ =\frac{v+d-1}{v-d}\Delta.
+\]
+This proves the coefficient without estimating selected displacement
+by a square-root norm.  For \(d\leq\tfrac12\), the latter quotient
+is at most \(1\).  The identity
+\(L+|\Delta-L|\geq\Delta\) then proves equality.
+
+For optimality fix \(J,K>0\) and, for \(0<e<d\), use weights \(J,K\)
+at the two coordinates
+\[
+ u_e=d-e,\qquad
+ h_e=\frac{1+\sqrt{1+4(J/K)(d-e)(1-d+e)}}2.
+\]
+Here \(0<u_e<d<1\leq h_e\), so the selected mass remains exactly
+\(K\) at the one level \(h_e\).  The defining quadratic gives equal
+first and second moments.  With \(v=h_0\), the exact identities are
+\[
+ K(h_e-v)(h_e+v-1)=Je(2d-1-e),\qquad
+ \Delta_e=Je-K(h_e-v),\qquad
+ \mathcal C_e=Je+K|h_e-v|.
+\]
+In particular \(0<\Delta_e\leq2Je\).  The denominators
+\(h_e+v-1\geq1\) and \(v-d>0\) never vanish.
+If \(d\leq\tfrac12\), the first identity forces \(h_e\leq v\);
+hence \(\mathcal C_e=\Delta_e\), proving sharpness of coefficient \(1\).
+If \(d>\tfrac12\), restrict also to \(e<2d-1\).  For any
+\(c<(v+d-1)/(v-d)\), retain the signed difference
+\[
+ \mathcal C_e-c\Delta_e=eG_c(e),\qquad
+ G_c(e)=J(1-c)+
+       \frac{(1+c)J(2d-1-e)}{h_e+v-1}.
+\]
+The function \(G_c\) is continuous at \(0\), and
+\[
+ G_c(0)=
+ \frac{2J(v-d)}{2v-1}
+       \left(\frac{v+d-1}{v-d}-c\right)>0.
+\]
+Thus the signed excess is positive for all sufficiently small
+positive \(e\).  Choosing also \(e\leq\eta/(4J)\) gives
+\(0<\Delta_e<\eta\).  Specializing \(J=2m,K=2\) preserves the
+integer weights throughout.
+Finally, when \(N=K\), all positive weight is selected and
+\(Kh^2=Kh\); since \(h\geq d>0\), this forces \(h=1\).
+\hfill\(\square\)
+
+\paragraph{Minimum selected order and actual zero clusters.}
+For weights \(2a_i\) with \(a_i\in\mathbb N\), selected mass \(2\)
+forces exactly one selected positive-weight index, of weight \(2\).
+Indeed the selected integer weights sum to \(1\) after division by
+\(2\); every other selected weight is zero.  This proves the
+single-level hypothesis for every test function, rather than merely
+for the first two moments.
+
+Now let \(W\) be a finite set in \(0<\Re w<1\), closed under
+\(w\mapsto1-\bar w\), weighted by the actual analytic orders of
+\(\zeta\).  Assume positive total order \(N\) and positive horizontal
+first moment \(M_1\), and put
+\[
+ t=M_2/M_1,\qquad y_w=(\Re w-\tfrac12)^2/t,\qquad
+ M=M_1^2/M_2.
+\]
+The proved normalization gives
+\(\sum_W a_wy_w=\sum_Wa_wy_w^2=M\).
+The proved reflection profile gives, simultaneously for every test,
+\[
+ \sum_{w\in W}a_w\phi(y_w)
+   =\sum_i2b_i\phi(z_i)+C\phi(0),
+ \qquad b_i\in\mathbb N,
+\]
+where \(C\) is the full critical-line order.
+If the closed selected order at \(d>0\) is \(2\), its central
+contribution is zero, so the integer argument applies to the reflected
+profile.  It produces a unique selected right-hand zero of order \(1\)
+and its distinct reflected partner of order \(1\), at a single radial
+level.  Applying \eqref{eq:single-selected-linear} to the
+\emph{full original cluster} gives the sharp linear inverse with its
+actual \(N\) and \(M\); for \(d\leq\tfrac12\), its exact cost is
+\(\Delta\).  All central orders remain in the unselected layer.
+In particular \(N\) may be odd.  No RH, common-height or lower-height
+hypothesis is used.
+
+\paragraph{Formal status and scope.}
+The exact cost, overshoot identity, linear coefficient, half-cutoff
+identity, arbitrarily small finite sharpness witnesses, minimum-order
+quantization and actual reflected-zeta applications are maintained
+Lean proofs.  The construction proves optimality among finite
+moment profiles; it does not assert that its extremizing profiles
+are realized by actual zeta zeros.  An independent small-gap estimate
+would still be needed for a global simplicity or zero-free result.
+The exact one-dimensional Lipschitz-cost mechanism is classical;
+see S.~S.~Vallender, \emph{Calculation of the Wasserstein Distance
+Between Probability Distributions on the Line},
+Theory Probab.\ Appl.\ 18 (1974), 784--786,
+\url{https://doi.org/10.1137/1118101}.
+The specific coefficient and its quantized application are the
+additions established here; the limited literature check does not
+establish a priority claim.
+
 \subsection{Sharp radial support and exact two-layer reconstruction}
 \label{sec:radial-support-inverse}
 

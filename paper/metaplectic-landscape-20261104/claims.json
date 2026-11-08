@@ -4943,6 +4943,65 @@
       "declarations": [
         "PrimeFactorOscillations.zeta_finite_threshold_total_stability"
       ]
+    },
+    {
+      "id": "TT-SINGLE-COST",
+      "status": "compiled",
+      "claim": "For finite nonnegative weights, arbitrary real coordinates and reference endpoints d<=v, the single globally1-Lipschitz test |y-v| attains the exact error over all globally1-Lipschitz tests. Exact cost equals low displacement plus selected absolute displacement and, relative to the reference first moment, equals its deficit plus twice every overshoot. Under equal first/second moments, 0<d<1, positive selected mass and a single selected Dirac law, exact cost is L+|Delta-L| and is at most max(1,(v+d-1)/(v-d))*Delta. For d<=1/2 exact cost equalsDelta. Every finite sum retains its ambient finite support.",
+      "declarations": [
+        "PrimeFactorOscillations.thresholdAbsoluteProbe_lipschitz",
+        "PrimeFactorOscillations.thresholdTotal_absolute_potential",
+        "PrimeFactorOscillations.finiteWeighted_total_potential_identity",
+        "PrimeFactorOscillations.finiteWeighted_total_exact_cost",
+        "PrimeFactorOscillations.thresholdAbsoluteProbe_overshoot",
+        "PrimeFactorOscillations.finiteWeighted_total_overshoot_identity",
+        "PrimeFactorOscillations.thresholdSingle_linear_bound",
+        "PrimeFactorOscillations.thresholdSingleCoefficient_half",
+        "PrimeFactorOscillations.finiteWeighted_single_level_linear",
+        "PrimeFactorOscillations.finiteWeighted_single_level_half"
+      ]
+    },
+    {
+      "id": "TT-SINGLE-QUANTUM",
+      "status": "compiled",
+      "claim": "A finite profile with even natural weights and selected mass exactly2 has a unique selected positive-weight index, of unit underlying natural weight; its selected law is a Dirac for every test. This supplies the sharp linear inverse and exact half-cutoff deficit bound. For actual analytic orders in a finite open-strip set closed under horizontal reflection, positive scale t and selected order exactly2, the selected law is one Dirac and its carrier is a distinct reflected pair of simple zeros. Critical-line orders need not be even.",
+      "declarations": [
+        "PrimeFactorOscillations.finiteEven_selected_minimal",
+        "PrimeFactorOscillations.finiteEven_minimal_selected_linear",
+        "PrimeFactorOscillations.finiteEven_minimal_selected_half",
+        "PrimeFactorOscillations.zeta_selected_two_dirac"
+      ]
+    },
+    {
+      "id": "TT-SINGLE-SHARP",
+      "status": "compiled",
+      "claim": "For each fixed J>0,K>0 and 0<d<1, the two-site family with weights J,K and coordinates d-e, thresholdModelHigh J K (d-e) preserves equal first/second moments and selected mass K, has 0<Delta<=2*J*e, and violates every smaller proposed coefficient than max(1,(v+d-1)/(v-d)) at arbitrarily small positive deficits. Actual finite witness mass, moments, selected mass and absolute-test cost are proved. The specialization J=2*m,K=2 for every positive natural m gives thresholdTotalAdmissible even-integer witnesses. Positive-gap sharpness excludes J=0 and no actual-zero realization is asserted.",
+      "declarations": [
+        "PrimeFactorOscillations.thresholdSingleFamily_root_difference",
+        "PrimeFactorOscillations.thresholdSingleFamily_gap_bounds",
+        "PrimeFactorOscillations.thresholdSingleSlopeTest_zero_pos",
+        "PrimeFactorOscillations.thresholdSingleSlopeTest_continuousAt_zero",
+        "PrimeFactorOscillations.thresholdSingleSlopeTest_near_zero",
+        "PrimeFactorOscillations.thresholdSingleFamily_signed_excess",
+        "PrimeFactorOscillations.thresholdSingleFamily_sharp_above_half",
+        "PrimeFactorOscillations.thresholdSingleFamily_cost_eq_gap",
+        "PrimeFactorOscillations.thresholdSingleFamily_sharp_at_most_half",
+        "PrimeFactorOscillations.thresholdSingleFamily_sharp_coefficient",
+        "PrimeFactorOscillations.thresholdSinglePair_sum",
+        "PrimeFactorOscillations.thresholdSinglePair_data",
+        "PrimeFactorOscillations.thresholdSinglePair_cost",
+        "PrimeFactorOscillations.thresholdSinglePair_sharp",
+        "PrimeFactorOscillations.finiteEven_minimal_selected_sharp"
+      ]
+    },
+    {
+      "id": "TT-SINGLE-ZETA",
+      "status": "compiled",
+      "claim": "For finite open-strip complex sets closed under horizontal reflection, with actual zeta analytic orders, positive total order, positive horizontal first moment and normalized selected order exactly2, the selected pair is simple and the full cluster satisfies the exact-cost and sharp linear inverse. For cutoff d<=1/2 its exact globally1-Lipschitz error equals the upper moment deficit. Full critical-line order is retained, total order may be odd, and no RH, common-height or lower-height premise is used. No independent global gap, simplicity or zero-free improvement is claimed.",
+      "declarations": [
+        "PrimeFactorOscillations.zeta_finite_selected_two_linear",
+        "PrimeFactorOscillations.zeta_finite_selected_two_half"
+      ]
     }
   ],
   "novelty": "Priority for the combined explicit formulas has not been established; source classification and Gauss identities are classical."
