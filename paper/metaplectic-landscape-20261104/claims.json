@@ -5002,6 +5002,50 @@
         "PrimeFactorOscillations.zeta_finite_selected_two_linear",
         "PrimeFactorOscillations.zeta_finite_selected_two_half"
       ]
+    },
+    {
+      "id": "TT-EVEN-RATE-FAMILY",
+      "status": "compiled",
+      "claim": "For every natural m>=0,k>=2 and 0<d<1, a rational rotation of two selected unit carriers defines an explicit four-site profile with fixed natural orders m,1,1,k-2, total even mass2m+2k, equal first/second moments, and closed selected mass2k for every sufficiently small positive q. The full deficit is the original two-site gap plus the positive rotation correction and satisfies0<Delta<=(8*m+4)*q^2. The low-mass-zero and zero-leftover-order cases are included; q0 is used for continuity only.",
+      "declarations": [
+        "PrimeFactorOscillations.thresholdRotation_moment",
+        "PrimeFactorOscillations.thresholdRotation_radius_lower",
+        "PrimeFactorOscillations.thresholdEvenSplit_sum",
+        "PrimeFactorOscillations.thresholdEvenSplit_total",
+        "PrimeFactorOscillations.thresholdEvenSplit_first",
+        "PrimeFactorOscillations.thresholdEvenSplit_equal_moments",
+        "PrimeFactorOscillations.thresholdEvenSplit_high_bounds",
+        "PrimeFactorOscillations.thresholdEvenSplit_gap_bounds",
+        "PrimeFactorOscillations.thresholdEvenSplit_window",
+        "PrimeFactorOscillations.thresholdEvenSplit_admissible"
+      ]
+    },
+    {
+      "id": "TT-EVEN-RATE-SHARP",
+      "status": "compiled",
+      "claim": "For every fixed natural m>=0,k>=2 and cutoff0<d<1, the same finite even profiles have exact absolute-test errorD>=2*q, arbitrarily small positive deficits, and Delta<=(2*m+1)*D^2. Every proposed uniform Holder estimateD<=C*Delta^h with h>1/2 and C>=0 fails at arbitrarily small positive deficits on that same fixed face. For k1 and each fixed positive m, the prior fixed-weight single-level family similarly defeats every exponenth>1 (for every real C). The absolute test is globally1-Lipschitz by the maintained thresholdAbsoluteProbe theorem and attains the exact statistic norm by the maintained finiteWeighted_total_exact_cost theorem. These are finite-profile witnesses, not asserted actual-zero configurations.",
+      "declarations": [
+        "PrimeFactorOscillations.thresholdEvenSplit_error_lower",
+        "PrimeFactorOscillations.thresholdEvenSplit_arbitrarily_small",
+        "PrimeFactorOscillations.thresholdEvenSplit_no_better_holder",
+        "PrimeFactorOscillations.finiteEven_single_no_better_holder"
+      ]
+    },
+    {
+      "id": "TT-EVEN-RATE-RIGID",
+      "status": "compiled",
+      "claim": "For every finite profile of even natural weights with nonnegative coordinates, equal first/second moments, total mass2, selected mass2 and cutoffd>0, the common moment is exactly2 and the full weighted law is2*Dirac(1) for every test function. No d<1 hypothesis is required for this rigidity implication; d>1 makes its premises impossible.",
+      "declarations": [
+        "PrimeFactorOscillations.finiteEven_single_selected_diagonal"
+      ]
+    },
+    {
+      "id": "TT-EVEN-RATE-UPPER",
+      "status": "compiled",
+      "claim": "For all natural m>=0,k>0 and every finite even-integral thresholdTotalAdmissible profile at fixed N2m+2k,K2k, cutoff0<d<1 and upper deficitDelta<=1, Delta is nonnegative and every globally1-Lipschitz statistic error is at most[(2v-1)/(2(v-d))+sqrt(K*(2v-1))]*sqrt(Delta), with v=thresholdModelHigh(2m,K,d)>=1>d. The coefficient is finite on the exact stated domain. Together with the new lower witnesses and the prior sharp single-level theorem, this supplies the complete positive-selected-mass rate classification, including the rigid N=K=2 face.",
+      "declarations": [
+        "PrimeFactorOscillations.finiteEven_upper_half_holder"
+      ]
     }
   ],
   "novelty": "Priority for the combined explicit formulas has not been established; source classification and Gauss identities are classical."

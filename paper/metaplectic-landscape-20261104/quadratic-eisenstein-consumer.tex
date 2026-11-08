@@ -9389,6 +9389,167 @@ The specific coefficient and its quantized application are the
 additions established here; the limited literature check does not
 establish a priority claim.
 
+\subsection{The complete stability-rate dichotomy for even profiles}
+\label{subsec:even-threshold-rate-dichotomy}
+
+The single-level theorem identifies a genuine change of regularity at the
+smallest positive selected order.  We can now classify the optimal uniform
+rate on every fixed even-mass face, rather than at one numerical example.
+All statements in this subsection concern finite profiles with weights
+\(2a_i\), \(a_i\in\mathbb N\), nonnegative coordinates, equal first and
+second moments \(M\), total mass \(N=2m+2k\), and closed selected mass
+\(K=2k>0\).  Fix \(0<d<1\), put
+\[
+ v=\operatorname{thresholdModelHigh}(2m,2k,d),\qquad
+ \Delta=U_d(N,K)-M,
+\]
+and let \(\mathcal C\) denote the exact globally \(1\)-Lipschitz error
+against \((N-K)\delta_d+K\delta_v\).
+
+\paragraph{Theorem (classification at fixed masses and cutoff).}
+For \(0\leq\Delta\leq1\), every such profile satisfies
+\[
+ \mathcal C\leq
+ A_{d,m,k}\sqrt{\Delta},\qquad
+ A_{d,m,k}=\frac{2v-1}{2(v-d)}+\sqrt{2k(2v-1)}.
+\]
+The constant is finite and depends only on the fixed constraints.
+The optimal uniform exponents are as follows:
+\[
+\begin{array}{c|c}
+ \text{fixed mass face}&\text{behaviour near the upper boundary}\\ \hline
+ k=1,\ m=0& M=2,\quad \mathcal C=\Delta=0\\
+ k=1,\ m\geq1&\text{optimal linear rate, with coefficient }c(d,v)\\
+ k\geq2,\ m\geq0&\text{optimal square-root rate}
+\end{array}
+\]
+Here optimality is local and uniform over the entire profile class with
+these fixed constraints.  In the last row, for every \(\varepsilon>0\)
+there is an admissible profile with
+\begin{equation}
+ 0<\Delta<\varepsilon,\qquad
+ 0<\mathcal C,\qquad
+ \Delta\leq(2m+1)\mathcal C^2.
+ \label{eq:even-threshold-rate-lower}
+\end{equation}
+More strongly, for every \(\alpha>\tfrac12\), \(C\geq0\), and
+\(\varepsilon>0\), such a profile has
+\(\mathcal C>C\Delta^\alpha\).
+In the middle row the analogous assertion holds for every
+\(\alpha>1\), and the preceding section already gives the optimal
+linear coefficient.
+
+\paragraph{Proof of the upper estimate and rigid face.}
+The complete signed packet gives \(\Delta\geq0\) and the previously
+proved bound
+\[
+ \mathcal C\leq
+ \frac{(2v-1)\Delta}{2(v-d)}
+       +\sqrt{K(2v-1)\Delta}.
+\]
+For \(0\leq\Delta\leq1\), one has \(\Delta\leq\sqrt{\Delta}\);
+factoring the square root gives the displayed constant.
+Its denominator is positive because \(v\geq1>d\).
+
+If \(k=1\), minimum selected order forces a single selected carrier,
+so the preceding linear theorem applies.  When also \(m=0\), total
+order is \(2\).  Applying integer quantization at cutoff \(0\) leaves
+one positive-weight coordinate \(y\), of weight \(2\).  Selection at
+\(d>0\) gives \(y>0\), and the two moment equations give
+\(2y=2y^2=M\).  Hence \(y=1\) and every test statistic is exactly
+\(2\phi(1)\).  For \(m\geq1\), the preceding fixed-weight sharpness
+family supplies arbitrarily small positive deficits with error
+greater than \(\Delta/2\).
+If \(\alpha>1\), continuity of
+\(2C x^{\alpha-1}\) at \(0\) makes it less than \(1\) on a sufficiently
+small positive interval.  The same witnesses then satisfy
+\(C\Delta^\alpha<\Delta/2<\mathcal C\).
+
+\paragraph{Uniform fixed-weight construction for \(k\geq2\).}
+Write \(J=2m\), \(K=2k\), and, for small \(q>0\), set
+\[
+ u=d-q^2,\qquad a=\operatorname{thresholdModelHigh}(J,K,u),\qquad
+ c=a-\frac{(2a-1)q^2}{1+q^2},\qquad
+ R=\frac{(2a-1)q}{1+q^2}.
+\]
+Use the four coordinates and their fixed natural orders
+\[
+\begin{array}{c|cccc}
+ \text{coordinate}&u&c+R&c-R&a\\
+ \text{order}&m&1&1&k-2 .
+\end{array}
+\]
+Their weights are twice these orders.  The order \(k-2\) may be zero.
+The rational rotation obeys the exact identity
+\[
+ c^2+R^2-c=a^2-a.
+\]
+Consequently the two selected unit carriers preserve their contribution
+to the signed second-minus-first moment.  The defining identity
+\(Ju^2+Ka^2=Ju+Ka\) proves the full moment law, with every one of
+the four contributions retained.  Total mass is \(J+K\).
+As \(q\to0\), the three selected coordinates tend to \(v\geq1>d\);
+hence they remain above \(d\) on a sufficiently small interval.
+Meanwhile \(0\leq u<d\) there.  Thus the closed selected mass remains
+exactly \(K\).  The value \(q=0\) is used only for continuity; the
+witnesses always have \(q>0\).
+
+Let \(\Delta_0=Je-K(a-v)\) with \(e=q^2\), the original two-site
+moment deficit.  The full new deficit is exactly
+\[
+ \Delta_q=\Delta_0+
+            \frac{4(2a-1)q^2}{1+q^2}.
+\]
+The previous two-site bounds give \(0\leq\Delta_0\leq2Jq^2\).
+They include \(J=0\), where \(\Delta_0=0\) directly.
+Also \(a\geq1\), and the model moment equation with \(K\geq4\)
+gives \(4(a-1)\leq J\).  Therefore
+\[
+ 0<\Delta_q\leq(4J+4)q^2=(8m+4)q^2.
+\]
+No positive rotation correction has been omitted.
+
+The fixed test \(\phi_v(y)=|y-v|\) attains the exact error.
+Expanding its signed error gives
+\[
+ \mathcal C_q=Jq^2+2|c+R-v|+2|c-R-v|+(K-4)|a-v|.
+\]
+All displayed terms are nonnegative.  The middle pair is at least
+\(2|(c+R)-(c-R)|=4R\).  Since \(a\geq1\) and \(0<q\leq1\),
+one has \(R\geq q/2\), and hence \(\mathcal C_q\geq2q>0\).
+Combining this with the full deficit bound proves
+\eqref{eq:even-threshold-rate-lower}.  Taking \(q\) sufficiently small
+also gives \(\Delta_q<\varepsilon\), preserving the same cutoff,
+total order and selected order.
+
+Finally put \(L=2m+1>0\).  If \(\alpha>\tfrac12\), then
+\(L C^2x^{2\alpha-1}\to0\) as \(x\downarrow0\).
+Choose a witness with
+\(L C^2\Delta_q^{2\alpha-1}<1\).
+An assumed bound \(\mathcal C_q\leq C\Delta_q^\alpha\) would imply
+\[
+ 0<\Delta_q
+ \leq L\mathcal C_q^2
+ \leq L C^2\Delta_q^{2\alpha}
+ <\Delta_q,
+\]
+a contradiction.  This proves the optimal exponent on every stated
+fixed face, including \(m=0\).
+\hfill\(\square\)
+
+\paragraph{Meaning and formal scope.}
+The classification separates what quantized moment data alone can force:
+minimum positive selected order enforces linear stability, while a second
+selected unit carrier allows a moment-preserving split of square-root size.
+The maintained Lean statements include the finite family, its cutoff window,
+the quantitative deficit and statistic bounds, arbitrarily small witnesses,
+both no-better-H\"older assertions, the rigid face, and the uniform
+half-power upper estimate.  The sharpness examples are finite profiles;
+their realization by actual zeta zeros is not asserted.  The general
+moment and transport mechanisms are classical background, and the
+literature comparison establishes no priority claim for this particular
+fixed-weight classification.
+
 \subsection{Sharp radial support and exact two-layer reconstruction}
 \label{sec:radial-support-inverse}
 
