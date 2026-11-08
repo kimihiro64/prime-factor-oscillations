@@ -5046,6 +5046,48 @@
       "declarations": [
         "PrimeFactorOscillations.finiteEven_upper_half_holder"
       ]
+    },
+    {
+      "id": "TT-COLLISION-BUDGET",
+      "status": "compiled",
+      "claim": "For every finite nonnegative real-weight equal-first/second-moment profile,0<d<1,K>0, the exact signed upper ledger retains low square Q, low distance L and mean drift: (2v-1)Delta=V+Q+2(v-d)L+(L-Delta)^2/K. It implies the global selected variance bound V<=(2v-1)Delta-Delta^2/K+max(Delta-K(v-d),0)^2/K, with no small-deficit restriction and no sign assumption on coordinates. Denominators K and v-d are positive.",
+      "declarations": [
+        "PrimeFactorOscillations.finiteWeighted_selected_parallel_axis",
+        "PrimeFactorOscillations.finiteWeighted_selected_mean_ledger",
+        "PrimeFactorOscillations.finiteWeighted_selected_variance_ledger",
+        "PrimeFactorOscillations.thresholdVarianceBudget_from_ledger",
+        "PrimeFactorOscillations.finiteWeighted_selected_variance_budget"
+      ]
+    },
+    {
+      "id": "TT-COLLISION-RIGIDITY",
+      "status": "compiled",
+      "claim": "For finite profiles of even natural weights, separated distinct positive-weight selected radial levels obey K*V>=2*(K-2)*g^2. Under the equal-moment and cutoff assumptions, budget strictly below2*(K-2)*g^2/K forces an exact selected Dirac and the maintained sharp full globally1-Lipschitz linear inverse. The separation hypothesis concerns radial coordinates, not zero height or multiplicity.",
+      "declarations": [
+        "PrimeFactorOscillations.finiteEven_selected_separation_variance",
+        "PrimeFactorOscillations.finiteEven_selected_collision_rigidity",
+        "PrimeFactorOscillations.finiteEven_selected_collision_linear"
+      ]
+    },
+    {
+      "id": "TT-COLLISION-SHARP",
+      "status": "compiled",
+      "claim": "For every fixed k>=2 and0<d<1, explicit two-site natural orders1,k-1 give total=selected=2k and equal positive moments for every0<q<=min(1,(1-d)/(2k)). They have distinct selected coordinates, gapg>0 and exact V=budget=2*(K-2)*g^2/K. The independent parameter-choice theorem gives arbitrarily small positive deficits for each fixedk,d. This proves sharpness inside the all-selected moment law; no every-N>K sharpness or actual-zero realization is asserted.",
+      "declarations": [
+        "PrimeFactorOscillations.thresholdCollision_sum",
+        "PrimeFactorOscillations.thresholdCollision_scalar",
+        "PrimeFactorOscillations.thresholdCollision_cutoff",
+        "PrimeFactorOscillations.thresholdCollision_sharpness",
+        "PrimeFactorOscillations.thresholdCollision_small_parameter"
+      ]
+    },
+    {
+      "id": "TT-COLLISION-ZETA",
+      "status": "compiled",
+      "claim": "For finite open-strip sets closed under horizontal reflection, actual zeta analytic orders, positive scale,0<d<1,equal normalized first/second moments,K>0, radial separation and the strict full-budget condition imply a selected Dirac and the sharp full all-Lipschitz linear inverse. The proof folds only off-line pairs and retains every central order in fullN, including odd total mass. It assumes neither RH nor a common height and claims no independent global separation, simplicity or zero-free improvement.",
+      "declarations": [
+        "PrimeFactorOscillations.zeta_selected_collision_linear"
+      ]
     }
   ],
   "novelty": "Priority for the combined explicit formulas has not been established; source classification and Gauss identities are classical."

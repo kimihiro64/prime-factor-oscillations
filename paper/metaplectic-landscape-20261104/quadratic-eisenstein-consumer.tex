@@ -9550,6 +9550,190 @@ moment and transport mechanisms are classical background, and the
 literature comparison establishes no priority claim for this particular
 fixed-weight classification.
 
+\subsection{A sharp radial collision threshold}
+\label{subsec:quantized-radial-collision}
+
+Let \(S\) be finite, let \(a_i\ge0\), and suppose
+\[
+ 0<d<1,\qquad
+ N=\sum_{i\in S}a_i,\quad
+ M=\sum_{i\in S}a_i y_i=\sum_{i\in S}a_i y_i^2,\quad
+ K=\sum_{i\in S}a_i I_d(y_i)>0.
+\]
+Write \(v=\operatorname{thresholdModelHigh}(N-K,K,d)\),
+\(U=d(N-K)+Kv\), and \(\Delta=U-M\).  The proved upper ledger gives
+\(v\ge1>d\) and \(\Delta\ge0\).  Define the selected mean and
+unnormalized variance by
+\[
+ \mu=\frac1K\sum_{i\in S}a_i I_d(y_i)y_i,\qquad
+ V=\sum_{i\in S}a_i I_d(y_i)(y_i-\mu)^2.
+\]
+All sums in this subsection have the displayed finite support \(S\).
+
+\paragraph{Theorem (global signed variance budget).}
+Set
+\[
+ {\cal B}_{d,v,K}(\Delta)
+ =(2v-1)\Delta-\frac{\Delta^2}{K}
+   +\frac{\max\{\Delta-K(v-d),0\}^2}{K}.
+ \tag{VC1}\label{eq:radial-collision-budget}
+\]
+Then \(V\le{\cal B}_{d,v,K}(\Delta)\).  This holds for real
+nonnegative weights and requires no small-deficit assumption.
+If \(\Delta\le K(v-d)\), equivalently \(M\ge dN\), the maximum term
+vanishes, leaving the quadratic improvement
+\(V\le(2v-1)\Delta-\Delta^2/K\).
+
+\paragraph{Proof.}
+Retain both low-layer quantities
+\[
+ L=\sum_{i\in S}a_i(d-y_i)(1-I_d(y_i)),\qquad
+ Q=\sum_{i\in S}a_i(d-y_i)^2(1-I_d(y_i)).
+\]
+They are nonnegative, including when some coordinates are negative.
+The first-moment decomposition and the selected parallel-axis identity give
+\[
+ \Delta-L=K(v-\mu),\qquad
+ \sum_{i\in S}a_iI_d(y_i)(y_i-v)^2=V+K(\mu-v)^2.
+\]
+Substitution in the complete upper packet yields the exact identity
+\begin{equation}
+ (2v-1)\Delta
+ =V+Q+2(v-d)L+\frac{(L-\Delta)^2}{K}.
+ \tag{VC2}\label{eq:radial-collision-exact}
+\end{equation}
+Put \(t=\Delta-K(v-d)\).  Multiplying by \(K>0\) and completing
+the square, without deleting the mean drift, gives
+\[
+ K\{V-(2v-1)\Delta\}+\Delta^2
+ =-KQ-L^2+2tL\le\max\{t,0\}^2.
+\]
+For \(t\ge0\) the last inequality is \((L-t)^2\ge0\);
+for \(t<0\) use \(L\ge0\).  Division by \(K\) proves
+\eqref{eq:radial-collision-budget}.
+
+\paragraph{Theorem (quantized collision rigidity and linear recovery).}
+Suppose now that \(a_i=2n_i\), with \(n_i\) nonnegative integers.
+Assume distinct positive-weight selected coordinates are separated by
+\(g\ge0\).  If the selected law has at least two radial levels, then
+\begin{equation}
+ V\ge\frac{2(K-2)}K g^2.
+ \tag{VC3}\label{eq:radial-collision-lower}
+\end{equation}
+Consequently
+\begin{equation}
+ {\cal B}_{d,v,K}(\Delta)<\frac{2(K-2)}K g^2
+ \tag{VC4}\label{eq:radial-collision-rigidity}
+\end{equation}
+forces every positive-weight selected coordinate to have the same
+value \(h\).  Its selected law is exactly \(K\delta_h\).
+The previously proved single-level theorem therefore gives, for every
+globally \(1\)-Lipschitz real test \(\phi\),
+\[
+ \left|\sum_{i\in S}a_i\phi(y_i)
+       -\{(N-K)\phi(d)+K\phi(v)\}\right|
+ \le
+ \max\left\{1,\frac{v+d-1}{v-d}\right\}\Delta.
+\]
+Here \(v-d>0\) and \(K>0\).  The interesting separated nonconstant
+case has \(K\ge4\); the earlier minimum-order theorem already handles
+\(K=2\).
+
+\paragraph{Proof.}
+Choose a positive-weight selected level \(z\), let \(A\) be its
+entire selected weight, and let \(B=K-A\).  If the selected law is
+nonconstant, both \(A\) and \(B\) are at least two.  On the selected
+sites outside this level put
+\[
+ R=\sum_{\substack{i\in S\\y_i\ge d,\ y_i\ne z}}a_i(y_i-z),
+ \qquad
+ T=\sum_{\substack{i\in S\\y_i\ge d,\ y_i\ne z}}a_i(y_i-z)^2.
+\]
+All sites at \(z\) contribute zero to these two sums.  The retained
+parallel-axis identity gives \(KV=KT-R^2\).  The weighted square
+inequality gives \(R^2\le BT\), and separation gives \(T\ge Bg^2\).
+Thus
+\[
+ KV\ge AT\ge ABg^2\ge2(K-2)g^2,
+ \qquad
+ AB-2(K-2)=(A-2)(B-2)\ge0.
+\]
+This proves \eqref{eq:radial-collision-lower}.  Combining it with
+\eqref{eq:radial-collision-budget} contradicts
+\eqref{eq:radial-collision-rigidity} unless the selected law is a
+Dirac.  Applying the maintained sharp single-level inverse proves
+the final bound.
+
+\paragraph{Sharpness inside the equal-moment law.}
+For every fixed integer \(k\ge2\) and fixed \(0<d<1\), put
+\(\rho=k-1\), \(K=2k=2(\rho+1)\), and choose
+\[
+ 0<q\le\min\left\{1,\frac{1-d}{2(\rho+1)}\right\}.
+\]
+Take two sites of weights \(2,2\rho\) at
+\[
+ x=\frac{1+\rho q}{1+\rho q^2},\qquad
+ z=\frac{1-q}{1+\rho q^2}.
+\]
+Then \(d<z<x\), so both sites are selected, \(N=K\), and
+\[
+ M=\frac K{1+\rho q^2},\quad
+ \Delta=\frac{K\rho q^2}{1+\rho q^2}>0,\quad
+ g=x-z=\frac{(\rho+1)q}{1+\rho q^2}>0.
+\]
+Direct expansion proves equal first and second moments and
+\[
+ V=\frac{K\rho q^2}{(1+\rho q^2)^2}
+   ={\cal B}_{d,1,K}(\Delta)
+   =\frac{2(K-2)}K g^2.
+\]
+For completeness, \(d<z\) follows from \(q^2\le q\) and
+\(2(\rho+1)q\le1-d\); the selected mean is
+\(1/(1+\rho q^2)\ge d\), so the maximum correction in
+\({\cal B}_{d,1,K}\) is zero.  The other identities follow by
+clearing the positive denominator.
+For any prescribed \(\eta>0\), the explicit choice
+\[
+ q=\frac12\min\left\{1,\frac{1-d}{2(\rho+1)},
+                           \frac{\eta}{2K\rho}\right\}
+\]
+also gives \(0<\Delta<\eta\): use
+\(\Delta\le K\rho q^2\le K\rho q\le\eta/2\).
+Thus the constant in \eqref{eq:radial-collision-lower} and the strict
+inequality in \eqref{eq:radial-collision-rigidity} are sharp, even
+inside the admissible moment class.  These examples have \(N=K\);
+no sharpness assertion on every fixed face \(N>K\) is needed here.
+
+\paragraph{Actual zeta orders and odd total mass.}
+The maintained theorem \texttt{zeta\_selected\_collision\_linear}
+applies this criterion to any finite open-strip set closed under
+horizontal reflection, with actual analytic orders and coordinates
+\(y_w=(\Re w-\tfrac12)^2/t\), \(t>0\), whose first two normalized
+moments agree.  The previously proved normalization supplies such
+\(t\) when the horizontal moment is positive.
+Fold the off-line pairs to the right half of the strip.  Their
+weights are even; the full central weight \(C\) stays at coordinate
+zero.  Since \(d>0\), every test \(I_d\phi\) vanishes at zero.
+Hence selected mass, selected mean, selected variance, and the
+selected law transfer exactly to the even profile.  Apply
+\eqref{eq:radial-collision-lower} there and
+\eqref{eq:radial-collision-budget} to the \emph{full} set, using its
+full \(N\), including \(C\).  This proves the Dirac conclusion and
+the full linear inverse without an even-total assumption, RH, or
+a common-height hypothesis.  One radial level need not mean one
+zero: different heights can share a squared horizontal coordinate.
+
+This supplies a quantitative criterion for upgrading the general
+square-root inverse to a linear inverse.  It does not independently
+supply radial separation or the required deficit for actual zeros.
+Variance identities, finite moment optimization, and one-dimensional
+transport are classical; priority for this particular combined
+quantized criterion is not asserted.\footnote{For the general moment
+inequality framework, see D.~Bertsimas and I.~Popescu,
+\emph{Optimal Inequalities in Probability Theory: A Convex Optimization
+Approach}, SIAM J.~Optim.~15 (2005), 780--804,
+DOI 10.1137/S1052623401399903.}
+
 \subsection{Sharp radial support and exact two-layer reconstruction}
 \label{sec:radial-support-inverse}
 
