@@ -9026,6 +9026,98 @@ The 23 new proof bodies are maintained in:
 trace, enclosure and multiplicity consumers.
 \end{itemize}
 
+\subsection{Normalization by zero count without diluting multiplicity}
+\label{sec:zero-count-normalization}
+
+The fixed-width trace counts a growing number of neighboring zeros.
+Dividing that trace by a zero count divides an extra-copy signal by the
+same count.  To retain an integer multiplicity signal, change the
+coordinate and amplitude together.  For a center \(c\in\mathbb C\)
+and density \(\lambda>0\), put
+\begin{equation}
+ \phi_{c,\lambda}(z)=c+\frac z\lambda,
+ \qquad
+ P_{c,\lambda}(z)=\frac1\lambda P(\phi_{c,\lambda}(z)).
+ \label{eq:count-normalized-carrier}
+\end{equation}
+Here the actual probability carrier is
+\[
+ P(s)=-\frac{L'}{L}(s,\chi)+E(s),\qquad
+ E(s)=\sum_{n\ge1}\bigl(a(n)-\chi(n)\Lambda(n)\bigr)n^{-s}.
+\]
+The coefficient construction already proved in the repository supplies
+one \(a\), before any choice of center or density, with constants
+\(n_0\ge100\) and \(C>0\) uniform in the character and accuracy order.
+
+\paragraph{Uniform microscopic approximation.}
+Suppose the accuracy order is an integer \(k\ge3\),
+\(a(n)=\chi(n)\Lambda(n)\) for \(n<n_0\), and
+\[
+ |a(n)-\chi(n)\Lambda(n)|\le Cn^{-(k-1)}\qquad(n\ge1).
+\]
+For every \(\Re\phi_{c,\lambda}(z)\ge0\), the complete correction satisfies
+\begin{equation}
+ \left|P_{c,\lambda}(z)+\frac1\lambda
+       \frac{L'}{L}(\phi_{c,\lambda}(z),\chi)\right|
+ \le \frac{C}{\lambda(n_0-1)}.
+ \label{eq:count-normalized-error}
+\end{equation}
+Indeed, on this half-plane the norm of each correction term is at most
+\(C/n^2\).  The initial terms vanish exactly, and telescoping gives
+\[
+ \sum_{n\ge n_0}\frac1{n^2}
+ \le\sum_{n\ge n_0}\left(\frac1{n-1}-\frac1n\right)
+ =\frac1{n_0-1}.
+\]
+This bounds the analytic correction only; the signed logarithmic
+derivative is retained in full.  There is no RH or zero-free-strip
+hypothesis, no bound on \(\Im c\), and no resampling as \(\lambda\) varies.
+The accuracy order \(k\) is the coefficient-reconstruction parameter,
+not a polynomial input substituted into a family observable.
+
+\paragraph{The multiplicity signal is unchanged.}
+If \(\rho\ne1\), \(\Re\rho\ge0\), is an \(L\)-zero of multiplicity \(m\), set
+\(z_\rho=\lambda(\rho-c)\).  Locally write
+\(L(s,\chi)=(s-\rho)^m g(s)\), where \(g(\rho)\ne0\).  Then
+\[
+ L(\phi_{c,\lambda}(z),\chi)
+ =\lambda^{-m}(z-z_\rho)^m g(\phi_{c,\lambda}(z)).
+\]
+Its analytic multiplicity is still \(m\).  The chain rule, including
+its factor \(1/\lambda\), yields
+\[
+ P_{c,\lambda}(z)
+ =-\frac{d}{dz}\log L(\phi_{c,\lambda}(z),\chi)
+   +\frac{E(\phi_{c,\lambda}(z))}{\lambda}.
+\]
+Thus the residue at \(z_\rho\) is \(-m\), while the reconstruction error
+is reduced by \(1/\lambda\).  The maintained proofs check the exact
+chain identity, preservation of analytic multiplicity and meromorphic
+pole order, and the unconditional zero test in the normalized coordinate.
+
+\paragraph{Choosing the density from the actual zero count.}
+Let \(N(T)\) count nontrivial zeta zeros with multiplicity, and put
+\[
+ n_T=N(2T)-N(T),\qquad \lambda_T=\frac{n_T}{T}>0.
+\]
+The classical Riemann--von Mangoldt formula gives
+\(\lambda_T\sim\log T/(2\pi)\).  Thus unit distances in \(z\) correspond
+to the mean-spacing scale in the original height, and
+\eqref{eq:count-normalized-error} is \(O(1/\log T)\) with the same
+height-independent coefficient constant.  For the xi logarithmic
+derivative centered at \(c=1/2+iT\), its leading gamma background becomes
+\(\log(T/(2\pi))/(2\lambda_T)\to\pi\), while each zero retains its
+integer residue.  This counting asymptotic is a classical interpretation
+of the proved arbitrary-positive-density theorem, not a new Lean
+formalization of the zero-counting formula.
+
+This normalization does not supply a uniform upper bound for the
+normalized logarithmic derivative, remove clustered-zero contributions,
+or establish a new simplicity window.  The independent arithmetic
+estimate must control that retained reference term.  The new estimate is
+that the actual probability-carrier correction stays uniformly small
+on the changing scale, with an undiluted multiplicity signal.
+
 \subsection{Signed two-dimensional control of a zero cluster}
 \label{sec:cluster-multiplicity}
 

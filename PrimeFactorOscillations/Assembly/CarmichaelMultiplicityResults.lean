@@ -4,7 +4,6 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Prime Factor Oscillations contributors
 -/
 
-import PrimeFactorOscillations.Assembly.CarmichaelClusterMultiplicity
 import PrimeFactorOscillations.Assembly.CarmichaelExactWindowMultiplicity
 import PrimeFactorOscillations.Assembly.CarmichaelFiniteTraceCertificate
 import PrimeFactorOscillations.Assembly.CarmichaelGlobalExcessSharpness
@@ -15,6 +14,7 @@ import PrimeFactorOscillations.Assembly.CarmichaelPhaseMultiplicity
 import PrimeFactorOscillations.Assembly.CarmichaelRadialSupport
 import PrimeFactorOscillations.Assembly.CarmichaelSharpMultiplicity
 import PrimeFactorOscillations.Assembly.CarmichaelSimplicityCriterion
+import PrimeFactorOscillations.Helpers.DirichletDensityNormalization
 import PrimeFactorOscillations.Helpers.ThresholdFixedTotalSharpness
 
 /-! Multiplicity carrier bounds and certified compensated-residue decoding. -/

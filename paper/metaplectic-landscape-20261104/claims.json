@@ -4750,6 +4750,33 @@
         "PrimeFactorOscillations.finiteEuler_hundred_full_error_charge",
         "PrimeFactorOscillations.finite_euler_hundred_residual_simplicity"
       ]
+    },
+    {
+      "id": "DN-UNIFORM",
+      "status": "compiled",
+      "claim": "For accuracy order k>=3, exact initial coefficients below n0>=2, coefficient error C/n^(k-1), C>=0 and Re(s)>=0, the complete actual Dirichlet probability-carrier correction has norm at most C/(n0-1). In coordinates phi(z)=center+z/density with density>0, division of the complete carrier by density gives error at most C/(density*(n0-1)). The existing coefficient construction supplies n0>=100 and C>0 uniformly in all moduli, characters and k, choosing the observed coefficient sequence before the center and density. No upper estimate for the normalized logarithmic derivative or new simplicity window is asserted.",
+      "declarations": [
+        "LSeries.norm_term_le_of_nonneg_re",
+        "LSeries.inv_sq_sum_tail_le",
+        "LSeries.norm_tail_le_of_inv_sq",
+        "LSeries.norm_le_of_initial_vanishing_inv_sq",
+        "PrimeFactorOscillations.DirichletDensityNormalization.correction_uniform_bound",
+        "PrimeFactorOscillations.DirichletDensityNormalization.densityReadout_error",
+        "PrimeFactorOscillations.DirichletDensityNormalization.exists_probability_density_readout"
+      ]
+    },
+    {
+      "id": "DN-GEOMETRY",
+      "status": "compiled",
+      "claim": "The density coordinate has derivative 1/density. Its composition with each actual Dirichlet L-function preserves analytic zero multiplicity, and dividing the pulled-back probability carrier by density preserves meromorphic pole order. The exact logarithmic-derivative chain identity retains the analytic correction divided by density. For coefficient accuracy k>=3, physical real part nonnegative and physical point different from 1, a normalized carrier pole of order -1 is equivalent to an actual Dirichlet L-zero, without RH or a zero-free-strip assumption. The dyadic zero-count density specialization and its Riemann-von Mangoldt asymptotic are classical interpretation, not a newly formalized counting theorem.",
+      "declarations": [
+        "PrimeFactorOscillations.DirichletDensityNormalization.densityPoint_hasDerivAt",
+        "PrimeFactorOscillations.DirichletDensityNormalization.densityPoint_analyticAt",
+        "PrimeFactorOscillations.DirichletDensityNormalization.densityReadout_logDeriv",
+        "PrimeFactorOscillations.DirichletDensityNormalization.densityLFunction_multiplicity",
+        "PrimeFactorOscillations.DirichletDensityNormalization.densityReadout_order",
+        "PrimeFactorOscillations.DirichletDensityNormalization.densityReadout_zero_iff"
+      ]
     }
   ],
   "novelty": "Priority for the combined explicit formulas has not been established; source classification and Gauss identities are classical."
