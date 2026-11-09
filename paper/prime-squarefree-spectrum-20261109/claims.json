@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "date": "2026-11-09",
-  "scope": "Squarefree differences between actual odd primes: uniform arithmetic tails, sharp signed spectrum and parity rigidity. The spectral headline is not yet proved.",
+  "scope": "Squarefree differences between actual odd primes: the uniform global signed spectrum, positive Euler-product density, asymptotically optimal density1/2 and quantitative parity rigidity are kernel checked. Optimality of the residual spectral factor1/5 remains pending in SFS-SHARP.",
   "claims": [
     {
       "id": "SFS-INPUT",
@@ -32,7 +32,7 @@
       "owners": [
         "PrimeFactorOscillations/Helpers/QRHPrimeSquareTail.lean"
       ],
-      "proof_scope": "Complete finite bound, including nonunit exceptional row, both difference directions and every high divisor; the asymptotic normalized limit is a separate pending claim.",
+      "proof_scope": "Complete finite bound, including nonunit exceptional row, both difference directions and every high divisor; its normalized limit is checked separately in SFS-TAIL-LIMIT.",
       "axiom_audit": "standard_foundations_only",
       "source_sha256_lf": "01a6462254819d95347e06879beadc34d55b81a58f5f6fe57ab605eb5d7ebe1d"
     },
@@ -81,7 +81,7 @@
       "owners": [
         "PrimeFactorOscillations/Mathlib/Data/Nat/Prime/SquareUnitKernel.lean"
       ],
-      "proof_scope": "Concrete finite model and three modulo-four identities. The actual regular-prime map and complete finite consumer are now checked in SFS-PRIME-FINITE; the asymptotic limit remains separate.",
+      "proof_scope": "Concrete finite model and three modulo-four identities. The actual regular-prime map and complete finite consumer are checked in SFS-PRIME-FINITE; the asymptotic transfer is checked in SFS-FIBRE.",
       "new_content": "Supporting finite arithmetic specialization of the classical product gap; not an independent novelty claim.",
       "axiom_audit": "standard_foundations_only"
     },
@@ -102,7 +102,7 @@
         "PrimeFactorOscillations/Mathlib/Analysis/MeanInequalities/FiberKernelGap.lean",
         "PrimeFactorOscillations/Mathlib/Analysis/MeanInequalities/KernelRestriction.lean"
       ],
-      "proof_scope": "Full finite transfer and complete exception treatment. Applying its model and occupancy hypotheses to the actual prime residue product, and taking limits, are separate pending claims."
+      "proof_scope": "Full finite transfer and complete exception treatment. Its application to the actual prime residue product is checked in SFS-PRIME-FINITE and its limit in SFS-FIBRE."
     },
     {
       "id": "SFS-RESIDUE-ARITHMETIC",
@@ -148,7 +148,7 @@
       "owners": [
         "PrimeFactorOscillations/Helpers/QRHPrimeSquareSpectrum.lean"
       ],
-      "proof_scope": "Actual odd-prime vertices, all signed real weights, empty coordinate set, prime-two center correction and all coordinate-prime exceptions. The asymptotic limit, optimality and stability are separate pending claims.",
+      "proof_scope": "Actual odd-prime vertices, all signed real weights, empty coordinate set, prime-two center correction and all coordinate-prime exceptions. The asymptotic limit is SFS-FIBRE; stability is SFS-STABILITY; optimality remains pending in SFS-SHARP.",
       "depends_on": [
         "SFS-UNIT-MODEL",
         "SFS-FIBRE-FINITE",
@@ -193,7 +193,7 @@
       ],
       "kernel_definition": "PrimeFactorOscillations.QRH.primeSquarefreeDifferenceKernel p q is 1 exactly when Squarefree (((q:Int)-(p:Int)).natAbs), and 0 otherwise.",
       "quantitative_scope": "One C>0 works for all R>=2, X>=(R+2)^16 and prime p<=X: H<=pi(X)/R+9*C*X^(15/16)*(1+log(X+2))^2+4*X^(15/16). The normalized cutoffs are uniform over both the moving prime and all signed weights.",
-      "proof_scope": "Both source errors, every exceptional finite interaction and both signed principal means are retained. A row estimate is applied only to the separated nonnegative symmetric tail. The infinite Euler-product density, optimality and parity rigidity remain separate pending claims.",
+      "proof_scope": "Both source errors, every exceptional finite interaction and both signed principal means are retained. A row estimate is applied only to the separated nonnegative symmetric tail. The infinite Euler-product density is checked in SFS-SPECTRAL and parity rigidity in SFS-STABILITY; optimality remains pending in SFS-SHARP.",
       "depends_on": [
         "SFS-TAIL",
         "SFS-FIBRE"
@@ -222,7 +222,7 @@
         "PrimeFactorOscillations/Helpers/QRHPrimeSquarefreeGlobalSpectrum.lean"
       ],
       "constant_definition": "artinPrimeSquareConstant is inf_R primeSquareCutoffDensity R. HasProd proves it equals the unconditional Euler product with factor 1-1/(p*(p-1)) at every prime and factor 1 at nonprimes.",
-      "proof_scope": "All signed real weights, the actual Squarefree absolute-gap kernel, both principal means and the entire residual. The coefficient replacement keeps its exact correction and costs at most (6/5)*(D_R-A)*e; R is chosen before X and f. Optimality of 1/5 and parity rigidity are separate unproved ledger claims.",
+      "proof_scope": "All signed real weights, the actual Squarefree absolute-gap kernel, both principal means and the entire residual. The coefficient replacement keeps its exact correction and costs at most (6/5)*(D_R-A)*e; R is chosen before X and f. Parity rigidity is checked separately in SFS-STABILITY; optimality remains pending in SFS-SHARP.",
       "optimality_or_stability_proved_in_this_claim": false
     },
     {
@@ -236,12 +236,21 @@
     },
     {
       "id": "SFS-STABILITY",
-      "status": "proposed_not_proved",
-      "claim": "Squarefree-difference-free prime subsets satisfy 6*alpha^2-4*beta^2<=alpha+o(1), have asymptotic density at most1/2, and obey the stated symmetric-difference bound toward one reduced class modulo4.",
-      "declarations": [],
+      "status": "kernel_checked_uniform_extremal_density_and_parity_rigidity",
+      "claim": "For every eps>0 eventually uniformly over all squarefree-difference-free B contained in the actual odd primes<=X, 6*alpha^2-4*beta^2<=alpha+eps, alpha<=1/2+eps, and the normalized distance to the nearer residue class1 or3 modulo4 is at most1/2-sqrt(max(0,6*alpha^2-alpha))/2+eps. Both classes are independent and their relative densities tend to1/2.",
+      "declarations": [
+        "PrimeFactorOscillations.QRH.eventually_prime_parity_balance",
+        "PrimeFactorOscillations.QRH.prime_residue_class_independent",
+        "PrimeFactorOscillations.QRH.eventually_prime_parity_class_densities",
+        "PrimeFactorOscillations.QRH.eventually_squarefree_independent_prime_subset_bounds"
+      ],
       "depends_on": [
         "SFS-SPECTRAL"
-      ]
+      ],
+      "owners": [
+        "PrimeFactorOscillations/Helpers/QRHPrimeSubsetRigidity.lean"
+      ],
+      "proof_scope": "Every actual prime subset after one eps-dependent threshold; exact finite parity imbalance and both symmetric-difference identities retained. The proof consumes SFS-SPECTRAL and A>=1/4 without a new character estimate. Sharpness of density1/2 is proved; optimality of the spectral factor1/5 is not claimed."
     }
   ]
 }

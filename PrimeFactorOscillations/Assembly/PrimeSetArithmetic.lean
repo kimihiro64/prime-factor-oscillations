@@ -13,5 +13,6 @@ import PrimeFactorOscillations.Helpers.QRHPrimeSquareTail
 import PrimeFactorOscillations.Helpers.QRHPrimeSquareTailLimit
 import PrimeFactorOscillations.Helpers.QRHPrimeSquarefreeGlobalSpectrum
 import PrimeFactorOscillations.Helpers.QRHPrimeSquarefreeSpectrum
+import PrimeFactorOscillations.Helpers.QRHPrimeSubsetRigidity
 
 /-! Prime-set selection and uniform arithmetic pair estimates. -/
