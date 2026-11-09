@@ -19,6 +19,9 @@ primes up to \(X\) in which two vertices are joined when their difference
 is squarefree. The constant and modulo-four parity functions supply the
 two principal modes; the residual has factor \(1/5\) at the positive
 Euler-product density. The estimate is formalized in Lean.
+The main result transfers finite residue-model spectra uniformly to the
+full graph on actual primes, including the prime-square tail and the
+infinite Euler-product density.
 Optimality and the intended density and parity-rigidity consequences
 remain separate claims under verification.
 \end{abstract}
@@ -164,7 +167,7 @@ With \(T=\max(2,\lfloor X^{1/16}\rfloor)\), (5) yields
 The actual limit argument also uses the ordinary prime number theorem.
 It does not replace the moving vertex by a fixed prime.
 
-\section{Finite spectral model and proposed prime transfer}
+\section{Finite spectral model and prime transfer}
 
 \begin{lemma}[Complete-product gap with the binary mode retained]\label{lem:finite}
 Let \(m_1,\ldots,m_k\ge6\), allowing \(k=0\), and put
@@ -382,7 +385,7 @@ The proof is formalized in
 its two finite mean corrections and all exceptional rectangles are retained.
 \end{proof}
 
-\subsection{Residue model and pending prime transfer}
+\subsection{Residue model and uniform prime transfer}
 
 Fix \(R\ge3\). Put
 \[
@@ -698,7 +701,7 @@ Its constant and parity averages tend to zero. Its local eigenvalue at three
 is \(-1/6\), so (7) gives the limiting Rayleigh quotient
 \(-\Aconst/5\).
 
-\section{Relation to existing work and verification plan}
+\section{Relation to existing work and formal verification}
 
 Finite direct-product independence and stability are classical inputs;
 see Alon--Defant~\cite{AD}. Arithmetic graph limits based on integer
