@@ -9,5 +9,7 @@ import PrimeFactorOscillations.Helpers.QRHPrimeSquareFibres
 import PrimeFactorOscillations.Helpers.QRHPrimeSquareSampling
 import PrimeFactorOscillations.Helpers.QRHPrimeSquareSpectrum
 import PrimeFactorOscillations.Helpers.QRHPrimeSquareTail
+import PrimeFactorOscillations.Helpers.QRHPrimeSquareTailLimit
+import PrimeFactorOscillations.Helpers.QRHPrimeSquarefreeSpectrum
 
 /-! Prime-set selection and uniform arithmetic pair estimates. -/

@@ -31,7 +31,9 @@ Lean repository. The latter is uniform over every finite odd-prime
 coordinate set, endpoint and signed real weight, with all exception terms.
 The fixed-coordinate sampling limit~(7h) is also kernel checked, with
 an eventual cutoff uniform over all real weights.
-The complete asymptotic tail passage, sharpness and parity stability
+The normalized row-tail limit and the full signed transfer to the actual
+squarefree-difference graph are now kernel checked as well.
+The infinite Euler-product passage, sharpness and parity stability
 remain to be formalized.
 
 \section{Statement and intended consequences}
@@ -563,18 +565,70 @@ Taking \(S\) to be the odd primes at most a fixed \(R\ge2\)
 gives the finite-cutoff kernel and density \(D_R\).
 \end{proof}
 
-Let \(J_R\) be the difference between this finite kernel and the actual
-squarefree-difference kernel. It is a symmetric nonnegative tail kernel,
-and (5) bounds every row sum. Only this separated tail is estimated by
+\begin{lemma}[Uniform full-tail passage]\label{lem:full-tail}
+Fix an integer \(R\ge2\) and \(\varepsilon>0\).
+For all sufficiently large \(X\), uniformly over every prime \(p\le X\),
 \[
- \left|\frac1{n_X^2}\sum_{p,q}J_R(p,q)f(p)f(q)\right|
- \le \left(\max_p\frac1{n_X}\sum_qJ_R(p,q)\right)\E f^2,
+ \frac{H_{R,X}(p)}{n_X}\le \frac1R+\varepsilon .
 \]
-using \(2|f(p)f(q)|\le f(p)^2+f(q)^2\).
-All signs of the principal finite kernel remain in (7).
-First let \(X\) tend to infinity with \(R\) fixed, then let \(R\)
-tend to infinity. Equation (6) removes the tail and
-\(D_R\to\Aconst\), giving the proposed conclusion (1).
+Let \(q_R\) denote the finite-cutoff form in (7h), with
+\(S=\{\ell\le R:\ell\text{ is an odd prime}\}\).
+For every real weight \(f\) on \(\Pcal_X\), eventually
+\[
+ |Q_X(f)-q_R(f)|\le (1/R+\varepsilon)e,                    \tag{7i}
+\]
+and
+\[
+ |Q_X(f)-D_R(a^2-b^2)|
+ \le \frac{D_R}{5}(e-a^2-b^2)+(1/R+\varepsilon)e.           \tag{7j}
+\]
+The cutoff in each assertion precedes both the moving vertex and the weight.
+\end{lemma}
+\begin{proof}
+Choose \(T=\lfloor X^{1/16}\rfloor\).
+The finite row estimate (5), with both its errors retained, gives
+\[
+ H_{R,X}(p)\le \frac{\pi(X)}R
+   +9CX^{15/16}(1+\log(X+2))^2+4X^{15/16}                 \tag{7k}
+\]
+for every \(X\ge(R+2)^{16}\) and every prime \(p\le X\).
+Indeed \(T\ge R\),
+\(X^{1/16}/2\le T\le X^{1/16}\le X\), and
+\[
+ 1+\log T^2+\log(X+2)\le3(1+\log(X+2)).
+\]
+Thus the low-divisor error in (5) is at most the second term of (7k),
+while \(2\lfloor X/T\rfloor\le4X^{15/16}\).
+The prime-count normalization already checked in
+Lemma~\ref{lem:prime-limit} makes both errors \(o(n_X)\), and
+\(\pi(X)/n_X\to1\). This proves the row assertion, uniformly in \(p\).
+
+Define the physical kernel by
+\(K(p,q)=\mathbf1_{\{\lvert p-q\rvert\text{ is squarefree}\}}\);
+the diagonal is zero. The formal definition uses
+\(\operatorname{natAbs}(q-p)\) for the absolute integer gap.
+The arithmetic characterization of squarefreeness identifies this with
+avoidance of equality modulo \(\ell^2\) for every prime \(\ell\).
+Consequently \(J_R=K_R-K\) is symmetric and nonnegative.
+Every nonzero entry has a prime-square divisor exceeding \(R\), so
+its row sum on \(\Pcal_X\) is at most \(H_{R,X}(p)\).
+The tail alone satisfies
+\[
+ \left|\sum_{p,q\in\Pcal_X}J_R(p,q)f(p)f(q)\right|
+ \le \left(\max_{p\in\Pcal_X}\sum_{q\in\Pcal_X}J_R(p,q)\right)
+      \sum_{p\in\Pcal_X}f(p)^2.
+\]
+To see this, use \(2|f(p)f(q)|\le f(p)^2+f(q)^2\);
+symmetry makes the two resulting row sums identical.
+After division by \(n_X^2\), the row assertion proves (7i).
+Apply (7h) with error \(\varepsilon/2\), and (7i) with the same error.
+The triangle inequality gives (7j), leaving both signed principal means
+and the entire finite residual intact.
+\end{proof}
+
+The full finite-density comparison (7j) is now checked.
+The passage \(D_R\to\Aconst\), and the uniform replacement of its
+coefficient in (7j), remain to be formalized before claiming (1).
 
 For sharpness, take a nonzero real mean-zero function of the unit residue
 modulo nine alone, with arbitrary bounded values at the exceptional prime three.
@@ -666,7 +720,20 @@ The same owner proves
 The formal weights are functions on the natural numbers restricted to
 \(\Pcal_X\); arbitrary extensions give the finite-domain formulation above.
 The finite set precedes the eventual cutoff, which precedes the weight.
-Remaining formalization consists of the complete asymptotic tail passage,
+Lemma~\ref{lem:full-tail} is checked in two maintained owners.
+\texttt{Helpers/QRHPrimeSquareTailLimit.lean} proves
+\texttt{exists\_uniform\_prime\_square\_tail\_power\_upper} and
+\texttt{eventually\_prime\_square\_tail\_count\_le}.
+\texttt{Helpers/QRHPrimeSquarefreeSpectrum.lean} defines the physical
+\texttt{primeSquarefreeDifferenceKernel} and proves
+\texttt{primeSquarefreeDifferenceKernel\_eq\_prime\_avoidance},
+\texttt{eventually\_prime\_squarefree\_tail\_operator\_le}, and
+\texttt{eventually\_prime\_squarefree\_spectral\_gap\_at\_cutoff},
+all in the namespace \texttt{PrimeFactorOscillations.QRH}.
+These statements include every moving prime, every signed real weight,
+the prime-square congruence characterization of the actual absolute gap,
+and every finite exception already retained in (7h).
+Remaining formalization consists of the infinite Euler-product passage,
 sharpness and consequences (2)--(3).
 This document is kept separate from the metaplectic and zero-multiplicity papers.
 
