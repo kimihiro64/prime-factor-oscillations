@@ -5,6 +5,7 @@ Authors: Prime Factor Oscillations contributors
 -/
 import PrimeFactorOscillations.Assembly.PrimeClassDeletion
 import PrimeFactorOscillations.Helpers.QRHPrimeFibreOccupancy
+import PrimeFactorOscillations.Helpers.QRHPrimeSquareFibres
 import PrimeFactorOscillations.Helpers.QRHPrimeSquareTail
 
 /-! Prime-set selection and uniform arithmetic pair estimates. -/

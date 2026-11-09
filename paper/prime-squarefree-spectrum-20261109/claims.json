@@ -61,7 +61,7 @@
       ],
       "formal_scope": "Normalized finite-product induction and the zero-one density conversion with binary parity, uniformly over every real function. The construction hypotheses carry finite graph data and cardinality conditions, with no analytic estimate.",
       "pending_adapters": [
-        "Unit-residue identification and local cardinalities",
+        "Identify the actual unit-supported tuple kernel and modulo-four binary parity with the raw complete-product model",
         "Full eigenvalue formula (7), if required as a separately formalized classification"
       ]
     },
@@ -85,21 +85,39 @@
       "proof_scope": "Full finite transfer and complete exception treatment. Applying its model and occupancy hypotheses to the actual prime residue product, and taking limits, are separate pending claims."
     },
     {
-      "id": "SFS-FIBRE-OCCUPANCY",
-      "status": "kernel_checked_universal_prime_fibre_upper_bound",
-      "claim": "One positive constant precedes every modulus, endpoint, finite regular-prime set, fibre type and map: each fibre is at most pi(X)/phi(N)+C*X^(7/8)*(1+log N+log(X+2))^2, provided the set consists of unit primes and equality of fibre labels implies congruence modulo N. Empty fibres and modulus one are included.",
+      "id": "SFS-RESIDUE-ARITHMETIC",
+      "status": "kernel_checked_prime_square_residue_arithmetic",
+      "claim": "For every finite set S of primes, local prime-square congruence equality implies equality modulo their full product; primes outside S are units modulo that product; phi(product p^2)=product p*(p-1), equal to the cardinality of the full dependent unit-tuple space. The empty product and prime two are included.",
       "declarations": [
-        "PrimeFactorOscillations.QRH.exists_prime_fibre_count_upper"
+        "Nat.coprime_prime_sq_prod",
+        "Nat.cast_zmod_prime_sq_prod_eq",
+        "Nat.totient_prod_prime_sq",
+        "Nat.isUnit_cast_prod_prime_sq",
+        "Nat.card_prime_sq_unit_tuples"
       ],
       "owners": [
-        "PrimeFactorOscillations/Helpers/QRHPrimeFibreOccupancy.lean"
+        "PrimeFactorOscillations/Mathlib/Data/Nat/Prime/SquareResidues.lean"
+      ],
+      "new_content": "Classical arithmetic inputs supporting the admitted prime-spectrum transfer; not independent novelty claims."
+    },
+    {
+      "id": "SFS-FIBRE-OCCUPANCY",
+      "status": "kernel_checked_actual_prime_square_tuple_upper_bound",
+      "claim": "One positive constant precedes every modulus, endpoint, finite regular-prime set, fibre type and map: each fibre is at most pi(X)/phi(N)+C*X^(7/8)*(1+log N+log(X+2))^2, provided the set consists of unit primes and equality of fibre labels implies congruence modulo N. Empty fibres and modulus one are included. The actual residue tuple of every prime outside a finite coordinate-prime set S satisfies this bound, with N=product(p^2), M=product(p*(p-1))=phi(N), and the same constant before S, X and every tuple label.",
+      "declarations": [
+        "PrimeFactorOscillations.QRH.exists_prime_fibre_count_upper",
+        "PrimeFactorOscillations.QRH.exists_prime_square_tuple_fibre_count_upper"
+      ],
+      "owners": [
+        "PrimeFactorOscillations/Helpers/QRHPrimeFibreOccupancy.lean",
+        "PrimeFactorOscillations/Helpers/QRHPrimeSquareFibres.lean"
       ],
       "new_content": "Supporting arithmetic corollary of the existing uniform reduced-residue estimate; not an independently claimed novel result.",
       "pending_adapters": [
-        "Actual residue tuple map: coordinate congruences imply congruence modulo the product",
-        "Unit conditions and exact unit-product cardinality",
+        "Match the actual unit-supported tuple kernel and modulo-four sign to the proved raw finite model",
         "Fixed-modulus asymptotic occupancy limit"
-      ]
+      ],
+      "exceptional_primes": "The regular set is exactly primes at most X outside S; this includes the empty coordinate set and the coordinate prime two."
     },
     {
       "id": "SFS-FIBRE",

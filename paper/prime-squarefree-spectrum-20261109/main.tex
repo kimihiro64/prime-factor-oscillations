@@ -26,11 +26,11 @@ theorem for prime sets avoiding squarefree differences.
 The main spectral theorem is a proposed result under audit.
 The finite congruence-count formulation of the uniform tail bound~(5),
 the zero-one complete-product gap with explicit density and binary parity,
-the full finite-fibre comparison with sparse exceptions, and a uniform
-prime-fibre occupancy bound have kernel-checked proofs in the maintained
-Lean repository.
-The residue-unit identification, its actual prime-product specialization
-and the asymptotic consequences remain to be formalized.
+the full finite-fibre comparison with sparse exceptions, the uniform
+prime-square tuple occupancy bound, and the exact unit-tuple cardinality
+have kernel-checked proofs in the maintained Lean repository.
+The actual unit-supported kernel identification and the asymptotic
+consequences remain to be formalized.
 
 \section{Statement and intended consequences}
 
@@ -370,6 +370,47 @@ For an empty fibre the assertion follows from nonnegativity of that
 right side. This also covers modulus one.
 \end{proof}
 
+\begin{lemma}[Actual prime-square tuples]\label{lem:prime-square-tuples}
+Let \(S\) be any finite set of primes and put
+\[
+ N_S=\prod_{\ell\in S}\ell^2,\qquad
+ M_S=\prod_{\ell\in S}\ell(\ell-1),\qquad
+ T_S(X)=\{q\le X:q\text{ prime},\ q\notin S\}.
+\]
+Then \(\varphi(N_S)=M_S\), and the full unit-tuple space
+\(\prod_{\ell\in S}(\mathbb Z/\ell^2\mathbb Z)^\times\)
+has cardinality \(M_S\). Every \(q\in T_S(X)\) is a unit modulo
+\(N_S\). Equality of all prime-square residue coordinates implies
+congruence modulo \(N_S\).
+
+There is one constant \(C>0\), before \(S\), the nonnegative integer
+\(X\) and the residue tuple \(u\), such that
+\[
+ \#\{q\in T_S(X):(q\bmod\ell^2)=u_\ell\ (\ell\in S)\}
+ \le\frac{\pi(X)}{M_S}
+ +C X^{7/8}(1+\log N_S+\log(X+2))^2.              \tag{7e}
+\]
+Here \(u\) ranges over the full residue-tuple space, so no inverse
+choice or surjectivity hypothesis is imposed.
+\end{lemma}
+\begin{proof}
+Distinct coordinate primes have coprime squares. Induction over \(S\)
+and the injectivity of the two-factor Chinese remainder map therefore
+combine equal coordinate residues into one congruence modulo \(N_S\).
+The same coprimality and
+\(\varphi(\ell^2)=\ell(\ell-1)\) give the totient formula.
+The cardinality of a dependent product of finite unit groups is the
+product of their cardinalities, giving \(M_S\).
+A prime outside \(S\) is coprime to every coordinate square and hence
+to \(N_S\). Lemma~\ref{lem:prime-fibres} now applies to the actual tuple
+map, giving (7e) with its unchanged constant.
+
+All assertions include \(S=\varnothing\): then \(N_S=M_S=1\)
+and there is one empty tuple. The coordinate \(\ell=2\) contributes
+\(\varphi(4)=2\); its prime is excluded from \(T_S(X)\) exactly when
+\(2\in S\), as are all other coordinate primes.
+\end{proof}
+
 For fixed \(R\), put \(Q_R=\prod_{\ell\le R}\ell^2\) and
 \(M_R=\varphi(Q_R)=|U_R|\).
 Let \(T\) consist of the odd primes at most \(X\) that do not divide \(Q_R\).
@@ -381,7 +422,7 @@ The representative is a unit modulo \(Q_R\).
 An empty fibre has count zero.
 This avoids constructing a global Chinese-remainder inverse merely to count fibres.
 
-Lemma~\ref{lem:prime-fibres} gives
+The actual tuple bound (7e) gives
 \[
  |T_u|\le\frac{\pi(X)}{M_R}
     +C X^{7/8}(1+\log Q_R+\log(X+2))^2.
@@ -397,9 +438,10 @@ The exceptional count is at most the number of odd primes dividing \(Q_R\).
 For every fixed \(\tau>0\), it is eventually at most \(\tau^2 n_X\).
 Equation (7c) is uniform in \(f\), so these two estimates provide the intended
 actual-prime finite-kernel comparison.
-The residue/cardinality identification, this prime specialization and its
-asymptotic limit remain pending Lean work; no actual-prime headline theorem
-is marked complete here.
+The congruence, unit, cardinality and actual tuple-occupancy assertions
+are now checked separately. Matching the actual unit-supported kernel
+to the finite product model and taking its asymptotic limit remain
+pending Lean work; the actual-prime headline theorem remains proposed.
 
 Let \(J_R\) be the difference between this finite kernel and the actual
 squarefree-difference kernel. It is a symmetric nonnegative tail kernel,
@@ -457,10 +499,23 @@ The zero-one density conversion is checked in
 Lemma~\ref{lem:prime-fibres} is checked as
 \texttt{PrimeFactorOscillations.QRH.exists\_prime\_fibre\_count\_upper}
 in \texttt{Helpers/QRHPrimeFibreOccupancy.lean}.
-Remaining formalization consists of identifying the actual unit-residue
-product and its cardinality, checking the tuple map's congruence and unit
-conditions, the fixed-modulus occupancy limit, the complete asymptotic
-tail passage, sharpness and the consequences (2)--(3).
+The arithmetic assertions of Lemma~\ref{lem:prime-square-tuples} are
+checked in \texttt{Mathlib/Data/Nat/Prime/SquareResidues.lean}, by
+\texttt{Nat.coprime\_prime\_sq\_prod},
+\texttt{cast\_zmod\_prime\_sq\_prod\_eq},
+\texttt{totient\_prod\_prime\_sq},
+\texttt{isUnit\_cast\_prod\_prime\_sq} and
+\texttt{card\_prime\_sq\_unit\_tuples}.
+The actual tuple count (7e) is checked as
+\texttt{PrimeFactorOscillations.QRH.}
+\texttt{exists\_prime\_square\_tuple\_fibre\_count\_upper}
+in \texttt{Helpers/QRHPrimeSquareFibres.lean}.
+These are separate checked declarations; the combined lemma above is
+their mathematical consequence.
+Remaining formalization consists of identifying the actual unit-supported
+tuple kernel and its modulo-four parity with the proved raw product model,
+the fixed-modulus occupancy limit, the complete asymptotic tail passage,
+sharpness and the consequences (2)--(3).
 This document is kept separate from the metaplectic and zero-multiplicity papers.
 
 \begin{thebibliography}{9}
