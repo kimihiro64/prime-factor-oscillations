@@ -9846,10 +9846,96 @@ Then
  \sum_{i\in S}w_i y_i=\sum_{i\in S}w_i y_i^2=K/D,\qquad
  \sum_{i\in S}w_i(y_i-1/D)^2=(p/D)^2F.
 \]
-This is a proved normalization identity. The full arbitrary-\(r\),
-fixed-even-mass, arbitrarily-small-deficit realization theorem remains
-a separate unfinished consumer; it is not included in the present
-moment-law sharpness claim. The generic variance floor itself is sharp.
+\paragraph{Theorem (complete moment-law attainment range).}
+Fix an integer \(k\ge1\), an integer \(r\ge0\), \(0<d<1\), and
+\(\eta>0\). Put \(K=2k\). There exist positive natural orders
+\(n_i\), coordinates \(y_i>d\) indexed by \(0\le i<r\), and
+\(g,M>0\), such that
+\[
+ \sum_{i=0}^{r-1}2n_i=K,\qquad
+ \sum_{i=0}^{r-1}2n_i y_i
+ =\sum_{i=0}^{r-1}2n_i y_i^2=M,\qquad
+ y_j-y_i=g(j-i),
+\]
+with exactly \(r\) positive-weight selected radial levels and
+\begin{equation}
+ 0<g<\eta,\qquad 0<\Delta=K-M<\eta,\qquad
+ V=g^2\Phi(r,K)={\cal B}_{d,1,K}(\Delta),
+ \tag{RP4}\label{eq:all-r-moment-attainment}
+\end{equation}
+if and only if \(2\le r\le k\).
+All sites are selected, so \(N=K\) and the diagonal reference is \(v=1\).
+Thus the variance floor and the complete deficit budget can be attained
+simultaneously with both gap and positive deficit arbitrarily small,
+at every fixed admissible support size and even total mass.
+
+\paragraph{Proof of sufficiency.}
+Let \(2\le r\le k\), put \(u_i=i-(r-1)/2\), and choose a middle
+index \(\ell\) with \(u_\ell^2=\epsilon_r\). Set
+\[
+ n_i=1+(k-r)\mathbf1_{i=\ell},\qquad
+ w_i=2n_i,\qquad E=K-2r,\qquad
+ H=Eu_\ell,\qquad z_i=u_i-H/K.
+\]
+These orders are positive natural numbers and \(\sum_iw_i=K\).
+The exact grid identities and the full centered-variance calculation give
+\[
+ \sum_iw_i z_i=0,\qquad
+ F:=\sum_iw_i z_i^2=\Phi(r,K)>0,\qquad z_j-z_i=j-i.
+\]
+Put \(\rho=F/K>0\) and
+\(A=1+\sum_{i=0}^{r-1}|z_i|\), so \(|z_i|\le A\).
+Choose the explicit positive parameter
+\[
+ p=\frac12\min\left\{1,\frac{1-d}{2(A+\rho+1)},
+                       \frac{\eta}{2K\rho},\eta\right\},
+ \quad D=1+\rho p^2,\quad
+ y_i=\frac{1+pz_i}{D},\quad
+ g=\frac pD,\quad M=\frac KD.
+\]
+Every displayed denominator is positive. Since \(p\le1\),
+\[
+ 1+pz_i-dD
+ \ge1-d-p(A+\rho)
+ \ge\frac{1-d}{2}+p>0.
+\]
+Thus \(y_i>d\) at every site. Moreover \(D\ge1\) and \(0<p<\eta\),
+so \(0<g\le p<\eta\). Exact normalization gives equal first and
+second moments \(M\), mean \(1/D\), and variance \(g^2F\).
+The coordinates are spaced by \(g>0\), hence have exactly \(r\)
+distinct values and satisfy the selected separation condition.
+The deficit is
+\[
+ \Delta=\frac{K\rho p^2}{D}>0,\qquad
+ \Delta\le K\rho p^2\le K\rho p\le\eta/2<\eta.
+\]
+Because all positive weights have coordinates above \(d\), their mean
+\(1/D\) is above \(d\). Hence
+\(\Delta-K(1-d)\le0\), so the maximum term in the full budget is
+proved to vanish. Keeping its quadratic mean correction gives
+\[
+ {\cal B}_{d,1,K}(\Delta)
+   =\Delta-\Delta^2/K
+   =K\rho p^2/D^2
+   =g^2F.
+\]
+This proves every assertion in \eqref{eq:all-r-moment-attainment}.
+
+\paragraph{Necessity and small cases.}
+Positive natural orders give \(K=\sum_i2n_i\ge2r\), hence \(r\le k\).
+For \(r=0\), the total is zero, contrary to \(K=2k>0\).
+For \(r=1\), the sole positive coordinate \(c>d>0\) obeys
+\(Kc^2=Kc\); hence \(c=1\), \(M=K\), and the deficit is zero.
+More generally this is the maintained one-radius rigidity theorem.
+Thus a positive-deficit attainer requires \(r\ge2\).
+The Lean declaration
+\texttt{thresholdRadialPacking\_attainers\_iff} proves this exact
+necessary-and-sufficient range. Its attainer predicate includes the
+admissibility law, positive orders, strict cutoff, total mass,
+\(0<g<\eta\), exact pairwise spacing, separation, exact selected
+radial cardinality, \(0<\Delta<\eta\), and both variance equalities.
+The result concerns the all-selected face \(N=K\), with the gap chosen
+by the construction.
 
 Spacing arguments and moment inequalities are classical. For comparison,
 L.~Moser's \emph{Notes on Number Theory IV: On the Multiplicity of

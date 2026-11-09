@@ -12,11 +12,17 @@ namespace.
 | `PrimeFactorOscillations.Mathlib.Analysis.MeanInequalities.All` | `Mathlib/Analysis/MeanInequalities/All.lean` | project-verified | Regional facade for finite weighted variance, its sharp separated-site floor and exact equal-moment normalization. Preserves the root facade's twelve-import limit. |
 | `PrimeFactorOscillations.Mathlib.Combinatorics.All` | `Mathlib/Combinatorics/All.lean` | project-verified | Regional facade preserving both existing integer grouping and integer moment compression exports, with no mathematical declaration changes. |
 
+## Centered even grids
+
+| Module | Proposed destination | Readiness | Scope |
+| --- | --- | --- | --- |
+| `PrimeFactorOscillations.Mathlib.Analysis.MeanInequalities.EvenSeparatedGrid` | `Mathlib/Analysis/MeanInequalities/EvenSeparatedGrid.lean` | project-verified | For every r>=2,k>=r, positive natural orders give total weight2k, centered unit-spaced coordinates, and second moment exactly the positive sharp variance floor. The natural middle-site surplus is explicit. |
+
 ## Equal-moment normalization
 
 | Module | Proposed destination | Readiness | Scope |
 | --- | --- | --- | --- |
-| `PrimeFactorOscillations.Mathlib.Analysis.MeanInequalities.MomentNormalization` | `Mathlib/Analysis/MeanInequalities/MomentNormalization.lean` | project-verified | Exact rational transformation of any finite centered weighted law with positive total and second moment into equal first and second moments, retaining its full centered variance. The all-r fixed-even-mass small-deficit consumer is separate. |
+| `PrimeFactorOscillations.Mathlib.Analysis.MeanInequalities.MomentNormalization` | `Mathlib/Analysis/MeanInequalities/MomentNormalization.lean` | project-verified | Exact rational normalization of any finite centered weighted law with positive total and second moment; a uniform parameter for every positive variance ratio keeps all bounded coordinates above the cutoff and makes both parameter and positive deficit smaller than any prescribed tolerance. |
 
 ## Sharp variance for separated support
 

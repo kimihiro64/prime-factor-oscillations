@@ -4,6 +4,7 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Prime Factor Oscillations contributors
 -/
 import PrimeFactorOscillations.Assembly.CarmichaelThresholdFeasibility
+import PrimeFactorOscillations.Helpers.ThresholdRadialPackingSharpness
 import PrimeFactorOscillations.Helpers.ThresholdSelectedQuantum
 import PrimeFactorOscillations.Helpers.ThresholdSeparatedSharpness
 import PrimeFactorOscillations.Helpers.ThresholdSingleLevelCost

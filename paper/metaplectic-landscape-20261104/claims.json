@@ -5126,9 +5126,21 @@
     {
       "id": "TT-PACK-NORMALIZE",
       "status": "compiled",
-      "claim": "For any finite centered weighted coordinate law with total K>0 and second moment F>0, y_i=(1+p*z_i)/(1+(F/K)*p^2) has equal first and second moments K/(1+(F/K)*p^2) and centered variance (p/(1+(F/K)*p^2))^2*F. This exact identity is not the still-unfinished all-r small-deficit moment-law attainment theorem.",
+      "claim": "For any finite centered weighted coordinate law with total K>0 and second moment F>0, y_i=(1+p*z_i)/(1+(F/K)*p^2) has equal first and second moments K/(1+(F/K)*p^2) and centered variance (p/(1+(F/K)*p^2))^2*F. For arbitrary positive rho, a uniform positive parameter can make both p and the positive deficit smaller than any eta while keeping every coordinate with |z|<=A above the cutoff. The full moment-law attainment consumer is now formalized in TT-PACK-ATTAIN.",
       "declarations": [
-        "Finset.centered_moment_normalization"
+        "Finset.centered_moment_normalization",
+        "Finset.momentNormalization_small_parameter"
+      ]
+    },
+    {
+      "id": "TT-PACK-ATTAIN",
+      "status": "compiled",
+      "claim": "For every k>=1,r>=0,0<d<1 and eta>0, a positive-natural-order all-selected r-site profile of total2k, equal first and second moments, exact r selected radial values,0<g<eta, exact pairwise spacing g*(j-i),0<Delta<eta, and equality in both g^2*separatedVarianceFloor(r,2,2k) and the complete deficit budget B(d,1,2k,Delta) exists iff2<=r<=k. The centered natural middle-surplus grid is constructed at every admissible r,k. The0- and1-level obstructions are formalized. The gap is selected by the construction on N=K; no actual-zeta attainment claim is made.",
+      "declarations": [
+        "Finset.even_separatedGrid_centered",
+        "PrimeFactorOscillations.thresholdRadialPacking_attainers",
+        "PrimeFactorOscillations.thresholdPackingAttainer_not_small",
+        "PrimeFactorOscillations.thresholdRadialPacking_attainers_iff"
       ]
     }
   ],
