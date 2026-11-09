@@ -38,7 +38,7 @@
     },
     {
       "id": "SFS-MODEL",
-      "status": "kernel_checked_raw_complete_product_bound",
+      "status": "kernel_checked_concrete_dependent_product_bound",
       "claim": "Every algebraically generated finite product of normalized complete graphs with factor sizes at least six has centered quadratic gap at most 1/5, for every real function. The binary extension retains total-mean and parity-mean modes with the same residual bound. The zero-one product has an explicit positive density, and its full binary extension satisfies the exact unnormalized model hypothesis of the finite-fibre transfer.",
       "declarations": [
         "Finset.kernelBilinear_complete_coordinate_fifth_gap",
@@ -50,20 +50,41 @@
         "Finset.IsRawCompleteProduct.normalized_witness",
         "Finset.IsRawCompleteProduct.zero_or_one",
         "Finset.IsRawCompleteProduct.parity_gap",
-        "Finset.IsRawCompleteProduct.binary_model_gap"
+        "Finset.IsRawCompleteProduct.binary_model_gap",
+        "Finset.completePiDensity_bounds",
+        "Finset.kernelBilinear_complete_pi_binary_gap"
       ],
       "new_content": "Classical finite product spectral calculation, supporting the admitted prime transfer.",
       "ordinary_spectral_description": "The finite product of unit-residue inequality kernels has modes indexed by coordinate subsets, eigenvalues D_R*product(-1/(ell*(ell-1)-1)), and residual norm D_R/5 after constant and parity modes are removed.",
       "owners": [
         "PrimeFactorOscillations/Mathlib/Analysis/MeanInequalities/CompleteCoordinateGap.lean",
         "PrimeFactorOscillations/Mathlib/Analysis/MeanInequalities/CompleteProductGap.lean",
-        "PrimeFactorOscillations/Mathlib/Analysis/MeanInequalities/RawProductSpectrum.lean"
+        "PrimeFactorOscillations/Mathlib/Analysis/MeanInequalities/RawProductSpectrum.lean",
+        "PrimeFactorOscillations/Mathlib/Analysis/MeanInequalities/FinitePiProduct.lean"
       ],
-      "formal_scope": "Normalized finite-product induction and the zero-one density conversion with binary parity, uniformly over every real function. The construction hypotheses carry finite graph data and cardinality conditions, with no analytic estimate.",
+      "formal_scope": "Normalized finite-product induction and the zero-one density conversion with binary parity, uniformly over every real function. The construction hypotheses carry finite graph data and cardinality conditions, with no analytic estimate. The concrete dependent function carrier is now constructed algebraically and satisfies the exact unnormalized binary gap, including the empty index type.",
       "pending_adapters": [
-        "Identify the actual unit-supported tuple kernel and modulo-four binary parity with the raw complete-product model",
+        "Assemble the actual regular-prime map with the finite-fibre consumer and the proved odd-unit model and modulo-four decoder",
         "Full eigenvalue formula (7), if required as a separately formalized classification"
       ]
+    },
+    {
+      "id": "SFS-UNIT-MODEL",
+      "status": "kernel_checked_actual_unit_product_and_mod_four_adapter",
+      "claim": "For every finite indexed family of odd primes, including repetitions and the empty family, the actual prime-square unit-residue inequality kernel with one binary coordinate has density D=(1/2)*product(1-1/(ell*(ell-1))) and the exact signed two-mode gap D/5 for every real function. Units modulo four are explicitly identified with Bool, preserving residue equality, parity sign and the inverse residue decoder.",
+      "declarations": [
+        "Nat.prime_square_unit_density_bounds",
+        "Nat.prime_square_unit_binary_gap",
+        "ZMod.unitsFourEquivBool_eq_iff",
+        "ZMod.unitsFourSign_eq_binary",
+        "ZMod.unitsFourEquivBool_symm_val"
+      ],
+      "owners": [
+        "PrimeFactorOscillations/Mathlib/Data/Nat/Prime/SquareUnitKernel.lean"
+      ],
+      "proof_scope": "Concrete finite model and three separate modulo-four identities. The combined model on actual prime vertices is a subsequent consumer, not yet a compiled theorem.",
+      "new_content": "Supporting finite arithmetic specialization of the classical product gap; not an independent novelty claim.",
+      "axiom_audit": "standard_foundations_only"
     },
     {
       "id": "SFS-FIBRE-FINITE",
@@ -114,7 +135,7 @@
       ],
       "new_content": "Supporting arithmetic corollary of the existing uniform reduced-residue estimate; not an independently claimed novel result.",
       "pending_adapters": [
-        "Match the actual unit-supported tuple kernel and modulo-four sign to the proved raw finite model",
+        "Assemble the same regular-prime unit/parity map with the proved finite-fibre comparison",
         "Fixed-modulus asymptotic occupancy limit"
       ],
       "exceptional_primes": "The regular set is exactly primes at most X outside S; this includes the empty coordinate set and the coordinate prime two."
