@@ -25,11 +25,12 @@ theorem for prime sets avoiding squarefree differences.
 \noindent\textbf{Proof status.}
 The main spectral theorem is a proposed result under audit.
 The finite congruence-count formulation of the uniform tail bound~(5),
-the counting-normalized complete-product gap with its binary parity extension,
-and the full finite-fibre comparison with sparse exceptions have kernel-checked
-proofs in the maintained Lean repository.
-The residue-unit identification, actual prime-fibre occupancy and asymptotic
-consequences remain to be formalized.
+the zero-one complete-product gap with explicit density and binary parity,
+the full finite-fibre comparison with sparse exceptions, and a uniform
+prime-fibre occupancy bound have kernel-checked proofs in the maintained
+Lean repository.
+The residue-unit identification, its actual prime-product specialization
+and the asymptotic consequences remain to be formalized.
 
 \section{Statement and intended consequences}
 
@@ -221,9 +222,26 @@ the two means are \(S(f_0)+S(f_1)=2S(g)\) and
 Dividing by the total number \(2N\) of vertices yields the two-mode
 bound for the row-normalized operator. Multiplication by its uniform
 row mass \(D\) gives the displayed inequality.
-The Lean declarations check the counting-normalized induction and binary
-identity; this last probability normalization is their ordinary algebraic
-consequence.
+The Lean declarations check both the row-normalized induction and the
+zero-one kernel with its density factor. Explicitly, for
+\(N=\prod_j m_j\) and \(d=\prod_j(1-m_j^{-1})\), the raw odd-product
+kernel is \(Nd\) times its row-normalized kernel.
+The binary extension has \(2N\) vertices and density \(D=d/2\).
+Its checked counting form is exactly
+\[
+ \begin{aligned}
+ &\left|\sum_{x,y\in\Omega}f(x)K(x,y)f(y)
+       -D\left[(\sum_{x\in\Omega}f(x))^2
+              -(\sum_{x\in\Omega}(-1)^{x_0}f(x))^2\right]\right|\\
+ &\qquad\le\frac D5\left[
+ |\Omega|\sum_{x\in\Omega}f(x)^2
+ -(\sum_{x\in\Omega}f(x))^2
+ -(\sum_{x\in\Omega}(-1)^{x_0}f(x))^2\right].
+ \end{aligned}
+\]
+Dividing this inequality by \(|\Omega|^2\) gives the displayed
+probability form. The empty odd product has \(N=d=1\), so the
+binary-only case is included without a separate convention.
 \end{proof}
 
 \subsection{Uniform finite-fibre transfer, with all exceptions}
@@ -328,6 +346,30 @@ Every other mode has modulus at most \(D_R/5\), since
 \(r_\ell-1\ge5\) for odd \(\ell\). Consequently the finite kernel satisfies
 the counterpart of (1) with no error and \(D_R\) in place of \(\Aconst\).
 
+\begin{lemma}[Uniform upper occupancy of prime fibres]\label{lem:prime-fibres}
+There is \(C>0\) such that the following holds for every integer modulus
+\(m\ge1\), every nonnegative integer \(X\), every finite subset \(T\) of the primes
+at most \(X\) coprime to \(m\), and every map \(g:T\to U\) satisfying
+\[
+ g(p)=g(q)\quad\Longrightarrow\quad p\equiv q\pmod m.
+\]
+For every \(u\in U\),
+\[
+ |\{p\in T:g(p)=u\}|\le\frac{\pi(X)}{\varphi(m)}
+ +C X^{7/8}(1+\log m+\log(X+2))^2.                 \tag{7d}
+\]
+The constant is independent of \(m,X,T,U,g,u\); no inverse or
+surjectivity of \(g\) is assumed.
+\end{lemma}
+\begin{proof}
+For a nonempty fibre choose a member \(p_0\). Every other member
+lies in the reduced residue class of \(p_0\) modulo \(m\).
+The independent, uniform reduced-residue bound following (4) therefore
+bounds the fibre by the right side of (7d), with its same constant.
+For an empty fibre the assertion follows from nonnegativity of that
+right side. This also covers modulus one.
+\end{proof}
+
 For fixed \(R\), put \(Q_R=\prod_{\ell\le R}\ell^2\) and
 \(M_R=\varphi(Q_R)=|U_R|\).
 Let \(T\) consist of the odd primes at most \(X\) that do not divide \(Q_R\).
@@ -339,7 +381,7 @@ The representative is a unit modulo \(Q_R\).
 An empty fibre has count zero.
 This avoids constructing a global Chinese-remainder inverse merely to count fibres.
 
-The proved character-prefix bound gives
+Lemma~\ref{lem:prime-fibres} gives
 \[
  |T_u|\le\frac{\pi(X)}{M_R}
     +C X^{7/8}(1+\log Q_R+\log(X+2))^2.
@@ -407,9 +449,18 @@ not an additional Lean classification claim.
 The finite-fibre theorem~\ref{lem:fibre}, including its full exceptional
 packet, is now checked in \texttt{FiberKernelGap.lean}, supported by
 \texttt{KernelRestriction.lean} in the same candidate directory.
-Remaining formalization consists of the residue-unit and scalar-normalization
-adapters, the actual prime occupancy specialization and its fixed-modulus limit,
-the complete asymptotic tail passage, sharpness and the consequences (2)--(3).
+The zero-one density conversion is checked in
+\texttt{RawProductSpectrum.lean}: the declarations
+\texttt{Finset.IsRawCompleteProduct.normalized\_witness},
+\texttt{zero\_or\_one}, \texttt{parity\_gap} and
+\texttt{binary\_model\_gap} retain the full density and both modes.
+Lemma~\ref{lem:prime-fibres} is checked as
+\texttt{PrimeFactorOscillations.QRH.exists\_prime\_fibre\_count\_upper}
+in \texttt{Helpers/QRHPrimeFibreOccupancy.lean}.
+Remaining formalization consists of identifying the actual unit-residue
+product and its cardinality, checking the tuple map's congruence and unit
+conditions, the fixed-modulus occupancy limit, the complete asymptotic
+tail passage, sharpness and the consequences (2)--(3).
 This document is kept separate from the metaplectic and zero-multiplicity papers.
 
 \begin{thebibliography}{9}

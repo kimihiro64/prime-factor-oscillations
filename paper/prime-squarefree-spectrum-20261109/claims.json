@@ -38,26 +38,30 @@
     },
     {
       "id": "SFS-MODEL",
-      "status": "kernel_checked_abstract_complete_product_bound",
-      "claim": "Every algebraically generated finite product of normalized complete graphs with factor sizes at least six has centered quadratic gap at most 1/5, for every real function. The binary extension retains total-mean and parity-mean modes with the same residual bound.",
+      "status": "kernel_checked_raw_complete_product_bound",
+      "claim": "Every algebraically generated finite product of normalized complete graphs with factor sizes at least six has centered quadratic gap at most 1/5, for every real function. The binary extension retains total-mean and parity-mean modes with the same residual bound. The zero-one product has an explicit positive density, and its full binary extension satisfies the exact unnormalized model hypothesis of the finite-fibre transfer.",
       "declarations": [
         "Finset.kernelBilinear_complete_coordinate_fifth_gap",
         "Finset.kernelBilinear_product_complete",
         "Finset.kernelBilinear_product_complete_fifth_gap",
         "Finset.IsLargeCompleteProduct.card_pos",
         "Finset.IsLargeCompleteProduct.fifth_gap",
-        "Finset.IsLargeCompleteProduct.parity_gap"
+        "Finset.IsLargeCompleteProduct.parity_gap",
+        "Finset.IsRawCompleteProduct.normalized_witness",
+        "Finset.IsRawCompleteProduct.zero_or_one",
+        "Finset.IsRawCompleteProduct.parity_gap",
+        "Finset.IsRawCompleteProduct.binary_model_gap"
       ],
       "new_content": "Classical finite product spectral calculation, supporting the admitted prime transfer.",
       "ordinary_spectral_description": "The finite product of unit-residue inequality kernels has modes indexed by coordinate subsets, eigenvalues D_R*product(-1/(ell*(ell-1)-1)), and residual norm D_R/5 after constant and parity modes are removed.",
       "owners": [
         "PrimeFactorOscillations/Mathlib/Analysis/MeanInequalities/CompleteCoordinateGap.lean",
-        "PrimeFactorOscillations/Mathlib/Analysis/MeanInequalities/CompleteProductGap.lean"
+        "PrimeFactorOscillations/Mathlib/Analysis/MeanInequalities/CompleteProductGap.lean",
+        "PrimeFactorOscillations/Mathlib/Analysis/MeanInequalities/RawProductSpectrum.lean"
       ],
-      "formal_scope": "Actual finite-support kernel, complete product induction and binary quadratic form; construction assumptions contain no spectral estimate.",
+      "formal_scope": "Normalized finite-product induction and the zero-one density conversion with binary parity, uniformly over every real function. The construction hypotheses carry finite graph data and cardinality conditions, with no analytic estimate.",
       "pending_adapters": [
         "Unit-residue identification and local cardinalities",
-        "D_R probability normalization",
         "Full eigenvalue formula (7), if required as a separately formalized classification"
       ]
     },
@@ -79,6 +83,23 @@
         "PrimeFactorOscillations/Mathlib/Analysis/MeanInequalities/KernelRestriction.lean"
       ],
       "proof_scope": "Full finite transfer and complete exception treatment. Applying its model and occupancy hypotheses to the actual prime residue product, and taking limits, are separate pending claims."
+    },
+    {
+      "id": "SFS-FIBRE-OCCUPANCY",
+      "status": "kernel_checked_universal_prime_fibre_upper_bound",
+      "claim": "One positive constant precedes every modulus, endpoint, finite regular-prime set, fibre type and map: each fibre is at most pi(X)/phi(N)+C*X^(7/8)*(1+log N+log(X+2))^2, provided the set consists of unit primes and equality of fibre labels implies congruence modulo N. Empty fibres and modulus one are included.",
+      "declarations": [
+        "PrimeFactorOscillations.QRH.exists_prime_fibre_count_upper"
+      ],
+      "owners": [
+        "PrimeFactorOscillations/Helpers/QRHPrimeFibreOccupancy.lean"
+      ],
+      "new_content": "Supporting arithmetic corollary of the existing uniform reduced-residue estimate; not an independently claimed novel result.",
+      "pending_adapters": [
+        "Actual residue tuple map: coordinate congruences imply congruence modulo the product",
+        "Unit conditions and exact unit-product cardinality",
+        "Fixed-modulus asymptotic occupancy limit"
+      ]
     },
     {
       "id": "SFS-FIBRE",

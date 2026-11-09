@@ -4,6 +4,7 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Prime Factor Oscillations contributors
 -/
 import PrimeFactorOscillations.Assembly.PrimeClassDeletion
+import PrimeFactorOscillations.Helpers.QRHPrimeFibreOccupancy
 import PrimeFactorOscillations.Helpers.QRHPrimeSquareTail
 
 /-! Prime-set selection and uniform arithmetic pair estimates. -/
