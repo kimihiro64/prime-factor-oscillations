@@ -5088,6 +5088,48 @@
       "declarations": [
         "PrimeFactorOscillations.zeta_selected_collision_linear"
       ]
+    },
+    {
+      "id": "TT-PACK-GENERAL",
+      "status": "compiled",
+      "claim": "For every positive support size r, positive atom quantum q, nonnegative adjacent gap g, and weights at least q, the centered variance is at least g^2*(q*r*(r^2-1)/12+q*r*(K-q*r)*epsilon_r/K), with epsilon_r=1/4 for even r and zero otherwise. The floor is attained for every K>=q*r by a consecutive grid with surplus weight at a middle site; K>0 is proved before division.",
+      "declarations": [
+        "Finset.weightedVarianceNumerator_pairwise",
+        "Finset.weighted_variance_baseline_lower",
+        "Finset.separated_rank_distance_of_step",
+        "Finset.separated_weighted_variance_lower",
+        "Finset.separated_weighted_variance_sharp"
+      ]
+    },
+    {
+      "id": "TT-PACK-PROFILE",
+      "status": "compiled",
+      "claim": "Positive selected radii of any finite even-natural-weight profile can be grouped without changing any weighted statistic. If r is their distinct count and K>0, separation gives K>=2*r and variance>=g^2*separatedVarianceFloor(r,2,K). Under the existing equal-moment and cutoff assumptions this same lower floor is at most the full selected-variance deficit budget. Zero-weight sites do not count.",
+      "declarations": [
+        "PrimeFactorOscillations.finiteWeighted_radial_fiber_sum",
+        "PrimeFactorOscillations.finiteWeighted_radial_fiber_quantum",
+        "PrimeFactorOscillations.finiteWeighted_radial_packing_lower",
+        "PrimeFactorOscillations.finiteEven_selected_radial_variance_lower",
+        "PrimeFactorOscillations.finiteEven_selected_radial_packing",
+        "PrimeFactorOscillations.finiteWeighted_radialSupport_mem_iff_stat_pos",
+        "PrimeFactorOscillations.finiteWeighted_radialSupport_eq_of_statistics"
+      ]
+    },
+    {
+      "id": "TT-PACK-ZETA",
+      "status": "compiled",
+      "claim": "The all-r selected radial packing floor and K>=2*r hold for actual analytic orders in finite reflected open-strip zeta sets with positive normalization scale, equal normalized moments,0<d<1,K>0 and the stated radial separation. The upper budget uses the full N including central orders; odd total order is allowed. No independent gap or deficit estimate, simplicity or zero-free improvement is claimed.",
+      "declarations": [
+        "PrimeFactorOscillations.zeta_selected_radial_packing"
+      ]
+    },
+    {
+      "id": "TT-PACK-NORMALIZE",
+      "status": "compiled",
+      "claim": "For any finite centered weighted coordinate law with total K>0 and second moment F>0, y_i=(1+p*z_i)/(1+(F/K)*p^2) has equal first and second moments K/(1+(F/K)*p^2) and centered variance (p/(1+(F/K)*p^2))^2*F. This exact identity is not the still-unfinished all-r small-deficit moment-law attainment theorem.",
+      "declarations": [
+        "Finset.centered_moment_normalization"
+      ]
     }
   ],
   "novelty": "Priority for the combined explicit formulas has not been established; source classification and Gauss identities are classical."

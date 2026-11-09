@@ -5,6 +5,31 @@ Reusable mathematics intended for possible upstreaming lives under
 The child generator replaces `PrimeFactorOscillations` with the configured project
 namespace.
 
+## Bounded regional candidate exports
+
+| Module | Proposed destination | Readiness | Scope |
+| --- | --- | --- | --- |
+| `PrimeFactorOscillations.Mathlib.Analysis.MeanInequalities.All` | `Mathlib/Analysis/MeanInequalities/All.lean` | project-verified | Regional facade for finite weighted variance, its sharp separated-site floor and exact equal-moment normalization. Preserves the root facade's twelve-import limit. |
+| `PrimeFactorOscillations.Mathlib.Combinatorics.All` | `Mathlib/Combinatorics/All.lean` | project-verified | Regional facade preserving both existing integer grouping and integer moment compression exports, with no mathematical declaration changes. |
+
+## Equal-moment normalization
+
+| Module | Proposed destination | Readiness | Scope |
+| --- | --- | --- | --- |
+| `PrimeFactorOscillations.Mathlib.Analysis.MeanInequalities.MomentNormalization` | `Mathlib/Analysis/MeanInequalities/MomentNormalization.lean` | project-verified | Exact rational transformation of any finite centered weighted law with positive total and second moment into equal first and second moments, retaining its full centered variance. The all-r fixed-even-mass small-deficit consumer is separate. |
+
+## Sharp variance for separated support
+
+| Module | Proposed destination | Readiness | Scope |
+| --- | --- | --- | --- |
+| `PrimeFactorOscillations.Mathlib.Analysis.MeanInequalities.SeparatedGrid` | `Mathlib/Analysis/MeanInequalities/SeparatedGrid.lean` | project-verified | Sharp weighted variance floor for every positive support size with a positive minimum atom weight and adjacent real-site separation. Includes the parity correction, weighted pair-distance compression and attaining consecutive-grid weights at every admissible total mass. |
+
+## Weighted variance with baseline mass
+
+| Module | Proposed destination | Readiness | Scope |
+| --- | --- | --- | --- |
+| `PrimeFactorOscillations.Mathlib.Analysis.MeanInequalities.SeparatedVariance` | `Mathlib/Analysis/MeanInequalities/SeparatedVariance.lean` | project-verified | Exact weighted pairwise variance, comparison under pair-distance compression, and the sharp baseline/surplus numerator lower bound retaining the complete squared-mean correction. The all-r separated-support consumer is developed separately. |
+
 ## Optimal adaptive multiplicity decoding
 
 | Module | Proposed destination | Readiness | Scope |

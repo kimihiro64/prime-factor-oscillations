@@ -1,8 +1,8 @@
 import PrimeFactorOscillations.Mathlib.Algebra.All
 import PrimeFactorOscillations.Mathlib.Algebra.BigOperators.WeightedFiberProduct
 import PrimeFactorOscillations.Mathlib.Analysis.All
-import PrimeFactorOscillations.Mathlib.Combinatorics.IntegerBlockGrouping
-import PrimeFactorOscillations.Mathlib.Combinatorics.IntegerMomentCompression
+import PrimeFactorOscillations.Mathlib.Analysis.MeanInequalities.All
+import PrimeFactorOscillations.Mathlib.Combinatorics.All
 import PrimeFactorOscillations.Mathlib.Data.All
 import PrimeFactorOscillations.Mathlib.NumberTheory.All
 import PrimeFactorOscillations.Mathlib.NumberTheory.LegendreSymbol.QuadraticPairCorrelationLaws

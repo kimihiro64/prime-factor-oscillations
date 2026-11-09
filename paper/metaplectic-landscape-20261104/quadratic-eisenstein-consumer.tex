@@ -9734,6 +9734,131 @@ inequality framework, see D.~Bertsimas and I.~Popescu,
 Approach}, SIAM J.~Optim.~15 (2005), 780--804,
 DOI 10.1137/S1052623401399903.}
 
+\subsection{Sharp packing at every radial support size}
+\label{subsec:all-r-radial-packing}
+
+The collision threshold extends to every number of distinct selected levels.
+For an integer \(r\ge1\), define
+\[
+ C_r=\frac{r(r^2-1)}{12},\qquad
+ \epsilon_r=\begin{cases}1/4,&r\text{ even},\\0,&r\text{ odd},\end{cases}
+ \qquad
+ F(r,q,K)=qC_r+\frac{qr(K-qr)}K\epsilon_r.
+ \tag{RP1}\label{eq:all-r-variance-floor}
+\]
+Here \(q>0\) is a lower bound on each atom weight and \(K\ge qr>0\).
+
+\paragraph{Theorem (sharp separated weighted variance).}
+Let \(y_0\le\cdots\le y_{r-1}\) be real sites with
+\(y_{i+1}-y_i\ge g\ge0\), and let \(w_i\ge q>0\). Put
+\(K=\sum_{i=0}^{r-1}w_i\) and
+\(\mu=K^{-1}\sum_{i=0}^{r-1}w_i y_i\). Then
+\begin{equation}
+ \sum_{i=0}^{r-1}w_i(y_i-\mu)^2\ge g^2 F(r,q,K).
+ \tag{RP2}\label{eq:all-r-packing}
+\end{equation}
+For every \(r\ge1\), \(q>0\), \(K\ge qr\), and \(g\ge0\), equality
+is attained by consecutive sites of step \(g\), weight \(q\) at every
+site, and all surplus weight \(K-qr\) at a middle site.
+For \(g=0\) the attaining coordinates coincide; the statement then
+concerns indexed sites, with zero floor.
+
+\paragraph{Proof.}
+The complete pairwise identity is
+\[
+ K\sum_iw_i(y_i-\mu)^2
+ =\frac12\sum_{i=0}^{r-1}\sum_{j=0}^{r-1}w_iw_j(y_i-y_j)^2.
+\]
+Summing adjacent gaps shows
+\(\lvert y_i-y_j\rvert\ge g\lvert i-j\rvert\).
+Since every pair coefficient is nonnegative, compression to
+\(u_i=i-(r-1)/2\) can only decrease this numerator, by a factor \(g^2\).
+The consecutive grid satisfies
+\[
+ \sum_i u_i=0,\qquad \sum_i u_i^2=C_r,\qquad
+ u_i^2\ge\epsilon_r,
+\]
+with equality in the last inequality at a middle site.
+Write \(e_i=w_i-q\ge0\), \(E=\sum_i e_i=K-qr\),
+\(T=\sum_i e_i u_i^2\), and \(H=\sum_i e_i u_i\).
+The full grid numerator is exactly
+\[
+ K\sum_iw_i u_i^2-\Bigl(\sum_iw_i u_i\Bigr)^2
+   =qKC_r+qrT+(ET-H^2).
+\]
+The last term is
+\(\frac12\sum_{i,j=0}^{r-1}e_i e_j(u_i-u_j)^2\ge0\);
+it includes the entire squared-mean subtraction. Also
+\(T\ge E\epsilon_r\). Thus the numerator is at least
+\(qKC_r+qrE\epsilon_r=KF(r,q,K)\), proving
+\eqref{eq:all-r-packing}. Concentrating all \(e_i\) at a middle
+site makes both inequalities equalities.
+
+\paragraph{Corollary (the complete selected-level obstruction).}
+Use the equal-moment profile and full deficit notation of
+\eqref{eq:radial-collision-budget}, with even natural weights \(a_i=2n_i\).
+Let \(r\) be the number of distinct coordinates with
+\(a_iI_d(y_i)>0\), and suppose distinct such coordinates are separated
+by \(g\ge0\). Then \(r\ge1\), \(K\ge2r\), and
+\begin{equation}
+ g^2\Phi(r,K)\le {\cal B}_{d,v,K}(\Delta),\qquad
+ \Phi(r,K)=\frac{r(r^2-1)}6+
+ \begin{cases}\dfrac{r(K-2r)}{2K},&r\text{ even},\\0,&r\text{ odd}.\end{cases}
+ \tag{RP3}\label{eq:all-r-selected}
+\end{equation}
+Indeed, combine all positive selected weights at the same coordinate.
+This preserves every finite weighted statistic, including mass, mean
+and variance. Each resulting atom has weight at least two.
+Enumerate the resulting finite support increasingly, apply
+\eqref{eq:all-r-packing} with \(q=2\), and then use the full budget.
+Thus a proposed support size is excluded whenever its left side in
+\eqref{eq:all-r-selected} exceeds the budget. For example
+\[
+ \Phi(1,K)=0,\quad \Phi(2,K)=2(K-2)/K,\quad
+ \Phi(3,K)=4,\quad \Phi(4,K)=12-16/K.
+\]
+The case \(r=0\) is excluded by \(K>0\). The \(r=1\) case has zero
+variance; in the all-selected equal-moment law its positive coordinate
+must be one. These are radial-level statements, not simplicity claims.
+
+\paragraph{Actual reflected zeta orders.}
+The maintained theorem \texttt{zeta\_selected\_radial\_packing}
+proves \eqref{eq:all-r-selected} for the same finite reflected
+open-strip zeta profiles as the preceding collision theorem.
+All selected statistics transfer to the even off-line profile.
+Equality of all finite weighted statistics also preserves the
+positive-weight radial support: test each coordinate by its singleton
+indicator. Central weight lies at zero and is unselected because \(d>0\).
+Apply the lower floor to the folded selected profile and the upper
+budget to the full set. Its full \(N\), including every central order,
+is retained, so odd total order is allowed.
+
+\paragraph{A normalization tool for moment-law sharpness.}
+The separately compiled \texttt{Finset.centered\_moment\_normalization}
+gives the following exact construction. On a finite support \(S\), suppose
+\(\sum_{i\in S}w_i=K>0\), \(\sum_{i\in S}w_i z_i=0\), and
+\(\sum_{i\in S}w_i z_i^2=F>0\). For any real \(p\), set
+\[
+ D=1+(F/K)p^2>0,\qquad y_i=(1+pz_i)/D.
+\]
+Then
+\[
+ \sum_{i\in S}w_i y_i=\sum_{i\in S}w_i y_i^2=K/D,\qquad
+ \sum_{i\in S}w_i(y_i-1/D)^2=(p/D)^2F.
+\]
+This is a proved normalization identity. The full arbitrary-\(r\),
+fixed-even-mass, arbitrarily-small-deficit realization theorem remains
+a separate unfinished consumer; it is not included in the present
+moment-law sharpness claim. The generic variance floor itself is sharp.
+
+Spacing arguments and moment inequalities are classical. For comparison,
+L.~Moser's \emph{Notes on Number Theory IV: On the Multiplicity of
+Representations of Numbers by Sums}, Canad.~Math.~Bull.~6 (1963),
+163--166, DOI 10.4153/CMB-1963-014-9, uses spacing with an upper
+multiplicity cap. Here a lower atom quantum gives the displayed
+parity-dependent floor and its selected-profile consequence.
+Priority for the combined criterion is not asserted.
+
 \subsection{Sharp radial support and exact two-layer reconstruction}
 \label{sec:radial-support-inverse}
 
