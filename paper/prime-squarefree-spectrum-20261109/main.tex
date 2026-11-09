@@ -24,15 +24,13 @@ theorem for prime sets avoiding squarefree differences.
 
 \noindent\textbf{Proof status.}
 The main spectral theorem is a proposed result under audit.
-The finite congruence-count formulation of the uniform tail bound~(5),
-the zero-one complete-product gap with explicit density and binary parity,
-the full finite-fibre comparison with sparse exceptions, the uniform
-prime-square tuple occupancy bound, and the exact unit-tuple cardinality
-have kernel-checked proofs in the maintained Lean repository.
-The concrete odd prime-square unit kernel, its exact density, and the
-modulo-four unit equivalence and parity sign now also have checked proofs.
-Assembling these inputs on actual prime vertices and taking the asymptotic
-limits, including sharpness and stability, remain to be formalized.
+The uniform finite tail bound, concrete finite unit model, tuple occupancy
+and cardinality, modulo-four sign adapter, and the complete finite
+actual-prime comparison~(7g) have kernel-checked proofs in the maintained
+Lean repository. The latter is uniform over every finite odd-prime
+coordinate set, endpoint and signed real weight, with all exception terms.
+The fixed-modulus occupancy limit, complete asymptotic tail passage,
+sharpness and parity stability remain to be formalized.
 
 \section{Statement and intended consequences}
 
@@ -461,6 +459,64 @@ and there is one empty tuple. The coordinate \(\ell=2\) contributes
 \(2\in S\), as are all other coordinate primes.
 \end{proof}
 
+\begin{lemma}[Complete finite comparison on actual primes]\label{lem:prime-finite}
+There is one \(C>0\) with the following property.
+Let \(S\) be any finite set of odd primes, and put
+\[
+ N_S=4\prod_{\ell\in S}\ell^2,\qquad
+ M_S=2\prod_{\ell\in S}\ell(\ell-1),\qquad
+ D_S=\frac12\prod_{\ell\in S}
+       \left(1-\frac1{\ell(\ell-1)}\right).
+\]
+For an integer \(X\ge0\) with \(n=n_X>0\), define
+\[
+ E_{S,X}=CX^{7/8}(1+\log N_S+\log(X+2))^2,\qquad
+ \delta_{S,X}=\frac{1+M_SE_{S,X}}n .
+\]
+On \(\Pcal_X\), let
+\[
+ K_S(p,q)=\mathbf1_{\{p\not\equiv q\pmod4\}}
+     \prod_{\ell\in S}\mathbf1_{\{p\not\equiv q\pmod{\ell^2}\}},\qquad
+ q_S(f)=\frac1{n^2}\sum_{p,q\in\Pcal_X}f(p)K_S(p,q)f(q).
+\]
+For every \(\tau\ge0\) with \(|S|\le\tau^2n\), and every real
+\(f\) on \(\Pcal_X\), the original means \(a,b,e\) satisfy
+\[
+ |q_S(f)-D_S(a^2-b^2)|
+ \le\frac{D_S}{5}(e-a^2-b^2)
+  +\left[\frac{D_S\delta_{S,X}}5+
+           (4D_S+2)\tau+\tau^2\right]e.                    \tag{7g}
+\]
+The constant precedes \(S,X,\tau,f\).
+The empty set \(S\) is included, with \(N_S=4,M_S=2,D_S=1/2\).
+\end{lemma}
+\begin{proof}
+Take \(T=\Pcal_X\setminus S\).
+Every member is a unit modulo four and every \(\ell^2\), \(\ell\in S\).
+Map it to the binary coordinate supplied by the modulo-four equivalence
+and its odd prime-square unit coordinates.
+Lemma~\ref{lem:unit-model} identifies both the physical kernel on
+\(T\times T\) and the sign \(\sigma\) with that model.
+
+Apply (7e) to \(\{2\}\cup S\).
+Equality of the unit labels implies equality of all those actual residue
+coordinates. Thus each label fibre has size at most
+\(\pi(X)/M_S+E_{S,X}\); empty fibres have size zero.
+The model has \(M_S\) elements, and
+\[
+ M_S|T_u|\le\pi(X)+M_SE_{S,X}
+ \le n+1+M_SE_{S,X}=(1+\delta_{S,X})n .
+\]
+The \(1/n\) term accounts for using the full-prime center \(\pi(X)\)
+with the odd-prime vertex count \(n\).
+There are at most \(|S|\le\tau^2n\) exceptional vertices, and
+\(|K_S|\le1\) everywhere.
+All hypotheses of (7c) therefore hold on the same prime support and with
+the same real weight \(f\). Its complete exception allowance gives (7g).
+In particular the two mixed rectangles and the exceptional self
+interaction, as well as both signed principal means, are retained.
+\end{proof}
+
 For fixed \(R\), put \(Q_R=\prod_{\ell\le R}\ell^2\) and
 \(M_R=\varphi(Q_R)=|U_R|\).
 Let \(T\) consist of the odd primes at most \(X\) that do not divide \(Q_R\).
@@ -486,15 +542,13 @@ Since \(n_X=\pi(X)-1\) for \(X\ge2\), the occupancy condition holds with
 as \(X\to\infty\) with \(R\) fixed.
 The exceptional count is at most the number of odd primes dividing \(Q_R\).
 For every fixed \(\tau>0\), it is eventually at most \(\tau^2 n_X\).
-Equation (7c) is uniform in \(f\), so these two estimates provide the intended
-actual-prime finite-kernel comparison.
-The congruence, unit, cardinality and actual tuple-occupancy assertions
-are now checked separately. Lemma~\ref{lem:unit-model} also supplies the
-concrete odd-unit kernel and the explicit modulo-four decoder and sign.
-The remaining finite assembly must apply these declarations to the same
-regular-prime map and consume (7c), with its complete exception allowance.
-That assembly and its asymptotic limit remain pending Lean work;
-the actual-prime headline theorem remains proposed.
+Equation (7g) supplies the complete actual-prime finite-kernel comparison,
+uniformly in \(f\), with these exact occupancy and exception errors.
+The arithmetic tuple assertions, unit model and parity adapter are
+checked separately, and their complete actual-prime finite assembly is
+now checked as Lemma~\ref{lem:prime-finite}.
+The fixed-\(R\) limit of its error remains pending Lean work;
+the actual-prime asymptotic headline theorem remains proposed.
 
 Let \(J_R\) be the difference between this finite kernel and the actual
 squarefree-difference kernel. It is a symmetric nonnegative tail kernel,
@@ -581,8 +635,15 @@ All seven new declarations compile and their focused axiom audit contains
 only the standard foundational axioms.
 These finite model statements are supporting classical mathematics,
 rather than the paper's claimed originality.
-Remaining formalization consists of assembling the actual-prime map and
-the complete finite-fibre comparison, the fixed-modulus occupancy limit,
+The complete finite actual-prime comparison~(7g) is checked as
+\texttt{PrimeFactorOscillations.QRH.}
+\texttt{exists\_finite\_prime\_square\_spectral\_gap}, in
+\texttt{Helpers/QRHPrimeSquareSpectrum.lean}.
+Its focused axiom audit contains only the standard foundational axioms.
+The theorem includes every finite odd-prime coordinate set, the empty
+coordinate set, arbitrary real weights, the full-prime center correction,
+and every coordinate-prime exception.
+Remaining formalization consists of the fixed-modulus occupancy limit,
 the complete asymptotic tail passage, sharpness and consequences (2)--(3).
 This document is kept separate from the metaplectic and zero-multiplicity papers.
 

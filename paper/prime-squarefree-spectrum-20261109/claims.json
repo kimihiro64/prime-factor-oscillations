@@ -64,7 +64,6 @@
       ],
       "formal_scope": "Normalized finite-product induction and the zero-one density conversion with binary parity, uniformly over every real function. The construction hypotheses carry finite graph data and cardinality conditions, with no analytic estimate. The concrete dependent function carrier is now constructed algebraically and satisfies the exact unnormalized binary gap, including the empty index type.",
       "pending_adapters": [
-        "Assemble the actual regular-prime map with the finite-fibre consumer and the proved odd-unit model and modulo-four decoder",
         "Full eigenvalue formula (7), if required as a separately formalized classification"
       ]
     },
@@ -82,7 +81,7 @@
       "owners": [
         "PrimeFactorOscillations/Mathlib/Data/Nat/Prime/SquareUnitKernel.lean"
       ],
-      "proof_scope": "Concrete finite model and three separate modulo-four identities. The combined model on actual prime vertices is a subsequent consumer, not yet a compiled theorem.",
+      "proof_scope": "Concrete finite model and three modulo-four identities. The actual regular-prime map and complete finite consumer are now checked in SFS-PRIME-FINITE; the asymptotic limit remains separate.",
       "new_content": "Supporting finite arithmetic specialization of the classical product gap; not an independent novelty claim.",
       "axiom_audit": "standard_foundations_only"
     },
@@ -135,16 +134,39 @@
       ],
       "new_content": "Supporting arithmetic corollary of the existing uniform reduced-residue estimate; not an independently claimed novel result.",
       "pending_adapters": [
-        "Assemble the same regular-prime unit/parity map with the proved finite-fibre comparison",
         "Fixed-modulus asymptotic occupancy limit"
       ],
       "exceptional_primes": "The regular set is exactly primes at most X outside S; this includes the empty coordinate set and the coordinate prime two."
     },
     {
+      "id": "SFS-PRIME-FINITE",
+      "status": "kernel_checked_actual_prime_uniform_finite_gap",
+      "claim": "One C>0 precedes every finite set S of odd primes, endpoint X with n>0 odd primes, tau>=0 with |S|<=tau^2*n, and real weight f. For the actual cutoff kernel K_S, abs(q_S-D*(a^2-b^2))<=D/5*(e-a^2-b^2)+(D*delta/5+(4*D+2)*tau+tau^2)*e, where delta=(1+M*C*X^(7/8)*(1+log N+log(X+2))^2)/n, N=product_{p in insert 2 S}(p^2), M=product_{p in insert 2 S}(p*(p-1)), and D=(1/2)*product_{p in S}(1-1/(p*(p-1))).",
+      "declarations": [
+        "PrimeFactorOscillations.QRH.exists_finite_prime_square_spectral_gap"
+      ],
+      "owners": [
+        "PrimeFactorOscillations/Helpers/QRHPrimeSquareSpectrum.lean"
+      ],
+      "proof_scope": "Actual odd-prime vertices, all signed real weights, empty coordinate set, prime-two center correction and all coordinate-prime exceptions. The asymptotic limit, optimality and stability are separate pending claims.",
+      "depends_on": [
+        "SFS-UNIT-MODEL",
+        "SFS-FIBRE-FINITE",
+        "SFS-RESIDUE-ARITHMETIC",
+        "SFS-FIBRE-OCCUPANCY"
+      ],
+      "axiom_audit": "standard_foundations_only",
+      "source_sha256_lf": "21c7467d1f051026220048d153c1235fc9bbab6693aeacefae303c5a18e530df"
+    },
+    {
       "id": "SFS-FIBRE",
-      "status": "formalization_pending",
-      "claim": "For fixed R, actual prime-fibre frequencies transfer the complete signed finite kernel inequality uniformly over all real vertex weights, including exceptional primes dividing the modulus.",
-      "declarations": []
+      "status": "finite_actual_prime_comparison_checked_limit_pending",
+      "claim": "For fixed R, the checked actual-prime finite comparison has an error tending to zero uniformly over all real vertex weights, including the coordinate-prime exceptions. The vanishing-error limit remains unformalized.",
+      "declarations": [],
+      "depends_on": [
+        "SFS-PRIME-FINITE"
+      ],
+      "completed_finite_declaration": "PrimeFactorOscillations.QRH.exists_finite_prime_square_spectral_gap"
     },
     {
       "id": "SFS-TAIL-LIMIT",
