@@ -62,6 +62,25 @@
       ]
     },
     {
+      "id": "SFS-FIBRE-FINITE",
+      "status": "kernel_checked_complete_finite_transfer",
+      "claim": "For every finite support, every real test function, a two-mode model gap and upper occupancy M*#fibre<=(1+delta)*n transfer to the full signed kernel with error (D*delta/5+(4*D+2)*tau+tau^2)*energy, when the exceptional support has size at most tau^2*n. Both exceptional cross orientations, the exceptional self interaction, and both squared principal means are included.",
+      "declarations": [
+        "Finset.kernelBilinear_fiberTotal",
+        "Finset.mul_sum_sq_fiberTotal_le",
+        "Finset.kernel_fibre_fifth_gap",
+        "Finset.abs_kernelBilinear_sub_restrict_le",
+        "Finset.abs_sum_sq_sub_restrict_le",
+        "Finset.kernel_fibre_fifth_gap_with_exceptions_unscaled",
+        "Finset.kernel_fibre_fifth_gap_with_exceptions"
+      ],
+      "owners": [
+        "PrimeFactorOscillations/Mathlib/Analysis/MeanInequalities/FiberKernelGap.lean",
+        "PrimeFactorOscillations/Mathlib/Analysis/MeanInequalities/KernelRestriction.lean"
+      ],
+      "proof_scope": "Full finite transfer and complete exception treatment. Applying its model and occupancy hypotheses to the actual prime residue product, and taking limits, are separate pending claims."
+    },
+    {
       "id": "SFS-FIBRE",
       "status": "formalization_pending",
       "claim": "For fixed R, actual prime-fibre frequencies transfer the complete signed finite kernel inequality uniformly over all real vertex weights, including exceptional primes dividing the modulus.",

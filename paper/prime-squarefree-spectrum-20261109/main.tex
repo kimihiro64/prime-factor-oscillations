@@ -24,10 +24,11 @@ theorem for prime sets avoiding squarefree differences.
 
 \noindent\textbf{Proof status.}
 The main spectral theorem is a proposed result under audit.
-The finite congruence-count formulation of the uniform tail bound~(5)
-and the counting-normalized complete-product gap, including its binary
-parity extension, have kernel-checked proofs in the maintained Lean repository.
-The residue-unit identification, uniform prime-fibre transfer and asymptotic
+The finite congruence-count formulation of the uniform tail bound~(5),
+the counting-normalized complete-product gap with its binary parity extension,
+and the full finite-fibre comparison with sparse exceptions have kernel-checked
+proofs in the maintained Lean repository.
+The residue-unit identification, actual prime-fibre occupancy and asymptotic
 consequences remain to be formalized.
 
 \section{Statement and intended consequences}
@@ -225,6 +226,85 @@ identity; this last probability normalization is their ordinary algebraic
 consequence.
 \end{proof}
 
+\subsection{Uniform finite-fibre transfer, with all exceptions}
+
+\begin{lemma}[Signed sampling comparison]\label{lem:fibre}
+Let \(S\) have size \(n>0\), let \(T\subseteq S\), and let \(U\) have
+size \(M>0\). Let \(g:T\to U\), and suppose a real model kernel \(L\)
+with sign function \(\eta\) satisfies
+\[
+ \begin{aligned}
+ &\left|\sum_{u,v}h(u)L(u,v)h(v)
+       -D\left[(\sum_u h(u))^2-(\sum_u\eta(u)h(u))^2\right]\right|\\
+ &\qquad\le\frac D5\left[M\sum_u h(u)^2
+       -(\sum_u h(u))^2-(\sum_u\eta(u)h(u))^2\right].
+ \end{aligned}
+\]
+for every real \(h\), where \(D\ge0\).
+Let \(K:S\times S\to\mathbb R\) satisfy \(|K|\le1\), with
+\(K(p,q)=L(g(p),g(q))\) on \(T\times T\).
+Let \(\sigma(p)^2=1\) on \(S\), with
+\(\sigma(p)=\eta(g(p))\) on \(T\).
+Assume \(\delta,\tau\ge0\) and
+\[
+ M\,|\{p\in T:g(p)=u\}|\le(1+\delta)n\quad(u\in U),
+ \qquad |S\setminus T|\le\tau^2n.
+\]
+For uniform averages on \(S\), put \(a=\E f\), \(b=\E(\sigma f)\),
+\(e=\E f^2\) and
+\(q=n^{-2}\sum_{p,q\in S}f(p)K(p,q)f(q)\). Then, uniformly for every real \(f\),
+\[
+ |q-D(a^2-b^2)|
+ \le \frac D5(e-a^2-b^2)
+       +\left[\frac{D\delta}{5}+(4D+2)\tau+\tau^2\right]e.       \tag{7c}
+\]
+\end{lemma}
+
+\begin{proof}
+For \(u\in U\), set \(F(u)=\sum_{p\in T:g(p)=u}f(p)\) and
+\(h(u)=MF(u)/n\). Empty fibres have total zero.
+The signed regular quadratic form is exactly
+\[
+ q_T=\frac1{M^2}\sum_{u,v}h(u)L(u,v)h(v).
+\]
+Cauchy--Schwarz inside each fibre, followed by the occupancy bound, gives
+\[
+ \frac1M\sum_u h(u)^2
+ =\frac M{n^2}\sum_u F(u)^2
+ \le\frac{1+\delta}{n}\sum_{p\in T}f(p)^2\le(1+\delta)e.
+\]
+The two model means are exactly
+\(a_T=n^{-1}\sum_{p\in T}f(p)\) and
+\(b_T=n^{-1}\sum_{p\in T}\sigma(p)f(p)\).
+Thus the model comparison gives
+\[
+ |q_T-D(a_T^2-b_T^2)|
+       \le\frac D5((1+\delta)e-a_T^2-b_T^2).
+\]
+Write \(E_0=S\setminus T\). The exact remaining kernel packet consists of
+\(T\times E_0\), \(E_0\times T\) and \(E_0\times E_0\).
+Its absolute contribution is at most \((2\tau+\tau^2)e\);
+each mixed rectangle is bounded by \(\tau e\) and the last by \(\tau^2e\).
+No portion of the signed regular kernel is bounded this way.
+The same sparse-support estimate gives
+\[
+ |\Delta_a|\le2\tau e,\qquad|\Delta_b|\le2\tau e,\qquad
+ \Delta_a=a^2-a_T^2,\quad\Delta_b=b^2-b_T^2.
+\]
+Here the parity estimate applies the ordinary squared-mean bound to
+\(\sigma f\), whose energy equals that of \(f\).
+
+Subtract the desired residual main term before bounding these shifts.
+For the upper inequality their coefficients are
+\(-4D/5\) on \(\Delta_a\) and \(6D/5\) on \(\Delta_b\).
+For the lower inequality the two coefficients interchange.
+Consequently their combined allowance is \(4D\tau e\).
+Adding the complete exceptional packet proves (7c).
+The proof is formalized in
+\texttt{Finset.kernel\_fibre\_fifth\_gap\_with\_exceptions};
+its two finite mean corrections and all exceptional rectangles are retained.
+\end{proof}
+
 \subsection{Residue model and pending prime transfer}
 
 Fix \(R\ge3\). Put
@@ -248,15 +328,36 @@ Every other mode has modulus at most \(D_R/5\), since
 \(r_\ell-1\ge5\) for odd \(\ell\). Consequently the finite kernel satisfies
 the counterpart of (1) with no error and \(D_R\) in place of \(\Aconst\).
 
-For fixed \(R\), primes in every reduced class modulo
-\(\prod_{\ell\le R}\ell^2\) are asymptotically equidistributed.
-Group an arbitrary \(f\) by these residue fibres.
-The resulting finite matrix converges in operator norm to the uniformly
-weighted product matrix. Conditional averaging cannot increase
-\(\E f^2\). The finitely many primes dividing the modulus contribute
-\(o(1)\E f^2\). These observations are intended to give the finite-kernel
-inequality on actual primes, uniformly for all \(f\), not merely for
-each fixed test function.
+For fixed \(R\), put \(Q_R=\prod_{\ell\le R}\ell^2\) and
+\(M_R=\varphi(Q_R)=|U_R|\).
+Let \(T\) consist of the odd primes at most \(X\) that do not divide \(Q_R\).
+Lemma~\ref{lem:fibre} requires only an upper bound on each fibre.
+For a nonempty fibre choose one prime \(p_0\) in it. Every other member
+satisfies \(p\equiv p_0\pmod{\ell^2}\) for all \(\ell\le R\);
+pairwise coprimality gives \(p\equiv p_0\pmod{Q_R}\).
+The representative is a unit modulo \(Q_R\).
+An empty fibre has count zero.
+This avoids constructing a global Chinese-remainder inverse merely to count fibres.
+
+The proved character-prefix bound gives
+\[
+ |T_u|\le\frac{\pi(X)}{M_R}
+    +C X^{7/8}(1+\log Q_R+\log(X+2))^2.
+\]
+Since \(n_X=\pi(X)-1\) for \(X\ge2\), the occupancy condition holds with
+\[
+ \delta_{R,X}=\frac1{n_X}
+   +\frac{M_R C X^{7/8}(1+\log Q_R+\log(X+2))^2}{n_X}
+       \longrightarrow0
+\]
+as \(X\to\infty\) with \(R\) fixed.
+The exceptional count is at most the number of odd primes dividing \(Q_R\).
+For every fixed \(\tau>0\), it is eventually at most \(\tau^2 n_X\).
+Equation (7c) is uniform in \(f\), so these two estimates provide the intended
+actual-prime finite-kernel comparison.
+The residue/cardinality identification, this prime specialization and its
+asymptotic limit remain pending Lean work; no actual-prime headline theorem
+is marked complete here.
 
 Let \(J_R\) be the difference between this finite kernel and the actual
 squarefree-difference kernel. It is a symmetric nonnegative tail kernel,
@@ -303,9 +404,12 @@ The construction predicate carries only finite graph-product data and
 coordinate cardinality conditions; it assumes no spectral estimate.
 The full eigenvalue description (7) is an ordinary spectral explanation,
 not an additional Lean classification claim.
+The finite-fibre theorem~\ref{lem:fibre}, including its full exceptional
+packet, is now checked in \texttt{FiberKernelGap.lean}, supported by
+\texttt{KernelRestriction.lean} in the same candidate directory.
 Remaining formalization consists of the residue-unit and scalar-normalization
-adapters, the uniform finite-fibre transfer, the complete asymptotic tail
-passage, sharpness and the consequences (2)--(3).
+adapters, the actual prime occupancy specialization and its fixed-modulus limit,
+the complete asymptotic tail passage, sharpness and the consequences (2)--(3).
 This document is kept separate from the metaplectic and zero-multiplicity papers.
 
 \begin{thebibliography}{9}
