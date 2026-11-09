@@ -3,7 +3,7 @@
 \setlength{\oddsidemargin}{0.1in}
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage{hyperref}
-\newtheorem{target}{Proposed theorem}
+\newtheorem{theorem}{Theorem}
 \newtheorem{lemma}{Lemma}
 \newcommand{\Pcal}{\mathcal P}
 \newcommand{\E}{\mathbb E}
@@ -14,16 +14,18 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-We investigate the graph on the odd primes up to \(X\) in which two
-vertices are joined when their difference is squarefree. The proposed
-result identifies the constant and modulo-four parity functions as its
-two dominant modes, with a sharp residual factor \(1/5\). Its intended
-consequences are a sharp density bound and a quantitative inverse
-theorem for prime sets avoiding squarefree differences.
+We prove a uniform signed spectral estimate for the graph on the odd
+primes up to \(X\) in which two vertices are joined when their difference
+is squarefree. The constant and modulo-four parity functions supply the
+two principal modes; the residual has factor \(1/5\) at the positive
+Euler-product density. The estimate is formalized in Lean.
+Optimality and the intended density and parity-rigidity consequences
+remain separate claims under verification.
 \end{abstract}
 
 \noindent\textbf{Proof status.}
-The main spectral theorem is a proposed result under audit.
+The signed spectral inequality (1), including its positive infinite
+Euler-product constant, now has a kernel-checked proof.
 The uniform finite tail bound, concrete finite unit model, tuple occupancy
 and cardinality, modulo-four sign adapter, and the complete finite
 actual-prime comparison~(7g) have kernel-checked proofs in the maintained
@@ -33,8 +35,9 @@ The fixed-coordinate sampling limit~(7h) is also kernel checked, with
 an eventual cutoff uniform over all real weights.
 The normalized row-tail limit and the full signed transfer to the actual
 squarefree-difference graph are now kernel checked as well.
-The infinite Euler-product passage, sharpness and parity stability
-remain to be formalized.
+The infinite Euler-product passage is also checked, with
+\(1/4\le\Aconst\le1/2\).
+Optimality of the residual factor and parity stability remain to be formalized.
 
 \section{Statement and intended consequences}
 
@@ -57,18 +60,20 @@ For an arbitrary real function \(f\) on \(\Pcal_X\), define
 \]
 Zero is not squarefree, so the diagonal contribution is zero.
 
-\begin{target}[Sharp signed spectral estimate]\label{target:spectrum}
+\begin{theorem}[Signed spectral estimate]\label{target:spectrum}
 For every \(\varepsilon>0\) there is \(X_0\) such that for every
 integer \(X\ge X_0\) and every \(f:\Pcal_X\to\mathbb R\),
 \[
  \left|Q_X(f)-\Aconst(a^2-b^2)\right|
  \le \frac{\Aconst}{5}(e-a^2-b^2)+\varepsilon e.       \tag{1}
 \]
-The constant \(1/5\) is optimal. The threshold \(X_0\) is independent of \(f\).
-\end{target}
+The threshold \(X_0\) is independent of \(f\).
+\end{theorem}
+
+Optimality of \(1/5\) is a separate claim whose formal proof remains pending.
 
 The finite-\(X\) parity classes need not have exactly equal sizes.
-Thus (1), including its error term, is the proposed statement;
+The error term in (1) accounts for this imbalance;
 no exact finite-\(X\) orthogonality of \(1\) and \(\sigma\) is assumed.
 
 For a set \(B_X\subseteq\Pcal_X\) with no squarefree difference between
@@ -77,7 +82,8 @@ distinct elements, put
  \alpha_X=|B_X|/n_X,\qquad
  \beta_X=\E(\sigma\mathbf1_{B_X}).
 \]
-Substitution of \(f=\mathbf1_{B_X}\) into (1) would give, uniformly in \(B_X\),
+As an ordinary consequence, substitution of \(f=\mathbf1_{B_X}\)
+into (1) gives, uniformly in \(B_X\),
 \[
  6\alpha_X^2-4\beta_X^2\le\alpha_X+o(1).              \tag{2}
 \]
@@ -90,6 +96,7 @@ For \(1/6<\alpha_X\le1/2\), (2) further gives
        \{p\in\Pcal_X:p\equiv r\pmod4\}|}{n_X}
  \le \frac12-\frac12\sqrt{6\alpha_X^2-\alpha_X}+o(1). \tag{3}
 \]
+The consequences (2)--(3) have not yet been formalized in Lean.
 In particular, a density deficit \(\delta\) from \(1/2\) gives an
 asymptotic symmetric-difference bound
 \(5\delta/4+O(\delta^2)+o(1)\).
@@ -626,9 +633,64 @@ The triangle inequality gives (7j), leaving both signed principal means
 and the entire finite residual intact.
 \end{proof}
 
-The full finite-density comparison (7j) is now checked.
-The passage \(D_R\to\Aconst\), and the uniform replacement of its
-coefficient in (7j), remain to be formalized before claiming (1).
+\begin{lemma}[The positive Euler-product density]\label{lem:artin}
+The finite densities decrease to the unconditional Euler product:
+\[
+ D_R\longrightarrow\Aconst,\qquad
+ \frac14\le\Aconst\le D_R\le\frac12 .
+\]
+The bounds on \(D_R\) hold for every nonnegative integer \(R\).
+\end{lemma}
+\begin{proof}
+For each odd prime \(\ell\), write \(a_\ell=1/(\ell(\ell-1))\).
+The elementary finite-product inequality
+\[
+ \prod_{\ell\in S}(1-a_\ell)\ge1-\sum_{\ell\in S}a_\ell
+\]
+follows by induction when \(0\le a_\ell\le1\).
+For a finite set of odd primes,
+\[
+ \sum_{\ell\in S}a_\ell\le
+ \sum_{j=3}^{\max S}\frac1{j(j-1)}\le\frac12 ,
+\]
+with the empty set treated separately.
+Thus \(1/4\le D_R\le1/2\).
+Each additional factor lies in \([0,1]\), so \(D_R\) decreases.
+Let \(A=\inf_R D_R\); monotone convergence gives \(D_R\to A\).
+
+To identify the unconditional product, put
+\(g(n)=1-1/(n(n-1))\) at primes and \(g(n)=1\) at nonprimes.
+For any finite set \(F\) of natural indices, choose \(T\ge2\)
+containing \(F\) in \(\{0,\ldots,T\}\).
+Adding factors in \([0,1]\) can only decrease a product, so
+\[
+ A\le D_T\le\prod_{n\in F}g(n).
+\]
+Once \(F\) contains \(\{0,\ldots,R\}\), its product is also at most \(D_R\).
+Consequently the net over all finite sets \(F\) tends to \(A\).
+This is the unconditional Euler product \(\Aconst\) in the statement.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{target:spectrum}]
+Cauchy--Schwarz gives \(a^2\le e\) and \(b^2\le e\), since
+\(\sigma^2=1\). In particular \(|a^2-b^2|\le e\).
+For a fixed \(R\ge2\), set \(\delta_R=D_R-\Aconst\ge0\).
+Equation (7j), with error allowance \(\eta\), gives
+\begin{align*}
+ |Q_X(f)-\Aconst(a^2-b^2)|
+ &\le \frac{D_R}{5}(e-a^2-b^2)
+       +(1/R+\eta)e+\delta_R e\\
+ &=\frac{\Aconst}{5}(e-a^2-b^2)
+   +\left(\frac65\delta_R+\frac1R+\eta\right)e
+   -\frac{\delta_R}{5}(a^2+b^2)\\
+ &\le\frac{\Aconst}{5}(e-a^2-b^2)
+   +\left(\frac65\delta_R+\frac1R+\eta\right)e .
+\end{align*}
+Choose \(R\ge2\) such that \(6\delta_R/5+1/R<\varepsilon/2\),
+using Lemma~\ref{lem:artin}; then apply (7j) with \(\eta=\varepsilon/2\).
+Its eventual cutoff is independent of \(f\), and \(e\ge0\).
+This proves (1), retaining both signed principal means and the full residual.
+\end{proof}
 
 For sharpness, take a nonzero real mean-zero function of the unit residue
 modulo nine alone, with arbitrary bounded values at the exceptional prime three.
@@ -641,9 +703,10 @@ is \(-1/6\), so (7) gives the limiting Rayleigh quotient
 Finite direct-product independence and stability are classical inputs;
 see Alon--Defant~\cite{AD}. Arithmetic graph limits based on integer
 GCD data are studied by Martineau~\cite{M}.
-The proposed contribution here is the sharp signed operator transfer
-to the squarefree-difference graph on actual primes and its uniform
-prime-subset inverse consequence.
+The established contribution is the uniform signed operator transfer
+to the squarefree-difference graph on actual primes.
+Optimality and the uniform prime-subset inverse consequence remain
+separate parts of the research draft.
 
 The finite bound is formalized as
 \texttt{exists\_uniform\_prime\_square\_tail\_upper} in the namespace
@@ -733,8 +796,21 @@ all in the namespace \texttt{PrimeFactorOscillations.QRH}.
 These statements include every moving prime, every signed real weight,
 the prime-square congruence characterization of the actual absolute gap,
 and every finite exception already retained in (7h).
-Remaining formalization consists of the infinite Euler-product passage,
-sharpness and consequences (2)--(3).
+Lemma~\ref{lem:artin} is checked in \texttt{Helpers/QRHArtinDensity.lean}.
+The declarations
+\texttt{primeSquareCutoffDensity\_bounds},
+\texttt{artinPrimeSquareConstant\_le\_cutoff\_density},
+\texttt{artinPrimeSquareConstant\_bounds}, and
+\texttt{tendsto\_primeSquareCutoffDensity} supply its bounds and limit.
+The theorem \texttt{artinPrimeSquareConstant\_hasProd} proves unconditional
+product convergence over natural indices, with factor \(1\) at nonprimes;
+\texttt{artinPrimeSquareConstant\_eq\_tprod} identifies the resulting product.
+The complete inequality (1) is checked as
+\texttt{PrimeFactorOscillations.QRH.eventually\_prime\_squarefree\_spectral\_gap},
+in \texttt{Helpers/QRHPrimeSquarefreeGlobalSpectrum.lean}.
+The finite coordinate cutoff is chosen before the prime endpoint and
+before every real weight; all finite exception and tail terms are consumed.
+Remaining formalization consists of optimality and consequences (2)--(3).
 This document is kept separate from the metaplectic and zero-multiplicity papers.
 
 \begin{thebibliography}{9}

@@ -201,14 +201,29 @@
     },
     {
       "id": "SFS-SPECTRAL",
-      "status": "proposed_not_proved",
-      "claim": "For every epsilon>0, eventually uniformly in real f on odd primes at most X, abs(Q_X(f)-A*(a^2-b^2))<=A/5*(e-a^2-b^2)+epsilon*e.",
-      "declarations": [],
+      "status": "kernel_checked_uniform_global_spectral_bound",
+      "claim": "For the explicitly defined unconditional Euler-product constant A with 1/4<=A<=1/2, for every eps>0 eventually uniformly over every real weight on the odd primes<=X, abs(Q_X-A*(a^2-b^2))<=A/5*(e-a^2-b^2)+eps*e.",
+      "declarations": [
+        "PrimeFactorOscillations.QRH.primeSquareCutoffDensity_bounds",
+        "PrimeFactorOscillations.QRH.artinPrimeSquareConstant_le_cutoff_density",
+        "PrimeFactorOscillations.QRH.artinPrimeSquareConstant_bounds",
+        "PrimeFactorOscillations.QRH.tendsto_primeSquareCutoffDensity",
+        "PrimeFactorOscillations.QRH.artinPrimeSquareConstant_hasProd",
+        "PrimeFactorOscillations.QRH.artinPrimeSquareConstant_eq_tprod",
+        "PrimeFactorOscillations.QRH.eventually_prime_squarefree_spectral_gap"
+      ],
       "depends_on": [
         "SFS-MODEL",
         "SFS-FIBRE",
         "SFS-TAIL-LIMIT"
-      ]
+      ],
+      "owners": [
+        "PrimeFactorOscillations/Helpers/QRHArtinDensity.lean",
+        "PrimeFactorOscillations/Helpers/QRHPrimeSquarefreeGlobalSpectrum.lean"
+      ],
+      "constant_definition": "artinPrimeSquareConstant is inf_R primeSquareCutoffDensity R. HasProd proves it equals the unconditional Euler product with factor 1-1/(p*(p-1)) at every prime and factor 1 at nonprimes.",
+      "proof_scope": "All signed real weights, the actual Squarefree absolute-gap kernel, both principal means and the entire residual. The coefficient replacement keeps its exact correction and costs at most (6/5)*(D_R-A)*e; R is chosen before X and f. Optimality of 1/5 and parity rigidity are separate unproved ledger claims.",
+      "optimality_or_stability_proved_in_this_claim": false
     },
     {
       "id": "SFS-SHARP",
