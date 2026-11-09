@@ -12,6 +12,7 @@ import PrimeFactorOscillations.Helpers.QRHPrimeSquareSpectrum
 import PrimeFactorOscillations.Helpers.QRHPrimeSquareTail
 import PrimeFactorOscillations.Helpers.QRHPrimeSquareTailLimit
 import PrimeFactorOscillations.Helpers.QRHPrimeSquarefreeGlobalSpectrum
+import PrimeFactorOscillations.Helpers.QRHPrimeSquarefreeOptimality
 import PrimeFactorOscillations.Helpers.QRHPrimeSquarefreeSpectrum
 import PrimeFactorOscillations.Helpers.QRHPrimeSubsetRigidity
 

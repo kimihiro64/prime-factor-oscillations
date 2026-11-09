@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "date": "2026-11-09",
-  "scope": "Squarefree differences between actual odd primes: the uniform global signed spectrum, positive Euler-product density, asymptotically optimal density1/2 and quantitative parity rigidity are kernel checked. Optimality of the residual spectral factor1/5 remains pending in SFS-SHARP.",
+  "scope": "Squarefree differences between actual odd primes: all headline targets are kernel checked, including the full uniform signed spectral inequality, its positive unconditional Euler-product constant, optimal relative density1/2 and parity rigidity, and the least residual coefficient1/5.",
   "claims": [
     {
       "id": "SFS-INPUT",
@@ -148,7 +148,7 @@
       "owners": [
         "PrimeFactorOscillations/Helpers/QRHPrimeSquareSpectrum.lean"
       ],
-      "proof_scope": "Actual odd-prime vertices, all signed real weights, empty coordinate set, prime-two center correction and all coordinate-prime exceptions. The asymptotic limit is SFS-FIBRE; stability is SFS-STABILITY; optimality remains pending in SFS-SHARP.",
+      "proof_scope": "Actual odd-prime vertices, all signed real weights, empty coordinate set, prime-two center correction and all coordinate-prime exceptions. The asymptotic limit is SFS-FIBRE; stability is SFS-STABILITY; optimality is checked in SFS-SHARP.",
       "depends_on": [
         "SFS-UNIT-MODEL",
         "SFS-FIBRE-FINITE",
@@ -193,7 +193,7 @@
       ],
       "kernel_definition": "PrimeFactorOscillations.QRH.primeSquarefreeDifferenceKernel p q is 1 exactly when Squarefree (((q:Int)-(p:Int)).natAbs), and 0 otherwise.",
       "quantitative_scope": "One C>0 works for all R>=2, X>=(R+2)^16 and prime p<=X: H<=pi(X)/R+9*C*X^(15/16)*(1+log(X+2))^2+4*X^(15/16). The normalized cutoffs are uniform over both the moving prime and all signed weights.",
-      "proof_scope": "Both source errors, every exceptional finite interaction and both signed principal means are retained. A row estimate is applied only to the separated nonnegative symmetric tail. The infinite Euler-product density is checked in SFS-SPECTRAL and parity rigidity in SFS-STABILITY; optimality remains pending in SFS-SHARP.",
+      "proof_scope": "Both source errors, every exceptional finite interaction and both signed principal means are retained. A row estimate is applied only to the separated nonnegative symmetric tail. The infinite Euler-product density is checked in SFS-SPECTRAL and parity rigidity in SFS-STABILITY; optimality is checked in SFS-SHARP.",
       "depends_on": [
         "SFS-TAIL",
         "SFS-FIBRE"
@@ -222,17 +222,29 @@
         "PrimeFactorOscillations/Helpers/QRHPrimeSquarefreeGlobalSpectrum.lean"
       ],
       "constant_definition": "artinPrimeSquareConstant is inf_R primeSquareCutoffDensity R. HasProd proves it equals the unconditional Euler product with factor 1-1/(p*(p-1)) at every prime and factor 1 at nonprimes.",
-      "proof_scope": "All signed real weights, the actual Squarefree absolute-gap kernel, both principal means and the entire residual. The coefficient replacement keeps its exact correction and costs at most (6/5)*(D_R-A)*e; R is chosen before X and f. Parity rigidity is checked separately in SFS-STABILITY; optimality remains pending in SFS-SHARP.",
+      "proof_scope": "All signed real weights, the actual Squarefree absolute-gap kernel, both principal means and the entire residual. The coefficient replacement keeps its exact correction and costs at most (6/5)*(D_R-A)*e; R is chosen before X and f. Parity rigidity is checked separately in SFS-STABILITY; optimality is checked in SFS-SHARP.",
       "optimality_or_stability_proved_in_this_claim": false
     },
     {
       "id": "SFS-SHARP",
-      "status": "proposed_not_proved",
-      "claim": "A mean-zero unit-residue function modulo9 attains limiting Rayleigh quotient -A/5, so the residual factor1/5 is optimal.",
-      "declarations": [],
+      "status": "kernel_checked_least_uniform_residual_spectral_coefficient",
+      "claim": "One fifth is the least real coefficient c in the complete uniform signed inequality abs(Q_X-A*(a^2-b^2))<=A*c*(e-a^2-b^2)+eps*e, with every eps>0 before the eventual cutoff and every real weight. The actual prime class1 modulo9 is independent, has density tending to1/6 and parity bias tending to0, and forces c>=1/5.",
+      "declarations": [
+        "PrimeFactorOscillations.QRH.prime_mod_nine_class_independent",
+        "PrimeFactorOscillations.QRH.tendsto_prime_mod_nine_class_density",
+        "PrimeFactorOscillations.QRH.tendsto_prime_mod_nine_class_bias",
+        "PrimeFactorOscillations.QRH.one_fifth_is_least_prime_squarefree_spectral_coefficient"
+      ],
       "depends_on": [
-        "SFS-SPECTRAL"
-      ]
+        "SFS-INPUT",
+        "SFS-FIBRE",
+        "SFS-SPECTRAL",
+        "SFS-STABILITY"
+      ],
+      "owners": [
+        "PrimeFactorOscillations/Helpers/QRHPrimeSquarefreeOptimality.lean"
+      ],
+      "proof_scope": "Actual prime vertices and arbitrary real signed weights, with both principal means and the complete residual. Modulo9 the unit-prime count omits3 and equals the odd-prime count omitting2 for X>=3. The bias is the exact difference of the1 and19 residue counts modulo36; its common principal center cancels before error estimates. The independent indicator has Q=0, energy=alpha, alpha->1/6 and beta->0. No mean-zero eigenfunction classification is needed for the sharpness conclusion."
     },
     {
       "id": "SFS-STABILITY",
@@ -250,7 +262,7 @@
       "owners": [
         "PrimeFactorOscillations/Helpers/QRHPrimeSubsetRigidity.lean"
       ],
-      "proof_scope": "Every actual prime subset after one eps-dependent threshold; exact finite parity imbalance and both symmetric-difference identities retained. The proof consumes SFS-SPECTRAL and A>=1/4 without a new character estimate. Sharpness of density1/2 is proved; optimality of the spectral factor1/5 is not claimed."
+      "proof_scope": "Every actual prime subset after one eps-dependent threshold; exact finite parity imbalance and both symmetric-difference identities retained. The proof consumes SFS-SPECTRAL and A>=1/4 without a new character estimate. Sharpness of density1/2 is proved; optimality of the spectral factor1/5 is checked separately in SFS-SHARP."
     }
   ]
 }

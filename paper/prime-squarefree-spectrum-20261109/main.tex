@@ -18,13 +18,14 @@ We prove a uniform signed spectral estimate for the graph on the odd
 primes up to \(X\) in which two vertices are joined when their difference
 is squarefree. The constant and modulo-four parity functions supply the
 two principal modes; the residual has factor \(1/5\) at the positive
-Euler-product density. The estimate is formalized in Lean.
+Euler-product density. The estimate and optimality of its residual factor
+are formalized in Lean.
 The main result transfers finite residue-model spectra uniformly to the
 full graph on actual primes, including the prime-square tail and the
 infinite Euler-product density.
 We determine the asymptotic maximum density of a prime subset with no
 squarefree difference and prove quantitative stability toward a reduced
-class modulo four. Optimality of the residual factor remains under verification.
+class modulo four. Every headline result has a kernel-checked Lean proof.
 \end{abstract}
 
 \noindent\textbf{Proof status.}
@@ -43,7 +44,8 @@ The infinite Euler-product passage is also checked, with
 \(1/4\le\Aconst\le1/2\).
 The extremal density and quantitative parity-rigidity consequences are now
 kernel checked, including the matching actual residue-class constructions.
-Optimality of the residual spectral factor remains to be formalized.
+Optimality of the residual factor \(1/5\) is also kernel checked, in the
+full uniform signed coefficient formulation.
 
 \section{Spectral estimate, extremal density, and parity rigidity}
 
@@ -76,7 +78,13 @@ integer \(X\ge X_0\) and every \(f:\Pcal_X\to\mathbb R\),
 The threshold \(X_0\) is independent of \(f\).
 \end{theorem}
 
-Optimality of \(1/5\) is a separate claim whose formal proof remains pending.
+\begin{theorem}[Optimal residual coefficient]\label{thm:sharp}
+Suppose \(c\in\mathbb R\) has the following property: for every
+\(\varepsilon>0\), all sufficiently large \(X\) and all real weights \(f\)
+satisfy (1) with \(\Aconst/5\) replaced by \(\Aconst c\).
+Then \(c\ge1/5\). Consequently \(1/5\) is the least coefficient
+in this complete uniform signed inequality.
+\end{theorem}
 
 The finite-\(X\) parity classes need not have exactly equal sizes.
 The error term in (1) accounts for this imbalance;
@@ -740,11 +748,56 @@ Its eventual cutoff is independent of \(f\), and \(e\ge0\).
 This proves (1), retaining both signed principal means and the full residual.
 \end{proof}
 
-For sharpness, take a nonzero real mean-zero function of the unit residue
-modulo nine alone, with arbitrary bounded values at the exceptional prime three.
-Its constant and parity averages tend to zero. Its local eigenvalue at three
-is \(-1/6\), so (7) gives the limiting Rayleigh quotient
-\(-\Aconst/5\).
+\begin{proof}[Proof of Theorem~\ref{thm:sharp}]
+Let \(B_X=\{p\in\Pcal_X:p\equiv1\pmod9\}\), and put
+\(\alpha_X=|B_X|/n_X\), \(\beta_X=\E(\sigma\mathbf1_{B_X})\).
+Every difference in \(B_X-B_X\) is divisible by nine, so
+\(Q_X(\mathbf1_{B_X})=0\). Its energy is \(\alpha_X\).
+
+We verify the two moments with the full principal corrections retained.
+Set
+\[
+ E_m(X)=X^{7/8}(1+\log m+\log(X+2))^2 .
+\]
+For \(X\ge3\), the unit-prime count modulo nine omits just the prime
+three. Its cardinality equals \(n_X\), which instead omits the prime two.
+Residue reconstruction from (4), with \(\varphi(9)=6\), therefore gives
+\[
+ \left||B_X|-\frac{n_X}{6}\right|\le C E_9(X).
+\]
+For \(r=1,19\), write \(M_r(X)=\#\{p\le X:p\equiv r\pmod{36}\}\)
+and let \(U_{36}(X)\) count the primes coprime to \(36\).
+Both residues are units, so the same reconstruction yields
+\[
+ \left|M_r(X)-\frac{U_{36}(X)}{12}\right|\le C E_{36}(X).
+\]
+The exact congruence identity
+\[
+ n_X\beta_X=M_1(X)-M_{19}(X)
+\]
+cancels the common principal term before estimating the errors.
+Consequently \(|n_X\beta_X|\le2C E_{36}(X)\).
+The normalized error \(E_m(X)/n_X\) tends to zero for each of
+the two fixed moduli. Thus
+\[
+ \alpha_X\longrightarrow\frac16,\qquad
+ \beta_X\longrightarrow0 .
+\]
+
+Apply the hypothesized inequality with coefficient \(c\) to
+\(f=\mathbf1_{B_X}\). For each fixed \(\varepsilon>0\), its cutoff
+is uniform over weights, so this moving indicator is admissible.
+Taking \(X\to\infty\) gives
+\[
+ \frac{\Aconst}{36}\le
+ \frac{5\Aconst c}{36}+\frac{\varepsilon}{6}.
+\]
+If \(c<1/5\), choose
+\(\varepsilon=\Aconst(1-5c)/12>0\). The right side minus the
+left side is then \(-\Aconst(1-5c)/72<0\), a contradiction.
+Hence \(c\ge1/5\). Theorem~\ref{target:spectrum} supplies the
+coefficient \(1/5\) itself.
+\end{proof}
 
 \section{Relation to existing work and formal verification}
 
@@ -758,7 +811,8 @@ measured relative to the primes.
 The established contribution is the uniform signed operator transfer
 to the squarefree-difference graph on actual primes.
 The uniform prime-subset inverse consequence is also proved and formalized.
-Optimality of the residual spectral factor remains a separate claim.
+The optimal factor \(1/5\) is witnessed by an independent actual prime
+class modulo nine.
 
 The finite bound is formalized as
 \texttt{exists\_uniform\_prime\_square\_tail\_upper} in the namespace
@@ -871,7 +925,18 @@ That owner also proves \texttt{eventually\_prime\_parity\_balance},
 The threshold is uniform over every actual prime subset.
 The formal \texttt{Real.sqrt} is zero on negative arguments, matching
 the positive-part convention displayed in (3).
-Remaining formalization consists of optimality of the residual factor \(1/5\).
+Theorem~\ref{thm:sharp} is checked as
+\texttt{one\_fifth\_is\_least\_prime\_squarefree\_spectral\_coefficient}
+in \texttt{Helpers/QRHPrimeSquarefreeOptimality.lean}.
+Its predicate \texttt{IsPrimeSquarefreeSpectralCoefficient} retains
+every real weight, both signed means, the full residual and the order
+of the epsilon and endpoint quantifiers.
+The same owner proves \texttt{prime\_mod\_nine\_class\_independent},
+\texttt{tendsto\_prime\_mod\_nine\_class\_density}, and
+\texttt{tendsto\_prime\_mod\_nine\_class\_bias}.
+The unit-prime correction modulo nine and the cancellation of the common
+modulo36 principal center are included in these real proofs.
+All headline claims (1)--(3) and optimality of the residual factor are now checked.
 This document is kept separate from the metaplectic and zero-multiplicity papers.
 
 \begin{thebibliography}{9}
