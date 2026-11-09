@@ -1,0 +1,236 @@
+\documentclass[11pt]{article}
+\setlength{\textwidth}{6.3in}
+\setlength{\oddsidemargin}{0.1in}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{hyperref}
+\newtheorem{target}{Proposed theorem}
+\newtheorem{lemma}{Lemma}
+\newcommand{\Pcal}{\mathcal P}
+\newcommand{\E}{\mathbb E}
+\newcommand{\Aconst}{\mathfrak A}
+\title{Squarefree Differences Between Primes:\\Spectral Gap and Parity Rigidity}
+\author{Research draft}
+\date{November 9, 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We investigate the graph on the odd primes up to \(X\) in which two
+vertices are joined when their difference is squarefree. The proposed
+result identifies the constant and modulo-four parity functions as its
+two dominant modes, with a sharp residual factor \(1/5\). Its intended
+consequences are a sharp density bound and a quantitative inverse
+theorem for prime sets avoiding squarefree differences.
+\end{abstract}
+
+\noindent\textbf{Proof status.}
+The main spectral theorem is a proposed result under audit.
+The finite congruence-count formulation of the uniform tail bound~(5)
+has a kernel-checked proof in the maintained Lean repository.
+The finite spectral model, uniform operator transfer and asymptotic
+consequences remain to be formalized.
+
+\section{Statement and intended consequences}
+
+Let \(\Pcal_X=\{p\le X:p\text{ is an odd prime}\}\) and
+\(n_X=|\Pcal_X|\). All averages below are uniform averages on this
+finite set; statements concern sufficiently large \(X\), so \(n_X>0\).
+Write
+\[
+ \sigma(p)=
+ \begin{cases}1,&p\equiv1\pmod4,\\-1,&p\equiv3\pmod4,\end{cases}
+ \qquad
+ \Aconst=\prod_{\ell\ {\rm prime}}
+       \left(1-\frac1{\ell(\ell-1)}\right)>0 .
+\]
+For an arbitrary real function \(f\) on \(\Pcal_X\), define
+\[
+ a=\E f,\qquad b=\E(\sigma f),\qquad e=\E f^2,\qquad
+ Q_X(f)=\frac1{n_X^2}\sum_{p,q\in\Pcal_X}
+   f(p)f(q)\,\mathbf1_{\{|p-q|\ {\rm squarefree}\}}.
+\]
+Zero is not squarefree, so the diagonal contribution is zero.
+
+\begin{target}[Sharp signed spectral estimate]\label{target:spectrum}
+For every \(\varepsilon>0\) there is \(X_0\) such that for every
+integer \(X\ge X_0\) and every \(f:\Pcal_X\to\mathbb R\),
+\[
+ \left|Q_X(f)-\Aconst(a^2-b^2)\right|
+ \le \frac{\Aconst}{5}(e-a^2-b^2)+\varepsilon e.       \tag{1}
+\]
+The constant \(1/5\) is optimal. The threshold \(X_0\) is independent of \(f\).
+\end{target}
+
+The finite-\(X\) parity classes need not have exactly equal sizes.
+Thus (1), including its error term, is the proposed statement;
+no exact finite-\(X\) orthogonality of \(1\) and \(\sigma\) is assumed.
+
+For a set \(B_X\subseteq\Pcal_X\) with no squarefree difference between
+distinct elements, put
+\[
+ \alpha_X=|B_X|/n_X,\qquad
+ \beta_X=\E(\sigma\mathbf1_{B_X}).
+\]
+Substitution of \(f=\mathbf1_{B_X}\) into (1) would give, uniformly in \(B_X\),
+\[
+ 6\alpha_X^2-4\beta_X^2\le\alpha_X+o(1).              \tag{2}
+\]
+Since \(|\beta_X|\le\min(\alpha_X,1-\alpha_X)+o(1)\), this implies
+\(\alpha_X\le1/2+o(1)\). Either reduced class modulo four supplies
+a matching construction: every difference within that class is divisible by four.
+For \(1/6<\alpha_X\le1/2\), (2) further gives
+\[
+ \frac{\min_{r\in\{1,3\}}|B_X\mathbin\triangle
+       \{p\in\Pcal_X:p\equiv r\pmod4\}|}{n_X}
+ \le \frac12-\frac12\sqrt{6\alpha_X^2-\alpha_X}+o(1). \tag{3}
+\]
+In particular, a density deficit \(\delta\) from \(1/2\) gives an
+asymptotic symmetric-difference bound
+\(5\delta/4+O(\delta^2)+o(1)\).
+
+\section{Existing analytic input}
+
+The maintained programme supplies one positive constant \(C\), chosen
+before the modulus, character and endpoint, such that
+\[
+ \left|\sum_{p\le X}\chi(p)\right|
+ \le C X^{7/8}\bigl(1+\log m+\log(X+2)\bigr)^2        \tag{4}
+\]
+for every nonprincipal Dirichlet character modulo \(m\ge1\).
+This is the already verified seven-eighths input and its prime-prefix
+consequence. The principal character is retained separately.
+The exact maintained owner is
+\texttt{Helpers/QRHPrimePrefix.lean}, declaration
+\texttt{exists\_primeCharacterSum\_le\_seven\_eighths}.
+Character orthogonality then bounds the count in any reduced residue class
+by \(\pi(X)/\varphi(m)\) plus the error in (4).
+This use includes the nonunit correction in the principal center.
+
+\section{The first arithmetic test: a uniform tail}
+
+For a prime \(p\le X\) and integers \(2\le R\le T\), let
+\[
+ H_{R,X}(p)=\#\{q\le X:q\text{ prime},\ q\ne p,\
+        \exists\text{ prime }\ell>R:\ell^2\mid(p-q)\}.
+\]
+The required estimate is uniform in the moving vertex \(p\):
+\[
+ H_{R,X}(p)\le
+ \frac{\pi(X)}R+
+ C T X^{7/8}\bigl(1+\log(T^2)+\log(X+2)\bigr)^2+
+ 2\left\lfloor\frac XT\right\rfloor .                \tag{5}
+\]
+Here the constant \(C\) is independent of \(p,R,T,X\).
+
+\paragraph{Proof of the finite bound (5).}
+For \(R<\ell\le T\), if \(\ell\ne p\), the residue of \(p\) modulo
+\(\ell^2\) is a unit, so (4) and residue reconstruction apply.
+If \(\ell=p\), the off-diagonal count is zero: divisibility of \(p-q\)
+by \(p^2\) would imply \(p\mid q\), hence \(q=p\).
+The full low-square union is bounded by summing its exact counts.
+Its principal contribution is at most
+\[
+ \pi(X)\sum_{R<\ell\le T}\frac1{\ell(\ell-1)}
+ \le \pi(X)\sum_{j=R+1}^{T}\frac1{j(j-1)}
+ \le \frac{\pi(X)}R .
+\]
+There are at most \(T\) low moduli, giving the middle term of (5).
+For the high-square union, split at \(q=p\) and use
+\(0<|p-q|\le X\). Each sign has at most
+\[
+ \sum_{u>T}\left\lfloor\frac X{u^2}\right\rfloor
+ \le\left\lfloor\frac XT\right\rfloor
+\]
+possible positive differences. This retains every high divisor and
+does not add a rounding error for each divisor.
+With \(T=\max(2,\lfloor X^{1/16}\rfloor)\), (5) yields
+\[
+ \limsup_{X\to\infty}\ \max_{\substack{p\le X\\p\ {\rm prime}}}
+       \frac{H_{R,X}(p)}{\pi(X)}\le\frac1R .         \tag{6}
+\]
+The actual limit argument also uses the ordinary prime number theorem.
+It does not replace the moving vertex by a fixed prime.
+
+\section{Finite spectrum and transfer: proposed proof of (1)}
+
+Fix \(R\ge3\). Put
+\[
+ U_R=\prod_{\ell\le R}(\mathbb Z/\ell^2\mathbb Z)^\times,\quad
+ r_\ell=\varphi(\ell^2)=\ell(\ell-1),\quad
+ D_R=\prod_{\ell\le R}(1-r_\ell^{-1}).
+\]
+Equip \(U_R\) with uniform product measure. Its kernel is
+\(K_R(u,v)=\prod_{\ell\le R}\mathbf1_{\{u_\ell\ne v_\ell\}}\).
+At coordinate \(\ell\), the averaging operator has eigenvalue
+\(1-r_\ell^{-1}\) on constants and \(-r_\ell^{-1}\) on the
+mean-zero space. Orthogonal tensor decomposition therefore gives eigenvalues
+\[
+ D_R\prod_{\ell\in S}\frac{-1}{r_\ell-1}
+       \qquad (S\subseteq\{\ell:\ell\le R\}).        \tag{7}
+\]
+The two modes from \(S=\varnothing,\{2\}\) are \(1,\sigma\)
+with eigenvalues \(D_R,-D_R\).
+Every other mode has modulus at most \(D_R/5\), since
+\(r_\ell-1\ge5\) for odd \(\ell\). Consequently the finite kernel satisfies
+the counterpart of (1) with no error and \(D_R\) in place of \(\Aconst\).
+
+For fixed \(R\), primes in every reduced class modulo
+\(\prod_{\ell\le R}\ell^2\) are asymptotically equidistributed.
+Group an arbitrary \(f\) by these residue fibres.
+The resulting finite matrix converges in operator norm to the uniformly
+weighted product matrix. Conditional averaging cannot increase
+\(\E f^2\). The finitely many primes dividing the modulus contribute
+\(o(1)\E f^2\). These observations are intended to give the finite-kernel
+inequality on actual primes, uniformly for all \(f\), not merely for
+each fixed test function.
+
+Let \(J_R\) be the difference between this finite kernel and the actual
+squarefree-difference kernel. It is a symmetric nonnegative tail kernel,
+and (5) bounds every row sum. Only this separated tail is estimated by
+\[
+ \left|\frac1{n_X^2}\sum_{p,q}J_R(p,q)f(p)f(q)\right|
+ \le \left(\max_p\frac1{n_X}\sum_qJ_R(p,q)\right)\E f^2,
+\]
+using \(2|f(p)f(q)|\le f(p)^2+f(q)^2\).
+All signs of the principal finite kernel remain in (7).
+First let \(X\) tend to infinity with \(R\) fixed, then let \(R\)
+tend to infinity. Equation (6) removes the tail and
+\(D_R\to\Aconst\), giving the proposed conclusion (1).
+
+For sharpness, take a nonzero real mean-zero function of the unit residue
+modulo nine alone, with arbitrary bounded values at the exceptional prime three.
+Its constant and parity averages tend to zero. Its local eigenvalue at three
+is \(-1/6\), so (7) gives the limiting Rayleigh quotient
+\(-\Aconst/5\).
+
+\section{Relation to existing work and verification plan}
+
+Finite direct-product independence and stability are classical inputs;
+see Alon--Defant~\cite{AD}. Arithmetic graph limits based on integer
+GCD data are studied by Martineau~\cite{M}.
+The proposed contribution here is the sharp signed operator transfer
+to the squarefree-difference graph on actual primes and its uniform
+prime-subset inverse consequence.
+
+The finite bound is formalized as
+\texttt{exists\_uniform\_prime\_square\_tail\_upper} in the namespace
+\texttt{PrimeFactorOscillations.QRH}, with maintained owner
+\texttt{Helpers/QRHPrimeSquareTail.lean}.
+The formal count uses \(q\equiv p\pmod{\ell^2}\), the congruence formulation
+of the divisibility condition in~(5). The source compiles through the public
+export; the eight supporting theorems use only the standard foundational axioms.
+The remaining formalization consists of the finite product estimate,
+the uniform finite-fibre transfer, the complete asymptotic tail passage,
+sharpness and the consequences (2)--(3).
+This document is kept separate from the metaplectic and zero-multiplicity papers.
+
+\begin{thebibliography}{9}
+\bibitem{AD} N. Alon and C. Defant,
+\emph{Isoperimetry, Stability, and Irredundance in Direct Products},
+Discrete Mathematics (2020).
+\url{https://web.math.princeton.edu/~nalon/PDFS/isostab.pdf}.
+\bibitem{M} S. Martineau,
+\emph{On coprime percolation, the visibility graphon, and the local limit
+of the GCD profile}, arXiv:1804.06486, revised 2019.
+\url{https://arxiv.org/abs/1804.06486}.
+\end{thebibliography}
+\end{document}

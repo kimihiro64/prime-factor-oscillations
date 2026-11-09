@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-09",
+  "scope": "Squarefree differences between actual odd primes: uniform arithmetic tails, sharp signed spectrum and parity rigidity. The spectral headline is not yet proved.",
+  "claims": [
+    {
+      "id": "SFS-INPUT",
+      "status": "existing_kernel_checked_input",
+      "claim": "A single constant bounds every nonprincipal prime-character prefix by C*X^(7/8)*(1+log m+log(X+2))^2.",
+      "declarations": [
+        "PrimeFactorOscillations.QRH.exists_primeCharacterSum_le_seven_eighths"
+      ],
+      "owners": [
+        "PrimeFactorOscillations/Helpers/QRHPrimePrefix.lean"
+      ],
+      "new_result": false
+    },
+    {
+      "id": "SFS-TAIL",
+      "status": "kernel_checked_uniform_finite_tail",
+      "claim": "One C>0 uniformly bounds primeSquareTailCount(p,X,R) by pi(X)/R+C*T*X^(7/8)*(1+log(T^2)+log(X+2))^2+2*floor(X/T), for every prime p<=X and 2<=R<=T. The count excludes q=p and uses congruence modulo a prime square ell^2 with ell>R.",
+      "declarations": [
+        "PrimeFactorOscillations.QRH.exists_prime_reduced_residue_count_upper",
+        "PrimeFactorOscillations.QRH.prime_square_residue_isUnit",
+        "PrimeFactorOscillations.QRH.prime_square_self_collision_zero",
+        "PrimeFactorOscillations.QRH.exists_prime_square_collision_upper",
+        "PrimeFactorOscillations.QRH.card_filter_square_congruence_tail_le",
+        "PrimeFactorOscillations.QRH.reciprocal_square_tail_sum_le",
+        "PrimeFactorOscillations.QRH.exists_prime_square_low_tail_upper",
+        "PrimeFactorOscillations.QRH.exists_uniform_prime_square_tail_upper"
+      ],
+      "owners": [
+        "PrimeFactorOscillations/Helpers/QRHPrimeSquareTail.lean"
+      ],
+      "proof_scope": "Complete finite bound, including nonunit exceptional row, both difference directions and every high divisor; the asymptotic normalized limit is a separate pending claim.",
+      "axiom_audit": "standard_foundations_only",
+      "source_sha256_lf": "01a6462254819d95347e06879beadc34d55b81a58f5f6fe57ab605eb5d7ebe1d"
+    },
+    {
+      "id": "SFS-MODEL",
+      "status": "formalization_pending",
+      "claim": "The finite product of unit-residue inequality kernels has modes indexed by coordinate subsets, eigenvalues D_R*product(-1/(ell*(ell-1)-1)), and residual norm D_R/5 after constant and parity modes are removed.",
+      "declarations": [],
+      "new_content": "Classical finite product spectral calculation, supporting the admitted prime transfer."
+    },
+    {
+      "id": "SFS-FIBRE",
+      "status": "formalization_pending",
+      "claim": "For fixed R, actual prime-fibre frequencies transfer the complete signed finite kernel inequality uniformly over all real vertex weights, including exceptional primes dividing the modulus.",
+      "declarations": []
+    },
+    {
+      "id": "SFS-TAIL-LIMIT",
+      "status": "formalization_pending",
+      "claim": "The finite uniform tail bound implies a normalized maximal row limsup at most1/R; the isolated tail quadratic form is then at most(1/R+o(1))*mean(f^2).",
+      "declarations": []
+    },
+    {
+      "id": "SFS-SPECTRAL",
+      "status": "proposed_not_proved",
+      "claim": "For every epsilon>0, eventually uniformly in real f on odd primes at most X, abs(Q_X(f)-A*(a^2-b^2))<=A/5*(e-a^2-b^2)+epsilon*e.",
+      "declarations": [],
+      "depends_on": [
+        "SFS-MODEL",
+        "SFS-FIBRE",
+        "SFS-TAIL-LIMIT"
+      ]
+    },
+    {
+      "id": "SFS-SHARP",
+      "status": "proposed_not_proved",
+      "claim": "A mean-zero unit-residue function modulo9 attains limiting Rayleigh quotient -A/5, so the residual factor1/5 is optimal.",
+      "declarations": [],
+      "depends_on": [
+        "SFS-SPECTRAL"
+      ]
+    },
+    {
+      "id": "SFS-STABILITY",
+      "status": "proposed_not_proved",
+      "claim": "Squarefree-difference-free prime subsets satisfy 6*alpha^2-4*beta^2<=alpha+o(1), have asymptotic density at most1/2, and obey the stated symmetric-difference bound toward one reduced class modulo4.",
+      "declarations": [],
+      "depends_on": [
+        "SFS-SPECTRAL"
+      ]
+    }
+  ]
+}
