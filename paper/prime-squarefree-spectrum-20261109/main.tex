@@ -25,8 +25,9 @@ theorem for prime sets avoiding squarefree differences.
 \noindent\textbf{Proof status.}
 The main spectral theorem is a proposed result under audit.
 The finite congruence-count formulation of the uniform tail bound~(5)
-has a kernel-checked proof in the maintained Lean repository.
-The finite spectral model, uniform operator transfer and asymptotic
+and the counting-normalized complete-product gap, including its binary
+parity extension, have kernel-checked proofs in the maintained Lean repository.
+The residue-unit identification, uniform prime-fibre transfer and asymptotic
 consequences remain to be formalized.
 
 \section{Statement and intended consequences}
@@ -150,7 +151,81 @@ With \(T=\max(2,\lfloor X^{1/16}\rfloor)\), (5) yields
 The actual limit argument also uses the ordinary prime number theorem.
 It does not replace the moving vertex by a fixed prime.
 
-\section{Finite spectrum and transfer: proposed proof of (1)}
+\section{Finite spectral model and proposed prime transfer}
+
+\begin{lemma}[Complete-product gap with the binary mode retained]\label{lem:finite}
+Let \(m_1,\ldots,m_k\ge6\), allowing \(k=0\), and put
+\(\Omega=\{0,1\}\times\prod_{j=1}^k\{1,\ldots,m_j\}\).
+Give \(\Omega\) uniform measure and let
+\[
+ K((b,x),(c,y))=\mathbf1_{\{b\ne c\}}
+                   \prod_{j=1}^k\mathbf1_{\{x_j\ne y_j\}},\qquad
+ D=\frac12\prod_{j=1}^k(1-m_j^{-1}).
+\]
+For every real \(f\) on \(\Omega\), put
+\(a=\E f\), \(b=\E((-1)^{x_0}f)\) and \(e=\E f^2\). Then
+\[
+ \left|\E_{x,y} f(x)K(x,y)f(y)-D(a^2-b^2)\right|
+       \le \frac D5(e-a^2-b^2).
+\]
+\end{lemma}
+
+\begin{proof}
+First omit the binary coordinate and normalize each complete-graph
+operator by its degree, so its rows sum to one. On a support of size
+\(N\), write
+\[
+ B(u,v)=\sum_x u(x)(Pv)(x),\qquad
+ S(u)=\sum_x u(x),\qquad E(u)=\sum_x u(x)^2.
+\]
+We prove by induction over all the coordinates that
+\[
+ |B(u,u)-S(u)^2/N|\le\tfrac15(E(u)-S(u)^2/N).       \tag{7a}
+\]
+The one-vertex base has zero variance. For a new coordinate of size
+\(m\ge6\), write its slices as \(f_i=g+r_i\), where
+\(g=m^{-1}\sum_i f_i\) and \(\sum_i r_i=0\) pointwise.
+Bilinearity, with both cross terms retained, gives exactly
+\[
+ \begin{split}
+ \sum_{i\ne j}B(f_i,f_j)&=m(m-1)B(g,g)-\sum_iB(r_i,r_i),\\
+ \sum_i E(f_i)&=mE(g)+\sum_i E(r_i),\qquad
+ \sum_iS(f_i)=mS(g).
+ \end{split}                                                   \tag{7b}
+\]
+The full double sum is \(m^2B(g,g)\); its diagonal is
+\(mB(g,g)+\sum_iB(r_i,r_i)\). Thus no row or overlap has been discarded.
+
+Equation (7a) and nonnegative centered energy imply
+\(|B(v,v)|\le E(v)\) for every \(v\).
+After division of the first line of (7b) by \(m-1\), the centered
+new form is the sum of
+\[
+ m\bigl(B(g,g)-S(g)^2/N\bigr)
+       \quad\hbox{and}\quad -\frac1{m-1}\sum_iB(r_i,r_i).
+\]
+Their bounds are respectively \(m/5\) times the centered energy of \(g\)
+and at most \(1/5\) times \(\sum_i E(r_i)\), because \(m-1\ge5\).
+The energy and mean identities in (7b) prove (7a) for the enlarged product.
+
+For the binary coordinate, write its slices as \(f_0=g+h\) and
+\(f_1=g-h\). Its form is the signed expression
+\[
+ B(f_0,f_1)+B(f_1,f_0)=2B(g,g)-2B(h,h).
+\]
+Apply (7a) to both \(g\) and \(h\).
+The energy identity is \(E(f_0)+E(f_1)=2E(g)+2E(h)\);
+the two means are \(S(f_0)+S(f_1)=2S(g)\) and
+\(S(f_0)-S(f_1)=2S(h)\).
+Dividing by the total number \(2N\) of vertices yields the two-mode
+bound for the row-normalized operator. Multiplication by its uniform
+row mass \(D\) gives the displayed inequality.
+The Lean declarations check the counting-normalized induction and binary
+identity; this last probability normalization is their ordinary algebraic
+consequence.
+\end{proof}
+
+\subsection{Residue model and pending prime transfer}
 
 Fix \(R\ge3\). Put
 \[
@@ -218,9 +293,19 @@ The finite bound is formalized as
 The formal count uses \(q\equiv p\pmod{\ell^2}\), the congruence formulation
 of the divisibility condition in~(5). The source compiles through the public
 export; the eight supporting theorems use only the standard foundational axioms.
-The remaining formalization consists of the finite product estimate,
-the uniform finite-fibre transfer, the complete asymptotic tail passage,
-sharpness and the consequences (2)--(3).
+The finite model now has maintained proofs in
+\texttt{CompleteCoordinateGap.lean} and \texttt{CompleteProductGap.lean},
+under \texttt{Mathlib/Analysis/MeanInequalities}.
+The declarations \texttt{Finset.IsLargeCompleteProduct.fifth\_gap} and
+\texttt{Finset.IsLargeCompleteProduct.parity\_gap} prove the arbitrary-arity
+centered gap and the separate binary mode.
+The construction predicate carries only finite graph-product data and
+coordinate cardinality conditions; it assumes no spectral estimate.
+The full eigenvalue description (7) is an ordinary spectral explanation,
+not an additional Lean classification claim.
+Remaining formalization consists of the residue-unit and scalar-normalization
+adapters, the uniform finite-fibre transfer, the complete asymptotic tail
+passage, sharpness and the consequences (2)--(3).
 This document is kept separate from the metaplectic and zero-multiplicity papers.
 
 \begin{thebibliography}{9}

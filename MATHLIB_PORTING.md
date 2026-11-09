@@ -1,5 +1,12 @@
 # Mathlib candidate layer
 
+## Signed complete-coordinate spectral gaps
+
+| Module | Proposed destination | Readiness | Scope |
+| --- | --- | --- | --- |
+| `PrimeFactorOscillations.Mathlib.Analysis.MeanInequalities.CompleteCoordinateGap` | `Mathlib/Analysis/MeanInequalities/CompleteCoordinateGap.lean` | project-verified | Exact signed complete-coordinate quadratic and energy decomposition; adding any finite coordinate of size at least six preserves the centered one-fifth spectral gap, uniformly for arbitrary real functions on the full supported product. Classical finite-model input to the prime squarefree-difference spectral theorem. |
+| `PrimeFactorOscillations.Mathlib.Analysis.MeanInequalities.CompleteProductGap` | `Mathlib/Analysis/MeanInequalities/CompleteProductGap.lean` | project-verified | Unconditional centered one-fifth bound for every algebraically generated finite product of complete graphs with factor sizes at least six; exact binary extension keeps the total-mean and parity-mean modes, uniformly for every real function. No analytic estimate is assumed in the product construction. |
+
 Reusable mathematics intended for possible upstreaming lives under
 `PrimeFactorOscillations/Mathlib/` and is exported by `PrimeFactorOscillations/Mathlib.lean`.
 The child generator replaces `PrimeFactorOscillations` with the configured project
