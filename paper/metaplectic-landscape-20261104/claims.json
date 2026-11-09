@@ -5142,6 +5142,21 @@
         "PrimeFactorOscillations.thresholdPackingAttainer_not_small",
         "PrimeFactorOscillations.thresholdRadialPacking_attainers_iff"
       ]
+    },
+    {
+      "id": "TT-PACK-RIGID",
+      "status": "compiled",
+      "claim": "For every r>=1, q>0, g>0 and real weights w_i>=q on successive sites separated by at least g, equality in the sharp parity-dependent separated variance floor holds iff every site is c+g*(i-(r-1)/2) and all surplus K-qr is at one middle index j with u_j^2=epsilon_r. Includes baseline-only surplus0 and r1; g0 is explicitly excluded from allocation rigidity. Every positive-gap ThresholdPackingAttainer consequently has natural order1 outside one middle site and central weight K-2(r-1). No actual-zeta realization or simplicity claim.",
+      "declarations": [
+        "Finset.weightedVarianceNumerator_baseline_defect",
+        "Finset.weightedVarianceNumerator_zero_pair",
+        "Finset.weighted_separatedGrid_equality_iff",
+        "Finset.weightedVarianceNumerator_affine",
+        "Finset.weightedVarianceNumerator_pairwise_eq_of_le",
+        "Finset.separated_pairwise_sq_of_step",
+        "Finset.separated_weighted_variance_equality_iff",
+        "PrimeFactorOscillations.thresholdPackingAttainer_order_rigidity"
+      ]
     }
   ],
   "novelty": "Priority for the combined explicit formulas has not been established; source classification and Gauss identities are classical."

@@ -59,6 +59,7 @@ THRESHOLD_TOTAL_THEOREMS: tuple[str, ...] = (
     "PrimeFactorOscillations.thresholdEvenSplit_total",
     "PrimeFactorOscillations.thresholdEvenSplit_window",
     "PrimeFactorOscillations.thresholdPackingAttainer_not_small",
+    "PrimeFactorOscillations.thresholdPackingAttainer_order_rigidity",
     "PrimeFactorOscillations.thresholdPair_total",
     "PrimeFactorOscillations.thresholdRadialPacking_attainers",
     "PrimeFactorOscillations.thresholdRadialPacking_attainers_iff",

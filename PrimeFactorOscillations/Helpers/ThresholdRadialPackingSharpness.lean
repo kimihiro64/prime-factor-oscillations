@@ -6,6 +6,7 @@ Authors: Prime Factor Oscillations contributors
 import PrimeFactorOscillations.Helpers.ThresholdRadialPacking
 import PrimeFactorOscillations.Mathlib.Analysis.MeanInequalities.EvenSeparatedGrid
 import PrimeFactorOscillations.Mathlib.Analysis.MeanInequalities.MomentNormalization
+import PrimeFactorOscillations.Mathlib.Analysis.MeanInequalities.SeparatedExtremizers
 
 /-! # Sharp radial packing in the equal-moment law and its complete support-size range -/
 
@@ -275,5 +276,58 @@ theorem thresholdRadialPacking_attainers_iff (r k : Nat) (d eta : Real)
   case mpr =>
     intro h
     exact thresholdRadialPacking_attainers r k d eta h.1 h.2 hd heta
+
+theorem thresholdPackingAttainer_order_rigidity (r : Nat) (d eta K : Real)
+    (a : Fin r -> Nat) (y : Fin r -> Real) (g M : Real) (hr : 0 < r)
+    (h : ThresholdPackingAttainer r d eta K a y g M) :
+    exists j : Fin r,
+      And ((Finset.separatedGridCoord r j) ^ 2 = Finset.separatedGridParity r)
+        (And (forall i, Not (i = j) -> a i = 1)
+          (2 * (a j : Real) = K - 2 * ((r : Real) - 1))) := by
+  classical
+  let w := fun i => 2 * (a i : Real)
+  have hw : forall i, 2 <= w i := by
+    intro i
+    have hNat : 1 <= a i := Nat.succ_le_iff.mpr (h.order_pos i)
+    have hReal : (1 : Real) <= (a i : Real) := by exact_mod_cast hNat
+    dsimp only [w]
+    linarith only [hReal]
+  have hI : forall i, momentRoundIndicator d (y i) = 1 := by
+    intro i
+    simp [momentRoundIndicator, (h.coords_above i).le]
+  have hVariance : thresholdSelectedVariance d Finset.univ w y =
+      Finset.sum Finset.univ (fun i => w i *
+        (y i - Finset.sum Finset.univ (fun j => w j * y j) /
+          Finset.sum Finset.univ w) ^ 2) := by
+    unfold thresholdSelectedVariance thresholdSelectedMean thresholdSelectedMass
+    simp_rw [hI, mul_one]
+  have hStep : forall i j : Fin r, j.val = i.val + 1 -> g <= y j - y i := by
+    intro i j hij
+    have hCast : (j.val : Real) = (i.val : Real) + 1 := by exact_mod_cast hij
+    have hGap := h.gap_formula i j
+    rw [hCast] at hGap
+    nlinarith only [hGap]
+  have hMass : Finset.sum Finset.univ w = K := h.total_mass
+  have hEq := h.variance_floor
+  change thresholdSelectedVariance d Finset.univ w y =
+    g ^ 2 * Finset.separatedVarianceFloor r 2 K at hEq
+  rw [hVariance, <- hMass] at hEq
+  have hData := (Finset.separated_weighted_variance_equality_iff r hr w y 2 g
+    (by norm_num) h.gap_pos hw hStep).mp hEq
+  choose j hj c hwj hy using hData
+  have hWeights : forall i, w i = Finset.separatedGridWeights r 2 K j i := by
+    intro i
+    simpa only [hMass] using hwj i
+  refine Exists.intro j (And.intro hj (And.intro ?_ ?_))
+  case refine_1 =>
+    intro i hij
+    have hwi : 2 * (a i : Real) = 2 := by
+      simpa [w, Finset.separatedGridWeights, hij] using hWeights i
+    have hCast : (a i : Real) = 1 := by linarith only [hwi]
+    exact_mod_cast hCast
+  case refine_2 =>
+    have hwjReal : 2 * (a j : Real) = 2 + (K - 2 * (r : Real)) := by
+      simpa [w, Finset.separatedGridWeights] using hWeights j
+    nlinarith only [hwjReal]
 
 end PrimeFactorOscillations

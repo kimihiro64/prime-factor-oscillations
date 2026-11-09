@@ -9937,6 +9937,63 @@ radial cardinality, \(0<\Delta<\eta\), and both variance equalities.
 The result concerns the all-selected face \(N=K\), with the gap chosen
 by the construction.
 
+\paragraph{Theorem (complete equality geometry).}
+Assume \(r\ge1\), \(q>0\), and \(g>0\), with the weights and sites
+of \eqref{eq:all-r-packing}. Equality holds if and only if there are
+a middle index \(j\), with \(u_j^2=\epsilon_r\), and a real \(c\), such that
+\begin{equation}
+ y_i=c+gu_i,\qquad
+ w_i=q+(K-qr)\mathbf1_{i=j}\quad(0\le i<r),
+ \qquad u_i=i-(r-1)/2.
+ \tag{RP5}\label{eq:all-r-equality-geometry}
+\end{equation}
+Thus these are every extremizer, not merely one attaining construction.
+
+\paragraph{Proof.}
+For any finite weights and coordinates, write
+\(\mathcal N(w,x)=(\sum_iw_i)(\sum_iw_ix_i^2)-(\sum_iw_ix_i)^2\).
+Put \(e_i=w_i-q\ge0\). The exact defect, including the entire
+surplus cross term, is
+\[
+\begin{split}
+ K\bigl(V-g^2F(r,q,K)\bigr)
+ &=\frac12\sum_{i,j=0}^{r-1}w_iw_j
+       \bigl((y_i-y_j)^2-g^2(u_i-u_j)^2\bigr)\\
+ &\quad+g^2qr\sum_{i=0}^{r-1}e_i(u_i^2-\epsilon_r)
+       +\frac{g^2}{2}\sum_{i,j=0}^{r-1}e_ie_j(u_i-u_j)^2 .
+\end{split}
+\]
+Every displayed summand is nonnegative. If the left side is zero,
+strict positivity of every \(w_iw_j\) makes every pair distance attain
+its compressed value. The prescribed order and \(g>0\) then give
+\(y_i-y_0=gi\), hence \(y_i=c+gu_i\).
+The second sum confines positive excess to middle indices.
+The last sum forbids two distinct indices with positive excess,
+because their grid coordinates are distinct. If \(K-qr>0\),
+choose its unique positive excess index; its excess is exactly \(K-qr\).
+If \(K-qr=0\), all weights are \(q\), and any middle index gives the
+same representation. Conversely, the configuration in
+\eqref{eq:all-r-equality-geometry} makes all three defects zero.
+The one-site case is included. The assumption \(g>0\) is essential
+for the allocation conclusion: at \(g=0\), coincident coordinates
+have zero variance for arbitrary positive weights.
+
+\paragraph{Rigidity inside the equal-moment law.}
+For every maintained positive-gap attainer in
+\eqref{eq:all-r-moment-attainment}, there is a middle index \(j\) such that
+\[
+ n_i=1\quad(i\ne j),\qquad
+ 2n_j=K-2(r-1).
+\]
+Indeed all sites are selected, so the selected variance is the ordinary
+weighted variance with weights \(2n_i\). Apply
+\eqref{eq:all-r-equality-geometry} with \(q=2\).
+In particular, at total mass \(K=2k\), the central order is \(k-r+1\).
+The maintained declaration
+\texttt{thresholdPackingAttainer\_order\_rigidity} proves the general
+order allocation above. This classifies finite equal-moment models;
+it asserts no realization by actual zeta zeros.
+
 Spacing arguments and moment inequalities are classical. For comparison,
 L.~Moser's \emph{Notes on Number Theory IV: On the Multiplicity of
 Representations of Numbers by Sums}, Canad.~Math.~Bull.~6 (1963),

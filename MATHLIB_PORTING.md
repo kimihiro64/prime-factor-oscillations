@@ -28,6 +28,7 @@ namespace.
 
 | Module | Proposed destination | Readiness | Scope |
 | --- | --- | --- | --- |
+| `PrimeFactorOscillations.Mathlib.Analysis.MeanInequalities.SeparatedExtremizers` | `Mathlib/Analysis/MeanInequalities/SeparatedExtremizers.lean` | project-verified | Complete equality classification for every positive support size, positive baseline weight and positive gap: affine consecutive sites and all surplus at one middle index. Includes arbitrary real weights, the zero-surplus edge and one-site case. |
 | `PrimeFactorOscillations.Mathlib.Analysis.MeanInequalities.SeparatedGrid` | `Mathlib/Analysis/MeanInequalities/SeparatedGrid.lean` | project-verified | Sharp weighted variance floor for every positive support size with a positive minimum atom weight and adjacent real-site separation. Includes the parity correction, weighted pair-distance compression and attaining consecutive-grid weights at every admissible total mass. |
 
 ## Weighted variance with baseline mass
@@ -35,6 +36,7 @@ namespace.
 | Module | Proposed destination | Readiness | Scope |
 | --- | --- | --- | --- |
 | `PrimeFactorOscillations.Mathlib.Analysis.MeanInequalities.SeparatedVariance` | `Mathlib/Analysis/MeanInequalities/SeparatedVariance.lean` | project-verified | Exact weighted pairwise variance, comparison under pair-distance compression, and the sharp baseline/surplus numerator lower bound retaining the complete squared-mean correction. The all-r separated-support consumer is developed separately. |
+| `PrimeFactorOscillations.Mathlib.Analysis.MeanInequalities.VarianceDefect` | `Mathlib/Analysis/MeanInequalities/VarianceDefect.lean` | project-verified | Exact baseline variance defect retaining the full surplus variance, zero-pair rigidity and complete middle-site surplus classification on the centered consecutive grid. |
 
 ## Optimal adaptive multiplicity decoding
 
