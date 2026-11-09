@@ -29,8 +29,10 @@ and cardinality, modulo-four sign adapter, and the complete finite
 actual-prime comparison~(7g) have kernel-checked proofs in the maintained
 Lean repository. The latter is uniform over every finite odd-prime
 coordinate set, endpoint and signed real weight, with all exception terms.
-The fixed-modulus occupancy limit, complete asymptotic tail passage,
-sharpness and parity stability remain to be formalized.
+The fixed-coordinate sampling limit~(7h) is also kernel checked, with
+an eventual cutoff uniform over all real weights.
+The complete asymptotic tail passage, sharpness and parity stability
+remain to be formalized.
 
 \section{Statement and intended consequences}
 
@@ -517,38 +519,49 @@ In particular the two mixed rectangles and the exceptional self
 interaction, as well as both signed principal means, are retained.
 \end{proof}
 
-For fixed \(R\), put \(Q_R=\prod_{\ell\le R}\ell^2\) and
-\(M_R=\varphi(Q_R)=|U_R|\).
-Let \(T\) consist of the odd primes at most \(X\) that do not divide \(Q_R\).
-Lemma~\ref{lem:fibre} requires only an upper bound on each fibre.
-For a nonempty fibre choose one prime \(p_0\) in it. Every other member
-satisfies \(p\equiv p_0\pmod{\ell^2}\) for all \(\ell\le R\);
-pairwise coprimality gives \(p\equiv p_0\pmod{Q_R}\).
-The representative is a unit modulo \(Q_R\).
-An empty fibre has count zero.
-This avoids constructing a global Chinese-remainder inverse merely to count fibres.
+\begin{lemma}[Uniform fixed-coordinate sampling limit]\label{lem:prime-limit}
+Fix a finite set \(S\) of odd primes. For every \(\varepsilon>0\),
+there is an integer \(X_0\) such that, for every \(X\ge X_0\) and
+every real weight \(f\) on \(\Pcal_X\),
+\[
+ |q_S(f)-D_S(a^2-b^2)|
+ \le \frac{D_S}{5}(e-a^2-b^2)+\varepsilon e.                \tag{7h}
+\]
+The cutoff \(X_0\) may depend on \(S,\varepsilon\), and is independent
+of \(f\). The empty coordinate set is allowed.
+\end{lemma}
+\begin{proof}
+The existing prime-counting theorem and \(n_X=\pi(X)-1\) for \(X\ge2\)
+give \(n_X/(X/\log X)\to1\).
+More generally, for fixed \(\rho<1\), \(A\ge0\) and integer \(k\ge0\),
+\[
+ \frac{X^\rho(A+\log(X+2))^k}{n_X}\longrightarrow0.
+\]
+Indeed \(A+\log(X+2)\ll_A\log X\) for large \(X\), and
+\((\log X)^{k+1}/X^{1-\rho}\to0\). This argument includes \(k=0\).
 
-The actual tuple bound (7e) gives
+Use the single constant \(C\) from Lemma~\ref{lem:prime-finite}.
+For this fixed \(S\), its \(N_S,M_S,D_S\) are constants, so
 \[
- |T_u|\le\frac{\pi(X)}{M_R}
-    +C X^{7/8}(1+\log Q_R+\log(X+2))^2.
+ \delta_{S,X}
+ =\frac{1+M_SCX^{7/8}(1+\log N_S+\log(X+2))^2}{n_X}
+ \longrightarrow0.
 \]
-Since \(n_X=\pi(X)-1\) for \(X\ge2\), the occupancy condition holds with
+Set \(\tau_X=\sqrt{|S|/n_X}\). Then \(\tau_X\ge0\),
+\(\tau_X^2n_X=|S|\), and \(\tau_X\to0\).
+Consequently the full error coefficient
 \[
- \delta_{R,X}=\frac1{n_X}
-   +\frac{M_R C X^{7/8}(1+\log Q_R+\log(X+2))^2}{n_X}
-       \longrightarrow0
+ \eta_{S,X}=\frac{D_S\delta_{S,X}}5
+             +(4D_S+2)\tau_X+\tau_X^2
+ \longrightarrow0.
 \]
-as \(X\to\infty\) with \(R\) fixed.
-The exceptional count is at most the number of odd primes dividing \(Q_R\).
-For every fixed \(\tau>0\), it is eventually at most \(\tau^2 n_X\).
-Equation (7g) supplies the complete actual-prime finite-kernel comparison,
-uniformly in \(f\), with these exact occupancy and exception errors.
-The arithmetic tuple assertions, unit model and parity adapter are
-checked separately, and their complete actual-prime finite assembly is
-now checked as Lemma~\ref{lem:prime-finite}.
-The fixed-\(R\) limit of its error remains pending Lean work;
-the actual-prime asymptotic headline theorem remains proposed.
+Choose \(X_0\ge3\) so that \(\eta_{S,X}<\varepsilon\) for
+\(X\ge X_0\), before choosing the weight \(f\).
+Equation (7g) and \(e\ge0\) imply (7h), retaining both signed
+principal means and every exceptional rectangle.
+Taking \(S\) to be the odd primes at most a fixed \(R\ge2\)
+gives the finite-cutoff kernel and density \(D_R\).
+\end{proof}
 
 Let \(J_R\) be the difference between this finite kernel and the actual
 squarefree-difference kernel. It is a symmetric nonnegative tail kernel,
@@ -643,8 +656,18 @@ Its focused axiom audit contains only the standard foundational axioms.
 The theorem includes every finite odd-prime coordinate set, the empty
 coordinate set, arbitrary real weights, the full-prime center correction,
 and every coordinate-prime exception.
-Remaining formalization consists of the fixed-modulus occupancy limit,
-the complete asymptotic tail passage, sharpness and consequences (2)--(3).
+Lemma~\ref{lem:prime-limit} is checked as
+\texttt{PrimeFactorOscillations.QRH.}
+\texttt{eventually\_prime\_square\_spectral\_gap}, in
+\texttt{Helpers/QRHPrimeSquareSampling.lean}.
+The same owner proves
+\texttt{tendsto\_oddPrimeVertices\_count\_div\_mainTerm} and
+\texttt{tendsto\_rpow\_logshift\_pow\_div\_oddPrimeCount}.
+The formal weights are functions on the natural numbers restricted to
+\(\Pcal_X\); arbitrary extensions give the finite-domain formulation above.
+The finite set precedes the eventual cutoff, which precedes the weight.
+Remaining formalization consists of the complete asymptotic tail passage,
+sharpness and consequences (2)--(3).
 This document is kept separate from the metaplectic and zero-multiplicity papers.
 
 \begin{thebibliography}{9}

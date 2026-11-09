@@ -160,13 +160,21 @@
     },
     {
       "id": "SFS-FIBRE",
-      "status": "finite_actual_prime_comparison_checked_limit_pending",
-      "claim": "For fixed R, the checked actual-prime finite comparison has an error tending to zero uniformly over all real vertex weights, including the coordinate-prime exceptions. The vanishing-error limit remains unformalized.",
-      "declarations": [],
+      "status": "kernel_checked_uniform_fixed_cutoff_limit",
+      "claim": "For every fixed finite set S of odd primes and eps>0, eventually for every X and every signed real weight f, abs(q_S-D*(a^2-b^2))<=D/5*(e-a^2-b^2)+eps*e. The eventual cutoff is independent of f; empty S and all coordinate-prime exceptions are included.",
+      "declarations": [
+        "PrimeFactorOscillations.QRH.tendsto_oddPrimeVertices_count_div_mainTerm",
+        "PrimeFactorOscillations.QRH.tendsto_rpow_logshift_pow_div_oddPrimeCount",
+        "PrimeFactorOscillations.QRH.eventually_prime_square_spectral_gap"
+      ],
       "depends_on": [
         "SFS-PRIME-FINITE"
       ],
-      "completed_finite_declaration": "PrimeFactorOscillations.QRH.exists_finite_prime_square_spectral_gap"
+      "completed_finite_declaration": "PrimeFactorOscillations.QRH.exists_finite_prime_square_spectral_gap",
+      "owners": [
+        "PrimeFactorOscillations/Helpers/QRHPrimeSquareSampling.lean"
+      ],
+      "proof_scope": "Uses the existing unconditional prime-counting theorem to prove X^rho*(A+log(X+2))^k/n_X -> 0 for every fixed rho<1, A>=0 and k>=0. Takes tau_X=sqrt(|S|/n_X) and lets the complete finite error tend to zero before introducing f. No growing-modulus estimate, full squarefree tail, optimality or inverse consequence is asserted."
     },
     {
       "id": "SFS-TAIL-LIMIT",
