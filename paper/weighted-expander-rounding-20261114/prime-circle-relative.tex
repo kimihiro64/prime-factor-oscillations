@@ -1,0 +1,186 @@
+\section{Relative prime-circle enumeration at the actual prime density}
+\label{sec:relativeprimecircles}
+The logarithmic-density theorem has an independent arithmetic
+consumer on the unweighted prime-sum graph itself.
+The row repair must preserve the coefficient of \(\log N\)
+in the largest entry; a generic \(\log N\) inverse bound is
+too coarse for that purpose.
+
+\begin{lemma}[A diffuseness-sensitive scaling repair]
+\label{lem:diffusionscaling}
+Let \(Q\) be a symmetric nonnegative bipartite matrix on
+\(n\) vertices with equally sized parts, row degrees
+\(|d_i-1|\leq\varepsilon\), and \(\max Q_{ij}\leq A/n\),
+\(A\geq2\).
+Suppose its degree-normalized matrix has nontrivial gap
+at least a fixed \(\delta\in(0,1)\).
+If \(\varepsilon\log(2A)^2\) is sufficiently small, it has
+a stochastic repair
+\[
+ \widehat P=\diag(1+z)Q\diag(1+z),\qquad
+ \|z\|_\infty\leq C_\delta\varepsilon\log(2A).
+\]
+The repaired kernel differs from \(Q\) in operator norm
+by \(O_\delta(\varepsilon\log(2A))\).
+\end{lemma}
+\begin{proof}
+We refine the inverse estimate in Lemma~\ref{lem:scaling}.
+For the reversible walk \(R=\diag(d)^{-1}Q\), remove its
+constant and parity projections.
+The absolute row sum of its \(j\)-th centered power is at
+most a fixed constant.
+After the first step the squared row norm is at most
+\(C A/n\); the fixed spectral gap and Cauchy--Schwarz
+therefore give the alternative bound
+\(C_\delta\sqrt A(1-\delta)^{j-1}\).
+The stationary degrees are between fixed constants, so
+these estimates hold also in the stationary weighted norm.
+Summing their minimum gives
+\[
+ \sum_{j\geq0}\min\{C,C_\delta\sqrt A
+                                      (1-\delta)^{j-1}\}
+                         \leq C_\delta\log(2A).
+\]
+The constant mode in \((I+R)^{-1}\) costs only \(1/2\);
+the parity mode is removed by the same balanced gauge
+as in the earlier scaling proof.
+Multiplying by \(\diag(d)^{-1}\) proves that the inverse
+of \(\diag(d)+Q\), on its compatible subspace, has
+infinity norm at most \(C_\delta\log(2A)\).
+Changing to the unweighted balanced gauge costs only a
+fixed multiple of this bound.
+
+Now solve the exact equation
+\[
+ (\diag(d)+Q)z=\one-d-z\mathbin{\odot}(Qz)
+\]
+in the balanced gauge.
+The right side is compatible on both parts, including
+its quadratic term.
+On the ball
+\(\|z\|_\infty\leq 2C_\delta\varepsilon\log(2A)\),
+the inverse and quadratic Lipschitz bounds give a
+contraction provided \(\varepsilon\log(2A)^2\) is small.
+The fixed point is positive after adding one and gives
+the exact row sums.
+The operator perturbation follows from
+\(\|\diag(z)Q+Q\diag(z)+\diag(z)Q\diag(z)\|
+ \leq C\|z\|_\infty\).
+\end{proof}
+
+Let \(G_N\), for even \(N=2m\), have vertices \(1,\ldots,N\)
+and edges at distinct prime sums.
+For a proper fractional edge weighting \(x\), meaning
+\(x_e\geq0\) and \(\sum_{e\ni v}x_e=1\) for every vertex,
+write
+\[
+ {\cal H}_N=\max_x\left(-\sum_{e\in E(G_N)}x_e\log x_e\right).
+\]
+The optimization is over the actual finite prime-sum graph.
+It incorporates its nonuniform degrees and every allowed
+edge, with no averaging of the graph itself.
+
+\begin{theorem}[Full relative prime-circle count from its exact entropy]
+\label{thm:relativeprimecircles}
+Uniformly through even \(N\to\infty\),
+\[
+ h(G_N)=
+ \frac{(m!)^2}{2m\,m^{2m}}\,e^{2{\cal H}_N}
+                  \left(1+O(N^{-3/5})\right)
+       =\pi e^{\,2{\cal H}_N-N}
+                  \left(1+O(N^{-3/5})\right).
+\]
+Here \(h\) counts unoriented Hamilton cycles modulo cyclic
+rotation, as in the earlier prime-circle statements.
+The implied constant is absolute eventually.
+The formula is unconditional and uses neither RH nor a
+prime-pair asymptotic. It is a relative count, rather than
+an error of exponential size \(e^{o(N)}\).
+\end{theorem}
+\begin{proof}
+Put \(Q_0=(\log N/N)A_{G_N}\).
+Lemma~\ref{lem:unweightedtransfer} supplies the actual
+uniform degree defect
+\[
+ \varepsilon_N=O(\log\log N/\log N)
+\]
+and operator distance \(o(1)\) from a stochastic kernel
+with nontrivial ratio \(1/2+o(1)\).
+Consequently the degree normalization of \(Q_0\) also
+has nontrivial ratio \(1/2+o(1)\): diagonal normalization
+is \(I+O(\varepsilon_N)\), and its constant/parity
+vectors differ by \(O(\varepsilon_N)\) from the
+normalized constant/parity vectors.
+Its largest entry is at most \(\log N/N\).
+
+Apply Lemma~\ref{lem:diffusionscaling} with \(A=\log N\).
+The compatibility quantity
+\(\varepsilon_N\log(2A)^2=O((\log\log N)^3/\log N)\)
+tends to zero. We obtain
+\[
+ P=\diag(1+z)Q_0\diag(1+z),\qquad
+ \|z\|_\infty=O((\log\log N)^2/\log N)=o(1).
+\]
+Its cross block \(T\), of order \(m=N/2\), is doubly
+stochastic and has
+\[
+ \|T-J_m/m\|\leq1/2+o(1),\qquad
+ m\max T_{ij}\leq(1/2+o(1))\log N.
+\]
+Thus for sufficiently large \(m\) we may take
+\(\rho=3/5\), \(A=(3/5)\log m\)
+in Theorem~\ref{thm:criticalrelative}.
+
+The numerical margin is checked explicitly:
+\[
+ \kappa_{3/5}=\frac{25}{9}\log(17/8)<\frac94,\qquad
+ {\cal A}(T)\leq m^{27/20}.
+\]
+For the strict logarithmic inequality, the first four
+terms of \(e^{81/100}\) already exceed \(17/8\).
+The two error terms in the comparison are therefore
+\(O(\log(2m)^M(m^{-1}+m^{-13/20}))\),
+which is \(O(m^{-3/5})\).
+The full critical-density signed consumer is now estimated.
+
+Finally set
+\(w_v=(1+z_v)\sqrt{\log N/N}\), so that
+\(P=\diag(w)A_{G_N}\diag(w)\).
+Its positive stochastic edge weighting is the entropy
+maximizer. Indeed for every proper \(x\), the supporting
+hyperplane inequality for \(-x\log x\) shows optimality
+of \(P\), because
+\(\log P_{ij}=\log w_i+\log w_j\) on its support and
+the vertex sums are fixed.
+Strict concavity gives uniqueness of the edge weights;
+the harmless bipartite scaling gauge does not change
+\(\sum_v\log w_v\).
+Hence
+\[
+ {\cal H}_N=-\sum_v\log w_v.
+\]
+Every Hamilton cycle has exactly the same \(P\)-weight
+\(\prod_v w_v^2=e^{-2{\cal H}_N}\).
+Multiplying the relative kernel count by
+\(e^{2{\cal H}_N}\) proves the factorial formula.
+Stirling gives
+\((m!)^2/(2m\,m^{2m})=\pi e^{-N}(1+O(N^{-1}))\),
+proving the final normalization.
+All arithmetic inputs were already used in the proved
+unweighted transfer; the improvement is the retained
+signed compensation and its independently bounded remainder.
+\end{proof}
+
+\begin{remark}[What precision has changed]
+The earlier elementary entropy evaluation gives
+\(2{\cal H}_N=N\log N-N\log\log N+o(N)\).
+Substituting only that coarse evaluation recovers only
+an exponential-base formula.
+The theorem above keeps the exact finite variational
+quantity and proves a power-saving relative error around
+it. It does not silently promote the coarse explicit
+expression to a relative formula.
+No effective numerical starting order, full all-orders
+Filz theorem, or relative classification of every fixed
+congruence filter is claimed here.
+\end{remark}

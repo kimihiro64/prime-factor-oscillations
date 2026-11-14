@@ -1,0 +1,147 @@
+\section{Exact scaling under a controlled row defect}
+\label{sec:scaling}
+For a vector \(x\), write \(\|x\|_\infty=\max_i|x_i|\);
+matrix operator norms are Euclidean unless specified.
+Let \(s=\one_A-\one_B\).
+
+\begin{lemma}[A quantitative bipartite scaling repair]
+\label{lem:scaling}
+Fix \(\delta\in(0,1)\).
+Let \(Q\) be a symmetric nonnegative matrix supported between
+two parts of equal size, and put
+\[
+ d=Q\one,\qquad D=\diag(d),\qquad
+ \|d-\one\|_\infty\leq\varepsilon<1/2,\qquad
+ S=D^{-1/2}QD^{-1/2}.
+\]
+Assume all eigenvalues of \(S\) except its simple eigenvalues
+\(1,-1\) have modulus at most \(1-\delta\).
+There are constants \(c_\delta,C_\delta>0\) such that if
+\(\varepsilon L^2\leq c_\delta\), there is a positive vector
+\(u\) with
+\[
+ P=\diag(u)Q\diag(u),\quad P\one=\one,\qquad
+ \|u-\one\|_\infty\leq C_\delta\varepsilon L,\qquad
+ \|P-Q\|\leq C_\delta\varepsilon L.                           \tag{5}
+\]
+The support of \(P\) is exactly the support of \(Q\).
+\end{lemma}
+\begin{proof}
+The bipartite symmetry gives
+\(\sum_A d_i=\sum_Bd_i\).
+Set \(T=D^{-1}Q\), a reversible stochastic matrix with stationary
+measure \(\pi_i=d_i/\sum_jd_j\).
+It is similar to \(S\), and
+\(\pi(A)=\pi(B)=1/2\).
+Its eigenvectors at \(1,-1\) are \(\one,s\).
+The corresponding projections are
+\[
+ \Pi_+f=\one\sum_i\pi_i f_i,\qquad
+ \Pi_-f=s\sum_i\pi_i s_i f_i,\qquad
+ \Pi_0=I-\Pi_+-\Pi_-.
+\]
+For \(j\geq0\), the assumptions and \(d_i\in[1/2,3/2]\) give
+\[
+ \|T^j\Pi_0\|_{\infty\to\infty}
+ \leq C\min\{1,\sqrt N(1-\delta)^j\}.                         \tag{6}
+\]
+For the first bound, use \(T^j\Pi_0=T^j-\Pi_+-(-1)^j\Pi_-\)
+and the three bounded stochastic/projection norms.
+For the second, use the \(L^2(\pi)\) spectral gap and
+\(\min_i\pi_i\geq1/(3N)\).
+
+Let \({\cal L}_Q=D+Q=D(I+T)\).
+Its kernel is \(\R s\), by the hypothesis at \(-1\).
+For \(r\perp s\), the vector \(f=D^{-1}r\) has
+\(\Pi_-f=0\).
+The convergent series
+\[
+ z_0=\tfrac12\Pi_+f+
+                 \sum_{j\geq0}(-1)^jT^j\Pi_0f
+\]
+therefore solves \({\cal L}_Qz_0=r\).
+The sum of the bounds in (6) is \(O_\delta(L)\).
+Subtract the \(s\)-component of \(z_0\) to impose \(z\perp s\).
+Thus the inverse on \(s^\perp\) satisfies
+\[
+ \|{\cal L}_Q^\dagger r\|_\infty
+                    \leq C_\delta L\|r\|_\infty.             \tag{7}
+\]
+Here the dagger means the inverse with this fixed gauge;
+no inverse is asserted on the one-dimensional kernel.
+
+Put \(u=\one+z\).
+The exact row equation, including its nonlinear cross term, is
+\[
+ u\odot(Qu)-\one
+ =(d-\one)+{\cal L}_Qz+z\odot(Qz).                           \tag{8}
+\]
+Both \(d-\one\) and \(z\odot(Qz)\) are orthogonal to \(s\).
+For the latter,
+\[
+ \sum_{i\in A}z_i(Qz)_i
+ =\sum_{i\in A,j\in B}Q_{ij}z_i z_j
+ =\sum_{j\in B}z_j(Qz)_j.
+\]
+For the former use equal part sizes and equal total degrees.
+Consequently the map
+\[
+ z\longmapsto-{\cal L}_Q^\dagger
+                    \bigl((d-\one)+z\odot(Qz)\bigr)
+\]
+maps \(s^\perp\) to itself.
+By (7), it is a contraction on the ball
+\(\|z\|_\infty\leq2C_\delta\varepsilon L\) when
+\(c_\delta\) is sufficiently small.
+Indeed \(\|Q\|_{\infty\to\infty}\leq3/2\), and the nonlinear
+Lipschitz constant on a ball of radius \(r\) is at most \(3r\);
+the contraction cost is \(O_\delta(\varepsilon L^2)\).
+The map also preserves this ball by the same inequality.
+The fixed point gives (8) equal to zero.
+Choose \(c_\delta\) smaller so that \(\|z\|_\infty<1/2\);
+then every \(u_i\) is positive.
+
+Finally, with \(Z=\diag(z)\), retain all terms
+\[
+ P-Q=ZQ+QZ+ZQZ.
+\]
+Since \(\|Q\|\leq3/2\), their operator norm is
+\(O_\delta(\varepsilon L)\), proving (5).
+\end{proof}
+
+\begin{corollary}[Repair after forbidden edges]
+\label{cor:forbiddenrepair}
+Let \(P\) satisfy the hypotheses of Theorem~\ref{thm:rounding},
+and let \(F\) be an arbitrary set of its support edges.
+Define the actual removed row mass
+\[
+ \eta=\max_i\sum_{j:ij\in F}P_{ij}.
+\]
+If \(\eta L^2\leq c_\delta\), then there is a symmetric
+stochastic \(P_F\) supported exactly on the unused edges, with
+\[
+ \|P_F-P\|\leq C_\delta\eta L,\qquad
+ \max_{ij}(P_F)_{ij}\leq2\alpha.                             \tag{9}
+\]
+It has nontrivial gap at least \(\delta/2\).
+\end{corollary}
+\begin{proof}
+Set \(Q_{ij}=P_{ij}\one_{ij\notin F}\).
+Then \(Q\one\) lies between \(1-\eta\) and 1.
+Symmetry and the row bound give
+\(\|Q-P\|\leq\eta\).
+For \(D=\diag(Q\one)\), it follows that
+\[
+ \|D^{-1/2}QD^{-1/2}-P\|\leq C\eta.
+\]
+The normalized matrix has eigenvalues \(1,-1\), and Weyl's
+inequality bounds every other eigenvalue in modulus by
+\(1-\delta+C\eta\).
+Thus Lemma~\ref{lem:scaling} applies with gap \(\delta/2\).
+Its exact positive scaling preserves all unused entries and
+has multipliers \(1+O_\delta(\eta L)\).
+This gives (9).
+After scaling, the constant and parity vectors are again exact
+eigenvectors. The operator perturbation in (9), and a further
+decrease of \(c_\delta\), give the claimed gap.
+\end{proof}

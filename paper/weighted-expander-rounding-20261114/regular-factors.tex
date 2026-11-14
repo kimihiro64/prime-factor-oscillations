@@ -1,0 +1,248 @@
+\section{Near-optimal factors, resilience and many prime Hamilton cycles}
+\label{sec:regularfactors}
+The weighted rounding theorem permits very nonuniform edge weights.
+In the integer prime-sum application there is additional uniformity:
+ordinary, unweighted degrees are asymptotically equal.
+This allows an integral regular-factor argument, proved here, which
+strengthens the arithmetic conclusion substantially.
+It is an alternative application mechanism; adaptive rounding is
+not claimed to be necessary for this particular uniform graph.
+
+\begin{lemma}[Regular factors from near regularity and cuts]
+\label{lem:regularfactor}
+Let \(G\) be a simple balanced bipartite graph on \(N=2m\)
+vertices. Suppose, for real \(D>0\), \(0<g\leq1\) and
+\(0\leq\varepsilon<g/2\), that
+\[
+ (1-\varepsilon)D\leq\deg_G(v)\leq(1+\varepsilon)D
+ \quad\hbox{for every }v,
+\]
+and
+\[
+ e_G(W,W^c)\geq gD\min\{|W|,N-|W|\}
+ \quad\hbox{for every }W\subseteq V(G).
+ \tag{21}
+\]
+Then \(G\) contains an \(r\)-regular spanning subgraph whenever
+\(r\) is a nonnegative integer with
+\[
+ r\leq(1-2\varepsilon/g)D.                                  \tag{22}
+\]
+In particular one may take the floor of the right side.
+Every such factor \(H\) satisfies the finite operator bound
+\[
+ \|A_G-A_H\|\leq(1+\varepsilon)D-r.                          \tag{23}
+\]
+\end{lemma}
+\begin{proof}
+Write the parts as \(A,B\).
+The integral maximum-flow criterion for an \(r\)-factor is
+\[
+ e_G(S,B\setminus T)\geq r(|S|-|T|)
+ \quad(S\subseteq A,\ T\subseteq B).                         \tag{24}
+\]
+Indeed use capacities \(r\) from the source to each vertex of \(A\),
+capacity 1 on each graph edge, and capacities \(r\) from \(B\) to
+the sink. The cut determined by \(S,T\) has capacity
+\(r(m-|S|)+e_G(S,B\setminus T)+r|T|\).
+Condition (24) makes every cut at least \(rm\); an integral flow of
+that value is precisely the required factor.
+
+Only \(x=|S|-|T|>0\) matters.
+By exchanging the two sides and replacing \((S,T)\) with
+\((B\setminus T,A\setminus S)\), if necessary, we may assume
+\[
+ u=|S|+|T|\leq m.
+\]
+Both \(x\) and the edge count in (24) are preserved by this
+replacement. Put
+\[
+ a=e_G(S,B\setminus T),\qquad b=e_G(A\setminus S,T).
+\]
+The full boundary of \(S\cup T\) is \(a+b\), so (21) and
+the degree bounds give
+\[
+ a+b\geq gDu,\qquad a-b\geq Dx-\varepsilon Du.
+\]
+Since \(b\geq0\), the two simultaneous lower bounds are
+\[
+ a\geq D(x-\varepsilon u),\qquad
+ a\geq \frac D2\bigl(x+(g-\varepsilon)u\bigr).                \tag{25}
+\]
+If \(x\leq(g-\varepsilon)u\), the second gives \(a\geq Dx\).
+Otherwise the first gives
+\[
+ a\geq Dx\left(1-\frac{\varepsilon}{g-\varepsilon}\right)
+       \geq Dx(1-2\varepsilon/g).
+\]
+Thus (24) follows from (22).
+Finally \(A_G-A_H\) is a symmetric nonnegative matrix with
+maximum row sum at most the right side of (23).
+Its operator norm obeys the same bound.
+\end{proof}
+
+Let \(B_N\) denote the ordinary adjacency matrix of \(G_N\)
+and put \(D_N^*=N/\log N\).
+This scalar is distinct from the degree matrix \(D_N\)
+in Lemma~\ref{lem:primeweights}.
+
+\begin{lemma}[Unweighted spectral transfer]
+\label{lem:unweightedtransfer}
+As even \(N\) tends to infinity,
+\[
+ \max_i\left|\frac{\deg_{G_N}(i)}{D_N^*}-1\right|
+       =O\left(\frac{\log\log N}{\log N}\right),\qquad
+ \|B_N/D_N^*-Q_N\|
+       =O\left(\frac{\log\log N}{\log N}\right).              \tag{26}
+\]
+There is a stochastic kernel \(P_N\) on the same support with
+\[
+ \|B_N/D_N^*-P_N\|=o(1),\qquad
+ \|P_N|_{\{\one,s\}^{\perp}}\|\leq1/2+o(1).
+ \tag{27}
+\]
+Consequently, for all sufficiently large \(N\),
+\[
+ e_{G_N}(W,W^c)\geq\frac15D_N^*
+                  \min\{|W|,N-|W|\}                        \tag{28}
+\]
+for every vertex set \(W\).
+\end{lemma}
+\begin{proof}
+The difference in (26) has entries
+\[
+ \frac{\log N-\log(i+j)}N
+                    \one_{\,i\ne j,\ i+j\ {\rm prime}}.
+\]
+When \(i+j\geq N/(\log N)^4\), the absolute numerator is at
+most \(4\log\log N+\log2\), and each row has at most
+\(\pi(2N)=O(N/\log N)\) nonzero entries.
+The remaining outputs number at most \(N/(\log N)^4\)
+per row, each with absolute numerator at most \(\log(2N)\).
+Thus the maximum absolute row sum of the difference is
+\(O(\log\log N/\log N)\).
+Symmetry proves the operator bound, while the row-sum version
+and (20) prove the degree assertion.
+The exact scaling already used in the proof of
+Theorem~\ref{thm:filz} gives (27).
+
+For the boundary estimate put \(w=|W|\) and
+\(x=\one_W-(w/N)\one\).
+The identity for the combinatorial Laplacian gives
+\[
+ e_{G_N}(W,W^c)
+ =x^\top(\diag(B_N\one)-B_N)x.
+\]
+On \(\one^\perp\), the algebraically largest eigenvalue of
+\(P_N\) is at most \(1/2+o(1)\); its parity eigenvalue is \(-1\).
+Equations (26)--(27), with the degree lower bound, therefore give
+\[
+ e_{G_N}(W,W^c)
+ \geq(1/2-o(1))D_N^*\|x\|_2^2
+ =(1/2-o(1))D_N^*\frac{w(N-w)}N.
+\]
+Since \(w(N-w)/N\geq\frac12\min(w,N-w)\), this implies (28).
+\end{proof}
+
+\begin{theorem}[Near-optimal regular prime-sum factors]
+\label{thm:nearlyoptimalfactor}
+For every sufficiently large even \(N\), \(G_N\) has a simple
+\(r_N\)-regular spanning subgraph \(J_N\) such that
+\[
+ r_N=(1-o(1))\frac N{\log N},\qquad
+ \|A_{J_N}/r_N-P_N\|=o(1).
+ \tag{29}
+\]
+In particular every eigenvalue other than its exact
+\(r_N,-r_N\) has modulus at most \((1/2+o(1))r_N\).
+The factor degree is asymptotically best possible.
+\end{theorem}
+\begin{proof}
+Use Lemma~\ref{lem:regularfactor} with \(g=1/5\),
+\(D=D_N^*\), and the vanishing degree defect from (26).
+It supplies
+\[
+ r_N=\left\lfloor(1-10\varepsilon_N)D_N^*\right\rfloor
+                      =(1-o(1))D_N^* .
+\]
+The discarded adjacency has norm \(o(D_N^*)\) by (23).
+Together with (27) and \(r_N/D_N^*\to1\), this proves (29).
+The vectors \(\one,s\) remain exact, so the asserted
+nontrivial spectral bound follows on their common complement.
+Any regular factor has degree at most the minimum degree of
+\(G_N\), which is \((1+o(1))D_N^*\).
+\end{proof}
+
+\begin{theorem}[A positive proportion of the prime edges in Hamilton cycles]
+\label{thm:manycycles}
+For every fixed \(\kappa<1/8\) with \(\kappa>0\), and every
+sufficiently large even \(N\), \(G_N\) contains at least
+\[
+ \left\lfloor\kappa\,\frac N{\log N}\right\rfloor
+ \tag{30}
+\]
+pairwise edge-disjoint Hamilton cycles.
+Consequently the supremal number of such cycles, divided by
+\(N/\log N\), has lower limit at least \(1/8\).
+\end{theorem}
+\begin{proof}
+Start with \(J_N\) from (29), of degree \(r=r_N\).
+After deleting \(j\) edge-disjoint Hamilton cycles, the remaining
+graph \(J^{(j)}\) is simple, bipartite and \((r-2j)\)-regular.
+The deleted adjacency has norm at most \(2j\). Weyl's inequality,
+including this full signed subtraction, gives
+\[
+ \lambda_2(J^{(j)})\leq(1/2+o(1))r+2j,
+\]
+and hence
+\[
+ (r-2j)-\lambda_2(J^{(j)})
+                   \geq(1/2-o(1))r-4j.                    \tag{31}
+\]
+Fix any \(\kappa'\) strictly between \(\kappa\) and \(1/8\).
+For all \(j\leq\kappa'r\), (31) leaves a fixed positive
+spectral gap as a proportion of the remaining degree.
+That degree is of order \(N/\log N\), so exceeds the
+polylogarithmic requirement in (2), uniformly in these \(j\),
+for all sufficiently large \(N\).
+Equation (2) supplies another Hamilton cycle at each step.
+Since \(r/(N/\log N)\to1\), this produces (30).
+No independence of the successive cycles is used.
+\end{proof}
+
+\begin{theorem}[Explicit positive local resilience]
+\label{thm:resilience}
+For every sufficiently large even \(N\), if an arbitrary set
+of edges \(F\) of \(G_N\) has
+\[
+ \max_v\deg_F(v)\leq \frac1{1000}\frac N{\log N},             \tag{32}
+\]
+then \(G_N-F\) is Hamiltonian.
+\end{theorem}
+\begin{proof}
+Write \(D=D_N^*\). Choose \(N\) sufficiently large that
+the degrees of \(G_N\) lie in \([0.999D,1.001D]\),
+\(\lambda_2(G_N)\leq0.502D\), and (28) holds.
+Deleting \(F\) loses at most \(0.001D\min(|W|,N-|W|)\)
+edges on any cut, since one may count at its smaller side.
+The remaining graph therefore has degrees in
+\([0.998D,1.001D]\subseteq[0.998D,1.002D]\)
+and cut bound (21) with \(g=0.19\).
+Take \(\varepsilon=0.002\).
+Lemma~\ref{lem:regularfactor} supplies an \(r\)-factor \(H\) with
+\[
+ r=\lfloor(1-0.004/0.19)D\rfloor\geq0.97D
+\]
+for sufficiently large \(D\).
+All edges removed from the original \(G_N\), including \(F\),
+have maximum degree at most \(1.001D-r\leq0.031D\).
+Thus
+\[
+ \lambda_2(H)
+ \leq\lambda_2(G_N)+0.031D
+ \leq0.533D<\frac35 r .
+\]
+The regular degree is of order \(N/\log N\), so (2)
+makes \(H\), and hence \(G_N-F\), Hamiltonian.
+This is uniform over every adversarial \(F\) satisfying (32).
+\end{proof}

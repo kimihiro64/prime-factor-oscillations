@@ -1,0 +1,303 @@
+\section{An exact classification for congruence-filtered prime sums}
+\label{sec:filters}
+Fix an even integer \(q\geq2\) and a nonempty subset
+\(R\subseteq(\mathbb Z/q\mathbb Z)^\times\).
+For each even \(N\), let \(G_N(q,R)\) join distinct integers
+\(i,j\in[1,N]\) precisely when \(i+j\) is prime and
+\(i+j\bmod q\in R\).
+The modulus and the set \(R\) are fixed before \(N\) tends to infinity.
+Put
+\[
+ \sigma_R=\frac{|R|}{\phiG(q)},\qquad
+ g_R=\gcd\bigl(q,\{r-r':r,r'\in R\}\bigr).
+ \tag{33}
+\]
+For a singleton set the difference list consists of zero,
+so \(g_R=q\). Representatives do not affect the gcd.
+Every element of \(R\) is odd, so \(g_R\) is even.
+
+Write
+\[
+ \rho_R(b)=\frac1{|R|}\sum_{r\in R}\e(br/q),\qquad
+ p_q=\min\{p:p\ {\rm prime},\ p\nmid q\},
+\]
+and, when \(g_R=2\), define the positive explicit spectral gap
+\[
+ \delta_R=1-\max\left\{\frac1{p_q-1},
+       \max_{\substack{b\bmod q\\b\ne0,\ q/2}}|\rho_R(b)|
+                  \right\}>0.                              \tag{34}
+\]
+An empty inner maximum is zero.
+
+\begin{theorem}[The finite obstruction is complete]
+\label{thm:filterclassification}
+For fixed \(q,R\), the following are equivalent:
+\begin{enumerate}
+\item \(g_R=2\).
+\item \(G_N(q,R)\) is connected for every sufficiently large even \(N\).
+\item \(G_N(q,R)\) is Hamiltonian for every sufficiently large even \(N\).
+\end{enumerate}
+When these hold, \(G_N(q,R)\) has a spanning regular subgraph
+of degree
+\[
+ r_N=(1-o(1))\sigma_R\frac N{\log N}
+\]
+with nontrivial spectral ratio at most \(1-\delta_R+o(1)\).
+For every fixed \(0<\kappa<\delta_R/4\) it contains at least
+\[
+ \left\lfloor\kappa\sigma_R\frac N{\log N}\right\rfloor
+ \tag{35}
+\]
+edge-disjoint Hamilton cycles.
+It remains Hamiltonian after arbitrary edge deletions of
+maximum degree at most
+\[
+ \frac{\delta_R^2}{1000}\sigma_R\frac N{\log N}.              \tag{36}
+\]
+If \(g_R>2\), the graph is disconnected for every \(N\geq g_R\).
+\end{theorem}
+
+\begin{lemma}[The complete signed Fourier model]
+\label{lem:filtermodel}
+Let \(\Gamma=\mathbb Q/\mathbb Z\).
+The compact self-adjoint model for the normalized weight
+\[
+ A_N^R(i,j)=\frac{\phiG(q)}{|R|N}
+                     \Lambda(i+j)\one_{\,i+j\bmod q\in R}
+\]
+acts on the orthonormal basis \((e_\gamma)_{\gamma\in\Gamma}\) by
+\[
+ C_Re_\gamma=w_R(\gamma)e_{-\gamma}.
+ \tag{37}
+\]
+The coefficient is zero unless
+\[
+ \gamma=b/q+a/c,\qquad
+ (c,q)=1,\quad c\ {\rm squarefree},\quad(a,c)=1,
+\]
+where \(c=1,a=0\) is included.
+In the nonzero cases its exact value is
+\[
+ w_R(\gamma)=\rho_R(b)\frac{\mu(c)}{\phiG(c)}.                \tag{38}
+\]
+If \(g_R=2\), the only eigenvalues of modulus 1 are the simple
+constant and parity eigenvalues \(1,-1\).
+Every other eigenvalue has modulus at most \(1-\delta_R\).
+The sampled operator has the same spectral bounds with an \(o(1)\)
+error.
+\end{lemma}
+\begin{proof}
+One can view (38) as a finite character computation, with no
+hypothesis about unproved prime correlations.
+The limiting prime residue law is the product of the normalized
+uniform unit laws at each prime power, conditioned on its residue
+modulo \(q\) lying in \(R\).
+At primes dividing \(q\), additive characters of conductor
+larger than the corresponding prime-power factor of \(q\)
+average to zero over the uniform lifts.
+At any prime not dividing \(q\), a primitive additive character
+averages to \(-1/(p-1)\) at conductor \(p\), and to zero at
+conductor \(p^k\), \(k\geq2\).
+The Chinese remainder theorem makes these latter coordinates
+independent of the residue modulo \(q\).
+The remaining finite average at \(q\) is exactly \(\rho_R(b)\).
+This proves every zero coefficient and the entire signed formula
+(38). In particular
+\(w_R(-\gamma)=\overline{w_R(\gamma)}\), so (37) is self-adjoint;
+its two-dimensional reflection blocks have eigenvalues
+\(\pm|w_R(\gamma)|\).
+Conductor tails tend to zero, since \(q\) is fixed and
+\(\phiG(c)\geq\sqrt{c/2}\), so the model is compact.
+
+Here are details linking this exact model to the sampled matrix.
+Let \(C\) be the unfiltered reflection model with coefficients
+\(\mu(k)/\phiG(k)\) at reduced conductor \(k\).
+For \(t=b/q\), let \(U_t e_\gamma=e_{\gamma+t}\).
+The finite Fourier expansion of the residue mask gives the
+operator identity
+\[
+ C_R=\frac{\phiG(q)}{|R|q}
+       \sum_{b\bmod q}
+       \left(\sum_{r\in R}\e(-br/q)\right)U_{b/q}CU_{b/q}.
+ \tag{39}
+\]
+Indeed the coefficient at \(\gamma\) in its reflection is the
+finite masked average of \(\e(\gamma t)\) under the prime
+residue law just computed.
+Notice the same shift on both sides of \(C\), rather than an
+adjoint conjugation: this is a sum kernel.
+
+Truncate \(C\) to reduced conductors \(k\leq U\).
+The operator tail is at most \(\sqrt{2/U}\).
+The finite sum (39) therefore has tail \(O_{q,R}(U^{-1/2})\).
+All frequencies in its truncated range and domain have
+denominator at most \(qU\).
+Their sampled Gram matrix differs from the identity by
+\(O_q(U^4/N)\), by geometric summation as in
+Lemma~\ref{lem:integerspectrum}.
+On the integer samples the same finite Fourier expansion
+takes \(A_N\) to \(A_N^R\): multiplication by
+\(\e(b(i+j)/q)\) is a diagonal unitary on each side.
+Lemma~\ref{lem:integertransfer}, with \(U\) a sufficiently
+large fixed power of \(\log N\), bounds the unfiltered
+operator error by any prescribed negative power of \(\log N\).
+The finite mask expansion multiplies this bound only by a
+constant depending on \(q,R\).
+The Gram bound and the truncated model tail tend to zero.
+Polar orthogonalization and Weyl's inequality therefore
+transfer the spectrum of \(C_R\), with appended zeros, to
+\(A_N^R\). This also justifies the model without appealing to
+a pointwise infinite Ramanujan expansion.
+
+It remains to locate its unit-modulus coefficients.
+A finite average of unit complex numbers has modulus 1
+exactly when all its terms agree. Thus
+\[
+ |\rho_R(b)|=1
+ \quad\Longleftrightarrow\quad
+ q\mid b(r-r')\ \hbox{for all }r,r'\in R
+ \quad\Longleftrightarrow\quad
+ b\equiv kq/g_R\pmod q
+\]
+for some integer \(k\).
+When \(g_R=2\), these are just \(b=0,q/2\), with averages
+\(1,-1\).
+For \(c>1\), (38) has modulus at most \(1/(p_q-1)\).
+Every remaining coefficient is bounded by (34).
+This proves all the assertions.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:filterclassification}]
+First suppose \(g_R>2\), and fix \(r_0\in R\).
+Every edge satisfies
+\[
+ i+j\equiv r_0\pmod {g_R}.
+\]
+Since \(g_R\) is even and \(r_0\) odd, the involution
+\(a\mapsto r_0-a\) on residues modulo \(g_R\) has no fixed point.
+Its \(g_R/2\) distinct pairs give disjoint vertex sets with
+no edge between them. All are nonempty once \(N\geq g_R\).
+There are at least two such sets, so the graph is disconnected.
+
+Now suppose \(g_R=2\).
+Remove proper prime powers and diagonal entries from \(A_N^R\),
+and denote the resulting true prime weight matrix by \(Q_N^R\).
+The removed maximum row sum is
+\(O_{q,R}(N^{-1/2}(\log N)^2)\).
+The prime number theorem in the fixed reduced classes modulo
+\(q\), with arbitrary logarithmic accuracy, gives uniformly
+\[
+ \|Q_N^R\one-\one\|_\infty\ll_{q,R,B}(\log N)^{-B}
+ \quad\hbox{for every fixed }B.
+\]
+Indeed the exact raw row is the normalized difference of the
+restricted Chebyshev function at \(i+N\) and \(i\).
+The normalized spectrum has the two simple exceptions and
+gap \(\delta_R-o(1)\), by Lemma~\ref{lem:filtermodel}.
+All entries lie between opposite parities, since \(q\) is even
+and \(R\) contains only units.
+Lemma~\ref{lem:scaling} therefore gives a true-support
+stochastic \(P_N^R\), with
+\[
+ \|P_N^R-Q_N^R\|=o(1),\qquad
+ \|P_N^R|_{\{\one,s\}^\perp}\|\leq1-\delta_R+o(1).
+\]
+Put \(D=\sigma_R N/\log N\), and let \(B_N^R\) be the
+ordinary adjacency.
+The row estimate in Lemma~\ref{lem:unweightedtransfer}, with
+the fixed normalization factor \(1/\sigma_R\), gives
+\[
+ \max_i|\deg(i)/D-1|=o(1),\qquad
+ \|B_N^R/D-P_N^R\|=o(1).                                    \tag{40}
+\]
+The Laplacian calculation proving (28) now gives the cut
+constant \(g=\delta_R/3\) for all sufficiently large \(N\).
+Lemma~\ref{lem:regularfactor} gives an
+\(r_N=(1-o(1))D\) factor, discarding only \(o(D)\)
+edges at each vertex.
+Equation (40) transfers the nontrivial spectral bound to this
+factor. Its polynomial-order degree dominates the fixed
+polylogarithmic threshold in (2), giving a Hamilton cycle.
+The iterative estimate (31), with initial gap \(\delta_R\)
+in place of \(1/2\), proves (35).
+Hamiltonicity implies connectedness, completing the equivalence.
+
+For completeness we verify the uniform deletion constant (36).
+Write \(\delta=\delta_R\) and \(\rho=\delta^2/1000\).
+Choose \(N\) so large that the initial normalized degree defect
+is at most \(\rho\), the initial second eigenvalue is at most
+\((1-\delta+\rho)D\), and the cut constant is \(\delta/3\).
+After deletion of maximum degree \(\rho D\), the degree defect
+is at most \(2\rho\), and the cut constant is at least
+\(\delta/3-\rho\geq\delta/4\).
+The regular-factor lemma gives
+\[
+ r=\left\lfloor(1-16\rho/\delta)D\right\rfloor
+                     \geq(1-17\rho/\delta)D
+\]
+for sufficiently large \(D\).
+The total discarded degree from the original graph is at most
+\(18\rho D/\delta\). Hence its factor satisfies
+\[
+ r-\lambda_2(H)
+ \geq\left(\delta-\rho-\frac{35\rho}{\delta}\right)D
+ \geq \frac{\delta}{2}D.
+\]
+The factor is regular, bipartite, and of degree comparable to
+\(D\), so (2) applies again. This proves (36).
+\end{proof}
+
+\begin{corollary}[Arbitrarily small fixed prime density suffices]
+\label{cor:sparseprimeclasses}
+For every fixed even \(q\geq4\), permit only prime sums
+congruent to \(1\) or \(-1\) modulo \(q\).
+The resulting graphs are Hamiltonian at every sufficiently
+large even order.
+The permitted primes have relative density \(2/\phiG(q)\)
+among all primes. This can be made arbitrarily small by
+choosing \(q\) first and then allowing \(N\) to tend to infinity.
+\end{corollary}
+\begin{proof}
+The difference of the two residues is 2, so \(g_R=2\).
+The classification applies, and the fixed-progression prime
+number theorem gives the stated density.
+There is no claim uniform in a growing modulus.
+\end{proof}
+
+\begin{remark}[What the criterion detects]
+A single reduced residue class modulo even \(q>2\) fails the
+criterion and forces disconnection. Two opposite classes pass.
+Thus density alone is not the deciding invariant.
+The decisive datum is the subgroup generated by differences
+of allowed prime residues, and the retained Fourier phases
+compute its obstruction exactly.
+\end{remark}
+
+\begin{remark}[Equal density, different outcomes, and a nonreal phase]
+For \(q=8\), all three rows below retain exactly half of
+the primes asymptotically.
+\[
+ \begin{array}{c|c|c|c}
+ R&\sigma_R&g_R&\hbox{eventual outcome}\\ \hline
+ \{1,3\}&1/2&2&\hbox{Hamiltonian}\\
+ \{1,5\}&1/2&4&\hbox{disconnected}\\
+ \{1,7\}&1/2&2&\hbox{Hamiltonian}
+ \end{array}
+\]
+For the first row, the exact coefficient at \(b=1\) is
+\[
+ \rho_{\{1,3\}}(1)
+ =\tfrac12\bigl(\e(1/8)+\e(3/8)\bigr)
+ =\mathrm{i}/\sqrt2 .
+\]
+Its reflection pair has eigenvalues \(\pm1/\sqrt2\);
+the imaginary phase is retained before the eigenvalues are
+taken. Here \(\delta_R=1-1/\sqrt2\) and the counting law is
+\[
+ h(G_N(8,\{1,3\}))
+   =\left(\frac{N}{2e\log N}\right)^N\exp(o(N)).
+\]
+The middle row instead has no Hamilton cycle for any
+\(N\geq4\), because its two residue-pair components cannot
+communicate.
+\end{remark}

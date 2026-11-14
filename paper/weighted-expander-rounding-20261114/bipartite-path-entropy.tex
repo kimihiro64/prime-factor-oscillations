@@ -1,0 +1,182 @@
+\section{Weighted spanning paths with prescribed endpoints}
+\label{sec:pathentropy}
+For distinct vertices \(a,b\), let
+\[
+ Z_{\rm path}(P;a,b)
+  =\sum_{\substack{Q\ {\rm Hamilton\ path}\\
+                       Q\ {\rm oriented\ from}\ a\ {\rm to}\ b}}
+               \prod_{\substack{(i,j)\ {\rm successive}\\
+                                 {\rm in\ oriented}\ Q}}P_{ij}.
+\]
+A path is counted once with this prescribed orientation.
+
+\begin{lemma}[A row-cap upper bound for path minors]
+\label{lem:pathminor}
+Let \(P\) be an \(N\)-by-\(N\) nonnegative row-stochastic
+matrix with largest entry \(\alpha\to0\).
+For every two distinct vertices,
+\[
+ Z_{\rm path}(P;a,b)
+ \leq\operatorname{per}P^{(b,a)}
+ \leq\exp\bigl(-N+
+       O(N\alpha\log(1/\alpha)+\log N)\bigr),
+\]
+where \(P^{(b,a)}\) removes row \(b\) and column \(a\).
+The constant is absolute, uniformly over the endpoints.
+\end{lemma}
+\begin{proof}
+A directed Hamilton path maps every vertex other than \(b\)
+to its unique successor, a bijection onto all vertices
+other than \(a\). It is therefore one term of the minor
+permanent, with exactly its original weight.
+
+Put \(n=N-1\) and \(k=\min(n,\lceil1/\alpha\rceil)\).
+Each row of the minor divided by \(\alpha\) belongs to
+\([0,1]^n\), with sum at most both \(n\) and \(1/\alpha\),
+hence at most \(k\).
+Extend the row to sum \(k\).
+The row-polytope and Bregman argument in
+Lemma~\ref{lem:diffusepermanent} gives
+\[
+ \operatorname{per}P^{(b,a)}
+               \leq\alpha^n(k!)^{n/k}.
+\]
+Stochasticity of the original matrix gives \(\alpha\geq1/N\).
+Thus \(k\geq1/\alpha-1\), while \(\alpha k\leq1+\alpha\).
+In particular \(k\asymp1/\alpha\).
+Stirling gives the claimed bound, with the change from
+\(n\) to \(N\) absorbed into \(O(\log N)\).
+This proof also covers a minor with zero permanent.
+It does not assume that deleting a column leaves row sum one.
+\end{proof}
+
+\begin{theorem}[Uniform weighted path entropy in the bipartite case]
+\label{thm:bipartitepathentropy}
+Under Theorem~\ref{thm:weightedentropy}, for every
+\(a\in A,b\in B\),
+\[
+ \log Z_{\rm path}(P;a,b)
+       =-N+O_{\delta,C}(N\alpha^{1/8}\log(2N)).
+\]
+The error and sufficiently-large-order threshold are uniform
+over all opposite-part endpoints.
+\end{theorem}
+\begin{proof}
+The upper bound follows from Lemma~\ref{lem:pathminor}.
+We give the complete changes to the weighted lower-bound
+construction.
+
+First trim entries below \(N^{-10}\) and repair the kernel,
+exactly as in Theorem~\ref{thm:weightedentropy}.
+A spanning path from \(a\) to \(b\) changes its weight by
+\[
+ \frac{\prod_v u_v^2}{u_a u_b},
+\]
+because its endpoints have degree one and all other vertices
+have degree two.
+The logarithm of this factor is \(O_\delta(N^{-8}\log N)\).
+After renaming the repaired kernel, all used positive
+weights are at least \(N^{-11}\).
+
+Use exactly the parameters
+\[
+ L=\log(2N),\quad
+ t=\lfloor\alpha^{-1/4}\rfloor,\quad
+ r_0=\lceil m\alpha^{1/8}\rceil,\quad
+ b_0=\lfloor(m-r_0)/t\rfloor,\quad r=m-tb_0 .
+\]
+Here \(b_0\) is the layer size, distinct from the endpoint \(b\).
+Require \(a\in R_A,b\in R_B\) in the ordered partitions.
+The proportion of all partitions satisfying this requirement
+is exactly \((r/m)^2\asymp\alpha^{1/4}\).
+Its logarithmic cost is \(O(\log N)\), because
+\(\alpha\geq1/m\).
+All layer, reservoir, and endpoint-concentration failures
+in the weighted proof have arbitrarily high polynomial
+decay. Conditioning on this event costs at most a fixed
+multiple of \(N^{1/4}\), so a proportion \(1-o(1)\) of the
+conditioned partitions are still good, uniformly in \(a,b\).
+This is a conditional counting argument, not an assumption
+that fixed endpoints are randomly distributed.
+
+Every good partition and choice of the \(2t-1\) matchings
+gives \(b_0\) long paths, with endpoints
+\(a_i\in A_1,z_i\in B_t\).
+The weighted sum of all these covers is bounded below
+by the same product of layer permanents as before.
+Round the same augmented reservoir
+\[
+ K=R_A\cup A_1\cup R_B\cup B_t
+\]
+to the simple \(d\)-regular graph, where
+\(d=\lfloor\alpha^{-2/3}L^{-3}\rfloor\).
+The sets \(A_1,B_t\) have bi-uniformity error
+\(O_\delta(\alpha^{5/24}L^2)\), with all scaling and
+adaptive drift terms retained.
+
+Use now the endpoint sets
+\[
+ A_1\cup\{a\},\qquad B_t\cup\{b\}.
+\]
+Adding one vertex changes normalized bi-uniformity error
+by at most \(1/d+1/(r+b_0)\leq2/d\).
+Consequently the source parameter is
+\[
+ \alpha_{\rm src}
+    =O_\delta(\alpha^{5/24}L^2+d^{-1}).
+\]
+With \(c=1/5\),
+\[
+ \alpha_{\rm src}d^c
+       =O_\delta(\alpha^{3/40}L^{7/5}+d^{-4/5})\to0 .
+\]
+The number of pairs is \(b_0+1\), instead of \(b_0\).
+Since \(b_0\to\infty\), the already verified full pair-range
+condition remains valid:
+\[
+ (b_0+1)d^{c/900}/|K|\to0.
+\]
+The degree bound, expansion, choice
+\(\gamma=(\log|K|)^{-3}\), exact regularity, distinctness
+and equal endpoint-set cardinalities are unchanged.
+Thus every hypothesis of Brada\v{c}--Janzer
+\cite[Theorem 6.4]{BJ} holds.
+
+Apply it to the \(b_0+1\) opposite-part pairs
+\[
+ (a,z_1),\quad
+ (a_1,z_2),\ldots,(a_{b_0-1},z_{b_0}),\quad(a_{b_0},b).
+\]
+Traverse the first connector, the first long path from
+\(z_1\) to \(a_1\), then the next connector and so on.
+The resulting object is a single spanning path from \(a\)
+to \(b\). The source paths use every remaining reservoir
+vertex as an interior vertex, while none of the prescribed
+endpoints is an interior vertex.
+All old long-path interiors lie outside \(K\);
+for large \(N\), \(t\geq2\), so the two edge sets do not overlap.
+
+A completion uses exactly \(2r+b_0-1\) new edges.
+Their total weight is at least
+\(N^{-11(2r+b_0-1)}\).
+A fixed output path has at most
+\[
+ \binom{N-1}{2r+b_0-1}
+       \leq\exp\bigl(O(N\alpha^{1/8}L)\bigr)
+\]
+preimages. Indeed its long-path subset determines all
+isolated reservoir vertices, the unique orientation of
+every long component from its first-part endpoint, and
+hence every layer and matching.
+Both the closing-weight cost and the full multiplicity
+are \(O(N\alpha^{1/8}L)\) in logarithmic scale.
+The original weighted partition and matching calculation,
+with the additional \(O(\log N)\) endpoint-conditioning
+cost, gives
+\[
+ \log Z_{\rm path}(P;a,b)
+       \geq-N-O_{\delta,C}(N\alpha^{1/8}L).
+\]
+Transfer back through the initial endpoint-correct scaling.
+Every constant used was independent of the chosen endpoints.
+\end{proof}

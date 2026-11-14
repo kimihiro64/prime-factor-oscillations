@@ -1,0 +1,271 @@
+\section{The full compensated-minor correction}
+\label{sec:compensatedjet}
+Fix \(\delta\in(0,1)\) and \(K_0>0\).
+Let \(D=J_N/N+B\) satisfy Theorem~\ref{thm:secondpermanent}
+with entry parameter \(A\leq(\log N)^{K_0}\).
+Use its block matrices \(\Omega,\Gamma\), and set
+\[
+ P=\begin{pmatrix}0&D\\D^\top&0\end{pmatrix},\quad
+ c=\frac{(\one,\one)}{\sqrt{2N}},\quad
+ s=\frac{(\one,-\one)}{\sqrt{2N}},\quad
+ K=(I+\Omega)^{-1}-\tfrac12cc^\top-ss^\top .
+\]
+Thus \(K\) is the inverse of \(I+P\) on \(s^\perp\),
+extended by zero on \(s\).
+Define \(h_i=-\Gamma_{ii}\) and
+\[
+ v=(\tfrac12I-K)h .
+\]
+The two halves of \(h\) have equal sums.
+All these matrices are real, and
+\[
+ \max|\Gamma_{ij}|\leq C_\delta A/N,\quad
+ \|K\|_{\infty\to\infty}\leq C_\delta(1+A),\quad
+ \|v\|_\infty\leq C_\delta(1+A)^2/N .
+\]
+
+\begin{theorem}[A uniform signed first-order minor expansion]
+\label{thm:minorjet}
+For arbitrary row and column sets \(I,J\) with
+\(|I|=|J|=r\leq(\log(2N))^3\), put
+\(u=(\one_I,\one_J)\), retaining their separate coordinates.
+There is a fixed finite exponent \(M=M(\delta,K_0)\) such that,
+uniformly in these sets,
+\[
+ \left(\frac{\operatorname{per}D[I^c,J^c]}
+                   {\operatorname{per}D}\right)^2
+ =1+\frac{r(r-1)}N+u^\top\Gamma u+2v^\top u
+                         +O_{\delta,K_0}\left(
+                              \frac{\log(2N)^M}{N^2}\right).
+\]
+The two-support quadratic term and the compensation field
+are part of the expansion. They are not assumed to vanish.
+\end{theorem}
+\begin{proof}
+Write \(n=N-r\), \(Q=D[I^c,J^c]\), and
+\(s_{IJ}=\sum_{i\in I,j\in J}D_{ij}\).
+Let \(\ell=Pu=(D\one_J,D^\top\one_I)\).
+The remaining row defects are the corresponding coordinates
+of \(\ell\), each at most \(rA/N\), and their sum is
+\(2(r-s_{IJ})\).
+Let \(\widetilde D=\diag(1+z_A)Q\diag(1+z_B)\)
+be its exact stochastic repair, with \(z=0\) on removed
+coordinates and gauge \(s^\top z=0\).
+The established repair gives
+\(\|z\|_\infty\leq C_\delta rA\log(2N)/N\).
+
+We give the local error accounting needed for a two-power
+remainder. On retained coordinates the exact row equation
+is
+\[
+ (I+P)z=\ell+\ell\mathbin{\odot}z
+                         -z\mathbin{\odot}(Pz).
+\]
+On removed coordinates the discrepancy is \((Pz)-\ell\).
+Its magnitude is at most a polynomial in \(r,A,\log(2N)\)
+divided by \(N\).
+Every off-diagonal entry of \(K\) is \(O_\delta((1+A)/N)\).
+Multiplying that discrepancy, supported on \(2r\) coordinates,
+by \(K\), and the retained quadratic discrepancy by the
+row-sum bound for \(K\), proves
+\[
+ z=K\ell+
+ O_\delta\left(
+  \frac{\operatorname{poly}(r,1+A,\log(2N))}{N^2}\right)
+ \quad\hbox{on retained coordinates}.
+\]
+Here and below \(\operatorname{poly}\) denotes a fixed finite
+polynomial with nonnegative coefficients depending only on
+the displayed fixed parameters. No degree grows with \(N,r,A\).
+On removed coordinates \(K\ell\) can instead be bounded by
+\(C_\delta rA\log(2N)/N\), which is multiplied by an
+additional \(O_\delta(A/N)\) factor whenever used below.
+
+Sum the exact nonlinear scaling equations and expand
+\(\log(1+z)\) through degree two. With the actual retained
+row degrees \(d_i\), they give
+\[
+ \sum d_i z_i=r-s_{IJ}-\tfrac12z^\top Q_{\rm bip}z,
+\]
+and hence the full scaling cost is
+\[
+ {\cal S}:=\sum\log(1+z_A)+\sum\log(1+z_B)
+ =r-s_{IJ}+\tfrac12\ell^\top K\ell
+       +O_\delta\left(
+       \frac{\operatorname{poly}(r,1+A,\log(2N))}{N^2}\right).
+\]
+Indeed the cubic Taylor cost is at most \(2N\|z\|_\infty^3\);
+the omitted-coordinate costs are at most
+\(2r(rA/N)\|K\ell\|_\infty\).
+Both have the stated scale. The retained-coordinate approximation and
+\(\|\ell\|_1=2r\) control the remaining substitutions.
+This step retains the quadratic compensation, not just
+the maximum scaling multiplier.
+
+Next we compute the determinant cost locally.
+Put \(M=I+\Omega\), and let \(S\) be the \(2r\) removed
+coordinates. Jacobi's identity gives
+\[
+ \frac{\det M[S^c]}{\det M}
+     =\det(M^{-1}[S])
+     =\det(I-\Gamma[S]).
+\]
+Since \(\|\Gamma[S]\|\leq C_\delta rA/N=o(1)\),
+its contribution to the logarithm of the inverse-square-root
+determinant is
+\[
+ \tfrac12\operatorname{tr}\Gamma[S]
+       +O_\delta(r^2A^2/N^2)=-\tfrac12 h^\top u+
+                                      O_\delta(r^2A^2/N^2).
+\]
+The remaining changes are scaling and the change
+\(J_n/N\) to \(J_n/n\).
+The linear scaling contribution to the log determinant is
+\(h^\top K\ell\).
+For detail the off-diagonal block of \(M^{-1}\) is
+\(-B(I-B^\top B)^{-1}\); its row and column sums vanish.
+Contracting it with \(\diag(z_A)D+D\diag(z_B)\)
+therefore gives \(h^\top z\), with the constant \(J_N/N\)
+parts cancelling exactly.
+
+All other determinant terms have a two-power remainder.
+The Schur-complement change from \(M^{-1}[S^c]\) to
+\((M[S^c])^{-1}\) has trace norm at most \(C_\delta rA/N\).
+It is multiplied by a perturbation of operator norm
+\(O_\delta(rA\log(2N)/N)\).
+The squared Frobenius norm of the scaling perturbation is
+\(O_\delta(r^2(1+A)^3\log(2N)^2/N^2)\).
+Removed-coordinate contractions contain \(rN\) terms,
+each with one scaling factor and two \(O_\delta(A/N)\)
+matrix entries.
+Finally the constant-block change contracts to zero on the
+full supports; its remaining restricted contraction contains
+only the removed row/column overlap and is of the same
+smaller scale. The exact quadratic log-determinant remainder
+is bounded by these squared Frobenius norms, since the
+matrices retain a fixed positive spectral lower bound.
+Consequently, writing \(\widetilde B=\widetilde D-J_n/n\),
+\[
+ \log\frac{\det(I-\widetilde B^\top\widetilde B)^{-1/2}}
+               {\det(I-B^\top B)^{-1/2}}
+ =-\tfrac12h^\top u+h^\top K\ell
+ +O_\delta\left(
+       \frac{\operatorname{poly}(r,1+A,\log(2N))}{N^2}\right).
+\]
+
+The first permanent correction must also be compared,
+rather than independently discarded at order \(N^{-1}\).
+The same Schur formula and scaling estimates imply, on
+retained coordinates,
+\[
+ |\widetilde\Gamma_{ij}-\Gamma_{ij}|
+ \leq\frac{\operatorname{poly}(r,1+A,\log(2N))}{N^2}.
+\]
+To check this entry bound, both full inverse matrices have
+off-diagonal entries \(O_\delta(A/N)\) and absolute row
+sums \(O_\delta(1+A)\). The entrywise inverse perturbation
+identity therefore preserves the displayed scale.
+Deleted coordinates contribute at most \(2r\) diagonal
+terms or \(4rN\) off-diagonal terms.
+
+Apply this estimate to every displayed term of \(\Psi\):
+a diagonal square has difference bounded by its size
+\(O(A/N)\) times the entry difference; the cubic sums have
+two such small factors.
+After summation their differences are
+\(\operatorname{poly}(r,1+A,\log(2N))/N^2\).
+For the Gamma averaging term, set
+\[
+ S_1=\operatorname{tr}\frac{B^\top B}{I-B^\top B},\qquad
+ S_2=\operatorname{tr}
+                      \left(\frac{B^\top B}{I-B^\top B}\right)^2.
+\]
+Then \(\Delta''(1)/\Delta(1)=S_1^2+S_1+2S_2\).
+Here \(S_1\) is minus half the trace of \(\Gamma\), and
+\(S_2\) is half the sum of squared entries of its two
+diagonal blocks.
+The preceding local bounds change each by
+\(\operatorname{poly}(r,1+A,\log(2N))/N\).
+The additional factor \(1/(N-1)\), including its change to
+\(1/(n-1)\), proves
+\[
+ {\cal Q}_n(\widetilde D)-{\cal Q}_N(D)
+       =O_\delta\left(
+       \frac{\operatorname{poly}(r,1+A,\log(2N))}{N^2}\right).
+\]
+This is why the explicit first correction in the full
+permanent theorem was needed.
+
+Now use Theorem~\ref{thm:secondpermanent} in numerator
+and denominator, together with the exact scaling cost.
+Stirling gives
+\[
+ \log\frac{n!/n^n}{N!/N^N}
+       =r-\frac r{2N}+O((r+r^2)/N^2).
+\]
+The scaling, determinant, and permanent-correction estimates yield
+\[
+ \log\frac{\operatorname{per}Q}{\operatorname{per}D}
+ =s_{IJ}-\tfrac12\ell^\top K\ell-\frac r{2N}
+           +(\tfrac12h-Kh)^\top u
+           +O_{\delta,K_0}(\log(2N)^M/N^2).
+\]
+Finally \(u\perp s\), \(\ell=Pu\), and on \(s^\perp\)
+\(PKP=P-I+K\). Since \(u^\top Pu=2s_{IJ}\),
+\(u^\top u=2r\), and
+\[
+ u^\top Ku=2r-u^\top\Gamma u-r^2/N,
+\]
+the scalar and overlap terms simplify to
+\[
+ \frac{r(r-1)}{2N}+\tfrac12u^\top\Gamma u+v^\top u.
+\]
+This quantity is a fixed polynomial in \(r,A,\log(2N)\)
+divided by \(N\). Exponentiating twice changes it only by
+a two-power remainder and proves the displayed expansion.
+Every polynomial above becomes a fixed power of \(\log(2N)\)
+on \(r\leq\log(2N)^3\), \(A\leq(\log N)^{K_0}\).
+\end{proof}
+
+
+\begin{remark}[Independent check against every cofactor recursion]
+Let \(W(I,J)=r(r-1)/(2N)+u^\top\Gamma u/2+v^\top u\)
+be the first-order logarithmic correction, and put \(y=Kh\).
+For \(i\notin I\), \(j\notin J\), its exact increment is
+\[
+ \begin{split}
+ W(I\cup\{i\},J\cup\{j\})-W(I,J)
+ ={}&r/N+(\Gamma u)_{A_i}+(\Gamma u)_{B_j}\\
+    &+\Gamma_{A_i,B_j}-y_{A_i}-y_{B_j}.
+ \end{split}
+\]
+Extend this polynomial expression temporarily to every \(j\),
+only for the algebraic summation.
+The exact matrix identities
+\[
+ (I+P)\Gamma=\Omega,\qquad (I+P)y=h,\qquad
+ \sum_jD_{ij}\Gamma_{A_i,B_j}=h_{A_i}
+\]
+show that its \(D_{ij}\)-weighted sum over all \(j\) is
+\[
+ r/N+\bigl((I+P)\Gamma u\bigr)_{A_i}
+             =r/N+(B\one_J)_i=(D\one_J)_i .
+\]
+Deleting the \(r\) forbidden \(j\)'s changes the sum by
+only \(\operatorname{poly}(r,1+A,\log(2N))/N^2\).
+Multiplying \(1+W(I,J)\) by the actual remaining row
+mass \(1-(D\one_J)_i\) proves
+\[
+ \sum_{j\notin J}D_{ij}
+       \bigl(1+W(I\cup\{i\},J\cup\{j\})\bigr)
+ =1+W(I,J)+O_{\delta,K_0}(\log(2N)^M/N^2).
+\]
+This is precisely the first-order form of the exact
+permanent cofactor recursion, for every support pair,
+not just its row average. The column check is its transpose.
+For \(D=J_N/N\), the exact ratio is
+\(\prod_{\ell=0}^{r-1}(1-\ell/N)^{-1}\);
+its square has first correction \(r(r-1)/N\), as above.
+These are symbolic checks on the full quantified domain.
+They do not replace the proof of the remainder.
+\end{remark}

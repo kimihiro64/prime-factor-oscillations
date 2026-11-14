@@ -1,0 +1,263 @@
+\section{Signed compensation at logarithmic density}
+\label{sec:signedjetcomparison}
+The decisive improvement is to sum the complete first minor
+correction with its signs before bounding the two-power
+remainder. In particular a polynomial correction in the
+selected size is not charged its absolute determinant mass.
+
+\begin{lemma}[Signed occupancy moments at the parity root]
+\label{lem:signedoccupancy}
+Let \(T=J_N/N+B\) be real nonnegative doubly stochastic with
+\(\|B\|\leq\rho\), \(0\leq\rho<1\), \(\max T\leq A/N\), \(A\geq2\).
+For \(|I|=|J|=r\), let \(u=(\one_I,\one_J)\), and define
+\[
+ {\cal L}(f)=\sum_{r=1}^N(-1)^{r+1}r
+       \sum_{|I|=|J|=r}\det T[I,J]^2 f(I,J).
+\]
+Put \(d(t)=\det(I-tBB^\top)\), \(d=d(1)>0\).
+Uniformly over coordinates \(a,b\) of \(u\),
+\[
+ {\cal L}(1)=d,\quad
+ \frac{{\cal L}(r(r-1))}{d}
+                =\frac{4d'(1)+3d''(1)}d=O_\rho((1+A)^2),
+\]
+\[
+ \frac{|{\cal L}(u_a)|}{d}\leq C_\rho(1+A)/N,\qquad
+ \frac{|{\cal L}(u_a u_b)|}{d}
+          \leq C_\rho(1+A)^2/N^2\quad(a\ne b).
+\]
+These are signed identities and bounds; no positivity of
+individual occupancy moments is asserted.
+\end{lemma}
+\begin{proof}
+Introduce separate row variables \(x_a\) on both parts,
+let \(W=\diag(x)\), and put
+\[
+ F(t,x)=\det\left(I+\sqrt t\,W
+                   \begin{pmatrix}0&T\\T^\top&0\end{pmatrix}\right),
+ \qquad g(t,x)=-t\,\partial_tF(t,x).
+\]
+Cauchy--Binet shows that \(g(1,x)\) is precisely the signed
+sum defining \({\cal L}\), with monomial \(x^u\).
+At \(x=\one\),
+\[
+ F(t,\one)=(1-t)d(t),\qquad
+ g(t,\one)=t d(t)-t(1-t)d'(t).
+\]
+Thus \(g(1,\one)=d\) and
+\(g''(1,\one)=4d'(1)+3d''(1)\), giving the first identities.
+The normalized derivatives of \(d\) through order two are
+\(O_\rho((1+A)^2)\), by the convergent resolvent trace series.
+
+For completeness we compute the coordinate derivatives at
+the singular parity root. For \(t<1\), set
+\[
+ \Lambda(t)=\sqrt t\,P(I+\sqrt t\,P)^{-1},
+       \qquad P=\begin{pmatrix}0&T\\T^\top&0\end{pmatrix}.
+\]
+With the unit constant and parity vectors \(c,s\) used above,
+\[
+ \Lambda(t)=\Gamma_{\sqrt t}
+      +\frac{\sqrt t}{1+\sqrt t}cc^\top
+      -\frac{\sqrt t}{1-\sqrt t}ss^\top .
+\]
+Write \(\tau=1-t\). Its expansion is
+\[
+ \Lambda(t)=-\frac2\tau ss^\top+H_0+\tau H_1+O(\tau^2),
+ \qquad H_0=\Gamma+\tfrac12cc^\top+\tfrac32ss^\top .
+\]
+For clarity the coefficient of \(\tau\) is explicitly
+\[
+ H_1=-\tfrac12(\Gamma-\Gamma^2)
+                  -\tfrac18cc^\top+\tfrac18ss^\top .
+\]
+Indeed \(\partial_s\Gamma_s|_{s=1}=\Gamma-\Gamma^2\).
+The full block covariance satisfies the concrete bound
+\[
+ (1-\rho)|\Gamma_{ab}|\leq(2-\rho)A/N .
+\]
+To see this directly, \(\|\Omega\|\leq\|B\|\leq\rho\);
+every row and column of \(\Omega\) has squared norm at most
+\(A/N\). Writing \(R=(I+\Omega)^{-1}\), the identity
+\(\Gamma=\Omega-\Omega R\Omega\) and
+\(\|R\|\leq(1-\rho)^{-1}\) give the displayed estimate.
+Also every row and column of \(\Gamma\) has norm at most
+\(\sqrt{A/N}/(1-\rho)\). Consequently
+\[
+ |(\Gamma^2)_{ab}|\leq A/[N(1-\rho)^2] .
+\]
+Thus every entry of \(H_0,H_1\) is
+\(O_\rho((1+A)/N)\), with the complete derivative and both
+constant/parity contributions retained.
+
+Let \(\partial_a\) here denote \(x_a\partial/\partial x_a\).
+Multiaffinity in the rows gives, at \(x=\one\),
+\[
+ \partial_aF=F\Lambda_{aa},\qquad
+ \partial_a\partial_bF
+      =F(\Lambda_{aa}\Lambda_{bb}-\Lambda_{ab}^2)
+                       \quad(a\ne b).
+\]
+The potential double pole in the second expression cancels
+because the pole matrix \(ss^\top\) has rank one.
+Define
+\(q_{ab}(H)=s_a^2H_{bb}+s_b^2H_{aa}-2s_as_bH_{ab}\).
+Taking the coefficient of \(\tau\), since \(g=-t\partial_tF\),
+gives exactly
+\[
+ \frac{{\cal L}(u_a)}d=(H_0)_{aa}
+                                  +2\frac{d'(1)}d s_a^2 ,
+\]
+and, for \(a\ne b\),
+\[
+ \frac{{\cal L}(u_a u_b)}d
+ = (H_0)_{aa}(H_0)_{bb}-(H_0)_{ab}^2
+       -2q_{ab}(H_1)+2\frac{d'(1)}d q_{ab}(H_0).
+\]
+Here \(s_a^2=1/(2N)\),
+\(q_{ab}(H_i)=O_\rho((1+A)/N^2)\), and
+\(d'(1)/d=O_\rho(1+A)\).
+The stated coordinate bounds follow.
+For a repeated coordinate use \(u_a^2=u_a\).
+This evaluates every overlap type, including a row with
+a column and two coordinates in the same part.
+\end{proof}
+
+\begin{theorem}[Relative bipartite comparison at logarithmic density]
+\label{thm:criticalrelative}
+Fix \(0\leq\rho<1\) and \(C_0>0\).
+Let \(T\) be real nonnegative doubly stochastic of order \(N\),
+\[
+ B=T-J_N/N,\quad \|B\|\leq\rho,\quad
+ \max T\leq A/N,\quad 2\leq A\leq C_0\log(2N).
+\]
+Put
+\[
+ {\cal A}(T)=
+        \frac{\det(I+BB^\top)}{\det(I-BB^\top)},\qquad
+ P=\begin{pmatrix}0&T\\T^\top&0\end{pmatrix}.
+\]
+For some fixed finite \(M=M(\rho,C_0)\), uniformly in \(T\),
+\[
+ Z_{\rm H}(P)=\frac{(N!)^2}{2N\,N^{2N}}
+ \left[1+O_{\rho,C_0}\left(
+       \frac{\log(2N)^M}{N}
+         +\frac{\log(2N)^M}{N^2}{\cal A}(T)\right)\right].
+\]
+In particular the full relative asymptotic holds whenever
+\({\cal A}(T)\leq N^{2-\varepsilon}\) for fixed
+\(\varepsilon>0\).
+A sufficient explicit density condition is
+\[
+ A\leq a\log N,\qquad a\kappa_\rho<2,\qquad
+ \kappa_\rho=\frac1{\rho^2}
+                   \log\frac{1+\rho^2}{1-\rho^2};
+\]
+at \(\rho=0\) use the limiting value \(\kappa_0=2\).
+\end{theorem}
+\begin{proof}
+Use the exact two-support Liu identity, normalized by
+\((\operatorname{per}T)^2\).
+On \(r\leq\log(2N)^3\), insert the complete expansion of
+Theorem~\ref{thm:minorjet}.
+The constant term is \(d=\det(I-BB^\top)\).
+The \(r(r-1)/N\) term has normalized size \(O_\rho(A^2/N)\)
+by Lemma~\ref{lem:signedoccupancy}.
+The diagonal part of \(u^\top\Gamma u\) has normalized
+size \(O_\rho(A^2/N)\), using all \(2N\) diagonal coordinates.
+Its off-diagonal part has normalized size \(O_\rho(A^3/N)\):
+there are at most \(4N^2\) ordered pairs, a coefficient
+\(O_\rho(A/N)\), and a signed occupancy moment
+\(O_\rho(A^2/N^2)\).
+The field \(2v^\top u\) has the same normalized bound,
+since \(\|v\|_\infty=O_\rho((1+A)^2/N)\).
+These estimates are applied after the coupled signed moments
+have been evaluated. The full main correction is consequently
+\(O_\rho((1+A)^3/N)\), without an exponential determinant loss.
+
+The moment identities cover all sizes.
+Extending the truncated polynomial corrections to all \(r\)
+costs only an exponentially small tail: their magnitude is
+bounded by a polynomial in \(r,A,\log(2N)\), and the
+Cauchy--Binet tail has \(r>\log(2N)^3\), \(A=O(\log N)\).
+The same tail estimate with all complementary-permanent
+ratios is
+\(\exp(-c_{\rho,C_0}\log(2N)^3\log\log(2N))\),
+as in the relative bipartite proof.
+
+Only the second-order residual is now bounded by absolute
+minor mass. Exactly, for \(Q=BB^\top\),
+\[
+ \sum_{r\geq1}r e_r(TT^\top)
+ =\det(I+TT^\top)
+       \operatorname{tr}\bigl(TT^\top(I+TT^\top)^{-1}\bigr)
+ \leq2A\det(I+Q).
+\]
+After dividing by \(d\), its error is at most a fixed
+logarithmic power times \(N^{-2}{\cal A}(T)\).
+The determinant normalization remains explicit.
+
+Thus
+\[
+ \frac{2N Z_{\rm H}(P)}{(\operatorname{per}T)^2}
+ =d\left[1+O_{\rho,C_0}\left(
+       \frac{\log(2N)^M}{N}
+       +\frac{\log(2N)^M}{N^2}{\cal A}(T)\right)\right].
+\]
+The full permanent expansion has relative first correction
+\(O_\rho(A^2/N)\).
+Its squared reciprocal determinant cancels \(d\) exactly.
+Multiplication gives the displayed relative formula; all product error terms are
+absorbed by the displayed bound, since that permanent
+relative correction tends to zero.
+
+Finally the eigenvalues \(x\) of \(Q\) lie in \([0,\rho^2]\).
+The function \(x^{-1}\log((1+x)/(1-x))\) is increasing there,
+as its power series has nonnegative coefficients.
+Also \(\operatorname{tr}Q\leq A-1\).
+Consequently
+\[
+ \log{\cal A}(T)\leq\kappa_\rho\operatorname{tr}Q
+                                      \leq\kappa_\rho A.
+\]
+The explicit sufficient condition leaves a positive power
+between the two-power remainder and this amplification.
+This proves the claimed relative range.
+\end{proof}
+
+
+\begin{corollary}[An inverse theorem for failure of relative universality]
+\label{cor:relativeinverse}
+Under Theorem~\ref{thm:criticalrelative}, fix
+\(\eta>0\). If
+\[
+ \left|\frac{2N\,N^{2N}}{(N!)^2}Z_{\rm H}(P)-1\right|\geq\eta,
+\]
+then, for sufficiently large \(N\),
+\[
+ \log{\cal A}(T)\geq
+            2\log N-O_{\rho,C_0,\eta}(\log\log(2N)),
+\]
+and consequently
+\[
+ \|T-J_N/N\|_F^2\geq
+    \frac2{\kappa_\rho}\log N
+              -O_{\rho,C_0,\eta}(\log\log(2N)).
+\]
+Thus a fixed relative counting defect requires a collective
+nontrivial singular-value mass on the logarithmic scale.
+A single fixed nontrivial eigenvalue cannot supply that
+defect; all singular values are retained in \({\cal A}(T)\).
+\end{corollary}
+\begin{proof}
+For large \(N\), the first error term
+\(C_{\rho,C_0}\log(2N)^M/N\) is less than \(\eta/2\).
+The second must therefore be at least \(\eta/2\).
+It forces
+\({\cal A}(T)\geq c_{\rho,C_0}\eta N^2/\log(2N)^M\).
+Take logarithms, then use
+\(\log{\cal A}(T)\leq\kappa_\rho\|B\|_F^2\).
+This concerns a defect of the relative count, not just
+Hamiltonian existence, which was already established in a
+much wider diffuse range.
+\end{proof}

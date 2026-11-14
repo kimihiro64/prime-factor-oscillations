@@ -1,0 +1,200 @@
+\section{An arithmetic consumer with all cyclic layers and parity obstructions}
+\label{sec:layeredcoprime}
+For fixed \(k\geq2\), form the directed graph on
+\((\mathbb Z/k\mathbb Z)\times(\mathbb Z/n\mathbb Z)\)
+with arcs
+\[
+ (i,x)\longrightarrow(i+1,y)
+             \quad\Longleftrightarrow\quad \gcd(y-x,n)=1 .
+\]
+Let \(H_k(n)\) count directed Hamilton cycles modulo cyclic
+rotation, retaining their orientation. This convention is
+important: for \(k=2\) opposite orientations are both counted.
+The graph is \(\varphi(n)\)-regular on \(kn\) vertices.
+
+For odd \(s\), including \(s=1\), put
+\(\lambda_d=\mu(d)/\varphi(d)\) and define
+\[
+ {\cal D}_k(s)=
+ \prod_{\substack{d\mid s\\d>1}}
+ \left(\frac{1-\lambda_d^k}
+              {(1-\lambda_d^2)^{k/2}}\right)^{\varphi(d)},
+ \qquad
+ {\cal E}_k(s)=
+ \prod_{\substack{d\mid s\\d>1}}
+ \left(\frac{1-\lambda_d^{2k}}
+              {(1-\lambda_d^2)^k}\right)^{\varphi(d)} .
+\]
+Empty products equal one; factors with \(\mu(d)=0\) equal one.
+All displayed factors are positive.
+
+\begin{theorem}[Complete relative counts for layered coprime circles]
+\label{thm:layeredcoprime}
+Fix \(k\geq2\). Uniformly as \(n\to\infty\):
+\begin{enumerate}
+\item If \(n\) is odd, then
+\[
+ H_k(n)=
+ \frac{(n!)^k}{n\,n^{kn}}\varphi(n)^{kn}{\cal D}_k(n)
+                  \left(1+O_k(n^{-1/10})\right).
+\]
+Equivalently its leading prefactor is
+\((2\pi)^{k/2}n^{k/2-1}{\cal D}_k(n)\)
+multiplying \((\varphi(n)/e)^{kn}\).
+\item If both \(n\) and \(k\) are even, then \(H_k(n)=0\) exactly.
+\item If \(n=2m\) is even and \(k\) is odd, write
+\(n=2^a s\) with \(s\) odd. Then
+\[
+ H_k(n)=
+ \frac{(m!)^{2k}}{m\,m^{2km}}\varphi(n)^{kn}{\cal E}_k(s)
+                   \left(1+O_k(n^{-1/10})\right).
+\]
+Equivalently its leading prefactor is
+\((2\pi)^k(n/2)^{k-1}{\cal E}_k(s)\)
+multiplying \((\varphi(n)/e)^{kn}\).
+\end{enumerate}
+There is no restriction on the number of distinct prime
+divisors, on their sizes, or on the two-adic valuation.
+The constants may depend on the fixed \(k\).
+\end{theorem}
+\begin{proof}
+For odd \(n\), every normalized cross block is the same
+symmetric doubly stochastic unitary kernel \(T\).
+Its nontrivial eigenvalues are \(\lambda_d\), each with
+multiplicity \(\varphi(d)\), for \(d\mid n\), \(d>1\).
+They have absolute value at most \(1/2\).
+The entry parameter is \(A=O(\log\log(3n))\).
+Theorem~\ref{thm:periodiccomparison} applies with \(m=n\);
+its full determinant quotient is precisely \({\cal D}_k(n)\).
+Restoring the common edge-weight factor
+\(\varphi(n)^{kn}\) proves the first formula.
+
+When \(n\) and \(k\) are both even, every arc preserves
+\(x+i\pmod2\). Both invariant classes are nonempty.
+No directed Hamilton cycle can cover both, proving exact
+vanishing, rather than a failure of an asymptotic estimate.
+
+Now suppose \(n=2m\) and \(k\) is odd.
+Every arc flips the parity of the coordinate \(x\).
+The map on layer/parity states
+\((i,\epsilon)\mapsto(i+1,1-\epsilon)\) is a single cycle
+of length \(2k\). Thus the actual full graph has \(2k\)
+cyclic layers, each of size \(m\).
+Their cross blocks alternate between \(U\) and \(U^\top\),
+where \(U\) is the normalized even-to-odd unitary block.
+
+By the Chinese remainder identification modulo \(2^a\)
+and \(s\), row and column permutations identify \(U\) with
+the tensor product of the unitary kernel on
+\(\mathbb Z/s\mathbb Z\) and the constant stochastic
+matrix of order \(2^{a-1}\).
+For \(s=1\) the former kernel is the \(1\)-by-\(1\) matrix \((1)\).
+Consequently the squared nontrivial singular values of \(U\)
+are \(\lambda_d^2\) with multiplicity \(\varphi(d)\),
+for \(d\mid s\), \(d>1\), together with zero values.
+Their maximum is at most \(1/4\), uniformly in \(a,s\).
+
+Write \(B=U-J_m/m\). The cyclic product of the \(2k\)
+centered cross blocks is \((BB^\top)^k\).
+The full numerator is \(\det(I-(BB^\top)^k)\);
+the product of square-root denominators is
+\(\det(I-BB^\top)^k\).
+Their quotient is \({\cal E}_k(s)\).
+The density parameter satisfies
+\[
+ m\max U_{ij}=\frac{m}{\varphi(n)}
+            =\frac{s}{\varphi(s)}
+               =O(\log\log(3n)).
+\]
+Apply Theorem~\ref{thm:periodiccomparison} with \(2k\) layers
+and layer size \(m\), and restore \(\varphi(n)^{kn}\).
+Its error is at most
+\(O_k(n^{-1/9}\exp(C_k\log\log(3n)))\), hence
+\(O_k(n^{-1/10})\).
+The same bound applies in the odd case.
+Finally Stirling's formula proves the two equivalent
+prefactor expressions. All parity modes, orientations,
+and layer-size factorials have been included.
+\end{proof}
+
+\begin{proposition}[The uncancelled arithmetic interaction for higher layers]
+\label{prop:layeredconstants}
+For odd \(s\), define, for integers \(b\geq2\),
+\[
+ F_b(s)=\prod_{p\mid s}
+              \left(1+\frac{(-1)^b}{(p-1)^{b-1}}\right)-1 .
+\]
+Then \(F_2(s)=s/\varphi(s)-1\), and exactly
+\[
+ \log{\cal D}_k(s)
+ =\sum_{j\geq1}
+       \left(\frac{k}{2j}F_{2j}(s)-\frac1jF_{kj}(s)\right),
+ \qquad
+ \log{\cal E}_k(s)
+ =\sum_{j\geq1}
+       \left(\frac{k}{j}F_{2j}(s)-\frac1jF_{2kj}(s)\right).
+\]
+In particular \({\cal D}_2(s)=1\) exactly.
+For every fixed \(k\geq3\),
+\[
+ \log{\cal D}_k(s)
+      =\frac k2\left(\frac{s}{\varphi(s)}-1\right)+O_k(1),
+ \qquad
+ \log{\cal E}_k(s)
+      =k\left(\frac{s}{\varphi(s)}-1\right)+O_k(1),
+\]
+uniformly over all odd \(s\).
+After subtracting those respective leading terms, the
+remaining series converge absolutely and uniformly.
+The corresponding normalized constants have finite positive
+limits along odd primorials.
+\end{proposition}
+\begin{proof}
+For \(b\geq2\), the exact multiplicative identity is
+\[
+ \sum_{\substack{d\mid s\\d>1}}\varphi(d)\lambda_d^b
+       =\sum_{\substack{d\mid s\\d>1}}
+                   \frac{\mu(d)^b}{\varphi(d)^{b-1}}
+       =F_b(s).
+\]
+Expand each logarithm in the definitions of
+\({\cal D}_k,{\cal E}_k\), retaining the numerator and
+denominator series with their signs. Since every
+nontrivial \(|\lambda_d|\leq1/2\), these expansions
+converge for each \(s\), and give the displayed formulas.
+For \(k=2\) they cancel term by term.
+
+Uniformity after the leading term is also explicit.
+For \(b\geq3\),
+\[
+ |F_b(s)|
+ \leq\exp\left(\sum_{p\ {\rm odd}}(p-1)^{-(b-1)}\right)-1
+ \leq\exp\left(2^{-(b-1)}\zeta(b-1)\right)-1
+ \leq C\,2^{-b}.
+\]
+The constant \(C\) is absolute, as \(\zeta(b-1)\leq2\).
+This gives a summable bound for every remaining term.
+In \({\cal D}_k\), \(k\geq3\), the only \(b=2\) term
+is \(kF_2/2\); in \({\cal E}_k\) it is \(kF_2\).
+All other terms have \(b\geq3\).
+Each infinite-prime product with \(b\geq3\) converges
+absolutely along primorials. Dominated convergence now
+proves the asserted normalized limits; exponentiation
+makes them positive and finite.
+\end{proof}
+
+\begin{remark}[The mechanism and its limits]
+For a single symmetric pair of cross blocks the quadratic
+spectral interaction cancels exactly.
+For three or more layers it survives as the explicit
+\(s/\varphi(s)-1\) contribution, with a uniformly controlled
+higher-order prime interaction.
+Thus the method can distinguish exact cancellation from
+a nonzero arithmetic constant, rather than just relocating
+an unestimated signed term.
+It proves relative counts on the entire modulus domain in
+this theorem. It makes no assertion about integer prime
+gaps, RH, or a zero-free exponent.
+The fixed-layer restriction and the stated diffuseness
+range remain essential hypotheses of the comparison used.
+\end{remark}

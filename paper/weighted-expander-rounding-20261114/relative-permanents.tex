@@ -1,0 +1,279 @@
+\section{Relative permanent estimates with a growing entry bound}
+\label{sec:relativepermanents}
+The preceding entropy bounds do not determine a relative
+\(1+o(1)\) count.
+For that purpose the entry parameter in a permanent asymptotic
+must be tracked; a theorem uniform only for a fixed bound
+cannot simply be applied when that bound grows.
+Throughout this section \(J_N\) is the all-ones matrix.
+
+\begin{theorem}[Polylogarithmic entry bounds in the permanent expansion]
+\label{thm:growingpermanent}
+Fix \(\delta\in(0,1)\) and \(K>0\).
+Let \(D\) be real nonnegative doubly stochastic of order \(N\),
+and write
+\[
+ B=D-J_N/N,\qquad
+ \|B\|\leq1-\delta,\qquad
+ \max_{ij}D_{ij}\leq A/N,\qquad 2\leq A\leq(\log N)^K .
+\]
+Then, uniformly over these matrices for sufficiently large \(N\),
+\[
+ \operatorname{per}D
+ =\frac{N!}{N^N}\det(I-B^\top B)^{-1/2}
+                       \bigl(1+O_{\delta,K}(N^{-1/8})\bigr).
+\]
+Zero entries are allowed.
+\end{theorem}
+
+\begin{proof}
+We track the finite estimates behind the fixed-entry theorem
+of Divoux--Wang~\cite[Section 3]{DW}, based on McCullagh~\cite{McC}.
+This is a parameter-uniformity argument, not an application
+of their fixed-\(A\) asymptotic statement.
+
+Stochasticity gives the useful stronger bounds
+\[
+ \max_i\sum_jB_{ij}^2,\quad
+ \max_j\sum_iB_{ij}^2\leq A/N,\qquad
+ \|B\|_F^2\leq A.
+\]
+Choose fixed \(0<a<1<b\) and \(R>1\) so that
+\(bR(1-\delta/2)<1\).
+Let \(R_B(s)\) be the rook polynomial
+\[
+ R_B(s)=\sum_{k=0}^N s^k
+       \sum_{\substack{I,J\subseteq[1,N]\\|I|=|J|=k}}
+                         \operatorname{per}B[I,J].
+\]
+The exact rook/Gamma identity, with
+\(T\sim\Gamma(N+1,1)\), is
+\[
+ \frac{N^N\operatorname{per}D}{N!}
+                         =\mathbb E R_B(N/T).
+\]
+Define
+\[
+ F_s(t)=R_{tB}(s)
+             \det(I-s^2t^2B^\top B)^{1/2},
+ \qquad s\in[a,b],
+\]
+with the analytic square root equal to one at \(t=0\).
+We show that \(F_s(1)=1+O_\delta(A^2N^{-1/6})\),
+uniformly in \(s\).
+
+Here are the finite Gaussian estimates and their parameter
+dependence explicitly.
+With
+\[
+ \Omega_{s,t}=\begin{pmatrix}0&stB\\stB^\top&0\end{pmatrix},
+ \quad
+ \Gamma_{s,t}=\Omega_{s,t}(I+\Omega_{s,t})^{-1},
+\]
+the normalized Gaussian identity in~\cite[Lemmas 3.5--3.7]{DW}
+writes \(F_s(t)\) as the Gaussian expectation of
+\(\prod_i r(Y_i)\), where
+\[
+ r(z)=(1+z)\exp(-z+z^2/2)=1+O(z^3)
+\]
+and \(Y\) has bilinear covariance \(\Gamma_{s,t}\).
+The zero row and column sums of \(B\) cancel the linear
+Gaussian term exactly, before taking any bound.
+The block-power expansion gives, for a fixed
+\(\theta=b(1-\delta/2)<1\),
+\[
+ \max_{i,j}|[t^\ell](\Gamma_{s,t})_{ij}|
+       \leq(C_\delta A/N)\theta^{\ell-1},
+ \qquad \ell\geq1.
+\]
+Indeed each power of length at least two is bounded using
+the two row/column Euclidean norms above and the intervening
+operator power. The length-one term is at most \(bA/N\).
+Thus the covariance constant grows linearly in \(A\),
+not as an unspecified function.
+
+For clarity the finite Wick coefficient estimate used here is:
+if \(F_s(t)=1+\sum_{k\geq1}f_k(s)t^k\), then
+\[
+ |f_k(s)|\leq
+ \sum_{e=1}^k\ \sum_{1\leq v\leq\lfloor2e/3\rfloor}
+ (C_\delta A)^e(e/N)^{e-v}
+                  \binom{k-1}{e-1}\theta^{k-e}.
+\]
+This is the explicit estimate in~\cite[Lemma 3.7]{DW}.
+Its constant is an absolute constant times the covariance
+constant: Wick pairings have \(e\) pairs, the nonconstant
+vertices have degree at least three, hence \(v\leq2e/3\),
+and their choices supply \(N^v\) against \(N^{-e}\).
+There is no hidden fixed-entry asymptotic in this finite bound.
+
+Take \(H=\lceil C_\delta A^3\sqrt N\rceil\), increasing its
+constant below if necessary. For large \(N\), \(H<N\).
+Sum over \(k\leq H\), use
+\(\sum_{k\geq e}\binom{k-1}{e-1}\theta^{k-e}
+=(1-\theta)^{-e}\), and retain every degree choice.
+Since \(e/N\leq H/N\) and \(e-v\geq e/3\),
+\[
+ \sum_{1\leq k\leq H}|f_k(s)|
+ \leq\sum_{e\geq1}e
+       \bigl(C_\delta A^2N^{-1/6}\bigr)^e
+ =O_\delta(A^2N^{-1/6}).
+\]
+The base tends to zero throughout the prescribed range of \(A\).
+
+The same Gaussian product estimate on \(|t|=R\) gives
+\[
+ \max_{|t|=R}|F_s(t)|
+ \leq\exp\bigl(C_\delta\sqrt{NA}+C_\delta A\bigr).
+\]
+To see its dependence, the Gaussian exponential moment is
+bounded by a product \(\prod_\ell(1-bR\sigma_\ell)^{-1}\);
+its logarithm is at most
+\(C_\delta\sum_\ell\sigma_\ell\leq C_\delta\sqrt{NA}\).
+The additional determinant factor costs at most
+\(C_\delta\sum_\ell\sigma_\ell^2\leq C_\delta A\).
+Cauchy's coefficient bound and the chosen \(H\) now give
+\[
+ \sum_{k>H}|f_k(s)|
+       \leq\exp(-c_\delta A^3\sqrt N).
+\]
+Consequently the asserted relative rook estimate follows.
+
+It remains to average the determinant factor over \(T\);
+replacing it by an absolute bounded constant would lose
+uniformity. Put
+\(\Delta(s)=\det(I-s^2B^\top B)^{-1/2}\).
+On \([a,b]\),
+\[
+ 0\leq\log\Delta(s)\leq C_\delta A,\qquad
+ |(\log\Delta)'(s)|\leq C_\delta A .
+\]
+On \(|N/T-1|\leq N^{-1/4}\), this gives
+\(\Delta(N/T)/\Delta(1)=1+O_\delta(AN^{-1/4})\).
+The remaining Gamma mass inside \([a,b]\) is at most
+\(\exp(-c_\delta\sqrt N)\), while the determinant ratio is
+at most \(\exp(C_\delta A)\).
+
+For completeness the outside-\([a,b]\) Gaussian/Gamma tail
+has absolute bound
+\[
+ \mathbb E\bigl[\one_{\{N/T\notin[a,b]\}}
+                         |R_B(N/T)|\bigr]
+ \leq\exp(-c_\delta N+C_\delta\sqrt{NA}).
+\]
+This is obtained by the exact change of variable
+\(t\mapsto t+\sum_\ell\sigma_\ell|Z_\ell|^2\)
+in the Gamma integral. The exponential moment is at most
+\(\exp(C_\delta\sum_\ell\sigma_\ell)\);
+a fixed \(\lambda>1\) with \(\lambda(1-\delta)<1\)
+controls its large tail. These are the finite tail bounds
+in~\cite[Section 3.3]{DW}, with their Frobenius dependence
+retained.
+They vanish uniformly for polylogarithmic \(A\).
+
+As \(\Delta(1)\geq1\), the total relative error is bounded by
+\[
+ C_\delta(A^2N^{-1/6}+AN^{-1/4})
+ +\exp(C_\delta A-c_\delta\sqrt N)
+ +\exp(-c_\delta N+C_\delta\sqrt{NA}).
+\]
+For fixed \(K\) this is \(O_{\delta,K}(N^{-1/8})\), as claimed.
+\end{proof}
+
+\begin{lemma}[Uniform compensated minors with mismatched supports]
+\label{lem:relativecompensatedminors}
+Under Theorem~\ref{thm:growingpermanent}, uniformly for arbitrary
+row and column sets \(I,J\) with
+\(|I|=|J|=r\leq(\log(2N))^3\),
+\[
+ \frac{\operatorname{per}D[I^c,J^c]}{\operatorname{per}D}
+                  =1+O_{\delta,K}(N^{-1/9}).
+\]
+The removed supports need not coincide.
+\end{lemma}
+\begin{proof}
+The case \(r=0\) is immediate. Otherwise put
+\(n=N-r\), \(Q=D[I^c,J^c]\), and
+\(s_{I,J}=\sum_{i\in I,j\in J}D_{ij}\).
+Each remaining row or column loses at most
+\(\varepsilon=rA/N\), and its total lost mass is exactly
+\(r-s_{I,J}\). Also \(s_{I,J}\leq r^2A/N\).
+
+The second singular value of \(Q\), after degree normalization,
+stays a fixed distance from 1.
+Indeed restrict \(B\) and compare \(J_n/N\) with \(J_n/n\);
+their rank-one difference has norm \(r/N\).
+The row and column normalization changes the operator by
+\(O(\varepsilon)\).
+The symmetric bipartite form of \(Q\) thus satisfies
+Lemma~\ref{lem:scaling}, since
+\(\varepsilon(\log N)^2\to0\).
+It gives positive row and column multipliers \(u,v\) with
+\[
+ \widetilde D=\diag(u)Q\diag(v),\quad
+ \max(|u_i-1|,|v_j-1|)
+                     \leq C_\delta\varepsilon\log N.
+\]
+
+The total scaling cost requires compensation, not just
+the maximum multiplier. In the symmetric bipartite form
+write \(z=(u-\one,v-\one)\), and denote its row degrees by \(d_i\).
+Sum the exact scaling equations
+\(Q_{\rm bip}z+d\mathbin{\odot}z+
+ z\mathbin{\odot}(Q_{\rm bip}z)=\one-d\)
+over all \(2n\) coordinates:
+\[
+ \sum_i d_i z_i
+       =r-s_{I,J}-\tfrac12 z^\top Q_{\rm bip}z .
+\]
+Using \(1-d_i\leq\varepsilon\), the maximum bound on \(z\),
+and the full quadratic term, we obtain
+\[
+ \sum_i\log u_i+\sum_j\log v_j
+ =r-s_{I,J}
+        +O_\delta(r^2A^2(\log N)^2/N).
+\]
+This retains the overlap mass \(s_{I,J}\) and the nonlinear
+compensation term.
+
+Put \(\widetilde B=\widetilde D-J_n/n\).
+After padding its row and column sets by zero, its Frobenius
+distance from \(B\) is at most
+\[
+ C_\delta\left(\sqrt{rA/N}+r/N+
+                     rA^{3/2}\log N/N\right).
+\]
+The first term removes the actual rows and columns, the
+second changes the constant block, and the third includes
+both scaling multipliers.
+Since \(\|B\|_F\leq\sqrt A\), the trace-norm distance of the
+squared singular-value matrices is at most
+\[
+ C_\delta\left(A\sqrt{r/N}+r\sqrt A/N+
+                                      rA^2\log N/N\right).
+\]
+Both squared matrices have norm bounded away from one.
+The trace-norm log-determinant inequality therefore shows
+that their determinant factors differ by
+\(\exp(O_{\delta,K}(N^{-1/4}))\).
+All displayed errors are powers of \(\log N\) times \(N^{-1/2}\)
+or \(N^{-1}\), uniformly over the supports.
+
+Apply Theorem~\ref{thm:growingpermanent} to \(D\) and
+\(\widetilde D\). The latter has a fixed gap and entry bound
+at most \(3A/n\), fitting a possibly larger fixed
+polylogarithmic exponent. Exactly,
+\[
+ \operatorname{per}Q=
+                 \operatorname{per}\widetilde D/(\prod_i u_i\prod_jv_j).
+\]
+Stirling's formula gives
+\[
+ \log\frac{n!/n^n}{N!/N^N}=r+O(r^2/N).
+\]
+Its leading \(r\) cancels the full leading scaling cost.
+The overlap term is \(O(r^2A/N)\); all the remaining scaling,
+determinant and factorial errors are \(o(N^{-1/8})\).
+The two relative permanent errors are \(O(N^{-1/8})\).
+This proves the stated uniform \(O(N^{-1/9})\) comparison.
+\end{proof}

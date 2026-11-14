@@ -1,0 +1,191 @@
+\section{A permanent expansion with a second-order uniform remainder}
+\label{sec:secondpermanent}
+The earlier \(N^{-1/8}\) remainder was sufficient for
+\(A=o(\log N)\). At prime density it is necessary to retain
+the first correction before summing the signed minors.
+
+For a stochastic matrix \(D=J_N/N+B\), define
+\[
+ \Omega=\begin{pmatrix}0&B\\B^\top&0\end{pmatrix},\quad
+ \Gamma=\Omega(I+\Omega)^{-1},\quad
+ \Delta(s)=\det(I-s^2B^\top B)^{-1/2},
+\]
+and
+\[
+ \Psi(\Gamma)=
+ -\frac34\sum_i\Gamma_{ii}^2
+ +\frac12\sum_{i,j}\Gamma_{ii}\Gamma_{jj}\Gamma_{ij}
+ +\frac13\sum_{i,j}\Gamma_{ij}^3,\qquad
+ {\cal Q}_N(D)=\frac{\Delta''(1)}{2(N-1)\Delta(1)}
+                                     +\Psi(\Gamma).
+\]
+The indices in \(\Psi\) range over the full \(2N\)-coordinate
+block matrix, including all diagonal terms.
+
+\begin{theorem}[First correction with a uniform two-power remainder]
+\label{thm:secondpermanent}
+Under Theorem~\ref{thm:growingpermanent}, for sufficiently large
+\(N\) depending on \(\delta,K\),
+\[
+ \operatorname{per}D
+ =\frac{N!}{N^N}\Delta(1)
+   \left(1+{\cal Q}_N(D)
+             +O_\delta((1+A)^{40}/N^2)\right),
+ \qquad |{\cal Q}_N(D)|\leq C_\delta(1+A)^2/N .
+\]
+In particular the first correction is explicit and is not
+hidden in a relative \(O(N^{-1/8})\) error.
+\end{theorem}
+\begin{proof}
+Use the exact normalized Gaussian rook representation in
+Section~\ref{sec:relativepermanents}. Its vertex factor has
+expansion
+\[
+ r(z)=1+\tfrac13z^3-\tfrac14z^4+\tfrac15z^5
+                              -\tfrac19z^6+O(z^7).
+\]
+Write \(\Gamma_s=s\Omega(I+s\Omega)^{-1}\).
+The diagram with one degree-four vertex contributes
+\(-3\sum_i(\Gamma_s)_{ii}^2/4\).
+Two distinct degree-three vertices contribute
+\[
+ \sum_{i<j}
+ \left((\Gamma_s)_{ii}(\Gamma_s)_{jj}(\Gamma_s)_{ij}
+                              +\tfrac23(\Gamma_s)_{ij}^3\right).
+\]
+These coefficients follow from the three pairings of four
+Gaussian variables and the \(9+6\) pairings of two triples.
+Replacing \(i<j\) by half the ordered sum changes the result
+by \(O_\delta(A^3/N^2)\), since
+\(\max|(\Gamma_s)_{ii}|\leq C_\delta A/N\).
+The one-vertex degree-six term also has that smaller order.
+
+Here is a bound on all remaining diagrams, including their
+infinite power-series tails.
+In the finite Wick estimate already displayed, \(e\) is the
+number of pairs and \(v\leq2e/3\).
+For \(4\leq e\leq11\), one has \(e-v\geq2\);
+their total is \(O_\delta((1+A)^{11}/N^2)\), after summing
+the geometric coefficient convolution.
+For \(e\geq12\), use the same cutoff
+\(H=\lceil C_\delta A^3\sqrt N\rceil\) and sum
+\[
+ \sum_{e\geq12}e(C_\delta A^2N^{-1/6})^e
+                    =O_\delta((1+A)^{24}/N^2).
+\]
+The cases \(e=1,2,3\) are exactly the terms retained above,
+the zero odd Gaussian moments, and the smaller degree-six term.
+The Cauchy tail past \(H\) is exponentially small.
+This also applies to the retained degree-four and two-triple
+contributions themselves: their covariance power series are
+analytic on the same fixed circle \(|t|=R\), where the
+resolvent bounds above bound their suprema by a polynomial
+in \(1+A\). Hence extending their truncated coefficient sums
+to their full values introduces only an exponentially small tail.
+Thus, uniformly on the fixed interval \(s\in[a,b]\),
+\[
+ R_B(s)=\Delta(s)
+        \left(1+\Psi(\Gamma_s)
+                  +O_\delta((1+A)^{40}/N^2)\right).
+\]
+No coefficientwise asymptotic with an unspecified entry-bound
+constant is used.
+
+The row and column squared norms give
+\[
+ \|\Gamma_s\|\leq C_\delta,\quad
+ \|\Gamma_s\|_F^2\leq C_\delta A,\quad
+ \max_{ij}|(\Gamma_s)_{ij}|\leq C_\delta A/N.
+\]
+The same bounds hold for any fixed number of \(s\)-derivatives.
+For \(g_i=(\Gamma_s)_{ii}\), the middle term in \(\Psi\) is
+\(g^\top\Gamma_s g/2\), bounded by \(C_\delta A^2/N\).
+The cubic entry sum is bounded by
+\(\max|\Gamma_s|\|\Gamma_s\|_F^2\).
+This proves \(|\Psi(\Gamma_s)|\leq C_\delta A^2/N\),
+also for the derivatives needed below.
+
+It remains to perform the Gamma average with its first
+correction retained. Put \(S=N/T\), \(T\sim\Gamma(N+1,1)\),
+\(I=[a,b]\), and
+\(C_N=\{|S-1|\leq N^{-1/4}\}\subseteq\{S\in I\}\).
+All expectations of \(\Delta(S)\) or
+\(\Delta(S)\Psi(\Gamma_S)\) below are restricted to \(S\in I\).
+No extension of these local analytic factors outside \(I\)
+is needed.
+
+For integers \(0\leq j\leq8\) and \(N\geq16\), direct
+integration of the Gamma density gives
+\[
+ \mathbb E S^j=\prod_{\ell=0}^{j-1}\frac{N}{N-\ell}
+ \leq2^j .
+\]
+In particular the exact full centered moments are
+\[
+ \mu_1=0,\qquad \mu_2=\frac1{N-1},\qquad
+ \mu_3=\frac4{(N-1)(N-2)},\qquad
+ \mu_4=\frac{3(N+6)}{(N-1)(N-2)(N-3)} .
+\]
+The Gamma Chernoff bound gives
+\(\mathbb P(C_N^c)\leq2\exp(-c\sqrt N)\).
+Cauchy--Schwarz applied only to this tail, together with
+the raw moment bounds through order eight, yields
+\[
+ \mathbb E\bigl[|S-1|^k\one_{C_N^c}\bigr]
+       \leq C_k\exp(-c'\sqrt N),\qquad 0\leq k\leq4.
+\]
+Thus each truncated signed moment on \(C_N\) equals
+\(\mu_k+O(\exp(-c'\sqrt N))\), including the first
+and third moments. In particular the truncated first moment
+is not set to zero without its error.
+
+On \(C_N\), fixed-order derivatives of
+\(\Delta(s)/\Delta(1)\) are bounded by polynomials in \(1+A\).
+Indeed its logarithmic derivatives have that property and
+\(\Delta(s)/\Delta(1)\leq\exp(C_\delta A N^{-1/4})\)
+is bounded for sufficiently large \(N\).
+Taylor's formula to third order, with a fourth-derivative
+remainder and the truncated moments just proved, gives
+\[
+ \mathbb E\bigl[\one_{\{S\in I\}}\Delta(S)\bigr]
+ =\Delta(1)\left(
+  1+\frac{\Delta''(1)}{2(N-1)\Delta(1)}
+                  +O_{\delta,K}((1+A)^8/N^2)\right).
+\]
+Here the cubic term uses the signed \(\mu_3=O(N^{-2})\);
+the fourth-order remainder uses \(\mu_4=O(N^{-2})\).
+The contribution of \(I\setminus C_N\) is at most
+\(\Delta(1)\exp(C_\delta A-c'\sqrt N)\), which is
+smaller than any fixed inverse power of \(N\) throughout
+\(A\leq(\log N)^K\).
+
+For \(f(s)=\Delta(s)\Psi(\Gamma_s)\), the previous covariance
+and derivative bounds give
+\[
+ \sup_{C_N}\frac{|f''(s)|}{\Delta(1)}
+       \leq C_\delta(1+A)^6/N .
+\]
+Taylor's formula through the linear term, the exponentially
+small truncated first moment, and
+\(\mathbb E(S-1)^2=1/(N-1)\) therefore give
+\[
+ \mathbb E\bigl[\one_{\{S\in I\}}\Delta(S)\Psi(\Gamma_S)\bigr]
+ =\Delta(1)\Psi(\Gamma)
+       +O_{\delta,K}\bigl(\Delta(1)(1+A)^{12}/N^2\bigr).
+\]
+The portion in \(I\setminus C_N\) is again exponentially
+small. The uniform rook-expansion remainder averages to
+\(O_{\delta,K}(\Delta(1)(1+A)^{40}/N^2)\).
+On \(S\notin I\) we retain the original polynomial \(R_B(S)\);
+the preceding outside-interval estimate gives
+\[
+ \left|\mathbb E\bigl[\one_{\{S\notin I\}}R_B(S)\bigr]\right|
+ \leq\exp(-c_\delta N+C_\delta\sqrt{NA}).
+\]
+Since \(\Delta(1)\geq1\), this too is negligible relative
+to the claimed error. Finally the logarithmic derivative
+formulas give
+\(\Delta''(1)/\Delta(1)=O_\delta((1+A)^2)\).
+Combining the restricted averages and the original polynomial
+tail proves both conclusions.
+\end{proof}

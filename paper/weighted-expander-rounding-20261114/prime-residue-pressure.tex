@@ -1,0 +1,284 @@
+\section{Prime-residue pressure and the cost of an atypical profile}
+\label{sec:residuepressure}
+The weighted theorem has an arithmetic consequence beyond the
+unweighted total count.
+Keep a fixed even modulus \(q\), a nonempty reduced residue set
+\(R\) with \(g_R=2\), and write \(k=|R|\).
+For each unoriented Hamilton cycle \(C\) of \(G_N(q,R)\), put
+\[
+ n_r(C)=|\{ij\in E(C):i+j\equiv r\pmod q\}|,\qquad r\in R.
+\]
+These are edge counts, including repeated prime values if they
+occur on different edges. Every cycle has exactly \(N\) edges,
+so \(\sum_{r\in R}n_r(C)=N\).
+For fixed weights \(w_r>0\), define
+\[
+ W_N(w)=\sum_{C\ {\rm Hamilton}}\prod_{r\in R}w_r^{\,n_r(C)},
+ \qquad
+ M(w)=\frac{\sum_{r\in R}w_r}{\varphi(q)}.
+\]
+The weights, modulus and allowed set are fixed before \(N\)
+tends to infinity. No uniformity for growing moduli or
+\(N\)-dependent weights is asserted.
+
+\begin{theorem}[The full positive residue-pressure formula]
+\label{thm:residuepressure}
+Along even \(N\),
+\[
+ \log W_N(w)
+ =N\left(\log\frac{N}{e\varphi(q)\log N}
+                      +\log\sum_{r\in R}w_r\right)+o_w(N).
+\]
+In particular, if \(C_N\) is a uniform unoriented Hamilton cycle
+of \(G_N(q,R)\) and \(X_N=(n_r(C_N)/N)_{r\in R}\), then for every
+fixed \(\theta\in\mathbb R^R\),
+\[
+ \lim_{N\to\infty,\ 2\mid N}\frac1N
+      \log\mathbb E\exp\bigl(N\langle\theta,X_N\rangle\bigr)
+       =\log\left(\frac1k\sum_{r\in R}e^{\theta_r}\right).
+\]
+\end{theorem}
+
+\begin{proof}
+The positive-weight version of the signed Fourier model is
+obtained by replacing the uniform average \(\rho_R\) by
+\[
+ \rho_w(b)=
+       \frac{\sum_{r\in R}w_r\e(br/q)}{\sum_{r\in R}w_r}.
+\]
+For completeness, each matrix entry is a finite linear
+combination of the same fixed-class prime convolution
+operators used in Lemma~\ref{lem:filtermodel}.
+The Chinese remainder computation there consequently gives
+the exact reflection coefficient
+\[
+ w(\gamma)=\rho_w(b)\frac{\mu(c)}{\varphi(c)},\qquad
+ \gamma=b/q+a/c,\quad (c,q)=1,
+\]
+with the same squarefree and primitive-conductor conditions
+as in (38), and zero in every other case.
+All phases are retained before taking eigenvalues.
+A positive weighted average of unit complex numbers has
+modulus one precisely when all the phases agree.
+Its set of unit-modulus characters is therefore unchanged:
+\(b=0,q/2\), because \(g_R=2\).
+The nontrivial gap is the positive fixed number
+\[
+ \delta_w=
+ 1-\max\left\{\frac1{p_q-1},
+       \max_{\substack{b\bmod q\\b\ne0,\ q/2}}|\rho_w(b)|
+          \right\}>0.
+\]
+The finite-mask operator approximation in (39) is linear
+and has only a fixed weight-dependent constant.
+It therefore proves the corresponding spectral approximation,
+not merely a pointwise residue heuristic.
+
+Consider the true-prime weighted kernel
+\[
+ Q_w(i,j)=
+ \frac{w_{\,i+j\bmod q}\log(i+j)}{M(w)N}
+      \one_{\substack{i\ne j,\ i+j\ {\rm prime}\\
+                       i+j\bmod q\in R}}.
+\]
+The fixed-progression prime number theorem gives its row
+defect \(O_{q,w,B}((\log N)^{-B})\) for every fixed \(B\).
+Proper prime powers and the diagonal are removed with the
+same row-norm bound as in the filtered model.
+Thus its normalized spectrum has only the constant and
+parity exceptions and gap \(\delta_w-o(1)\).
+Lemma~\ref{lem:scaling}, with any fixed \(B>4\), produces
+\[
+ P_w=\diag(u)Q_w\diag(u),\qquad
+ P_w\one=\one,\quad
+ \|u-\one\|_\infty=o(1).
+\]
+This kernel has a fixed nontrivial gap, the original true-prime
+support and maximum entry \(O_{q,w}(\log N/N)\).
+It satisfies Theorem~\ref{thm:weightedentropy}, giving
+\[
+ \log Z_{\rm H}(P_w)=-N+o_w(N).
+\]
+Every Hamilton-cycle weight changes by the common factor
+\(\prod_vu_v^2=\exp(o_w(N))\), so the same logarithmic formula
+holds for \(Z_{\rm H}(Q_w)\).
+
+One must still remove the nonconstant logarithmic prime weight.
+This cannot be justified by a uniform entrywise \(1+o(1)\)
+comparison at the smallest sums.
+Put \(D_w=M(w)N/\log N\). Exactly,
+\[
+ \prod_{ij\in E(C)}Q_w(i,j)
+ =D_w^{-N}\left(\prod_{r\in R}w_r^{n_r(C)}\right)
+             \prod_{ij\in E(C)}\frac{\log(i+j)}{\log N}.
+\]
+The logarithm of the last product is \(o(N)\), uniformly
+over all such cycles.
+Indeed, for sums at least \(N/(\log N)^4\), each logarithm
+has modulus \(O(\log\log N/\log N)\).
+Every smaller sum has both endpoints in the first
+\(N/(\log N)^4\) vertices; a cycle has at most twice that
+many edges incident with this set.
+For each of these edges the logarithm has modulus
+\(O(\log\log N)\), since the smallest permitted sum is at least 3.
+The complete exceptional contribution is
+\(O(N\log\log N/(\log N)^4)=o(N)\).
+Consequently
+\[
+ Z_{\rm H}(Q_w)=D_w^{-N}W_N(w)\exp(o_w(N)).
+\]
+This proves the partition-function formula.
+Divide by its specialization \(w_r=1\), and then put
+\(w_r=e^{\theta_r}\), to obtain the moment-generating formula.
+\end{proof}
+
+Let \(\Delta_R=\{x\in[0,1]^R:\sum_rx_r=1\}\).
+Use \(0\log0=0\) in
+\[
+ I_R(x)=\sum_{r\in R}x_r\log(kx_r),\qquad x\in\Delta_R.
+\]
+Outside this simplex set \(I_R=+\infty\).
+
+\begin{theorem}[A full empirical residue large-deviation law]
+\label{thm:residueldp}
+The random vectors \(X_N\) satisfy the large-deviation principle
+with speed \(N\) and rate \(I_R\).
+Precisely, for every relatively open \(O\subseteq\Delta_R\)
+and relatively closed \(F\subseteq\Delta_R\),
+\[
+ \begin{split}
+ \liminf_{N\to\infty,\ 2\mid N}
+       N^{-1}\log\mathbb P(X_N\in O)&\geq-\inf_{x\in O}I_R(x),\\
+ \limsup_{N\to\infty,\ 2\mid N}
+       N^{-1}\log\mathbb P(X_N\in F)&\leq-\inf_{x\in F}I_R(x).
+ \end{split}
+\]
+Here \(\log0=-\infty\).
+In particular, for each \(x\in\Delta_R\), if
+\(B_\epsilon(x)=\{y\in\Delta_R:\|y-x\|_\infty<\epsilon\}\),
+then both
+\[
+ \lim_{\epsilon\downarrow0}\liminf_N
+       N^{-1}\log\mathbb P(X_N\in B_\epsilon(x)),
+ \qquad
+ \lim_{\epsilon\downarrow0}\limsup_N
+       N^{-1}\log\mathbb P(X_N\in B_\epsilon(x))
+\]
+equal \(-I_R(x)\), with the inner limits along even \(N\).
+\end{theorem}
+
+\begin{proof}
+We give the exponential-tilt proof to expose the quantifiers.
+Write
+\(\psi(\theta)=\log(k^{-1}\sum_re^{\theta_r})\).
+Markov's inequality and Theorem~\ref{thm:residuepressure}
+give, for each fixed \(\theta,x,\epsilon\),
+\[
+ \limsup_N N^{-1}\log\mathbb P(X_N\in B_\epsilon(x))
+ \leq \psi(\theta)-\langle\theta,x\rangle
+                                      +\epsilon\|\theta\|_1.
+\]
+If all \(x_r>0\), take \(\theta_r=\log(kx_r)\), for which
+\(\psi(\theta)=0\) and \(\langle\theta,x\rangle=I_R(x)\).
+If some coordinates vanish, set their \(\theta_r=-M\)
+and use the same positive-coordinate values, then let
+\(M\to\infty\) after taking the \(N\) and \(\epsilon\) limits.
+This proves the local upper bound.
+A finite cover of the compact simplex by the resulting
+neighbourhoods gives the upper bound for every closed \(F\).
+
+For the lower bound first suppose all \(x_r>0\).
+Tilt the law of cycles by \(\prod_rx_r^{n_r(C)}\), and denote
+the resulting law by \(\nu_{N,x}\).
+Its limiting logarithmic moment-generating function is
+\[
+ \log\sum_rx_re^{\theta_r},
+\]
+by applying the partition-function formula at the two fixed
+positive weight vectors \(x\) and \((x_re^{\theta_r})_r\).
+For each coordinate, a sufficiently small fixed positive or
+negative tilt and Chernoff's inequality show
+\[
+ \nu_{N,x}(B_\epsilon(x))=1-\exp(-\Omega_{x,\epsilon}(N)).
+\]
+For a constant coordinate the corresponding deviation event
+is empty. There are only finitely many coordinates.
+On \(B_\epsilon(x)\),
+\[
+ \left|\sum_r(X_{N,r}-x_r)\log x_r\right|
+                        \leq\epsilon\sum_r|\log x_r|.
+\]
+The exact Radon--Nikodym identity is
+\[
+ \mathbb P(X_N\in B_\epsilon(x))
+ =\frac{W_N(x)}{W_N(\one)}
+   \mathbb E_{\nu_{N,x}}\left[
+       \exp\left(-N\sum_r X_{N,r}\log x_r\right)
+                        \one_{B_\epsilon(x)}(X_N)\right].
+\]
+The pressure ratio has logarithm \(-N\log k+o_x(N)\).
+Consequently the lower limiting exponent is at least
+\(-I_R(x)-\epsilon\sum_r|\log x_r|\).
+Send \(\epsilon\) to zero to obtain the local lower bound.
+
+Every boundary point of the simplex is a limit of interior
+points, and \(I_R\) is continuous on the whole simplex.
+Apply the interior lower bound in a smaller ball about an
+interior point contained in the prescribed neighbourhood.
+This proves the boundary local lower bound as well.
+For an open \(O\), choose any such ball contained in \(O\),
+and optimize its centre. This proves the stated principle,
+without requiring a theorem uniform in the tilt vector.
+\end{proof}
+
+\begin{corollary}[Exponential concentration and profile counts]
+\label{cor:primeprofilecount}
+For every fixed \(\epsilon>0\) there is \(c_{q,R,\epsilon}>0\)
+such that a uniform prime circle in \(G_N(q,R)\) satisfies
+\[
+ \mathbb P\left\{\max_{r\in R}
+          \left|\frac{n_r(C_N)}N-\frac1k\right|\geq\epsilon\right\}
+           \leq\exp(-c_{q,R,\epsilon}N)
+\]
+for all sufficiently large even \(N\), unless the event is empty.
+For a prescribed approximate profile \(x\), its fraction of
+all prime circles has the exact exponential cost \(I_R(x)\)
+in the iterated neighbourhood-limit sense of the theorem.
+Thus the total count and the empirical-profile count are
+determined at exponential precision.
+\end{corollary}
+\begin{proof}
+The rate is nonnegative and vanishes only at the uniform
+vector. Its infimum on the indicated closed set is strictly
+positive, whenever that set is nonempty.
+The large-deviation upper bound gives the displayed estimate
+with any fixed smaller positive exponent.
+The local formula gives the remaining assertion.
+\end{proof}
+
+\begin{remark}[The edges are constrained, not independent]
+Each prime circle obeys the exact identity
+\[
+ \sum_{r\in R}r\,n_r(C)
+       \equiv\sum_{ij\in E(C)}(i+j)
+       =2\sum_{i=1}^N i=N(N+1)\pmod q.
+\]
+The large-deviation law agrees with independent uniform
+residue sampling only at the exponential profile scale.
+It does not assert independence, a central limit theorem,
+or positive counts for every exact integer profile.
+For example \(q=8,R=\{1,3\}\) satisfies \(g_R=2\).
+The number \(n_3(C)\) always obeys
+\[
+ n_3(C)\equiv N^2/2\pmod4.
+\]
+Nevertheless its normalized proportion has binary rate
+\[
+ I(x)=x\log(2x)+(1-x)\log(2(1-x)).
+\]
+An exact profile using only one class has no Hamilton cycle
+for large \(N\), by the obstruction theorem.
+A fixed positive-width neighbourhood of that boundary
+profile has the finite exponential rate \(I(0)=I(1)=\log2\).
+The order of limits is essential here.
+\end{remark}

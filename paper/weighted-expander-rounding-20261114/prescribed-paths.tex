@@ -1,0 +1,184 @@
+\section{Prescribed spanning paths and arbitrary endpoints}
+\label{sec:paths}
+A Hamilton cycle does not itself give a Hamilton path with
+arbitrarily specified endpoints.
+We verify the stronger spanning-path input separately.
+
+We use Theorem 6.4 and Definition 3.9 of~\cite{BJ}.
+For a regular balanced bipartite graph of degree \(d\), their
+bi-uniformity condition for \(S\) in one part is
+\[
+ \left||N(v)\cap S|-\frac{2|S|d}{N}\right|\leq\alpha d
+ \quad\hbox{at every vertex of the other part}.              \tag{41}
+\]
+The theorem supplies internally disjoint paths joining prescribed
+opposite-part pairs, with all remaining vertices in their interiors,
+provided the endpoint sets and multisets obey (41), have equal
+cardinality, and the following conditions hold:
+\[
+ 0<c<1/4,\quad 0<\gamma<(\log N)^{-2},\quad
+ d'\leq d^{1-c},\quad\alpha\leq d^{-c},\quad
+ m\leq d^{-c/900}N,\quad d\geq\gamma^{-10^6/c}.               \tag{42}
+\]
+Here the graph is \((d\pm d')\)-nearly regular and a
+\(\gamma\)-expander in the sense used in (2), and \(N\)
+is sufficiently large depending on \(c\).
+We apply it to exact regular factors, so \(d'=0\).
+
+\begin{lemma}[Arbitrary small endpoint sets meet the source condition]
+\label{lem:smallendpoints}
+Let \(H\) be a simple \(d\)-regular balanced bipartite graph
+on \(N\) vertices.
+Any subset \(S\) of one part of cardinality \(m\) obeys
+(41) with \(\alpha=m/d\).
+The same holds when its distinct elements are viewed as a multiset.
+\end{lemma}
+\begin{proof}
+Both \(|N(v)\cap S|\) and \(2md/N\) lie in \([0,m]\),
+since \(d\leq N/2\). Their difference has modulus at most \(m\).
+This is (41), including the set and multiset versions.
+\end{proof}
+
+\begin{theorem}[Almost-linear prescribed spanning linkages]
+\label{thm:linkages}
+Fix \(q,R\) as in Theorem~\ref{thm:filterclassification},
+with \(g_R=2\), and fix \(0<\eta<1\).
+For all sufficiently large even \(N\), choose any integer
+\(1\leq m\leq N^{1-\eta}\), any distinct odd vertices
+\(a_1,\ldots,a_m\), and any distinct even vertices
+\(b_1,\ldots,b_m\).
+Then \(G_N(q,R)\) contains pairwise vertex-disjoint paths
+\(P_1,\ldots,P_m\), where \(P_i\) joins \(a_i\) to \(b_i\)
+and their vertex sets partition all of \([1,N]\).
+In particular it has a Hamilton path between every prescribed
+odd-even pair.
+\end{theorem}
+\begin{proof}
+Use the exact regular factor from
+Theorem~\ref{thm:filterclassification}.
+Its degree is \(d=(1-o(1))\sigma_R N/\log N\),
+and its fixed positive spectral gap supplies a fixed positive
+edge-expansion constant \(\gamma_0\), under the definition (2).
+Choose
+\[
+ c=\min\{1/5,\eta/2\},\qquad
+ \gamma=(\log N)^{-3},\qquad d'=0,\qquad\alpha=m/d .
+\]
+For large \(N\), \(\gamma<\gamma_0\), so expansion with this
+smaller constant holds throughout the required cut range.
+The arbitrary endpoint sets meet (41), by
+Lemma~\ref{lem:smallendpoints}, and each has cardinality \(m\).
+Their vertices are distinct, so the multiset requirements are
+the same.
+
+We now check every quantitative condition in (42).
+The choice of \(c\) is in \((0,1/4)\), and the choice of
+\(\gamma\) is smaller than \((\log N)^{-2}\).
+Also
+\[
+ m/d^{1-c}
+ =O_{q,R}\left(N^{c-\eta}(\log N)^{1-c}\right)\longrightarrow0,
+\]
+since \(c<\eta\).
+Thus \(\alpha=m/d\leq d^{-c}\).
+Similarly
+\[
+ \frac{m}{d^{-c/900}N}
+ =O_{q,R}\left(N^{-\eta+c/900}
+                    (\log N)^{-c/900}\right)\longrightarrow0.
+\]
+Finally
+\[
+ d\asymp_{q,R}N/\log N
+       \gg(\log N)^{3\cdot10^6/c}
+       =\gamma^{-10^6/c}.
+\]
+The degree error \(d'=0\) obeys its condition exactly.
+The cited theorem gives the desired paths.
+Their interiors avoid every prescribed endpoint; since all
+endpoints are distinct, internal disjointness becomes full
+vertex disjointness, and its covering conclusion partitions
+the entire vertex set.
+\end{proof}
+
+\begin{corollary}[All parity-compatible prime-sum endpoints]
+\label{cor:oddendpoints}
+For all sufficiently large \(N\), in the ordinary prime-sum
+graph on \([1,N]\), every distinct pair \(a,b\) satisfying
+the necessary parity condition is joined by a Hamilton path:
+opposite parities for even \(N\), and both odd for odd \(N\).
+\end{corollary}
+\begin{proof}
+The even case is Theorem~\ref{thm:linkages} with \(q=2\)
+and \(R=\{1\}\).
+Suppose \(N\) is odd and \(a,b\) are distinct odd vertices.
+Choose an even neighbour \(v\) of \(a\) in \(G_N\).
+Such a neighbour exists for every large \(N\), uniformly in
+\(a\): the degree estimate (26) for \(G_{N+1}\) loses at
+most one edge on deleting vertex \(N+1\).
+
+Consider \(G_N-a\), a balanced bipartite graph on \(N-1\)
+vertices. It is obtained from \(G_{N+1}\) by deleting the
+odd vertex \(a\) and the even vertex \(N+1\).
+Its degrees remain \((1+o(1))(N+1)/\log(N+1)\),
+uniformly in the two deleted vertices.
+If \(W\) is a subset of the remaining vertices of size at
+most \((N-1)/2\), the cut bound (28) in \(G_{N+1}\) loses
+at most \(2|W|\) edges. Thus its boundary is at least
+\[
+ \left(\frac15\frac{N+1}{\log(N+1)}-2\right)|W|.
+\]
+The complementary smaller-side bound is identical.
+The regular-factor lemma supplies a regular spanning factor
+of degree \(d=(1-o(1))(N+1)/\log(N+1)\), discarding only
+\(o(d)\) edges per vertex.
+It retains a fixed positive edge-expansion constant.
+The argument proving Theorem~\ref{thm:linkages}, or (42)
+with \(m=1\), supplies a Hamilton path from \(v\) to \(b\)
+in this factor. Prepend the edge \(av\).
+The resulting path begins at \(a\), ends at \(b\), and
+covers exactly all \(N\) vertices of \(G_N\).
+\end{proof}
+
+\begin{corollary}[Diffuse kernel supports admit prescribed spanning linkages]
+\label{cor:weightedlinkages}
+Fix \(0<a\leq1\), \(C>0\), \(0<\delta<1\), and
+\(0<\zeta<a\).
+For all sufficiently large \(N\), every stochastic bipartite
+kernel \(P\) with nontrivial gap at least \(\delta\) and
+\(\alpha\leq C N^{-a}\) has the following property:
+any \(m\leq N^{a-\zeta}\) prescribed distinct opposite-part
+pairs can be joined by vertex-disjoint paths partitioning
+all \(N\) vertices of its support.
+\end{corollary}
+\begin{proof}
+In Theorem~\ref{thm:rounding}, choose
+\[
+ d=\lfloor N^{a-\zeta/2}\rfloor.
+\]
+For all large \(N\), \(d\leq N/2\) and
+\(d\alpha L^2=O(N^{-\zeta/2}L^2)\to0\).
+The entire error in (1) tends to zero, so its simple regular
+factor has nontrivial gap at least \(\delta/2\).
+Choose
+\[
+ c=\min\{1/5,\zeta/(4a)\},\qquad\gamma=(\log N)^{-3}.
+\]
+As before take \(d'=0\), \(\alpha'=m/d\).
+The arbitrary endpoint sets satisfy (41) with \(\alpha'\).
+Since
+\[
+ (a-\zeta/2)(1-c)>(a-\zeta),
+\]
+we have \(m\leq d^{1-c}\) for all large \(N\).
+Moreover
+\[
+ a-\zeta+(a-\zeta/2)c/900
+ \leq 1-\zeta+\zeta/3600<1,
+\]
+so \(m\leq d^{-c/900}N\).
+The polynomial degree dominates
+\(\gamma^{-10^6/c}\).
+Every hypothesis of (42) is satisfied.
+The same spanning-path theorem therefore applies.
+\end{proof}

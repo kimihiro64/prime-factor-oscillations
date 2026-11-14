@@ -1,0 +1,281 @@
+\section{Signed Hamiltonian-permanent comparison and parity cancellation}
+\label{sec:relativehamilton}
+Write \(\operatorname{cyc}D\) for the sum of products over
+directed cyclic permutations. For a symmetric kernel of order
+at least three it equals \(2Z_{\rm H}(D)\).
+The exact identity of Liu~\cite{Liu} is
+\[
+ N\operatorname{cyc}D
+ =\sum_{\emptyset\ne U\subseteq[1,N]}
+       |U|(-1)^{|U|-1}\det D[U]\,
+                                  \operatorname{per}D[U^c].
+\]
+We use this signed identity before estimating errors.
+Its principal terms must not be replaced by their absolute mass.
+
+We first record a bound used only for a separately retained tail.
+For a doubly stochastic matrix \(D\) with maximum entry \(A/N\),
+the row-cap Bregman argument and van der Waerden give, for
+any equally sized removed row and column sets of size \(r\),
+\[
+ \frac{\operatorname{per}D[I^c,J^c]}{\operatorname{per}D}
+                         \leq\exp(r+C A\log(2N)).
+\]
+Indeed the remaining matrix of order \(n=N-r>0\) can be
+row-extended after division by \(A/N\), with
+\(k=\min(n,\lceil N/A\rceil)\).
+Its permanent is at most
+\((A/N)^n(k!)^{n/k}\leq\exp(-n+C A\log(2N))\).
+The denominator is at least \(N!/N^N\geq e^{-N}\).
+The empty remaining matrix satisfies the same bound directly.
+
+\begin{theorem}[A relative comparison with a growing density parameter]
+\label{thm:relativeaperiodic}
+Fix \(\delta\in(0,1)\). Let \(D_N\) be real nonnegative
+doubly stochastic matrices, and put
+\[
+ B=D_N-J_N/N,\qquad \|B\|\leq1-\delta,\qquad
+ \max D_{ij}\leq A_N/N,\qquad A_N\geq2.
+\]
+If \(A_N^2=o(\log N)\), then
+\[
+ \operatorname{cyc}D_N
+ =(1+o(1))\frac{(N-1)!}{N^N}
+       \frac{\det(I-B)}{\sqrt{\det(I-B^\top B)}}.
+\]
+The relative error is
+\(O_\delta(N^{-1/9}\exp(C_\delta A_N^2))\), and hence
+tends to zero along every sequence with the stated entry
+growth and fixed gap. No positive-entry lower bound is assumed.
+\end{theorem}
+\begin{proof}
+For all sufficiently large \(N\), \(A_N\leq\log N\).
+The permanent and compensated-minor estimates of
+Section~\ref{sec:relativepermanents} therefore apply
+with a fixed polylogarithmic exponent.
+Put \(L=\log(2N)\), and split Liu's sum at \(r=L^3\),
+with integer rounding at this cutoff.
+
+For \(r\leq L^3\), the minor ratio is
+\(1+O_\delta(N^{-1/9})\), uniformly in \(U\).
+Hadamard's inequality gives
+\[
+ \sum_{|U|=r}|\det D[U]|
+   \leq\binom Nr\left(\frac{A\sqrt r}{N}\right)^r
+   \leq(eA/\sqrt r)^r .
+\]
+Consequently
+\[
+ \sum_{r\geq1}r\sum_{|U|=r}|\det D[U]|
+                         \leq\exp(C A^2).
+\]
+For example split at a sufficiently large constant times
+\(A^2\); before that cutoff each logarithmic summand is
+\(O(A^2)\), and afterwards the series decreases geometrically.
+The small-minor error is therefore at most
+\(N^{-1/9}\exp(C A^2)\).
+
+For \(r>L^3\), the separately retained permanent-ratio bound
+above yields total absolute tail at most
+\[
+ \exp(C A L)\sum_{r>L^3}
+                    r(e^2A/\sqrt r)^r
+       \leq\exp(-c L^3\log L),
+\]
+for large \(N\), since \(A\leq\log N\).
+The same estimate without the permanent ratio controls the
+tail of the determinant-only sum.
+Thus the entire signed leading expression can be evaluated:
+\[
+ \frac{N\operatorname{cyc}D}{\operatorname{per}D}
+ =\sum_{\emptyset\ne U}|U|(-1)^{|U|-1}\det D[U]
+    +O_\delta\left(N^{-1/9}e^{CA^2}
+                         +e^{-cL^3\log L}\right)
+ =\det(I-B)+\text{the stated error}.
+\]
+For the last equality,
+\(\det(I-tD)=(1-t)\det(I-tB)\), using both stochastic row
+and column equations; differentiate at \(t=1\).
+No determinant contribution has been dropped termwise.
+
+We check the relative normalization.
+The convergent trace expansion gives
+\[
+ \log\det(I-B)
+       =-\operatorname{tr}B-\sum_{j\geq2}
+                               \operatorname{tr}(B^j)/j .
+\]
+Here \(|\operatorname{tr}B|\leq A+1\), and
+\[
+ |\operatorname{tr}(B^j)|
+       \leq\|B\|^{j-2}\|B\|_F^2
+       \leq(1-\delta)^{j-2}A .
+\]
+Therefore \(\det(I-B)\geq\exp(-C_\delta A)>0\).
+The normalized error is at most
+\[
+ O_\delta\left(
+ N^{-1/9}\exp(C A^2+C_\delta A)
+              +\exp(-cL^3\log L+C_\delta A)\right)=o(1).
+\]
+Apply Theorem~\ref{thm:growingpermanent} to the remaining full
+permanent. Its determinant and factorial factors give the
+displayed formula.
+This extends the fixed-entry conclusion
+of~\cite[Proposition 5.1]{DW} by an explicit growing-parameter
+argument; it does not claim the underlying identity as new.
+\end{proof}
+
+\begin{theorem}[Relative bipartite universality]
+\label{thm:relativebipartite}
+Let \(T=T_m\) be real nonnegative doubly stochastic, with
+\[
+ B=T-J_m/m,\qquad \|B\|\leq1-\delta,\qquad
+ \max T_{ij}\leq A_m/m,\qquad 2\leq A_m=o(\log m),
+\]
+for fixed \(\delta\in(0,1)\).
+For the symmetric bipartite kernel
+\(P=\begin{pmatrix}0&T\\T^\top&0\end{pmatrix}\),
+\[
+ Z_{\rm H}(P)
+ =(1+o(1))\frac{(m!)^2}{2m\,m^{2m}}
+ =(1+o(1))\pi e^{-2m}.
+\]
+The relative error is
+\(O_\delta(m^{-1/9}\exp(C_\delta A_m))\).
+In particular the leading relative constant is independent
+of the nontrivial singular spectrum of \(T\).
+The exact parity eigenvalue is treated separately, not inserted
+into a formula requiring norm strictly below one.
+\end{theorem}
+\begin{proof}
+For \(m\geq2\), Liu's identity for \(P\) has contributions
+only when the selected set contains equally many vertices
+from the two parts.
+Writing those subsets as \(I,J\), each of size \(r\), exactly
+\[
+ \det P[I\cup J]=(-1)^r\det T[I,J]^2,\qquad
+ \operatorname{per}P[(I\cup J)^c]
+                         =\operatorname{per}T[I^c,J^c]^2.
+\]
+Consequently the complete signed expression is
+\[
+ 2m Z_{\rm H}(P)
+ =\sum_{r=1}^m(-1)^{r+1}r
+     \sum_{\substack{|I|=|J|=r}}
+       \det T[I,J]^2\,\operatorname{per}T[I^c,J^c]^2.
+\]
+This retains every mismatched row/column support and every
+complementary permanent.
+
+The compensated-minor lemma gives a uniform
+\(1+O_\delta(m^{-1/9})\) ratio for \(r\leq(\log(2m))^3\).
+By Cauchy--Binet,
+\[
+ \sum_{|I|=|J|=r}\det T[I,J]^2=e_r(TT^\top),
+\]
+where \(e_r\) is the elementary symmetric polynomial in the
+eigenvalues.
+The total absolute mass for the small-minor error is now
+bounded more sharply than the general determinant bound:
+\[
+ \sum_r r e_r(TT^\top)
+ \leq\operatorname{tr}(TT^\top)\exp(\operatorname{tr}(TT^\top))
+ \leq A e^A.
+\]
+The last inequality uses stochasticity,
+\(\sum_{ij}T_{ij}^2\leq m\max T_{ij}\leq A\).
+
+The retained large-minor tail is also explicit.
+Hadamard and the two subset counts give
+\[
+ \sum_{|I|=|J|=r}\det T[I,J]^2
+          \leq(e^2A^2/r)^r .
+\]
+Together with the squared permanent-ratio bound, its normalized
+tail for \(r>(\log(2m))^3\) is at most
+\[
+ e^{C A\log(2m)}
+       \sum_{r>(\log(2m))^3}r(e^4A^2/r)^r
+          \leq e^{-c(\log(2m))^3\log\log(2m)} .
+\]
+Here \(A\leq\log m\) eventually.
+The determinant-only tail satisfies the same smaller bound.
+
+Now evaluate the signed leading sum, rather than bounding
+it by \(Ae^A\).
+Since \(TT^\top=J_m/m+BB^\top\),
+\[
+ \det(I-xTT^\top)=(1-x)\det(I-xBB^\top).
+\]
+Its derivative at \(x=1\) proves the exact cancellation
+\[
+ \sum_r(-1)^{r+1}r e_r(TT^\top)=\det(I-BB^\top).
+\]
+Thus
+\[
+ \frac{2m Z_{\rm H}(P)}{(\operatorname{per}T)^2}
+ =\det(I-BB^\top)
+      +O_\delta(m^{-1/9}Ae^A)
+      +e^{-c(\log(2m))^3\log\log(2m)}.
+\]
+The determinant is at least \(e^{-C_\delta A}\).
+The relative error therefore tends to zero because
+\(A=o(\log m)\).
+Finally
+\[
+ (\operatorname{per}T)^2
+  =(1+o(1))\left(\frac{m!}{m^m}\right)^2
+                               \det(I-B^\top B)^{-1}.
+\]
+The two determinants are equal.
+Their entire spectral contribution cancels, giving the
+factorial formula and then its Stirling form.
+The argument shows why an absolute estimate of the signed
+leading minors would miss the relative constant.
+\end{proof}
+
+\begin{corollary}[Relative counts from entropy-normalized graph weights]
+\label{cor:relativegraphentropy}
+For a simple balanced bipartite graph with positive stochastic
+scaling \(P=\diag(u)A_G\diag(u)\), assume the hypotheses of
+Theorem~\ref{thm:relativebipartite}.
+Then
+\[
+ h(G)=(1+o(1))\pi
+       \exp\left(-N-2\sum_v\log u_v\right).
+\]
+For a simple graph of either parity with stochastic scaling
+satisfying Theorem~\ref{thm:relativeaperiodic}, its relative
+count is
+\[
+ h(G)=(1+o(1))\frac{(N-1)!}{2N^N}
+  \exp\left(-2\sum_v\log u_v\right)
+           \sqrt{\frac{\det(I-B)}{\det(I+B)}} ,
+ \qquad B=P-J_N/N .
+\]
+Both formulas allow zero support. The second uses symmetry
+to simplify the determinant ratio.
+\end{corollary}
+\begin{proof}
+Every cycle weight is multiplied by \(\prod_vu_v^2\).
+For symmetric \(B\),
+\(I-B^\top B=(I-B)(I+B)\), and both factors are positive
+definite on their nontrivial spaces under the stated gap.
+Substitute the two relative theorems, dividing directed
+cycle counts by two only in the aperiodic formula.
+\end{proof}
+
+\begin{remark}[The density ranges are part of the result]
+The relative aperiodic estimate here requires \(A^2=o(\log N)\);
+the bipartite estimate permits \(A=o(\log N)\).
+They are stronger precision statements on a narrower domain
+than the earlier diffuse-kernel entropy theorem.
+These estimates alone do not apply to the prime-sum
+normalization where \(N\max P_{ij}\) is of order \(\log N\).
+The signed first-correction argument in
+Section~\ref{sec:signedjetcomparison} closes that boundary
+under its explicit determinant-amplification condition.
+They do cover all unitary Cayley graphs, whose corresponding
+parameter is \(O(\log\log N)\), as proved next.
+\end{remark}

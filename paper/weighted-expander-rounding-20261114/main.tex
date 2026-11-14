@@ -1,0 +1,470 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm,hyperref}
+% Reuse cached script fonts in the desktop compiler, including nested indices.
+\DeclareMathSizes{10}{10}{8}{8}
+\DeclareMathSizes{10.95}{10.95}{8}{8}
+\setlength{\textwidth}{6.5in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\evensidemargin}{0in}
+\setlength{\textheight}{9in}
+\setlength{\topmargin}{-0.5in}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\one}{\mathbf1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\E}{\mathbb E}
+\newcommand{\supp}{\operatorname{supp}}
+\newcommand{\diag}{\operatorname{diag}}
+\newcommand{\e}{\mathrm e}
+\newcommand{\phiG}{\varphi}
+\title{Signed compensation and relative Hamiltonian enumeration\\
+in arithmetic graphs}
+\author{Research draft}
+\date{November 14, 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We develop two Hamiltonian counting results for stochastic kernels
+with a fixed spectral gap, allowing zero entries.
+For diffuse symmetric kernels, including balanced bipartite kernels,
+Hamilton cycles and every admissible prescribed-endpoint spanning
+path have total weight with logarithm
+\[
+ -N+O_{\delta,C}(N\alpha^{1/8}\log(2N)),
+ \qquad \alpha=\max P_{ij}.
+\]
+A sufficient condition is
+\(\alpha\leq C(\log(2N))^{-30,000,000}\).
+The finite ingredients are simple exact-regular spectral rounding,
+observable-preserving sampling, complementary-cut control, and
+the Brada\v{c}--Janzer spanning-path theorem.
+
+For denser kernels we obtain relative asymptotics by tracking
+growing entry bounds in the Gaussian permanent expansion and
+retaining the signed determinant--permanent identity.
+For bipartite cross blocks at logarithmic density, an explicit
+minor expansion and signed occupancy derivatives give a relative
+comparison whenever
+\(\det((I+BB^\top)/(I-BB^\top))\leq m^{2-\varepsilon}\).
+In particular a fixed gap and \(A=o(\log m)\) suffice.
+The Hamilton-cycle weight is
+\[
+ (1+o(1))\frac{(m!)^2}{2m\,m^{2m}}
+                  =(1+o(1))\pi e^{-2m}.
+\]
+Cauchy--Binet cancels the complete nontrivial spectral determinant,
+including mismatched row and column supports.
+An aperiodic relative formula holds when \(A^2=o(\log N)\).
+For any fixed number of directed cyclic layers, we retain the
+complete product determinant at the larger range \(A=o(\log m)\).
+The two-layer symmetric case is exactly the cancellation case.
+
+Two arithmetic consumers are independent of RH.
+Prime-sum graphs are Hamiltonian at every sufficiently large even
+order and have the full relative count
+\[
+ h(G_N)=\pi e^{2\mathcal H_N-N}(1+O(N^{-3/5})),
+\]
+where \(\mathcal H_N\) is their exact proper fractional-edge entropy.
+The arithmetic input is the existing signed prime operator transfer;
+no prime-pair asymptotic is assumed.
+We also obtain complete fixed-congruence classification at the
+exponential scale and a residue-profile relative-entropy law.
+For coprime circles through \(\mathbb Z/n\mathbb Z\), we determine
+the full relative count uniformly over all growing moduli:
+\[
+ h(X_n)=(1+O(n^{-1/10}))(\varphi(n)/e)^n
+ \begin{cases}
+ \pi,& n\ {\rm even},\\
+ \mathfrak C(n)\sqrt{\pi/(2n)},& n\ {\rm odd}.
+ \end{cases}
+\]
+The odd arithmetic factor has an explicit uniformly convergent
+prime-product expansion.
+Filz's all-orders finite remainder is not settled.
+These are ordinary paper proofs; Lean certification and independent
+verification remain separate.
+\end{abstract}
+
+\section{Statements and the complete consumer}
+Let \(N=2m\), with fixed parts \(A,B\) of size \(m\).
+All matrices in the rounding statements act on Euclidean space.
+Write \(s=\one_A-\one_B\) and
+\[
+ V_0=\{\one,s\}^{\perp},\qquad L=\log(2N).
+\]
+A stochastic bipartite kernel \(P\) is a real symmetric nonnegative
+matrix with zero within-part blocks and \(P\one=\one\).
+Thus \(Ps=-s\).
+Its nontrivial gap is at least \(\delta\in(0,1)\) if
+\(\|P|_{V_0}\|\leq1-\delta\).
+Put \(\alpha=\max_{ij}P_{ij}\).
+Throughout, \(\e(t)=\exp(2\pi\mathrm{i}t)\).
+Here a support graph has an edge precisely at a positive off-diagonal
+entry; it has no loops.
+
+\begin{theorem}[Simple regular spectral rounding]\label{thm:rounding}
+For each fixed \(\delta\in(0,1)\), there are constants
+\(c_\delta,C_\delta>0\) such that the following holds.
+If \(P\) has gap at least \(\delta\), \(1\leq d\leq m\)
+is an integer, and
+\[
+ d\alpha L^2\leq c_\delta,
+\]
+then its support contains a simple \(d\)-regular spanning graph \(H\)
+satisfying
+\[
+ \left\|\frac{A_H}{d}-P\right\|
+ \leq C_\delta\left(
+      d\alpha L+\sqrt{\frac{L}{d}}+\frac{L}{d}\right).
+ \tag{1}
+\]
+The constants are uniform in \(P,N,d\).
+They are not numerically optimized.
+\end{theorem}
+
+The simplicity conclusion requires controlling the forbidden edges
+after every matching; independent Birkhoff samples alone would
+produce a regular multigraph.
+
+We use the following established result, with its precise bipartite
+scope. By Brada\v{c}--Janzer~\cite[Corollary 1.4]{BJ}, for sufficiently
+large \(N\), a simple \(D\)-regular bipartite graph with
+\(\lambda_2\leq(1-\eta)D\) is Hamiltonian whenever
+\[
+ D>(3\eta^{-1}\log N)^K,\qquad K=10^8.                       \tag{2}
+\]
+Here \(\lambda_2\) is the algebraically second eigenvalue; the
+bipartite eigenvalue \(-D\) is permitted.
+The cited expansion definition applies up to \(2N/3\);
+a spectral gap \(\eta\) supplies its edge-expansion constant
+\(\eta/3\).
+
+\begin{corollary}[Diffuse expanding kernels have Hamiltonian support]
+\label{cor:weightedhamilton}
+Fix \(a,\delta\in(0,1)\).
+For all sufficiently large even \(N\), every stochastic bipartite
+kernel with nontrivial gap at least \(\delta\) and
+\(\alpha\leq N^{-a}\) has Hamiltonian support.
+More generally there is \(b_\delta>0\) such that, for sufficiently
+large \(N\), the same conclusion holds when
+\[
+ \alpha\leq b_\delta L^{-(K+3)}.                              \tag{3}
+\]
+Consequently a non-Hamiltonian support with this fixed gap must
+have an entry larger than the right side of (3).
+\end{corollary}
+
+Let \(G_N\) have integer vertices \(1,\ldots,N\) and edges
+\(ij\) for distinct \(i,j\) when \(i+j\) is prime.
+
+\begin{theorem}[Eventual Filz and a regular spectral subgraph]
+\label{thm:filz}
+For every sufficiently large even \(N\), \(G_N\) contains a simple
+\(d_N\)-regular spanning bipartite graph \(H_N\), where
+\[
+ d_N=\lfloor N^{1/4}\rfloor,\qquad
+ \lambda_2(H_N)\leq(1/2+o(1))d_N.                            \tag{4}
+\]
+In particular \(G_N\) is Hamiltonian for every sufficiently large
+even \(N\).
+\end{theorem}
+
+Filz's conjecture asks for Hamiltonicity at every even order at
+least four. Chen, Fu and Guo~\cite{CFG} proved infinitely many cases.
+Theorem~\ref{thm:filz} asserts an eventual statement and leaves a finite,
+unbounded-in-this-draft remainder. We do not claim the complete
+all-orders conjecture.
+Shang--Li--Zhang~\cite{SLZ} construct an infinite prime circle,
+a two-way ordering of all positive integers. That result concerns
+an infinite graph, rather than every sufficiently large finite order. The arithmetic proof is unconditional and
+uses no RH or QRH hypothesis.
+
+The chain proving (4) and the Hamiltonicity conclusion is:
+a signed prime-convolution operator limit; uniform prime-weighted
+degrees; an exact stochastic scaling with controlled error;
+Theorem~\ref{thm:rounding}; and finally the established theorem (2).
+All row defects, forbidden-edge losses and martingale drift are
+estimated below.
+
+The uniform unweighted degrees allow a stronger integral-factor
+consumer in Section~\ref{sec:regularfactors}: the degree improves
+from \(N^{1/4}\) to \((1-o(1))N/\log N\).
+The same section proves a positive-density packing of Hamilton
+cycles and explicit local resilience.
+Section~\ref{sec:filters} classifies all fixed congruence filters
+by their exact finite Fourier obstruction.
+Section~\ref{sec:paths} verifies all hypotheses for prescribed
+spanning paths, including arbitrary parity-compatible endpoints.
+Section~\ref{sec:enumeration} proves the unweighted counting
+theorem with any fixed nontrivial spectral gap.
+Section~\ref{sec:weightedentropy} gives weighted universality
+for diffuse stochastic bipartite kernels.
+Sections~\ref{sec:pathentropy}--\ref{sec:generalkernels} extend
+it to prescribed spanning paths and general symmetric
+aperiodic kernels at all orders, with quantitative error
+\[
+ \log\sum_{C\ {\rm Hamilton}}\prod_{ij\in E(C)}P_{ij}
+       =-N+O_{\delta,C}(N\alpha^{1/8}\log(2N)).
+\]
+The resulting Sinkhorn entropy formula applies to sparse
+nonuniform graphs, beyond a bipartite restriction.
+Section~\ref{sec:coprimecircles} supplies an arithmetic
+counting application with the modulus itself growing.
+Section~\ref{sec:residuepressure} determines the partition
+function under every fixed positive prime-residue tilt and
+derives its full empirical relative-entropy law.
+In particular
+\[
+ \log h(G_N)=N\log N-N\log\log N-N+o(N).
+\]
+The same formula includes \(N\log\sigma_R\) for every
+unobstructed fixed congruence filter.
+The prime-sum counting error is exponential in \(o(N)\).
+Sections~\ref{sec:relativepermanents}--\ref{sec:relativecoprime}
+prove relative formulas on the stated denser-kernel domains,
+and in particular a full relative count for coprime circles.
+Those initial estimates alone do not cover the prime-sum
+density boundary. Sections~\ref{sec:secondpermanent}--\ref{sec:relativeprimecircles}
+close that range by retaining the full first-order minor correction
+and bounding its remainder only after the signed sum is evaluated.
+This yields a power-saving relative count around the exact graph
+entropy, without replacing that entropy by its coarse asymptotic.
+Sections~\ref{sec:periodiccomparison}--\ref{sec:layeredcoprime}
+extend the signed comparison to every fixed number of cyclic
+layers, including noncommuting cross blocks.
+The arithmetic consumer classifies all parity obstructions and
+computes the higher-layer prime interactions explicitly.
+
+\input{scaling}
+\input{rounding}
+\input{prime-sum}
+\input{regular-factors}
+\input{congruence-filters}
+\input{prescribed-paths}
+\input{hamilton-enumeration}
+\input{weighted-entropy}
+\input{bipartite-path-entropy}
+\input{general-kernels}
+\input{coprime-circles}
+\input{prime-residue-pressure}
+\input{relative-permanents}
+\input{relative-hamilton}
+\input{relative-coprime-circles}
+\input{periodic-comparison}
+\input{layered-coprime}
+\input{permanent-second-order}
+\input{compensated-minor-jet}
+\input{signed-jet-comparison}
+\input{prime-circle-relative}
+
+\section{Provenance and verification status}
+Birkhoff decomposition, integral maximum flow, matrix Freedman,
+classical prime estimates, and the Brada\v{c}--Janzer
+Hamiltonicity theorem are established inputs.
+The cut proof of regular-factor extraction is supplied to expose
+its exact loss, not claimed as a new maximum-flow principle.
+
+Spectral control of matrix scaling is developed by
+Kwok--Lau--Ramachandran~\cite{KLR}.
+Degree-preserving spectral sparsification~\cite{CGPSS}
+preserves weighted degrees in a reweighted sparse graph.
+Dinitz--Krauthgamer--Wagner~\cite{DKW} obtain sparse regular
+expanding subgraphs, with edge weights in \(\{1,2\}\),
+from fixed-density regular expanders.
+Our finite rounding conclusion instead has unit edge weights,
+simplicity, exact prescribed degree and an explicit operator
+error, for a diffuse weighted kernel.
+Independent Birkhoff sampling does not ensure simplicity;
+the quantified forbidden-edge repair addresses this distinction.
+No claim is made that the local scaling principle itself is new.
+
+The arithmetic advance proposed here is from the infinitely
+many cases proved in~\cite{CFG} to all sufficiently large even
+orders, together with near-optimal factors, Hamilton-cycle
+packings, local resilience, and the complete fixed-congruence
+classification.
+The signed Fourier model keeps the actual residue phases;
+density alone cannot distinguish the Hamiltonian and
+disconnected cases.
+The general counting theorem permits a fixed nontrivial
+spectral ratio, whereas the earlier Krivelevich and
+Byrne--Tait enumeration theorems~\cite{Krivelevich,BT} require
+a ratio tending to zero at least logarithmically.
+Our degree threshold \(D\geq(\log N)^{20,000,000}\)
+is explicit and unoptimized; the recent spanning-path
+theorem in~\cite{BJ} is an essential input.
+Gap inheritance under random vertex restriction is a
+known matrix-concentration mechanism; see
+M\"uyesser~\cite{Muyesser} and its antecedents.
+It is supplied here in the form needed by the counting
+consumer, not claimed as a new sampling principle.
+The weighted extension permits zero support, fixed spectral
+ratio and sparse nonuniform degrees.
+Cuckler--Kahn~\cite{CK} prove entropy counting in the Dirac
+setting, including dense balanced bipartite analogues;
+Barvinok's comparison~\cite{Barvinok} assumes all entries
+positive with a lower bound relative to their maximum.
+Neither stated hypothesis covers the sparse kernels here.
+The entropy method of Christoph et al.~\cite{CycleFactors}
+controls the expected number of cycles in a random regular
+directed cycle-factor; it does not assert the weighted
+one-cycle formula proved here.
+The general-kernel extension does not condition independent
+half-sets to be complementary. Its exact covariance identity
+controls both restrictions together, with only polynomial-cost
+balance conditioning.
+The odd-order reduction retains endpoint scaling factors and
+uses actual minor permanents rather than assuming row sums
+survive deletion.
+Unitary Cayley spectra and Hamiltonian path existence are
+established facts~\cite{KS,Basic}; the added application concerns
+quantitative counts through all growing moduli, now with a
+power-saving relative error and the full arithmetic constant.
+
+The determinant permanent approximation originates with
+McCullagh~\cite{McC}. His moderate-deviation hypothesis requires
+bounded moments of every order for \(N(D-J_N/N)\).
+For the unitary kernels along primorials, those moments grow
+as powers of \(N/\varphi(N)\), so that hypothesis does not
+apply uniformly along all moduli.
+Divoux--Wang~\cite{DW} prove fixed-entry permanent and
+Hamiltonian formulas with a fixed singular gap.
+Our relative argument uses their finite Gaussian, Wick and
+Gamma estimates with explicit growing-parameter dependence.
+It also separates the exact bipartite parity mode, which
+violates an aperiodic norm hypothesis.
+The signed bipartite cancellation and the all-modulus arithmetic
+consumer, and the cyclic-layer comparison with its full
+noncommuting product and arithmetic parity classification,
+are the additional conclusions proposed here;
+neither the Gaussian representation nor Liu's identity~\cite{Liu}
+is claimed as new.
+The extension to actual prime density requires a further argument:
+the first Gaussian permanent correction is kept explicitly,
+its change across complementary minors cancels to two-power
+precision, and the remaining support-dependent quadratic
+correction is evaluated by signed determinant derivatives.
+Only its \(N^{-2}\) remainder pays the determinant amplification.
+The resulting logarithmic-density theorem is distinct from
+substituting a growing parameter into a fixed-bound asymptotic.
+The exact-entropy normalization is retained in the relative
+prime-circle count; its coarse explicit evaluation is not
+asserted to have relative precision.
+Our residue-pressure application determines the exponential
+cost of every approximate residue profile, while retaining
+the exact congruence identities of each prime circle.
+No independence of its edges is assumed.
+Targeted primary-literature searches have not located these
+combined conclusions; that is preliminary priority evidence,
+not a certificate of priority or career-level recognition.
+The proofs have undergone the internal hypothesis and loss
+checks recorded in STATUS.json. The maintained Lean development
+now verifies finite cycle-subset cancellation, principal-minor
+generating formulas, Cauchy--Binet and the full signed two-support
+squared-minor cancellation, rank-one pole cancellation on every
+nonempty support, and centered stochastic energy bounds.
+These finite inputs are exported by \texttt{HamiltonianFinite}.
+The \texttt{HamiltonianBlockCovariance} module also derives the
+full covariance entry bound from stochasticity and the actual
+centered spectral gap. These proofs do not assume the analytic
+comparison theorem. The Hamiltonian-cycle identification,
+coordinate occupancy identities and derivative estimates,
+uniform permanent and minor remainders, and arithmetic
+specializations remain formalization obligations. In particular,
+none of the headline counting or inverse theorems is yet
+Lean-certified. Compilation of this manuscript does not provide
+mathematical or formal certification, and independent referee
+verification remains outstanding.
+
+\begin{thebibliography}{99}
+\bibitem{DW}
+A. Divoux and S. Wang,
+\emph{The Maximum Number of Hamiltonian Cycles in Tournaments},
+2026. \url{https://arxiv.org/abs/2610.23755}.
+\bibitem{McC}
+P. McCullagh,
+\emph{An asymptotic approximation for the permanent of a doubly
+stochastic matrix},
+Journal of Statistical Computation and Simulation 84 (2014), 404--414.
+\url{https://doi.org/10.1080/00949655.2012.712122}.
+\bibitem{Liu}
+C. J. Liu,
+\emph{Enumeration of Hamiltonian cycles and paths in a graph},
+Proceedings of the American Mathematical Society 111 (1991), 289--296.
+\bibitem{BJ}
+D. Brada\v{c} and O. Janzer,
+\emph{Hamiltonicity of regular sublinear expanders},
+2026. \url{https://arxiv.org/abs/2605.15043}.
+\bibitem{Tropp}
+J. A. Tropp, \emph{Freedman's inequality for matrix martingales},
+2011. \url{https://arxiv.org/abs/1101.3039}.
+\bibitem{CFG}
+H.-B. Chen, H.-L. Fu and J.-Y. Guo,
+\emph{Hamiltonicity in Prime Sum Graphs},
+Graphs and Combinatorics 37 (2021), 209--219.
+\url{https://doi.org/10.1007/s00373-020-02241-1}.
+\bibitem{SLZ}
+W. Shang, B. Li and S. Zhang,
+\emph{An infinite version of prime circles},
+Graphs and Combinatorics 41 (2025), article 112.
+\url{https://doi.org/10.1007/s00373-025-02976-9}.
+\bibitem{Vaughan}
+R. C. Vaughan, \emph{The Hardy--Littlewood Method},
+second edition, Cambridge University Press, 1997.
+\bibitem{KLR}
+T. C. Kwok, L. C. Lau and A. Ramachandran,
+\emph{Spectral Analysis of Matrix Scaling and Operator Scaling},
+SIAM Journal on Computing 50 (2021), 1034--1102.
+\url{https://arxiv.org/abs/1904.03213}.
+\bibitem{DKW}
+M. Dinitz, R. Krauthgamer and T. Wagner,
+\emph{Towards Resistance Sparsifiers}, APPROX/RANDOM 2015.
+\url{https://doi.org/10.4230/LIPIcs.APPROX-RANDOM.2015.738}.
+\bibitem{CGPSS}
+T. Chu, Y. Gao, R. Peng, S. Sachdeva, S. Sawlani and J. Wang,
+\emph{Graph Sparsification, Spectral Sketches, and Faster
+Resistance Computation via Short Cycle Decompositions},
+SIAM Journal on Computing 52 (2023).
+\url{https://arxiv.org/abs/1805.12051}.
+\bibitem{Krivelevich}
+M. Krivelevich,
+\emph{On the Number of Hamilton Cycles in Pseudo-Random Graphs},
+Electronic Journal of Combinatorics 19 (2012), P25.
+\url{https://doi.org/10.37236/1177}.
+\bibitem{BT}
+J. Byrne and M. Tait,
+\emph{Improved upper bounds on even-cycle creating Hamilton paths},
+Discrete Mathematics 347 (2024), 114107.
+\url{https://arxiv.org/abs/2304.02164}.
+\bibitem{Muyesser}
+A. M\"uyesser,
+\emph{Hamiltonicity of mildly pseudorandom regular graphs},
+2026. \url{https://arxiv.org/abs/2609.35766}.
+\bibitem{CK}
+B. Cuckler and J. Kahn, \emph{Hamiltonian cycles in Dirac graphs},
+Combinatorica 29 (2009), 299--326.
+\url{https://doi.org/10.1007/s00493-009-2360-2}.
+\bibitem{Barvinok}
+A. Barvinok, \emph{On Testing Hamiltonicity of Graphs}, 2014.
+\url{https://sites.lsa.umich.edu/barvinok/wp-content/uploads/sites/1434/2025/05/hamil.pdf}.
+\bibitem{CycleFactors}
+M. Christoph, N. Dragani\'c, A. Gir\~ao, E. Hurley,
+L. Michel and A. M\"uyesser,
+\emph{Cycle-factors of regular graphs via entropy}, 2025,
+revised 2026. \url{https://arxiv.org/abs/2507.19417}.
+\bibitem{KS}
+W. Klotz and T. Sander, \emph{Some properties of unitary Cayley graphs},
+Electronic Journal of Combinatorics 14 (2007), R45.
+\url{https://doi.org/10.37236/963}.
+\bibitem{Basic}
+M. Ba\v{s}i\'c,
+\emph{Hamiltonian properties on a class of circulant interconnection networks},
+Filomat 32 (2018), 71--85.
+\url{https://doi.org/10.2298/FIL1801071B}.
+\end{thebibliography}
+\end{document}

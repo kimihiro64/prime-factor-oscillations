@@ -1,0 +1,262 @@
+\section{The integer prime-sum operator and its application}
+\label{sec:primesum}
+Let \(N\) be even. For \(1\leq i,j\leq N\), first put
+\[
+ A_N(i,j)=\frac{\Lambda(i+j)}{N}.
+\]
+The normalized vector inner product is
+\(\langle f,g\rangle_N=N^{-1}\sum_i\overline{f_i}g_i\);
+its induced operator norm agrees with the Euclidean one.
+The adjacency support used at the end will exclude both
+proper prime powers and diagonal entries.
+
+\begin{lemma}[Signed integer-input transfer]
+\label{lem:integertransfer}
+For every fixed \(B>0\), there is a fixed \(C>0\) such that,
+with \(Q=(\log N)^C\),
+\[
+ \left\|A_N-
+    \left(\frac1N\sum_{q\leq Q}
+                \frac{\mu(q)}{\phiG(q)}c_q(i+j)\right)_{ij}
+       \right\|\ll_B(\log N)^{-B}.                          \tag{16}
+\]
+Here \(c_q(t)=\sum_{a\bmod q,(a,q)=1}\e(at/q)\)
+is the Ramanujan sum. The complete signed main term is retained.
+\end{lemma}
+\begin{proof}
+We record the argument orientation explicitly.
+For distinct symbolic vectors \(f,g\), set
+\(F_f(\theta)=\sum_{i=1}^N f_i\e(i\theta)\) and
+\(S_M(\theta)=\sum_{r\leq M}\Lambda(r)\e(r\theta)\),
+where \(M=4N+4\). Exact Fourier inversion gives
+\[
+ \langle f,A_Ng\rangle_N
+ =N^{-2}\int_0^1 S_M(\theta)
+             \overline{F_f(\theta)}F_g(-\theta)\,d\theta .
+ \tag{17}
+\]
+Thus the left matrix factor is the conjugate of the first
+argument. Parseval and Cauchy--Schwarz give
+\[
+ \int_0^1|F_f(\theta)F_g(-\theta)|\,d\theta
+                  \leq N\|f\|_N\|g\|_N.                    \tag{18}
+\]
+
+Use major arcs \(|\theta-a/q|\leq T/N\), \(q\leq Q\),
+where \(T=(\log N)^D\) and \(D\) is a sufficiently large
+fixed exponent. These arcs are disjoint for large \(N\).
+Take the integer \(H=\lceil N/T\rceil\).
+Dirichlet approximation supplies coprime \(a,q\) with
+\(1\leq q\leq H\) and
+\[
+ |\theta-a/q|\leq1/(qH)\leq T/(qN).
+\]
+If \(q\leq Q\), this lies in the stated major arc.
+On their complement \(Q<q\leq H\leq2N/T\), and
+Vaughan's standard estimate~\cite{Vaughan} implies
+\[
+ |S_M(\theta)|
+ \ll N(\log N)^4
+       \left(Q^{-1/2}+T^{-1/2}+N^{-1/5}\right).
+\]
+For completeness, the estimate being used is
+\[
+ |S_M(\theta)|\ll
+ (Mq^{-1/2}+M^{4/5}+M^{1/2}q^{1/2})(\log M)^4
+\]
+when \(|\theta-a/q|\leq q^{-2}\).
+The approximation also satisfies \(|\theta-a/q|\leq q^{-2}\),
+because \(q\leq H\). On the minor arcs its denominator
+satisfies \(Q<q\leq2N/T\).
+Equation (18) therefore turns this into an operator error
+smaller than \((\log N)^{-B}\) if \(C,D\) are large enough.
+
+On each major arc, Siegel--Walfisz and partial summation give,
+with arbitrary prescribed logarithmic accuracy,
+\[
+ S_M(a/q+\beta)
+  =\frac{\mu(q)}{\phiG(q)}V_M(\beta)
+          +O(N(\log N)^{-A}),\qquad
+ V_M(\beta)=\int_0^M\e(t\beta)\,dt .
+\]
+The ranges \(q\leq Q\) and \(|\beta|\leq T/N\) are fixed
+logarithmic ranges. Choose the underlying prime estimate
+with accuracy sufficient to absorb the partial-summation
+factor \(1+M|\beta|\).
+The uniform error, inserted in (17)--(18), is again
+\(O((\log N)^{-B})\).
+
+It remains to justify the entire retained main kernel,
+including the arc tails.
+For \(s=i+j\in[2,2N]\), Fourier inversion of the interval
+\([0,M]\), followed by one integration by parts in each
+oscillatory tail, gives
+\[
+ \left|\int_{-T/N}^{T/N}
+            V_M(\beta)\e(-s\beta)\,d\beta-1\right|
+ \leq C\left(\frac{N}{T(i+j)}+\frac1T\right).
+\]
+The normalized matrix \(N^{-1}\) times this error has norm
+\(O(1/T)\): the Hilbert matrix \((1/(i+j))\) has bounded
+norm, for example by the Schur test with weights \(i^{-1/2}\).
+The phase at \(a/q\) is a diagonal unitary on each side,
+so does not change this bound.
+Summing the explicit remainder over reduced \(a\bmod q\)
+and \(q\leq Q\) costs at most \(O(Q/T)\).
+Choose \(D>C+B+10\).
+The retained phases sum to
+\(\mu(q)c_q(-(i+j))/\phiG(q)\), which equals the displayed
+main term since \(c_q(-s)=c_q(s)\).
+This proves (16) without applying an unsigned estimate to
+that main term.
+\end{proof}
+
+\begin{lemma}[The nontrivial ratio is one half]
+\label{lem:integerspectrum}
+Apart from at most one eigenvalue near \(1\) and at most one
+near \(-1\), every eigenvalue of \(A_N\) has modulus at most
+\(1/2+o(1)\). More precisely, in decreasing algebraic order,
+\[
+ \lambda_2(A_N)\leq1/2+o(1),\qquad
+ \lambda_{N-1}(A_N)\geq-1/2-o(1).
+ \tag{19}
+\]
+\end{lemma}
+\begin{proof}
+Use the orthonormal model basis indexed by reduced fractions
+\(a/q\bmod1\), with squarefree \(q\leq Q\), including
+\(0/1\) and \(1/2\).
+On this basis define the self-adjoint operator
+\[
+ C_Q e_{a/q}=\frac{\mu(q)}{\phiG(q)}e_{-a/q}.
+\]
+Its eigenvalues at \(0/1,1/2\) are \(1,-1\).
+All other blocks have norm \(1/\phiG(q)\leq1/2\).
+It is the finite cutoff of a compact direct sum of these
+orthogonal blocks.
+
+Let \(E_Qe_{a/q}(j)=\e(aj/q)\), using the normalized sample
+inner product. Its Gram matrix has diagonal 1.
+For two different fractions, geometric summation bounds
+the off-diagonal entry by \(C Q^2/N\).
+There are \(O(Q^2)\) basis vectors, so
+\[
+ \|E_Q^*E_Q-I\|\ll Q^4/N=o(1).
+\]
+Direct multiplication, with the first argument on the left
+as in (17), gives
+\[
+ (E_QC_QE_Q^*)(i,j)
+       =\frac1N\sum_{q\leq Q}
+                    \frac{\mu(q)}{\phiG(q)}c_q(i+j).
+\]
+The polar map \(U_Q=E_Q(E_Q^*E_Q)^{-1/2}\) is an isometry,
+and the evaluated operator differs from
+\(U_QC_QU_Q^*\) by \(O(Q^4/N)\) in operator norm.
+Append zero eigenvalues to this finite model.
+Equation (16) and Weyl's inequality give (19).
+There is one exceptional eigenvalue at each end of the
+spectrum, not two positive exceptions.
+\end{proof}
+
+\begin{lemma}[Uniform degrees and a true prime support]
+\label{lem:primeweights}
+Define the true prime-edge weight matrix
+\[
+ Q_N(i,j)=\frac{\log(i+j)}{N}
+       \one_{\,i\ne j,\ i+j\ {\rm prime}}.
+\]
+It is symmetric and supported between the odd and even
+integers, which form equal parts.
+For every fixed \(B>0\),
+\[
+ \|Q_N\one-\one\|_\infty\ll_B(\log N)^{-B},\qquad
+ \|Q_N-A_N\|\ll N^{-1/2}(\log N)^2,\qquad
+ \max_{ij}Q_N(i,j)\leq\frac{\log(2N)}N.                      \tag{20}
+\]
+If \(D_N=\diag(Q_N\one)\), its normalized operator
+\(D_N^{-1/2}Q_ND_N^{-1/2}\) has simple eigenvalues \(1,-1\)
+and all others of modulus at most \(1/2+o(1)\).
+\end{lemma}
+\begin{proof}
+The exact raw row sum is
+\[
+ (A_N\one)_i
+       =\frac{\psi(i+N)-\psi(i)}{N}.
+\]
+The classical strong prime number theorem,
+\(\psi(x)=x+O_B(x/(\log(x+2))^B)\), gives \(1+
+O_B((\log N)^{-B})\) uniformly for \(1\leq i\leq N\).
+Constants for bounded \(x\) can be absorbed; equivalently
+split the range before applying the estimate.
+
+For a fixed input, every proper-prime-power output
+determines at most one other vertex.
+There are \(O(N^{1/2}\log N)\) such outputs up to \(2N\),
+each of weight at most \(\log(2N)\).
+The normalized removed row sum is therefore
+\(O(N^{-1/2}(\log N)^2)\).
+The diagonal costs at most \(\log(2N)/N\) per row.
+Symmetry and the row-sum norm bound prove the second
+estimate in (20); the same errors preserve the first.
+The entry bound is immediate.
+Every off-diagonal prime output is odd, because the sole
+representation of prime 2 by positive equal-bounded inputs
+is the removed loop at vertex 1.
+Thus the remaining support is exactly bipartite.
+
+Its degree matrix is \(I+o(1)\), so normalization changes
+the operator by \(o(1)\).
+The normalized matrix has eigenvalues \(1,-1\), with vectors
+\(D_N^{1/2}\one,D_N^{1/2}s\).
+Equation (19) permits no further eigenvalue of modulus
+larger than \(1/2+o(1)\).
+It also forces these two eigenvalues to be simple;
+multiple components would supply extra eigenvalues at 1.
+This proves the final assertion.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:filz}]
+Apply Lemma~\ref{lem:scaling} to \(Q_N\), with any fixed gap
+smaller than \(1/2\), using (20).
+For instance take the row accuracy \(B=10\);
+then \(\varepsilon L^2\to0\).
+The result is a symmetric stochastic bipartite \(P_N\)
+with exactly the true prime-edge support and
+\[
+ \|P_N-Q_N\|=o(1),\qquad
+ \max_{ij}(P_N)_{ij}\ll\frac{\log N}{N}.
+\]
+Its nontrivial spectral ratio is \(1/2+o(1)\).
+Fix a positive gap such as \(1/3\) for all sufficiently
+large \(N\), and take \(d_N=\lfloor N^{1/4}\rfloor\).
+The finite rounding theorem applies, since
+\[
+ d_N\alpha_N L^2\ll N^{-3/4}(\log N)^3\longrightarrow0.
+\]
+Its complete operator error is
+\[
+ O\left(N^{-3/4}(\log N)^2+
+             N^{-1/8}\sqrt{\log N}+N^{-1/4}\log N\right)=o(1).
+\]
+It gives a simple \(d_N\)-regular spanning subgraph of
+\(G_N\), whose second eigenvalue is at most
+\((1/2+o(1))d_N\).
+This is (4).
+For sufficiently large \(N\) its gap is at least \(1/3\).
+The polynomial degree exceeds \((9\log N)^K\).
+The established bipartite theorem (2) therefore supplies
+a Hamilton cycle in this subgraph, and hence in \(G_N\).
+All proper-prime-power and loop contributions were removed
+before the support was used.
+\end{proof}
+
+\begin{remark}[Quantifiers and the finite remainder]
+Every sufficiently large even \(N\) is covered, rather than
+a selected subsequence of prime gaps.
+The starting threshold depends on classical prime estimates
+and on the large-order threshold in (2), and has not been
+made numerical. This draft therefore leaves the finite
+remainder of the all-orders Filz conjecture unresolved.
+No finite prime experiment is used to fill that remainder.
+\end{remark}

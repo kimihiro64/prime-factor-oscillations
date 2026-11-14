@@ -1,0 +1,1276 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-14",
+  "title": "Signed compensation and relative Hamiltonian enumeration in arithmetic graphs",
+  "root": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114",
+  "main_file": "main.tex",
+  "scope": "Complete the mathematical argument and its maintained Lean formalization, including the headline comparison, inverse theorem and independent arithmetic applications; paper-only work is not completion.",
+  "proof_status": "ordinary_arguments_under_continued_audit; maintained_Lean_formalization_in_progress; headline_not_Lean_certified",
+  "assumptions": {
+    "RH": false,
+    "QRH": false,
+    "unproved_prime_tuple_conjectures": false,
+    "fixed_spectral_gap": true,
+    "fixed_even_modulus": true,
+    "fixed_positive_residue_weights": true,
+    "growing_modulus_or_tilt_uniformity": false,
+    "fixed_even_modulus_scope": "Prime-progression filters only; coprime circles cover every growing modulus.",
+    "general_kernels_need_bipartite_support": false,
+    "general_kernels_have_fixed_aperiodic_gap": true,
+    "general_kernel_orders": "both parities; diagonal entries allowed"
+  },
+  "constants": {
+    "rounding": "c_delta,C_delta exist with explicit dependence in the proof; numerical values not optimized",
+    "degree_threshold_unweighted": 20000000,
+    "diffuseness_power_weighted": 30000000,
+    "weighted_entropy_error": "O_{delta,C}(N alpha^(1/8) log(2N))",
+    "starting_order": "asymptotic, not numerical",
+    "prime_circle_count_precision": "exp(o(N)); not a relative-error 1+o(1) formula",
+    "relative_permanent": "1+O_{delta,K}(N^(-1/8)), max entry A/N with A<=log(N)^K",
+    "relative_aperiodic": "relative error O_delta(N^(-1/9) exp(C_delta A^2)); A^2=o(log N)",
+    "relative_bipartite_and_periodic": "relative error O_{delta,k}(m^(-1/9) exp(C_{delta,k} A)); A=o(log m), k fixed",
+    "relative_coprime": "O_k(n^(-1/10)) uniformly over all growing moduli, all parity cases",
+    "critical_bipartite_error": "O_{rho,C0}(log(2m)^M/m + log(2m)^M A(T)/m^2), A(T)=det(I+BB^T)/det(I-BB^T)",
+    "critical_density": "max T<=a log(m)/m, ||B||<=rho, a*kappa_rho<2; kappa_rho=log((1+rho^2)/(1-rho^2))/rho^2",
+    "prime_circle_relative": "h(G_N)=pi exp(2 H_N-N)(1+O(N^(-3/5))), H_N exact proper-edge entropy",
+    "prime_circle_relative_parameter_margin": "rho=3/5, a=3/5; kappa<9/4; amplification<=m^(27/20); residual m^(-13/20) log(m)^M",
+    "second_permanent_remainder": "O_delta((1+A)^40/N^2), with explicit first correction Q_N(D)"
+  },
+  "claims": [
+    {
+      "id": "lem:scaling",
+      "title": "A quantitative bipartite scaling repair",
+      "kind": "lemma",
+      "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\scaling.tex",
+      "status": "ordinary_proof_written_and_internal_audit_passed",
+      "lean_status": "pending_full_Lean_proof"
+    },
+    {
+      "id": "cor:forbiddenrepair",
+      "title": "Repair after forbidden edges",
+      "kind": "corollary",
+      "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\scaling.tex",
+      "status": "ordinary_proof_written_and_internal_audit_passed",
+      "lean_status": "pending_full_Lean_proof"
+    },
+    {
+      "id": "lem:observablerounding",
+      "title": "Rounding preserves two specified row observables",
+      "kind": "lemma",
+      "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\rounding.tex",
+      "status": "ordinary_proof_written_and_internal_audit_passed",
+      "lean_status": "pending_full_Lean_proof"
+    },
+    {
+      "id": "lem:integertransfer",
+      "title": "Signed integer-input transfer",
+      "kind": "lemma",
+      "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\prime-sum.tex",
+      "status": "ordinary_proof_written_and_internal_audit_passed",
+      "lean_status": "pending_full_Lean_proof"
+    },
+    {
+      "id": "lem:integerspectrum",
+      "title": "The nontrivial ratio is one half",
+      "kind": "lemma",
+      "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\prime-sum.tex",
+      "status": "ordinary_proof_written_and_internal_audit_passed",
+      "lean_status": "pending_full_Lean_proof"
+    },
+    {
+      "id": "lem:primeweights",
+      "title": "Uniform degrees and a true prime support",
+      "kind": "lemma",
+      "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\prime-sum.tex",
+      "status": "ordinary_proof_written_and_internal_audit_passed",
+      "lean_status": "pending_full_Lean_proof"
+    },
+    {
+      "id": "lem:regularfactor",
+      "title": "Regular factors from near regularity and cuts",
+      "kind": "lemma",
+      "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\regular-factors.tex",
+      "status": "ordinary_proof_written_and_internal_audit_passed",
+      "lean_status": "pending_full_Lean_proof"
+    },
+    {
+      "id": "lem:unweightedtransfer",
+      "title": "Unweighted spectral transfer",
+      "kind": "lemma",
+      "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\regular-factors.tex",
+      "status": "ordinary_proof_written_and_internal_audit_passed",
+      "lean_status": "pending_full_Lean_proof"
+    },
+    {
+      "id": "thm:nearlyoptimalfactor",
+      "title": "Near-optimal regular prime-sum factors",
+      "kind": "theorem",
+      "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\regular-factors.tex",
+      "status": "ordinary_proof_written_and_internal_audit_passed",
+      "lean_status": "pending_full_Lean_proof"
+    },
+    {
+      "id": "thm:manycycles",
+      "title": "A positive proportion of the prime edges in Hamilton cycles",
+      "kind": "theorem",
+      "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\regular-factors.tex",
+      "status": "ordinary_proof_written_and_internal_audit_passed",
+      "lean_status": "pending_full_Lean_proof"
+    },
+    {
+      "id": "thm:resilience",
+      "title": "Explicit positive local resilience",
+      "kind": "theorem",
+      "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\regular-factors.tex",
+      "status": "ordinary_proof_written_and_internal_audit_passed",
+      "lean_status": "pending_full_Lean_proof"
+    },
+    {
+      "id": "thm:filterclassification",
+      "title": "The finite obstruction is complete",
+      "kind": "theorem",
+      "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\congruence-filters.tex",
+      "status": "ordinary_proof_written_and_internal_audit_passed",
+      "lean_status": "pending_full_Lean_proof"
+    },
+    {
+      "id": "lem:filtermodel",
+      "title": "The complete signed Fourier model",
+      "kind": "lemma",
+      "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\congruence-filters.tex",
+      "status": "ordinary_proof_written_and_internal_audit_passed",
+      "lean_status": "pending_full_Lean_proof"
+    },
+    {
+      "id": "cor:sparseprimeclasses",
+      "title": "Arbitrarily small fixed prime density suffices",
+      "kind": "corollary",
+      "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\congruence-filters.tex",
+      "status": "ordinary_proof_written_and_internal_audit_passed",
+      "lean_status": "pending_full_Lean_proof"
+    },
+    {
+      "id": "lem:smallendpoints",
+      "title": "Arbitrary small endpoint sets meet the source condition",
+      "kind": "lemma",
+      "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\prescribed-paths.tex",
+      "status": "ordinary_proof_written_and_internal_audit_passed",
+      "lean_status": "pending_full_Lean_proof"
+    },
+    {
+      "id": "thm:linkages",
+      "title": "Almost-linear prescribed spanning linkages",
+      "kind": "theorem",
+      "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\prescribed-paths.tex",
+      "status": "ordinary_proof_written_and_internal_audit_passed",
+      "lean_status": "pending_full_Lean_proof"
+    },
+    {
+      "id": "cor:oddendpoints",
+      "title": "All parity-compatible prime-sum endpoints",
+      "kind": "corollary",
+      "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\prescribed-paths.tex",
+      "status": "ordinary_proof_written_and_internal_audit_passed",
+      "lean_status": "pending_full_Lean_proof"
+    },
+    {
+      "id": "cor:weightedlinkages",
+      "title": "Diffuse kernel supports admit prescribed spanning linkages",
+      "kind": "corollary",
+      "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\prescribed-paths.tex",
+      "status": "ordinary_proof_written_and_internal_audit_passed",
+      "lean_status": "pending_full_Lean_proof"
+    },
+    {
+      "id": "thm:hamiltonentropy",
+      "title": "Full exponential Hamilton entropy at fixed gap",
+      "kind": "theorem",
+      "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\hamilton-enumeration.tex",
+      "status": "ordinary_proof_written_and_internal_audit_passed",
+      "lean_status": "pending_full_Lean_proof"
+    },
+    {
+      "id": "lem:randomrestriction",
+      "title": "Two independent coordinate restrictions",
+      "kind": "lemma",
+      "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\hamilton-enumeration.tex",
+      "status": "ordinary_proof_written_and_internal_audit_passed",
+      "lean_status": "pending_full_Lean_proof"
+    },
+    {
+      "id": "lem:randomblockfactor",
+      "title": "Regular expanding factors in random blocks",
+      "kind": "lemma",
+      "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\hamilton-enumeration.tex",
+      "status": "ordinary_proof_written_and_internal_audit_passed",
+      "lean_status": "pending_full_Lean_proof"
+    },
+    {
+      "id": "cor:primecircleentropy",
+      "title": "The exponential asymptotic for prime circles",
+      "kind": "corollary",
+      "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\hamilton-enumeration.tex",
+      "status": "ordinary_proof_written_and_internal_audit_passed",
+      "lean_status": "pending_full_Lean_proof"
+    },
+    {
+      "id": "cor:entropyinverse",
+      "title": "An entropy and concentration inverse for kernel supports",
+      "kind": "corollary",
+      "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\hamilton-enumeration.tex",
+      "status": "ordinary_proof_written_and_internal_audit_passed",
+      "lean_status": "pending_full_Lean_proof"
+    },
+    {
+      "id": "thm:weightedentropy",
+      "title": "Hamiltonian-weight universality",
+      "kind": "theorem",
+      "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\weighted-entropy.tex",
+      "status": "ordinary_proof_written_and_internal_audit_passed",
+      "lean_status": "pending_full_Lean_proof"
+    },
+    {
+      "id": "lem:diffusepermanent",
+      "title": "A diffuse stochastic permanent upper bound",
+      "kind": "lemma",
+      "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\weighted-entropy.tex",
+      "status": "ordinary_proof_written_and_internal_audit_passed",
+      "lean_status": "pending_full_Lean_proof"
+    },
+    {
+      "id": "cor:onecyclecost",
+      "title": "The entropy cost of the one-cycle constraint",
+      "kind": "corollary",
+      "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\weighted-entropy.tex",
+      "status": "ordinary_proof_written_and_internal_audit_passed",
+      "lean_status": "pending_full_Lean_proof"
+    },
+    {
+      "id": "cor:sinkhornentropy",
+      "title": "Sinkhorn entropy determines nonuniform graph counts",
+      "kind": "corollary",
+      "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\weighted-entropy.tex",
+      "status": "ordinary_proof_written_and_internal_audit_passed",
+      "lean_status": "pending_full_Lean_proof"
+    },
+    {
+      "id": "cor:markovhamiltonentropy",
+      "title": "A Markov-chain formulation",
+      "kind": "corollary",
+      "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\weighted-entropy.tex",
+      "status": "ordinary_proof_written_and_internal_audit_passed",
+      "lean_status": "pending_full_Lean_proof"
+    },
+    {
+      "id": "thm:residuepressure",
+      "title": "The full positive residue-pressure formula",
+      "kind": "theorem",
+      "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\prime-residue-pressure.tex",
+      "status": "ordinary_proof_written_and_internal_audit_passed",
+      "lean_status": "pending_full_Lean_proof"
+    },
+    {
+      "id": "thm:residueldp",
+      "title": "A full empirical residue large-deviation law",
+      "kind": "theorem",
+      "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\prime-residue-pressure.tex",
+      "status": "ordinary_proof_written_and_internal_audit_passed",
+      "lean_status": "pending_full_Lean_proof"
+    },
+    {
+      "id": "cor:primeprofilecount",
+      "title": "Exponential concentration and profile counts",
+      "kind": "corollary",
+      "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\prime-residue-pressure.tex",
+      "status": "ordinary_proof_written_and_internal_audit_passed",
+      "lean_status": "pending_full_Lean_proof"
+    },
+    {
+      "id": "lem:pathminor",
+      "title": "A row-cap upper bound for path minors",
+      "kind": "lemma",
+      "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\bipartite-path-entropy.tex",
+      "status": "ordinary_proof_written_and_internal_audit_passed",
+      "lean_status": "pending_full_Lean_proof"
+    },
+    {
+      "id": "thm:bipartitepathentropy",
+      "title": "Uniform weighted path entropy in the bipartite case",
+      "kind": "theorem",
+      "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\bipartite-path-entropy.tex",
+      "status": "ordinary_proof_written_and_internal_audit_passed",
+      "lean_status": "pending_full_Lean_proof"
+    },
+    {
+      "id": "lem:complementaryrestriction",
+      "title": "Complementary restriction with the full covariance retained",
+      "kind": "lemma",
+      "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\general-kernels.tex",
+      "status": "ordinary_proof_written_and_internal_audit_passed",
+      "lean_status": "pending_full_Lean_proof"
+    },
+    {
+      "id": "lem:aperiodicrepair",
+      "title": "Scaling repair without a parity kernel",
+      "kind": "lemma",
+      "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\general-kernels.tex",
+      "status": "ordinary_proof_written_and_internal_audit_passed",
+      "lean_status": "pending_full_Lean_proof"
+    },
+    {
+      "id": "lem:balancedcutscaling",
+      "title": "Most balanced cuts admit controlled stochastic scaling",
+      "kind": "lemma",
+      "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\general-kernels.tex",
+      "status": "ordinary_proof_written_and_internal_audit_passed",
+      "lean_status": "pending_full_Lean_proof"
+    },
+    {
+      "id": "thm:generalweightedentropy",
+      "title": "Hamiltonian-weight universality at every order",
+      "kind": "theorem",
+      "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\general-kernels.tex",
+      "status": "ordinary_proof_written_and_internal_audit_passed",
+      "lean_status": "pending_full_Lean_proof"
+    },
+    {
+      "id": "cor:generalsinkhornentropy",
+      "title": "Sparse graph entropy without a bipartite restriction",
+      "kind": "corollary",
+      "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\general-kernels.tex",
+      "status": "ordinary_proof_written_and_internal_audit_passed",
+      "lean_status": "pending_full_Lean_proof"
+    },
+    {
+      "id": "thm:coprimecircles",
+      "title": "Coprime-circle entropy at every modulus",
+      "kind": "theorem",
+      "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\coprime-circles.tex",
+      "status": "ordinary_proof_written_and_internal_audit_passed",
+      "lean_status": "pending_full_Lean_proof"
+    },
+    {
+      "id": "thm:growingpermanent",
+      "title": "Polylogarithmic entry bounds in the permanent expansion",
+      "kind": "theorem",
+      "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\relative-permanents.tex",
+      "status": "ordinary_proof_written_and_internal_audit_passed",
+      "lean_status": "pending_full_Lean_proof"
+    },
+    {
+      "id": "lem:relativecompensatedminors",
+      "title": "Uniform compensated minors with mismatched supports",
+      "kind": "lemma",
+      "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\relative-permanents.tex",
+      "status": "ordinary_proof_written_and_internal_audit_passed",
+      "lean_status": "pending_full_Lean_proof"
+    },
+    {
+      "id": "lem:totientdiffusion",
+      "title": "An elementary sufficiently uniform totient bound",
+      "kind": "lemma",
+      "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\relative-coprime-circles.tex",
+      "status": "ordinary_proof_written_and_internal_audit_passed",
+      "lean_status": "pending_full_Lean_proof"
+    },
+    {
+      "id": "thm:relativecoprime",
+      "title": "Relative enumeration through every modulus",
+      "kind": "theorem",
+      "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\relative-coprime-circles.tex",
+      "status": "ordinary_proof_written_and_internal_audit_passed",
+      "lean_status": "pending_full_Lean_proof"
+    },
+    {
+      "id": "prop:coprimeconstant",
+      "title": "The prime-factor dependence of the odd constant",
+      "kind": "proposition",
+      "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\relative-coprime-circles.tex",
+      "status": "ordinary_proof_written_and_internal_audit_passed",
+      "lean_status": "pending_full_Lean_proof"
+    },
+    {
+      "id": "thm:periodiccomparison",
+      "title": "Relative comparison for a fixed number of cyclic layers",
+      "kind": "theorem",
+      "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\periodic-comparison.tex",
+      "status": "ordinary_proof_written_and_internal_audit_passed",
+      "lean_status": "pending_full_Lean_proof"
+    },
+    {
+      "id": "cor:twolayersspecial",
+      "title": "Why two layers are special",
+      "kind": "corollary",
+      "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\periodic-comparison.tex",
+      "status": "ordinary_proof_written_and_internal_audit_passed",
+      "lean_status": "pending_full_Lean_proof"
+    },
+    {
+      "id": "thm:layeredcoprime",
+      "title": "Complete relative counts for layered coprime circles",
+      "kind": "theorem",
+      "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\layered-coprime.tex",
+      "status": "ordinary_proof_written_and_internal_audit_passed",
+      "lean_status": "pending_full_Lean_proof"
+    },
+    {
+      "id": "prop:layeredconstants",
+      "title": "The uncancelled arithmetic interaction for higher layers",
+      "kind": "proposition",
+      "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\layered-coprime.tex",
+      "status": "ordinary_proof_written_and_internal_audit_passed",
+      "lean_status": "pending_full_Lean_proof"
+    },
+    {
+      "id": "thm:rounding",
+      "title": "Simple regular spectral rounding",
+      "kind": "theorem",
+      "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\main.tex",
+      "status": "ordinary_proof_written_and_internal_audit_passed",
+      "lean_status": "pending_full_Lean_proof"
+    },
+    {
+      "id": "cor:weightedhamilton",
+      "title": "Diffuse expanding kernels have Hamiltonian support",
+      "kind": "corollary",
+      "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\main.tex",
+      "status": "ordinary_proof_written_and_internal_audit_passed",
+      "lean_status": "pending_full_Lean_proof"
+    },
+    {
+      "id": "thm:filz",
+      "title": "Eventual Filz and a regular spectral subgraph",
+      "kind": "theorem",
+      "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\main.tex",
+      "status": "ordinary_proof_written_and_internal_audit_passed",
+      "lean_status": "pending_full_Lean_proof"
+    },
+    {
+      "id": "thm:relativeaperiodic",
+      "title": "A relative comparison with a growing density parameter",
+      "kind": "theorem",
+      "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\relative-hamilton.tex",
+      "status": "ordinary_proof_written_and_internal_audit_passed",
+      "lean_status": "pending_full_Lean_proof"
+    },
+    {
+      "id": "thm:relativebipartite",
+      "title": "Relative bipartite universality",
+      "kind": "theorem",
+      "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\relative-hamilton.tex",
+      "status": "ordinary_proof_written_and_internal_audit_passed",
+      "lean_status": "pending_full_Lean_proof"
+    },
+    {
+      "id": "cor:relativegraphentropy",
+      "title": "Relative counts from entropy-normalized graph weights",
+      "kind": "corollary",
+      "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\relative-hamilton.tex",
+      "status": "ordinary_proof_written_and_internal_audit_passed",
+      "lean_status": "pending_full_Lean_proof"
+    },
+    {
+      "id": "thm:secondpermanent",
+      "title": "First correction with a uniform two-power remainder",
+      "kind": "theorem",
+      "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\permanent-second-order.tex",
+      "status": "ordinary_proof_written_and_internal_audit_passed",
+      "lean_status": "pending_full_Lean_proof",
+      "audit_note": "Local-domain Gamma averaging repaired: analytic factors are restricted to the fixed interval; inverse moments through order eight control truncated signed moments; the original rook polynomial controls the outside tail. Revised manuscript compiled. Full analytic Lean proof remains pending."
+    },
+    {
+      "id": "thm:minorjet",
+      "title": "A uniform signed first-order minor expansion",
+      "kind": "theorem",
+      "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\compensated-minor-jet.tex",
+      "status": "ordinary_proof_written_and_internal_audit_passed",
+      "lean_status": "pending_full_Lean_proof"
+    },
+    {
+      "id": "lem:signedoccupancy",
+      "title": "Signed occupancy moments at the parity root",
+      "kind": "lemma",
+      "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\signed-jet-comparison.tex",
+      "status": "ordinary_proof_written_and_internal_audit_passed",
+      "lean_status": "partially_formalized_actual_two_support_constant_moment_and_full_block_entry_bound",
+      "audit_note": "The full signed squared-minor constant moment and covariance entry estimate have maintained compiled proofs with foundational axioms only. Coordinate-weighted occupancy identities, derivative bounds and their full quantitative consumer remain unformalized; the lemma as a whole is not Lean-certified."
+    },
+    {
+      "id": "thm:criticalrelative",
+      "title": "Relative bipartite comparison at logarithmic density",
+      "kind": "theorem",
+      "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\signed-jet-comparison.tex",
+      "status": "ordinary_proof_written_and_internal_audit_passed",
+      "lean_status": "pending_full_Lean_proof"
+    },
+    {
+      "id": "cor:relativeinverse",
+      "title": "An inverse theorem for failure of relative universality",
+      "kind": "corollary",
+      "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\signed-jet-comparison.tex",
+      "status": "ordinary_proof_written_and_internal_audit_passed",
+      "lean_status": "pending_full_Lean_proof"
+    },
+    {
+      "id": "lem:diffusionscaling",
+      "title": "A diffuseness-sensitive scaling repair",
+      "kind": "lemma",
+      "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\prime-circle-relative.tex",
+      "status": "ordinary_proof_written_and_internal_audit_passed",
+      "lean_status": "pending_full_Lean_proof"
+    },
+    {
+      "id": "thm:relativeprimecircles",
+      "title": "Full relative prime-circle count from its exact entropy",
+      "kind": "theorem",
+      "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\prime-circle-relative.tex",
+      "status": "ordinary_proof_written_and_internal_audit_passed",
+      "lean_status": "pending_full_Lean_proof"
+    }
+  ],
+  "consumers": [
+    {
+      "conclusion": "thm:weightedentropy",
+      "inputs": [
+        "lem:scaling",
+        "cor:forbiddenrepair",
+        "thm:rounding",
+        "lem:observablerounding",
+        "lem:randomrestriction",
+        "Bradač-Janzer Theorem 6.4",
+        "van der Waerden permanent bound",
+        "Brégman permanent bound"
+      ],
+      "parameters": {
+        "t": "floor(alpha^(-1/4))",
+        "reservoir_per_part": "m alpha^(1/8)+O(t+1)",
+        "layer_size": "asymptotic to m alpha^(1/4)",
+        "reservoir_proportion": "asymptotic to alpha^(1/8)",
+        "rounded_degree": "floor(alpha^(-2/3) log(2N)^(-3))",
+        "rounded_max_entry": "O_delta(alpha^(7/8))",
+        "endpoint_error": "O_delta(alpha^(5/24) log(2N)^2)",
+        "source_c": "1/5",
+        "source_gamma": "log(n_K)^(-3)",
+        "source_degree_requirement": "log(n_K)^(15000000)",
+        "available_degree": "at least a fixed multiple of log(2N)^(20000000-3)"
+      },
+      "exact_exponent_checks": {
+        "rounding_drift_exponent": "5/24",
+        "source_uniformity_exponent": "3/40",
+        "source_pair_range_exponent": "3371/27000"
+      },
+      "retained_losses": [
+        "initial tiny-edge trimming and its common scaling multiplier",
+        "every random-layer scaling multiplier",
+        "conditional-matching matrix drift and row-observable drift",
+        "all reservoir closing weights",
+        "all 2r+b missing matching edges",
+        "full binomial(N,2r+b) representation multiplicity",
+        "all factorial/ordered-partition errors"
+      ]
+    },
+    {
+      "conclusion": "thm:filz",
+      "inputs": [
+        "lem:integertransfer",
+        "lem:integerspectrum",
+        "lem:primeweights",
+        "lem:scaling",
+        "thm:rounding",
+        "Bradač-Janzer Corollary 1.4"
+      ],
+      "endpoint": "all sufficiently large even N, not all even N>=4",
+      "signed_model": "mu(q)/phi(q) reflection coefficients; constant/parity exceptions retained",
+      "nontrivial_ratio": "1/2+o(1)",
+      "proper_prime_powers_removed": true
+    },
+    {
+      "conclusion": "thm:residuepressure",
+      "inputs": [
+        "lem:filtermodel",
+        "lem:scaling",
+        "thm:weightedentropy"
+      ],
+      "weighted_gap": "1-max(1/(p_q-1), max_{b != 0,q/2} |sum w_r e(br/q)/sum w_r|)>0 for fixed positive weights and gcd(q,R-R)=2",
+      "uniform_cycle_weight_correction": "all small-sum edges cost O(N log log N/log(N)^4), all other logarithmic weights cost O(N log log N/log N)"
+    },
+    {
+      "conclusion": "thm:residueldp",
+      "inputs": [
+        "thm:residuepressure",
+        "fixed positive exponential tilts",
+        "elementary Chernoff inequalities",
+        "compactness of the finite-dimensional simplex"
+      ],
+      "rate": "sum_{r in R} x_r log(|R|x_r), with 0 log 0=0",
+      "exact_constraints_retained": "sum r n_r(C) = N(N+1) modulo q",
+      "scope_warning": "Approximate-profile LDP. No claim of independence or feasibility of every exact integer profile."
+    },
+    {
+      "conclusion": "thm:bipartitepathentropy",
+      "inputs": [
+        "thm:weightedentropy construction",
+        "lem:pathminor",
+        "Bradač-Janzer Theorem 6.4"
+      ],
+      "retained_terms": [
+        "condition endpoints in the two reservoirs: exact proportion (r/m)^2",
+        "path scaling factor product(u_v^2)/(u_a u_b)",
+        "singleton endpoint bi-uniformity error at most 2/d",
+        "all b+1 prescribed pairs",
+        "all 2r+b-1 new edges and binomial(N-1,2r+b-1) preimages"
+      ],
+      "uniformity": "all opposite-part endpoints, with constants independent of endpoints"
+    },
+    {
+      "conclusion": "thm:generalweightedentropy",
+      "inputs": [
+        "lem:complementaryrestriction",
+        "lem:balancedcutscaling",
+        "thm:weightedentropy",
+        "thm:bipartitepathentropy",
+        "lem:aperiodicrepair",
+        "lem:pathminor"
+      ],
+      "complement_identity": "F=E R E-E^2/2; E(I-R)E=E^2/2-F; ||R E(I-R)||^2<=||E||^2/4+3||F||/2",
+      "balance_cost": "conditioning probability >=1/(N+1), or >=1/(4(N-1)) with prescribed opposite endpoints",
+      "cycle_cut_multiplicity": 2,
+      "path_cut_multiplicity_with_fixed_start_part": 1,
+      "odd_order_transfer": "principal interlacing, actual row defect <=alpha, full path scaling and two closing weights >=1/(4N^2)",
+      "diagonal_mass": "retained in row defects and neighbor selection; loops are not used by paths/cycles",
+      "endpoint": "all orders, every distinct endpoint pair in the aperiodic case"
+    },
+    {
+      "conclusion": "thm:coprimecircles",
+      "inputs": [
+        "exact unitary Cayley Ramanujan spectrum",
+        "phi(n)>=sqrt(n/2)",
+        "thm:generalweightedentropy",
+        "thm:weightedentropy",
+        "thm:bipartitepathentropy"
+      ],
+      "parameter_domain": "all n tending to infinity, not a fixed residue modulus",
+      "nontrivial_ratio": "<=1/2; unique -1 parity mode only when n is even",
+      "bound": "log h(X_n)=n(log phi(n)-1)+O(n phi(n)^(-1/8) log(2n))",
+      "prior_existence_results_not_claimed_new": true
+    },
+    {
+      "conclusion": "thm:growingpermanent",
+      "inputs": [
+        "Divoux-Wang finite Wick coefficient estimate, Lemma 3.7",
+        "exact rook/Gamma identity",
+        "finite Gaussian/Gamma tails",
+        "stochastic row/column squared norm <=A/N"
+      ],
+      "range": "any fixed polylogarithmic A",
+      "retained_dependence": "Wick constant linear in A; cutoff C_delta A^3 sqrt(N); relative determinant averaging, not absolute fixed-bound substitution"
+    },
+    {
+      "conclusion": "lem:relativecompensatedminors",
+      "inputs": [
+        "thm:growingpermanent",
+        "lem:scaling",
+        "exact nonlinear row equations",
+        "trace-norm determinant stability"
+      ],
+      "supports": "arbitrary mismatched I,J with equal cardinality <=log(2N)^3",
+      "compensation": "total scaling r-s_IJ plus nonlinear remainder cancels factorial ratio leading r"
+    },
+    {
+      "conclusion": "thm:relativebipartite",
+      "inputs": [
+        "lem:relativecompensatedminors",
+        "Liu identity",
+        "full Cauchy-Binet sum",
+        "thm:growingpermanent"
+      ],
+      "signed_identity": "2m Z_H(P)=sum_r (-1)^(r+1) r sum_{I,J} det(T[I,J])^2 per(T[Ic,Jc])^2",
+      "cancellation": "signed principal sum=det(I-BB^T); permanent-square reciprocal determinant cancels exactly",
+      "remainder": "m^(-1/9) exp(C_delta A), with A=o(log m)"
+    },
+    {
+      "conclusion": "thm:periodiccomparison",
+      "inputs": [
+        "lem:relativecompensatedminors",
+        "Liu identity",
+        "Cauchy-Binet for products",
+        "thm:growingpermanent"
+      ],
+      "range": "fixed k>=2, arbitrary noncommuting DS cross blocks, A=o(log m)",
+      "main_factor": "det(I-B1...Bk) / product_i sqrt(det(I-Bi^T Bi))",
+      "error_only_mass": "sum_r r (A^r/r!)^(k/2) <=(A exp(A))^(k/2)",
+      "parity_unit_modes": "kept as exact cyclic block structure"
+    },
+    {
+      "conclusion": "thm:relativecoprime",
+      "inputs": [
+        "thm:relativeaperiodic",
+        "thm:relativebipartite",
+        "exact unitary Ramanujan spectrum",
+        "n/phi(n) << log log(3n)"
+      ],
+      "endpoint": "full relative count, all moduli; even factor pi; odd factor C(n) sqrt(pi/(2n))",
+      "error": "O(n^(-1/10)), absolute implied constant eventually"
+    },
+    {
+      "conclusion": "thm:layeredcoprime",
+      "inputs": [
+        "thm:periodiccomparison",
+        "exact unitary spectrum",
+        "CRT even-to-odd singular spectrum",
+        "elementary totient bound"
+      ],
+      "quantifiers": "every fixed k>=2, all growing n",
+      "cases": "odd n: k layers and D_k; even n & even k: exactly zero; even n & odd k: 2k layers size n/2 and E_k(odd part)",
+      "higher_prime_interactions": "log D_k=k/2*(s/phi(s)-1)+O_k(1), log E_k=k*(s/phi(s)-1)+O_k(1), k>=3; D_2=1 exactly"
+    },
+    {
+      "conclusion": "thm:secondpermanent",
+      "inputs": [
+        "exact normalized Gaussian rook representation",
+        "Divoux-Wang finite Wick bound",
+        "inverse-Gamma central moments"
+      ],
+      "first_correction": "Gamma variance term plus quartic diagonal and paired-cubic covariance terms",
+      "remainder": "(1+A)^40/N^2; e=4..11 have e-v>=2, e>=12 cutoff tail gives A^24/N^2",
+      "scope": "fixed polylogarithmic A, zero entries, fixed nontrivial gap"
+    },
+    {
+      "conclusion": "thm:minorjet",
+      "inputs": [
+        "thm:secondpermanent",
+        "exact nonlinear scaling equations",
+        "Jacobi complementary-minor identity",
+        "entrywise inverse perturbation and Schur complement"
+      ],
+      "full_correction": "R_IJ^2=1+r(r-1)/N+u^T Gamma u+2 v^T u+O(log(N)^M/N^2); v=(I/2-K)h",
+      "mismatched_supports": "all I,J with equal r<=log(2N)^3",
+      "compensation_preserved": "s_IJ, quadratic scaling cost, full determinant field, first permanent correction difference",
+      "independent_audit": "first-order jet satisfies every permanent row/column cofactor recursion through the same two-power remainder; uniform-J exact ratios agree"
+    },
+    {
+      "conclusion": "lem:signedoccupancy",
+      "inputs": [
+        "multivariate determinant Cauchy-Binet identity",
+        "exact rank-one parity pole",
+        "fixed-gap block resolvent"
+      ],
+      "full_signed_quantities": "L(1)=d; L(r(r-1))=4d'+3d''; row and column occupancy and all same-/cross-part pairs evaluated at parity root",
+      "normalized_bounds": "L(u_a)/d=O(A/N), L(u_a u_b)/d=O(A^2/N^2) for a!=b",
+      "pole_cancellation": "double pole cancels before any bound because parity residue has rank one"
+    },
+    {
+      "conclusion": "thm:criticalrelative",
+      "inputs": [
+        "thm:minorjet",
+        "lem:signedoccupancy",
+        "Liu identity",
+        "thm:secondpermanent"
+      ],
+      "signed_first_correction": "O_rho((1+A)^3/N) after division by d, with no exponential amplification",
+      "residual_only_mass": "sum r e_r(TT^T)<=2A det(I+BB^T)",
+      "complete_error": "polylog/N + polylog*det(I+BB^T)/det(I-BB^T)/N^2",
+      "range": "A<=C0 log(2N); full relative count if amplification<=N^(2-epsilon)"
+    },
+    {
+      "conclusion": "thm:relativeprimecircles",
+      "inputs": [
+        "lem:unweightedtransfer",
+        "lem:diffusionscaling",
+        "thm:criticalrelative",
+        "exact entropy maximizing stochastic scaling"
+      ],
+      "actual_arithmetic_defect": "epsilon=O(log log N/log N)",
+      "repair": "inverse infinity norm O_delta(log(2A)); multiplier defect O((log log N)^2/log N)",
+      "full_parameter_check": "m max T=(1/2+o(1))log N, norm=1/2+o(1); take rho=a=3/5, amplification<=m^(27/20)",
+      "endpoint": "full relative h=pi exp(2 H_N-N)(1+O(N^(-3/5))) on actual unweighted prime-sum graphs, all sufficiently large even N",
+      "not_used": [
+        "RH",
+        "prime-pair asymptotic",
+        "finite numerical prime tests",
+        "replacement of exact entropy by a coarse explicit asymptotic"
+      ]
+    },
+    {
+      "conclusion": "cor:relativeinverse",
+      "inputs": [
+        "thm:criticalrelative",
+        "log amplification<=kappa_rho ||B||_F^2"
+      ],
+      "inverse": "a fixed relative counting defect forces log amplification >=2 log N-O(log log N), hence ||B||_F^2 >=(2/kappa_rho)log N-O(log log N)",
+      "scope": "quantitative counting defect; not a new Hamiltonian existence corollary"
+    }
+  ],
+  "proof_audit": {
+    "completed_checks": [
+      "scaling gauge and nonlinear cross term",
+      "actual forbidden-edge mass and predictable drift",
+      "simple exact degree after adaptive edge-disjoint matchings",
+      "independent row/column sampling and fixed-size conditioning",
+      "all hypotheses of Bradač-Janzer Theorem 6.4",
+      "quantitative reservoir exponent ledger",
+      "weighted completion versus cover weights",
+      "full configuration reconstruction multiplicity",
+      "logarithmic prime-weight removal uniform on cycles",
+      "full LDP including boundary profiles",
+      "integer Dirichlet ceiling and actual minor-arc denominator range",
+      "Complementary selectors share exactly the same covariance F; no independent-complement conditioning.",
+      "Balanced-cut scaling and prescribed-cut conditioning have only polynomial probability costs.",
+      "Uniform path-minor row-cap bound handles a lost column and ceiling of 1/alpha.",
+      "Every endpoint, singleton bi-uniformity, path scaling multiplier and matching-cover multiplicity.",
+      "Odd-order principal interlacing and scaling, including possible diagonal mass.",
+      "Exact growing-modulus unitary spectrum and elementary totient diffuseness.",
+      "Polylogarithmic growth tracked in finite Wick, Gaussian supremum and Gamma tails.",
+      "Compensated minors preserve all mismatched supports and have the same log(2 dimension)^3 cutoff.",
+      "Liu normalization and signed Cauchy-Binet derivative checked before any error norm.",
+      "Exact bipartite spectral determinant cancellation and independent all-modulus arithmetic consumer.",
+      "All cyclic layers, noncommuting products, full e^(kr) tail cost and directed/unoriented conventions.",
+      "CRT parity obstruction for even n,k; 2k actual layers when n is even and k odd.",
+      "Uniform convergent prime products after the higher-layer s/phi(s)-1 term.",
+      "Finite Wick expansion keeps degree-four and paired degree-three terms; all later diagrams bounded at N^-2.",
+      "Gamma average uses exact zero first moment and variance 1/(N-1), retaining the second derivative correction.",
+      "Complementary determinant changes computed by Jacobi and local Schur complements, including mismatched supports.",
+      "First permanent correction difference cancels through O(polylog/N^2), rather than independently discarding O(1/N).",
+      "Signed occupancy derivatives: the parity pole is rank one, so its quadratic double pole cancels.",
+      "First support correction summed with signs gives polynomial loss; only N^-2 remainder pays determinant amplification.",
+      "Every exact row/column cofactor recursion verified symbolically to first order, all support sets retained.",
+      "Improved scaling inverse O(log(2A)) is derived from min(1,sqrt(A)*rho^j), preserving the prime-density coefficient.",
+      "Prime consumer: actual epsilon=O(log log N/log N); rho=a=3/5; kappa<9/4; residual exponent -13/20 with logs, yielding -3/5.",
+      "Inverse statement concerns a fixed relative counting defect and collective nontrivial singular mass."
+    ],
+    "static_source_check": {
+      "files": 22,
+      "labels": 82,
+      "references": 108,
+      "bibliography": 19,
+      "duplicateLabels": [],
+      "missingRefs": [],
+      "missingCites": [],
+      "environmentErrors": [],
+      "displayParagraphErrors": []
+    },
+    "latex_compile": {
+      "path": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\main.tex",
+      "mainDocument": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114/main.tex",
+      "kind": "success",
+      "message": "The current source compiled successfully with the desktop editor's compiler."
+    },
+    "repair_records": [
+      {
+        "issue": "Random-block lemma inherited an unused global degree threshold after regularization.",
+        "correction": "Statement now uses only uniform degrees, centered norm and pD/log N -> infinity; all consumers rechecked.",
+        "mathematical_endpoint_changed": false
+      },
+      {
+        "issue": "Dirichlet cutoff suppressed ceiling of N/T.",
+        "correction": "H=ceil(N/T), error<=1/(qH)<=T/(qN), q<=H<=2N/T; Vaughan range carried exactly.",
+        "mathematical_endpoint_changed": false
+      },
+      {
+        "issue": "Standalone tag deletion left empty paragraphs inside display math.",
+        "correction": "Every proposed/saved display body scanned for empty paragraphs; affected displays repaired; final compile successful.",
+        "prevention_rule": "Trigger TeX display edits; preflight no empty display paragraph; prohibit removing only a command token; remove vacated blank display lines and recompile.",
+        "mathematical_endpoint_changed": false
+      },
+      {
+        "issue": "Builtin compiler could not access 5pt/7pt physical fonts.",
+        "correction": "Document-only math-size declarations reuse existing 8pt script fonts at both script levels. No global setting or dependency was changed.",
+        "mathematical_endpoint_changed": false
+      }
+    ],
+    "lean_checks_run": false,
+    "numerical_prime_tests_run": false,
+    "quantitative_comparison": {
+      "benchmark_status": "analytic ordinary-proof comparison on the same prime-sum graph and exact entropy; not a numerical or Lean-certified benchmark",
+      "old_bound": "h=exp(2 H_N-N+O(N alpha^(1/8) log(2N))), alpha=O(log N/N); exponential precision only",
+      "new_bound": "h=pi exp(2 H_N-N)(1+O(N^(-3/5)))",
+      "components": {
+        "signed_first_correction": "O((1+A)^3/m) after normalized signed occupancy evaluation",
+        "unstructured_residual": "O(log(m)^M/m^2)*amplification",
+        "amplification": "<=m^(27/20)",
+        "remaining_error": "O(log(m)^M*(m^(-1)+m^(-13/20)))=O(m^(-3/5))",
+        "stirling": "O(1/m)",
+        "constants": "fixed but not numerically optimized; effective starting order not computed"
+      },
+      "actuals": "No finite prime-count or Hamilton-count evaluations used.",
+      "first_nonpositive_domain": "Unavailable: this is an asymptotic theorem with no numerical cutoff certificate."
+    }
+  },
+  "closest_primary_sources": [
+    {
+      "key": "BJ",
+      "url": "https://arxiv.org/abs/2605.15043",
+      "role": "Essential known spanning-path/Hamiltonicity input"
+    },
+    {
+      "key": "CK",
+      "url": "https://doi.org/10.1007/s00493-009-2360-2",
+      "difference": "Dense entropy theorem; sparse fixed-gap zero support is outside the stated hypotheses."
+    },
+    {
+      "key": "Barvinok",
+      "url": "https://sites.lsa.umich.edu/barvinok/wp-content/uploads/sites/1434/2025/05/hamil.pdf",
+      "difference": "Hamiltonian/permanent comparison assumes all entries positive with a relative lower bound."
+    },
+    {
+      "key": "BT",
+      "url": "https://arxiv.org/abs/2304.02164",
+      "difference": "Bipartite enumeration requires spectral ratio decreasing at least logarithmically."
+    },
+    {
+      "key": "CFG",
+      "url": "https://doi.org/10.1007/s00373-020-02241-1",
+      "difference": "Infinitely many finite prime-sum Hamiltonicity cases, rather than every sufficiently large even order."
+    },
+    {
+      "key": "SLZ",
+      "url": "https://doi.org/10.1007/s00373-025-02976-9",
+      "difference": "Infinite prime-circle double ray; not eventual Hamiltonicity/counts at each finite even order."
+    },
+    {
+      "key": "CycleFactors",
+      "url": "https://arxiv.org/abs/2507.19417",
+      "difference": "Expected number of cycles in a random regular directed cycle-factor; not the weighted one-cycle entropy theorem here."
+    },
+    {
+      "key": "KS",
+      "url": "https://doi.org/10.37236/963",
+      "role": "Known exact unitary Cayley spectrum; reproduced finite character calculation, no new spectral claim."
+    },
+    {
+      "key": "Basic",
+      "url": "https://doi.org/10.2298/FIL1801071B",
+      "role": "Known Hamiltonian-connected/laceable unitary Cayley graphs; existence is not the new application."
+    },
+    {
+      "key": "McC",
+      "url": "https://arxiv.org/pdf/1205.5723",
+      "difference": "Moderate-deviation sequences require uniformly bounded moments for N(D-J/N); those moments diverge along primorial unitary kernels."
+    },
+    {
+      "key": "DW",
+      "url": "https://arxiv.org/html/2610.23755",
+      "difference": "Fixed entry-bound permanent and aperiodic Hamilton formulas. Finite coefficient/Gaussian estimates are reused with explicit growing dependence; exact periodic unit modes are handled separately. New density extension explicitly retains the first Gaussian correction, local complementary-minor compensation, and rank-one parity-root derivatives; the arithmetic application is at A asymptotic to (log N)/2."
+    },
+    {
+      "key": "Liu",
+      "reference": "Proc. AMS 111 (1991), 289-296",
+      "role": "Established exact Hamiltonian determinant-permanent identity, not claimed new."
+    }
+  ],
+  "novelty_status": "Defensible originality prospect: full signed first-order complementary-minor expansion and parity-root occupancy summation extend fixed-entry relative counting to actual logarithmic prime density, with a quantitative inverse. Closest fixed-entry theorem does not cover that range. Priority remains preliminary, not certified.",
+  "excluded_claims": [
+    "Complete all-orders Filz conjecture",
+    "New RH or QRH exponent",
+    "Exact independence of residue labels",
+    "Positive count at every exact profile",
+    "Growing prime-progression modulus uniformity",
+    "Numerical effective starting threshold",
+    "Lean-certified proof",
+    "Guaranteed awards or career impact",
+    "Uniformity in a growing number of cyclic layers",
+    "Relative enumeration for every fixed congruence filter without its density/amplification check",
+    "Replacing the exact prime-graph entropy by N/2*(log N-log log N) at relative precision"
+  ],
+  "source_hashes": [
+    {
+      "file": "scaling.tex",
+      "sha256": "D9B6EA23FC0BFD4941F2DA0EEC1EA84E85399C8F5D5ACCA050DFD7D4E05174F5"
+    },
+    {
+      "file": "rounding.tex",
+      "sha256": "08ED9A8A2BB8780C106D9634C00A81CBA68C9FE1A23F62C361F087CF626A9259"
+    },
+    {
+      "file": "prime-sum.tex",
+      "sha256": "97957D38DAE8A78BE6F1DCF51B38F93F65227BD28FE9DD63E0E23C1B569F7F5E"
+    },
+    {
+      "file": "regular-factors.tex",
+      "sha256": "C1EB10A8B500C143C979BE95D92505822FD5261BB24EA0030F3020818D69D502"
+    },
+    {
+      "file": "congruence-filters.tex",
+      "sha256": "7548C36E21692F60C0E4DBB262420992486941ACB1ABF056C8EB59EBD35AB89B"
+    },
+    {
+      "file": "prescribed-paths.tex",
+      "sha256": "EF18A1A68A5A8FC564C2D4D42DC87C0158CFC691781F26D305845EBC7A855155"
+    },
+    {
+      "file": "hamilton-enumeration.tex",
+      "sha256": "3E2A029B27C1C089EBE5CB418CC40E2177A674DE97097029C785D23961B3DB45"
+    },
+    {
+      "file": "weighted-entropy.tex",
+      "sha256": "9EE24D31815DA2D811749C0F0232A9B6E14940A2A51C4BE7240FEDB809D93924"
+    },
+    {
+      "file": "prime-residue-pressure.tex",
+      "sha256": "CA6B78EE23CBCE6DD9E1F8E5732D2562446CB7BA7B0489353823A7AFCE0AB803"
+    },
+    {
+      "file": "bipartite-path-entropy.tex",
+      "sha256": "F6300F66AE3DDC611DC307172162DEE1901ABAEF94C43C285172613B5155EBCA"
+    },
+    {
+      "file": "general-kernels.tex",
+      "sha256": "E34A28895346971347C6E6483EDFB74C1EA74403A96E7B372B483C5F2FBAC243"
+    },
+    {
+      "file": "coprime-circles.tex",
+      "sha256": "7DCA34046609468FF5F1AFC2C78BE61E7F2BD47A162FCE64544035C3863669FE"
+    },
+    {
+      "file": "relative-permanents.tex",
+      "sha256": "27013A4A7DCAA32FE2264BCA72D48338BE0817CC371BA6E67E11C4E197831DB6"
+    },
+    {
+      "file": "relative-coprime-circles.tex",
+      "sha256": "6080CC04FD9DEE00A9387192B9588B1730CD7C804DA9F5A59F651948581C120C"
+    },
+    {
+      "file": "periodic-comparison.tex",
+      "sha256": "CACF6CC6B43C0D80F1A296FCAA3C43EAF7E48E217B906ADA4CFAAF1F007184D7"
+    },
+    {
+      "file": "layered-coprime.tex",
+      "sha256": "AC16127F5E5CCF91CEC40C1B8DFE3A4EEAE3B512475B3884020142977D6231F6"
+    },
+    {
+      "file": "main.tex",
+      "sha256": "BAE55DD0BEB80832AC65812731274F94853DA0C8B420395FFDEA7B0841C3E8EC"
+    },
+    {
+      "file": "relative-hamilton.tex",
+      "sha256": "7AEE3F8F1B8C0CDB969425DC4438E83F2B9A7314AF76D742D181C4E8597F5632"
+    },
+    {
+      "file": "permanent-second-order.tex",
+      "sha256": "E37BC1B9F1A1F6B36042DE43DBE7629E04A7E3FE19D24AFC516C70A350B69AA2"
+    },
+    {
+      "file": "compensated-minor-jet.tex",
+      "sha256": "1A5E30772F0F102DEFCB3C6802C561276A9ED95E444166E474BBD6C22B7ED9AA"
+    },
+    {
+      "file": "signed-jet-comparison.tex",
+      "sha256": "57EC32E5FE3AFB15E298EAA792A3F22E32F0875EF325D3B9808EC48D017878A2"
+    },
+    {
+      "file": "prime-circle-relative.tex",
+      "sha256": "A2C6F17ECAD74D5A037928FF7285696A56283A2340CDF9196A80CBED55F2FCE1"
+    }
+  ],
+  "research_frontier": {
+    "status": "paper_argument_and_prime_density_consumer_written_with_internal_audit; no Lean or external verification implied",
+    "headline": "Signed first-order minor compensation gives full relative prime-circle enumeration around exact graph entropy.",
+    "complete_consumer": "rho=a=3/5; amplification <=m^(27/20); first signed correction polylog/m; only residual pays amplification, giving O(N^(-3/5)).",
+    "inverse": "A fixed relative counting defect forces collective singular mass >=(2/kappa_rho)log N-O(log log N).",
+    "further_extension": "Arbitrary fixed logarithmic density coefficients, and all fixed congruence filters, would require higher-order compensated expansions beyond the proved two-power remainder.",
+    "next_review_focus": "Adversarially verify finite Gaussian expansion, local Schur-complement compensation and parity-root derivative normalization as a unit; do not substitute reference or compilation checks.",
+    "independent_consumer_status": "Both actual integer prime-sum graphs and all growing coprime moduli have complete stated ordinary arguments."
+  },
+  "completion_receipt": {
+    "requested_bar": "Finish the complete argument and its formalization at a level supporting a substantial original research contribution. A draft, helper proof, successful build or significance label does not finish this request; career impact cannot be certified by the author.",
+    "strongest_actual_theorem": "Logarithmic-density signed Hamiltonian comparison with full first-order support compensation, a determinant-amplification inverse, and an unconditional power-relative-error prime-circle count h=pi exp(2 H_N-N)(1+O(N^(-3/5))).",
+    "complete_independent_applications": [
+      "Every sufficiently large even integer prime-sum graph is Hamiltonian; log h=N log N-N log log N-N+o(N).",
+      "Fixed congruence-filter connectedness/Hamiltonicity is classified exactly by gcd(q,R-R)=2, with a full positive residue-pressure formula.",
+      "The empirical prime-residue profile in a uniform prime circle satisfies a full large-deviation principle with relative-entropy rate sum x_r log(|R| x_r).",
+      "Coprime circles for all growing moduli: log h(X_n)=n(log phi(n)-1)+O(n phi(n)^(-1/8) log(2n)), including uniform admissible endpoint counts.",
+      "Unoriented coprime circles: relative count with O(n^(-1/10)) error, explicit odd constant and even universal pi factor.",
+      "Layered coprime circles: every fixed layer count, all parity obstructions, exact determinant products and uniformly convergent higher prime interactions.",
+      "Actual unweighted prime-sum graph: full relative count around its exact entropy, with O(N^(-3/5)) error; no RH or prime-pair estimate."
+    ],
+    "primary_literature_comparison": "Cuckler-Kahn: dense Dirac and dense balanced bipartite entropy counts. Barvinok: all-positive matrices with a relative entry lower bound. Krivelevich and Byrne-Tait: nontrivial spectral ratio tending to zero logarithmically. The present argument permits sparse zero support and any fixed nontrivial gap. Bradač-Janzer 2026 is an essential independent spanning-path input. McCullagh's bounded normalized moments fail along primorials; Divoux-Wang's fixed-entry finite proof is tracked explicitly, rather than used outside its stated range. The new first-order signed compensation and rank-one parity-root calculation avoid the fixed-entry remainder amplification at prime density. They are the mechanism of the complete prime consumer, not merely a detector or matching identity.",
+    "proof_endpoint_status": "The complete analytic and arithmetic theorems are not yet Lean-certified. Maintained compiled proofs include the full signed two-support squared-minor cancellation, rank-one pole compensation, stochastic energies, actual Euclidean inverse certificates and full block covariance entries. The focused audit verifies the new closure using standard foundations only. The remaining coordinate, Gaussian/Gamma, cycle and application consumers stay open.",
+    "significance_assessment": "A general signed-estimation method now has a quantitative inverse and complete independent arithmetic consumers at actual prime density and through every coprime modulus. This supports a serious standalone research contribution. Career-defining impact and priority are not certified or inferred from compilation.",
+    "paper_argument_delivered": true,
+    "headline_all_orders_filz_proved": false,
+    "lean_formalization_complete": false,
+    "next_safely_executable_research_action": "Prove the actual inverse-Gamma averaging moments from the cached Euler integral, then its truncated moment and Taylor estimates; continue the exact cycle identity and coordinate occupancy consumers toward the complete uniform comparison.",
+    "next_gate": "Judge the complete new method and independent applications, not theorem counts or successful compilation; preserve exact entropy and explicit density scope.",
+    "no_background_work_claimed": true,
+    "expert_relevance_gate": {
+      "novelty": "Affirmative defensible prospect, with exact range difference from the closest primary theorem; not a priority certificate.",
+      "interest": "A universal relative constant survives full support compensation; failures force logarithmic collective spectral mass.",
+      "usefulness": "Complete relative enumeration on actual prime-sum graphs and all growing coprime moduli, beyond identity-only reductions."
+    }
+  },
+  "repository_state": {
+    "saved_in_repository_worktree": true,
+    "committed_this_turn": false,
+    "pushed_this_turn": false,
+    "proofs_left_only_in_private_research": false,
+    "recorded_phase": "Snapshot before the enclosing Git commit; inspect that commit for the final commit identity."
+  },
+  "formalization": {
+    "status": "in_progress_not_complete",
+    "pinned_Lean": "4.34.0 / 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b",
+    "pinned_Mathlib": "5ed2965256430c3649e86755f9576b54eca72435",
+    "dependency_builds": 0,
+    "compiled_prerequisites": [
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianSubsetCancellation",
+        "source_sha256": "5626C986AF7AE86B6A215A9A516C7765A8D2C9547953D26B214074B43221C847",
+        "content": "Full signed cycle-subset length cancellation; actual permutation-cycle consumer remains pending.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianMinorPolynomial",
+        "source_sha256": "21163BF6A4379DCD10B1D087761843DAE3AABA50CC10B31EC8B4AD96F156F236",
+        "content": "Principal-minor generating polynomial, Euler sum and parity-root size moments.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianBipartiteDeterminant",
+        "source_sha256": "709E34910FDCFB2FC05732D8163097722D6A25C51EDC88417B06D378378895D9",
+        "content": "Rectangular bipartite block determinant identity, including polynomial specialization.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianStochasticParity",
+        "source_sha256": "9674F79F8FE257323F8959EC582B9FE2A30920C59E715EBB819427896B9B9E41",
+        "content": "Stochastic projection, centered orthogonality and full Gram parity factor.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianRankOneDeterminant",
+        "source_sha256": "5AB2780339B7B9D9C90A0311D6E19C7BC965741B8B964A32F5A71102EB48D72C",
+        "content": "Rank-one determinant expansion over arbitrary commutative rings, without invertibility.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianRankOnePole",
+        "source_sha256": "B60AD4B242EE8FE4EA0D3DE303A748DCC7258C0C645C9CC3AD90CF249C6F5369",
+        "content": "All-support polynomial cancellation of apparent higher rank-one poles and compensated first derivative.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianSignedGramMoments",
+        "source_sha256": "2AC2AE2C3528664137A2849F68DE46A46855044E7C6EAC99D9F7C090279E3487",
+        "content": "Signed Gram principal-minor identity from balance and second size moment; rectangular conversion is now compiled separately.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianStochasticEnergy",
+        "source_sha256": "E0554C6471DAD38DEB1A929D75B25683C818A27B1BE446BB4BEFEA59C64DF59E",
+        "content": "Exact stochastic centered row/column energy and Frobenius bound.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianNeumannBound",
+        "source_sha256": "674D123E40812D9355C6905AE37A2BAF4F47C27E7D31B21B45A971A60DFE92DE",
+        "content": "Actual Neumann inverse existence and norm certificate.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianL2Resolvent",
+        "source_sha256": "4D5055453AB1173B180B32F01F2F1132A573AEAA2416D12C0C264CB830DDAE07",
+        "content": "Actual Euclidean Gram resolvent and stochastic sandwich entry bound with explicit gap and row energy.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianFinite",
+        "source_sha256": "2F4A0EA3D4B7F78D397C0B5BC903B96E635535A59734128F0C344A09C1497E3F",
+        "content": "Maintained finite entry point exporting the actual signed two-support squared-minor cancellation and finite prerequisites.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianRectangularMinors",
+        "source_sha256": "69CF8A4D1078C61ED3468E9E16254B8D955B951E5E3B547017BB13C660CE4573",
+        "content": "Cauchy-Binet from Sylvester's determinant identity and the complete signed two-support squared-minor equality from stochastic balance.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianBlockCovariance",
+        "source_sha256": "216BD65435F1273273C2DFEC817B34970CD6B7E293315C023C6E66218700FCD3",
+        "content": "Bipartite Euclidean norm transfer and full stochastic block covariance entry bound, including actual inverse existence.",
+        "build_exit_code": 0
+      }
+    ],
+    "unfinished_dependencies": [
+      "Exact Hamiltonian determinant-permanent identity for actual spanning-cycle permutations, including singleton fixed-point cycles.",
+      "Unconditional Gaussian rook identity, finite Wick estimates with growing entry bound, Gamma averaging and uniform second-order remainder.",
+      "Quantitative stochastic repair and full complementary-minor expansion with all mismatched supports and compensation fields.",
+      "Actual coordinate occupancy identities, full derivative bounds and normalized moment bounds. Cauchy-Binet, the signed two-support constant moment, Gram sandwich entries and full block covariance entries are compiled.",
+      "Full signed comparison with its absolute estimate confined to the retained remainder and large-minor tail.",
+      "Spectral amplification estimate, inverse theorem and asymptotic error ranges.",
+      "Prime-sum operator estimates, exact entropy scaling and the actual prime-circle relative count.",
+      "Coprime and layered arithmetic specializations, parity cases and all other advertised paper claims.",
+      "Public exports, claim-by-claim paper synchronization, focused builds, final staged repository checks and commits."
+    ],
+    "completion_rule": "No headline is marked formalized until its actual unconditional maintained declaration and complete dependency closure compile without placeholders or additional analytic assumptions.",
+    "significance_status": "The substantial-contribution target remains active; no career-defining or award-level completion is asserted.",
+    "axiom_audit": {
+      "status": "verified",
+      "scope": "Only the new Hamiltonian proof modules; unchanged historical files were not re-audited.",
+      "declaration_count": 55,
+      "allowed_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "log_sha256": "5B2F7785A074CCF33EC86252A102B53ED1B43FAB5C61932F49E87AFCBAD62797",
+      "declarations": [
+        "PrimeFactorOscillations.signedSubsetMass_insert",
+        "PrimeFactorOscillations.signedSubsetMass_eq",
+        "PrimeFactorOscillations.signedSubsetLength_insert",
+        "PrimeFactorOscillations.signedSubsetLength_eq",
+        "PrimeFactorOscillations.cycleSubsetIsolation",
+        "PrimeFactorOscillations.principalMinorGeneratingPolynomial_eq",
+        "PrimeFactorOscillations.polynomialEuler_monomial",
+        "PrimeFactorOscillations.polynomialEuler_sum",
+        "PrimeFactorOscillations.principalMinor_euler_eval",
+        "PrimeFactorOscillations.parityRootMoment_eval_one",
+        "PrimeFactorOscillations.parityRootMoment_secondDerivative_eval_one",
+        "PrimeFactorOscillations.det_one_add_bipartiteLift",
+        "PrimeFactorOscillations.principalMinorGeneratingPolynomial_bipartite",
+        "PrimeFactorOscillations.averagingKernel_transpose",
+        "PrimeFactorOscillations.averagingKernel_mul_of_columnSum",
+        "PrimeFactorOscillations.mul_averagingKernel_of_rowSum",
+        "PrimeFactorOscillations.averagingKernel_mul_self",
+        "PrimeFactorOscillations.det_one_sub_averagingKernel",
+        "PrimeFactorOscillations.centeredKernel_gram_eq_sub",
+        "PrimeFactorOscillations.averagingKernel_mul_centeredTranspose",
+        "PrimeFactorOscillations.stochasticGram_parityFactor",
+        "PrimeFactorOscillations.selectedRankOneRows_empty",
+        "PrimeFactorOscillations.selectedRankOneRows_univ",
+        "PrimeFactorOscillations.selectedRankOneRows_insert",
+        "PrimeFactorOscillations.selectedRankOneRows_replaced_det",
+        "PrimeFactorOscillations.det_selectedRankOneRows",
+        "PrimeFactorOscillations.det_rankOne_affine",
+        "PrimeFactorOscillations.rowCofactorContraction_smul",
+        "PrimeFactorOscillations.det_cleared_rankOne_pole",
+        "PrimeFactorOscillations.compensatedPolePolynomial_rootDerivative",
+        "PrimeFactorOscillations.gramDeterminantPolynomial_as_minors",
+        "PrimeFactorOscillations.gramDeterminantPolynomial_eval_one",
+        "PrimeFactorOscillations.gramDeterminantPolynomial_parityFactor",
+        "PrimeFactorOscillations.gramEuler_eval",
+        "PrimeFactorOscillations.signedGramMinorMoment_eq_centeredDet",
+        "PrimeFactorOscillations.signedGram_secondSizeMoment",
+        "PrimeFactorOscillations.centeredProbabilityEnergy_eq",
+        "PrimeFactorOscillations.centeredProbabilityEnergy_le",
+        "PrimeFactorOscillations.stochastic_row_energy",
+        "PrimeFactorOscillations.stochastic_column_energy",
+        "PrimeFactorOscillations.stochastic_total_energy",
+        "PrimeFactorOscillations.neumann_norm_certificate",
+        "PrimeFactorOscillations.l2_sandwich_entry_bound",
+        "PrimeFactorOscillations.l2_neumann_certificate",
+        "PrimeFactorOscillations.gram_resolvent_certificate",
+        "PrimeFactorOscillations.stochastic_resolvent_entry_bound",
+        "PrimeFactorOscillations.principalMinorDet_univ",
+        "PrimeFactorOscillations.principalMinor_topCoefficient",
+        "PrimeFactorOscillations.principalMinorPolynomial_mul_comm",
+        "PrimeFactorOscillations.rectangularProduct_det_as_principalMinors",
+        "PrimeFactorOscillations.gramPrincipalMinor_eq_rectangularSquares",
+        "PrimeFactorOscillations.signedRectangularMinorMoment_eq_centeredDet",
+        "PrimeFactorOscillations.bipartiteLift_l2_norm_le",
+        "PrimeFactorOscillations.l2_resolvent_coordinate_bound",
+        "PrimeFactorOscillations.stochastic_block_covariance_entry_bound"
+      ],
+      "whitespace_revalidation": "After EOF normalization, the only changed Lean source was freshly recompiled and its object SHA-256 exactly matched the audited object; no unchanged theorem was re-audited."
+    }
+  }
+}

@@ -1,0 +1,326 @@
+\section{General symmetric kernels, complementary cuts, and odd orders}
+\label{sec:generalkernels}
+The bipartite hypothesis can be removed when the negative spectrum
+is also separated from \(-1\).
+The essential new transfer is a dependent, complementary-cut
+estimate. Independent row and column selectors cannot simply be
+conditioned to be complements: that event can have exponentially
+small probability. The argument below keeps their dependence exactly.
+
+\begin{lemma}[Complementary restriction with the full covariance retained]
+\label{lem:complementaryrestriction}
+Let \(E=E^\top\) be an \(N\)-by-\(N\) matrix with
+\(\|E\|\leq1\) and all squared column norms at most \(\alpha\).
+Let \(R\) select each coordinate independently with probability
+\(1/2\), and put \(R'=I-R\).
+For every fixed \(A>0\), with probability \(1-N^{-A}\),
+\[
+ \|RER'\|^2\leq\tfrac14\|E\|^2+
+       C_A\bigl(\sqrt{\alpha\log(2N)}+\alpha\log(2N)\bigr).
+\]
+The assertion remains true with polynomially high probability
+after conditioning \(|R|=N/2\), when \(N\) is even, or after
+also prescribing one coordinate in each part.
+\end{lemma}
+\begin{proof}
+For columns \(c_j\) of \(E\), write
+\[
+ F=ERE-\tfrac12 E^2
+       =\sum_j(\one_{j\in R}-1/2)c_jc_j^\top .
+\]
+The summands have norm at most \(\alpha\), and their matrix
+variance is at most
+\[
+ \tfrac14\sum_j\|c_j\|_2^2c_jc_j^\top
+              \preceq\tfrac{\alpha}{4}E^2 .
+\]
+Matrix Freedman for this independent sum gives
+\[
+ \|F\|\leq C_A(\sqrt{\alpha L}+\alpha L),\qquad L=\log(2N),
+\]
+with arbitrarily high prescribed polynomial probability.
+Crucially the other restriction has the exact relation
+\[
+ ER'E=\tfrac12 E^2-F .
+\]
+Consequently, retaining the same covariance \(F\),
+\[
+ \begin{split}
+ \|RER'\|^2
+ &=\|R'ERER'\|\\
+ &\leq\tfrac12\|ER'\|^2+\|F\|\\
+ &\leq\tfrac14\|E\|^2+\tfrac32\|F\|.
+ \end{split}
+\]
+This proves the assertion without independent complementary
+selectors or a discarded cross term.
+
+The balanced event has probability at least \(1/(N+1)\).
+With prescribed distinct coordinates \(a\in R,b\notin R\),
+its probability is
+\(2^{-N}\binom{N-2}{N/2-1}\geq1/(4(N-1))\).
+Choosing the initial failure exponent larger absorbs these
+polynomial conditioning costs.
+\end{proof}
+
+\begin{lemma}[Scaling repair without a parity kernel]
+\label{lem:aperiodicrepair}
+Let \(Q\) be symmetric nonnegative of any order, and put
+\[
+ d=Q\one,\quad D=\diag(d),\quad
+ \|d-\one\|_\infty\leq\varepsilon<1/2,\quad
+ S=D^{-1/2}QD^{-1/2}.
+\]
+Assume \(S\) has simple eigenvalue \(1\) and all other
+eigenvalues of modulus at most \(1-\delta\).
+Then the scaling conclusion (5) holds. No bipartition is needed.
+For sufficiently small \(\varepsilon L^2\), the repaired matrix
+has nontrivial gap at least \(\delta/2\) and largest entry at most
+twice that of \(Q\).
+\end{lemma}
+\begin{proof}
+Use \(D,T,\pi\) as in Lemma~\ref{lem:scaling}, and let
+\(\Pi_+f=\one\sum_i\pi_i f_i\), \(\Pi_0=I-\Pi_+\).
+The same reversible spectral calculation gives
+\[
+ \|T^j\Pi_0\|_{\infty\to\infty}
+       \leq C\min(1,\sqrt N(1-\delta)^j).
+\]
+There is no eigenvalue \(-1\), so \(D+Q=D(I+T)\) is invertible
+on the whole space. Its inverse is specified by
+\[
+ (D+Q)^{-1}r
+   =\tfrac12\Pi_+(D^{-1}r)
+      +\sum_{j\geq0}(-1)^jT^j\Pi_0(D^{-1}r).
+\]
+Its infinity norm is \(O_\delta(L)\).
+Equation (8) therefore has a contraction solution on the full
+ball \(\|z\|_\infty\leq C_\delta\varepsilon L\);
+the nonlinear term and its Lipschitz cost are exactly those
+already calculated there. No orthogonality or gauge restriction
+is imposed or required.
+All entries of \(u=\one+z\) are positive.
+The complete expansion \(ZQ+QZ+ZQZ\) gives the operator bound,
+and the multiplier bound gives the entry bound.
+Comparison with the normalized input and Weyl's inequality
+give the stated gap after decreasing the admissible constant.
+\end{proof}
+
+\begin{lemma}[Most balanced cuts admit controlled stochastic scaling]
+\label{lem:balancedcutscaling}
+Let \(N\) be even and \(P=P^\top\) be nonnegative stochastic, with
+\[
+ \|P-J_N/N\|\leq1-\delta,\qquad \max_{ij}P_{ij}=\alpha,
+ \qquad \alpha(\log(2N))^5\to0 .
+\]
+A proportion \(1-o(1)\) of all balanced ordered cuts \(X,Y\)
+have the following property.
+The symmetric bipartite kernel \(Q\) with cross block
+\(2P[X,Y]\) has an exact stochastic scaling
+\[
+ P^{X,Y}=\diag(u)Q\diag(u),\qquad
+ \|u-\one\|_\infty=O_\delta(\sqrt{\alpha}L^{3/2}).
+\]
+It has fixed nontrivial gap at least \(\delta/8\) and largest
+entry at most \(4\alpha\).
+The same conclusion holds among cuts with any fixed
+\(a\in X,b\in Y\), uniformly in distinct \(a,b\).
+\end{lemma}
+\begin{proof}
+Put \(E=P-J_N/N\).
+Since \(P\) is symmetric stochastic,
+\[
+ \sum_j E_{ij}^2=\sum_jP_{ij}^2-1/N\leq\alpha .
+\]
+Lemma~\ref{lem:complementaryrestriction} thus applies.
+For a balanced cut, exactly
+\[
+ 2P[X,Y]-J_{N/2}/(N/2)=2E[X,Y].
+\]
+Its norm is at most
+\(\sqrt{(1-\delta)^2+O(\sqrt{\alpha L}+\alpha L)}\),
+hence at most \(1-3\delta/4\) for sufficiently large \(N\).
+This bounds the second singular value of the cross block
+by the rank-one approximation inequality.
+
+Scalar concentration of each weighted row sum, with variance
+at most \(\alpha/4\), gives
+\[
+ \|Q\one-\one\|_\infty
+             \leq C(\sqrt{\alpha L}+\alpha L).
+\]
+Union bounds and the same polynomial conditioning costs give
+this simultaneously with the operator estimate.
+They also apply if \(P\) has nonzero diagonal entries:
+every cross row sum is an actual selected sum, and each
+diagonal contribution is at most \(\alpha\).
+Normalizing the degrees changes the symmetric operator by
+\(O(\sqrt{\alpha L}+\alpha L)\).
+The normalized bipartite operator has its exact eigenvalues
+\(1,-1\), and the remaining spectrum stays a fixed distance
+from both; simplicity follows from the second-singular-value
+bound.
+Now \(\varepsilon L^2=O(\sqrt\alpha L^{5/2})=o(1)\).
+Apply Lemma~\ref{lem:scaling}.
+The multiplier, maximum-entry and gap conclusions follow,
+with constants uniform over the good cuts and endpoints.
+\end{proof}
+
+\begin{theorem}[Hamiltonian-weight universality at every order]
+\label{thm:generalweightedentropy}
+Fix \(0<\delta<1,C>0\), and let \(K_{\rm w}=3\cdot10^7\).
+Let \(P=P_N\) be any symmetric nonnegative stochastic kernels,
+with
+\[
+ \|P-J_N/N\|\leq1-\delta,\qquad
+ \alpha=\max_{ij}P_{ij}\leq C(\log(2N))^{-K_{\rm w}}.
+\]
+Loops are permitted in the kernel; Hamilton paths and cycles
+use distinct vertices and no loops.
+For all sufficiently large \(N\), of either parity,
+\[
+ \begin{split}
+ \log Z_{\rm H}(P)
+       &=-N+O_{\delta,C}(N\alpha^{1/8}\log(2N)),\\
+ \log Z_{\rm path}(P;a,b)
+       &=-N+O_{\delta,C}(N\alpha^{1/8}\log(2N))
+                         \quad(a\ne b).
+ \end{split}
+\]
+The endpoint error and threshold are uniform over all \(a,b\).
+Together with the bipartite theorems, this covers both a fixed
+aperiodic spectral gap and the exact balanced parity case.
+It makes no assertion uniform in a spectral gap tending to zero.
+\end{theorem}
+\begin{proof}
+The permanent upper bounds, including path minors, are already
+Lemma~\ref{lem:diffusepermanent} and Lemma~\ref{lem:pathminor}.
+Write \(R_N=N\alpha^{1/8}\log(2N)\).
+Since \(\alpha\geq1/N\), this absorbs \(O(\log N)\).
+
+Suppose first that \(N\) is even.
+For every good balanced cut apply the bipartite weighted
+theorem to \(P^{X,Y}\).
+For a Hamilton cycle crossing that cut, the exact relation is
+\[
+ \prod_{ij\in E(C)}P^{X,Y}_{ij}
+       =2^N\left(\prod_vu_v^2\right)
+                         \prod_{ij\in E(C)}P_{ij}.
+\]
+The logarithm of the multiplier is
+\(O_\delta(N\sqrt\alpha L^{3/2})=o(R_N)\).
+The weighted theorem is uniform on these cuts, since their
+gap is at least \(\delta/8\) and their largest entry at most
+\(4\alpha\). Each good cut therefore contributes at least
+\[
+ 2^{-N}\exp(-N-O_{\delta,C}(R_N))
+\]
+to the Hamilton sum in the original kernel.
+
+Every even Hamilton cycle has exactly two balanced ordered
+alternating cuts. Hence the exact double-counting identity is
+\[
+ 2Z_{\rm H}(P)
+       =\sum_{\substack{X\subseteq[1,N]\\|X|=N/2}}
+                        Z_{\rm H}(P\hbox{ restricted to }X,X^c).
+\]
+There are \(\binom N{N/2}\) cuts and a proportion \(1-o(1)\)
+are good. The factor \(2^{-N}\) cancels their exponential
+number, leaving only \(O(\log N)\) in the logarithm.
+This proves the cycle lower bound at even orders.
+
+For a fixed oriented Hamilton path from \(a\) to \(b\),
+there is exactly one balanced cut with \(a\in X,b\in Y\)
+which it crosses throughout.
+The exact scaling factor for its weight is instead
+\[
+ 2^{N-1}\frac{\prod_vu_v^2}{u_a u_b}.
+\]
+Apply Theorem~\ref{thm:bipartitepathentropy} on each good cut
+with these endpoints.
+There are \(\binom{N-2}{N/2-1}\) such cuts, almost all good
+uniformly in \(a,b\). Their exponential number cancels
+\(2^{-(N-1)}\), again up to a polynomial factor.
+This proves the even-order path lower bound, including all
+endpoint and scaling factors.
+
+Here is the reduction for odd orders.
+Remove an arbitrary vertex \(v\), leaving the principal
+matrix \(Q\) of order \(n=N-1\).
+Its row defect is at most \(\alpha\).
+Interlacing gives
+\[
+ \lambda_2(Q)\leq1-\delta,\qquad
+ \lambda_{\min}(Q)\geq-1+\delta .
+\]
+Its normalized matrix differs from \(Q\) by \(O(\alpha)\),
+has exact eigenvalue 1, and all other eigenvalues have modulus
+at most \(1-\delta/2\), for large \(N\).
+Lemma~\ref{lem:aperiodicrepair} therefore supplies
+\[
+ \widetilde P=\diag(u)Q\diag(u),\quad
+ \|u-\one\|_\infty=O_\delta(\alpha L),\quad
+ \max\widetilde P_{ij}\leq2\alpha
+\]
+with a fixed positive aperiodic gap.
+The even-order path conclusion just proved applies to it.
+Transferring a path back to \(Q\) uses the exact factor
+\(\prod u_i^2/(u_a u_b)\), costing \(O_\delta(N\alpha L)=o(R_N)\).
+
+Choose two distinct off-diagonal neighbours \(a,b\) of \(v\)
+with \(P_{va},P_{vb}\geq1/(2N)\).
+Such neighbours exist for large \(N\): after excluding the
+diagonal and the largest off-diagonal entry, the remaining
+row mass is at least \(1-2\alpha\).
+Close a spanning \(a\)-to-\(b\) path of \(Q\) through \(v\).
+This is an injective construction of Hamilton cycles, and
+\[
+ Z_{\rm H}(P)\geq
+ P_{va}P_{vb}\,Z_{\rm path}(Q;a,b)
+       \geq (4N^2)^{-1}\exp(-n-O_{\delta,C}(R_N)).
+\]
+Its additional logarithmic cost is \(O(\log N)\).
+This proves the odd cycle bound without assuming a bipartition.
+
+Finally, for prescribed endpoints \(a,b\) at odd order, remove
+\(a\) and repair its principal matrix in the same way.
+There is a neighbour \(c\notin\{a,b\}\) with
+\(P_{ac}\geq1/(2N)\), since excluding the two specified entries
+leaves mass at least \(1-2\alpha\).
+Prepend \(a,c\) to a spanning path from \(c\) to \(b\) on the
+remaining even-order matrix.
+The construction is injective, its scaling cost is
+\(O_\delta(N\alpha L)\), and its extra edge costs only
+\(O(\log N)\).
+This proves the final lower bound uniformly in the endpoints.
+No parity case or diagonal mass has been omitted.
+\end{proof}
+
+\begin{corollary}[Sparse graph entropy without a bipartite restriction]
+\label{cor:generalsinkhornentropy}
+Let simple graphs \(G_N\), of any order, admit positive
+symmetric stochastic scalings
+\(P_N=\diag(u)A_{G_N}\diag(u)\).
+Suppose either the aperiodic hypotheses of
+Theorem~\ref{thm:generalweightedentropy}, or the balanced
+bipartite hypotheses of Theorem~\ref{thm:weightedentropy}, hold.
+Then
+\[
+ \log h(G_N)
+   =2\max_{\substack{x_e\geq0\\\sum_{e\ni v}x_e=1}}
+                \sum_{e\in E(G_N)}x_e\log(1/x_e)
+      -N+O_{\delta,C}(N\alpha^{1/8}\log(2N)).
+\]
+Moreover the logarithmic cost of imposing the one-cycle
+condition on weighted permutations is at most the same
+order, for all orders covered here.
+\end{corollary}
+\begin{proof}
+The cycle-weight multiplier is always \(\prod_vu_v^2\).
+The entropy-maximization calculation in
+Corollary~\ref{cor:sinkhornentropy} uses only the row equations,
+so applies to general graphs as well.
+The full permanent and Hamiltonian permanent change by the
+same multiplier. Their comparison follows from the two
+weighted upper and lower estimates just proved.
+\end{proof}

@@ -1,0 +1,95 @@
+\section{A growing-modulus arithmetic application: coprime circles}
+\label{sec:coprimecircles}
+This application uses exact finite Fourier analysis, with no
+prime number theorem, fixed-modulus assumption or prime-tuple input.
+Let \(X_n\) have vertex set \(\mathbb Z/n\mathbb Z\), with
+distinct vertices adjacent when their difference is coprime to \(n\).
+These are the unitary Cayley graphs.
+Their Hamiltonicity and stronger path properties are known;
+see Klotz--Sander~\cite{KS} and Ba\v{s}i\'c~\cite{Basic}.
+The conclusion here concerns the full exponential count.
+
+\begin{theorem}[Coprime-circle entropy at every modulus]
+\label{thm:coprimecircles}
+As \(n\to\infty\) through all integers,
+\[
+ \log h(X_n)
+   =n(\log\varphi(n)-1)
+       +O\left(n\varphi(n)^{-1/8}\log(2n)\right).
+\]
+In particular \(h(X_n)=(\varphi(n)/e)^n\exp(o(n))\).
+The constant is absolute.
+For odd \(n\), the same logarithmic estimate holds for the
+number of spanning paths joining any prescribed distinct endpoints.
+For even \(n\), it holds for any prescribed opposite-parity endpoints.
+\end{theorem}
+\begin{proof}
+The degree is \(d=\varphi(n)\), and \(P=A_{X_n}/d\) is symmetric
+stochastic with maximum entry \(1/d\).
+The character \(\e(kx/n)\) has eigenvalue
+\[
+ \lambda_k(A_{X_n})
+   =\sum_{\substack{a\bmod n\\(a,n)=1}}\e(ka/n)
+   =\varphi(n)\frac{\mu(t)}{\varphi(t)},
+       \qquad t=n/(n,k).
+\]
+This is the standard Ramanujan-sum spectrum; we retain its sign.
+The only \(t\) with \(\varphi(t)=1\) are \(1,2\).
+The eigenvalue at \(t=1\) is the simple constant eigenvalue.
+When \(n\) is even, \(t=2\) supplies the unique parity
+eigenvalue \(-d\).
+Every remaining eigenvalue has modulus at most \(d/2\).
+For odd \(n\) there is no \(t=2\), so
+\[
+ \|P-J_n/n\|\leq1/2.
+\]
+For even \(n\), all units are odd and the parity parts are equal;
+the same bound holds on the complement of the constant
+and parity vectors.
+These are exact statements for each modulus, not estimates
+uniformly transferred from a fixed progression.
+
+We also verify diffuseness without invoking an ineffective
+totient estimate.
+For a prime-power factor \(p^a\), its factor in
+\(\varphi(n)^2/n\) is \(p^{a-2}(p-1)^2\).
+It is at least 1 for \(p\geq3\), and the sole possible factor
+below 1 is \(1/2\) at \(p=2,a=1\).
+Thus \(\varphi(n)\geq\sqrt{n/2}\).
+In particular \(1/d\) satisfies every fixed inverse-logarithmic
+diffuseness threshold for sufficiently large \(n\).
+
+Use Theorem~\ref{thm:generalweightedentropy} for odd \(n\), and
+Theorems~\ref{thm:weightedentropy} and
+\ref{thm:bipartitepathentropy} for even \(n\), with a fixed
+gap such as \(\delta=1/3\).
+Every Hamilton cycle has weight \(d^{-n}\).
+Every spanning path has weight \(d^{-(n-1)}\).
+The cycle assertion follows directly.
+For paths the difference of one \(\log d=O(\log n)\) is
+absorbed by the displayed error, uniformly over endpoints.
+The totient lower bound makes the error \(o(n)\).
+All constants may be chosen absolute because the spectral
+gap was uniform over every modulus.
+\end{proof}
+
+\begin{remark}[Normalization, prior existence results, and scope]
+When \(n\) is prime, \(X_n\) is complete and
+\(h(X_n)=(n-1)!/2\).
+When \(n=2^a\), it is complete balanced bipartite, and
+\(h(X_n)=(n/2)!(n/2-1)!/2\).
+Both exact formulas agree with the normalization above;
+cyclic rotations and reversal have been identified, while
+translations of the vertex labels have not.
+
+Existence of a Hamilton cycle is not a new conclusion for
+this family. Each unit step already gives a Hamilton cycle,
+and its opposite gives the same one.
+Nor do we claim novelty for the character spectrum or
+Hamilton-connectedness.
+The quantitative count is supplied to demonstrate a second
+arithmetic consumer of the general entropy theorem, now with
+the modulus itself growing and with both parity cases covered.
+Priority for this counting conclusion requires comparison
+beyond the existence and spectral results cited here.
+\end{remark}

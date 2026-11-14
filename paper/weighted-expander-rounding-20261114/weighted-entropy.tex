@@ -1,0 +1,420 @@
+\section{Weighted Hamiltonian entropy and nonuniform graph counts}
+\label{sec:weightedentropy}
+The near-regular counting theorem is not the limit of the method.
+Here the row observables in Lemma~\ref{lem:observablerounding}
+let us retain the endpoint distribution for nonuniform kernels.
+For a symmetric kernel \(P\), define
+\[
+ Z_{\rm H}(P)=
+  \sum_{\substack{C\ {\rm unoriented}\\
+                   {\rm Hamilton\ cycle\ on}\ [1,N]}}
+                        \prod_{ij\in E(C)}P_{ij}.
+\]
+Zero entries simply give zero summands.
+
+\begin{theorem}[Hamiltonian-weight universality]
+\label{thm:weightedentropy}
+Fix \(0<\delta<1\) and \(C>0\), and put \(K_{\rm w}=3\cdot10^7\).
+Let \(P=P_N\) be symmetric stochastic bipartite kernels on
+equal parts, with nontrivial gap at least \(\delta\).
+If
+\[
+ \alpha=\max_{ij}P_{ij}\leq C(\log(2N))^{-K_{\rm w}},
+\]
+then, along even \(N\),
+\[
+ \log Z_{\rm H}(P)
+       =-N+O_{\delta,C}\bigl(N\alpha^{1/8}\log(2N)\bigr).
+\]
+In particular the error is \(o(N)\).
+There is no positive lower bound assumption on the nonzero entries.
+The bound holds for all sufficiently large even \(N\);
+its starting threshold may depend on the fixed \(C,\delta\).
+\end{theorem}
+
+\begin{lemma}[A diffuse stochastic permanent upper bound]
+\label{lem:diffusepermanent}
+If an \(N\)-by-\(N\) nonnegative matrix \(P\) has row sums 1
+and maximum entry \(\alpha\to0\), then
+\[
+ \operatorname{per}(P)\leq\exp(-N+o(N)).
+\]
+\end{lemma}
+\begin{proof}
+Let \(k=\lceil1/\alpha\rceil\).
+Each row of \(P/\alpha\) lies in \([0,1]^N\) and has sum
+\(1/\alpha\leq k\leq N\).
+Extend it coordinatewise to a vector of sum \(k\).
+The polytope \(\{x\in[0,1]^N:\sum x_i=k\}\) has the
+zero-one \(k\)-subsets as its vertices.
+Since the permanent is linear in each row and is nonnegative,
+one can replace the extended rows successively by such
+vertices without decreasing the permanent.
+Bregman's bound therefore gives
+\[
+ \operatorname{per}(P)
+       \leq\alpha^N(k!)^{N/k}.
+\]
+Now \(\alpha k=1+O(\alpha)\), and Stirling yields
+\[
+ \log\operatorname{per}(P)
+ \leq-N+O\bigl(N\alpha\log(1/\alpha)\bigr)
+ =-N+o(N).
+\]
+This argument does not require column sums.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:weightedentropy}]
+The upper bound follows from
+\(2Z_{\rm H}(P)\leq\operatorname{per}(P)\) and the quantitative
+proof of Lemma~\ref{lem:diffusepermanent}:
+\(N\alpha\log(1/\alpha)\ll N\alpha^{1/8}\log(2N)\).
+
+For the lower bound first remove a potential tiny-edge
+obstruction without assuming it away.
+Delete every positive entry smaller than \(N^{-10}\),
+symmetrically. The removed mass at any row is at most \(N^{-9}\).
+Corollary~\ref{cor:forbiddenrepair} gives
+\[
+ P'=\diag(u)P_{\rm trimmed}\diag(u),\qquad
+ \|u-\one\|_\infty=O_\delta(N^{-9}\log N).
+\]
+It has fixed nontrivial gap at least \(\delta/2\), maximum
+entry at most \(2\alpha\), and every nonzero entry at least
+\(N^{-11}\), for all large \(N\).
+Every Hamilton cycle of its support satisfies
+\[
+ \prod_{ij\in E(C)}P'_{ij}
+       =\left(\prod_vu_v^2\right)
+                       \prod_{ij\in E(C)}P_{ij}.
+\]
+The common multiplier has logarithm
+\(O_\delta(N^{-8}\log N)=o(1)\).
+Thus a lower bound for \(Z_{\rm H}(P')\) transfers to the
+original \(P\), including its actual weights.
+Rename the repaired kernel \(P\), its maximum entry \(\alpha\),
+and its fixed gap for the rest of the lower-bound proof.
+We may now use the proved lower weight \(N^{-11}\);
+the original theorem did not assume it.
+
+Let \(N=2m\), \(L=\log(2N)\), and choose
+\[
+ t=\lfloor\alpha^{-1/4}\rfloor,\qquad
+ r_0=\lceil m\alpha^{1/8}\rceil,\qquad
+ b=\left\lfloor\frac{m-r_0}{t}\right\rfloor,\qquad r=m-tb.
+\]
+Stochasticity gives \(\alpha\geq1/m\), and our upper bound
+on \(\alpha\) ensures
+\[
+ \begin{gathered}
+ t\leq m^{1/4},\qquad b\asymp N\alpha^{1/4},\qquad
+ r=m\alpha^{1/8}+O(t+1),\\
+ (r+b)L+tL=O(N\alpha^{1/8}L)=o(N).
+ \end{gathered}
+\]
+This smaller reservoir supplies the quantitative error.
+Partition the parts into
+\(A_1,\ldots,A_t,R_A\) and \(B_1,\ldots,B_t,R_B\),
+with the same layer sizes as in the unweighted proof.
+Put \(p=b/m\asymp\alpha^{1/4}\).
+Stirling's formula, including the reservoir and all factorial
+remainders, gives
+\[
+ \log{\cal P}
+   =2tb\log(1/p)+O(N\alpha^{1/8}L).
+\]
+
+We record precisely the weighted random-block estimates.
+The cross block \(T\) of \(P\) is doubly stochastic, and
+\(\|T-J_m/m\|\leq1-\delta\), with the renamed fixed gap.
+Every row and column has squared norm at most \(\alpha\);
+the centered matrix therefore has row and column norms
+\(O(\sqrt\alpha)\) and entries \(O(\alpha)\).
+Lemma~\ref{lem:randomrestriction}, with weighted scalar
+sampling applied to the rows, gives for a block of common
+sampling proportion \(z\)
+\[
+ \left\|P[X,Y]/z-J_s/s\right\|
+       \leq1-\delta+O(\tau_z),\qquad
+ \|z^{-1}P[X,Y]\one-\one\|_\infty=O(\tau_z),
+\]
+where
+\[
+ \tau_z=\sqrt{\alpha L/z}+\alpha L/z,\qquad s=zm.
+\]
+The degree estimate holds on both parts.
+Its scalar variance uses \(\sum_jP_{ij}^2\leq\alpha\),
+rather than an independence assumption on arithmetic entries.
+The estimates hold with any fixed polynomially high probability.
+
+For all consecutive layer pairs take \(z=p\).
+Since \(\tau_p L^2\to0\), the normalized bipartite operator
+has a fixed gap and Lemma~\ref{lem:scaling} applies.
+Its multipliers satisfy \(u_v=1+O_\delta(\tau_pL)\).
+If \(W=P[X,Y]\) is a weighted cross block, its scaled
+doubly stochastic matrix is
+\(\widetilde W_{ij}=u_iW_{ij}u_j/p\).
+Consequently, with every multiplier charged,
+\[
+ \operatorname{per}(W)
+  =\frac{p^b}{\prod_{v\in X\cup Y}u_v}
+                      \operatorname{per}(\widetilde W)
+  \geq (p/e)^b
+                  \exp\bigl(-O_\delta(b\tau_pL)\bigr).
+\]
+The error is uniform across the \(2t-1\) layer pairs and
+its total is \(O_\delta(N\tau_pL)
+=O_\delta(N\alpha^{1/8}L)\).
+The product of these weighted matching sums is exactly
+the total weight of their long-path covers.
+
+The augmented reservoir uses
+\[
+ K=R_A\cup A_1\cup R_B\cup B_t,\quad
+ n_K=2(r+b),\quad p_K=(r+b)/m\asymp\alpha^{1/8}.
+\]
+Its raw kernel is \(P[K,K]/p_K\).
+The same estimates, now at \(z=p_K\), and exact scaling
+produce a stochastic kernel \(\widehat P\) on \(K\), with
+fixed positive gap, maximum entry
+\(\beta\leq C_\delta\alpha^{7/8}\), and multipliers
+\(1+O_\delta(\tau_{p_K}L)\).
+
+We must retain the endpoint row masses, not just the spectrum.
+For the two endpoint sets \(S=A_1,B_t\), on each opposite
+part, weighted scalar concentration gives
+\[
+ \left|\sum_{w\in S}P_{vw}-p\right|
+       \leq C\bigl(\sqrt{p\alpha L}+\alpha L\bigr).
+\]
+Divide by \(p_K\) and include the scaling multipliers.
+Writing \(\rho=b/(r+b)=p/p_K\), the result is
+\[
+ |(\widehat P\one_S)(v)-\rho|
+ \leq C_\delta\left(
+       \frac{\sqrt{p\alpha L}+\alpha L}{p_K}
+                               +\tau_{p_K}L\right)
+ \leq C_\delta\alpha^{7/16}L^2.
+\]
+This common majorant includes the sampling fluctuation
+and the actual scaling change.
+A union bound makes all layer and reservoir estimates
+hold for a proportion \(1-o(1)\) of partitions.
+
+Round \(\widehat P\), preserving these two row observables,
+with
+\[
+ d=\lfloor\alpha^{-2/3}L^{-3}\rfloor.
+\]
+Here \(d\leq n_K/2\) for all large \(N\), since
+\(\alpha^{-1}\leq m\) and \(n_K\asymp N\alpha^{1/8}\).
+Also \(n_K\gg N^{7/8}\), so \(\log n_K\asymp L\).
+The finite rounding condition holds:
+\[
+ d\beta(\log(2n_K))^2
+           \ll_\delta\alpha^{5/24}/L\longrightarrow0.
+\]
+The resulting graph \(H_K\) is simple and exactly regular,
+has fixed positive nontrivial gap, and has simultaneous
+operator and row-observable error at most
+\[
+ C_\delta\left(d\beta L+\sqrt{L/d}+L/d\right)
+                   \leq C_\delta\alpha^{5/24}L^2.
+\]
+Indeed the drift term is \(O_\delta(\alpha^{5/24}/L^2)\)
+and the centered fluctuation is \(O(\alpha^{1/3}L^2)\);
+both are included.
+Thus its endpoint sets are bi-uniform, as sets and multisets,
+with source parameter
+\[
+ \alpha_{\rm src}=C_\delta\alpha^{5/24}L^2.
+\]
+This is where the observable-preserving rounding, including
+its predictable drift, is used essentially.
+
+Verify every remaining condition of (42).
+Take \(c=1/5\), \(d'=0\), and
+\(\gamma=(\log n_K)^{-3}\).
+Then
+\[
+ \alpha_{\rm src}d^c
+ \ll_\delta\alpha^{3/40}L^{7/5}\to0,
+\]
+so \(\alpha_{\rm src}\leq d^{-c}\).
+For the full number \(b\) of endpoint pairs,
+\[
+ \frac{b}{d^{-c/900}n_K}
+ \ll\alpha^{1/8-1/6750}\longrightarrow0.
+\]
+Finally
+\[
+ d\gg L^{2K_{\rm w}/3-3}
+        =L^{20,000,000-3}
+        \gg(\log n_K)^{15,000,000}
+        =\gamma^{-10^6/c}.
+\]
+The fixed gap supplies expansion larger than \(\gamma\)
+eventually, the two endpoint sets have equal size and
+distinct elements, and \(0<c<1/4\).
+The source size and degree-error conditions hold as well.
+Therefore every long-path cover closes to a Hamilton cycle
+using only \(R_A\cup R_B\) for its new interior vertices,
+in precisely the cyclic pairing used in the unweighted proof.
+
+It remains to charge weighted completion and multiplicity.
+Each completion uses exactly \(2r+b\) new edges.
+Every such edge is a positive entry of the trimmed original
+kernel and has weight at least \(N^{-11}\).
+Thus an output cycle has weight at least its long-path
+cover weight times \(N^{-11(2r+b)}\).
+Its logarithmic cost is
+\(O((r+b)L)=O(N\alpha^{1/8}L)\).
+A fixed output cycle has at most
+\[
+ \binom N{2r+b}
+       \leq\exp\bigl(O(N\alpha^{1/8}L)\bigr)
+\]
+preimage configurations, by the same edge-subset
+reconstruction as (57).
+All good-partition events hold with probability tending to
+one, hence at least \(1/2\) for sufficiently large \(N\).
+Summing the weighted matching bounds over those partitions
+therefore gives, retaining every loss,
+\[
+ \begin{split}
+ \log Z_{\rm H}(P)
+ &\geq
+ 2tb\log(1/p)+(2tb-b)(\log p-1)
+                          -O_\delta(N\alpha^{1/8}L)\\
+ &=-N-O_\delta(N\alpha^{1/8}L).
+ \end{split}
+\]
+For the last equality the residual terms are \(2r+b\) and
+\(b\log(1/p)\), each of the stated order.
+The lost matching edges, all closing weights, all scaling
+multipliers, and the complete preimage multiplicity have
+each been included in this inequality.
+The initial trimming repair changes \(\log Z_{\rm H}\) by
+only \(o(1)\), and its new maximum entry is at most twice the
+original one. The same error bound therefore holds for the
+original kernel. Together with the upper bound this proves
+the quantitative theorem.
+\end{proof}
+
+\begin{corollary}[The entropy cost of the one-cycle constraint]
+\label{cor:onecyclecost}
+Under Theorem~\ref{thm:weightedentropy}, give a permutation
+\(\sigma\) probability proportional to
+\(\prod_{i=1}^N P_{i,\sigma(i)}\).
+Then
+\[
+ 0\leq-\log\mathbb P\{\sigma\hbox{ is one cycle}\}
+       \leq C_{\delta,C}N\alpha^{1/8}\log(2N).
+\]
+Equivalently, with the Hamiltonian permanent counting both
+orientations,
+\[
+ \log\frac{\operatorname{per}(P)}{2Z_{\rm H}(P)}
+          =O_{\delta,C}(N\alpha^{1/8}\log(2N)).
+\]
+Thus enforcing a single global cycle costs only sublinear
+entropy, although the support can have zeros.
+The same comparison holds between the full adjacency
+permanent and \(2h(G)\) in the graph-scaling corollary below.
+\end{corollary}
+\begin{proof}
+The exact probability is \(2Z_{\rm H}(P)/\operatorname{per}(P)\).
+It is at most one. The permanent upper bound and the weighted
+Hamiltonian lower bound give the other inequality;
+all smaller errors and the factor two are absorbed.
+If \(P=\diag(u)A\diag(u)\), every permutation product and
+every directed Hamilton-cycle product is multiplied by
+the same factor \(\prod_vu_v^2\), so their ratio is unchanged.
+\end{proof}
+
+\begin{corollary}[Sinkhorn entropy determines nonuniform graph counts]
+\label{cor:sinkhornentropy}
+Let \(G_N\) be simple balanced bipartite graphs with
+adjacency matrices \(A_N\).
+Suppose positive vectors \(u\) give symmetric stochastic
+scalings
+\[
+ P_N=\diag(u)A_N\diag(u)
+\]
+with a fixed positive nontrivial gap and maximum entry
+\(O((\log N)^{-K_{\rm w}})\).
+Then, with \(\alpha=\max_{ij}(P_N)_{ij}\),
+\[
+ \log h(G_N)=-N-2\sum_{v=1}^N\log u_v
+                  +O_{\delta,C}(N\alpha^{1/8}\log(2N)).
+\]
+Equivalently, if
+\[
+ {\cal H}(P)=-\sum_{ij\in E(G_N)}P_{ij}\log P_{ij},
+\]
+with each undirected edge counted once, then
+\[
+ \log h(G_N)=2{\cal H}(P_N)-N+o(N).
+\]
+The displayed edge entropy is maximal among all nonnegative
+proper edge weightings of \(G_N\) with row sums 1.
+\end{corollary}
+\begin{proof}
+Every Hamilton cycle has degree two at each vertex, so
+\[
+ \prod_{ij\in E(C)}P_{ij}=\prod_vu_v^2
+\]
+independently of \(C\).
+The weighted theorem gives the first formula.
+Since the edge weights have row sums 1,
+\[
+ \sum_{ij\in E(G_N)}P_{ij}\log P_{ij}
+ =\sum_{ij\in E(G_N)}P_{ij}(\log u_i+\log u_j)
+ =\sum_v\log u_v.
+\]
+This proves the entropy formula and fixes its factor of two.
+
+For any other proper edge weighting \(x\), its total mass
+and that of \(P\) are both \(N/2\), and
+\(\sum_e x_e\log P_e=\sum_v\log u_v\).
+The log-sum inequality gives
+\(\sum_e x_e\log(x_e/P_e)\geq0\).
+Thus \({\cal H}(x)\leq{\cal H}(P)\), including zero \(x_e\)
+by continuity.
+\end{proof}
+
+\begin{corollary}[A Markov-chain formulation]
+\label{cor:markovhamiltonentropy}
+Under Theorem~\ref{thm:weightedentropy}, start a Markov chain
+with transition matrix \(P_N\) in its uniform stationary law.
+Then
+\[
+ {\mathbb P}\{X_0,\ldots,X_{N-1}\ {\rm all\ distinct},
+                        \ X_N=X_0\}=\exp(-N+o(N)).
+\]
+\end{corollary}
+\begin{proof}
+Each unoriented Hamilton cycle has exactly \(2N\)
+choices of starting point and direction.
+The stationary starting probability is \(1/N\).
+The displayed probability is therefore exactly
+\(2Z_{\rm H}(P_N)\); the quantitative logarithmic error is
+\(O_{\delta,C}(N\alpha^{1/8}\log(2N))\) as well.
+\end{proof}
+
+\begin{remark}[Comparison with prior entropy methods]
+Cuckler--Kahn~\cite{CK} establish graph-entropy counting in
+the Dirac setting, and also describe dense balanced bipartite
+analogues with minimum degree exceeding half a part.
+The present hypothesis permits sparse zero support and
+does not impose a linear minimum degree.
+Barvinok's permanent/Hamiltonian-permanent comparison
+\cite[Theorem 1.2]{Barvinok} assumes all entries are positive
+and bounded below relative to their maximum.
+Here zero entries are allowed, and the initial trimming
+argument removes any separate positive-entry lower bound.
+The fixed spectral gap, quantified diffuseness, and the
+recent spanning-path input replace those dense-positivity
+hypotheses. No novelty is claimed for entropy maximization
+or Sinkhorn scaling themselves.
+\end{remark}

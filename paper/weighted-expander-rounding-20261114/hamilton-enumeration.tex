@@ -1,0 +1,496 @@
+\section{Hamilton-cycle entropy with a fixed spectral gap}
+\label{sec:enumeration}
+This section proves a counting result under a fixed spectral gap;
+no assumption that the nontrivial spectral ratio tends to zero
+is made. For comparison, the bipartite enumeration theorem of
+Byrne--Tait~\cite[Theorem 7]{BT}, extending Krivelevich~\cite{Krivelevich},
+requires \(d/\lambda\geq(\log N)^{1+\epsilon}\).
+Our explicit polylogarithmic degree threshold permits a
+nontrivial ratio arbitrarily close to 1.
+
+For a simple graph \(G\), let \(h(G)\) count unoriented Hamilton
+cycles, with cyclic rotations identified.
+Let \(J_m\) denote the \(m\)-by-\(m\) all-ones matrix.
+
+\begin{theorem}[Full exponential Hamilton entropy at fixed gap]
+\label{thm:hamiltonentropy}
+Fix \(0<\delta<1\).
+Let \(G=G_N\) be a sequence of simple balanced bipartite
+graphs on \(N=2m\) vertices, with biadjacency matrix \(B\).
+Suppose there are positive numbers \(D=D_N\) such that
+\[
+ \begin{gathered}
+ D\geq(\log N)^{K_0},\qquad K_0=2\cdot10^7,\\
+ \max_v|\deg_G(v)/D-1|=o(1),\qquad
+ \left\|B/D-J_m/m\right\|\leq1-\delta .
+ \end{gathered}
+ \tag{43}
+\]
+Then
+\[
+ \log h(G)=N(\log D-1)+o(N),\qquad
+ h(G)=(D/e)^N\exp(o(N)).                                    \tag{44}
+\]
+The logarithmic assertion includes eventual positivity.
+The error is uniform along any sequence meeting the displayed
+degree defect and fixed parameters.
+\end{theorem}
+
+We first supply the random-restriction estimate used in its proof.
+This is a standard matrix-concentration mechanism, with
+related formulations in~\cite[Lemmas 2.2--2.4]{Muyesser}
+and the earlier work credited there.
+We give the particular estimate needed below, without
+claiming a new sampling principle or independence of
+arithmetic entries.
+
+\begin{lemma}[Two independent coordinate restrictions]
+\label{lem:randomrestriction}
+Let \(E\) be an \(m\)-by-\(m\) real or complex matrix, and put
+\[
+ v=\max\left\{\max_i\|E_{i,*}\|_2,\max_j\|E_{*,j}\|_2\right\},
+ \qquad k=\max_{ij}|E_{ij}|,\qquad \ell=\log(4m).
+\]
+Choose independent row and column sets by Bernoulli sampling
+with probability \(p\), with diagonal selectors \(R_X,R_Y\).
+For every fixed \(A>0\), with probability at least \(1-m^{-A}\),
+\[
+ \|R_XER_Y\|
+ \leq p\|E\|+C_A\bigl(v\sqrt{p\ell}+k\ell\bigr).             \tag{45}
+\]
+For independent uniform sets of common prescribed size \(b\),
+take \(p=b/m\); the same bound fails with probability at most
+\((m+1)^2m^{-A}\).
+\end{lemma}
+\begin{proof}
+Write \(c_j\) for the columns of \(E\).
+For the first column restriction the centered rank-one sum has
+increments of norm at most \(v^2\) and matrix variance at most
+\[
+ p\sum_j\|c_j\|_2^2c_jc_j^*
+             \preceq pv^2EE^*.
+\]
+Matrix Freedman applied to these independent increments gives,
+with arbitrarily prescribed polynomially high probability,
+\[
+ \|ER_YE^*-pEE^*\|
+ \leq C_A\bigl(v\|E\|\sqrt{p\ell}+v^2\ell\bigr).
+\]
+Taking square roots, and increasing \(C_A\), yields
+\[
+ \|ER_Y\|\leq\sqrt p\|E\|+C_Av\sqrt\ell.                     \tag{46}
+\]
+For each row, the sum
+\(\sum_j\one_{j\in Y}|E_{ij}|^2\) has mean at most \(pv^2\),
+bounded summands \(k^2\), and scalar variance at most
+\(pk^2v^2\).
+The scalar version of the same inequality and a union bound
+over rows give
+\[
+ \max_i\|(ER_Y)_{i,*}\|_2\leq\sqrt p\,v+C_Ak\sqrt\ell.        \tag{47}
+\]
+Condition on \(Y\), and apply the rank-one matrix argument to
+the independent row restriction of \(Z=ER_Y\).
+It gives
+\[
+ \|R_XZ\|\leq\sqrt p\|Z\|
+                   +C_A\sqrt\ell\max_i\|Z_{i,*}\|_2.
+\]
+Substitute (46)--(47), retaining both error terms, to obtain
+(45). Choosing the failure exponents a little larger before
+the three union bounds gives the stated exponent \(A\).
+
+If \(p=b/m\), the event that a Bernoulli set has size exactly
+\(b\) has probability at least \(1/(m+1)\): \(b\) is a mode
+of its binomial distribution.
+Conditional on that event the set is uniform.
+The two independent conditioning events therefore cost at
+most \((m+1)^2\) in failure probability.
+The cases \(b=0,m\) follow directly, or can be omitted in the
+application where \(0<b<m\).
+\end{proof}
+
+\begin{lemma}[Regular expanding factors in random blocks]
+\label{lem:randomblockfactor}
+Assume the uniform-degree and centered-norm hypotheses
+of (43), without imposing its global lower bound on \(D\).
+Let \(X,Y\) be independent uniform subsets of the two parts,
+each of size \(s\), and put \(p=s/m\).
+If \(pD/\log N\to\infty\), then, with probability
+\(1-N^{-A}\) for every fixed prescribed \(A\), the block
+\(G[X,Y]\) has a regular spanning factor of degree
+\[
+ d_s=(1-o(1))pD
+\]
+and a fixed positive nontrivial gap depending only on \(\delta\).
+All vertex degrees before factoring are \((1+o(1))pD\).
+If the host is exactly \(D\)-regular, the factor can be chosen
+so that its degree differs from \(pD\), and its discarded
+maximum degree is bounded, by
+\[
+ C_{\delta,A}\bigl(\sqrt{pD\log N}+\log N\bigr).
+ \tag{48}
+\]
+The assertions hold simultaneously for polynomially many
+specified block pairs of a random ordered partition.
+A common factor degree may be used for pairs with the same size.
+\end{lemma}
+\begin{proof}
+Use \(E=B/D-J_m/m\).
+The degree condition in (43) and \(D\leq(1+o(1))m\)
+give
+\[
+ v=O(D^{-1/2}),\qquad k=O(D^{-1}).
+\]
+Lemma~\ref{lem:randomrestriction}, conditioned on the two
+prescribed sizes, gives
+\[
+ \left\|\frac{B[X,Y]}{pD}-\frac{J_s}{s}\right\|
+ \leq1-\delta+
+        O_A\left(\sqrt{\frac{\log N}{pD}}
+                        +\frac{\log N}{pD}\right).
+ \tag{49}
+\]
+Sampling neighbours without replacement gives, uniformly for
+all vertices in the original graph,
+\[
+ \deg(v,Y)\ \hbox{or}\ \deg(v,X)
+ =pD\left(1+O\left(\varepsilon_N+
+       \sqrt{\frac{\log N}{pD}}+\frac{\log N}{pD}\right)\right),
+ \tag{50}
+\]
+where \(\varepsilon_N=\max_v|\deg(v)/D-1|\).
+The usual scalar concentration inequality follows also by
+Bernoulli sampling and the same conditioning argument.
+The constants can be chosen for any polynomial failure exponent.
+
+For large \(N\), (49) is at most \(1-\delta/2\) and the
+degree defect in (50) tends to zero.
+The Laplacian argument proving (28), with the bipartite
+constant block \(J_s/s\), now gives a fixed positive cut
+constant, for example \(g=\delta/8\).
+Lemma~\ref{lem:regularfactor} extracts a factor of degree
+\((1-o(1))pD\), deleting \(o(pD)\) edges per vertex.
+The discarded adjacency has the same operator bound;
+(49) transfers a fixed positive nontrivial gap to the factor.
+All errors depend on the displayed deterministic defect and
+on \(pD\), so one may take their common upper bound before
+choosing the integer factor degree.
+For an exactly regular host, (50) has no \(\varepsilon_N\)
+term. The explicit loss in (22)--(23), including its floor,
+is then at most a constant times
+\(\sqrt{pD\log N}+\log N\), which proves (48).
+The marginals of any two opposite-part blocks in a random
+ordered partition are independent uniform subsets.
+A union bound with a larger prescribed exponent proves the
+simultaneous assertion; independence between different block
+pairs is not required.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:hamiltonentropy}]
+We first regularize the host before sampling.
+The centered norm in (43) and its vanishing degree defect
+give a fixed positive cut constant by the Laplacian argument
+used in (28).
+Lemma~\ref{lem:regularfactor} gives an exactly \(d\)-regular
+spanning subgraph \(H\), where
+\[
+ d=(1-o(1))D,\qquad
+ \|A_G-A_H\|=o(D).
+\]
+Consequently its biadjacency satisfies
+\(\|B_H/d-J_m/m\|\leq1-\delta/2\) for all large \(N\).
+Also \(d\geq\tfrac12(\log N)^{K_0}\) eventually.
+For the lower bound work in this exact regular host;
+every resulting cycle belongs to the original graph.
+The difference \(\log d-\log D=o(1)\) will cost only \(o(N)\).
+
+Take
+\[
+ t=\lfloor d^{1/4}\rfloor,\qquad
+ b=\left\lfloor\frac{m-m/(\log N)^3}{t}\right\rfloor,\qquad
+ r=m-tb.
+\]
+These parameters satisfy
+\[
+ t\asymp d^{1/4},\quad b\asymp N d^{-1/4},\quad
+ r=\frac{m}{(\log N)^3}+O(d^{1/4}),\quad
+ (r+b)\log N=o(N),\quad t\log N=o(N).                        \tag{51}
+\]
+Partition the first part into ordered sets
+\(A_1,\ldots,A_t,R_A\), of sizes \(b,\ldots,b,r\),
+and independently the other part into
+\(B_1,\ldots,B_t,R_B\) with the same sizes.
+The number of ordered partition pairs is
+\[
+ {\cal P}=\left(\frac{m!}{r!(b!)^t}\right)^2.
+\]
+Stirling's formula and (51) give, with \(p=b/m\),
+\[
+ \log{\cal P}=2tb\log(1/p)+o(N).                            \tag{52}
+\]
+
+Require the regular-factor conclusions in every adjacent
+pair of the alternating list
+\[
+ A_1,B_1,A_2,B_2,\ldots,A_t,B_t.
+\]
+Their sampled degree is \(pd\asymp d^{3/4}\),
+so it exceeds \((\log N)^{3K_0/4}\) up to a fixed factor.
+Require the same conclusions on
+\[
+ K=H[R_A\cup A_1,\ R_B\cup B_t],\qquad
+ n_K=2(r+b),\qquad p_K=(r+b)/m .
+\]
+The augmented reservoir has independent uniform part sets
+of size \(r+b\), and \(p_Kd\asymp d/(\log N)^3\).
+In addition require the scalar endpoint concentration
+\[
+ |\deg_H(v,A_1)-pd|,\ |\deg_H(v,B_t)-pd|
+       \leq C\bigl(\sqrt{pd\log N}+\log N\bigr)              \tag{53}
+\]
+for every vertex \(v\) of the appropriate opposite part.
+This holds by sampling without replacement in the exact
+regular host.
+There are only \(2t\) block requirements and \(2N\) scalar
+requirements. Lemma~\ref{lem:randomblockfactor} and scalar
+concentration, with suitably larger failure exponents,
+therefore hold for a proportion \(1-o(1)\) of all partitions.
+Their events depend on the partition, not on any matching.
+
+Fix a good partition.
+For every consecutive block choose a factor with the same
+degree \(d_0=(1-o(1))pd\).
+The van der Waerden permanent bound gives at least
+\[
+ d_0^b\,\frac{b!}{b^b}\geq(d_0/e)^b
+\]
+perfect matchings in each.
+This established permanent inequality, together with
+Bregman's upper bound used below, is recorded in
+\cite[Section 2.4]{BT}.
+Choose these \(2t-1\) matchings as independent combinatorial
+choices. Their union covers the \(2tb\) nonreservoir vertices
+by \(b\) paths, each with \(2t\) vertices.
+The first endpoints are \(A_1\), the last endpoints \(B_t\).
+The layer structure prevents cycles, and each resulting path
+cover determines all its chosen matchings.
+
+We verify the source hypotheses for closing every cover.
+Choose in \(K\) an exact regular factor \(K'\) of degree \(d_K\)
+using (48), so that
+\[
+ |d_K-p_Kd|,\quad
+ \max_v\deg_{K-K'}(v)
+       \leq C_\delta\bigl(\sqrt{p_Kd\log N}+\log N\bigr).
+ \tag{54}
+\]
+It has fixed positive nontrivial gap.
+The endpoint sets can be too large for the arbitrary-set
+bound in Lemma~\ref{lem:smallendpoints}; their distribution
+must be retained instead.
+Combining (53)--(54), for every \(v\) of the opposite part,
+\[
+ \left|\deg_{K'}(v,A_1)-\frac b{r+b}d_K\right|,
+ \quad
+ \left|\deg_{K'}(v,B_t)-\frac b{r+b}d_K\right|
+ \leq C_\delta\bigl(\sqrt{p_Kd\log N}+\log N\bigr).           \tag{55}
+\]
+Indeed the target before factoring is \(pd=(b/(r+b))p_Kd\).
+The three errors are the original endpoint fluctuation,
+the actual number of edges lost at the vertex, and
+\((b/(r+b))|d_K-p_Kd|\).
+Each is bounded by the right side, since \(p\leq p_K\).
+Thus no endpoint compensation is erased by regularization.
+
+The two distinct endpoint sets, both of size \(b\), satisfy
+the set and multiset bi-uniformity condition (41), now on
+\(K'\), with
+\[
+ \alpha=C_\delta\left(
+       \sqrt{\frac{\log N}{p_Kd}}+\frac{\log N}{p_Kd}\right).
+\]
+Take
+\[
+ c=1/5,\qquad \gamma=(\log n_K)^{-3},\qquad d'=0 .
+\]
+The degree satisfies
+\(d_K\asymp d/(\log N)^3\gg(\log N)^{K_0-3}\).
+In particular
+\[
+ \alpha d_K^c
+ \ll_\delta(\log N)^{1/2}d_K^{c-1/2}
+                       +(\log N)d_K^{c-1}\longrightarrow0.
+\]
+Thus \(\alpha\leq d_K^{-c}\) for all large \(N\).
+For the number \(b\) of prescribed pairs, charge the full range:
+\[
+ \frac{b}{d_K^{-c/900}n_K}
+ \ll (\log N)^3 d^{-1/4+c/900}\longrightarrow0.
+ \tag{56}
+\]
+The limit follows from \(K_0(1/4-1/4500)>3\).
+The fixed positive spectral gap gives a fixed positive
+edge-expansion constant, eventually larger than \(\gamma\).
+Also
+\[
+ \gamma^{-10^6/c}=(\log n_K)^{15\cdot10^6}
+                   =o(d_K),
+\]
+since \(K_0-3>15\cdot10^6\).
+The remaining source conditions are
+\(0<c<1/4\), \(\gamma<(\log n_K)^{-2}\), equal endpoint
+cardinalities, \(d'=0\leq d_K^{1-c}\), and large \(n_K\)
+relative to fixed \(c\); all hold.
+
+Label the long paths \(Q_1,\ldots,Q_b\), with endpoints
+\(a_i\in A_1,z_i\in B_t\), and apply (42) to
+\((a_{i+1},z_i)\), taking indices cyclically.
+It supplies disjoint connecting paths with interiors
+exactly \(R_A\cup R_B\).
+Together with the long paths, in the prescribed cyclic order,
+these form one Hamilton cycle.
+For all large \(N\), \(t\geq2\), so no long-path edge has both
+ends in \(K\); the two edge collections do not overlap.
+
+Choose one such Hamilton cycle for each configuration by a
+fixed deterministic rule.
+For a fixed output cycle \(C\), its long-path cover in any
+preimage is a subset of its \(N\) edges with \(2tb-b\) edges.
+The number of possibilities is at most
+\[
+ \binom N{\,2r+b\,}=\exp(o(N)).                              \tag{57}
+\]
+Each subset determines its entire configuration:
+its isolated vertices are the reservoir, and each nontrivial
+component is one long path.
+Orient each path from its endpoint in the first part;
+successive positions fix all ordered layers and matchings.
+No permutation of paths or extra orientation factor is
+left uncharged.
+
+The number of good configurations is at least
+\[
+ (1-o(1)){\cal P}\,(d_0/e)^{b(2t-1)}.
+\]
+Its logarithm, by (51)--(52), is
+\[
+ 2tb\log(1/p)+(2tb-b)(\log(pd)-1)+o(N)
+                 =N(\log d-1)+o(N).
+\]
+The missing \(2r+b\) matching edges cost
+\(O((r+b)\log N)=o(N)\).
+The ordered-partition entropy cancels the entire layer
+degree loss. Division by (57), followed by
+\(\log d=\log D+o(1)\), proves the required lower bound
+for the original graph.
+
+For its upper bound, the full adjacency permanent counts
+all directed cycle covers and includes both orientations
+of every Hamilton cycle.
+Bregman's inequality gives
+\[
+ 2h(G)\leq\operatorname{per}(A_G)
+            \leq\prod_v(\deg_G(v)!)^{1/\deg_G(v)}.
+\]
+Stirling and (43) imply
+\[
+ \log\operatorname{per}(A_G)
+ \leq\sum_v(\log\deg_G(v)-1)
+       +O\left(\frac{N\log D}{D}\right)
+ =N(\log D-1)+o(N).
+\]
+This completes the proof with its explicit polylogarithmic
+degree threshold.
+\end{proof}
+
+\begin{corollary}[The exponential asymptotic for prime circles]
+\label{cor:primecircleentropy}
+Fix an even \(q\) and a nonempty allowed unit set \(R\).
+If \(g_R=2\), then along the even integers
+\[
+ h(G_N(q,R))
+ =\left(\frac{\sigma_R N}{e\log N}\right)^N\exp(o(N)).
+ \tag{58}
+\]
+If \(g_R>2\), the count is zero for all \(N\geq g_R\).
+In particular the ordinary prime-sum graph satisfies
+\[
+ \log h(G_N)
+   =N\log N-N\log\log N-N+o(N).
+ \tag{59}
+\]
+\end{corollary}
+\begin{proof}
+The norm estimate (40) and the stochastic cross-block
+spectral gap imply
+\[
+ \left\|B_N^R/D-J_m/m\right\|
+                    \leq1-\delta_R+o(1),
+ \qquad D=\sigma_R N/\log N .
+\]
+The uniform degrees are (40), and
+\(D\geq(\log N)^{K_0}\) once \(N\) is sufficiently large.
+Apply Theorem~\ref{thm:hamiltonentropy} with any smaller
+fixed positive gap.
+The disconnected case is the exact obstruction in
+Theorem~\ref{thm:filterclassification}.
+For \(q=2,R=\{1\}\), the relative prime density is one,
+giving (59).
+\end{proof}
+
+\begin{remark}[Precision of the enumeration]
+The factor \(\exp(o(N))\) is part of the assertion.
+This determines the exponential base, including its constant
+\(e^{-1}\); it is not a relative-error \(1+o(1)\) formula for
+the total count.
+It leaves, for example, any bounded singular-series factor
+and finer subexponential terms undetermined.
+\end{remark}
+
+\begin{corollary}[An entropy and concentration inverse for kernel supports]
+\label{cor:entropyinverse}
+Fix \(0<\delta<1\), and let \(K_0=2\cdot10^7\).
+There is \(a_\delta>0\) such that, for sufficiently large even
+\(N\), a stochastic bipartite kernel \(P\) with nontrivial
+gap at least \(\delta\) and
+\[
+ \alpha=\max_{ij}P_{ij}\leq a_\delta L^{-(K_0+2)}             \tag{60}
+\]
+has Hamiltonian support.
+More quantitatively, with \(c_\delta\) from the finite
+rounding theorem and
+\[
+ d=\left\lfloor\frac{c_\delta}{2\alpha L^2}\right\rfloor,
+ \qquad
+ \log h(\supp P)\geq N(\log d-1)-o(N),                       \tag{61}
+\]
+the displayed lower bound holds along every sequence
+satisfying (60), with fixed \(\delta\).
+Consequently a non-Hamiltonian support with this fixed gap
+forces \(\alpha>a_\delta L^{-(K_0+2)}\).
+\end{corollary}
+\begin{proof}
+Stochasticity on equal parts gives \(\alpha\geq1/m=2/N\).
+Decrease \(c_\delta\) if necessary so that \(c_\delta\leq1\),
+and choose \(a_\delta\leq c_\delta/8\).
+Then the degree in (61) is at most \(m\) and, for all
+sufficiently large \(N\), is at least
+\(2L^{K_0}\), hence at least \((\log N)^{K_0}\).
+It obeys \(d\alpha L^2\leq c_\delta/2\).
+The full rounding error in (1) is bounded by
+\[
+ C_\delta\left(\frac{c_\delta}{2L}
+       +\sqrt{\frac Ld}+\frac Ld\right)=o(1).
+\]
+The resulting simple regular graph \(H\) therefore has
+nontrivial gap at least \(\delta/2\), and its cross block
+satisfies (43) with degree \(d\).
+Theorem~\ref{thm:hamiltonentropy} gives
+\(\log h(H)=N(\log d-1)+o(N)\).
+Since \(H\) is contained in the support graph, (61) follows.
+The inverse is the contrapositive of its positivity conclusion.
+The \(o(N)\) term denotes a uniform vanishing exponential
+loss under the displayed hypotheses, not a numerical
+starting threshold.
+\end{proof}

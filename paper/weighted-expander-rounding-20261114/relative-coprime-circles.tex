@@ -1,0 +1,198 @@
+\section{Full relative asymptotics for coprime circles}
+\label{sec:relativecoprime}
+The growing-entry comparison closes the arithmetic count at
+relative precision. This is stronger than an exponential-base
+estimate and treats every modulus, with the parity effect explicit.
+
+\begin{lemma}[An elementary sufficiently uniform totient bound]
+\label{lem:totientdiffusion}
+For all \(n\geq3\),
+\[
+ n/\varphi(n)\ll\log\log(3n).
+\]
+\end{lemma}
+\begin{proof}
+We recall an elementary argument, not claiming this classical
+estimate as new.
+Chebyshev's upper bound \(\vartheta(x)\ll x\) and partial
+summation give
+\(\sum_{p\leq x}(\log p)/p\ll1+\log x\).
+Take \(s=1+1/\log x\).
+Expanding the two logarithmic Euler products, and using
+\(1-e^{-u}\leq u\), gives
+\[
+ \log\prod_{p\leq x}
+       \frac{1-p^{-s}}{1-p^{-1}}
+ \leq(s-1)\sum_{p\leq x}\frac{\log p}{p-1}\ll1 .
+\]
+Thus
+\[
+ \prod_{p\leq x}(1-1/p)^{-1}
+                  \ll\zeta(s)\ll\log x,
+\]
+using \(\zeta(s)\leq1+1/(s-1)\).
+Set \(y=\log(3n)\).
+There are at most \((\log n)/\log y\) prime divisors of
+\(n\) exceeding \(y\), whose contribution to the logarithm
+of the product is at most
+\(2\log n/(y\log y)=O(1)\).
+The small-prime contribution is \(O(\log y)\).
+This proves the bound for large \(n\); a fixed constant
+covers the remaining finite range.
+No prime number theorem or RH hypothesis is used.
+\end{proof}
+
+For odd \(n\geq3\), define the positive arithmetic factor
+\[
+ {\mathfrak C}(n)=
+ \prod_{\substack{t\mid n\\t>1}}
+ \left(\frac{\varphi(t)-\mu(t)}
+            {\varphi(t)+\mu(t)}\right)^{\varphi(t)/2}.
+\]
+Every denominator is positive, since an odd \(t>1\) has
+\(\varphi(t)\geq2\).
+Factors with \(\mu(t)=0\) equal one.
+
+\begin{theorem}[Relative enumeration through every modulus]
+\label{thm:relativecoprime}
+As \(n\to\infty\), the number of unoriented coprime circles is
+\[
+ h(X_n)=
+ \begin{cases}
+ (1+O(n^{-1/10}))\,\pi\,(\varphi(n)/e)^n,&n\ {\rm even},\\[2mm]
+ (1+O(n^{-1/10}))\,{\mathfrak C}(n)
+       \sqrt{\dfrac{\pi}{2n}}\,(\varphi(n)/e)^n,
+                                      &n\ {\rm odd}.
+ \end{cases}
+\]
+The implied constant is absolute for sufficiently large \(n\).
+The estimate holds along all moduli of the indicated parity,
+without restrictions on their prime factors.
+For odd moduli the equivalent factorial form is
+\[
+ h(X_n)=(1+O(n^{-1/10}))\,
+       \frac{(n-1)!}{2n^n}\,\varphi(n)^n\,{\mathfrak C}(n).
+\]
+\end{theorem}
+\begin{proof}
+Use the exact spectrum proved in Theorem~\ref{thm:coprimecircles}.
+The normalized adjacency \(P=A_{X_n}/\varphi(n)\) has a
+fixed gap after removing the constant vector and, only in
+the even case, its exact parity vector.
+The largest entry is \(1/\varphi(n)\).
+By Lemma~\ref{lem:totientdiffusion}, its dimension times this
+entry is \(O(\log\log n)\).
+
+If \(n=2m\), its cross block \(T\) is doubly stochastic,
+has nontrivial singular norm at most \(1/2\), and satisfies
+\[
+ m\max T_{ij}\leq n/\varphi(n)=O(\log\log n)=o(\log m).
+\]
+Theorem~\ref{thm:relativebipartite} therefore gives
+\(Z_{\rm H}(P)=(1+o(1))\pi e^{-n}\).
+Every Hamilton cycle has weight \(\varphi(n)^{-n}\),
+which proves the even formula.
+
+If \(n\) is odd, \(B=P-J_n/n\) has norm at most \(1/2\), and
+\(A=O(\log\log n)\) satisfies \(A^2=o(\log n)\).
+Apply Theorem~\ref{thm:relativeaperiodic}.
+For each divisor \(t>1\) of \(n\), the eigenvalue
+\(\mu(t)/\varphi(t)\) has multiplicity \(\varphi(t)\).
+The determinant ratio for symmetric \(B\) is exactly
+\[
+ \frac{\det(I-B)}{\sqrt{\det(I-B^2)}}
+   =\prod_{\substack{t\mid n\\t>1}}
+       \left(\frac{1-\mu(t)/\varphi(t)}
+                  {1+\mu(t)/\varphi(t)}\right)^{\varphi(t)/2}
+   ={\mathfrak C}(n).
+\]
+Divide the directed count by two and restore the common
+edge-weight factor \(\varphi(n)^n\).
+This proves the factorial formula, and Stirling proves the
+displayed odd-order normalization.
+Choose, for example, the common gap parameter \(\delta=1/3\).
+The relative comparison errors are at most
+\(O(n^{-1/9}\exp(C(\log\log(3n))^2))\), uniformly over
+all moduli. Since \((\log\log(3n))^2=o(\log n)\), the
+exponential factor is at most \(n^{1/90}\) eventually.
+The permanent error \(O(n^{-1/8})\) and Stirling error
+\(O(n^{-1})\) are smaller. Thus the asserted common
+\(O(n^{-1/10})\) error follows, with an absolute constant;
+no numerical threshold is asserted.
+There is no unproved prime-sampling estimate in this consumer.
+\end{proof}
+
+\begin{proposition}[The prime-factor dependence of the odd constant]
+\label{prop:coprimeconstant}
+The factor \({\mathfrak C}(n)\) depends only on the distinct
+prime divisors of odd \(n\), and
+\[
+ \log{\mathfrak C}(n)
+ =1+\sum_{j\geq1}\frac{
+       1-\prod_{p\mid n}(1-(p-1)^{-2j})}{2j+1}.
+\]
+The series converges absolutely and uniformly over all odd moduli.
+In particular
+\[
+ e\leq{\mathfrak C}(n)\leq e^{11/9}.
+\]
+It increases when new distinct prime factors are added.
+Along odd primorials it converges to the finite constant
+obtained by taking the product over all odd primes in the
+series above.
+\end{proposition}
+\begin{proof}
+Only squarefree divisors contribute.
+Expand \(\tfrac12\log((1-x)/(1+x))
+=-\sum_{j\geq0}x^{2j+1}/(2j+1)\), valid for
+\(|x|\leq1/2\).
+The \(j=0\) sum is
+\(-\sum_{t\mid n,t>1}\mu(t)=1\).
+For \(j\geq1\), the multiplicative divisor sum is
+\[
+ \sum_{t\mid n}\frac{\mu(t)}{\varphi(t)^{2j}}
+       =\prod_{p\mid n}(1-(p-1)^{-2j}),
+\]
+giving the displayed series.
+
+Its numerator is nonnegative and at most
+\[
+ \sum_{\substack{p\ {\rm odd}\\p\ {\rm prime}}}(p-1)^{-2j}
+   \leq\sum_{\ell\geq1}(2\ell)^{-2j}
+   =4^{-j}\zeta(2j)\leq2\cdot4^{-j}.
+\]
+Here the elementary integral bound gives \(\zeta(2j)\leq2\).
+This majorant proves uniform absolute convergence.
+Moreover
+\[
+ 0\leq\log{\mathfrak C}(n)-1
+   \leq\frac23\sum_{j\geq1}4^{-j}=2/9.
+\]
+Adding a prime decreases each finite product inside the
+series, and therefore increases the constant.
+The same majorant justifies the primorial limit and the
+absolutely convergent infinite-prime expression.
+\end{proof}
+
+\begin{remark}[Exact calibration families and what has been settled]
+For odd prime powers \(n=p^a\),
+\[
+ {\mathfrak C}(n)
+       =\left(\frac p{p-2}\right)^{(p-1)/2};
+\]
+in particular \({\mathfrak C}(3^a)=3\).
+For prime \(n\), the formula agrees asymptotically with
+the exact complete-graph count \((n-1)!/2\).
+For powers of two, it agrees with the exact complete
+bipartite count \((n/2)!(n/2-1)!/2\).
+These are symbolic consistency checks on infinite families,
+not finite experimental certificates.
+
+The result determines the full relative asymptotic, including
+its parity-dependent polynomial factor and arithmetic constant.
+It does not merely count the already known constant-step
+Hamilton cycles or reprove their existence.
+The infinite-prime interaction appears in an explicit,
+uniformly convergent expression for the odd constant.
+Priority remains subject to primary-literature comparison.
+\end{remark}

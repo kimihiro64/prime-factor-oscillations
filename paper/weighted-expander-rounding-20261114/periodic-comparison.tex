@@ -1,0 +1,158 @@
+\section{Cyclic layers: a signed comparison beyond the bipartite case}
+\label{sec:periodiccomparison}
+The bipartite cancellation is one case of a finite cyclic-layer
+identity. Here the layers are part of the observable; they are
+not discarded by replacing the kernel with a norm envelope.
+
+\begin{theorem}[Relative comparison for a fixed number of cyclic layers]
+\label{thm:periodiccomparison}
+Fix an integer \(k\geq2\) and \(\delta\in(0,1)\).
+For \(i\) modulo \(k\), let \(T_i\) be real nonnegative doubly
+stochastic matrices of order \(m\), with
+\[
+ B_i=T_i-J_m/m,\qquad \|B_i\|\leq1-\delta,\qquad
+ \max T_i\leq A/m,\qquad 2\leq A=o(\log m).
+\]
+Let \(P\) have block \(T_i\) from layer \(i\) to layer \(i+1\)
+and all other blocks zero. Put \(C=B_1B_2\cdots B_k\).
+Then
+\[
+ \operatorname{cyc}P
+ =\frac{(m!)^k}{m\,m^{km}}\,
+   \frac{\det(I-C)}
+        {\prod_{i=1}^k\sqrt{\det(I-B_i^\top B_i)}}\,
+   \left(1+O_{\delta,k}
+       \left(m^{-1/9}\exp(C_{\delta,k}A)\right)\right).
+\]
+The positive determinant factors are retained in full.
+No commutativity, common eigenbasis, or matching row and
+column supports is assumed.
+\end{theorem}
+\begin{proof}
+In Liu's exact identity a selected principal submatrix has
+zero determinant unless its selected cardinality is the
+same, say \(r\), in every layer.
+For selected sets \(I_1,\ldots,I_k\), each of size \(r\),
+the determinant is exactly
+\[
+ (-1)^{(k-1)r}\prod_{i=1}^k
+                    \det T_i[I_i,I_{i+1}],\qquad I_{k+1}=I_1.
+\]
+The complementary permanent is the product of the \(k\)
+corresponding complementary permanents.
+Combining the sign with \((-1)^{kr-1}\) and the coefficient
+\(kr\), and dividing by \(k\), gives
+\[
+ m\operatorname{cyc}P
+ =\sum_{r=1}^m(-1)^{r-1}r
+  \sum_{\substack{I_1,\ldots,I_k\subseteq[1,m]\\|I_i|=r}}
+  \prod_{i=1}^k
+   \left(\det T_i[I_i,I_{i+1}]\,
+        \operatorname{per}T_i[I_i^c,I_{i+1}^c]\right).
+ \tag{20}
+\]
+This identity includes every compensation term on mismatched
+supports.
+
+Normalize by \(\prod_i\operatorname{per}T_i\).
+For \(r\leq(\log(2m))^3\), each complementary-permanent
+ratio is \(1+O_\delta(m^{-1/9})\), by
+Lemma~\ref{lem:relativecompensatedminors}.
+Their product has the same error with a constant depending on \(k\).
+To bound only that error, let \(M_i\) be the matrix indexed
+by \(r\)-subsets, with entries
+\(|\det T_i[I,J]|\). Cauchy--Binet gives
+\[
+ \|M_i\|_F^2=e_r(T_iT_i^\top)\leq A^r/r!.
+\]
+Repeated Hilbert--Schmidt inequalities, for \(k\geq2\), imply
+\[
+ \sum_{I_1,\ldots,I_k}\prod_i|\det T_i[I_i,I_{i+1}]|
+   =\operatorname{tr}(M_1\cdots M_k)
+   \leq\prod_i\|M_i\|_F
+   \leq(A^r/r!)^{k/2}.
+\]
+In particular the total error mass is at most
+\[
+ \sum_{r\geq1}r(A^r/r!)^{k/2}
+               \leq(Ae^A)^{k/2}\leq\exp(C_kA).
+\]
+For the middle inequality, use \(k/2\geq1\) and
+\(\sum_r rA^r/r!=Ae^A\).
+Absolute values have been used only after separating the
+minor-ratio error.
+
+For the retained tail \(r>(\log(2m))^3\), the full product
+of permanent ratios is at most \(\exp(kr+C_kA\log(2m))\).
+The same Hilbert--Schmidt bound and \(r!\geq(r/e)^r\)
+therefore give a total tail at most
+\[
+ e^{C_kA\log(2m)}
+ \sum_{r>(\log(2m))^3}r
+          (e^3A/r)^{kr/2}
+ \leq \exp(-c_k(\log(2m))^3\log\log(2m)).
+\]
+The factor \(e^3\) retains the full \(e^{kr}\) permanent-ratio
+cost. The determinant-only tail is smaller.
+
+The retained signed main term is evaluated by the
+Cauchy--Binet formula for products:
+\[
+ \sum_{I_1,\ldots,I_k}\prod_i\det T_i[I_i,I_{i+1}]
+                       =e_r(T_1\cdots T_k).
+\]
+Since \(T_1\cdots T_k=J_m/m+C\),
+\[
+ \det(I-xT_1\cdots T_k)=(1-x)\det(I-xC).
+\]
+Differentiating at \(x=1\) now gives
+\[
+ \frac{m\operatorname{cyc}P}{\prod_i\operatorname{per}T_i}
+ =\det(I-C)+
+ O_{\delta,k}\left(m^{-1/9}e^{C_kA}
+       +e^{-c_k(\log(2m))^3\log\log(2m)}\right).
+\]
+This is the signed step; bounding the main term by the
+Hilbert--Schmidt mass would not prove the formula.
+
+Finally put \(\rho=1-\delta\).
+For \(j\geq1\), the two Frobenius factors and the remaining
+operator factors give
+\[
+ |\operatorname{tr}(C^j)|\leq A\rho^{kj-2}.
+\]
+The logarithmic determinant series is absolutely convergent,
+so \(|\log\det(I-C)|\leq C_{\delta,k}A\).
+Its determinant is positive by continuity from \(I\) and
+\(\|C\|<1\). Dividing by it costs at most \(e^{C_{\delta,k}A}\).
+Apply the growing-entry permanent theorem to every \(T_i\).
+All full determinants remain in the displayed result,
+and all relative errors fit the stated bound.
+\end{proof}
+
+\begin{corollary}[Why two layers are special]
+\label{cor:twolayersspecial}
+If \(k=2\) and \(T_2=T_1^\top\), the spectral factor in
+Theorem~\ref{thm:periodiccomparison} is exactly one.
+For \(k\geq3\), if all cross blocks equal a symmetric matrix
+\(T=J_m/m+B\), that factor is
+\[
+ \frac{\det(I-B^k)}{\det(I-B^2)^{k/2}}.
+\]
+Thus higher layers retain a genuine joint spectral contribution.
+\end{corollary}
+\begin{proof}
+For two layers \(C=B_1B_1^\top\); the numerator cancels
+the product of the two square-root determinants.
+For equal symmetric blocks \(C=B^k\), while each denominator
+is \(\sqrt{\det(I-B^2)}\).
+These are exact finite identities, preceding any limiting estimate.
+\end{proof}
+
+\begin{remark}
+The new comparison range is \(A=o(\log m)\), with fixed \(k\).
+There is no claim of uniformity when the number of layers grows.
+The proof neither invokes an aperiodic hypothesis on the full
+\(km\)-vertex matrix nor removes its \(k\) exact unit-circle modes.
+They are encoded by the cyclic block structure from the outset.
+\end{remark}
