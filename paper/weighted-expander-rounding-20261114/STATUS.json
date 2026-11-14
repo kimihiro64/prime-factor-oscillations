@@ -475,8 +475,8 @@
       "kind": "theorem",
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\permanent-second-order.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
-      "lean_status": "partially_formalized_actual_finite_spectral_C4_Taylor_Gamma_average; matrix_identification_Wick_and_covariance_correction_derivatives_pending",
-      "audit_note": "Local-domain Gamma averaging repaired: analytic factors are restricted to the fixed interval; inverse moments through order eight control truncated signed moments; the original rook polynomial controls the outside tail. Revised manuscript compiled. Full analytic Lean proof remains pending. The maintained Euler integral proofs now establish every raw inverse moment and the exact signed central moments through order four. Concentration, truncation, Taylor bounds and Gaussian diagram estimates remain unformalized."
+      "lean_status": "partially_formalized_actual_matrix_Gamma_rook_bridge_and_full_first_correction_bound; Wick_covariance_derivatives_and_uniform_remainder_pending",
+      "audit_note": "Actual normalized Euler moments, concentration, signed truncation, local Taylor averaging, matrix spectral identification and the stochastic determinant Gamma-window consumer have maintained proofs. The exact partial-permutation permanent/rook/Gamma identity and its integrability are compiled. The complete correction uses the actual determinant second derivative and full block covariance; (1-rho)^3*abs(Psi)<=8*A^2/N and (1-rho)^3*abs(Q_N)<=21*A^2/N are compiled and focused-audited. The actual Gaussian/Wick identity and growing-entry remainder, covariance-correction derivative bounds and full asymptotic consumer remain pending. The revised manuscript compiled successfully with the built-in compiler; the headline theorem is not Lean-certified."
     },
     {
       "id": "thm:minorjet",
@@ -1106,7 +1106,8 @@
     "committed_this_turn": true,
     "pushed_this_turn": false,
     "proofs_left_only_in_private_research": false,
-    "recorded_phase": "After verified commits f10b90b63d63c22d904933352acc6209d599c504 and 426dade54e65883a90685870132ddb03c0841ea0; the spectral Taylor/Gamma proof promotion is synchronized in the worktree before its final staged checks and next commit."
+    "recorded_phase": "After verified commits f10b90b63d63c22d904933352acc6209d599c504 and 426dade54e65883a90685870132ddb03c0841ea0; the spectral Taylor/Gamma proof promotion is synchronized in the worktree before its final staged checks and next commit.",
+    "phase": "Matrix/rook/full-correction proofs compiled and focused-audited; paper compiled; final staged checks and commit pending."
   },
   "formalization": {
     "status": "in_progress_not_complete",
@@ -1257,11 +1258,35 @@
         "source_sha256": "C8BA6BF89F97867542C4C468D84B6F085E71AFED90FCB9931F0CB27070FDDF57",
         "content": "Actual local C4 smoothness and measurability, identification of every iterated derivative, endpoint within/global transfer, explicit Taylor remainder and the unconditional finite-spectral inverse-Gamma window average.",
         "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianMatrixSpectralAverage",
+        "source_sha256": "1A95FB931303199B713E64E50242B39226508F89C56195144869CE549D1FC308",
+        "content": "Actual Gram eigenvalues, nonnegativity, Euclidean norm bound, exact trace energy, Hermitian determinant product, positive-strip determinant/spectral identification and actual stochastic-matrix Gamma window average.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianRookGamma",
+        "source_sha256": "929537274BD5FA4ADCE33ED00711FAE2033790F3DF5D7179A719FC59382A90FC",
+        "content": "Actual integral and integrability for the exact partial-permutation rook sum, with factorial completion normalization and the normalized permanent identity over the explicit permutation definition.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianCovarianceCorrection",
+        "source_sha256": "A850090A53667E702E5966849EF456F1C8EEEBDE7BF3935E1367BCAA684C751E",
+        "content": "Actual resolvent covariance norm and squared-entry energy, the complete diagonal/quadratic-form/cubic correction, and the explicit stochastic bound (1-rho)^3*abs(Psi)<=8*A^2/N.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianPermanentFirstCorrection",
+        "source_sha256": "1738C9D476628B7E522A08861D87C089FF94D906E6651FF7788037451D1E1A69",
+        "content": "Local determinant/spectral equality and actual second-derivative identification; the complete first correction satisfies (1-rho)^3*abs(Q_N)<=21*A^2/N for N>=2, with every compensation term retained.",
+        "build_exit_code": 0
       }
     ],
     "unfinished_dependencies": [
       "Exact Hamiltonian determinant-permanent identity for actual spanning-cycle permutations, including singleton fixed-point cycles.",
-      "Identification of the finite spectral factor with the actual Gram determinant, actual Gaussian rook identity, finite Wick estimates with growing entry bound, derivatives of the covariance correction, and the uniform second-order permanent remainder. The actual finite-spectral C4 Taylor/Gamma average, including endpoint transfer and window integrability, is compiled and audited.",
+      "Actual Gaussian/Wick identity for the partial-permutation rook sum (including its grouping as rook minors), finite Wick coefficient bounds with growing entry parameter, derivatives of the covariance correction, and the complete uniform second-order permanent remainder. Actual matrix spectral identification, local C4/Gamma averaging, exact permanent/rook/Gamma bridge and the full explicit first-correction size bound are compiled and audited.",
       "Quantitative stochastic repair and full complementary-minor expansion with all mismatched supports and compensation fields.",
       "Actual coordinate occupancy identities, full derivative bounds and normalized moment bounds. Cauchy-Binet, the signed two-support constant moment, Gram sandwich entries and full block covariance entries are compiled.",
       "Full signed comparison with its absolute estimate confined to the retained remainder and large-minor tail.",
@@ -1540,13 +1565,77 @@
           "Quot.sound"
         ],
         "log_sha256": "FDCDF876C4A685730C5CB278F56E61B3C07213D62B1E980D8C505C285A189194"
+      },
+      {
+        "status": "verified",
+        "modules": [
+          "PrimeFactorOscillations.Helpers.HamiltonianMatrixSpectralAverage",
+          "PrimeFactorOscillations.Helpers.HamiltonianRookGamma",
+          "PrimeFactorOscillations.Helpers.HamiltonianCovarianceCorrection",
+          "PrimeFactorOscillations.Helpers.HamiltonianPermanentFirstCorrection"
+        ],
+        "declaration_count": 28,
+        "declarations": [
+          "PrimeFactorOscillations.realGramEigenvalues_nonnegative",
+          "PrimeFactorOscillations.realGramEigenvalues_sum_eq_energy",
+          "PrimeFactorOscillations.realGramEigenvalues_le_norm_bound",
+          "PrimeFactorOscillations.stochasticGram_spectral_data",
+          "PrimeFactorOscillations.hermitian_det_one_sub_smul",
+          "PrimeFactorOscillations.realGramDeterminantFactor_eq_spectral",
+          "PrimeFactorOscillations.realGramDeterminantFactor_eq_spectral_on_strip",
+          "PrimeFactorOscillations.realGramDeterminantFactor_window_eq",
+          "PrimeFactorOscillations.stochasticGramDeterminantFactor_gamma_window",
+          "PrimeFactorOscillations.hamiltonianRookPolynomial_integrable",
+          "PrimeFactorOscillations.hamiltonianRookPolynomial_gamma_exact",
+          "PrimeFactorOscillations.hamiltonianRookPolynomial_gamma_normalized",
+          "PrimeFactorOscillations.matrixSquareEnergy_nonnegative",
+          "PrimeFactorOscillations.covarianceDiagonalEnergy_nonnegative",
+          "PrimeFactorOscillations.covarianceDiagonalEnergy_entry_bound",
+          "PrimeFactorOscillations.covarianceTriple_bound",
+          "PrimeFactorOscillations.covarianceCubic_bound",
+          "PrimeFactorOscillations.covarianceCorrection_bound",
+          "PrimeFactorOscillations.resolventCovariance_norm_bound",
+          "PrimeFactorOscillations.resolventCovariance_row_energy",
+          "PrimeFactorOscillations.resolventCovariance_energy_bound",
+          "PrimeFactorOscillations.stochastic_block_covariance_energy_bound",
+          "PrimeFactorOscillations.stochastic_block_covariance_correction_bound",
+          "PrimeFactorOscillations.realGramDeterminantFactor_eventually_eq_spectral",
+          "PrimeFactorOscillations.realGramDeterminantFactor_second_derivative",
+          "PrimeFactorOscillations.stochasticPermanentFirstCorrection_bound",
+          "PrimeFactorOscillations.realGramPositive",
+          "PrimeFactorOscillations.realGramHermitian"
+        ],
+        "allowed_axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "log_sha256": "F176E3446F9184B251ABF9A669C97C5688989A025ECA5A528ADB39F270E2EC59"
       }
     ],
     "active_proof": {
-      "module": "PrimeFactorOscillations.Helpers.HamiltonianMatrixSpectralAverage",
-      "status": "Next actual matrix consumer; the finite-spectral averaging theorem is compiled, while this bridge is not yet counted as a theorem.",
-      "target": "For the actual real centered stochastic matrix B=T-J/N with scoped Euclidean operator norm <=1-delta, derive nonnegative Gram eigenvalues <=(1-delta)^2, their sum equal to the squared Frobenius energy <=A-1, and det(I-s^2*B^T*B)=product_i(1-s^2*lambda_i). Transfer the compiled spectral-factor Taylor/Gamma estimate with all dimensions and epsilon conditions explicit.",
-      "consumer": "The complete signed comparison has relative error O(log(N)^M/N+log(N)^M*Amp(T)/N^2). The present local determinant remainder supplies its N^(-2) precision; the Wick, covariance-correction and signed-coordinate consumers are still required. At the advertised prime amplification Amp(T)<=N^(27/20), that precision contributes N^(-13/20) times logarithms, before the final advertised N^(-3/5) relaxation."
+      "module": "PrimeFactorOscillations.Helpers.HamiltonianWickExpansion",
+      "status": "Next analytic consumer; not yet counted as a maintained theorem.",
+      "target": "Prove the actual normalized Gaussian/Wick identity for the exact partial-permutation rook sum, evaluate all degree-four and paired-cubic terms with the degree-six diagonal compensation, and bound the complete remaining diagram sum and its Cauchy tail uniformly by C_delta*(1+A)^40/N^2. Keep the original rook polynomial on the outside Gamma tail.",
+      "consumer": "The complete signed comparison has relative error O(log(N)^M/N+log(N)^M*Amp(T)/N^2). The present local determinant remainder supplies its N^(-2) precision; the Wick, covariance-correction and signed-coordinate consumers are still required. At the advertised prime amplification Amp(T)<=N^(27/20), that precision contributes N^(-13/20) times logarithms, before the final advertised N^(-3/5) relaxation.",
+      "proved_inputs": [
+        "PrimeFactorOscillations.Helpers.HamiltonianMatrixSpectralAverage",
+        "PrimeFactorOscillations.Helpers.HamiltonianRookGamma",
+        "PrimeFactorOscillations.Helpers.HamiltonianCovarianceCorrection",
+        "PrimeFactorOscillations.Helpers.HamiltonianPermanentFirstCorrection"
+      ]
+    },
+    "status_reconciliation_check": {
+      "trigger": "A prerequisite promotion or changed claim status.",
+      "required_preflight": "Reconcile status, explanatory note, unfinished dependencies and compiled receipts together; reject a stale sentence marking a completed prerequisite unformalized.",
+      "prohibited": "A status-only update with a contradictory audit note or a headline certification from its prerequisites.",
+      "corrected_action": "Validate all affected fields in the same strict-parsed document update and preserve unrelated claims.",
+      "checked_claims": [
+        "thm:secondpermanent",
+        "lem:signedoccupancy"
+      ],
+      "stale_note_removed": true,
+      "headline_certification": false
     }
   }
 }

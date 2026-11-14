@@ -105,6 +105,37 @@ The cubic entry sum is bounded by
 This proves \(|\Psi(\Gamma_s)|\leq C_\delta A^2/N\),
 also for the derivatives needed below.
 
+At \(s=1\) these estimates have explicit constants.
+For \(N\geq2\), \(\|B\|\leq\rho<1\), and \(g=1-\rho\),
+the actual block covariance satisfies
+\[
+ g\|\Gamma\|\leq\rho,\qquad
+ g^2\|\Gamma\|_F^2\leq2(A-1),\qquad
+ g\max_{i,j}|\Gamma_{ij}|\leq(2-\rho)A/N.
+\]
+For every real matrix \(M\), retaining all its coordinates gives
+\[
+ |\Psi(M)|\leq
+ \left(\frac34+\frac{\|M\|}{2}\right)\sum_i M_{ii}^2
+       +\frac{\max_{i,j}|M_{ij}|}{3}\|M\|_F^2.
+\]
+The quadratic-form term is bounded by the Euclidean operator norm;
+the entry-cubic term uses its maximum entry times squared energy.
+As \(\Gamma\) has \(2N\) coordinates, substitution yields
+\[
+ g^3|\Psi(\Gamma)|\leq8A^2/N.
+\]
+The spectral logarithmic derivative budgets give
+\(g^2\Delta''(1)/\Delta(1)\leq13A^2\).
+Since \(1/[2(N-1)]\leq1/N\), \(0<g\leq1\), and this
+second derivative is nonnegative,
+\[
+ \boxed{\quad g^3|{\cal Q}_N(D)|\leq21A^2/N.\quad}
+\]
+These bounds, including the identification of the actual determinant
+second derivative, have maintained Lean proofs. This does not yet
+formalize the Gaussian/Wick remainder in the displayed asymptotic.
+
 It remains to perform the Gamma average with its first
 correction retained. Put \(S=N/T\), \(T\sim\Gamma(N+1,1)\),
 \(I=[a,b]\), and
