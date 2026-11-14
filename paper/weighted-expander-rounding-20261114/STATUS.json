@@ -355,8 +355,8 @@
       "kind": "theorem",
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\relative-permanents.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
-      "lean_status": "partially_formalized_actual_rook_Gamma_bridge_uniform_covariance_Wick_inputs_and_collective_bounds; Gaussian_identity_and_remainder_pending",
-      "audit_note": "Exact partial-permutation rook/Gamma integration, stochastic matrix spectral bounds, the full real covariance series, actual complex vertex coefficient bounds, finite Wick pairing bounds and deterministic zero-sum product/Gamma-density inequalities have maintained focused-audited proofs. Actual Gaussian representation, quadratic tilt, complex analytic transfer, diagram summation and complete growing-entry remainder remain pending; no headline Lean certification is claimed."
+      "lean_status": "partially_formalized_actual_Gaussian_polynomial_transfer_mixed_Wick_bounds_and_rook_Gamma_inputs; block_rook_specialization_and_remainder_pending",
+      "audit_note": "Actual finite-dimensional polynomial Gaussian integration, quadratic reweighting and mixed Wick recursion/integral bounds are compiled and focused-audited on the explicit domain norm(z_j)<1, with signs and full covariance quotients retained. The exact partial-permutation rook/Gamma identity, real covariance series, vertex coefficients and collective product/density bounds are also maintained. Unrestricted standard-Gaussian and actual orthogonal block realizations, rook specialization, complex continuation, diagram summation and the complete growing-entry remainder remain pending. No headline Lean certification is claimed."
     },
     {
       "id": "lem:relativecompensatedminors",
@@ -476,8 +476,8 @@
       "kind": "theorem",
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\permanent-second-order.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
-      "lean_status": "partially_formalized_matrix_Gamma_rook_full_correction_and_uniform_Wick_inputs; actual_Gaussian_identity_derivatives_and_remainder_pending",
-      "audit_note": "Actual normalized Euler moments, concentration, signed truncation, local Taylor averaging, matrix spectral identification and the stochastic determinant Gamma-window consumer have maintained proofs. The exact partial-permutation permanent/rook/Gamma identity and its integrability are compiled. The complete first correction satisfies (1-rho)^3*abs(Q_N)<=21*A^2/N. Actual complex vertex coefficients obey a proved all-degree recurrence and norm bound; finite Wick pairings, the exact -5/2 diagonal compensation and its 40*A^3/((1-rho)^3*N^2) bound, the actual real covariance series and deterministic collective product/Gamma-density bounds are compiled and focused-audited. The actual Gaussian/Wick identity, quadratic reweighting, growing-entry remainder, covariance-correction derivatives and full asymptotic consumer remain pending. The revised manuscript compiled successfully with the built-in compiler; the headline theorem is not Lean-certified."
+      "lean_status": "partially_formalized_matrix_Gamma_rook_first_correction_and_actual_polynomial_Gaussian_Wick_transfer; block_realization_derivatives_and_uniform_remainder_pending",
+      "audit_note": "Actual Euler/Gamma integration, concentration, signed truncation, local Taylor and matrix spectral transfer are maintained. Exact partial-permutation rook/Gamma integration and the full first-correction bound 21*A^2/((1-rho)^3*N) are compiled. Uniform vertex coefficients, exact low-degree Wick compensation and its 40*A^3/((1-rho)^3*N^2) bound, the actual real covariance series and collective density bounds are focused-audited. Actual scalar and finite-dimensional polynomial Gaussian quadratic transfer, the full quotient half-plane identity, the polynomial Stein identity, all mixed Wick contractions and their uniform actual-integral bound are now compiled and focused-audited; the quadratic transfer explicitly assumes norm(z_j)<1. The unrestricted standard-Gaussian and actual block realizations, rook specialization, diagram/Cauchy remainder, covariance-correction derivatives and full asymptotic consumer remain pending. The revised manuscript compiled successfully; the headline theorem is not Lean-certified."
     },
     {
       "id": "thm:minorjet",
@@ -1027,7 +1027,7 @@
     },
     {
       "file": "relative-permanents.tex",
-      "sha256": "A4EAAB91A414D75E56EC3FD1957EC568544686E40BCF1571064192BA7241C0AC"
+      "sha256": "F01086467A816CC5F440CC707F6916930C68841CD7A48CA4B5BD844B3F5AE951"
     },
     {
       "file": "relative-coprime-circles.tex",
@@ -1043,7 +1043,7 @@
     },
     {
       "file": "main.tex",
-      "sha256": "4B97C7F3876A0EB0E4E759CF3B442AF993C35A2CE5FD8404833F3EC83F28E3C2"
+      "sha256": "36F7D69F2614447010647CEDE002E700E5EEF6F7BD4A255A50DF7B34D7551585"
     },
     {
       "file": "relative-hamilton.tex",
@@ -1051,7 +1051,7 @@
     },
     {
       "file": "permanent-second-order.tex",
-      "sha256": "7BB9D5EA744E3592F73736D773B6C9CD58DCC9D829DE4725F7AA77FB9D3B3A5D"
+      "sha256": "E4B81E3467F67DEB7CAA09A42C9DBF72BC00648AE3AD21968A65BDAAE5153306"
     },
     {
       "file": "compensated-minor-jet.tex",
@@ -1107,8 +1107,8 @@
     "committed_this_turn": true,
     "pushed_this_turn": false,
     "proofs_left_only_in_private_research": false,
-    "recorded_phase": "After local commit 1182d1e25653ee6d3d0d17cbb762babaae60f43a; four uniform Wick/covariance/collective proof modules and the paper are synchronized before their final staged checks and next local commit.",
-    "phase": "Four uniform Wick/covariance/collective modules compiled and 34 declarations focused-audited; paper compiled; final staged checks and commit pending."
+    "recorded_phase": "After local commit 2f94889777f407db70c47c733e8e86134efde999; five actual Gaussian/Wick proof modules and the paper are synchronized before final staged checks and the next local commit.",
+    "phase": "Five actual Gaussian/Wick modules compiled and 47 declarations focused-audited; paper compiled; final staged checks and commit pending."
   },
   "formalization": {
     "status": "in_progress_not_complete",
@@ -1307,11 +1307,41 @@
         "source_sha256": "FB79AD31F5706FC55D417F04B5FF6CC13CB2F41EB9C8AFA434ECD03DDFA048D5",
         "content": "Collective zero-sum product bounds, exact squared-mass cancellation, and the pointwise normalized Gamma-density shift bound.",
         "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianGaussianQuadraticTilt",
+        "source_sha256": "D562E200F8B24BABC90E1A9DB20DB340772182DD9945CEA6350FF712AE3AC747",
+        "content": "Actual complex Gaussian polynomial integrability and moment recurrence, with the complete covariance quotient proving Re((1-z/(1+z))/2)>1/4 for norm(z)<1.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianGaussianPolynomialTilt",
+        "source_sha256": "4FDD80124A28493DDAB0196A3F8961BF13ADE7DC93A2047FA4B423D0282495A2",
+        "content": "Actual finite polynomial quadratic-tilt integration and normalization, all-degree even/odd Wick monomials and nonzero Gaussian normalizers.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianGaussianTensorTilt",
+        "source_sha256": "9DAA0C88C6AF92F6F8960BFE42363F22DB5EB752F58D39280E22D42E096CD2BA",
+        "content": "Arbitrary finite-dimensional Fubini transfer for every finite signed tensor polynomial under the full complex quadratic tilt, with integrability discharged.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianGaussianPolynomialState",
+        "source_sha256": "55A7E8D546914485D44EABD31A21D2C602801A967AC0AC5591F49A46EBC842B5",
+        "content": "Actual multivariate polynomial integral identification and the complete polynomial Stein identity G_z(X_i*P)=z_i*G_z(pderiv_i P).",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianGaussianLinearWick",
+        "source_sha256": "BF252120B7D3B2B7D3A19C4D6BBCFCC98899CBDBD161711972D9F04EDD277BBF",
+        "content": "All mixed linear-form Wick contractions, their actual Gaussian integral and uniform norm bound (2e-1)!!*c^e, with every repeated vertex retained.",
+        "build_exit_code": 0
       }
     ],
     "unfinished_dependencies": [
       "Exact Hamiltonian determinant-permanent identity for actual spanning-cycle permutations, including singleton fixed-point cycles.",
-      "Actual Gaussian/Wick identity for the partial-permutation rook sum (including its grouping as rook minors), quadratic Gaussian reweighting, complex covariance continuation, finite diagram coefficient summation, covariance-correction derivatives and the complete uniform second-order permanent remainder. Matrix/Gamma/rook bridges, the full first-correction bound, all-degree vertex and pairing estimates, the signed real covariance series and deterministic collective product/density bounds are compiled and focused-audited.",
+      "Unrestricted standard-Gaussian covariance realization, the actual orthogonal block realization and its partial-permutation rook specialization, complex covariance continuation, finite diagram coefficient summation, covariance-correction derivatives and the complete uniform second-order permanent remainder. Actual polynomial Gaussian quadratic transfer and mixed Wick recursion/integral bounds are compiled on their explicit domain norm(z_j)<1, together with the earlier matrix/Gamma/rook bridges, full first-correction bound, all-degree vertex estimates, covariance series and collective product/density inequalities.",
       "Quantitative stochastic repair and full complementary-minor expansion with all mismatched supports and compensation fields.",
       "Actual coordinate occupancy identities, full derivative bounds and normalized moment bounds. Cauchy-Binet, the signed two-support constant moment, Gram sandwich entries and full block covariance entries are compiled.",
       "Full signed comparison with its absolute estimate confined to the retained remainder and large-minor tail.",
@@ -1688,12 +1718,78 @@
           "Quot.sound"
         ],
         "log_sha256": "91EB4AF9CE4A2F5E7747B9FCFC72F6209B18E24F8BB1B807D3BE1189362123CC"
+      },
+      {
+        "status": "verified",
+        "modules": [
+          "PrimeFactorOscillations.Helpers.HamiltonianGaussianQuadraticTilt",
+          "PrimeFactorOscillations.Helpers.HamiltonianGaussianPolynomialTilt",
+          "PrimeFactorOscillations.Helpers.HamiltonianGaussianTensorTilt",
+          "PrimeFactorOscillations.Helpers.HamiltonianGaussianPolynomialState",
+          "PrimeFactorOscillations.Helpers.HamiltonianGaussianLinearWick"
+        ],
+        "declaration_count": 47,
+        "declarations": [
+          "PrimeFactorOscillations.complexGaussianKernel_integrable",
+          "PrimeFactorOscillations.complexGaussianMoment_zero",
+          "PrimeFactorOscillations.complexGaussianMoment_first",
+          "PrimeFactorOscillations.complexGaussianMoment_recurrence",
+          "PrimeFactorOscillations.covarianceQuotient_real_part",
+          "PrimeFactorOscillations.covarianceQuotient_real_part_lt_half",
+          "PrimeFactorOscillations.gaussianTiltPrecision_real_part",
+          "PrimeFactorOscillations.tiltedGaussianKernel_integrable",
+          "PrimeFactorOscillations.complexGaussianMoment_zero_nonzero",
+          "PrimeFactorOscillations.gaussianWickMonomial_even",
+          "PrimeFactorOscillations.gaussianWickMonomial_odd",
+          "PrimeFactorOscillations.gaussianTilt_variance",
+          "PrimeFactorOscillations.gaussianTilt_monomial_moment",
+          "PrimeFactorOscillations.gaussianPolynomialTiltKernel_expansion",
+          "PrimeFactorOscillations.gaussianPolynomialTiltKernel_integrable",
+          "PrimeFactorOscillations.gaussianPolynomialTilt_integral",
+          "PrimeFactorOscillations.gaussianPolynomialTilt_normalized",
+          "PrimeFactorOscillations.gaussianTensorTiltKernel_integrable",
+          "PrimeFactorOscillations.gaussianTensorTiltKernel_integral",
+          "PrimeFactorOscillations.gaussianTensorTiltNormalizer_nonzero",
+          "PrimeFactorOscillations.gaussianTensorTiltKernel_normalized",
+          "PrimeFactorOscillations.gaussianTensorPolynomialTiltKernel_integrable",
+          "PrimeFactorOscillations.gaussianTensorPolynomialTilt_normalized",
+          "PrimeFactorOscillations.gaussianTensorPolynomialTilt_integral",
+          "PrimeFactorOscillations.gaussianPolynomialState_monomial",
+          "PrimeFactorOscillations.gaussianPolynomialState_zero",
+          "PrimeFactorOscillations.gaussianPolynomialState_add",
+          "PrimeFactorOscillations.gaussianPolynomialState_C_mul",
+          "PrimeFactorOscillations.gaussianWickMonomial_successor",
+          "PrimeFactorOscillations.gaussianMonomialState_shift",
+          "PrimeFactorOscillations.gaussianPolynomialState_stein",
+          "PrimeFactorOscillations.gaussianMvTiltKernel_expansion",
+          "PrimeFactorOscillations.gaussianMvTiltKernel_integrable",
+          "PrimeFactorOscillations.gaussianMvTiltKernel_normalized",
+          "PrimeFactorOscillations.gaussianPolynomialState_one",
+          "PrimeFactorOscillations.gaussianPolynomialState_sum",
+          "PrimeFactorOscillations.gaussianLinearForm_pderiv",
+          "PrimeFactorOscillations.gaussianDirectionalDerivative_one",
+          "PrimeFactorOscillations.gaussianDirectionalDerivative_mul",
+          "PrimeFactorOscillations.gaussianDirectionalDerivative_linear",
+          "PrimeFactorOscillations.gaussianLinearForm_stein",
+          "PrimeFactorOscillations.gaussianDirectionalDerivative_product",
+          "PrimeFactorOscillations.gaussianLinearWickValue_nil",
+          "PrimeFactorOscillations.gaussianLinearWickValue_cons",
+          "PrimeFactorOscillations.gaussianLinearWickValue_integral",
+          "PrimeFactorOscillations.gaussianLinearWickValue_norm_bound",
+          "PrimeFactorOscillations.gaussianLinearWickIntegral_norm_bound"
+        ],
+        "allowed_axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "log_sha256": "D6D727D4406C988D2EA9AB79366697BE169F4FA698E20BCBE93588DE46A90908"
       }
     ],
     "active_proof": {
-      "module": "PrimeFactorOscillations.Helpers.HamiltonianGaussianQuadraticTilt",
+      "module": "PrimeFactorOscillations.Helpers.HamiltonianGaussianStateRealization",
       "status": "Next analytic consumer; not yet counted as a maintained theorem.",
-      "target": "Prove scalar complex Gaussian polynomial integrability and exact moments on the right half-plane, then the finite-dimensional Wick and quadratic-tilt identity for the actual partial-permutation rook polynomial. Consume the compiled uniform vertex, covariance-series and collective product bounds in the full N^(-2) remainder and outside-Gamma tail, retaining all phases and compensation terms.",
+      "target": "Realize arbitrary complex polynomial covariance using standard Gaussians, then discharge the actual orthogonal block spectral representation, zero-sum vector condition and exact partial-permutation rook specialization. Consume the proved Wick integral bounds in the finite diagram sum and Cauchy remainder. Preserve the exact Gaussian normalizer, the complete covariance quotient and every compensation term.",
       "consumer": "The complete signed comparison has relative error O(log(N)^M/N+log(N)^M*Amp(T)/N^2). The present local determinant remainder supplies its N^(-2) precision; the Wick, covariance-correction and signed-coordinate consumers are still required. At the advertised prime amplification Amp(T)<=N^(27/20), that precision contributes N^(-13/20) times logarithms, before the final advertised N^(-3/5) relaxation.",
       "proved_inputs": [
         "PrimeFactorOscillations.Helpers.HamiltonianMatrixSpectralAverage",
@@ -1703,7 +1799,12 @@
         "PrimeFactorOscillations.Helpers.HamiltonianWickExpansion",
         "PrimeFactorOscillations.Helpers.HamiltonianWickVertex",
         "PrimeFactorOscillations.Helpers.HamiltonianCovarianceSeries",
-        "PrimeFactorOscillations.Helpers.HamiltonianCollectiveGaussian"
+        "PrimeFactorOscillations.Helpers.HamiltonianCollectiveGaussian",
+        "PrimeFactorOscillations.Helpers.HamiltonianGaussianQuadraticTilt",
+        "PrimeFactorOscillations.Helpers.HamiltonianGaussianPolynomialTilt",
+        "PrimeFactorOscillations.Helpers.HamiltonianGaussianTensorTilt",
+        "PrimeFactorOscillations.Helpers.HamiltonianGaussianPolynomialState",
+        "PrimeFactorOscillations.Helpers.HamiltonianGaussianLinearWick"
       ]
     },
     "status_reconciliation_check": {

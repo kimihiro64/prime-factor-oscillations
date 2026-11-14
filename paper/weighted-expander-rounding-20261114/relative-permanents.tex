@@ -79,6 +79,53 @@ writes \(F_s(t)\) as the Gaussian expectation of
 and \(Y\) has bilinear covariance \(\Gamma_{s,t}\).
 The zero row and column sums of \(B\) cancel the linear
 Gaussian term exactly, before taking any bound.
+
+The polynomial transfer underlying this identity has an independent
+maintained proof. For any finite coordinate set, choose complex numbers
+\(z_j,w_j\) with \(|z_j|<1\) and
+\(w_j^2=\gamma_j=z_j/(1+z_j)\), and put
+\(b_j=(1-\gamma_j)/2\). The complete quotient gives
+\[
+ (1-2\Re\gamma_j)|1+z_j|^2=1-|z_j|^2,
+ \qquad \Re b_j>1/4.
+\]
+Every polynomial times the resulting complex Gaussian density is
+integrable, and each scalar normalizer is nonzero. Define the actual
+normalized integral
+\[
+ \mathcal G_z(P)=
+ \frac{\displaystyle\int_{\mathbb R^J}
+      P((w_jx_j)_j)\exp(-\sum_jb_jx_j^2)\,dx}
+      {\displaystyle\prod_j\int_{\mathbb R}\exp(-b_jx^2)\,dx}.
+\]
+Scalar integration by parts and finite-dimensional Fubini prove
+\[
+ \mathcal G_z(X^d)=\prod_j W_{z_j}(d_j),\quad
+ W_z(2e)=(2e-1)!!z^e,\quad W_z(2e+1)=0,\quad W_z(0)=1,
+\]
+and, for every polynomial \(P\),
+\(\mathcal G_z(X_jP)=z_j\mathcal G_z(\partial_jP)\).
+For \(L_a=\sum_ja_jX_j\), set
+\(C_z(a,b)=\sum_jz_ja_jb_j\). The complete recursion is
+\[
+ \mathcal G_z\left(L_a\prod_{\ell=1}^mL_{a_\ell}\right)
+ =\sum_{k=1}^m C_z(a,a_k)\,
+    \mathcal G_z\left(\prod_{\substack{1\leq\ell\leq m\\\ell\ne k}}
+                                      L_{a_\ell}\right).
+\]
+In particular, if every covariance among \(2e\) listed forms has
+modulus at most \(c\geq0\), the actual normalized integral satisfies
+\[
+ \left|\mathcal G_z\left(\prod_{\ell=1}^{2e}L_{a_\ell}\right)\right|
+                         \leq(2e-1)!!c^e .
+\]
+All these statements, including integrability, all repeated-vertex
+contractions and the uniform bound in \(e\), have maintained Lean
+proofs. The bound is used on the diagram remainder after the signed
+low-degree terms have been retained. The orthogonal block realization
+and identification with the partial-permutation rook sum remain separate
+formalization obligations.
+
 The block-power expansion gives, for a fixed
 \(\theta=b(1-\delta/2)<1\),
 \[
