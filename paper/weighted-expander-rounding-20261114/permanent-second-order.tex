@@ -44,6 +44,16 @@ expansion
  r(z)=1+\tfrac13z^3-\tfrac14z^4+\tfrac15z^5
                               -\tfrac19z^6+O(z^7).
 \]
+The coefficients here are those of the actual complex entire
+function: with \(r(z)=\sum_{n\geq0}c_nz^n\), its differential
+equation \((1+z)r'(z)=z^2r(z)\) gives
+\[
+ c_0=1,\quad c_1=c_2=0,\qquad
+ (n+3)c_{n+3}=c_n-(n+2)c_{n+2}.
+\]
+Strong induction proves \(|c_n|\leq1\) for every \(n\).
+The differential equation, actual derivative coefficients, recurrence
+and this uniform bound are formalized.
 Write \(\Gamma_s=s\Omega(I+s\Omega)^{-1}\).
 The diagram with one degree-four vertex contributes
 \(-3\sum_i(\Gamma_s)_{ii}^2/4\).
@@ -55,10 +65,26 @@ Two distinct degree-three vertices contribute
 \]
 These coefficients follow from the three pairings of four
 Gaussian variables and the \(9+6\) pairings of two triples.
-Replacing \(i<j\) by half the ordered sum changes the result
-by \(O_\delta(A^3/N^2)\), since
-\(\max|(\Gamma_s)_{ii}|\leq C_\delta A/N\).
-The one-vertex degree-six term also has that smaller order.
+Keeping both the ordered-sum diagonal compensation and the
+one-vertex degree-six term gives the exact finite pairing identity
+\[
+ W_{\leq6}(M)=\Psi(M)-\frac52\sum_iM_{ii}^3.
+\]
+Here \(W_{\leq6}\) denotes precisely the degree-four,
+two-distinct-degree-three and single-degree-six contributions;
+the identity follows from the \(3\), \(9+6\) and \(15\)
+pairings, respectively. For the actual stochastic block at \(s=1\),
+\[
+ (1-\rho)^3|W_{\leq6}(\Gamma)-\Psi(\Gamma)|
+                  \leq40A^3/N^2.
+\]
+This finite identity, its all-degree pairing bound
+\(|\operatorname{Wick}_{2e}(M)|\leq(2e)^e
+(\max_{ij}|M_{ij}|)^e\), and the displayed stochastic bound
+have maintained Lean proofs. Identifying the pairing functional
+with the actual Gaussian expectation remains a separate
+formalization obligation. On the fixed interval in \(s\), the
+same diagonal estimate is \(O_\delta(A^3/N^2)\).
 
 Here is a bound on all remaining diagrams, including their
 infinite power-series tails.

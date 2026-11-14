@@ -355,7 +355,8 @@
       "kind": "theorem",
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\relative-permanents.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
-      "lean_status": "pending_full_Lean_proof"
+      "lean_status": "partially_formalized_actual_rook_Gamma_bridge_uniform_covariance_Wick_inputs_and_collective_bounds; Gaussian_identity_and_remainder_pending",
+      "audit_note": "Exact partial-permutation rook/Gamma integration, stochastic matrix spectral bounds, the full real covariance series, actual complex vertex coefficient bounds, finite Wick pairing bounds and deterministic zero-sum product/Gamma-density inequalities have maintained focused-audited proofs. Actual Gaussian representation, quadratic tilt, complex analytic transfer, diagram summation and complete growing-entry remainder remain pending; no headline Lean certification is claimed."
     },
     {
       "id": "lem:relativecompensatedminors",
@@ -475,8 +476,8 @@
       "kind": "theorem",
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\permanent-second-order.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
-      "lean_status": "partially_formalized_actual_matrix_Gamma_rook_bridge_and_full_first_correction_bound; Wick_covariance_derivatives_and_uniform_remainder_pending",
-      "audit_note": "Actual normalized Euler moments, concentration, signed truncation, local Taylor averaging, matrix spectral identification and the stochastic determinant Gamma-window consumer have maintained proofs. The exact partial-permutation permanent/rook/Gamma identity and its integrability are compiled. The complete correction uses the actual determinant second derivative and full block covariance; (1-rho)^3*abs(Psi)<=8*A^2/N and (1-rho)^3*abs(Q_N)<=21*A^2/N are compiled and focused-audited. The actual Gaussian/Wick identity and growing-entry remainder, covariance-correction derivative bounds and full asymptotic consumer remain pending. The revised manuscript compiled successfully with the built-in compiler; the headline theorem is not Lean-certified."
+      "lean_status": "partially_formalized_matrix_Gamma_rook_full_correction_and_uniform_Wick_inputs; actual_Gaussian_identity_derivatives_and_remainder_pending",
+      "audit_note": "Actual normalized Euler moments, concentration, signed truncation, local Taylor averaging, matrix spectral identification and the stochastic determinant Gamma-window consumer have maintained proofs. The exact partial-permutation permanent/rook/Gamma identity and its integrability are compiled. The complete first correction satisfies (1-rho)^3*abs(Q_N)<=21*A^2/N. Actual complex vertex coefficients obey a proved all-degree recurrence and norm bound; finite Wick pairings, the exact -5/2 diagonal compensation and its 40*A^3/((1-rho)^3*N^2) bound, the actual real covariance series and deterministic collective product/Gamma-density bounds are compiled and focused-audited. The actual Gaussian/Wick identity, quadratic reweighting, growing-entry remainder, covariance-correction derivatives and full asymptotic consumer remain pending. The revised manuscript compiled successfully with the built-in compiler; the headline theorem is not Lean-certified."
     },
     {
       "id": "thm:minorjet",
@@ -1026,7 +1027,7 @@
     },
     {
       "file": "relative-permanents.tex",
-      "sha256": "27013A4A7DCAA32FE2264BCA72D48338BE0817CC371BA6E67E11C4E197831DB6"
+      "sha256": "A4EAAB91A414D75E56EC3FD1957EC568544686E40BCF1571064192BA7241C0AC"
     },
     {
       "file": "relative-coprime-circles.tex",
@@ -1042,7 +1043,7 @@
     },
     {
       "file": "main.tex",
-      "sha256": "341F90DC69B548729EDF2AFBFDCA5BB6DA5370F30AD2E982AADF2DCA89DFECF0"
+      "sha256": "4B97C7F3876A0EB0E4E759CF3B442AF993C35A2CE5FD8404833F3EC83F28E3C2"
     },
     {
       "file": "relative-hamilton.tex",
@@ -1050,7 +1051,7 @@
     },
     {
       "file": "permanent-second-order.tex",
-      "sha256": "4C7AC4C781D9DBA71F3963DF5931F15A4BF8968DC483D6D075BC60EA6454968C"
+      "sha256": "7BB9D5EA744E3592F73736D773B6C9CD58DCC9D829DE4725F7AA77FB9D3B3A5D"
     },
     {
       "file": "compensated-minor-jet.tex",
@@ -1106,8 +1107,8 @@
     "committed_this_turn": true,
     "pushed_this_turn": false,
     "proofs_left_only_in_private_research": false,
-    "recorded_phase": "After verified commits f10b90b63d63c22d904933352acc6209d599c504 and 426dade54e65883a90685870132ddb03c0841ea0; the spectral Taylor/Gamma proof promotion is synchronized in the worktree before its final staged checks and next commit.",
-    "phase": "Matrix/rook/full-correction proofs compiled and focused-audited; paper compiled; final staged checks and commit pending."
+    "recorded_phase": "After local commit 1182d1e25653ee6d3d0d17cbb762babaae60f43a; four uniform Wick/covariance/collective proof modules and the paper are synchronized before their final staged checks and next local commit.",
+    "phase": "Four uniform Wick/covariance/collective modules compiled and 34 declarations focused-audited; paper compiled; final staged checks and commit pending."
   },
   "formalization": {
     "status": "in_progress_not_complete",
@@ -1282,11 +1283,35 @@
         "source_sha256": "1738C9D476628B7E522A08861D87C089FF94D906E6651FF7788037451D1E1A69",
         "content": "Local determinant/spectral equality and actual second-derivative identification; the complete first correction satisfies (1-rho)^3*abs(Q_N)<=21*A^2/N for N>=2, with every compensation term retained.",
         "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianWickExpansion",
+        "source_sha256": "AF4647C1E89A7836E7B709413130E0AA4A70306F66E23FACE5492AB23F5B9399",
+        "content": "All-degree finite Wick pairing bounds, exact degree-four/two-triple/degree-six compensation, and the actual stochastic diagonal error (1-rho)^3*abs(W_<=6-Psi)<=40*A^3/N^2.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianWickVertex",
+        "source_sha256": "0CA77B29918DFA58C5C55A65563627D36DCAD139134751949EC3E418AFF17201",
+        "content": "Actual complex vertex derivatives and coefficients, the all-degree recurrence (n+3)c_(n+3)=c_n-(n+2)c_(n+2), and norm(c_n)<=1 for every n.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianCovarianceSeries",
+        "source_sha256": "6972F943904A796A0AAD30CB2C765B5871EF214A57A97E61242F63A375302A1E",
+        "content": "Full signed matrix covariance geometric series and every-degree bound 2*b^2*A/N*theta^k from the actual stochastic gap.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianCollectiveGaussian",
+        "source_sha256": "FB79AD31F5706FC55D417F04B5FF6CC13CB2F41EB9C8AFA434ECD03DDFA048D5",
+        "content": "Collective zero-sum product bounds, exact squared-mass cancellation, and the pointwise normalized Gamma-density shift bound.",
+        "build_exit_code": 0
       }
     ],
     "unfinished_dependencies": [
       "Exact Hamiltonian determinant-permanent identity for actual spanning-cycle permutations, including singleton fixed-point cycles.",
-      "Actual Gaussian/Wick identity for the partial-permutation rook sum (including its grouping as rook minors), finite Wick coefficient bounds with growing entry parameter, derivatives of the covariance correction, and the complete uniform second-order permanent remainder. Actual matrix spectral identification, local C4/Gamma averaging, exact permanent/rook/Gamma bridge and the full explicit first-correction size bound are compiled and audited.",
+      "Actual Gaussian/Wick identity for the partial-permutation rook sum (including its grouping as rook minors), quadratic Gaussian reweighting, complex covariance continuation, finite diagram coefficient summation, covariance-correction derivatives and the complete uniform second-order permanent remainder. Matrix/Gamma/rook bridges, the full first-correction bound, all-degree vertex and pairing estimates, the signed real covariance series and deterministic collective product/density bounds are compiled and focused-audited.",
       "Quantitative stochastic repair and full complementary-minor expansion with all mismatched supports and compensation fields.",
       "Actual coordinate occupancy identities, full derivative bounds and normalized moment bounds. Cauchy-Binet, the signed two-support constant moment, Gram sandwich entries and full block covariance entries are compiled.",
       "Full signed comparison with its absolute estimate confined to the retained remainder and large-minor tail.",
@@ -1611,18 +1636,74 @@
           "Quot.sound"
         ],
         "log_sha256": "F176E3446F9184B251ABF9A669C97C5688989A025ECA5A528ADB39F270E2EC59"
+      },
+      {
+        "status": "verified",
+        "modules": [
+          "PrimeFactorOscillations.Helpers.HamiltonianWickExpansion",
+          "PrimeFactorOscillations.Helpers.HamiltonianWickVertex",
+          "PrimeFactorOscillations.Helpers.HamiltonianCovarianceSeries",
+          "PrimeFactorOscillations.Helpers.HamiltonianCollectiveGaussian"
+        ],
+        "declaration_count": 34,
+        "declarations": [
+          "PrimeFactorOscillations.wickPairMoment_wrong_length",
+          "PrimeFactorOscillations.wickPairMoment_bound",
+          "PrimeFactorOscillations.wickPairCount_le_even_power",
+          "PrimeFactorOscillations.wickPairMoment_uniform_bound",
+          "PrimeFactorOscillations.wickPairMoment_four_same",
+          "PrimeFactorOscillations.wickPairMoment_two_triples",
+          "PrimeFactorOscillations.wickPairMoment_six_same",
+          "PrimeFactorOscillations.wickDegreeSixCorrection_eq",
+          "PrimeFactorOscillations.wickDegreeSixCorrection_error_bound",
+          "PrimeFactorOscillations.wickDegreeSixCorrection_scaled_error_bound",
+          "PrimeFactorOscillations.stochastic_block_wick_diagonal_error_bound",
+          "PrimeFactorOscillations.wickVertexJet_hasDerivAt",
+          "PrimeFactorOscillations.wickVertexFunction_iteratedDeriv",
+          "PrimeFactorOscillations.wickVertexCoefficient_actual",
+          "PrimeFactorOscillations.wickVertexOperator_add",
+          "PrimeFactorOscillations.wickVertexOperator_mul",
+          "PrimeFactorOscillations.wickVertexOperator_polynomial",
+          "PrimeFactorOscillations.wickVertexPolynomial_ode",
+          "PrimeFactorOscillations.wickVertexCoefficient_initial",
+          "PrimeFactorOscillations.wickVertexCoefficient_low",
+          "PrimeFactorOscillations.wickVertexCoefficient_recurrence",
+          "PrimeFactorOscillations.wickVertexCoefficient_norm_le_one",
+          "PrimeFactorOscillations.resolventCovariance_hasSum",
+          "PrimeFactorOscillations.covarianceSeriesCoefficient_bound",
+          "PrimeFactorOscillations.stochastic_covariance_series_data",
+          "PrimeFactorOscillations.collective_nonnegative_prod_bound",
+          "PrimeFactorOscillations.collective_one_add_norm_square",
+          "PrimeFactorOscillations.collectiveSquareMass_nonnegative",
+          "PrimeFactorOscillations.collective_zero_sum_norm_square",
+          "PrimeFactorOscillations.collective_zero_sum_product_bound",
+          "PrimeFactorOscillations.collective_gamma_product_bound",
+          "PrimeFactorOscillations.collective_gamma_density_bound",
+          "PrimeFactorOscillations.collective_one_add_norm_exp_bound",
+          "PrimeFactorOscillations.collective_zero_sum_exponential_bound"
+        ],
+        "allowed_axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "log_sha256": "91EB4AF9CE4A2F5E7747B9FCFC72F6209B18E24F8BB1B807D3BE1189362123CC"
       }
     ],
     "active_proof": {
-      "module": "PrimeFactorOscillations.Helpers.HamiltonianWickExpansion",
+      "module": "PrimeFactorOscillations.Helpers.HamiltonianGaussianQuadraticTilt",
       "status": "Next analytic consumer; not yet counted as a maintained theorem.",
-      "target": "Prove the actual normalized Gaussian/Wick identity for the exact partial-permutation rook sum, evaluate all degree-four and paired-cubic terms with the degree-six diagonal compensation, and bound the complete remaining diagram sum and its Cauchy tail uniformly by C_delta*(1+A)^40/N^2. Keep the original rook polynomial on the outside Gamma tail.",
+      "target": "Prove scalar complex Gaussian polynomial integrability and exact moments on the right half-plane, then the finite-dimensional Wick and quadratic-tilt identity for the actual partial-permutation rook polynomial. Consume the compiled uniform vertex, covariance-series and collective product bounds in the full N^(-2) remainder and outside-Gamma tail, retaining all phases and compensation terms.",
       "consumer": "The complete signed comparison has relative error O(log(N)^M/N+log(N)^M*Amp(T)/N^2). The present local determinant remainder supplies its N^(-2) precision; the Wick, covariance-correction and signed-coordinate consumers are still required. At the advertised prime amplification Amp(T)<=N^(27/20), that precision contributes N^(-13/20) times logarithms, before the final advertised N^(-3/5) relaxation.",
       "proved_inputs": [
         "PrimeFactorOscillations.Helpers.HamiltonianMatrixSpectralAverage",
         "PrimeFactorOscillations.Helpers.HamiltonianRookGamma",
         "PrimeFactorOscillations.Helpers.HamiltonianCovarianceCorrection",
-        "PrimeFactorOscillations.Helpers.HamiltonianPermanentFirstCorrection"
+        "PrimeFactorOscillations.Helpers.HamiltonianPermanentFirstCorrection",
+        "PrimeFactorOscillations.Helpers.HamiltonianWickExpansion",
+        "PrimeFactorOscillations.Helpers.HamiltonianWickVertex",
+        "PrimeFactorOscillations.Helpers.HamiltonianCovarianceSeries",
+        "PrimeFactorOscillations.Helpers.HamiltonianCollectiveGaussian"
       ]
     },
     "status_reconciliation_check": {
@@ -1631,6 +1712,7 @@
       "prohibited": "A status-only update with a contradictory audit note or a headline certification from its prerequisites.",
       "corrected_action": "Validate all affected fields in the same strict-parsed document update and preserve unrelated claims.",
       "checked_claims": [
+        "thm:growingpermanent",
         "thm:secondpermanent",
         "lem:signedoccupancy"
       ],
