@@ -475,7 +475,7 @@
       "kind": "theorem",
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\permanent-second-order.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
-      "lean_status": "partially_formalized_actual_Gamma_window_signed_truncation_and_cubic_average; determinant_derivatives_Wick_and_full_permanent_consumer_pending",
+      "lean_status": "partially_formalized_actual_finite_spectral_C4_Taylor_Gamma_average; matrix_identification_Wick_and_covariance_correction_derivatives_pending",
       "audit_note": "Local-domain Gamma averaging repaired: analytic factors are restricted to the fixed interval; inverse moments through order eight control truncated signed moments; the original rook polynomial controls the outside tail. Revised manuscript compiled. Full analytic Lean proof remains pending. The maintained Euler integral proofs now establish every raw inverse moment and the exact signed central moments through order four. Concentration, truncation, Taylor bounds and Gaussian diagram estimates remain unformalized."
     },
     {
@@ -837,7 +837,8 @@
       "Improved scaling inverse O(log(2A)) is derived from min(1,sqrt(A)*rho^j), preserving the prime-density coefficient.",
       "Prime consumer: actual epsilon=O(log log N/log N); rho=a=3/5; kappa<9/4; residual exponent -13/20 with logs, yielding -3/5.",
       "Inverse statement concerns a fixed relative counting defect and collective nontrivial singular mass.",
-      "Actual inverse-Gamma concentration, discarded-tail and signed-moment errors, and explicit cubic averaging (including derived window integrability) compiled and passed focused axiom audits. The manuscript now carries the same explicit constants and compiles."
+      "Actual inverse-Gamma concentration, discarded-tail and signed-moment errors, and explicit cubic averaging (including derived window integrability) compiled and passed focused axiom audits. The manuscript now carries the same explicit constants and compiles.",
+      "Actual finite-spectral derivative budgets, all fourth-derivative cross terms, local factor ratio, C4 endpoint transfer and explicit Taylor/Gamma consumer compiled and passed a focused standard-foundation audit. The paper now displays the same constants and compiles."
     ],
     "static_source_check": {
       "files": 22,
@@ -1041,7 +1042,7 @@
     },
     {
       "file": "main.tex",
-      "sha256": "7290A7687F05918545E4CB86848F295477DEB431AAB947AFF4B419C24F001EC5"
+      "sha256": "341F90DC69B548729EDF2AFBFDCA5BB6DA5370F30AD2E982AADF2DCA89DFECF0"
     },
     {
       "file": "relative-hamilton.tex",
@@ -1049,7 +1050,7 @@
     },
     {
       "file": "permanent-second-order.tex",
-      "sha256": "31B3F9C3C084658F09B0349674A4B3A8A663047935824615449DDEE0F639ED77"
+      "sha256": "4C7AC4C781D9DBA71F3963DF5931F15A4BF8968DC483D6D075BC60EA6454968C"
     },
     {
       "file": "compensated-minor-jet.tex",
@@ -1086,12 +1087,12 @@
       "Actual unweighted prime-sum graph: full relative count around its exact entropy, with O(N^(-3/5)) error; no RH or prime-pair estimate."
     ],
     "primary_literature_comparison": "Cuckler-Kahn: dense Dirac and dense balanced bipartite entropy counts. Barvinok: all-positive matrices with a relative entry lower bound. Krivelevich and Byrne-Tait: nontrivial spectral ratio tending to zero logarithmically. The present argument permits sparse zero support and any fixed nontrivial gap. Bradač-Janzer 2026 is an essential independent spanning-path input. McCullagh's bounded normalized moments fail along primorials; Divoux-Wang's fixed-entry finite proof is tracked explicitly, rather than used outside its stated range. The new first-order signed compensation and rank-one parity-root calculation avoid the fixed-entry remainder amplification at prime density. They are the mechanism of the complete prime consumer, not merely a detector or matching identity.",
-    "proof_endpoint_status": "The complete analytic and arithmetic theorems are not yet Lean-certified. Maintained compiled proofs include the full signed two-support squared-minor cancellation, rank-one pole compensation, stochastic energies, actual Euclidean inverse certificates and full block covariance entries. The focused audit verifies the new closure using standard foundations only. The remaining coordinate, Gaussian/Gamma, cycle and application consumers stay open. The actual normalized inverse-Gamma moment integrals and exact signed central moments through order four are also compiled; their focused axiom audit verifies standard foundations only. Both actual Chernoff tails, the uniform raw-moment envelope and explicit central tails for T of shape n+1 are compiled. Their inverse-variable window transfer remains pending.",
+    "proof_endpoint_status": "The complete analytic and arithmetic headline theorems remain unformalized. Maintained compiled and audited inputs now include full signed two-support squared-minor cancellation, rank-one pole compensation, stochastic energies, actual Euclidean inverse/covariance bounds, actual Gamma concentration and signed truncation, and the finite-spectral C4 Taylor/Gamma average with its smoothness, endpoint and integrability hypotheses discharged. The actual matrix identification, Gaussian/Wick, covariance-correction, signed-coordinate, full comparison and arithmetic closures remain required.",
     "significance_assessment": "A general signed-estimation method now has a quantitative inverse and complete independent arithmetic consumers at actual prime density and through every coprime modulus. This supports a serious standalone research contribution. Career-defining impact and priority are not certified or inferred from compilation.",
     "paper_argument_delivered": true,
     "headline_all_orders_filz_proved": false,
     "lean_formalization_complete": false,
-    "next_safely_executable_research_action": "For a finite family 0<=lambda_i<=(1-delta)^2, 0<delta<=1, A=sum lambda_i, and |s-1|<=eps<=delta/4 with 2*A*eps<=delta, prove |Delta''''(s)|<=2049*exp(1)*Delta(1)*(1+A)^4/delta^4 for Delta(s)=product (1-s^2*lambda_i)^(-1/2). Then complete the Gaussian/Wick, cycle identification, signed coordinate, spectral amplification and arithmetic consumers.",
+    "next_safely_executable_research_action": "For the actual real centered stochastic matrix B=T-J/N with scoped Euclidean operator norm <=1-delta, derive nonnegative Gram eigenvalues <=(1-delta)^2, their sum equal to the squared Frobenius energy <=A-1, and det(I-s^2*B^T*B)=product_i(1-s^2*lambda_i). Transfer the compiled spectral-factor Taylor/Gamma estimate with all dimensions and epsilon conditions explicit. Continue through the Wick, correction, cycle-identification, signed comparison and arithmetic applications; a source promotion or commit does not finish the headline.",
     "next_gate": "Judge the complete new method and independent applications, not theorem counts or successful compilation; preserve exact entropy and explicit density scope.",
     "no_background_work_claimed": true,
     "expert_relevance_gate": {
@@ -1105,7 +1106,7 @@
     "committed_this_turn": true,
     "pushed_this_turn": false,
     "proofs_left_only_in_private_research": false,
-    "recorded_phase": "After verified f10b90b63d63c22d904933352acc6209d599c504; Gamma proof promotion and paper synchronization completed in the worktree, awaiting final staged checks and the next commit."
+    "recorded_phase": "After verified commits f10b90b63d63c22d904933352acc6209d599c504 and 426dade54e65883a90685870132ddb03c0841ea0; the spectral Taylor/Gamma proof promotion is synchronized in the worktree before its final staged checks and next commit."
   },
   "formalization": {
     "status": "in_progress_not_complete",
@@ -1238,11 +1239,29 @@
         "source_sha256": "F2E1167C695FB938B2E87BA1C2944A6A4C84EBADFC5E1676F49EF0C533618347",
         "content": "Exact uniform signed moments and cubic average, explicit cubic-tail constants 4/7/19/67, local fourth-order averaging, and window integrability derived from measurability and the local bound.",
         "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianSpectralFactorDerivatives",
+        "source_sha256": "4A850E33F882D428ECD71E80A092A2191210A7A655726E4CE2423E42955E09EF",
+        "content": "Actual rational log-coordinate derivatives through order four, a uniform nonsingular strip, and the complete finite-sum derivative budget with constants 2,9,76,966.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianSpectralFactorFourth",
+        "source_sha256": "67609846DC1C703BE147D685C33EACF860803B75DC5312ADF830948960FD4A72",
+        "content": "All successive exponential derivative functions and cross terms, the 2049 fourth-order bound, the actual central factor ratio from the mean-value theorem, and its central-point normalization.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianSpectralTaylor",
+        "source_sha256": "C8BA6BF89F97867542C4C468D84B6F085E71AFED90FCB9931F0CB27070FDDF57",
+        "content": "Actual local C4 smoothness and measurability, identification of every iterated derivative, endpoint within/global transfer, explicit Taylor remainder and the unconditional finite-spectral inverse-Gamma window average.",
+        "build_exit_code": 0
       }
     ],
     "unfinished_dependencies": [
       "Exact Hamiltonian determinant-permanent identity for actual spanning-cycle permutations, including singleton fixed-point cycles.",
-      "Actual Gaussian rook identity, finite Wick estimates with growing entry bound, quantitative spectral-factor derivatives and their application of the compiled local cubic average, and the uniform second-order permanent remainder. Actual Gamma moments, Chernoff/window concentration, signed truncation, and the explicit measurable-function averaging theorem are compiled and audited.",
+      "Identification of the finite spectral factor with the actual Gram determinant, actual Gaussian rook identity, finite Wick estimates with growing entry bound, derivatives of the covariance correction, and the uniform second-order permanent remainder. The actual finite-spectral C4 Taylor/Gamma average, including endpoint transfer and window integrability, is compiled and audited.",
       "Quantitative stochastic repair and full complementary-minor expansion with all mismatched supports and compensation fields.",
       "Actual coordinate occupancy identities, full derivative bounds and normalized moment bounds. Cauchy-Binet, the signed two-support constant moment, Gram sandwich entries and full block covariance entries are compiled.",
       "Full signed comparison with its absolute estimate confined to the retained remainder and large-minor tail.",
@@ -1473,13 +1492,61 @@
           "Quot.sound"
         ],
         "log_sha256": "B4700E0D867ABA4FA35518408987530C312F8420DA809710341C4C9AE00C6DCF"
+      },
+      {
+        "status": "verified",
+        "modules": [
+          "PrimeFactorOscillations.Helpers.HamiltonianSpectralFactorDerivatives",
+          "PrimeFactorOscillations.Helpers.HamiltonianSpectralFactorFourth",
+          "PrimeFactorOscillations.Helpers.HamiltonianSpectralTaylor"
+        ],
+        "declaration_count": 31,
+        "declarations": [
+          "PrimeFactorOscillations.spectralCoordinate0_hasDerivAt",
+          "PrimeFactorOscillations.spectralCoordinate1_hasDerivAt",
+          "PrimeFactorOscillations.spectralCoordinate2_hasDerivAt",
+          "PrimeFactorOscillations.spectralCoordinate3_hasDerivAt",
+          "PrimeFactorOscillations.spectralLogFactors_hasDerivAt",
+          "PrimeFactorOscillations.spectralFirstSum_hasDerivAt",
+          "PrimeFactorOscillations.spectralSecondSum_hasDerivAt",
+          "PrimeFactorOscillations.spectralThirdSum_hasDerivAt",
+          "PrimeFactorOscillations.spectralFactors_hasDerivAt",
+          "PrimeFactorOscillations.spectralFactor_strip",
+          "PrimeFactorOscillations.spectralCoordinate_budget",
+          "PrimeFactorOscillations.spectralLogBudget_sum",
+          "PrimeFactorOscillations.spectralFactors_strip_budget",
+          "PrimeFactorOscillations.spectralFactorJet1_hasDerivAt",
+          "PrimeFactorOscillations.spectralFactorJet2_hasDerivAt",
+          "PrimeFactorOscillations.spectralFactorJet3_hasDerivAt",
+          "PrimeFactorOscillations.spectralLogBudget_fourth_bound",
+          "PrimeFactorOscillations.spectralFactorJet4_strip_bound",
+          "PrimeFactorOscillations.spectralFactors_central_ratio",
+          "PrimeFactorOscillations.spectralFactorJet4_central_bound",
+          "PrimeFactorOscillations.spectralFactors_contDiffAt",
+          "PrimeFactorOscillations.spectralFactors_measurable",
+          "PrimeFactorOscillations.spectralDenominators_eventually",
+          "PrimeFactorOscillations.spectralFactors_iterated_one",
+          "PrimeFactorOscillations.spectralFactors_iterated_two",
+          "PrimeFactorOscillations.spectralFactors_iterated_three",
+          "PrimeFactorOscillations.spectralFactors_iterated_four",
+          "PrimeFactorOscillations.spectralTaylorWithin_eq",
+          "PrimeFactorOscillations.spectralWindow_uIcc",
+          "PrimeFactorOscillations.spectralFactors_taylor_remainder",
+          "PrimeFactorOscillations.spectralFactors_gamma_window"
+        ],
+        "allowed_axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "log_sha256": "FDCDF876C4A685730C5CB278F56E61B3C07213D62B1E980D8C505C285A189194"
       }
     ],
     "active_proof": {
-      "module": "PrimeFactorOscillations.Helpers.HamiltonianSpectralFactorDerivatives",
-      "status": "Next concrete determinant consumer; the following derivative calculation is an ordinary derivation, not yet a compiled theorem.",
-      "target": "For a finite family 0<=lambda_i<=(1-delta)^2, 0<delta<=1, A=sum lambda_i, and |s-1|<=eps<=delta/4 with 2*A*eps<=delta, prove |Delta''''(s)|<=2049*exp(1)*Delta(1)*(1+A)^4/delta^4 for Delta(s)=product (1-s^2*lambda_i)^(-1/2).",
-      "consumer": "Apply the actual local cubic averaging theorem to obtain the O_delta(Delta(1)*(1+A)^4/N^2) local determinant remainder; then retain the fixed-interval and original-rook tails in the full permanent expansion."
+      "module": "PrimeFactorOscillations.Helpers.HamiltonianMatrixSpectralAverage",
+      "status": "Next actual matrix consumer; the finite-spectral averaging theorem is compiled, while this bridge is not yet counted as a theorem.",
+      "target": "For the actual real centered stochastic matrix B=T-J/N with scoped Euclidean operator norm <=1-delta, derive nonnegative Gram eigenvalues <=(1-delta)^2, their sum equal to the squared Frobenius energy <=A-1, and det(I-s^2*B^T*B)=product_i(1-s^2*lambda_i). Transfer the compiled spectral-factor Taylor/Gamma estimate with all dimensions and epsilon conditions explicit.",
+      "consumer": "The complete signed comparison has relative error O(log(N)^M/N+log(N)^M*Amp(T)/N^2). The present local determinant remainder supplies its N^(-2) precision; the Wick, covariance-correction and signed-coordinate consumers are still required. At the advertised prime amplification Amp(T)<=N^(27/20), that precision contributes N^(-13/20) times logarithms, before the final advertised N^(-3/5) relaxation."
     }
   }
 }

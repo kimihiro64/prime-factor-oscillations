@@ -177,11 +177,34 @@ The local remainder is bounded by \(M\mu_4\).
 These bounds also prove integrability on the window, without
 extending the local approximation to other values of \(S\).
 
-On \(C_N\), fixed-order derivatives of
-\(\Delta(s)/\Delta(1)\) are bounded by polynomials in \(1+A\).
-Indeed its logarithmic derivatives have that property and
-\(\Delta(s)/\Delta(1)\leq\exp(C_\delta A N^{-1/4})\)
-is bounded for sufficiently large \(N\).
+Here the derivative bounds can be made completely explicit.
+Write \(\lambda_i\) for the eigenvalues of \(B^\top B\),
+so \(0\leq\lambda_i\leq(1-\delta)^2\) and
+\(\sum_i\lambda_i\leq A\), and put \(\ell=\log\Delta\).
+On \(|s-1|\leq\varepsilon\leq\delta/4\), each denominator
+\(1-s^2\lambda_i\) is at least \(\delta\).
+Differentiating the actual finite spectral product gives
+\[
+ \delta^j|\ell^{(j)}(s)|\leq c_j A,\qquad
+ (c_1,c_2,c_3,c_4)=(2,9,76,966).
+\]
+All terms in the exponential derivative are retained:
+\[
+ \Delta^{(4)}
+ =\Delta\bigl((\ell')^4+6(\ell')^2\ell''
+            +3(\ell'')^2+4\ell'\ell'''+\ell^{(4)}\bigr).
+\]
+Consequently \(\delta^4|\Delta^{(4)}(s)|
+\leq2049\Delta(s)(1+A)^4\).
+The mean-value bound for \(\delta\ell\) shows that
+\(\Delta(s)\leq e\Delta(1)\) if \(2A\varepsilon\leq\delta\).
+Thus the preceding local cubic estimate applies with
+\[
+ M=\frac{2049e\,\Delta(1)(1+A)^4}{24\delta^4}.
+\]
+For \(\varepsilon=N^{-1/4}\), these local conditions hold
+throughout the prescribed polylogarithmic range for
+sufficiently large \(N\).
 Taylor's formula to third order, with a fourth-derivative
 remainder and the truncated moments just proved, gives
 \[
