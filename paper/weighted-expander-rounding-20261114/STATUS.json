@@ -475,8 +475,8 @@
       "kind": "theorem",
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\permanent-second-order.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
-      "lean_status": "pending_full_Lean_proof",
-      "audit_note": "Local-domain Gamma averaging repaired: analytic factors are restricted to the fixed interval; inverse moments through order eight control truncated signed moments; the original rook polynomial controls the outside tail. Revised manuscript compiled. Full analytic Lean proof remains pending."
+      "lean_status": "partially_formalized_actual_Gamma_window_signed_truncation_and_cubic_average; determinant_derivatives_Wick_and_full_permanent_consumer_pending",
+      "audit_note": "Local-domain Gamma averaging repaired: analytic factors are restricted to the fixed interval; inverse moments through order eight control truncated signed moments; the original rook polynomial controls the outside tail. Revised manuscript compiled. Full analytic Lean proof remains pending. The maintained Euler integral proofs now establish every raw inverse moment and the exact signed central moments through order four. Concentration, truncation, Taylor bounds and Gaussian diagram estimates remain unformalized."
     },
     {
       "id": "thm:minorjet",
@@ -836,7 +836,8 @@
       "Every exact row/column cofactor recursion verified symbolically to first order, all support sets retained.",
       "Improved scaling inverse O(log(2A)) is derived from min(1,sqrt(A)*rho^j), preserving the prime-density coefficient.",
       "Prime consumer: actual epsilon=O(log log N/log N); rho=a=3/5; kappa<9/4; residual exponent -13/20 with logs, yielding -3/5.",
-      "Inverse statement concerns a fixed relative counting defect and collective nontrivial singular mass."
+      "Inverse statement concerns a fixed relative counting defect and collective nontrivial singular mass.",
+      "Actual inverse-Gamma concentration, discarded-tail and signed-moment errors, and explicit cubic averaging (including derived window integrability) compiled and passed focused axiom audits. The manuscript now carries the same explicit constants and compiles."
     ],
     "static_source_check": {
       "files": 22,
@@ -878,7 +879,7 @@
         "mathematical_endpoint_changed": false
       }
     ],
-    "lean_checks_run": false,
+    "lean_checks_run": true,
     "numerical_prime_tests_run": false,
     "quantitative_comparison": {
       "benchmark_status": "analytic ordinary-proof comparison on the same prime-sum graph and exact entropy; not a numerical or Lean-certified benchmark",
@@ -894,7 +895,8 @@
       },
       "actuals": "No finite prime-count or Hamilton-count evaluations used.",
       "first_nonpositive_domain": "Unavailable: this is an asymptotic theorem with no numerical cutoff certificate."
-    }
+    },
+    "lean_check_scope": "Focused actual maintained proof modules only, with standard-foundation axiom checks. The full headline declaration and dependency closure remain unformalized; unchanged historical axioms were not re-audited."
   },
   "closest_primary_sources": [
     {
@@ -1039,7 +1041,7 @@
     },
     {
       "file": "main.tex",
-      "sha256": "BAE55DD0BEB80832AC65812731274F94853DA0C8B420395FFDEA7B0841C3E8EC"
+      "sha256": "7290A7687F05918545E4CB86848F295477DEB431AAB947AFF4B419C24F001EC5"
     },
     {
       "file": "relative-hamilton.tex",
@@ -1047,7 +1049,7 @@
     },
     {
       "file": "permanent-second-order.tex",
-      "sha256": "E37BC1B9F1A1F6B36042DE43DBE7629E04A7E3FE19D24AFC516C70A350B69AA2"
+      "sha256": "31B3F9C3C084658F09B0349674A4B3A8A663047935824615449DDEE0F639ED77"
     },
     {
       "file": "compensated-minor-jet.tex",
@@ -1084,12 +1086,12 @@
       "Actual unweighted prime-sum graph: full relative count around its exact entropy, with O(N^(-3/5)) error; no RH or prime-pair estimate."
     ],
     "primary_literature_comparison": "Cuckler-Kahn: dense Dirac and dense balanced bipartite entropy counts. Barvinok: all-positive matrices with a relative entry lower bound. Krivelevich and Byrne-Tait: nontrivial spectral ratio tending to zero logarithmically. The present argument permits sparse zero support and any fixed nontrivial gap. Bradač-Janzer 2026 is an essential independent spanning-path input. McCullagh's bounded normalized moments fail along primorials; Divoux-Wang's fixed-entry finite proof is tracked explicitly, rather than used outside its stated range. The new first-order signed compensation and rank-one parity-root calculation avoid the fixed-entry remainder amplification at prime density. They are the mechanism of the complete prime consumer, not merely a detector or matching identity.",
-    "proof_endpoint_status": "The complete analytic and arithmetic theorems are not yet Lean-certified. Maintained compiled proofs include the full signed two-support squared-minor cancellation, rank-one pole compensation, stochastic energies, actual Euclidean inverse certificates and full block covariance entries. The focused audit verifies the new closure using standard foundations only. The remaining coordinate, Gaussian/Gamma, cycle and application consumers stay open.",
+    "proof_endpoint_status": "The complete analytic and arithmetic theorems are not yet Lean-certified. Maintained compiled proofs include the full signed two-support squared-minor cancellation, rank-one pole compensation, stochastic energies, actual Euclidean inverse certificates and full block covariance entries. The focused audit verifies the new closure using standard foundations only. The remaining coordinate, Gaussian/Gamma, cycle and application consumers stay open. The actual normalized inverse-Gamma moment integrals and exact signed central moments through order four are also compiled; their focused axiom audit verifies standard foundations only. Both actual Chernoff tails, the uniform raw-moment envelope and explicit central tails for T of shape n+1 are compiled. Their inverse-variable window transfer remains pending.",
     "significance_assessment": "A general signed-estimation method now has a quantitative inverse and complete independent arithmetic consumers at actual prime density and through every coprime modulus. This supports a serious standalone research contribution. Career-defining impact and priority are not certified or inferred from compilation.",
     "paper_argument_delivered": true,
     "headline_all_orders_filz_proved": false,
     "lean_formalization_complete": false,
-    "next_safely_executable_research_action": "Prove the actual inverse-Gamma averaging moments from the cached Euler integral, then its truncated moment and Taylor estimates; continue the exact cycle identity and coordinate occupancy consumers toward the complete uniform comparison.",
+    "next_safely_executable_research_action": "For a finite family 0<=lambda_i<=(1-delta)^2, 0<delta<=1, A=sum lambda_i, and |s-1|<=eps<=delta/4 with 2*A*eps<=delta, prove |Delta''''(s)|<=2049*exp(1)*Delta(1)*(1+A)^4/delta^4 for Delta(s)=product (1-s^2*lambda_i)^(-1/2). Then complete the Gaussian/Wick, cycle identification, signed coordinate, spectral amplification and arithmetic consumers.",
     "next_gate": "Judge the complete new method and independent applications, not theorem counts or successful compilation; preserve exact entropy and explicit density scope.",
     "no_background_work_claimed": true,
     "expert_relevance_gate": {
@@ -1100,10 +1102,10 @@
   },
   "repository_state": {
     "saved_in_repository_worktree": true,
-    "committed_this_turn": false,
+    "committed_this_turn": true,
     "pushed_this_turn": false,
     "proofs_left_only_in_private_research": false,
-    "recorded_phase": "Snapshot before the enclosing Git commit; inspect that commit for the final commit identity."
+    "recorded_phase": "After verified f10b90b63d63c22d904933352acc6209d599c504; Gamma proof promotion and paper synchronization completed in the worktree, awaiting final staged checks and the next commit."
   },
   "formalization": {
     "status": "in_progress_not_complete",
@@ -1188,11 +1190,59 @@
         "source_sha256": "216BD65435F1273273C2DFEC817B34970CD6B7E293315C023C6E66218700FCD3",
         "content": "Bipartite Euclidean norm transfer and full stochastic block covariance entry bound, including actual inverse existence.",
         "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianGammaMoments",
+        "source_sha256": "68EEF181B33E20D1BFFB533191ED1563EE7C07F9DBFF7225E69C18ED72DCB802",
+        "content": "Actual Euler-Gamma integral normalization, integrability and raw inverse moments; all-order signed binomial central-moment formula and exact zero first centered moment.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianGammaCentralMoments",
+        "source_sha256": "359BA3C41C469558C15E1CF6170B95E811E49F8D2BF440920FAA210BF166C2A3",
+        "content": "Exact signed second, third and fourth central moments of the actual normalized inverse-Gamma integral on their complete integer domains.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianGammaChernoff",
+        "source_sha256": "D000BD7CC5F24129B851E89B22BAB3F52B06DC6FC947EFDF98965A15EC273C73",
+        "content": "Actual Gamma exponential integral, its integrability, normalized exponential moment, and both signed-parameter Chernoff tail bounds.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianGammaMomentBounds",
+        "source_sha256": "0441BBB9DCB3B89759C88921A5937DAEF1A75735A64F8091B782B479F4AFE6E5",
+        "content": "Actual successive inverse-Gamma moment identity and uniform E(S^j)<=2^j throughout the full natural domain 2*j<=n, including n=j=0.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianGammaConcentration",
+        "source_sha256": "868AB2218F582B3350C9B36873BB85FE321F5042FED98621F9631D5919BC93B9",
+        "content": "Explicit quadratic logarithm inequalities and actual Gamma central upper/lower tails at shape n+1, with exponent constants 1/9 and 1/4.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianGammaInverseWindow",
+        "source_sha256": "1E91DB3C9E07AF931380CB1320A12FD2B006B77030ECD4A6A52D76DD901883C2",
+        "content": "Actual inverse-Gamma central-window concentration, including both Gamma tails and the n+1 shape shift.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianGammaSignedTruncation",
+        "source_sha256": "32F64887DD0C70E37BC09707F3DD73FB133AF12853BDFE3C709ED55A1768E30F",
+        "content": "Actual weighted-integral linearity and domination, integrability, uniform centered absolute moments, exponential discarded-tail bounds, and signed window errors.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianGammaTaylor",
+        "source_sha256": "F2E1167C695FB938B2E87BA1C2944A6A4C84EBADFC5E1676F49EF0C533618347",
+        "content": "Exact uniform signed moments and cubic average, explicit cubic-tail constants 4/7/19/67, local fourth-order averaging, and window integrability derived from measurability and the local bound.",
+        "build_exit_code": 0
       }
     ],
     "unfinished_dependencies": [
       "Exact Hamiltonian determinant-permanent identity for actual spanning-cycle permutations, including singleton fixed-point cycles.",
-      "Unconditional Gaussian rook identity, finite Wick estimates with growing entry bound, Gamma averaging and uniform second-order remainder.",
+      "Actual Gaussian rook identity, finite Wick estimates with growing entry bound, quantitative spectral-factor derivatives and their application of the compiled local cubic average, and the uniform second-order permanent remainder. Actual Gamma moments, Chernoff/window concentration, signed truncation, and the explicit measurable-function averaging theorem are compiled and audited.",
       "Quantitative stochastic repair and full complementary-minor expansion with all mismatched supports and compensation fields.",
       "Actual coordinate occupancy identities, full derivative bounds and normalized moment bounds. Cauchy-Binet, the signed two-support constant moment, Gram sandwich entries and full block covariance entries are compiled.",
       "Full signed comparison with its absolute estimate confined to the retained remainder and large-minor tail.",
@@ -1271,6 +1321,165 @@
         "PrimeFactorOscillations.stochastic_block_covariance_entry_bound"
       ],
       "whitespace_revalidation": "After EOF normalization, the only changed Lean source was freshly recompiled and its object SHA-256 exactly matched the audited object; no unchanged theorem was re-audited."
+    },
+    "pending_focused_axiom_audits": [],
+    "additional_axiom_audits": [
+      {
+        "status": "verified",
+        "modules": [
+          "PrimeFactorOscillations.Helpers.HamiltonianGammaMoments",
+          "PrimeFactorOscillations.Helpers.HamiltonianGammaCentralMoments"
+        ],
+        "declaration_count": 13,
+        "declarations": [
+          "PrimeFactorOscillations.gammaKernel_integrable",
+          "PrimeFactorOscillations.gammaKernel_integral",
+          "PrimeFactorOscillations.gammaInverseIntegrand_eq",
+          "PrimeFactorOscillations.gammaInversePower_integrable",
+          "PrimeFactorOscillations.gammaInverseAverage_pow",
+          "PrimeFactorOscillations.gammaInverseAverage_pow_zero",
+          "PrimeFactorOscillations.gammaInverseAverage_pow_one",
+          "PrimeFactorOscillations.gammaInverseAverage_finsetPolynomial",
+          "PrimeFactorOscillations.gammaInverseAverage_centered_binomial",
+          "PrimeFactorOscillations.gammaInverseAverage_centered_first",
+          "PrimeFactorOscillations.gammaInverseAverage_centered_second",
+          "PrimeFactorOscillations.gammaInverseAverage_centered_third",
+          "PrimeFactorOscillations.gammaInverseAverage_centered_fourth"
+        ],
+        "allowed_axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "log_sha256": "36515907A007A4E8D07F00A1766D95C62A0721E337360ECABC6D571B96FE84D7"
+      },
+      {
+        "status": "verified",
+        "modules": [
+          "PrimeFactorOscillations.Helpers.HamiltonianGammaChernoff",
+          "PrimeFactorOscillations.Helpers.HamiltonianGammaMomentBounds"
+        ],
+        "declaration_count": 9,
+        "declarations": [
+          "PrimeFactorOscillations.gammaInverseAverage_as_direct",
+          "PrimeFactorOscillations.gammaKernel_exponential_integral",
+          "PrimeFactorOscillations.gammaKernel_exponential_integrable",
+          "PrimeFactorOscillations.gammaDirectAverage_exp",
+          "PrimeFactorOscillations.gammaDirectAverage_indicator_le",
+          "PrimeFactorOscillations.gammaDirectAverage_upper_tail",
+          "PrimeFactorOscillations.gammaDirectAverage_lower_tail",
+          "PrimeFactorOscillations.gammaInverseAverage_pow_step",
+          "PrimeFactorOscillations.gammaInverseAverage_pow_le_two_pow"
+        ],
+        "allowed_axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "log_sha256": "351DADCCCC5D03B317E4F9674C847400869A85E25C6EC10193EF734BC890712A"
+      },
+      {
+        "status": "verified",
+        "modules": [
+          "PrimeFactorOscillations.Helpers.HamiltonianGammaConcentration"
+        ],
+        "declaration_count": 4,
+        "declarations": [
+          "PrimeFactorOscillations.log_one_add_quadratic_upper",
+          "PrimeFactorOscillations.log_one_sub_quadratic_upper",
+          "PrimeFactorOscillations.gammaDirectAverage_upper_central",
+          "PrimeFactorOscillations.gammaDirectAverage_lower_central"
+        ],
+        "allowed_axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "log_sha256": "A4568BDE05C54C60AFDC8E34C60FEC01EBDDA14A51747D0FAB9EC6F6F8AEE197"
+      },
+      {
+        "status": "verified",
+        "modules": [
+          "PrimeFactorOscillations.Helpers.HamiltonianGammaInverseWindow"
+        ],
+        "declaration_count": 4,
+        "declarations": [
+          "PrimeFactorOscillations.gammaIndicator_integrable",
+          "PrimeFactorOscillations.gammaDirectAverage_indicator_cover",
+          "PrimeFactorOscillations.inverseGamma_central_band",
+          "PrimeFactorOscillations.gammaInverseAverage_outside_window"
+        ],
+        "allowed_axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "log_sha256": "63051EA7215692A3F49FE270D2E32D7E9EFA4CCEADB257BD5A0CFF3F07E726F0"
+      },
+      {
+        "status": "verified",
+        "modules": [
+          "PrimeFactorOscillations.Helpers.HamiltonianGammaSignedTruncation"
+        ],
+        "declaration_count": 16,
+        "declarations": [
+          "PrimeFactorOscillations.gammaInverseAverage_add",
+          "PrimeFactorOscillations.gammaInverseAverage_smul",
+          "PrimeFactorOscillations.gammaInverseAverage_mono",
+          "PrimeFactorOscillations.gammaInverseIntegrable_indicator",
+          "PrimeFactorOscillations.abs_centered_pow_le",
+          "PrimeFactorOscillations.gammaInverseIntegrable_add",
+          "PrimeFactorOscillations.gammaInverseIntegrable_smul",
+          "PrimeFactorOscillations.gammaInverseIntegrable_const",
+          "PrimeFactorOscillations.gammaInverseAverage_const",
+          "PrimeFactorOscillations.gammaInverseAverage_abs_le",
+          "PrimeFactorOscillations.gammaInverseIntegrable_of_power_bound",
+          "PrimeFactorOscillations.gammaInverseIntegrable_centered",
+          "PrimeFactorOscillations.gammaInverseIntegrable_abs_centered",
+          "PrimeFactorOscillations.gammaInverseAverage_abs_centered_le",
+          "PrimeFactorOscillations.gammaInverseAverage_abs_centered_tail",
+          "PrimeFactorOscillations.gammaInverseAverage_signed_window_error"
+        ],
+        "allowed_axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "log_sha256": "B51BA2843550BF489273F594145088D53AC1115901B24550CF60A467CC82B27F"
+      },
+      {
+        "status": "verified",
+        "modules": [
+          "PrimeFactorOscillations.Helpers.HamiltonianGammaTaylor"
+        ],
+        "declaration_count": 12,
+        "declarations": [
+          "PrimeFactorOscillations.gammaInverseAverage_second_uniform",
+          "PrimeFactorOscillations.gammaInverseAverage_third_uniform",
+          "PrimeFactorOscillations.gammaInverseAverage_fourth_uniform",
+          "PrimeFactorOscillations.gammaCubic_integrable",
+          "PrimeFactorOscillations.gammaInverseAverage_cubic",
+          "PrimeFactorOscillations.gammaInverseAverage_cubic_tail",
+          "PrimeFactorOscillations.gammaInverseAverage_sub",
+          "PrimeFactorOscillations.gammaInverseAverage_local_cubic",
+          "PrimeFactorOscillations.gammaInverseIntegrable_of_abs_le",
+          "PrimeFactorOscillations.gammaCubic_measurable",
+          "PrimeFactorOscillations.gammaCubic_window_integrable",
+          "PrimeFactorOscillations.gammaInverseAverage_local_cubic_of_measurable"
+        ],
+        "allowed_axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "log_sha256": "B4700E0D867ABA4FA35518408987530C312F8420DA809710341C4C9AE00C6DCF"
+      }
+    ],
+    "active_proof": {
+      "module": "PrimeFactorOscillations.Helpers.HamiltonianSpectralFactorDerivatives",
+      "status": "Next concrete determinant consumer; the following derivative calculation is an ordinary derivation, not yet a compiled theorem.",
+      "target": "For a finite family 0<=lambda_i<=(1-delta)^2, 0<delta<=1, A=sum lambda_i, and |s-1|<=eps<=delta/4 with 2*A*eps<=delta, prove |Delta''''(s)|<=2049*exp(1)*Delta(1)*(1+A)^4/delta^4 for Delta(s)=product (1-s^2*lambda_i)^(-1/2).",
+      "consumer": "Apply the actual local cubic averaging theorem to obtain the O_delta(Delta(1)*(1+A)^4/N^2) local determinant remainder; then retain the fixed-interval and original-rook tails in the full permanent expansion."
     }
   }
 }

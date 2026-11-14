@@ -126,18 +126,56 @@ In particular the exact full centered moments are
  \mu_3=\frac4{(N-1)(N-2)},\qquad
  \mu_4=\frac{3(N+6)}{(N-1)(N-2)(N-3)} .
 \]
-The Gamma Chernoff bound gives
-\(\mathbb P(C_N^c)\leq2\exp(-c\sqrt N)\).
-Cauchy--Schwarz applied only to this tail, together with
-the raw moment bounds through order eight, yields
+More explicitly, if \(0<\varepsilon\leq1/2\) and
+\(N\varepsilon\geq4\), both actual Gamma tails give
 \[
- \mathbb E\bigl[|S-1|^k\one_{C_N^c}\bigr]
-       \leq C_k\exp(-c'\sqrt N),\qquad 0\leq k\leq4.
+ \mathbb P(|S-1|>\varepsilon)
+ \leq2\exp(-(N+1)\varepsilon^2/36).
 \]
+For \(4k\leq N\), the raw moments imply
+\(\mathbb E|S-1|^{2k}\leq2^{2k}+1\).
+Put \(u=\exp(-(N+1)\varepsilon^2/72)\) and
+\(E_\varepsilon=\{|S-1|>\varepsilon\}\).
+The elementary quadratic inequality
+\[
+ u|S-1|^k\one_{E_\varepsilon}
+ \leq u^2|S-1|^{2k}+\one_{E_\varepsilon}
+\]
+therefore proves the explicit bound
+\[
+ \mathbb E[|S-1|^k\one_{E_\varepsilon}]
+ \leq(2^{2k}+3)\exp(-(N+1)\varepsilon^2/72).
+\]
+Taking \(\varepsilon=N^{-1/4}\) gives the required
+\(C_k\exp(-\sqrt N/72)\) bound for \(0\leq k\leq4\).
 Thus each truncated signed moment on \(C_N\) equals
 \(\mu_k+O(\exp(-c'\sqrt N))\), including the first
 and third moments. In particular the truncated first moment
 is not set to zero without its error.
+
+For clarity, the precise local averaging estimate is as follows.
+Let \(C_\varepsilon=\{|S-1|\leq\varepsilon\}\), \(M\geq0\),
+and let \(f\) be measurable with
+\[
+ |f(s)-a-b(s-1)-c(s-1)^2-d(s-1)^3|
+ \leq M(s-1)^4\quad (|s-1|\leq\varepsilon).
+\]
+For \(N\geq16\) and the preceding range of \(\varepsilon\),
+the actual normalized Euler integral satisfies
+\[
+ \begin{split}
+ &\left|\mathbb E[\one_{C_\varepsilon}f(S)]
+       -a-\frac{c}{N-1}-\frac{4d}{(N-1)(N-2)}\right|\\
+ &\quad\leq M\mu_4+
+ e^{-(N+1)\varepsilon^2/72}
+       (4|a|+7|b|+19|c|+67|d|).
+ \end{split}
+\]
+Indeed the full cubic has exactly the displayed signed average;
+only its discarded tail is bounded absolutely.
+The local remainder is bounded by \(M\mu_4\).
+These bounds also prove integrability on the window, without
+extending the local approximation to other values of \(S\).
 
 On \(C_N\), fixed-order derivatives of
 \(\Delta(s)/\Delta(1)\) are bounded by polynomials in \(1+A\).
@@ -150,7 +188,7 @@ remainder and the truncated moments just proved, gives
  \mathbb E\bigl[\one_{\{S\in I\}}\Delta(S)\bigr]
  =\Delta(1)\left(
   1+\frac{\Delta''(1)}{2(N-1)\Delta(1)}
-                  +O_{\delta,K}((1+A)^8/N^2)\right).
+                  +O_\delta((1+A)^8/N^2)\right).
 \]
 Here the cubic term uses the signed \(\mu_3=O(N^{-2})\);
 the fourth-order remainder uses \(\mu_4=O(N^{-2})\).
@@ -158,6 +196,8 @@ The contribution of \(I\setminus C_N\) is at most
 \(\Delta(1)\exp(C_\delta A-c'\sqrt N)\), which is
 smaller than any fixed inverse power of \(N\) throughout
 \(A\leq(\log N)^K\).
+All implicit constants in these averages depend only on \(\delta\);
+\(K\) enters only the sufficiently-large-\(N\) threshold.
 
 For \(f(s)=\Delta(s)\Psi(\Gamma_s)\), the previous covariance
 and derivative bounds give
@@ -171,11 +211,11 @@ small truncated first moment, and
 \[
  \mathbb E\bigl[\one_{\{S\in I\}}\Delta(S)\Psi(\Gamma_S)\bigr]
  =\Delta(1)\Psi(\Gamma)
-       +O_{\delta,K}\bigl(\Delta(1)(1+A)^{12}/N^2\bigr).
+       +O_\delta\bigl(\Delta(1)(1+A)^{12}/N^2\bigr).
 \]
 The portion in \(I\setminus C_N\) is again exponentially
 small. The uniform rook-expansion remainder averages to
-\(O_{\delta,K}(\Delta(1)(1+A)^{40}/N^2)\).
+\(O_\delta(\Delta(1)(1+A)^{40}/N^2)\).
 On \(S\notin I\) we retain the original polynomial \(R_B(S)\);
 the preceding outside-interval estimate gives
 \[
