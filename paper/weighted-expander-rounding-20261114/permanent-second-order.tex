@@ -403,4 +403,25 @@ have maintained Lean proofs. The previously proved
 \(\delta^3|{\cal Q}_N(D)|\le21A^2/N\) supplies the other conclusion.
 All constants in the error depend only on \(\delta\);
 \(K\) enters only its common threshold.
+The maintained normalized theorem also records
+\[
+ \left|\frac{N^N\operatorname{per}D}{N!\Delta(1)}
+                  -(1+{\cal Q}_N(D))\right|
+       \le C_\delta(1+A)^{24}/N^2,\qquad
+ |{\cal Q}_N(D)|\le\frac{21A^2}{\delta^3N}.
+\]
+For every fixed \(K>0\), one common threshold further gives
+\[
+ \left|\frac{N^N\operatorname{per}D}{N!\Delta(1)}-1\right|
+                      \le N^{-1/8}.
+\]
+Indeed apply \((\log N)^{2K}=o(N^{7/8})\) with coefficient
+\(\delta^3/42\) and \((\log N)^{24K}=o(N^{15/8})\) with
+coefficient \([2(1+|C_\delta|)2^{24}]^{-1}\).
+Since \(1+A\le2(\log N)^K\) for large \(N\), these bound the
+correction and residual by \(N^{-1/8}/2\) each.
+The normalized two-power bound, explicit correction estimate,
+uniform scalar conversion and resulting first-order corollary all
+have direct maintained Lean proofs; no kernel-dependent threshold
+is introduced.
 \end{proof}

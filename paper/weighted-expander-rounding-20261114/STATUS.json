@@ -355,8 +355,8 @@
       "kind": "theorem",
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\relative-permanents.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
-      "lean_status": "partially_formalized_stronger_uniform_second_order_bound; direct_N^(-1/8)_corollary_pending",
-      "audit_note": "Complete actual original-rook Gamma assembly and exact normalized permanent transport are compiled and focused-audited. For every 0<delta<=1 and fixed real K, one N0(delta,K)>=16 works for every n>=N0 and every admissible stochastic kernel with n*q=1, 1<=A<=log(n)^K and norm(T-q*J)<=1-delta. The actual bound is abs(n^n/n!*per(T)-Delta(1)*(1+Q_n(T)))<=Delta(1)*(1+A)^24*hamiltonianPermanentUniformBudget(delta)/n^2. All core, annular and outer original-rook integrals, integrability, affine and cubic discarded tails, and uniform cap/size conditions are discharged. The common eps=n^(-1/8) window follows from A<=delta^3*n^(1/8)/1000000 and n^(1/8)>=64/delta, supplied by one all-kernel polylogarithmic range theorem. Constants depend only on delta. The existing first-correction bound gives delta^3*abs(Q_n)<=21*A^2/n; determinant positivity is also proved. These stronger named bounds certify the paper two-power conclusion. The direct N^(-1/8) first-order corollary and the Hamiltonian identity, compensated minors, remaining coordinate moments, signed comparison, inverse and arithmetic headline closures remain pending."
+      "lean_status": "fully_formalized_direct_normalized_uniform_statement",
+      "audit_note": "Both paper permanent statements now have direct maintained normalized Lean consumers. stochastic_permanent_relative_correction_polylog_uniform proves, for one N0(delta,K)>=16 and every admissible kernel and 1<=A<=log(N)^K, abs((N^N/N!)*per(T)/Delta(1)-(1+Q_N(T)))<=(1+A)^24*C_delta/N^2 and abs(Q_N(T))<=21*A^2/(delta^3*N). For K>0, hamiltonian_permanent_polylog_first_order_budget supplies the uniform scalar threshold, and stochastic_permanent_first_order_polylog_uniform proves the directly normalized first-order error <=N^(-1/8). The full common threshold is independent of the kernel. These three new theorems compile and pass the focused foundational-axiom audit. The complete signed second-order expansion is retained for the critical Hamiltonian consumer; its first-order consequence is not substituted into that sharper argument. Hamiltonian identities, compensated minors, remaining coordinate moments, signed comparison, amplification/inverse and arithmetic headline closures remain pending."
     },
     {
       "id": "lem:relativecompensatedminors",
@@ -476,8 +476,8 @@
       "kind": "theorem",
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\permanent-second-order.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
-      "lean_status": "formalized_via_complete_uniform_two_power_error_and_first_correction_bound",
-      "audit_note": "Complete actual original-rook Gamma assembly and exact normalized permanent transport are compiled and focused-audited. For every 0<delta<=1 and fixed real K, one N0(delta,K)>=16 works for every n>=N0 and every admissible stochastic kernel with n*q=1, 1<=A<=log(n)^K and norm(T-q*J)<=1-delta. The actual bound is abs(n^n/n!*per(T)-Delta(1)*(1+Q_n(T)))<=Delta(1)*(1+A)^24*hamiltonianPermanentUniformBudget(delta)/n^2. All core, annular and outer original-rook integrals, integrability, affine and cubic discarded tails, and uniform cap/size conditions are discharged. The common eps=n^(-1/8) window follows from A<=delta^3*n^(1/8)/1000000 and n^(1/8)>=64/delta, supplied by one all-kernel polylogarithmic range theorem. Constants depend only on delta. The existing first-correction bound gives delta^3*abs(Q_n)<=21*A^2/n; determinant positivity is also proved. These stronger named bounds certify the paper two-power conclusion. The direct N^(-1/8) first-order corollary and the Hamiltonian identity, compensated minors, remaining coordinate moments, signed comparison, inverse and arithmetic headline closures remain pending."
+      "lean_status": "fully_formalized_direct_normalized_uniform_statement",
+      "audit_note": "Both paper permanent statements now have direct maintained normalized Lean consumers. stochastic_permanent_relative_correction_polylog_uniform proves, for one N0(delta,K)>=16 and every admissible kernel and 1<=A<=log(N)^K, abs((N^N/N!)*per(T)/Delta(1)-(1+Q_N(T)))<=(1+A)^24*C_delta/N^2 and abs(Q_N(T))<=21*A^2/(delta^3*N). For K>0, hamiltonian_permanent_polylog_first_order_budget supplies the uniform scalar threshold, and stochastic_permanent_first_order_polylog_uniform proves the directly normalized first-order error <=N^(-1/8). The full common threshold is independent of the kernel. These three new theorems compile and pass the focused foundational-axiom audit. The complete signed second-order expansion is retained for the critical Hamiltonian consumer; its first-order consequence is not substituted into that sharper argument. Hamiltonian identities, compensated minors, remaining coordinate moments, signed comparison, amplification/inverse and arithmetic headline closures remain pending."
     },
     {
       "id": "thm:minorjet",
@@ -1043,7 +1043,7 @@
     },
     {
       "file": "main.tex",
-      "sha256": "04F7D1B7098ED1061C0138AA6F19DFE877D09BF3F5EC3567A96521FDAA91E9BF"
+      "sha256": "32487B7B72B0629A69FA99A57C6C7B269CC3A7D9954C26CF8541460B9F2B1B94"
     },
     {
       "file": "relative-hamilton.tex",
@@ -1051,7 +1051,7 @@
     },
     {
       "file": "permanent-second-order.tex",
-      "sha256": "DFA1907C3DD1E49FDFA7D6824B3005E72DD8AF7959BA2FF42BA0C7A8DB95D309"
+      "sha256": "BC749C552D6AB09AED5E1A69B5EE831005C04FCC9EDA6FCAE996CDFE39F82128"
     },
     {
       "file": "compensated-minor-jet.tex",
@@ -1072,7 +1072,7 @@
     "complete_consumer": "rho=a=3/5; amplification <=m^(27/20); first signed correction polylog/m; only residual pays amplification, giving O(N^(-3/5)).",
     "inverse": "A fixed relative counting defect forces collective singular mass >=(2/kappa_rho)log N-O(log log N).",
     "further_extension": "Arbitrary fixed logarithmic density coefficients, and all fixed congruence filters, would require higher-order compensated expansions beyond the proved two-power remainder.",
-    "next_review_focus": "Complete the direct public normalized permanent and N^(-1/8) first-order corollaries from the proved uniform two-power expansion, then prove the actual spanning-cycle determinant/permanent identity using the existing full cycle-subset isolation, including singleton fixed-point cycles. Continue quantitative mismatched-support stochastic minor repair, full first-order minor compensation, signed coordinate occupancy, the complete Hamiltonian comparison, amplification/inverse, all arithmetic closures and public headline consumers. Preserve all signed corrections; absolute estimates apply only to explicit remainders and tails. RH/Hadamard/twin-prime generalization remains queued until the full headline argument and Lean formalization are complete. A component, audit or commit is not completion.",
+    "next_review_focus": "Prove the full actual Hamiltonian determinant/permanent identity, starting from the existing cycleSubsetIsolation theorem. Expand the actual determinant and permanent, regroup by the full permutation, identify invariant subsets with unions of all orbits including singleton fixed points, and evaluate the complete signed coefficient before any estimates. Then complete quantitative mismatched-support stochastic repair, the full first-order minor compensation, signed coordinate occupancy, the signed Hamiltonian comparison, spectral amplification/inverse, arithmetic closures and public headline consumers. Keep the complete N^(-2) permanent correction in the sharper comparison. RH/Hadamard/twin-prime transfers remain queued until the entire headline argument and Lean formalization are complete; a component, audit or commit is not completion.",
     "independent_consumer_status": "Both actual integer prime-sum graphs and all growing coprime moduli have complete stated ordinary arguments."
   },
   "completion_receipt": {
@@ -1088,12 +1088,12 @@
       "Actual unweighted prime-sum graph: full relative count around its exact entropy, with O(N^(-3/5)) error; no RH or prime-pair estimate."
     ],
     "primary_literature_comparison": "Cuckler-Kahn: dense Dirac and dense balanced bipartite entropy counts. Barvinok: all-positive matrices with a relative entry lower bound. Krivelevich and Byrne-Tait: nontrivial spectral ratio tending to zero logarithmically. The present argument permits sparse zero support and any fixed nontrivial gap. Bradač-Janzer 2026 is an essential independent spanning-path input. McCullagh's bounded normalized moments fail along primorials; Divoux-Wang's fixed-entry finite proof is tracked explicitly, rather than used outside its stated range. The new first-order signed compensation and rank-one parity-root calculation avoid the fixed-entry remainder amplification at prime density. They are the mechanism of the complete prime consumer, not merely a detector or matching identity.",
-    "proof_endpoint_status": "The uniform second-order permanent theorem is compiled and focused-audited. Complete actual original-rook Gamma assembly and exact normalized permanent transport are compiled and focused-audited. For every 0<delta<=1 and fixed real K, one N0(delta,K)>=16 works for every n>=N0 and every admissible stochastic kernel with n*q=1, 1<=A<=log(n)^K and norm(T-q*J)<=1-delta. The actual bound is abs(n^n/n!*per(T)-Delta(1)*(1+Q_n(T)))<=Delta(1)*(1+A)^24*hamiltonianPermanentUniformBudget(delta)/n^2. All core, annular and outer original-rook integrals, integrability, affine and cubic discarded tails, and uniform cap/size conditions are discharged. The common eps=n^(-1/8) window follows from A<=delta^3*n^(1/8)/1000000 and n^(1/8)>=64/delta, supplied by one all-kernel polylogarithmic range theorem. Constants depend only on delta. The existing first-correction bound gives delta^3*abs(Q_n)<=21*A^2/n; determinant positivity is also proved. These stronger named bounds certify the paper two-power conclusion. The direct N^(-1/8) first-order corollary and the Hamiltonian identity, compensated minors, remaining coordinate moments, signed comparison, inverse and arithmetic headline closures remain pending. The headline Hamiltonian counting and inverse conclusions remain unformalized.",
+    "proof_endpoint_status": "Both uniform permanent statements are now directly formalized and focused-audited, including the explicit signed two-power correction, its positive normalization, all three original-rook Gamma regions and the direct N^(-1/8) corollary. Both paper permanent statements now have direct maintained normalized Lean consumers. stochastic_permanent_relative_correction_polylog_uniform proves, for one N0(delta,K)>=16 and every admissible kernel and 1<=A<=log(N)^K, abs((N^N/N!)*per(T)/Delta(1)-(1+Q_N(T)))<=(1+A)^24*C_delta/N^2 and abs(Q_N(T))<=21*A^2/(delta^3*N). For K>0, hamiltonian_permanent_polylog_first_order_budget supplies the uniform scalar threshold, and stochastic_permanent_first_order_polylog_uniform proves the directly normalized first-order error <=N^(-1/8). The full common threshold is independent of the kernel. These three new theorems compile and pass the focused foundational-axiom audit. The complete signed second-order expansion is retained for the critical Hamiltonian consumer; its first-order consequence is not substituted into that sharper argument. Hamiltonian identities, compensated minors, remaining coordinate moments, signed comparison, amplification/inverse and arithmetic headline closures remain pending. The headline Hamiltonian count and inverse statements remain unfinished.",
     "significance_assessment": "A general signed-estimation method now has a quantitative inverse and complete independent arithmetic consumers at actual prime density and through every coprime modulus. This supports a serious standalone research contribution. Career-defining impact and priority are not certified or inferred from compilation.",
     "paper_argument_delivered": true,
     "headline_all_orders_filz_proved": false,
     "lean_formalization_complete": false,
-    "next_safely_executable_research_action": "Complete the direct public normalized permanent and N^(-1/8) first-order corollaries from the proved uniform two-power expansion, then prove the actual spanning-cycle determinant/permanent identity using the existing full cycle-subset isolation, including singleton fixed-point cycles. Continue quantitative mismatched-support stochastic minor repair, full first-order minor compensation, signed coordinate occupancy, the complete Hamiltonian comparison, amplification/inverse, all arithmetic closures and public headline consumers. Preserve all signed corrections; absolute estimates apply only to explicit remainders and tails. RH/Hadamard/twin-prime generalization remains queued until the full headline argument and Lean formalization are complete. A component, audit or commit is not completion.",
+    "next_safely_executable_research_action": "Prove the full actual Hamiltonian determinant/permanent identity, starting from the existing cycleSubsetIsolation theorem. Expand the actual determinant and permanent, regroup by the full permutation, identify invariant subsets with unions of all orbits including singleton fixed points, and evaluate the complete signed coefficient before any estimates. Then complete quantitative mismatched-support stochastic repair, the full first-order minor compensation, signed coordinate occupancy, the signed Hamiltonian comparison, spectral amplification/inverse, arithmetic closures and public headline consumers. Keep the complete N^(-2) permanent correction in the sharper comparison. RH/Hadamard/twin-prime transfers remain queued until the entire headline argument and Lean formalization are complete; a component, audit or commit is not completion.",
     "next_gate": "Judge the complete new method and independent applications, not theorem counts or successful compilation; preserve exact entropy and explicit density scope.",
     "no_background_work_claimed": true,
     "expert_relevance_gate": {
@@ -1112,8 +1112,8 @@
     "committed_this_turn": true,
     "pushed_this_turn": false,
     "proofs_left_only_in_private_research": false,
-    "recorded_phase": "Based on local commit 3057a4e. This promotion contains ten maintained Gamma core, region, rate, range, root-window and uniform-permanent owners, with 24 new focused-audited theorems. Unchanged historical declarations were not re-audited. The focused driver is hash-verified and removed before staged repository checks. Final release checks and the commit are evidenced separately by logs and Git history.",
-    "phase": "Complete uniform second-order original-permanent theorem with explicit delta-only two-power error is compiled and focused-audited; direct first-order corollaries and all Hamiltonian/arithmetic headline closures remain pending."
+    "recorded_phase": "Based on local commit e7728b1. This promotion adds the direct normalized second-order permanent theorem and explicit correction bound, uniform scalar polylogarithmic decay and first-order N^(-1/8) consequence in one maintained owner. Only its three new theorems are axiom-audited; unchanged files are not re-audited. Final staged checks and the local commit are recorded separately.",
+    "phase": "The complete uniform second-order and direct normalized first-order permanent theorems are compiled and focused-audited. The active mathematical consumer is now the actual cycle identity, followed by compensated minors and the full signed Hamiltonian/arithmetic headline."
   },
   "formalization": {
     "status": "in_progress_not_complete",
@@ -1828,11 +1828,16 @@
         "source_sha256": "F5A037529CFEBE5381899C3485EF2481D46CE17DD4FDED75248098FC418E54A2",
         "content": "Complete all-kernel polylogarithmic uniform second-order actual-permanent theorem, explicit delta-only error budget, all tails absorbed and determinant >=1.",
         "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianPermanentAsymptotics",
+        "source_sha256": "5D3C8935673587F01A729ACDD062BAB165687E89296D8964001132154F6A74EA",
+        "content": "Direct normalized second-order permanent error and explicit first-correction bound; uniform scalar logarithm-to-power consumer and direct normalized N^(-1/8) asymptotic for all admissible kernels with one common threshold.",
+        "build_exit_code": 0
       }
     ],
     "unfinished_dependencies": [
       "Exact Hamiltonian determinant-permanent identity for actual spanning-cycle permutations, including singleton fixed-point cycles.",
-      "Direct public normalized and N^(-1/8) first-order corollaries from the complete uniform second-order permanent theorem. The original-rook Gamma assembly, exact transport, explicit delta-only polynomial error and all-kernel polylogarithmic cap/window/tail thresholds are now compiled and focused-audited, and are no longer open estimates.",
       "Quantitative stochastic repair and full complementary-minor expansion with all mismatched supports and compensation fields.",
       "Actual coordinate occupancy identities, full derivative bounds and normalized moment bounds. Cauchy-Binet, the signed two-support constant moment, Gram sandwich entries and full block covariance entries are compiled.",
       "Full signed comparison with its absolute estimate confined to the retained remainder and large-minor tail.",
@@ -3154,13 +3159,32 @@
         ],
         "log_sha256": "82252A7A5E4B2357E32A80653D2BCE11A9F70846CED12031EA8AF243A40391FF",
         "scope": "Only the ten newly added maintained owners and their 24 new theorems; unchanged historical files were not re-audited."
+      },
+      {
+        "status": "verified",
+        "modules": [
+          "PrimeFactorOscillations.Helpers.HamiltonianPermanentAsymptotics"
+        ],
+        "declaration_count": 3,
+        "declarations": [
+          "PrimeFactorOscillations.stochastic_permanent_relative_correction_polylog_uniform",
+          "PrimeFactorOscillations.hamiltonian_permanent_polylog_first_order_budget",
+          "PrimeFactorOscillations.stochastic_permanent_first_order_polylog_uniform"
+        ],
+        "allowed_axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "log_sha256": "B934AB2A7A574E51A4C2D46DAB824E083CBE7C4AE66B12B04B069367A3496108",
+        "scope": "Only the three new direct normalized permanent/asymptotic consumers; unchanged historical modules were not re-audited."
       }
     ],
     "active_proof": {
-      "module": "PrimeFactorOscillations.Helpers.HamiltonianPermanentUniform",
-      "status": "Completed and focused-audited the full uniform original-permanent second-order theorem, including three-region integrability, exact normalization, explicit delta-only error and common polylogarithmic threshold. The Hamiltonian headline remains unfinished.",
-      "target": "Complete the direct public normalized permanent and N^(-1/8) first-order corollaries from the proved uniform two-power expansion, then prove the actual spanning-cycle determinant/permanent identity using the existing full cycle-subset isolation, including singleton fixed-point cycles. Continue quantitative mismatched-support stochastic minor repair, full first-order minor compensation, signed coordinate occupancy, the complete Hamiltonian comparison, amplification/inverse, all arithmetic closures and public headline consumers. Preserve all signed corrections; absolute estimates apply only to explicit remainders and tails. RH/Hadamard/twin-prime generalization remains queued until the full headline argument and Lean formalization are complete. A component, audit or commit is not completion.",
-      "consumer": "The complete signed Hamiltonian target has relative error O(log(N)^M/N+log(N)^M*Amp(T)/N^2). The actual permanent now supplies the independently proved uniform N^(-2) precision. Remaining nontrivial inputs are the full cycle identity, mismatched-support minor compensation and signed coordinate moments. This permanent theorem alone does not certify the Hamiltonian or prime-circle conclusion.",
+      "module": "PrimeFactorOscillations.Helpers.HamiltonianSubsetCancellation",
+      "status": "Both permanent theorem statements now have complete direct normalized uniform proofs and focused audits. Next is the actual spanning-cycle determinant/permanent identity; the Hamiltonian headline remains unfinished.",
+      "target": "Prove the full actual Hamiltonian determinant/permanent identity, starting from the existing cycleSubsetIsolation theorem. Expand the actual determinant and permanent, regroup by the full permutation, identify invariant subsets with unions of all orbits including singleton fixed points, and evaluate the complete signed coefficient before any estimates. Then complete quantitative mismatched-support stochastic repair, the full first-order minor compensation, signed coordinate occupancy, the signed Hamiltonian comparison, spectral amplification/inverse, arithmetic closures and public headline consumers. Keep the complete N^(-2) permanent correction in the sharper comparison. RH/Hadamard/twin-prime transfers remain queued until the entire headline argument and Lean formalization are complete; a component, audit or commit is not completion.",
+      "consumer": "The full signed Hamiltonian target remains relative error O(log(N)^M/N+log(N)^M*Amp(T)/N^2). The permanent N^(-2) input and its direct normalized consumers are complete. The actual cycle identity is required to connect that expansion and the forthcoming mismatched-support minor jet to the weighted spanning-cycle count; its coefficient must retain all orbit and fixed-point terms. It supplies the exact consumer, not an independent bound on the remaining minor remainder.",
       "proved_inputs": [
         "PrimeFactorOscillations.Helpers.HamiltonianMatrixSpectralAverage",
         "PrimeFactorOscillations.Helpers.HamiltonianRookGamma",
@@ -3255,7 +3279,8 @@
         "PrimeFactorOscillations.Helpers.HamiltonianPermanentGammaRange",
         "PrimeFactorOscillations.Helpers.HamiltonianPermanentGammaRate",
         "PrimeFactorOscillations.Helpers.HamiltonianGammaRootWindow",
-        "PrimeFactorOscillations.Helpers.HamiltonianPermanentUniform"
+        "PrimeFactorOscillations.Helpers.HamiltonianPermanentUniform",
+        "PrimeFactorOscillations.Helpers.HamiltonianPermanentAsymptotics"
       ]
     },
     "status_reconciliation_check": {
@@ -3282,7 +3307,7 @@
       "checked_paper_hashes": [
         {
           "file": "main.tex",
-          "sha256": "04F7D1B7098ED1061C0138AA6F19DFE877D09BF3F5EC3567A96521FDAA91E9BF"
+          "sha256": "32487B7B72B0629A69FA99A57C6C7B269CC3A7D9954C26CF8541460B9F2B1B94"
         },
         {
           "file": "relative-permanents.tex",
@@ -3290,7 +3315,7 @@
         },
         {
           "file": "permanent-second-order.tex",
-          "sha256": "DFA1907C3DD1E49FDFA7D6824B3005E72DD8AF7959BA2FF42BA0C7A8DB95D309"
+          "sha256": "BC749C552D6AB09AED5E1A69B5EE831005C04FCC9EDA6FCAE996CDFE39F82128"
         }
       ],
       "mechanical_forbidden_normalized_paper_status_sentences": [
@@ -3333,7 +3358,7 @@
         "These bounds, including the identification of the actual determinant second derivative, have maintained Lean proofs. This does not yet formalize the Gaussian/Wick remainder in the displayed asymptotic.",
         "Complete original-rook Gamma assembly is still required."
       ],
-      "recurrence_note": "All five affected formalization paragraphs, both permanent claims, current audit notes and active/unfinished records agree with the completed original-rook Gamma assembly and uniform two-power permanent theorem. The paper gives the actual inverse eighth-root window, both original-rook tail exponents, explicit delta-only constants and degree-24 error. All 22 TeX sources pass normalized rejection of 38 obsolete pending-status blocks. The direct first-order corollary and Hamiltonian/arithmetic headline remain pending. Patch positions are resolved at unique full line boundaries before sorting; raw substring positions do not determine hunk order. JSON patch recurrence gate: trigger any multi-hunk JSON edit; derive each context's unique full-line start and end in the captured original, sort by those starts and splice the proposed document in descending checked-position order; prohibit raw indexOf ordering and unqualified String.replace, which can match deeper indentation; strictly parse and compare the entire canonical result with the intended object before apply_patch.",
+      "recurrence_note": "Both permanent claim statuses, their current audit notes, paper formalization paragraphs and active/unfinished lists now agree with the direct normalized second-order and N^(-1/8) first-order proofs. The kernel-uniform scalar threshold is formally discharged. The original-rook three-region consumer, explicit gap-only constants and signed correction remain the sharper Hamiltonian inputs. All Hamiltonian and arithmetic headline obligations remain open. The completed first-order obligation has been removed from the unfinished list. JSON patch recurrence gate: trigger any multi-hunk JSON edit; derive each context's unique full-line start and end in the captured original, sort by those starts and splice the proposed document in descending checked-position order; prohibit raw indexOf ordering and unqualified String.replace, which can match deeper indentation; strictly parse and compare the entire canonical result with the intended object before apply_patch.",
       "related_paper_sources_normalized_and_checked": 22
     },
     "audit_driver_release_rule": {
