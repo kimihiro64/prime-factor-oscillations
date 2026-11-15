@@ -257,8 +257,11 @@ The full actual mixed Wick readout, finite support/degree-profile
 bounds, complete coefficient convolutions and finite high-diagram
 two-power estimate are now formalized. The complete moderate-degree sum,
 normalizer holomorphy, scaled Cauchy tail and integrated finite-jet remainder
-are now formalized as well. Identifying the complete Wick profiles with the
-actual Taylor coefficients and assembling the permanent remainder remain
+are now formalized as well. Unique support/profile ownership, the full
+Gaussian readout of actual scalar Taylor coefficients, and Taylor agreement
+between the compensated rook function and the finite Gaussian jet are also
+formalized. The finite jet's homogeneous-degree identification with the
+covariance formal series and the permanent remainder assembly remain
 formalization obligations. The full original outside-Gamma consumer
 is formalized below.
 
@@ -370,10 +373,31 @@ hypotheses are discharged in a direct consumer.
 Odd mixed Gaussian moments vanish exactly, and even moments of
 degree \(2e\) scale by the \(e\)-th power of a covariance dilation;
 both facts are formalized.
-The remaining Lean obligation is the complete finite-profile and
-Taylor-coefficient identification, followed by its uniform remainder
-assembly. The fixed-\(d,h\) domination constant is not used as a
-uniform estimate in the subsequent diagram bounds.
+The finite scalar coefficient ownership is now a proved bijection:
+each admissible degree assignment has exactly one support and composition,
+and the inverse reconstructs that assignment. For a centered Gaussian
+vector with arbitrary complex covariance, the maintained integral readout is
+\[
+ \E_{\rm std}[u^{2e}]\prod_i r(uY_i)
+       =\sum_{v=0}^{e}D_{e,v}(\Gamma),
+\]
+where the right side denotes the finite covariance evaluation of all
+supports, compositions and pairings. These coefficients are the actual
+scalar Taylor coefficients, by the complete Leibniz convolution.
+Let \(\widehat F_h(t)\) be the finite quotient Gaussian polynomial state
+above. The positive-real bound and analyticity give the maintained identity
+\[
+ [t^k]F(t)=[t^k]\widehat F_h(t),\qquad k<h.
+\]
+Indeed an analytic difference bounded by \(Ct^h\) on a positive real
+interval has vanishing derivatives of every order below \(h\): a smaller
+vanishing order would factor out \(t^m\), leaving a continuous nonzero
+factor that the bound forces to tend to zero. This implication and the
+actual stochastic rook consumer are formalized.
+The remaining Lean coefficient obligation is the finite jet's
+homogeneous-degree identification with the covariance formal series,
+followed by uniform remainder assembly. The fixed-\(d,h\) domination
+constant is not used as a uniform estimate in the subsequent diagram bounds.
 
 The complete finite coefficient estimate has a maintained proof with
 explicit constants. Set
@@ -432,8 +456,10 @@ Every nonzero profile satisfies \(e-v\geq2\). Bound its extra powers
 of \(e/N\) by one, use \(e^2\leq121\), and retain all \(v=0,\ldots,e\)
 and all eight degrees. The displayed constant uses at most twelve
 support sizes per degree; no degree or compensation term is omitted.
-These formal coefficient bounds still require identification with
-the actual analytic Taylor coefficients.
+The scalar Gaussian coefficient readout and actual rook/finite-jet
+Taylor matching are now formalized. To consume these formal bounds,
+the finite jet's homogeneous degrees must still be matched to the
+covariance-series deformation coefficients.
 
 Take \(H=\lceil C_\delta A^3\sqrt N\rceil\), increasing its
 constant below if necessary. For large \(N\), \(H<N\).

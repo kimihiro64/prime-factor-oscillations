@@ -355,8 +355,8 @@
       "kind": "theorem",
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\relative-permanents.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
-      "lean_status": "partially_formalized_full_moderate_high_Cauchy_and_integrated_finite_jet_inputs; finite_profile_Taylor_matching_correction_derivatives_and_uniform_assembly_pending",
-      "audit_note": "The complete moderate and finite high-diagram coefficient sums are maintained and audited with explicit N^(-2) constants. The actual normalizer is holomorphic on the full spectral disk; the actual convergent Cauchy series and omitted Taylor remainder retain an independent complex scale c, with |c|*R*rho<1. The finite Gaussian jet retains the full affine product and quadratic overlaps. Its dominating moment is proved integrable; exact polynomial evaluation and the normalized actual quotient Gaussian state give a direct stochastic O_(N,h)(t^h) remainder for t*rho<=1/16. Odd mixed moments vanish exactly and even moments have exact covariance homogeneity. The complete finite-profile/Taylor coefficient identification, quantitative cutoff tuning and uniform covariance-correction derivative/Gamma assembly for the full second-order permanent remainder remain pending. The remaining identification must connect these actual analytic jets to every formal Wick degree profile before the uniform coefficient bounds can be consumed. Hamiltonian and arithmetic headline theorems are not Lean-certified."
+      "lean_status": "partially_formalized_full_diagram_bounds_scalar_Taylor_Gaussian_readout_and_rook_finite_jet_Taylor_matching; homogeneous_covariance_series_matching_correction_derivatives_and_uniform_assembly_pending",
+      "audit_note": "The complete moderate/high coefficient sums, actual holomorphy, scaled Cauchy tail and integrated finite-jet remainder are maintained and audited. Every admissible scalar degree assignment has a unique support/composition owner and a proved inverse. The actual scalar Taylor product, its integrability and complete Gaussian Wick readout are formalized. An analytic positive-real error bound now proves exact Taylor agreement through k<H between the actual stochastic compensated rook function and its finite quotient Gaussian state. The finite jet's homogeneous-degree decomposition must be matched to the full covariance formal-series coefficients at every finite cutoff. Then complete quantitative cutoff tuning and uniform covariance-correction derivative/Gamma assembly for the full second-order permanent remainder. The scalar support/composition bijection, complete Gaussian readout of actual scalar Taylor coefficients and actual compensated rook/finite-jet Taylor agreement are compiled and focused-audited. The fixed-dimension domination constant is used only to prove an identity; uniform estimates enter after exact matching. Hamiltonian and arithmetic headline theorems are not Lean-certified."
     },
     {
       "id": "lem:relativecompensatedminors",
@@ -476,8 +476,8 @@
       "kind": "theorem",
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\permanent-second-order.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
-      "lean_status": "partially_formalized_full_moderate_high_Cauchy_and_integrated_finite_jet_inputs; finite_profile_Taylor_matching_correction_derivatives_and_uniform_assembly_pending",
-      "audit_note": "The complete moderate and finite high-diagram coefficient sums are maintained and audited with explicit N^(-2) constants. The actual normalizer is holomorphic on the full spectral disk; the actual convergent Cauchy series and omitted Taylor remainder retain an independent complex scale c, with |c|*R*rho<1. The finite Gaussian jet retains the full affine product and quadratic overlaps. Its dominating moment is proved integrable; exact polynomial evaluation and the normalized actual quotient Gaussian state give a direct stochastic O_(N,h)(t^h) remainder for t*rho<=1/16. Odd mixed moments vanish exactly and even moments have exact covariance homogeneity. The complete finite-profile/Taylor coefficient identification, quantitative cutoff tuning and uniform covariance-correction derivative/Gamma assembly for the full second-order permanent remainder remain pending. The remaining identification must connect these actual analytic jets to every formal Wick degree profile before the uniform coefficient bounds can be consumed. Hamiltonian and arithmetic headline theorems are not Lean-certified."
+      "lean_status": "partially_formalized_full_diagram_bounds_scalar_Taylor_Gaussian_readout_and_rook_finite_jet_Taylor_matching; homogeneous_covariance_series_matching_correction_derivatives_and_uniform_assembly_pending",
+      "audit_note": "The complete moderate/high coefficient sums, actual holomorphy, scaled Cauchy tail and integrated finite-jet remainder are maintained and audited. Every admissible scalar degree assignment has a unique support/composition owner and a proved inverse. The actual scalar Taylor product, its integrability and complete Gaussian Wick readout are formalized. An analytic positive-real error bound now proves exact Taylor agreement through k<H between the actual stochastic compensated rook function and its finite quotient Gaussian state. The finite jet's homogeneous-degree decomposition must be matched to the full covariance formal-series coefficients at every finite cutoff. Then complete quantitative cutoff tuning and uniform covariance-correction derivative/Gamma assembly for the full second-order permanent remainder. The scalar support/composition bijection, complete Gaussian readout of actual scalar Taylor coefficients and actual compensated rook/finite-jet Taylor agreement are compiled and focused-audited. The fixed-dimension domination constant is used only to prove an identity; uniform estimates enter after exact matching. Hamiltonian and arithmetic headline theorems are not Lean-certified."
     },
     {
       "id": "thm:minorjet",
@@ -1027,7 +1027,7 @@
     },
     {
       "file": "relative-permanents.tex",
-      "sha256": "07DFC79CC531DA6B054DEF345F5D148EC8E49688213DF3AB20D03BF65570811E"
+      "sha256": "D0E1F97564282D025432A08A3ABC8681CC04F5DD869477D009AB7FA9A910276F"
     },
     {
       "file": "relative-coprime-circles.tex",
@@ -1043,7 +1043,7 @@
     },
     {
       "file": "main.tex",
-      "sha256": "E952991F122FA09BB3ABC4FD869D5F2CA1F23E3703D7816BC09302A45E12FD6F"
+      "sha256": "FC99E62F2F7747AE86BADD5013156DC9443DEDB86A28AB21742F6B971A7659C3"
     },
     {
       "file": "relative-hamilton.tex",
@@ -1051,7 +1051,7 @@
     },
     {
       "file": "permanent-second-order.tex",
-      "sha256": "25209CC2E30E1EEAA337EF8C24FF909DA72EBD4960CA2459600F34A96C82B047"
+      "sha256": "4D76F67FF03D97FC0C82EFDEFC69C6159763BA29FBD38E0C51F7DA4B46FEBF9E"
     },
     {
       "file": "compensated-minor-jet.tex",
@@ -1072,7 +1072,7 @@
     "complete_consumer": "rho=a=3/5; amplification <=m^(27/20); first signed correction polylog/m; only residual pays amplification, giving O(N^(-3/5)).",
     "inverse": "A fixed relative counting defect forces collective singular mass >=(2/kappa_rho)log N-O(log log N).",
     "further_extension": "Arbitrary fixed logarithmic density coefficients, and all fixed congruence filters, would require higher-order compensated expansions beyond the proved two-power remainder.",
-    "next_review_focus": "Identify all finite Gaussian-jet degree profiles with the actual Taylor coefficients and existing complete formal Wick sums, retaining the degree-six diagonal compensation. Use the compiled moderate/high coefficient masses, scale-uniform Cauchy tail and integrable finite-jet domination; then complete cutoff tuning, covariance-correction derivatives and the uniform Gamma/permanent remainder. Continue through actual Hamiltonian-cycle identification, full signed comparison, inverse and arithmetic closures. A helper proof, successful audit or commit is not completion.",
+    "next_review_focus": "Match the finite Gaussian jet's homogeneous degrees to the full covariance formal-series coefficients, retaining the degree-six diagonal compensation and every support/profile. Consume the proved actual scalar Taylor readout and actual rook/finite-jet Taylor agreement, then the complete moderate/high coefficient masses and scale-uniform Cauchy tail. Finish cutoff tuning, covariance-correction derivatives and the uniform Gamma/permanent remainder; continue through actual Hamiltonian-cycle identification, full signed comparison, inverse and arithmetic closures. A helper proof, successful audit or commit is not completion.",
     "independent_consumer_status": "Both actual integer prime-sum graphs and all growing coprime moduli have complete stated ordinary arguments."
   },
   "completion_receipt": {
@@ -1088,12 +1088,12 @@
       "Actual unweighted prime-sum graph: full relative count around its exact entropy, with O(N^(-3/5)) error; no RH or prime-pair estimate."
     ],
     "primary_literature_comparison": "Cuckler-Kahn: dense Dirac and dense balanced bipartite entropy counts. Barvinok: all-positive matrices with a relative entry lower bound. Krivelevich and Byrne-Tait: nontrivial spectral ratio tending to zero logarithmically. The present argument permits sparse zero support and any fixed nontrivial gap. Bradač-Janzer 2026 is an essential independent spanning-path input. McCullagh's bounded normalized moments fail along primorials; Divoux-Wang's fixed-entry finite proof is tracked explicitly, rather than used outside its stated range. The new first-order signed compensation and rank-one parity-root calculation avoid the fixed-entry remainder amplification at prime density. They are the mechanism of the complete prime consumer, not merely a detector or matching identity.",
-    "proof_endpoint_status": "The full analytic and arithmetic headline theorems remain unformalized. Maintained and audited inputs now include exact finite signed cancellations; spectral/Gamma transfer; unrestricted and compensated Gaussian/rook identities; actual determinant and resolvent covariance; full outside-Gamma tail; all formal support, profile, pairing and coefficient convolutions; complete moderate/high N^(-2) coefficient estimates; actual normalizer holomorphy; scale-uniform Cauchy series and tail; and the actual normalized integrated finite Gaussian jet with all domination, balance, disk and normalization hypotheses proved. The complete finite-profile/Taylor coefficient identification, quantitative cutoff tuning and uniform covariance-correction derivative/Gamma assembly for the full second-order permanent remainder remain pending. Hamiltonian-cycle and occupancy identities, full signed comparison, inverse and arithmetic closures are still required.",
+    "proof_endpoint_status": "The full analytic and arithmetic headline theorems remain unformalized. Maintained and audited inputs now additionally include the support/composition bijection with explicit inverse; full integrable Gaussian readout of actual scalar Taylor coefficients; positive-real analytic vanishing-order transfer; and exact finite-order Taylor agreement between the actual compensated rook function and its finite quotient Gaussian polynomial state. The finite jet's homogeneous-degree decomposition must be matched to the full covariance formal-series coefficients at every finite cutoff. Then complete quantitative cutoff tuning and uniform covariance-correction derivative/Gamma assembly for the full second-order permanent remainder. The scalar support/composition bijection, complete Gaussian readout of actual scalar Taylor coefficients and actual compensated rook/finite-jet Taylor agreement are compiled and focused-audited. Hamiltonian-cycle and occupancy identities, full signed comparison, inverse and arithmetic closures are still required.",
     "significance_assessment": "A general signed-estimation method now has a quantitative inverse and complete independent arithmetic consumers at actual prime density and through every coprime modulus. This supports a serious standalone research contribution. Career-defining impact and priority are not certified or inferred from compilation.",
     "paper_argument_delivered": true,
     "headline_all_orders_filz_proved": false,
     "lean_formalization_complete": false,
-    "next_safely_executable_research_action": "Identify all finite Gaussian-jet degree profiles with the actual Taylor coefficients and existing complete formal Wick sums, retaining the degree-six diagonal compensation. Use the compiled moderate/high coefficient masses, scale-uniform Cauchy tail and integrable finite-jet domination; then complete cutoff tuning, covariance-correction derivatives and the uniform Gamma/permanent remainder. Continue through actual Hamiltonian-cycle identification, full signed comparison, inverse and arithmetic closures. A helper proof, successful audit or commit is not completion.",
+    "next_safely_executable_research_action": "Match the finite Gaussian jet's homogeneous degrees to the full covariance formal-series coefficients, retaining the degree-six diagonal compensation and every support/profile. Consume the proved actual scalar Taylor readout and actual rook/finite-jet Taylor agreement, then the complete moderate/high coefficient masses and scale-uniform Cauchy tail. Finish cutoff tuning, covariance-correction derivatives and the uniform Gamma/permanent remainder; continue through actual Hamiltonian-cycle identification, full signed comparison, inverse and arithmetic closures. A helper proof, successful audit or commit is not completion.",
     "next_gate": "Judge the complete new method and independent applications, not theorem counts or successful compilation; preserve exact entropy and explicit density scope.",
     "no_background_work_claimed": true,
     "expert_relevance_gate": {
@@ -1107,8 +1107,8 @@
     "committed_this_turn": true,
     "pushed_this_turn": false,
     "proofs_left_only_in_private_research": false,
-    "recorded_phase": "Built against local commit f75a4beffe096c572b68c3b23a8a314c7dfce5f5. This promotion has five maintained proof modules, 37 new focused-audited declarations in two receipts and successful built-in paper compilation. Unchanged declarations were not re-audited after appending the two scale consumers. The final staged check and resulting local commit are recorded in Git history.",
-    "phase": "Actual holomorphy, scaled Cauchy tail, complete moderate coefficients and integrated finite Gaussian jet are formalized; profile/Taylor matching, uniform remainder, signed and arithmetic headline consumers remain pending."
+    "recorded_phase": "Built against local commit 04ce54e33423c6dbd3710d16ec7420f562b2eab6. This promotion has six maintained modules, 63 new focused-audited declarations in one receipt, and successful built-in paper compilation. No unchanged declarations were re-audited. Final staged checks and the resulting local commit are recorded in Git history.",
+    "phase": "Exact support/composition ownership, actual scalar Taylor/Gaussian readout and actual compensated rook/finite-jet Taylor agreement are formalized. Homogeneous covariance-series matching, uniform remainder, signed and arithmetic headline consumers remain pending."
   },
   "formalization": {
     "status": "in_progress_not_complete",
@@ -1535,11 +1535,47 @@
         "source_sha256": "9CA6BA7004B835B3A40A525B42E82677EBD4337AAD24A8356AA64F5BD6F80749",
         "content": "Integrability of the complete damping moment, exact finite polynomial evaluation and Gaussian-state readout, and the actual normalized stochastic finite-jet remainder with every disk, balance and normalization hypothesis discharged.",
         "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianWickProfileOwnership",
+        "source_sha256": "BEB9B04403573355ED138DFBF3922F2CE4FDA54DDA01A9598F347B21F22B3A80",
+        "content": "Complete scalar product coefficients, support-label equivalence, exact support/composition ownership and its injectivity, retaining every admissible assignment.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianWickProfileBijection",
+        "source_sha256": "64FC9B1651C37FEC9F2737B829A282B71345686239BDD95049B710BE88C750EC",
+        "content": "Explicit inverse assignment from each support/composition, proved bijection and exact finite scalar-coefficient reindexing.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianWickCoefficientIntegral",
+        "source_sha256": "FF5A4D860305B3277BEDE8870A176138C3FB4B3BF0C96CAAE72AE73AA311C33E",
+        "content": "Actual integrability and normalized Gaussian readout of every scalar coefficient, regrouped over all supports and compositions into the full Wick diagram coefficients.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianWickTaylorSeries",
+        "source_sha256": "9733BCCA56849ADA9E36671A710B38DB07D1C5E4BC112E1BB4A135FD2AD5269F",
+        "content": "Full analytic Leibniz convolution, actual vertex Taylor coefficients under scalar dilation, and actual even Taylor-coefficient Gaussian readout.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianAnalyticRayOrder",
+        "source_sha256": "49A2232B23CD0580DBC960583E0632DC1D3BA8968A95D3E768B312F5F31F7D3C",
+        "content": "An analytic positive-real O(t^H) bound forces analytic vanishing order at least H and exact vanishing of every lower derivative.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianCompensatedJetTaylor",
+        "source_sha256": "2E7233E6F84AF3B1059BDFFABD81D0896A0B73A176A1FAFB13ACC8B7083CA0AE",
+        "content": "Analyticity of arbitrary Gaussian polynomial states and exact Taylor matching between the actual stochastic compensated rook function and its finite quotient Gaussian jet.",
+        "build_exit_code": 0
       }
     ],
     "unfinished_dependencies": [
       "Exact Hamiltonian determinant-permanent identity for actual spanning-cycle permutations, including singleton fixed-point cycles.",
-      "The complete finite-profile/Taylor coefficient identification, quantitative cutoff tuning and uniform covariance-correction derivative/Gamma assembly for the full second-order permanent remainder remain pending. Complete moderate/high coefficient bounds, actual normalizer holomorphy, scale-uniform Cauchy tail and the integrated normalized finite Gaussian-jet inequality are now compiled and focused-audited.",
+      "The finite jet's homogeneous-degree decomposition must be matched to the full covariance formal-series coefficients at every finite cutoff. Then complete quantitative cutoff tuning and uniform covariance-correction derivative/Gamma assembly for the full second-order permanent remainder. The scalar support/composition bijection, complete Gaussian readout of actual scalar Taylor coefficients and actual compensated rook/finite-jet Taylor agreement are compiled and focused-audited.",
       "Quantitative stochastic repair and full complementary-minor expansion with all mismatched supports and compensation fields.",
       "Actual coordinate occupancy identities, full derivative bounds and normalized moment bounds. Cauchy-Binet, the signed two-support constant moment, Gram sandwich entries and full block covariance entries are compiled.",
       "Full signed comparison with its absolute estimate confined to the retained remainder and large-minor tail.",
@@ -2411,12 +2447,95 @@
           "Quot.sound"
         ],
         "log_sha256": "0A7CF504F951E50529EE3C5348D880325BF4AEDB7A2EA071B625CD92087BCEFC"
+      },
+      {
+        "status": "verified",
+        "modules": [
+          "PrimeFactorOscillations.Helpers.HamiltonianWickProfileOwnership",
+          "PrimeFactorOscillations.Helpers.HamiltonianWickProfileBijection",
+          "PrimeFactorOscillations.Helpers.HamiltonianWickCoefficientIntegral",
+          "PrimeFactorOscillations.Helpers.HamiltonianWickTaylorSeries",
+          "PrimeFactorOscillations.Helpers.HamiltonianAnalyticRayOrder",
+          "PrimeFactorOscillations.Helpers.HamiltonianCompensatedJetTaylor"
+        ],
+        "declaration_count": 63,
+        "declarations": [
+          "PrimeFactorOscillations.wickVertexScalarSeries_coeff",
+          "PrimeFactorOscillations.wickScalarDegreeAssignments_mem",
+          "PrimeFactorOscillations.wickScalarAssignment_zero",
+          "PrimeFactorOscillations.wickVertexScalarProduct_coeff",
+          "PrimeFactorOscillations.wickSupportIndexEquiv_val",
+          "PrimeFactorOscillations.wickSupportLabel_mem",
+          "PrimeFactorOscillations.wickSupportLabel_injective",
+          "PrimeFactorOscillations.wickSupportLabel_surjective",
+          "PrimeFactorOscillations.wickSupportLabel_sum",
+          "PrimeFactorOscillations.wickSupportLabel_prod",
+          "PrimeFactorOscillations.wickScalarDegreeAssignments_support_sum",
+          "PrimeFactorOscillations.wickScalarDegreeAssignments_support_degree",
+          "PrimeFactorOscillations.wickCompositionOfAssignment_length",
+          "PrimeFactorOscillations.wickCompositionOfAssignment_blocksFun",
+          "PrimeFactorOscillations.wickCompositionOfAssignment_profile",
+          "PrimeFactorOscillations.wickCompositionOfAssignment_unique",
+          "PrimeFactorOscillations.wickAssignmentOwner_injective",
+          "PrimeFactorOscillations.wickScalarDegreeAssignments_support_card",
+          "PrimeFactorOscillations.wickDegreesOfComposition_apply",
+          "PrimeFactorOscillations.wickDegreesOfComposition_label",
+          "PrimeFactorOscillations.wickDegreesOfComposition_support",
+          "PrimeFactorOscillations.wickDegreesOfComposition_sum",
+          "PrimeFactorOscillations.wickDegreesOfComposition_admissible",
+          "PrimeFactorOscillations.wickListOfFn_cast",
+          "PrimeFactorOscillations.wickDegreesOfComposition_reconstruct",
+          "PrimeFactorOscillations.wickAssignmentToProfile_injective",
+          "PrimeFactorOscillations.wickAssignmentToProfile_surjective",
+          "PrimeFactorOscillations.wickProfileOwnerFinset_mem",
+          "PrimeFactorOscillations.wickProdFin_cast",
+          "PrimeFactorOscillations.wickScalarProfileContribution_assignment",
+          "PrimeFactorOscillations.wickVertexScalarProduct_coeff_profiles",
+          "PrimeFactorOscillations.gaussianLinearProduct_map_prod",
+          "PrimeFactorOscillations.gaussianLinearProduct_wickProfile",
+          "PrimeFactorOscillations.wickProfileScalarKernel_polynomial",
+          "PrimeFactorOscillations.wickProfileScalarKernel_integrable",
+          "PrimeFactorOscillations.wickProfileScalarKernel_normalized",
+          "PrimeFactorOscillations.wickGaussianSupportKernel_integrable",
+          "PrimeFactorOscillations.wickGaussianSupportKernel_normalized",
+          "PrimeFactorOscillations.wickGaussianEvenCoefficientKernel_sum",
+          "PrimeFactorOscillations.wickGaussianEvenCoefficientKernel_integrable",
+          "PrimeFactorOscillations.wickGaussianEvenCoefficientKernel_normalized",
+          "PrimeFactorOscillations.wickProfileOwnerFinset_sum",
+          "PrimeFactorOscillations.wickGaussianSupport_sum_by_card",
+          "PrimeFactorOscillations.gaussianWickDiagramCoefficient_zero_of_card",
+          "PrimeFactorOscillations.wickGaussianSupport_sum_by_degree",
+          "PrimeFactorOscillations.wickGaussianEvenCoefficientKernel_full_readout",
+          "PrimeFactorOscillations.wickTaylorSeries_coeff",
+          "PrimeFactorOscillations.wickTaylorSeries_mul",
+          "PrimeFactorOscillations.wickTaylorSeries_const",
+          "PrimeFactorOscillations.wickTaylorSeries_finset_prod",
+          "PrimeFactorOscillations.wickVertexFunction_differentiable",
+          "PrimeFactorOscillations.wickVertexFunction_analyticAt",
+          "PrimeFactorOscillations.wickTaylorSeries_vertex_scale",
+          "PrimeFactorOscillations.wickVertexProduct_analyticAt",
+          "PrimeFactorOscillations.wickTaylorSeries_vertex_product",
+          "PrimeFactorOscillations.wickVertexProduct_even_gaussian_readout",
+          "PrimeFactorOscillations.hamiltonian_analytic_order_of_positive_ray",
+          "PrimeFactorOscillations.hamiltonian_derivatives_zero_of_positive_ray",
+          "PrimeFactorOscillations.gaussianWickMonomial_analyticAt",
+          "PrimeFactorOscillations.gaussianMonomialState_analyticAt",
+          "PrimeFactorOscillations.gaussianPolynomialState_analyticAt",
+          "PrimeFactorOscillations.realGaussianQuotientPolynomialState_analyticAt_zero",
+          "PrimeFactorOscillations.stochastic_compensated_finiteJet_taylor_match"
+        ],
+        "allowed_axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "log_sha256": "08444398046845E62E2140BEF69B67C01EA8E7010091BA4470F839DAAEC5E1F8"
       }
     ],
     "active_proof": {
-      "module": "PrimeFactorOscillations.Helpers.HamiltonianWickProfileOwnership",
-      "status": "The finite-profile/Taylor matching is the next unfinished analytic consumer; no completed declaration is being claimed for this planned owner.",
-      "target": "Identify all finite Gaussian-jet degree profiles with the actual Taylor coefficients and existing complete formal Wick sums, retaining the degree-six diagonal compensation. Use the compiled moderate/high coefficient masses, scale-uniform Cauchy tail and integrable finite-jet domination; then complete cutoff tuning, covariance-correction derivatives and the uniform Gamma/permanent remainder. Continue through actual Hamiltonian-cycle identification, full signed comparison, inverse and arithmetic closures. A helper proof, successful audit or commit is not completion.",
+      "module": "PrimeFactorOscillations.Helpers.HamiltonianWickJetCoefficientMatching",
+      "status": "The homogeneous-degree/covariance-series matching is the next unfinished analytic consumer; this is a planned owner and no completed declaration is claimed for it.",
+      "target": "Match the finite Gaussian jet's homogeneous degrees to the full covariance formal-series coefficients, retaining the degree-six diagonal compensation and every support/profile. Consume the proved actual scalar Taylor readout and actual rook/finite-jet Taylor agreement, then the complete moderate/high coefficient masses and scale-uniform Cauchy tail. Finish cutoff tuning, covariance-correction derivatives and the uniform Gamma/permanent remainder; continue through actual Hamiltonian-cycle identification, full signed comparison, inverse and arithmetic closures. A helper proof, successful audit or commit is not completion.",
       "consumer": "The complete signed comparison has relative error O(log(N)^M/N+log(N)^M*Amp(T)/N^2). The present local determinant remainder supplies its N^(-2) precision; the Wick, covariance-correction and signed-coordinate consumers are still required. At the advertised prime amplification Amp(T)<=N^(27/20), that precision contributes N^(-13/20) times logarithms, before the final advertised N^(-3/5) relaxation.",
       "proved_inputs": [
         "PrimeFactorOscillations.Helpers.HamiltonianMatrixSpectralAverage",
@@ -2464,14 +2583,20 @@
         "PrimeFactorOscillations.Helpers.HamiltonianCompensatedCauchyTail",
         "PrimeFactorOscillations.Helpers.HamiltonianWickModerateRemainder",
         "PrimeFactorOscillations.Helpers.HamiltonianGaussianFiniteJet",
-        "PrimeFactorOscillations.Helpers.HamiltonianGaussianFiniteJetIntegral"
+        "PrimeFactorOscillations.Helpers.HamiltonianGaussianFiniteJetIntegral",
+        "PrimeFactorOscillations.Helpers.HamiltonianWickProfileOwnership",
+        "PrimeFactorOscillations.Helpers.HamiltonianWickProfileBijection",
+        "PrimeFactorOscillations.Helpers.HamiltonianWickCoefficientIntegral",
+        "PrimeFactorOscillations.Helpers.HamiltonianWickTaylorSeries",
+        "PrimeFactorOscillations.Helpers.HamiltonianAnalyticRayOrder",
+        "PrimeFactorOscillations.Helpers.HamiltonianCompensatedJetTaylor"
       ]
     },
     "status_reconciliation_check": {
       "trigger": "A prerequisite promotion or changed claim status.",
-      "required_preflight": "Reconcile every affected paper status paragraph, ledger status, audit note, unfinished dependency and compiled receipt together. Match all edited paper hashes and mechanically reject the recorded obsolete pending-status fragments before staging.",
-      "prohibited": "A status-only update with a contradictory audit note or a headline certification from its prerequisites.",
-      "corrected_action": "Validate all affected fields in the same strict-parsed document update and preserve unrelated claims.",
+      "required_preflight": "Reconcile every affected paper status paragraph, ledger status, audit note, unfinished dependency and compiled receipt together. Normalize whitespace in every related TeX source before rejecting recorded obsolete pending-status sentences; match all edited source hashes before staging.",
+      "prohibited": "A status-only update with a contradictory audit note, a literal-fragment scan that line wrapping can bypass, or headline certification from its prerequisites.",
+      "corrected_action": "Validate all affected fields in the same strict-parsed document update, reject whitespace-normalized obsolete statuses in every related paper source, and preserve unrelated claims.",
       "checked_claims": [
         "thm:growingpermanent",
         "thm:secondpermanent",
@@ -2491,17 +2616,25 @@
       "checked_paper_hashes": [
         {
           "file": "main.tex",
-          "sha256": "E952991F122FA09BB3ABC4FD869D5F2CA1F23E3703D7816BC09302A45E12FD6F"
+          "sha256": "FC99E62F2F7747AE86BADD5013156DC9443DEDB86A28AB21742F6B971A7659C3"
         },
         {
           "file": "relative-permanents.tex",
-          "sha256": "07DFC79CC531DA6B054DEF345F5D148EC8E49688213DF3AB20D03BF65570811E"
+          "sha256": "D0E1F97564282D025432A08A3ABC8681CC04F5DD869477D009AB7FA9A910276F"
         },
         {
           "file": "permanent-second-order.tex",
-          "sha256": "25209CC2E30E1EEAA337EF8C24FF909DA72EBD4960CA2459600F34A96C82B047"
+          "sha256": "4D76F67FF03D97FC0C82EFDEFC69C6159763BA29FBD38E0C51F7DA4B46FEBF9E"
         }
-      ]
+      ],
+      "mechanical_forbidden_normalized_paper_status_sentences": [
+        "moderate diagrams and complete Cauchy tail remain formalization obligations.",
+        "polylogarithmic \\(A\\); complete Cauchy and high-diagram consumers",
+        "formalized as well. The moderate diagrams, analytic finite-jet",
+        "The analytic coefficient identification, moderate diagrams and Cauchy tail,",
+        "The moderate \\(e=4,\\ldots,11\\) assembly, analytic finite-jet identification and infinite Cauchy tail are still formalization obligations."
+      ],
+      "recurrence_note": "A second-order paragraph still called moderate assembly and the complete Cauchy tail pending. All six affected status blocks are now reconciled; AGENTS.md requires whitespace-normalized cross-document rejection before staging."
     }
   }
 }
