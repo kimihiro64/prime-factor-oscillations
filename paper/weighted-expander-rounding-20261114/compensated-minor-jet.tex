@@ -487,8 +487,17 @@ correction of \(\widetilde D\). The exact permanent identity is
  =\exp\!\left(\sum_{i\in R}\log(1+z_i)\right)
    \operatorname{per}D[I^c,J^c].
 \]
-The common uniform permanent threshold and assembly of the complete
-minor ratio remain formalization obligations.
+The common uniform permanent threshold is now formalized for every
+finite coordinate type. It simultaneously covers every
+\(r\leq\log(2N)^3\) and \(1\leq A\leq(\log N)^{K_0}\).
+The scalar threshold gives the strong repair range,
+\(N-r\geq N/2\), and \(2A\leq\log(N-r)^{K_0+1}\).
+Both normalized permanent values are at least \(1/2\), and both
+permanents are positive, beyond this same common threshold.
+The first-order envelope is used here to justify the logarithms.
+The complete signed second-order bounds and their first-correction
+difference remain the inputs to the minor expansion. The final
+uniform minor-ratio remainder still requires formal assembly.
 This is why the explicit first correction in the full permanent
 theorem was needed.
 
@@ -499,6 +508,13 @@ Stirling gives
  \log\frac{n!/n^n}{N!/N^N}
        =r-\frac r{2N}+O((r+r^2)/N^2).
 \]
+The maintained proof uses Robbins' stepwise bound, so the universal
+Stirling constant cancels exactly. With
+\(L_k=\log(k!)-k\log k\), it proves the finite estimate
+\[
+ |2(L_n-L_N)-(2r-r/N)|\leq\frac{2r(r+1)}{N^2},
+ \qquad n=N-r\geq N/2,\quad N\geq4.
+\]
 The scaling, determinant, and permanent-correction estimates yield
 \[
  \log\frac{\operatorname{per}Q}{\operatorname{per}D}
@@ -506,8 +522,10 @@ The scaling, determinant, and permanent-correction estimates yield
            +(\tfrac12h-Kh)^\top u
            +O_{\delta,K_0}(\log(2N)^M/N^2).
 \]
-Finally \(u\perp s\), \(\ell=Pu\), and on \(s^\perp\)
-\(PKP=P-I+K\). Since \(u^\top Pu=2s_{IJ}\),
+The exact full-space matrix identity, now formalized, is
+\(PKP=P-I+K+2ss^\top\). Since \(u\perp s\), the parity
+term vanishes after pairing with this balanced support. Also
+\(\ell=Pu\) and \(u^\top Pu=2s_{IJ}\),
 \(u^\top u=2r\), and
 \[
  u^\top Ku=2r-u^\top\Gamma u-r^2/N,
@@ -516,8 +534,10 @@ the scalar and overlap terms simplify to
 \[
  \frac{r(r-1)}{2N}+\tfrac12u^\top\Gamma u+v^\top u.
 \]
-This quantity is a fixed polynomial in \(r,A,\log(2N)\)
-divided by \(N\). Exponentiating twice changes it only by
+The absolute value of this signed quantity is bounded by a fixed
+polynomial in \(r,A,\log(2N)\) divided by \(N\).
+The signed quantity itself remains in the expansion.
+Exponentiating twice changes it only by
 a two-power remainder and proves the displayed expansion.
 Every polynomial above becomes a fixed power of \(\log(2N)\)
 on \(r\leq\log(2N)^3\), \(A\leq(\log N)^{K_0}\).
@@ -585,8 +605,24 @@ resolvent and complete correction identification and the direct
 \(500000rp_0^6q^2\) comparison for the actual repaired square kernel.
 \texttt{HamiltonianRepairedPermanentTransport} proves the exact
 permanent scaling identity using the same positive repair.
-The common uniform permanent threshold and the resulting full minor
-ratio remainder are still formalization obligations.
+The index-independent second-order theorem and common threshold,
+including positivity for both normalized permanent values, are proved
+in \texttt{HamiltonianPermanentReindex},
+\texttt{HamiltonianMinorPolylogRange},
+\texttt{HamiltonianPermanentPositivity} and
+\texttt{HamiltonianMinorPermanentUniform}.
+The full finite rank shift is proved in
+\texttt{HamiltonianMinorFactorialNormalizer}.
+\texttt{HamiltonianMinorQuadraticCompensation} and
+\texttt{HamiltonianMinorLinearCompensation} prove the exact overlap,
+quadratic, diagonal and linear compensation, retaining both independent
+supports and the parity projection until the final pairing.
+\texttt{HamiltonianRepairedDeterminantTransport} and
+\texttt{HamiltonianMinorLogIdentity} prove the exact determinant,
+Gaussian-normalizer and actual complementary-permanent logarithms.
+\texttt{HamiltonianMinorLogError} preserves the two-power signed
+first-correction difference through the logarithm.
+The final uniform minor-ratio remainder still requires formal assembly.
 
 \begin{remark}[Independent check against every cofactor recursion]
 Let \(W(I,J)=r(r-1)/(2N)+u^\top\Gamma u/2+v^\top u\)
