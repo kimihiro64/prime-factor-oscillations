@@ -355,8 +355,8 @@
       "kind": "theorem",
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\relative-permanents.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
-      "lean_status": "partially_formalized_actual_compensated_Gaussian_rook_integral_positive_normalizer_real_resolvent_and_complete_outside_tail; full_complex_Cauchy_diagram_and_second_order_remainder_pending",
-      "audit_note": "The exact original rook/compensated Gaussian integral, actual polynomial reweighting, bilinear Parseval with every complex cross term, quotient-weight zero-sum constraint and nonzero complex normalizer are now maintained and focused-audited. Scalar and tensor normalizer squares are exact; positive real Gaussian integrals and the block determinant prove the actual factor Delta(s). The stochastic window discharges all eigenvalue disk hypotheses. Generic orthogonal quotient algebra works over any field; the actual real covariance and each Gaussian bilinear entry are proved equal to the full resolvent, retaining its inverse. The previously compiled exact rook bridge, direct complex rook envelope and complete original inverse-Gamma outside tail remain proved. Full complex analytic coefficient/series transfer, every high diagram and Cauchy tail, covariance-correction derivatives and the complete second-order permanent remainder remain pending; no headline theorem is Lean-certified."
+      "lean_status": "partially_formalized_full_Wick_coefficient_mass_finite_high_two_power_bound_and_complex_circle_envelope; analytic_jet_Cauchy_moderate_and_second_order_consumers_pending",
+      "audit_note": "The actual quotient Gaussian mixed moments now agree with the complete Wick recursion. Full composition profiles, support subsets, pairings, factorial counts and coefficient convolutions are compiled. The complete finite high-diagram sum has the explicit two-power bound 28*(32*exp(1)*b^2*A/(1-theta))^12*V^2/N^2 under the recorded H^2<=V*N and small-geometric-ratio hypotheses. The actual trace-cancelled complex normalizer and compensated rook circle envelope are also compiled; the exact integral, real determinant factor, resolvent and complete outside-Gamma tail are retained. The full analytic finite-jet identity, moderate diagrams of pair degrees 4 through 11, normalizer analyticity and Cauchy coefficient/tail transfer, covariance-correction derivatives and uniform second-order permanent remainder remain pending. The finite Gaussian-jet argument is written in the paper but is not Lean-certified; no headline certification follows from these prerequisites."
     },
     {
       "id": "lem:relativecompensatedminors",
@@ -476,8 +476,8 @@
       "kind": "theorem",
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\permanent-second-order.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
-      "lean_status": "partially_formalized_actual_compensated_Gaussian_rook_integral_positive_normalizer_real_resolvent_and_complete_outside_tail; full_complex_Cauchy_diagram_and_second_order_remainder_pending",
-      "audit_note": "The exact original rook/compensated Gaussian integral, actual polynomial reweighting, bilinear Parseval with every complex cross term, quotient-weight zero-sum constraint and nonzero complex normalizer are now maintained and focused-audited. Scalar and tensor normalizer squares are exact; positive real Gaussian integrals and the block determinant prove the actual factor Delta(s). The stochastic window discharges all eigenvalue disk hypotheses. Generic orthogonal quotient algebra works over any field; the actual real covariance and each Gaussian bilinear entry are proved equal to the full resolvent, retaining its inverse. The previously compiled exact rook bridge, direct complex rook envelope and complete original inverse-Gamma outside tail remain proved. Full complex analytic coefficient/series transfer, every high diagram and Cauchy tail, covariance-correction derivatives and the complete second-order permanent remainder remain pending; no headline theorem is Lean-certified."
+      "lean_status": "partially_formalized_full_Wick_coefficient_mass_finite_high_two_power_bound_and_complex_circle_envelope; analytic_jet_Cauchy_moderate_and_second_order_consumers_pending",
+      "audit_note": "The actual quotient Gaussian mixed moments now agree with the complete Wick recursion. Full composition profiles, support subsets, pairings, factorial counts and coefficient convolutions are compiled. The complete finite high-diagram sum has the explicit two-power bound 28*(32*exp(1)*b^2*A/(1-theta))^12*V^2/N^2 under the recorded H^2<=V*N and small-geometric-ratio hypotheses. The actual trace-cancelled complex normalizer and compensated rook circle envelope are also compiled; the exact integral, real determinant factor, resolvent and complete outside-Gamma tail are retained. The full analytic finite-jet identity, moderate diagrams of pair degrees 4 through 11, normalizer analyticity and Cauchy coefficient/tail transfer, covariance-correction derivatives and uniform second-order permanent remainder remain pending. The finite Gaussian-jet argument is written in the paper but is not Lean-certified; no headline certification follows from these prerequisites."
     },
     {
       "id": "thm:minorjet",
@@ -1027,7 +1027,7 @@
     },
     {
       "file": "relative-permanents.tex",
-      "sha256": "DF9357F6EBD0D8F3C8449FC4E93405F75014A1FEFEBCD9AAEFD5B232C0E16D60"
+      "sha256": "DA0BA372C5C6D6B63116C5F14BC45DB65B1F32BE432DC26BA1BEAA34834D0D8D"
     },
     {
       "file": "relative-coprime-circles.tex",
@@ -1043,7 +1043,7 @@
     },
     {
       "file": "main.tex",
-      "sha256": "2FF49E0256C688A998EA7D7F211C4D6B36C3419AF818EC5D1EBDEE625B4AB76C"
+      "sha256": "AD8D279BA51C86B44CC522D52BE4BFD8DE5837C88704914E165E68A6F6610BC0"
     },
     {
       "file": "relative-hamilton.tex",
@@ -1051,7 +1051,7 @@
     },
     {
       "file": "permanent-second-order.tex",
-      "sha256": "F488236FACD6E02770AA7F1C3D01213CB3BE939367C543BCD094C985412C4DE6"
+      "sha256": "F04F1B931A79803ADEA14916699F6B489847B219804405C9A1FFE872EC57029D"
     },
     {
       "file": "compensated-minor-jet.tex",
@@ -1072,7 +1072,7 @@
     "complete_consumer": "rho=a=3/5; amplification <=m^(27/20); first signed correction polylog/m; only residual pays amplification, giving O(N^(-3/5)).",
     "inverse": "A fixed relative counting defect forces collective singular mass >=(2/kappa_rho)log N-O(log log N).",
     "further_extension": "Arbitrary fixed logarithmic density coefficients, and all fixed congruence filters, would require higher-order compensated expansions beyond the proved two-power remainder.",
-    "next_review_focus": "Finish the full compensated analytic coefficient, high-diagram/Cauchy and correction-derivative consumers. Reuse the now compiled actual compensated rook integral, exact complex normalizer square, positive real determinant factor, actual real resolvent covariance and full outside-Gamma tail.",
+    "next_review_focus": "Finish normalizer analyticity, the actual compensated finite Gaussian-jet coefficient identity, the complete moderate-degree sum and Cauchy tail, then the correction-derivative Gamma consumer. Reuse the compiled full covariance convolutions, all support/pairing sums, explicit high-diagram N^(-2) bound and trace-cancelled complex circle envelope. Continue through the signed Hamiltonian comparison and arithmetic applications; a promotion or commit is not completion.",
     "independent_consumer_status": "Both actual integer prime-sum graphs and all growing coprime moduli have complete stated ordinary arguments."
   },
   "completion_receipt": {
@@ -1088,12 +1088,12 @@
       "Actual unweighted prime-sum graph: full relative count around its exact entropy, with O(N^(-3/5)) error; no RH or prime-pair estimate."
     ],
     "primary_literature_comparison": "Cuckler-Kahn: dense Dirac and dense balanced bipartite entropy counts. Barvinok: all-positive matrices with a relative entry lower bound. Krivelevich and Byrne-Tait: nontrivial spectral ratio tending to zero logarithmically. The present argument permits sparse zero support and any fixed nontrivial gap. Bradač-Janzer 2026 is an essential independent spanning-path input. McCullagh's bounded normalized moments fail along primorials; Divoux-Wang's fixed-entry finite proof is tracked explicitly, rather than used outside its stated range. The new first-order signed compensation and rank-one parity-root calculation avoid the fixed-entry remainder amplification at prime density. They are the mechanism of the complete prime consumer, not merely a detector or matching identity.",
-    "proof_endpoint_status": "The full analytic and arithmetic headline theorems remain unformalized. Compiled and focused-audited inputs include the exact finite signed cancellations, spectral/Gamma transfer, first correction, unrestricted Gaussian/Wick realization, exact original rook identity and envelope, complete original inverse-Gamma outside tail, actual compensated integral and nonzero complex normalizer, positive real determinant factor with stochastic disk hypotheses discharged, and actual real quotient covariance matched to the full resolvent. Full complex analytic coefficient/series transfer, high-diagram and Cauchy consumers, correction derivatives, Hamiltonian-cycle identification, signed comparison and arithmetic closures remain required.",
+    "proof_endpoint_status": "The full analytic and arithmetic headline theorems remain unformalized. Compiled and focused-audited inputs include the exact finite signed cancellations, spectral/Gamma transfer, unrestricted Gaussian realization, exact original rook and compensated Gaussian identities, positive real determinant and actual resolvent covariance, complete outside-Gamma tail, all formal Wick support/profile/pairing sums and coefficient convolutions, the explicit complete finite high-diagram two-power bound, and the actual trace-cancelled complex circle envelope. The full analytic finite-jet identity, moderate diagrams of pair degrees 4 through 11, normalizer analyticity and Cauchy coefficient/tail transfer, covariance-correction derivatives and uniform second-order permanent remainder remain pending. Hamiltonian-cycle identification, full signed comparison and arithmetic closures are also required.",
     "significance_assessment": "A general signed-estimation method now has a quantitative inverse and complete independent arithmetic consumers at actual prime density and through every coprime modulus. This supports a serious standalone research contribution. Career-defining impact and priority are not certified or inferred from compilation.",
     "paper_argument_delivered": true,
     "headline_all_orders_filz_proved": false,
     "lean_formalization_complete": false,
-    "next_safely_executable_research_action": "Identify the actual quotient Gaussian mixed moments with the existing complete Wick recursion, prove the full compensated analytic coefficient expansion, and sum every support, pairing and coefficient convolution. Retain Psi and the degree-six diagonal compensation, bound the complete high-diagram and Cauchy tails, and then finish the correction-derivative Gamma consumer at N^(-2) precision. The determinant factor and exact original rook integral are already proved and must be reused. A successful promotion or commit does not finish the headline.",
+    "next_safely_executable_research_action": "Finish normalizer analyticity, the actual compensated finite Gaussian-jet coefficient identity, the complete moderate-degree sum and Cauchy tail, then the correction-derivative Gamma consumer. Reuse the compiled full covariance convolutions, all support/pairing sums, explicit high-diagram N^(-2) bound and trace-cancelled complex circle envelope. Continue through the signed Hamiltonian comparison and arithmetic applications; a promotion or commit is not completion.",
     "next_gate": "Judge the complete new method and independent applications, not theorem counts or successful compilation; preserve exact entropy and explicit density scope.",
     "no_background_work_claimed": true,
     "expert_relevance_gate": {
@@ -1107,8 +1107,8 @@
     "committed_this_turn": true,
     "pushed_this_turn": false,
     "proofs_left_only_in_private_research": false,
-    "recorded_phase": "Built against local commit 63113cfd72627f961a8597404cee910bab489803. This promotion has five real-proof modules, 50 focused-audited declarations and a successful built-in paper compilation. The final staged check and resulting local commit are recorded in the Git history.",
-    "phase": "Exact original compensated Gaussian/rook integral and real normalizer/resolvent are formalized; full complex coefficient, high-diagram, Cauchy and headline consumers remain pending."
+    "recorded_phase": "Built against local commit e7b10d4524833e7bd9b4de5af432627fd13667cd. This promotion has six real-proof modules, 69 focused-audited declarations and successful built-in paper compilation. The final staged check and resulting local commit are recorded in Git history.",
+    "phase": "Full formal Wick coefficient mass, complete finite high-diagram N^(-2) estimate and trace-cancelled complex circle bound are formalized; analytic jet, moderate, Cauchy, signed and arithmetic headline consumers remain pending."
   },
   "formalization": {
     "status": "in_progress_not_complete",
@@ -1469,11 +1469,47 @@
         "source_sha256": "64EB507AD791CC171CDB93C541363E72E07DB952143527AA414F70A907D9B6D3",
         "content": "Generic orthogonal diagonal quotient equals the full matrix resolvent over any field; actual real spectral quotient and all Gaussian covariance entries matched to that resolvent.",
         "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianGaussianWickReadout",
+        "source_sha256": "0904422D6EFE43D221D5C14CE075651614744BDB3EA88B21FF8BC9AF6CF0958F",
+        "content": "Actual quotient Gaussian mixed moments matched to the complete Wick recursion; exact degree-six covariance correction with its diagonal compensation.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianWickDiagramCoefficients",
+        "source_sha256": "20BBF4DE081E2FC830F0C488EC8EB78D2AF803E2BE9B48F0B7A3F87675F32E54",
+        "content": "All composition profiles, support subsets and pairings, with factorial support count and the full degree/support envelope.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianPowerSeriesMass",
+        "source_sha256": "FDFE798109989A0570EA0F6F4DC8612601CC3DBBD69DE577114E1A297307411E",
+        "content": "Finite PowerSeries coefficient mass, exact antidiagonal ownership, full convolution submultiplicativity and geometric mass.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianWickSeriesCoefficients",
+        "source_sha256": "5374555A84737DD936ED5C0C3791BFEC182C1C3C5187737EF31960D8760F519A",
+        "content": "Full formal covariance-series profiles, all support sums and coefficient convolutions, and the stochastic entry-mass estimate.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianWickTailSummation",
+        "source_sha256": "21EE1DAE60DCD2C4425E61F2909AC117CB85A132E551C4765E6E0860FEB15B99",
+        "content": "Complete finite high-diagram sum and explicit two-power bound 28*(32*exp(1)*b^2*A/(1-theta))^12*V^2/N^2 with H^2<=V*N.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianCompensatedNormalizerBound",
+        "source_sha256": "0DBA53536C9B068941A6DF80B2CE84ACF81BCB266CB163DCCFFCB20CC740EFAE",
+        "content": "Actual trace-cancelled complex Gaussian normalizer, full compensated rook circle bound, exact Gaussian identity and value at zero.",
+        "build_exit_code": 0
       }
     ],
     "unfinished_dependencies": [
       "Exact Hamiltonian determinant-permanent identity for actual spanning-cycle permutations, including singleton fixed-point cycles.",
-      "Full complex analytic coefficient/series transfer, finite high-diagram summation, complete Cauchy coefficient/tail consumer, covariance-correction derivatives and the uniform second-order permanent remainder. The original compensated rook integral, actual complex normalizer, positive real determinant factor and actual real resolvent covariance are now compiled and focused-audited, together with the complete original outside-window inverse-Gamma tail.",
+      "The full analytic finite-jet identity, moderate diagrams of pair degrees 4 through 11, normalizer analyticity and Cauchy coefficient/tail transfer, covariance-correction derivatives and uniform second-order permanent remainder remain pending. The complete finite high-diagram sum and complex circle envelope are now compiled and focused-audited, together with the original compensated integral and full outside-Gamma tail.",
       "Quantitative stochastic repair and full complementary-minor expansion with all mismatched supports and compensation fields.",
       "Actual coordinate occupancy identities, full derivative bounds and normalized moment bounds. Cauchy-Binet, the signed two-support constant moment, Gram sandwich entries and full block covariance entries are compiled.",
       "Full signed comparison with its absolute estimate confined to the retained remainder and large-minor tail.",
@@ -2185,12 +2221,101 @@
           "Quot.sound"
         ],
         "log_sha256": "D8507BDE4CB99140F178A8CF32C6D7BA88AFC9913144703B7C33CAD537CAC92C"
+      },
+      {
+        "status": "verified",
+        "modules": [
+          "PrimeFactorOscillations.Helpers.HamiltonianGaussianWickReadout",
+          "PrimeFactorOscillations.Helpers.HamiltonianWickDiagramCoefficients",
+          "PrimeFactorOscillations.Helpers.HamiltonianPowerSeriesMass",
+          "PrimeFactorOscillations.Helpers.HamiltonianWickSeriesCoefficients",
+          "PrimeFactorOscillations.Helpers.HamiltonianWickTailSummation",
+          "PrimeFactorOscillations.Helpers.HamiltonianCompensatedNormalizerBound"
+        ],
+        "declaration_count": 69,
+        "declarations": [
+          "PrimeFactorOscillations.listMap_eraseIdx_eq",
+          "PrimeFactorOscillations.listMap_getD_lt",
+          "PrimeFactorOscillations.gaussianLinearWickValue_real_covariance",
+          "PrimeFactorOscillations.realGaussianQuotientWick_integral",
+          "PrimeFactorOscillations.realGaussianQuotientWick_integral_bound",
+          "PrimeFactorOscillations.gaussianLinearDegreeSixValue_eq",
+          "PrimeFactorOscillations.realGaussianQuotientDegreeSixValue",
+          "PrimeFactorOscillations.wickProfileList_length",
+          "PrimeFactorOscillations.wickVertexProfiles_mem",
+          "PrimeFactorOscillations.wickVertexProfiles_card_le",
+          "PrimeFactorOscillations.wickVertexProfiles_support_bound",
+          "PrimeFactorOscillations.wickVertexProfiles_empty_of_support",
+          "PrimeFactorOscillations.gaussianWickProfile_norm_bound",
+          "PrimeFactorOscillations.gaussianWickSupportProfile_norm_bound",
+          "PrimeFactorOscillations.gaussianWickDiagramCoefficient_norm_bound",
+          "PrimeFactorOscillations.gaussianWickDiagramCoefficient_factorial_bound",
+          "PrimeFactorOscillations.gaussianWickDiagramCoefficient_zero_of_support",
+          "PrimeFactorOscillations.wick_support_envelope_bound",
+          "PrimeFactorOscillations.gaussianWickDiagramCoefficient_support_envelope",
+          "PrimeFactorOscillations.finitePowerSeriesMass_nonnegative",
+          "PrimeFactorOscillations.finitePowerSeriesMass_zero",
+          "PrimeFactorOscillations.finitePowerSeriesMass_add",
+          "PrimeFactorOscillations.finitePowerSeriesMass_sum",
+          "PrimeFactorOscillations.finitePowerSeriesMass_const_mul",
+          "PrimeFactorOscillations.finiteAntidiagonal_triangle_sum",
+          "PrimeFactorOscillations.finiteAntidiagonal_nonnegative_bound",
+          "PrimeFactorOscillations.finitePowerSeriesMass_mul",
+          "PrimeFactorOscillations.finite_geometric_sum_identity",
+          "PrimeFactorOscillations.finite_geometric_sum_bound",
+          "PrimeFactorOscillations.finitePowerSeriesMass_geometric",
+          "PrimeFactorOscillations.finitePowerSeriesMass_one",
+          "PrimeFactorOscillations.wickSeriesPairMoment_coeff_zero_of_lt",
+          "PrimeFactorOscillations.wickSeriesPairMoment_mass_zero_of_lt",
+          "PrimeFactorOscillations.wickSeriesPairMoment_mass_bound",
+          "PrimeFactorOscillations.wickVertexProfileCoefficient_bound",
+          "PrimeFactorOscillations.wickSeriesProfile_mass_bound",
+          "PrimeFactorOscillations.covarianceFormalSeries_coeff_zero",
+          "PrimeFactorOscillations.covarianceFormalSeries_coeff_succ",
+          "PrimeFactorOscillations.covarianceFormalSeries_mass_bound",
+          "PrimeFactorOscillations.stochastic_covarianceFormalSeries_mass_bound",
+          "PrimeFactorOscillations.wickSeriesSupportProfile_mass_bound",
+          "PrimeFactorOscillations.wickSeriesDiagramCoefficient_mass_bound",
+          "PrimeFactorOscillations.wickSeriesDiagramCoefficient_mass_envelope",
+          "PrimeFactorOscillations.wickSeriesDiagramCoefficient_zero_of_support",
+          "PrimeFactorOscillations.wick_nonnegative_power_le",
+          "PrimeFactorOscillations.wick_unit_power_le_one",
+          "PrimeFactorOscillations.wick_unit_power_antitone",
+          "PrimeFactorOscillations.wick_exp_nat_power",
+          "PrimeFactorOscillations.wick_degree_factor_geometric",
+          "PrimeFactorOscillations.wick_half_weighted_sum",
+          "PrimeFactorOscillations.wick_high_geometric_sum",
+          "PrimeFactorOscillations.wickSeriesHighRemainder_mass_bound",
+          "PrimeFactorOscillations.stochastic_wickSeriesHighRemainder_mass_bound",
+          "PrimeFactorOscillations.wick_high_power_budget",
+          "PrimeFactorOscillations.wickSeriesHighRemainder_two_power_bound",
+          "PrimeFactorOscillations.stochastic_wickSeriesHighRemainder_two_power_bound",
+          "PrimeFactorOscillations.complex_one_add_norm_exp_bound",
+          "PrimeFactorOscillations.complex_one_add_product_bound",
+          "PrimeFactorOscillations.gaussianTensorTiltNormalizer_ratio_bound",
+          "PrimeFactorOscillations.realGaussianTiltNormalizer_trace_bound",
+          "PrimeFactorOscillations.bipartite_eigenvalue_sum_zero",
+          "PrimeFactorOscillations.bipartite_square_energy",
+          "PrimeFactorOscillations.bipartite_eigen_disk",
+          "PrimeFactorOscillations.stochastic_complex_normalizer_bound",
+          "PrimeFactorOscillations.stochastic_compensated_rook_circle_bound",
+          "PrimeFactorOscillations.hamiltonianCompensatedRook_eq_average",
+          "PrimeFactorOscillations.hamiltonianComplexRookPolynomial_at_zero",
+          "PrimeFactorOscillations.hamiltonianCompensatedRook_at_zero",
+          "PrimeFactorOscillations.stochastic_compensated_rook_gaussian_identity"
+        ],
+        "allowed_axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "log_sha256": "FE204CC545B345989C8887FD92A94A3975CC58D8A8D2D54C8094FA982D7B1842"
       }
     ],
     "active_proof": {
-      "module": "PrimeFactorOscillations.Helpers.HamiltonianWickDiagramCoefficients",
-      "status": "Next complete coefficient/remainder consumer; not yet counted as a completed maintained theorem.",
-      "target": "Identify the actual quotient Gaussian mixed moments with the existing complete Wick recursion, prove the full compensated analytic coefficient expansion, and sum every support, pairing and coefficient convolution. Retain Psi and the degree-six diagonal compensation, bound the complete high-diagram and Cauchy tails, and then finish the correction-derivative Gamma consumer at N^(-2) precision. The determinant factor and exact original rook integral are already proved and must be reused. A successful promotion or commit does not finish the headline.",
+      "module": "PrimeFactorOscillations.Helpers.HamiltonianCompensatedAnalyticTransfer",
+      "status": "Analytic transfer and remaining coefficient consumers pending; completed finite high and complex circle providers are maintained and audited.",
+      "target": "Finish normalizer analyticity, the actual compensated finite Gaussian-jet coefficient identity, the complete moderate-degree sum and Cauchy tail, then the correction-derivative Gamma consumer. Reuse the compiled full covariance convolutions, all support/pairing sums, explicit high-diagram N^(-2) bound and trace-cancelled complex circle envelope. Continue through the signed Hamiltonian comparison and arithmetic applications; a promotion or commit is not completion.",
       "consumer": "The complete signed comparison has relative error O(log(N)^M/N+log(N)^M*Amp(T)/N^2). The present local determinant remainder supplies its N^(-2) precision; the Wick, covariance-correction and signed-coordinate consumers are still required. At the advertised prime amplification Amp(T)<=N^(27/20), that precision contributes N^(-13/20) times logarithms, before the final advertised N^(-3/5) relaxation.",
       "proved_inputs": [
         "PrimeFactorOscillations.Helpers.HamiltonianMatrixSpectralAverage",
@@ -2227,7 +2352,13 @@
         "PrimeFactorOscillations.Helpers.HamiltonianCompensatedGaussianIntegral",
         "PrimeFactorOscillations.Helpers.HamiltonianGaussianTiltNormalizer",
         "PrimeFactorOscillations.Helpers.HamiltonianCompensatedGaussianNormalizer",
-        "PrimeFactorOscillations.Helpers.HamiltonianGaussianQuotientCovariance"
+        "PrimeFactorOscillations.Helpers.HamiltonianGaussianQuotientCovariance",
+        "PrimeFactorOscillations.Helpers.HamiltonianGaussianWickReadout",
+        "PrimeFactorOscillations.Helpers.HamiltonianWickDiagramCoefficients",
+        "PrimeFactorOscillations.Helpers.HamiltonianPowerSeriesMass",
+        "PrimeFactorOscillations.Helpers.HamiltonianWickSeriesCoefficients",
+        "PrimeFactorOscillations.Helpers.HamiltonianWickTailSummation",
+        "PrimeFactorOscillations.Helpers.HamiltonianCompensatedNormalizerBound"
       ]
     },
     "status_reconciliation_check": {

@@ -253,9 +253,11 @@ The maintained complex polynomial agrees with the original real rook
 polynomial at every real parameter. The exact compensated integral,
 its complex normalizer square and its positive real determinant factor
 are formalized, as is the actual real resolvent covariance.
-The complete complex analytic coefficient, high-diagram and Cauchy
-consumers remain formalization obligations. The full original outside-Gamma
-consumer is formalized below.
+The full actual mixed Wick readout, finite support/degree-profile
+bounds, complete coefficient convolutions and finite high-diagram
+two-power estimate are now formalized. The analytic coefficient identity,
+moderate diagrams and complete Cauchy tail remain formalization obligations.
+The full original outside-Gamma consumer is formalized below.
 
 The block-power expansion gives, for a fixed
 \(\theta=b(1-\delta/2)<1\),
@@ -287,6 +289,96 @@ vertices have degree at least three, hence \(v\leq2e/3\),
 and their choices supply \(N^v\) against \(N^{-e}\).
 There is no hidden fixed-entry asymptotic in this finite bound.
 
+Coefficient identification can be justified by finite Gaussian jets;
+convergence of the infinite Wick expansion at \(t=1\) is not needed.
+Fix an integer \(h\). For sufficiently small complex \(t\), choose
+\(a^2=t\) and
+\[
+ Z_i(t)=\sum_jU_{ij}\sqrt{\frac{s\lambda_j}{1+st\lambda_j}}X_j,
+ \qquad Y_i=aZ_i(t).
+\]
+The polynomial quadratic transfer holds for every choice of weights
+with these squares, so no multiplicativity of principal square roots
+is used. Exact zero sum gives
+\[
+ \prod_i r(aZ_i)=P_t(a)e^{a^2Q_t/2},\qquad
+ P_t(a)=\prod_i(1+aZ_i),\quad Q_t=\sum_i Z_i^2.
+\]
+Keep \(P_t\) in full and truncate only the scalar exponential through
+degree \(h\). The global estimate
+\[
+ \left|e^z-\sum_{j=0}^{h}\frac{z^j}{j!}\right|
+                              \leq |z|^{h+1}e^{|z|}
+\]
+bounds its integrated remainder by \(O_{N,h}(|t|^{h+1})\).
+The quotient denominators stay bounded away from zero,
+\(|Q_t|\leq C_N\sum_jX_j^2\), and \(P_t(a)\) has fixed polynomial
+growth in \(X\). On a sufficiently small disk the dominating density
+is a polynomial times \(e^{-\sum_jX_j^2/4}\), which is integrable.
+Every odd finite polynomial term has zero Gaussian average.
+The remaining terms of amplitude degree greater than \(2h\) are
+therefore \(O_{N,h}(|t|^{h+1})\).
+The terms of degree at most \(2h\) have exactly the products of the
+actual vertex coefficients \(c_d\). Their finite Gaussian averages
+are the complete Wick moments of \(\Gamma_{s,t}\).
+Each covariance has zero constant coefficient, so only \(e\leq h\)
+can affect deformation coefficients through \(h\).
+Uniqueness of the analytic finite jet gives the coefficient identity.
+No uniform-in-\(N,h\) constant is used at this identity step; uniform
+bounds enter after the exact coefficients have been identified.
+This finite-jet analytic transfer remains a Lean obligation.
+
+The complete finite coefficient estimate has a maintained proof with
+explicit constants. Set
+\[
+ \mu_H(f)=\sum_{k=0}^{H}|[t^k]f|,\qquad
+ \kappa=\frac{2b^2A}{1-\theta}.
+\]
+The exact antidiagonal partition proves
+\(\mu_H(fg)\leq\mu_H(f)\mu_H(g)\).
+The actual full matrix inverse coefficients give
+\(\mu_H((\Gamma_{s,t})_{ij})\leq\kappa/N\), uniformly in \(H\).
+For fixed \(e,v\), sum every \(v\)-element support and every positive
+composition of \(2e\) of length \(v\), with all parts at least three.
+Include the product of the \(c_d\) and every pairing, and call this
+complete signed formal series \(D_{e,v}\).
+The number of degree profiles is at most \(2^{2e-1}\), while its
+exact support count is \(\binom{2N}{v}\). Thus
+\[
+ \begin{split}
+ \mu_H(D_{e,v})
+ &\leq\binom{2N}{v}2^{2e-1}(2e-1)!!(\kappa/N)^e\\
+ &\leq(16\mathrm e\,\kappa)^e(e/N)^{e-v},
+                         \qquad 3v\leq2e,\quad e\geq1.
+ \end{split}
+\]
+The last step retains \(v!\), using
+\(\binom{2N}{v}\leq(2N)^v/v!\),
+\((2e-1)!!\leq(2e)^e\), and \(e^v/v!\leq\exp(e)\).
+Profiles outside \(3v\leq2e\) contribute zero.
+These finite statements, including actual mixed Gaussian readout
+and the full degree-six diagonal compensation, are formalized for
+arbitrary finite vertex sets.
+
+If \(u^3=H/N\), \(0\leq u\leq1\),
+\(16\mathrm e\,\kappa u\leq1/2\), \(H^2\leq VN\), and
+\(L+11\leq H\) whenever \(L>0\), the full finite high contribution obeys
+\begin{equation}\label{eq:finitehighbudget}
+ \mu_H\!\left(\sum_{j=0}^{L-1}\sum_{v=0}^{j+12}D_{j+12,v}\right)
+ \leq28(16\mathrm e\,\kappa u)^{12}
+ \leq\frac{28(16\mathrm e\,\kappa)^{12}V^2}{N^2}.
+\end{equation}
+For \(e\leq H\), \(3(e-v)\geq e\) bounds each profile by
+\((16\mathrm e\,\kappa u)^e\). Summing \(v=0,\ldots,e\) costs
+\(e+1\), and \(\sum_{j\geq0}(j+13)2^{-j}=28\).
+Finally \(u^{12}=(H/N)^4\leq V^2/N^2\).
+The complete direct stochastic consumer is formalized, including
+every coefficient convolution through the same cutoff.
+For the cutoff below \(V=O_\delta(A^6)\), giving the asserted
+\(O_\delta(A^{24}/N^2)\) high contribution.
+The finite bound is distinct from its still-unformalized analytic
+coefficient identification and infinite Cauchy tail.
+
 Take \(H=\lceil C_\delta A^3\sqrt N\rceil\), increasing its
 constant below if necessary. For large \(N\), \(H<N\).
 Sum over \(k\leq H\), use
@@ -301,17 +393,30 @@ Since \(e/N\leq H/N\) and \(e-v\geq e/3\),
 \]
 The base tends to zero throughout the prescribed range of \(A\).
 
-The same Gaussian product estimate on \(|t|=R\) gives
+The complex circle envelope has an explicit maintained proof.
+Put \(\chi(z)=Z(z)/Z_0^{2N}\), so the actual compensated function is
+\(F_s(t)=R_B(st)\chi(st)\), with its normalization at zero proved to be one.
+For every complex \(w\), \(|1+w|\leq e^{\Re w+|w|^2/2}\).
+The exact normalizer square and squared spectral energy give
 \[
- \max_{|t|=R}|F_s(t)|
- \leq\exp\bigl(C_\delta\sqrt{NA}+C_\delta A\bigr).
+ \begin{split}
+ |\chi(z)|^2&=\prod_j|1+z\lambda_j|\\
+ &\leq\exp\!\left(\Re z\sum_j\lambda_j+
+                             \tfrac12|z|^2\sum_j\lambda_j^2\right),\\
+ |\chi(z)|&\leq\exp\bigl(|z|^2(A-1)/2\bigr).
+ \end{split}
 \]
-To see its dependence, the Gaussian exponential moment is
-bounded by a product \(\prod_\ell(1-bR\sigma_\ell)^{-1}\);
-its logarithm is at most
-\(C_\delta\sum_\ell\sigma_\ell\leq C_\delta\sqrt{NA}\).
-The additional determinant factor costs at most
-\(C_\delta\sum_\ell\sigma_\ell^2\leq C_\delta A\).
+The full linear sum cancels by the zero trace of the actual bipartite
+block before it is estimated. Combining with the raw rook bound gives
+\[
+ \boxed{\quad |R_B(z)\chi(z)|
+ \leq\exp\!\left(\frac{2|z|}{1-|z|\rho}\sqrt{N(A-1)}
+                                +\frac{|z|^2(A-1)}2\right),
+ \quad |z|\rho<1.\quad}
+\]
+The exact compensated Gaussian identity and every hypothesis in this
+stochastic complex consumer are formalized.
+On \(|t|=R\) this is \(\exp(C_\delta\sqrt{NA}+C_\delta A)\).
 Cauchy's coefficient bound and the chosen \(H\) now give
 \[
  \sum_{k>H}|f_k(s)|
