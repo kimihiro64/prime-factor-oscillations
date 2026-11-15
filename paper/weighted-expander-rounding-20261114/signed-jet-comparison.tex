@@ -235,8 +235,8 @@ minor mass. The maintained owners are
 \texttt{HamiltonianSignedOccupancyBounds}.
 The arbitrary weighted balanced two-support readout and complete
 joint first-order correction now also have maintained proofs.
-The exact analytic size-derivative readout, final signed comparison
-and headline assembly remain unfinished.
+The exact analytic size-derivative readout and remaining headline
+closures are listed with the complete comparison below.
 
 \paragraph{Formalized complete signed main correction.}
 For every real function on the finite vertex supports,
@@ -471,8 +471,79 @@ These statements are formalized in
 \texttt{HamiltonianMinorTailTilt},
 \texttt{HamiltonianCompensatedMinorTail} and
 \texttt{HamiltonianCompensatedTailDecay}.
-The exact analytic size-derivative readout, final signed comparison
-and Hamiltonian headline assembly remain unfinished.
+\paragraph{Formalized full comparison and actual cycle count.}
+The real small-support cutoff and its integer tail complement are
+matched exactly.  With
+\[
+ K(T)=\frac{N\operatorname{cyc}(P_T)}{\operatorname{per}(T)^2},
+ \qquad d=\det(I-B^\top B),
+\]
+the maintained decomposition is
+\[
+ K(T)=d+\mathcal L(\alpha)+\mathcal E_{\rm small}+\mathcal T_R.
+\]
+It gives the complete uniform bound
+\[
+ \begin{split}
+ |K(T)-d|
+ &\leq900|d|(A/\delta)^3q
+   +2A C_{\rm min,\delta}\frac{L^M}{N^2}\det(I+B^\top B)\\
+ &\qquad+\exp(-L^3\log L/4),
+ \qquad q=1/N .
+ \end{split}
+\]
+Here \(M\) is the maintained uniform minor exponent at entry exponent
+\(2\).  No small-minor or tail estimate is left as a hypothesis.
+
+For every actual centered eigenvalue
+\(0\leq\lambda\leq(1-\delta)^2\), one has
+\(1-\lambda\geq\delta\) and
+\(\log(1-\lambda)\geq-\lambda/\delta\).
+Multiplying the exponential coordinate bounds and using
+\(\sum\lambda\leq A-1\) gives
+\[
+ d\geq e^{-(A-1)/\delta}>0.
+\]
+The full relative comparison consequently has allowance
+\[
+ E_N=
+ 900(A/\delta)^3q+
+ 2A C_{\rm min,\delta}\frac{L^M}{N^2}\mathfrak A(T)
+ +\exp\!\left(-L^3\log L/4+(A-1)/\delta\right).
+\]
+This displays the determinant-division cost of the retained tail.
+
+Put \(C_N=N^N/N!\), let \(\Delta\) be the permanent's Gram factor,
+and set \(r_N=C_N\operatorname{per}(T)/\Delta\).
+The existing signed permanent theorem proves
+\[
+ |r_N-1|\leq P_N,\qquad
+ P_N=\frac{21A^2}{\delta^3N}
+       +|C_{\rm per,\delta}|\frac{(1+A)^{24}}{N^2}.
+\]
+The exact identity \(\Delta^2d=1\) is now formalized.
+It gives the actual count readout
+\[
+ r_N^2\,\frac{K(T)}d
+      =C_N^2N\operatorname{cyc}(P_T).
+\]
+Applying the elementary product-error inequality to these two
+proved allowances yields
+\[
+ \boxed{\quad
+ \left|C_N^2N\operatorname{cyc}(P_T)-1\right|
+ \leq(1+P_N)^2E_N+(2+P_N)P_N .
+ \quad}
+\]
+There is one order threshold for every admissible kernel at each fixed
+\(\delta,c\), with \(A\leq c\log(2N)\); it is independent of both
+deleted supports.  The maintained owners are
+\texttt{HamiltonianSignedComparisonAssembly},
+\texttt{HamiltonianDeterminantNormalization} and
+\texttt{HamiltonianWeightedCycleComparison}.
+The clean asymptotic envelope, sharp amplification and inverse,
+arithmetic applications, exact analytic size-derivative readout and
+public headline integration remain formalization obligations.
 
 \begin{theorem}[Relative bipartite comparison at logarithmic density]
 \label{thm:criticalrelative}
