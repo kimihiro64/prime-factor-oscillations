@@ -411,10 +411,21 @@ eigenbasis gives the full covariance, pointwise zero-sum vector,
 and exact quadratic-energy identity. The actual stochastic Gaussian
 exponential moment and collective affine-product bound have explicit
 \(\exp(C_\delta\sqrt{NA})\) dependence and maintained proofs.
+The real and complex Gaussian scalar normalizations are now reconciled.
+The complete mixed-moment permanent recursion and the support-by-support
+factorial-completion identity are formalized. They identify the actual
+Gaussian affine product with the maintained rook polynomial, retaining
+every signed coefficient and every \((N-k)!\) completion factor.
+For nonnegative doubly stochastic \(D\), \(B=D-J/N\),
+\(D_{ij}\leq A/N\), and \(\|B\|\leq\rho\), the direct maintained consumer is
+\[
+ |R_B(t)|\leq
+ \exp\!\left(\frac{2|t|}{1-|t|\rho}\sqrt{N(A-1)}\right),
+ \qquad |t|\rho<1.
+\]
 Hamiltonian-cycle identification, coordinate occupancy identities,
-the compensated resolvent and rook specialization of the Gaussian
-identity, uniform permanent
-and minor remainders, covariance-correction derivatives and arithmetic
+the compensated resolvent, full Cauchy and shifted-Gamma consumers,
+uniform permanent and minor remainders, covariance-correction derivatives and arithmetic
 specializations remain formalization obligations. In particular,
 none of the headline
 counting or inverse theorems is yet Lean-certified.

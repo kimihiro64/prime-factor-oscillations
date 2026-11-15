@@ -355,8 +355,8 @@
       "kind": "theorem",
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\relative-permanents.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
-      "lean_status": "partially_formalized_actual_block_Gaussian_realization_uniform_Wick_and_stochastic_affine_product_bound; rook_identification_and_full_remainder_pending",
-      "audit_note": "Unrestricted standard-Gaussian covariance realization, actual raw real-symmetric block eigenbasis covariance, exact zero-sum and quadratic-energy identities, actual Gaussian MGF and collective stochastic affine-product bound are compiled and focused-audited. For T doubly stochastic, T_ij<=A/N, norm(T-J/N)<=rho and norm(t)*rho<1, the actual positive affine-product average is <=exp(2*norm(t)/(1-norm(t)*rho)*sqrt(N*(A-1))). Earlier rook/Gamma, vertex, covariance-series and mixed Wick inputs are maintained. Complex/real scalar normalization, exact Gaussian/rook identification, compensated resolvent transfer, full coefficient/Cauchy/Gamma tail assembly and the final growing-entry asymptotic remain pending; no headline certification is claimed."
+      "lean_status": "partially_formalized_exact_Gaussian_rook_identification_and_direct_complex_rook_bound; compensated_Cauchy_Gamma_and_full_remainder_pending",
+      "audit_note": "Actual real/complex scalar and tensor Gaussian normalization, all-contraction bipartite moment/permanent recursion and the exact support-by-support factorial-completion identity are compiled and focused-audited. The signed Gaussian affine product equals the maintained complex rook polynomial, agreeing with the existing real polynomial at real parameters. For T nonnegative doubly stochastic on Fin N, T_ij<=A/N, norm(T-J/N)<=rho and norm(t)*rho<1, the direct maintained consumer is norm R_B(t)<=exp(2*norm(t)/(1-norm(t)*rho)*sqrt(N*(A-1))). Earlier actual Gaussian/Wick, matrix/Gamma and covariance inputs remain maintained. Compensated resolvent transfer, full coefficient/Cauchy/shifted-Gamma assembly and the final growing-entry asymptotic remain pending; the headline is not Lean-certified."
     },
     {
       "id": "lem:relativecompensatedminors",
@@ -476,8 +476,8 @@
       "kind": "theorem",
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\permanent-second-order.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
-      "lean_status": "partially_formalized_actual_Gaussian_Wick_raw_block_realization_and_stochastic_tail_inputs; rook_resolvent_derivatives_and_complete_remainder_pending",
-      "audit_note": "Actual Euler/Gamma integration, local averaging, matrix spectral transfer, exact partial-permutation rook/Gamma identity and the full first-correction bound remain maintained. Actual polynomial Gaussian transfer, mixed Wick contractions and their all-degree bound are compiled; unrestricted standard-Gaussian covariance realization, actual raw block eigenbasis covariance, pointwise zero-sum vector, exact energy cancellation and Frobenius/nuclear control are now compiled and focused-audited. The complete stochastic Gaussian MGF and collective affine-product average satisfy explicit exp(C_delta*sqrt(N*A)) bounds, with integrability and balance discharged. Complex/real scalar normalization, exact Gaussian/rook identification, compensated complex resolvent, full diagram/Cauchy/outside-Gamma consumers, correction derivatives and the final N^(-2) asymptotic remain pending. The revised manuscript compiled successfully; the headline theorem is not Lean-certified."
+      "lean_status": "partially_formalized_exact_signed_Gaussian_rook_identity_and_direct_tail_envelope; compensated_resolvent_derivatives_and_complete_second_order_remainder_pending",
+      "audit_note": "Actual Euler/Gamma integration, local averaging, matrix spectral transfer and the full first-correction bound remain maintained. Unrestricted Gaussian realization, actual block covariance, zero-sum vector, exact energy cancellation and trace MGF are compiled and audited. Exact complex/real normalization, the full permanent recursion, factorial-completion identity on every support, Gaussian-to-rook specialization and direct complex rook bound exp(2*norm(t)/(1-norm(t)*rho)*sqrt(N*(A-1))) are now compiled and focused-audited. Compensated complex resolvent, complete diagram/Cauchy/shifted-Gamma consumers, correction derivatives and the full N^(-2) asymptotic remain pending. The revised manuscript compiled successfully; the headline is not Lean-certified."
     },
     {
       "id": "thm:minorjet",
@@ -1027,7 +1027,7 @@
     },
     {
       "file": "relative-permanents.tex",
-      "sha256": "7A1E14C42CC5A288DEFE870CB74619F9CADD3E3D51DFF09CB91E09EFA4D7D3CB"
+      "sha256": "C17A005421889A599C98B21AF1B9934ED5C742F115A64F43C65AD000CE3B69CF"
     },
     {
       "file": "relative-coprime-circles.tex",
@@ -1043,7 +1043,7 @@
     },
     {
       "file": "main.tex",
-      "sha256": "9ECA7A9B74818517D67CA02AF37F78D3054D80037984A5C257CEF22D95BCA5DE"
+      "sha256": "72504E047300885A483287BFB9388486D8BB306EE61C03A778E89361853A9282"
     },
     {
       "file": "relative-hamilton.tex",
@@ -1051,7 +1051,7 @@
     },
     {
       "file": "permanent-second-order.tex",
-      "sha256": "0097993867A140428E251F3E59D953DF4C6E771DD5FC7648133983E707759BFB"
+      "sha256": "15E031D8B7E2AC1F7C05371C3BF3CF31CBE52B0011DCAC169E29CB54ED1F10FC"
     },
     {
       "file": "compensated-minor-jet.tex",
@@ -1072,7 +1072,7 @@
     "complete_consumer": "rho=a=3/5; amplification <=m^(27/20); first signed correction polylog/m; only residual pays amplification, giving O(N^(-3/5)).",
     "inverse": "A fixed relative counting defect forces collective singular mass >=(2/kappa_rho)log N-O(log log N).",
     "further_extension": "Arbitrary fixed logarithmic density coefficients, and all fixed congruence filters, would require higher-order compensated expansions beyond the proved two-power remainder.",
-    "next_review_focus": "Adversarially verify finite Gaussian expansion, local Schur-complement compensation and parity-root derivative normalization as a unit; do not substitute reference or compilation checks.",
+    "next_review_focus": "Verify the compensated Gaussian high-diagram sum, shifted-Gamma tail, local Schur-complement compensation and parity-root derivative normalization together, after the compiled exact Gaussian/rook bridge; retain all signed corrections.",
     "independent_consumer_status": "Both actual integer prime-sum graphs and all growing coprime moduli have complete stated ordinary arguments."
   },
   "completion_receipt": {
@@ -1088,12 +1088,12 @@
       "Actual unweighted prime-sum graph: full relative count around its exact entropy, with O(N^(-3/5)) error; no RH or prime-pair estimate."
     ],
     "primary_literature_comparison": "Cuckler-Kahn: dense Dirac and dense balanced bipartite entropy counts. Barvinok: all-positive matrices with a relative entry lower bound. Krivelevich and Byrne-Tait: nontrivial spectral ratio tending to zero logarithmically. The present argument permits sparse zero support and any fixed nontrivial gap. Bradač-Janzer 2026 is an essential independent spanning-path input. McCullagh's bounded normalized moments fail along primorials; Divoux-Wang's fixed-entry finite proof is tracked explicitly, rather than used outside its stated range. The new first-order signed compensation and rank-one parity-root calculation avoid the fixed-entry remainder amplification at prime density. They are the mechanism of the complete prime consumer, not merely a detector or matching identity.",
-    "proof_endpoint_status": "The complete analytic and arithmetic headline theorems remain unformalized. Maintained compiled and audited inputs now include full signed two-support squared-minor cancellation, rank-one pole compensation, stochastic energies, actual Euclidean inverse/covariance bounds, actual Gamma concentration and signed truncation, and the finite-spectral C4 Taylor/Gamma average with its smoothness, endpoint and integrability hypotheses discharged. The actual matrix identification, Gaussian/Wick, covariance-correction, signed-coordinate, full comparison and arithmetic closures remain required.",
+    "proof_endpoint_status": "The full analytic and arithmetic headline theorems remain unformalized. Compiled and focused-audited inputs include signed finite cancellations, actual matrix spectral/Gamma transfer, the full first-correction estimate, unrestricted Gaussian realization, all mixed Wick contractions, exact scalar normalization, support-by-support factorial completion, actual Gaussian-to-rook identification and its direct stochastic complex bound. Compensated resolvent, full coefficient/diagram and Cauchy/shifted-Gamma consumers, correction derivatives, Hamiltonian-cycle identification, signed comparison and arithmetic closures remain required.",
     "significance_assessment": "A general signed-estimation method now has a quantitative inverse and complete independent arithmetic consumers at actual prime density and through every coprime modulus. This supports a serious standalone research contribution. Career-defining impact and priority are not certified or inferred from compilation.",
     "paper_argument_delivered": true,
     "headline_all_orders_filz_proved": false,
     "lean_formalization_complete": false,
-    "next_safely_executable_research_action": "For the actual real centered stochastic matrix B=T-J/N with scoped Euclidean operator norm <=1-delta, derive nonnegative Gram eigenvalues <=(1-delta)^2, their sum equal to the squared Frobenius energy <=A-1, and det(I-s^2*B^T*B)=product_i(1-s^2*lambda_i). Transfer the compiled spectral-factor Taylor/Gamma estimate with all dimensions and epsilon conditions explicit. Continue through the Wick, correction, cycle-identification, signed comparison and arithmetic applications; a source promotion or commit does not finish the headline.",
+    "next_safely_executable_research_action": "Transfer the actual Gaussian-to-rook identity through the complete outside-window inverse-Gamma integral. Keep W=sum_i|Y_i|^2 and the full collective product, use the exact shift u=T+W/2, and prove the joint bound from actual Gamma Chernoff tails and Gaussian MGF at tau>1. Preserve Gamma(N+1,1), all endpoint conditions and constants. Continue with compensated resolvent, Cauchy coefficients, every high diagram and the complete N^(-2) signed remainder. A successful promotion or commit does not finish the headline.",
     "next_gate": "Judge the complete new method and independent applications, not theorem counts or successful compilation; preserve exact entropy and explicit density scope.",
     "no_background_work_claimed": true,
     "expert_relevance_gate": {
@@ -1107,8 +1107,8 @@
     "committed_this_turn": true,
     "pushed_this_turn": false,
     "proofs_left_only_in_private_research": false,
-    "recorded_phase": "After local commit 415e343825e5cdb1229373b6cd31c65f264261dc; five unrestricted/spectral Gaussian and stochastic-tail proof modules and the paper are synchronized before final staged checks and the next local commit.",
-    "phase": "Five actual Gaussian realization/tail modules compiled, 46 new declarations focused-audited, paper compiled; final staged checks and commit pending."
+    "recorded_phase": "After local commit e34ca845b11f0dd5c296df1579e240bea9a0dd32; six exact Gaussian/rook and permutation modules compiled, 39 new declarations focused-audited, paper compiled; final staged checks and local commit pending.",
+    "phase": "Exact signed Gaussian-to-rook identification and direct stochastic complex rook bound compiled; complete shifted-Gamma and compensated headline consumers pending."
   },
   "formalization": {
     "status": "in_progress_not_complete",
@@ -1367,11 +1367,47 @@
         "source_sha256": "32E6461502D06540343B73770188AB24C6DA50F6E0BD4BFDFEDD00318FE51879",
         "content": "Actual collective stochastic affine-product integrability and average <=exp(2*norm(t)/(1-norm(t)*rho)*sqrt(N*(A-1))), with all balance and energy hypotheses discharged.",
         "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianGaussianRookIdentification",
+        "source_sha256": "4F5AD84B4190595B87D826F804A91C3D5F36C7389D6FB87AA78B6EB940075E5F",
+        "content": "Exact complex/real scalar and tensor normalization; actual affine polynomial evaluation and norm integral; full stochastic complex Gaussian-polynomial consumer.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianPermanentLaplace",
+        "source_sha256": "A13E6C2E92F96DE0090E61AF022D0A13A04B005AFFA462D49C51C0195A5444C2",
+        "content": "Finite permanent over any commutative semiring; complete permutation Laplace recursion, real/complex transfer and maintained real permanent specialization.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianGaussianPermanent",
+        "source_sha256": "ADC40FF828352FA2A82030E4BB25C8332E0EE5FD4443D02F510269A1E4A530CD",
+        "content": "Full finite-product Stein derivative and mixed bipartite moment recursion; exact Gaussian mixed moment equals the complete permanent, retaining all contractions.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianPermutationSubsets",
+        "source_sha256": "5FB77F1BC954A035CFAA068B9E202628240F80A5406006399B90DCC11ABC7AED",
+        "content": "Exact arbitrary selected-column permutation decomposition, support deletion maps, cardinality and supported product recursion.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianGaussianPartialMatchings",
+        "source_sha256": "4D3F54F63B6644D9CAF9036182E49F5C71E480D8ABFB0C724AA3F1D1F5679265",
+        "content": "For every support S, (N-card S)! times the signed mixed-affine Gaussian moment equals the full restricted permutation sum. Summing all supports proves the exact affine Gaussian rook law.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianGaussianRookBounds",
+        "source_sha256": "77E99868CDECBD4B7CBECE784852CDA532E93B96B45A0469D4907AD07AB3C50E",
+        "content": "Actual Gaussian affine product equals the maintained complex rook polynomial and its real specialization. Direct stochastic bound norm R_B(t)<=exp(2 norm(t)/(1-norm(t)*rho) sqrt(N(A-1))) when norm(t)*rho<1, retaining every factorial completion weight.",
+        "build_exit_code": 0
       }
     ],
     "unfinished_dependencies": [
       "Exact Hamiltonian determinant-permanent identity for actual spanning-cycle permutations, including singleton fixed-point cycles.",
-      "Complex/real scalar-normalization link, exact affine-product/partial-permutation rook identification, compensated complex resolvent spectral transfer, finite diagram coefficient summation, covariance-correction derivatives, complete Cauchy/outside-Gamma consumers and the uniform second-order permanent remainder. Arbitrary complex standard-Gaussian realization, actual raw block covariance and zero-sum vector, exact all-cross-term energy, trace-dependent Gaussian MGF and actual stochastic collective affine-product estimate are compiled and focused-audited, in addition to the earlier Gaussian/Wick and matrix/Gamma inputs.",
+      "Compensated complex resolvent spectral transfer, full finite diagram coefficient summation, covariance-correction derivatives, complete Cauchy and shifted-Gamma consumers, and the uniform second-order permanent remainder. Exact complex/real Gaussian normalization, all mixed contraction recursions, the support-by-support (N-card S)! completion identity, actual Gaussian/rook identification and the direct stochastic complex rook bound are now compiled and focused-audited, together with the earlier actual covariance, MGF, Wick and matrix/Gamma inputs.",
       "Quantitative stochastic repair and full complementary-minor expansion with all mismatched supports and compensation fields.",
       "Actual coordinate occupancy identities, full derivative bounds and normalized moment bounds. Cauchy-Binet, the signed two-support constant moment, Gram sandwich entries and full block covariance entries are compiled.",
       "Full signed comparison with its absolute estimate confined to the retained remainder and large-minor tail.",
@@ -1879,12 +1915,71 @@
           "Quot.sound"
         ],
         "log_sha256": "9696D4455075187430699D27FF81D78B46028BF6B7BF29DA04E96510F6DA23DE"
+      },
+      {
+        "status": "verified",
+        "modules": [
+          "PrimeFactorOscillations.Helpers.HamiltonianGaussianRookIdentification",
+          "PrimeFactorOscillations.Helpers.HamiltonianPermanentLaplace",
+          "PrimeFactorOscillations.Helpers.HamiltonianGaussianPermanent",
+          "PrimeFactorOscillations.Helpers.HamiltonianPermutationSubsets",
+          "PrimeFactorOscillations.Helpers.HamiltonianGaussianPartialMatchings",
+          "PrimeFactorOscillations.Helpers.HamiltonianGaussianRookBounds"
+        ],
+        "declaration_count": 39,
+        "declarations": [
+          "PrimeFactorOscillations.standardGaussianMoment_zero_real",
+          "PrimeFactorOscillations.standardGaussianTensor_normalizer_real",
+          "PrimeFactorOscillations.realGaussianAffinePolynomial_eval",
+          "PrimeFactorOscillations.standardGaussianPolynomialKernel_affine",
+          "PrimeFactorOscillations.standardGaussianPolynomialKernel_affine_norm",
+          "PrimeFactorOscillations.realGaussianAffinePolynomial_state_norm_le",
+          "PrimeFactorOscillations.stochasticGaussianAffinePolynomial_bound",
+          "PrimeFactorOscillations.finitePermutationSum_fin_zero",
+          "PrimeFactorOscillations.finitePermutationSum_laplace",
+          "PrimeFactorOscillations.finitePermutationSum_real",
+          "PrimeFactorOscillations.weightedPermutationSum_fin_zero",
+          "PrimeFactorOscillations.weightedPermutationSum_laplace",
+          "PrimeFactorOscillations.gaussianDirectionalDerivative_finset_product",
+          "PrimeFactorOscillations.gaussianDirectionalDerivative_cross_zero",
+          "PrimeFactorOscillations.gaussianBipartiteMoment_step",
+          "PrimeFactorOscillations.fin_product_erase_swap",
+          "PrimeFactorOscillations.gaussianBipartiteMoment_permanent",
+          "PrimeFactorOscillations.finDeleteEmbedding_apply",
+          "PrimeFactorOscillations.finDeleteEmbedding_ne",
+          "PrimeFactorOscillations.finDeleteEmbedding_surj",
+          "PrimeFactorOscillations.finDeleteSupport_image",
+          "PrimeFactorOscillations.finDeleteSupport_card",
+          "PrimeFactorOscillations.finDeleteSupport_card_add_one",
+          "PrimeFactorOscillations.finDeleteSupport_product",
+          "PrimeFactorOscillations.finDeleteSupport_product_insert",
+          "PrimeFactorOscillations.finPermutationDeleteEquiv_selected",
+          "PrimeFactorOscillations.finPermutationDeleteEquiv_remaining",
+          "PrimeFactorOscillations.finitePermutationSubsetSum_delete",
+          "PrimeFactorOscillations.gaussianDirectionalDerivative_affine",
+          "PrimeFactorOscillations.gaussianDirectionalDerivative_affine_zero",
+          "PrimeFactorOscillations.gaussianFiniteAffine_expectation",
+          "PrimeFactorOscillations.gaussianBipartiteAffineMoment_step",
+          "PrimeFactorOscillations.gaussianPartialMatching_completion",
+          "PrimeFactorOscillations.gaussianAffineProduct_rook",
+          "PrimeFactorOscillations.hamiltonianComplexRookPolynomial_ofReal",
+          "PrimeFactorOscillations.gaussianLinearForm_scale",
+          "PrimeFactorOscillations.gaussianLinearCovariance_scale",
+          "PrimeFactorOscillations.realGaussianAffinePolynomial_rook",
+          "PrimeFactorOscillations.hamiltonianComplexRookPolynomial_stochastic_bound"
+        ],
+        "allowed_axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "log_sha256": "5623E75AE9C15C0ED3333FBBD594878624BAF4B7F43FE71CF148E191AB31B77C"
       }
     ],
     "active_proof": {
-      "module": "PrimeFactorOscillations.Helpers.HamiltonianGaussianRookIdentification",
-      "status": "Next exact consumer; not yet counted as a maintained theorem.",
-      "target": "Prove the complex/real scalar-normalization link and exact identification of the actual Gaussian affine product with the maintained partial-permutation rook polynomial. Use the full mixed Wick recursion, the Euler factorial weights (n-k)! and the permanent Laplace recurrence; retain mismatched supports and every contraction. Then transfer the proved collective product/MGF bounds through the full Cauchy and shifted Gamma consumers and the N^(-2) diagram remainder.",
+      "module": "PrimeFactorOscillations.Helpers.HamiltonianGaussianShiftedGammaTail",
+      "status": "Next analytic consumer; not yet a maintained completed theorem.",
+      "target": "Transfer the actual Gaussian-to-rook identity through the complete outside-window inverse-Gamma integral. Keep W=sum_i|Y_i|^2 and the full collective product, use the exact shift u=T+W/2, and prove the joint bound from actual Gamma Chernoff tails and Gaussian MGF at tau>1. Preserve Gamma(N+1,1), all endpoint conditions and constants. Continue with compensated resolvent, Cauchy coefficients, every high diagram and the complete N^(-2) signed remainder.",
       "consumer": "The complete signed comparison has relative error O(log(N)^M/N+log(N)^M*Amp(T)/N^2). The present local determinant remainder supplies its N^(-2) precision; the Wick, covariance-correction and signed-coordinate consumers are still required. At the advertised prime amplification Amp(T)<=N^(27/20), that precision contributes N^(-13/20) times logarithms, before the final advertised N^(-3/5) relaxation.",
       "proved_inputs": [
         "PrimeFactorOscillations.Helpers.HamiltonianMatrixSpectralAverage",
@@ -1904,7 +1999,13 @@
         "PrimeFactorOscillations.Helpers.HamiltonianGaussianSpectralRealization",
         "PrimeFactorOscillations.Helpers.HamiltonianGaussianQuadraticMGF",
         "PrimeFactorOscillations.Helpers.HamiltonianGaussianTraceBounds",
-        "PrimeFactorOscillations.Helpers.HamiltonianGaussianProductTails"
+        "PrimeFactorOscillations.Helpers.HamiltonianGaussianProductTails",
+        "PrimeFactorOscillations.Helpers.HamiltonianGaussianRookIdentification",
+        "PrimeFactorOscillations.Helpers.HamiltonianPermanentLaplace",
+        "PrimeFactorOscillations.Helpers.HamiltonianGaussianPermanent",
+        "PrimeFactorOscillations.Helpers.HamiltonianPermutationSubsets",
+        "PrimeFactorOscillations.Helpers.HamiltonianGaussianPartialMatchings",
+        "PrimeFactorOscillations.Helpers.HamiltonianGaussianRookBounds"
       ]
     },
     "status_reconciliation_check": {
@@ -1915,7 +2016,9 @@
       "checked_claims": [
         "thm:growingpermanent",
         "thm:secondpermanent",
-        "lem:signedoccupancy"
+        "lem:signedoccupancy",
+        "completion_receipt.proof_endpoint_status",
+        "completion_receipt.next_safely_executable_research_action"
       ],
       "stale_note_removed": true,
       "headline_certification": false

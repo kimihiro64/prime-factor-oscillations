@@ -131,11 +131,31 @@ to the existence of a Gaussian realization. For arbitrary complex
  \frac{\displaystyle\int_{\mathbb R^J}
       P((u_jx_j)_j)e^{-\sum_jx_j^2/2}\,dx}
       {Z_0^{|J|}}=\mathcal G_v(P),\qquad
- Z_0=\int_{\mathbb R}e^{-x^2/2}\,dx.
+ Z_0=\int_{\mathbb R}e^{-x^2/2}\,dx=\sqrt{2\pi}.
 \]
-This unrestricted realization is also formalized. Thus an indefinite
+This unrestricted realization, including the equality of the real and
+complex scalar normalizations, is formalized. Thus an indefinite
 or large compensated covariance is not excluded by a spurious
 positive-semidefinite or norm restriction.
+
+The exact rook identification is also formalized. Let \(L_i,R_j\),
+\(1\leq i,j\leq N\), be linear forms whose within-left and within-right
+covariances vanish. For every \(S\subseteq\{1,\ldots,N\}\), the maintained
+support identity is
+\[
+ (N-|S|)!\,\mathcal G_v\!\left(
+       \prod_{i\in S}L_i\prod_{j=1}^{N}(1+R_j)\right)
+ =\sum_{\sigma\in\mathfrak S_N}
+       \prod_{i\in S}\mathcal G_v(L_iR_{\sigma(i)}).
+\]
+For nonempty \(S\), delete one selected vertex \(i\) and contract it
+with each right vertex \(j\). The support loses one element and
+\(N\) decreases by one, so the factorial is identical on every branch.
+The full permutation decomposition at column \(i\) has exactly these
+branches. For empty \(S\), the Gaussian expectation is one and
+the permutation count is \(N!\). Summing every support and dividing
+by its nonzero factorial gives the complete signed affine-product
+rook formula, without a discarded contraction or an assumed independence.
 
 For a real symmetric matrix \(M=U\diag(\lambda_j)U^\top\), let
 \(Y_i=\sum_jU_{ij}\sqrt{\lambda_j}X_j\), where the square roots
@@ -177,9 +197,16 @@ proves the actual collective integral estimate
 Every hypothesis in this stochastic consumer, including integrability,
 is discharged in maintained Lean. This is the Cauchy/tail input;
 the signed low-degree corrections are retained separately.
-The complex/real scalar-normalization link, compensated resolvent
-identification, partial-permutation rook specialization, and complete diagram and outside-Gamma consumers
-remain formalization obligations.
+The exact Gaussian-to-rook consumer now transfers this bound directly:
+\[
+ \boxed{\quad |R_B(t)|\leq
+ \exp\!\left(\frac{2|t|}{1-|t|\rho}\sqrt{N(A-1)}\right),
+ \qquad |t|\rho<1.\quad}
+\]
+The maintained complex polynomial agrees with the original real rook
+polynomial at every real parameter. The compensated resolvent
+identification and the complete diagram, Cauchy and outside-Gamma
+consumers remain formalization obligations.
 
 The block-power expansion gives, for a fixed
 \(\theta=b(1-\delta/2)<1\),
