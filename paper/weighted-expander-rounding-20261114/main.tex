@@ -580,9 +580,19 @@ For the actual complementary permanent the exact rank shift gives
  \operatorname{per}T[I^c,J^c]
        \leq \exp\bigl(|J|-N+16A\log(2N)\bigr).
 \]
-The normalized full large-support tail, final comparison,
-amplification/inverse and arithmetic/public closures remain
-formalization obligations.
+The normalized complementary-permanent ratio and complete large-support
+tail now have maintained proofs as well.  They retain the squared ratio,
+constant subtraction and full first-order correction, and prove
+\[
+ |\mathcal T_R|\leq
+ \exp\!\left(-\tfrac14\log(2N)^3\log\log(2N)\right),
+ \qquad R=\lfloor\log(2N)^3\rfloor,
+\]
+above one threshold uniform in the kernel and both supports whenever
+\(A\leq C_0\log(2N)\).  The proof uses the actual tilted squared-minor
+mass, including its exact constant direction.
+The final signed comparison, amplification/inverse and arithmetic/public
+closures remain formalization obligations.
 The headline Hamiltonian counting and inverse theorems are not yet
 Lean-certified.
 Compilation of this manuscript does not provide mathematical or

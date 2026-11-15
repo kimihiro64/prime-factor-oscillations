@@ -97,9 +97,20 @@ van der Waerden, gives the ordinary-proof ratio estimate
  \frac{\operatorname{per}D[I^c,J^c]}{\operatorname{per}D}
                        \leq\exp(r+16A\log(2N)).
 \]
-Formalizing the normalized tail still requires its lower-bound
-and summation consumers; the compiled upper bound alone does
-not close that tail.
+For the admissible stochastic expander kernels at sufficiently large
+order, the maintained proof instead consumes the already formalized
+normalized positivity data.  It proves
+\(\operatorname{per}D\geq e^{-N}/2\), hence the all-rank bound
+\[
+ 0\leq\frac{\operatorname{per}D[I^c,J^c]}{\operatorname{per}D}
+                       \leq2\exp(r+16A\log(2N)).
+\]
+The factor \(2\) is retained throughout the full compensated bipartite
+tail.  Its tilted Cauchy--Binet summation, including the constant and
+first-order subtractions, now has a maintained proof and gives
+\(\exp(-\log(2N)^3\log\log(2N)/4)\) above one uniform threshold
+when \(A\leq C_0\log(2N)\).  The proof and its explicit scalar budget
+are given in the signed comparison section.
 
 \begin{theorem}[A relative comparison with a growing density parameter]
 \label{thm:relativeaperiodic}

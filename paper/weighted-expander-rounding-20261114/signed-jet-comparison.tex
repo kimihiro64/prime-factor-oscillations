@@ -235,8 +235,8 @@ minor mass. The maintained owners are
 \texttt{HamiltonianSignedOccupancyBounds}.
 The arbitrary weighted balanced two-support readout and complete
 joint first-order correction now also have maintained proofs.
-The exact analytic size-derivative readout and the complete
-remainder/tail and headline assembly remain unfinished.
+The exact analytic size-derivative readout, final signed comparison
+and headline assembly remain unfinished.
 
 \paragraph{Formalized complete signed main correction.}
 For every real function on the finite vertex supports,
@@ -379,9 +379,100 @@ The maintained owners are
 \texttt{HamiltonianRowCapLogBudget},
 \texttt{HamiltonianRowCapAllOrders} and
 \texttt{HamiltonianRectangularPermanentUpper}.
-The normalized full large-support packet, including every
-complementary-permanent ratio and polynomial-extension correction,
-and the final Hamiltonian comparison remain formalization obligations.
+The normalized full large-support packet now also has a maintained
+proof, including every complementary-permanent ratio and both
+polynomial-extension corrections.
+
+\paragraph{Formalized complete compensated large-support tail.}
+Put \(L=\log(2N)\), \(R=\lfloor L^3\rfloor\), \(q=1/N\), and
+\(b=e^2+4\).  For the actual independent supports of size \(r\), set
+\[
+ E_{I,J}=
+ \left(\frac{\operatorname{per}T[I^c,J^c]}
+              {\operatorname{per}T}\right)^2-1-\alpha_{I,J}.
+\]
+The proved normalized positivity data and
+\(N!/N^N\geq e^{-N}\) give
+\(\operatorname{per}T\geq e^{-N}/2\).
+Together with the all-rank upper bound above, this proves
+\[
+ 0\leq\frac{\operatorname{per}T[I^c,J^c]}{\operatorname{per}T}
+       \leq2e^{r+16AL}.
+\]
+The global first-order budget and \((1+r)^2\leq4^r\) therefore give,
+without dropping either compensation term,
+\[
+ |E_{I,J}|\leq C b^r,\qquad
+ C=4e^{32AL}+1+100(A/\delta)^2q.
+\]
+Here \(\delta=1-\rho>0\).
+The actual tilted squared-minor mass is
+\[
+ \mathcal M_T(t)=
+ \sum_{J\subseteq[N]} |J|t^{|J|}
+   \sum_{\substack{I\subseteq[N]\\|I|=|J|}}\det T[I,J]^2 .
+\]
+Cauchy--Binet and the Euler derivative of the characteristic
+product identify this with
+\[
+ \sum_i t\lambda_i
+           \prod_{j\ne i}(1+t\lambda_j),
+ \qquad \lambda_i\text{ the eigenvalues of }T^\top T .
+\]
+For \(t\geq0\), nonnegativity of these eigenvalues, the exact
+constant-direction factor and the centered energy budget imply
+\[
+ \begin{split}
+ \mathcal M_T(t)
+   &\leq t\,\operatorname{tr}(T^\top T)\det(I+tT^\top T)\\
+   &\leq tA(1+t)\det(I+tB^\top B)\\
+   &\leq tA(1+t)e^{t(A-1)}.
+ \end{split}
+\]
+Thus the full retained signed tail, with its rank coefficient,
+satisfies
+\[
+ \begin{split}
+ \left|\mathcal T_R\right|
+ &=\left|-\sum_{|J|>R}(-1)^{|J|}|J|
+          \sum_{|I|=|J|}\det T[I,J]^2E_{I,J}\right|\\
+ &\leq C L^{-R}\mathcal M_T(bL)\\
+ &\leq C L^{-R}(bL)A(1+bL)e^{bL(A-1)}.
+ \end{split}
+\]
+Only this separately retained tail pays an absolute-mass estimate;
+the complete signed main correction remains evaluated.
+
+For \(A\leq cL\), \(0\leq q\leq1\), and \(L\geq1\), the numerator
+in the last line is at most \(\exp(B_{c,\delta}L^2)\), where
+\[
+ B_{c,\delta}=32c+100(c/\delta)^2+c+6+b+bc.
+\]
+This follows directly from \(x\leq e^x\) for each nonnegative
+factor: first bound \(C\) by
+\(\exp(32AL+5+100(A/\delta)^2)\), then retain and bound the
+remaining three factors and \(e^{bL(A-1)}\).
+If \(L\geq\max(2,e,4B_{c,\delta})\), then
+\(R\geq L^3/2\), \(\log L\geq1\), and consequently
+\[
+ \boxed{\quad
+ |\mathcal T_R|
+ \leq \exp\!\left(-\tfrac14L^3\log L\right).
+ \quad}
+\]
+There is one kernel- and support-independent order threshold.
+Indeed, the existing uniform positivity theorem is applicable with
+entry exponent \(2\), since \(A\leq c\log(2N)\leq(\log N)^2\)
+once \(N\) is large enough.  The remaining scalar requirements are
+also explicit lower bounds on \(\log N\).
+These statements are formalized in
+\texttt{HamiltonianComplementaryPermanentRatio},
+\texttt{HamiltonianTiltedMinorMass},
+\texttt{HamiltonianMinorTailTilt},
+\texttt{HamiltonianCompensatedMinorTail} and
+\texttt{HamiltonianCompensatedTailDecay}.
+The exact analytic size-derivative readout, final signed comparison
+and Hamiltonian headline assembly remain unfinished.
 
 \begin{theorem}[Relative bipartite comparison at logarithmic density]
 \label{thm:criticalrelative}
