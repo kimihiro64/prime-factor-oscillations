@@ -326,8 +326,11 @@ Combining (D2), (D6), and the deleted-principal
                   \leq10^7r^2p_0^6q^2.        \tag{D7}
 \]
 The support-restricted trace bounds (D3), (D5), (D6) and
-the final assembly (D7) remain Lean formalization obligations;
-the preceding explicit estimates specify their full consumer.
+the final assembly (D7) now have maintained Lean proofs.
+The actual-matrix theorem proves positivity of the full determinant
+ratio as well, and its direct existence consumer derives the positive
+scaling and every scaling equation from the original hypotheses.
+Both support sets stay independent, including the case \(r=0\).
 Consequently, writing \(\widetilde B=\widetilde D-J_n/n\),
 \[
  \log\frac{\det(I-\widetilde B^\top\widetilde B)^{-1/2}}
@@ -445,10 +448,15 @@ the number of supports before summing the higher-degree terms.
 The actual scaling and rank-centering perturbation, its inverse
 budgets, the higher determinant remainder (D2), and the complete
 full-matrix cancellation (D4) are now formalized as well.
-The remaining support-restricted trace comparison and final local
-determinant assembly are explicitly specified in (D3)--(D7).
-Those steps, the first-correction comparison and the resulting
-minor ratio remainder are still formalization obligations.
+The full signed support comparison in (D3)--(D6) is proved in
+\texttt{HamiltonianStochasticScalingTrace}. Its exact finite support
+partition counts each removed overlap once. The coupled trace-budget
+consumer retains the full ambient trace before bounding its four explicit
+remainders. The final positive-ratio assembly (D7) and its actual repair
+existence theorem are proved in
+\texttt{HamiltonianStochasticDeterminantCost}.
+The first-correction comparison and the resulting minor ratio remainder
+are still formalization obligations.
 
 \begin{remark}[Independent check against every cofactor recursion]
 Let \(W(I,J)=r(r-1)/(2N)+u^\top\Gamma u/2+v^\top u\)
