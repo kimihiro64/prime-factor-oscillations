@@ -67,7 +67,8 @@
       "kind": "lemma",
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\prime-sum.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
-      "lean_status": "pending_full_Lean_proof"
+      "lean_status": "whole_prefix_minor_grid_formalized_operator_and_major_assembly_pending",
+      "audit_note": "HamiltonianPrimeMinorArc and HamiltonianPrimePrefixMinor prove the whole actual Mangoldt-prefix minor bound C*(M^2/P+M^(8/5))*(1+log(2M))^10 for M>=2^18 and1<=P<=M^(1/40), with all auxiliary-grid divisibility and actual frequency-exclusion hypotheses explicit. The initial cutoff is retained. All5 declarations pass the focused foundational-axiom audit. This does not yet formalize the complete operator statement: the sampled Fourier/Hankel transfer, major-arc main and spectral assembly remain required."
     },
     {
       "id": "lem:integerspectrum",
@@ -356,7 +357,7 @@
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\relative-permanents.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
       "lean_status": "fully_formalized_direct_normalized_uniform_statement",
-      "audit_note": "Both paper permanent statements now have direct maintained normalized Lean consumers. stochastic_permanent_relative_correction_polylog_uniform proves, for one N0(delta,K)>=16 and every admissible kernel and 1<=A<=log(N)^K, abs((N^N/N!)*per(T)/Delta(1)-(1+Q_N(T)))<=(1+A)^24*C_delta/N^2 and abs(Q_N(T))<=21*A^2/(delta^3*N). For K>0, hamiltonian_permanent_polylog_first_order_budget supplies the uniform scalar threshold, and stochastic_permanent_first_order_polylog_uniform proves the directly normalized first-order error <=N^(-1/8). The full common threshold is independent of the kernel. These three new theorems compile and pass the focused foundational-axiom audit. The complete signed second-order expansion is retained for the critical Hamiltonian consumer; its first-order consequence is not substituted into that sharper argument. The full actual logarithmic-density Hamiltonian count, exact factorial/unoriented conventions, sharp spectral amplifier, complete uniform power-decay and sharp density criteria, and fixed-defect inverse are compiled and focused-audited. The actual full signed size wave is now formalized: g''(1)=L(r*(r-1))=4*d'(1)+3*d''(1), in both Gram conventions, and abs(g''(1))<=53*abs(d)*(A/(1-rho))^2. All12 new size-wave, analytic derivative, full-support readout, transpose and explicit quadratic-bound declarations pass the focused foundational-axiom audit. Actual prime-sum operator and exact entropy inputs and prime-circle count, the remaining arithmetic/parity and other advertised paper claims, and public integration remain unfinished. The complete paper headline is not Lean-certified."
+      "audit_note": "Both paper permanent statements now have direct maintained normalized Lean consumers. stochastic_permanent_relative_correction_polylog_uniform proves, for one N0(delta,K)>=16 and every admissible kernel and 1<=A<=log(N)^K, abs((N^N/N!)*per(T)/Delta(1)-(1+Q_N(T)))<=(1+A)^24*C_delta/N^2 and abs(Q_N(T))<=21*A^2/(delta^3*N). For K>0, hamiltonian_permanent_polylog_first_order_budget supplies the uniform scalar threshold, and stochastic_permanent_first_order_polylog_uniform proves the directly normalized first-order error <=N^(-1/8). The full common threshold is independent of the kernel. These three new theorems compile and pass the focused foundational-axiom audit. The complete signed second-order expansion is retained for the critical Hamiltonian consumer; its first-order consequence is not substituted into that sharper argument. The complete uniform logarithmic-density weighted Hamiltonian count, all advertised kernel power-decay and sharp density corollaries, fixed-defect inverse, signed coordinate moments and exact analytic size-wave identity/quadratic bound are compiled and focused-audited. The actual whole von Mangoldt prefix now has the uniform minor-grid bound abs(S)^2<=C*(M^2/P+M^(8/5))*(1+log(2M))^10, for M>=2^18,1<=P<=M^(1/40), every admissible auxiliary grid and every frequency outside the complete reduced rational grid. Its initial cutoff and all prime powers are retained; there is no divisor power loss. All5 new arithmetic-input declarations pass the focused foundational-axiom audit. The actual prime-sum sampled-operator transfer, major-arc main and spectral assembly, entropy/scaling and prime-circle count, other advertised arithmetic/parity claims and public integration remain unfinished. The complete paper headline is not Lean-certified."
     },
     {
       "id": "lem:relativecompensatedminors",
@@ -477,7 +478,7 @@
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\permanent-second-order.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
       "lean_status": "fully_formalized_direct_normalized_uniform_statement",
-      "audit_note": "Both paper permanent statements now have direct maintained normalized Lean consumers. stochastic_permanent_relative_correction_polylog_uniform proves, for one N0(delta,K)>=16 and every admissible kernel and 1<=A<=log(N)^K, abs((N^N/N!)*per(T)/Delta(1)-(1+Q_N(T)))<=(1+A)^24*C_delta/N^2 and abs(Q_N(T))<=21*A^2/(delta^3*N). For K>0, hamiltonian_permanent_polylog_first_order_budget supplies the uniform scalar threshold, and stochastic_permanent_first_order_polylog_uniform proves the directly normalized first-order error <=N^(-1/8). The full common threshold is independent of the kernel. These three new theorems compile and pass the focused foundational-axiom audit. The complete signed second-order expansion is retained for the critical Hamiltonian consumer; its first-order consequence is not substituted into that sharper argument. The full actual logarithmic-density Hamiltonian count, exact factorial/unoriented conventions, sharp spectral amplifier, complete uniform power-decay and sharp density criteria, and fixed-defect inverse are compiled and focused-audited. The actual full signed size wave is now formalized: g''(1)=L(r*(r-1))=4*d'(1)+3*d''(1), in both Gram conventions, and abs(g''(1))<=53*abs(d)*(A/(1-rho))^2. All12 new size-wave, analytic derivative, full-support readout, transpose and explicit quadratic-bound declarations pass the focused foundational-axiom audit. Actual prime-sum operator and exact entropy inputs and prime-circle count, the remaining arithmetic/parity and other advertised paper claims, and public integration remain unfinished. The complete paper headline is not Lean-certified."
+      "audit_note": "Both paper permanent statements now have direct maintained normalized Lean consumers. stochastic_permanent_relative_correction_polylog_uniform proves, for one N0(delta,K)>=16 and every admissible kernel and 1<=A<=log(N)^K, abs((N^N/N!)*per(T)/Delta(1)-(1+Q_N(T)))<=(1+A)^24*C_delta/N^2 and abs(Q_N(T))<=21*A^2/(delta^3*N). For K>0, hamiltonian_permanent_polylog_first_order_budget supplies the uniform scalar threshold, and stochastic_permanent_first_order_polylog_uniform proves the directly normalized first-order error <=N^(-1/8). The full common threshold is independent of the kernel. These three new theorems compile and pass the focused foundational-axiom audit. The complete signed second-order expansion is retained for the critical Hamiltonian consumer; its first-order consequence is not substituted into that sharper argument. The complete uniform logarithmic-density weighted Hamiltonian count, all advertised kernel power-decay and sharp density corollaries, fixed-defect inverse, signed coordinate moments and exact analytic size-wave identity/quadratic bound are compiled and focused-audited. The actual whole von Mangoldt prefix now has the uniform minor-grid bound abs(S)^2<=C*(M^2/P+M^(8/5))*(1+log(2M))^10, for M>=2^18,1<=P<=M^(1/40), every admissible auxiliary grid and every frequency outside the complete reduced rational grid. Its initial cutoff and all prime powers are retained; there is no divisor power loss. All5 new arithmetic-input declarations pass the focused foundational-axiom audit. The actual prime-sum sampled-operator transfer, major-arc main and spectral assembly, entropy/scaling and prime-circle count, other advertised arithmetic/parity claims and public integration remain unfinished. The complete paper headline is not Lean-certified."
     },
     {
       "id": "thm:minorjet",
@@ -486,7 +487,7 @@
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\compensated-minor-jet.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
       "lean_status": "fully_formalized_actual_uniform_two_power_minor_expansion",
-      "audit_note": "The full actual logarithmic-density Hamiltonian count, exact factorial/unoriented conventions, sharp spectral amplifier, complete uniform power-decay and sharp density criteria, and fixed-defect inverse are compiled and focused-audited. The actual full signed size wave is now formalized: g''(1)=L(r*(r-1))=4*d'(1)+3*d''(1), in both Gram conventions, and abs(g''(1))<=53*abs(d)*(A/(1-rho))^2. All12 new size-wave, analytic derivative, full-support readout, transpose and explicit quadratic-bound declarations pass the focused foundational-axiom audit. Actual prime-sum operator and exact entropy inputs and prime-circle count, the remaining arithmetic/parity and other advertised paper claims, and public integration remain unfinished. The complete paper headline is not Lean-certified."
+      "audit_note": "The complete uniform logarithmic-density weighted Hamiltonian count, all advertised kernel power-decay and sharp density corollaries, fixed-defect inverse, signed coordinate moments and exact analytic size-wave identity/quadratic bound are compiled and focused-audited. The actual whole von Mangoldt prefix now has the uniform minor-grid bound abs(S)^2<=C*(M^2/P+M^(8/5))*(1+log(2M))^10, for M>=2^18,1<=P<=M^(1/40), every admissible auxiliary grid and every frequency outside the complete reduced rational grid. Its initial cutoff and all prime powers are retained; there is no divisor power loss. All5 new arithmetic-input declarations pass the focused foundational-axiom audit. The actual prime-sum sampled-operator transfer, major-arc main and spectral assembly, entropy/scaling and prime-circle count, other advertised arithmetic/parity claims and public integration remain unfinished. The complete paper headline is not Lean-certified."
     },
     {
       "id": "lem:signedoccupancy",
@@ -495,7 +496,7 @@
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\signed-jet-comparison.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
       "lean_status": "fully_formalized_actual_signed_coordinate_and_analytic_size_moments",
-      "audit_note": "All actual coordinate moments, full independent balanced-support readouts, complete signed first-order consumer, and exact analytic size-derivative identity have maintained Lean proofs. HamiltonianSignedSizeDerivative proves g''(1)=L(r(r-1))=4d'(1)+3d''(1) in both Gram conventions and abs(g''(1))<=53*abs(d)*(A/(1-rho))^2 from the original stochastic hypotheses. All12 new declarations pass the focused foundational-axiom audit. The full actual logarithmic-density Hamiltonian count, exact factorial/unoriented conventions, sharp spectral amplifier, complete uniform power-decay and sharp density criteria, and fixed-defect inverse are compiled and focused-audited. The actual full signed size wave is now formalized: g''(1)=L(r*(r-1))=4*d'(1)+3*d''(1), in both Gram conventions, and abs(g''(1))<=53*abs(d)*(A/(1-rho))^2. All12 new size-wave, analytic derivative, full-support readout, transpose and explicit quadratic-bound declarations pass the focused foundational-axiom audit. Actual prime-sum operator and exact entropy inputs and prime-circle count, the remaining arithmetic/parity and other advertised paper claims, and public integration remain unfinished. The complete paper headline is not Lean-certified."
+      "audit_note": "All actual coordinate moments, full independent balanced-support readouts, complete signed first-order consumer, and exact analytic size-derivative identity have maintained Lean proofs. HamiltonianSignedSizeDerivative proves g''(1)=L(r(r-1))=4d'(1)+3d''(1) in both Gram conventions and abs(g''(1))<=53*abs(d)*(A/(1-rho))^2 from the original stochastic hypotheses. All12 new declarations pass the focused foundational-axiom audit. The complete uniform logarithmic-density weighted Hamiltonian count, all advertised kernel power-decay and sharp density corollaries, fixed-defect inverse, signed coordinate moments and exact analytic size-wave identity/quadratic bound are compiled and focused-audited. The actual whole von Mangoldt prefix now has the uniform minor-grid bound abs(S)^2<=C*(M^2/P+M^(8/5))*(1+log(2M))^10, for M>=2^18,1<=P<=M^(1/40), every admissible auxiliary grid and every frequency outside the complete reduced rational grid. Its initial cutoff and all prime powers are retained; there is no divisor power loss. All5 new arithmetic-input declarations pass the focused foundational-axiom audit. The actual prime-sum sampled-operator transfer, major-arc main and spectral assembly, entropy/scaling and prime-circle count, other advertised arithmetic/parity claims and public integration remain unfinished. The complete paper headline is not Lean-certified."
     },
     {
       "id": "thm:criticalrelative",
@@ -992,7 +993,7 @@
     },
     {
       "file": "prime-sum.tex",
-      "sha256": "97957D38DAE8A78BE6F1DCF51B38F93F65227BD28FE9DD63E0E23C1B569F7F5E"
+      "sha256": "D0DFBC4E4C8632ECF90B5A5376EA461EC61BAE6E13BE1042439481F3C32DC318"
     },
     {
       "file": "regular-factors.tex",
@@ -1077,12 +1078,12 @@
     "complete_consumer": "rho=a=3/5; amplification <=m^(27/20); first signed correction polylog/m; only residual pays amplification, giving O(N^(-3/5)).",
     "inverse": "A fixed relative counting defect forces collective singular mass >=(2/kappa_rho)log N-O(log log N).",
     "further_extension": "Arbitrary fixed logarithmic density coefficients, and all fixed congruence filters, would require higher-order compensated expansions beyond the proved two-power remainder.",
-    "next_review_focus": "Complete the actual prime-sum operator inputs using the existing cached quantitative PNT, progression and Vaughan providers, checking their exact uniform ranges and any remaining analytic loss. Finish exact entropy scaling and the actual prime-circle relative count, all remaining coprime/layered/parity and other advertised paper claims, public exports and a real Solution consumer, then final staged verification. Only after headline completion begin the queued RH/Hadamard/twin-prime transfers.",
+    "next_review_focus": "Prove the exact finite Fourier/Hankel operator-norm transfer for the actual prefix, then assemble the retained rational main term with the proved all-character rational-phase bound and whole-prefix minor bound. Prove the actual prime-sum spectral/degree inputs, diffuseness-sensitive stochastic scaling and exact entropy count transfer. Finish the remaining coprime/layered/parity and other advertised paper claims and public exports plus a real Solution consumer; run final staged verification before beginning the queued RH/Hadamard/twin-prime transfers.",
     "independent_consumer_status": "Both actual integer prime-sum graphs and all growing coprime moduli have complete stated ordinary arguments."
   },
   "completion_receipt": {
     "requested_bar": "Finish the complete argument and its formalization at a level supporting a substantial original research contribution. A draft, helper proof, successful build or significance label does not finish this request; career impact cannot be certified by the author.",
-    "strongest_actual_theorem": "Maintained Lean proves the full logarithmic-density weighted Hamiltonian count and sharp amplifier, every allowed power-decay corollary including error N^(-3/5), the sharp density criterion kappa_rho*b<2, the exact fixed-defect amplification/energy inverse, and all signed coordinate and analytic size moments with an explicit quadratic bound. Actual arithmetic prime-circle and remaining headline claims are unfinished in Lean.",
+    "strongest_actual_theorem": "Maintained Lean proves the complete logarithmic-density weighted Hamiltonian kernel count, its power-decay and sharp-density consequences, inverse and all signed occupancy moments. The actual whole Mangoldt prefix now has the uniform logarithmic minor-grid estimate with no divisor power loss. The full actual arithmetic operator and prime-circle headline are unfinished.",
     "complete_independent_applications": [
       "Every sufficiently large even integer prime-sum graph is Hamiltonian; log h=N log N-N log log N-N+o(N).",
       "Fixed congruence-filter connectedness/Hamiltonicity is classified exactly by gcd(q,R-R)=2, with a full positive residue-pressure formula.",
@@ -1093,12 +1094,12 @@
       "Actual unweighted prime-sum graph: full relative count around its exact entropy, with O(N^(-3/5)) error; no RH or prime-pair estimate."
     ],
     "primary_literature_comparison": "Cuckler-Kahn: dense Dirac and dense balanced bipartite entropy counts. Barvinok: all-positive matrices with a relative entry lower bound. Krivelevich and Byrne-Tait: nontrivial spectral ratio tending to zero logarithmically. The present argument permits sparse zero support and any fixed nontrivial gap. Bradač-Janzer 2026 is an essential independent spanning-path input. McCullagh's bounded normalized moments fail along primorials; Divoux-Wang's fixed-entry finite proof is tracked explicitly, rather than used outside its stated range. The new first-order signed compensation and rank-one parity-root calculation avoid the fixed-entry remainder amplification at prime density. They are the mechanism of the complete prime consumer, not merely a detector or matching identity.",
-    "proof_endpoint_status": "The full actual logarithmic-density Hamiltonian count, exact factorial/unoriented conventions, sharp spectral amplifier, complete uniform power-decay and sharp density criteria, and fixed-defect inverse are compiled and focused-audited. The actual full signed size wave is now formalized: g''(1)=L(r*(r-1))=4*d'(1)+3*d''(1), in both Gram conventions, and abs(g''(1))<=53*abs(d)*(A/(1-rho))^2. All12 new size-wave, analytic derivative, full-support readout, transpose and explicit quadratic-bound declarations pass the focused foundational-axiom audit. Actual prime-sum operator and exact entropy inputs and prime-circle count, the remaining arithmetic/parity and other advertised paper claims, and public integration remain unfinished. The complete paper headline is not Lean-certified.",
+    "proof_endpoint_status": "The complete uniform logarithmic-density weighted Hamiltonian count, all advertised kernel power-decay and sharp density corollaries, fixed-defect inverse, signed coordinate moments and exact analytic size-wave identity/quadratic bound are compiled and focused-audited. The actual whole von Mangoldt prefix now has the uniform minor-grid bound abs(S)^2<=C*(M^2/P+M^(8/5))*(1+log(2M))^10, for M>=2^18,1<=P<=M^(1/40), every admissible auxiliary grid and every frequency outside the complete reduced rational grid. Its initial cutoff and all prime powers are retained; there is no divisor power loss. All5 new arithmetic-input declarations pass the focused foundational-axiom audit. The actual prime-sum sampled-operator transfer, major-arc main and spectral assembly, entropy/scaling and prime-circle count, other advertised arithmetic/parity claims and public integration remain unfinished. The complete paper headline is not Lean-certified.",
     "significance_assessment": "A general signed-estimation method now has a quantitative inverse and complete independent arithmetic consumers at actual prime density and through every coprime modulus. This supports a serious standalone research contribution. Career-defining impact and priority are not certified or inferred from compilation.",
     "paper_argument_delivered": true,
     "headline_all_orders_filz_proved": false,
     "lean_formalization_complete": false,
-    "next_safely_executable_research_action": "Complete the actual prime-sum operator inputs using the existing cached quantitative PNT, progression and Vaughan providers, checking their exact uniform ranges and any remaining analytic loss. Finish exact entropy scaling and the actual prime-circle relative count, all remaining coprime/layered/parity and other advertised paper claims, public exports and a real Solution consumer, then final staged verification. Only after headline completion begin the queued RH/Hadamard/twin-prime transfers.",
+    "next_safely_executable_research_action": "Prove the exact finite Fourier/Hankel operator-norm transfer for the actual prefix, then assemble the retained rational main term with the proved all-character rational-phase bound and whole-prefix minor bound. Prove the actual prime-sum spectral/degree inputs, diffuseness-sensitive stochastic scaling and exact entropy count transfer. Finish the remaining coprime/layered/parity and other advertised paper claims and public exports plus a real Solution consumer; run final staged verification before beginning the queued RH/Hadamard/twin-prime transfers.",
     "next_gate": "Judge the complete new method and independent applications, not theorem counts or successful compilation; preserve exact entropy and explicit density scope.",
     "no_background_work_claimed": true,
     "expert_relevance_gate": {
@@ -1117,8 +1118,8 @@
     "committed_this_turn": true,
     "pushed_this_turn": false,
     "proofs_left_only_in_private_research": false,
-    "recorded_phase": "Baseline local commitb45cf7b. This phase adds the maintained exact analytic size-wave owner; all12 declarations have focused foundational-axiom verification. Paper and claim hashes are synchronized; final staged checks and the new local commit are recorded separately.",
-    "phase": "The full actual logarithmic-density Hamiltonian count, exact factorial/unoriented conventions, sharp spectral amplifier, complete uniform power-decay and sharp density criteria, and fixed-defect inverse are compiled and focused-audited. The actual full signed size wave is now formalized: g''(1)=L(r*(r-1))=4*d'(1)+3*d''(1), in both Gram conventions, and abs(g''(1))<=53*abs(d)*(A/(1-rho))^2. All12 new size-wave, analytic derivative, full-support readout, transpose and explicit quadratic-bound declarations pass the focused foundational-axiom audit. Actual prime-sum operator and exact entropy inputs and prime-circle count, the remaining arithmetic/parity and other advertised paper claims, and public integration remain unfinished. The complete paper headline is not Lean-certified."
+    "recorded_phase": "Baseline local commit32a23f0. This phase adds two maintained owners connecting the existing actual coefficient-mean Vaughan theorem to the complete physical prefix; all5 declarations pass the focused foundational-axiom audit. The prime-sum paper input and claim/source hashes are synchronized; final staged checks and local commit are recorded separately.",
+    "phase": "The complete uniform logarithmic-density weighted Hamiltonian count, all advertised kernel power-decay and sharp density corollaries, fixed-defect inverse, signed coordinate moments and exact analytic size-wave identity/quadratic bound are compiled and focused-audited. The actual whole von Mangoldt prefix now has the uniform minor-grid bound abs(S)^2<=C*(M^2/P+M^(8/5))*(1+log(2M))^10, for M>=2^18,1<=P<=M^(1/40), every admissible auxiliary grid and every frequency outside the complete reduced rational grid. Its initial cutoff and all prime powers are retained; there is no divisor power loss. All5 new arithmetic-input declarations pass the focused foundational-axiom audit. The actual prime-sum sampled-operator transfer, major-arc main and spectral assembly, entropy/scaling and prime-circle count, other advertised arithmetic/parity claims and public integration remain unfinished. The complete paper headline is not Lean-certified."
   },
   "formalization": {
     "status": "in_progress_not_complete",
@@ -2583,10 +2584,22 @@
         "source_sha256": "C71990E304FDB0859C57AAA352BB67B5D5367E12D54ED695C77CF58E8982324F",
         "content": "Actual full signed two-support wave, analytic second derivative, exact rank-factorial readout, both Gram conventions, coordinate readout and explicit53*abs(d)*(A/(1-rho))^2 bound under original stochastic hypotheses.",
         "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianPrimeMinorArc",
+        "source_sha256": "4466BE911ECC09EB3DF90D0B8977C0E70D2D5599246F87EFE0D0BA599867EE2F",
+        "content": "Full actual mean-Vaughan minor window with all physical cutoffs and a uniform logarithmic envelope; the divisor power loss is removed by consuming the already proved coefficient mean.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianPrimePrefixMinor",
+        "source_sha256": "DCC2A9A223AAE967857676C8255F959ED3339028BCFD9869740E0C807CE890FB",
+        "content": "Complete von Mangoldt prefix minor bound with every initial-cutoff term and prime power retained, exact interval concatenation, and one constant before all scales and auxiliary grids.",
+        "build_exit_code": 0
       }
     ],
     "unfinished_dependencies": [
-      "Prime-sum operator estimates, exact entropy scaling and the actual prime-circle relative count.",
+      "Actual sampled prime-sum Fourier/Hankel operator transfer, retained major-arc main and spectral assembly, degree/scaling and exact entropy inputs, and the prime-circle relative count. The complete prefix minor-grid bound is now compiled and focused-audited.",
       "Coprime and layered arithmetic specializations, parity cases and all other advertised paper claims.",
       "Public exports, claim-by-claim paper synchronization, focused builds, final staged repository checks and commits."
     ],
@@ -4929,13 +4942,35 @@
         ],
         "log_sha256": "99E868C73ED7518ADFBCDF5103FF00A185DA5B4A03CBD1F85F88AA86A6232564",
         "scope": "Only the12 new actual full signed size-wave, analytic derivative, exact support, Gram-transpose and explicit-bound declarations. Unchanged providers were not re-audited."
+      },
+      {
+        "status": "verified",
+        "modules": [
+          "PrimeFactorOscillations.Helpers.HamiltonianPrimeMinorArc",
+          "PrimeFactorOscillations.Helpers.HamiltonianPrimePrefixMinor"
+        ],
+        "declaration_count": 5,
+        "declarations": [
+          "PrimeFactorOscillations.LPF.hamiltonian_prime_minor_grid_raw",
+          "PrimeFactorOscillations.LPF.hamiltonian_prime_minor_grid_logarithmic",
+          "PrimeFactorOscillations.LPF.hamiltonian_prime_grid_interval_add",
+          "PrimeFactorOscillations.LPF.hamiltonian_prime_grid_interval_trivial",
+          "PrimeFactorOscillations.LPF.hamiltonian_prime_prefix_minor_logarithmic"
+        ],
+        "allowed_axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "log_sha256": "F3546C76F913D5143B78BBC8B5B61AA299E1002E6222CAD8D60A2B79AA184B47",
+        "scope": "Only the5 new full physical mean-window, complete prefix and exact initial-cutoff declarations. Existing unchanged analytic providers were not re-audited."
       }
     ],
     "active_proof": {
-      "module": "PrimeFactorOscillations.Helpers.HamiltonianSignedSizeDerivative",
-      "status": "The full actual logarithmic-density Hamiltonian count, exact factorial/unoriented conventions, sharp spectral amplifier, complete uniform power-decay and sharp density criteria, and fixed-defect inverse are compiled and focused-audited. The actual full signed size wave is now formalized: g''(1)=L(r*(r-1))=4*d'(1)+3*d''(1), in both Gram conventions, and abs(g''(1))<=53*abs(d)*(A/(1-rho))^2. All12 new size-wave, analytic derivative, full-support readout, transpose and explicit quadratic-bound declarations pass the focused foundational-axiom audit. Actual prime-sum operator and exact entropy inputs and prime-circle count, the remaining arithmetic/parity and other advertised paper claims, and public integration remain unfinished. The complete paper headline is not Lean-certified.",
+      "module": "PrimeFactorOscillations.Helpers.HamiltonianPrimePrefixMinor",
+      "status": "The complete uniform logarithmic-density weighted Hamiltonian count, all advertised kernel power-decay and sharp density corollaries, fixed-defect inverse, signed coordinate moments and exact analytic size-wave identity/quadratic bound are compiled and focused-audited. The actual whole von Mangoldt prefix now has the uniform minor-grid bound abs(S)^2<=C*(M^2/P+M^(8/5))*(1+log(2M))^10, for M>=2^18,1<=P<=M^(1/40), every admissible auxiliary grid and every frequency outside the complete reduced rational grid. Its initial cutoff and all prime powers are retained; there is no divisor power loss. All5 new arithmetic-input declarations pass the focused foundational-axiom audit. The actual prime-sum sampled-operator transfer, major-arc main and spectral assembly, entropy/scaling and prime-circle count, other advertised arithmetic/parity claims and public integration remain unfinished. The complete paper headline is not Lean-certified.",
       "target": "Use the full uniform count envelope and sharp actual spectral amplifier to finish the advertised power-decay corollaries, including N^(-3/5) under Amp<=N^(27/20), without weakening that endpoint. Prove the inverse at a fixed defect eta: first bound the unamplified term by eta/2 using the logarithmic little-o provider, then derive log(Amp)>=2*log(N)-H*loglog(2N)+log(eta/(2*C)) and the corresponding centered-energy lower bound with coefficient2/kappa_rho. Complete the exact analytic size-derivative claim. Finish the actual prime-sum operator estimates, exact entropy scaling and prime-circle relative count, all remaining coprime/layered/parity and other paper claims, and public exports plus a real Solution consumer. Verify the complete final staged surface, then begin the queued RH/Hadamard/twin-prime transfers.",
-      "consumer": "All analytic size-moment statements of the signed occupancy lemma now have actual full-support proofs and the explicit quadratic bound. The complete kernel count and inverse already compile. The next consumer is the original actual prime-sum graph: the arithmetic operator gap, exact entropy scaling and count transfer must be independently formalized before that arithmetic headline is certified.",
+      "consumer": "For the actual prime-sum operator, retain the complete signed Ramanujan main term. The new complete prefix minor bound removes the N^(1/160) squared-power allowance from the earlier pointwise route by using the already proved actual coefficient mean. The existing all-character rational-phase bound has sqrt(phi(q))*N^(15/16) and a full variation factor. The proposed cutoff Q=N^(1/160), enlarged width T/N with T=N^(1/80), gives candidate normalized major error O(N^(-3/64)*log(N)^2), main-kernel tail O(N^(-1/160)) and minor O(N^(-1/320)*log(N)^5). These are calculated consumers, not a compiled complete operator theorem. The exact Fourier/Hankel transfer and major/main assembly remain required.",
       "proved_inputs": [
         "PrimeFactorOscillations.Helpers.HamiltonianMatrixSpectralAverage",
         "PrimeFactorOscillations.Helpers.HamiltonianRookGamma",
@@ -5289,6 +5324,18 @@
           "module": "PrimeFactorOscillations.Helpers.HamiltonianSignedSizeDerivative",
           "source_sha256": "C71990E304FDB0859C57AAA352BB67B5D5367E12D54ED695C77CF58E8982324F",
           "content": "Actual full signed two-support wave, analytic second derivative, exact rank-factorial readout, both Gram conventions, coordinate readout and explicit53*abs(d)*(A/(1-rho))^2 bound under original stochastic hypotheses.",
+          "build_exit_code": 0
+        },
+        {
+          "module": "PrimeFactorOscillations.Helpers.HamiltonianPrimeMinorArc",
+          "source_sha256": "4466BE911ECC09EB3DF90D0B8977C0E70D2D5599246F87EFE0D0BA599867EE2F",
+          "content": "Full actual mean-Vaughan minor window with all physical cutoffs and a uniform logarithmic envelope; the divisor power loss is removed by consuming the already proved coefficient mean.",
+          "build_exit_code": 0
+        },
+        {
+          "module": "PrimeFactorOscillations.Helpers.HamiltonianPrimePrefixMinor",
+          "source_sha256": "DCC2A9A223AAE967857676C8255F959ED3339028BCFD9869740E0C807CE890FB",
+          "content": "Complete von Mangoldt prefix minor bound with every initial-cutoff term and prime power retained, exact interval concatenation, and one constant before all scales and auxiliary grids.",
           "build_exit_code": 0
         }
       ]

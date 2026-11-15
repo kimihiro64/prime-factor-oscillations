@@ -111,6 +111,34 @@ This proves (16) without applying an unsigned estimate to
 that main term.
 \end{proof}
 
+\paragraph{Formalized whole-prefix minor-grid input.}
+The maintained owners \texttt{HamiltonianPrimeMinorArc} and
+\texttt{HamiltonianPrimePrefixMinor} consume the existing actual
+coefficient-mean Vaughan theorem and its proved physical cutoffs.
+Precisely, let \(M\geq2^{18}\), \(1\leq P\leq M^{1/40}\), and
+let the positive auxiliary period \(R\) be divisible by \(M\)
+and by every integer \(1\leq q\leq P\). Put
+\[
+ W=(R/M)P,\qquad
+ \mathfrak M_R(P,W)=
+ \left\{\frac{Ra}{q}+j\pmod R:
+  1\leq q\leq P,\ 0\leq a<q,\ (a,q)=1,\ |j|\leq W\right\}.
+\]
+For one absolute \(C>0\), independent of every displayed
+parameter, the complete actual prefix satisfies
+\[
+ \left|\sum_{r=1}^M\Lambda(r)\e(kr/R)\right|^2
+ \leq C\left(\frac{M^2}{P}+M^{8/5}\right)
+                     (1+\log(2M))^{10},
+ \qquad k\in\mathbb Z,\quad k\bmod R\notin\mathfrak M_R(P,W).
+\]
+The initial Vaughan cutoff is retained and bounded explicitly;
+every prime power remains in the prefix. There is no divisor
+power loss in this estimate. All five new declarations pass
+the focused foundational-axiom check.
+The full sampled-operator transfer, retained major-arc main term
+and spectral comparison remain formalization obligations.
+
 \begin{lemma}[The nontrivial ratio is one half]
 \label{lem:integerspectrum}
 Apart from at most one eigenvalue near \(1\) and at most one
