@@ -122,9 +122,64 @@ modulus at most \(c\geq0\), the actual normalized integral satisfies
 All these statements, including integrability, all repeated-vertex
 contractions and the uniform bound in \(e\), have maintained Lean
 proofs. The bound is used on the diagram remainder after the signed
-low-degree terms have been retained. The orthogonal block realization
-and identification with the partial-permutation rook sum remain separate
-formalization obligations.
+low-degree terms have been retained.
+
+The restriction \(|z_j|<1\) belongs to the quadratic transfer, not
+to the existence of a Gaussian realization. For arbitrary complex
+\(v_j\), choose \(u_j^2=v_j\). Standard Gaussian integration gives
+\[
+ \frac{\displaystyle\int_{\mathbb R^J}
+      P((u_jx_j)_j)e^{-\sum_jx_j^2/2}\,dx}
+      {Z_0^{|J|}}=\mathcal G_v(P),\qquad
+ Z_0=\int_{\mathbb R}e^{-x^2/2}\,dx.
+\]
+This unrestricted realization is also formalized. Thus an indefinite
+or large compensated covariance is not excluded by a spurious
+positive-semidefinite or norm restriction.
+
+For a real symmetric matrix \(M=U\diag(\lambda_j)U^\top\), let
+\(Y_i=\sum_jU_{ij}\sqrt{\lambda_j}X_j\), where the square roots
+are complex and the \(X_j\) are independent real standard normals.
+The maintained spectral proof derives
+\[
+ \mathcal G_\lambda(L_iL_k)=M_{ik},\qquad
+ W:=\sum_i|Y_i|^2=\sum_j|\lambda_j|X_j^2.
+\]
+If \(\one^\top M=0\), it also proves \(\sum_iY_i=0\) pointwise.
+Both identities retain every cross term until orthogonality cancels it.
+For the actual \(M=\Omega\) from a doubly stochastic \(D\),
+symmetry and this zero-sum condition are discharged directly.
+
+The scalar Gaussian integral and finite-dimensional Fubini give, for
+\(\tau\geq0\), \(\|M\|\leq\rho\) and \(\tau\rho<1\),
+\[
+ \E e^{\tau W/2}
+ \leq\exp\!\left(\frac{\tau}{1-\tau\rho}\sum_j|\lambda_j|\right).
+\]
+The exact Frobenius identity
+\(\sum_j\lambda_j^2=\|M\|_F^2\) is formalized.
+For \(M=\Omega\), stochasticity gives
+\(\|M\|_F^2=2\|B\|_F^2\leq2(A-1)\), hence
+\[
+ \E e^{\tau W/2}
+ \leq\exp\!\left(\frac{2\tau}{1-\tau\rho}
+                                      \sqrt{N(A-1)}\right).
+\]
+Finally the exact zero-sum product bound, with \(c=\sqrt t\),
+proves the actual collective integral estimate
+\[
+ \boxed{\quad
+ \E\prod_{i=1}^{2N}|1+\sqrt t\,Y_i|
+ \leq\exp\!\left(\frac{2|t|}{1-|t|\rho}
+                                     \sqrt{N(A-1)}\right),
+ \quad |t|\rho<1.\quad}
+\]
+Every hypothesis in this stochastic consumer, including integrability,
+is discharged in maintained Lean. This is the Cauchy/tail input;
+the signed low-degree corrections are retained separately.
+The complex/real scalar-normalization link, compensated resolvent
+identification, partial-permutation rook specialization, and complete diagram and outside-Gamma consumers
+remain formalization obligations.
 
 The block-power expansion gives, for a fixed
 \(\theta=b(1-\delta/2)<1\),

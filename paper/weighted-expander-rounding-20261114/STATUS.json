@@ -355,8 +355,8 @@
       "kind": "theorem",
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\relative-permanents.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
-      "lean_status": "partially_formalized_actual_Gaussian_polynomial_transfer_mixed_Wick_bounds_and_rook_Gamma_inputs; block_rook_specialization_and_remainder_pending",
-      "audit_note": "Actual finite-dimensional polynomial Gaussian integration, quadratic reweighting and mixed Wick recursion/integral bounds are compiled and focused-audited on the explicit domain norm(z_j)<1, with signs and full covariance quotients retained. The exact partial-permutation rook/Gamma identity, real covariance series, vertex coefficients and collective product/density bounds are also maintained. Unrestricted standard-Gaussian and actual orthogonal block realizations, rook specialization, complex continuation, diagram summation and the complete growing-entry remainder remain pending. No headline Lean certification is claimed."
+      "lean_status": "partially_formalized_actual_block_Gaussian_realization_uniform_Wick_and_stochastic_affine_product_bound; rook_identification_and_full_remainder_pending",
+      "audit_note": "Unrestricted standard-Gaussian covariance realization, actual raw real-symmetric block eigenbasis covariance, exact zero-sum and quadratic-energy identities, actual Gaussian MGF and collective stochastic affine-product bound are compiled and focused-audited. For T doubly stochastic, T_ij<=A/N, norm(T-J/N)<=rho and norm(t)*rho<1, the actual positive affine-product average is <=exp(2*norm(t)/(1-norm(t)*rho)*sqrt(N*(A-1))). Earlier rook/Gamma, vertex, covariance-series and mixed Wick inputs are maintained. Complex/real scalar normalization, exact Gaussian/rook identification, compensated resolvent transfer, full coefficient/Cauchy/Gamma tail assembly and the final growing-entry asymptotic remain pending; no headline certification is claimed."
     },
     {
       "id": "lem:relativecompensatedminors",
@@ -476,8 +476,8 @@
       "kind": "theorem",
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\permanent-second-order.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
-      "lean_status": "partially_formalized_matrix_Gamma_rook_first_correction_and_actual_polynomial_Gaussian_Wick_transfer; block_realization_derivatives_and_uniform_remainder_pending",
-      "audit_note": "Actual Euler/Gamma integration, concentration, signed truncation, local Taylor and matrix spectral transfer are maintained. Exact partial-permutation rook/Gamma integration and the full first-correction bound 21*A^2/((1-rho)^3*N) are compiled. Uniform vertex coefficients, exact low-degree Wick compensation and its 40*A^3/((1-rho)^3*N^2) bound, the actual real covariance series and collective density bounds are focused-audited. Actual scalar and finite-dimensional polynomial Gaussian quadratic transfer, the full quotient half-plane identity, the polynomial Stein identity, all mixed Wick contractions and their uniform actual-integral bound are now compiled and focused-audited; the quadratic transfer explicitly assumes norm(z_j)<1. The unrestricted standard-Gaussian and actual block realizations, rook specialization, diagram/Cauchy remainder, covariance-correction derivatives and full asymptotic consumer remain pending. The revised manuscript compiled successfully; the headline theorem is not Lean-certified."
+      "lean_status": "partially_formalized_actual_Gaussian_Wick_raw_block_realization_and_stochastic_tail_inputs; rook_resolvent_derivatives_and_complete_remainder_pending",
+      "audit_note": "Actual Euler/Gamma integration, local averaging, matrix spectral transfer, exact partial-permutation rook/Gamma identity and the full first-correction bound remain maintained. Actual polynomial Gaussian transfer, mixed Wick contractions and their all-degree bound are compiled; unrestricted standard-Gaussian covariance realization, actual raw block eigenbasis covariance, pointwise zero-sum vector, exact energy cancellation and Frobenius/nuclear control are now compiled and focused-audited. The complete stochastic Gaussian MGF and collective affine-product average satisfy explicit exp(C_delta*sqrt(N*A)) bounds, with integrability and balance discharged. Complex/real scalar normalization, exact Gaussian/rook identification, compensated complex resolvent, full diagram/Cauchy/outside-Gamma consumers, correction derivatives and the final N^(-2) asymptotic remain pending. The revised manuscript compiled successfully; the headline theorem is not Lean-certified."
     },
     {
       "id": "thm:minorjet",
@@ -1027,7 +1027,7 @@
     },
     {
       "file": "relative-permanents.tex",
-      "sha256": "F01086467A816CC5F440CC707F6916930C68841CD7A48CA4B5BD844B3F5AE951"
+      "sha256": "7A1E14C42CC5A288DEFE870CB74619F9CADD3E3D51DFF09CB91E09EFA4D7D3CB"
     },
     {
       "file": "relative-coprime-circles.tex",
@@ -1043,7 +1043,7 @@
     },
     {
       "file": "main.tex",
-      "sha256": "36F7D69F2614447010647CEDE002E700E5EEF6F7BD4A255A50DF7B34D7551585"
+      "sha256": "9ECA7A9B74818517D67CA02AF37F78D3054D80037984A5C257CEF22D95BCA5DE"
     },
     {
       "file": "relative-hamilton.tex",
@@ -1051,7 +1051,7 @@
     },
     {
       "file": "permanent-second-order.tex",
-      "sha256": "E4B81E3467F67DEB7CAA09A42C9DBF72BC00648AE3AD21968A65BDAAE5153306"
+      "sha256": "0097993867A140428E251F3E59D953DF4C6E771DD5FC7648133983E707759BFB"
     },
     {
       "file": "compensated-minor-jet.tex",
@@ -1107,8 +1107,8 @@
     "committed_this_turn": true,
     "pushed_this_turn": false,
     "proofs_left_only_in_private_research": false,
-    "recorded_phase": "After local commit 2f94889777f407db70c47c733e8e86134efde999; five actual Gaussian/Wick proof modules and the paper are synchronized before final staged checks and the next local commit.",
-    "phase": "Five actual Gaussian/Wick modules compiled and 47 declarations focused-audited; paper compiled; final staged checks and commit pending."
+    "recorded_phase": "After local commit 415e343825e5cdb1229373b6cd31c65f264261dc; five unrestricted/spectral Gaussian and stochastic-tail proof modules and the paper are synchronized before final staged checks and the next local commit.",
+    "phase": "Five actual Gaussian realization/tail modules compiled, 46 new declarations focused-audited, paper compiled; final staged checks and commit pending."
   },
   "formalization": {
     "status": "in_progress_not_complete",
@@ -1337,11 +1337,41 @@
         "source_sha256": "BF252120B7D3B2B7D3A19C4D6BBCFCC98899CBDBD161711972D9F04EDD277BBF",
         "content": "All mixed linear-form Wick contractions, their actual Gaussian integral and uniform norm bound (2e-1)!!*c^e, with every repeated vertex retained.",
         "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianGaussianStateRealization",
+        "source_sha256": "960557F12604EB2739315D049E8CF6076BFC2A75EB528CD69294866779EAD37E",
+        "content": "Arbitrary complex covariance realized by the actual standard Gaussian polynomial integral, with explicit complex square roots and no covariance norm/positivity restriction.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianGaussianSpectralRealization",
+        "source_sha256": "0E79E9980CA5AA320A1CF3C48CF649080B996E87879D1F34A7CCDF4BAB64DF16",
+        "content": "Actual real Hermitian eigenbasis covariance and scaled covariance, full zero-sum Gaussian vector from column balance, exact all-cross-term energy identity, and actual stochastic block specializations.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianGaussianQuadraticMGF",
+        "source_sha256": "977F16D1F503CC846A823EF897DBBCB57C6B7058D8A8A33AC9DD3B4202F61270",
+        "content": "Actual positive Gaussian quadratic kernel integrability, exact product integration and normalized mass, with MGF <=exp(tau/(1-tau*rho)*sum r_i).",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianGaussianTraceBounds",
+        "source_sha256": "52D8BAB5B551DFA6C9A0A6F9EBC81ED07C78DBAF5A38031A22395E8FDCF2B831",
+        "content": "Exact spectral/Frobenius energy identity and nuclear bound; actual stochastic block MGF <=exp(2*tau/(1-tau*rho)*sqrt(N*(A-1))).",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianGaussianProductTails",
+        "source_sha256": "32E6461502D06540343B73770188AB24C6DA50F6E0BD4BFDFEDD00318FE51879",
+        "content": "Actual collective stochastic affine-product integrability and average <=exp(2*norm(t)/(1-norm(t)*rho)*sqrt(N*(A-1))), with all balance and energy hypotheses discharged.",
+        "build_exit_code": 0
       }
     ],
     "unfinished_dependencies": [
       "Exact Hamiltonian determinant-permanent identity for actual spanning-cycle permutations, including singleton fixed-point cycles.",
-      "Unrestricted standard-Gaussian covariance realization, the actual orthogonal block realization and its partial-permutation rook specialization, complex covariance continuation, finite diagram coefficient summation, covariance-correction derivatives and the complete uniform second-order permanent remainder. Actual polynomial Gaussian quadratic transfer and mixed Wick recursion/integral bounds are compiled on their explicit domain norm(z_j)<1, together with the earlier matrix/Gamma/rook bridges, full first-correction bound, all-degree vertex estimates, covariance series and collective product/density inequalities.",
+      "Complex/real scalar-normalization link, exact affine-product/partial-permutation rook identification, compensated complex resolvent spectral transfer, finite diagram coefficient summation, covariance-correction derivatives, complete Cauchy/outside-Gamma consumers and the uniform second-order permanent remainder. Arbitrary complex standard-Gaussian realization, actual raw block covariance and zero-sum vector, exact all-cross-term energy, trace-dependent Gaussian MGF and actual stochastic collective affine-product estimate are compiled and focused-audited, in addition to the earlier Gaussian/Wick and matrix/Gamma inputs.",
       "Quantitative stochastic repair and full complementary-minor expansion with all mismatched supports and compensation fields.",
       "Actual coordinate occupancy identities, full derivative bounds and normalized moment bounds. Cauchy-Binet, the signed two-support constant moment, Gram sandwich entries and full block covariance entries are compiled.",
       "Full signed comparison with its absolute estimate confined to the retained remainder and large-minor tail.",
@@ -1784,12 +1814,77 @@
           "Quot.sound"
         ],
         "log_sha256": "D6D727D4406C988D2EA9AB79366697BE169F4FA698E20BCBE93588DE46A90908"
+      },
+      {
+        "status": "verified",
+        "modules": [
+          "PrimeFactorOscillations.Helpers.HamiltonianGaussianStateRealization",
+          "PrimeFactorOscillations.Helpers.HamiltonianGaussianSpectralRealization",
+          "PrimeFactorOscillations.Helpers.HamiltonianGaussianQuadraticMGF",
+          "PrimeFactorOscillations.Helpers.HamiltonianGaussianTraceBounds",
+          "PrimeFactorOscillations.Helpers.HamiltonianGaussianProductTails"
+        ],
+        "declaration_count": 46,
+        "declarations": [
+          "PrimeFactorOscillations.complexGaussianSquareRoot_sq",
+          "PrimeFactorOscillations.standardGaussianMoment_recurrence",
+          "PrimeFactorOscillations.standardGaussianMonomial_moment",
+          "PrimeFactorOscillations.standardGaussianTensor_normalized",
+          "PrimeFactorOscillations.standardGaussianPolynomialKernel_integrable",
+          "PrimeFactorOscillations.standardGaussianPolynomial_normalized",
+          "PrimeFactorOscillations.standardGaussianLinearWickIntegral_norm_bound",
+          "PrimeFactorOscillations.realGaussianEigenMatrix_orthogonal",
+          "PrimeFactorOscillations.realGaussianEigenMatrix_decomposition",
+          "PrimeFactorOscillations.realGaussianEigenCovariance",
+          "PrimeFactorOscillations.realGaussianEigenCovariance_scaled",
+          "PrimeFactorOscillations.realGaussianEigenColumn_balance",
+          "PrimeFactorOscillations.realGaussianVector_zero_sum",
+          "PrimeFactorOscillations.realGaussianWickIntegral_norm_bound",
+          "PrimeFactorOscillations.bipartiteLift_hermitian",
+          "PrimeFactorOscillations.centered_bipartite_column_sum_zero",
+          "PrimeFactorOscillations.stochasticGaussianVector_zero_sum",
+          "PrimeFactorOscillations.realOrthogonal_square_energy",
+          "PrimeFactorOscillations.realOrthogonal_complex_energy",
+          "PrimeFactorOscillations.realGaussianVector_energy",
+          "PrimeFactorOscillations.realStandardGaussianNormalizer_positive",
+          "PrimeFactorOscillations.realStandardGaussianNormalizer_sq",
+          "PrimeFactorOscillations.realQuadraticGaussianIntegral_nonnegative",
+          "PrimeFactorOscillations.realQuadraticGaussianIntegral_sq",
+          "PrimeFactorOscillations.realQuadraticGaussianIntegral_zero",
+          "PrimeFactorOscillations.realQuadraticGaussianIntegral_bound",
+          "PrimeFactorOscillations.realGaussianQuadraticKernel_factor",
+          "PrimeFactorOscillations.realGaussianQuadraticKernel_integrable",
+          "PrimeFactorOscillations.realGaussianQuadraticKernel_integral",
+          "PrimeFactorOscillations.realGaussianQuadraticMGF_zero",
+          "PrimeFactorOscillations.realGaussianQuadraticMGF_bound",
+          "PrimeFactorOscillations.realGaussianEigenvalue_abs_le_norm",
+          "PrimeFactorOscillations.realGaussianEigenvalue_square_energy",
+          "PrimeFactorOscillations.realGaussianEigenvalue_nuclear_bound",
+          "PrimeFactorOscillations.realSpectralGaussianQuadraticKernel_eq",
+          "PrimeFactorOscillations.realSpectralGaussianQuadraticMGF_bound",
+          "PrimeFactorOscillations.realSpectralGaussianQuadraticMGF_energy_bound",
+          "PrimeFactorOscillations.stochasticGaussianQuadraticMGF_bound",
+          "PrimeFactorOscillations.realGaussianAffineProductKernel_nonnegative",
+          "PrimeFactorOscillations.realGaussianAffineProductKernel_continuous",
+          "PrimeFactorOscillations.realSpectralGaussianQuadraticKernel_integrable",
+          "PrimeFactorOscillations.realGaussianAffineProductKernel_le_envelope",
+          "PrimeFactorOscillations.realGaussianAffineProductKernel_integrable",
+          "PrimeFactorOscillations.realGaussianAffineProductAverage_le_MGF",
+          "PrimeFactorOscillations.stochasticGaussianAffineProductAverage_bound",
+          "PrimeFactorOscillations.stochasticGaussianAffineProductAverage_parameter_bound"
+        ],
+        "allowed_axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "log_sha256": "9696D4455075187430699D27FF81D78B46028BF6B7BF29DA04E96510F6DA23DE"
       }
     ],
     "active_proof": {
-      "module": "PrimeFactorOscillations.Helpers.HamiltonianGaussianStateRealization",
-      "status": "Next analytic consumer; not yet counted as a maintained theorem.",
-      "target": "Realize arbitrary complex polynomial covariance using standard Gaussians, then discharge the actual orthogonal block spectral representation, zero-sum vector condition and exact partial-permutation rook specialization. Consume the proved Wick integral bounds in the finite diagram sum and Cauchy remainder. Preserve the exact Gaussian normalizer, the complete covariance quotient and every compensation term.",
+      "module": "PrimeFactorOscillations.Helpers.HamiltonianGaussianRookIdentification",
+      "status": "Next exact consumer; not yet counted as a maintained theorem.",
+      "target": "Prove the complex/real scalar-normalization link and exact identification of the actual Gaussian affine product with the maintained partial-permutation rook polynomial. Use the full mixed Wick recursion, the Euler factorial weights (n-k)! and the permanent Laplace recurrence; retain mismatched supports and every contraction. Then transfer the proved collective product/MGF bounds through the full Cauchy and shifted Gamma consumers and the N^(-2) diagram remainder.",
       "consumer": "The complete signed comparison has relative error O(log(N)^M/N+log(N)^M*Amp(T)/N^2). The present local determinant remainder supplies its N^(-2) precision; the Wick, covariance-correction and signed-coordinate consumers are still required. At the advertised prime amplification Amp(T)<=N^(27/20), that precision contributes N^(-13/20) times logarithms, before the final advertised N^(-3/5) relaxation.",
       "proved_inputs": [
         "PrimeFactorOscillations.Helpers.HamiltonianMatrixSpectralAverage",
@@ -1804,7 +1899,12 @@
         "PrimeFactorOscillations.Helpers.HamiltonianGaussianPolynomialTilt",
         "PrimeFactorOscillations.Helpers.HamiltonianGaussianTensorTilt",
         "PrimeFactorOscillations.Helpers.HamiltonianGaussianPolynomialState",
-        "PrimeFactorOscillations.Helpers.HamiltonianGaussianLinearWick"
+        "PrimeFactorOscillations.Helpers.HamiltonianGaussianLinearWick",
+        "PrimeFactorOscillations.Helpers.HamiltonianGaussianStateRealization",
+        "PrimeFactorOscillations.Helpers.HamiltonianGaussianSpectralRealization",
+        "PrimeFactorOscillations.Helpers.HamiltonianGaussianQuadraticMGF",
+        "PrimeFactorOscillations.Helpers.HamiltonianGaussianTraceBounds",
+        "PrimeFactorOscillations.Helpers.HamiltonianGaussianProductTails"
       ]
     },
     "status_reconciliation_check": {
