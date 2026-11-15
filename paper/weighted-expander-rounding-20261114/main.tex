@@ -484,9 +484,17 @@ retained scaling equation, with displacement at most \(20rA/(\delta N)\)
 and error at most \(5000r^2A^3/(\delta^3N^2)\) from the actual \(K\ell\).
 The contraction budgets are derived from the actual matrix; the full
 signed quadratic residual is removed by exact parity conservation.
-The complete scaling-cost, local determinant and first-correction
-comparison, coordinate-occupancy bounds, the final compensated minor
-remainder and arithmetic closures remain formalization obligations.
+The full signed scaling cost also has a maintained proof, with
+\[
+ \left|{\cal S}-(r-s_{IJ})-\tfrac12\ell^\top K\ell\right|
+ \leq\frac{100000r^3A^3}{\delta^3N^2}.
+\]
+Its existence theorem consumes the actual positive repair, including
+independent supports and \(r=0\). No unsigned bound replaces either
+leading overlap or quadratic compensation.
+The local determinant and first-correction comparison,
+coordinate-occupancy bounds, the final compensated minor remainder
+and arithmetic closures remain formalization obligations.
 The headline Hamiltonian counting and inverse theorems are not yet
 Lean-certified.
 Compilation of this manuscript does not provide mathematical or

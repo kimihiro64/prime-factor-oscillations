@@ -161,9 +161,9 @@ row degrees \(d_i\), they give
 and hence the full scaling cost is
 \[
  {\cal S}:=\sum\log(1+z_A)+\sum\log(1+z_B)
- =r-s_{IJ}+\tfrac12\ell^\top K\ell
-       +O_\delta\left(
-       \frac{\operatorname{poly}(r,1+A,\log(2N))}{N^2}\right).
+ =r-s_{IJ}+\tfrac12\ell^\top K\ell+R_{\cal S},
+ \qquad |R_{\cal S}|
+ \leq\frac{100000r^3A^3}{\delta^3N^2}.
 \]
 Indeed the cubic Taylor cost is at most \(2N\|z\|_\infty^3\);
 the omitted-coordinate costs are at most
@@ -307,8 +307,17 @@ the entry cap, the centered spectral gap and (R1), with independently
 selected equal-sized supports, including \(r=0\).
 The proof retains the complete signed nonlinear map and its boundary
 compensation; the contraction budgets are derived rather than assumed.
-The full scaling-cost, local determinant and first-correction comparison
-and the resulting minor ratio remainder are still formalization obligations.
+The full signed scaling-cost formula and its explicit
+\(100000r^3A^3/(\delta^3N^2)\) remainder also have maintained proofs in
+\texttt{HamiltonianStochasticScalingCost}.
+The exact finite quadratic identity and the cubic logarithm remainder
+are proved for both signs of each displacement. The proof keeps
+\(\ell^\top K\ell\), the independent overlap \(s_{IJ}\), and every
+removed-coordinate correction. A direct existence theorem supplies
+all positive scaling multipliers and this cost bound from the
+original matrix hypotheses.
+The local determinant and first-correction comparison and the resulting
+minor ratio remainder are still formalization obligations.
 
 \begin{remark}[Independent check against every cofactor recursion]
 Let \(W(I,J)=r(r-1)/(2N)+u^\top\Gamma u/2+v^\top u\)
