@@ -260,8 +260,9 @@ normalizer holomorphy, scaled Cauchy tail and integrated finite-jet remainder
 are now formalized as well. Unique support/profile ownership, the full
 Gaussian readout of actual scalar Taylor coefficients, and Taylor agreement
 between the compensated rook function and the finite Gaussian jet are also
-formalized. The finite jet's homogeneous-degree identification with the
-covariance formal series and the permanent remainder assembly remain
+formalized. The full homogeneous Gaussian decomposition now gives the
+actual rook/Wick Taylor identity in every order. The covariance Taylor-entry
+to formal-resolvent-series bridge and permanent remainder assembly remain
 formalization obligations. The full original outside-Gamma consumer
 is formalized below.
 
@@ -394,10 +395,27 @@ interval has vanishing derivatives of every order below \(h\): a smaller
 vanishing order would factor out \(t^m\), leaving a continuous nonzero
 factor that the bound forces to tend to zero. This implication and the
 actual stochastic rook consumer are formalized.
-The remaining Lean coefficient obligation is the finite jet's
-homogeneous-degree identification with the covariance formal series,
-followed by uniform remainder assembly. The fixed-\(d,h\) domination
-constant is not used as a uniform estimate in the subsequent diagram bounds.
+The homogeneous decomposition is now formalized as well. For any finite
+Gaussian polynomial, odd total degrees vanish. Its degree-\(2e\) state
+under covariance dilation \(t\Xi_t\) factors exactly as \(t^e\) times
+an analytic state. All its derivatives below order \(e\) therefore vanish.
+The finite jet's amplitude coefficients below \(2h\) equal the complete
+signed product coefficients, and their actual normalized integrals are
+exactly its homogeneous Gaussian states. No infinite series or unbounded
+derivative is interchanged with an integral.
+Combining these facts with \(h=k+1\) gives the maintained all-order identity
+\[
+ [t^k]F(t)
+   =\sum_{e=0}^{k}\sum_{v=0}^{e}
+                  [t^k]D_{e,v}(\Gamma_t),\qquad k\geq0.
+\]
+Every support, degree composition, pairing and compensation coefficient
+is retained, including the constant coefficient.
+The remaining Lean coefficient bridge identifies the actual covariance
+Taylor entries in this identity with the maintained full signed matrix
+resolvent series. Uniform remainder assembly then consumes the bounds below.
+The fixed-\(d,h\) domination constant is not used as a uniform estimate in
+those bounds.
 
 The complete finite coefficient estimate has a maintained proof with
 explicit constants. Set
@@ -456,10 +474,10 @@ Every nonzero profile satisfies \(e-v\geq2\). Bound its extra powers
 of \(e/N\) by one, use \(e^2\leq121\), and retain all \(v=0,\ldots,e\)
 and all eight degrees. The displayed constant uses at most twelve
 support sizes per degree; no degree or compensation term is omitted.
-The scalar Gaussian coefficient readout and actual rook/finite-jet
-Taylor matching are now formalized. To consume these formal bounds,
-the finite jet's homogeneous degrees must still be matched to the
-covariance-series deformation coefficients.
+The all-order actual rook/Wick Taylor readout is now formalized, using the
+complete homogeneous finite-jet decomposition. To consume these formal
+bounds, the actual covariance Taylor entries must still be identified with
+the maintained signed matrix resolvent series.
 
 Take \(H=\lceil C_\delta A^3\sqrt N\rceil\), increasing its
 constant below if necessary. For large \(N\), \(H<N\).
