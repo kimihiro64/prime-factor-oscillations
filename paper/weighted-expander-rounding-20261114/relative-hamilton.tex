@@ -13,6 +13,32 @@ The exact identity of Liu~\cite{Liu} is
 We use this signed identity before estimating errors.
 Its principal terms must not be replaced by their absolute mass.
 
+The full identity now has the maintained Lean proof
+\texttt{hamiltonianLiuIdentity}, over every commutative coefficient ring.
+For clarity, the proof expands the actual determinant and permanent and
+regroups their products by the resulting full permutation \(\sigma\).
+The selected vertex set must be invariant under \(\sigma\), so it is
+uniquely a union of complete orbits, including singleton fixed points.
+For a selected orbit family \(\mathcal C\), the restricted sign satisfies
+\[
+ (-1)^{|\bigcup\mathcal C|}
+       \operatorname{sgn}(\sigma|_{\bigcup\mathcal C})
+                         =(-1)^{|\mathcal C|}.
+\]
+Consequently the full coefficient of the permutation product is
+\[
+ -\sum_{\mathcal C\subseteq\operatorname{Orb}(\sigma)}
+       (-1)^{|\mathcal C|}|\bigcup\mathcal C|
+ =N\,\mathbf1_{\{|\operatorname{Orb}(\sigma)|=1\}}.
+\]
+Indeed each orbit length is multiplied by the alternating subset sum
+over all other orbits. This sum is zero unless there are no other
+orbits. The empty selected set contributes zero, including in
+dimension zero. The complementary-permutation bijection and its
+matrix-product identity are part of the formal proof, so no fixed-point,
+overlap or completion term is omitted. This formalizes the established
+identity; it is not a new enumeration claim.
+
 We first record a bound used only for a separately retained tail.
 For a doubly stochastic matrix \(D\) with maximum entry \(A/N\),
 the row-cap Bregman argument and van der Waerden give, for
