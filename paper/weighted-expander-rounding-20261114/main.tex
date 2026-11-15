@@ -597,10 +597,19 @@ cycle-count consumer now have maintained proofs.  Their explicit count
 error is \((1+P_N)^2E_N+(2+P_N)P_N\), where \(P_N\) is the proved
 permanent allowance and \(E_N\) retains the signed correction, amplified
 two-power residual and complete large tail.
-The clean asymptotic envelope, sharp spectral amplification/inverse and
-arithmetic/public closures remain formalization obligations.
-The headline Hamiltonian counting and inverse theorems are not yet
-Lean-certified.
+The complete uniform logarithmic envelope and sharp spectral amplification
+now have maintained proofs.  The actual count error is bounded by
+\(C_{\rho,C_0}L^H/N+C_{\rho,C_0}L^H\mathcal A(T)/N^2\), with one
+threshold for every admissible kernel.  The paper's exact factorial,
+unoriented-cycle and transpose conventions are included.
+The sharp coefficient \(\kappa_\rho\) is proved for the full singular
+spectrum, including \(\rho=0\); at \(\rho=3/5\) the maintained proof
+gives \(\kappa_\rho<9/4\) and the stated \(N^{27/20}\) amplification
+bound under the cap condition.
+The power-decay corollaries, inverse and arithmetic/public closures
+remain formalization obligations.
+The complete arithmetic headline, inverse results and remaining
+public integrations are not yet Lean-certified.
 Compilation of this manuscript does not provide mathematical or
 formal certification, and independent referee verification remains
 outstanding.

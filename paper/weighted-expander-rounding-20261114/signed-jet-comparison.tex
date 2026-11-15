@@ -541,9 +541,79 @@ deleted supports.  The maintained owners are
 \texttt{HamiltonianSignedComparisonAssembly},
 \texttt{HamiltonianDeterminantNormalization} and
 \texttt{HamiltonianWeightedCycleComparison}.
-The clean asymptotic envelope, sharp amplification and inverse,
-arithmetic applications, exact analytic size-derivative readout and
-public headline integration remain formalization obligations.
+\paragraph{Formalized logarithmic envelope and sharp amplification.}
+The existing permanent scalar budget is consumed to obtain
+\(0\leq P_N\leq1\) above one uniform threshold.  Thus the actual count
+error is at most \(4E_N+3P_N\).
+The full divided tail in \(E_N\), including its factor
+\(e^{(A-1)/\delta}\), is bounded by \(N^{-2}\) on a uniform larger
+threshold.  For example it suffices to require
+\[
+ L\geq1,\qquad \log L\geq1,\qquad
+ L\geq4(c/\delta+2),
+ \quad A\leq cL,
+\]
+because then
+\[
+ -L^3\log L/4+(A-1)/\delta
+       \leq-2L\leq-2\log N .
+\]
+
+Let \(M\) be the maintained minor exponent at entry exponent \(2\)
+and put \(H=M+25\).  An explicit common constant is obtained by setting
+\[
+ \begin{split}
+ D_{c,\delta}
+   &=21c^2/\delta^3+|C_{\rm per,\delta}|(1+c)^{24},\\
+ F_{c,\delta}
+   &=3600(c/\delta)^3+4+3D_{c,\delta},\\
+ G_{c,\delta}
+   &=8c|C_{\rm min,\delta}|,\qquad
+ C_{c,\delta}=1+F_{c,\delta}+G_{c,\delta}>0 .
+ \end{split}
+\]
+The maintained scalar comparison bounds the permanent allowance by
+\(D_{c,\delta}L^H/N\), the full signed correction by the corresponding
+\(L^H/N\) term, and the amplified residual by the corresponding
+\(L^H\mathcal A(T)/N^2\) term.  It proves the actual uniform count bound
+\[
+ \left|C_N^2N\operatorname{cyc}(P_T)-1\right|
+ \leq C_{c,\delta}\frac{L^H}{N}
+       +C_{c,\delta}\frac{L^H\mathcal A(T)}{N^2}.
+\]
+The exact reformulation with \(Z_{\rm H}(P_T)=
+\operatorname{cyc}(P_T)/2\), its factorial power \(N^{2N}\), and the
+paper's \(BB^\top\) Gram convention is separately compiled.
+
+The sharp spectral coefficient is also formalized.
+For \(f(x)=\log(1+x)-\log(1-x)\),
+the derivative \(f'(x)=2/(1-x^2)\) is increasing on \([0,r]\) when
+\(r<1\).  Convexity and \(f(0)=0\) imply
+\(f(x)\leq f(r)x/r\) for \(0\leq x\leq r\), \(r>0\).
+Apply this with \(r=\rho^2\) to every actual centered Gram eigenvalue.
+The products and exact spectral energy give
+\[
+ 0<\mathcal A(T)\leq
+   \exp\!\bigl(\kappa_\rho\|B\|_F^2\bigr)
+   \leq\exp\!\bigl(\kappa_\rho(A-1)\bigr).
+\]
+The case \(\rho=0\) is included explicitly with \(\kappa_0=2\).
+The rational specialization
+\(\kappa_{3/5}<9/4\) is certified using
+\(17/8<\exp(81/100)\), itself following from the quadratic
+exponential lower bound.  Consequently
+\[
+ \|B\|\leq3/5,\quad A-1\leq(3/5)\log N
+       \quad\Longrightarrow\quad \mathcal A(T)\leq N^{27/20}.
+\]
+The maintained owners are
+\texttt{HamiltonianWeightedCycleAsymptotics},
+\texttt{HamiltonianCycleLogEnvelope},
+\texttt{HamiltonianAmplificationCoordinate} and
+\texttt{HamiltonianSpectralAmplification}.
+Uniform power-decay corollaries, the inverse, arithmetic applications,
+the exact analytic size-derivative readout and public integration
+remain formalization obligations.
 
 \begin{theorem}[Relative bipartite comparison at logarithmic density]
 \label{thm:criticalrelative}
@@ -634,8 +704,9 @@ absorbed by the displayed bound, since that permanent
 relative correction tends to zero.
 
 Finally the eigenvalues \(x\) of \(Q\) lie in \([0,\rho^2]\).
-The function \(x^{-1}\log((1+x)/(1-x))\) is increasing there,
-as its power series has nonnegative coefficients.
+The convex chord inequality for
+\(f(x)=\log(1+x)-\log(1-x)\), proved above with its exact derivative,
+gives \(f(x)\leq\kappa_\rho x\); at \(\rho=0\) every \(x\) is zero.
 Also \(\operatorname{tr}Q\leq A-1\).
 Consequently
 \[
