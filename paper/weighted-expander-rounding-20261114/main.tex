@@ -450,12 +450,15 @@ rook/Wick Taylor identity and exact covariance formal-series adapter now
 have maintained proofs. The complete physical-window consumer combines
 those coefficients with all moderate/high bounds and both Cauchy tails,
 retaining the full low signed correction. The explicit scalar cutoff,
-its cube-root and length constraints, both Cauchy tails, and the resulting
-uniform \(C_\delta(1+A)^{24}/N^2\) remainder are now formalized.
-Explicit low-degree identification, covariance-correction derivatives and
-Gamma assembly remain formalization obligations, as do the Hamiltonian-cycle
-and coordinate-occupancy identities, minor remainders and arithmetic
-closures. In particular,
+its cube-root and length constraints, both Cauchy tails, and the actual
+low-diagram normal form are now formalized. The normalized compensated
+observable has the uniform covariance-correction remainder
+\(C'_\delta(1+A)^{24}/N^2\), including the entire physical window.
+One threshold works for every kernel and every \(A\le(\log N)^K\)
+for each fixed \(\delta,K\).
+Covariance-correction derivatives and Gamma assembly remain formalization
+obligations, as do the Hamiltonian-cycle and coordinate-occupancy identities,
+minor remainders and arithmetic closures. In particular,
 none of the headline
 counting or inverse theorems is yet Lean-certified.
 Compilation of this manuscript does not provide mathematical or

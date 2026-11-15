@@ -264,10 +264,11 @@ formalized. The full homogeneous Gaussian decomposition gives the
 actual rook/Wick Taylor identity in every order. Its covariance Taylor-entry
 to formal-resolvent-series bridge is also formalized. The actual full-window
 remainder consumer is formalized, including the complete low-correction
-tail. Quantitative cutoff selection and the resulting uniform
-\(C_\delta(1+A)^{24}/N^2\) bound are now formalized. The explicit
-low-diagram normal form and Gamma assembly remain formalization obligations.
-The full original outside-Gamma consumer is formalized below.
+tail. Quantitative cutoff selection, the exact low-diagram normal form,
+and the resulting actual covariance-correction remainder
+\(C'_\delta(1+A)^{24}/N^2\) are now formalized, uniformly in the
+polylogarithmic entry-cap range. Gamma assembly remains a formalization
+obligation. The full original outside-Gamma consumer is formalized below.
 
 The block-power expansion gives, for a fixed
 \(\theta=b(1-\delta/2)<1\),
@@ -547,8 +548,23 @@ where the maintained proof permits
        +10(1+128e/\delta)^3.
 \end{align*}
 Both Cauchy tails are individually at most \(N^{-2}\) before multiplying
-the low-correction factor. The actual low-diagram normal form and the
-complete Gamma assembly remain formalization obligations.
+the low-correction factor. The complete low-diagram normal form is now
+formalized:
+\[
+ W_s=1+\Psi(\Gamma_s)-\frac52\sum_i\Gamma_s(i,i)^3.
+\]
+The proof exhausts all degree profiles and supports, and converts the
+unordered pairs to the full ordered off-diagonal sum with its exact
+factor \(1/2\). The cubic diagonal term is then bounded as an explicit
+\(N^{-2}\) remainder. Consequently the actual compensated observable
+satisfies the maintained bound
+\[
+ |F_s(1)-(1+\Psi(\Gamma_s))|
+ \le (C_\delta+1080/\delta^3)(1+A)^{24}/N^2 .
+\]
+The same maintained proof supplies a single \(N_0(\delta,K)\) for all
+kernels and all \(1\le A\le(\log N)^K\). The complete Gamma assembly
+remains a formalization obligation.
 
 Take \(H=\lceil C_\delta A^3\sqrt N\rceil\), increasing its
 constant below if necessary. For large \(N\), \(H<N\).
