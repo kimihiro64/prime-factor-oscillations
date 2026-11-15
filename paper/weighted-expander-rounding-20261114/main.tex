@@ -502,10 +502,15 @@ including empty supports. It gives the actual retained-matrix bound
 \]
 The determinant ratio is positive. The signed trace stays in the
 expansion; only the higher principal-minor coefficients are estimated.
-The remaining scaling and centering changes in the local determinant,
-the first-correction comparison, coordinate-occupancy bounds, the final
-compensated minor remainder and arithmetic closures remain
-formalization obligations.
+The full scaling and rank-centering perturbation, the actual retained
+inverse, and the higher determinant remainder are now formalized too.
+Writing \(p_0=A/\delta\), on \(rp_0^3/N\leq10^{-4}\) the latter is at most
+\(2230272r^2p_0^6/N^2\), with the complete signed linear trace retained.
+The full-matrix scaling trace and the zero centering trace also have
+maintained proofs. The remaining support-restricted trace comparison,
+the final local determinant assembly, the first permanent-correction
+comparison, coordinate-occupancy bounds, the final minor ratio
+and arithmetic closures remain formalization obligations.
 The headline Hamiltonian counting and inverse theorems are not yet
 Lean-certified.
 Compilation of this manuscript does not provide mathematical or

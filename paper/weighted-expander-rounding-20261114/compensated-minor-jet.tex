@@ -206,22 +206,128 @@ Contracting it with \(\diag(z_A)D+D\diag(z_B)\)
 therefore gives \(h^\top z\), with the constant \(J_N/N\)
 parts cancelling exactly.
 
-All other determinant terms have a two-power remainder.
-The Schur-complement change from \(M^{-1}[S^c]\) to
-\((M[S^c])^{-1}\) has trace norm at most \(C_\delta rA/N\).
-It is multiplied by a perturbation of operator norm
-\(O_\delta(rA\log(2N)/N)\).
-The squared Frobenius norm of the scaling perturbation is
-\(O_\delta(r^2(1+A)^3\log(2N)^2/N^2)\).
-Removed-coordinate contractions contain \(rN\) terms,
-each with one scaling factor and two \(O_\delta(A/N)\)
-matrix entries.
-Finally the constant-block change contracts to zero on the
-full supports; its remaining restricted contraction contains
-only the removed row/column overlap and is of the same
-smaller scale. The exact quadratic log-determinant remainder
-is bounded by these squared Frobenius norms, since the
-matrices retain a fixed positive spectral lower bound.
+Here is a finite quantitative version of the remaining determinant
+calculation. Put \(q=1/N\), \(p_0=A/\delta\geq1\), and, on a
+smaller finite range, require
+\[
+ rp_0^3q\leq10^{-4}.
+ \tag{D1}
+\]
+This implies (R1) and holds uniformly in the theorem's full
+polylogarithmic range after increasing its common starting order.
+Let \(V\) be all \(2N\) labelled coordinates, \(S=I\sqcup J\),
+\(R=V\setminus S\), and set
+\[
+ R_0=M^{-1}=I-\Gamma,\qquad
+ {\cal R}=R_0[R,R]-R_0[R,S]R_0[S,S]^{-1}R_0[S,R]
+          =(M[R,R])^{-1}.
+\]
+Write \(C\) for the full cross-block matrix with entries \(1\)
+between the two halves and \(0\) within each half,
+\(C_R=C[R,R]\), \(P_R=P[R,R]\), \(Z=\diag z_R\), and
+\[
+ q'=\frac q{1-rq}=\frac1{N-r},\qquad
+ E=ZP_R+P_RZ+ZP_RZ+(q-q')C_R .
+\]
+Thus \(\widetilde M=M[R,R]+E\) is exactly the block matrix
+\(I+\widetilde\Omega\) for the repaired and newly centered kernel.
+All quadratic scaling and rank-centering terms remain in \(E\).
+The maintained entry and inverse bounds give
+\[
+ \begin{gathered}
+ \|{\cal R}\|_{\infty\to\infty}\leq6p_0,\qquad
+ |({\cal R}-R_0[R,R])_{ij}|\leq16rp_0^2q^2,\\
+ |E_{ij}|\leq44rp_0^2q^2,\qquad
+ |({\cal R}E)_{ij}|\leq264rp_0^3q^2.
+ \end{gathered}
+\]
+The last entry bound, \(|R|q\leq2\), and (D1) permit the
+general logarithm estimate above. Its actual-matrix consequence is
+\[
+ \left|\log\frac{\det\widetilde M}{\det M[R,R]}
+                       -\operatorname{tr}({\cal R}E)\right|
+       \leq2230272r^2p_0^6q^2.                 \tag{D2}
+\]
+The determinant ratio is positive. These statements, including
+the shifted normalization \((N-r)q'=1\), have maintained proofs.
+
+It remains to evaluate the signed trace in (D2).
+Extend \(z_R\) by zero on \(S\), obtaining \(z_{\rm ext}\), and put
+\(X=\diag(z_{\rm ext})P+P\diag(z_{\rm ext})\).
+Before taking any bound, the exact decomposition is
+\[
+ \begin{split}
+ \operatorname{tr}({\cal R}E)-\operatorname{tr}(R_0X)
+ ={}&\operatorname{tr}(({\cal R}-R_0[R,R])E)
+       +\operatorname{tr}(R_0[R,R]ZP_RZ)\\
+    &+(q-q')\operatorname{tr}(R_0[R,R]C_R)-L_{\rm rem},\\
+ L_{\rm rem}
+ ={}&\sum_{d\in S,\ j\in V}(R_0)_{dj}X_{jd}
+       +\sum_{i\in R,\ d\in S}(R_0)_{id}X_{di}.
+ \end{split}                                                   \tag{D3}
+\]
+The two removed-coordinate sums are disjoint; the \(S\times S\)
+part vanishes for \(X\). All of \(E,ZP_RZ,C_R,X[R,R]\)
+have zero diagonal, so their contractions with \(R_0[R,R]\)
+equal minus their contractions with \(\Gamma[R,R]\).
+This cancels the identity contribution exactly.
+The full stochastic identities give
+\[
+ R_0C=CR_0=C,\quad
+ PR_0=R_0P=\Gamma+qC,\quad
+ \operatorname{tr}(R_0C)=0,\quad
+ \operatorname{tr}(R_0X)=-2h^\top z_{\rm ext}.                \tag{D4}
+\]
+These full-matrix identities have maintained Lean proofs.
+
+For completeness, the four remainder terms in (D3) have bounds
+\[
+ \begin{array}{c|c}
+ \text{term}&\text{absolute bound}\\ \hline
+ \text{Schur correction}&2816r^2p_0^4q^2\\
+ \text{quadratic scaling}&3200r^2p_0^4q^2\\
+ \text{removed linear terms}&160r^2p_0^2q^2\\
+ \text{rank centering}&32r^2p_0q^2 .
+ \end{array}                                                     \tag{D5}
+\]
+The first uses \(|R|\leq2/q\) and the two entry bounds above.
+For the second, use the exact zero diagonal,
+\(|\Gamma_{ij}|\leq2p_0q\),
+\(|z_i|\leq20t\), \(t=rp_0q\), and \(A\leq p_0\);
+the double sum is at most \(3200p_0At^2\).
+For the third, each removed row and column has total \(P\)-mass
+at most \(1\), so the two disjoint sums cost at most
+\(2(2r)(2p_0q)(20t)\).
+For the fourth, the full trace in (D4) is zero.
+The exact support partition leaves at most \(2(2r)(2/q)\)
+products of magnitude at most \(2p_0q\); multiply by
+\(|q-q'|\leq2rq^2\).
+This partition includes the removed-by-removed overlap.
+
+Finally apply the already proved retained linear-cost comparison
+with weight \(h\), source \(K\ell\), full weight mass at most
+\(4p_0\), removed weight mass at most \(4rp_0q\), displacement
+error \(5000p_0t^2\), and removed source bound \(9t\).
+It gives
+\[
+ 2|h^\top z_{\rm ext}-h^\top K\ell|
+ \leq40000r^2p_0^4q^2+72r^2p_0^2q^2.
+\]
+Together (D3)--(D5) imply
+\[
+ |\operatorname{tr}({\cal R}E)+2h^\top K\ell|
+                  \leq60000r^2p_0^4q^2.        \tag{D6}
+\]
+Combining (D2), (D6), and the deleted-principal
+\(128r^2p_0^2q^2\) bound proves the finite estimate
+\[
+ \left|\log\frac{\det\widetilde M}{\det M}
+           +\operatorname{tr}\Gamma[S]+2h^\top K\ell\right|
+                  \leq10^7r^2p_0^6q^2.        \tag{D7}
+\]
+The support-restricted trace bounds (D3), (D5), (D6) and
+the final assembly (D7) remain Lean formalization obligations;
+the preceding explicit estimates specify their full consumer.
 Consequently, writing \(\widetilde B=\widetilde D-J_n/n\),
 \[
  \log\frac{\det(I-\widetilde B^\top\widetilde B)^{-1/2}}
@@ -336,9 +442,13 @@ gives positivity of \(\det(I+E)\) and
 No symmetry assumption or replacement of the signed trace is used.
 The determinant coefficient proof cancels the minor factorial against
 the number of supports before summing the higher-degree terms.
-The remaining scaling and centering determinant changes, the
-first-correction comparison and the resulting minor ratio remainder
-are still formalization obligations.
+The actual scaling and rank-centering perturbation, its inverse
+budgets, the higher determinant remainder (D2), and the complete
+full-matrix cancellation (D4) are now formalized as well.
+The remaining support-restricted trace comparison and final local
+determinant assembly are explicitly specified in (D3)--(D7).
+Those steps, the first-correction comparison and the resulting
+minor ratio remainder are still formalization obligations.
 
 \begin{remark}[Independent check against every cofactor recursion]
 Let \(W(I,J)=r(r-1)/(2N)+u^\top\Gamma u/2+v^\top u\)

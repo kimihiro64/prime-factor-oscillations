@@ -356,7 +356,7 @@
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\relative-permanents.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
       "lean_status": "fully_formalized_direct_normalized_uniform_statement",
-      "audit_note": "Both paper permanent statements now have direct maintained normalized Lean consumers. stochastic_permanent_relative_correction_polylog_uniform proves, for one N0(delta,K)>=16 and every admissible kernel and 1<=A<=log(N)^K, abs((N^N/N!)*per(T)/Delta(1)-(1+Q_N(T)))<=(1+A)^24*C_delta/N^2 and abs(Q_N(T))<=21*A^2/(delta^3*N). For K>0, hamiltonian_permanent_polylog_first_order_budget supplies the uniform scalar threshold, and stochastic_permanent_first_order_polylog_uniform proves the directly normalized first-order error <=N^(-1/8). The full common threshold is independent of the kernel. These three new theorems compile and pass the focused foundational-axiom audit. The complete signed second-order expansion is retained for the critical Hamiltonian consumer; its first-order consequence is not substituted into that sharper argument. Both uniform permanent statements, actual cycle identities, positive stochastic repair and full signed scaling cost remain compiled and focused-audited. The actual deleted-principal determinant ratio is now also compiled: abs(log(det(M_RR)/det(M))+trace(Gamma_DD))<=128*(r*A*q/(1-rho))^2, with positive ratio, independent equal-cardinality supports and r=0. The proof includes exact support reindexing, the full signed Schur product and Jacobi identity. The general logdet estimate retains the actual signed trace and bounds only higher coefficients by 8*(m*eps)^2. The actual scaling/recentering determinant changes, first permanent correction difference, full minor ratio, signed occupancy/comparison, amplification/inverse and arithmetic/public closures remain unfinished. The full headline is not Lean-certified."
+      "audit_note": "Both paper permanent statements now have direct maintained normalized Lean consumers. stochastic_permanent_relative_correction_polylog_uniform proves, for one N0(delta,K)>=16 and every admissible kernel and 1<=A<=log(N)^K, abs((N^N/N!)*per(T)/Delta(1)-(1+Q_N(T)))<=(1+A)^24*C_delta/N^2 and abs(Q_N(T))<=21*A^2/(delta^3*N). For K>0, hamiltonian_permanent_polylog_first_order_budget supplies the uniform scalar threshold, and stochastic_permanent_first_order_polylog_uniform proves the directly normalized first-order error <=N^(-1/8). The full common threshold is independent of the kernel. These three new theorems compile and pass the focused foundational-axiom audit. The complete signed second-order expansion is retained for the critical Hamiltonian consumer; its first-order consequence is not substituted into that sharper argument. Both uniform permanent statements, actual cycle identities, positive repair, full signed scaling cost and removed-principal determinant cost remain compiled and focused-audited. The full scaling/rank-centering perturbation has actual entry bound44*r*p^2*q^2 and normalization(N-r)*qNew=1. The actual retained inverse has its full inverse equation, row bound6p and Schur entry error16*r*p^2*q^2. On r*p^3*q<=1/10000, the full actual scaling logdet remainder is at most2230272*r^2*p^6*q^2, retaining trace(J*E) signed. The full-matrix identities R0*C=C*R0=C, P*R0=R0*P=Gamma+q*C, zero centering trace and trace(R0*(Z*P+P*Z))=-2*h^T*z also compile. The remaining support-restricted trace comparison, final local determinant assembly, first permanent correction difference, full minor ratio, signed occupancy/comparison, amplification/inverse and arithmetic/public closures are unfinished. The full headline is not Lean-certified."
     },
     {
       "id": "lem:relativecompensatedminors",
@@ -477,7 +477,7 @@
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\permanent-second-order.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
       "lean_status": "fully_formalized_direct_normalized_uniform_statement",
-      "audit_note": "Both paper permanent statements now have direct maintained normalized Lean consumers. stochastic_permanent_relative_correction_polylog_uniform proves, for one N0(delta,K)>=16 and every admissible kernel and 1<=A<=log(N)^K, abs((N^N/N!)*per(T)/Delta(1)-(1+Q_N(T)))<=(1+A)^24*C_delta/N^2 and abs(Q_N(T))<=21*A^2/(delta^3*N). For K>0, hamiltonian_permanent_polylog_first_order_budget supplies the uniform scalar threshold, and stochastic_permanent_first_order_polylog_uniform proves the directly normalized first-order error <=N^(-1/8). The full common threshold is independent of the kernel. These three new theorems compile and pass the focused foundational-axiom audit. The complete signed second-order expansion is retained for the critical Hamiltonian consumer; its first-order consequence is not substituted into that sharper argument. Both uniform permanent statements, actual cycle identities, positive stochastic repair and full signed scaling cost remain compiled and focused-audited. The actual deleted-principal determinant ratio is now also compiled: abs(log(det(M_RR)/det(M))+trace(Gamma_DD))<=128*(r*A*q/(1-rho))^2, with positive ratio, independent equal-cardinality supports and r=0. The proof includes exact support reindexing, the full signed Schur product and Jacobi identity. The general logdet estimate retains the actual signed trace and bounds only higher coefficients by 8*(m*eps)^2. The actual scaling/recentering determinant changes, first permanent correction difference, full minor ratio, signed occupancy/comparison, amplification/inverse and arithmetic/public closures remain unfinished. The full headline is not Lean-certified."
+      "audit_note": "Both paper permanent statements now have direct maintained normalized Lean consumers. stochastic_permanent_relative_correction_polylog_uniform proves, for one N0(delta,K)>=16 and every admissible kernel and 1<=A<=log(N)^K, abs((N^N/N!)*per(T)/Delta(1)-(1+Q_N(T)))<=(1+A)^24*C_delta/N^2 and abs(Q_N(T))<=21*A^2/(delta^3*N). For K>0, hamiltonian_permanent_polylog_first_order_budget supplies the uniform scalar threshold, and stochastic_permanent_first_order_polylog_uniform proves the directly normalized first-order error <=N^(-1/8). The full common threshold is independent of the kernel. These three new theorems compile and pass the focused foundational-axiom audit. The complete signed second-order expansion is retained for the critical Hamiltonian consumer; its first-order consequence is not substituted into that sharper argument. Both uniform permanent statements, actual cycle identities, positive repair, full signed scaling cost and removed-principal determinant cost remain compiled and focused-audited. The full scaling/rank-centering perturbation has actual entry bound44*r*p^2*q^2 and normalization(N-r)*qNew=1. The actual retained inverse has its full inverse equation, row bound6p and Schur entry error16*r*p^2*q^2. On r*p^3*q<=1/10000, the full actual scaling logdet remainder is at most2230272*r^2*p^6*q^2, retaining trace(J*E) signed. The full-matrix identities R0*C=C*R0=C, P*R0=R0*P=Gamma+q*C, zero centering trace and trace(R0*(Z*P+P*Z))=-2*h^T*z also compile. The remaining support-restricted trace comparison, final local determinant assembly, first permanent correction difference, full minor ratio, signed occupancy/comparison, amplification/inverse and arithmetic/public closures are unfinished. The full headline is not Lean-certified."
     },
     {
       "id": "thm:minorjet",
@@ -485,8 +485,8 @@
       "kind": "theorem",
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\compensated-minor-jet.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
-      "lean_status": "partially_formalized_positive_repair_scaling_cost_and_deleted_principal_determinant",
-      "audit_note": "Both uniform permanent statements, actual cycle identities, positive stochastic repair and full signed scaling cost remain compiled and focused-audited. The actual deleted-principal determinant ratio is now also compiled: abs(log(det(M_RR)/det(M))+trace(Gamma_DD))<=128*(r*A*q/(1-rho))^2, with positive ratio, independent equal-cardinality supports and r=0. The proof includes exact support reindexing, the full signed Schur product and Jacobi identity. The general logdet estimate retains the actual signed trace and bounds only higher coefficients by 8*(m*eps)^2. The actual scaling/recentering determinant changes, first permanent correction difference, full minor ratio, signed occupancy/comparison, amplification/inverse and arithmetic/public closures remain unfinished. The full headline is not Lean-certified."
+      "lean_status": "partially_formalized_repair_scaling_and_determinant_remainders_full_trace",
+      "audit_note": "Both uniform permanent statements, actual cycle identities, positive repair, full signed scaling cost and removed-principal determinant cost remain compiled and focused-audited. The full scaling/rank-centering perturbation has actual entry bound44*r*p^2*q^2 and normalization(N-r)*qNew=1. The actual retained inverse has its full inverse equation, row bound6p and Schur entry error16*r*p^2*q^2. On r*p^3*q<=1/10000, the full actual scaling logdet remainder is at most2230272*r^2*p^6*q^2, retaining trace(J*E) signed. The full-matrix identities R0*C=C*R0=C, P*R0=R0*P=Gamma+q*C, zero centering trace and trace(R0*(Z*P+P*Z))=-2*h^T*z also compile. The remaining support-restricted trace comparison, final local determinant assembly, first permanent correction difference, full minor ratio, signed occupancy/comparison, amplification/inverse and arithmetic/public closures are unfinished. The full headline is not Lean-certified."
     },
     {
       "id": "lem:signedoccupancy",
@@ -1044,7 +1044,7 @@
     },
     {
       "file": "main.tex",
-      "sha256": "95CFE3208EB4202F085885798F806B63B314E5B6E24AE1A9117E1D15506406F0"
+      "sha256": "01186CD4E2AD7AA6BCF35F8C9A9624ADCF6D6C0A343A6D6AB67E818FBA25E19F"
     },
     {
       "file": "relative-hamilton.tex",
@@ -1056,7 +1056,7 @@
     },
     {
       "file": "compensated-minor-jet.tex",
-      "sha256": "7EAA11908E45B887FFF3A1E665CD7581E8228B00A4952DEE1065F1D631627E9D"
+      "sha256": "0A578099811BC0FF8C5BBB3CF7728E9F58FE5E5CA1E1FE9B12CB7B1FEAD11768"
     },
     {
       "file": "signed-jet-comparison.tex",
@@ -1073,7 +1073,7 @@
     "complete_consumer": "rho=a=3/5; amplification <=m^(27/20); first signed correction polylog/m; only residual pays amplification, giving O(N^(-3/5)).",
     "inverse": "A fixed relative counting defect forces collective singular mass >=(2/kappa_rho)log N-O(log log N).",
     "further_extension": "Arbitrary fixed logarithmic density coefficients, and all fixed congruence filters, would require higher-order compensated expansions beyond the proved two-power remainder.",
-    "next_review_focus": "Prove the actual scaling and rank-centering determinant comparison, retaining its linear trace -2*h^T*K*ell. Put p=A/(1-rho), q=1/N and, on r*p^3*q<=1/10000, derive the retained inverse row bound6p, actual perturbation entry bound44*r*p^2*q^2 and product entry bound264*r*p^3*q^2. The compiled generic logarithm estimate then has error at most2230272*r^2*p^6*q^2. Keep every Schur, removed-coordinate, z_i*z_j and q-to-1/(N-r) cross term; use the exact full trace identities before bounding only their remainders. The planned full local logdet error is10000000*r^2*p^6*q^2, still requiring these actual Lean estimates. Then prove the retained covariance and first-permanent-correction difference, assemble the full N^(-2) minor ratio and complete signed occupancy/comparison, amplification/inverse, arithmetic applications and public integration. RH/Hadamard/twin-prime transfers remain queued until the full headline is complete.",
+    "next_review_focus": "Formalize the full support-restricted signed trace comparison(D3)-(D6): abs(trace(J*E)+2*h^T*Krepair*ell)<=60000*r^2*p^4*q^2, p=A/(1-rho). Keep the disjoint D-by-full plus R-by-D support partition, its removed-by-removed overlap, the Schur correction and every z_i*z_j and rank-centering term. Use the exact zero diagonal to replace R0=I-Gamma by -Gamma only inside those trace contractions, before bounding explicit remainders. Install bounds2816*r^2*p^4*q^2,3200*r^2*p^4*q^2,160*r^2*p^2*q^2,32*r^2*p*q^2 and the existing retained linear-cost comparison40000*r^2*p^4*q^2+72*r^2*p^2*q^2. Combine with the compiled2230272 scaling and128 deleted-principal logdet bounds to finish(D7), with10000000*r^2*p^6*q^2 error. The complete ordinary quantitative calculation is now in the paper. Then prove the retained covariance entry comparison and first permanent correction difference, full uniform minor ratio, signed occupancy/comparison, amplification/inverse, arithmetic and public closures. RH/Hadamard/twin-prime transfers remain queued until the complete headline is finished.",
     "independent_consumer_status": "Both actual integer prime-sum graphs and all growing coprime moduli have complete stated ordinary arguments."
   },
   "completion_receipt": {
@@ -1089,12 +1089,12 @@
       "Actual unweighted prime-sum graph: full relative count around its exact entropy, with O(N^(-3/5)) error; no RH or prime-pair estimate."
     ],
     "primary_literature_comparison": "Cuckler-Kahn: dense Dirac and dense balanced bipartite entropy counts. Barvinok: all-positive matrices with a relative entry lower bound. Krivelevich and Byrne-Tait: nontrivial spectral ratio tending to zero logarithmically. The present argument permits sparse zero support and any fixed nontrivial gap. Bradač-Janzer 2026 is an essential independent spanning-path input. McCullagh's bounded normalized moments fail along primorials; Divoux-Wang's fixed-entry finite proof is tracked explicitly, rather than used outside its stated range. The new first-order signed compensation and rank-one parity-root calculation avoid the fixed-entry remainder amplification at prime density. They are the mechanism of the complete prime consumer, not merely a detector or matching identity.",
-    "proof_endpoint_status": "Both uniform permanent statements, actual cycle identities, positive stochastic repair and full signed scaling cost remain compiled and focused-audited. The actual deleted-principal determinant ratio is now also compiled: abs(log(det(M_RR)/det(M))+trace(Gamma_DD))<=128*(r*A*q/(1-rho))^2, with positive ratio, independent equal-cardinality supports and r=0. The proof includes exact support reindexing, the full signed Schur product and Jacobi identity. The general logdet estimate retains the actual signed trace and bounds only higher coefficients by 8*(m*eps)^2. The actual scaling/recentering determinant changes, first permanent correction difference, full minor ratio, signed occupancy/comparison, amplification/inverse and arithmetic/public closures remain unfinished. The full headline is not Lean-certified.",
+    "proof_endpoint_status": "Both uniform permanent statements, actual cycle identities, positive repair, full signed scaling cost and removed-principal determinant cost remain compiled and focused-audited. The full scaling/rank-centering perturbation has actual entry bound44*r*p^2*q^2 and normalization(N-r)*qNew=1. The actual retained inverse has its full inverse equation, row bound6p and Schur entry error16*r*p^2*q^2. On r*p^3*q<=1/10000, the full actual scaling logdet remainder is at most2230272*r^2*p^6*q^2, retaining trace(J*E) signed. The full-matrix identities R0*C=C*R0=C, P*R0=R0*P=Gamma+q*C, zero centering trace and trace(R0*(Z*P+P*Z))=-2*h^T*z also compile. The remaining support-restricted trace comparison, final local determinant assembly, first permanent correction difference, full minor ratio, signed occupancy/comparison, amplification/inverse and arithmetic/public closures are unfinished. The full headline is not Lean-certified.",
     "significance_assessment": "A general signed-estimation method now has a quantitative inverse and complete independent arithmetic consumers at actual prime density and through every coprime modulus. This supports a serious standalone research contribution. Career-defining impact and priority are not certified or inferred from compilation.",
     "paper_argument_delivered": true,
     "headline_all_orders_filz_proved": false,
     "lean_formalization_complete": false,
-    "next_safely_executable_research_action": "Prove the actual scaling and rank-centering determinant comparison, retaining its linear trace -2*h^T*K*ell. Put p=A/(1-rho), q=1/N and, on r*p^3*q<=1/10000, derive the retained inverse row bound6p, actual perturbation entry bound44*r*p^2*q^2 and product entry bound264*r*p^3*q^2. The compiled generic logarithm estimate then has error at most2230272*r^2*p^6*q^2. Keep every Schur, removed-coordinate, z_i*z_j and q-to-1/(N-r) cross term; use the exact full trace identities before bounding only their remainders. The planned full local logdet error is10000000*r^2*p^6*q^2, still requiring these actual Lean estimates. Then prove the retained covariance and first-permanent-correction difference, assemble the full N^(-2) minor ratio and complete signed occupancy/comparison, amplification/inverse, arithmetic applications and public integration. RH/Hadamard/twin-prime transfers remain queued until the full headline is complete.",
+    "next_safely_executable_research_action": "Formalize the full support-restricted signed trace comparison(D3)-(D6): abs(trace(J*E)+2*h^T*Krepair*ell)<=60000*r^2*p^4*q^2, p=A/(1-rho). Keep the disjoint D-by-full plus R-by-D support partition, its removed-by-removed overlap, the Schur correction and every z_i*z_j and rank-centering term. Use the exact zero diagonal to replace R0=I-Gamma by -Gamma only inside those trace contractions, before bounding explicit remainders. Install bounds2816*r^2*p^4*q^2,3200*r^2*p^4*q^2,160*r^2*p^2*q^2,32*r^2*p*q^2 and the existing retained linear-cost comparison40000*r^2*p^4*q^2+72*r^2*p^2*q^2. Combine with the compiled2230272 scaling and128 deleted-principal logdet bounds to finish(D7), with10000000*r^2*p^6*q^2 error. The complete ordinary quantitative calculation is now in the paper. Then prove the retained covariance entry comparison and first permanent correction difference, full uniform minor ratio, signed occupancy/comparison, amplification/inverse, arithmetic and public closures. RH/Hadamard/twin-prime transfers remain queued until the complete headline is finished.",
     "next_gate": "Judge the complete new method and independent applications, not theorem counts or successful compilation; preserve exact entropy and explicit density scope.",
     "no_background_work_claimed": true,
     "expert_relevance_gate": {
@@ -1113,8 +1113,8 @@
     "committed_this_turn": true,
     "pushed_this_turn": false,
     "proofs_left_only_in_private_research": false,
-    "recorded_phase": "Based on local commit0df0c5a. This promotion records four maintained determinant/logdet/Schur/Jacobi owners and the focused audit of their11 new declarations. The actual retained-principal determinant ratio is included. Final staged checks and the local commit are recorded separately.",
-    "phase": "Uniform permanent estimates, actual cycle identities, full positive repair, signed scaling cost and the actual deleted-principal determinant cost are compiled and focused-audited. The active frontier is the scaling/recentering determinant and first-correction comparison, then the full minor ratio and signed headline consumer."
+    "recorded_phase": "Based on local commit a86ed4f. This promotion records four maintained actual scaling/inverse/logdet/trace owners and the focused audit of their 12 new declarations. The paper now gives the complete quantitative signed support-error calculation; its remaining Lean obligations are explicit. Final staged checks and the local commit are recorded separately.",
+    "phase": "Uniform permanent estimates, actual cycle identities, repair, scaling cost, deleted-principal determinant, actual scaling/inverse/higher-logdet estimates and full signed trace cancellation are compiled and focused-audited. The active frontier is the support-restricted trace budget and local determinant assembly, then the first correction and full minor/signed headline consumer."
   },
   "formalization": {
     "status": "in_progress_not_complete",
@@ -2051,10 +2051,34 @@
         "source_sha256": "EA6EB78F0E569E9FE1C62AD8C7247546D6F2612AF6E2966AEAC3321976C2E058",
         "content": "Actual deleted covariance and retained principal determinant log estimates with explicit128*(r*A*q/(1-rho))^2 remainder, positive ratio and every independent support.",
         "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianScalingPerturbation",
+        "source_sha256": "C762423F7D8E315D4340FC6CC70B8F147331E5B8FF3587DCFBD893AE3A3AB70F",
+        "content": "Complete exact linear/quadratic/rank-centering perturbation, shifted normalization, and actual44*r*p^2*q^2 entry budget. Every quadratic cross term is retained.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianCovarianceBoundaryInverse",
+        "source_sha256": "291CD6FC51C2A38C93283EA82314907434C26C7287A284E4F00A32BACEDBE851",
+        "content": "Complete signed covariance Schur inverse, actual retained inverse equation, row bound6p and entry correction16*r*p^2*q^2.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianScalingDeterminantRemainder",
+        "source_sha256": "87950B15CA17DD85C77386D48B31C6F3DEB7AD5A5DC2A1405454756C40EE8D03",
+        "content": "Actual scaling/centering determinant ratio with positive ratio and explicit2230272*r^2*p^6*q^2 higher-order error, keeping the signed trace unchanged.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianScalingTraceCancellation",
+        "source_sha256": "24BEE8C8CC1707E974A9009F09AB4C9514290F1F909CCD4D32882B50CC076218",
+        "content": "Full actual two-sided inverse/cross-mask identities, exact zero centering trace and signed full linear scaling trace, including every overlap.",
+        "build_exit_code": 0
       }
     ],
     "unfinished_dependencies": [
-      "Complete the actual scaling/recentering determinant and first-permanent-correction comparisons and the final uniform compensated complementary-minor ratio. Full positive repair, signed scaling-cost and actual deleted-principal logdet with explicit two-power errors are compiled and focused-audited.",
+      "Complete the actual support-restricted signed trace comparison and final local determinant assembly, retained covariance/first-permanent-correction comparison and full uniform minor ratio. The actual perturbation, retained inverse, higher logdet remainder and full linear trace/centering cancellation are compiled and focused-audited.",
       "Actual coordinate occupancy identities, full derivative bounds and normalized moment bounds. Cauchy-Binet, the signed two-support constant moment, Gram sandwich entries and full block covariance entries are compiled.",
       "Full signed Hamiltonian comparison with its absolute estimate confined to the retained two-power remainder and large-minor tail. The actual generic and bipartite two-support cycle identities are compiled.",
       "Spectral amplification estimate, inverse theorem and asymptotic error ranges.",
@@ -3680,13 +3704,44 @@
         ],
         "log_sha256": "530D286716F20590249EC64F181E564AA530B9DA5D6B39FF8CD05A93F15298A6",
         "scope": "Only the 11 new entry-budget/logdet/Schur/Jacobi/actual deleted-principal declarations, including the proof-bearing support equivalence. Unchanged previously audited files were not re-audited."
+      },
+      {
+        "status": "verified",
+        "modules": [
+          "PrimeFactorOscillations.Helpers.HamiltonianScalingPerturbation",
+          "PrimeFactorOscillations.Helpers.HamiltonianCovarianceBoundaryInverse",
+          "PrimeFactorOscillations.Helpers.HamiltonianScalingDeterminantRemainder",
+          "PrimeFactorOscillations.Helpers.HamiltonianScalingTraceCancellation"
+        ],
+        "declaration_count": 12,
+        "declarations": [
+          "PrimeFactorOscillations.hamiltonianScalingPerturbation_entry",
+          "PrimeFactorOscillations.hamiltonianScalingPerturbation_decomposition",
+          "PrimeFactorOscillations.hamiltonianScalingPerturbation_entry_bound",
+          "PrimeFactorOscillations.hamiltonian_rank_shift_reference",
+          "PrimeFactorOscillations.hamiltonian_retained_centered_kernel",
+          "PrimeFactorOscillations.stochastic_scaling_centering_perturbation_entry",
+          "PrimeFactorOscillations.hamiltonian_resolvent_one_sub",
+          "PrimeFactorOscillations.hamiltonianBoundaryKernel_actual_inverse",
+          "PrimeFactorOscillations.hamiltonian_close_identity_boundary_budgets",
+          "PrimeFactorOscillations.stochastic_retained_covariance_inverse_budgets",
+          "PrimeFactorOscillations.stochastic_scaling_determinant_remainder",
+          "PrimeFactorOscillations.stochastic_full_scaling_trace_cancellation"
+        ],
+        "allowed_axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "log_sha256": "EAE4D2E73E2DE42176E5EB86CC8FF0B3A8FFC05A357EE4601A2C9E9795797063",
+        "scope": "Only the12 new actual perturbation, rank shift, retained inverse, determinant remainder and full signed trace declarations. Unchanged previously audited files were not re-audited."
       }
     ],
     "active_proof": {
-      "module": "PrimeFactorOscillations.Helpers.HamiltonianDeletedDeterminantCost",
-      "status": "Both uniform permanent statements, actual cycle identities, positive stochastic repair and full signed scaling cost remain compiled and focused-audited. The actual deleted-principal determinant ratio is now also compiled: abs(log(det(M_RR)/det(M))+trace(Gamma_DD))<=128*(r*A*q/(1-rho))^2, with positive ratio, independent equal-cardinality supports and r=0. The proof includes exact support reindexing, the full signed Schur product and Jacobi identity. The general logdet estimate retains the actual signed trace and bounds only higher coefficients by 8*(m*eps)^2. The actual scaling/recentering determinant changes, first permanent correction difference, full minor ratio, signed occupancy/comparison, amplification/inverse and arithmetic/public closures remain unfinished. The full headline is not Lean-certified.",
-      "target": "Prove the actual scaling and rank-centering determinant comparison, retaining its linear trace -2*h^T*K*ell. Put p=A/(1-rho), q=1/N and, on r*p^3*q<=1/10000, derive the retained inverse row bound6p, actual perturbation entry bound44*r*p^2*q^2 and product entry bound264*r*p^3*q^2. The compiled generic logarithm estimate then has error at most2230272*r^2*p^6*q^2. Keep every Schur, removed-coordinate, z_i*z_j and q-to-1/(N-r) cross term; use the exact full trace identities before bounding only their remainders. The planned full local logdet error is10000000*r^2*p^6*q^2, still requiring these actual Lean estimates. Then prove the retained covariance and first-permanent-correction difference, assemble the full N^(-2) minor ratio and complete signed occupancy/comparison, amplification/inverse, arithmetic applications and public integration. RH/Hadamard/twin-prime transfers remain queued until the full headline is complete.",
-      "consumer": "The full relative Hamiltonian bound remains O(log(N)^M/N+log(N)^M*Amp(T)/N^2). The actual signed scaling cost and removed-principal determinant costs now provide their two-power remainders. The actual scaling/recentering determinant and permanent-correction comparisons must retain every signed linear term through final cancellation. The stronger finite smallness r*(A/(1-rho))^3/N<=1/10000 is compatible with the same full polylogarithmic support/entry domain after a larger common N0(delta,K). Only the final bounded two-power remainder and large-minor tail pay absolute amplification.",
+      "module": "PrimeFactorOscillations.Helpers.HamiltonianScalingDeterminantRemainder",
+      "status": "Both uniform permanent statements, actual cycle identities, positive repair, full signed scaling cost and removed-principal determinant cost remain compiled and focused-audited. The full scaling/rank-centering perturbation has actual entry bound44*r*p^2*q^2 and normalization(N-r)*qNew=1. The actual retained inverse has its full inverse equation, row bound6p and Schur entry error16*r*p^2*q^2. On r*p^3*q<=1/10000, the full actual scaling logdet remainder is at most2230272*r^2*p^6*q^2, retaining trace(J*E) signed. The full-matrix identities R0*C=C*R0=C, P*R0=R0*P=Gamma+q*C, zero centering trace and trace(R0*(Z*P+P*Z))=-2*h^T*z also compile. The remaining support-restricted trace comparison, final local determinant assembly, first permanent correction difference, full minor ratio, signed occupancy/comparison, amplification/inverse and arithmetic/public closures are unfinished. The full headline is not Lean-certified.",
+      "target": "Formalize the full support-restricted signed trace comparison(D3)-(D6): abs(trace(J*E)+2*h^T*Krepair*ell)<=60000*r^2*p^4*q^2, p=A/(1-rho). Keep the disjoint D-by-full plus R-by-D support partition, its removed-by-removed overlap, the Schur correction and every z_i*z_j and rank-centering term. Use the exact zero diagonal to replace R0=I-Gamma by -Gamma only inside those trace contractions, before bounding explicit remainders. Install bounds2816*r^2*p^4*q^2,3200*r^2*p^4*q^2,160*r^2*p^2*q^2,32*r^2*p*q^2 and the existing retained linear-cost comparison40000*r^2*p^4*q^2+72*r^2*p^2*q^2. Combine with the compiled2230272 scaling and128 deleted-principal logdet bounds to finish(D7), with10000000*r^2*p^6*q^2 error. The complete ordinary quantitative calculation is now in the paper. Then prove the retained covariance entry comparison and first permanent correction difference, full uniform minor ratio, signed occupancy/comparison, amplification/inverse, arithmetic and public closures. RH/Hadamard/twin-prime transfers remain queued until the complete headline is finished.",
+      "consumer": "The full relative Hamiltonian bound remains O(log(N)^M/N+log(N)^M*Amp(T)/N^2). The actual perturbation and retained inverse now prove the complete higher logdet remainder; the full signed trace is identified before estimating support corrections. The only local determinant steps still pending are the explicit support-restricted trace budget and final positive-ratio logarithm assembly(D3)-(D7). The finite range r*p^3/N<=1/10000 is compatible with the full polylogarithmic kernel/support domain after a larger common N0(delta,K). Only the final two-power error and large-minor tail pay absolute amplification.",
       "proved_inputs": [
         "PrimeFactorOscillations.Helpers.HamiltonianMatrixSpectralAverage",
         "PrimeFactorOscillations.Helpers.HamiltonianRookGamma",
@@ -3818,7 +3873,11 @@
         "PrimeFactorOscillations.Helpers.HamiltonianDeterminantEntryBudget",
         "PrimeFactorOscillations.Helpers.HamiltonianLogDeterminantEntryBudget",
         "PrimeFactorOscillations.Helpers.HamiltonianPrincipalInverseDeterminant",
-        "PrimeFactorOscillations.Helpers.HamiltonianDeletedDeterminantCost"
+        "PrimeFactorOscillations.Helpers.HamiltonianDeletedDeterminantCost",
+        "PrimeFactorOscillations.Helpers.HamiltonianScalingPerturbation",
+        "PrimeFactorOscillations.Helpers.HamiltonianCovarianceBoundaryInverse",
+        "PrimeFactorOscillations.Helpers.HamiltonianScalingDeterminantRemainder",
+        "PrimeFactorOscillations.Helpers.HamiltonianScalingTraceCancellation"
       ]
     },
     "status_reconciliation_check": {
@@ -3847,7 +3906,7 @@
       "checked_paper_hashes": [
         {
           "file": "main.tex",
-          "sha256": "95CFE3208EB4202F085885798F806B63B314E5B6E24AE1A9117E1D15506406F0"
+          "sha256": "01186CD4E2AD7AA6BCF35F8C9A9624ADCF6D6C0A343A6D6AB67E818FBA25E19F"
         },
         {
           "file": "relative-permanents.tex",
@@ -3863,7 +3922,7 @@
         },
         {
           "file": "compensated-minor-jet.tex",
-          "sha256": "7EAA11908E45B887FFF3A1E665CD7581E8228B00A4952DEE1065F1D631627E9D"
+          "sha256": "0A578099811BC0FF8C5BBB3CF7728E9F58FE5E5CA1E1FE9B12CB7B1FEAD11768"
         }
       ],
       "mechanical_forbidden_normalized_paper_status_sentences": [
@@ -3911,7 +3970,9 @@
         "The complete scaling-cost, local determinant and first-correction comparison, coordinate-occupancy bounds, the final compensated minor remainder and arithmetic closures remain formalization obligations.",
         "The full scaling-cost, local determinant and first-correction comparison and the resulting minor ratio remainder are still formalization obligations.",
         "The local determinant and first-correction comparison, coordinate-occupancy bounds, the final compensated minor remainder and arithmetic closures remain formalization obligations.",
-        "The local determinant and first-correction comparison and the resulting minor ratio remainder are still formalization obligations."
+        "The local determinant and first-correction comparison and the resulting minor ratio remainder are still formalization obligations.",
+        "The remaining scaling and centering changes in the local determinant, the first-correction comparison, coordinate-occupancy bounds, the final compensated minor remainder and arithmetic closures remain formalization obligations.",
+        "The remaining scaling and centering determinant changes, the first-correction comparison and the resulting minor ratio remainder are still formalization obligations."
       ],
       "recurrence_note": "The complete actual bipartite cycle consumer, including both selected supports and both complements, is compiled and focused-audited. Paper status paragraphs, both permanent-claim audit notes, current source hashes and active/unfinished lists are synchronized. The remaining quantitative minor and occupancy obligations are explicit, and the headline remains uncertified. JSON patch recurrence gate: trigger any multi-hunk JSON edit; derive each context's unique full-line start and end in the captured original, sort by those starts and splice the proposed document in descending checked-position order; prohibit raw indexOf ordering and unqualified String.replace, which can match deeper indentation; strictly parse and compare the entire canonical result with the intended object before apply_patch. Duplicate-leaf recurrence gate: when identical status or audit-note leaves occur in more than one claim, require a unique parent claim context containing its exact claim identifier before patching; prohibit leaf-only hunks and verify every unaffected claim field in the proposed strict-parsed result. Finset-coercion binder recurrence gate: trigger a function type whose domain is a parenthesized Finset coercion such as (Compl.compl D : Finset Iota); before patching, reject a colon followed by that domain and an arrow, which Lean can parse as a non-atomic binder. Use an explicitly typed lambda, for example let rr := fun r : (Compl.compl D : Finset Iota) => (r.val : Iota). Scan the complete added source for the rejected form and compile the repaired actual consumer before proceeding. Bounded-state-output recurrence gate: before printing selected JSON/state fields, serialize the complete emitted object and require at most 16000 characters and an adequate output token budget; prohibit combined status dumps whose nested active inputs or rule lists can exceed that cap. Recover truncated required fields separately before dependent work. The complete finite linear/boundary repair and scaling-conservation block is compiled and focused-audited; the explicit nonlinear argument is written in the paper with its remaining formalization named. Paper-source hash gate: after any paper edit, recompute all 22 maintained TeX hashes and require every source_hashes row, checked-paper hash and modified-file proof-status note to match the final saved source before staging; prohibit updating only a secondary status hash list while leaving the main source_hashes ledger stale. Source-read token-budget hard stop: before a bounded source read, mechanically require max_output_tokens >= ceil(character_cap/3)+1000, store the full result before parsing, and prohibit dependent edits on a truncated or unparsable result. The actual full positive nonlinear repair and both explicit bounds are now compiled and focused-audited. The main paper, minor section, partial minor claim, both permanent claim notes, all 22 source hashes and active/unfinished lists are synchronized; none certifies the unfinished full minor or headline count. November 15 individual-source search recurrence: trigger any command naming an individual source file, including a zero-edit API lookup. Before dispatch require either its exact current-task inventory record or a command that resolves one tracked match, asserts an existing regular file and passes only the returned path. Reject an ad hoc literal individual .lean target in an rg command. Correct action: use the checked inventory-to-read builder or search the instruction-preflighted root, then resolve the provider before its individual read. The recalled NonsingularInverse.lean rg lookup omitted this gate; no mathematical theorem was inferred from that search. Source-discovery governance is not proof progress.",
       "related_paper_sources_normalized_and_checked": 22
