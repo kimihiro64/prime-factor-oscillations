@@ -355,8 +355,8 @@
       "kind": "theorem",
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\relative-permanents.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
-      "lean_status": "partially_formalized_actual_polylog_uniform_local_covariance_correction; correction_derivatives_Gamma_pending",
-      "audit_note": "The complete actual local covariance-correction estimate is compiled and focused-audited. For fixed 0<delta<=1 and K, one N0(delta,K) works simultaneously for all N>=N0, all 1<=A<=(log N)^K, all admissible stochastic kernels with norm(B)<=1-delta, and all real |s|<=1+delta/16. The actual compensated observable satisfies |F_s(1)-(1+Psi(Gamma_s))|<=(C_delta+1080/delta^3)*(1+A)^24/N^2, with explicit C_delta. Every low composition and support is classified, unordered/ordered pair multiplicity is exact, and the actual low value is 1+Psi(Gamma_s)-(5/2)*sum_i Gamma_s(i,i)^3 before the isolated N^(-2) diagonal remainder is bounded. No main mixed term is replaced by a norm bound. The full original outside-Gamma transfer, determinant/Gamma moments and previously compiled covariance and signed-minor inputs are retained. Covariance-correction derivatives and full Gamma assembly remain open. The Hamiltonian-cycle identity, coordinate occupancy, complete minor compensation, signed comparison, inverse and arithmetic headline theorems are not Lean-certified."
+      "lean_status": "partially_formalized_actual_signed_covariance_Gamma_two_power_remainder; complete_rook_Gamma_pending",
+      "audit_note": "The complete actual local covariance-correction bound and its polylog-uniform threshold remain compiled and focused-audited. The actual complex correction now has a proved O_delta((1+A)^3/N) analytic norm, exact real resolvent restriction, affine coefficient and quadratic Taylor estimate. The actual window product Delta(s)*Psi(Gamma_s) is locally continuous and its indicator is measurable. For N>=16, 0<eps<=delta/64, N*eps>=4 and 2*(A-1)*eps<=delta, its signed Gamma average retains Delta(1)*Psi(Gamma_1), has an explicit R_delta*Delta(1)*(1+A)^7/N^2 remainder, and keeps exp(-(N+1)*eps^2/72)*(4*abs(Delta(1)*Psi(Gamma_1))+7*abs(Delta(1)*a1+J1*Psi(Gamma_1))) for both affine truncation tails. R_delta=2*(20*U_delta+640*V_delta/delta+40960*exp(1)/delta^2)*(1+96*exp(1)/delta)^3, U_delta=13/(2*delta^2)+23/delta^3+86*exp(1)/delta^4, V_delta=2/delta+U_delta. All determinant/covariance cross terms survive the exact product identity. The actual real rook local remainder is also compiled. Complete original-rook Gamma assembly, its final uniform cap/tail thresholds and the advertised permanent asymptotic remain open; Hamiltonian identities, minor/occupancy compensation, signed comparison, inverse and arithmetic headline closures are not Lean-certified."
     },
     {
       "id": "lem:relativecompensatedminors",
@@ -476,8 +476,8 @@
       "kind": "theorem",
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\permanent-second-order.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
-      "lean_status": "partially_formalized_actual_polylog_uniform_local_covariance_correction; correction_derivatives_Gamma_pending",
-      "audit_note": "The complete actual local covariance-correction estimate is compiled and focused-audited. For fixed 0<delta<=1 and K, one N0(delta,K) works simultaneously for all N>=N0, all 1<=A<=(log N)^K, all admissible stochastic kernels with norm(B)<=1-delta, and all real |s|<=1+delta/16. The actual compensated observable satisfies |F_s(1)-(1+Psi(Gamma_s))|<=(C_delta+1080/delta^3)*(1+A)^24/N^2, with explicit C_delta. Every low composition and support is classified, unordered/ordered pair multiplicity is exact, and the actual low value is 1+Psi(Gamma_s)-(5/2)*sum_i Gamma_s(i,i)^3 before the isolated N^(-2) diagonal remainder is bounded. No main mixed term is replaced by a norm bound. The full original outside-Gamma transfer, determinant/Gamma moments and previously compiled covariance and signed-minor inputs are retained. Covariance-correction derivatives and full Gamma assembly remain open. The Hamiltonian-cycle identity, coordinate occupancy, complete minor compensation, signed comparison, inverse and arithmetic headline theorems are not Lean-certified."
+      "lean_status": "partially_formalized_actual_signed_covariance_Gamma_two_power_remainder; complete_rook_Gamma_pending",
+      "audit_note": "The complete actual local covariance-correction bound and its polylog-uniform threshold remain compiled and focused-audited. The actual complex correction now has a proved O_delta((1+A)^3/N) analytic norm, exact real resolvent restriction, affine coefficient and quadratic Taylor estimate. The actual window product Delta(s)*Psi(Gamma_s) is locally continuous and its indicator is measurable. For N>=16, 0<eps<=delta/64, N*eps>=4 and 2*(A-1)*eps<=delta, its signed Gamma average retains Delta(1)*Psi(Gamma_1), has an explicit R_delta*Delta(1)*(1+A)^7/N^2 remainder, and keeps exp(-(N+1)*eps^2/72)*(4*abs(Delta(1)*Psi(Gamma_1))+7*abs(Delta(1)*a1+J1*Psi(Gamma_1))) for both affine truncation tails. R_delta=2*(20*U_delta+640*V_delta/delta+40960*exp(1)/delta^2)*(1+96*exp(1)/delta)^3, U_delta=13/(2*delta^2)+23/delta^3+86*exp(1)/delta^4, V_delta=2/delta+U_delta. All determinant/covariance cross terms survive the exact product identity. The actual real rook local remainder is also compiled. Complete original-rook Gamma assembly, its final uniform cap/tail thresholds and the advertised permanent asymptotic remain open; Hamiltonian identities, minor/occupancy compensation, signed comparison, inverse and arithmetic headline closures are not Lean-certified."
     },
     {
       "id": "thm:minorjet",
@@ -1027,7 +1027,7 @@
     },
     {
       "file": "relative-permanents.tex",
-      "sha256": "38952F538D44F2C3767A2B3E531EE2B6EDE4E0C6E1DCCE9DB8C754698EDAA67A"
+      "sha256": "FF83944B54B954059CF44B95FEE14F1D2FA8B5C5E52D46C50AAD3D19C96AA595"
     },
     {
       "file": "relative-coprime-circles.tex",
@@ -1043,7 +1043,7 @@
     },
     {
       "file": "main.tex",
-      "sha256": "96B9CD4CD9A617BAAC7843278774324C19187F20BFC5FBED34B56307DAFDF60E"
+      "sha256": "6D4CEE4E469E649717EDE15E4FF8980B357BFA085531D65696C8F105EC0C6907"
     },
     {
       "file": "relative-hamilton.tex",
@@ -1051,7 +1051,7 @@
     },
     {
       "file": "permanent-second-order.tex",
-      "sha256": "8579562BEE44E59913BF93B0ED26907F2C75B9CADCBE417ABDD202E31AC8D58F"
+      "sha256": "A93316B50C35325F57393DC9823801C91681C923C6329DDFCFCC9F0075A5F5B1"
     },
     {
       "file": "compensated-minor-jet.tex",
@@ -1088,12 +1088,12 @@
       "Actual unweighted prime-sum graph: full relative count around its exact entropy, with O(N^(-3/5)) error; no RH or prime-pair estimate."
     ],
     "primary_literature_comparison": "Cuckler-Kahn: dense Dirac and dense balanced bipartite entropy counts. Barvinok: all-positive matrices with a relative entry lower bound. Krivelevich and Byrne-Tait: nontrivial spectral ratio tending to zero logarithmically. The present argument permits sparse zero support and any fixed nontrivial gap. Bradač-Janzer 2026 is an essential independent spanning-path input. McCullagh's bounded normalized moments fail along primorials; Divoux-Wang's fixed-entry finite proof is tracked explicitly, rather than used outside its stated range. The new first-order signed compensation and rank-one parity-root calculation avoid the fixed-entry remainder amplification at prime density. They are the mechanism of the complete prime consumer, not merely a detector or matching identity.",
-    "proof_endpoint_status": "The full analytic and arithmetic headline theorems remain unformalized. The complete actual local covariance-correction estimate is compiled and focused-audited. For fixed 0<delta<=1 and K, one N0(delta,K) works simultaneously for all N>=N0, all 1<=A<=(log N)^K, all admissible stochastic kernels with norm(B)<=1-delta, and all real |s|<=1+delta/16. The actual compensated observable satisfies |F_s(1)-(1+Psi(Gamma_s))|<=(C_delta+1080/delta^3)*(1+A)^24/N^2, with explicit C_delta. Every low composition and support is classified, unordered/ordered pair multiplicity is exact, and the actual low value is 1+Psi(Gamma_s)-(5/2)*sum_i Gamma_s(i,i)^3 before the isolated N^(-2) diagonal remainder is bounded. No main mixed term is replaced by a norm bound. Covariance-correction derivatives, full Gamma assembly, Hamiltonian/occupancy identities, complete signed minor compensation, full signed comparison, inverse and arithmetic closures remain pending.",
+    "proof_endpoint_status": "The full analytic and arithmetic headline theorems remain unformalized. The complete actual local covariance-correction bound and its polylog-uniform threshold remain compiled and focused-audited. The actual complex correction now has a proved O_delta((1+A)^3/N) analytic norm, exact real resolvent restriction, affine coefficient and quadratic Taylor estimate. The actual window product Delta(s)*Psi(Gamma_s) is locally continuous and its indicator is measurable. For N>=16, 0<eps<=delta/64, N*eps>=4 and 2*(A-1)*eps<=delta, its signed Gamma average retains Delta(1)*Psi(Gamma_1), has an explicit R_delta*Delta(1)*(1+A)^7/N^2 remainder, and keeps exp(-(N+1)*eps^2/72)*(4*abs(Delta(1)*Psi(Gamma_1))+7*abs(Delta(1)*a1+J1*Psi(Gamma_1))) for both affine truncation tails. R_delta=2*(20*U_delta+640*V_delta/delta+40960*exp(1)/delta^2)*(1+96*exp(1)/delta)^3, U_delta=13/(2*delta^2)+23/delta^3+86*exp(1)/delta^4, V_delta=2/delta+U_delta. All determinant/covariance cross terms survive the exact product identity. The actual real rook local remainder is also compiled. Complete original-rook Gamma assembly, its final uniform cap/tail thresholds and the advertised permanent asymptotic remain open; Hamiltonian identities, minor/occupancy compensation, signed comparison, inverse and arithmetic headline closures are not Lean-certified.",
     "significance_assessment": "A general signed-estimation method now has a quantitative inverse and complete independent arithmetic consumers at actual prime density and through every coprime modulus. This supports a serious standalone research contribution. Career-defining impact and priority are not certified or inferred from compilation.",
     "paper_argument_delivered": true,
     "headline_all_orders_filz_proved": false,
     "lean_formalization_complete": false,
-    "next_safely_executable_research_action": "Consume the existing covariance-correction and analytic low-Wick providers to prove uniform derivative bounds with the required N^(-1) scale, then assemble the complete first/second-order Gamma average with every signed correction and the full outside-window consumer retained. Inspect exact provider signatures before creating a replacement module. Continue the exact Hamiltonian-cycle identity, stochastic minor repair, coordinate occupancy, full signed comparison, spectral amplification/inverse and arithmetic closures, then public exports and all headline claims. Keep RH/Hadamard/twin-prime transfers queued until the full headline is proved and promoted; a helper, audit or commit is not completion.",
+    "next_safely_executable_research_action": "Assemble the actual original-rook core Gamma integral from its real local remainder, the determinant cubic average and the signed covariance-product average. Retain the determinant second-derivative main correction and all affine/cubic discarded tails. Split the original rook integral at I=[1-delta/16,1+delta/16] and the core |S-1|<=eps; take eps=N^(-1/8) so its exp(-N^(3/4)/36) concentration dominates the proved exp(O_delta(A*sqrt(N))) rook envelope for every fixed polylog cap. Apply the existing full outside-window theorem with deltaOut=delta/4 and discharge all cap/size conditions uniformly. Complete the permanent first/second-order asymptotic, then continue the exact Hamiltonian-cycle identity, minor repair, occupancy, full signed comparison, amplification/inverse, arithmetic closures and public headline exports. RH/Hadamard/twin-prime transfers remain queued until every headline claim is proved and promoted. A helper, audit or commit is not completion.",
     "next_gate": "Judge the complete new method and independent applications, not theorem counts or successful compilation; preserve exact entropy and explicit density scope.",
     "no_background_work_claimed": true,
     "expert_relevance_gate": {
@@ -1113,7 +1113,7 @@
     "pushed_this_turn": false,
     "proofs_left_only_in_private_research": false,
     "recorded_phase": "Built against local commit feea95b. This promotion contains five maintained low-profile, support, normal-form, local-expansion and polylogarithmic-range modules with 29 new focused-audited declarations. Unchanged declarations were not re-audited. The temporary root audit driver was hash-verified and removed before the final repository source-policy check; its full allowed-axiom receipt is retained here. Final staged checks and the local commit are recorded in Git history.",
-    "phase": "The full actual polylog-uniform local covariance correction is formalized. Covariance-correction derivatives, complete Gamma averaging, minor compensation and all Hamiltonian/arithmetic headline closures remain pending."
+    "phase": "Actual covariance Taylor and full signed covariance Gamma product have explicit uniform N^(-2) remainder proofs; complete original-rook Gamma assembly and all Hamiltonian/arithmetic headline closures remain pending."
   },
   "formalization": {
     "status": "in_progress_not_complete",
@@ -1702,11 +1702,77 @@
         "source_sha256": "DA35795D827DBE588A82C9CBD8F185F95B49169111F6F5764CC7F4241251CB50",
         "content": "One eventual threshold N0(delta,K) valid simultaneously for every stochastic kernel, every 1<=A<=(log N)^K, and every |s|<=1+delta/16; exact actual normalized covariance-correction remainder without an additional cutoff-size hypothesis.",
         "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianLowCorrectionAnalyticBounds",
+        "source_sha256": "23389788703C0F5D1AC7C1D4F8AA504BFE065CA6D019D76CE8526B62AB6B6D37",
+        "content": "Actual complete complex low correction, analytic extension, exact real resolvent restriction and inverse-dimension norm bound 20*(1+16*exp(1)*kappa)^3/N.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianCauchyLinearRemainder",
+        "source_sha256": "C1C69C1EB9FB915593D9BDAC7DBFD29449A8444E24F6ED383F52ACC3645263BE",
+        "content": "Actual complex Taylor coefficient bounds, rescaling and quadratic Cauchy remainder with every affine coefficient retained.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianCovarianceCorrectionTaylor",
+        "source_sha256": "941E6107C9D8D455E1045211877D18D2BA78845376F9A0AF1075020D50D89AA0",
+        "content": "Actual stochastic correction affine coefficient <=640*C/(delta*N) and quadratic remainder <=40960*C*(s-1)^2/(delta^2*N) on |s-1|<=delta/64.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianGammaAffine",
+        "source_sha256": "44E43E5FB9572772172CC1FFE7A3011B227D9E3374C459A2C8A9C0EFAF5B8A5D",
+        "content": "Signed affine inverse-Gamma average, local quadratic error, window integrability and both discarded affine tails.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianSpectralProductAverage",
+        "source_sha256": "324B5EC28792C14655AD03C503BD650963A0D347EF0E378F9D189BC5573DB43A",
+        "content": "Exact three-term determinant/covariance product remainder, derived determinant affine budget and full signed product Taylor estimate.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianCovarianceCorrectionWindow",
+        "source_sha256": "E04E80CF47EAFFBFB6CF6EEB6481801A18EE40D5B12DCEBFB362444E674A0B09",
+        "content": "Exact real matrix readout, inverse-dimension correction bound, local continuity and actual determinant/correction indicator measurability.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianCovarianceCorrectionAverage",
+        "source_sha256": "698E1702977F4FEB02E72F69F31F0E438A37EDB740A1430EA5292A21FCA453EA",
+        "content": "Actual stochastic determinant/covariance Gamma average with all hypotheses discharged, exact retained Delta(1)*Psi(Gamma_1) and complete affine-tail correction.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianSpectralCentralJets",
+        "source_sha256": "237536BAC4F9C819C1DD5633F3D72D2491FB9A32E8BE121D928D9F3643597E15",
+        "content": "Central spectral jets bounded by 2*Delta(1)*A/delta, 13*Delta(1)*A^2/delta^2 and 138*Delta(1)*A^3/delta^3.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianGammaCorrectionBudget",
+        "source_sha256": "51A7D548DECA7B3942AC257CC459AC055DDDF556E240496E5E6F4431C5B70910",
+        "content": "Explicit polynomial cap budgets for determinant affine and complete covariance-product remainders, using actual spectral jets.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianStochasticCorrectionBudget",
+        "source_sha256": "F4E3B4C920DD0E9F82CEFCDA0AED083FACA78AA86558982F293B1608BAE2DABC",
+        "content": "Actual stochastic covariance Gamma remainder <=R_delta*Delta(1)*(1+A)^7/N^2, with R_delta explicit and independent of N,A,kernel.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianPermanentRealWindow",
+        "source_sha256": "B42EBFBD6474E2CB435DA78A0B02F5A53CA5919F3F8922B59952B725290F7671",
+        "content": "Exact real rook/compensated identity and real original-rook local covariance remainder <=exp(1)*Delta(1)*C'_delta*(1+A)^24/N^2 under the explicit quantitative size condition.",
+        "build_exit_code": 0
       }
     ],
     "unfinished_dependencies": [
       "Exact Hamiltonian determinant-permanent identity for actual spanning-cycle permutations, including singleton fixed-point cycles.",
-      "Covariance-correction derivatives and full first/second-order Gamma assembly. The complete actual local covariance correction, low-diagram normal form, scalar cutoffs and polylogarithmic eventual range are compiled and focused-audited. Retain every signed main and compensation term and use the complete outside-window bound.",
+      "Complete original-rook first/second-order Gamma assembly and its final uniform cap/tail thresholds. The actual covariance affine Taylor estimate, window measurability, complete signed determinant/covariance product average, explicit R_delta*Delta(1)*(1+A)^7/N^2 remainder and original real rook local transfer are compiled and focused-audited. Keep the full signed correction, all discarded affine/cubic tails and original-rook outside-window bounds.",
       "Quantitative stochastic repair and full complementary-minor expansion with all mismatched supports and compensation fields.",
       "Actual coordinate occupancy identities, full derivative bounds and normalized moment bounds. Cauchy-Binet, the signed two-support constant moment, Gram sandwich entries and full block covariance entries are compiled.",
       "Full signed comparison with its absolute estimate confined to the retained remainder and large-minor tail.",
@@ -2902,12 +2968,89 @@
           "Quot.sound"
         ],
         "log_sha256": "8F19514932690872736E7521374BDC8799327C0F6A66D6D70CD9D13C0E90349C"
+      },
+      {
+        "status": "verified",
+        "modules": [
+          "PrimeFactorOscillations.Helpers.HamiltonianLowCorrectionAnalyticBounds",
+          "PrimeFactorOscillations.Helpers.HamiltonianCauchyLinearRemainder",
+          "PrimeFactorOscillations.Helpers.HamiltonianCovarianceCorrectionTaylor",
+          "PrimeFactorOscillations.Helpers.HamiltonianGammaAffine",
+          "PrimeFactorOscillations.Helpers.HamiltonianSpectralProductAverage",
+          "PrimeFactorOscillations.Helpers.HamiltonianCovarianceCorrectionWindow",
+          "PrimeFactorOscillations.Helpers.HamiltonianCovarianceCorrectionAverage",
+          "PrimeFactorOscillations.Helpers.HamiltonianSpectralCentralJets",
+          "PrimeFactorOscillations.Helpers.HamiltonianGammaCorrectionBudget",
+          "PrimeFactorOscillations.Helpers.HamiltonianStochasticCorrectionBudget",
+          "PrimeFactorOscillations.Helpers.HamiltonianPermanentRealWindow"
+        ],
+        "declaration_count": 34,
+        "declarations": [
+          "PrimeFactorOscillations.gaussianWickLowValue_nonconstant_norm_bound",
+          "PrimeFactorOscillations.complex_diagonal_cube_norm_bound",
+          "PrimeFactorOscillations.covarianceCorrectionComplexValue_analyticAt",
+          "PrimeFactorOscillations.covarianceCorrectionComplexValue_norm_bound",
+          "PrimeFactorOscillations.realGaussianQuotientCorrectionFunction_real",
+          "PrimeFactorOscillations.realGaussianQuotientCorrectionFunction_analyticAt",
+          "PrimeFactorOscillations.stochastic_complex_correction_norm_bound",
+          "PrimeFactorOscillations.hamiltonianFiniteSeriesValue_one",
+          "PrimeFactorOscillations.hamiltonianTaylorCoefficient_norm_bound",
+          "PrimeFactorOscillations.hamiltonianCauchy_linear_remainder_one",
+          "PrimeFactorOscillations.hamiltonianCauchy_linear_remainder",
+          "PrimeFactorOscillations.hamiltonianCorrection_shift_norm_bound",
+          "PrimeFactorOscillations.stochastic_correction_shift_disk_data",
+          "PrimeFactorOscillations.stochastic_covarianceCorrection_linear_coefficient_bound",
+          "PrimeFactorOscillations.stochastic_covarianceCorrection_quadratic_remainder",
+          "PrimeFactorOscillations.gammaInverseAverage_local_affine",
+          "PrimeFactorOscillations.gammaAffine_window_integrable",
+          "PrimeFactorOscillations.gammaInverseAverage_local_affine_of_window_measurable",
+          "PrimeFactorOscillations.spectralFactors_affine_remainder",
+          "PrimeFactorOscillations.spectralFactors_first_increment",
+          "PrimeFactorOscillations.spectralFactors_signed_product_remainder",
+          "PrimeFactorOscillations.stochastic_covarianceCorrection_window_real",
+          "PrimeFactorOscillations.stochastic_covarianceCorrection_window_bound",
+          "PrimeFactorOscillations.stochastic_covarianceCorrection_continuousOn_window",
+          "PrimeFactorOscillations.stochastic_covarianceCorrection_product_window_measurable",
+          "PrimeFactorOscillations.stochastic_covarianceCorrection_gamma_window",
+          "PrimeFactorOscillations.spectralFactors_central_jet_bounds",
+          "PrimeFactorOscillations.spectralAffineRemainderBound_polynomial",
+          "PrimeFactorOscillations.spectralCorrectionProductRemainderBound_polynomial",
+          "PrimeFactorOscillations.hamiltonianPermanentWindowKappa_polynomial",
+          "PrimeFactorOscillations.stochasticCorrectionGammaRemainderBound_polynomial",
+          "PrimeFactorOscillations.stochasticCorrectionGamma_second_moment_bound",
+          "PrimeFactorOscillations.stochastic_real_rook_compensated_identity",
+          "PrimeFactorOscillations.stochastic_real_rook_local_covariance_remainder"
+        ],
+        "allowed_axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "log_sha256": "F680BF1DA8F63CAF306C2D2835A3A6A0C05A411E5C69A774F718D57F726F2F24"
+      },
+      {
+        "status": "verified",
+        "modules": [
+          "PrimeFactorOscillations.Helpers.HamiltonianPermanentRealWindow"
+        ],
+        "declaration_count": 2,
+        "declarations": [
+          "PrimeFactorOscillations.stochastic_real_rook_compensated_identity",
+          "PrimeFactorOscillations.stochastic_real_rook_local_covariance_remainder"
+        ],
+        "allowed_axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "log_sha256": "C8239F4BE63AFD33469C253B832178C18152D0B94F248CC4C819F4AFBCED361F",
+        "reason": "Only the changed real-rook source was freshly compiled and re-audited after ordinal import repair; unchanged modules were not re-audited."
       }
     ],
     "active_proof": {
-      "module": "PrimeFactorOscillations.Helpers.HamiltonianPermanentPolylogWindow",
-      "status": "Closed and focused-audited local covariance correction, with exact low normal form and uniform polylogarithmic entry-cap quantifiers. The next analytic consumer is covariance-correction derivatives and complete Gamma assembly.",
-      "target": "Consume the existing covariance-correction and analytic low-Wick providers to prove uniform derivative bounds with the required N^(-1) scale, then assemble the complete first/second-order Gamma average with every signed correction and the full outside-window consumer retained. Inspect exact provider signatures before creating a replacement module. Continue the exact Hamiltonian-cycle identity, stochastic minor repair, coordinate occupancy, full signed comparison, spectral amplification/inverse and arithmetic closures, then public exports and all headline claims. Keep RH/Hadamard/twin-prime transfers queued until the full headline is proved and promoted; a helper, audit or commit is not completion.",
+      "module": "PrimeFactorOscillations.Helpers.HamiltonianStochasticCorrectionBudget",
+      "status": "Closed and focused-audited the actual covariance affine Taylor estimate and complete signed covariance Gamma product, with explicit O_delta(Delta(1)*(1+A)^7/N^2) remainder and retained affine tails. The original real rook local remainder is also verified. Next is the complete original-rook Gamma integral and permanent asymptotic.",
+      "target": "Assemble the actual original-rook core Gamma integral from its real local remainder, the determinant cubic average and the signed covariance-product average. Retain the determinant second-derivative main correction and all affine/cubic discarded tails. Split the original rook integral at I=[1-delta/16,1+delta/16] and the core |S-1|<=eps; take eps=N^(-1/8) so its exp(-N^(3/4)/36) concentration dominates the proved exp(O_delta(A*sqrt(N))) rook envelope for every fixed polylog cap. Apply the existing full outside-window theorem with deltaOut=delta/4 and discharge all cap/size conditions uniformly. Complete the permanent first/second-order asymptotic, then continue the exact Hamiltonian-cycle identity, minor repair, occupancy, full signed comparison, amplification/inverse, arithmetic closures and public headline exports. RH/Hadamard/twin-prime transfers remain queued until every headline claim is proved and promoted. A helper, audit or commit is not completion.",
       "consumer": "The complete signed comparison has relative error O(log(N)^M/N+log(N)^M*Amp(T)/N^2). The present local determinant remainder supplies its N^(-2) precision; the Wick, covariance-correction and signed-coordinate consumers are still required. At the advertised prime amplification Amp(T)<=N^(27/20), that precision contributes N^(-13/20) times logarithms, before the final advertised N^(-3/5) relaxation.",
       "proved_inputs": [
         "PrimeFactorOscillations.Helpers.HamiltonianMatrixSpectralAverage",
@@ -2982,7 +3125,18 @@
         "PrimeFactorOscillations.Helpers.HamiltonianWickPairSupports",
         "PrimeFactorOscillations.Helpers.HamiltonianLowWickNormalForm",
         "PrimeFactorOscillations.Helpers.HamiltonianPermanentLocalExpansion",
-        "PrimeFactorOscillations.Helpers.HamiltonianPermanentPolylogWindow"
+        "PrimeFactorOscillations.Helpers.HamiltonianPermanentPolylogWindow",
+        "PrimeFactorOscillations.Helpers.HamiltonianLowCorrectionAnalyticBounds",
+        "PrimeFactorOscillations.Helpers.HamiltonianCauchyLinearRemainder",
+        "PrimeFactorOscillations.Helpers.HamiltonianCovarianceCorrectionTaylor",
+        "PrimeFactorOscillations.Helpers.HamiltonianGammaAffine",
+        "PrimeFactorOscillations.Helpers.HamiltonianSpectralProductAverage",
+        "PrimeFactorOscillations.Helpers.HamiltonianCovarianceCorrectionWindow",
+        "PrimeFactorOscillations.Helpers.HamiltonianCovarianceCorrectionAverage",
+        "PrimeFactorOscillations.Helpers.HamiltonianSpectralCentralJets",
+        "PrimeFactorOscillations.Helpers.HamiltonianGammaCorrectionBudget",
+        "PrimeFactorOscillations.Helpers.HamiltonianStochasticCorrectionBudget",
+        "PrimeFactorOscillations.Helpers.HamiltonianPermanentRealWindow"
       ]
     },
     "status_reconciliation_check": {
@@ -3009,15 +3163,15 @@
       "checked_paper_hashes": [
         {
           "file": "main.tex",
-          "sha256": "96B9CD4CD9A617BAAC7843278774324C19187F20BFC5FBED34B56307DAFDF60E"
+          "sha256": "6D4CEE4E469E649717EDE15E4FF8980B357BFA085531D65696C8F105EC0C6907"
         },
         {
           "file": "relative-permanents.tex",
-          "sha256": "38952F538D44F2C3767A2B3E531EE2B6EDE4E0C6E1DCCE9DB8C754698EDAA67A"
+          "sha256": "FF83944B54B954059CF44B95FEE14F1D2FA8B5C5E52D46C50AAD3D19C96AA595"
         },
         {
           "file": "permanent-second-order.tex",
-          "sha256": "8579562BEE44E59913BF93B0ED26907F2C75B9CADCBE417ABDD202E31AC8D58F"
+          "sha256": "A93316B50C35325F57393DC9823801C91681C923C6329DDFCFCC9F0075A5F5B1"
         }
       ],
       "mechanical_forbidden_normalized_paper_status_sentences": [
@@ -3047,9 +3201,14 @@
         "tail. Quantitative cutoff selection and the resulting uniform \\(C_\\delta(1+A)^{24}/N^2\\) bound are now formalized. The explicit low-diagram normal form and Gamma assembly remain formalization obligations. The full original outside-Gamma consumer is formalized below.",
         "The scalar conditions in this bound are now discharged in Lean by \\[ b=R=1+\\delta/16,\\qquad H=\\left\\lceil\\frac{1000(1+A)^3\\sqrt N}{\\delta^2}\\right\\rceil,\\qquad u=(H/N)^{1/3},\\qquad V=\\left(\\frac{1001(1+A)^3}{\\delta^2}\\right)^2. \\] A sufficient explicit range is \\[ \\sqrt N\\ge \\frac{1001(192e)^3(1+A)^6}{\\delta^5}. \\] On this range, for every \\(|s|\\le1+\\delta/16\\), the actual observable and the complete signed low Wick value \\(W_s\\) satisfy the formalized bound \\[ |F_s(1)-W_s|\\le C_\\delta(1+A)^{24}/N^2, \\] where the maintained proof permits \\begin{align*} C_\\delta={}&1+11616(1+96e/\\delta)^{11}\\\\ &+28(96e/\\delta)^{12}(1001/\\delta^2)^4 +10(1+128e/\\delta)^3. \\end{align*} Both Cauchy tails are individually at most \\(N^{-2}\\) before multiplying the low-correction factor. The actual low-diagram normal form and the complete Gamma assembly remain formalization obligations.",
         "bound and low-correction Cauchy tail are also formalized. Explicit cutoff selection and its closed uniform \\(C_\\delta(1+A)^{24}/N^2\\) remainder are now formalized. The low-diagram normal form and full Gamma assembly remain formalization obligations.",
-        "formalized. Uniform cutoff selection, all its scalar constraints and the closed \\(C_\\delta(1+A)^{24}/N^2\\) remainder are now formalized. The low-diagram normal form, covariance-correction derivatives and second-order Gamma assembly are still required."
+        "formalized. Uniform cutoff selection, all its scalar constraints and the closed \\(C_\\delta(1+A)^{24}/N^2\\) remainder are now formalized. The low-diagram normal form, covariance-correction derivatives and second-order Gamma assembly are still required.",
+        "Covariance-correction derivatives and Gamma assembly remain formalization obligations, as do the Hamiltonian-cycle and coordinate-occupancy identities, minor remainders and arithmetic closures.",
+        "polylogarithmic entry-cap range. Gamma assembly remains a formalization obligation. The full original outside-Gamma consumer is formalized below.",
+        "kernels and all \\(1\\le A\\le(\\log N)^K\\). The complete Gamma assembly remains a formalization obligation.",
+        "uniform in every admissible kernel. Covariance-correction derivatives and full Gamma assembly remain formalization obligations.",
+        "polylogarithmic range. Covariance-correction derivatives and second-order Gamma assembly are still required."
       ],
-      "recurrence_note": "All five affected status blocks record the compiled actual low normal form, isolated cubic diagonal error and full polylog-uniform local covariance correction. All 22 TeX sources pass whitespace-normalized rejection of obsolete pending statuses.",
+      "recurrence_note": "All five affected status blocks now record the actual covariance affine Taylor estimate, signed covariance Gamma product and explicit two-power budget, with complete original-rook Gamma assembly still pending. The exact product identity and constants are included in the paper. All 22 TeX sources pass normalized rejection of 32 obsolete pending-status sentences.",
       "related_paper_sources_normalized_and_checked": 22
     },
     "audit_driver_release_rule": {
@@ -3058,6 +3217,13 @@
       "prohibited": "Leave a temporary #print driver inside the source-policy discovery domain during the final repository check or mistake its rejection for a Lean proof failure.",
       "corrected_action": "Delete only the hash-verified owned audit driver; preserve the proof sources and durable audit receipt, then rerun the full relevant checks against the final staged surface.",
       "recurrence": "The first scalar-cutoff fast check rejected the temporary root driver. Its exact source hash was verified before removal; all 31 proof declarations and paper compilation had already passed."
+    },
+    "changed_lean_import_order_rule": {
+      "trigger": "Creating or editing any Lean source, including a Helpers leaf or temporary probe, before a build.",
+      "required_preflight": "Extract every import module from every changed Lean file, compare the sequence with its ordinally sorted copy, and require exact equality before launching any compiler. Repeat this check on the final staged surface.",
+      "prohibited": "Check import order only on facades, rely on kernel compilation to enforce source policy, or claim a repository pass before its final staged check.",
+      "corrected_action": "Sort imports without changing proof bodies or checked elaborator options, recompile the changed module and refresh only its affected focused audit, then restage and rerun the repository checks.",
+      "recurrence": "The covariance Gamma fast check rejected HamiltonianPermanentRealWindow.lean because its two imports were reversed. The mathematical proof had compiled; the repository checkpoint remained uncommitted until repair."
     }
   }
 }

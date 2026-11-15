@@ -101,8 +101,10 @@ bound and low-correction Cauchy tail are also formalized. Explicit cutoff
 selection, the complete low-diagram normal form and the actual local
 covariance-correction remainder \(C'_\delta(1+A)^{24}/N^2\) are formalized
 throughout the physical window. Its polylogarithmic entry-cap threshold is
-uniform in every admissible kernel. Covariance-correction derivatives and
-full Gamma assembly remain formalization obligations.
+uniform in every admissible kernel. The actual covariance affine Taylor
+bound, real rook transfer and signed covariance Gamma product average are
+also formalized, including an explicit two-power remainder. Complete
+original-rook Gamma assembly remains a formalization obligation.
 On the fixed interval in \(s\),
 the same diagonal estimate is \(O_\delta(A^3/N^2)\).
 
@@ -200,8 +202,10 @@ physical-window scaling and complete full-window remainder consumer are
 formalized. Uniform cutoff selection, the low-diagram normal form,
 all scalar constraints, and the closed covariance-correction remainder
 \(C'_\delta(1+A)^{24}/N^2\) are now formalized, including its uniform
-polylogarithmic range. Covariance-correction derivatives and second-order
-Gamma assembly are still required.
+polylogarithmic range. The covariance affine Taylor estimate, its full
+signed determinant product average and the explicit
+\(C_\delta\Delta(1)(1+A)^7/N^2\) remainder now have maintained proofs.
+Complete original-rook Gamma assembly is still required.
 
 It remains to perform the Gamma average with its first
 correction retained. Put \(S=N/T\), \(T\sim\Gamma(N+1,1)\),
@@ -274,6 +278,70 @@ only its discarded tail is bounded absolutely.
 The local remainder is bounded by \(M\mu_4\).
 These bounds also prove integrability on the window, without
 extending the local approximation to other values of \(S\).
+
+The covariance part also has a direct formalized averaging proof.
+Put \(b=1+\delta/16\), \(P_s=\Psi(\Gamma_s)\), and
+\[
+ \kappa=\frac{2b^2A}{1-b(1-\delta/2)}\leq\frac{6A}{\delta},
+ \qquad C=(1+16e\kappa)^3 .
+\]
+The actual complex Gaussian quotient is analytic in a disk about \(1\),
+with norm at most \(20C/N\). Cauchy's estimate gives a real coefficient
+\(a_1\), the real part of its actual first Taylor coefficient, such that
+\[
+ |a_1|\leq\frac{640C}{\delta N},\qquad
+ |P_s-P_1-a_1(s-1)|
+ \leq\frac{40960C}{\delta^2N}(s-1)^2
+ \quad (|s-1|\leq\delta/64).
+\]
+Write \(t=s-1\), \(D_s=\Delta(s)\), and
+\[
+ J_1=D_1\sum_i\frac{\lambda_i}{1-\lambda_i},\quad
+ E_D=D_s-D_1-J_1t,\quad E_P=P_s-P_1-a_1t .
+\]
+The exact identity
+\[
+ D_sP_s-D_1P_1-(D_1a_1+J_1P_1)t
+   =E_DP_1+(D_s-D_1)a_1t+D_sE_P
+\]
+retains every determinant--covariance cross term. Define
+\[
+ \begin{split}
+ U_\delta&=\frac{13}{2\delta^2}+\frac{23}{\delta^3}
+                                  +\frac{86e}{\delta^4},\\
+ V_\delta&=\frac2\delta+U_\delta,\\
+ B_\delta&=20U_\delta+\frac{640V_\delta}{\delta}
+                                  +\frac{40960e}{\delta^2},\\
+ {\cal R}_\delta&=2B_\delta(1+96e/\delta)^3 .
+ \end{split}
+\]
+For \(N\geq16\), \(0<\varepsilon\leq\delta/64\),
+\(N\varepsilon\geq4\), and
+\(2(A-1)\varepsilon\leq\delta\), the actual Euler average satisfies
+\[
+ \begin{split}
+ &\left|\mathbb E[\one_{C_\varepsilon}D_SP_S]-D_1P_1\right|\\
+ &\quad\leq
+ \frac{{\cal R}_\delta D_1(1+A)^7}{N^2}
+ +e^{-(N+1)\varepsilon^2/72}
+       \bigl(4|D_1P_1|+7|D_1a_1+J_1P_1|\bigr).
+ \end{split}
+\]
+Indeed the central spectral jets have the explicit bounds
+\(\delta|J_1|\leq2D_1A\),
+\(\delta^2|J_2|\leq13D_1A^2\), and
+\(\delta^3|J_3|\leq138D_1A^3\).
+Together with the fourth-order spectral remainder these give
+\(|E_D|\leq D_1(1+A)^4U_\delta t^2\) and
+\(|D_s-D_1|\leq D_1(1+A)^4V_\delta|t|\).
+The full product remainder is therefore at most
+\(D_1(1+A)^4CB_\delta t^2/N\).
+The exact first Gamma moment is zero and the second is
+\(1/(N-1)\leq2/N\); the omitted affine tails give the two
+displayed exponential terms. Local continuity and window measurability
+of the actual matrix correction, the signed product average and this
+explicit two-power budget all have maintained Lean proofs.
+Complete original-rook Gamma assembly remains to be formalized.
 
 Here the derivative bounds can be made completely explicit.
 Write \(\lambda_i\) for the eigenvalues of \(B^\top B\),
