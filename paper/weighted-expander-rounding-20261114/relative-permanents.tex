@@ -255,9 +255,12 @@ its complex normalizer square and its positive real determinant factor
 are formalized, as is the actual real resolvent covariance.
 The full actual mixed Wick readout, finite support/degree-profile
 bounds, complete coefficient convolutions and finite high-diagram
-two-power estimate are now formalized. The analytic coefficient identity,
-moderate diagrams and complete Cauchy tail remain formalization obligations.
-The full original outside-Gamma consumer is formalized below.
+two-power estimate are now formalized. The complete moderate-degree sum,
+normalizer holomorphy, scaled Cauchy tail and integrated finite-jet remainder
+are now formalized as well. Identifying the complete Wick profiles with the
+actual Taylor coefficients and assembling the permanent remainder remain
+formalization obligations. The full original outside-Gamma consumer
+is formalized below.
 
 The block-power expansion gives, for a fixed
 \(\theta=b(1-\delta/2)<1\),
@@ -326,7 +329,51 @@ can affect deformation coefficients through \(h\).
 Uniqueness of the analytic finite jet gives the coefficient identity.
 No uniform-in-\(N,h\) constant is used at this identity step; uniform
 bounds enter after the exact coefficients have been identified.
-This finite-jet analytic transfer remains a Lean obligation.
+The integrated finite-jet remainder now has a more direct maintained proof.
+For any complex vector \(Y\) of zero sum, define
+\[
+ {\cal P}_h(Y)=\prod_i(1+Y_i)
+       \sum_{j=0}^{h-1}\frac{(\sum_iY_i^2/2)^j}{j!},
+ \qquad W=\sum_i|Y_i|^2 .
+\]
+The exact compensation identity and zero-sum product bound give
+\[
+ \left|\prod_i r(Y_i)-{\cal P}_h(Y)\right|
+                         \leq(W/2)^h e^W .
+\]
+For the actual quotient Gaussian vector, if
+\(S=\sum_jX_j^2\), \(t\geq0\), \(\|M\|\leq\rho\), and
+\(t\rho\leq1/16\), orthogonality and the full quotient imply
+\[
+ W\leq2\rho tS,\qquad
+ e^{-S/2}\left|\prod_i r(Y_i)-{\cal P}_h(Y)\right|
+                       \leq t^h\rho^h S^h e^{-3S/8}.
+\]
+The last dominating function is proved integrable by the actual
+polynomial Gaussian transfer at precision \(3/8\), including every
+coordinate overlap. With \(d\) Gaussian coordinates, put
+\[
+ G_{d,h}=Z_0^{-d}\int_{\mathbb R^d}
+          \left(\sum_jx_j^2\right)^h
+                         e^{-3\sum_jx_j^2/8}\,dx.
+\]
+The maintained integral theorem proves
+\[
+ \left|\E_{\rm std}\prod_i r(Y_i)
+                -\E_{\rm std}{\cal P}_h(Y)\right|
+                         \leq t^h\rho^h G_{d,h}.
+\]
+It also identifies the entire finite polynomial average with the
+actual quotient Gaussian polynomial state. For the stochastic
+bipartite block, all balance, spectral, normalization and disk
+hypotheses are discharged in a direct consumer.
+Odd mixed Gaussian moments vanish exactly, and even moments of
+degree \(2e\) scale by the \(e\)-th power of a covariance dilation;
+both facts are formalized.
+The remaining Lean obligation is the complete finite-profile and
+Taylor-coefficient identification, followed by its uniform remainder
+assembly. The fixed-\(d,h\) domination constant is not used as a
+uniform estimate in the subsequent diagram bounds.
 
 The complete finite coefficient estimate has a maintained proof with
 explicit constants. Set
@@ -376,8 +423,17 @@ The complete direct stochastic consumer is formalized, including
 every coefficient convolution through the same cutoff.
 For the cutoff below \(V=O_\delta(A^6)\), giving the asserted
 \(O_\delta(A^{24}/N^2)\) high contribution.
-The finite bound is distinct from its still-unformalized analytic
-coefficient identification and infinite Cauchy tail.
+The complete moderate contribution is also formalized. For \(N\geq11\),
+\[
+ \mu_H\!\left(\sum_{e=4}^{11}\sum_{v=0}^{e}D_{e,v}\right)
+       \leq\frac{11616(1+16\mathrm e\,\kappa)^{11}}{N^2}.
+\]
+Every nonzero profile satisfies \(e-v\geq2\). Bound its extra powers
+of \(e/N\) by one, use \(e^2\leq121\), and retain all \(v=0,\ldots,e\)
+and all eight degrees. The displayed constant uses at most twelve
+support sizes per degree; no degree or compensation term is omitted.
+These formal coefficient bounds still require identification with
+the actual analytic Taylor coefficients.
 
 Take \(H=\lceil C_\delta A^3\sqrt N\rceil\), increasing its
 constant below if necessary. For large \(N\), \(H<N\).
@@ -416,7 +472,31 @@ block before it is estimated. Combining with the raw rook bound gives
 \]
 The exact compensated Gaussian identity and every hypothesis in this
 stochastic complex consumer are formalized.
-On \(|t|=R\) this is \(\exp(C_\delta\sqrt{NA}+C_\delta A)\).
+The actual scalar Gaussian formula on \(|z_j|<1\) is
+\[
+ \int_{\mathbb R}e^{-(1-z_j/(1+z_j))x^2/2}\,dx
+                    =\bigl(2\pi(1+z_j)\bigr)^{1/2},
+\]
+on the principal branch in the right half-plane. This proves holomorphy
+of the actual normalizer and compensated function on \(|z|\rho<1\).
+For every complex \(c\), \(R>1\) and \(|c|R\rho<1\), define
+\(F_c(t)=R_B(ct)\chi(ct)=\sum_k a_k(c)t^k\), and put
+\[
+ L_c=\frac{2|c|R}{1-|c|R\rho}\sqrt{N(A-1)}
+                              +\frac{|c|^2R^2(A-1)}2 .
+\]
+The actual convergent Cauchy series and complete omitted remainder
+now have maintained Lean proofs:
+\[
+ \left|F_c(1)-\sum_{k=0}^{H-1}a_k(c)\right|
+                 \leq\frac{e^{L_c}R^{-H}}{1-R^{-1}} .
+\]
+The coefficient norm bound on an arbitrary circle is formalized as
+well. It supplies the corresponding sum of omitted coefficient norms
+by geometric summation. The independent scale \(c\) is retained, so
+the result applies simultaneously throughout the determinant window.
+On \(|t|=R\), uniformly for \(c=s\in[a,b]\), the circle bound is
+\(\exp(C_\delta\sqrt{NA}+C_\delta A)\).
 Cauchy's coefficient bound and the chosen \(H\) now give
 \[
  \sum_{k>H}|f_k(s)|
@@ -502,9 +582,9 @@ transports the original indicator exactly. No local \(\Delta\) or
 \(\Delta\Psi\) factor is evaluated outside \([a,b]\).
 The full probability and tail consumer, including these cutoff and
 Fubini steps, is formalized. The bound vanishes uniformly for
-polylogarithmic \(A\); complete Cauchy and high-diagram consumers
-remain to be formalized.
-
+polylogarithmic \(A\). The complete Cauchy tail and finite moderate/high
+coefficient bounds are formalized; their analytic coefficient identification
+and uniform permanent assembly remain to be formalized.
 As \(\Delta(1)\geq1\), the total relative error is bounded by
 \[
  C_\delta(A^2N^{-1/6}+AN^{-1/4})
