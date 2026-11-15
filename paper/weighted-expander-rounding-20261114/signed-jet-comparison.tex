@@ -283,8 +283,69 @@ the main correction. The full-support finite identities are in
 \texttt{HamiltonianSignedMinorFunctional}, and the actual stochastic
 and balanced-support bounds are in
 \texttt{HamiltonianJointSignedCorrection}. The separate complete
-minor residual and the large-support complementary-permanent tail
-are the next quantitative formalization obligations.
+small-support residual now has a maintained quantitative proof,
+as follows.
+
+\paragraph{Formalized full small-support residual.}
+Put \(R=\log(2N)^3\), \(r=|J|\), and
+\[
+ E_R(I,J)=\mathbf1_{r\leq R}
+ \left[
+  \left(\frac{\operatorname{per}T[I^c,J^c]}{\operatorname{per}T}\right)^2
+                       -1-\alpha(I,J)\right].
+\]
+The actual retained error is the signed packet
+\[
+ \mathcal E_R=-\sum_{J\subseteq[1,N]}(-1)^r r
+       \sum_{\substack{I\subseteq[1,N]\\|I|=r}}
+                   \det T[I,J]^2 E_R(I,J).
+\]
+\texttt{HamiltonianAbsoluteMinorMass} evaluates its weighted mass
+by the actual positive Gram spectrum and proves
+\[
+ \sum_J |J|\sum_{|I|=|J|}\det T[I,J]^2
+                         \leq2A\det(I+B^\top B).
+\]
+The constant-direction factor is exactly \(2\).
+\texttt{HamiltonianSignedMinorResidual} consumes the full uniform
+two-power minor theorem. For every fixed \(0<\delta\leq1\)
+and \(K\geq0\), one threshold covers every finite order,
+every admissible kernel with \(A\leq(\log N)^K\), and all
+independent deleted supports. It proves
+\[
+ |\mathcal E_R|\leq
+ 2A C_\delta^{\rm minor}
+       \frac{\log(2N)^{12+24\lceil K\rceil}}{N^2}
+                                  \det(I+B^\top B).
+\]
+The unsigned mass is used only for this residual. The previously
+evaluated full first-order term retains its signed determinant
+normalization.
+
+\paragraph{Formalized reveal input to the large-tail estimate.}
+For a finite family of injections separated by their complete row
+histories, the sequential products
+\[
+ q_\sigma=\prod_{\text{revealed rows }i}
+ \frac{M_{i,\sigma(i)}}{\sum_{j\ {\rm still\ available}}M_{ij}}
+\]
+have total mass at most \(1\).
+\texttt{HamiltonianWeightedReveal} proves this with each actual
+denominator and every branch retained. Define
+\(w_\sigma=\prod_i M_{i,\sigma(i)}\) and let \(C_\sigma\)
+be the sum of the logarithms of these denominators.
+\texttt{HamiltonianWeightedRevealLog} proves, when the total
+matching weight is positive,
+\[
+ \log\sum_\sigma w_\sigma
+       \leq\frac{\sum_\sigma w_\sigma C_\sigma}
+                      {\sum_\sigma w_\sigma}.
+\]
+It handles zero matching weights directly and derives the
+inequality from \(\log x\leq x-1\).
+The row-order average giving the global row-cap permanent bound,
+its large-support complementary-permanent tail application, and
+the final Hamiltonian comparison remain formalization obligations.
 
 \begin{theorem}[Relative bipartite comparison at logarithmic density]
 \label{thm:criticalrelative}

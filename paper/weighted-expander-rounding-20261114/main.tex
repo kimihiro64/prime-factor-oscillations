@@ -561,9 +561,23 @@ correction now have maintained proofs as well:
 \]
 This includes the rank, diagonal, both ordered off-diagonal
 contributions and the full linear field. It pays no unsigned
-determinant amplification. The complete residual and large-support
-tail, final comparison, amplification/inverse and arithmetic/public
-closures remain formalization obligations.
+determinant amplification. The complete small-support residual is
+now formalized as well. For \(R=\log(2N)^3\), its actual signed
+packet satisfies
+\[
+ |\mathcal E_R|\leq
+ 2A C_\delta^{\rm minor}\frac{\log(2N)^{12+24\lceil K\rceil}}{N^2}
+                   \det(I+B^\top B).
+\]
+The exact weighted absolute mass is evaluated only for this
+separately retained residual. One threshold covers every admissible
+kernel and independently chosen balanced support.
+A weighted sequential-reveal subprobability and its full logarithmic
+partition bound are also formalized as inputs to the large-tail
+permanent estimate; that row-cap estimate and its tail application
+are not yet formalized.
+The large-support tail, final comparison, amplification/inverse
+and arithmetic/public closures remain formalization obligations.
 The headline Hamiltonian counting and inverse theorems are not yet
 Lean-certified.
 Compilation of this manuscript does not provide mathematical or
