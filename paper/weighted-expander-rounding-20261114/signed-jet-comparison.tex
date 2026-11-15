@@ -611,9 +611,34 @@ The maintained owners are
 \texttt{HamiltonianCycleLogEnvelope},
 \texttt{HamiltonianAmplificationCoordinate} and
 \texttt{HamiltonianSpectralAmplification}.
-Uniform power-decay corollaries, the inverse, arithmetic applications,
-the exact analytic size-derivative readout and public integration
-remain formalization obligations.
+\paragraph{Formalized uniform decay and inverse.}
+\texttt{HamiltonianCountPowerDecay} proves, for every
+\(0<t<\min\{1,2-\beta\}\), one uniform order threshold such that
+\[
+ {\cal A}(T)\leq N^\beta
+ \quad\Longrightarrow\quad
+ |C_N^2N\operatorname{cyc}(P_T)-1|\leq N^{-t}.
+\]
+It gives the stated \(N^{-3/5}\) error under
+\(\|B\|\leq3/5\) and \(A-1\leq(3/5)\log N\).
+\texttt{HamiltonianCountDensity} discharges the amplification premise
+under the actual sharp density condition \(A\leq b\log N\),
+\(b\kappa_\rho<2\), and also proves uniform power decay under
+\({\cal A}(T)\leq N^{2-\varepsilon}\), \(\varepsilon>0\).
+\texttt{HamiltonianCountInverse} proves the inverse in both the
+normalized cycle convention and the exact unoriented factorial
+convention used below. For one \(C=C_{\rho,C_0}>0\), chosen before
+\(\eta>0\), a defect of size \(\eta\) forces
+\[
+ \log{\cal A}(T)\geq
+ 2\log N-H\log\log(2N)+\log\frac{\eta}{2C},
+\]
+and the actual centered squared-entry sum is at least the same
+right-hand side divided by \(\kappa_\rho\).
+The threshold may depend on \(\eta\); the constant \(C\) does not.
+All nine new declarations pass the focused foundational-axiom check.
+Arithmetic applications, the exact analytic size-derivative readout
+and public integration remain formalization obligations.
 
 \begin{theorem}[Relative bipartite comparison at logarithmic density]
 \label{thm:criticalrelative}
