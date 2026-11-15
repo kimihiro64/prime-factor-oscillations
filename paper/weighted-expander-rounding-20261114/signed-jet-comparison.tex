@@ -178,11 +178,64 @@ using \texttt{HamiltonianParityRootRegularization},
 \texttt{HamiltonianTwoRowDeterminant}.
 The signed Euler readouts are sums over every principal support;
 no independent coordinate model is introduced.
-Formal extraction of the root jets and the normalized
-\({\cal L}\)-moment bounds remains unfinished. In particular the
-conditional physical inverse formula is not evaluated at
-\(\tau=0\); its cleared marked-polynomial identity is the input
-for that extraction.
+The regularized root jets now have maintained Lean proofs:
+\[
+ \begin{split}
+ D(0)&=2d,\\
+ D'(0)&=D(0)\bigl(\tfrac12-\operatorname{tr}\Gamma\bigr),\\
+ A(0)&=\Gamma+\tfrac q4\one\one^\top,\\
+ A'(0)&=-\Gamma+\Gamma^2-\tfrac q8\one\one^\top+\Pi,
+       \qquad q=1/N.
+ \end{split}
+\]
+The normalization is an exact constant-direction determinant
+factorization. The derivative identity retains and cancels both
+constant-direction cross products using stochastic balance.
+The cleared formulas extend by their actual continuous limits;
+the singular physical inverse is never evaluated at the root.
+
+Precisely, define the full-principal-support functional
+\[
+ {\cal L}_{\rm pr}(f)=
+   -\sum_{S\subseteq V}\frac{|S|}{2}\det P[S]\,f(S).
+\]
+The maintained polynomial Euler readouts and root derivatives prove
+\[
+ \frac{{\cal L}_{\rm pr}(u_a)}d
+ =A_{aa}(0)+\bigl(\tfrac32+\operatorname{tr}\Gamma\bigr)\Pi_{aa},
+\]
+and, for \(a\ne b\),
+\[
+ \begin{split}
+ \frac{{\cal L}_{\rm pr}(u_au_b)}d
+ ={}&A_{aa}(0)A_{bb}(0)-A_{ab}(0)A_{ba}(0)
+       -Q_{ab}(A'(0))\\
+ &+\bigl(\tfrac32+\operatorname{tr}\Gamma\bigr)Q_{ab}(A(0)).
+ \end{split}
+\]
+The Lean statements are the multiplied identities and require no
+division by \(d\). Under the original nonnegative stochastic,
+entry-cap and gap hypotheses, for every \(A\geq1\), they also prove
+\[
+ (1-\rho)|{\cal L}_{\rm pr}(u_a)|\leq5|d|Aq,\qquad
+ (1-\rho)^2|{\cal L}_{\rm pr}(u_au_b)|
+                         \leq50|d|A^2q^2\quad(a\ne b).
+\]
+In particular the covariance-square coefficient is independently
+bounded by
+\((1-\rho)^2|(\Gamma^2)_{ab}|\leq Aq\).
+These are actual signed moments, rather than bounds on unsigned
+minor mass. The maintained owners are
+\texttt{HamiltonianParityRootJets},
+\texttt{HamiltonianParityRootNormalization},
+\texttt{HamiltonianClearedRootDerivative},
+\texttt{HamiltonianRootOccupancyMoments},
+\texttt{HamiltonianOccupancyEntryBounds},
+\texttt{HamiltonianRootOccupancyBounds} and
+\texttt{HamiltonianSignedOccupancyBounds}.
+The formal balanced two-support readout, the joint rank and
+first-order correction consumer and the complete remainder/tail
+assembly remain unfinished.
 
 \begin{theorem}[Relative bipartite comparison at logarithmic density]
 \label{thm:criticalrelative}
