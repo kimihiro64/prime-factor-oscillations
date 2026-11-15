@@ -456,13 +456,16 @@ observable has the uniform covariance-correction remainder
 \(C'_\delta(1+A)^{24}/N^2\), including the entire physical window.
 One threshold works for every kernel and every \(A\le(\log N)^K\)
 for each fixed \(\delta,K\).
-The actual covariance affine Taylor estimate, its complete signed Gamma
-product average and an explicit \(C_\delta\Delta(1)(1+A)^7/N^2\) remainder
-are now formalized. Complete original-rook Gamma assembly remains a
-formalization obligation, as do the Hamiltonian-cycle and
-coordinate-occupancy identities, minor remainders and arithmetic closures. In particular,
-none of the headline
-counting or inverse theorems is yet Lean-certified.
+The complete original-rook Gamma assembly and its exact normalized
+permanent transport now have maintained Lean proofs. For every fixed
+\(\delta,K\), one threshold works for every admissible kernel and
+\(1\le A\le(\log N)^K\), and the retained signed first correction has
+error at most \(C_\delta\Delta(1)(1+A)^{24}/N^2\), with explicit
+\(C_\delta\). The core, annular and outer original-rook integrals and
+all discarded affine and cubic terms are included. Hamiltonian-cycle
+and coordinate-occupancy identities, compensated minor remainders and
+arithmetic closures remain formalization obligations. The headline
+Hamiltonian counting and inverse theorems are not yet Lean-certified.
 Compilation of this manuscript does not provide mathematical or
 formal certification, and independent referee verification remains
 outstanding.

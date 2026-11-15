@@ -30,7 +30,7 @@ Under Theorem~\ref{thm:growingpermanent}, for sufficiently large
  \operatorname{per}D
  =\frac{N!}{N^N}\Delta(1)
    \left(1+{\cal Q}_N(D)
-             +O_\delta((1+A)^{40}/N^2)\right),
+             +O_\delta((1+A)^{24}/N^2)\right),
  \qquad |{\cal Q}_N(D)|\leq C_\delta(1+A)^2/N .
 \]
 In particular the first correction is explicit and is not
@@ -103,8 +103,9 @@ covariance-correction remainder \(C'_\delta(1+A)^{24}/N^2\) are formalized
 throughout the physical window. Its polylogarithmic entry-cap threshold is
 uniform in every admissible kernel. The actual covariance affine Taylor
 bound, real rook transfer and signed covariance Gamma product average are
-also formalized, including an explicit two-power remainder. Complete
-original-rook Gamma assembly remains a formalization obligation.
+also formalized. The full original-rook Gamma assembly, exact permanent
+transport and uniform polylogarithmic range now have maintained proofs,
+with explicit remainder \(C_\delta\Delta(1)(1+A)^{24}/N^2\).
 On the fixed interval in \(s\),
 the same diagonal estimate is \(O_\delta(A^3/N^2)\).
 
@@ -134,7 +135,7 @@ Thus, uniformly on the fixed interval \(s\in[a,b]\),
 \[
  R_B(s)=\Delta(s)
         \left(1+\Psi(\Gamma_s)
-                  +O_\delta((1+A)^{40}/N^2)\right).
+                  +O_\delta((1+A)^{24}/N^2)\right).
 \]
 No coefficientwise asymptotic with an unspecified entry-bound
 constant is used.
@@ -180,9 +181,9 @@ second derivative is nonnegative,
 \[
  \boxed{\quad g^3|{\cal Q}_N(D)|\leq21A^2/N.\quad}
 \]
-These bounds, including the identification of the actual determinant
-second derivative, have maintained Lean proofs. This does not yet
-formalize the Gaussian/Wick remainder in the displayed asymptotic.
+These bounds, including the actual determinant second derivative, have
+maintained Lean proofs. The complete Gaussian/Wick remainder and actual
+original-rook Gamma consumer are now formalized as well.
 The exact Gaussian-to-rook identity and its direct stochastic complex
 envelope in the preceding section are now formalized, including
 all support-completion factors. The complete inverse-Gamma outside-window
@@ -205,216 +206,201 @@ all scalar constraints, and the closed covariance-correction remainder
 polylogarithmic range. The covariance affine Taylor estimate, its full
 signed determinant product average and the explicit
 \(C_\delta\Delta(1)(1+A)^7/N^2\) remainder now have maintained proofs.
-Complete original-rook Gamma assembly is still required.
+The complete original-rook Gamma assembly and its final uniform
+polylogarithmic cap and tail conditions also have maintained proofs.
 
-It remains to perform the Gamma average with its first
-correction retained. Put \(S=N/T\), \(T\sim\Gamma(N+1,1)\),
-\(I=[a,b]\), and
-\(C_N=\{|S-1|\leq N^{-1/4}\}\subseteq\{S\in I\}\).
-All expectations of \(\Delta(S)\) or
-\(\Delta(S)\Psi(\Gamma_S)\) below are restricted to \(S\in I\).
-No extension of these local analytic factors outside \(I\)
-is needed.
+We now perform the actual Gamma average, with the full first correction
+retained. Put \(S=N/T\), \(T\sim\Gamma(N+1,1)\), and choose
+\[
+ I=[1-\delta/16,1+\delta/16],\qquad
+ \varepsilon=N^{-1/8},\qquad
+ C_\varepsilon=\{|S-1|\le\varepsilon\}.
+\]
+Only the original rook polynomial is integrated outside
+\(C_\varepsilon\); no determinant or covariance approximation is extended
+beyond its analytic window.
 
-For integers \(0\leq j\leq8\) and \(N\geq16\), direct
-integration of the Gamma density gives
+For \(N\ge16\), direct integration gives the exact centered moments
 \[
- \mathbb E S^j=\prod_{\ell=0}^{j-1}\frac{N}{N-\ell}
- \leq2^j .
+ \mu_1=0,\quad \mu_2=\frac1{N-1},\quad
+ \mu_3=\frac4{(N-1)(N-2)},\quad
+ \mu_4=\frac{3(N+6)}{(N-1)(N-2)(N-3)}.
 \]
-In particular the exact full centered moments are
-\[
- \mu_1=0,\qquad \mu_2=\frac1{N-1},\qquad
- \mu_3=\frac4{(N-1)(N-2)},\qquad
- \mu_4=\frac{3(N+6)}{(N-1)(N-2)(N-3)} .
-\]
-More explicitly, if \(0<\varepsilon\leq1/2\) and
-\(N\varepsilon\geq4\), both actual Gamma tails give
+In particular \(|\mu_3|\le16/N^2\) and \(\mu_4\le48/N^2\).
+For \(0<\varepsilon\le1/2\), \(N\varepsilon\ge4\), and
+\(0\le k\le4\), the actual concentration and discarded-moment bounds are
 \[
  \mathbb P(|S-1|>\varepsilon)
- \leq2\exp(-(N+1)\varepsilon^2/36).
+       \le2e^{-(N+1)\varepsilon^2/36},\qquad
+ \mathbb E[|S-1|^k\one_{\{|S-1|>\varepsilon\}}]
+       \le(2^{2k}+3)e^{-(N+1)\varepsilon^2/72}.
 \]
-For \(4k\leq N\), the raw moments imply
-\(\mathbb E|S-1|^{2k}\leq2^{2k}+1\).
-Put \(u=\exp(-(N+1)\varepsilon^2/72)\) and
-\(E_\varepsilon=\{|S-1|>\varepsilon\}\).
-The elementary quadratic inequality
-\[
- u|S-1|^k\one_{E_\varepsilon}
- \leq u^2|S-1|^{2k}+\one_{E_\varepsilon}
-\]
-therefore proves the explicit bound
-\[
- \mathbb E[|S-1|^k\one_{E_\varepsilon}]
- \leq(2^{2k}+3)\exp(-(N+1)\varepsilon^2/72).
-\]
-Taking \(\varepsilon=N^{-1/4}\) gives the required
-\(C_k\exp(-\sqrt N/72)\) bound for \(0\leq k\leq4\).
-Thus each truncated signed moment on \(C_N\) equals
-\(\mu_k+O(\exp(-c'\sqrt N))\), including the first
-and third moments. In particular the truncated first moment
-is not set to zero without its error.
+Indeed \(\mathbb E S^j=\prod_{\ell=0}^{j-1}N/(N-\ell)\le2^j\)
+for \(j\le8\). The elementary inequality
+\(u|S-1|^k\one_E\le u^2|S-1|^{2k}+\one_E\), with
+\(u=e^{-(N+1)\varepsilon^2/72}\), proves the second bound.
+It includes the discarded signed first and third moments.
 
-For clarity, the precise local averaging estimate is as follows.
-Let \(C_\varepsilon=\{|S-1|\leq\varepsilon\}\), \(M\geq0\),
-and let \(f\) be measurable with
+Consequently a local cubic approximation
+\(f(s)=a+b(s-1)+c(s-1)^2+d(s-1)^3+E(s)\), with
+\(|E(s)|\le M(s-1)^4\), has the rigorous window average
 \[
- |f(s)-a-b(s-1)-c(s-1)^2-d(s-1)^3|
- \leq M(s-1)^4\quad (|s-1|\leq\varepsilon).
+ \left|\mathbb E[\one_{C_\varepsilon}f(S)]
+     -a-\frac c{N-1}-\frac{4d}{(N-1)(N-2)}\right|
+ \le M\mu_4+
+ u(4|a|+7|b|+19|c|+67|d|).
 \]
-For \(N\geq16\) and the preceding range of \(\varepsilon\),
-the actual normalized Euler integral satisfies
-\[
- \begin{split}
- &\left|\mathbb E[\one_{C_\varepsilon}f(S)]
-       -a-\frac{c}{N-1}-\frac{4d}{(N-1)(N-2)}\right|\\
- &\quad\leq M\mu_4+
- e^{-(N+1)\varepsilon^2/72}
-       (4|a|+7|b|+19|c|+67|d|).
- \end{split}
-\]
-Indeed the full cubic has exactly the displayed signed average;
-only its discarded tail is bounded absolutely.
-The local remainder is bounded by \(M\mu_4\).
-These bounds also prove integrability on the window, without
-extending the local approximation to other values of \(S\).
+Local measurability and this domination also prove integrability.
+Only the complete signed cubic is averaged before its discarded tail
+is estimated.
 
-The covariance part also has a direct formalized averaging proof.
-Put \(b=1+\delta/16\), \(P_s=\Psi(\Gamma_s)\), and
-\[
- \kappa=\frac{2b^2A}{1-b(1-\delta/2)}\leq\frac{6A}{\delta},
- \qquad C=(1+16e\kappa)^3 .
-\]
-The actual complex Gaussian quotient is analytic in a disk about \(1\),
-with norm at most \(20C/N\). Cauchy's estimate gives a real coefficient
-\(a_1\), the real part of its actual first Taylor coefficient, such that
-\[
- |a_1|\leq\frac{640C}{\delta N},\qquad
- |P_s-P_1-a_1(s-1)|
- \leq\frac{40960C}{\delta^2N}(s-1)^2
- \quad (|s-1|\leq\delta/64).
-\]
-Write \(t=s-1\), \(D_s=\Delta(s)\), and
-\[
- J_1=D_1\sum_i\frac{\lambda_i}{1-\lambda_i},\quad
- E_D=D_s-D_1-J_1t,\quad E_P=P_s-P_1-a_1t .
-\]
-The exact identity
-\[
- D_sP_s-D_1P_1-(D_1a_1+J_1P_1)t
-   =E_DP_1+(D_s-D_1)a_1t+D_sE_P
-\]
-retains every determinant--covariance cross term. Define
+Here are constants for the full consumer. Define
 \[
  \begin{split}
  U_\delta&=\frac{13}{2\delta^2}+\frac{23}{\delta^3}
-                                  +\frac{86e}{\delta^4},\\
- V_\delta&=\frac2\delta+U_\delta,\\
- B_\delta&=20U_\delta+\frac{640V_\delta}{\delta}
-                                  +\frac{40960e}{\delta^2},\\
- {\cal R}_\delta&=2B_\delta(1+96e/\delta)^3 .
+                                      +\frac{86e}{\delta^4},\\
+ V_\delta&=2/\delta+U_\delta,\qquad
+ K_\delta=1+2/\delta+U_\delta,\qquad H_\delta=1+96e/\delta,\\
+ {\cal R}_\delta
+   &=2(20U_\delta+640V_\delta/\delta+40960e/\delta^2)H_\delta^3,\\
+ {\cal T}_\delta
+   &=97K_\delta+
+           H_\delta^3(80+4480/\delta+140K_\delta).
  \end{split}
 \]
-For \(N\geq16\), \(0<\varepsilon\leq\delta/64\),
-\(N\varepsilon\geq4\), and
-\(2(A-1)\varepsilon\leq\delta\), the actual Euler average satisfies
-\[
- \begin{split}
- &\left|\mathbb E[\one_{C_\varepsilon}D_SP_S]-D_1P_1\right|\\
- &\quad\leq
- \frac{{\cal R}_\delta D_1(1+A)^7}{N^2}
- +e^{-(N+1)\varepsilon^2/72}
-       \bigl(4|D_1P_1|+7|D_1a_1+J_1P_1|\bigr).
- \end{split}
-\]
-Indeed the central spectral jets have the explicit bounds
-\(\delta|J_1|\leq2D_1A\),
-\(\delta^2|J_2|\leq13D_1A^2\), and
-\(\delta^3|J_3|\leq138D_1A^3\).
-Together with the fourth-order spectral remainder these give
-\(|E_D|\leq D_1(1+A)^4U_\delta t^2\) and
-\(|D_s-D_1|\leq D_1(1+A)^4V_\delta|t|\).
-The full product remainder is therefore at most
-\(D_1(1+A)^4CB_\delta t^2/N\).
-The exact first Gamma moment is zero and the second is
-\(1/(N-1)\leq2/N\); the omitted affine tails give the two
-displayed exponential terms. Local continuity and window measurability
-of the actual matrix correction, the signed product average and this
-explicit two-power budget all have maintained Lean proofs.
-Complete original-rook Gamma assembly remains to be formalized.
-
-Here the derivative bounds can be made completely explicit.
 Write \(\lambda_i\) for the eigenvalues of \(B^\top B\),
-so \(0\leq\lambda_i\leq(1-\delta)^2\) and
-\(\sum_i\lambda_i\leq A\), and put \(\ell=\log\Delta\).
-On \(|s-1|\leq\varepsilon\leq\delta/4\), each denominator
-\(1-s^2\lambda_i\) is at least \(\delta\).
-Differentiating the actual finite spectral product gives
+\(D_s=\Delta(s)\), and \(J_j=\Delta^{(j)}(1)\).
+Stochasticity gives \(0\le\lambda_i\le(1-\delta)^2\) and
+\(\sum_i\lambda_i\le A-1\).
+On \(|s-1|\le\varepsilon\le\delta/4\), every
+\(1-s^2\lambda_i\ge\delta\), and the actual spectral derivatives obey
 \[
- \delta^j|\ell^{(j)}(s)|\leq c_j A,\qquad
+ \delta^j|(\log\Delta)^{(j)}(s)|\le c_jA,\qquad
  (c_1,c_2,c_3,c_4)=(2,9,76,966).
 \]
-All terms in the exponential derivative are retained:
+All terms of the exponential derivative are retained:
 \[
  \Delta^{(4)}
  =\Delta\bigl((\ell')^4+6(\ell')^2\ell''
-            +3(\ell'')^2+4\ell'\ell'''+\ell^{(4)}\bigr).
+                +3(\ell'')^2+4\ell'\ell'''+\ell^{(4)}\bigr),
+ \qquad \ell=\log\Delta .
 \]
-Consequently \(\delta^4|\Delta^{(4)}(s)|
-\leq2049\Delta(s)(1+A)^4\).
-The mean-value bound for \(\delta\ell\) shows that
-\(\Delta(s)\leq e\Delta(1)\) if \(2A\varepsilon\leq\delta\).
-Thus the preceding local cubic estimate applies with
+If \(2(A-1)\varepsilon\le\delta\), then
+\(\Delta(s)\le e\Delta(1)\).
+These estimates give a common bound
+\(\Delta(1)(1+A)^4K_\delta\) for
 \[
- M=\frac{2049e\,\Delta(1)(1+A)^4}{24\delta^4}.
+ |\Delta(1)|,\quad |J_1|,\quad |J_2/2|,\quad |J_3/6|,
+ \quad\text{and the fourth-order Taylor remainder coefficient}.
 \]
-For \(\varepsilon=N^{-1/4}\), these local conditions hold
-throughout the prescribed polylogarithmic range for
-sufficiently large \(N\).
-Taylor's formula to third order, with a fourth-derivative
-remainder and the truncated moments just proved, gives
-\[
- \mathbb E\bigl[\one_{\{S\in I\}}\Delta(S)\bigr]
- =\Delta(1)\left(
-  1+\frac{\Delta''(1)}{2(N-1)\Delta(1)}
-                  +O_\delta((1+A)^8/N^2)\right).
-\]
-Here the cubic term uses the signed \(\mu_3=O(N^{-2})\);
-the fourth-order remainder uses \(\mu_4=O(N^{-2})\).
-The contribution of \(I\setminus C_N\) is at most
-\(\Delta(1)\exp(C_\delta A-c'\sqrt N)\), which is
-smaller than any fixed inverse power of \(N\) throughout
-\(A\leq(\log N)^K\).
-All implicit constants in these averages depend only on \(\delta\);
-\(K\) enters only the sufficiently-large-\(N\) threshold.
+The cubic averaging rule therefore retains
+\(\Delta(1)+J_2/[2(N-1)]\), with higher-moment error at most
+\(64\Delta(1)(1+A)^4K_\delta/N^2\) and discarded coefficient
+at most \(97\Delta(1)(1+A)^4K_\delta\).
 
-For \(f(s)=\Delta(s)\Psi(\Gamma_s)\), the previous covariance
-and derivative bounds give
+For the covariance term put \(P_s=\Psi(\Gamma_s)\), and
 \[
- \sup_{C_N}\frac{|f''(s)|}{\Delta(1)}
-       \leq C_\delta(1+A)^6/N .
+ \kappa=\frac{2(1+\delta/16)^2A}
+                  {1-(1+\delta/16)(1-\delta/2)}\le6A/\delta,
+ \qquad C=(1+16e\kappa)^3.
 \]
-Taylor's formula through the linear term, the exponentially
-small truncated first moment, and
-\(\mathbb E(S-1)^2=1/(N-1)\) therefore give
+The actual analytic Gaussian quotient has norm at most \(20C/N\)
+on its disk about \(1\). Cauchy's estimate supplies its actual real
+linear coefficient \(a_1\), with
 \[
- \mathbb E\bigl[\one_{\{S\in I\}}\Delta(S)\Psi(\Gamma_S)\bigr]
- =\Delta(1)\Psi(\Gamma)
-       +O_\delta\bigl(\Delta(1)(1+A)^{12}/N^2\bigr).
+ |a_1|\le640C/(\delta N),\qquad
+ |P_s-P_1-a_1(s-1)|
+       \le40960C(s-1)^2/(\delta^2N)
+       \quad (|s-1|\le\delta/64).
 \]
-The portion in \(I\setminus C_N\) is again exponentially
-small. The uniform rook-expansion remainder averages to
-\(O_\delta(\Delta(1)(1+A)^{40}/N^2)\).
-On \(S\notin I\) we retain the original polynomial \(R_B(S)\);
-the preceding outside-interval estimate gives
+Let \(t=s-1\), \(E_D=D_s-D_1-J_1t\), and
+\(E_P=P_s-P_1-a_1t\). The exact identity is
 \[
- \left|\mathbb E\bigl[\one_{\{S\notin I\}}R_B(S)\bigr]\right|
- \leq\exp(-c_\delta N+C_\delta\sqrt{NA}).
+ D_sP_s-D_1P_1-(D_1a_1+J_1P_1)t
+       =E_DP_1+(D_s-D_1)a_1t+D_sE_P.
 \]
-Since \(\Delta(1)\geq1\), this too is negligible relative
-to the claimed error. Finally the logarithmic derivative
-formulas give
-\(\Delta''(1)/\Delta(1)=O_\delta((1+A)^2)\).
-Combining the restricted averages and the original polynomial
-tail proves both conclusions.
+Every determinant--covariance cross term is present.
+Using \(U_\delta,V_\delta\) bounds its remainder by
+\(D_1(1+A)^4C(20U_\delta+640V_\delta/\delta
++40960e/\delta^2)t^2/N\).
+The exact full first moment cancels its complete linear term, and
+\(\mu_2\le2/N\) gives
+\[
+ \left|\mathbb E[\one_{C_\varepsilon}D_SP_S]-D_1P_1\right|
+ \le\frac{{\cal R}_\delta D_1(1+A)^7}{N^2}
+   +u\bigl(4|D_1P_1|+7|D_1a_1+J_1P_1|\bigr).
+\]
+The displayed affine tail coefficient is at most
+\[
+ \frac{D_1(1+A)^7}{N}
+              H_\delta^3(80+4480/\delta+140K_\delta).
+\]
+This estimate is used only for the discarded tail after the signed
+first moment has canceled.
+
+Let \(C'_\delta\) be the explicit local rook-correction constant
+already proved above, and set
+\({\cal C}_\delta=eC'_\delta+{\cal R}_\delta+64K_\delta\).
+Combining the actual rook local remainder, the determinant cubic
+average and the full covariance product gives
+\[
+ \left|\mathbb E[\one_{C_\varepsilon}R_B(S)]
+                  -D_1(1+{\cal Q}_N(D))\right|
+ \le D_1(1+A)^{24}
+                 \left(\frac{{\cal C}_\delta}{N^2}
+                                     +u{\cal T}_\delta\right).
+\]
+No unknown average or coefficient remains in this bound.
+
+For completeness, the two remaining regions are controlled using
+the original rook polynomial. Its direct stochastic envelope on \(I\)
+is \(|R_B(s)|\le e^{6A\sqrt N/\delta}\).
+The outside-window bound is applied with gap parameter \(\delta/4\),
+so that its cutoff is exactly \(I\). Their complete contribution is
+at most
+\[
+ 2\exp\left(\frac{6A\sqrt N}{\delta}
+                         -\frac{(N+1)\varepsilon^2}{36}\right)
+ +3\exp\left(-\frac{N\delta^2}{36864}
+                   +\frac{40\sqrt{N(A-1)}}{3\delta}\right).
+\]
+For every fixed \(\delta,K\), one threshold ensures simultaneously
+the earlier local-rook cutoff and
+\[
+ r=N^{1/8}\ge64/\delta,\qquad
+       A\le\delta^3r/10^6 .
+\]
+These conditions follow uniformly from
+\((\log N)^K=o(N^{1/8})\).
+They imply \(\varepsilon\le\delta/64\),
+\(N\varepsilon\ge4\), \(N\delta\ge32\), and
+\(2(A-1)\varepsilon\le\delta\).
+Using \(\sqrt{N(A-1)}\le A\sqrt N\), the two displayed exponents
+are at most \(-N^{3/4}/72\) and \(-N\delta^2/73728\), respectively.
+Also \(u\le e^{-N^{3/4}/72}\).
+Thus the same window works for every integral and every admissible cap.
+
+Finally \(e^x\ge x^4/24\) and \(e^x\ge x^3/6\), for \(x\ge0\), give
+\[
+ e^{-N^{3/4}/72}\le\frac{24\cdot72^4}{N^3},\qquad
+ e^{-N\delta^2/73728}
+       \le\frac{6\cdot73728^3}{\delta^6N^3}.
+\]
+Put \(c=24\cdot72^4\), \(d_\delta=6\cdot73728^3/\delta^6\), and
+\[
+ C_\delta={\cal C}_\delta+c{\cal T}_\delta+2c+3d_\delta .
+\]
+Because \(\Delta(1)\ge1\), all three tails are absorbed, and
+\[
+ \boxed{\quad
+ \left|\frac{N^N}{N!}\operatorname{per}D
+             -\Delta(1)(1+{\cal Q}_N(D))\right|
+       \le\frac{C_\delta\Delta(1)(1+A)^{24}}{N^2}.\quad}
+\]
+This exact all-kernel inequality, its three-region integrability,
+the root-scale conditions and the single polylogarithmic threshold
+have maintained Lean proofs. The previously proved
+\(\delta^3|{\cal Q}_N(D)|\le21A^2/N\) supplies the other conclusion.
+All constants in the error depend only on \(\delta\);
+\(K\) enters only its common threshold.
 \end{proof}
