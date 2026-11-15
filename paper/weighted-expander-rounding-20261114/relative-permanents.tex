@@ -260,11 +260,11 @@ normalizer holomorphy, scaled Cauchy tail and integrated finite-jet remainder
 are now formalized as well. Unique support/profile ownership, the full
 Gaussian readout of actual scalar Taylor coefficients, and Taylor agreement
 between the compensated rook function and the finite Gaussian jet are also
-formalized. The full homogeneous Gaussian decomposition now gives the
-actual rook/Wick Taylor identity in every order. The covariance Taylor-entry
-to formal-resolvent-series bridge and permanent remainder assembly remain
-formalization obligations. The full original outside-Gamma consumer
-is formalized below.
+formalized. The full homogeneous Gaussian decomposition gives the
+actual rook/Wick Taylor identity in every order. Its covariance Taylor-entry
+to formal-resolvent-series bridge is also formalized. Uniform permanent
+remainder assembly remains a formalization obligation. The full original
+outside-Gamma consumer is formalized below.
 
 The block-power expansion gives, for a fixed
 \(\theta=b(1-\delta/2)<1\),
@@ -411,9 +411,22 @@ Combining these facts with \(h=k+1\) gives the maintained all-order identity
 \]
 Every support, degree composition, pairing and compensation coefficient
 is retained, including the constant coefficient.
-The remaining Lean coefficient bridge identifies the actual covariance
-Taylor entries in this identity with the maintained full signed matrix
-resolvent series. Uniform remainder assembly then consumes the bounds below.
+The maintained covariance adapter identifies the actual Taylor series with
+\[
+ \Gamma_t=\sum_{\ell\geq0}t^{\ell+1}Q(-Q)^\ell
+ \quad\text{as a formal Taylor series}.
+\]
+For \(\|Q\|<1\), its proof keeps the exact finite geometric remainder
+\[
+ Q(I+Q)^{-1}-\sum_{\ell<h}Q(-Q)^\ell
+       =Q(-Q)^h(I+Q)^{-1}.
+\]
+For \(\|Q\|\leq1/2\), this remainder has norm at most
+\(2\|Q\|^{h+1}\). Applying the bound to \(tQ\) on a positive
+real ray and using analyticity proves equality of every Taylor entry.
+Thus the actual rook coefficient through any order \(H\) is exactly the
+coefficient of the complete signed formal Wick sum through \(e\leq H\).
+Uniform remainder assembly can now consume the bounds below.
 The fixed-\(d,h\) domination constant is not used as a uniform estimate in
 those bounds.
 
@@ -474,10 +487,11 @@ Every nonzero profile satisfies \(e-v\geq2\). Bound its extra powers
 of \(e/N\) by one, use \(e^2\leq121\), and retain all \(v=0,\ldots,e\)
 and all eight degrees. The displayed constant uses at most twelve
 support sizes per degree; no degree or compensation term is omitted.
-The all-order actual rook/Wick Taylor readout is now formalized, using the
-complete homogeneous finite-jet decomposition. To consume these formal
-bounds, the actual covariance Taylor entries must still be identified with
-the maintained signed matrix resolvent series.
+The all-order actual rook/Wick Taylor readout and its exact covariance
+formal-series adapter are formalized. These bounds now apply to the Taylor
+coefficients of the actual compensated rook function. Quantitative cutoff
+selection and the uniform permanent remainder assembly remain to be
+formalized.
 
 Take \(H=\lceil C_\delta A^3\sqrt N\rceil\), increasing its
 constant below if necessary. For large \(N\), \(H<N\).
