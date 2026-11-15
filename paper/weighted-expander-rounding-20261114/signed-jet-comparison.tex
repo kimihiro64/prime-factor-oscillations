@@ -235,8 +235,23 @@ minor mass. The maintained owners are
 \texttt{HamiltonianSignedOccupancyBounds}.
 The arbitrary weighted balanced two-support readout and complete
 joint first-order correction now also have maintained proofs.
-The exact analytic size-derivative readout and remaining headline
-closures are listed with the complete comparison below.
+The analytic size-derivative readout is now formalized in
+\texttt{HamiltonianSignedSizeDerivative}. Its actual wave is
+\[
+ g(t)=-\sum_{J\subseteq[1,N]}(-1)^{|J|}|J|\,t^{|J|}
+                   \sum_{|I|=|J|}\det T[I,J]^2.
+\]
+The proof matches its full finite support to the parity-root
+polynomial before taking either analytic derivative, and proves
+\[
+ g''(1)={\cal L}(r(r-1))=4d'(1)+3d''(1),\qquad
+ |g''(1)|\leq53|d(1)|\left(\frac A{1-\rho}\right)^2 .
+\]
+Both \(d(t)=\det(I-tB^\top B)\) and
+\(d(t)=\det(I-tBB^\top)\) conventions are formalized as functions
+of \(t\), so their actual derivatives agree.
+The bound uses the full signed occupancy readouts, with both
+orders of every off-diagonal pair retained.
 
 \paragraph{Formalized complete signed main correction.}
 For every real function on the finite vertex supports,
@@ -637,8 +652,8 @@ and the actual centered squared-entry sum is at least the same
 right-hand side divided by \(\kappa_\rho\).
 The threshold may depend on \(\eta\); the constant \(C\) does not.
 All nine new declarations pass the focused foundational-axiom check.
-Arithmetic applications, the exact analytic size-derivative readout
-and public integration remain formalization obligations.
+Arithmetic applications and public integration remain formalization
+obligations.
 
 \begin{theorem}[Relative bipartite comparison at logarithmic density]
 \label{thm:criticalrelative}
