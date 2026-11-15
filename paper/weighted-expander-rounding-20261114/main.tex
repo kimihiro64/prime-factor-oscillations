@@ -478,9 +478,15 @@ block has inverse row bound \(2\) on the stated finite range.
 The full signed Schur equation and its entry correction
 \(64rA^2/(\delta^2N^2)\) are also formalized, as is the exact
 left--right scaling conservation that removes a residual parity term.
-The nonlinear fixed-point existence and its two-power comparison,
-coordinate-occupancy bounds, the complete compensated minor remainder
-and arithmetic closures remain formalization obligations.
+The full positive exact stochastic repair now has a maintained proof:
+on \(rA^2/(\delta^2N)\leq10^{-3}\), its multipliers satisfy every
+retained scaling equation, with displacement at most \(20rA/(\delta N)\)
+and error at most \(5000r^2A^3/(\delta^3N^2)\) from the actual \(K\ell\).
+The contraction budgets are derived from the actual matrix; the full
+signed quadratic residual is removed by exact parity conservation.
+The complete scaling-cost, local determinant and first-correction
+comparison, coordinate-occupancy bounds, the final compensated minor
+remainder and arithmetic closures remain formalization obligations.
 The headline Hamiltonian counting and inverse theorems are not yet
 Lean-certified.
 Compilation of this manuscript does not provide mathematical or

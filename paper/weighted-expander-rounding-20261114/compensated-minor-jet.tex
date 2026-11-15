@@ -299,6 +299,17 @@ on \(r\leq\log(2N)^3\), \(A\leq(\log N)^{K_0}\).
 \end{proof}
 
 
+\paragraph{Formalization of the repair input.}
+The actual positive scaling equations and both estimates in (R4)
+have maintained Lean proofs in \texttt{HamiltonianStochasticRepair}.
+The hypotheses are precisely nonnegativity, stochastic rows and columns,
+the entry cap, the centered spectral gap and (R1), with independently
+selected equal-sized supports, including \(r=0\).
+The proof retains the complete signed nonlinear map and its boundary
+compensation; the contraction budgets are derived rather than assumed.
+The full scaling-cost, local determinant and first-correction comparison
+and the resulting minor ratio remainder are still formalization obligations.
+
 \begin{remark}[Independent check against every cofactor recursion]
 Let \(W(I,J)=r(r-1)/(2N)+u^\top\Gamma u/2+v^\top u\)
 be the first-order logarithmic correction, and put \(y=Kh\).
