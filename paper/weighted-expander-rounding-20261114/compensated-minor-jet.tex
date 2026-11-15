@@ -181,9 +181,16 @@ coordinates. Jacobi's identity gives
      =\det(M^{-1}[S])
      =\det(I-\Gamma[S]).
 \]
-Since \(\|\Gamma[S]\|\leq C_\delta rA/N=o(1)\),
-its contribution to the logarithm of the inverse-square-root
-determinant is
+The complete finite bound, with the signed trace retained, is
+\[
+ \left|\log\frac{\det M[S^c]}{\det M}
+             +\operatorname{tr}\Gamma[S]\right|
+ \leq\frac{128r^2A^2}{\delta^2N^2}.
+\]
+The ratio is positive, including \(r=0\).
+Both the exact principal inverse identity and this actual-matrix
+bound have maintained Lean proofs. Consequently its contribution
+to the logarithm of the inverse-square-root determinant is
 \[
  \tfrac12\operatorname{tr}\Gamma[S]
        +O_\delta(r^2A^2/N^2)=-\tfrac12 h^\top u+
@@ -316,8 +323,22 @@ are proved for both signs of each displacement. The proof keeps
 removed-coordinate correction. A direct existence theorem supplies
 all positive scaling multipliers and this cost bound from the
 original matrix hypotheses.
-The local determinant and first-correction comparison and the resulting
-minor ratio remainder are still formalization obligations.
+The deleted principal determinant component is also formalized in
+\texttt{HamiltonianDeletedDeterminantCost}, using the exact Schur
+identity in \texttt{HamiltonianPrincipalInverseDeterminant}.
+For the general remainder mechanism, an entry bound
+\(|E_{ij}|\leq\varepsilon\), with \(m\varepsilon\leq1/8\),
+gives positivity of \(\det(I+E)\) and
+\[
+ |\log\det(I+E)-\operatorname{tr}E|
+       \leq8(m\varepsilon)^2.
+\]
+No symmetry assumption or replacement of the signed trace is used.
+The determinant coefficient proof cancels the minor factorial against
+the number of supports before summing the higher-degree terms.
+The remaining scaling and centering determinant changes, the
+first-correction comparison and the resulting minor ratio remainder
+are still formalization obligations.
 
 \begin{remark}[Independent check against every cofactor recursion]
 Let \(W(I,J)=r(r-1)/(2N)+u^\top\Gamma u/2+v^\top u\)

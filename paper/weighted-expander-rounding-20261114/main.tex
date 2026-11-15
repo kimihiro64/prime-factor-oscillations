@@ -492,9 +492,20 @@ The full signed scaling cost also has a maintained proof, with
 Its existence theorem consumes the actual positive repair, including
 independent supports and \(r=0\). No unsigned bound replaces either
 leading overlap or quadratic compensation.
-The local determinant and first-correction comparison,
-coordinate-occupancy bounds, the final compensated minor remainder
-and arithmetic closures remain formalization obligations.
+The exact principal inverse determinant identity is also formalized,
+including empty supports. It gives the actual retained-matrix bound
+\[
+ \left|\log\frac{\det M[R,R]}{\det M}
+                 +\operatorname{tr}\Gamma[E,E]\right|
+ \leq\frac{128r^2A^2}{\delta^2N^2},
+ \qquad M=I+\Omega,\quad E=I\sqcup J,\quad R=E^c.
+\]
+The determinant ratio is positive. The signed trace stays in the
+expansion; only the higher principal-minor coefficients are estimated.
+The remaining scaling and centering changes in the local determinant,
+the first-correction comparison, coordinate-occupancy bounds, the final
+compensated minor remainder and arithmetic closures remain
+formalization obligations.
 The headline Hamiltonian counting and inverse theorems are not yet
 Lean-certified.
 Compilation of this manuscript does not provide mathematical or
