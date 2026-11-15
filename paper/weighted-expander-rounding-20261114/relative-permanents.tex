@@ -262,8 +262,10 @@ Gaussian readout of actual scalar Taylor coefficients, and Taylor agreement
 between the compensated rook function and the finite Gaussian jet are also
 formalized. The full homogeneous Gaussian decomposition gives the
 actual rook/Wick Taylor identity in every order. Its covariance Taylor-entry
-to formal-resolvent-series bridge is also formalized. Uniform permanent
-remainder assembly remains a formalization obligation. The full original
+to formal-resolvent-series bridge is also formalized. The actual full-window
+remainder consumer is formalized, including the complete low-correction
+tail. Quantitative cutoff selection, the explicit low-diagram normal form
+and Gamma assembly remain formalization obligations. The full original
 outside-Gamma consumer is formalized below.
 
 The block-power expansion gives, for a fixed
@@ -487,11 +489,41 @@ Every nonzero profile satisfies \(e-v\geq2\). Bound its extra powers
 of \(e/N\) by one, use \(e^2\leq121\), and retain all \(v=0,\ldots,e\)
 and all eight degrees. The displayed constant uses at most twelve
 support sizes per degree; no degree or compensation term is omitted.
-The all-order actual rook/Wick Taylor readout and its exact covariance
-formal-series adapter are formalized. These bounds now apply to the Taylor
-coefficients of the actual compensated rook function. Quantitative cutoff
-selection and the uniform permanent remainder assembly remain to be
-formalized.
+The all-order actual rook/Wick Taylor readout, covariance formal-series
+adapter and physical-window scaling are formalized. The actual analytic
+covariance has a uniform complex-circle entry bound, and the complete low
+correction has a Cauchy truncation bound. The maintained consumer now keeps
+the whole signed low value
+\[
+ W_s=\sum_{e=0}^{3}\sum_{v=0}^{e}D_{e,v}(\Gamma_{s,1}).
+\]
+Put
+\[
+ \kappa_R=\frac{2(bR)^2A}{1-bR(1-\delta/2)},\qquad
+ C_s=\frac{2|s|R}{1-|s|R(1-\delta)}\sqrt{N(A-1)}
+                 +\frac{|s|^2R^2(A-1)}2,
+\]
+and
+\[
+ E_s(H)=\exp(C_s)\frac{(R^{-1})^{H+1}}{1-R^{-1}},\qquad
+ E_{\rm low}(H)=10(1+16\mathrm e\,\kappa_R)^3
+                         \frac{(R^{-1})^{H+1}}{1-R^{-1}}.
+\]
+For \(N,H\geq11\), \(0\leq u\leq1\), \(u^3=H/N\),
+\(16\mathrm e\,\kappa u\leq1/2\) and \(H^2\leq VN\), the actual
+full-window bound is
+\[
+ |F_s(1)-W_s|
+ \leq E_s(H)
+ +\frac{11616(1+16\mathrm e\,\kappa)^{11}
+             +28(16\mathrm e\,\kappa)^{12}V^2}{N^2}
+ +E_{\rm low}(H).
+\]
+Every support, composition, pairing and compensation term is retained.
+The norms in this estimate control the explicit remainder after the full
+signed low correction is separated.
+Uniform scalar cutoff selection, the explicit low-diagram normal form and
+the complete Gamma assembly remain formalization obligations.
 
 Take \(H=\lceil C_\delta A^3\sqrt N\rceil\), increasing its
 constant below if necessary. For large \(N\), \(H<N\).

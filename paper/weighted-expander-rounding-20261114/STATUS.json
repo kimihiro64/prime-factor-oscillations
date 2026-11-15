@@ -355,8 +355,8 @@
       "kind": "theorem",
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\relative-permanents.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
-      "lean_status": "partially_formalized_actual_all_order_formal_Wick_and_covariance_series_readout; uniform_remainder_correction_derivatives_and_Gamma_assembly_pending",
-      "audit_note": "The complete actual stochastic compensated rook Taylor coefficient has a maintained all-order finite Wick support/profile readout. The finite jet's homogeneous decomposition, odd vanishing, degree-2e covariance factor t^e, scalar low-degree coefficient agreement, normalized finite amplitude integrals and actual column-balance consumer are all compiled and focused-audited. All supports, compositions, pairings and compensation coefficients, including k=0, are retained. The actual covariance Taylor entries now equal the maintained full signed matrix resolvent series, and every actual rook coefficient has the complete maintained formal Wick-series readout. These adapters are compiled and focused-audited. Quantitative cutoff tuning, low-series truncation control, covariance-correction derivatives and uniform remainder/Gamma assembly remain open. Complete moderate/high coefficient masses, actual holomorphy, scaled Cauchy tail and outside-Gamma transfer are already proved. Fixed-dimension Gaussian domination is used only for exact Taylor identification. Hamiltonian and arithmetic headline theorems are not Lean-certified."
+      "lean_status": "partially_formalized_complete_actual_physical_window_remainder_budget; scalar_cutoff_low_normal_form_correction_derivatives_Gamma_pending",
+      "audit_note": "The complete actual stochastic compensated rook Taylor coefficient has a maintained all-order finite Wick support/profile readout. The finite jet's homogeneous decomposition, odd vanishing, degree-2e covariance factor t^e, scalar low-degree coefficient agreement, normalized finite amplitude integrals and actual column-balance consumer are all compiled and focused-audited. All supports, compositions, pairings and compensation coefficients, including k=0, are retained. The actual full physical-window remainder consumer is compiled and focused-audited. It bounds F_s(1) minus the complete signed low Wick value by the explicit compensated Cauchy tail, full moderate/high N^(-2) budget and full low-correction Cauchy tail. All analytic, covariance-circle, scaling and support hypotheses are discharged from the stochastic kernel; scalar cutoff conditions remain explicit. Scalar cutoff selection, low-degree normal-form identification, covariance-correction derivatives and Gamma assembly remain open. Complete moderate/high coefficient masses, actual holomorphy, scaled Cauchy tail and outside-Gamma transfer are already proved. Fixed-dimension Gaussian domination is used only for exact Taylor identification. Hamiltonian and arithmetic headline theorems are not Lean-certified."
     },
     {
       "id": "lem:relativecompensatedminors",
@@ -476,8 +476,8 @@
       "kind": "theorem",
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\permanent-second-order.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
-      "lean_status": "partially_formalized_actual_all_order_formal_Wick_and_covariance_series_readout; uniform_remainder_correction_derivatives_and_Gamma_assembly_pending",
-      "audit_note": "The complete actual stochastic compensated rook Taylor coefficient has a maintained all-order finite Wick support/profile readout. The finite jet's homogeneous decomposition, odd vanishing, degree-2e covariance factor t^e, scalar low-degree coefficient agreement, normalized finite amplitude integrals and actual column-balance consumer are all compiled and focused-audited. All supports, compositions, pairings and compensation coefficients, including k=0, are retained. The actual covariance Taylor entries now equal the maintained full signed matrix resolvent series, and every actual rook coefficient has the complete maintained formal Wick-series readout. These adapters are compiled and focused-audited. Quantitative cutoff tuning, low-series truncation control, covariance-correction derivatives and uniform remainder/Gamma assembly remain open. Complete moderate/high coefficient masses, actual holomorphy, scaled Cauchy tail and outside-Gamma transfer are already proved. Fixed-dimension Gaussian domination is used only for exact Taylor identification. Hamiltonian and arithmetic headline theorems are not Lean-certified."
+      "lean_status": "partially_formalized_complete_actual_physical_window_remainder_budget; scalar_cutoff_low_normal_form_correction_derivatives_Gamma_pending",
+      "audit_note": "The complete actual stochastic compensated rook Taylor coefficient has a maintained all-order finite Wick support/profile readout. The finite jet's homogeneous decomposition, odd vanishing, degree-2e covariance factor t^e, scalar low-degree coefficient agreement, normalized finite amplitude integrals and actual column-balance consumer are all compiled and focused-audited. All supports, compositions, pairings and compensation coefficients, including k=0, are retained. The actual full physical-window remainder consumer is compiled and focused-audited. It bounds F_s(1) minus the complete signed low Wick value by the explicit compensated Cauchy tail, full moderate/high N^(-2) budget and full low-correction Cauchy tail. All analytic, covariance-circle, scaling and support hypotheses are discharged from the stochastic kernel; scalar cutoff conditions remain explicit. Scalar cutoff selection, low-degree normal-form identification, covariance-correction derivatives and Gamma assembly remain open. Complete moderate/high coefficient masses, actual holomorphy, scaled Cauchy tail and outside-Gamma transfer are already proved. Fixed-dimension Gaussian domination is used only for exact Taylor identification. Hamiltonian and arithmetic headline theorems are not Lean-certified."
     },
     {
       "id": "thm:minorjet",
@@ -1027,7 +1027,7 @@
     },
     {
       "file": "relative-permanents.tex",
-      "sha256": "0EDDBF1931EB28D4851829F568A70829A5B92FDF4D8CC27263946A5D70033588"
+      "sha256": "8CAB7178B2FD960E6F629BDF1A19B7FBF3F2927E0DB15E93703018CA46A0D076"
     },
     {
       "file": "relative-coprime-circles.tex",
@@ -1043,7 +1043,7 @@
     },
     {
       "file": "main.tex",
-      "sha256": "AEA534AE4E3F13052E05062D9C004EC150E169893BAE4BA0FFA06FB95F32496E"
+      "sha256": "8046B09C376EF3F07F1FBF08AB45AFE73F1E121ED6447688581D1DA183A9CEFC"
     },
     {
       "file": "relative-hamilton.tex",
@@ -1051,7 +1051,7 @@
     },
     {
       "file": "permanent-second-order.tex",
-      "sha256": "7361F895456153AF4FB60C66AE2BAB858BEC1492BBAFB17576160F9CD225247A"
+      "sha256": "45FB95D6A567A9DC24E001CCCF4FFA9F1EE0266A5967CC8123436AFF4DC413A2"
     },
     {
       "file": "compensated-minor-jet.tex",
@@ -1088,18 +1088,23 @@
       "Actual unweighted prime-sum graph: full relative count around its exact entropy, with O(N^(-3/5)) error; no RH or prime-pair estimate."
     ],
     "primary_literature_comparison": "Cuckler-Kahn: dense Dirac and dense balanced bipartite entropy counts. Barvinok: all-positive matrices with a relative entry lower bound. Krivelevich and Byrne-Tait: nontrivial spectral ratio tending to zero logarithmically. The present argument permits sparse zero support and any fixed nontrivial gap. Bradač-Janzer 2026 is an essential independent spanning-path input. McCullagh's bounded normalized moments fail along primorials; Divoux-Wang's fixed-entry finite proof is tracked explicitly, rather than used outside its stated range. The new first-order signed compensation and rank-one parity-root calculation avoid the fixed-entry remainder amplification at prime density. They are the mechanism of the complete prime consumer, not merely a detector or matching identity.",
-    "proof_endpoint_status": "The full analytic and arithmetic headline theorems remain unformalized. The actual stochastic compensated rook coefficient in every order k is now a proved finite sum over every Wick support/profile through e<=k. The proof uses the complete scalar/profile bijection, finite Gaussian amplitude integrals, full homogeneous decomposition, exact odd vanishing, degree-2e covariance homogeneity, and actual rook/finite-jet Taylor agreement. No infinite Wick series or unbounded derivative is interchanged with an integral. The actual covariance Taylor entries now equal the maintained full signed matrix resolvent series, and every actual rook coefficient has the complete maintained formal Wick-series readout. These adapters are compiled and focused-audited. Quantitative cutoff tuning, low-series truncation control, covariance-correction derivatives and uniform remainder/Gamma assembly remain open. The previously compiled complete moderate/high bounds, actual holomorphy, scaled Cauchy tail and full outside-Gamma estimate are retained. Hamiltonian/occupancy identities, full signed comparison, inverse and arithmetic closures remain pending.",
+    "proof_endpoint_status": "The full analytic and arithmetic headline theorems remain unformalized. The actual stochastic compensated rook coefficient in every order k is now a proved finite sum over every Wick support/profile through e<=k. The proof uses the complete scalar/profile bijection, finite Gaussian amplitude integrals, full homogeneous decomposition, exact odd vanishing, degree-2e covariance homogeneity, and actual rook/finite-jet Taylor agreement. No infinite Wick series or unbounded derivative is interchanged with an integral. The actual full physical-window remainder consumer is compiled and focused-audited. It bounds F_s(1) minus the complete signed low Wick value by the explicit compensated Cauchy tail, full moderate/high N^(-2) budget and full low-correction Cauchy tail. All analytic, covariance-circle, scaling and support hypotheses are discharged from the stochastic kernel; scalar cutoff conditions remain explicit. Scalar cutoff selection, low-degree normal-form identification, covariance-correction derivatives and Gamma assembly remain open. The previously compiled complete moderate/high bounds, actual holomorphy, scaled Cauchy tail and full outside-Gamma estimate are retained. Hamiltonian/occupancy identities, full signed comparison, inverse and arithmetic closures remain pending.",
     "significance_assessment": "A general signed-estimation method now has a quantitative inverse and complete independent arithmetic consumers at actual prime density and through every coprime modulus. This supports a serious standalone research contribution. Career-defining impact and priority are not certified or inferred from compilation.",
     "paper_argument_delivered": true,
     "headline_all_orders_filz_proved": false,
     "lean_formalization_complete": false,
-    "next_safely_executable_research_action": "Prove the complete uniform local permanent remainder from the actual formal Wick readout: fixed 0<delta<1 and K>0, real nonnegative doubly stochastic D of order N, B=D-J/N, norm B<=1-delta, max D<=A/N and 2<=A<=(log N)^K. On the paper's fixed window 0<a<1<b and R>1 with b*R*(1-delta/2)<1, combine the actual Cauchy tail, every moderate/high diagram, the retained low signed correction and the explicit low-series truncation remainder to obtain O_delta((1+A)^40/N^2). Then prove covariance-correction derivatives and the full Gamma assembly. Preserve every support and compensation term; a helper, audit or commit is not completion. Continue actual Hamiltonian-cycle and occupancy identities, full signed comparison, inverse and arithmetic closures after their full permanent consumer is proved.",
+    "next_safely_executable_research_action": "Finish the uniform scalar cutoff choice for fixed 0<delta<1 and K>0, N sufficiently large and 2<=A<=(log N)^K: b=R=1+delta/16, H=ceil(C_delta*(1+A)^3*sqrt(N)), u^3=H/N and V=O_delta((1+A)^6). Prove every smallness/length condition and both explicit tails are within C_delta*(1+A)^40/N^2. Identify the actual complete low Wick value as 1+Psi(Gamma_s)-(5/2)*sum_i Gamma_s(i,i)^3 using the existing exact Wick readout and degree-six identities. Then finish covariance-correction derivatives and the full Gamma average, retaining all signed terms. Continue the exact Hamiltonian-cycle identity, coordinate occupancy, full signed comparison, inverse and arithmetic closures. A successful helper, audit or commit is not completion.",
     "next_gate": "Judge the complete new method and independent applications, not theorem counts or successful compilation; preserve exact entropy and explicit density scope.",
     "no_background_work_claimed": true,
     "expert_relevance_gate": {
       "novelty": "Affirmative defensible prospect, with exact range difference from the closest primary theorem; not a priority certificate.",
       "interest": "A universal relative constant survives full support compensation; failures force logarithmic collective spectral mass.",
       "usefulness": "Complete relative enumeration on actual prime-sum graphs and all growing coprime moduli, beyond identity-only reductions."
+    },
+    "post_headline_programme": {
+      "status": "queued_until_all_headline_arguments_and_Lean_formalization_are_complete",
+      "user_instruction": "Finish the headline first, then investigate generalization and transfer of the counting technique to RH, Hadamard and twin-prime problems.",
+      "required_transfer_check": "Derive an exact representation of each existing signed arithmetic packet, preserve every principal signal and compensation term, and discharge the structural hypotheses independently before claiming a new bound. Do not start those transfers ahead of headline completion."
     }
   },
   "repository_state": {
@@ -1107,8 +1112,8 @@
     "committed_this_turn": true,
     "pushed_this_turn": false,
     "proofs_left_only_in_private_research": false,
-    "recorded_phase": "Built against local commit fb765204d9c76c7097d5ce0393452e0d51020292. This promotion has two maintained proof modules, 22 new focused-audited declarations and successful built-in paper compilation. Unchanged declarations were not re-audited. Final staged checks and the resulting local commit are recorded in Git history.",
-    "phase": "The actual all-order stochastic rook/Wick coefficient identity now uses the maintained full signed covariance formal series. Uniform remainder, covariance-correction/Gamma assembly, full signed Hamiltonian comparison and arithmetic headline closures remain pending."
+    "recorded_phase": "Built against local commit bb443f5a2e2ed9f33d7ee7557e67b76ca6e36786. This promotion has seven maintained modules and 34 new focused-audited declarations; the saved paper compiles with the built-in compiler. Unchanged declarations were not re-audited. Final staged checks and the resulting local commit are recorded in Git history.",
+    "phase": "The complete actual full-window compensated permanent remainder budget is formalized, including every analytic, covariance-circle, scaled coefficient, moderate/high and low-correction tail input. Scalar cutoff selection, low normal form, Gamma assembly and all Hamiltonian/arithmetic headline closures remain pending."
   },
   "formalization": {
     "status": "in_progress_not_complete",
@@ -1607,11 +1612,53 @@
         "source_sha256": "862D4D1EF779FBE47F313AC0D5273F721CD9616C9936F4C41FF0D1A8B8CA3E64",
         "content": "Actual covariance Taylor series equals the complete signed matrix resolvent series Q*(-Q)^k. Uses an exact finite geometric remainder and positive-ray analytic uniqueness, and compiles the actual stochastic compensated-rook coefficient readout with that maintained covariance series.",
         "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianLocalPermanentRemainder",
+        "source_sha256": "24B34D4D64B21152C3C33896243EC0A4F9F97DD6F9B13B9A326C142CD54BE739",
+        "content": "Actual compensated-rook Taylor sums equal the full signed diagram sums. The complete moderate and high remainder has an explicit N^(-2) bound, and the actual unscaled observable consumes that bound together with its Cauchy tail.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianAnalyticCoefficientScale",
+        "source_sha256": "7C2437ED0E6B5CC9FF0B4ED257D8717C4D365CEE5EA6B098EEB270BA2F20BFFB",
+        "content": "Local analytic coefficient scaling and convergent Taylor readout at arbitrary points in the certified disk, without assuming global smooth continuation through normalizer singularities.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianComplexCovarianceBounds",
+        "source_sha256": "EDF336B6EB1EE282DAFAB68282DE9DAA93F204C97A9E4F81E97A61C1727DE7E6",
+        "content": "The actual complex covariance equals its convergent full resolvent coefficient series and has the uniform stochastic entry bound on a complex disk, with every auxiliary radius explicit.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianWickSeriesRescale",
+        "source_sha256": "41559F0A69D48C9C2E07D13CE5014019EFC4758358C9EAF64E02D8B1225EF4BF",
+        "content": "Rescaling commutes with every pairing, profile, support, diagram and complete truncated signed sum. The actual scaled observable has the exact covariance-series readout at each physical scale.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianLowWickAnalytic",
+        "source_sha256": "6CA1D044ABF8CBB570C6B007EA1C5D01EB9BDA2D981B6A30C18CE503D6E0F6AC",
+        "content": "The complete signed low Wick value is analytic, has the uniform 10*(1+16*exp(1)*kappa)^3 circle bound and an explicit Cauchy truncation remainder.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianLowWickWindowTail",
+        "source_sha256": "34C4BC79E38297221B9CA8142C8439F04F8E9748599E5EBBFD19F4E0CD5C9535",
+        "content": "Every analytic, circle and covariance hypothesis of the full low-correction tail is discharged from the actual stochastic kernel throughout the physical window.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianPermanentWindowRemainder",
+        "source_sha256": "C5138A0B5662212CDF1617D005498BAA55DD0AAEE87722A746D40B936240BB30",
+        "content": "Complete actual full-window bound for F_s(1) minus the full signed low value: compensated Cauchy tail plus the complete moderate/high N^(-2) budget plus the low-correction Cauchy tail. Every support and compensation term is retained.",
+        "build_exit_code": 0
       }
     ],
     "unfinished_dependencies": [
       "Exact Hamiltonian determinant-permanent identity for actual spanning-cycle permutations, including singleton fixed-point cycles.",
-      "Prove the complete uniform local permanent remainder from the actual formal Wick readout: fixed 0<delta<1 and K>0, real nonnegative doubly stochastic D of order N, B=D-J/N, norm B<=1-delta, max D<=A/N and 2<=A<=(log N)^K. On the paper's fixed window 0<a<1<b and R>1 with b*R*(1-delta/2)<1, combine the actual Cauchy tail, every moderate/high diagram, the retained low signed correction and the explicit low-series truncation remainder to obtain O_delta((1+A)^40/N^2). Then prove covariance-correction derivatives and the full Gamma assembly. Preserve every support and compensation term; a helper, audit or commit is not completion. The all-order actual coefficient and covariance formal-series identification are compiled and focused-audited.",
+      "Finish the uniform scalar cutoff choice for fixed 0<delta<1 and K>0, N sufficiently large and 2<=A<=(log N)^K: b=R=1+delta/16, H=ceil(C_delta*(1+A)^3*sqrt(N)), u^3=H/N and V=O_delta((1+A)^6). Prove every smallness/length condition and both explicit tails are within C_delta*(1+A)^40/N^2. Identify the actual complete low Wick value as 1+Psi(Gamma_s)-(5/2)*sum_i Gamma_s(i,i)^3 using the existing exact Wick readout and degree-six identities. Then finish covariance-correction derivatives and the full Gamma average, retaining all signed terms. Continue the exact Hamiltonian-cycle identity, coordinate occupancy, full signed comparison, inverse and arithmetic closures. A successful helper, audit or commit is not completion. The actual full-window budget, complex covariance entry bound, physical scaling and complete low-correction tail are compiled and focused-audited.",
       "Quantitative stochastic repair and full complementary-minor expansion with all mismatched supports and compensation fields.",
       "Actual coordinate occupancy identities, full derivative bounds and normalized moment bounds. Cauchy-Binet, the signed two-support constant moment, Gram sandwich entries and full block covariance entries are compiled.",
       "Full signed comparison with its absolute estimate confined to the retained remainder and large-minor tail.",
@@ -2656,12 +2703,67 @@
           "Quot.sound"
         ],
         "log_sha256": "EBC77F2B6A862B9DE4F5C1ABDDBC195F80D10C2295AB8DDE06D231480D595ACF"
+      },
+      {
+        "status": "verified",
+        "modules": [
+          "PrimeFactorOscillations.Helpers.HamiltonianLocalPermanentRemainder",
+          "PrimeFactorOscillations.Helpers.HamiltonianAnalyticCoefficientScale",
+          "PrimeFactorOscillations.Helpers.HamiltonianComplexCovarianceBounds",
+          "PrimeFactorOscillations.Helpers.HamiltonianWickSeriesRescale",
+          "PrimeFactorOscillations.Helpers.HamiltonianLowWickAnalytic",
+          "PrimeFactorOscillations.Helpers.HamiltonianLowWickWindowTail",
+          "PrimeFactorOscillations.Helpers.HamiltonianPermanentWindowRemainder"
+        ],
+        "declaration_count": 34,
+        "declarations": [
+          "PrimeFactorOscillations.hamiltonianCauchyCoefficient_eq_taylor",
+          "PrimeFactorOscillations.hamiltonianFiniteSeriesValue_add",
+          "PrimeFactorOscillations.hamiltonianFiniteSeriesValue_norm_bound",
+          "PrimeFactorOscillations.wickSeriesTruncatedDiagrams_partition",
+          "PrimeFactorOscillations.wickSeriesTruncatedDiagrams_remainder_bound",
+          "PrimeFactorOscillations.stochastic_compensated_finiteSeriesValue",
+          "PrimeFactorOscillations.stochastic_compensated_lowSeries_remainder",
+          "PrimeFactorOscillations.wickTaylorSeries_coeff_of_hasFPowerSeriesAt",
+          "PrimeFactorOscillations.wickTaylorSeries_coeff_comp_mul",
+          "PrimeFactorOscillations.wickTaylorSeries_hasSum",
+          "PrimeFactorOscillations.realGaussianQuotientCovarianceFunction_analyticAt",
+          "PrimeFactorOscillations.covarianceFormalSeries_real_smul_coeff_norm",
+          "PrimeFactorOscillations.realGaussianQuotientCovarianceFunction_hasSum",
+          "PrimeFactorOscillations.realGaussianQuotientCovarianceFunction_norm_bound",
+          "PrimeFactorOscillations.stochastic_complex_covariance_entry_bound",
+          "PrimeFactorOscillations.hamiltonian_rescale_C",
+          "PrimeFactorOscillations.wickTaylorSeries_comp_mul",
+          "PrimeFactorOscillations.wickSeriesPairMoment_rescale",
+          "PrimeFactorOscillations.wickSeriesProfile_rescale",
+          "PrimeFactorOscillations.wickSeriesSupportProfile_rescale",
+          "PrimeFactorOscillations.wickSeriesDiagramCoefficient_rescale",
+          "PrimeFactorOscillations.wickSeriesTruncatedDiagrams_rescale",
+          "PrimeFactorOscillations.wickSeriesLowDiagrams_rescale",
+          "PrimeFactorOscillations.covarianceFormalSeries_real_smul",
+          "PrimeFactorOscillations.stochastic_compensated_scaled_taylor_covariance_series",
+          "PrimeFactorOscillations.stochastic_compensated_scaled_finiteSeriesValue",
+          "PrimeFactorOscillations.gaussianWickLowValue_analyticAt",
+          "PrimeFactorOscillations.gaussianWickLowValue_norm_bound",
+          "PrimeFactorOscillations.gaussianWickLowValue_taylor_series",
+          "PrimeFactorOscillations.gaussianWickLowValue_cauchy_remainder",
+          "PrimeFactorOscillations.stochastic_lowWick_window_tail",
+          "PrimeFactorOscillations.hamiltonianCompensatedRook_scaled_hasFPowerSeriesOnBall",
+          "PrimeFactorOscillations.stochastic_compensated_window_lowSeries_remainder",
+          "PrimeFactorOscillations.stochastic_compensated_fullLow_window_remainder"
+        ],
+        "allowed_axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "log_sha256": "8227CAB337F026B53745FF0410A7CE7717BD8264114DDC8EF2ED82A254BA6737"
       }
     ],
     "active_proof": {
-      "module": "PrimeFactorOscillations.Helpers.HamiltonianLocalPermanentRemainder",
-      "status": "Planned next uniform remainder owner; no completed declaration is claimed for this planned module. The actual analytic Wick-series lifting, covariance-series identification and full actual coefficient consumer are compiled and focused-audited.",
-      "target": "Prove the complete uniform local permanent remainder from the actual formal Wick readout: fixed 0<delta<1 and K>0, real nonnegative doubly stochastic D of order N, B=D-J/N, norm B<=1-delta, max D<=A/N and 2<=A<=(log N)^K. On the paper's fixed window 0<a<1<b and R>1 with b*R*(1-delta/2)<1, combine the actual Cauchy tail, every moderate/high diagram, the retained low signed correction and the explicit low-series truncation remainder to obtain O_delta((1+A)^40/N^2). Then prove covariance-correction derivatives and the full Gamma assembly. Preserve every support and compensation term; a helper, audit or commit is not completion.",
+      "module": "PrimeFactorOscillations.Helpers.HamiltonianPermanentCutoffChoice",
+      "status": "Planned next scalar-cutoff owner; no completed declaration is claimed for this planned module. The complete actual full-window remainder consumer and every analytic/covariance/low-tail input are compiled and focused-audited.",
+      "target": "Finish the uniform scalar cutoff choice for fixed 0<delta<1 and K>0, N sufficiently large and 2<=A<=(log N)^K: b=R=1+delta/16, H=ceil(C_delta*(1+A)^3*sqrt(N)), u^3=H/N and V=O_delta((1+A)^6). Prove every smallness/length condition and both explicit tails are within C_delta*(1+A)^40/N^2. Identify the actual complete low Wick value as 1+Psi(Gamma_s)-(5/2)*sum_i Gamma_s(i,i)^3 using the existing exact Wick readout and degree-six identities. Then finish covariance-correction derivatives and the full Gamma average, retaining all signed terms. Continue the exact Hamiltonian-cycle identity, coordinate occupancy, full signed comparison, inverse and arithmetic closures. A successful helper, audit or commit is not completion.",
       "consumer": "The complete signed comparison has relative error O(log(N)^M/N+log(N)^M*Amp(T)/N^2). The present local determinant remainder supplies its N^(-2) precision; the Wick, covariance-correction and signed-coordinate consumers are still required. At the advertised prime amplification Amp(T)<=N^(27/20), that precision contributes N^(-13/20) times logarithms, before the final advertised N^(-3/5) relaxation.",
       "proved_inputs": [
         "PrimeFactorOscillations.Helpers.HamiltonianMatrixSpectralAverage",
@@ -2721,7 +2823,14 @@
         "PrimeFactorOscillations.Helpers.HamiltonianGaussianAmplitudeReadout",
         "PrimeFactorOscillations.Helpers.HamiltonianCompensatedWickTaylor",
         "PrimeFactorOscillations.Helpers.HamiltonianWickAnalyticSeries",
-        "PrimeFactorOscillations.Helpers.HamiltonianCovarianceTaylorSeries"
+        "PrimeFactorOscillations.Helpers.HamiltonianCovarianceTaylorSeries",
+        "PrimeFactorOscillations.Helpers.HamiltonianLocalPermanentRemainder",
+        "PrimeFactorOscillations.Helpers.HamiltonianAnalyticCoefficientScale",
+        "PrimeFactorOscillations.Helpers.HamiltonianComplexCovarianceBounds",
+        "PrimeFactorOscillations.Helpers.HamiltonianWickSeriesRescale",
+        "PrimeFactorOscillations.Helpers.HamiltonianLowWickAnalytic",
+        "PrimeFactorOscillations.Helpers.HamiltonianLowWickWindowTail",
+        "PrimeFactorOscillations.Helpers.HamiltonianPermanentWindowRemainder"
       ]
     },
     "status_reconciliation_check": {
@@ -2748,15 +2857,15 @@
       "checked_paper_hashes": [
         {
           "file": "main.tex",
-          "sha256": "AEA534AE4E3F13052E05062D9C004EC150E169893BAE4BA0FFA06FB95F32496E"
+          "sha256": "8046B09C376EF3F07F1FBF08AB45AFE73F1E121ED6447688581D1DA183A9CEFC"
         },
         {
           "file": "relative-permanents.tex",
-          "sha256": "0EDDBF1931EB28D4851829F568A70829A5B92FDF4D8CC27263946A5D70033588"
+          "sha256": "8CAB7178B2FD960E6F629BDF1A19B7FBF3F2927E0DB15E93703018CA46A0D076"
         },
         {
           "file": "permanent-second-order.tex",
-          "sha256": "7361F895456153AF4FB60C66AE2BAB858BEC1492BBAFB17576160F9CD225247A"
+          "sha256": "45FB95D6A567A9DC24E001CCCF4FFA9F1EE0266A5967CC8123436AFF4DC413A2"
         }
       ],
       "mechanical_forbidden_normalized_paper_status_sentences": [
@@ -2771,7 +2880,12 @@
         "The remaining Lean coefficient bridge identifies the actual covariance Taylor entries in this identity with the maintained full signed matrix resolvent series. Uniform remainder assembly then consumes the bounds below. The fixed-\\(d,h\\) domination constant is not used as a uniform estimate in those bounds.",
         "The all-order actual rook/Wick Taylor readout is now formalized, using the complete homogeneous finite-jet decomposition. To consume these formal bounds, the actual covariance Taylor entries must still be identified with the maintained signed matrix resolvent series.",
         "all-order actual rook/Wick Taylor readout are also formalized. The covariance Taylor-entry to maintained formal-resolvent-series bridge and uniform remainder assembly remain formalization obligations.",
-        "The actual covariance Taylor-entry to formal-resolvent-series bridge, covariance-correction derivatives and second-order asymptotic assembly are still required."
+        "The actual covariance Taylor-entry to formal-resolvent-series bridge, covariance-correction derivatives and second-order asymptotic assembly are still required.",
+        "The finite jet's full homogeneous decomposition, all-order actual rook/Wick Taylor identity and exact covariance formal-series adapter now have maintained proofs. The actual observable therefore has the full signed matrix-resolvent Wick coefficients used by the uniform coefficient bounds. Hamiltonian-cycle and coordinate-occupancy identities, uniform permanent and minor remainders, covariance-correction derivatives and arithmetic specializations remain formalization obligations. In particular,",
+        "to formal-resolvent-series bridge is also formalized. Uniform permanent remainder assembly remains a formalization obligation. The full original outside-Gamma consumer is formalized below.",
+        "The all-order actual rook/Wick Taylor readout and its exact covariance formal-series adapter are formalized. These bounds now apply to the Taylor coefficients of the actual compensated rook function. Quantitative cutoff selection and the uniform permanent remainder assembly remain to be formalized.",
+        "Taylor-entry to maintained formal-resolvent-series bridge is formalized as well. Uniform remainder assembly remains a formalization obligation.",
+        "The actual covariance Taylor-entry to formal-resolvent-series bridge is formalized. Covariance-correction derivatives and second-order asymptotic assembly are still required."
       ],
       "recurrence_note": "A second-order paragraph still called moderate assembly and the complete Cauchy tail pending. All six affected status blocks are now reconciled; AGENTS.md requires whitespace-normalized cross-document rejection before staging.",
       "related_paper_sources_normalized_and_checked": 22
