@@ -355,8 +355,8 @@
       "kind": "theorem",
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\relative-permanents.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
-      "lean_status": "partially_formalized_exact_Gaussian_rook_bridge_and_complete_inverse_Gamma_outside_tail; compensated_Cauchy_diagram_and_full_remainder_pending",
-      "audit_note": "The exact signed Gaussian-to-rook bridge, full permutation/support completion and direct complex rook bound remain compiled and audited. The complete original inverse-Gamma outside-window mass is now compiled and focused-audited: for T nonnegative doubly stochastic, entry cap A/N, norm(T-J/N)<=1-delta, 0<delta<=1 and N*delta>=8, E[1_{N/T notin [1-delta/4,1+delta/4]} abs R_B(N/T)]<=3 exp(-N delta^2/2304+10 sqrt(N(A-1))/(3delta)). Actual joint product-integrability, Fubini, both Gaussian MGF costs and exact positive-denominator cutoff equivalence are discharged. Local Delta and Delta*Psi are never extended outside their window. Compensated resolvent, full Cauchy/high-diagram assembly and the final growing-entry asymptotic remain pending; the headline is not Lean-certified."
+      "lean_status": "partially_formalized_actual_compensated_Gaussian_rook_integral_positive_normalizer_real_resolvent_and_complete_outside_tail; full_complex_Cauchy_diagram_and_second_order_remainder_pending",
+      "audit_note": "The exact original rook/compensated Gaussian integral, actual polynomial reweighting, bilinear Parseval with every complex cross term, quotient-weight zero-sum constraint and nonzero complex normalizer are now maintained and focused-audited. Scalar and tensor normalizer squares are exact; positive real Gaussian integrals and the block determinant prove the actual factor Delta(s). The stochastic window discharges all eigenvalue disk hypotheses. Generic orthogonal quotient algebra works over any field; the actual real covariance and each Gaussian bilinear entry are proved equal to the full resolvent, retaining its inverse. The previously compiled exact rook bridge, direct complex rook envelope and complete original inverse-Gamma outside tail remain proved. Full complex analytic coefficient/series transfer, every high diagram and Cauchy tail, covariance-correction derivatives and the complete second-order permanent remainder remain pending; no headline theorem is Lean-certified."
     },
     {
       "id": "lem:relativecompensatedminors",
@@ -476,8 +476,8 @@
       "kind": "theorem",
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\permanent-second-order.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
-      "lean_status": "partially_formalized_exact_signed_Gaussian_rook_identity_and_complete_original_outside_tail; compensated_resolvent_derivatives_and_second_order_remainder_pending",
-      "audit_note": "Actual Euler/Gamma moments, signed local averaging, spectral transfer, full first-correction bound, unrestricted Gaussian/Wick realization, exact rook identity and direct complex rook envelope remain maintained. The full original rook outside-window inverse-Gamma tail, including joint integrability, exact Fubini, all completion factors and S=N/T indicator transport, is now compiled and focused-audited with bound 3 exp(-N delta^2/2304+10 sqrt(N(A-1))/(3delta)) when 0<delta<=1 and N*delta>=8. Compensated complex resolvent, complete Cauchy/high-diagram consumers, correction derivatives and the full N^(-2) asymptotic remain pending. The paper compiled successfully; the headline is not Lean-certified."
+      "lean_status": "partially_formalized_actual_compensated_Gaussian_rook_integral_positive_normalizer_real_resolvent_and_complete_outside_tail; full_complex_Cauchy_diagram_and_second_order_remainder_pending",
+      "audit_note": "The exact original rook/compensated Gaussian integral, actual polynomial reweighting, bilinear Parseval with every complex cross term, quotient-weight zero-sum constraint and nonzero complex normalizer are now maintained and focused-audited. Scalar and tensor normalizer squares are exact; positive real Gaussian integrals and the block determinant prove the actual factor Delta(s). The stochastic window discharges all eigenvalue disk hypotheses. Generic orthogonal quotient algebra works over any field; the actual real covariance and each Gaussian bilinear entry are proved equal to the full resolvent, retaining its inverse. The previously compiled exact rook bridge, direct complex rook envelope and complete original inverse-Gamma outside tail remain proved. Full complex analytic coefficient/series transfer, every high diagram and Cauchy tail, covariance-correction derivatives and the complete second-order permanent remainder remain pending; no headline theorem is Lean-certified."
     },
     {
       "id": "thm:minorjet",
@@ -1027,7 +1027,7 @@
     },
     {
       "file": "relative-permanents.tex",
-      "sha256": "CA62C0D6F2A40D237CEFB45A0D151DAC9B7D9CF48ED17424E41B16BCFFC72C6D"
+      "sha256": "DF9357F6EBD0D8F3C8449FC4E93405F75014A1FEFEBCD9AAEFD5B232C0E16D60"
     },
     {
       "file": "relative-coprime-circles.tex",
@@ -1043,7 +1043,7 @@
     },
     {
       "file": "main.tex",
-      "sha256": "26AA36A8D15E389D5960BF237CDAF2B34D13082B1EB2EF5313936288F5DC5A2B"
+      "sha256": "2FF49E0256C688A998EA7D7F211C4D6B36C3419AF818EC5D1EBDEE625B4AB76C"
     },
     {
       "file": "relative-hamilton.tex",
@@ -1051,7 +1051,7 @@
     },
     {
       "file": "permanent-second-order.tex",
-      "sha256": "B0441998EA96861C2F549F5549C418047AA4119AEE6CC430932209A11AFD2FDD"
+      "sha256": "F488236FACD6E02770AA7F1C3D01213CB3BE939367C543BCD094C985412C4DE6"
     },
     {
       "file": "compensated-minor-jet.tex",
@@ -1072,7 +1072,7 @@
     "complete_consumer": "rho=a=3/5; amplification <=m^(27/20); first signed correction polylog/m; only residual pays amplification, giving O(N^(-3/5)).",
     "inverse": "A fixed relative counting defect forces collective singular mass >=(2/kappa_rho)log N-O(log log N).",
     "further_extension": "Arbitrary fixed logarithmic density coefficients, and all fixed congruence filters, would require higher-order compensated expansions beyond the proved two-power remainder.",
-    "next_review_focus": "Verify the compensated Gaussian normalizer and high-diagram/Cauchy sum, local Schur-complement compensation and parity-root derivative normalization together; the exact Gaussian/rook bridge and complete original outside-Gamma consumer are now compiled.",
+    "next_review_focus": "Finish the full compensated analytic coefficient, high-diagram/Cauchy and correction-derivative consumers. Reuse the now compiled actual compensated rook integral, exact complex normalizer square, positive real determinant factor, actual real resolvent covariance and full outside-Gamma tail.",
     "independent_consumer_status": "Both actual integer prime-sum graphs and all growing coprime moduli have complete stated ordinary arguments."
   },
   "completion_receipt": {
@@ -1088,12 +1088,12 @@
       "Actual unweighted prime-sum graph: full relative count around its exact entropy, with O(N^(-3/5)) error; no RH or prime-pair estimate."
     ],
     "primary_literature_comparison": "Cuckler-Kahn: dense Dirac and dense balanced bipartite entropy counts. Barvinok: all-positive matrices with a relative entry lower bound. Krivelevich and Byrne-Tait: nontrivial spectral ratio tending to zero logarithmically. The present argument permits sparse zero support and any fixed nontrivial gap. Bradač-Janzer 2026 is an essential independent spanning-path input. McCullagh's bounded normalized moments fail along primorials; Divoux-Wang's fixed-entry finite proof is tracked explicitly, rather than used outside its stated range. The new first-order signed compensation and rank-one parity-root calculation avoid the fixed-entry remainder amplification at prime density. They are the mechanism of the complete prime consumer, not merely a detector or matching identity.",
-    "proof_endpoint_status": "The full analytic and arithmetic headline theorems remain unformalized. Compiled and focused-audited inputs now include the exact signed finite cancellations, matrix spectral/Gamma transfer, first-correction estimate, unrestricted Gaussian/Wick realization, exact Gaussian-to-rook identification, direct complex rook bound and the complete original inverse-Gamma outside-window tail with explicit constants. Its joint product-integrability, actual Fubini and exact cutoff equivalence are proved. Compensated resolvent/normalizer, full Cauchy/high-diagram consumer, correction derivatives, Hamiltonian-cycle identification, signed comparison and arithmetic closures remain required.",
+    "proof_endpoint_status": "The full analytic and arithmetic headline theorems remain unformalized. Compiled and focused-audited inputs include the exact finite signed cancellations, spectral/Gamma transfer, first correction, unrestricted Gaussian/Wick realization, exact original rook identity and envelope, complete original inverse-Gamma outside tail, actual compensated integral and nonzero complex normalizer, positive real determinant factor with stochastic disk hypotheses discharged, and actual real quotient covariance matched to the full resolvent. Full complex analytic coefficient/series transfer, high-diagram and Cauchy consumers, correction derivatives, Hamiltonian-cycle identification, signed comparison and arithmetic closures remain required.",
     "significance_assessment": "A general signed-estimation method now has a quantitative inverse and complete independent arithmetic consumers at actual prime density and through every coprime modulus. This supports a serious standalone research contribution. Career-defining impact and priority are not certified or inferred from compilation.",
     "paper_argument_delivered": true,
     "headline_all_orders_filz_proved": false,
     "lean_formalization_complete": false,
-    "next_safely_executable_research_action": "Use the proved actual polynomial quadratic reweighting at z_i=s*lambda_i(Omega), w_i^2=z_i/(1+z_i). Prove complex bilinear Parseval, actual zero-sum for quotient square roots and product r(Y_i)=product(1+Y_i)*exp(sum Y_i^2/2). Identify the original complex rook polynomial with the actual compensated integral and its scalar normalizer, including the real positive determinant factor. Then sum every retained high diagram, apply the full Cauchy tail and prove the complete N^(-2) signed remainder and correction-derivative Gamma consumer. A successful promotion or commit does not finish the headline.",
+    "next_safely_executable_research_action": "Identify the actual quotient Gaussian mixed moments with the existing complete Wick recursion, prove the full compensated analytic coefficient expansion, and sum every support, pairing and coefficient convolution. Retain Psi and the degree-six diagonal compensation, bound the complete high-diagram and Cauchy tails, and then finish the correction-derivative Gamma consumer at N^(-2) precision. The determinant factor and exact original rook integral are already proved and must be reused. A successful promotion or commit does not finish the headline.",
     "next_gate": "Judge the complete new method and independent applications, not theorem counts or successful compilation; preserve exact entropy and explicit density scope.",
     "no_background_work_claimed": true,
     "expert_relevance_gate": {
@@ -1107,8 +1107,8 @@
     "committed_this_turn": true,
     "pushed_this_turn": false,
     "proofs_left_only_in_private_research": false,
-    "recorded_phase": "After local commit 0cb1df2a7590252615492dd17f2b43c5f14156ed; six complete Gamma-shift/Gaussian-Fubini/rook-tail modules compiled, 56 new declarations focused-audited and the paper compiled; final staged checks and local commit pending.",
-    "phase": "Full original rook inverse-Gamma outside tail compiled with explicit constants and all probability transfers discharged; compensated Cauchy/high-diagram and headline consumers pending."
+    "recorded_phase": "Built against local commit 63113cfd72627f961a8597404cee910bab489803. This promotion has five real-proof modules, 50 focused-audited declarations and a successful built-in paper compilation. The final staged check and resulting local commit are recorded in the Git history.",
+    "phase": "Exact original compensated Gaussian/rook integral and real normalizer/resolvent are formalized; full complex coefficient, high-diagram, Cauchy and headline consumers remain pending."
   },
   "formalization": {
     "status": "in_progress_not_complete",
@@ -1439,11 +1439,41 @@
         "source_sha256": "0BB36F65C0EFAE6BD4A912192B4259AD23E76F09047FF29ECD084A783E79BDCC",
         "content": "Original maintained rook inverse-Gamma outside mass bounded by 3 exp(-N delta^2/2304 + 10 sqrt(N(A-1))/(3delta)); all Gaussian/rook coefficients, Fubini and exact S=N/T cutoff equivalence retained. No local analytic factor is extended outside its window.",
         "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianCompensatedGaussianGeometry",
+        "source_sha256": "6271451173CD172F6A97E509C96F09E0301768EC2E5C707421C9B46D3E6A4F51",
+        "content": "Exact complex bilinear Parseval, zero-sum quotient-weighted spectral vector, complete compensated vertex product and every complex cross term.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianCompensatedGaussianIntegral",
+        "source_sha256": "225BB573045D033E1FFB9ADBCF7B564CA77E54B0786F962C87F9EAD06C2CDEB2",
+        "content": "Actual compensated kernel integrability and exact original rook-polynomial integral, with the full covariance quotient and nonzero tilted normalizer.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianGaussianTiltNormalizer",
+        "source_sha256": "DA963BA2A690EF0E22AD5C67802B2C8F0897005AA39FA4DFBBE66FB69E202CF2",
+        "content": "Exact scalar and tensor Gaussian normalizer squares, actual complex/real integral identification and positive real tilt normalization.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianCompensatedGaussianNormalizer",
+        "source_sha256": "35EF00EECC7B8F5C9F27266B6603D90AC8593F32E375B97758875CC4D88295EE",
+        "content": "Positive real determinant factor, full stochastic window eigenvalue-disk discharge and exact compensated identity for the original stochastic rook polynomial.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianGaussianQuotientCovariance",
+        "source_sha256": "64EB507AD791CC171CDB93C541363E72E07DB952143527AA414F70A907D9B6D3",
+        "content": "Generic orthogonal diagonal quotient equals the full matrix resolvent over any field; actual real spectral quotient and all Gaussian covariance entries matched to that resolvent.",
+        "build_exit_code": 0
       }
     ],
     "unfinished_dependencies": [
       "Exact Hamiltonian determinant-permanent identity for actual spanning-cycle permutations, including singleton fixed-point cycles.",
-      "Compensated complex resolvent and normalizer identification, full finite high-diagram summation, complete Cauchy coefficient/tail consumer, covariance-correction derivatives and the uniform second-order permanent remainder. The original outside-window rook inverse-Gamma tail is now compiled and focused-audited, including actual product-integrability, Fubini, both Gaussian exponential costs and exact cutoff conversion, together with the earlier exact Gaussian/rook and spectral/Gamma inputs.",
+      "Full complex analytic coefficient/series transfer, finite high-diagram summation, complete Cauchy coefficient/tail consumer, covariance-correction derivatives and the uniform second-order permanent remainder. The original compensated rook integral, actual complex normalizer, positive real determinant factor and actual real resolvent covariance are now compiled and focused-audited, together with the complete original outside-window inverse-Gamma tail.",
       "Quantitative stochastic repair and full complementary-minor expansion with all mismatched supports and compensation fields.",
       "Actual coordinate occupancy identities, full derivative bounds and normalized moment bounds. Cauchy-Binet, the signed two-support constant moment, Gram sandwich entries and full block covariance entries are compiled.",
       "Full signed comparison with its absolute estimate confined to the retained remainder and large-minor tail.",
@@ -2086,12 +2116,81 @@
           "Quot.sound"
         ],
         "log_sha256": "45DBA12E56D961FB428AF447D1E8518BAD7C56BD19990A9C26ACA51B61332CF9"
+      },
+      {
+        "status": "verified",
+        "modules": [
+          "PrimeFactorOscillations.Helpers.HamiltonianCompensatedGaussianGeometry",
+          "PrimeFactorOscillations.Helpers.HamiltonianCompensatedGaussianIntegral",
+          "PrimeFactorOscillations.Helpers.HamiltonianGaussianTiltNormalizer",
+          "PrimeFactorOscillations.Helpers.HamiltonianCompensatedGaussianNormalizer",
+          "PrimeFactorOscillations.Helpers.HamiltonianGaussianQuotientCovariance"
+        ],
+        "declaration_count": 50,
+        "declarations": [
+          "PrimeFactorOscillations.commutativeOrthogonal_square_sum",
+          "PrimeFactorOscillations.realOrthogonal_complex_bilinear_square",
+          "PrimeFactorOscillations.realGaussianWeightedVector_zero_sum",
+          "PrimeFactorOscillations.realGaussianWeightedVector_square_sum",
+          "PrimeFactorOscillations.realGaussianAffinePolynomial_eval_weighted",
+          "PrimeFactorOscillations.wickVertexFunction_product_zero_sum",
+          "PrimeFactorOscillations.realGaussianWeightedVector_vertex_product",
+          "PrimeFactorOscillations.realGaussianQuotientWeights_sq",
+          "PrimeFactorOscillations.realGaussianQuotientWeights_zero",
+          "PrimeFactorOscillations.realGaussianQuotientVector_zero_sum",
+          "PrimeFactorOscillations.realGaussianQuotientVector_vertex_product",
+          "PrimeFactorOscillations.gaussianTilt_exponential_split",
+          "PrimeFactorOscillations.gaussianMvTiltKernel_reweight",
+          "PrimeFactorOscillations.realGaussianCompensatedKernel_eq_tilt",
+          "PrimeFactorOscillations.realGaussianCompensatedKernel_integrable",
+          "PrimeFactorOscillations.realGaussianCompensatedKernel_normalized",
+          "PrimeFactorOscillations.realGaussianCompensatedAverage_state",
+          "PrimeFactorOscillations.realGaussianAffinePolynomial_scaled_rook",
+          "PrimeFactorOscillations.realGaussianCompensatedAverage_rook",
+          "PrimeFactorOscillations.gaussian_disk_one_add_ne_zero",
+          "PrimeFactorOscillations.complexGaussianMoment_zero_sq",
+          "PrimeFactorOscillations.gaussianTiltMoment_sq",
+          "PrimeFactorOscillations.finiteGaussianNormalizer_square",
+          "PrimeFactorOscillations.gaussianTensorTiltNormalizer_ratio_sq",
+          "PrimeFactorOscillations.gaussianTiltMoment_ofReal",
+          "PrimeFactorOscillations.realGaussianTilt_gap",
+          "PrimeFactorOscillations.realGaussianTiltMoment_positive",
+          "PrimeFactorOscillations.realGaussianTiltMoment_sq",
+          "PrimeFactorOscillations.realGaussianTiltTensorNormalizer_positive",
+          "PrimeFactorOscillations.realGaussianTiltTensorNormalizer_cast",
+          "PrimeFactorOscillations.realGaussianTiltTensorNormalizer_ratio_sq",
+          "PrimeFactorOscillations.hermitian_det_one_add_smul",
+          "PrimeFactorOscillations.realGaussianCompensationFactor_positive",
+          "PrimeFactorOscillations.realGaussianCompensationFactor_sq",
+          "PrimeFactorOscillations.positive_inverse_half_power_unique",
+          "PrimeFactorOscillations.realGaussianCompensationFactor_bipartite",
+          "PrimeFactorOscillations.realGaussianCompensatedAverage_state_real",
+          "PrimeFactorOscillations.realGaussianCompensatedAverage_rook_real",
+          "PrimeFactorOscillations.stochastic_compensated_eigen_disk",
+          "PrimeFactorOscillations.stochastic_compensated_rook_identity",
+          "PrimeFactorOscillations.orthogonalMatrixConjugate_one",
+          "PrimeFactorOscillations.orthogonalMatrixConjugate_add",
+          "PrimeFactorOscillations.orthogonalMatrixConjugate_smul",
+          "PrimeFactorOscillations.orthogonalMatrixConjugate_mul",
+          "PrimeFactorOscillations.orthogonalMatrixConjugate_diagonal_unit",
+          "PrimeFactorOscillations.orthogonalQuotientMatrix_resolvent",
+          "PrimeFactorOscillations.realGaussianEigenMatrix_reverse_orthogonal",
+          "PrimeFactorOscillations.realGaussianQuotientCovariance_resolvent",
+          "PrimeFactorOscillations.realGaussianQuotientCovariance_entry",
+          "PrimeFactorOscillations.realGaussianQuotientCovariance_entry_resolvent"
+        ],
+        "allowed_axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "log_sha256": "D8507BDE4CB99140F178A8CF32C6D7BA88AFC9913144703B7C33CAD537CAC92C"
       }
     ],
     "active_proof": {
-      "module": "PrimeFactorOscillations.Helpers.HamiltonianCompensatedGaussianGeometry",
-      "status": "Next exact compensated consumer; not yet counted as a completed maintained theorem.",
-      "target": "Use the proved actual polynomial quadratic reweighting at z_i=s*lambda_i(Omega), w_i^2=z_i/(1+z_i). Prove complex bilinear Parseval, actual zero-sum for quotient square roots and product r(Y_i)=product(1+Y_i)*exp(sum Y_i^2/2). Identify the original complex rook polynomial with the actual compensated integral and its scalar normalizer, including the real positive determinant factor. Then sum every retained high diagram, apply the full Cauchy tail and prove the complete N^(-2) signed remainder and correction-derivative Gamma consumer.",
+      "module": "PrimeFactorOscillations.Helpers.HamiltonianWickDiagramCoefficients",
+      "status": "Next complete coefficient/remainder consumer; not yet counted as a completed maintained theorem.",
+      "target": "Identify the actual quotient Gaussian mixed moments with the existing complete Wick recursion, prove the full compensated analytic coefficient expansion, and sum every support, pairing and coefficient convolution. Retain Psi and the degree-six diagonal compensation, bound the complete high-diagram and Cauchy tails, and then finish the correction-derivative Gamma consumer at N^(-2) precision. The determinant factor and exact original rook integral are already proved and must be reused. A successful promotion or commit does not finish the headline.",
       "consumer": "The complete signed comparison has relative error O(log(N)^M/N+log(N)^M*Amp(T)/N^2). The present local determinant remainder supplies its N^(-2) precision; the Wick, covariance-correction and signed-coordinate consumers are still required. At the advertised prime amplification Amp(T)<=N^(27/20), that precision contributes N^(-13/20) times logarithms, before the final advertised N^(-3/5) relaxation.",
       "proved_inputs": [
         "PrimeFactorOscillations.Helpers.HamiltonianMatrixSpectralAverage",
@@ -2123,7 +2222,12 @@
         "PrimeFactorOscillations.Helpers.HamiltonianGaussianShiftedGammaTail",
         "PrimeFactorOscillations.Helpers.HamiltonianStochasticGammaTail",
         "PrimeFactorOscillations.Helpers.HamiltonianGaussianGammaFubini",
-        "PrimeFactorOscillations.Helpers.HamiltonianRookGammaTail"
+        "PrimeFactorOscillations.Helpers.HamiltonianRookGammaTail",
+        "PrimeFactorOscillations.Helpers.HamiltonianCompensatedGaussianGeometry",
+        "PrimeFactorOscillations.Helpers.HamiltonianCompensatedGaussianIntegral",
+        "PrimeFactorOscillations.Helpers.HamiltonianGaussianTiltNormalizer",
+        "PrimeFactorOscillations.Helpers.HamiltonianCompensatedGaussianNormalizer",
+        "PrimeFactorOscillations.Helpers.HamiltonianGaussianQuotientCovariance"
       ]
     },
     "status_reconciliation_check": {
@@ -2134,9 +2238,10 @@
       "checked_claims": [
         "thm:growingpermanent",
         "thm:secondpermanent",
-        "lem:signedoccupancy",
         "completion_receipt.proof_endpoint_status",
-        "completion_receipt.next_safely_executable_research_action"
+        "completion_receipt.next_safely_executable_research_action",
+        "formalization.unfinished_dependencies",
+        "formalization.active_proof"
       ],
       "stale_note_removed": true,
       "headline_certification": false

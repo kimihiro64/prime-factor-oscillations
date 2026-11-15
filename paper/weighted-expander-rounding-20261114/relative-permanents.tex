@@ -80,6 +80,52 @@ and \(Y\) has bilinear covariance \(\Gamma_{s,t}\).
 The zero row and column sums of \(B\) cancel the linear
 Gaussian term exactly, before taking any bound.
 
+The exact compensated integral and its normalizer now also have maintained
+Lean proofs. Here is the branch and sign argument. Diagonalize the actual
+real symmetric block \(\Omega=U\diag(\lambda_j)U^\top\), put
+\(z_j=s\lambda_j\), \(w_j^2=z_j/(1+z_j)\), and set
+\(Y_i=\sum_jU_{ij}w_jX_j\). Zero column sums imply
+\(\lambda_j\sum_iU_{ij}=0\). When \(\lambda_j=0\), the chosen
+\(w_j\) is zero; otherwise \(\sum_iU_{ij}=0\).
+Thus, for every Gaussian sample,
+\[
+ \sum_iY_i=0,\qquad \sum_iY_i^2=\sum_jw_j^2X_j^2,\qquad
+ \prod_i r(Y_i)=\prod_i(1+Y_i)
+                   \exp\!\left(\tfrac12\sum_jw_j^2X_j^2\right).
+\]
+These are bilinear squares, with all complex signs retained.
+Define the actual nonzero scalar integrals
+\[
+ Z(s)=\prod_j\int_{\mathbb R}
+     \exp\!\left(-\frac{1-z_j/(1+z_j)}2x^2\right)\,dx.
+\]
+The already proved polynomial quadratic transfer gives integrability
+of the displayed compensated product and the exact identity
+\[
+ R_B(s)=\frac{Z_0^{2N}}{Z(s)}
+                  \E_{\rm std}\prod_i r(Y_i).
+\]
+This identity holds for complex \(s\) whenever \(|s\lambda_j|<1\)
+for every \(j\). The scalar Gaussian integral square gives
+\[
+ \left(\frac{Z(s)}{Z_0^{2N}}\right)^2
+                           =\prod_j(1+s\lambda_j).
+\]
+For real \(s\) in the stated window, every scalar integral in \(Z(s)\)
+is positive. The actual block determinant identity then proves
+\(Z_0^{2N}/Z(s)=\Delta(s)\), by equality of positive squares;
+no complex square-root branch is assumed. In maintained Lean the
+stochastic hypotheses and \(|s-1|\leq\delta/4\) discharge the entire
+eigenvalue disk condition. Finally orthogonal conjugation of the full
+diagonal quotient gives, for real \(s\),
+\[
+ U\diag\!\left(\frac{s\lambda_j}{1+s\lambda_j}\right)U^\top
+                              =s\Omega(I+s\Omega)^{-1}.
+\]
+The proof constructs the diagonal inverse and keeps the reciprocal factor.
+It applies over any field; its actual real spectral and Gaussian entry
+specializations are compiled.
+
 The polynomial transfer underlying this identity has an independent
 maintained proof. For any finite coordinate set, choose complex numbers
 \(z_j,w_j\) with \(|z_j|<1\) and
@@ -204,9 +250,11 @@ The exact Gaussian-to-rook consumer now transfers this bound directly:
  \qquad |t|\rho<1.\quad}
 \]
 The maintained complex polynomial agrees with the original real rook
-polynomial at every real parameter. The compensated resolvent
-identification and the complete high-diagram and Cauchy consumers
-remain formalization obligations. The full original outside-Gamma
+polynomial at every real parameter. The exact compensated integral,
+its complex normalizer square and its positive real determinant factor
+are formalized, as is the actual real resolvent covariance.
+The complete complex analytic coefficient, high-diagram and Cauchy
+consumers remain formalization obligations. The full original outside-Gamma
 consumer is formalized below.
 
 The block-power expansion gives, for a fixed

@@ -84,10 +84,14 @@ This finite identity, its all-degree pairing bound
 have maintained Lean proofs. General polynomial Gaussian transfer
 and the complete mixed Wick recursion are formalized separately.
 The raw block spectral realization, zero-sum vector, exact energy and
-collective product bound are now formalized as well. Connecting the
-compensated resolvent to the rook polynomial and these retained finite
-correction formulas remains a formalization obligation. On the fixed interval in \(s\), the same diagonal
-estimate is \(O_\delta(A^3/N^2)\).
+collective product bound are now formalized as well. The exact
+compensated integral is now connected to the original rook polynomial,
+with its nonzero complex normalizer and proved positive real determinant
+factor. Its actual real covariance is the full resolvent \(\Gamma_s\).
+Connecting the retained finite correction formulas to the complete
+analytic coefficient expansion and bounding every remaining diagram
+are still formalization obligations. On the fixed interval in \(s\),
+the same diagonal estimate is \(O_\delta(A^3/N^2)\).
 
 Here is a bound on all remaining diagrams, including their
 infinite power-series tails.
@@ -168,8 +172,10 @@ The exact Gaussian-to-rook identity and its direct stochastic complex
 envelope in the preceding section are now formalized, including
 all support-completion factors. The complete inverse-Gamma outside-window
 consumer, its exact cutoffs and its joint Fubini justification are also
-formalized. The compensated expansion, complete Cauchy consumer and
-second-order diagram remainder are still required.
+formalized. The compensated integral, scalar normalizer and actual
+real resolvent covariance are also formalized. The full analytic
+coefficient expansion, complete Cauchy consumer and second-order
+diagram remainder are still required.
 
 It remains to perform the Gamma average with its first
 correction retained. Put \(S=N/T\), \(T\sim\Gamma(N+1,1)\),
