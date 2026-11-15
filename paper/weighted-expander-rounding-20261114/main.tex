@@ -572,12 +572,17 @@ packet satisfies
 The exact weighted absolute mass is evaluated only for this
 separately retained residual. One threshold covers every admissible
 kernel and independently chosen balanced support.
-A weighted sequential-reveal subprobability and its full logarithmic
-partition bound are also formalized as inputs to the large-tail
-permanent estimate; that row-cap estimate and its tail application
-are not yet formalized.
-The large-support tail, final comparison, amplification/inverse
-and arithmetic/public closures remain formalization obligations.
+The full weighted random-reveal argument and its global row-cap
+permanent upper bound are now formalized, including zero entries,
+empty and one-row matrices and all independent rectangular supports.
+For the actual complementary permanent the exact rank shift gives
+\[
+ \operatorname{per}T[I^c,J^c]
+       \leq \exp\bigl(|J|-N+16A\log(2N)\bigr).
+\]
+The normalized full large-support tail, final comparison,
+amplification/inverse and arithmetic/public closures remain
+formalization obligations.
 The headline Hamiltonian counting and inverse theorems are not yet
 Lean-certified.
 Compilation of this manuscript does not provide mathematical or

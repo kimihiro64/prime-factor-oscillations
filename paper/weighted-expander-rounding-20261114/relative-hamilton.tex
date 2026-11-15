@@ -39,21 +39,67 @@ matrix-product identity are part of the formal proof, so no fixed-point,
 overlap or completion term is omitted. This formalizes the established
 identity; it is not a new enumeration claim.
 
-We first record a bound used only for a separately retained tail.
-For a doubly stochastic matrix \(D\) with maximum entry \(A/N\),
-the row-cap Bregman argument and van der Waerden give, for
-any equally sized removed row and column sets of size \(r\),
+\paragraph{Formalized weighted row-cap permanent bound.}
+This bound is used only for a separately retained tail.
+Let \(M\) be nonnegative of order \(n\geq2\), with row sums at
+most \(1\) and entries at most \(c>0\).
+Write \(w_\sigma=\prod_iM_{i,\sigma(i)}\) and
+\(P=\sum_\sigma w_\sigma\).
+If \(P=0\), every upper bound below is immediate.
+For each fixed row order, weighted sequential revelation gives
+a subprobability \(q_\sigma\), with its actual available-column
+denominators. If \(C_\sigma\) is the sum of their logarithms,
+the inequality \(\log x\leq x-1\) gives
+\[
+ \log P\leq P^{-1}\sum_\sigma w_\sigma C_\sigma.
+\]
+Zero matching weights contribute zero; no positive-entry
+approximation is needed.
+
+Fix a matching of positive weight and average over all row orders.
+When row \(i\) is revealed with \(k\) other rows remaining,
+the latter are a uniform subset of the other \(n-1\) rows.
+The available mass therefore has conditional mean
+\[
+ M_{i,\sigma(i)}
+       +\frac{k}{n-1}\sum_{j\ne i}M_{i,\sigma(j)}
+                         \leq c+\frac{k}{n-1}.
+\]
+Applying the logarithmic mean inequality at each stage, then
+averaging with the full matching weights, proves
+\[
+ \operatorname{per}M\leq
+ \exp\!\left(\sum_{k=0}^{n-1}\log\left(c+\frac{k}{n-1}\right)\right).
+\]
+For \(m=n-1\), the logarithm is at most
+\[
+ \log c-m+\log m+1+cm(1+\log m),
+\]
+by \(\log(1+u)\leq u\), the harmonic bound and the Stirling
+upper bound for the factorial logarithm.
+Consequently, if \(A\geq1\), \(N\geq1\), \(n\leq N\) and
+\(c=A/N\), then
+\[
+ \operatorname{per}M\leq \exp(-n+16A\log(2N)).
+\]
+The same conclusion for \(n=0,1\) follows directly.
+The weighted argument, explicit constant, exceptional orders and
+transfer to every actual independent-support rectangular minor
+have maintained Lean proofs. In particular, for a doubly stochastic
+matrix \(D\) with maximum entry \(A/N\),
+\[
+ \operatorname{per}D[I^c,J^c]
+                       \leq \exp(r-N+16A\log(2N)),\qquad |J|=r.
+\]
+The denominator bound \(N!/N^N\geq e^{-N}\), together with
+van der Waerden, gives the ordinary-proof ratio estimate
 \[
  \frac{\operatorname{per}D[I^c,J^c]}{\operatorname{per}D}
-                         \leq\exp(r+C A\log(2N)).
+                       \leq\exp(r+16A\log(2N)).
 \]
-Indeed the remaining matrix of order \(n=N-r>0\) can be
-row-extended after division by \(A/N\), with
-\(k=\min(n,\lceil N/A\rceil)\).
-Its permanent is at most
-\((A/N)^n(k!)^{n/k}\leq\exp(-n+C A\log(2N))\).
-The denominator is at least \(N!/N^N\geq e^{-N}\).
-The empty remaining matrix satisfies the same bound directly.
+Formalizing the normalized tail still requires its lower-bound
+and summation consumers; the compiled upper bound alone does
+not close that tail.
 
 \begin{theorem}[A relative comparison with a growing density parameter]
 \label{thm:relativeaperiodic}

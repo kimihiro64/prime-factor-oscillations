@@ -343,9 +343,45 @@ matching weight is positive,
 \]
 It handles zero matching weights directly and derives the
 inequality from \(\log x\leq x-1\).
-The row-order average giving the global row-cap permanent bound,
-its large-support complementary-permanent tail application, and
-the final Hamiltonian comparison remain formalization obligations.
+The complete row-order average and its global row-cap conclusion
+now have maintained proofs as well.
+For a nonnegative matrix \(M\) of order \(n\geq2\), with row sums
+at most \(1\) and entry cap \(c>0\), the full matching measure gives
+\[
+ \operatorname{per}M\leq
+  \exp\!\left(\sum_{k=0}^{n-1}
+       \log\left(c+\frac{k}{n-1}\right)\right).
+\]
+The proof uses actual uniform permutations of all row orders.
+Conditional on the current row and its matched entry, the suffix
+is a uniform permutation of the complementary rows.
+The exact subset average and the logarithmic mean inequality
+supply the displayed bound, including matrices with zero entries.
+
+For \(c=A/N\), \(A\geq1\), \(1\leq N\) and \(n\leq N\), the
+proved Stirling and harmonic estimates give the explicit upper bound
+\[
+ \operatorname{per}M\leq e^{-n+16A\log(2N)}.
+\]
+The maintained proof includes \(n=0,1\) separately.
+Its transfer to the actual rectangular minor uses the required
+row/column reindexing, retains both independent supports and
+proves
+\[
+ \operatorname{per}T[I^c,J^c]\leq
+            e^{\,|J|-N+16A\log(2N)}.
+\]
+The maintained owners are
+\texttt{HamiltonianRevealPermutationAverage},
+\texttt{HamiltonianRevealSuffix},
+\texttt{HamiltonianRevealOrderAverage},
+\texttt{HamiltonianRowCapPermanent},
+\texttt{HamiltonianRowCapLogBudget},
+\texttt{HamiltonianRowCapAllOrders} and
+\texttt{HamiltonianRectangularPermanentUpper}.
+The normalized full large-support packet, including every
+complementary-permanent ratio and polynomial-extension correction,
+and the final Hamiltonian comparison remain formalization obligations.
 
 \begin{theorem}[Relative bipartite comparison at logarithmic density]
 \label{thm:criticalrelative}
