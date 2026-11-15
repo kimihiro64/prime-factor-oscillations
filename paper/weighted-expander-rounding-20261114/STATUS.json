@@ -356,7 +356,7 @@
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\relative-permanents.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
       "lean_status": "fully_formalized_direct_normalized_uniform_statement",
-      "audit_note": "Both paper permanent statements now have direct maintained normalized Lean consumers. stochastic_permanent_relative_correction_polylog_uniform proves, for one N0(delta,K)>=16 and every admissible kernel and 1<=A<=log(N)^K, abs((N^N/N!)*per(T)/Delta(1)-(1+Q_N(T)))<=(1+A)^24*C_delta/N^2 and abs(Q_N(T))<=21*A^2/(delta^3*N). For K>0, hamiltonian_permanent_polylog_first_order_budget supplies the uniform scalar threshold, and stochastic_permanent_first_order_polylog_uniform proves the directly normalized first-order error <=N^(-1/8). The full common threshold is independent of the kernel. These three new theorems compile and pass the focused foundational-axiom audit. The complete signed second-order expansion is retained for the critical Hamiltonian consumer; its first-order consequence is not substituted into that sharper argument. The full actual Liu determinant/permanent identity is now compiled and focused-audited over every commutative coefficient ring. Actual complementary permutations, all invariant vertex sets, every nontrivial orbit and every singleton fixed-point orbit are retained. hamiltonianLiuIdentity proves the identity for the actual matrix and actual one-orbit permutation sum, including the empty dimension. The complete signed coefficient is the ambient cardinality for one-orbit permutations and zero otherwise. The exact bipartite specialization and graph-cycle readout, full compensated minor remainder, coordinate occupancy bounds, signed Hamiltonian comparison, amplification/inverse, arithmetic closures and public headline integration remain unfinished."
+      "audit_note": "Both paper permanent statements now have direct maintained normalized Lean consumers. stochastic_permanent_relative_correction_polylog_uniform proves, for one N0(delta,K)>=16 and every admissible kernel and 1<=A<=log(N)^K, abs((N^N/N!)*per(T)/Delta(1)-(1+Q_N(T)))<=(1+A)^24*C_delta/N^2 and abs(Q_N(T))<=21*A^2/(delta^3*N). For K>0, hamiltonian_permanent_polylog_first_order_budget supplies the uniform scalar threshold, and stochastic_permanent_first_order_polylog_uniform proves the directly normalized first-order error <=N^(-1/8). The full common threshold is independent of the kernel. These three new theorems compile and pass the focused foundational-axiom audit. The complete signed second-order expansion is retained for the critical Hamiltonian consumer; its first-order consequence is not substituted into that sharper argument. The generic actual Liu identity and the full two-support bipartite cycle identity are now compiled and focused-audited. Actual selected-support and complement equivalences, zero unbalanced determinants, balanced signed determinant squares and actual complementary permanent squares retain every independently chosen support pair. hamiltonianBipartiteCycleIdentity proves N*cyc(P) equals the complete signed rectangular-minor/permanent packet for actual real matrices, including the empty-support cardinality zero term. The full compensated minor remainder, signed coordinate occupancy bounds, signed comparison, amplification/inverse, arithmetic closures and public graph/entropy integration remain unfinished; the headline count is not Lean-certified."
     },
     {
       "id": "lem:relativecompensatedminors",
@@ -477,7 +477,7 @@
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\permanent-second-order.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
       "lean_status": "fully_formalized_direct_normalized_uniform_statement",
-      "audit_note": "Both paper permanent statements now have direct maintained normalized Lean consumers. stochastic_permanent_relative_correction_polylog_uniform proves, for one N0(delta,K)>=16 and every admissible kernel and 1<=A<=log(N)^K, abs((N^N/N!)*per(T)/Delta(1)-(1+Q_N(T)))<=(1+A)^24*C_delta/N^2 and abs(Q_N(T))<=21*A^2/(delta^3*N). For K>0, hamiltonian_permanent_polylog_first_order_budget supplies the uniform scalar threshold, and stochastic_permanent_first_order_polylog_uniform proves the directly normalized first-order error <=N^(-1/8). The full common threshold is independent of the kernel. These three new theorems compile and pass the focused foundational-axiom audit. The complete signed second-order expansion is retained for the critical Hamiltonian consumer; its first-order consequence is not substituted into that sharper argument. The full actual Liu determinant/permanent identity is now compiled and focused-audited over every commutative coefficient ring. Actual complementary permutations, all invariant vertex sets, every nontrivial orbit and every singleton fixed-point orbit are retained. hamiltonianLiuIdentity proves the identity for the actual matrix and actual one-orbit permutation sum, including the empty dimension. The complete signed coefficient is the ambient cardinality for one-orbit permutations and zero otherwise. The exact bipartite specialization and graph-cycle readout, full compensated minor remainder, coordinate occupancy bounds, signed Hamiltonian comparison, amplification/inverse, arithmetic closures and public headline integration remain unfinished."
+      "audit_note": "Both paper permanent statements now have direct maintained normalized Lean consumers. stochastic_permanent_relative_correction_polylog_uniform proves, for one N0(delta,K)>=16 and every admissible kernel and 1<=A<=log(N)^K, abs((N^N/N!)*per(T)/Delta(1)-(1+Q_N(T)))<=(1+A)^24*C_delta/N^2 and abs(Q_N(T))<=21*A^2/(delta^3*N). For K>0, hamiltonian_permanent_polylog_first_order_budget supplies the uniform scalar threshold, and stochastic_permanent_first_order_polylog_uniform proves the directly normalized first-order error <=N^(-1/8). The full common threshold is independent of the kernel. These three new theorems compile and pass the focused foundational-axiom audit. The complete signed second-order expansion is retained for the critical Hamiltonian consumer; its first-order consequence is not substituted into that sharper argument. The generic actual Liu identity and the full two-support bipartite cycle identity are now compiled and focused-audited. Actual selected-support and complement equivalences, zero unbalanced determinants, balanced signed determinant squares and actual complementary permanent squares retain every independently chosen support pair. hamiltonianBipartiteCycleIdentity proves N*cyc(P) equals the complete signed rectangular-minor/permanent packet for actual real matrices, including the empty-support cardinality zero term. The full compensated minor remainder, signed coordinate occupancy bounds, signed comparison, amplification/inverse, arithmetic closures and public graph/entropy integration remain unfinished; the headline count is not Lean-certified."
     },
     {
       "id": "thm:minorjet",
@@ -1072,7 +1072,7 @@
     "complete_consumer": "rho=a=3/5; amplification <=m^(27/20); first signed correction polylog/m; only residual pays amplification, giving O(N^(-3/5)).",
     "inverse": "A fixed relative counting defect forces collective singular mass >=(2/kappa_rho)log N-O(log log N).",
     "further_extension": "Arbitrary fixed logarithmic density coefficients, and all fixed congruence filters, would require higher-order compensated expansions beyond the proved two-power remainder.",
-    "next_review_focus": "Specialize the compiled actual Liu identity to the full bipartite kernel, retaining every mismatched row/column support and complementary permanent. Then prove quantitative stochastic repair and the complete first-order minor jet with a uniform two-power remainder, apply the actual signed coordinate-occupancy moments, and carry all terms through the Hamiltonian comparison, spectral amplification/inverse and arithmetic headline consumers. Preserve the complete N^(-2) permanent correction. RH/Hadamard/twin-prime transfers remain queued until the entire headline argument and Lean formalization are complete; a component, audit or commit is not completion.",
+    "next_review_focus": "Prove quantitative stochastic repair for every independently selected I,J with equal cardinal r<=log(2N)^3, uniformly in nonnegative doubly stochastic T with N*q=1, norm(T-qJ)<=rho<1 and max T<=A*q for polylogarithmic A. Build the actual parity-regularized inverse K=(I+Omega)^(-1)-C/2-S from the compiled full block covariance, prove its pseudo-inverse identities and dimension-uniform coordinate/row bounds, and apply them to the retained scaling equations with every quadratic cross term. Then prove the full minor ratio square 1+r(r-1)/N+u^T Gamma u+2v^T u+R with abs(R)<=C*log(2N)^M/N^2. Consume the signed occupancy moments in the same full cycle packet, followed by amplification/inverse and arithmetic/public headline closures. RH/Hadamard/twin-prime transfers remain queued until the whole headline proof and formalization are complete.",
     "independent_consumer_status": "Both actual integer prime-sum graphs and all growing coprime moduli have complete stated ordinary arguments."
   },
   "completion_receipt": {
@@ -1088,12 +1088,12 @@
       "Actual unweighted prime-sum graph: full relative count around its exact entropy, with O(N^(-3/5)) error; no RH or prime-pair estimate."
     ],
     "primary_literature_comparison": "Cuckler-Kahn: dense Dirac and dense balanced bipartite entropy counts. Barvinok: all-positive matrices with a relative entry lower bound. Krivelevich and Byrne-Tait: nontrivial spectral ratio tending to zero logarithmically. The present argument permits sparse zero support and any fixed nontrivial gap. Bradač-Janzer 2026 is an essential independent spanning-path input. McCullagh's bounded normalized moments fail along primorials; Divoux-Wang's fixed-entry finite proof is tracked explicitly, rather than used outside its stated range. The new first-order signed compensation and rank-one parity-root calculation avoid the fixed-entry remainder amplification at prime density. They are the mechanism of the complete prime consumer, not merely a detector or matching identity.",
-    "proof_endpoint_status": "Both uniform permanent statements, including the signed two-power expansion and the direct normalized N^(-1/8) consequence, remain compiled and focused-audited. The full actual Liu determinant/permanent identity is now compiled and focused-audited over every commutative coefficient ring. Actual complementary permutations, all invariant vertex sets, every nontrivial orbit and every singleton fixed-point orbit are retained. hamiltonianLiuIdentity proves the identity for the actual matrix and actual one-orbit permutation sum, including the empty dimension. The complete signed coefficient is the ambient cardinality for one-orbit permutations and zero otherwise. The exact bipartite specialization and graph-cycle readout, full compensated minor remainder, coordinate occupancy bounds, signed Hamiltonian comparison, amplification/inverse, arithmetic closures and public headline integration remain unfinished. The headline Hamiltonian count and inverse statements are not yet Lean-certified.",
+    "proof_endpoint_status": "Both uniform permanent statements remain compiled and focused-audited, including the complete signed two-power expansion and direct normalized N^(-1/8) corollary. The generic actual Liu identity and the full two-support bipartite cycle identity are now compiled and focused-audited. Actual selected-support and complement equivalences, zero unbalanced determinants, balanced signed determinant squares and actual complementary permanent squares retain every independently chosen support pair. hamiltonianBipartiteCycleIdentity proves N*cyc(P) equals the complete signed rectangular-minor/permanent packet for actual real matrices, including the empty-support cardinality zero term. The full compensated minor remainder, signed coordinate occupancy bounds, signed comparison, amplification/inverse, arithmetic closures and public graph/entropy integration remain unfinished; the headline count is not Lean-certified.",
     "significance_assessment": "A general signed-estimation method now has a quantitative inverse and complete independent arithmetic consumers at actual prime density and through every coprime modulus. This supports a serious standalone research contribution. Career-defining impact and priority are not certified or inferred from compilation.",
     "paper_argument_delivered": true,
     "headline_all_orders_filz_proved": false,
     "lean_formalization_complete": false,
-    "next_safely_executable_research_action": "Specialize the compiled actual Liu identity to the full bipartite kernel, retaining every mismatched row/column support and complementary permanent. Then prove quantitative stochastic repair and the complete first-order minor jet with a uniform two-power remainder, apply the actual signed coordinate-occupancy moments, and carry all terms through the Hamiltonian comparison, spectral amplification/inverse and arithmetic headline consumers. Preserve the complete N^(-2) permanent correction. RH/Hadamard/twin-prime transfers remain queued until the entire headline argument and Lean formalization are complete; a component, audit or commit is not completion.",
+    "next_safely_executable_research_action": "Prove quantitative stochastic repair for every independently selected I,J with equal cardinal r<=log(2N)^3, uniformly in nonnegative doubly stochastic T with N*q=1, norm(T-qJ)<=rho<1 and max T<=A*q for polylogarithmic A. Build the actual parity-regularized inverse K=(I+Omega)^(-1)-C/2-S from the compiled full block covariance, prove its pseudo-inverse identities and dimension-uniform coordinate/row bounds, and apply them to the retained scaling equations with every quadratic cross term. Then prove the full minor ratio square 1+r(r-1)/N+u^T Gamma u+2v^T u+R with abs(R)<=C*log(2N)^M/N^2. Consume the signed occupancy moments in the same full cycle packet, followed by amplification/inverse and arithmetic/public headline closures. RH/Hadamard/twin-prime transfers remain queued until the whole headline proof and formalization are complete.",
     "next_gate": "Judge the complete new method and independent applications, not theorem counts or successful compilation; preserve exact entropy and explicit density scope.",
     "no_background_work_claimed": true,
     "expert_relevance_gate": {
@@ -1112,8 +1112,8 @@
     "committed_this_turn": true,
     "pushed_this_turn": false,
     "proofs_left_only_in_private_research": false,
-    "recorded_phase": "Based on local commit 88a211f. This promotion adds the complete actual Liu determinant/permanent identity in five maintained owners, with the full orbit partition, restricted signs, complementary-permutation bijection and actual matrix-product regrouping. Only these new proof declarations are axiom-audited. Final staged checks and the local commit are recorded separately.",
-    "phase": "The permanent estimates and actual generic cycle identity are compiled and focused-audited. The next consumer is the exact bipartite specialization, followed by the full compensated minor and signed Hamiltonian/arithmetic headline."
+    "recorded_phase": "Based on local commit 5fb91cd. This promotion closes the actual two-support bipartite cycle consumer in five maintained owners, with the full selected and complementary support transport, actual determinant/permanent factors and complete signed packet. Only these 30 new declarations are axiom-audited. Final staged checks and the local commit are recorded separately.",
+    "phase": "The uniform permanent estimates and the complete actual generic/bipartite cycle identities are compiled and focused-audited. The active quantitative frontier is stochastic repair and the full two-power compensated minor remainder, followed by signed occupancy and the headline comparison."
   },
   "formalization": {
     "status": "in_progress_not_complete",
@@ -1864,12 +1864,42 @@
         "source_sha256": "B9FCE7C6C3D44BFE2DA6053FA521C49A6C316C457DE888A649EDEA8FB7A2FAD1",
         "content": "Actual determinant/permanent expansion and full complementary-permutation regrouping; exact Liu identity for all finite matrices over a commutative ring, including all fixed points and empty minors.",
         "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianPermanentSplitting",
+        "source_sha256": "03A3450B87F546BBA08EF491BB4F6BCCF4B552701CEED3C3A48B5FE918014F5F",
+        "content": "Actual permanent invariance under row permutations, transposition and simultaneous reindexing; exact complementary zero-pattern factorization using the proved full permutation split.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianBipartitePermanent",
+        "source_sha256": "D9623ACF0C528A7714F00E579DF21C3BE180E98344AE854DC5BD10448E5D2E5B",
+        "content": "Explicit actual bipartite part equivalences, diagonal-block permanent product and complete bipartite permanent square.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianBipartiteMinorPolynomial",
+        "source_sha256": "58D9B143EF3BEB12E0985F919AF26A13195A57D6595711301FC3D4D32AD2F091",
+        "content": "Actual determinant-polynomial composition and full bipartite Gram coefficient expansion; unequal part cardinalities give zero determinant and a square balanced lift gives the exact signed determinant square.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianBipartiteSupports",
+        "source_sha256": "1A44AD2098C94769339889B1F8C66BF0A1E86724DCEA115E23AD8AC29593B703",
+        "content": "Explicit independent selected and complementary support equivalences; balanced rectangular determinant and actual complementary permanent squares, with unbalanced determinant terms proved zero.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianBipartiteLiu",
+        "source_sha256": "A1FE24B2BE132CB1BB66ADEE95B8C2ACB04D3661EE2F39ACC729EA8CD6CD9D39",
+        "content": "Full signed two-support Liu packet from actual matrix minors and actual complementary permanents; generic doubled Liu identity and real N*cyc(P) identity, including empty supports.",
+        "build_exit_code": 0
       }
     ],
     "unfinished_dependencies": [
       "Quantitative stochastic repair and full complementary-minor expansion with all mismatched supports and compensation fields.",
       "Actual coordinate occupancy identities, full derivative bounds and normalized moment bounds. Cauchy-Binet, the signed two-support constant moment, Gram sandwich entries and full block covariance entries are compiled.",
-      "Exact bipartite specialization and graph-cycle readout from the compiled generic Liu identity; full signed comparison with its absolute estimate confined to the retained remainder and large-minor tail.",
+      "Full signed Hamiltonian comparison with its absolute estimate confined to the retained two-power remainder and large-minor tail. The actual generic and bipartite two-support cycle identities are compiled.",
       "Spectral amplification estimate, inverse theorem and asymptotic error ranges.",
       "Prime-sum operator estimates, exact entropy scaling and the actual prime-circle relative count.",
       "Coprime and layered arithmetic specializations, parity cases and all other advertised paper claims.",
@@ -3272,13 +3302,63 @@
         ],
         "log_sha256": "24E3C67D76ACFF0B64D507AE33C131305744DF11003AEC3262615FF1BEB50705",
         "scope": "Only the new or changed actual-permutation orbit/sign/splitting/coefficient/Liu proof block, including its proof-bearing equivalences; unchanged historical modules were not re-audited."
+      },
+      {
+        "status": "verified",
+        "modules": [
+          "PrimeFactorOscillations.Helpers.HamiltonianPermanentSplitting",
+          "PrimeFactorOscillations.Helpers.HamiltonianBipartitePermanent",
+          "PrimeFactorOscillations.Helpers.HamiltonianBipartiteMinorPolynomial",
+          "PrimeFactorOscillations.Helpers.HamiltonianBipartiteSupports",
+          "PrimeFactorOscillations.Helpers.HamiltonianBipartiteLiu"
+        ],
+        "declaration_count": 30,
+        "declarations": [
+          "PrimeFactorOscillations.finitePermutationSum_rowPerm",
+          "PrimeFactorOscillations.finitePermutationSum_transpose",
+          "PrimeFactorOscillations.finitePermutationSum_reindex",
+          "PrimeFactorOscillations.finitePermutationSum_zeroPattern",
+          "PrimeFactorOscillations.hamiltonianLeftPart_mem_inl",
+          "PrimeFactorOscillations.hamiltonianLeftPart_notMem_inr",
+          "PrimeFactorOscillations.hamiltonianLeftPartEquiv",
+          "PrimeFactorOscillations.hamiltonianRightPartEquiv",
+          "PrimeFactorOscillations.finitePermutationSum_fromBlocks_diagonal",
+          "PrimeFactorOscillations.finitePermutationSum_bipartiteLift",
+          "PrimeFactorOscillations.hamiltonianPrincipalPolynomial_comp",
+          "PrimeFactorOscillations.hamiltonian_monomial_comp_neg_X_sq",
+          "PrimeFactorOscillations.hamiltonianBipartitePolynomial_as_gram_comp",
+          "PrimeFactorOscillations.hamiltonianBipartitePolynomial_expansion",
+          "PrimeFactorOscillations.hamiltonianBipartiteDet_zero_of_right_smaller",
+          "PrimeFactorOscillations.hamiltonianBipartiteDet_transpose",
+          "PrimeFactorOscillations.hamiltonianBipartiteDet_zero_of_unbalanced",
+          "PrimeFactorOscillations.hamiltonianBipartiteDet_square",
+          "PrimeFactorOscillations.hamiltonianDisjSumEquiv",
+          "PrimeFactorOscillations.hamiltonianDisjSumComplementEquiv",
+          "PrimeFactorOscillations.hamiltonianBipartiteMinor_reindex",
+          "PrimeFactorOscillations.hamiltonianBipartiteComplement_reindex",
+          "PrimeFactorOscillations.hamiltonianBipartite_reindex_left",
+          "PrimeFactorOscillations.hamiltonianBipartiteDet_of_equiv",
+          "PrimeFactorOscillations.hamiltonianBipartitePermanent_of_equiv",
+          "PrimeFactorOscillations.hamiltonianBipartite_principalMinor",
+          "PrimeFactorOscillations.hamiltonianBipartite_complementaryPermanent",
+          "PrimeFactorOscillations.hamiltonianBipartiteLiu_term",
+          "PrimeFactorOscillations.hamiltonianBipartiteLiuIdentity",
+          "PrimeFactorOscillations.hamiltonianBipartiteCycleIdentity"
+        ],
+        "allowed_axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "log_sha256": "11C637C838BC76FA6BAF6A8B2DAD8C96173AC08381F885889C4ECA1A9C446E28",
+        "scope": "Only the 30 new bipartite permanent/polynomial/support/cycle declarations, including the actual support equivalences; unchanged historical modules and the previous generic Liu block were not re-audited."
       }
     ],
     "active_proof": {
-      "module": "PrimeFactorOscillations.Helpers.HamiltonianLiuIdentity",
-      "status": "The full actual Liu determinant/permanent identity is now compiled and focused-audited over every commutative coefficient ring. Actual complementary permutations, all invariant vertex sets, every nontrivial orbit and every singleton fixed-point orbit are retained. hamiltonianLiuIdentity proves the identity for the actual matrix and actual one-orbit permutation sum, including the empty dimension. The complete signed coefficient is the ambient cardinality for one-orbit permutations and zero otherwise. The exact bipartite specialization and graph-cycle readout, full compensated minor remainder, coordinate occupancy bounds, signed Hamiltonian comparison, amplification/inverse, arithmetic closures and public headline integration remain unfinished.",
-      "target": "Specialize the compiled actual Liu identity to the full bipartite kernel, retaining every mismatched row/column support and complementary permanent. Then prove quantitative stochastic repair and the complete first-order minor jet with a uniform two-power remainder, apply the actual signed coordinate-occupancy moments, and carry all terms through the Hamiltonian comparison, spectral amplification/inverse and arithmetic headline consumers. Preserve the complete N^(-2) permanent correction. RH/Hadamard/twin-prime transfers remain queued until the entire headline argument and Lean formalization are complete; a component, audit or commit is not completion.",
-      "consumer": "The headline relative error remains O(log(N)^M/N+log(N)^M*Amp(T)/N^2). The signed two-power permanent input and generic actual cycle identity are now compiled. The bipartite identity must carry the full mismatched-support minor jet into that same count; only its retained two-power remainder and large-minor tail may be bounded by absolute mass. No headline asymptotic or arithmetic consequence is certified from the exact identity alone.",
+      "module": "PrimeFactorOscillations.Helpers.HamiltonianBipartiteLiu",
+      "status": "The generic actual Liu identity and the full two-support bipartite cycle identity are now compiled and focused-audited. Actual selected-support and complement equivalences, zero unbalanced determinants, balanced signed determinant squares and actual complementary permanent squares retain every independently chosen support pair. hamiltonianBipartiteCycleIdentity proves N*cyc(P) equals the complete signed rectangular-minor/permanent packet for actual real matrices, including the empty-support cardinality zero term. The full compensated minor remainder, signed coordinate occupancy bounds, signed comparison, amplification/inverse, arithmetic closures and public graph/entropy integration remain unfinished; the headline count is not Lean-certified.",
+      "target": "Prove quantitative stochastic repair for every independently selected I,J with equal cardinal r<=log(2N)^3, uniformly in nonnegative doubly stochastic T with N*q=1, norm(T-qJ)<=rho<1 and max T<=A*q for polylogarithmic A. Build the actual parity-regularized inverse K=(I+Omega)^(-1)-C/2-S from the compiled full block covariance, prove its pseudo-inverse identities and dimension-uniform coordinate/row bounds, and apply them to the retained scaling equations with every quadratic cross term. Then prove the full minor ratio square 1+r(r-1)/N+u^T Gamma u+2v^T u+R with abs(R)<=C*log(2N)^M/N^2. Consume the signed occupancy moments in the same full cycle packet, followed by amplification/inverse and arithmetic/public headline closures. RH/Hadamard/twin-prime transfers remain queued until the whole headline proof and formalization are complete.",
+      "consumer": "The exact full cycle packet is now compiled. The decisive quantitative consumer remains relative error O(log(N)^M/N+log(N)^M*Amp(T)/N^2). The missing minor theorem must retain r(r-1)/N, u^T Gamma u and 2v^T u jointly; only its explicitly bounded two-power residual and large-minor tail receive absolute bounds. The planned K bounds control the scaling remainder and compensation field, not a replacement estimate for the signed main packet. The complete permanent N^(-2) input remains installed.",
       "proved_inputs": [
         "PrimeFactorOscillations.Helpers.HamiltonianMatrixSpectralAverage",
         "PrimeFactorOscillations.Helpers.HamiltonianRookGamma",
@@ -3379,7 +3459,12 @@
         "PrimeFactorOscillations.Helpers.HamiltonianOrbitSigns",
         "PrimeFactorOscillations.Helpers.HamiltonianPermutationSplitting",
         "PrimeFactorOscillations.Helpers.HamiltonianInvariantCoefficient",
-        "PrimeFactorOscillations.Helpers.HamiltonianLiuIdentity"
+        "PrimeFactorOscillations.Helpers.HamiltonianLiuIdentity",
+        "PrimeFactorOscillations.Helpers.HamiltonianPermanentSplitting",
+        "PrimeFactorOscillations.Helpers.HamiltonianBipartitePermanent",
+        "PrimeFactorOscillations.Helpers.HamiltonianBipartiteMinorPolynomial",
+        "PrimeFactorOscillations.Helpers.HamiltonianBipartiteSupports",
+        "PrimeFactorOscillations.Helpers.HamiltonianBipartiteLiu"
       ]
     },
     "status_reconciliation_check": {
@@ -3408,7 +3493,7 @@
       "checked_paper_hashes": [
         {
           "file": "main.tex",
-          "sha256": "F1D44176561FBBE03A43502620AEBEA0F14D39882EFD3327BC4EC0404BC8787D"
+          "sha256": "E712CC555184FEE31020254A47E9452F2DE448FA045B21FE7023D55BCB140D73"
         },
         {
           "file": "relative-permanents.tex",
@@ -3420,7 +3505,7 @@
         },
         {
           "file": "relative-hamilton.tex",
-          "sha256": "A1ABC099DA0FFCCB123F3F1100EC5244645442820E7A809E87486CB2451DC880"
+          "sha256": "3C6DF4444A7F9611F58940A8E64DB742122B36B72D3F1E5CBF4E978E814FE76A"
         }
       ],
       "mechanical_forbidden_normalized_paper_status_sentences": [
@@ -3462,9 +3547,10 @@
         "also formalized, including an explicit two-power remainder. Complete original-rook Gamma assembly remains a formalization obligation.",
         "These bounds, including the identification of the actual determinant second derivative, have maintained Lean proofs. This does not yet formalize the Gaussian/Wick remainder in the displayed asymptotic.",
         "Complete original-rook Gamma assembly is still required.",
-        "Hamiltonian-cycle and coordinate-occupancy identities, compensated minor remainders and arithmetic closures remain formalization obligations. The headline Hamiltonian counting and inverse theorems are not yet Lean-certified."
+        "Hamiltonian-cycle and coordinate-occupancy identities, compensated minor remainders and arithmetic closures remain formalization obligations. The headline Hamiltonian counting and inverse theorems are not yet Lean-certified.",
+        "The full Liu determinant/permanent identity now has a maintained proof over every commutative coefficient ring. Its actual restricted-permutation coefficient retains every orbit, including singleton fixed points, and is the ambient cardinality precisely for one-orbit permutations and zero otherwise. The bipartite cycle readout, coordinate-occupancy identities, compensated minor remainders and arithmetic closures remain formalization obligations. The headline Hamiltonian counting and inverse theorems are not yet Lean-certified."
       ],
-      "recurrence_note": "The actual Liu matrix identity and all orbit/sign/complementary-product providers are compiled and focused-audited. Paper status paragraphs, both permanent-claim audit notes, exact source hashes and the active/unfinished lists now agree. The generic identity is removed from unfinished dependencies; its bipartite and graph-cycle specialization remains explicitly inside the full signed comparison. The headline remains uncertified. JSON patch recurrence gate: trigger any multi-hunk JSON edit; derive each context's unique full-line start and end in the captured original, sort by those starts and splice the proposed document in descending checked-position order; prohibit raw indexOf ordering and unqualified String.replace, which can match deeper indentation; strictly parse and compare the entire canonical result with the intended object before apply_patch. Duplicate-leaf recurrence gate: when identical status or audit-note leaves occur in more than one claim, require a unique parent claim context containing its exact claim identifier before patching; prohibit leaf-only hunks and verify every unaffected claim field in the proposed strict-parsed result.",
+      "recurrence_note": "The complete actual bipartite cycle consumer, including both selected supports and both complements, is compiled and focused-audited. Paper status paragraphs, both permanent-claim audit notes, current source hashes and active/unfinished lists are synchronized. The remaining quantitative minor and occupancy obligations are explicit, and the headline remains uncertified. JSON patch recurrence gate: trigger any multi-hunk JSON edit; derive each context's unique full-line start and end in the captured original, sort by those starts and splice the proposed document in descending checked-position order; prohibit raw indexOf ordering and unqualified String.replace, which can match deeper indentation; strictly parse and compare the entire canonical result with the intended object before apply_patch. Duplicate-leaf recurrence gate: when identical status or audit-note leaves occur in more than one claim, require a unique parent claim context containing its exact claim identifier before patching; prohibit leaf-only hunks and verify every unaffected claim field in the proposed strict-parsed result.",
       "related_paper_sources_normalized_and_checked": 22
     },
     "audit_driver_release_rule": {
