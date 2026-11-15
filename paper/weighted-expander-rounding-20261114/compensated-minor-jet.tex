@@ -463,10 +463,32 @@ The direct actual-matrix consumer proves
  \Gamma_{\rm new}=(M[R,R]+E-I)(M[R,R]+E)^{-1}.
 \]
 It derives the full numerator comparison and every denominator
-positivity from the original hypotheses. Identifying its new side
-with the reindexed repaired square stochastic kernel, verifying that
-kernel's entry and spectral hypotheses, and applying the common
-uniform permanent threshold remain formalization obligations.
+positivity from the original hypotheses. Its identification with
+the actual reindexed repaired square kernel is now formalized too.
+Use one physical repair \(z\) throughout and identify the two
+independent complements by their equal cardinality. The full diagonal
+scaling becomes the actual square kernel \(\widetilde D\), whose
+row and column sums are one. Coordinate compression is contractive
+in the Euclidean operator norm, even on empty coordinate types.
+For the complete quadratic scaling and rank-centering perturbation,
+\[
+ \|E\|\leq88rp_0^2q\leq\delta/100,
+ \qquad
+ \|\widetilde D-J_{N-r}/(N-r)\|\leq1-\delta/2.
+\]
+Moreover \(|z_i|\leq1/50\), so
+\(0\leq\widetilde D_{ij}\leq2A/(N-r)\).
+The inverse, both traces, diagonal, triple and cubic corrections
+are invariant under the actual retained-coordinate equivalence.
+Thus (C4) now has a direct maintained proof for the actual first
+correction of \(\widetilde D\). The exact permanent identity is
+\[
+ \operatorname{per}\widetilde D
+ =\exp\!\left(\sum_{i\in R}\log(1+z_i)\right)
+   \operatorname{per}D[I^c,J^c].
+\]
+The common uniform permanent threshold and assembly of the complete
+minor ratio remain formalization obligations.
 This is why the explicit first correction in the full permanent
 theorem was needed.
 
@@ -552,8 +574,19 @@ actual-Gram specialization and the full first-correction trace budget
 are proved in \texttt{HamiltonianPermanentCorrectionTrace} and
 \texttt{HamiltonianStochasticFirstCorrectionComparison}, using the
 signed support traces and exact rank-shift consumers.
-The repaired square-kernel transport, its uniform permanent hypotheses
-and the resulting minor ratio remainder are still formalization obligations.
+The actual repaired square kernel, both stochastic equations, positive
+scaling, entry cap, preserved spectral gap and normalized smaller order
+are proved in \texttt{HamiltonianRepairedSquareKernel},
+\texttt{HamiltonianRepairedSquareStochastic},
+\texttt{HamiltonianRepairedSquareGap} and
+\texttt{HamiltonianRepairedSquareExists}.
+\texttt{HamiltonianRepairedCovarianceTransport} proves the exact
+resolvent and complete correction identification and the direct
+\(500000rp_0^6q^2\) comparison for the actual repaired square kernel.
+\texttt{HamiltonianRepairedPermanentTransport} proves the exact
+permanent scaling identity using the same positive repair.
+The common uniform permanent threshold and the resulting full minor
+ratio remainder are still formalization obligations.
 
 \begin{remark}[Independent check against every cofactor recursion]
 Let \(W(I,J)=r(r-1)/(2N)+u^\top\Gamma u/2+v^\top u\)

@@ -516,16 +516,21 @@ support overlap, quadratic scaling and rank-centering term. They give
 \]
 The determinant ratio is positive, and a direct existence theorem
 supplies the actual positive scaling together with this estimate.
-The actual repaired covariance comparison and the full signed
-first-correction trace budget are now formalized as well. The latter
-has error \(500000rp_0^6/N^2\), including the actual determinant
-second derivative, both full covariance traces, every removed support
-term and the exact \(N-r\) denominator shift. Its new side is the
-trace correction of the actual retained matrix \(M[R,R]+E\).
-Transport to the repaired square stochastic kernel, its spectral and
-entry hypotheses and the common uniform permanent threshold are still
-formalization obligations, as are coordinate occupancy, the final
-minor ratio and the remaining headline and arithmetic closures.
+The actual repaired square kernel and the full signed
+first-correction comparison now have maintained Lean proofs.
+The same positive physical repair gives both stochastic equations,
+entry cap \(2A/(N-r)\) and centered spectral norm at most
+\(1-(1-\rho)/2\). Exact coordinate transport identifies its
+resolvent covariance, every correction term and full squared trace
+with those of \(M[R,R]+E\). Consequently
+\[
+ |{\cal Q}_{N-r}(\widetilde D)-{\cal Q}_N(D)|
+       \leq500000rp_0^6/N^2.
+\]
+The exact permanent scaling identity is formalized as well.
+The common uniform permanent threshold, coordinate occupancy,
+the final minor ratio and the remaining headline and arithmetic
+closures are still formalization obligations.
 The headline Hamiltonian counting and inverse theorems are not yet
 Lean-certified.
 Compilation of this manuscript does not provide mathematical or
