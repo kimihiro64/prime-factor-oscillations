@@ -136,8 +136,32 @@ The initial Vaughan cutoff is retained and bounded explicitly;
 every prime power remains in the prefix. There is no divisor
 power loss in this estimate. All five new declarations pass
 the focused foundational-axiom check.
-The full sampled-operator transfer, retained major-arc main term
-and spectral comparison remain formalization obligations.
+\paragraph{Formalized exact sampled-operator transfer.}
+\texttt{HamiltonianHankelFourierBound} proves the complete Fourier
+factorization for two independent injective input samplings.
+Each sampling frame has Gram matrix \(R I\); the inverse
+transform contributes exactly \(1/R\). Consequently no auxiliary
+period or input-dimension loss enters its operator estimate.
+\texttt{HamiltonianPrimeOperatorFourier} applies this to the
+actual integer matrix, rather than a prime-probability proxy.
+For \(1\leq i,j\leq n\), let
+\[
+ A_n(i,j)=\Lambda(i+j)/n,\qquad
+ H_G(i,j)=\frac1R\sum_{k\bmod R}G(k)\e(-k(i+j)/R).
+\]
+If \(2n\leq M<R\), \(E\geq0\), and
+\(\left|\sum_{r=1}^M\Lambda(r)\e(kr/R)-G(k)\right|\leq E\)
+for every \(k\bmod R\), then the maintained proof gives
+\[
+ \|A_n-H_G/n\|\leq E/n.
+\]
+The two input vertices, physical prefix cutoff and auxiliary
+period remain distinct throughout. The bound consumes the full
+signed symbol difference; no principal contribution or phase is
+erased. All fourteen new declarations pass the focused
+foundational-axiom check.
+The retained major-arc main term and spectral comparison remain
+formalization obligations.
 
 \begin{lemma}[The nontrivial ratio is one half]
 \label{lem:integerspectrum}
