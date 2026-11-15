@@ -123,6 +123,67 @@ This evaluates every overlap type, including a row with
 a column and two coordinates in the same part.
 \end{proof}
 
+\paragraph{Formalized finite occupancy input.}
+The actual marked polynomials on the full vertex set \(V\) are
+\[
+ f_a(z)=\sum_{\substack{S\subseteq V\\a\in S}}\det P[S]z^{|S|},
+ \qquad
+ f_{ab}(z)=\sum_{\substack{S\subseteq V\\a,b\in S}}\det P[S]z^{|S|}.
+\]
+\texttt{HamiltonianCoordinateMinorPolynomial} proves these full
+support expansions and their Euler readouts. The pair polynomial
+includes the complete two-row inclusion--exclusion term, even when
+the coordinates coincide. For distinct coordinates, writing \(L(z)=zP(I+zP)^{-1}\),
+the actual row-replacement coefficient is
+\(L_{aa}L_{bb}-L_{ab}L_{ba}\);
+its off-diagonal subtraction is retained.
+
+Put \(\Pi=ss^\top\) and, with \(z=1-\tau\), set
+\[
+ M(\tau)=I+(1-\tau)P+\Pi,\quad
+ D(\tau)=\det M(\tau),\quad A(\tau)=I-M(\tau)^{-1}.
+\]
+The maintained proof derives that \(M(0)\) is invertible and
+\(M(0)^{-1}=K+\Pi\) from the original stochastic and gap hypotheses.
+For \(\tau\ne0,-1\), when \(M(\tau)\) is invertible, the complete
+physical resolvent is exactly
+\[
+ L(1-\tau)=A(\tau)-\frac{\Pi}{\tau(1+\tau)} .
+\]
+Define, without suppressing either ordered cross term,
+\[
+ Q_{ab}(A)=\Pi_{aa}A_{bb}+\Pi_{bb}A_{aa}
+                       -\Pi_{ab}A_{ba}-\Pi_{ba}A_{ab}.
+\]
+The rank-one identity
+\(\Pi_{aa}\Pi_{bb}-\Pi_{ab}\Pi_{ba}=0\)
+cancels the apparent squared pole. Consequently the actual marked
+polynomials satisfy the exact cleared formulas
+\[
+ \begin{split}
+ f_a(1-\tau)
+   &=D(\tau)\left(\frac{\tau}{1+\tau}A_{aa}(\tau)
+                         -\frac{\Pi_{aa}}{(1+\tau)^2}\right),\\
+ f_{ab}(1-\tau)
+   &=D(\tau)\left(\frac{\tau}{1+\tau}
+         (A_{aa}A_{bb}-A_{ab}A_{ba})(\tau)
+                         -\frac{Q_{ab}(A(\tau))}{(1+\tau)^2}\right)
+                         \quad(a\ne b).
+ \end{split}
+\]
+These identities, with precisely the displayed nonsingularity
+conditions, are formalized in \texttt{HamiltonianPhysicalOccupancy},
+using \texttt{HamiltonianParityRootRegularization},
+\texttt{HamiltonianParityResolventSplit} and
+\texttt{HamiltonianTwoRowDeterminant}.
+The signed Euler readouts are sums over every principal support;
+no independent coordinate model is introduced.
+Formal extraction of the root jets and the normalized
+\({\cal L}\)-moment bounds remains unfinished. In particular the
+conditional physical inverse formula is not evaluated at
+\(\tau=0\); its cleared marked-polynomial identity is the input
+for that extraction.
+
 \begin{theorem}[Relative bipartite comparison at logarithmic density]
 \label{thm:criticalrelative}
 Fix \(0\leq\rho<1\) and \(C_0>0\).
