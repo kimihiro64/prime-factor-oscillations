@@ -205,8 +205,9 @@ The exact Gaussian-to-rook consumer now transfers this bound directly:
 \]
 The maintained complex polynomial agrees with the original real rook
 polynomial at every real parameter. The compensated resolvent
-identification and the complete diagram, Cauchy and outside-Gamma
-consumers remain formalization obligations.
+identification and the complete high-diagram and Cauchy consumers
+remain formalization obligations. The full original outside-Gamma
+consumer is formalized below.
 
 The block-power expansion gives, for a fixed
 \(\theta=b(1-\delta/2)<1\),
@@ -285,51 +286,71 @@ The remaining Gamma mass inside \([a,b]\) is at most
 \(\exp(-c_\delta\sqrt N)\), while the determinant ratio is
 at most \(\exp(C_\delta A)\).
 
-For completeness the outside-\([a,b]\) Gaussian/Gamma tail
-has absolute bound
+The full original outside-\([a,b]\) inverse-Gamma tail now has
+an explicit maintained Lean bound. Suppose \(0<\delta\leq1\),
+\(N\delta\geq8\), \(a=1-\delta/4\) and \(b=1+\delta/4\). Then
 \[
- \mathbb E\bigl[\one_{\{N/T\notin[a,b]\}}
-                         |R_B(N/T)|\bigr]
- \leq\exp(-c_\delta N+C_\delta\sqrt{NA}).
+ \boxed{\quad
+ \mathbb E\bigl[\one_{\{N/T\notin[a,b]\}}|R_B(N/T)|\bigr]
+ \leq3\exp\!\left(-\frac{N\delta^2}{2304}
+       +\frac{10}{3\delta}\sqrt{N(A-1)}\right).
+ \quad}
 \]
-Here is the collective cancellation underlying the change of
-variable. In a real standard-Gaussian representation let
-\(Y\in\mathbb C^{2N}\), \(\sum_iY_i=0\), and
-\(W=\sum_i|Y_i|^2\). For every complex \(c\),
+Here \(T\sim\Gamma(N+1,1)\). The stochastic, balance, integrability
+and cutoff hypotheses in this direct consumer are discharged in Lean.
+
+The cancellation is pointwise. In the actual spectral standard-Gaussian
+representation, \(\sum_iY_i=0\) and \(W=\sum_i|Y_i|^2\), so
 \[
  \sum_i|1+cY_i|^2=2N+|c|^2W,\qquad
  \prod_i|1+cY_i|\leq\exp(|c|^2W/2).
 \]
-The linear term vanishes before either bound is taken. Arithmetic
-and geometric means, with \(c=\sqrt{N/t}\), also give
-\[
- \prod_i|1+\sqrt{N/t}Y_i|
-       \leq(1+W/(2t))^N\qquad(t>0).
-\]
-Multiplication by the actual Gamma density cancels its full power:
+The full linear sum vanishes before the positive remainder is bounded.
+Arithmetic and geometric means, at \(c=\sqrt{N/t}\), give
 \[
  \frac{e^{-t}t^N}{N!}\prod_i|1+\sqrt{N/t}Y_i|
- \leq\frac{e^{W/2}e^{-(t+W/2)}(t+W/2)^N}{N!}.
+       \leq\frac{e^{-t}(t+W/2)^N}{N!}\qquad(t>0).
 \]
-These deterministic inequalities have maintained Lean proofs.
-Set \(w=W/2\) and shift \(u=t+w\) in the remaining integral.
-On \(w\leq\eta N\), a sufficiently small fixed \(\eta>0\)
-leaves a fixed Gamma-tail separation. On \(w>\eta N\), use
+Set \(w=W/2\), \(J=[N/b,N/a]\), and
 \[
- \E[e^w\one_{\{w>\eta N\}}]
- \leq e^{-(\lambda-1)\eta N}\E e^{\lambda w},
- \qquad 1<\lambda<(1-\delta)^{-1}.
+ G_N(w)=\frac1{N!}\int_{\substack{t>0\\t\notin J}}
+                                    e^{-t}(t+w)^N\,dt .
 \]
-Diagonalizing the actual block matrix gives
-\(W=\sum_\ell|\lambda_\ell|Z_\ell^2\) for independent
-real standard normals. The paired eigenvalues yield
-\(\E e^{\lambda W/2}
- =\prod_\ell(1-\lambda\sigma_\ell)^{-1}
- \leq\exp(C_\delta\sum_\ell\sigma_\ell)\).
-This proves the stated tail with its Frobenius dependence retained,
-as in~\cite[Section 3.3]{DW}. The Gaussian representation,
-integration and tail consumer are still formalization obligations.
-They vanish uniformly for polylogarithmic \(A\).
+The exact shift \(u=t+w\) proves \(G_N(w)\leq e^w\).
+If \(w\leq\delta N/16\), the original outside interval maps into
+the Gamma tails beyond \((N+1)(1-\delta/16)\) and
+\((N+1)(1+\delta/16)\). The actual Gamma Chernoff bounds imply
+\[
+ G_N(w)\leq2e^w e^{-(N+1)\delta^2/2304}.
+\]
+Keeping small and large shifts together, for every \(w\geq0\),
+\[
+ G_N(w)\leq2e^{-(N+1)\delta^2/2304}e^w+
+                  e^{-\delta^2N/64}e^{(1+\delta/4)w}.
+\]
+For \(\tau=1+\delta/4\), the actual Gaussian moment bound gives
+\[
+ \mathbb E e^{\tau w}
+ \leq\exp\!\left(\frac{2\tau}{1-\tau(1-\delta)}
+                         \sqrt{N(A-1)}\right)
+ \leq\exp\!\left(\frac{10}{3\delta}\sqrt{N(A-1)}\right).
+\]
+The same last bound holds at \(\tau=1\). Integrating the complete
+two-term inequality proves the boxed estimate.
+
+The maintained proof establishes joint product integrability from
+the full quadratic envelope before applying Fubini to the original
+Gaussian affine product. The exact Gaussian/rook identity then
+transfers the integral to \(R_B\). The positive-denominator equivalence
+\[
+ N/t\in[a,b]\quad\Longleftrightarrow\quad t\in[N/b,N/a]\qquad(t>0)
+\]
+transports the original indicator exactly. No local \(\Delta\) or
+\(\Delta\Psi\) factor is evaluated outside \([a,b]\).
+The full probability and tail consumer, including these cutoff and
+Fubini steps, is formalized. The bound vanishes uniformly for
+polylogarithmic \(A\); complete Cauchy and high-diagram consumers
+remain to be formalized.
 
 As \(\Delta(1)\geq1\), the total relative error is bounded by
 \[
