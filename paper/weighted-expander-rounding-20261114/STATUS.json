@@ -356,7 +356,7 @@
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\relative-permanents.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
       "lean_status": "fully_formalized_direct_normalized_uniform_statement",
-      "audit_note": "Both paper permanent statements now have direct maintained normalized Lean consumers. stochastic_permanent_relative_correction_polylog_uniform proves, for one N0(delta,K)>=16 and every admissible kernel and 1<=A<=log(N)^K, abs((N^N/N!)*per(T)/Delta(1)-(1+Q_N(T)))<=(1+A)^24*C_delta/N^2 and abs(Q_N(T))<=21*A^2/(delta^3*N). For K>0, hamiltonian_permanent_polylog_first_order_budget supplies the uniform scalar threshold, and stochastic_permanent_first_order_polylog_uniform proves the directly normalized first-order error <=N^(-1/8). The full common threshold is independent of the kernel. These three new theorems compile and pass the focused foundational-axiom audit. The complete signed second-order expansion is retained for the critical Hamiltonian consumer; its first-order consequence is not substituted into that sharper argument. Uniform permanent estimates, actual cycle identities, positive repair, full signed scaling cost and complete positive-ratio local determinant cost remain compiled and focused-audited. The actual repaired inverse now has row bound12p and covariance entry error3200*r*p^4*q^2, with repaired entries bounded by3*p*q. Both product orders and the full signed Schur correction are retained. The complete signed covariance correction difference, including diagonal squares, mixed triples, entry cubes and all removed support overlaps, is compiled with error400000*r*p^6*q^2 on r*p^3*q<=1/10000. The determinant-derivative trace identity, rank-shift estimate and full first-permanent-correction assembly, full minor ratio, signed occupancy/comparison, amplification/inverse and arithmetic/public closures remain unfinished. The full headline is not Lean-certified."
+      "audit_note": "Both paper permanent statements now have direct maintained normalized Lean consumers. stochastic_permanent_relative_correction_polylog_uniform proves, for one N0(delta,K)>=16 and every admissible kernel and 1<=A<=log(N)^K, abs((N^N/N!)*per(T)/Delta(1)-(1+Q_N(T)))<=(1+A)^24*C_delta/N^2 and abs(Q_N(T))<=21*A^2/(delta^3*N). For K>0, hamiltonian_permanent_polylog_first_order_budget supplies the uniform scalar threshold, and stochastic_permanent_first_order_polylog_uniform proves the directly normalized first-order error <=N^(-1/8). The full common threshold is independent of the kernel. These three new theorems compile and pass the focused foundational-axiom audit. The complete signed second-order expansion is retained for the critical Hamiltonian consumer; its first-order consequence is not substituted into that sharper argument. All earlier uniform permanent, actual cycle, positive repair, scaling and local determinant results remain compiled and focused-audited. The actual determinant second derivative is now identified with full covariance traces: Q_N=((trace Gamma)^2+2*trace(Gamma*Gamma))/(8*(N-1))+Psi(Gamma). Both signed spectral jets, the actual resolvent traces, every removed-support trace term and the exact rank shift are compiled. The complete actual retained-covariance budget abs(covarianceTraceCorrection(GammaNew,N-r)-stochasticPermanentFirstCorrection(T,q))<=500000*r*p^6*q^2 is compiled for N>=4 and r*p^3*q<=1/10000. GammaNew=(HR+E-1)*(HR+E)^(-1) includes the full actual scaling and rank-centering perturbation. Its identification with the repaired square stochastic kernel, that kernel's spectral/entry hypotheses and common uniform permanent threshold, the full minor ratio, signed occupancy/comparison, amplification/inverse and arithmetic/public closures remain unfinished. The full headline is not Lean-certified."
     },
     {
       "id": "lem:relativecompensatedminors",
@@ -477,7 +477,7 @@
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\permanent-second-order.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
       "lean_status": "fully_formalized_direct_normalized_uniform_statement",
-      "audit_note": "Both paper permanent statements now have direct maintained normalized Lean consumers. stochastic_permanent_relative_correction_polylog_uniform proves, for one N0(delta,K)>=16 and every admissible kernel and 1<=A<=log(N)^K, abs((N^N/N!)*per(T)/Delta(1)-(1+Q_N(T)))<=(1+A)^24*C_delta/N^2 and abs(Q_N(T))<=21*A^2/(delta^3*N). For K>0, hamiltonian_permanent_polylog_first_order_budget supplies the uniform scalar threshold, and stochastic_permanent_first_order_polylog_uniform proves the directly normalized first-order error <=N^(-1/8). The full common threshold is independent of the kernel. These three new theorems compile and pass the focused foundational-axiom audit. The complete signed second-order expansion is retained for the critical Hamiltonian consumer; its first-order consequence is not substituted into that sharper argument. Uniform permanent estimates, actual cycle identities, positive repair, full signed scaling cost and complete positive-ratio local determinant cost remain compiled and focused-audited. The actual repaired inverse now has row bound12p and covariance entry error3200*r*p^4*q^2, with repaired entries bounded by3*p*q. Both product orders and the full signed Schur correction are retained. The complete signed covariance correction difference, including diagonal squares, mixed triples, entry cubes and all removed support overlaps, is compiled with error400000*r*p^6*q^2 on r*p^3*q<=1/10000. The determinant-derivative trace identity, rank-shift estimate and full first-permanent-correction assembly, full minor ratio, signed occupancy/comparison, amplification/inverse and arithmetic/public closures remain unfinished. The full headline is not Lean-certified."
+      "audit_note": "Both paper permanent statements now have direct maintained normalized Lean consumers. stochastic_permanent_relative_correction_polylog_uniform proves, for one N0(delta,K)>=16 and every admissible kernel and 1<=A<=log(N)^K, abs((N^N/N!)*per(T)/Delta(1)-(1+Q_N(T)))<=(1+A)^24*C_delta/N^2 and abs(Q_N(T))<=21*A^2/(delta^3*N). For K>0, hamiltonian_permanent_polylog_first_order_budget supplies the uniform scalar threshold, and stochastic_permanent_first_order_polylog_uniform proves the directly normalized first-order error <=N^(-1/8). The full common threshold is independent of the kernel. These three new theorems compile and pass the focused foundational-axiom audit. The complete signed second-order expansion is retained for the critical Hamiltonian consumer; its first-order consequence is not substituted into that sharper argument. All earlier uniform permanent, actual cycle, positive repair, scaling and local determinant results remain compiled and focused-audited. The actual determinant second derivative is now identified with full covariance traces: Q_N=((trace Gamma)^2+2*trace(Gamma*Gamma))/(8*(N-1))+Psi(Gamma). Both signed spectral jets, the actual resolvent traces, every removed-support trace term and the exact rank shift are compiled. The complete actual retained-covariance budget abs(covarianceTraceCorrection(GammaNew,N-r)-stochasticPermanentFirstCorrection(T,q))<=500000*r*p^6*q^2 is compiled for N>=4 and r*p^3*q<=1/10000. GammaNew=(HR+E-1)*(HR+E)^(-1) includes the full actual scaling and rank-centering perturbation. Its identification with the repaired square stochastic kernel, that kernel's spectral/entry hypotheses and common uniform permanent threshold, the full minor ratio, signed occupancy/comparison, amplification/inverse and arithmetic/public closures remain unfinished. The full headline is not Lean-certified."
     },
     {
       "id": "thm:minorjet",
@@ -485,8 +485,8 @@
       "kind": "theorem",
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\compensated-minor-jet.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
-      "lean_status": "partially_formalized_repair_determinant_covariance_and_signed_Psi_comparison",
-      "audit_note": "Uniform permanent estimates, actual cycle identities, positive repair, full signed scaling cost and complete positive-ratio local determinant cost remain compiled and focused-audited. The actual repaired inverse now has row bound12p and covariance entry error3200*r*p^4*q^2, with repaired entries bounded by3*p*q. Both product orders and the full signed Schur correction are retained. The complete signed covariance correction difference, including diagonal squares, mixed triples, entry cubes and all removed support overlaps, is compiled with error400000*r*p^6*q^2 on r*p^3*q<=1/10000. The determinant-derivative trace identity, rank-shift estimate and full first-permanent-correction assembly, full minor ratio, signed occupancy/comparison, amplification/inverse and arithmetic/public closures remain unfinished. The full headline is not Lean-certified."
+      "lean_status": "partially_formalized_complete_local_cost_and_full_trace_correction_budget",
+      "audit_note": "All earlier uniform permanent, actual cycle, positive repair, scaling and local determinant results remain compiled and focused-audited. The actual determinant second derivative is now identified with full covariance traces: Q_N=((trace Gamma)^2+2*trace(Gamma*Gamma))/(8*(N-1))+Psi(Gamma). Both signed spectral jets, the actual resolvent traces, every removed-support trace term and the exact rank shift are compiled. The complete actual retained-covariance budget abs(covarianceTraceCorrection(GammaNew,N-r)-stochasticPermanentFirstCorrection(T,q))<=500000*r*p^6*q^2 is compiled for N>=4 and r*p^3*q<=1/10000. GammaNew=(HR+E-1)*(HR+E)^(-1) includes the full actual scaling and rank-centering perturbation. Its identification with the repaired square stochastic kernel, that kernel's spectral/entry hypotheses and common uniform permanent threshold, the full minor ratio, signed occupancy/comparison, amplification/inverse and arithmetic/public closures remain unfinished. The full headline is not Lean-certified."
     },
     {
       "id": "lem:signedoccupancy",
@@ -1044,7 +1044,7 @@
     },
     {
       "file": "main.tex",
-      "sha256": "6E3D8EBFDD62A348330E10F204508F4465883976C64D12287A4DA80E27E23744"
+      "sha256": "7FE7354B7C0060EE71E7ADA4448F075298D8BE161D360D39B13C281B70E77CA3"
     },
     {
       "file": "relative-hamilton.tex",
@@ -1056,7 +1056,7 @@
     },
     {
       "file": "compensated-minor-jet.tex",
-      "sha256": "D32B22781FB07CE2A3438A8F3A9BB2F2F8EB9D7D2ABF5ABD4D0D3F3A477FF2F5"
+      "sha256": "997AC4357A28078EC1BF7FAB2351DD145C22064F57D8147C15DED406E8D1E43F"
     },
     {
       "file": "signed-jet-comparison.tex",
@@ -1073,7 +1073,7 @@
     "complete_consumer": "rho=a=3/5; amplification <=m^(27/20); first signed correction polylog/m; only residual pays amplification, giving O(N^(-3/5)).",
     "inverse": "A fixed relative counting defect forces collective singular mass >=(2/kappa_rho)log N-O(log log N).",
     "further_extension": "Arbitrary fixed logarithmic density coefficients, and all fixed congruence filters, would require higher-order compensated expansions beyond the proved two-power remainder.",
-    "next_review_focus": "Formalize the general symmetric determinant second-derivative identity: for Gamma=Omega*(I+Omega)^(-1), Delta''(1)/Delta(1)=(trace Gamma)^2/4+trace(Gamma*Gamma)/2. Use the actual Hermitian determinant product and orthogonal spectral realization, retaining every eigenvalue and covariance cross term. This identifies the full first correction as ((trace Gamma)^2+2*trace(Gamma*Gamma))/(8*(N-1))+covarianceCorrection Gamma. Apply the compiled covariance entry comparison with c=3p*q and eps=3200*r*p^4*q^2 to prove trace difference6406*r*p^4*q, squared-matrix trace difference76872*r*p^5*q and numerator difference230616*r*p^5*q. For N>=4, retain the exact rank shift r/((N-r-1)*(N-1))<=4*r*q^2 and numerator bound108*p^2. The derivative-part difference is at most60000*r*p^5*q^2; combine with the compiled400000 covariance difference to prove the full500000*r*p^6*q^2 first-correction comparison. Discharge the repaired spectral gap and entry cap and transport the actual repaired kernel through the common uniform permanent threshold. Finish the full minor ratio, signed occupancy/comparison, amplification/inverse, arithmetic and public closures. RH/Hadamard/twin-prime transfers remain queued until the complete headline is finished.",
+    "next_review_focus": "Choose one witness z from the already proved actual positive stochastic repair and use that same z in every scaling, determinant and first-correction consumer. Transport the full retained support R=(S disjSum U)^c to Sum(U^c)(U^c) by the existing hamiltonianDisjSumComplementEquiv, the identity-on-values complement subtype equivalence and equalCardMinorEquiv on the two independent complements. Define the actual repaired square kernel Tilde(i,j)=(1+z_left(i))*T(eLeft(i),j)*(1+z_right(j)); prove every stochastic row/column equation and nonnegativity. With p=A/(1-rho), r*p^3*q<=1/10000 and N>=4, prove cardinality N-r>=N/2, normalization qNew=1/(N-r), entry cap2*A*qNew and centered spectral norm<=1-(1-rho)/2. The quantitative norm route is exact coordinate compression plus norm(E)<=card(R)*max|Eij|<=88*r*p^2*q<=(1-rho)/100. Prove the compression using a rectangular coordinate selection F with transpose(F)*F=1 and the actual Euclidean operator norm; empty index cases must remain valid. Reindex Ring.inverse, both traces, Psi and covarianceTraceCorrection to identify the compiled500000 budget with the actual repaired kernel's first correction. Derive a single common uniform permanent threshold for gap(1-rho)/2 and cap2A<=log(N-r)^(K+1), retaining r<=log(2N)^3. Apply the existing complete uniform permanent theorem, exact scaling/determinant costs and Stirling/rank algebra to finish the full compensated minor ratio. Then finish signed occupancy/comparison, amplification/inverse, arithmetic and public closures. RH/Hadamard/twin-prime transfers remain queued until the complete headline is finished.",
     "independent_consumer_status": "Both actual integer prime-sum graphs and all growing coprime moduli have complete stated ordinary arguments."
   },
   "completion_receipt": {
@@ -1089,12 +1089,12 @@
       "Actual unweighted prime-sum graph: full relative count around its exact entropy, with O(N^(-3/5)) error; no RH or prime-pair estimate."
     ],
     "primary_literature_comparison": "Cuckler-Kahn: dense Dirac and dense balanced bipartite entropy counts. Barvinok: all-positive matrices with a relative entry lower bound. Krivelevich and Byrne-Tait: nontrivial spectral ratio tending to zero logarithmically. The present argument permits sparse zero support and any fixed nontrivial gap. Bradač-Janzer 2026 is an essential independent spanning-path input. McCullagh's bounded normalized moments fail along primorials; Divoux-Wang's fixed-entry finite proof is tracked explicitly, rather than used outside its stated range. The new first-order signed compensation and rank-one parity-root calculation avoid the fixed-entry remainder amplification at prime density. They are the mechanism of the complete prime consumer, not merely a detector or matching identity.",
-    "proof_endpoint_status": "Uniform permanent estimates, actual cycle identities, positive repair, full signed scaling cost and complete positive-ratio local determinant cost remain compiled and focused-audited. The actual repaired inverse now has row bound12p and covariance entry error3200*r*p^4*q^2, with repaired entries bounded by3*p*q. Both product orders and the full signed Schur correction are retained. The complete signed covariance correction difference, including diagonal squares, mixed triples, entry cubes and all removed support overlaps, is compiled with error400000*r*p^6*q^2 on r*p^3*q<=1/10000. The determinant-derivative trace identity, rank-shift estimate and full first-permanent-correction assembly, full minor ratio, signed occupancy/comparison, amplification/inverse and arithmetic/public closures remain unfinished. The full headline is not Lean-certified.",
+    "proof_endpoint_status": "All earlier uniform permanent, actual cycle, positive repair, scaling and local determinant results remain compiled and focused-audited. The actual determinant second derivative is now identified with full covariance traces: Q_N=((trace Gamma)^2+2*trace(Gamma*Gamma))/(8*(N-1))+Psi(Gamma). Both signed spectral jets, the actual resolvent traces, every removed-support trace term and the exact rank shift are compiled. The complete actual retained-covariance budget abs(covarianceTraceCorrection(GammaNew,N-r)-stochasticPermanentFirstCorrection(T,q))<=500000*r*p^6*q^2 is compiled for N>=4 and r*p^3*q<=1/10000. GammaNew=(HR+E-1)*(HR+E)^(-1) includes the full actual scaling and rank-centering perturbation. Its identification with the repaired square stochastic kernel, that kernel's spectral/entry hypotheses and common uniform permanent threshold, the full minor ratio, signed occupancy/comparison, amplification/inverse and arithmetic/public closures remain unfinished. The full headline is not Lean-certified.",
     "significance_assessment": "A general signed-estimation method now has a quantitative inverse and complete independent arithmetic consumers at actual prime density and through every coprime modulus. This supports a serious standalone research contribution. Career-defining impact and priority are not certified or inferred from compilation.",
     "paper_argument_delivered": true,
     "headline_all_orders_filz_proved": false,
     "lean_formalization_complete": false,
-    "next_safely_executable_research_action": "Formalize the general symmetric determinant second-derivative identity: for Gamma=Omega*(I+Omega)^(-1), Delta''(1)/Delta(1)=(trace Gamma)^2/4+trace(Gamma*Gamma)/2. Use the actual Hermitian determinant product and orthogonal spectral realization, retaining every eigenvalue and covariance cross term. This identifies the full first correction as ((trace Gamma)^2+2*trace(Gamma*Gamma))/(8*(N-1))+covarianceCorrection Gamma. Apply the compiled covariance entry comparison with c=3p*q and eps=3200*r*p^4*q^2 to prove trace difference6406*r*p^4*q, squared-matrix trace difference76872*r*p^5*q and numerator difference230616*r*p^5*q. For N>=4, retain the exact rank shift r/((N-r-1)*(N-1))<=4*r*q^2 and numerator bound108*p^2. The derivative-part difference is at most60000*r*p^5*q^2; combine with the compiled400000 covariance difference to prove the full500000*r*p^6*q^2 first-correction comparison. Discharge the repaired spectral gap and entry cap and transport the actual repaired kernel through the common uniform permanent threshold. Finish the full minor ratio, signed occupancy/comparison, amplification/inverse, arithmetic and public closures. RH/Hadamard/twin-prime transfers remain queued until the complete headline is finished.",
+    "next_safely_executable_research_action": "Choose one witness z from the already proved actual positive stochastic repair and use that same z in every scaling, determinant and first-correction consumer. Transport the full retained support R=(S disjSum U)^c to Sum(U^c)(U^c) by the existing hamiltonianDisjSumComplementEquiv, the identity-on-values complement subtype equivalence and equalCardMinorEquiv on the two independent complements. Define the actual repaired square kernel Tilde(i,j)=(1+z_left(i))*T(eLeft(i),j)*(1+z_right(j)); prove every stochastic row/column equation and nonnegativity. With p=A/(1-rho), r*p^3*q<=1/10000 and N>=4, prove cardinality N-r>=N/2, normalization qNew=1/(N-r), entry cap2*A*qNew and centered spectral norm<=1-(1-rho)/2. The quantitative norm route is exact coordinate compression plus norm(E)<=card(R)*max|Eij|<=88*r*p^2*q<=(1-rho)/100. Prove the compression using a rectangular coordinate selection F with transpose(F)*F=1 and the actual Euclidean operator norm; empty index cases must remain valid. Reindex Ring.inverse, both traces, Psi and covarianceTraceCorrection to identify the compiled500000 budget with the actual repaired kernel's first correction. Derive a single common uniform permanent threshold for gap(1-rho)/2 and cap2A<=log(N-r)^(K+1), retaining r<=log(2N)^3. Apply the existing complete uniform permanent theorem, exact scaling/determinant costs and Stirling/rank algebra to finish the full compensated minor ratio. Then finish signed occupancy/comparison, amplification/inverse, arithmetic and public closures. RH/Hadamard/twin-prime transfers remain queued until the complete headline is finished.",
     "next_gate": "Judge the complete new method and independent applications, not theorem counts or successful compilation; preserve exact entropy and explicit density scope.",
     "no_background_work_claimed": true,
     "expert_relevance_gate": {
@@ -1113,8 +1113,8 @@
     "committed_this_turn": true,
     "pushed_this_turn": false,
     "proofs_left_only_in_private_research": false,
-    "recorded_phase": "Based on local commit60d7f45. This promotion records four maintained inverse/covariance/full signed correction owners and the focused audit of their8 new public proof declarations. The paper gives explicit finite constants for the covariance comparison and the complete ordinary first-correction comparison; only the covariance part is now Lean-certified. Final staged checks and local commit are recorded separately.",
-    "phase": "The actual retained covariance comparison and full signed covariance-polynomial difference are compiled and focused-audited. The active frontier is the exact determinant-derivative trace identity and rank-shift assembly needed for the complete first-correction difference, then the full minor and signed headline consumers."
+    "recorded_phase": "Based on local commit389d017. This promotion records seven maintained spectral/actual determinant/full first-correction owners and the focused audit of their17 new public proof declarations. The paper records the exact compiled retained-covariance scope and separately identifies the repaired square-kernel transport and uniform permanent hypotheses still to prove. Final staged checks and local commit are recorded separately.",
+    "phase": "The complete actual first-correction trace budget is compiled and focused-audited. The active frontier is its transport to the actual repaired square stochastic kernel and common uniform permanent consumer, then the full minor and signed headline closures."
   },
   "formalization": {
     "status": "in_progress_not_complete",
@@ -2129,10 +2129,52 @@
         "source_sha256": "11D21D433D8269278D06BE6B0CA492290CA61A9D26E5F3F0A96FEA08630CE301",
         "content": "Actual repaired full covariance-correction difference<=400000*r*p^6*q^2, including all independent deleted support overlaps and r=0.",
         "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianAffineSpectralJet",
+        "source_sha256": "0B2735006B81913B0B48961AFC01BFBD9897E72C1233E9D6F68895EF83B65C48",
+        "content": "Actual scalar affine spectral second derivative with signed eigenvalues and all singular denominators retained; feeds the determinant trace identity.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianResolventSpectralTrace",
+        "source_sha256": "EC69C8359A8FB505E63B3DD52CFE3C44700CA2CAFBD7C7AC81122A95D85B31B0",
+        "content": "Actual Hermitian resolvent diagonalization, full covariance trace and trace of its complete matrix square, including every cross-block product.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianDeterminantTraceJet",
+        "source_sha256": "8D7256D8EAA20811D74640751136C93DBC03B1578CEE79E2AF1090E744354B2C",
+        "content": "Positive local Hermitian determinant factor, actual affine spectral identity and exact second derivative in full covariance traces.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianPermanentCorrectionTrace",
+        "source_sha256": "1C84A2A9F58A938B4F1E461327DE7B4C0D086337FD0E391C09505B95B7AAF63A",
+        "content": "Actual Gram determinant-derivative specialization and exact representation of stochasticPermanentFirstCorrection as covarianceTraceCorrection, for every order>=2.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianFirstCorrectionRankShift",
+        "source_sha256": "1DAC4380A43E3479D947F88AF3B183184BD7C0EB458FD1A2D2BF16A8189EDCC5",
+        "content": "Exact positive-denominator rank shift and coupled normalized numerator difference, retaining old-numerator compensation.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianCovarianceTraceStability",
+        "source_sha256": "7AC5A8DCB9A3C51CD5E66131128E133B0593C2B68BB47B4CD7E26A29939092D9",
+        "content": "Exact full/support trace and trace-square stability, including disjoint removed-by-full and retained-by-removed packets.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianStochasticFirstCorrectionComparison",
+        "source_sha256": "F84310B4745C4CCE9FD08441C813758D88AF4182421CAE48AF1CC88ECA29A889",
+        "content": "Complete actual retained-covariance first-correction budget<=500000*r*p^6*q^2, combining the actual determinant derivative, signed Psi, all support traces and exact N-r normalization.",
+        "build_exit_code": 0
       }
     ],
     "unfinished_dependencies": [
-      "Formalize the determinant-derivative full covariance trace identity, its quantitative difference and exact rank shift; discharge the repaired-kernel spectral/entry hypotheses and uniform threshold; assemble the full first-correction comparison and complete uniform minor ratio. The complete local determinant cost, actual retained covariance comparison and full signed covariance-polynomial difference are already compiled and focused-audited.",
+      "Prove the actual repaired square-kernel reindexing, stochastic/entry/spectral hypotheses and one common uniform permanent threshold, then assemble the full compensated minor ratio. The complete actual determinant-derivative trace identity and500000*r*p^6*q^2 retained-covariance first-correction budget, with exact rank shift, are now compiled and focused-audited.",
       "Actual coordinate occupancy identities, full derivative bounds and normalized moment bounds. Cauchy-Binet, the signed two-support constant moment, Gram sandwich entries and full block covariance entries are compiled.",
       "Full signed Hamiltonian comparison with its absolute estimate confined to the retained two-power remainder and large-minor tail. The actual generic and bipartite two-support cycle identities are compiled.",
       "Spectral amplification estimate, inverse theorem and asymptotic error ranges.",
@@ -3853,13 +3895,52 @@
         ],
         "log_sha256": "DAE61DAE206BE6BAC32E75861CC823B6FD520931091315EF96FBD76E2817718E",
         "scope": "Only the8 new inverse, actual covariance and full signed covariance-correction public proof declarations. Their private scalar proof dependencies are included by the axiom checker. Previously audited unchanged files were not re-audited."
+      },
+      {
+        "status": "verified",
+        "modules": [
+          "PrimeFactorOscillations.Helpers.HamiltonianAffineSpectralJet",
+          "PrimeFactorOscillations.Helpers.HamiltonianResolventSpectralTrace",
+          "PrimeFactorOscillations.Helpers.HamiltonianDeterminantTraceJet",
+          "PrimeFactorOscillations.Helpers.HamiltonianPermanentCorrectionTrace",
+          "PrimeFactorOscillations.Helpers.HamiltonianFirstCorrectionRankShift",
+          "PrimeFactorOscillations.Helpers.HamiltonianCovarianceTraceStability",
+          "PrimeFactorOscillations.Helpers.HamiltonianStochasticFirstCorrectionComparison"
+        ],
+        "declaration_count": 17,
+        "declarations": [
+          "PrimeFactorOscillations.affineSpectralCoordinate0_hasDerivAt",
+          "PrimeFactorOscillations.affineSpectralCoordinate1_hasDerivAt",
+          "PrimeFactorOscillations.affineSpectralFactors_hasDerivAt",
+          "PrimeFactorOscillations.affineSpectralFactors_second_derivative",
+          "PrimeFactorOscillations.hermitian_resolvent_spectral_traces",
+          "PrimeFactorOscillations.hermitianDeterminantFactor_eq_affine",
+          "PrimeFactorOscillations.hermitianDeterminantFactor_eventually_eq_affine",
+          "PrimeFactorOscillations.hermitianDeterminantFactor_pos",
+          "PrimeFactorOscillations.hermitianDeterminantFactor_covariance_second_derivative",
+          "PrimeFactorOscillations.realGramDeterminantFactor_covariance_second_derivative",
+          "PrimeFactorOscillations.stochasticPermanentFirstCorrection_trace_formula",
+          "PrimeFactorOscillations.hamiltonian_first_correction_rank_shift",
+          "PrimeFactorOscillations.hamiltonian_normalized_correction_difference",
+          "PrimeFactorOscillations.hamiltonian_trace_entry_bound",
+          "PrimeFactorOscillations.hamiltonian_trace_supported_difference_bound",
+          "PrimeFactorOscillations.hamiltonian_trace_square_supported_difference_bound",
+          "PrimeFactorOscillations.stochastic_repaired_trace_correction_comparison"
+        ],
+        "allowed_axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "log_sha256": "DB6A3669EB5563A0AD117C2CCD31DD2710EC01CCCD9B4ADF35ADE84D2299718B",
+        "scope": "Only the17 new affine spectral, actual resolvent/determinant, rank-shift, support trace and assembled first-correction proof declarations. Previously audited unchanged files were not re-audited."
       }
     ],
     "active_proof": {
-      "module": "PrimeFactorOscillations.Helpers.HamiltonianStochasticCorrectionComparison",
-      "status": "Uniform permanent estimates, actual cycle identities, positive repair, full signed scaling cost and complete positive-ratio local determinant cost remain compiled and focused-audited. The actual repaired inverse now has row bound12p and covariance entry error3200*r*p^4*q^2, with repaired entries bounded by3*p*q. Both product orders and the full signed Schur correction are retained. The complete signed covariance correction difference, including diagonal squares, mixed triples, entry cubes and all removed support overlaps, is compiled with error400000*r*p^6*q^2 on r*p^3*q<=1/10000. The determinant-derivative trace identity, rank-shift estimate and full first-permanent-correction assembly, full minor ratio, signed occupancy/comparison, amplification/inverse and arithmetic/public closures remain unfinished. The full headline is not Lean-certified.",
-      "target": "Formalize the general symmetric determinant second-derivative identity: for Gamma=Omega*(I+Omega)^(-1), Delta''(1)/Delta(1)=(trace Gamma)^2/4+trace(Gamma*Gamma)/2. Use the actual Hermitian determinant product and orthogonal spectral realization, retaining every eigenvalue and covariance cross term. This identifies the full first correction as ((trace Gamma)^2+2*trace(Gamma*Gamma))/(8*(N-1))+covarianceCorrection Gamma. Apply the compiled covariance entry comparison with c=3p*q and eps=3200*r*p^4*q^2 to prove trace difference6406*r*p^4*q, squared-matrix trace difference76872*r*p^5*q and numerator difference230616*r*p^5*q. For N>=4, retain the exact rank shift r/((N-r-1)*(N-1))<=4*r*q^2 and numerator bound108*p^2. The derivative-part difference is at most60000*r*p^5*q^2; combine with the compiled400000 covariance difference to prove the full500000*r*p^6*q^2 first-correction comparison. Discharge the repaired spectral gap and entry cap and transport the actual repaired kernel through the common uniform permanent threshold. Finish the full minor ratio, signed occupancy/comparison, amplification/inverse, arithmetic and public closures. RH/Hadamard/twin-prime transfers remain queued until the complete headline is finished.",
-      "consumer": "The full relative Hamiltonian bound remains O(log(N)^M/N+log(N)^M*Amp(T)/N^2). The actual repaired covariance changes by at most3200*r*p^4/N^2 and its full signed polynomial correction changes by at most400000*r*p^6/N^2. The remaining determinant derivative is represented by the full trace square and trace of Gamma squared, whose exact finite comparison and rank shift close the ordinary500000 first-correction bound. That trace identity/assembly, the repaired-kernel hypotheses and the full minor transport still need formal proofs. Only the final two-power remainder and large-minor tail pay absolute amplification.",
+      "module": "PrimeFactorOscillations.Helpers.HamiltonianStochasticFirstCorrectionComparison",
+      "status": "All earlier uniform permanent, actual cycle, positive repair, scaling and local determinant results remain compiled and focused-audited. The actual determinant second derivative is now identified with full covariance traces: Q_N=((trace Gamma)^2+2*trace(Gamma*Gamma))/(8*(N-1))+Psi(Gamma). Both signed spectral jets, the actual resolvent traces, every removed-support trace term and the exact rank shift are compiled. The complete actual retained-covariance budget abs(covarianceTraceCorrection(GammaNew,N-r)-stochasticPermanentFirstCorrection(T,q))<=500000*r*p^6*q^2 is compiled for N>=4 and r*p^3*q<=1/10000. GammaNew=(HR+E-1)*(HR+E)^(-1) includes the full actual scaling and rank-centering perturbation. Its identification with the repaired square stochastic kernel, that kernel's spectral/entry hypotheses and common uniform permanent threshold, the full minor ratio, signed occupancy/comparison, amplification/inverse and arithmetic/public closures remain unfinished. The full headline is not Lean-certified.",
+      "target": "Choose one witness z from the already proved actual positive stochastic repair and use that same z in every scaling, determinant and first-correction consumer. Transport the full retained support R=(S disjSum U)^c to Sum(U^c)(U^c) by the existing hamiltonianDisjSumComplementEquiv, the identity-on-values complement subtype equivalence and equalCardMinorEquiv on the two independent complements. Define the actual repaired square kernel Tilde(i,j)=(1+z_left(i))*T(eLeft(i),j)*(1+z_right(j)); prove every stochastic row/column equation and nonnegativity. With p=A/(1-rho), r*p^3*q<=1/10000 and N>=4, prove cardinality N-r>=N/2, normalization qNew=1/(N-r), entry cap2*A*qNew and centered spectral norm<=1-(1-rho)/2. The quantitative norm route is exact coordinate compression plus norm(E)<=card(R)*max|Eij|<=88*r*p^2*q<=(1-rho)/100. Prove the compression using a rectangular coordinate selection F with transpose(F)*F=1 and the actual Euclidean operator norm; empty index cases must remain valid. Reindex Ring.inverse, both traces, Psi and covarianceTraceCorrection to identify the compiled500000 budget with the actual repaired kernel's first correction. Derive a single common uniform permanent threshold for gap(1-rho)/2 and cap2A<=log(N-r)^(K+1), retaining r<=log(2N)^3. Apply the existing complete uniform permanent theorem, exact scaling/determinant costs and Stirling/rank algebra to finish the full compensated minor ratio. Then finish signed occupancy/comparison, amplification/inverse, arithmetic and public closures. RH/Hadamard/twin-prime transfers remain queued until the complete headline is finished.",
+      "consumer": "The full relative Hamiltonian bound remains O(log(N)^M/N+log(N)^M*Amp(T)/N^2). The determinant-derivative identity, full signed covariance correction, removed-support trace errors and rank-shift normalization now give a compiled500000*r*p^6/N^2 comparison on the actual retained covariance. The next edge must identify it with the repaired square stochastic matrix and verify its gap, entry cap, order and uniform threshold. Preserve the same positive repair witness and every overlap and quadratic compensation term when applying the permanent/scaling/determinant consumers. Only the final two-power error and large-minor tail pay absolute amplification.",
       "proved_inputs": [
         "PrimeFactorOscillations.Helpers.HamiltonianMatrixSpectralAverage",
         "PrimeFactorOscillations.Helpers.HamiltonianRookGamma",
@@ -4004,7 +4085,14 @@
         "PrimeFactorOscillations.Helpers.HamiltonianCovariancePerturbation",
         "PrimeFactorOscillations.Helpers.HamiltonianRetainedCovarianceComparison",
         "PrimeFactorOscillations.Helpers.HamiltonianCovarianceCorrectionStability",
-        "PrimeFactorOscillations.Helpers.HamiltonianStochasticCorrectionComparison"
+        "PrimeFactorOscillations.Helpers.HamiltonianStochasticCorrectionComparison",
+        "PrimeFactorOscillations.Helpers.HamiltonianAffineSpectralJet",
+        "PrimeFactorOscillations.Helpers.HamiltonianResolventSpectralTrace",
+        "PrimeFactorOscillations.Helpers.HamiltonianDeterminantTraceJet",
+        "PrimeFactorOscillations.Helpers.HamiltonianPermanentCorrectionTrace",
+        "PrimeFactorOscillations.Helpers.HamiltonianFirstCorrectionRankShift",
+        "PrimeFactorOscillations.Helpers.HamiltonianCovarianceTraceStability",
+        "PrimeFactorOscillations.Helpers.HamiltonianStochasticFirstCorrectionComparison"
       ]
     },
     "status_reconciliation_check": {
@@ -4033,7 +4121,7 @@
       "checked_paper_hashes": [
         {
           "file": "main.tex",
-          "sha256": "6E3D8EBFDD62A348330E10F204508F4465883976C64D12287A4DA80E27E23744"
+          "sha256": "7FE7354B7C0060EE71E7ADA4448F075298D8BE161D360D39B13C281B70E77CA3"
         },
         {
           "file": "relative-permanents.tex",
@@ -4049,7 +4137,7 @@
         },
         {
           "file": "compensated-minor-jet.tex",
-          "sha256": "D32B22781FB07CE2A3438A8F3A9BB2F2F8EB9D7D2ABF5ABD4D0D3F3A477FF2F5"
+          "sha256": "997AC4357A28078EC1BF7FAB2351DD145C22064F57D8147C15DED406E8D1E43F"
         }
       ],
       "mechanical_forbidden_normalized_paper_status_sentences": [

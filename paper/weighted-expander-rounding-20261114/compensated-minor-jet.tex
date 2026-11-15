@@ -448,9 +448,25 @@ ordinary estimate
  |{\cal Q}_n(\widetilde D)-{\cal Q}_N(D)|
        \leq500000rp_0^6q^2 .                 \tag{C4}
 \]
-The complete covariance part (C1)--(C2) is formalized.
-The determinant-derivative identity, its signed trace comparison,
-rank shift and full assembly (C3)--(C4) remain Lean obligations.
+The complete covariance part (C1)--(C2), determinant-derivative
+identity (C3), full trace comparison and exact rank-shift budget
+now have maintained Lean proofs. More precisely, write
+\[
+ \widehat{\cal Q}_n(G)=
+ \frac{(\operatorname{tr}G)^2+2\operatorname{tr}(G^2)}{8(n-1)}
+       +\Psi(G).
+\]
+The direct actual-matrix consumer proves
+\[
+ |\widehat{\cal Q}_{N-r}(\Gamma_{\rm new})-{\cal Q}_N(D)|
+       \leq500000rp_0^6q^2,\qquad
+ \Gamma_{\rm new}=(M[R,R]+E-I)(M[R,R]+E)^{-1}.
+\]
+It derives the full numerator comparison and every denominator
+positivity from the original hypotheses. Identifying its new side
+with the reindexed repaired square stochastic kernel, verifying that
+kernel's entry and spectral hypotheses, and applying the common
+uniform permanent threshold remain formalization obligations.
 This is why the explicit first correction in the full permanent
 theorem was needed.
 
@@ -531,9 +547,13 @@ covariance-correction difference (C2) are proved in
 \texttt{HamiltonianRetainedCovarianceComparison} and
 \texttt{HamiltonianStochasticCorrectionComparison}. The general stability
 theorem subtracts the full polynomial before bounding its retained and
-removed-support remainders. The trace-derivative identity and rank-shift
-assembly (C3)--(C4), and the resulting minor ratio remainder,
-are still formalization obligations.
+removed-support remainders. The determinant trace identity, its
+actual-Gram specialization and the full first-correction trace budget
+are proved in \texttt{HamiltonianPermanentCorrectionTrace} and
+\texttt{HamiltonianStochasticFirstCorrectionComparison}, using the
+signed support traces and exact rank-shift consumers.
+The repaired square-kernel transport, its uniform permanent hypotheses
+and the resulting minor ratio remainder are still formalization obligations.
 
 \begin{remark}[Independent check against every cofactor recursion]
 Let \(W(I,J)=r(r-1)/(2N)+u^\top\Gamma u/2+v^\top u\)
