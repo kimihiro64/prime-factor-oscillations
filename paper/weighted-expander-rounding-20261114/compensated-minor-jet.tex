@@ -48,38 +48,109 @@ Let \(\ell=Pu=(D\one_J,D^\top\one_I)\).
 The remaining row defects are the corresponding coordinates
 of \(\ell\), each at most \(rA/N\), and their sum is
 \(2(r-s_{IJ})\).
-Let \(\widetilde D=\diag(1+z_A)Q\diag(1+z_B)\)
-be its exact stochastic repair, with \(z=0\) on removed
-coordinates and gauge \(s^\top z=0\).
-The established repair gives
-\(\|z\|_\infty\leq C_\delta rA\log(2N)/N\).
+We first give an explicit finite-range repair, including its
+boundary correction. It is enough that
+\[
+ \nu:=\frac{rA^2}{\delta^2N}\leq10^{-3}.
+ \tag{R1}
+\]
+This holds uniformly in the stated polylogarithmic range.
+The case \(r=0\) is immediate; suppose \(r>0\).
+Let \(E=I\sqcup J\) be the removed coordinates and \(R=E^c\).
+The two support sets remain independent. The exact identities and
+coordinate bounds for the full repair kernel are
+\[
+ \begin{gathered}
+ (I+P)K=I-ss^\top,\qquad K^\top=K,\qquad Ks=0,\\
+ |(K-I)_{ab}|\leq c_0:=\frac{4A}{\delta N},\qquad
+ \|K\|_{\infty\to\infty}\leq1+\frac{8A}{\delta}.
+ \end{gathered}
+\]
+Also \(\ell=Pu\geq0\), each coordinate is at most \(rA/N\),
+the mass in each half is \(r\), and
+\[
+ \|K\ell\|_\infty\leq\frac{9rA}{\delta N}.
+\]
+The absolute row sum of \(K[E,E]-I_E\) is at most
+\(2rc_0\leq1/2\), so its actual inverse has absolute row
+sums at most \(2\). Define the signed Schur correction
+\[
+ G=K[R,R]-K[R,E]K[E,E]^{-1}K[E,R].
+\]
+All matrix products in this expression are retained.
+Its entry correction and row norm obey
+\[
+ |(G-K[R,R])_{ab}|\leq4rc_0^2
+       =\frac{64rA^2}{\delta^2N^2},\qquad
+ \|G\|_{\infty\to\infty}
+ \leq1+\frac{8A}{\delta}
+       +\frac{128rA^2}{\delta^2N}\leq\frac{10A}{\delta}.
+ \tag{R2}
+\]
+Indeed the inverse row bound controls the middle factor, and both
+outer factors are off-diagonal entries of \(K\).
+The removed defect mass is at most \(2r^2A/N\).
+Consequently, putting \(t=rA/(\delta N)\),
+\[
+ \|G\ell_R-(K\ell)_R\|_\infty
+ \leq\frac{136r^2A^2}{\delta^2N^2}=136t^2,\qquad
+ \|G\ell_R\|_\infty\leq10t.
+ \tag{R3}
+\]
+The first term in (R3) costs at most \(4rc_0^2(2r)\);
+the removed source costs at most \(c_0(2r^2A/N)\).
+Only these explicit remainders receive absolute estimates.
 
-We give the local error accounting needed for a two-power
-remainder. On retained coordinates the exact row equation
-is
+Let \(P_R=P[R,R]\), whose absolute row sums are at most \(1\).
+On the closed sup-norm ball \(\|z\|_\infty\leq20t\), use
 \[
- (I+P)z=\ell+\ell\mathbin{\odot}z
-                         -z\mathbin{\odot}(Pz).
+ {\cal F}(z)=G\bigl(\ell_R+\ell_R\odot z-z\odot(P_Rz)\bigr).
 \]
-On removed coordinates the discrepancy is \((Pz)-\ell\).
-Its magnitude is at most a polynomial in \(r,A,\log(2N)\)
-divided by \(N\).
-Every off-diagonal entry of \(K\) is \(O_\delta((1+A)/N)\).
-Multiplying that discrepancy, supported on \(2r\) coordinates,
-by \(K\), and the retained quadratic discrepancy by the
-row-sum bound for \(K\), proves
+The nonlinear part has norm at most
+\((rA/N)\|z\|_\infty+\|z\|_\infty^2\), and its Lipschitz
+constant on this ball is at most \(rA/N+40t\).
+Thus (R1)--(R3) give
 \[
- z=K\ell+
- O_\delta\left(
-  \frac{\operatorname{poly}(r,1+A,\log(2N))}{N^2}\right)
- \quad\hbox{on retained coordinates}.
+ \operatorname{Lip}({\cal F})\leq410\nu\leq0.41<1/2,
+ \qquad
+ \|{\cal F}(z)\|_\infty
+ \leq10t+210\nu(20t)\leq20t.
 \]
-Here and below \(\operatorname{poly}\) denotes a fixed finite
-polynomial with nonnegative coefficients depending only on
-the displayed fixed parameters. No degree grows with \(N,r,A\).
-On removed coordinates \(K\ell\) can instead be bounded by
-\(C_\delta rA\log(2N)/N\), which is multiplied by an
-additional \(O_\delta(A/N)\) factor whenever used below.
+The complete closed ball therefore has a fixed point \(z\).
+This solves the full scaling equations, not merely their
+projection: the exact Schur identity makes
+\[
+ (I+P_R)z-\ell_R-\ell_R\odot z+z\odot(P_Rz)
+\]
+a scalar multiple of the restricted parity vector \(s_R\).
+For every real \(z\), the sum of the left scaling residuals
+equals the sum of the right scaling residuals. This is the exact
+identity obtained by counting
+\((1+z_{A_i})Q_{ij}(1+z_{B_j})\) once from each endpoint;
+the two retained parts both have size \(N-r>0\).
+A parity-shaped residual must consequently be zero.
+Moreover \(G^\top=G\) and \(Gs_R=0\), so \(s_R^\top z=0\).
+Since \(20t\leq0.02\), all multipliers \(1+z_i\) are positive.
+They give the exact stochastic repair
+\[
+ \widetilde D=\diag(1+z_A)Q\diag(1+z_B).
+\]
+Extend \(z\) by zero on the removed coordinates. The fixed-point
+equation and (R3) give the explicit two-power comparison
+\[
+ \begin{split}
+ \|z-(K\ell)_R\|_\infty
+ &\leq136t^2+\frac{10A}{\delta}
+                      \bigl((rA/N)(20t)+(20t)^2\bigr)\\
+ &\leq\frac{5000r^2A^3}{\delta^3N^2},\qquad
+ \|z\|_\infty\leq\frac{20rA}{\delta N}.
+ \end{split}
+ \tag{R4}
+\]
+On removed coordinates \(K\ell\) has the bound \(9rA/(\delta N)\).
+Whenever those coordinates are used below they carry an additional
+\(O_\delta(A/N)\) factor. The exact term \(\ell^\top K\ell\),
+including its signs and all overlaps, is retained in the scaling cost.
 
 Sum the exact nonlinear scaling equations and expand
 \(\log(1+z)\) through degree two. With the actual retained
