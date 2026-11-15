@@ -233,9 +233,58 @@ minor mass. The maintained owners are
 \texttt{HamiltonianOccupancyEntryBounds},
 \texttt{HamiltonianRootOccupancyBounds} and
 \texttt{HamiltonianSignedOccupancyBounds}.
-The formal balanced two-support readout, the joint rank and
-first-order correction consumer and the complete remainder/tail
-assembly remain unfinished.
+The arbitrary weighted balanced two-support readout and complete
+joint first-order correction now also have maintained proofs.
+The exact analytic size-derivative readout and the complete
+remainder/tail and headline assembly remain unfinished.
+
+\paragraph{Formalized complete signed main correction.}
+For every real function on the finite vertex supports,
+\texttt{HamiltonianSignedBipartiteFunctional} proves the actual identity
+\[
+ {\cal L}_{\rm pr}(f)=
+ -\sum_{J\subseteq[1,N]}(-1)^{|J|}|J|
+     \sum_{\substack{I\subseteq[1,N]\\|I|=|J|}}
+          \det T[I,J]^2 f(I\sqcup J).
+\]
+The row and column supports are independent. Unbalanced determinants
+are exactly zero, and the empty supports have their actual zero
+rank coefficient. In particular the constant readout is \(d\).
+
+Put \(h_a=-\Gamma_{aa}\) and \(v=(\tfrac12 I-K)h\).
+The actual field satisfies
+\((1-\rho)^2|v_a|\leq19A^2/N\).
+\texttt{HamiltonianMinorFieldBudget} matches
+\[
+ \alpha(I,J)=r(r-1)/N+u^\top\Gamma u+2v^\top u
+\]
+to the precise first-order term of the maintained uniform minor
+theorem. The finite signed functional is linear. The exact identities
+\(u_a^2=u_a\) and
+\[
+ r(r-1)=\tfrac14\left(\sum_{\substack{a,b\in V\\a\ne b}}u_au_b
+                                  -\sum_{a\in V}u_a\right)
+\]
+retain all overlaps and both orders of every off-diagonal pair.
+With \(p=A/(1-\rho)\), the compiled full signed consumer gives
+\[
+ \left|{\cal L}(\alpha)\right|\leq900|d|p^3/N .
+\]
+Its proof controls the rank, diagonal, ordered off-diagonal and
+full field contributions by
+\[
+ \frac{|d|}{N}
+       \bigl(53p^2+20p^2+400p^3+380p^3\bigr)
+             \leq\frac{900|d|p^3}{N},\qquad p\geq1.
+\]
+These bounds are taken after the actual signed coordinate
+moments have been evaluated; no unsigned determinant mass enters
+the main correction. The full-support finite identities are in
+\texttt{HamiltonianSignedMinorFunctional}, and the actual stochastic
+and balanced-support bounds are in
+\texttt{HamiltonianJointSignedCorrection}. The separate complete
+minor residual and the large-support complementary-permanent tail
+are the next quantitative formalization obligations.
 
 \begin{theorem}[Relative bipartite comparison at logarithmic density]
 \label{thm:criticalrelative}
