@@ -342,46 +342,117 @@ Consequently, writing \(\widetilde B=\widetilde D-J_n/n\),
 
 The first permanent correction must also be compared,
 rather than independently discarded at order \(N^{-1}\).
-The same Schur formula and scaling estimates imply, on
-retained coordinates,
+Write \(\widetilde R=(M[R,R]+E)^{-1}\).
+Both multiplication orders are needed. Symmetry of \({\cal R}\)
+and the entry bound for \(E\) give
+\[
+ |({\cal R}E)_{ij}|,\ |(E{\cal R})_{ij}|
+       \leq264rp_0^3q^2 .
+\]
+The row-half inverse estimate for \(I+{\cal R}E\) gives
+\(\|\widetilde R\|_{\infty\to\infty}\leq12p_0\).
+Keep the exact identity
+\[
+ \widetilde R-{\cal R}=-\widetilde R E{\cal R}.
+\]
+It bounds each entry of this difference by
+\(3168rp_0^4q^2\). Adding the Schur error, and using
+\(\widetilde\Gamma=I-\widetilde R\), proves
 \[
  |\widetilde\Gamma_{ij}-\Gamma_{ij}|
- \leq\frac{\operatorname{poly}(r,1+A,\log(2N))}{N^2}.
+       \leq3200rp_0^4q^2,\qquad
+ |\widetilde\Gamma_{ij}|\leq3p_0q .
+ \tag{C1}
 \]
-To check this entry bound, both full inverse matrices have
-off-diagonal entries \(O_\delta(A/N)\) and absolute row
-sums \(O_\delta(1+A)\). The entrywise inverse perturbation
-identity therefore preserves the displayed scale.
-Deleted coordinates contribute at most \(2r\) diagonal
-terms or \(4rN\) off-diagonal terms.
+The complete actual-matrix result, including the inverse row bound,
+has a maintained Lean proof. It allows \(r=0\).
 
-Apply this estimate to every displayed term of \(\Psi\):
-a diagonal square has difference bounded by its size
-\(O(A/N)\) times the entry difference; the cubic sums have
-two such small factors.
-After summation their differences are
-\(\operatorname{poly}(r,1+A,\log(2N))/N^2\).
-For the Gamma averaging term, set
+Here is a full quantitative bound for the signed covariance correction
+\(\Psi\). On the retained set put \(c=3p_0q\) and
+\(\varepsilon=3200rp_0^4q^2\). For \(m=|R|\) and \(d=2r\),
+subtract every diagonal square, mixed triple and entry cube before
+estimating. The retained differences cost at most
+\(2mc\varepsilon+3m^2c^2\varepsilon\).
+The exact disjoint removed-support partition costs at most
+\(dc^2+2d(2/q)c^3\); it includes the removed-by-removed overlap once.
+Since \(mq\leq2\), this gives the maintained finite theorem
 \[
- S_1=\operatorname{tr}\frac{B^\top B}{I-B^\top B},\qquad
- S_2=\operatorname{tr}
-                      \left(\frac{B^\top B}{I-B^\top B}\right)^2.
+ |\Psi(\widetilde\Gamma)-\Psi(\Gamma)|
+ \leq38400rp_0^5q^2+345600rp_0^6q^2
+                     +18rp_0^2q^2+216rp_0^3q^2
+ \leq400000rp_0^6q^2.                         \tag{C2}
 \]
-Then \(\Delta''(1)/\Delta(1)=S_1^2+S_1+2S_2\).
-Here \(S_1\) is minus half the trace of \(\Gamma\), and
-\(S_2\) is half the sum of squared entries of its two
-diagonal blocks.
-The preceding local bounds change each by
-\(\operatorname{poly}(r,1+A,\log(2N))/N\).
-The additional factor \(1/(N-1)\), including its change to
-\(1/(n-1)\), proves
+No separate \(O(N^{-1})\) correction is discarded.
+
+For the determinant-derivative term it is simpler to use the full
+covariance, retaining every cross-block entry:
 \[
- {\cal Q}_n(\widetilde D)-{\cal Q}_N(D)
-       =O_\delta\left(
-       \frac{\operatorname{poly}(r,1+A,\log(2N))}{N^2}\right).
+ \frac{\Delta''(1)}{\Delta(1)}
+   =\frac14(\operatorname{tr}\Gamma)^2
+                         +\frac12\operatorname{tr}(\Gamma^2),\qquad
+ {\cal Q}_N
+   =\frac{(\operatorname{tr}\Gamma)^2+
+                    2\operatorname{tr}(\Gamma^2)}{8(N-1)}
+                         +\Psi(\Gamma).                     \tag{C3}
 \]
-This is why the explicit first correction in the full
-permanent theorem was needed.
+Indeed, diagonalize the real symmetric \(\Omega\).
+For an eigenvalue \(\lambda\), the local logarithm of
+\(\det(I+t\Omega)^{-1/2}\) contributes
+\(-\tfrac12\log(1+t\lambda)\).
+Its first and second derivatives at \(1\) are
+\(-\lambda/(2(1+\lambda))\) and
+\(\lambda^2/(2(1+\lambda)^2)\).
+The resolvent has eigenvalues \(\lambda/(1+\lambda)\);
+summing and differentiating the exponential proves (C3).
+All local factors are positive because the spectral gap is strict.
+
+The repaired gap used here follows quantitatively from (D1):
+\[
+ \|E\|\leq88rp_0^2q\leq\delta/100,\qquad
+ \|\widetilde\Omega\|\leq\rho+\delta/100
+                                      \leq1-\delta/2.
+\]
+Compression does not increase the original operator norm.
+The positive stochastic repair also has entry cap \(2A/(N-r)\).
+Thus the same permanent theorem applies with gap \(\delta/2\)
+and a larger common starting order.
+
+For clarity, put
+\(T_\Gamma=(\operatorname{tr}\Gamma)^2+
+2\operatorname{tr}(\Gamma^2)\). Equation (C1), \(mq\leq2\),
+and the same disjoint support partition give
+\[
+ \begin{gathered}
+ |\operatorname{tr}\widetilde\Gamma-
+                    \operatorname{tr}\Gamma|
+                       \leq6406rp_0^4q,\\
+ |\operatorname{tr}(\widetilde\Gamma^2)-
+                    \operatorname{tr}(\Gamma^2)|
+                       \leq76872rp_0^5q,\\
+ |T_{\widetilde\Gamma}-T_\Gamma|
+                       \leq230616rp_0^5q,\qquad
+ |T_\Gamma|\leq108p_0^2 .
+ \end{gathered}
+\]
+Both individual traces have magnitude at most \(6p_0\).
+For \(N\geq4\), (D1) implies \(n-1\geq N/2\), where \(n=N-r\),
+and the exact rank shift satisfies
+\[
+ \left|\frac1{n-1}-\frac1{N-1}\right|
+   =\frac r{(n-1)(N-1)}\leq4rq^2 .
+\]
+Consequently the difference of the fractions in (C3) is at most
+\(60000rp_0^5q^2\). Together with (C2), this proves the explicit
+ordinary estimate
+\[
+ |{\cal Q}_n(\widetilde D)-{\cal Q}_N(D)|
+       \leq500000rp_0^6q^2 .                 \tag{C4}
+\]
+The complete covariance part (C1)--(C2) is formalized.
+The determinant-derivative identity, its signed trace comparison,
+rank shift and full assembly (C3)--(C4) remain Lean obligations.
+This is why the explicit first correction in the full permanent
+theorem was needed.
 
 Now use Theorem~\ref{thm:secondpermanent} in numerator
 and denominator, together with the exact scaling cost.
@@ -455,7 +526,13 @@ consumer retains the full ambient trace before bounding its four explicit
 remainders. The final positive-ratio assembly (D7) and its actual repair
 existence theorem are proved in
 \texttt{HamiltonianStochasticDeterminantCost}.
-The first-correction comparison and the resulting minor ratio remainder
+The actual retained covariance comparison (C1) and full signed
+covariance-correction difference (C2) are proved in
+\texttt{HamiltonianRetainedCovarianceComparison} and
+\texttt{HamiltonianStochasticCorrectionComparison}. The general stability
+theorem subtracts the full polynomial before bounding its retained and
+removed-support remainders. The trace-derivative identity and rank-shift
+assembly (C3)--(C4), and the resulting minor ratio remainder,
 are still formalization obligations.
 
 \begin{remark}[Independent check against every cofactor recursion]

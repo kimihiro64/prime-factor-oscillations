@@ -516,9 +516,15 @@ support overlap, quadratic scaling and rank-centering term. They give
 \]
 The determinant ratio is positive, and a direct existence theorem
 supplies the actual positive scaling together with this estimate.
-The first permanent-correction comparison, coordinate-occupancy bounds,
-the final minor ratio and arithmetic closures remain formalization
-obligations.
+The actual repaired covariance comparison and the complete signed
+covariance-correction difference are now formalized as well, with
+entry error \(3200rp_0^4/N^2\) and correction error
+\(400000rp_0^6/N^2\). The paper gives an explicit
+\(500000rp_0^6/N^2\) bound for the full first-correction difference,
+including the trace-derivative identity and the \(N-r\) rank shift.
+That remaining derivative comparison and assembly, coordinate-occupancy
+bounds, the final minor ratio and arithmetic closures are still
+formalization obligations.
 The headline Hamiltonian counting and inverse theorems are not yet
 Lean-certified.
 Compilation of this manuscript does not provide mathematical or
