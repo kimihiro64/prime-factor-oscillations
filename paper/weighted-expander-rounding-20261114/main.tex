@@ -532,9 +532,16 @@ The common uniform permanent threshold, positive normalized values,
 exact logarithmic determinant and permanent identities, full factorial
 rank-shift budget, and complete signed first-order compensation are
 now formalized as well. The same positive repair is used throughout.
-The final uniform minor-ratio remainder, coordinate occupancy and the
-remaining headline and arithmetic closures are still formalization
-obligations.
+The complete uniform two-power minor expansion is now formalized in
+\texttt{HamiltonianMinorUniformExpansion}. One threshold covers all
+admissible kernels and independently chosen equal-sized supports,
+with explicit error \(C_\delta^{\rm minor}
+\log(2N)^{12+24\lceil K\rceil}/N^2\) for
+\(A\leq(\log N)^K\). It derives every repair and local estimate
+from the original matrix hypotheses and retains the signed
+first-order correction. Coordinate occupancy, the signed comparison,
+amplification/inverse and arithmetic/public closures remain
+formalization obligations.
 The headline Hamiltonian counting and inverse theorems are not yet
 Lean-certified.
 Compilation of this manuscript does not provide mathematical or

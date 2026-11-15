@@ -496,8 +496,9 @@ Both normalized permanent values are at least \(1/2\), and both
 permanents are positive, beyond this same common threshold.
 The first-order envelope is used here to justify the logarithms.
 The complete signed second-order bounds and their first-correction
-difference remain the inputs to the minor expansion. The final
-uniform minor-ratio remainder still requires formal assembly.
+difference remain the inputs to the minor expansion. The complete
+uniform minor-ratio remainder is now assembled in the maintained
+uniform theorem stated below.
 This is why the explicit first correction in the full permanent
 theorem was needed.
 
@@ -622,7 +623,62 @@ supports and the parity projection until the final pairing.
 Gaussian-normalizer and actual complementary-permanent logarithms.
 \texttt{HamiltonianMinorLogError} preserves the two-power signed
 first-correction difference through the logarithm.
-The final uniform minor-ratio remainder still requires formal assembly.
+The complete uniform minor expansion is now proved in
+\texttt{HamiltonianMinorUniformExpansion}.
+Here are explicit constants for its two-power remainder.
+Write \(C_\delta^{\rm per}\) for the full permanent remainder
+constant and put
+\[
+ \begin{split}
+ L_\delta={}&12200002+4|C_\delta^{\rm per}|
+                  +16\cdot2^{24}|C_{\delta/2}^{\rm per}|,\\
+ C_\delta^{\rm minor}={}&16(20100+4L_\delta)(1+\delta^{-1})^{24},
+ \qquad M(K)=12+24\lceil K\rceil .
+ \end{split}
+\]
+For every fixed \(0<\delta\leq1\), \(K\geq0\), a single
+threshold \(N_0(\delta,K)\) works for all finite coordinate
+sets, all admissible stochastic matrices, every
+\(1\leq A\leq(\log N)^K\), and both independently chosen
+supports of size \(r\leq\log(2N)^3\):
+\[
+ \left|\left(
+ \frac{\operatorname{per}D[I^c,J^c]}{\operatorname{per}D}
+          \right)^2-(1+\alpha)\right|
+ \leq C_\delta^{\rm minor}\frac{\log(2N)^{M(K)}}{N^2},
+ \quad
+ \alpha=\frac{r(r-1)}N+u^\top\Gamma u+2v^\top u .
+\]
+No scaling witness, positivity of a normalized permanent, local
+determinant estimate or correction comparison is assumed by this
+uniform theorem. All are discharged by its maintained inputs.
+
+In detail, with \(p_0=A/\delta\), the complete logarithmic
+assembly proves
+\[
+ \left|2\log\frac{\operatorname{per}D[I^c,J^c]}
+                       {\operatorname{per}D}-\alpha\right|
+       \leq \frac{\mathcal B}{N^2},
+\]
+where
+\[
+ \begin{split}
+ \mathcal B={}&200000r^3p_0^3+10^7r^2p_0^6
+           +2000000rp_0^6+2r(r+1)\\
+       &+4|C_\delta^{\rm per}|(1+A)^{24}
+           +16|C_{\delta/2}^{\rm per}|(1+2A)^{24}.
+ \end{split}
+\]
+The actual signed compensation is applied before this bound.
+Also \(|\alpha|\leq100(1+r)^2p_0^2/N\).
+For \(t>0\), \(\epsilon\in[0,1]\),
+\(|2\log t-\alpha|\leq\epsilon\) and
+\(|\alpha|+\epsilon\leq1\) imply
+\[
+ |t^2-(1+\alpha)|\leq2\alpha^2+3\epsilon .
+\]
+This last estimate controls only the exponential remainder.
+The signed \(\alpha\) is retained in the subsequent occupancy sum.
 
 \begin{remark}[Independent check against every cofactor recursion]
 Let \(W(I,J)=r(r-1)/(2N)+u^\top\Gamma u/2+v^\top u\)
