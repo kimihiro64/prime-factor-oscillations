@@ -36,17 +36,36 @@ Every such factor \(H\) satisfies the finite operator bound
 \end{lemma}
 \begin{proof}
 Write the parts as \(A,B\).
-The integral maximum-flow criterion for an \(r\)-factor is
+The finite matching criterion for an \(r\)-factor is
 \[
  e_G(S,B\setminus T)\geq r(|S|-|T|)
  \quad(S\subseteq A,\ T\subseteq B).                         \tag{24}
 \]
-Indeed use capacities \(r\) from the source to each vertex of \(A\),
-capacity 1 on each graph edge, and capacities \(r\) from \(B\) to
-the sink. The cut determined by \(S,T\) has capacity
-\(r(m-|S|)+e_G(S,B\setminus T)+r|T|\).
-Condition (24) makes every cut at least \(rm\); an integral flow of
-that value is precisely the required factor.
+Here is a capacity-one construction proving sufficiency, including
+\(r=0\). Form a bipartite matching gadget with left vertices
+\(A\times\{1,\ldots,r\}\) and one \(L_e\) for each edge, and right
+vertices \(B\times\{1,\ldots,r\}\) and one \(R_e\) for each edge.
+Join an \(A\)-slot to \(R_e\) when \(e\) starts at that vertex,
+join \(L_e\) to every slot of its \(B\)-endpoint, and join
+\(L_e\) to \(R_e\).
+
+For an arbitrary left set, let \(K\) be its slots, \(F\) its edge
+vertices, \(S\) the vertices touched by \(K\), and \(T\) the
+\(B\)-endpoints of \(F\). Its neighborhood contains all \(r|T|\)
+slots over \(T\), all \(R_e\) with \(e\in F\), and all \(R_e\)
+with \(e\in E(S,B\setminus T)\). These last two edge sets are
+disjoint. Thus (24) gives
+\[
+ |N(K\cup F)|\geq r|T|+|F|+e_G(S,B\setminus T)
+               \geq r|S|+|F|\geq |K|+|F|.
+\]
+Finite Hall matching applies. Both gadget parts have size
+\(rm+|E(G)|\), so the matching is perfect. An edge \(e\) is
+either matched internally \(L_eR_e\), or its two vertices are
+matched to an \(A\)-slot and a \(B\)-slot. Select the latter
+edges. Each slot is matched once and each edge has only one
+private pair, so the selected graph is simple and has degree
+exactly \(r\) at every vertex.
 
 Only \(x=|S|-|T|>0\) matters.
 By exchanging the two sides and replacing \((S,T)\) with
@@ -80,6 +99,23 @@ Finally \(A_G-A_H\) is a symmetric nonnegative matrix with
 maximum row sum at most the right side of (23).
 Its operator norm obeys the same bound.
 \end{proof}
+
+The complete finite lemma is formalized, with the actual edge set
+and adjacency matrix. \texttt{HamiltonianFiniteHall} provides
+the finite matching proof without rebuilding a dependency cache.
+\texttt{HamiltonianRegularFactorHall} retains the complete slot
+and private-edge gadget; \texttt{HamiltonianRegularFactorMatching}
+extracts the simple factor and proves both exact degree equalities.
+\texttt{HamiltonianFactorIncidence} proves the signed crossing
+balance and its complementary degree bound.
+\texttt{HamiltonianRegularFactorCriterion} combines these with
+the same full cut and proves (22).
+\texttt{HamiltonianRegularFactorOperator} proves the exact
+adjacency row counts and (23), and assembles both conclusions
+for the same factor. All thirty-four declarations in these six
+owners pass the focused foundational-axiom audit. The actual
+near-optimal prime-factor consumer below remains a separate
+formalization obligation.
 
 Let \(B_N\) denote the ordinary adjacency matrix of \(G_N\)
 and put \(D_N^*=N/\log N\).
