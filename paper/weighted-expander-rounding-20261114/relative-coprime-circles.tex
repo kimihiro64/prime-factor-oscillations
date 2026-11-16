@@ -130,7 +130,7 @@ distinct prime factors or prime-power exponents.
 All fourteen new declarations pass the focused foundational
 audit. The explicit uniform tail and absolute bounds are
 compiled as recorded below. The final odd Stirling normalization
-is also compiled below; the even-modulus count remains unfinished.
+and the complete even-modulus count are compiled below.
 
 \paragraph{Maintained final odd Stirling normalization.}
 \texttt{HamiltonianCoprimeStirlingCount} proves the exact identity
@@ -157,7 +157,8 @@ including their product. Consequently one absolute
 The displayed reference is positive. All five new declarations
 pass their focused foundational audit.
 This closes the full odd branch of
-Theorem~\ref{thm:relativecoprime}; its even branch remains unfinished.
+Theorem~\ref{thm:relativecoprime}; the completed even branch and
+joint theorem are recorded below.
 
 \paragraph{Maintained native even physical half-gap.}
 \texttt{HamiltonianCoprimeEvenGap} proves, for every positive
@@ -180,9 +181,8 @@ The lossless Fourier transfer therefore proves
 \]
 on the actual native residue vertices.
 All seven new declarations pass their focused foundational audit.
-The centered cross block and native single-cycle transfer
-are also compiled as follows; the actual even arithmetic
-count remains a separate obligation.
+The centered cross block, native single-cycle transfer and
+actual even arithmetic count are also compiled as follows.
 
 \paragraph{Maintained actual even cross-block and cycle transfer.}
 \texttt{HamiltonianCycleTransport} conjugates every permutation
@@ -209,8 +209,44 @@ The native directed single-cycle sum equals the one on the
 displayed bipartite lift exactly.
 All twenty new declarations pass their focused foundational
 audit. The actual even spectral and stochastic inputs are
-therefore discharged; application of the complete bipartite
-count and restoration of arithmetic graph weights remain.
+therefore discharged and consumed by the completed arithmetic
+count below.
+
+\paragraph{Maintained complete all-modulus relative enumeration.}
+\texttt{HamiltonianCoprimeEvenCount} uses the actual cross block
+with \(\rho=1/2\) and \(A_m=2m/\varphi(2m)\).
+The already proved uniform totient estimate puts \(A_m\)
+inside the full bipartite counting theorem's sublogarithmic
+range. It proves, uniformly for all sufficiently large \(m\),
+\[
+ \left|\frac{h(X_{2m})}{\pi(\varphi(2m)/e)^{2m}}-1\right|
+                                      \leq2m^{-1/2}.
+\]
+The common edge weight and free reversal factor are restored
+exactly, rather than supplied as hypotheses.
+
+\texttt{HamiltonianCoprimeRelativeCount} then gives one
+absolute \(N_0\geq512\) such that for every \(n\geq N_0\),
+\[
+ D_n=
+ \begin{cases}
+ \pi(\varphi(n)/e)^n,&n\ {\rm even},\\
+ \mathfrak C(n)\sqrt{\pi/(2n)}(\varphi(n)/e)^n,
+                                      &n\ {\rm odd}
+ \end{cases}
+ \quad\hbox{satisfies}\quad
+ D_n>0,\qquad
+ \left|\frac{h(X_n)}{D_n}-1\right|\leq23n^{-1/10}.
+\]
+The even branch separately has the sharper common-rate
+constant \(4\). The numerator is the actual unoriented arithmetic graph
+count, over every modulus with no prime-factor restriction.
+All nine new declarations pass their focused foundational
+audit. This closes every clause of
+Theorem~\ref{thm:relativecoprime}, including its displayed
+factorial odd normalization.
+The path and general cycle-entropy statements are distinct
+remaining headline obligations.
 
 \paragraph{Maintained exact arithmetic determinant.}
 \texttt{HamiltonianFourierDeterminant} proves that the determinant
@@ -237,8 +273,8 @@ identification with the displayed \(\mathfrak C(n)\) and the
 actual odd unoriented factorial count are now compiled as
 recorded above. The prime-product series and its explicit
 uniform tail and absolute bounds are compiled as recorded
-below. The final odd Stirling normalization is compiled below;
-the even count remains a separate obligation.
+below. Both final parity-dependent count normalizations are
+also compiled, as recorded above.
 
 
 
@@ -353,8 +389,8 @@ is the actual limiting constant, and
 \(e\leq\mathfrak C_\infty\leq e^{11/9}\).
 All eighteen new declarations pass their focused foundational
 audit. This closes Proposition~\ref{prop:coprimeconstant}.
-The final odd Stirling normalization is also compiled below.
-The even-modulus count remains a separate obligation.
+Both final parity-dependent count normalizations are also
+compiled, as recorded above.
 
 
 For odd \(n\geq3\), define the positive arithmetic factor
