@@ -236,9 +236,43 @@ The maintained owners are
 \texttt{HamiltonianJointObservableLift} and
 \texttt{HamiltonianBipartiteRoundingStep}.
 These are classical supporting constructions.
-The full history-dependent construction on repaired unused support,
-the logarithmic moment choice, accumulated repair drift and final
-simple regular graph conclusion still require formalization.
+The exact repair-and-freshness step is now also proved in Lean.
+Suppose the current cross adjacency matrix \(H\) has entries zero
+or one, every row and column sums to \(i\), and it is supported
+on the original \(P\).
+Define the actual deleted mass entrywise by
+\[
+ Q_{ab}=P_{ab}H_{ab}.
+\]
+If \(0\leq P_{ab}\leq\alpha\), then
+\[
+ 0\leq Q\leq P,\qquad
+ \sum_b Q_{ab}\leq i\alpha,\qquad
+ \sum_a Q_{ab}\leq i\alpha.
+\]
+These are exact mask bounds, with no independence or disjoint
+pairing assumption.
+Under \(i\alpha L^2\leq c_\delta\), apply the full repair theorem
+to the original \(P\), yielding a stochastic \(W\) with
+\[
+ W_{ab}=0\ \Longleftrightarrow\
+ (P-Q)_{ab}=P_{ab}(1-H_{ab})=0,\qquad
+ \|{\cal L}(W-P)\|\leq C_\delta^{\rm obs}i\alpha L.
+\]
+Select the actual joint signed matching using \(W\).
+Its positive support forces \(H_{a,f(a)}=0\) and
+\(P_{a,f(a)}>0\).
+Thus \(H+M_f\) is still binary, is supported on \(P\), and
+has every row and column sum exactly \(i+1\).
+The same witness supplies all stochastic, support, drift and
+joint-moment direction properties.
+Every repair uses the original kernel and its original gap;
+the argument does not repeatedly halve the gap of successive repairs.
+The maintained owners are \texttt{HamiltonianUsedEdgeMass} and
+\texttt{HamiltonianUsedEdgeJointStep}.
+The full finite-prefix induction, logarithmic moment choice,
+accumulated drift and final simple regular graph assembly still
+require formalization.
 
 \begin{proof}[Proof of Theorem~\ref{thm:rounding}]
 Let \(F_i\) be the union of the first \(i\) chosen matchings,
