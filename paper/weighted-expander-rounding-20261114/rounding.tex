@@ -186,9 +186,59 @@ This is the actual operator norm, with the dimension occurring only
 as \(n^{2/p}\).
 The path theorem explicitly requires the signed direction condition
 at every step; no conditional concentration hypothesis is used.
-The supported graph construction producing that path, its simultaneous
-spectral and two-observable lift, the logarithmic moment choice and
-the final rounding conclusion still require formalization.
+The actual local matching step for the joint packet is now also
+proved in Lean.
+For a cross matrix \(C\), let
+\[
+ B(C)=\begin{pmatrix}0&C\\C^\top&0\end{pmatrix},\qquad
+ {\cal L}(C)=\operatorname{diag}
+ \bigl(B(C),\diag(B(C)\one_{S_1}),\diag(B(C)\one_{S_2})\bigr).
+\]
+Here \(S_1,S_2\) are arbitrary subsets of the full bipartite vertex set.
+The packet has order \(n=3N=6m\) for an \(m\)-by-\(m\) cross matrix.
+Its first block is exactly \(B(C)\), and its other two block
+diagonals are exactly the requested row observables.
+The map \({\cal L}\) is real linear and has Hermitian values.
+If \(P\) is nonnegative and doubly stochastic, every row of \(B(P)\)
+has absolute mass one.
+Each observable diagonal entry is bounded in modulus by that same
+row mass.
+The established symmetric row-budget theorem therefore gives
+\[
+ \|{\cal L}(P)\|\leq1.
+\]
+The same proof controls the lift by any uniform absolute row-mass
+budget; it uses the full repaired-kernel subset estimate.
+
+For any current Hermitian packet \(Z\), the complete trace
+functional
+\(\phi(C)=\operatorname{tr}(Z^{p-1}{\cal L}(C))\)
+is linear.
+With \(E_{ij}\) the single-entry matrix units, its exact finite
+coordinate representation is
+\[
+ \phi(C)=\sum_{i,j}\phi(E_{ij})C_{ij}.
+\]
+Thus the already proved arbitrary signed-cost matching selector
+produces a supported permutation matrix \(M\) with
+\[
+ X={\cal L}(M-P),\qquad
+ X=X^\top,\qquad \|X\|\leq2,\qquad
+ \operatorname{tr}(Z^{p-1}X)\leq0.
+\]
+The norm bound uses linearity and the two actual stochastic-kernel
+bounds \(\|{\cal L}(M)\|,\|{\cal L}(P)\|\leq1\).
+Every hypothesis needed by the finite moment path theorem has
+therefore been discharged for this actual local supported matching
+step, for the same unrestricted \(S_1,S_2\).
+The maintained owners are
+\texttt{HamiltonianLinearMatchingDirection},
+\texttt{HamiltonianJointObservableLift} and
+\texttt{HamiltonianBipartiteRoundingStep}.
+These are classical supporting constructions.
+The full history-dependent construction on repaired unused support,
+the logarithmic moment choice, accumulated repair drift and final
+simple regular graph conclusion still require formalization.
 
 \begin{proof}[Proof of Theorem~\ref{thm:rounding}]
 Let \(F_i\) be the union of the first \(i\) chosen matchings,
