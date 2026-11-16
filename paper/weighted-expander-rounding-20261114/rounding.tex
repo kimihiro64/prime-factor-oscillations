@@ -48,9 +48,9 @@ The maintained owners are \texttt{HamiltonianStochasticMatching},
 \texttt{HamiltonianStochasticPeeling} and
 \texttt{HamiltonianMatchingCostSelection}.
 This is the established finite assignment principle; no originality
-is claimed for it.  The full one-step matrix-moment estimate and finite adaptive
-construction are proved below; the final normalized spectral and
-observable readouts remain unformalized.
+is claimed for it.  The full one-step matrix-moment estimate, finite adaptive
+construction and same-graph normalized spectral and observable
+readouts are now proved in Lean, as detailed below.
 
 \paragraph{Formal trace-power estimate for deterministic selection.}
 The next analytic input is now also proved in Lean, uniformly in the
@@ -314,74 +314,85 @@ The owners are \texttt{HamiltonianRoundingPrefix},
 \texttt{HamiltonianRoundingConstruction}.
 The full actual finite construction is proved, rather than assumed
 as a favorable matrix path.
-The explicit logarithmic moment choice and final normalized
-spectral, observable and graph readouts still require formalization.
+The logarithmic moment choice and the final same-graph readouts are
+now also proved in Lean.
+Put \(n=6m\) and choose the even integer
+\[
+ p=2\lceil2\log n\rceil.
+\]
+For \(m\geq1\), the scalar proof gives
+\[
+ p\geq2,\qquad p-1\leq5\log n,\qquad
+ n^{2/p}\leq2,\qquad
+ 1\leq L=\log(4m),\quad \log n\leq2L.
+\]
+Consequently, for every integer \(d\geq1\),
+\[
+ 1+8(p-1)d\,n^{2/p}\leq256dL.
+\]
+The initial unit is included: \(dL\geq1\) absorbs it in this
+explicit bound.
+For the actual matrix constructed at this chosen \(p\), division
+by the proved positive \(d\) yields
+\[
+ \boxed{\quad
+ \|{\cal L}(H/d-P)\|
+ \leq16\sqrt{L/d}+C_\delta^{\rm obs}d\alpha L.
+ \quad}
+\]
+The normalization uses the exact identity
+\(H/d-P=(H-dP)/d\), with its nonzero denominator checked.
+Compression onto the first block controls the full spectral norm.
+The other two diagonal blocks control the signed row sums for the
+same unrestricted subsets \(S_1,S_2\), on this same matrix.
+
+Finally set \(E=\{(a,b):H_{ab}=1\}\).
+The binary-entry proof identifies its genuine adjacency matrix
+with \(B(H)\); the row and column sum identities give exactly
+\(d\) distinct incident edges at each vertex.
+Every edge lies in the positive support of the original \(P\).
+For every finite vertex subset \(S\), the adjacency sum is exactly
+\(\deg_E(v,S)\), proved by a finite indicator count.
+Thus both observables are actual neighbor counts of one simple
+regular bipartite graph, not separate matrix witnesses.
+The additional maintained owners are
+\texttt{HamiltonianLogMomentChoice},
+\texttt{HamiltonianLogarithmicRounding},
+\texttt{HamiltonianNormalizedRounding},
+\texttt{HamiltonianRoundingReadout} and
+\texttt{HamiltonianRoundedEdgeSet}.
+The last owner also proves positivity of the dimension-independent
+constants
+\[
+ c_\delta=c_\delta^{\rm repair},\qquad
+ C_\delta=\max\{16,C_\delta^{\rm obs}\},
+\]
+and the complete advertised bound (1), simultaneously with both
+neighbor-count conclusions.
+In fact the displayed stronger estimate does not require the
+additional \(L/d\) term in (1).
 
 \begin{proof}[Proof of Theorem~\ref{thm:rounding}]
-Let \(F_i\) be the union of the first \(i\) chosen matchings,
-with \(F_0\) empty.
-Each vertex has exactly \(i\) forbidden edges.
-The removed mass in the original kernel is therefore at most
+Apply the complete deterministic joint construction above, with any
+two specified subsets (or with both empty for the spectral assertion).
+The full signed prefix identity and every repair are taken relative
+to the original kernel and its original gap.
+At the even moment \(p=2\lceil2\log(6m)\rceil\), the explicit
+scalar estimate and positive-degree normalization give
 \[
- \eta_i=\max_v\sum_{w:vw\in F_i}P_{vw}\leq i\alpha.
- \tag{10}
+ \left\|\frac{A_H}{d}-P\right\|
+ \leq16\sqrt{L/d}+C_\delta^{\rm obs}d\alpha L.
 \]
-Use Corollary~\ref{cor:forbiddenrepair} on \(P\) with these
-forbidden edges, giving a stochastic \(P_i\) on the unused
-support and
-\[
- \|P_i-P\|\leq C_\delta i\alpha L.
- \tag{11}
-\]
-The condition \(d\alpha L^2\leq c_\delta\) makes this step
-valid at every \(i<d\).
-Conditioned on all preceding choices, sample a perfect matching
-\(M_{i+1}\) with expectation \(P_i\).
-The used edges have zero weight, so these matchings are
-pairwise edge-disjoint.
-Their sum is the adjacency matrix \(A_H\) of a simple
-\(d\)-regular spanning bipartite graph.
-
-Retain the complete adaptive drift:
-\[
- A_H-dP
- =\underbrace{\sum_{i=0}^{d-1}(M_{i+1}-P_i)}_{Z_d}
-  +\underbrace{\sum_{i=0}^{d-1}(P_i-P)}_{\text{repair drift}}.
- \tag{12}
-\]
-This is not a sum of independent matchings from \(P\).
-The second term is bounded by
-\[
- \left\|\sum_{i=0}^{d-1}(P_i-P)\right\|
-       \leq C_\delta\alpha L\sum_{i=0}^{d-1}i
-       \leq C_\delta d^2\alpha L.                           \tag{13}
-\]
-
-The first term is a self-adjoint matrix martingale.
-Its difference \(X_{i+1}=M_{i+1}-P_i\) has conditional mean
-zero and norm at most 2.
-Since each perfect-matching matrix squares to \(I\),
-its predictable second moment is exactly
-\[
- \E_i X_{i+1}^2
- =I-P_i^2\preceq I.                                         \tag{14}
-\]
-Thus the predictable quadratic variation is at most \(dI\).
-Matrix Freedman~\cite[Theorem 1.2]{Tropp}, applied to both signs,
-gives
-\[
- {\mathbb P}\{\|Z_d\|\geq u\}
- \leq2N\exp\left\{-\frac{u^2}{2(d+2u/3)}\right\}.
- \tag{15}
-\]
-Taking \(u=C(\sqrt{dL}+L)\), with an absolute sufficiently
-large \(C\), gives positive probability that
-\[
- \|Z_d\|\leq C(\sqrt{dL}+L).
-\]
-Together with (13), and division by \(d\), this is (1).
-The constant and parity vectors are annihilated by every
-difference in (12), so no exceptional mode is lost.
+The binary support and exact degree identities give a simple
+\(d\)-regular spanning graph.
+Take \(c_\delta=c_\delta^{\rm repair}>0\) and
+\(C_\delta=\max\{16,C_\delta^{\rm obs}\}>0\).
+Both positive terms are bounded by their corresponding terms
+with coefficient \(C_\delta\); adding the nonnegative \(C_\delta L/d\)
+gives (1).
+All constants depend only on \(\delta\).
+This proof is the maintained Lean proof; it requires no probabilistic
+concentration input.
 \end{proof}
 
 \begin{lemma}[Rounding preserves two specified row observables]
@@ -398,39 +409,17 @@ and, simultaneously,
 There is no size restriction on these subsets.
 \end{lemma}
 \begin{proof}
-Use exactly the adaptive construction proving the theorem.
-For its repaired kernel \(P_i\), write
-\(Q_i=P\one_{\text{unused}}\) entrywise and
-\(P_i=\diag(u_i)Q_i\diag(u_i)\).
-The scaling proof gives
-\(\|u_i-\one\|_\infty\leq C_\delta i\alpha L\).
-Thus, with all removed mass retained,
+Use the same joint construction with these \(S_1,S_2\).
+The corresponding observable blocks have diagonal entries
 \[
- \max_v\sum_w|(P_i-P)_{vw}|
- \leq i\alpha+
-       \max_{v,w}|u_i(v)u_i(w)-1|\sum_w(Q_i)_{vw}
- \leq C_\delta i\alpha L.
+ \frac{\deg_H(v,S_j)}d-(P\one_{S_j})(v),\qquad j=1,2.
 \]
-For fixed \(v,S\), the indicator that matching \(i+1\)
-takes \(v\) into \(S\) has conditional mean
-\((P_i\one_S)(v)\).
-After subtracting that mean its increments have modulus at
-most 1 and predictable variance sum at most \(d\).
-Scalar Freedman and a union bound over the at most \(2N\)
-observables give, with probability at least \(3/4\),
-a simultaneous centered error
-\(O(\sqrt{dL}+L)\).
-The full predictable drift from \(P_i\) to \(P\) is at most
-\[
- C_\delta\sum_{i<d}i\alpha L\leq C_\delta d^2\alpha L
-\]
-for every observable.
-The matrix concentration event in (15) can also be chosen
-with probability at least \(3/4\), by increasing its
-absolute constant.
-The two events intersect with positive probability.
-Divide by \(d\), using the same support, simplicity and
-exact degree properties as before.
+The modulus of each entry is at most the norm of the complete
+joint packet.
+The explicit normalized bound and the same
+\(C_\delta=\max\{16,C_\delta^{\rm obs}\}\) prove the assertion.
+The finite edge-set dictionary and both counts use the very same
+supported graph as the spectral estimate.
 \end{proof}
 
 \paragraph{Formalization status.}
@@ -460,8 +449,12 @@ Summing over any subset gives the stated predictable observable drift
 with no restriction on its size.  The maintained owners are
 \texttt{HamiltonianScaledCrossMass} and
 \texttt{HamiltonianForbiddenObservableDrift}.
-The logarithmic moment choice and final normalized graph readouts still
-await formalization.
+The logarithmic moment choice, full normalization, simple edge-set
+construction, spectral readout and both actual neighbor-count readouts
+are now all formalized in the five owners listed above.
+Theorem~\ref{thm:rounding} and Lemma~\ref{lem:observablerounding}
+have complete maintained Lean proofs.
+Other headline claims of the paper remain under formalization.
 
 
 \begin{proof}[Proof of Corollary~\ref{cor:weightedhamilton}]
@@ -502,7 +495,7 @@ input. It preserves the spectrum, exact degrees, and simplicity
 simultaneously. The Hamiltonicity conclusion then uses the
 independent recent theorem (2).
 The constants \(c_\delta,C_\delta\) are controlled by the
-scaling contraction and matrix concentration; their numerical
+scaling contraction and the deterministic matrix-moment budget; their numerical
 values have not been optimized.
 The starting order in the Hamiltonicity corollary is
 asymptotic and has not been computed.
