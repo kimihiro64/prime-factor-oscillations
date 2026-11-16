@@ -132,8 +132,40 @@ edges it contains. No independence of edge events is assumed.
 Positive \(Z_{\rm hit}\) yields an actual one-orbit permutation
 of positive weight containing a marked edge.
 All nine declarations passed their focused foundational-axiom audit.
-Applying this estimate to usable closing edges still requires the
-arithmetic marked-mass bound and the actual cycle-to-path count transfer.
+The arithmetic marked-mass bound for coprime kernels is now compiled
+in \texttt{HamiltonianCoprimeMarkedMass}, including both endpoint
+losses and their positive intersection correction.
+
+\paragraph{Verified injective weighted cutting.}
+The maintained module \texttt{HamiltonianMarkedPathTransfer} gives
+a general cycle-to-path count transfer. Label the endpoints \(0,1\),
+let \(Q\) be the actual principal matrix on the other \(m\) vertices,
+and let \(E\) be any set of marked entries of \(Q\).
+For every real \(\kappa\), if \(M\) is nonnegative and
+\[
+ \kappa M_{ij}\leq M_{i1}M_{0j}
+       \qquad\text{for each marked interior entry }(i,j),
+\]
+then the compiled comparison is
+\[
+ \kappa Z_{\rm marked}(Q,E)\leq Z_{\rm path}(M;0,1).
+\]
+Choose one usable edge of each marked source cycle.
+Insert the terminal endpoint at that cut and then insert the
+initial endpoint through the artificial closing edge.
+Both nonzero insertions preserve the full single orbit.
+Applying the exact permutation decomposition recovers the source
+cycle, proving injectivity even when the chosen edge depends on it.
+All uncut edge weights remain unchanged; the displayed local
+inequality accounts for the replaced edge.
+All nine new declarations passed their focused foundational-axiom audit.
+In the uniform coprime case, the local condition holds with
+\(\kappa=1/\varphi(n)\): both new endpoint entries equal
+\(1/\varphi(n)\), and every removed entry is at most that value.
+This specialization is a mathematical consequence of the compiled
+comparison and entry formulas; its native endpoint relabeling and
+the independent repaired base-cycle lower count still need assembly.
+The full spanning-path entropy theorem remains a separate obligation.
 
 
 
