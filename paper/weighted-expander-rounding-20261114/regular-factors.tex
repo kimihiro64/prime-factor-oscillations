@@ -609,11 +609,55 @@ arguments are maintained in
 All twenty-seven core declarations in these five owners
 pass focused foundational-axiom checks.
 
-Transfer of the bounded real factors to the normalized
-simple prime family, and the successive edge-disjoint
-cycle construction, remain to be formalized.
-Neither the finite-mode arithmetic input nor (31a) alone
-is a completed packing certificate.
+\paragraph{Formalized bounded real factors on the actual prime support.}
+The complex-to-real and simple-prime transfers are now proved.
+For every complex matrix \(M\), entrywise real part satisfies
+\(\|\Re M\|_{\mathbb R}\leq\|M\|_{\mathbb C}\).
+The proof embeds a real vector isometrically, applies the
+complex operator, and projects to real part contractively.
+For a rectangular complex factorization the exact identity is
+\[
+ \Re(AB)=[\Re A,\ -\Im A]
+                 \begin{bmatrix}\Re B\\ \Im B\end{bmatrix}.
+\]
+The imaginary cross contribution is retained with its sign.
+
+Balance both rational Fourier factors by \(s_n=1/\sqrt n\).
+Every character has modulus one, and every retained or inactive
+coefficient has modulus at most one. Thus both complex factors
+have entries of modulus at most \(s_n\).
+The real factors use \(d=2|{\cal U}_H|\) coordinates.
+For any \(n\)-by-\(d\) rectangular matrix with entries bounded
+by \(s_n\), its Gram matrix has entries bounded by
+\(ns_n^2=1\), so its operator norm is at most \(d+1\).
+Applying this also to the transposed right factor gives
+uniform bounds for both real factors, independent of \(n,R\).
+
+Let \(\widehat F_{n,R,K}=\Re F_{n,R,K}\), and let \(U_n\)
+denote the actual constant-edge simple prime matrix.
+For every \(\eta>0\), the proved transfer supplies a single
+positive \(K\) and terminal threshold such that, for every
+later \(n\) and every admissible grid \(R\),
+\[
+ \|U_n-\widehat F_{n,R,K}\|\leq\eta,\qquad
+ \widehat F_{n,R,K}=A_nB_n,\qquad
+ \|A_n\|,\|B_n\|\leq d+1,\qquad d=2|{\cal U}_{27K^4}|.
+\]
+The proof separately charges the complete logarithmic-weight
+replacement, proper-prime-power and loop removal, and
+finite-mode approximation errors, each by \(\eta/3\).
+No support mask or signed Fourier coefficient is dropped.
+The maintained owners are
+\texttt{HamiltonianRealFiniteFactors},
+\texttt{HamiltonianBalancedRationalFactors} and
+\texttt{HamiltonianPrimeRealFiniteModes}; all twenty-four
+core declarations pass focused foundational-axiom checks.
+
+Restriction to the odd/even cross block, transfer to the
+normalized regular-factor family after arbitrary cycle
+deletions, and the successive edge-disjoint construction
+remain to be formalized. The completed finite-mode and
+counting inputs do not yet constitute a packing certificate.
 
 \begin{theorem}[Explicit positive local resilience]
 \label{thm:resilience}
