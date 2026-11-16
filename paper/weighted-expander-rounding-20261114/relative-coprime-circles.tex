@@ -128,9 +128,9 @@ This is the displayed factorial normalization of the actual
 unoriented arithmetic graph, with no restriction on its
 distinct prime factors or prime-power exponents.
 All fourteen new declarations pass the focused foundational
-audit. Uniform convergence and uniform bounds for the series,
-final Stirling normalization and the even-modulus count remain
-formalization obligations.
+audit. The explicit uniform tail and absolute bounds are
+compiled as recorded below. Final Stirling normalization and
+the even-modulus count remain formalization obligations.
 
 \paragraph{Maintained exact arithmetic determinant.}
 \texttt{HamiltonianFourierDeterminant} proves that the determinant
@@ -155,9 +155,10 @@ audit. Thus both determinants in the symmetric quotient are
 explicit finite arithmetic products. The positive square-root
 identification with the displayed \(\mathfrak C(n)\) and the
 actual odd unoriented factorial count are now compiled as
-recorded above. The prime-product series is also compiled.
-Uniform series bounds, final Stirling normalization and the
-even count remain separate obligations.
+recorded above. The prime-product series and its explicit
+uniform tail and absolute bounds are compiled as recorded
+below. Final Stirling normalization and the even count remain
+separate obligations.
 
 
 
@@ -202,11 +203,43 @@ Together with \(Q_0(n)=1\), its compiled \(\operatorname{HasSum}\)
 statement is the full prime-product logarithmic series of
 Proposition~\ref{prop:coprimeconstant}.
 All eleven new declarations pass the focused foundational
-audit. The uniform geometric majorant, absolute constant
-bounds, direct distinct-prime and monotonicity statements,
-and primorial limit remain to be formalized.
-Convergence at each fixed modulus is distinguished from
-the still-pending uniform arithmetic estimate.
+audit. The uniform majorant and tail, absolute bounds and
+direct distinct-prime dependence are now compiled as follows.
+
+\paragraph{Maintained uniform tail and absolute constant bounds.}
+\texttt{HamiltonianCoprimeConstantBounds} proves that equal
+distinct prime-factor sets give equal constants, on the
+original domain of odd moduli greater than one.
+It bounds the full supported prime sum uniformly:
+\[
+ \sum_{p\mid n}(p-1)^{-2j}\leq2\cdot4^{-j}
+                       \qquad(j\geq1).
+\]
+The proof maps each odd prime to a positive integer and uses
+the finite telescoping reciprocal-square estimate.
+The product-deficit bound is applied after the exact signed
+Euler identity; it gives
+\[
+ 0\leq Q_j(n)\leq\tfrac23\,4^{-j}\qquad(j\geq1).
+\]
+\texttt{HamiltonianCoprimeConstantTail} consumes the complete
+actual logarithmic series and proves, simultaneously for
+every odd \(n>1\) and integer \(M\geq0\),
+\[
+ 0\leq\log\mathfrak C(n)-\sum_{j=0}^{M}Q_j(n)
+                         \leq\tfrac29\,4^{-M}.
+\]
+At \(M=0\), this gives the compiled bounds
+\[
+ 1\leq\log\mathfrak C(n)\leq11/9,\qquad
+ e\leq\mathfrak C(n)\leq e^{11/9}.
+\]
+Thus the displayed series converges uniformly over the full
+odd-modulus domain, with an explicit geometric remainder.
+All seventeen new declarations pass the focused foundational
+audit. The direct monotonicity statement and primorial limit
+remain to be formalized; the uniform estimate and distinct-prime
+dependence are complete.
 
 
 For odd \(n\geq3\), define the positive arithmetic factor
