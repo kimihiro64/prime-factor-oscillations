@@ -135,6 +135,37 @@ Divide by \(d\), using the same support, simplicity and
 exact degree properties as before.
 \end{proof}
 
+\paragraph{Formalization status.}
+The repaired stochastic witness now has a Lean proof of the complete
+row and column absolute-mass estimate, uniformly over every subset
+observable.  With \(L=\log(2N)\), its explicit constant is
+\[
+ C_\delta^{\mathrm{obs}}
+ =3C_\delta^{\mathrm{scale}}+\frac1{\log4}.
+\]
+Indeed, write \(T=P-Q\), \(r=C_\delta^{\mathrm{scale}}\eta L\)
+and \(W=\diag(1+z_L)T\diag(1+z_R)\), using the same scaling
+witness as in Corollary~\ref{cor:forbiddenrepair}.
+The smallness condition gives \(0\leq r\leq1\), and the exact
+entrywise difference is
+\[
+ W_{ij}-P_{ij}
+ =(z_L(i)+z_R(j)+z_L(i)z_R(j))T_{ij}-Q_{ij}.
+\]
+Consequently every row and every column has absolute mass at most
+\[
+ \eta+2r+r^2\leq\eta+3r
+ \leq C_\delta^{\mathrm{obs}}\eta L .
+\]
+This retains the deleted mass and the quadratic cross term.
+Summing over any subset gives the stated predictable observable drift
+with no restriction on its size.  The maintained owners are
+\texttt{HamiltonianScaledCrossMass} and
+\texttt{HamiltonianForbiddenObservableDrift}.
+The finite adaptive matching construction, matrix concentration and
+joint rounding conclusion still await formalization.
+
+
 \begin{proof}[Proof of Corollary~\ref{cor:weightedhamilton}]
 First suppose \(\alpha\leq N^{-a}\) and take
 \(d=\lfloor N^{a/2}\rfloor\).
