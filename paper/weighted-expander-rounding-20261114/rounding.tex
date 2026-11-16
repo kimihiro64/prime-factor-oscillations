@@ -48,8 +48,9 @@ The maintained owners are \texttt{HamiltonianStochasticMatching},
 \texttt{HamiltonianStochasticPeeling} and
 \texttt{HamiltonianMatchingCostSelection}.
 This is the established finite assignment principle; no originality
-is claimed for it.  The full one-step matrix-moment estimate is proved below; the
-assembled finite adaptive rounding theorem is still unformalized.
+is claimed for it.  The full one-step matrix-moment estimate and finite adaptive
+construction are proved below; the final normalized spectral and
+observable readouts remain unformalized.
 
 \paragraph{Formal trace-power estimate for deterministic selection.}
 The next analytic input is now also proved in Lean, uniformly in the
@@ -270,9 +271,51 @@ Every repair uses the original kernel and its original gap;
 the argument does not repeatedly halve the gap of successive repairs.
 The maintained owners are \texttt{HamiltonianUsedEdgeMass} and
 \texttt{HamiltonianUsedEdgeJointStep}.
-The full finite-prefix induction, logarithmic moment choice,
-accumulated drift and final simple regular graph assembly still
-require formalization.
+The complete finite-prefix induction and its quantitative error are
+now also proved in Lean.
+The maintained prefix records the actual binary supported \(H_i\),
+the whole centered matrix path, every Hermitian increment and signed
+direction, and a drift matrix satisfying
+\[
+ {\cal L}(H_i-iP)=Z_i+R_i,\qquad
+ \|R_i\|\leq C_\delta^{\rm obs}\alpha L\,i^2 .
+\]
+At extension, append \(X_i={\cal L}(M_{i+1}-W_i)\) and set
+\[
+ Z_{i+1}=Z_i+X_i,\qquad
+ R_{i+1}=R_i+{\cal L}(W_i-P).
+\]
+Every earlier path entry is retained.
+The exact linear matrix identity proves the new error identity.
+The full repair bound gives
+\[
+ \|R_{i+1}\|
+ \leq C_\delta^{\rm obs}\alpha L(i^2+i)
+ \leq C_\delta^{\rm obs}\alpha L(i+1)^2.
+\]
+The global smallness hypothesis implies each prefix repair's
+smallness hypothesis.
+Fix an even \(p\geq2\) before this construction.
+Induction starts with zero adjacency, centered path and drift.
+It constructs an actual final binary supported cross matrix
+\(H=H_p\), with every row and column sum \(d\).
+The witness may depend on the chosen moment order.
+Applying the compiled path moment estimate to this same \(H_p\)
+gives
+\[
+ \boxed{\quad
+ \|{\cal L}(H-dP)\|
+ \leq\sqrt{1+8(p-1)d(6m)^{2/p}}
+       +C_\delta^{\rm obs}\alpha Ld^2.
+ \quad}
+\]
+The owners are \texttt{HamiltonianRoundingPrefix},
+\texttt{HamiltonianRoundingPrefixExtension} and
+\texttt{HamiltonianRoundingConstruction}.
+The full actual finite construction is proved, rather than assumed
+as a favorable matrix path.
+The explicit logarithmic moment choice and final normalized
+spectral, observable and graph readouts still require formalization.
 
 \begin{proof}[Proof of Theorem~\ref{thm:rounding}]
 Let \(F_i\) be the union of the first \(i\) chosen matchings,
@@ -417,8 +460,8 @@ Summing over any subset gives the stated predictable observable drift
 with no restriction on its size.  The maintained owners are
 \texttt{HamiltonianScaledCrossMass} and
 \texttt{HamiltonianForbiddenObservableDrift}.
-The supported graph iteration and joint rounding conclusion still await
-formalization.
+The logarithmic moment choice and final normalized graph readouts still
+await formalization.
 
 
 \begin{proof}[Proof of Corollary~\ref{cor:weightedhamilton}]
