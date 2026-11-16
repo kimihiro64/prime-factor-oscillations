@@ -71,8 +71,27 @@ it never assumes that its rows retain sum one.
 This upper bound suffices for the upper half of the weighted path-entropy
 theorem, since \(\alpha\leq\alpha^{1/8}\) for \(0<\alpha\leq1\).
 All nine new declarations passed a focused foundational-axiom audit.
-The sharper Bregman error in Lemma~\ref{lem:pathminor} and the spanning-path
-lower bound remain separate formal obligations.
+The sharper row-cap error in Lemma~\ref{lem:pathminor} is now
+compiled in \texttt{HamiltonianDiffuseCyclePathUpper}.
+For every \(N\geq3\), \(0<\alpha\leq1\), and every endpoint pair,
+the actual same minor gives
+\[
+ Z_{\rm path}(P;a,b)\leq
+ \exp\!\left(-(N-1)+1+
+       (N-1)(2\alpha-\alpha\log\alpha)\right)
+ \leq\exp\!\left(-(N-1)+1+2(N-1)\sqrt{\alpha}\right).
+\]
+Its row sums are only required to be at most one; the removed
+column mass remains accounted for. Endpoint transport preserves
+all original weights and the artificial closing edge has weight one.
+Together with \(N\alpha\geq1\), this finite entropy rate gives the
+stated \(O(N\alpha\log(1/\alpha)+\log N)\) bound as \(\alpha\to0\).
+The corresponding actual cycle bound uses the full permanent and
+retains its original one-orbit restriction.
+These consumers are included in the sixteen newly audited
+declarations recorded at Lemma~\ref{lem:diffusepermanent}.
+This completes the upper-bound lemma. The general spanning-path
+lower bound remains a separate formal obligation.
 
 The maintained module \texttt{HamiltonianPathContraction} additionally
 proves a lower-bound consumer. Label the initial vertex \(0\), let

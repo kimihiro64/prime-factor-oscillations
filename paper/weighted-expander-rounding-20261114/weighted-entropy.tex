@@ -64,6 +64,55 @@ Now \(\alpha k=1+O(\alpha)\), and Stirling yields
 This argument does not require column sums.
 \end{proof}
 
+\paragraph{Verified finite diffuse permanent bound.}
+The maintained modules \texttt{HamiltonianRowCapPotential} and
+\texttt{HamiltonianDiffusePermanentBound} now prove the full upper
+bound with an explicit finite error. For every nonnegative
+row-substochastic matrix of order \(N\geq2\) and cap
+\(0<\alpha\leq1\), they give
+\[
+ \operatorname{per}P\leq
+ \exp\!\left(-N+1+N(2\alpha-\alpha\log\alpha)\right)
+ \leq\exp(-N+1+2N\sqrt{\alpha}).
+\]
+The second exponential bound includes \(\alpha=0\) as well;
+zero permanent is handled before taking logarithms.
+The full matching measure and every reveal order remain in the
+already compiled row-cap argument. Its exact scalar cost is
+\[
+ L_{N,\alpha}=\sum_{j=0}^{N-1}
+          \log\left(\alpha+\frac{j}{N-1}\right).
+\]
+For \(\Phi(x)=x\log x-x\), the inequality
+\(\log(x/y)\leq x/y-1\) gives
+\(h\log x\leq\Phi(x+h)-\Phi(x)\), for \(x>0,h\geq0\).
+The exact grid telescopes, yielding
+\[
+ L_{N,\alpha}\leq
+ (N-1)\bigl(\Phi(\alpha+1)-\Phi(\alpha)\bigr)+\log(\alpha+1)
+ \leq -N+1+N(2\alpha-\alpha\log\alpha).
+\]
+Applying the same elementary logarithmic inequality to
+\(1/\sqrt{\alpha}\) proves
+\(2\alpha-\alpha\log\alpha\leq2\sqrt{\alpha}\).
+For every \(\varepsilon>0\), the explicit conditions
+\[
+ \alpha\leq(\varepsilon/4)^2,\qquad
+ N\varepsilon\geq2,\qquad \alpha\leq1
+\]
+therefore give
+\(\operatorname{per}P\leq\exp(-(1-\varepsilon)N)\).
+The uniform eventual theorem is compiled for every nonnegative
+cap sequence tending to zero: its threshold works for every
+eligible row-substochastic matrix at each order.
+This proves the entire asymptotic statement of
+Lemma~\ref{lem:diffusepermanent}; no column hypothesis is used.
+The actual cycle and endpoint-path consumers are compiled in
+\texttt{HamiltonianDiffuseCyclePathUpper}. All sixteen new
+declarations in these three owners pass their focused
+foundational-axiom audit; earlier unchanged proofs retain their evidence.
+
+
 \begin{proof}[Proof of Theorem~\ref{thm:weightedentropy}]
 The upper bound follows from
 \(2Z_{\rm H}(P)\leq\operatorname{per}(P)\) and the quantitative
