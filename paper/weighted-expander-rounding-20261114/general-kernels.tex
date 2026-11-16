@@ -278,9 +278,10 @@ Its stronger explicit error is
 \]
 All eighteen new finite-count and conditional-tail declarations
 compile and pass their focused foundational-axiom audit.
-Weighted row concentration, the repaired balanced kernels and
-the full general weighted entropy count remain separate
-unfinished formal obligations.
+Weighted row concentration and the simultaneous row/operator event
+are now formalized below. The normalized balanced kernels, their
+scaling repair and the full general weighted entropy count remain
+separate unfinished formal obligations.
 
 \begin{lemma}[Scaling repair without a parity kernel]
 \label{lem:aperiodicrepair}
@@ -362,17 +363,46 @@ hence at most \(1-3\delta/4\) for sufficiently large \(N\).
 This bounds the second singular value of the cross block
 by the rank-one approximation inequality.
 
-Scalar concentration of each weighted row sum, with variance
-at most \(\alpha/4\), gives
+For a stochastic row \(w_j=P_{ij}\), keep every coordinate and put
+\(S_\epsilon=\sum_j\epsilon_jw_j\). The exact identity is
 \[
- \|Q\one-\one\|_\infty
-             \leq C(\sqrt{\alpha L}+\alpha L).
+ \sum_j Q_{ij}-1=-\epsilon_iS_\epsilon,\qquad
+ \left|\sum_j Q_{ij}-1\right|=|S_\epsilon|.
 \]
-Union bounds and the same polynomial conditioning costs give
-this simultaneously with the operator estimate.
-They also apply if \(P\) has nonzero diagonal entries:
-every cross row sum is an actual selected sum, and each
-diagonal contribution is at most \(\alpha\).
+It includes \(j=i\) and arbitrary diagonal entries of \(P\).
+The compiled scalar specialization of the full signed moment recurrence
+uses \(\sum_jw_j^2\leq\alpha\) and proves, for every \(k\geq1\),
+\[
+ \mathbb E S_\epsilon^{2k}\leq(2k-1)!!\,\alpha^k
+       \leq(2\alpha k)^k,\qquad
+ \Pr\{|S_\epsilon|>\sqrt{8\alpha k}\}\leq4^{-k}.
+\]
+Choosing \(k=\lceil(A+5)\log(2N)\rceil\) gives each row failure
+at most \(N^{-A-5}\). The full all-row union therefore has failure
+at most \(N^{-A-4}\), at threshold
+\[
+ t_{\rm row}=\sqrt{8(A+6)\alpha\log(2N)}.
+\]
+Combine this event with the actual covariance event at parameter
+\(A+1\), whose failure is also at most \(N^{-A-4}\).
+The exact union count is at most \(2N^{-A-4}\leq N^{-A-3}\);
+no independence between these events is assumed.
+Both previously compiled conditioning laws therefore give a
+joint failure proportion at most \(N^{-A}\), uniformly for
+\(N=2m\geq2\), \(A>0\), and every pair of distinct prescribed endpoints.
+On its complement, all actual row defects are at most \(t_{\rm row}\)
+and the same actual covariance has norm at most
+\[
+ t_{\rm cov}=\sqrt{2(A+6)\alpha\log(2N)}.
+\]
+If \(t_{\rm cov}\leq\delta/128\), the compiled deterministic
+consumer gives \(2\|E[D,D^c]\|\leq1-3\delta/4\) on that same cut.
+The seven maintained owners from \texttt{HamiltonianScalarSignMoments}
+through \texttt{HamiltonianJointCutTail} prove these statements;
+all thirty-seven new declarations compile and pass their focused
+foundational-axiom audit.
+The following degree normalization, scaling repair and general
+counting conclusions remain unfinished formal obligations.
 Normalizing the degrees changes the symmetric operator by
 \(O(\sqrt{\alpha L}+\alpha L)\).
 The normalized bipartite operator has its exact eigenvalues
