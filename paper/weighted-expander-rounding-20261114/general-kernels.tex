@@ -278,10 +278,10 @@ Its stronger explicit error is
 \]
 All eighteen new finite-count and conditional-tail declarations
 compile and pass their focused foundational-axiom audit.
-Weighted row concentration and the simultaneous row/operator event
-are now formalized below. The normalized balanced kernels, their
-scaling repair and the full general weighted entropy count remain
-separate unfinished formal obligations.
+Weighted row concentration, the simultaneous row/operator event,
+actual degree normalization, positive scaling repair and quantitative
+good-cut counts are now formalized below. The sequence-language
+packaging and full general weighted entropy count remain unfinished.
 
 \begin{lemma}[Scaling repair without a parity kernel]
 \label{lem:aperiodicrepair}
@@ -401,18 +401,69 @@ The seven maintained owners from \texttt{HamiltonianScalarSignMoments}
 through \texttt{HamiltonianJointCutTail} prove these statements;
 all thirty-seven new declarations compile and pass their focused
 foundational-axiom audit.
-The following degree normalization, scaling repair and general
-counting conclusions remain unfinished formal obligations.
-Normalizing the degrees changes the symmetric operator by
-\(O(\sqrt{\alpha L}+\alpha L)\).
-The normalized bipartite operator has its exact eigenvalues
-\(1,-1\), and the remaining spectrum stays a fixed distance
-from both; simplicity follows from the second-singular-value
-bound.
-Now \(\varepsilon L^2=O(\sqrt\alpha L^{5/2})=o(1)\).
-Apply Lemma~\ref{lem:scaling}.
-The multiplier, maximum-entry and gap conclusions follow,
-with constants uniform over the good cuts and endpoints.
+The actual coordinate transfer, normalized degree bound and
+positive stochastic repair are now compiled.
+The coordinate equivalences enumerate both original complementary
+supports, preserving every row and column sum. In these coordinates
+\(T=2P[X,Y]\) has centered norm at most \(1-3\delta/4\).
+The actual degree-normalized cross block, deflated by its actual
+weighted Perron mode, has norm at most
+\(1-3\delta/4+16\varepsilon\), where \(\varepsilon=t_{\rm row}\).
+
+One explicit finite allowance discharges every smallness condition.
+Let the positive maintained scaling constants be
+\[
+ S_\delta=\texttt{hamiltonianNormalizedScalingSmall}(\delta/2),\quad
+ K_\delta=\texttt{hamiltonianNormalizedScalingCost}(\delta/2),
+\]
+and define
+\[
+ \eta_\delta=\min\left\{\frac{\delta}{128},
+       \frac{S_\delta}{8},\frac{\delta}{16(K_\delta+1)}\right\},
+ \qquad c_{\delta,A}=\frac{\eta_\delta^2}{8(A+6)}>0 .
+\]
+For \(N\geq2\), \(0\leq\alpha\leq1\), \(A>0\), and
+\(0<\delta\leq1\), the single condition
+\(\alpha(\log(2N))^5\leq c_{\delta,A}\) gives, with \(a=N\alpha\),
+\[
+ t_{\rm cov}\leq\delta/128,\quad64\varepsilon\leq\delta,\quad
+ \varepsilon\leq\tfrac12,\quad
+ \varepsilon\log(4a)^2\leq S_\delta,\quad
+ K_\delta\varepsilon\log(4a)\leq\delta/4 .
+\]
+Here stochasticity itself gives \(a\geq1\); no upper sublogarithmic
+restriction on \(a\) is imposed.
+One positive witness \(u=\one+z\) on that same cut satisfies
+\[
+ \|z\|_\infty\leq K_\delta\varepsilon\log(4a),\qquad
+ \widetilde T=\diag(u_X)T\diag(u_Y),\qquad
+ \widetilde T\one=\widetilde T^\top\one=\one,
+\]
+\[
+ 0\leq\widetilde T_{ij}\leq4\alpha,\qquad
+ \widetilde T_{ij}=0\ \Longleftrightarrow\ T_{ij}=0,\qquad
+ \|\widetilde T-T\|\leq K_\delta\varepsilon\log(4a),\qquad
+ \|\widetilde T-J_{N/2}/(N/2)\|\leq1-\delta/2 .
+\]
+Thus the repair preserves the original support and its fixed gap.
+The exact finite counts of such good cuts are at least
+\[
+ (1-N^{-A})\binom N{N/2},\qquad
+ (1-N^{-A})\binom{N-2}{N/2-1}
+\]
+in the balanced and prescribed-distinct-endpoint domains.
+The five maintained owners from
+\texttt{HamiltonianBalancedCutCoordinates} through
+\texttt{HamiltonianBalancedCutRepair} prove these finite coordinate,
+centering-energy, normalization, scaling, allowance and count statements.
+All twenty-eight new declarations compile and pass their focused
+foundational-axiom audit.
+Since \(\log(4a)\leq2\log(2N)\) and
+\(\varepsilon L^2=O_A(\sqrt{\alpha L^5})=o(1)\), the finite
+criterion implies the lemma for sufficiently large \(N\), uniformly
+over good cuts and endpoints. The explicit Lean sequence-language
+packaging of this consequence remains; the full weighted entropy
+count is also unfinished.
 \end{proof}
 
 \begin{theorem}[Hamiltonian-weight universality at every order]
