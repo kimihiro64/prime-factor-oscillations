@@ -162,10 +162,58 @@ All nine new declarations passed their focused foundational-axiom audit.
 In the uniform coprime case, the local condition holds with
 \(\kappa=1/\varphi(n)\): both new endpoint entries equal
 \(1/\varphi(n)\), and every removed entry is at most that value.
-This specialization is a mathematical consequence of the compiled
-comparison and entry formulas. Its native endpoint relabeling and
-uniform arithmetic size thresholds still need formal assembly.
-The full spanning-path entropy theorem remains a separate obligation.
+The maintained module \texttt{HamiltonianEndpointPathTransfer}
+now transports this comparison to arbitrary distinct endpoints on
+an arbitrary finite support. The full equivalence sends \(0,1\)
+to the endpoints, and its tail is an equivalence onto their exact
+principal complement. Both the marked cycle mass and prescribed
+path mass are transported with their original weights.
+
+\paragraph{Verified native signed path consumer and uniform budgets.}
+The module \texttt{HamiltonianCoprimePathSigned} instantiates the
+closing condition with \(1/d\), \(d=\varphi(n)\), on the actual
+coprime endpoint-deleted support. Writing \(m=n-2\), \(A=n/d\),
+and \(Z_{\rm base}=Z_{\rm cycle}(P_n|_{V'\times V'})\), the mathematical
+form of its compiled native inequality, after simplifying the
+exponent, is
+\[
+ Z_{\rm path}(P_n;a,b)\geq
+ \frac1d\left[
+ Z_{\rm base}-
+ \exp\!\left(-m-\frac{d^2}{4n}+1+64A\log(2n)\right)\right].
+\]
+It holds for distinct compatible endpoints and \(d\geq4\).
+The positive base count and the entire avoidance allowance remain
+coupled. The overlap correction and every original edge weight
+have already been retained in the preceding inputs.
+
+The module \texttt{HamiltonianCoprimePathBudget} proves that for
+every \(\beta,\gamma>0\), one \(N_0\geq512\) covers all \(n\geq N_0\)
+with
+\[
+ \begin{gathered}
+ d\geq4,\qquad
+ 4A^2\leq\beta\log(n-2),\qquad
+ 2A\leq\gamma\log\!\left\lfloor\frac{n-2}{2}\right\rfloor,\\
+ \frac{16A^3}{n}\leq10^{-4},\\
+ 1+170A+64A\log(2n)+\log(8(n-2))
+          \leq\frac{n}{4A^2}.
+ \end{gathered}
+\]
+The proof uses the unconditional squared-sublogarithmic totient
+bound with
+\(\eta=\min(1,\beta/8,\gamma/4)>0\).
+For \(L=\log(2n)\), the already proved log-power domination gives
+\(160000L^3\leq n\) and \(1000L^4\leq n\) eventually;
+\(\log n\leq2\log\lfloor(n-2)/2\rfloor\) preserves the rank shift.
+These estimates discharge both repair-density ranges and the
+complete half-mass allowance, uniformly over all growing moduli.
+All nine new endpoint, native signed-consumer and scalar-budget
+declarations passed their combined focused foundational-axiom audit.
+The kernel-specific odd/even lower-count specializations and the
+final actual path-count normalization still require assembly.
+The full general wide-cap spanning-path entropy theorem remains
+a separate obligation.
 
 \paragraph{Verified independent retained-cycle supply.}
 The modules \texttt{HamiltonianCycleExponentialLower},

@@ -653,8 +653,32 @@ cross block give the ordinary consequence
        \frac{\exp(-(n-2)-160A)}{n-2}.
 \]
 Thus both branches supply a positive base count on the required scale.
-These are mathematical specializations of the compiled inputs;
-their native support and endpoint transports, uniform totient
-thresholds, final avoidance comparison and path-count normalization
-remain to be formally assembled before the complete endpoint path
-entropy is claimed.
+The general endpoint transport and its native coprime closing-weight
+specialization are now compiled in \texttt{HamiltonianEndpointPathTransfer}
+and \texttt{HamiltonianCoprimePathSigned}.
+On the exact endpoint-deleted support, the native full signed
+comparison retains
+\[
+ Z_{\rm path}(P_n;a,b)\geq\frac1d
+ \left[Z_{\rm base}-
+       \exp\!\left(-(n-2)-\frac{d^2}{4n}+1
+                         +64A\log(2n)\right)\right],
+\]
+the mathematical form of the compiled inequality after elementary
+exponent simplification.
+The module \texttt{HamiltonianCoprimePathBudget} also proves all the
+growing-modulus repair and density inequalities, and
+\[
+ 1+170A+64A\log(2n)+\log(8(n-2))\leq\frac n{4A^2},
+\]
+eventually for every modulus, with arbitrary prescribed positive
+density constants as detailed in Section~\ref{sec:pathentropy}.
+This is the full threshold needed to compare the avoidance allowance
+with half the unified positive lower count
+\(\exp(-(n-2)-170A)/(4(n-2))\).
+All nine new declarations passed their combined focused
+foundational-axiom audit.
+The two displayed ordinary lower-count specializations still need
+their native odd/even kernel-specific instantiation, followed by the
+actual graph-path normalization and entropy assembly.
+The complete endpoint path entropy is not yet claimed as formalized.
