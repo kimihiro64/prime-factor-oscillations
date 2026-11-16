@@ -163,8 +163,58 @@ hypothesis in Lemma~\ref{lem:diffusionscaling} remains a
 formalization corollary.
 The actual constant-edge prime transfer, uniform degrees and
 half-gap are now formalized in Section~\ref{sec:regularfactors}.
-The balanced cross-block identification and its use in the
-actual entropy/count consumer remain formalization obligations.
+\paragraph{Formalized actual prime-density count.}
+\texttt{HamiltonianMatrixGeometry} proves that a finite relabeling
+preserves the Euclidean operator norm and that the bipartite lift
+has exactly the norm of its cross block.
+\texttt{HamiltonianPrimeCrossBlock} identifies the actual block
+\[
+ T_{m,ij}=\frac{\log(2m)}{2m}
+     {\bf1}_{\{2i+2j+3\ {\rm prime}\}},
+ \qquad 0\leq i,j<m .
+\]
+Its rows and columns are exactly the corresponding full prime
+degrees. Its centered norm is exactly the full constant/parity
+operator error, without a dimension factor.
+
+\texttt{HamiltonianPrimeScalingWindow} proves the uniform
+smallness window at this density: for every \(B,t>0\), for all
+sufficiently large real \(L\), putting
+\(\varepsilon=B/\sqrt L\), \(a=L/2\), and \(\rho=2/3\) gives
+\[
+ 0<\varepsilon\leq1/100,\qquad
+ \varepsilon g(a+9\varepsilon,\rho)^2\leq t .
+\]
+The inverse budget is bounded by \(K\log L\) with the explicit
+positive constant
+\[
+ K=\frac{2(1+\log2)}{-\log(2/3)}+9.
+\]
+The already proved limit \((\log L)^2/\sqrt L\to0\)
+closes the condition on an entire terminal interval.
+
+\texttt{HamiltonianPrimeStochasticScaling} applies the full
+nonlinear repair to the original block. For every \(\eta>0\),
+for every sufficiently large \(m\), there is one positive scaling
+with \(\|z\|_\infty\leq\eta\) whose repaired block
+\(\widehat T\) is nonnegative, doubly stochastic, and has exactly
+the original prime support. The same witness satisfies
+\[
+ \widehat T_{ij}\leq\frac{(3/5)\log(2m)}m,\qquad
+ \|\widehat T-J_m/m\|\leq3/5 .
+\]
+Finally \texttt{HamiltonianPrimeRelativeCount} consumes these
+actual arithmetic inputs in the complete signed counting theorem:
+\[
+ \left|\left(\frac{m^m}{m!}\right)^2
+       m\,\operatorname{cyc}(\operatorname{bip}(\widehat T))-1\right|
+                       \leq m^{-3/5}.
+\]
+All thirty declarations in these five maintained owners pass the
+focused foundational-axiom audit.
+The exact entropy-maximizer identification, conversion from this
+weighted cycle sum to the unoriented graph count, and Stirling
+normalization remain formalization obligations.
 
 Let \(G_N\), for even \(N=2m\), have vertices \(1,\ldots,N\)
 and edges at distinct prime sums.
@@ -226,8 +276,13 @@ stochastic and has
  m\max T_{ij}\leq(1/2+o(1))\log N.
 \]
 Thus for sufficiently large \(m\) we may take
-\(\rho=3/5\), \(A=(3/5)\log m\)
-in Theorem~\ref{thm:criticalrelative}.
+\(\rho=3/5\), \(A=(3/5)\log(2m)\).
+Here
+\[
+ A-1\leq(3/5)\log m
+\]
+because \((3/5)\log2\leq1\), so the sharp amplification
+consumer of Theorem~\ref{thm:criticalrelative} applies.
 
 The numerical margin is checked explicitly:
 \[
