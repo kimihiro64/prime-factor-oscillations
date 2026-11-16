@@ -12,8 +12,9 @@ proper prime powers and diagonal entries.
 
 \begin{lemma}[Signed integer-input transfer]
 \label{lem:integertransfer}
-For every fixed \(B>0\), there is a fixed \(C>0\) such that,
-with \(Q=(\log N)^C\),
+For every fixed \(B>0\), put \(b=\lceil B\rceil\),
+\(\ell_N=1+\log(4N)\), \(C=2(b+6)\), and
+\(Q=\lfloor\ell_N^C\rfloor\). Then
 \[
  \left\|A_N-
     \left(\frac1N\sum_{q\leq Q}
@@ -24,7 +25,7 @@ Here \(c_q(t)=\sum_{a\bmod q,(a,q)=1}\e(at/q)\)
 is the Ramanujan sum. The complete signed main term is retained.
 \end{lemma}
 \begin{proof}
-Put \(M=4N+4\), and choose an auxiliary integer period \(R>M\)
+Put \(M=2N\), and choose an auxiliary integer period \(R>M\)
 divisible by \(M\) and every positive integer at most the integer
 cutoff \(Q\). Write \(\mathcal C_Q\) for all reduced fractions
 \(a/q\bmod1\), \(1\leq q\leq Q\), and put
@@ -109,19 +110,43 @@ All constants precede \(N,M,Q,T,R\); no cost depends on the
 chosen auxiliary period. Only the centered error and explicitly
 off-resonant remainder have been bounded in absolute value.
 
-Given \(B>0\), choose fixed \(C>2B+12\) and
-\(D_0>C+B+6\). Take integer cutoffs
-\(Q=\lfloor(\log N)^C\rfloor\) and
-\(T=\lceil(\log N)^{D_0}\rceil\).
-In (18a), the normalized major error and \(Q^3/N\) are smaller
-than every fixed negative logarithmic power. The minor error is
+Given \(B>0\), take the integer \(b=\lceil B\rceil\) and put
 \[
- O\bigl((Q^{-1/2}+M^{-1/5})(1+\log(2M))^5\bigr),
+ \ell=1+\log(2M)=\ell_N,\qquad
+ Q=\lfloor\ell^{\,2(b+6)}\rfloor,\qquad T=Q^2 .
 \]
-and the reference leakage is \(O(Q/T)\).
-Thus every retained term is \(O_B((\log N)^{-B})\), proving
-(16). The use of real \(Q=(\log N)^C\) in (16) gives the same
-integer denominator set.
+The cutoff proof verifies every displayed range on one terminal
+interval. It uses the elementary fact that every fixed logarithmic
+power is dominated by \(M^{1/160}\).
+The scalar comparison of all the terms in (18a), including the
+finite Gram budget, gives one absolute \(D_0>0\) such that
+\[
+ \|A_N-B_Q\|+\frac{2Q^4}{N}
+ \leq D_0\frac{\ell^5}{\sqrt Q}.
+\]
+The integer cutoff satisfies
+\[
+ \left(\frac{\ell^5}{\sqrt Q}\right)\ell^b\longrightarrow0.
+\]
+To check the floor, write \(Y=\ell^{2(b+6)}\).
+For large \(N\), \(Y\leq2Q\).
+For any \(\varepsilon>0\), further require
+\(\varepsilon\ell\geq2\).
+Then, keeping this same \(Q\),
+\[
+ \ell^{2(b+5)}
+ \leq\varepsilon^2Q,\qquad
+ \frac{\ell^{b+5}}{\sqrt Q}\leq\varepsilon.
+\]
+Taking \(\varepsilon=1/D_0\) proves the stronger uniform conclusion
+\[
+ \boxed{\quad
+ \|A_N-B_Q\|+\frac{2Q^4}{N}\leq\ell_N^{-b}.
+ \quad}
+\]
+Since \(b\geq B\), this implies (16).
+All constants precede the physical order and the auxiliary period.
+The cutoff is explicitly integral and polylogarithmic.
 \end{proof}
 
 \paragraph{Formalization status of the actual operator comparison.}
@@ -133,9 +158,33 @@ two-input Fourier transfer, the full rational reference and inverse,
 separated-center leakage, independent denominator and width ranges,
 and every integer-radius rounding condition.
 Every prime power and the full signed Ramanujan main term remain.
-The arbitrary logarithmic-accuracy specialization (16) remains a
-formalization obligation. The complete polynomial-cutoff spectral
-consumer is recorded below.
+The arbitrary logarithmic-accuracy specialization (16) is now also
+formalized, with the explicit polylogarithmic cutoff in its statement.
+The maintained owners
+\texttt{HamiltonianPrimePolylogCutoff} and
+\texttt{HamiltonianPrimePolylogTransfer} prove every major, minor,
+separation, frame and floor constraint and then consume the full
+signed arithmetic estimate.
+For every natural \(b\), the exact compiled conclusion is
+\[
+ \exists N_0\ \forall N\geq N_0:\qquad
+ \|A_N-B_Q\|+\frac{2Q^4}{N}
+       \leq (1+\log(4N))^{-b}.
+\]
+The auxiliary formulation holds for every compatible period
+\(R>2N\), divisible by \(2N\) and all positive integers at most \(Q\);
+such periods always exist, for example \(R=4NQ!\).
+No frequency, prefix or grid term is omitted.
+The supporting owners \texttt{HamiltonianPrimeCutoffLogRate} and
+\texttt{HamiltonianPrimeRationalLogRate} also prove arbitrary
+logarithmic accuracy for the existing polynomial cutoff
+\(\lfloor(2N)^{1/160}\rfloor\).
+This second statement is distinct from the polylogarithmic-cutoff
+claim (16); both are now maintained.
+All five new core declarations pass the focused foundational-axiom
+audit.
+The half-gap and its remaining eigenvalue-indexed readout are
+recorded below.
 
 \begin{lemma}[The nontrivial ratio is one half]
 \label{lem:integerspectrum}
