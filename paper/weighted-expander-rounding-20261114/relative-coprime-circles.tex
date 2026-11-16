@@ -129,8 +129,35 @@ unoriented arithmetic graph, with no restriction on its
 distinct prime factors or prime-power exponents.
 All fourteen new declarations pass the focused foundational
 audit. The explicit uniform tail and absolute bounds are
-compiled as recorded below. Final Stirling normalization and
-the even-modulus count remain formalization obligations.
+compiled as recorded below. The final odd Stirling normalization
+is also compiled below; the even-modulus count remains unfinished.
+
+\paragraph{Maintained final odd Stirling normalization.}
+\texttt{HamiltonianCoprimeStirlingCount} proves the exact identity
+\[
+ H_n=\frac{\operatorname{stirlingSeq}(n)}{\sqrt\pi}\,
+       \mathfrak C(n)\sqrt{\frac{\pi}{2n}}\,
+                       (\varphi(n)/e)^n.
+\]
+The existing quantitative Stirling estimate gives
+\[
+ 1\leq\frac{\operatorname{stirlingSeq}(n)}{\sqrt\pi}\leq4/3,
+ \qquad
+ \frac{\operatorname{stirlingSeq}(n)}{\sqrt\pi}-1
+                                      \leq\frac1{3n}.
+\]
+It is combined with the actual graph's factorial-count error,
+including their product. Consequently one absolute
+\(N_0\geq256\) satisfies, for every odd \(n\geq N_0\),
+\[
+ \left|\frac{h(X_n)}
+ {\mathfrak C(n)\sqrt{\pi/(2n)}\,(\varphi(n)/e)^n}-1\right|
+                                     \leq23n^{-1/10}.
+\]
+The displayed reference is positive. All five new declarations
+pass their focused foundational audit.
+This closes the full odd branch of
+Theorem~\ref{thm:relativecoprime}; its even branch remains unfinished.
 
 \paragraph{Maintained exact arithmetic determinant.}
 \texttt{HamiltonianFourierDeterminant} proves that the determinant
@@ -157,8 +184,8 @@ identification with the displayed \(\mathfrak C(n)\) and the
 actual odd unoriented factorial count are now compiled as
 recorded above. The prime-product series and its explicit
 uniform tail and absolute bounds are compiled as recorded
-below. Final Stirling normalization and the even count remain
-separate obligations.
+below. The final odd Stirling normalization is compiled below;
+the even count remains a separate obligation.
 
 
 
@@ -273,8 +300,8 @@ is the actual limiting constant, and
 \(e\leq\mathfrak C_\infty\leq e^{11/9}\).
 All eighteen new declarations pass their focused foundational
 audit. This closes Proposition~\ref{prop:coprimeconstant}.
-Final Stirling normalization and the even-modulus count remain
-separate obligations.
+The final odd Stirling normalization is also compiled below.
+The even-modulus count remains a separate obligation.
 
 
 For odd \(n\geq3\), define the positive arithmetic factor
