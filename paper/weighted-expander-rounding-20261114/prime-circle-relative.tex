@@ -114,9 +114,54 @@ All thirty-five new declarations in these four owners pass the
 focused foundational-axiom audit.
 The completion is only an inverse reference; it is not the final
 kernel and supplies no assertion about preserving support.
-The compatible inverse transfer to the original degree Jacobian,
-the nonlinear fixed point, and the actual constant-edge
-prime-circle entropy/count consumer remain formalization obligations.
+\paragraph{Formalized full repair on the original support.}
+The compatible inverse transfer and the nonlinear row equations
+are now proved as well.
+\texttt{HamiltonianCompatiblePerturbation} retains the exact parity
+projection under the small perturbation.
+\texttt{HamiltonianDegreeJacobian} proves its compatibility for
+the actual diagonal \(\diag(d)\), before normalization.
+\texttt{HamiltonianDiffuseJacobianInverse} consumes the positive
+stochastic reference above and its entire \(6\varepsilon\) error.
+\texttt{HamiltonianDegreeScalingFixedPoint} retains
+\(-z\mathbin{\odot}(Qz)\) in the full quadratic contraction.
+\texttt{HamiltonianDegreeScaling} uses the already proved exact
+conservation law to remove the final parity residual.
+
+The complete finite output is compiled in
+\texttt{HamiltonianDiffuseScaling}. For the nearly stochastic
+cross block above, set
+\[
+ g=2\left(\frac{\log(2(a+9\varepsilon))}{-\log\rho}+3\right)
+                       +\frac1{1-\rho},\qquad
+ r=4\varepsilon g .
+\]
+For every \(\rho\in(0,1)\), under the explicit hypotheses
+\[
+ \|T-J_m/m\|\leq\rho-6\varepsilon,\qquad
+                    \varepsilon g^2\leq1/256,
+\]
+there is one vector \(z\) with \(\|z\|_\infty\leq r\)
+and every \(1+z_i>0\), for which
+\[
+ \widehat T_{ij}=(1+z_{A,i})T_{ij}(1+z_{B,j})
+\]
+is exactly doubly stochastic and nonnegative. The same witness satisfies
+\[
+ \widehat T_{ij}=0\ \Longleftrightarrow\ T_{ij}=0,\qquad
+ \widehat T_{ij}\leq(1+r)^2a/m,\qquad
+ \|\widehat T-T\|\leq(2r+r^2)(1+\varepsilon).
+\]
+All twenty-eight declarations in these six further owners pass
+the focused foundational-axiom audit.
+For fixed \(\rho\), the bound is
+\(g=O_\rho(\log(2a))\), giving the required
+\(\varepsilon\log(2a)^2\) smallness scale.
+This is the full repair from a direct centered-gap input.
+The separate conversion from the degree-normalized spectral
+hypothesis in Lemma~\ref{lem:diffusionscaling}, the actual
+constant-edge prime transfer, and its entropy/count consumer remain
+formalization obligations.
 
 Let \(G_N\), for even \(N=2m\), have vertices \(1,\ldots,N\)
 and edges at distinct prime sums.
