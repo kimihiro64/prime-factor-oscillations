@@ -73,6 +73,40 @@ All constants may be chosen absolute because the spectral
 gap was uniform over every modulus.
 \end{proof}
 
+\paragraph{Maintained spectral input and remaining count obligations.}
+The exact coprime-difference graph, without a prime-modulus or
+squarefree-modulus restriction, is formalized in
+\texttt{HamiltonianCoprimeFourier}.
+Its normalized kernel is nonnegative, symmetric and doubly
+stochastic, with maximum entry at most \(1/\varphi(n)\).
+\texttt{HamiltonianCoprimeConductor} proves the exact signed
+unit-group reduction before any estimate is applied.
+\texttt{HamiltonianCoprimeSpectrum} then proves, for every
+residue frequency \(k\), the normalized eigenvalue
+\[
+ \frac{c_n(k)}{\varphi(n)}
+    =\frac{\mu(t)}{\varphi(t)},\qquad
+ t=\frac n{\gcd(n,k)},
+\]
+and exactly \(\varphi(t)\) frequencies of each conductor
+\(t\mid n\). Conductor one is exactly the constant mode;
+conductor two has normalized value \(-1\) and can occur only
+at even modulus. Conductors at most two are exactly the
+frequencies annihilated by multiplication by two.
+Every remaining mode has modulus at most \(1/2\).
+\texttt{HamiltonianCoprimeSymbol} proves that the full signed
+symbol inverts to the actual physical adjacency kernel.
+Using the previously proved real-to-complex norm transfer,
+\texttt{HamiltonianCoprimeGap} proves the actual centered
+real operator bound \(\|P-J_n/n\|\leq1/2\) for every odd
+modulus. Thus the odd spectral hypothesis is discharged,
+rather than supplied as an additional assumption.
+The even cross-block transfer, the density estimates and
+the cycle/path entropy assembly in this theorem remain
+separate formalization obligations. This paragraph records
+the completed spectral input, not completion of the full
+enumeration theorem.
+
 \begin{remark}[Normalization, prior existence results, and scope]
 When \(n\) is prime, \(X_n\) is complete and
 \(h(X_n)=(n-1)!/2\).
