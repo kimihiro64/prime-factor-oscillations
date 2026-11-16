@@ -462,6 +462,27 @@ Substitute the two relative theorems, dividing directed
 cycle counts by two only in the aperiodic formula.
 \end{proof}
 
+\paragraph{Maintained actual graph-count transfer.}
+The entire corollary is formalized in
+\texttt{HamiltonianSymmetricDeterminantRatio},
+\texttt{HamiltonianGraphEntropyGauge} and
+\texttt{HamiltonianGraphEntropyLimits}.
+The finite graph count is the number of reversal classes of
+single-cycle permutations supported by the actual graph.
+For order at least three, the fixed-point-free reversal map
+gives exactly two orientations per class.
+Positive vertex scaling multiplies every cycle weight by
+\(\exp(2\sum_v\log u_v)\).
+The spectral gap proves both \(\det(I-B)>0\) and
+\(\det(I+B)>0\) before the square-root quotient is used.
+The two exact ratio identities then transfer the full
+arbitrary-family limits to these actual graph counts.
+Each final statement proves positivity of its displayed
+reference and convergence for every positive epsilon.
+The aperiodic condition remains \(A_N^2=o(\log N)\);
+the bipartite condition remains \(A_m=o(\log m)\).
+No positive-entry lower bound is introduced.
+
 \begin{remark}[The density ranges are part of the result]
 The relative aperiodic estimate here requires \(A^2=o(\log N)\);
 the bipartite estimate permits \(A=o(\log N)\).
