@@ -69,9 +69,44 @@ The maintained theorem has the exact quantifiers
 The Mertens input is unconditional and its new consumer has
 passed a foundational axiom audit; no dependency rebuild or
 numerical range test is used.
-This closes the density lemma. The full relative counts,
-their arithmetic constants and even-modulus graph transfers
-remain separate formalization obligations.
+This closes the density lemma.
+
+\paragraph{Maintained quantitative odd-modulus count.}
+\texttt{HamiltonianTotientSublog} proves, for every \(b>0\),
+one threshold above which
+\((n/\varphi(n))^2\leq b\log n\), uniformly over every modulus.
+For every fixed \(K>0\), \texttt{HamiltonianCoprimeCountBudget}
+supplies the simultaneous entry cap \(n/\varphi(n)\leq\log n\)
+and the full loss budget
+\(K(n/\varphi(n))^2\leq(\log n)/90\).
+Thus the complete error
+\(17n^{-1/9}\exp(K(n/\varphi(n))^2)\)
+is at most \(17n^{-1/10}\).
+
+\texttt{HamiltonianCoprimeAperiodicCount} applies these bounds
+and the proved physical half-gap to the actual native
+coprime kernel \(P_n=A_{X_n}/\varphi(n)\).
+Writing \(B_n=P_n-J_n/n\) and
+\[
+ R_n=\frac{(n-1)!}{n^n}\det(I-B_n)
+                      \det(I-B_nB_n^*)^{-1/2},
+\]
+the compiled theorem states that one \(N_0\geq256\) satisfies,
+for every odd \(n\geq N_0\),
+\[
+ R_n>0,\qquad
+ \left|\frac{Z_{\rm dir}(P_n)}{R_n}-1\right|
+                      \leq17n^{-1/10}.
+\]
+Here \(Z_{\rm dir}\) is the actual single-cycle permutation sum.
+The norm transfer between the native residue vertices and
+the finite counting coordinates uses the proved norm-preserving
+reindexing theorem explicitly.
+Every new declaration passes the focused foundational audit.
+This closes the actual odd stochastic count, including its
+rate and positive reference. The unoriented arithmetic
+normalization, its explicit divisor-product constant, and
+the even-modulus transfer remain formalization obligations.
 
 For odd \(n\geq3\), define the positive arithmetic factor
 \[

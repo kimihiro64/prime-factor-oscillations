@@ -101,13 +101,21 @@ Using the previously proved real-to-complex norm transfer,
 real operator bound \(\|P-J_n/n\|\leq1/2\) for every odd
 modulus. Thus the odd spectral hypothesis is discharged,
 rather than supplied as an additional assumption.
-The even cross-block transfer and the cycle/path entropy
-assembly remain separate formalization obligations.
-The full uniform totient density estimate is now compiled
-in \texttt{HamiltonianTotientDiffusion}, as recorded in
+The full uniform totient density estimate is compiled in
+\texttt{HamiltonianTotientDiffusion}.
+\texttt{HamiltonianTotientSublog} supplies its quantified
+squared-sublogarithmic consequence.
+\texttt{HamiltonianCoprimeAperiodicCount} now applies the
+actual odd-modulus spectral gap and all counting hypotheses:
+the positive determinant reference and relative error
+\(17n^{-1/10}\) hold at every sufficiently large odd modulus.
+The full statement and retained normalization are recorded in
 Section~\ref{sec:relativecoprime}.
-This paragraph records the completed spectral and density
-inputs, not completion of the full enumeration theorem.
+The explicit arithmetic constant, unoriented normalization,
+even cross-block transfer and complete cycle/path entropy
+assembly remain separate formalization obligations.
+This paragraph records the completed spectral, density and
+actual odd stochastic count, not the full enumeration theorem.
 
 \begin{remark}[Normalization, prior existence results, and scope]
 When \(n\) is prime, \(X_n\) is complete and
