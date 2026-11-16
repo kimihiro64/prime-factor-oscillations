@@ -163,9 +163,64 @@ In the uniform coprime case, the local condition holds with
 \(\kappa=1/\varphi(n)\): both new endpoint entries equal
 \(1/\varphi(n)\), and every removed entry is at most that value.
 This specialization is a mathematical consequence of the compiled
-comparison and entry formulas; its native endpoint relabeling and
-the independent repaired base-cycle lower count still need assembly.
+comparison and entry formulas. Its native endpoint relabeling and
+uniform arithmetic size thresholds still need formal assembly.
 The full spanning-path entropy theorem remains a separate obligation.
+
+\paragraph{Verified independent retained-cycle supply.}
+The modules \texttt{HamiltonianCycleExponentialLower},
+\texttt{HamiltonianPrincipalDeletedCycleLower} and
+\texttt{HamiltonianBalancedDeletedCycleLower} now give independent
+positive lower counts on the actual retained supports.
+Let \(T\) be a nonnegative stochastic \(n\)-by-\(n\) matrix,
+with entries at most \(a/n\), \(a\geq1\), and
+\(\|T-J/n\|\leq\rho\), where \(0\leq\rho<1\).
+Delete the same \(r\)-element set from both coordinates,
+put \(m=n-r\) and \(\Delta=(1-\rho)/2\), and assume
+\[
+ \frac r n\left(\frac a{1-\rho}\right)^3\leq10^{-4},
+ \qquad
+ (2a)^2\leq b(\Delta)\log m,
+ \qquad
+ b(\Delta)=\min\left(1,\frac1{18(16e^2+1+1/\Delta)}\right).
+\]
+For \(n\geq4\) and all sufficiently large \(m\), uniformly over
+the matrix and deleted set, the compiled bound is
+\[
+ Z_{\rm cycle}(T|_{D^c\times D^c})
+ \geq\frac{\exp\!\left(
+       -m-((2a-1)+(2a-1)/\Delta)
+          -40ra/(1-\rho)\right)}{4m}.
+\]
+Square repair initially identifies the two complements arbitrarily.
+The proof undoes that row identification before counting cycles;
+row permutation invariance of the permanent is not used as cycle
+invariance. The resulting matrix on the actual principal complement
+is stochastic, has cap \(2a/m\) and gap at least \(\Delta\).
+The signed cycle/permanent comparison, positive permanent and
+determinant lower bound supply its positive cycle mass.
+The entire two-sided scaling product is then removed, with logarithmic
+cost at most \(40ra/(1-\rho)\).
+
+For balanced deletions \(S,U\) of size \(r\) from the two sides of
+the actual bipartite lift, the corresponding compiled bound is
+\[
+ Z_{\rm cycle}((\operatorname{Lift}T)|_{(S\sqcup U)^c})
+       \geq\frac{\exp(-2m-80ra/(1-\rho))}{2m}.
+\]
+Here the same repair-smallness condition holds, and its density
+condition is \(2a\leq b_{\rm bip}(\rho')\log m\), where
+\(\rho'=1-(1-\rho)/2\) and
+\(b_{\rm bip}(\rho')=1/(1+|\kappa(\rho')|)>0\) is the proved
+density from \texttt{HamiltonianSublogBipartiteCount};
+\(\kappa\) is its existing Gram-amplification exponent.
+This proof uses a full conjugation of the retained lift and retains
+the square of the scaling product. It does not apply an aperiodic
+gap theorem to a period-two matrix.
+The nine new declarations passed their combined focused
+foundational-axiom audit. The thresholds depend only on the fixed gap;
+no numerical threshold is asserted. These explicit small-cap
+consumers do not certify the general wide-cap path theorem below.
 
 
 

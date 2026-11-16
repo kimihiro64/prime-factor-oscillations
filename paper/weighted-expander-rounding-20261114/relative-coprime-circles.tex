@@ -630,6 +630,31 @@ decomposition and retains all other weights.
 For coprime kernels the local condition holds with
 \(\kappa=1/d\), since the new endpoint entries are \(1/d\) and
 the removed entry is at most \(1/d\).
-The native endpoint-label adapter and the independent repaired
-same-support base-cycle lower count remain to be formally assembled
-before the complete endpoint path entropy is claimed.
+The independent principal-complement and balanced-lift cycle lower
+counts are now compiled and audited in
+\texttt{HamiltonianPrincipalDeletedCycleLower} and
+\texttt{HamiltonianBalancedDeletedCycleLower}, with their common
+finite-support count and exact unscaling consumer in
+\texttt{HamiltonianCycleExponentialLower}.
+Their full parameter domains and scaling costs are given in
+Section~\ref{sec:pathentropy}.
+For the odd coprime specialization, deleting two endpoints and using
+the native gap \(1/2\) gives the ordinary consequence
+\[
+ Z_{\rm base}\geq
+       \frac{\exp(-(n-2)-170A+5)}{4(n-2)},
+       \qquad A=n/\varphi(n),
+\]
+once the displayed repair and squared-sublogarithmic conditions hold.
+For the even case, balanced single-endpoint deletions in the native
+cross block give the ordinary consequence
+\[
+ Z_{\rm base}\geq
+       \frac{\exp(-(n-2)-160A)}{n-2}.
+\]
+Thus both branches supply a positive base count on the required scale.
+These are mathematical specializations of the compiled inputs;
+their native support and endpoint transports, uniform totient
+thresholds, final avoidance comparison and path-count normalization
+remain to be formally assembled before the complete endpoint path
+entropy is claimed.
