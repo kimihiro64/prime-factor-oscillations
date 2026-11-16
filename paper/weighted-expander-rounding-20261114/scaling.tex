@@ -218,3 +218,59 @@ Its direct centered-gap variant also retains every support, cap
 and operator output needed by forbidden-edge repair.
 All fifty-one core declarations in these seven owners pass the
 focused foundational-axiom check.
+
+\paragraph{Maintained full forbidden-edge repair.}
+Corollary~\ref{cor:forbiddenrepair} now has a complete maintained
+proof, uniform over every allowed forbidden edge set.
+Write \(P\) for the original stochastic cross block, \(Q\) for
+the actual removed matrix, and \(T=P-Q\).
+The proof first treats every \(0\leq Q\leq P\) with row and
+column masses at most \(\eta\); edge masks are a specialization.
+It retains the exact finite equations
+\[
+ \sum_jT_{ij}=1-\sum_jQ_{ij},\qquad
+ \sum_iT_{ij}=1-\sum_iQ_{ij},\qquad
+ \|Q\|\leq\eta.
+\]
+Thus the same remaining matrix has degree defects at most \(\eta\)
+and centered norm at most \(1-\delta+\eta\).
+The direct centered-gap scaling consumer above applies.
+
+For explicit constants, retain \(c_\delta,C_\delta\) from the
+preceding paragraph and set
+\[
+ C_\delta^*=C_\delta+\frac1{\log4},\qquad
+ c_\delta^*=\min\left\{c_\delta,\,
+           \frac{\delta\log4}{2C_\delta^*}\right\}.
+\]
+Both are strictly positive. If
+\(\eta L^2\leq c_\delta^*\), the actual positive scaling \(W\)
+of \(T\) has stochastic rows and columns, \(W_{ij}\leq2P_{ij}\),
+and
+\[
+ \|W-P\|
+ \leq\|W-T\|+\|Q\|
+ \leq C_\delta\eta L+\eta
+ \leq C_\delta^*\eta L\leq\delta/2.
+\]
+The full additional \(\eta\) is included in the error relative
+to the original matrix.
+Consequently
+\[
+ \|W-\one\one^t/m\|\leq1-\delta/2.
+\]
+For the actual forbidden-edge mask,
+\[
+ Q_{ij}=P_{ij}\one_{(i,j)\in F},\qquad
+ W_{ij}=0\ \Longleftrightarrow\
+                P_{ij}=0\ \hbox{or}\ (i,j)\in F.
+\]
+Thus the support is exactly the unused original support, and an
+original cap \(\alpha\) becomes at most \(2\alpha\).
+The same witness gives every conclusion, including zero deletion.
+These finite identities, scalar allowances and full repair consumer
+are maintained in \texttt{HamiltonianForbiddenCrossPacket},
+\texttt{HamiltonianForbiddenRepairBudgets} and
+\texttt{HamiltonianForbiddenEdgeRepair}.
+All twelve core declarations pass the focused foundational-axiom
+check.
