@@ -333,9 +333,47 @@ on the original integer vertices with
 Its declarations check the original distinct-integer prime
 support and exact physical degree and norm transfers.
 All twenty-three declarations in these three owners pass
-focused foundational-axiom checks. The shrinking-defect
-selection, integer-floor normalization, and normalized
-spectral and eigenvalue conclusions in
+focused foundational-axiom checks.
+
+The single shrinking-defect factor family and its complete
+operator normalization are now formalized as well.
+The simultaneous degree estimate supplies one fixed \(B>0\).
+Write \(L=\log(2m)\) and \(D=2m/L\). For every sufficiently
+large \(m\), the chosen factor has the fixed degree
+\[
+ r_m=\left\lfloor
+       \left(1-\frac{10B}{\sqrt L}\right)D
+     \right\rfloor,\qquad D/2\leq r_m\leq D.
+\]
+\texttt{HamiltonianFactorFloor} retains the full one-unit
+floor error and proves \(D\geq L/4\).
+\texttt{HamiltonianPrimeFactorFamily} constructs one family,
+with both original degree estimates retained, and proves
+\[
+ \left|\frac{r_m}{D}-1\right|
+       \leq\frac{10B}{\sqrt L}+\frac4L.
+\]
+Its terminal threshold is fixed; no moving defect is
+substituted into a fixed-defect eventual theorem.
+\texttt{HamiltonianFactorNormalization} uses the exact identity
+\[
+ \frac{A_{J_m}}{r_m}-U_{2m}
+ =\frac{A_{J_m}-D U_{2m}}{r_m}
+       +\frac{D-r_m}{r_m}U_{2m}.
+\]
+\texttt{HamiltonianPrimeFactorNormalization} consumes both
+terms for that same chosen family and proves
+\[
+ \left\|\frac{A_{J_m}}{r_m}-U_{2m}\right\|
+                 \leq\frac{62B}{\sqrt L}+\frac{24}L.
+\]
+The shared \texttt{HamiltonianSupportMixture} theorem proves
+that a positive mixture of a stochastic factor with a
+full-support stochastic reference retains every original
+edge, with perturbation at most twice the mixing weight.
+Twenty-one core declarations in these five owners pass
+focused foundational-axiom checks. The final full-support
+reference assembly and eigenvalue conclusion in
 Theorem~\ref{thm:nearlyoptimalfactor} remain to be formalized.
 
 \begin{theorem}[A positive proportion of the prime edges in Hamilton cycles]
