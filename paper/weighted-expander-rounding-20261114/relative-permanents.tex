@@ -722,9 +722,11 @@ transports the original indicator exactly. No local \(\Delta\) or
 \(\Delta\Psi\) factor is evaluated outside \([a,b]\).
 The full probability and tail consumer, including these cutoff and
 Fubini steps, is formalized. The bound vanishes uniformly for
-polylogarithmic \(A\). The complete Cauchy tail and finite moderate/high
-coefficient bounds are formalized; their analytic coefficient identification
-and uniform permanent assembly remain to be formalized.
+polylogarithmic \(A\). The complete Cauchy tail, finite moderate/high
+bounds, all-order analytic coefficient identification and full uniform
+permanent assembly now have maintained Lean proofs. The direct normalized
+permanent consumers retain the full signed correction and its two-power
+remainder, as recorded above and in Section~\ref{sec:secondpermanent}.
 As \(\Delta(1)\geq1\), the total relative error is bounded by
 \[
  C_\delta(A^2N^{-1/6}+AN^{-1/4})
@@ -831,3 +833,41 @@ determinant and factorial errors are \(o(N^{-1/8})\).
 The two relative permanent errors are \(O(N^{-1/8})\).
 This proves the stated uniform \(O(N^{-1/9})\) comparison.
 \end{proof}
+
+\paragraph{Maintained direct mismatched-support ratio theorem.}
+Lemma~\ref{lem:relativecompensatedminors} now has the direct
+maintained theorem
+\texttt{stochastic\_minor\_relative\_polylog\_uniform}.
+One \(N_0(\delta,K)\geq256\) covers every admissible finite
+coordinate type, kernel and pair of independently chosen supports:
+\[
+ \operatorname{per}T>0,\qquad
+ \left|\frac{\operatorname{per}T[S^c,U^c]}
+                 {\operatorname{per}T}-1\right|\leq N^{-1/9}.
+\]
+Empty deleted supports and zero entries are included.
+
+Put \(R=\operatorname{per}T[S^c,U^c]/\operatorname{per}T\).
+The stronger maintained expansion retains the complete signed
+correction \(Q_{S,U}\), including its rank term, resolvent
+quadratic form and linear field on the actual deleted supports.
+For \(C=C_\delta>0\), \(H=12+24\lceil K\rceil\) and \(L=\log(2N)\),
+the existing polynomial budget and
+\texttt{HamiltonianMinorFirstOrderLogBound} give
+\[
+ |Q_{S,U}|\leq CL^H/N,\qquad
+ |R^2-(1+Q_{S,U})|\leq CL^H/N^2.
+\]
+Thus \(\lvert R^2-1\rvert\leq X/N+X/N^2\), where \(X=CL^H\).
+A common threshold enforces \(2X\leq N^{1/2}\);
+the already proved scalar power-decay inequality bounds the
+whole two-term expression by \(N^{-1/9}\).
+The actual minor permanent is nonnegative and the full permanent
+is positive, so \(R\geq0\). The factorization
+\(R^2-1=(R-1)(R+1)\) gives
+\(\lvert R-1\rvert\leq\lvert R^2-1\rvert\).
+This proves the stated direct ratio with no extra repair,
+overlap, determinant or local-minor hypothesis.
+The full signed two-power expansion remains the input to the
+sharp counting consumers; this weaker ratio corollary does not
+replace it.
