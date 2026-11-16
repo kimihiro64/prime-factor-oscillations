@@ -108,6 +108,32 @@ rate and positive reference. The unoriented arithmetic
 normalization, its explicit divisor-product constant, and
 the even-modulus transfer remain formalization obligations.
 
+\paragraph{Maintained exact arithmetic determinant.}
+\texttt{HamiltonianFourierDeterminant} proves that the determinant
+of the complete cyclic difference operator is the product of its
+full Fourier symbol. Both frame determinants cancel the exact
+grid normalization.
+\texttt{HamiltonianCoprimeDeterminant} applies this to the
+actual compensated coprime kernel, for every positive modulus
+and every real scalar \(z\):
+\[
+ \det(I-zB_n)
+   =\prod_{t\mid n}F_z(t)^{\varphi(t)},\qquad
+ F_z(1)=1,\qquad
+ F_z(t)=1-z\frac{\mu(t)}{\varphi(t)}\quad(t>1).
+\]
+The constant mode is compensated before the determinant is taken.
+The same formula retains the parity mode at even modulus and all
+nonsquarefree divisors. The frequency product is regrouped using
+the proved exact conductor multiplicities on the actual divisor
+support. All ten new declarations pass the focused foundational
+audit. Thus both determinants in the symmetric quotient are now
+explicit finite arithmetic products. The positive square-root
+identification with the displayed \(\mathfrak C(n)\), its infinite
+series and bounds, and the remaining unoriented and even count
+consumers are still separate formalization obligations.
+
+
 For odd \(n\geq3\), define the positive arithmetic factor
 \[
  {\mathfrak C}(n)=
