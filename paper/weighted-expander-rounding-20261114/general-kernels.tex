@@ -9,8 +9,8 @@ small probability. The argument below keeps their dependence exactly.
 
 \begin{lemma}[Complementary restriction with the full covariance retained]
 \label{lem:complementaryrestriction}
-Let \(E=E^\top\) be an \(N\)-by-\(N\) matrix with
-\(\|E\|\leq1\) and all squared column norms at most \(\alpha\).
+Let \(N\geq2\) and let \(E=E^\top\) be an \(N\)-by-\(N\) matrix with
+\(\|E\|\leq1\) and all squared column norms at most \(\alpha\geq0\).
 Let \(R\) select each coordinate independently with probability
 \(1/2\), and put \(R'=I-R\).
 For every fixed \(A>0\), with probability \(1-N^{-A}\),
@@ -154,8 +154,8 @@ gap declarations pass their combined focused foundational-axiom audit.
 These statements are uniform over the finite matrix, its dimension,
 and every cut; they do not restrict \(N\alpha\) to a sublogarithmic
 range. The uniform probability tail for \(F\) is now formalized below.
-Balanced conditioning and prescribed-coordinate conditioning in
-Lemma~\ref{lem:complementaryrestriction} remain formal obligations.
+Balanced and prescribed-coordinate conditioning in
+Lemma~\ref{lem:complementaryrestriction} are now formalized below.
 The full wide-cap entropy theorem is not yet claimed as formalized.
 
 \paragraph{Maintained signed trace moment input.}
@@ -182,7 +182,7 @@ compile and pass their focused foundational-axiom audit.
 
 For the covariance above, put \(A_j=c_jc_j^\top/2\) and
 \(F=\sum_{j=1}^N\epsilon_jA_j\), with independent uniform signs.
-The next formal step is the finite sign-flip identity and
+The compiled finite sign-flip identity yields the exact
 variance calculation
 \[
  V=\sum_j A_j^2
@@ -221,8 +221,66 @@ The exact fixed-gap failure inclusion is also compiled.
 These are uniform over every finite dimension \(N\geq2\)
 and every \(\alpha\geq0\), with no small-\(N\alpha\)
 restriction. Balanced and prescribed-coordinate conditioning
-remain formal obligations. The full wide-cap entropy
+are also formalized below. The full wide-cap entropy
 headline remains unfinished.
+
+\paragraph{Maintained balanced and prescribed finite laws.}
+The modules \texttt{HamiltonianBalancedCutCounts},
+\texttt{HamiltonianPrescribedCutCounts},
+\texttt{HamiltonianFiniteConditioning}, and
+\texttt{HamiltonianConditionedComplementaryTail} complete
+the conditioning step.
+For \(N=2m\), \(m\geq1\), write
+\[
+ \mathcal B_m=\{\epsilon\in\{-1,1\}^N:|D_\epsilon|=m\},
+ \quad
+ \mathcal B_m(a,b)=\{\epsilon\in\mathcal B_m:
+                           a\in D_\epsilon,\ b\notin D_\epsilon\}.
+\]
+For every distinct \(a,b\), their exact counts and budgets are
+\[
+ \begin{aligned}
+ |\mathcal B_m|&=\binom Nm,&
+ 2^N&\leq(N+1)|\mathcal B_m|,\\
+ |\mathcal B_m(a,b)|&=\binom{N-2}{m-1},&
+ 2^N&\leq4(N-1)|\mathcal B_m(a,b)|.
+ \end{aligned}
+\]
+The two prescribed-coordinate count is a genuine
+insertion/deletion bijection on the finite supports.
+Both budgets follow from
+\(2^{2r}\leq(2r+1)\binom{2r}{r}\), proved by summing
+every binomial coefficient and comparing it to the middle one.
+No endpoint case or coinciding-coordinate exception is suppressed;
+the distinctness hypothesis is explicit, and \(N=2\) is included.
+
+For any exceptional subset \(\mathcal E\) of the full sign cube
+with \(|\mathcal E|/2^N\leq N^{-A-3}\), the exact
+intersection counts give
+\[
+ \frac{|\mathcal E\cap\mathcal B_m|}{|\mathcal B_m|}
+       \leq N^{-A},
+ \qquad
+ \frac{|\mathcal E\cap\mathcal B_m(a,b)|}{|\mathcal B_m(a,b)|}
+       \leq N^{-A}.
+\]
+The denominators are proved positive from their count budgets.
+The final factor absorption uses
+\(N+1\leq N^3\) and \(4(N-1)\leq N^3\) for \(N\geq2\).
+Applying these compiled statements to both the actual
+covariance exceptional set and the actual coordinate
+quarter-bound exceptional set proves the full finite
+uniform-cut form of Lemma~\ref{lem:complementaryrestriction},
+including both conditioning clauses.
+Its stronger explicit error is
+\[
+ \tfrac32\sqrt{2(A+5)\alpha\log(2N)}.
+\]
+All eighteen new finite-count and conditional-tail declarations
+compile and pass their focused foundational-axiom audit.
+Weighted row concentration, the repaired balanced kernels and
+the full general weighted entropy count remain separate
+unfinished formal obligations.
 
 \begin{lemma}[Scaling repair without a parity kernel]
 \label{lem:aperiodicrepair}
