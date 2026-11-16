@@ -144,6 +144,62 @@ Equations (26)--(27), with the degree lower bound, therefore give
 Since \(w(N-w)/N\geq\frac12\min(w,N-w)\), this implies (28).
 \end{proof}
 
+\paragraph{Formalized complete unweighted arithmetic transfer.}
+The actual constant-edge matrix
+\[
+ U_n(i,j)=\frac{\log n}{n}
+      \one_{i\ne j,\ i+j\ {\rm prime}}
+\]
+is now defined in \texttt{HamiltonianUnweightedPrimeTransfer}.
+The original loop and prime masks are preserved exactly.
+For every positive integer \(n\) with \(\log n\geq64\), its
+comparison with the true logarithmic prime matrix satisfies
+\[
+ \max_i\sum_j|U_n(i,j)-Q_n(i,j)|\leq E_n,\qquad
+ \max_j\sum_i|U_n(i,j)-Q_n(i,j)|\leq E_n,\qquad
+ \|U_n-Q_n\|\leq E_n,
+\]
+where the explicit error is
+\[
+ E_n=\frac{1+4\log4\,(2\log\log n+\log2)}{\log n}.
+\]
+\texttt{HamiltonianLogWeightComparison} proves the two
+pointwise regimes and the complete finite packing estimate.
+\texttt{HamiltonianPrimeLogTransfer} uses
+\(K=\lfloor n/(\log n)^2\rfloor\), charges every small
+output to its integer count and every large output to its
+actual prime logarithmic weight, and consumes
+\(\theta(2n)\leq2n\log4\).
+No prime-count asymptotic or independent prime-pair estimate
+is assumed in this transfer.
+The injective physical row intervals, all endpoints and both
+matrix directions are included before the separate operator
+error is bounded.
+
+\texttt{HamiltonianPrimeLogTransferDecay} proves the uniform
+decay on an entire terminal interval, including
+\[
+ E_n\leq\frac{1+16\log4+4\log4\log2}{\sqrt{\log n}}.
+\]
+It also proves, for every natural \(b\), one \(D_b>0\)
+and one starting order such that every later row satisfies
+\[
+ \left|\sum_jU_n(i,j)-1\right|
+                   \leq E_n+D_b/(\log n)^b.
+\]
+Thus the logarithmic rate in (26) follows from an explicit
+uniform inequality. The actual constant-edge spectral consumer
+is formalized without an auxiliary grid:
+\[
+ \forall\varepsilon>0\ \exists n_0 \forall n\geq n_0:\qquad
+ \|U_n-P_{0,n}\|\leq\tfrac12+\varepsilon .
+\]
+All twenty-four new declarations in these four maintained owners
+pass the focused foundational-axiom audit.
+The balanced cross-block identification, the stochastic support
+and cut corollaries in (27)--(28), and the actual entropy/count
+consumer remain formalization obligations.
+
 \begin{theorem}[Near-optimal regular prime-sum factors]
 \label{thm:nearlyoptimalfactor}
 For every sufficiently large even \(N\), \(G_N\) has a simple

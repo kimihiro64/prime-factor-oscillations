@@ -87,7 +87,7 @@
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\prime-sum.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
       "lean_status": "true_prime_support_uniform_degrees_real_half_gap_and_support_formalized_normalized_spectrum_and_scaling_pending",
-      "audit_note": "The exact distinct-prime support, complete removed prime-power/loop mass and actual half-gap were already formalized. HamiltonianUniformThetaError and HamiltonianPrimeDegrees now prove every fixed logarithmic degree accuracy uniformly across every row endpoint, with exact finite windows and the removed diagonal retained. HamiltonianPrimeRealMatrix transfers the actual half-gap and degrees to the real matrix without loss and proves nonnegativity, symmetry, zero diagonal, bipartite support and entry cap. All28 new declarations pass the focused foundational-axiom audit. The degree-normalized eigenvalue statement and exact scaling remain unfinished."
+      "audit_note": "The exact distinct-prime support, complete removed prime-power/loop mass and actual half-gap were already formalized. HamiltonianUniformThetaError and HamiltonianPrimeDegrees now prove every fixed logarithmic degree accuracy uniformly across every row endpoint, with exact finite windows and the removed diagonal retained. HamiltonianPrimeRealMatrix transfers the actual half-gap and degrees to the real matrix without loss and proves nonnegativity, symmetry, zero diagonal, bipartite support and entry cap. All28 new declarations pass the focused foundational-axiom audit. The degree-normalized eigenvalue statement remains unfinished. The full direct-centered-gap scaling consumer is now compiled, as recorded under the scaling claims."
     },
     {
       "id": "lem:regularfactor",
@@ -103,7 +103,8 @@
       "kind": "lemma",
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\regular-factors.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
-      "lean_status": "pending_full_Lean_proof"
+      "lean_status": "actual_complete_weight_transfer_degree_rate_and_uniform_half_gap_formalized_balanced_stochastic_cut_consumers_pending",
+      "audit_note": "HamiltonianLogWeightComparison, HamiltonianPrimeLogTransfer and HamiltonianUnweightedPrimeTransfer define the actual constant-edge matrix with exact prime/loop masks and prove every row, column and operator error<=E_n=(1+4log4*(2loglog n+log2))/log n for every positive n with log n>=64. All outputs, cutoff rounding, physical injection and complete Chebyshev mass are retained. HamiltonianPrimeLogTransferDecay proves uniform terminal-interval decay, an explicit C/sqrt(log n) envelope, every fixed logarithmic degree-rate correction, actual uniform degrees and norm(U_n-P0_n)<=1/2+eps for every sufficiently large n. All24 new declarations pass the focused foundational-axiom audit. The balanced cross-block, stochastic support and cut corollaries(27)-(28) remain separate formalization consumers."
     },
     {
       "id": "thm:nearlyoptimalfactor",
@@ -360,7 +361,7 @@
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\relative-permanents.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
       "lean_status": "fully_formalized_direct_normalized_uniform_statement",
-      "audit_note": "Both paper permanent statements now have direct maintained normalized Lean consumers. stochastic_permanent_relative_correction_polylog_uniform proves, for one N0(delta,K)>=16 and every admissible kernel and 1<=A<=log(N)^K, abs((N^N/N!)*per(T)/Delta(1)-(1+Q_N(T)))<=(1+A)^24*C_delta/N^2 and abs(Q_N(T))<=21*A^2/(delta^3*N). For K>0, hamiltonian_permanent_polylog_first_order_budget supplies the uniform scalar threshold, and stochastic_permanent_first_order_polylog_uniform proves the directly normalized first-order error <=N^(-1/8). The full common threshold is independent of the kernel. These three new theorems compile and pass the focused foundational-axiom audit. The complete signed second-order expansion is retained for the critical Hamiltonian consumer; its first-order consequence is not substituted into that sharper argument. The weighted Hamiltonian kernel count, sharp density/power-decay, inverse and signed occupancy/size-wave conclusions are compiled and audited. The actual prime matrix has complete true-prime support, every fixed logarithmic degree accuracy and a lossless real constant/parity half-gap. The full diffuse repair from a direct centered-gap input is now compiled: for a nonnegative eps-nearly-stochastic cross block T with cap a/m, norm(T-J/m)<=rho-6eps and eps*g^2<=1/256, where g=2*(log(2*(a+9eps))/(-log rho)+3)+1/(1-rho), one actual vector z has norm<=r=4eps*g and every1+z>0. The same repaired matrix is exactly doubly stochastic and nonnegative, has precisely the original zero support, cap(1+r)^2*a/m and full operator error<=(2r+r^2)*(1+eps). The proof consumes the actual stochastic completion, logarithmic inverse, full degree diagonal, exact parity compatibility and nonlinear cross term, with the residual removed by the existing signed conservation theorem. All28 declarations in six new maintained owners pass the focused foundational-axiom audit. The degree-normalized spectral-input corollary, actual constant-edge prime transfer, exact entropy and actual prime-circle relative count, remaining advertised claims and public integration remain unfinished. The complete paper headline is not Lean-certified."
+      "audit_note": "Both paper permanent statements now have direct maintained normalized Lean consumers. stochastic_permanent_relative_correction_polylog_uniform proves, for one N0(delta,K)>=16 and every admissible kernel and 1<=A<=log(N)^K, abs((N^N/N!)*per(T)/Delta(1)-(1+Q_N(T)))<=(1+A)^24*C_delta/N^2 and abs(Q_N(T))<=21*A^2/(delta^3*N). For K>0, hamiltonian_permanent_polylog_first_order_budget supplies the uniform scalar threshold, and stochastic_permanent_first_order_polylog_uniform proves the directly normalized first-order error <=N^(-1/8). The full common threshold is independent of the kernel. These three new theorems compile and pass the focused foundational-axiom audit. The complete signed second-order expansion is retained for the critical Hamiltonian consumer; its first-order consequence is not substituted into that sharper argument. The full weighted Hamiltonian kernel count, sharp density/power-decay, inverse, signed occupancy/size moments and complete direct-centered-gap diffuse repair are compiled and audited. The actual constant-edge prime matrix U_n is now defined with the original distinct-prime and loop masks. For every n>=1 with log n>=64, its complete row, column and Euclidean operator difference from Q_n is bounded by E_n=(1+4log4*(2loglog n+log2))/log n. The proof includes every output, splitting at floor(n/log(n)^2), and uses the actual Chebyshev prime mass. E_n<=C/sqrt(log n), C=1+16log4+4log4log2>0, supplies uniform decay on an entire terminal interval. For every natural b, one positive D_b and one starting order give all-row degree error<=E_n+D_b/(log n)^b. The actual unweighted matrix has uniform degrees tending to1 and norm(U_n-P0_n)<=1/2+eps for every sufficiently large order, for each eps>0. All24 declarations in four new owners pass the focused foundational-axiom audit. Balanced cross-block identification, the full repair input/smallness consumer at the actual prime density, exact entropy and actual prime-circle relative count, normalized-spectral and cut corollaries, remaining advertised claims and public integration are unfinished. The complete paper headline is not Lean-certified."
     },
     {
       "id": "lem:relativecompensatedminors",
@@ -481,7 +482,7 @@
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\permanent-second-order.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
       "lean_status": "fully_formalized_direct_normalized_uniform_statement",
-      "audit_note": "Both paper permanent statements now have direct maintained normalized Lean consumers. stochastic_permanent_relative_correction_polylog_uniform proves, for one N0(delta,K)>=16 and every admissible kernel and 1<=A<=log(N)^K, abs((N^N/N!)*per(T)/Delta(1)-(1+Q_N(T)))<=(1+A)^24*C_delta/N^2 and abs(Q_N(T))<=21*A^2/(delta^3*N). For K>0, hamiltonian_permanent_polylog_first_order_budget supplies the uniform scalar threshold, and stochastic_permanent_first_order_polylog_uniform proves the directly normalized first-order error <=N^(-1/8). The full common threshold is independent of the kernel. These three new theorems compile and pass the focused foundational-axiom audit. The complete signed second-order expansion is retained for the critical Hamiltonian consumer; its first-order consequence is not substituted into that sharper argument. The weighted Hamiltonian kernel count, sharp density/power-decay, inverse and signed occupancy/size-wave conclusions are compiled and audited. The actual prime matrix has complete true-prime support, every fixed logarithmic degree accuracy and a lossless real constant/parity half-gap. The full diffuse repair from a direct centered-gap input is now compiled: for a nonnegative eps-nearly-stochastic cross block T with cap a/m, norm(T-J/m)<=rho-6eps and eps*g^2<=1/256, where g=2*(log(2*(a+9eps))/(-log rho)+3)+1/(1-rho), one actual vector z has norm<=r=4eps*g and every1+z>0. The same repaired matrix is exactly doubly stochastic and nonnegative, has precisely the original zero support, cap(1+r)^2*a/m and full operator error<=(2r+r^2)*(1+eps). The proof consumes the actual stochastic completion, logarithmic inverse, full degree diagonal, exact parity compatibility and nonlinear cross term, with the residual removed by the existing signed conservation theorem. All28 declarations in six new maintained owners pass the focused foundational-axiom audit. The degree-normalized spectral-input corollary, actual constant-edge prime transfer, exact entropy and actual prime-circle relative count, remaining advertised claims and public integration remain unfinished. The complete paper headline is not Lean-certified."
+      "audit_note": "Both paper permanent statements now have direct maintained normalized Lean consumers. stochastic_permanent_relative_correction_polylog_uniform proves, for one N0(delta,K)>=16 and every admissible kernel and 1<=A<=log(N)^K, abs((N^N/N!)*per(T)/Delta(1)-(1+Q_N(T)))<=(1+A)^24*C_delta/N^2 and abs(Q_N(T))<=21*A^2/(delta^3*N). For K>0, hamiltonian_permanent_polylog_first_order_budget supplies the uniform scalar threshold, and stochastic_permanent_first_order_polylog_uniform proves the directly normalized first-order error <=N^(-1/8). The full common threshold is independent of the kernel. These three new theorems compile and pass the focused foundational-axiom audit. The complete signed second-order expansion is retained for the critical Hamiltonian consumer; its first-order consequence is not substituted into that sharper argument. The full weighted Hamiltonian kernel count, sharp density/power-decay, inverse, signed occupancy/size moments and complete direct-centered-gap diffuse repair are compiled and audited. The actual constant-edge prime matrix U_n is now defined with the original distinct-prime and loop masks. For every n>=1 with log n>=64, its complete row, column and Euclidean operator difference from Q_n is bounded by E_n=(1+4log4*(2loglog n+log2))/log n. The proof includes every output, splitting at floor(n/log(n)^2), and uses the actual Chebyshev prime mass. E_n<=C/sqrt(log n), C=1+16log4+4log4log2>0, supplies uniform decay on an entire terminal interval. For every natural b, one positive D_b and one starting order give all-row degree error<=E_n+D_b/(log n)^b. The actual unweighted matrix has uniform degrees tending to1 and norm(U_n-P0_n)<=1/2+eps for every sufficiently large order, for each eps>0. All24 declarations in four new owners pass the focused foundational-axiom audit. Balanced cross-block identification, the full repair input/smallness consumer at the actual prime density, exact entropy and actual prime-circle relative count, normalized-spectral and cut corollaries, remaining advertised claims and public integration are unfinished. The complete paper headline is not Lean-certified."
     },
     {
       "id": "thm:minorjet",
@@ -490,7 +491,7 @@
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\compensated-minor-jet.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
       "lean_status": "fully_formalized_actual_uniform_two_power_minor_expansion",
-      "audit_note": "The weighted Hamiltonian kernel count, sharp density/power-decay, inverse and signed occupancy/size-wave conclusions are compiled and audited. The actual prime matrix has complete true-prime support, every fixed logarithmic degree accuracy and a lossless real constant/parity half-gap. The full diffuse repair from a direct centered-gap input is now compiled: for a nonnegative eps-nearly-stochastic cross block T with cap a/m, norm(T-J/m)<=rho-6eps and eps*g^2<=1/256, where g=2*(log(2*(a+9eps))/(-log rho)+3)+1/(1-rho), one actual vector z has norm<=r=4eps*g and every1+z>0. The same repaired matrix is exactly doubly stochastic and nonnegative, has precisely the original zero support, cap(1+r)^2*a/m and full operator error<=(2r+r^2)*(1+eps). The proof consumes the actual stochastic completion, logarithmic inverse, full degree diagonal, exact parity compatibility and nonlinear cross term, with the residual removed by the existing signed conservation theorem. All28 declarations in six new maintained owners pass the focused foundational-axiom audit. The degree-normalized spectral-input corollary, actual constant-edge prime transfer, exact entropy and actual prime-circle relative count, remaining advertised claims and public integration remain unfinished. The complete paper headline is not Lean-certified."
+      "audit_note": "The full weighted Hamiltonian kernel count, sharp density/power-decay, inverse, signed occupancy/size moments and complete direct-centered-gap diffuse repair are compiled and audited. The actual constant-edge prime matrix U_n is now defined with the original distinct-prime and loop masks. For every n>=1 with log n>=64, its complete row, column and Euclidean operator difference from Q_n is bounded by E_n=(1+4log4*(2loglog n+log2))/log n. The proof includes every output, splitting at floor(n/log(n)^2), and uses the actual Chebyshev prime mass. E_n<=C/sqrt(log n), C=1+16log4+4log4log2>0, supplies uniform decay on an entire terminal interval. For every natural b, one positive D_b and one starting order give all-row degree error<=E_n+D_b/(log n)^b. The actual unweighted matrix has uniform degrees tending to1 and norm(U_n-P0_n)<=1/2+eps for every sufficiently large order, for each eps>0. All24 declarations in four new owners pass the focused foundational-axiom audit. Balanced cross-block identification, the full repair input/smallness consumer at the actual prime density, exact entropy and actual prime-circle relative count, normalized-spectral and cut corollaries, remaining advertised claims and public integration are unfinished. The complete paper headline is not Lean-certified."
     },
     {
       "id": "lem:signedoccupancy",
@@ -499,7 +500,7 @@
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\signed-jet-comparison.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
       "lean_status": "fully_formalized_actual_signed_coordinate_and_analytic_size_moments",
-      "audit_note": "All actual coordinate moments, full independent balanced-support readouts, complete signed first-order consumer, and exact analytic size-derivative identity have maintained Lean proofs. HamiltonianSignedSizeDerivative proves g''(1)=L(r(r-1))=4d'(1)+3d''(1) in both Gram conventions and abs(g''(1))<=53*abs(d)*(A/(1-rho))^2 from the original stochastic hypotheses. All12 new declarations pass the focused foundational-axiom audit. The weighted Hamiltonian kernel count, sharp density/power-decay, inverse and signed occupancy/size-wave conclusions are compiled and audited. The actual prime matrix has complete true-prime support, every fixed logarithmic degree accuracy and a lossless real constant/parity half-gap. The full diffuse repair from a direct centered-gap input is now compiled: for a nonnegative eps-nearly-stochastic cross block T with cap a/m, norm(T-J/m)<=rho-6eps and eps*g^2<=1/256, where g=2*(log(2*(a+9eps))/(-log rho)+3)+1/(1-rho), one actual vector z has norm<=r=4eps*g and every1+z>0. The same repaired matrix is exactly doubly stochastic and nonnegative, has precisely the original zero support, cap(1+r)^2*a/m and full operator error<=(2r+r^2)*(1+eps). The proof consumes the actual stochastic completion, logarithmic inverse, full degree diagonal, exact parity compatibility and nonlinear cross term, with the residual removed by the existing signed conservation theorem. All28 declarations in six new maintained owners pass the focused foundational-axiom audit. The degree-normalized spectral-input corollary, actual constant-edge prime transfer, exact entropy and actual prime-circle relative count, remaining advertised claims and public integration remain unfinished. The complete paper headline is not Lean-certified."
+      "audit_note": "All actual coordinate moments, full independent balanced-support readouts, complete signed first-order consumer, and exact analytic size-derivative identity have maintained Lean proofs. HamiltonianSignedSizeDerivative proves g''(1)=L(r(r-1))=4d'(1)+3d''(1) in both Gram conventions and abs(g''(1))<=53*abs(d)*(A/(1-rho))^2 from the original stochastic hypotheses. All12 new declarations pass the focused foundational-axiom audit. The full weighted Hamiltonian kernel count, sharp density/power-decay, inverse, signed occupancy/size moments and complete direct-centered-gap diffuse repair are compiled and audited. The actual constant-edge prime matrix U_n is now defined with the original distinct-prime and loop masks. For every n>=1 with log n>=64, its complete row, column and Euclidean operator difference from Q_n is bounded by E_n=(1+4log4*(2loglog n+log2))/log n. The proof includes every output, splitting at floor(n/log(n)^2), and uses the actual Chebyshev prime mass. E_n<=C/sqrt(log n), C=1+16log4+4log4log2>0, supplies uniform decay on an entire terminal interval. For every natural b, one positive D_b and one starting order give all-row degree error<=E_n+D_b/(log n)^b. The actual unweighted matrix has uniform degrees tending to1 and norm(U_n-P0_n)<=1/2+eps for every sufficiently large order, for each eps>0. All24 declarations in four new owners pass the focused foundational-axiom audit. Balanced cross-block identification, the full repair input/smallness consumer at the actual prime density, exact entropy and actual prime-circle relative count, normalized-spectral and cut corollaries, remaining advertised claims and public integration are unfinished. The complete paper headline is not Lean-certified."
     },
     {
       "id": "thm:criticalrelative",
@@ -1001,7 +1002,7 @@
     },
     {
       "file": "regular-factors.tex",
-      "sha256": "C1EB10A8B500C143C979BE95D92505822FD5261BB24EA0030F3020818D69D502"
+      "sha256": "5112040C63A76A95F4292E2F5F6EF53D411794C6ED8A4F9EC5C49297E43A8B8B"
     },
     {
       "file": "congruence-filters.tex",
@@ -1073,7 +1074,7 @@
     },
     {
       "file": "prime-circle-relative.tex",
-      "sha256": "2749B50CE2BC6D9E1F9939803AB9A4FB3C48029BD89204BD383A10EAE40BB111"
+      "sha256": "9ADB88D9EC0579B3D8F302240396A531743AF6F86A8F34F9DECE63551A48D2A3"
     }
   ],
   "research_frontier": {
@@ -1082,12 +1083,12 @@
     "complete_consumer": "rho=a=3/5; amplification <=m^(27/20); first signed correction polylog/m; only residual pays amplification, giving O(N^(-3/5)).",
     "inverse": "A fixed relative counting defect forces collective singular mass >=(2/kappa_rho)log N-O(log log N).",
     "further_extension": "Arbitrary fixed logarithmic density coefficients, and all fixed congruence filters, would require higher-order compensated expansions beyond the proved two-power remainder.",
-    "next_review_focus": "Prove the actual constant-edge prime transfer, keeping all row/column endpoint and loop corrections, then apply the completed direct-centered-gap diffuse repair at the real prime density. Finish exact entropy normalization and actual relative prime-circle count; complete remaining normalized-spectral, arithmetic/parity and public-integration claims before the queued RH/Hadamard/twin-prime transfers.",
+    "next_review_focus": "Transfer the actual all-row unweighted degrees and half-gap losslessly to the balanced odd/even cross block. Discharge eps*g^2 smallness for the completed diffuse repair at a=(1/2+o(1))*log m, retain its same-witness support/cap/operator outputs, and finish exact entropy normalization and the actual relative prime-circle count. Complete the remaining advertised claims and public integration before the queued RH/Hadamard/twin-prime transfers.",
     "independent_consumer_status": "Both actual integer prime-sum graphs and all growing coprime moduli have complete stated ordinary arguments."
   },
   "completion_receipt": {
     "requested_bar": "Finish the complete argument and its formalization at a level supporting a substantial original research contribution. A draft, helper proof, successful build or significance label does not finish this request; career impact cannot be certified by the author.",
-    "strongest_actual_theorem": "The weighted Hamiltonian kernel count, sharp density/power-decay, inverse and signed occupancy/size-wave conclusions are compiled and audited. The actual prime matrix has complete true-prime support, every fixed logarithmic degree accuracy and a lossless real constant/parity half-gap. The full diffuse repair from a direct centered-gap input is now compiled: for a nonnegative eps-nearly-stochastic cross block T with cap a/m, norm(T-J/m)<=rho-6eps and eps*g^2<=1/256, where g=2*(log(2*(a+9eps))/(-log rho)+3)+1/(1-rho), one actual vector z has norm<=r=4eps*g and every1+z>0. The same repaired matrix is exactly doubly stochastic and nonnegative, has precisely the original zero support, cap(1+r)^2*a/m and full operator error<=(2r+r^2)*(1+eps). The proof consumes the actual stochastic completion, logarithmic inverse, full degree diagonal, exact parity compatibility and nonlinear cross term, with the residual removed by the existing signed conservation theorem. All28 declarations in six new maintained owners pass the focused foundational-axiom audit. The degree-normalized spectral-input corollary, actual constant-edge prime transfer, exact entropy and actual prime-circle relative count, remaining advertised claims and public integration remain unfinished. The complete paper headline is not Lean-certified.",
+    "strongest_actual_theorem": "The full weighted Hamiltonian kernel count, sharp density/power-decay, inverse, signed occupancy/size moments and complete direct-centered-gap diffuse repair are compiled and audited. The actual constant-edge prime matrix U_n is now defined with the original distinct-prime and loop masks. For every n>=1 with log n>=64, its complete row, column and Euclidean operator difference from Q_n is bounded by E_n=(1+4log4*(2loglog n+log2))/log n. The proof includes every output, splitting at floor(n/log(n)^2), and uses the actual Chebyshev prime mass. E_n<=C/sqrt(log n), C=1+16log4+4log4log2>0, supplies uniform decay on an entire terminal interval. For every natural b, one positive D_b and one starting order give all-row degree error<=E_n+D_b/(log n)^b. The actual unweighted matrix has uniform degrees tending to1 and norm(U_n-P0_n)<=1/2+eps for every sufficiently large order, for each eps>0. All24 declarations in four new owners pass the focused foundational-axiom audit. Balanced cross-block identification, the full repair input/smallness consumer at the actual prime density, exact entropy and actual prime-circle relative count, normalized-spectral and cut corollaries, remaining advertised claims and public integration are unfinished. The complete paper headline is not Lean-certified.",
     "complete_independent_applications": [
       "Every sufficiently large even integer prime-sum graph is Hamiltonian; log h=N log N-N log log N-N+o(N).",
       "Fixed congruence-filter connectedness/Hamiltonicity is classified exactly by gcd(q,R-R)=2, with a full positive residue-pressure formula.",
@@ -1098,12 +1099,12 @@
       "Actual unweighted prime-sum graph: full relative count around its exact entropy, with O(N^(-3/5)) error; no RH or prime-pair estimate."
     ],
     "primary_literature_comparison": "Cuckler-Kahn: dense Dirac and dense balanced bipartite entropy counts. Barvinok: all-positive matrices with a relative entry lower bound. Krivelevich and Byrne-Tait: nontrivial spectral ratio tending to zero logarithmically. The present argument permits sparse zero support and any fixed nontrivial gap. Bradač-Janzer 2026 is an essential independent spanning-path input. McCullagh's bounded normalized moments fail along primorials; Divoux-Wang's fixed-entry finite proof is tracked explicitly, rather than used outside its stated range. The new first-order signed compensation and rank-one parity-root calculation avoid the fixed-entry remainder amplification at prime density. They are the mechanism of the complete prime consumer, not merely a detector or matching identity.",
-    "proof_endpoint_status": "The weighted Hamiltonian kernel count, sharp density/power-decay, inverse and signed occupancy/size-wave conclusions are compiled and audited. The actual prime matrix has complete true-prime support, every fixed logarithmic degree accuracy and a lossless real constant/parity half-gap. The full diffuse repair from a direct centered-gap input is now compiled: for a nonnegative eps-nearly-stochastic cross block T with cap a/m, norm(T-J/m)<=rho-6eps and eps*g^2<=1/256, where g=2*(log(2*(a+9eps))/(-log rho)+3)+1/(1-rho), one actual vector z has norm<=r=4eps*g and every1+z>0. The same repaired matrix is exactly doubly stochastic and nonnegative, has precisely the original zero support, cap(1+r)^2*a/m and full operator error<=(2r+r^2)*(1+eps). The proof consumes the actual stochastic completion, logarithmic inverse, full degree diagonal, exact parity compatibility and nonlinear cross term, with the residual removed by the existing signed conservation theorem. All28 declarations in six new maintained owners pass the focused foundational-axiom audit. The degree-normalized spectral-input corollary, actual constant-edge prime transfer, exact entropy and actual prime-circle relative count, remaining advertised claims and public integration remain unfinished. The complete paper headline is not Lean-certified.",
+    "proof_endpoint_status": "The full weighted Hamiltonian kernel count, sharp density/power-decay, inverse, signed occupancy/size moments and complete direct-centered-gap diffuse repair are compiled and audited. The actual constant-edge prime matrix U_n is now defined with the original distinct-prime and loop masks. For every n>=1 with log n>=64, its complete row, column and Euclidean operator difference from Q_n is bounded by E_n=(1+4log4*(2loglog n+log2))/log n. The proof includes every output, splitting at floor(n/log(n)^2), and uses the actual Chebyshev prime mass. E_n<=C/sqrt(log n), C=1+16log4+4log4log2>0, supplies uniform decay on an entire terminal interval. For every natural b, one positive D_b and one starting order give all-row degree error<=E_n+D_b/(log n)^b. The actual unweighted matrix has uniform degrees tending to1 and norm(U_n-P0_n)<=1/2+eps for every sufficiently large order, for each eps>0. All24 declarations in four new owners pass the focused foundational-axiom audit. Balanced cross-block identification, the full repair input/smallness consumer at the actual prime density, exact entropy and actual prime-circle relative count, normalized-spectral and cut corollaries, remaining advertised claims and public integration are unfinished. The complete paper headline is not Lean-certified.",
     "significance_assessment": "A general signed-estimation method now has a quantitative inverse and complete independent arithmetic consumers at actual prime density and through every coprime modulus. This supports a serious standalone research contribution. Career-defining impact and priority are not certified or inferred from compilation.",
     "paper_argument_delivered": true,
     "headline_all_orders_filz_proved": false,
     "lean_formalization_complete": false,
-    "next_safely_executable_research_action": "Prove the actual constant-edge prime transfer, keeping all row/column endpoint and loop corrections, then apply the completed direct-centered-gap diffuse repair at the real prime density. Finish exact entropy normalization and actual relative prime-circle count; complete remaining normalized-spectral, arithmetic/parity and public-integration claims before the queued RH/Hadamard/twin-prime transfers.",
+    "next_safely_executable_research_action": "Transfer the actual all-row unweighted degrees and half-gap losslessly to the balanced odd/even cross block. Discharge eps*g^2 smallness for the completed diffuse repair at a=(1/2+o(1))*log m, retain its same-witness support/cap/operator outputs, and finish exact entropy normalization and the actual relative prime-circle count. Complete the remaining advertised claims and public integration before the queued RH/Hadamard/twin-prime transfers.",
     "next_gate": "Judge the complete new method and independent applications, not theorem counts or successful compilation; preserve exact entropy and explicit density scope.",
     "no_background_work_claimed": true,
     "expert_relevance_gate": {
@@ -1122,8 +1123,8 @@
     "committed_this_turn": true,
     "pushed_this_turn": false,
     "proofs_left_only_in_private_research": false,
-    "recorded_phase": "Baseline local commitd92860f. This phase adds six maintained owners and28 focused-audited declarations for the full compatible degree inverse and exact positive diffuse scaling with complete same-witness stochastic/support/cap/operator output. Paper and claims are synchronized; final staged checks and the local commit are recorded separately.",
-    "phase": "The weighted Hamiltonian kernel count, sharp density/power-decay, inverse and signed occupancy/size-wave conclusions are compiled and audited. The actual prime matrix has complete true-prime support, every fixed logarithmic degree accuracy and a lossless real constant/parity half-gap. The full diffuse repair from a direct centered-gap input is now compiled: for a nonnegative eps-nearly-stochastic cross block T with cap a/m, norm(T-J/m)<=rho-6eps and eps*g^2<=1/256, where g=2*(log(2*(a+9eps))/(-log rho)+3)+1/(1-rho), one actual vector z has norm<=r=4eps*g and every1+z>0. The same repaired matrix is exactly doubly stochastic and nonnegative, has precisely the original zero support, cap(1+r)^2*a/m and full operator error<=(2r+r^2)*(1+eps). The proof consumes the actual stochastic completion, logarithmic inverse, full degree diagonal, exact parity compatibility and nonlinear cross term, with the residual removed by the existing signed conservation theorem. All28 declarations in six new maintained owners pass the focused foundational-axiom audit. The degree-normalized spectral-input corollary, actual constant-edge prime transfer, exact entropy and actual prime-circle relative count, remaining advertised claims and public integration remain unfinished. The complete paper headline is not Lean-certified."
+    "recorded_phase": "Baseline local commit2ebe533. This phase adds four maintained owners and24 focused-audited declarations for the actual complete constant-edge prime transfer, explicit uniform finite error, terminal-interval decay, degree rate and all-large half-gap. Both paper sections and all affected claims are synchronized; final staged checks and the local commit are recorded separately.",
+    "phase": "The full weighted Hamiltonian kernel count, sharp density/power-decay, inverse, signed occupancy/size moments and complete direct-centered-gap diffuse repair are compiled and audited. The actual constant-edge prime matrix U_n is now defined with the original distinct-prime and loop masks. For every n>=1 with log n>=64, its complete row, column and Euclidean operator difference from Q_n is bounded by E_n=(1+4log4*(2loglog n+log2))/log n. The proof includes every output, splitting at floor(n/log(n)^2), and uses the actual Chebyshev prime mass. E_n<=C/sqrt(log n), C=1+16log4+4log4log2>0, supplies uniform decay on an entire terminal interval. For every natural b, one positive D_b and one starting order give all-row degree error<=E_n+D_b/(log n)^b. The actual unweighted matrix has uniform degrees tending to1 and norm(U_n-P0_n)<=1/2+eps for every sufficiently large order, for each eps>0. All24 declarations in four new owners pass the focused foundational-axiom audit. Balanced cross-block identification, the full repair input/smallness consumer at the actual prime density, exact entropy and actual prime-circle relative count, normalized-spectral and cut corollaries, remaining advertised claims and public integration are unfinished. The complete paper headline is not Lean-certified."
   },
   "formalization": {
     "status": "in_progress_not_complete",
@@ -2786,10 +2787,34 @@
         "source_sha256": "C0BE774368F81897F72532893EE0837137713650A8CCD386CE20E481E1417B34",
         "content": "Full direct-centered-gap diffuse scaling under eps*g^2<=1/256, assembled with the same-witness exact stochasticity, positive weights, unchanged support, entry cap and complete operator error.",
         "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianLogWeightComparison",
+        "source_sha256": "AE569EE76841108432D3D4268C4B2FF9C411AE897D4C988AE0C785FF7C5B5C84",
+        "content": "Exact small/large logarithmic weight comparisons, full supported finite packing bound, and reuse of physical shifted-row injection.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianPrimeLogTransfer",
+        "source_sha256": "D03D63E85CF71C0AB050ECC27349D78F386715471D6A289167173F547245D7ED",
+        "content": "Complete finite prime-weight transfer with K=floor(n/log(n)^2), every output included, exact Chebyshev mass and explicit E_n on log(n)>=64.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianPrimeLogTransferDecay",
+        "source_sha256": "E59488DD97A975CD75A82702DAFBCC0A08D84CC1745ED3EDEA63AC2AC30A0058",
+        "content": "Uniform terminal-interval decay with an explicit positive C/sqrt(log n) envelope, actual unweighted operator convergence, all-large half-gap, uniform degrees and every fixed logarithmic degree-rate correction.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianUnweightedPrimeTransfer",
+        "source_sha256": "51EBE283FA8CE7CF5F7ACCD1EDBCF92BA9C20D9A929B777578D902BE95298F4C",
+        "content": "Actual constant-edge prime matrix with unchanged prime/loop masks, exact entry comparison, every physical row and column transfer, and dimension-free Euclidean operator bound.",
+        "build_exit_code": 0
       }
     ],
     "unfinished_dependencies": [
-      "Actual constant-edge unweighted prime transfer and its input to the completed direct-centered-gap repair; exact entropy normalization and actual prime-circle relative count. The normalized-spectral-input corollary of the paper scaling lemmas, remaining eigenvalue/logarithmic-accuracy corollaries and other advertised claims remain. Full compatible inverse, nonlinear scaling and same-witness output bounds are compiled and focused-audited.",
+      "Balanced odd/even cross-block identification and the actual-density smallness consumer of the completed diffuse repair; exact entropy normalization and actual relative prime-circle count. Actual constant-edge masks, full row/column/operator transfer, uniform decay, degree rates and all-large half-gap are compiled and focused-audited. Normalized-spectral and cut/eigenvalue/logarithmic-accuracy corollaries remain.",
       "Coprime and layered arithmetic specializations, parity cases and all other advertised paper claims.",
       "Public exports, claim-by-claim paper synchronization, focused builds, final staged repository checks and commits."
     ],
@@ -5485,13 +5510,56 @@
         ],
         "log_sha256": "BB8E7E6E186FF43DD9EC2B9A42BE499E9E0E32019989E586A2A2B7ABE61A2953",
         "scope": "Only the28 new compatible perturbation, actual degree-Jacobian, nonlinear fixed-point/conservation, original logarithmic inverse and full diffuse scaling/output declarations. Unchanged providers were not re-audited."
+      },
+      {
+        "status": "verified",
+        "modules": [
+          "PrimeFactorOscillations.Helpers.HamiltonianLogWeightComparison",
+          "PrimeFactorOscillations.Helpers.HamiltonianPrimeLogTransfer",
+          "PrimeFactorOscillations.Helpers.HamiltonianPrimeLogTransferDecay",
+          "PrimeFactorOscillations.Helpers.HamiltonianUnweightedPrimeTransfer"
+        ],
+        "declaration_count": 24,
+        "declarations": [
+          "PrimeFactorOscillations.LPF.hamiltonian_log_weight_small",
+          "PrimeFactorOscillations.LPF.hamiltonian_log_weight_large",
+          "PrimeFactorOscillations.LPF.hamiltonian_four_log_le_self",
+          "PrimeFactorOscillations.LPF.hamiltonian_nonnegative_shift_budget",
+          "PrimeFactorOscillations.LPF.hamiltonian_finite_prime_weight_split",
+          "PrimeFactorOscillations.LPF.hamiltonianPrimeLogWeight",
+          "PrimeFactorOscillations.LPF.hamiltonianPrimeLogTransferError",
+          "PrimeFactorOscillations.LPF.hamiltonian_prime_log_weight_nonnegative",
+          "PrimeFactorOscillations.LPF.hamiltonian_prime_log_transfer_sum",
+          "PrimeFactorOscillations.LPF.hamiltonianPrimeLogDecayConstant",
+          "PrimeFactorOscillations.LPF.hamiltonian_prime_log_decay_constant_positive",
+          "PrimeFactorOscillations.LPF.hamiltonian_log_terminal_lower",
+          "PrimeFactorOscillations.LPF.hamiltonian_prime_log_transfer_sqrt_bound",
+          "PrimeFactorOscillations.LPF.hamiltonian_prime_log_transfer_error_uniform",
+          "PrimeFactorOscillations.LPF.hamiltonian_unweighted_prime_operator_uniform",
+          "PrimeFactorOscillations.LPF.hamiltonian_unweighted_prime_operator_gap",
+          "PrimeFactorOscillations.LPF.hamiltonian_unweighted_prime_degree_uniform",
+          "PrimeFactorOscillations.LPF.hamiltonian_unweighted_prime_degree_rate",
+          "PrimeFactorOscillations.LPF.hamiltonianUnweightedPrimeMatrix",
+          "PrimeFactorOscillations.LPF.hamiltonian_unweighted_prime_symmetric",
+          "PrimeFactorOscillations.LPF.hamiltonian_unweighted_prime_entry_difference",
+          "PrimeFactorOscillations.LPF.hamiltonian_unweighted_prime_row_transfer",
+          "PrimeFactorOscillations.LPF.hamiltonian_unweighted_prime_column_transfer",
+          "PrimeFactorOscillations.LPF.hamiltonian_unweighted_prime_operator_transfer"
+        ],
+        "allowed_axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "log_sha256": "18C06E83A26801A12728E4A1187D45B87EC3BA29F34ABC648F32007DE4696234",
+        "scope": "Only the24 new finite weight comparison/packing, complete prime-mass transfer, actual unweighted row/column/operator, uniform decay/degree/rate and half-gap declarations. Unchanged providers were not re-audited."
       }
     ],
     "active_proof": {
-      "module": "PrimeFactorOscillations.Helpers.HamiltonianDiffuseScaling",
-      "status": "The weighted Hamiltonian kernel count, sharp density/power-decay, inverse and signed occupancy/size-wave conclusions are compiled and audited. The actual prime matrix has complete true-prime support, every fixed logarithmic degree accuracy and a lossless real constant/parity half-gap. The full diffuse repair from a direct centered-gap input is now compiled: for a nonnegative eps-nearly-stochastic cross block T with cap a/m, norm(T-J/m)<=rho-6eps and eps*g^2<=1/256, where g=2*(log(2*(a+9eps))/(-log rho)+3)+1/(1-rho), one actual vector z has norm<=r=4eps*g and every1+z>0. The same repaired matrix is exactly doubly stochastic and nonnegative, has precisely the original zero support, cap(1+r)^2*a/m and full operator error<=(2r+r^2)*(1+eps). The proof consumes the actual stochastic completion, logarithmic inverse, full degree diagonal, exact parity compatibility and nonlinear cross term, with the residual removed by the existing signed conservation theorem. All28 declarations in six new maintained owners pass the focused foundational-axiom audit. The degree-normalized spectral-input corollary, actual constant-edge prime transfer, exact entropy and actual prime-circle relative count, remaining advertised claims and public integration remain unfinished. The complete paper headline is not Lean-certified.",
+      "module": "PrimeFactorOscillations.Helpers.HamiltonianPrimeLogTransferDecay",
+      "status": "The full weighted Hamiltonian kernel count, sharp density/power-decay, inverse, signed occupancy/size moments and complete direct-centered-gap diffuse repair are compiled and audited. The actual constant-edge prime matrix U_n is now defined with the original distinct-prime and loop masks. For every n>=1 with log n>=64, its complete row, column and Euclidean operator difference from Q_n is bounded by E_n=(1+4log4*(2loglog n+log2))/log n. The proof includes every output, splitting at floor(n/log(n)^2), and uses the actual Chebyshev prime mass. E_n<=C/sqrt(log n), C=1+16log4+4log4log2>0, supplies uniform decay on an entire terminal interval. For every natural b, one positive D_b and one starting order give all-row degree error<=E_n+D_b/(log n)^b. The actual unweighted matrix has uniform degrees tending to1 and norm(U_n-P0_n)<=1/2+eps for every sufficiently large order, for each eps>0. All24 declarations in four new owners pass the focused foundational-axiom audit. Balanced cross-block identification, the full repair input/smallness consumer at the actual prime density, exact entropy and actual prime-circle relative count, normalized-spectral and cut corollaries, remaining advertised claims and public integration are unfinished. The complete paper headline is not Lean-certified.",
       "target": "Complete the paper headline from the actual unconditional constant/parity half-gap and the full weighted kernel count: true-prime support and degree estimates, diffuseness-sensitive scaling, exact entropy normalization and actual prime-circle count; complete all advertised arithmetic/parity claims and remaining corollaries, public exports, real Solution consumer and final staged checks. Then begin the authorized generalizations to RH, Hadamard and twin primes.",
-      "consumer": "The full diffuse scaling is now an actual compiled consumer, including exact stochasticity, unchanged zero support, leading entry-cap control and operator error on the same witness. Its eps*g^2<=1/256 condition has g=O_rho(log(2A)), so the next arithmetic consumer is the actual constant-edge prime matrix with eps=O(loglog n/log n), followed by exact entropy and the relative counting theorem.",
+      "consumer": "The unweighted actual prime matrix U_n now has explicit E_n=O(loglog n/log n) row/operator transfer, degree rate E_n+D_b/log(n)^b and the unconditional constant/parity half-gap. The next complete consumer is its balanced cross block at q=1/m and a~(1/2)log m, then the existing exact diffuse repair under eps*g^2<=1/256 and the sharp actual entropy/count theorem.",
       "proved_inputs": [
         "PrimeFactorOscillations.Helpers.HamiltonianMatrixSpectralAverage",
         "PrimeFactorOscillations.Helpers.HamiltonianRookGamma",
@@ -6043,6 +6111,30 @@
           "module": "PrimeFactorOscillations.Helpers.HamiltonianDiffuseScaling",
           "source_sha256": "C0BE774368F81897F72532893EE0837137713650A8CCD386CE20E481E1417B34",
           "content": "Full direct-centered-gap diffuse scaling under eps*g^2<=1/256, assembled with the same-witness exact stochasticity, positive weights, unchanged support, entry cap and complete operator error.",
+          "build_exit_code": 0
+        },
+        {
+          "module": "PrimeFactorOscillations.Helpers.HamiltonianLogWeightComparison",
+          "source_sha256": "AE569EE76841108432D3D4268C4B2FF9C411AE897D4C988AE0C785FF7C5B5C84",
+          "content": "Exact small/large logarithmic weight comparisons, full supported finite packing bound, and reuse of physical shifted-row injection.",
+          "build_exit_code": 0
+        },
+        {
+          "module": "PrimeFactorOscillations.Helpers.HamiltonianPrimeLogTransfer",
+          "source_sha256": "D03D63E85CF71C0AB050ECC27349D78F386715471D6A289167173F547245D7ED",
+          "content": "Complete finite prime-weight transfer with K=floor(n/log(n)^2), every output included, exact Chebyshev mass and explicit E_n on log(n)>=64.",
+          "build_exit_code": 0
+        },
+        {
+          "module": "PrimeFactorOscillations.Helpers.HamiltonianPrimeLogTransferDecay",
+          "source_sha256": "E59488DD97A975CD75A82702DAFBCC0A08D84CC1745ED3EDEA63AC2AC30A0058",
+          "content": "Uniform terminal-interval decay with an explicit positive C/sqrt(log n) envelope, actual unweighted operator convergence, all-large half-gap, uniform degrees and every fixed logarithmic degree-rate correction.",
+          "build_exit_code": 0
+        },
+        {
+          "module": "PrimeFactorOscillations.Helpers.HamiltonianUnweightedPrimeTransfer",
+          "source_sha256": "51EBE283FA8CE7CF5F7ACCD1EDBCF92BA9C20D9A929B777578D902BE95298F4C",
+          "content": "Actual constant-edge prime matrix with unchanged prime/loop masks, exact entry comparison, every physical row and column transfer, and dimension-free Euclidean operator bound.",
           "build_exit_code": 0
         }
       ]
