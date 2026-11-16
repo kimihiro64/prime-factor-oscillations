@@ -311,8 +311,8 @@
       "kind": "theorem",
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\bipartite-path-entropy.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
-      "lean_status": "actual_prescribed_path_model_and_endpoint_uniform_upper_consumer_compiled_full_lower_bound_pending",
-      "audit_note": "HamiltonianPrescribedPathMinor now defines the actual one-orbit path weight by a unit closing edge, proves its exact permutation expansion and full endpoint relabeling, identifies the actual minor by Laplace expansion, and consumes the existing row-substochastic permanent estimate to giveZ_path<=exp(-(N-1)+16*N*alpha*log(2N)). All nine declarations compile and pass their focused foundational audit. The deleted-column row sums are only bounded above by1, never assumed equal to1. This closes the uniform upper consumer needed for the weighted path-entropy theorem; the finerN*alpha*log(1/alpha)+logN Bregman error and all lower-bound assertions remain open formal obligations."
+      "lean_status": "actual_path_model_exact_minor_upper_and_one_orbit_lower_consumer_compiled_quantitative_lower_estimate_pending",
+      "audit_note": "HamiltonianPathContraction proves the exact contracted permutation expansion, actual one-orbit insertion andZ_cycle(Q)<=Z_path(P;0,b) for the precise endpoint minor, withb!=0 and every nonnegative edge weight retained. Its five new declarations compile and pass their focused foundational audit. This is a compiled lower consumer, not the independent analytic estimate onQ. Existing path-minor/upper and full cycle claims retain their earlier verification; full quantitative prescribed-endpoint path entropy remains unfinished."
     },
     {
       "id": "lem:complementaryrestriction",
@@ -361,7 +361,7 @@
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\coprime-circles.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
       "lean_status": "full_actual_all_modulus_cycle_entropy_logarithmic_error_and_normalized_limit_compiled_prescribed_endpoint_paths_pending",
-      "audit_note": "HamiltonianCoprimeLogReference proves the exact full parity-dependent logD identity and bounds its complete correction by(3+abslogpi+abslog2)*log(2n), retaining the odd arithmetic constant and square-root term. HamiltonianCoprimeCycleEntropy consumes the full actual relative theorem, proves the actual graph count positive before taking its logarithm, and gives one absoluteN0>=512 covering every n>=N0 withabs(logh(X_n)-n(logphi(n)-1))<=K log(2n), K=4+abslogpi+abslog2. It separately proves the exact scalar comparison to the statedn*phi(n)^(-1/8)*log(2n) scale and the uniform normalized epsilon limit across all moduli. All13 new declarations compile and pass their focused foundational audit, with unchanged prior actual count/constant/spectral audits reused. This closes every cycle assertion, including the stated entropy consequence. The uniform prescribed-endpoint path assertions remain unfinished, so this multi-part theorem row remains partial."
+      "audit_note": "HamiltonianCoprimeLogReference proves the exact full parity-dependent logD identity and bounds its complete correction by(3+abslogpi+abslog2)*log(2n), retaining the odd arithmetic constant and square-root term. HamiltonianCoprimeCycleEntropy consumes the full actual relative theorem, proves the actual graph count positive before taking its logarithm, and gives one absoluteN0>=512 covering every n>=N0 withabs(logh(X_n)-n(logphi(n)-1))<=K log(2n), K=4+abslogpi+abslog2. It separately proves the exact scalar comparison to the statedn*phi(n)^(-1/8)*log(2n) scale and the uniform normalized epsilon limit across all moduli. All13 new declarations compile and pass their focused foundational audit, with unchanged prior actual count/constant/spectral audits reused. This closes every cycle assertion, including the stated entropy consequence. The uniform prescribed-endpoint path assertions remain unfinished, so this multi-part theorem row remains partial. HamiltonianPathContraction proves the exact contracted permutation expansion, actual one-orbit insertion andZ_cycle(Q)<=Z_path(P;0,b) for the precise endpoint minor, withb!=0 and every nonnegative edge weight retained. Its five new declarations compile and pass their focused foundational audit. This is a compiled lower consumer, not the independent analytic estimate onQ. Existing path-minor/upper and full cycle claims retain their earlier verification; full quantitative prescribed-endpoint path entropy remains unfinished."
     },
     {
       "id": "thm:growingpermanent",
@@ -370,7 +370,7 @@
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\relative-permanents.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
       "lean_status": "fully_formalized_direct_normalized_uniform_statement",
-      "audit_note": "Both paper permanent statements now have direct maintained normalized Lean consumers. stochastic_permanent_relative_correction_polylog_uniform proves, for one N0(delta,K)>=16 and every admissible kernel and 1<=A<=log(N)^K, abs((N^N/N!)*per(T)/Delta(1)-(1+Q_N(T)))<=(1+A)^24*C_delta/N^2 and abs(Q_N(T))<=21*A^2/(delta^3*N). For K>0, hamiltonian_permanent_polylog_first_order_budget supplies the uniform scalar threshold, and stochastic_permanent_first_order_polylog_uniform proves the directly normalized first-order error <=N^(-1/8). The full common threshold is independent of the kernel. These three new theorems compile and pass the focused foundational-axiom audit. The complete signed second-order expansion is retained for the critical Hamiltonian consumer; its first-order consequence is not substituted into that sharper argument. All previously certified headline inputs, the complete arithmetic constant proposition, full actual all-modulus coprime relative count and uniform cycle entropy/normalized limit remain compiled and audited. Actual prescribed Hamiltonian paths now have a maintained unit-closing-edge definition, exact full permutation expansion, endpoint relabeling and an exact deleted-row/deleted-column permanent identity. A uniform row-substochastic upper consumer provesZ_path<=exp(-(N-1)+16*N*alpha*log(2N)), including zero permanent and every endpoint, with the exactN-1 rank shift. Nine new declarations pass their focused foundational audit. The sharper Bregman path-minor error, actual prescribed-endpoint path lower bounds, remaining weighted/linkage/layered headline consumers and public Solution integration remain unfinished. The whole headline remains uncertified."
+      "audit_note": "Both paper permanent statements now have direct maintained normalized Lean consumers. stochastic_permanent_relative_correction_polylog_uniform proves, for one N0(delta,K)>=16 and every admissible kernel and 1<=A<=log(N)^K, abs((N^N/N!)*per(T)/Delta(1)-(1+Q_N(T)))<=(1+A)^24*C_delta/N^2 and abs(Q_N(T))<=21*A^2/(delta^3*N). For K>0, hamiltonian_permanent_polylog_first_order_budget supplies the uniform scalar threshold, and stochastic_permanent_first_order_polylog_uniform proves the directly normalized first-order error <=N^(-1/8). The full common threshold is independent of the kernel. These three new theorems compile and pass the focused foundational-axiom audit. The complete signed second-order expansion is retained for the critical Hamiltonian consumer; its first-order consequence is not substituted into that sharper argument. All previously certified headline inputs, full arithmetic constant proposition, actual all-modulus coprime relative count and uniform cycle entropy/normalized limit remain compiled and audited. Actual prescribed paths have their maintained unit-closing-edge model, full permutation expansion, endpoint relabeling and exact permanent minor with endpoint-uniform row-substochastic upper bound. The lower combinatorial consumer now also compiles: for distinct closing endpoints, every one-orbit permutation on the exact swap-identified endpoint minor lifts to one orbit on the full vertex set with its full edge weight. ConsequentlyZ_cycle(Q)<=Z_path(P;0,b)<=per(Q). Five new insertion/contraction declarations pass their focused foundational audit. Actual quantitative path lower bounds, sharper Bregman error, remaining weighted/linkage/layered headline consumers and public Solution integration remain unfinished; the whole headline remains uncertified."
     },
     {
       "id": "lem:relativecompensatedminors",
@@ -491,7 +491,7 @@
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\relative-hamilton.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
       "lean_status": "fully_formalized_both_actual_unoriented_graph_count_family_limits_with_positive_references",
-      "audit_note": "All previously certified headline inputs, the complete arithmetic constant proposition, full actual all-modulus coprime relative count and uniform cycle entropy/normalized limit remain compiled and audited. Actual prescribed Hamiltonian paths now have a maintained unit-closing-edge definition, exact full permutation expansion, endpoint relabeling and an exact deleted-row/deleted-column permanent identity. A uniform row-substochastic upper consumer provesZ_path<=exp(-(N-1)+16*N*alpha*log(2N)), including zero permanent and every endpoint, with the exactN-1 rank shift. Nine new declarations pass their focused foundational audit. The sharper Bregman path-minor error, actual prescribed-endpoint path lower bounds, remaining weighted/linkage/layered headline consumers and public Solution integration remain unfinished. The whole headline remains uncertified."
+      "audit_note": "All previously certified headline inputs, full arithmetic constant proposition, actual all-modulus coprime relative count and uniform cycle entropy/normalized limit remain compiled and audited. Actual prescribed paths have their maintained unit-closing-edge model, full permutation expansion, endpoint relabeling and exact permanent minor with endpoint-uniform row-substochastic upper bound. The lower combinatorial consumer now also compiles: for distinct closing endpoints, every one-orbit permutation on the exact swap-identified endpoint minor lifts to one orbit on the full vertex set with its full edge weight. ConsequentlyZ_cycle(Q)<=Z_path(P;0,b)<=per(Q). Five new insertion/contraction declarations pass their focused foundational audit. Actual quantitative path lower bounds, sharper Bregman error, remaining weighted/linkage/layered headline consumers and public Solution integration remain unfinished; the whole headline remains uncertified."
     },
     {
       "id": "thm:secondpermanent",
@@ -500,7 +500,7 @@
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\permanent-second-order.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
       "lean_status": "fully_formalized_direct_normalized_uniform_statement",
-      "audit_note": "Both paper permanent statements now have direct maintained normalized Lean consumers. stochastic_permanent_relative_correction_polylog_uniform proves, for one N0(delta,K)>=16 and every admissible kernel and 1<=A<=log(N)^K, abs((N^N/N!)*per(T)/Delta(1)-(1+Q_N(T)))<=(1+A)^24*C_delta/N^2 and abs(Q_N(T))<=21*A^2/(delta^3*N). For K>0, hamiltonian_permanent_polylog_first_order_budget supplies the uniform scalar threshold, and stochastic_permanent_first_order_polylog_uniform proves the directly normalized first-order error <=N^(-1/8). The full common threshold is independent of the kernel. These three new theorems compile and pass the focused foundational-axiom audit. The complete signed second-order expansion is retained for the critical Hamiltonian consumer; its first-order consequence is not substituted into that sharper argument. All previously certified headline inputs, the complete arithmetic constant proposition, full actual all-modulus coprime relative count and uniform cycle entropy/normalized limit remain compiled and audited. Actual prescribed Hamiltonian paths now have a maintained unit-closing-edge definition, exact full permutation expansion, endpoint relabeling and an exact deleted-row/deleted-column permanent identity. A uniform row-substochastic upper consumer provesZ_path<=exp(-(N-1)+16*N*alpha*log(2N)), including zero permanent and every endpoint, with the exactN-1 rank shift. Nine new declarations pass their focused foundational audit. The sharper Bregman path-minor error, actual prescribed-endpoint path lower bounds, remaining weighted/linkage/layered headline consumers and public Solution integration remain unfinished. The whole headline remains uncertified."
+      "audit_note": "Both paper permanent statements now have direct maintained normalized Lean consumers. stochastic_permanent_relative_correction_polylog_uniform proves, for one N0(delta,K)>=16 and every admissible kernel and 1<=A<=log(N)^K, abs((N^N/N!)*per(T)/Delta(1)-(1+Q_N(T)))<=(1+A)^24*C_delta/N^2 and abs(Q_N(T))<=21*A^2/(delta^3*N). For K>0, hamiltonian_permanent_polylog_first_order_budget supplies the uniform scalar threshold, and stochastic_permanent_first_order_polylog_uniform proves the directly normalized first-order error <=N^(-1/8). The full common threshold is independent of the kernel. These three new theorems compile and pass the focused foundational-axiom audit. The complete signed second-order expansion is retained for the critical Hamiltonian consumer; its first-order consequence is not substituted into that sharper argument. All previously certified headline inputs, full arithmetic constant proposition, actual all-modulus coprime relative count and uniform cycle entropy/normalized limit remain compiled and audited. Actual prescribed paths have their maintained unit-closing-edge model, full permutation expansion, endpoint relabeling and exact permanent minor with endpoint-uniform row-substochastic upper bound. The lower combinatorial consumer now also compiles: for distinct closing endpoints, every one-orbit permutation on the exact swap-identified endpoint minor lifts to one orbit on the full vertex set with its full edge weight. ConsequentlyZ_cycle(Q)<=Z_path(P;0,b)<=per(Q). Five new insertion/contraction declarations pass their focused foundational audit. Actual quantitative path lower bounds, sharper Bregman error, remaining weighted/linkage/layered headline consumers and public Solution integration remain unfinished; the whole headline remains uncertified."
     },
     {
       "id": "thm:minorjet",
@@ -509,7 +509,7 @@
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\compensated-minor-jet.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
       "lean_status": "fully_formalized_actual_uniform_two_power_minor_expansion",
-      "audit_note": "All previously certified headline inputs, the complete arithmetic constant proposition, full actual all-modulus coprime relative count and uniform cycle entropy/normalized limit remain compiled and audited. Actual prescribed Hamiltonian paths now have a maintained unit-closing-edge definition, exact full permutation expansion, endpoint relabeling and an exact deleted-row/deleted-column permanent identity. A uniform row-substochastic upper consumer provesZ_path<=exp(-(N-1)+16*N*alpha*log(2N)), including zero permanent and every endpoint, with the exactN-1 rank shift. Nine new declarations pass their focused foundational audit. The sharper Bregman path-minor error, actual prescribed-endpoint path lower bounds, remaining weighted/linkage/layered headline consumers and public Solution integration remain unfinished. The whole headline remains uncertified."
+      "audit_note": "All previously certified headline inputs, full arithmetic constant proposition, actual all-modulus coprime relative count and uniform cycle entropy/normalized limit remain compiled and audited. Actual prescribed paths have their maintained unit-closing-edge model, full permutation expansion, endpoint relabeling and exact permanent minor with endpoint-uniform row-substochastic upper bound. The lower combinatorial consumer now also compiles: for distinct closing endpoints, every one-orbit permutation on the exact swap-identified endpoint minor lifts to one orbit on the full vertex set with its full edge weight. ConsequentlyZ_cycle(Q)<=Z_path(P;0,b)<=per(Q). Five new insertion/contraction declarations pass their focused foundational audit. Actual quantitative path lower bounds, sharper Bregman error, remaining weighted/linkage/layered headline consumers and public Solution integration remain unfinished; the whole headline remains uncertified."
     },
     {
       "id": "lem:signedoccupancy",
@@ -518,7 +518,7 @@
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\signed-jet-comparison.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
       "lean_status": "fully_formalized_actual_signed_coordinate_and_analytic_size_moments",
-      "audit_note": "All actual coordinate moments, full independent balanced-support readouts, complete signed first-order consumer, and exact analytic size-derivative identity have maintained Lean proofs. HamiltonianSignedSizeDerivative proves g''(1)=L(r(r-1))=4d'(1)+3d''(1) in both Gram conventions and abs(g''(1))<=53*abs(d)*(A/(1-rho))^2 from the original stochastic hypotheses. All12 new declarations pass the focused foundational-axiom audit. All previously certified headline inputs, the complete arithmetic constant proposition, full actual all-modulus coprime relative count and uniform cycle entropy/normalized limit remain compiled and audited. Actual prescribed Hamiltonian paths now have a maintained unit-closing-edge definition, exact full permutation expansion, endpoint relabeling and an exact deleted-row/deleted-column permanent identity. A uniform row-substochastic upper consumer provesZ_path<=exp(-(N-1)+16*N*alpha*log(2N)), including zero permanent and every endpoint, with the exactN-1 rank shift. Nine new declarations pass their focused foundational audit. The sharper Bregman path-minor error, actual prescribed-endpoint path lower bounds, remaining weighted/linkage/layered headline consumers and public Solution integration remain unfinished. The whole headline remains uncertified."
+      "audit_note": "All actual coordinate moments, full independent balanced-support readouts, complete signed first-order consumer, and exact analytic size-derivative identity have maintained Lean proofs. HamiltonianSignedSizeDerivative proves g''(1)=L(r(r-1))=4d'(1)+3d''(1) in both Gram conventions and abs(g''(1))<=53*abs(d)*(A/(1-rho))^2 from the original stochastic hypotheses. All12 new declarations pass the focused foundational-axiom audit. All previously certified headline inputs, full arithmetic constant proposition, actual all-modulus coprime relative count and uniform cycle entropy/normalized limit remain compiled and audited. Actual prescribed paths have their maintained unit-closing-edge model, full permutation expansion, endpoint relabeling and exact permanent minor with endpoint-uniform row-substochastic upper bound. The lower combinatorial consumer now also compiles: for distinct closing endpoints, every one-orbit permutation on the exact swap-identified endpoint minor lifts to one orbit on the full vertex set with its full edge weight. ConsequentlyZ_cycle(Q)<=Z_path(P;0,b)<=per(Q). Five new insertion/contraction declarations pass their focused foundational audit. Actual quantitative path lower bounds, sharper Bregman error, remaining weighted/linkage/layered headline consumers and public Solution integration remain unfinished; the whole headline remains uncertified."
     },
     {
       "id": "thm:criticalrelative",
@@ -1045,7 +1045,7 @@
     },
     {
       "file": "bipartite-path-entropy.tex",
-      "sha256": "7663F31ABD01243A0E34C97A21286E0801C23157B0AC1E6F017A75C913262438"
+      "sha256": "1304F06614A756BF349C6112A8839ADA6C342FD92E6FFF0E4A84C6E83101404A"
     },
     {
       "file": "general-kernels.tex",
@@ -1102,12 +1102,12 @@
     "complete_consumer": "rho=a=3/5; amplification <=m^(27/20); first signed correction polylog/m; only residual pays amplification, giving O(N^(-3/5)).",
     "inverse": "A fixed relative counting defect forces collective singular mass >=(2/kappa_rho)log N-O(log log N).",
     "further_extension": "Arbitrary fixed logarithmic density coefficients, and all fixed congruence filters, would require higher-order compensated expansions beyond the proved two-power remainder.",
-    "next_review_focus": "Prove the actual prescribed-path lower consumer, beginning with exact one-orbit contraction to the endpoint minor and the strongest existing independent-support repair/count providers. Preserve the endpoint identification, full scaling product and parity obstruction. Finish the even opposite-part consumer and remaining weighted/linkage/layered/Solution claims before RH, Hadamard and twin-prime transfers.",
+    "next_review_focus": "Apply the strongest existing independent-support repair/count providers to the exact prescribed-endpoint minor with its chosen row identification and full scaling product. For the even parity case, prove the three-step coprime walk supply and retained row-mass avoidance estimate on the balanced graph after deleting endpoints; carry their displayed saving through actual cycle cutting. Finish full path entropy and remaining weighted/linkage/layered/Solution claims before RH, Hadamard and twin-prime transfers.",
     "independent_consumer_status": "Both actual integer prime-sum graphs and all growing coprime moduli have complete stated ordinary arguments."
   },
   "completion_receipt": {
     "requested_bar": "Finish the complete argument and its formalization at a level supporting a substantial original research contribution. A draft, helper proof, successful build or significance label does not finish this request; career impact cannot be certified by the author.",
-    "strongest_actual_theorem": "All previously certified headline inputs, the complete arithmetic constant proposition, full actual all-modulus coprime relative count and uniform cycle entropy/normalized limit remain compiled and audited. Actual prescribed Hamiltonian paths now have a maintained unit-closing-edge definition, exact full permutation expansion, endpoint relabeling and an exact deleted-row/deleted-column permanent identity. A uniform row-substochastic upper consumer provesZ_path<=exp(-(N-1)+16*N*alpha*log(2N)), including zero permanent and every endpoint, with the exactN-1 rank shift. Nine new declarations pass their focused foundational audit. The sharper Bregman path-minor error, actual prescribed-endpoint path lower bounds, remaining weighted/linkage/layered headline consumers and public Solution integration remain unfinished. The whole headline remains uncertified.",
+    "strongest_actual_theorem": "All previously certified headline inputs, full arithmetic constant proposition, actual all-modulus coprime relative count and uniform cycle entropy/normalized limit remain compiled and audited. Actual prescribed paths have their maintained unit-closing-edge model, full permutation expansion, endpoint relabeling and exact permanent minor with endpoint-uniform row-substochastic upper bound. The lower combinatorial consumer now also compiles: for distinct closing endpoints, every one-orbit permutation on the exact swap-identified endpoint minor lifts to one orbit on the full vertex set with its full edge weight. ConsequentlyZ_cycle(Q)<=Z_path(P;0,b)<=per(Q). Five new insertion/contraction declarations pass their focused foundational audit. Actual quantitative path lower bounds, sharper Bregman error, remaining weighted/linkage/layered headline consumers and public Solution integration remain unfinished; the whole headline remains uncertified.",
     "complete_independent_applications": [
       "Every sufficiently large even integer prime-sum graph is Hamiltonian; log h=N log N-N log log N-N+o(N).",
       "Fixed congruence-filter connectedness/Hamiltonicity is classified exactly by gcd(q,R-R)=2, with a full positive residue-pressure formula.",
@@ -1118,12 +1118,12 @@
       "Actual unweighted prime-sum graph: full relative count around its exact entropy, with O(N^(-3/5)) error; no RH or prime-pair estimate."
     ],
     "primary_literature_comparison": "Cuckler-Kahn: dense Dirac and dense balanced bipartite entropy counts. Barvinok: all-positive matrices with a relative entry lower bound. Krivelevich and Byrne-Tait: nontrivial spectral ratio tending to zero logarithmically. The present argument permits sparse zero support and any fixed nontrivial gap. Bradač-Janzer 2026 is an essential independent spanning-path input. McCullagh's bounded normalized moments fail along primorials; Divoux-Wang's fixed-entry finite proof is tracked explicitly, rather than used outside its stated range. The new first-order signed compensation and rank-one parity-root calculation avoid the fixed-entry remainder amplification at prime density. They are the mechanism of the complete prime consumer, not merely a detector or matching identity.",
-    "proof_endpoint_status": "All previously certified headline inputs, the complete arithmetic constant proposition, full actual all-modulus coprime relative count and uniform cycle entropy/normalized limit remain compiled and audited. Actual prescribed Hamiltonian paths now have a maintained unit-closing-edge definition, exact full permutation expansion, endpoint relabeling and an exact deleted-row/deleted-column permanent identity. A uniform row-substochastic upper consumer provesZ_path<=exp(-(N-1)+16*N*alpha*log(2N)), including zero permanent and every endpoint, with the exactN-1 rank shift. Nine new declarations pass their focused foundational audit. The sharper Bregman path-minor error, actual prescribed-endpoint path lower bounds, remaining weighted/linkage/layered headline consumers and public Solution integration remain unfinished. The whole headline remains uncertified.",
+    "proof_endpoint_status": "All previously certified headline inputs, full arithmetic constant proposition, actual all-modulus coprime relative count and uniform cycle entropy/normalized limit remain compiled and audited. Actual prescribed paths have their maintained unit-closing-edge model, full permutation expansion, endpoint relabeling and exact permanent minor with endpoint-uniform row-substochastic upper bound. The lower combinatorial consumer now also compiles: for distinct closing endpoints, every one-orbit permutation on the exact swap-identified endpoint minor lifts to one orbit on the full vertex set with its full edge weight. ConsequentlyZ_cycle(Q)<=Z_path(P;0,b)<=per(Q). Five new insertion/contraction declarations pass their focused foundational audit. Actual quantitative path lower bounds, sharper Bregman error, remaining weighted/linkage/layered headline consumers and public Solution integration remain unfinished; the whole headline remains uncertified.",
     "significance_assessment": "A general signed-estimation method now has a quantitative inverse and complete independent arithmetic consumers at actual prime density and through every coprime modulus. This supports a serious standalone research contribution. Career-defining impact and priority are not certified or inferred from compilation.",
     "paper_argument_delivered": true,
     "headline_all_orders_filz_proved": false,
     "lean_formalization_complete": false,
-    "next_safely_executable_research_action": "Prove the actual prescribed-path lower consumer, beginning with exact one-orbit contraction to the endpoint minor and the strongest existing independent-support repair/count providers. Preserve the endpoint identification, full scaling product and parity obstruction. Finish the even opposite-part consumer and remaining weighted/linkage/layered/Solution claims before RH, Hadamard and twin-prime transfers.",
+    "next_safely_executable_research_action": "Apply the strongest existing independent-support repair/count providers to the exact prescribed-endpoint minor with its chosen row identification and full scaling product. For the even parity case, prove the three-step coprime walk supply and retained row-mass avoidance estimate on the balanced graph after deleting endpoints; carry their displayed saving through actual cycle cutting. Finish full path entropy and remaining weighted/linkage/layered/Solution claims before RH, Hadamard and twin-prime transfers.",
     "next_gate": "Judge the complete new method and independent applications, not theorem counts or successful compilation; preserve exact entropy and explicit density scope.",
     "no_background_work_claimed": true,
     "expert_relevance_gate": {
@@ -1142,8 +1142,8 @@
     "committed_this_turn": true,
     "pushed_this_turn": false,
     "proofs_left_only_in_private_research": false,
-    "recorded_phase": "actual_prescribed_path_minor_and_endpoint_uniform_upper_bound_compiled_and_audited",
-    "phase": "All previously certified headline inputs, the complete arithmetic constant proposition, full actual all-modulus coprime relative count and uniform cycle entropy/normalized limit remain compiled and audited. Actual prescribed Hamiltonian paths now have a maintained unit-closing-edge definition, exact full permutation expansion, endpoint relabeling and an exact deleted-row/deleted-column permanent identity. A uniform row-substochastic upper consumer provesZ_path<=exp(-(N-1)+16*N*alpha*log(2N)), including zero permanent and every endpoint, with the exactN-1 rank shift. Nine new declarations pass their focused foundational audit. The sharper Bregman path-minor error, actual prescribed-endpoint path lower bounds, remaining weighted/linkage/layered headline consumers and public Solution integration remain unfinished. The whole headline remains uncertified."
+    "recorded_phase": "actual_one_orbit_endpoint_minor_lower_consumer_compiled_and_audited",
+    "phase": "All previously certified headline inputs, full arithmetic constant proposition, actual all-modulus coprime relative count and uniform cycle entropy/normalized limit remain compiled and audited. Actual prescribed paths have their maintained unit-closing-edge model, full permutation expansion, endpoint relabeling and exact permanent minor with endpoint-uniform row-substochastic upper bound. The lower combinatorial consumer now also compiles: for distinct closing endpoints, every one-orbit permutation on the exact swap-identified endpoint minor lifts to one orbit on the full vertex set with its full edge weight. ConsequentlyZ_cycle(Q)<=Z_path(P;0,b)<=per(Q). Five new insertion/contraction declarations pass their focused foundational audit. Actual quantitative path lower bounds, sharper Bregman error, remaining weighted/linkage/layered headline consumers and public Solution integration remain unfinished; the whole headline remains uncertified."
   },
   "formalization": {
     "status": "in_progress_not_complete",
@@ -3886,10 +3886,16 @@
         "source_sha256": "58A8C49A3AAB45F749F5CF7C77D2DF6844E7698EE5DCE844ED6AF7A36F45F64C",
         "content": "hamiltonian_path_closing_nonnegative; hamiltonian_cycle_sum_nonnegative; hamiltonian_cycle_sum_le_permanent; hamiltonian_prescribed_path_reindex; hamiltonian_prescribed_path_fin_expansion; hamiltonian_prescribed_path_permanent_minor; hamiltonian_prescribed_path_le_minor; hamiltonian_prescribed_path_zero_upper; hamiltonian_prescribed_path_uniform_upper",
         "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianPathContraction",
+        "source_sha256": "4F58BD9B76C6D178F78DA04D2BB0D50E5CBDAF7337FFE674323A3BBA326FECED",
+        "content": "hamiltonian_single_orbit_same_cycle; hamiltonian_single_orbit_of_full_orbit; hamiltonian_one_orbit_insert_zero; hamiltonian_prescribed_path_contracted_expansion; hamiltonian_prescribed_path_cycle_minor_lower",
+        "build_exit_code": 0
       }
     ],
     "unfinished_dependencies": [
-      "The exact prescribed-path representation/minor and its entropy-scale upper consumer are compiled. The stronger Bregman path-minor error, path lower bounds, weighted/linkage/layered headlines and public Solution integration remain required.",
+      "Actual paths now have an exact lower-cycle/upper-permanent squeeze on their endpoint minor. The independent quantitative path lower bound, stronger Bregman error, remaining weighted/linkage/layered headlines and public Solution integration remain required.",
       "Coprime and layered arithmetic specializations, parity cases and all other advertised paper claims.",
       "Public exports, claim-by-claim paper synchronization, focused builds, final staged repository checks and commits."
     ],
@@ -13464,13 +13470,69 @@
         ],
         "log_sha256": "EFFE40C95D3BA58B74312FA3149CE516046C0B8698F34CBC35CB89759B6A48EF",
         "scope": "Only the nine new exact path representation/relabeling/minor and uniform upper declarations. Existing row-cap and cycle-permutation providers retain immutable unchanged audits."
+      },
+      {
+        "status": "passed",
+        "modules": [
+          "PrimeFactorOscillations.Helpers.HamiltonianPathContraction"
+        ],
+        "declaration_count": 5,
+        "declarations": [
+          {
+            "name": "PrimeFactorOscillations.hamiltonian_single_orbit_same_cycle",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonian_single_orbit_of_full_orbit",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonian_one_orbit_insert_zero",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonian_prescribed_path_contracted_expansion",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonian_prescribed_path_cycle_minor_lower",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          }
+        ],
+        "allowed_axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "log_sha256": "FFADB6571BEE44B062AE3997C6C6A3D2BC01FBC751AC32A958D48B4B82ACE70F",
+        "scope": "Only five new one-orbit insertion/contraction and actual path lower-consumer declarations; unchanged prior cycle/path-minor/row-cap evidence is reused."
       }
     ],
     "active_proof": {
-      "module": "PrimeFactorOscillations.Helpers.HamiltonianPrescribedPathMinor",
-      "status": "All previously certified headline inputs, the complete arithmetic constant proposition, full actual all-modulus coprime relative count and uniform cycle entropy/normalized limit remain compiled and audited. Actual prescribed Hamiltonian paths now have a maintained unit-closing-edge definition, exact full permutation expansion, endpoint relabeling and an exact deleted-row/deleted-column permanent identity. A uniform row-substochastic upper consumer provesZ_path<=exp(-(N-1)+16*N*alpha*log(2N)), including zero permanent and every endpoint, with the exactN-1 rank shift. Nine new declarations pass their focused foundational audit. The sharper Bregman path-minor error, actual prescribed-endpoint path lower bounds, remaining weighted/linkage/layered headline consumers and public Solution integration remain unfinished. The whole headline remains uncertified.",
+      "module": "PrimeFactorOscillations.Helpers.HamiltonianPathContraction",
+      "status": "All previously certified headline inputs, full arithmetic constant proposition, actual all-modulus coprime relative count and uniform cycle entropy/normalized limit remain compiled and audited. Actual prescribed paths have their maintained unit-closing-edge model, full permutation expansion, endpoint relabeling and exact permanent minor with endpoint-uniform row-substochastic upper bound. The lower combinatorial consumer now also compiles: for distinct closing endpoints, every one-orbit permutation on the exact swap-identified endpoint minor lifts to one orbit on the full vertex set with its full edge weight. ConsequentlyZ_cycle(Q)<=Z_path(P;0,b)<=per(Q). Five new insertion/contraction declarations pass their focused foundational audit. Actual quantitative path lower bounds, sharper Bregman error, remaining weighted/linkage/layered headline consumers and public Solution integration remain unfinished; the whole headline remains uncertified.",
       "target": "Complete the paper headline from the actual unconditional constant/parity half-gap and the full weighted kernel count: true-prime support and degree estimates, diffuseness-sensitive scaling, exact entropy normalization and actual prime-circle count; complete all advertised arithmetic/parity claims and remaining corollaries, public exports, real Solution consumer and final staged checks. Then begin the authorized generalizations to RH, Hadamard and twin primes.",
-      "consumer": "{\"actual_path_model\":true,\"closing_edge_weight\":1,\"deleted_row\":\"terminal b\",\"deleted_column\":\"initial a\",\"rank\":\"N-1\",\"upper_bound\":\"exp(-(N-1)+16*N*alpha*log(2N))\",\"scope\":\"all endpoints; nonnegative row-substochastic matrices;N*alpha>=1;zero permanent included\",\"lower_bound_proved\":false,\"headline_complete\":false}",
+      "consumer": "{\"actual_path_squeeze\":\"Z_cycle(Q)<=Z_path(P;0,b)<=per(Q)\",\"minor\":\"Qij=P_(swap(0,b)(i+1),j+1)\",\"hypothesis\":\"b!=0;all original matrix entries nonnegative\",\"proof\":\"full orbit insertion through decomposeFin;no weights or fixed-point orbits discarded\",\"quantitative_lower_complete\":false,\"odd_small_cap_route\":{\"input\":\"independent-support repair withS={b},U={0};row-identification transport;actual aperiodic cycle count\",\"delta\":\"fixed native odd coprime gap1/2\",\"density\":\"a=N/phi(N),a^2=o(logN)\",\"remaining\":\"compile the same repaired endpoint minor and carry its exact two-sided scaling product\"},\"even_parity_route\":{\"status\":\"ordinary calculation only;finite identities and full formal consumer pending\",\"comparison\":\"The contracted odd-order endpoint minor has near-periodic spectrum, so the fixed-gap aperiodic theorem cannot be applied there. Delete both endpoints in the original balanced graph, count cycles on that balanced support and cut a usable edge instead.\",\"three_step_target\":\"P^3(a,b)>=1/(2N) for oddN or evenN with opposite-parity endpoints\",\"walk_count_target\":\"W3(a,b)>=phi(N)^3/(2N)\",\"eligible_edge_mass\":\"M_E>=phi(N)^2/(2N)-2\",\"avoidance_construction\":\"Halve all usable directed closing edges;every avoiding cycle retains its full weight;normalize the retained rows, whose sums are at least1/4 for largephi.\",\"avoidance_upper_target\":\"Z_avoid<=exp(-(N-2)-M_E/2+64*(N/phi(N))*log(2N))\",\"base_lower_consumer\":\"logZ_base>=-(N-2)-C*((N/phi(N))^2+logN),C absolute;assemble from existing repair/count/determinant bounds\",\"saving_condition\":\"M_E/2>=64*a*log(2N)+C*(a^2+logN)+log2,a=N/phi(N)\",\"domination\":\"M_E>=N/(2*a^2)-2; existinga=O(loglogN) makes this saving condition eventual\",\"lifting\":\"Each good cycle plus chosen usable edge yields an actual prescribed-endpoint path; deleting its endpoints reconstructs that cycle. Restore the extra factor1/phi(N) in weighted path mass.\",\"headline_complete\":false}}",
       "proved_inputs": [
         "PrimeFactorOscillations.Helpers.HamiltonianMatrixSpectralAverage",
         "PrimeFactorOscillations.Helpers.HamiltonianRookGamma",
@@ -15102,6 +15164,12 @@
           "module": "PrimeFactorOscillations.Helpers.HamiltonianPrescribedPathMinor",
           "source_sha256": "58A8C49A3AAB45F749F5CF7C77D2DF6844E7698EE5DCE844ED6AF7A36F45F64C",
           "content": "hamiltonian_path_closing_nonnegative; hamiltonian_cycle_sum_nonnegative; hamiltonian_cycle_sum_le_permanent; hamiltonian_prescribed_path_reindex; hamiltonian_prescribed_path_fin_expansion; hamiltonian_prescribed_path_permanent_minor; hamiltonian_prescribed_path_le_minor; hamiltonian_prescribed_path_zero_upper; hamiltonian_prescribed_path_uniform_upper",
+          "build_exit_code": 0
+        },
+        {
+          "module": "PrimeFactorOscillations.Helpers.HamiltonianPathContraction",
+          "source_sha256": "4F58BD9B76C6D178F78DA04D2BB0D50E5CBDAF7337FFE674323A3BBA326FECED",
+          "content": "hamiltonian_single_orbit_same_cycle; hamiltonian_single_orbit_of_full_orbit; hamiltonian_one_orbit_insert_zero; hamiltonian_prescribed_path_contracted_expansion; hamiltonian_prescribed_path_cycle_minor_lower",
           "build_exit_code": 0
         }
       ]

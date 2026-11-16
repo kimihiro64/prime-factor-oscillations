@@ -74,6 +74,26 @@ All nine new declarations passed a focused foundational-axiom audit.
 The sharper Bregman error in Lemma~\ref{lem:pathminor} and the spanning-path
 lower bound remain separate formal obligations.
 
+The maintained module \texttt{HamiltonianPathContraction} additionally
+proves a lower-bound consumer. Label the initial vertex \(0\), let
+\(b\ne0\), and index the remaining \(N-1\) labels by \(i+1\). Put
+\[
+ Q_{ij}=P_{\,(0\ b)(i+1),\,j+1},
+\]
+where \((0\ b)\) is the indicated transposition.
+Then
+\[
+ Z_{\rm cycle}(Q)\leq Z_{\rm path}(P;0,b)
+                         \leq\operatorname{per}Q.
+\]
+The lower inequality is proved by lifting every one-orbit minor
+permutation through the exact permutation decomposition. The proof
+retains fixed-point orbits, all vertex labels and every edge weight;
+the hypothesis \(b\ne0\) is explicit. Five new declarations passed
+their focused foundational-axiom audit. A quantitative lower estimate
+on this actual minor is still required before claiming path entropy.
+
+
 
 \begin{theorem}[Uniform weighted path entropy in the bipartite case]
 \label{thm:bipartitepathentropy}
