@@ -419,9 +419,8 @@ also proved. Uniformly over every other regular factor
 interval gives \(s/D\leq1+\eta\), proving asymptotic degree
 optimality. All twenty-nine core declarations in these five
 new owners pass focused foundational-axiom checks.
-The resilience theorem below now has its complete signed-count
-consumer. The cycle-packing theorem retains its separate
-formalization obligation.
+Both the resilience theorem below and the full cycle-packing
+conclusion now have complete maintained Lean proofs.
 
 \begin{theorem}[A positive proportion of the prime edges in Hamilton cycles]
 \label{thm:manycycles}
@@ -461,8 +460,9 @@ No independence of the successive cycles is used.
 \end{proof}
 
 \paragraph{Formalized retained-mode input for cycle packing.}
-The full uniform packing conclusion above remains a formalization
-obligation. Its arithmetic finite-mode input is now proved.
+The full uniform packing conclusion above is now formalized,
+including the actual cycle-edge construction and disjoint iteration.
+Its arithmetic finite-mode input is as follows.
 Let \(Q_n\) be the proved moving prime-operator cutoff, fix a
 positive integer \(K\), and put \(H=27K^4\). Index the retained
 modes by
@@ -775,13 +775,60 @@ counting statement.
 All nine core declarations in these three new owners
 pass focused foundational-axiom checks.
 The bound gives a positive count once \(m>1\).
-The remaining formalization task for
-Theorem~\ref{thm:manycycles} is the finite graph
-construction: extract each cycle's two incident edges
-at every vertex, update the exact remaining degrees,
-and iterate with pairwise disjoint edge sets.
-The full packing conclusion is still pending that
-construction.
+\paragraph{Formalized finite construction and full packing theorem.}
+For a one-orbit permutation \(f\) on the two parts, retain the
+actual undirected cross-edge set
+\[
+ C(f)=\{(a,b):f(a)=b\ \hbox{or}\ f(b)=a\}.
+\]
+A one-orbit permutation on at least three vertices cannot
+return to its starting point after two steps. Thus the incoming
+and outgoing neighbours are distinct, and \(C(f)\) has exactly
+two edges at every vertex.
+\texttt{HamiltonianBipartiteCycleEdges} proves these facts and
+containment in the current supported graph.
+
+\texttt{HamiltonianFiniteCyclePacking} maintains the exact
+remaining graph, its degree \(r-2j\), and the finite family of
+previous cycles. Each previous cycle lies outside the
+remaining graph, so a new supported cycle is disjoint from
+every previous cycle. The exact finite deletion identity
+updates both vertex degrees by two. The resulting induction
+needs a Hamilton-cycle witness for every regular subgraph
+of degree at least \(r-2k+2\).
+
+This witness is supplied uniformly by
+\texttt{HamiltonianPrimeSubfactorCycles}.
+If \(H\subseteq F\) is \(d\)-regular and \(F\) is \(r\)-regular,
+the deleted normalized cross matrix is exactly
+\[
+ Q=\frac1r A_{F\setminus H}
+   =\frac1r A_F-\frac dr\frac1d A_H.
+\]
+It obeys \(0\leq Q\leq A_F/r\) and has every row and column
+sum \(1-d/r\). The remaining normalized kernel in the signed
+count theorem is therefore exactly \(A_H/d\). If
+\(d\geq(1-2\kappa')r\), its count is positive on the same
+terminal interval, independently of the subgraph \(H\).
+
+Finally, choose \(\kappa<\kappa'<1/8\) and
+\(\varepsilon=(\kappa'-\kappa)/(2\kappa')\).
+The already proved global factor family satisfies
+\(r\geq(1-\varepsilon)D\), \(D=2m/\log(2m)\), on a whole
+terminal interval. Hence
+\[
+ k=\lfloor\kappa D\rfloor\leq\kappa'r,\qquad
+ r-2k\geq(1-2\kappa')r.
+\]
+Apply the finite induction for these \(k\) steps.
+\texttt{HamiltonianPrimeCyclePacking} proves the resulting
+uniform theorem, with each cycle's actual distinct-integer
+prime-sum edge conditions through the canonical odd/even
+bijection. All twenty-one new core declarations in these
+four owners pass focused foundational-axiom checks.
+This completes the Lean proof of
+Theorem~\ref{thm:manycycles}, for every fixed
+\(0<\kappa<1/8\) and every sufficiently large even order.
 
 \begin{theorem}[Explicit positive local resilience]
 \label{thm:resilience}
@@ -885,6 +932,6 @@ actual one-orbit cycle from a positive signed count.
 The final theorem keeps every original distinct-integer
 prime-sum edge condition and proves that no deleted edge is
 used. All nineteen core declarations in these four owners
-pass focused foundational-axiom checks. This proof consumes
-the signed counting theorem directly; the cycle-packing
-theorem still has its own formalization obligation.
+pass focused foundational-axiom checks. Both this resilience
+proof and the completed cycle-packing proof consume the
+signed counting theorem directly.
