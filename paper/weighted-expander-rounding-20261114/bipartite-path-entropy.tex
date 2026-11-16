@@ -50,6 +50,31 @@ This proof also covers a minor with zero permanent.
 It does not assume that deleting a column leaves row sum one.
 \end{proof}
 
+\paragraph{Verified path-minor consumer.}
+The maintained module
+\texttt{HamiltonianPrescribedPathMinor} now defines the actual prescribed
+path sum by replacing column \(a\) by the unit vector at \(b\) and taking
+the one-orbit cycle sum. The artificial closing edge \(b\to a\) has weight
+one. Its permutation expansion retains every original path weight.
+An exact Laplace identity gives the minor obtained by deleting row \(b\)
+and column \(a\), with both endpoint labels explicitly transported.
+The zero-permanent case is included.
+
+For \(N\geq2\), nonnegative row-substochastic \(P\) with entries at most
+\(\alpha\) and \(N\alpha\geq1\), the compiled endpoint-uniform consequence is
+\[
+ Z_{\rm path}(P;a,b)
+       \leq \exp\bigl(-(N-1)+16N\alpha\log(2N)\bigr).
+\]
+The proof applies the existing row-cap estimate to the actual minor;
+it never assumes that its rows retain sum one.
+This upper bound suffices for the upper half of the weighted path-entropy
+theorem, since \(\alpha\leq\alpha^{1/8}\) for \(0<\alpha\leq1\).
+All nine new declarations passed a focused foundational-axiom audit.
+The sharper Bregman error in Lemma~\ref{lem:pathminor} and the spanning-path
+lower bound remain separate formal obligations.
+
+
 \begin{theorem}[Uniform weighted path entropy in the bipartite case]
 \label{thm:bipartitepathentropy}
 Under Theorem~\ref{thm:weightedentropy}, for every
