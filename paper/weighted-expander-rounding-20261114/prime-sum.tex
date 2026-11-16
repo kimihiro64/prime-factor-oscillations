@@ -231,14 +231,33 @@ one and two. Consequently
 This uses both physical character frames and does not estimate
 the retained model by its unsigned coefficient mass.
 
-For even \(N\), the constant vector and the parity vector
-\(s_i=(-1)^i\) are orthogonal. The matrix \(L_Q\) acts on
-them by \(1,-1\), respectively, and vanishes on their
-orthogonal complement. With the logarithmic cutoff in (16),
-\(Q^4/N=o(1)\). Thus \(A_N\) is a perturbation of \(L_Q\)
-of norm at most \(1/2+o(1)\). Weyl's inequality gives (19):
-there is one possible exceptional eigenvalue at each end
-of the spectrum.
+Write the exact reference as a signed rank-two operator,
+\[
+ L_Q=uu^\top-vv^\top,\qquad
+ u_i=N^{-1/2},\quad v_i=(-1)^iN^{-1/2}.
+\]
+For any real vector \(z\),
+\[
+ z^\top L_Qz=\langle u,z\rangle^2-\langle v,z\rangle^2.
+\]
+Let \(\rho=1/2+\varepsilon\) and use the complete arithmetic
+plus Gram estimate to ensure \(\|A_N-L_Q\|\leq\rho\).
+If two orthonormal eigenvectors had eigenvalues exceeding \(\rho\),
+their two-dimensional span would contain a nonzero vector \(z\)
+orthogonal to \(u\).
+Its eigenvector expansion would give
+\(z^\top A_Nz>\rho\|z\|^2\).
+But the exact signed reference gives
+\(z^\top L_Qz=-\langle v,z\rangle^2\leq0\), while the norm
+error gives \(z^\top A_Nz\leq\rho\|z\|^2\), a contradiction.
+Apply the same argument to \(-A_N\), exchanging \(u,v\), for
+the lower end.
+Repeated eigenvalues are counted by their independent eigenvectors,
+so there is at most one eigenvalue above \(\rho\) and at most one
+below \(-\rho\), including multiplicities.
+This proves (19) in decreasing algebraic order.
+The sign change between \((-1)^i\) and the zero-based indexing used
+in Lean has no effect on the outer product \(vv^\top\).
 \end{proof}
 
 \paragraph{Formalized finite nonexceptional spectral estimate.}
@@ -294,9 +313,40 @@ the actual integer matrix alone:
 All thirteen new declarations in these five owners pass the focused
 foundational-axiom audit. No subsequence, numerical experiment,
 auxiliary-grid hypothesis or unestimated analytic remainder appears
-in the final theorem. The eigenvalue-indexed corollary (19) remains
-a formalization obligation. The degree and exact scaling consumers
-are now proved, as recorded below.
+in the final theorem. The eigenvalue-indexed corollary (19) is now also formalized.
+The maintained owners
+\texttt{HamiltonianSignedRankOneComparison},
+\texttt{HamiltonianHermitianOutlierCount} and
+\texttt{HamiltonianMangoldtSpectralOutliers} prove its complete
+native eigenvalue readout.
+The signed reference is retained as \(uu^\top-vv^\top\).
+The two-vector argument explicitly chooses a nonzero coefficient
+pair in the kernel of the positive-mode functional, retains the
+negative square, and only then applies the norm estimate to the
+complete difference.
+The native eigenbasis supplies every orthogonality and action
+identity.
+
+For every \(\varepsilon>0\), the exact compiled conclusion on one
+entire terminal interval is
+\[
+ \#\{k:\lambda_k(A_N)>\tfrac12+\varepsilon\}\leq1,\qquad
+ \#\{k:\lambda_k(A_N)<-\tfrac12-\varepsilon\}\leq1.
+\]
+The indices range over a full Hermitian eigenbasis, so multiplicities
+are retained.
+The ordered-position corollary is also compiled: for every
+permutation of that basis whose eigenvalues are in decreasing
+order, every position after the first has upper bound
+\(1/2+\varepsilon\), and every position before the last has lower
+bound \(-1/2-\varepsilon\).
+This is exactly (19), with the usual one-based notation.
+The real Mangoldt matrix is proved Hermitian and its complex
+embedding is exactly the original arithmetic matrix.
+No new analytic estimate or spectral hypothesis is assumed.
+All twenty-one new core declarations pass the focused foundational
+audit.
+The degree and exact scaling consumers are recorded below.
 The exact true-prime support transfer is recorded next.
 
 \begin{lemma}[Uniform degrees and a true prime support]
@@ -390,8 +440,8 @@ The residual has both weighted sums zero and retains that
 eigenvalue. If \(\|S-W\|<1\), the residual must vanish.
 Thus both exceptional eigenspaces are one-dimensional.
 Take \(\rho=1/2+o(1)\), \(\varepsilon=o(1)\).
-This proves the full normalized assertion independently of the
-remaining ordered-eigenvalue formalization of (19).
+This proves the full normalized assertion without using the
+ordered-eigenvalue argument for the raw Mangoldt matrix.
 \end{proof}
 
 \paragraph{Formalized true-prime support transfer.}
@@ -468,7 +518,8 @@ The choice \(\varepsilon=\min\{\eta/34,1/128\}\) discharges every
 normalization and simplicity margin on one terminal interval.
 All twenty-two new core declarations pass the focused foundational
 audit. The ordered-eigenvalue assertion (19) for the raw Mangoldt
-matrix remains a separate formalization obligation.
+matrix is formalized separately by the outlier-count and ordered-position
+owners described above.
 Exact positive stochastic scaling of the actual prime support is
 proved in \texttt{HamiltonianPrimeStochasticScaling}, with sharp
 near-identity and half-gap outputs in
