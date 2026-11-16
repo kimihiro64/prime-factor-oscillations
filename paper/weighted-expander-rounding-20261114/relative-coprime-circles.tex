@@ -128,9 +128,9 @@ This is the displayed factorial normalization of the actual
 unoriented arithmetic graph, with no restriction on its
 distinct prime factors or prime-power exponents.
 All fourteen new declarations pass the focused foundational
-audit. The constant's infinite-series analysis and uniform
-bounds, the final Stirling normalization and the even-modulus
-count remain formalization obligations.
+audit. The prime-product form, uniform convergence and uniform
+bounds for the series, final Stirling normalization and the
+even-modulus count remain formalization obligations.
 
 \paragraph{Maintained exact arithmetic determinant.}
 \texttt{HamiltonianFourierDeterminant} proves that the determinant
@@ -155,8 +155,38 @@ audit. Thus both determinants in the symmetric quotient are
 explicit finite arithmetic products. The positive square-root
 identification with the displayed \(\mathfrak C(n)\) and the
 actual odd unoriented factorial count are now compiled as
-recorded above. Its infinite series and bounds, final Stirling
-normalization and the even count remain separate obligations.
+recorded above. Its prime-product series form and uniform
+bounds, final Stirling normalization and the even count remain
+separate obligations.
+
+
+
+\paragraph{Maintained full signed logarithmic series.}
+\texttt{HamiltonianCoprimeConstantSeries} now proves the exact
+series, for every fixed odd positive modulus. Define
+\[
+ \lambda_t=\begin{cases}0,&t=1,\\
+                \mu(t)/\varphi(t),&t>1,\end{cases}
+ \qquad
+ Q_j(n)=-\frac1{2j+1}\sum_{t\mid n}
+                         \varphi(t)\lambda_t^{2j+1}.
+\]
+The compiled statement is
+\[
+ \operatorname{HasSum}\bigl((Q_j(n))_{j\geq0},
+                              \log\mathfrak C(n)\bigr).
+\]
+Every term keeps the actual divisor support and its sign.
+The odd-power logarithm identity is obtained by subtracting
+the two classical logarithm series, so all even powers
+cancel before divisor summation. A separate compiled identity,
+valid for every \(n>1\), gives \(Q_0(n)=1\) from the exact
+M\"obius divisor sum. All seven new declarations pass the
+focused foundational audit.
+The higher-coefficient Euler-product identity and the resulting
+uniform series bounds remain to be formalized. Convergence
+at each fixed modulus is distinguished from the still-pending
+uniform arithmetic estimate.
 
 
 For odd \(n\geq3\), define the positive arithmetic factor
