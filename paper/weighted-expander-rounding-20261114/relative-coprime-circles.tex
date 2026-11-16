@@ -596,5 +596,30 @@ the bijection with primitive unit residues preserves its phase, and
 cyclic inversion retains the factor \(1/n\).
 The matrix identity includes \(n=1\); for even moduli the lower bound
 retains the required opposite-parity endpoint condition.
-The endpoint-deleted marked-edge mass and the complete path-count
-transfer still require their separate formal assembly.
+\paragraph{Verified closing-edge supply and avoidance.}
+Let \(n>1\), let \(a\ne b\) be compatible endpoints as above, and put
+\(d=\varphi(n)\), \(A=n/d\) and \(V'=(\mathbb Z/n\mathbb Z)\setminus\{a,b\}\).
+On the actual principal kernel \(M=P_n|_{V'\times V'}\), mark the directed
+entry \((i,j)\) when \(a\sim j\) and \(i\sim b\).
+The maintained module \texttt{HamiltonianCoprimeMarkedMass} proves
+\[
+ M_E=\sum_{i,j\in V'}\mathbf1_{\{a\sim j,\ i\sim b\}}P_n(i,j)
+     =d^2P_n^3(a,b)-2\mathbf1_{\{a\sim b\}}+P_n(a,b)
+     \geq \frac{d^2}{2n}-2.
+\]
+The positive intersection term \(P_n(a,b)\) compensates the overlap
+of the two removed endpoint contributions.
+The same module proves \(|V'|=n-2\) and the exact retained row sums
+\(1-P_n(i,a)-P_n(i,b)\), which belong to \([1-2/d,1]\).
+Consequently, for \(d\geq4\), the full row-deficit avoidance bound gives
+\[
+ Z_{\rm avoid}\leq
+ \exp\!\left(-(n-2)-\frac{d^2}{4n}+1+64A\log(2n)\right).
+\]
+Here avoiding means that the one-orbit cycle has no marked entry.
+All sixteen new declarations passed their focused foundational-axiom
+audit. The exact marked-cycle partition counts each cycle once,
+irrespective of how many usable edges it has.
+The independent repaired base-cycle lower count and the injective
+weighted cut-and-attach transfer remain to be formally assembled
+before the complete endpoint path entropy is claimed.
