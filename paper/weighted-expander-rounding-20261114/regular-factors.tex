@@ -203,8 +203,50 @@ the exact entropy maximum and the actual unoriented prime-circle
 count, including the factorial normalization and the quantitative
 Stirling conversion. Its two relative errors are respectively
 at most \(m^{-3/5}\) and \(2m^{-3/5}\), \(m=N/2\).
-The sharp repaired half-gap and cut corollaries in (27)--(28)
-remain separate formalization obligations.
+\paragraph{Formalized sharp repair and the full prime-edge cut bound.}
+\texttt{HamiltonianPrimeSharpScaling} retains the same positive
+counting witness while making its perturbation arbitrarily small.
+\texttt{HamiltonianPrimePhysicalScaling} transfers it back through
+the exact odd/even bijection. For every \(\eta>0\), for every
+sufficiently large \(m\), the actual physical matrix \(P_{2m}\)
+is symmetric, nonnegative and exactly stochastic, with
+\[
+ P_{2m}(i,j)=0\ \Longleftrightarrow\ U_{2m}(i,j)=0,\qquad
+ \|P_{2m}-U_{2m}\|\leq\eta,\qquad
+ \|P_{2m}-P_{0,2m}\|\leq\tfrac12+\eta .
+\]
+\texttt{HamiltonianPrimeOrthogonalGap} proves the exact
+constant/parity multiplication formula and the operator bound
+on the subspace with both corresponding sums zero.
+This completes the literal sharp-gap consumer in (27).
+
+For (28), \texttt{HamiltonianSpectralCuts} and
+\texttt{HamiltonianCenteredCuts} prove the full signed
+Dirichlet identity and exact centered indicator norm.
+For every centered cut vector \(x\),
+\texttt{HamiltonianPrimeCuts} retains
+\[
+ x^\top P_{0,N}x=-\frac1N
+       \left(\sum_i(-1)^i x_i\right)^2\leq0.
+\]
+The degree lower bound \(19/20\) and operator error at most
+\(11/20\) give the complete finite bound
+\[
+ e_{U_N}(W,W^c)\geq\frac25\,\frac{|W|(N-|W|)}N
+                       \geq\frac15\min\{|W|,N-|W|\}.
+\]
+The same owner defines the actual finite set of distinct
+prime-sum edges crossing the cut, proves its exact weighted
+cardinality identity, and concludes
+\[
+ e_{G_N}(W,W^c)\geq\frac{N}{5\log N}
+                           \min\{|W|,N-|W|\}
+\]
+on an entire terminal interval, uniformly over every \(W\).
+No cut or overlap is removed. All thirty-nine new declarations
+in these six owners pass focused foundational-axiom checks;
+the two audit batches are disjoint. Equations (26)--(28)
+now have complete maintained arithmetic consumers.
 
 \begin{theorem}[Near-optimal regular prime-sum factors]
 \label{thm:nearlyoptimalfactor}
