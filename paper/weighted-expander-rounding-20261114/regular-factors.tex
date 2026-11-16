@@ -460,6 +460,63 @@ Since \(r/(N/\log N)\to1\), this produces (30).
 No independence of the successive cycles is used.
 \end{proof}
 
+\paragraph{Formalized retained-mode input for cycle packing.}
+The full uniform packing conclusion above remains a formalization
+obligation. Its arithmetic finite-mode input is now proved.
+Let \(Q_n\) be the proved moving prime-operator cutoff, fix a
+positive integer \(K\), and put \(H=27K^4\). Index the retained
+modes by
+\[
+ {\cal U}_H=\{(q,a):1\leq q\leq H,\quad
+                          a\in(\mathbb Z/q\mathbb Z)^\times\}.
+\]
+The exact fixed-index model \(F_{n,R,K}\) retains the coefficient
+\(\mu(q)/\varphi(q)\) when \(q\leq Q_n\), and zero otherwise,
+together with the original sampled character phase. The
+auxiliary grid has \(R>2n\), \(2n\mid R\), and \(q\mid R\)
+for every \(1\leq q\leq Q_n\).
+
+\texttt{HamiltonianRationalTailNorm} consumes the already proved
+uniform inequality \(2q^3\leq27\varphi(q)^4\), deriving
+\[
+ q>27K^4\quad\Longrightarrow\quad
+ |\mu(q)/\varphi(q)|\leq1/K.
+\]
+It proves the full two-frame remainder bound
+\[
+ \|\mathsf R_{n,R,Q}-\mathsf R_{n,R,Q}^{\leq H}\|
+ \leq K^{-1}(1+4Q^4/n).
+\]
+\texttt{HamiltonianRationalCutoffTransport} exchanges the moving
+and fixed denominator indices exactly, retaining every signed
+coefficient, phase and inactive denominator.
+\texttt{HamiltonianPrimeRationalApproximation} exposes the
+stronger part of the complete major/minor calculation before
+its two-mode relaxation: uniformly on a terminal interval,
+\[
+ \|\mathsf M_n-\mathsf R_{n,R,Q_n}\|+2Q_n^4/n
+                                                    \leq\varepsilon,
+\]
+where \(\mathsf M_n\) is the actual Mangoldt sum matrix.
+Thus \texttt{HamiltonianPrimeFiniteModeApproximation} proves
+\[
+ \|\mathsf M_n-F_{n,R,K}\|
+       \leq\varepsilon+K^{-1}(1+2\varepsilon).
+\]
+For every \(\eta>0\), one fixed \(K\) and one initial order
+therefore give error at most \(\eta\) for every subsequent
+order and every admissible grid.
+The same owner proves \(F_{n,R,K}=A_nB_n\) through the
+fixed vector space \(\mathbb C^{{\cal U}_H}\), with
+\(|{\cal U}_H|\leq H^2\).
+All seventeen core declarations in these four owners pass
+focused foundational-axiom checks.
+Transfer to the normalized simple prime factors, the retained
+finite-mode determinant comparison and the successive
+edge-disjoint cycle construction remain to be formalized.
+This completed arithmetic input is not a completed packing
+certificate.
+
 \begin{theorem}[Explicit positive local resilience]
 \label{thm:resilience}
 For every sufficiently large even \(N\), if an arbitrary set
