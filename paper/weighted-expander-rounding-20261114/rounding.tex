@@ -48,8 +48,8 @@ The maintained owners are \texttt{HamiltonianStochasticMatching},
 \texttt{HamiltonianStochasticPeeling} and
 \texttt{HamiltonianMatchingCostSelection}.
 This is the established finite assignment principle; no originality
-is claimed for it.  The required matrix-moment estimate and the
-assembled adaptive rounding theorem are still unformalized.
+is claimed for it.  The full one-step matrix-moment estimate is proved below; the
+assembled finite adaptive rounding theorem is still unformalized.
 
 \paragraph{Formal trace-power estimate for deterministic selection.}
 The next analytic input is now also proved in Lean, uniformly in the
@@ -96,8 +96,67 @@ The maintained proof consists of
 \texttt{HamiltonianTraceHessianBudget}.
 It is a supporting classical matrix estimate; no originality is
 claimed for the estimate in isolation.
-The scalar power-mean inequality, regularized squared-moment step
-and full adaptive rounding consumer still require formalization.
+The eigenvalue-mass interpolation and the complete regularized
+squared-moment step are now also proved in Lean.
+For every finite nonnegative family \(a_r\) and \(0\leq q\leq1\),
+\[
+ \sum_r a_r^q\leq n^{1-q}\left(\sum_r a_r\right)^q.
+\]
+The proof raises the power-mean inequality with exponent \(1/q\)
+back to the power \(q\), treating \(q=0\) separately.
+It includes empty finite sets.
+Apply it to \(a_r=|\lambda_r|^p\) and \(q=1-2/p\).
+For even \(p\geq2\), the exact Hermitian trace identity gives
+\[
+ \sum_r|\lambda_r|^{p-2}
+ \leq n^{2/p}\bigl(\operatorname{tr}A^p\bigr)^{1-2/p},
+ \qquad \operatorname{tr}A^p\geq0.
+\]
+Now write \(g(t)=\operatorname{tr}(A+tX)^p\),
+\(q=2/p\), and \(h(t)=g(t)+\varepsilon>0\), where
+\(\varepsilon>0\).
+The full differentiated expression is
+\[
+ \frac{d^2}{dt^2}h(t)^q
+ =g''(t)q h(t)^{q-1}
+  +(g'(t))^2q(q-1)h(t)^{q-2}.
+\]
+The second term is nonpositive, since \(0<q\leq1\).
+In the first term the Hessian bound and the interpolation above give
+\(g''(t)\leq K g(t)^{1-q}\), with
+\(K=2p(p-1)n^{2/p}\|X\|^2\).
+Using \(0\leq g(t)\leq h(t)\), the exact power cancellation
+\(h^{1-q}h^{q-1}=1\) yields
+\[
+ \frac{d^2}{dt^2}h(t)^q
+ \leq4(p-1)n^{2/p}\|X\|^2.
+\]
+This is uniform in \(A\) and \(\varepsilon>0\).
+The one-sided Taylor theorem is proved by applying derivative
+monotonicity first to \(f'(t)-Bt\), then to
+\(f(t)-f'(0)t-Bt^2/2\); it needs an upper bound on \(f''\),
+rather than an absolute second-derivative bound.
+Consequently, if
+\(\operatorname{tr}(A^{p-1}X)\leq0\), then
+\[
+ \boxed{\quad
+ \bigl(\operatorname{tr}((A+X)^p)+\varepsilon\bigr)^{2/p}
+ \leq
+ \bigl(\operatorname{tr}A^p+\varepsilon\bigr)^{2/p}
+ +2(p-1)n^{2/p}\|X\|^2 .
+ \quad}
+\]
+These proofs are maintained in
+\texttt{HamiltonianPowerMassInterpolation},
+\texttt{HamiltonianTraceMomentMass},
+\texttt{HamiltonianRegularizedPower},
+\texttt{HamiltonianSquaredTraceCurvature},
+\texttt{HamiltonianOneSidedTaylor} and
+\texttt{HamiltonianSquaredTraceStep}.
+They are classical analytic supporting estimates.
+The actual finite adaptive iteration on unused graph support,
+its joint spectral and two-observable lift, and the final rounding
+conclusion still require formalization.
 
 \begin{proof}[Proof of Theorem~\ref{thm:rounding}]
 Let \(F_i\) be the union of the first \(i\) chosen matchings,
@@ -242,8 +301,8 @@ Summing over any subset gives the stated predictable observable drift
 with no restriction on its size.  The maintained owners are
 \texttt{HamiltonianScaledCrossMass} and
 \texttt{HamiltonianForbiddenObservableDrift}.
-The finite adaptive iteration, squared-moment bound and joint rounding
-conclusion still await formalization.
+The finite adaptive iteration and joint rounding conclusion still await
+formalization.
 
 
 \begin{proof}[Proof of Corollary~\ref{cor:weightedhamilton}]
