@@ -106,8 +106,12 @@ physical half-gap after removing precisely the constant and
 parity modes. It identifies the unique conductor-two frequency
 with \(n/2\) and its exact inverse-transform parity kernel.
 No nonsquarefree modulus or high mode is omitted.
-The finite cross-block and actual even count transfer remain
-separate obligations.
+\texttt{HamiltonianCoprimeCrossBlock} now identifies the native
+even kernel with its exact bipartite lift and proves stochasticity,
+the entry cap and the physical centered half-gap on that cross block.
+\texttt{HamiltonianCycleTransport} preserves the full single-cycle
+sum under the same vertex equivalence. The actual even counting
+consumer remains a separate obligation.
 The full uniform totient density estimate is compiled in
 \texttt{HamiltonianTotientDiffusion}.
 \texttt{HamiltonianTotientSublog} supplies its quantified
@@ -149,7 +153,8 @@ Proposition~\ref{prop:coprimeconstant} is fully formalized.
 odd normalization with its positive displayed reference and
 explicit relative error \(23n^{-1/10}\), keeping both the
 factorial-count and Stirling errors.
-Even cross-block transfer and complete cycle/path entropy
+The even cross-block transfer is now compiled. The actual
+even counting consumer and complete cycle/path entropy
 assembly remain separate obligations.
 This paragraph records those completed spectral, density,
 determinant and actual odd arithmetic count results, not

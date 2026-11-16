@@ -180,9 +180,37 @@ The lossless Fourier transfer therefore proves
 \]
 on the actual native residue vertices.
 All seven new declarations pass their focused foundational audit.
-The identification with the centered finite cross block,
-its count transfer and the actual even arithmetic count
-remain separate obligations.
+The centered cross block and native single-cycle transfer
+are also compiled as follows; the actual even arithmetic
+count remains a separate obligation.
+
+\paragraph{Maintained actual even cross-block and cycle transfer.}
+\texttt{HamiltonianCycleTransport} conjugates every permutation
+under an arbitrary vertex equivalence. It transports every
+orbit, including singleton fixed-point orbits, and proves
+that the full weighted single-cycle sum is invariant.
+
+\texttt{HamiltonianCoprimeCrossBlock} constructs the actual
+cross block \(T_m\) through the exact residue parity equivalence.
+Its finite modular argument proves zero kernel entries
+between vertices of equal parity. The same equivalence
+identifies the physical parity kernel with the two
+constant cross blocks, giving
+\[
+ P_{2m}\simeq\operatorname{bipartiteLift}(T_m),\qquad
+ Q_{2m}\simeq\operatorname{bipartiteLift}(J/m).
+\]
+Both row and column sums of \(T_m\) are exactly one,
+its entries are nonnegative and at most \(1/\varphi(2m)\), and
+\[
+ \|T_m-J/m\|_{2\to2}\leq\tfrac12.
+\]
+The native directed single-cycle sum equals the one on the
+displayed bipartite lift exactly.
+All twenty new declarations pass their focused foundational
+audit. The actual even spectral and stochastic inputs are
+therefore discharged; application of the complete bipartite
+count and restoration of arithmetic graph weights remain.
 
 \paragraph{Maintained exact arithmetic determinant.}
 \texttt{HamiltonianFourierDeterminant} proves that the determinant
