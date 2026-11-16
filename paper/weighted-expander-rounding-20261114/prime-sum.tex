@@ -133,8 +133,9 @@ two-input Fourier transfer, the full rational reference and inverse,
 separated-center leakage, independent denominator and width ranges,
 and every integer-radius rounding condition.
 Every prime power and the full signed Ramanujan main term remain.
-The asymptotic cutoff selection in the last paragraph and the
-spectral comparison below remain formalization obligations.
+The arbitrary logarithmic-accuracy specialization (16) remains a
+formalization obligation. The complete polynomial-cutoff spectral
+consumer is recorded below.
 
 \begin{lemma}[The nontrivial ratio is one half]
 \label{lem:integerspectrum}
@@ -203,9 +204,49 @@ for every positive \(N,Q,R\) with \(4Q^2\leq R\)
 and the stated denominator divisibility.
 All seventeen new declarations pass the focused foundational-axiom
 audit. In this formal statement \(L_Q\) is the exact
-denominator-one/two operator; its displayed constant/parity
-identification and the asymptotic cutoff consumer remain
-formalization obligations.
+denominator-one/two operator. Its exact constant/parity
+identification is now also formalized, as recorded below.
+
+\paragraph{Formalized complete arithmetic-plus-spectral consumer.}
+The maintained owners \texttt{HamiltonianPrimeCutoffSelection},
+\texttt{HamiltonianPrimeOperatorBudget}, and
+\texttt{HamiltonianPrimeOperatorAsymptotic} consume both finite
+estimates on the same physical domain.
+Take \(M=2n\) and \(Q=\lfloor M^{1/160}\rfloor\), \(T=Q^2\).
+Every sufficiently large \(M\) satisfies all required major,
+minor, separation and Gram constraints.
+With \(H,K,C_0\) as above, the combined error is controlled by
+\[
+ D_0\,\frac{(1+\log(2M))^5}{\sqrt Q},
+ \qquad D_0=4\bigl(H+K+5+\sqrt{2C_0}\bigr)+8.
+\]
+The scalar proof retains the initial-prefix, major, off-resonant,
+minor, reference-leakage and Gram terms simultaneously.
+For every \(\varepsilon>0\), the integer-cutoff theorem makes this
+scale at most \(\varepsilon\) on one entire terminal interval.
+The resulting maintained theorem is
+\[
+ \forall\varepsilon>0\ \exists n_0\
+ \forall n\geq n_0:\qquad \|A_n-L_Q\|\leq\tfrac12+\varepsilon .
+\]
+Its auxiliary-grid formulation quantifies over every \(R>2n\)
+divisible by \(2n\) and all denominators at most \(Q\).
+\texttt{HamiltonianRationalLowModes} proves the exact root-of-unity
+and coefficient identities, and
+\texttt{HamiltonianPrimeOperatorGap} constructs the common period
+\(R=2M Q!\) and eliminates it. The final maintained theorem concerns
+the actual integer matrix alone:
+\[
+ P_{0,n}(i,j)=\frac{1-(-1)^{i+j}}n,\qquad
+ \forall\varepsilon>0\ \exists n_0\
+ \forall n\geq n_0:\quad
+       \|A_n-P_{0,n}\|\leq\tfrac12+\varepsilon.
+\]
+All thirteen new declarations in these five owners pass the focused
+foundational-axiom audit. No subsequence, numerical experiment,
+auxiliary-grid hypothesis or unestimated analytic remainder appears
+in the final theorem. The eigenvalue-indexed corollary (19), true-prime
+support and degree/scaling consumers remain formalization obligations.
 
 \begin{lemma}[Uniform degrees and a true prime support]
 \label{lem:primeweights}
