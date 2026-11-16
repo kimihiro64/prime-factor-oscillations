@@ -638,16 +638,17 @@ finite-support count and exact unscaling consumer in
 \texttt{HamiltonianCycleExponentialLower}.
 Their full parameter domains and scaling costs are given in
 Section~\ref{sec:pathentropy}.
-For the odd coprime specialization, deleting two endpoints and using
-the native gap \(1/2\) gives the ordinary consequence
+The module \texttt{HamiltonianCoprimeOddBaseLower} now instantiates
+the actual odd kernel, its physical gap \(1/2\), both deleted
+endpoints and the uniformly discharged parameter conditions. It proves
 \[
  Z_{\rm base}\geq
        \frac{\exp(-(n-2)-170A+5)}{4(n-2)},
        \qquad A=n/\varphi(n),
 \]
 once the displayed repair and squared-sublogarithmic conditions hold.
-For the even case, balanced single-endpoint deletions in the native
-cross block give the ordinary consequence
+The module \texttt{HamiltonianCoprimeEvenBaseLower} proves, for
+balanced single-endpoint deletions in the actual native cross block,
 \[
  Z_{\rm base}\geq
        \frac{\exp(-(n-2)-160A)}{n-2}.
@@ -678,7 +679,31 @@ with half the unified positive lower count
 \(\exp(-(n-2)-170A)/(4(n-2))\).
 All nine new declarations passed their combined focused
 foundational-axiom audit.
-The two displayed ordinary lower-count specializations still need
-their native odd/even kernel-specific instantiation, followed by the
-actual graph-path normalization and entropy assembly.
-The complete endpoint path entropy is not yet claimed as formalized.
+\paragraph{Verified positive path mass through every modulus.}
+The exact principal-complement transport in
+\texttt{HamiltonianPrincipalCycleTransport} preserves the full cycle
+weight. The module \texttt{HamiltonianCoprimeInteriorLower} handles
+arbitrary compatible endpoint labels, including either ordering of
+the even parity classes, and combines the two native lower counts:
+\[
+ Z_{\rm base}\geq B_n:=
+       \frac{\exp(-(n-2)-170A)}{4(n-2)}.
+\]
+All thresholds are uniform in the endpoints and in the prime factors
+and exponents of the growing modulus.
+The module \texttt{HamiltonianCoprimePathLower} substitutes the
+proved full budget into the actual avoidance exponent. It proves
+\(Z_{\rm avoid}\leq B_n/2\) and carries the entire signed difference
+through the reciprocal-totient cutting comparison:
+\[
+ Z_{\rm path}(P_n;a,b)\geq
+ \frac{B_n}{2d}=
+ \frac{\exp(-(n-2)-170A)}{8(n-2)d}>0.
+\]
+One absolute sufficiently-large-order threshold covers every
+distinct compatible endpoint pair on every modulus.
+All ten new declarations pass their combined focused
+foundational-axiom audit.
+The actual integer graph-path normalization and entropy assembly
+remain formal obligations; the complete endpoint entropy is not
+yet claimed as formalized.
