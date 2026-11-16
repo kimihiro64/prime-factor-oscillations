@@ -100,6 +100,46 @@ and prescribed-coordinate conditioning in
 Lemma~\ref{lem:complementaryrestriction} remain formal obligations.
 The full wide-cap entropy theorem is not yet claimed as formalized.
 
+\paragraph{Maintained signed trace moment input.}
+The three modules \texttt{HamiltonianTraceMeanValueScalar},
+\texttt{HamiltonianMixedTraceReadout}, and
+\texttt{HamiltonianTraceMeanValue} now prove the complete
+trace mean-value inequality for all real symmetric matrices
+\(X,Y\) and every integer \(k\geq1\):
+\[
+ \operatorname{tr}\!\left((X-Y)(X^{2k-1}-Y^{2k-1})\right)
+ \leq \frac{2k-1}{2}
+       \operatorname{tr}\!\left((X-Y)^2(X^{2k-2}+Y^{2k-2})\right).
+\]
+The scalar proof pairs every exponent of the exact difference
+quotient with its reflection. Independent orthogonal
+diagonalizations of \(X,Y\) then express both full trace
+polynomials through the same nonnegative overlap squares
+\((U^\top V)_{ij}^2\). Zero powers are included, so the pure
+terms and every mixed compensation term retain exactly the
+same finite support. No assumption on the signs of the
+eigenvalues or on their multiplicities is imposed.
+All seventeen new scalar, mixed-readout and trace declarations
+compile and pass their focused foundational-axiom audit.
+
+For the covariance above, put \(A_j=c_jc_j^\top/2\) and
+\(F=\sum_j\epsilon_jA_j\), with independent uniform signs.
+The next formal step is the finite sign-flip identity and
+variance calculation
+\[
+ V=\sum_j A_j^2
+  =\frac14\sum_j\|c_j\|_2^2c_jc_j^\top
+  \preceq \frac{\alpha}{4}E^2,
+ \qquad
+ \mathbb E\operatorname{tr} F^{2k}
+ \leq (2k-1)\frac{\alpha}{4}\mathbb E\operatorname{tr} F^{2k-2}.
+\]
+These last expectation and variance statements, their
+probability tail and the balanced conditioning are not yet
+claimed as Lean theorems. They are the quantitative consumer
+of the now verified trace inequality; the full wide-cap
+headline remains unfinished.
+
 \begin{lemma}[Scaling repair without a parity kernel]
 \label{lem:aperiodicrepair}
 Let \(Q\) be symmetric nonnegative of any order, and put
