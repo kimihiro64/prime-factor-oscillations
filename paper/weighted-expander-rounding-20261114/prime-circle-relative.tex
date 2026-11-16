@@ -68,6 +68,56 @@ The operator perturbation follows from
  \leq C\|z\|_\infty\).
 \end{proof}
 
+\paragraph{Formalized diffuseness estimates and positive inverse reference.}
+The maintained owner \texttt{HamiltonianMixingResolvent} proves
+an exact finite Neumann expansion, a full-tail smoothing estimate,
+and its logarithmic cutoff.
+\texttt{HamiltonianDiffuseRepairKernel} applies them to the actual
+stochastic cross block. If \(T\) is nonnegative and doubly stochastic,
+\(T_{ij}\leq a/m\), \(a\geq1\), and
+\(\|T-J_m/m\|\leq\rho\in(0,1)\), its exact
+constant/parity-corrected kernel \(K\) satisfies
+\[
+ (1-\rho)\max_i\sum_j|K_{ij}|
+ \leq
+ 2(1-\rho)\left(\frac{\log(2a)}{-\log\rho}+3\right)+1.
+\]
+Thus the logarithmic cost is independently bounded, rather than
+assumed as a hypothesis on the desired scaling.
+
+For a nonnegative nearly stochastic cross block \(T\), let
+\(r_i=\sum_jT_{ij}\), \(t_j=\sum_iT_{ij}\), with
+\(|r_i-1|,|t_j-1|\leq\varepsilon\in(0,1/2]\).
+Put \(c=1+2\varepsilon\) and
+\(\tau=\sum_i(c-r_i)=\sum_j(c-t_j)>0\). The auxiliary matrix
+\[
+ T^*_{ij}=\frac{T_{ij}}c+
+               \frac{(c-r_i)(c-t_j)}{c\tau}
+\]
+is nonnegative and exactly doubly stochastic.
+\texttt{HamiltonianStochasticCompletion} proves these identities and
+\[
+ \max_i\sum_j|T_{ij}-T^*_{ij}|\leq6\varepsilon,\qquad
+ \max_j\sum_i|T_{ij}-T^*_{ij}|\leq6\varepsilon,\qquad
+ \|T-T^*\|\leq6\varepsilon .
+\]
+If \(T_{ij}\leq a/m\), it also proves
+\[
+ T^*_{ij}\leq\frac{a+9\varepsilon}{(1+2\varepsilon)m},
+ \qquad
+ \|T^*-J_m/m\|\leq\rho+6\varepsilon
+ \quad\hbox{when }\|T-J_m/m\|\leq\rho.
+\]
+The real and complex mass-to-operator estimate is formalized in
+\texttt{HamiltonianSchurBudget}.
+All thirty-five new declarations in these four owners pass the
+focused foundational-axiom audit.
+The completion is only an inverse reference; it is not the final
+kernel and supplies no assertion about preserving support.
+The compatible inverse transfer to the original degree Jacobian,
+the nonlinear fixed point, and the actual constant-edge
+prime-circle entropy/count consumer remain formalization obligations.
+
 Let \(G_N\), for even \(N=2m\), have vertices \(1,\ldots,N\)
 and edges at distinct prime sums.
 For a proper fractional edge weighting \(x\), meaning
