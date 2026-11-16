@@ -184,12 +184,68 @@ a two-way ordering of all positive integers. That result concerns
 an infinite graph, rather than every sufficiently large finite order. The arithmetic proof is unconditional and
 uses no RH or QRH hypothesis.
 
-The chain proving (4) and the Hamiltonicity conclusion is:
-a signed prime-convolution operator limit; uniform prime-weighted
-degrees; an exact stochastic scaling with controlled error;
-Theorem~\ref{thm:rounding}; and finally the established theorem (2).
-All row defects, forbidden-edge losses and martingale drift are
-estimated below.
+\begin{proof}
+Write \(N=2m\), \(d=\lfloor(2m)^{1/4}\rfloor\), and
+\(L=\log(4m)\). Use the single near-optimal regular-factor family
+from Section~\ref{sec:regularfactors}: its cross-edge set \(F_m\)
+has degree \(r_m\), lies in the actual prime support, and its
+stochastic kernel \(P_m={\bf1}_{F_m}/r_m\) satisfies
+\[
+ r_m\geq\frac{m}{\log(2m)},\qquad
+ \|P_m-J/m\|\leq\tfrac12+o(1).
+\]
+Fix \(\delta=1/4\) once and put \(\alpha_m=1/r_m\).
+For \(m\geq256\), the elementary floor inequalities give
+\[
+ 1\leq d\leq\sqrt m,\qquad m^{1/4}\leq2d.
+\]
+In particular \(m\alpha_m\leq\log(2m)\) and \(L\leq2\log(2m)\), so
+\[
+ d\alpha_mL^2\leq\frac{4\log^3(2m)}{\sqrt m},\quad
+ d\alpha_mL\leq\frac{2\log^2(2m)}{\sqrt m},\quad
+ \frac Ld\leq\frac{4\log(2m)}{m^{1/4}}.
+\]
+Every right-hand side tends to zero, uniformly on a terminal
+interval. Theorem~\ref{thm:rounding}, with both marked sets empty,
+therefore supplies simple \(d\)-regular edge sets \(E_m\subseteq F_m\)
+with
+\[
+ \left\|d^{-1}A_{E_m}-B(P_m)\right\|
+ \leq16\sqrt{L/d}+C_{1/4}d\alpha_mL=o(1).
+\]
+Choose this family once at the fixed gap \(\delta=1/4\).
+For every \(\eta>0\), the same family has total error at most
+\(\eta\) after increasing the cutoff. No graph is reselected when
+\(\eta\) changes.
+
+After the exact odd/even reindexing, \(d^{-1}A_{E_m}\) is within
+\(1/2+o(1)\) of the constant parity matrix. That reference is a
+positive rank-one matrix minus a negative rank-one matrix.
+The signed two-eigenvector argument in
+Lemma~\ref{lem:integerspectrum} consequently gives at most one
+native eigenvalue above \((1/2+\eta)d\), with multiplicities
+retained. This proves (4) for every decreasing eigenvalue ordering.
+All edges are actual prime sums and the two bipartite degree
+identities give the stated spanning regular graph.
+Finally, the independently proved regular-factor counting result
+in Section~\ref{sec:regularfactors}, applied with no edge deletions,
+supplies a single permutation orbit whose successive physical
+labels have prime sums. This is a Hamilton cycle in \(G_{2m}\).
+\end{proof}
+
+\paragraph{Formalization status of Theorem~\ref{thm:filz}.}
+The exact floor-degree bounds, all three uniform error envelopes,
+one supported rounded family, its physical matrix reindexing and
+its native multiplicity-aware ordered spectral bound are proved
+in maintained Lean owners
+\texttt{HamiltonianQuarterDegreeBounds} through
+\texttt{HamiltonianQuarterPrimeSpectrum}.
+\texttt{HamiltonianEventualFilz} combines that family with the
+actual prime Hamilton-cycle witness. The theorem
+\texttt{hamiltonian\_eventual\_filz\_with\_exact\_degree\_spectrum}
+retains one graph family while quantifying over every positive
+accuracy and its terminal cutoff. It does not assert any
+effective bound for the remaining finite Filz cases.
 
 The uniform unweighted degrees allow a stronger integral-factor
 consumer in Section~\ref{sec:regularfactors}: the degree improves
