@@ -358,8 +358,8 @@
       "kind": "theorem",
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\coprime-circles.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
-      "lean_status": "native_full_signed_conductor_spectrum_multiplicities_stochastic_kernel_and_odd_physical_gap_compiled_entropy_paths_pending",
-      "audit_note": "HamiltonianCoprimeFourier, HamiltonianCoprimeConductor, HamiltonianCoprimeSpectrum, HamiltonianCoprimeSymbol and HamiltonianCoprimeGap compile the actual all-positive-modulus graph spectrum, exact unit-group averaging, arbitrary-frequency conductor formula, every conductor multiplicity, exceptional1/2-conductor classification, cyclic inversion and real odd-modulus half-gap. All42 new declarations pass foundational audit. Existing real-complex/Fourier/Ramanujan providers are reused without unchanged audits. The exact actual kernel, zero entries, nonsquarefree moduli and small conductor cases remain in the domain. Even physical cross-block gap, density, count and path/entropy conclusions are not yet formalized; the entire theorem remains open."
+      "lean_status": "native_full_signed_spectrum_odd_physical_gap_and_full_uniform_totient_density_compiled_entropy_paths_pending",
+      "audit_note": "The all-modulus native conductor spectrum, phi(t) multiplicities, exact Fourier inversion and odd real centered half-gap are compiled in the five HamiltonianCoprime owners, with their immutable42-declaration audit reused unchanged. The full all-n>=3 uniform totient density lemma is now compiled in the four HamiltonianMertensProduct/HamiltonianTotient owners, with15 newly audited declarations. The even physical cross-block transfer and actual cycle/path entropy/count assembly remain pending. This does not assert whole-theorem closure."
     },
     {
       "id": "thm:growingpermanent",
@@ -368,7 +368,7 @@
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\relative-permanents.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
       "lean_status": "fully_formalized_direct_normalized_uniform_statement",
-      "audit_note": "Both paper permanent statements now have direct maintained normalized Lean consumers. stochastic_permanent_relative_correction_polylog_uniform proves, for one N0(delta,K)>=16 and every admissible kernel and 1<=A<=log(N)^K, abs((N^N/N!)*per(T)/Delta(1)-(1+Q_N(T)))<=(1+A)^24*C_delta/N^2 and abs(Q_N(T))<=21*A^2/(delta^3*N). For K>0, hamiltonian_permanent_polylog_first_order_budget supplies the uniform scalar threshold, and stochastic_permanent_first_order_polylog_uniform proves the directly normalized first-order error <=N^(-1/8). The full common threshold is independent of the kernel. These three new theorems compile and pass the focused foundational-axiom audit. The complete signed second-order expansion is retained for the critical Hamiltonian consumer; its first-order consequence is not substituted into that sharper argument. All previously verified headline inputs and both actual graph-entropy family limits remain compiled. The coprime-circle arithmetic consumer now has an unconditional native full signed Fourier spectrum on the actual coprime-difference graph at every positive modulus. The normalized kernel is symmetric, nonnegative and doubly stochastic with cap1/phi(n). Surjective unit-group averaging gives the exact conductor value c_n(k)/phi(n)=mu(t)/phi(t), t=n/gcd(n,k), with exactly phi(t) frequencies for every t|n. Conductor1 is exactly k=0; conductor2 has value-1 and forces even modulus; low conductors are exactly the frequencies killed by multiplication by2. All t>=3 have norm<=1/2. Full cyclic inversion identifies the actual physical adjacency, and the proved real-complex transfer gives the actual real centered half-gap for every odd modulus. All42 new declarations in five maintained owners pass the focused foundational audit. The even cross-block transfer, density bound, entropy/count/path assembly and arithmetic constant remain unfinished, as do other remaining headline consumers and public Solution integration. The whole headline remains uncertified."
+      "audit_note": "Both paper permanent statements now have direct maintained normalized Lean consumers. stochastic_permanent_relative_correction_polylog_uniform proves, for one N0(delta,K)>=16 and every admissible kernel and 1<=A<=log(N)^K, abs((N^N/N!)*per(T)/Delta(1)-(1+Q_N(T)))<=(1+A)^24*C_delta/N^2 and abs(Q_N(T))<=21*A^2/(delta^3*N). For K>0, hamiltonian_permanent_polylog_first_order_budget supplies the uniform scalar threshold, and stochastic_permanent_first_order_polylog_uniform proves the directly normalized first-order error <=N^(-1/8). The full common threshold is independent of the kernel. These three new theorems compile and pass the focused foundational-axiom audit. The complete signed second-order expansion is retained for the critical Hamiltonian consumer; its first-order consequence is not substituted into that sharper argument. All previously verified headline, graph-count and native coprime spectral inputs remain compiled. The full uniform totient density lemma is now compiled on its original all-modulus domain: exists C>0, forall n>=3, n/phi(n)<=C*log(log(3n)). The actual Euler product is split at every real cutoffY>=4; the exact bound is n/phi(n)<=exp(2log n/(Y log Y))/MertensProduct(Y). The cached unconditional classical Mertens product asymptotic supplies its reciprocal estimate, and the existing large-prime product theorem dominates the actual totient factors on the same support. The choiceY=log(3n) bounds the complete large-prime tail by exp2 above fixed cutoffs; one fixed constant covers all smaller n>=3 using loglog(3n)>=loglog3>0 and n/phi(n)<=n. All15 new declarations in four maintained owners compile and pass focused foundational audits, reusing the two earlier Mertens consumer audit reports without unchanged reauditing. The lemma lem:totientdiffusion is fully closed. The even cross-block physical gap, complete coprime count/path/entropy assemblies and arithmetic constants remain unfinished, alongside other remaining headline consumers and public Solution integration. The whole headline remains uncertified."
     },
     {
       "id": "lem:relativecompensatedminors",
@@ -385,7 +385,8 @@
       "kind": "lemma",
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\relative-coprime-circles.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
-      "lean_status": "pending_full_Lean_proof"
+      "lean_status": "fully_formalized_original_domain_uniform_absolute_totient_loglog_bound_all_n_ge_three",
+      "audit_note": "HamiltonianMertensProduct, HamiltonianTotientEuler, HamiltonianTotientCutoff and HamiltonianTotientDiffusion prove the entire original claim: exists C>0, forall n>=3, n/phi(n)<=C loglog(3n). The actual finite Euler product, both cutoff supports, small-prime reciprocal and full large-prime tail are retained. The cached unconditional classical Mertens product theorem is used through a compiled consumer; its two declarations pass their own immutable foundational audit. The remaining13 new declarations pass the fresh focused audit. The existing singular_large_prime_product_le provider supplies the larger-prime tail after all of its prime/cutoff/divisor hypotheses are verified on the actual support. Y=log(3n) gives tail<=exp2 above fixed thresholds, and a positive constant covers every smaller n>=3 without finite sampling. All15 declarations in four maintained owners compile; no dependency is rebuilt and no RH/PNT hypothesis is added. This classical density input is fully formalized; no novelty is claimed for the density lemma itself. The coprime enumeration and constants remain separate."
     },
     {
       "id": "thm:relativecoprime",
@@ -393,8 +394,8 @@
       "kind": "theorem",
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\relative-coprime-circles.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
-      "lean_status": "native_all_frequency_conductor_input_and_odd_physical_gap_compiled_relative_count_and_constant_pending",
-      "audit_note": "The completed native spectral provider now discharges the original odd-modulus centered gap and gives exact all-modulus signed conductor values and phi(t) multiplicities without prime-factor restrictions. Forty-two declarations in the five HamiltonianCoprime owners pass focused foundational audit. The already completed general aperiodic/bipartite counts and graph-gauge transfers are available. The original all-modulus relative enumeration, its uniform n^(-1/10) rate, even cross-block transfer, totient density and exact arithmetic constant assembly remain unfinished; no whole-claim closure is asserted."
+      "lean_status": "native_spectrum_odd_physical_gap_and_original_domain_loglog_density_compiled_relative_count_and_constant_pending",
+      "audit_note": "The native full signed conductor formula and multiplicities, odd physical half-gap and exact original-domain totient density n/phi(n)<=C loglog(3n) are now compiled and audited. Prior general aperiodic/bipartite count and graph-gauge providers remain available and unchanged. The all-modulus relative enumeration with its uniform n^(-1/10) rate, even cross-block physical transfer and arithmetic constant assembly remain unfinished; no full relative-count claim is certified."
     },
     {
       "id": "prop:coprimeconstant",
@@ -487,7 +488,7 @@
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\relative-hamilton.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
       "lean_status": "fully_formalized_both_actual_unoriented_graph_count_family_limits_with_positive_references",
-      "audit_note": "All previously verified headline inputs and both actual graph-entropy family limits remain compiled. The coprime-circle arithmetic consumer now has an unconditional native full signed Fourier spectrum on the actual coprime-difference graph at every positive modulus. The normalized kernel is symmetric, nonnegative and doubly stochastic with cap1/phi(n). Surjective unit-group averaging gives the exact conductor value c_n(k)/phi(n)=mu(t)/phi(t), t=n/gcd(n,k), with exactly phi(t) frequencies for every t|n. Conductor1 is exactly k=0; conductor2 has value-1 and forces even modulus; low conductors are exactly the frequencies killed by multiplication by2. All t>=3 have norm<=1/2. Full cyclic inversion identifies the actual physical adjacency, and the proved real-complex transfer gives the actual real centered half-gap for every odd modulus. All42 new declarations in five maintained owners pass the focused foundational audit. The even cross-block transfer, density bound, entropy/count/path assembly and arithmetic constant remain unfinished, as do other remaining headline consumers and public Solution integration. The whole headline remains uncertified."
+      "audit_note": "All previously verified headline, graph-count and native coprime spectral inputs remain compiled. The full uniform totient density lemma is now compiled on its original all-modulus domain: exists C>0, forall n>=3, n/phi(n)<=C*log(log(3n)). The actual Euler product is split at every real cutoffY>=4; the exact bound is n/phi(n)<=exp(2log n/(Y log Y))/MertensProduct(Y). The cached unconditional classical Mertens product asymptotic supplies its reciprocal estimate, and the existing large-prime product theorem dominates the actual totient factors on the same support. The choiceY=log(3n) bounds the complete large-prime tail by exp2 above fixed cutoffs; one fixed constant covers all smaller n>=3 using loglog(3n)>=loglog3>0 and n/phi(n)<=n. All15 new declarations in four maintained owners compile and pass focused foundational audits, reusing the two earlier Mertens consumer audit reports without unchanged reauditing. The lemma lem:totientdiffusion is fully closed. The even cross-block physical gap, complete coprime count/path/entropy assemblies and arithmetic constants remain unfinished, alongside other remaining headline consumers and public Solution integration. The whole headline remains uncertified."
     },
     {
       "id": "thm:secondpermanent",
@@ -496,7 +497,7 @@
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\permanent-second-order.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
       "lean_status": "fully_formalized_direct_normalized_uniform_statement",
-      "audit_note": "Both paper permanent statements now have direct maintained normalized Lean consumers. stochastic_permanent_relative_correction_polylog_uniform proves, for one N0(delta,K)>=16 and every admissible kernel and 1<=A<=log(N)^K, abs((N^N/N!)*per(T)/Delta(1)-(1+Q_N(T)))<=(1+A)^24*C_delta/N^2 and abs(Q_N(T))<=21*A^2/(delta^3*N). For K>0, hamiltonian_permanent_polylog_first_order_budget supplies the uniform scalar threshold, and stochastic_permanent_first_order_polylog_uniform proves the directly normalized first-order error <=N^(-1/8). The full common threshold is independent of the kernel. These three new theorems compile and pass the focused foundational-axiom audit. The complete signed second-order expansion is retained for the critical Hamiltonian consumer; its first-order consequence is not substituted into that sharper argument. All previously verified headline inputs and both actual graph-entropy family limits remain compiled. The coprime-circle arithmetic consumer now has an unconditional native full signed Fourier spectrum on the actual coprime-difference graph at every positive modulus. The normalized kernel is symmetric, nonnegative and doubly stochastic with cap1/phi(n). Surjective unit-group averaging gives the exact conductor value c_n(k)/phi(n)=mu(t)/phi(t), t=n/gcd(n,k), with exactly phi(t) frequencies for every t|n. Conductor1 is exactly k=0; conductor2 has value-1 and forces even modulus; low conductors are exactly the frequencies killed by multiplication by2. All t>=3 have norm<=1/2. Full cyclic inversion identifies the actual physical adjacency, and the proved real-complex transfer gives the actual real centered half-gap for every odd modulus. All42 new declarations in five maintained owners pass the focused foundational audit. The even cross-block transfer, density bound, entropy/count/path assembly and arithmetic constant remain unfinished, as do other remaining headline consumers and public Solution integration. The whole headline remains uncertified."
+      "audit_note": "Both paper permanent statements now have direct maintained normalized Lean consumers. stochastic_permanent_relative_correction_polylog_uniform proves, for one N0(delta,K)>=16 and every admissible kernel and 1<=A<=log(N)^K, abs((N^N/N!)*per(T)/Delta(1)-(1+Q_N(T)))<=(1+A)^24*C_delta/N^2 and abs(Q_N(T))<=21*A^2/(delta^3*N). For K>0, hamiltonian_permanent_polylog_first_order_budget supplies the uniform scalar threshold, and stochastic_permanent_first_order_polylog_uniform proves the directly normalized first-order error <=N^(-1/8). The full common threshold is independent of the kernel. These three new theorems compile and pass the focused foundational-axiom audit. The complete signed second-order expansion is retained for the critical Hamiltonian consumer; its first-order consequence is not substituted into that sharper argument. All previously verified headline, graph-count and native coprime spectral inputs remain compiled. The full uniform totient density lemma is now compiled on its original all-modulus domain: exists C>0, forall n>=3, n/phi(n)<=C*log(log(3n)). The actual Euler product is split at every real cutoffY>=4; the exact bound is n/phi(n)<=exp(2log n/(Y log Y))/MertensProduct(Y). The cached unconditional classical Mertens product asymptotic supplies its reciprocal estimate, and the existing large-prime product theorem dominates the actual totient factors on the same support. The choiceY=log(3n) bounds the complete large-prime tail by exp2 above fixed cutoffs; one fixed constant covers all smaller n>=3 using loglog(3n)>=loglog3>0 and n/phi(n)<=n. All15 new declarations in four maintained owners compile and pass focused foundational audits, reusing the two earlier Mertens consumer audit reports without unchanged reauditing. The lemma lem:totientdiffusion is fully closed. The even cross-block physical gap, complete coprime count/path/entropy assemblies and arithmetic constants remain unfinished, alongside other remaining headline consumers and public Solution integration. The whole headline remains uncertified."
     },
     {
       "id": "thm:minorjet",
@@ -505,7 +506,7 @@
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\compensated-minor-jet.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
       "lean_status": "fully_formalized_actual_uniform_two_power_minor_expansion",
-      "audit_note": "All previously verified headline inputs and both actual graph-entropy family limits remain compiled. The coprime-circle arithmetic consumer now has an unconditional native full signed Fourier spectrum on the actual coprime-difference graph at every positive modulus. The normalized kernel is symmetric, nonnegative and doubly stochastic with cap1/phi(n). Surjective unit-group averaging gives the exact conductor value c_n(k)/phi(n)=mu(t)/phi(t), t=n/gcd(n,k), with exactly phi(t) frequencies for every t|n. Conductor1 is exactly k=0; conductor2 has value-1 and forces even modulus; low conductors are exactly the frequencies killed by multiplication by2. All t>=3 have norm<=1/2. Full cyclic inversion identifies the actual physical adjacency, and the proved real-complex transfer gives the actual real centered half-gap for every odd modulus. All42 new declarations in five maintained owners pass the focused foundational audit. The even cross-block transfer, density bound, entropy/count/path assembly and arithmetic constant remain unfinished, as do other remaining headline consumers and public Solution integration. The whole headline remains uncertified."
+      "audit_note": "All previously verified headline, graph-count and native coprime spectral inputs remain compiled. The full uniform totient density lemma is now compiled on its original all-modulus domain: exists C>0, forall n>=3, n/phi(n)<=C*log(log(3n)). The actual Euler product is split at every real cutoffY>=4; the exact bound is n/phi(n)<=exp(2log n/(Y log Y))/MertensProduct(Y). The cached unconditional classical Mertens product asymptotic supplies its reciprocal estimate, and the existing large-prime product theorem dominates the actual totient factors on the same support. The choiceY=log(3n) bounds the complete large-prime tail by exp2 above fixed cutoffs; one fixed constant covers all smaller n>=3 using loglog(3n)>=loglog3>0 and n/phi(n)<=n. All15 new declarations in four maintained owners compile and pass focused foundational audits, reusing the two earlier Mertens consumer audit reports without unchanged reauditing. The lemma lem:totientdiffusion is fully closed. The even cross-block physical gap, complete coprime count/path/entropy assemblies and arithmetic constants remain unfinished, alongside other remaining headline consumers and public Solution integration. The whole headline remains uncertified."
     },
     {
       "id": "lem:signedoccupancy",
@@ -514,7 +515,7 @@
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\signed-jet-comparison.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
       "lean_status": "fully_formalized_actual_signed_coordinate_and_analytic_size_moments",
-      "audit_note": "All actual coordinate moments, full independent balanced-support readouts, complete signed first-order consumer, and exact analytic size-derivative identity have maintained Lean proofs. HamiltonianSignedSizeDerivative proves g''(1)=L(r(r-1))=4d'(1)+3d''(1) in both Gram conventions and abs(g''(1))<=53*abs(d)*(A/(1-rho))^2 from the original stochastic hypotheses. All12 new declarations pass the focused foundational-axiom audit. All previously verified headline inputs and both actual graph-entropy family limits remain compiled. The coprime-circle arithmetic consumer now has an unconditional native full signed Fourier spectrum on the actual coprime-difference graph at every positive modulus. The normalized kernel is symmetric, nonnegative and doubly stochastic with cap1/phi(n). Surjective unit-group averaging gives the exact conductor value c_n(k)/phi(n)=mu(t)/phi(t), t=n/gcd(n,k), with exactly phi(t) frequencies for every t|n. Conductor1 is exactly k=0; conductor2 has value-1 and forces even modulus; low conductors are exactly the frequencies killed by multiplication by2. All t>=3 have norm<=1/2. Full cyclic inversion identifies the actual physical adjacency, and the proved real-complex transfer gives the actual real centered half-gap for every odd modulus. All42 new declarations in five maintained owners pass the focused foundational audit. The even cross-block transfer, density bound, entropy/count/path assembly and arithmetic constant remain unfinished, as do other remaining headline consumers and public Solution integration. The whole headline remains uncertified."
+      "audit_note": "All actual coordinate moments, full independent balanced-support readouts, complete signed first-order consumer, and exact analytic size-derivative identity have maintained Lean proofs. HamiltonianSignedSizeDerivative proves g''(1)=L(r(r-1))=4d'(1)+3d''(1) in both Gram conventions and abs(g''(1))<=53*abs(d)*(A/(1-rho))^2 from the original stochastic hypotheses. All12 new declarations pass the focused foundational-axiom audit. All previously verified headline, graph-count and native coprime spectral inputs remain compiled. The full uniform totient density lemma is now compiled on its original all-modulus domain: exists C>0, forall n>=3, n/phi(n)<=C*log(log(3n)). The actual Euler product is split at every real cutoffY>=4; the exact bound is n/phi(n)<=exp(2log n/(Y log Y))/MertensProduct(Y). The cached unconditional classical Mertens product asymptotic supplies its reciprocal estimate, and the existing large-prime product theorem dominates the actual totient factors on the same support. The choiceY=log(3n) bounds the complete large-prime tail by exp2 above fixed cutoffs; one fixed constant covers all smaller n>=3 using loglog(3n)>=loglog3>0 and n/phi(n)<=n. All15 new declarations in four maintained owners compile and pass focused foundational audits, reusing the two earlier Mertens consumer audit reports without unchanged reauditing. The lemma lem:totientdiffusion is fully closed. The even cross-block physical gap, complete coprime count/path/entropy assemblies and arithmetic constants remain unfinished, alongside other remaining headline consumers and public Solution integration. The whole headline remains uncertified."
     },
     {
       "id": "thm:criticalrelative",
@@ -1049,7 +1050,7 @@
     },
     {
       "file": "coprime-circles.tex",
-      "sha256": "DF53BA1C6EE3B6242A3892867F0C85F230A41CD38E5FCBE06013F11221D83078"
+      "sha256": "13782B151FD5A5AE6B8003FDB6A18B6F90B51C8C8E78A84977F9A29FF2455116"
     },
     {
       "file": "relative-permanents.tex",
@@ -1057,7 +1058,7 @@
     },
     {
       "file": "relative-coprime-circles.tex",
-      "sha256": "6080CC04FD9DEE00A9387192B9588B1730CD7C804DA9F5A59F651948581C120C"
+      "sha256": "6C47267040B9A663EE372E0EF0640A5F91E2E433C2996253C3BD83F936E04A3B"
     },
     {
       "file": "periodic-comparison.tex",
@@ -1098,12 +1099,12 @@
     "complete_consumer": "rho=a=3/5; amplification <=m^(27/20); first signed correction polylog/m; only residual pays amplification, giving O(N^(-3/5)).",
     "inverse": "A fixed relative counting defect forces collective singular mass >=(2/kappa_rho)log N-O(log log N).",
     "further_extension": "Arbitrary fixed logarithmic density coefficients, and all fixed congruence filters, would require higher-order compensated expansions beyond the proved two-power remainder.",
-    "next_review_focus": "Continue the admitted coprime-circle arithmetic consumer: prove the even cross-block physical gap, the required uniform totient density bound and actual count normalizations/arithmetic constant, consuming the completed all-frequency signed spectrum. Preserve the completed original-domain aperiodic/bipartite and graph-count theorems. Finish the other remaining congruence, path, entropy, general-kernel and layered claims plus public Solution integration. Begin RH, Hadamard and twin-prime transfers only after full headline certification.",
+    "next_review_focus": "Apply the completed all-modulus totient density and native full signed Fourier spectrum to the actual quantitative coprime-circle count. Discharge the even cross-block physical gap, carry the count normalizations and arithmetic determinant constants, and complete the remaining headline congruence, path, entropy, general-kernel and layered consumers plus public Solution integration. Preserve all earlier results. RH, Hadamard and twin-prime transfers remain queued until full headline certification.",
     "independent_consumer_status": "Both actual integer prime-sum graphs and all growing coprime moduli have complete stated ordinary arguments."
   },
   "completion_receipt": {
     "requested_bar": "Finish the complete argument and its formalization at a level supporting a substantial original research contribution. A draft, helper proof, successful build or significance label does not finish this request; career impact cannot be certified by the author.",
-    "strongest_actual_theorem": "All previously verified headline inputs and both actual graph-entropy family limits remain compiled. The coprime-circle arithmetic consumer now has an unconditional native full signed Fourier spectrum on the actual coprime-difference graph at every positive modulus. The normalized kernel is symmetric, nonnegative and doubly stochastic with cap1/phi(n). Surjective unit-group averaging gives the exact conductor value c_n(k)/phi(n)=mu(t)/phi(t), t=n/gcd(n,k), with exactly phi(t) frequencies for every t|n. Conductor1 is exactly k=0; conductor2 has value-1 and forces even modulus; low conductors are exactly the frequencies killed by multiplication by2. All t>=3 have norm<=1/2. Full cyclic inversion identifies the actual physical adjacency, and the proved real-complex transfer gives the actual real centered half-gap for every odd modulus. All42 new declarations in five maintained owners pass the focused foundational audit. The even cross-block transfer, density bound, entropy/count/path assembly and arithmetic constant remain unfinished, as do other remaining headline consumers and public Solution integration. The whole headline remains uncertified.",
+    "strongest_actual_theorem": "All previously verified headline, graph-count and native coprime spectral inputs remain compiled. The full uniform totient density lemma is now compiled on its original all-modulus domain: exists C>0, forall n>=3, n/phi(n)<=C*log(log(3n)). The actual Euler product is split at every real cutoffY>=4; the exact bound is n/phi(n)<=exp(2log n/(Y log Y))/MertensProduct(Y). The cached unconditional classical Mertens product asymptotic supplies its reciprocal estimate, and the existing large-prime product theorem dominates the actual totient factors on the same support. The choiceY=log(3n) bounds the complete large-prime tail by exp2 above fixed cutoffs; one fixed constant covers all smaller n>=3 using loglog(3n)>=loglog3>0 and n/phi(n)<=n. All15 new declarations in four maintained owners compile and pass focused foundational audits, reusing the two earlier Mertens consumer audit reports without unchanged reauditing. The lemma lem:totientdiffusion is fully closed. The even cross-block physical gap, complete coprime count/path/entropy assemblies and arithmetic constants remain unfinished, alongside other remaining headline consumers and public Solution integration. The whole headline remains uncertified.",
     "complete_independent_applications": [
       "Every sufficiently large even integer prime-sum graph is Hamiltonian; log h=N log N-N log log N-N+o(N).",
       "Fixed congruence-filter connectedness/Hamiltonicity is classified exactly by gcd(q,R-R)=2, with a full positive residue-pressure formula.",
@@ -1114,12 +1115,12 @@
       "Actual unweighted prime-sum graph: full relative count around its exact entropy, with O(N^(-3/5)) error; no RH or prime-pair estimate."
     ],
     "primary_literature_comparison": "Cuckler-Kahn: dense Dirac and dense balanced bipartite entropy counts. Barvinok: all-positive matrices with a relative entry lower bound. Krivelevich and Byrne-Tait: nontrivial spectral ratio tending to zero logarithmically. The present argument permits sparse zero support and any fixed nontrivial gap. Bradač-Janzer 2026 is an essential independent spanning-path input. McCullagh's bounded normalized moments fail along primorials; Divoux-Wang's fixed-entry finite proof is tracked explicitly, rather than used outside its stated range. The new first-order signed compensation and rank-one parity-root calculation avoid the fixed-entry remainder amplification at prime density. They are the mechanism of the complete prime consumer, not merely a detector or matching identity.",
-    "proof_endpoint_status": "All previously verified headline inputs and both actual graph-entropy family limits remain compiled. The coprime-circle arithmetic consumer now has an unconditional native full signed Fourier spectrum on the actual coprime-difference graph at every positive modulus. The normalized kernel is symmetric, nonnegative and doubly stochastic with cap1/phi(n). Surjective unit-group averaging gives the exact conductor value c_n(k)/phi(n)=mu(t)/phi(t), t=n/gcd(n,k), with exactly phi(t) frequencies for every t|n. Conductor1 is exactly k=0; conductor2 has value-1 and forces even modulus; low conductors are exactly the frequencies killed by multiplication by2. All t>=3 have norm<=1/2. Full cyclic inversion identifies the actual physical adjacency, and the proved real-complex transfer gives the actual real centered half-gap for every odd modulus. All42 new declarations in five maintained owners pass the focused foundational audit. The even cross-block transfer, density bound, entropy/count/path assembly and arithmetic constant remain unfinished, as do other remaining headline consumers and public Solution integration. The whole headline remains uncertified.",
+    "proof_endpoint_status": "All previously verified headline, graph-count and native coprime spectral inputs remain compiled. The full uniform totient density lemma is now compiled on its original all-modulus domain: exists C>0, forall n>=3, n/phi(n)<=C*log(log(3n)). The actual Euler product is split at every real cutoffY>=4; the exact bound is n/phi(n)<=exp(2log n/(Y log Y))/MertensProduct(Y). The cached unconditional classical Mertens product asymptotic supplies its reciprocal estimate, and the existing large-prime product theorem dominates the actual totient factors on the same support. The choiceY=log(3n) bounds the complete large-prime tail by exp2 above fixed cutoffs; one fixed constant covers all smaller n>=3 using loglog(3n)>=loglog3>0 and n/phi(n)<=n. All15 new declarations in four maintained owners compile and pass focused foundational audits, reusing the two earlier Mertens consumer audit reports without unchanged reauditing. The lemma lem:totientdiffusion is fully closed. The even cross-block physical gap, complete coprime count/path/entropy assemblies and arithmetic constants remain unfinished, alongside other remaining headline consumers and public Solution integration. The whole headline remains uncertified.",
     "significance_assessment": "A general signed-estimation method now has a quantitative inverse and complete independent arithmetic consumers at actual prime density and through every coprime modulus. This supports a serious standalone research contribution. Career-defining impact and priority are not certified or inferred from compilation.",
     "paper_argument_delivered": true,
     "headline_all_orders_filz_proved": false,
     "lean_formalization_complete": false,
-    "next_safely_executable_research_action": "Continue the admitted coprime-circle arithmetic consumer: prove the even cross-block physical gap, the required uniform totient density bound and actual count normalizations/arithmetic constant, consuming the completed all-frequency signed spectrum. Preserve the completed original-domain aperiodic/bipartite and graph-count theorems. Finish the other remaining congruence, path, entropy, general-kernel and layered claims plus public Solution integration. Begin RH, Hadamard and twin-prime transfers only after full headline certification.",
+    "next_safely_executable_research_action": "Apply the completed all-modulus totient density and native full signed Fourier spectrum to the actual quantitative coprime-circle count. Discharge the even cross-block physical gap, carry the count normalizations and arithmetic determinant constants, and complete the remaining headline congruence, path, entropy, general-kernel and layered consumers plus public Solution integration. Preserve all earlier results. RH, Hadamard and twin-prime transfers remain queued until full headline certification.",
     "next_gate": "Judge the complete new method and independent applications, not theorem counts or successful compilation; preserve exact entropy and explicit density scope.",
     "no_background_work_claimed": true,
     "expert_relevance_gate": {
@@ -1138,8 +1139,8 @@
     "committed_this_turn": true,
     "pushed_this_turn": false,
     "proofs_left_only_in_private_research": false,
-    "recorded_phase": "native_full_coprime_conductor_spectrum_multiplicities_and_odd_physical_gap_compiled_count_assembly_pending",
-    "phase": "All previously verified headline inputs and both actual graph-entropy family limits remain compiled. The coprime-circle arithmetic consumer now has an unconditional native full signed Fourier spectrum on the actual coprime-difference graph at every positive modulus. The normalized kernel is symmetric, nonnegative and doubly stochastic with cap1/phi(n). Surjective unit-group averaging gives the exact conductor value c_n(k)/phi(n)=mu(t)/phi(t), t=n/gcd(n,k), with exactly phi(t) frequencies for every t|n. Conductor1 is exactly k=0; conductor2 has value-1 and forces even modulus; low conductors are exactly the frequencies killed by multiplication by2. All t>=3 have norm<=1/2. Full cyclic inversion identifies the actual physical adjacency, and the proved real-complex transfer gives the actual real centered half-gap for every odd modulus. All42 new declarations in five maintained owners pass the focused foundational audit. The even cross-block transfer, density bound, entropy/count/path assembly and arithmetic constant remain unfinished, as do other remaining headline consumers and public Solution integration. The whole headline remains uncertified."
+    "recorded_phase": "full_original_domain_uniform_totient_diffusion_compiled_coprime_count_assembly_pending",
+    "phase": "All previously verified headline, graph-count and native coprime spectral inputs remain compiled. The full uniform totient density lemma is now compiled on its original all-modulus domain: exists C>0, forall n>=3, n/phi(n)<=C*log(log(3n)). The actual Euler product is split at every real cutoffY>=4; the exact bound is n/phi(n)<=exp(2log n/(Y log Y))/MertensProduct(Y). The cached unconditional classical Mertens product asymptotic supplies its reciprocal estimate, and the existing large-prime product theorem dominates the actual totient factors on the same support. The choiceY=log(3n) bounds the complete large-prime tail by exp2 above fixed cutoffs; one fixed constant covers all smaller n>=3 using loglog(3n)>=loglog3>0 and n/phi(n)<=n. All15 new declarations in four maintained owners compile and pass focused foundational audits, reusing the two earlier Mertens consumer audit reports without unchanged reauditing. The lemma lem:totientdiffusion is fully closed. The even cross-block physical gap, complete coprime count/path/entropy assemblies and arithmetic constants remain unfinished, alongside other remaining headline consumers and public Solution integration. The whole headline remains uncertified."
   },
   "formalization": {
     "status": "in_progress_not_complete",
@@ -3732,10 +3733,34 @@
         "source_sha256": "314DC3D674DBF0F07144B3A120BD70FB532DFF31C3CE0345B45CCD71A8F4F0D6",
         "content": "PrimeFactorOscillations.hamiltonian_cyclic_inverse_principal; PrimeFactorOscillations.hamiltonian_coprime_odd_centered_symbol_bound; PrimeFactorOscillations.hamiltonian_coprime_centered_kernel_hankel; PrimeFactorOscillations.hamiltonian_coprime_odd_physical_gap",
         "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianMertensProduct",
+        "source_sha256": "85A67DF3AA5E20810DFF459DCB3A2BB2568F9D00A4632EC4646F83C5501F69BD",
+        "content": "PrimeFactorOscillations.hamiltonian_mertens_product_equivalent; PrimeFactorOscillations.hamiltonian_mertens_product_reciprocal_bound",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianTotientEuler",
+        "source_sha256": "6B5647093F8A0D94D859D2FC53C7ECA4CE5BAB7F3CD88A3A2989DA34B2DC8F59",
+        "content": "PrimeFactorOscillations.hamiltonian_totient_euler_factor_positive; PrimeFactorOscillations.hamiltonian_totient_euler_product; PrimeFactorOscillations.hamiltonian_totient_factor_le_singular; PrimeFactorOscillations.hamiltonian_totient_large_prime_product",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianTotientCutoff",
+        "source_sha256": "7FF43751A9C11DCC3E0A310086A2D6CCDE5A19307F557750F0356F72B3A42607",
+        "content": "PrimeFactorOscillations.hamiltonian_totient_euler_factor_ge_one; PrimeFactorOscillations.hamiltonian_nonnegative_subset_product; PrimeFactorOscillations.hamiltonian_mertens_product_positive; PrimeFactorOscillations.hamiltonian_mertens_reciprocal_euler_product; PrimeFactorOscillations.hamiltonian_totient_small_prime_product; PrimeFactorOscillations.hamiltonian_totient_finite_cutoff",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianTotientDiffusion",
+        "source_sha256": "1A971F74410FDD5187D6C741D1866FEDF854E1C950F2BC7A48FC589CCF2CDBFA",
+        "content": "PrimeFactorOscillations.hamiltonian_totient_tail_exponent; PrimeFactorOscillations.hamiltonian_totient_diffusion_eventual; PrimeFactorOscillations.hamiltonian_totient_diffusion_uniform",
+        "build_exit_code": 0
       }
     ],
     "unfinished_dependencies": [
-      "The actual all-modulus coprime Fourier/conductor spectrum and odd physical half-gap are compiled. The even cross-block transfer, totient density, coprime relative count, arithmetic constant, entropy/path assembly and other remaining paper consumers plus public Solution integration remain unfinished.",
+      "The original all-n>=3 uniform totient density lemma is fully compiled. Completed all-frequency conductor spectrum and odd real half-gap are available. The even cross-block physical gap, coprime relative count/path/entropy/arithmetic constants and other remaining headline claims plus public Solution integration remain unfinished.",
       "Coprime and layered arithmetic specializations, parity cases and all other advertised paper claims.",
       "Public exports, claim-by-claim paper synchronization, focused builds, final staged repository checks and commits."
     ],
@@ -11651,13 +11676,201 @@
         ],
         "log_sha256": "083117EDD96295B03A69E30437B306275A06C65C91C3775D2AE108DC1D241B66",
         "scope": "Only42 new native graph, full signed unit/conductor/frequency/multiplicity, exact Fourier inversion and actual odd physical gap declarations. All actual hashes enforced before audit; prior real-complex, Fourier and arithmetic providers reused without unchanged reaudit."
+      },
+      {
+        "status": "passed",
+        "modules": [
+          "PrimeFactorOscillations.Helpers.HamiltonianMertensProduct"
+        ],
+        "declaration_count": 2,
+        "declarations": [
+          {
+            "name": "PrimeFactorOscillations.hamiltonian_mertens_product_equivalent",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonian_mertens_product_reciprocal_bound",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          }
+        ],
+        "allowed_axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "log_sha256": "FD62313A19A6AF0540B7A38665A14D32777DC071EAA865A37469EE18677A62F5",
+        "scope": "Two new unconditional cached Mertens consumer declarations; immutable focused audit, not repeated during the later density audit."
+      },
+      {
+        "status": "passed",
+        "modules": [
+          "PrimeFactorOscillations.Helpers.HamiltonianTotientEuler",
+          "PrimeFactorOscillations.Helpers.HamiltonianTotientCutoff",
+          "PrimeFactorOscillations.Helpers.HamiltonianTotientDiffusion"
+        ],
+        "declaration_count": 13,
+        "declarations": [
+          {
+            "name": "PrimeFactorOscillations.hamiltonian_totient_euler_factor_positive",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonian_totient_euler_product",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonian_totient_factor_le_singular",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonian_totient_large_prime_product",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonian_totient_euler_factor_ge_one",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonian_nonnegative_subset_product",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonian_mertens_product_positive",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonian_mertens_reciprocal_euler_product",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonian_totient_small_prime_product",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonian_totient_finite_cutoff",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonian_totient_tail_exponent",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonian_totient_diffusion_eventual",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonian_totient_diffusion_uniform",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          }
+        ],
+        "allowed_axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "log_sha256": "01812BF04681A996E9CCC0C9D4086EA6A1ABAF625473DFAB960721FF97BF0EED",
+        "scope": "Only13 new exact Euler, finite full support cutoff and full original all-n>=3 density declarations. Mertens consumer and existing prime-tail providers are reused; hashes enforced before compilation."
+      },
+      {
+        "status": "passed",
+        "modules": [
+          "PrimeFactorOscillations.Helpers.HamiltonianMertensProduct"
+        ],
+        "declaration_count": 2,
+        "declarations": [
+          {
+            "name": "PrimeFactorOscillations.hamiltonian_mertens_product_equivalent",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonian_mertens_product_reciprocal_bound",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          }
+        ],
+        "allowed_axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "log_sha256": "7892400A2196EE5D9823A3E358A6AA2412D001C05088FFE4DB98E74EDC45B8BC",
+        "source_sha256": "85A67DF3AA5E20810DFF459DCB3A2BB2568F9D00A4632EC4646F83C5501F69BD",
+        "previous_source_sha256": "A252689CB9FC3E6BF3CBD06835045326156432137CA77540034147B78F4778DE",
+        "scope": "Changed Mertens interface only: discovery removed and fixed cached provider identifier used. Private audit prints the elaborated proof id Mertens.E-subscript3.bound-double-prime and checks the two changed declarations. Earlier13 Euler/cutoff/density declarations have unchanged sources and their immutable audit is reused; their dependent closure is freshly compiled. Original successful evidence remains immutable."
       }
     ],
     "active_proof": {
-      "module": "PrimeFactorOscillations.Helpers.HamiltonianCoprimeGap",
-      "status": "All previously verified headline inputs and both actual graph-entropy family limits remain compiled. The coprime-circle arithmetic consumer now has an unconditional native full signed Fourier spectrum on the actual coprime-difference graph at every positive modulus. The normalized kernel is symmetric, nonnegative and doubly stochastic with cap1/phi(n). Surjective unit-group averaging gives the exact conductor value c_n(k)/phi(n)=mu(t)/phi(t), t=n/gcd(n,k), with exactly phi(t) frequencies for every t|n. Conductor1 is exactly k=0; conductor2 has value-1 and forces even modulus; low conductors are exactly the frequencies killed by multiplication by2. All t>=3 have norm<=1/2. Full cyclic inversion identifies the actual physical adjacency, and the proved real-complex transfer gives the actual real centered half-gap for every odd modulus. All42 new declarations in five maintained owners pass the focused foundational audit. The even cross-block transfer, density bound, entropy/count/path assembly and arithmetic constant remain unfinished, as do other remaining headline consumers and public Solution integration. The whole headline remains uncertified.",
+      "module": "PrimeFactorOscillations.Helpers.HamiltonianTotientDiffusion",
+      "status": "All previously verified headline, graph-count and native coprime spectral inputs remain compiled. The full uniform totient density lemma is now compiled on its original all-modulus domain: exists C>0, forall n>=3, n/phi(n)<=C*log(log(3n)). The actual Euler product is split at every real cutoffY>=4; the exact bound is n/phi(n)<=exp(2log n/(Y log Y))/MertensProduct(Y). The cached unconditional classical Mertens product asymptotic supplies its reciprocal estimate, and the existing large-prime product theorem dominates the actual totient factors on the same support. The choiceY=log(3n) bounds the complete large-prime tail by exp2 above fixed cutoffs; one fixed constant covers all smaller n>=3 using loglog(3n)>=loglog3>0 and n/phi(n)<=n. All15 new declarations in four maintained owners compile and pass focused foundational audits, reusing the two earlier Mertens consumer audit reports without unchanged reauditing. The lemma lem:totientdiffusion is fully closed. The even cross-block physical gap, complete coprime count/path/entropy assemblies and arithmetic constants remain unfinished, alongside other remaining headline consumers and public Solution integration. The whole headline remains uncertified.",
       "target": "Complete the paper headline from the actual unconditional constant/parity half-gap and the full weighted kernel count: true-prime support and degree estimates, diffuseness-sensitive scaling, exact entropy normalization and actual prime-circle count; complete all advertised arithmetic/parity claims and remaining corollaries, public exports, real Solution consumer and final staged checks. Then begin the authorized generalizations to RH, Hadamard and twin primes.",
-      "consumer": "{\"graph\":\"Actual vertices ZMod n, adjacency iff IsUnit(x-y); nontrivial moduli give an irreflexive symmetric relation. Native normalized kernel has exact row/column sums1 and cap1/phi(n).\",\"spectrum\":\"For every physical k, c_n(k)/phi(n)=mu(t)/phi(t), t=n/gcd(n,k). The conductor equals addOrderOf k; for each t|n its exact finite frequency count is phi(t).\",\"exceptions\":\"t1 iff k0; t2 value-1 and implies even n. t<=2 iff2*nsmul k=0. Every t>=3 has norm<=1/2.\",\"physical\":\"Complete cyclic inversion identifies the signed Ramanujan symbol with actual adjacency and normalized kernel, including1/n Fourier normalization. After exact constant-mode subtraction, real-complex L2 transfer gives ||P-J/n||<=1/2 for every odd n.\",\"remaining\":\"Even physical cross-block gap, totient density bound and actual Hamiltonian count/path entropy plus arithmetic constant still pending. This is a completed necessary spectral input, not a completed counting claim or an analytic QRH exponent improvement.\"}",
+      "consumer": "{\"exact_euler\":\"n/phi(n)=prod_(p|n) p/(p-1), n>0. Positive factors and actual distinct prime support retained.\",\"finite_cutoff\":\"For everyY>=4, n/phi(n)<=exp(2log n/(YlogY))/prod_(p<=Y)(1-1/p). Small factors are compared by inclusion on the actual prime support; large factors are dominated by the existing singular_large_prime_product_le with every prime, cutoff and divisor hypothesis matched.\",\"mertens\":\"Cached VendorPrimeNumberTheoremAnd.Mertens supplies the classical product equivalence. HamiltonianMertensProduct derives a positive reference and reciprocal upper bound; its two declarations have a separate immutable foundational audit.\",\"uniform\":\"SetY=log(3n). OnceY exceeds max(4,X,exp1), the exponent<=2. An explicit ceiling construction supplies one Nat threshold. C=max(C_large,N0/loglog3)>0 covers all n>=3 because loglog(3n)>=loglog3>0 and n/phi(n)<=n.\",\"scope\":\"Closes lem:totientdiffusion, a classical necessary arithmetic input. It does not close the actual relative count, even transfer, arithmetic constant or whole paper headline.\"}",
       "proved_inputs": [
         "PrimeFactorOscillations.Helpers.HamiltonianMatrixSpectralAverage",
         "PrimeFactorOscillations.Helpers.HamiltonianRookGamma",
@@ -13139,6 +13352,30 @@
           "module": "PrimeFactorOscillations.Helpers.HamiltonianCoprimeGap",
           "source_sha256": "314DC3D674DBF0F07144B3A120BD70FB532DFF31C3CE0345B45CCD71A8F4F0D6",
           "content": "PrimeFactorOscillations.hamiltonian_cyclic_inverse_principal; PrimeFactorOscillations.hamiltonian_coprime_odd_centered_symbol_bound; PrimeFactorOscillations.hamiltonian_coprime_centered_kernel_hankel; PrimeFactorOscillations.hamiltonian_coprime_odd_physical_gap",
+          "build_exit_code": 0
+        },
+        {
+          "module": "PrimeFactorOscillations.Helpers.HamiltonianMertensProduct",
+          "source_sha256": "85A67DF3AA5E20810DFF459DCB3A2BB2568F9D00A4632EC4646F83C5501F69BD",
+          "content": "PrimeFactorOscillations.hamiltonian_mertens_product_equivalent; PrimeFactorOscillations.hamiltonian_mertens_product_reciprocal_bound",
+          "build_exit_code": 0
+        },
+        {
+          "module": "PrimeFactorOscillations.Helpers.HamiltonianTotientEuler",
+          "source_sha256": "6B5647093F8A0D94D859D2FC53C7ECA4CE5BAB7F3CD88A3A2989DA34B2DC8F59",
+          "content": "PrimeFactorOscillations.hamiltonian_totient_euler_factor_positive; PrimeFactorOscillations.hamiltonian_totient_euler_product; PrimeFactorOscillations.hamiltonian_totient_factor_le_singular; PrimeFactorOscillations.hamiltonian_totient_large_prime_product",
+          "build_exit_code": 0
+        },
+        {
+          "module": "PrimeFactorOscillations.Helpers.HamiltonianTotientCutoff",
+          "source_sha256": "7FF43751A9C11DCC3E0A310086A2D6CCDE5A19307F557750F0356F72B3A42607",
+          "content": "PrimeFactorOscillations.hamiltonian_totient_euler_factor_ge_one; PrimeFactorOscillations.hamiltonian_nonnegative_subset_product; PrimeFactorOscillations.hamiltonian_mertens_product_positive; PrimeFactorOscillations.hamiltonian_mertens_reciprocal_euler_product; PrimeFactorOscillations.hamiltonian_totient_small_prime_product; PrimeFactorOscillations.hamiltonian_totient_finite_cutoff",
+          "build_exit_code": 0
+        },
+        {
+          "module": "PrimeFactorOscillations.Helpers.HamiltonianTotientDiffusion",
+          "source_sha256": "1A971F74410FDD5187D6C741D1866FEDF854E1C950F2BC7A48FC589CCF2CDBFA",
+          "content": "PrimeFactorOscillations.hamiltonian_totient_tail_exponent; PrimeFactorOscillations.hamiltonian_totient_diffusion_eventual; PrimeFactorOscillations.hamiltonian_totient_diffusion_uniform",
           "build_exit_code": 0
         }
       ]

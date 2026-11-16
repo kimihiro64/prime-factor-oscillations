@@ -42,6 +42,37 @@ covers the remaining finite range.
 No prime number theorem or RH hypothesis is used.
 \end{proof}
 
+\paragraph{Maintained full-domain density input.}
+Lemma~\ref{lem:totientdiffusion} is now formalized for every
+integer \(n\geq3\), with one positive absolute constant.
+\texttt{HamiltonianMertensProduct} consumes the existing
+cached classical Mertens product asymptotic and derives a
+positive reciprocal bound.
+\texttt{HamiltonianTotientEuler} proves the actual totient
+Euler product and applies the previously proved large-prime
+product estimate to the same prime divisors.
+\texttt{HamiltonianTotientCutoff} retains both supported
+products and proves, for every real \(y\geq4\),
+\[
+ \frac n{\varphi(n)}
+ \leq
+ \frac{\exp(2\log n/(y\log y))}
+      {\prod_{p\leq y}(1-1/p)}.
+\]
+\texttt{HamiltonianTotientDiffusion} chooses
+\(y=\log(3n)\). Above the fixed Mertens and logarithmic
+cutoffs its tail factor is at most \(e^2\).
+One constant covers all smaller \(n\geq3\) using
+\(\log\log(3n)\geq\log\log3>0\) and \(n/\varphi(n)\leq n\).
+The maintained theorem has the exact quantifiers
+\(\exists C>0\ \forall n\geq3\).
+The Mertens input is unconditional and its new consumer has
+passed a foundational axiom audit; no dependency rebuild or
+numerical range test is used.
+This closes the density lemma. The full relative counts,
+their arithmetic constants and even-modulus graph transfers
+remain separate formalization obligations.
+
 For odd \(n\geq3\), define the positive arithmetic factor
 \[
  {\mathfrak C}(n)=
