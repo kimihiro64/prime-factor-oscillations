@@ -237,9 +237,44 @@ At \(M=0\), this gives the compiled bounds
 Thus the displayed series converges uniformly over the full
 odd-modulus domain, with an explicit geometric remainder.
 All seventeen new declarations pass the focused foundational
-audit. The direct monotonicity statement and primorial limit
-remain to be formalized; the uniform estimate and distinct-prime
-dependence are complete.
+audit. The monotonicity and full infinite-prime limit are also
+compiled as follows.
+
+\paragraph{Maintained monotonicity and odd-primorial limit.}
+\texttt{HamiltonianCoprimeConstantLimit} proves
+\[
+ \operatorname{primeFactors}(n)\subseteq
+ \operatorname{primeFactors}(m)
+ \quad\Longrightarrow\quad
+ \mathfrak C(n)\leq\mathfrak C(m)
+\]
+for every odd \(n,m>1\).
+The finite Euler factors remain coupled; their products
+decrease under support inclusion, and the full
+\(\operatorname{HasSum}\) comparison gives the logarithmic inequality.
+
+For \(P_k=\prod_{3\leq p<k+4,\ p\ {\rm prime}}p\), the
+same owner proves the exact prime support, oddness and
+\(P_k>1\), and the monotonicity of \(\mathfrak C(P_k)\).
+The zero-extended odd-prime Euler factors are genuinely
+multipliable. Their finite products converge to the
+corresponding infinite product over every odd prime.
+The proved uniform geometric majorant then permits
+dominated convergence through the full logarithmic series:
+\[
+ \lim_{k\to\infty}\mathfrak C(P_k)
+  =\mathfrak C_\infty
+  :=\exp\!\left(1+\sum_{j\geq1}
+       \frac{1-\prod_{p\ {\rm odd\ prime}}
+               (1-(p-1)^{-2j})}{2j+1}\right).
+\]
+The series is absolutely convergent, the displayed expression
+is the actual limiting constant, and
+\(e\leq\mathfrak C_\infty\leq e^{11/9}\).
+All eighteen new declarations pass their focused foundational
+audit. This closes Proposition~\ref{prop:coprimeconstant}.
+Final Stirling normalization and the even-modulus count remain
+separate obligations.
 
 
 For odd \(n\geq3\), define the positive arithmetic factor
@@ -324,8 +359,8 @@ There is no unproved prime-sampling estimate in this consumer.
 
 \begin{proposition}[The prime-factor dependence of the odd constant]
 \label{prop:coprimeconstant}
-The factor \({\mathfrak C}(n)\) depends only on the distinct
-prime divisors of odd \(n\), and
+For every odd \(n>1\), the factor \({\mathfrak C}(n)\)
+depends only on its distinct prime divisors, and
 \[
  \log{\mathfrak C}(n)
  =1+\sum_{j\geq1}\frac{
