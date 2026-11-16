@@ -51,6 +51,54 @@ This is the established finite assignment principle; no originality
 is claimed for it.  The required matrix-moment estimate and the
 assembled adaptive rounding theorem are still unformalized.
 
+\paragraph{Formal trace-power estimate for deterministic selection.}
+The next analytic input is now also proved in Lean, uniformly in the
+matrix order and the moment order.
+For real symmetric \(A,X\), put \(A_t=A+tX\) and
+\(g_p(t)=\operatorname{tr}(A_t^p)\), where \(p\geq2\) is an integer.
+Scalar differentiation of every matrix entry gives the exact formulas
+\[
+ g_p'(t)=p\operatorname{tr}(A_t^{p-1}X),\qquad
+ g_p''(t)=p\sum_{j=0}^{p-2}
+          \operatorname{tr}(A_t^{p-2-j}XA_t^jX).
+\]
+The matrix power direction retains every noncommuting word.
+Diagonalize \(A_t\) only after differentiating:
+write \(A_t=U\diag(\lambda_r)U^\top\) and \(B=U^\top XU\).
+No derivative of the eigenbasis is used.
+Every mixed trace is exactly the full ordered-pair sum
+\[
+ \operatorname{tr}(A_t^aXA_t^bX)
+   =\sum_{r,s}B_{rs}^{\,2}\lambda_r^a\lambda_s^b.
+\]
+In particular all signed eigenvalues and return pairs remain present.
+The actual operator norm gives both budgets
+\[
+ \sum_s B_{rs}^{\,2}\leq\|X\|^2,\qquad
+ \sum_r B_{rs}^{\,2}\leq\|X\|^2.
+\]
+For \(x,y\geq0\) and \(0\leq j\leq n\),
+\(x^jy^{n-j}\leq x^n+y^n\).
+Apply this with \(n=p-2\) to each complete mixed trace,
+then sum using the two square-mass budgets.  This proves
+\[
+ \boxed{\quad
+ g_p''(t)\leq
+ 2p(p-1)\|X\|^2\sum_r|\lambda_r(A_t)|^{p-2}.
+ \quad}
+\]
+The bound uses the eigenvalue mass instead of replacing it by the
+ambient order times a maximum entry.
+The maintained proof consists of
+\texttt{HamiltonianTracePowerScalars},
+\texttt{HamiltonianTraceSpectralBasis},
+\texttt{HamiltonianTracePowerDerivative} and
+\texttt{HamiltonianTraceHessianBudget}.
+It is a supporting classical matrix estimate; no originality is
+claimed for the estimate in isolation.
+The scalar power-mean inequality, regularized squared-moment step
+and full adaptive rounding consumer still require formalization.
+
 \begin{proof}[Proof of Theorem~\ref{thm:rounding}]
 Let \(F_i\) be the union of the first \(i\) chosen matchings,
 with \(F_0\) empty.
@@ -194,8 +242,8 @@ Summing over any subset gives the stated predictable observable drift
 with no restriction on its size.  The maintained owners are
 \texttt{HamiltonianScaledCrossMass} and
 \texttt{HamiltonianForbiddenObservableDrift}.
-The finite adaptive matching construction, matrix concentration and
-joint rounding conclusion still await formalization.
+The finite adaptive iteration, squared-moment bound and joint rounding
+conclusion still await formalization.
 
 
 \begin{proof}[Proof of Corollary~\ref{cor:weightedhamilton}]
