@@ -34,11 +34,69 @@ variance is at most
  \tfrac14\sum_j\|c_j\|_2^2c_jc_j^\top
               \preceq\tfrac{\alpha}{4}E^2 .
 \]
-Matrix Freedman for this independent sum gives
+Here is a finite signed-moment proof of the required tail.
+Put \(A_j=c_jc_j^\top/2\), write
+\(F_\epsilon=\sum_{j=1}^N\epsilon_jA_j\), and let
+\(M_{2k}=2^{-N}\sum_{\epsilon\in\{-1,1\}^N}
+                   \operatorname{tr}F_\epsilon^{2k}\).
+For \(\epsilon^{(j)}\) obtained by flipping coordinate \(j\),
+the exact identities are
 \[
- \|F\|\leq C_A(\sqrt{\alpha L}+\alpha L),\qquad L=\log(2N),
+ \Delta_j=F_\epsilon-F_{\epsilon^{(j)}}=2\epsilon_jA_j,
+ \qquad \Delta_j^2=4A_j^2,\qquad \sum_{j=1}^N\Delta_j=2F_\epsilon .
 \]
-with arbitrarily high prescribed polynomial probability.
+The flip is an involution of the whole sign cube. Hence
+\[
+ 4M_{2k}=2^{-N}\sum_{\epsilon\in\{-1,1\}^N}\sum_{j=1}^N
+ \operatorname{tr}\!\left(
+ \Delta_j(F_\epsilon^{2k-1}-F_{\epsilon^{(j)}}^{2k-1})\right).
+\]
+The trace mean-value inequality proved below retains both
+powers and every mixed term. Apply it before the flip
+bijection combines the two power contributions, giving
+\[
+ M_{2k}\leq(2k-1)\,2^{-N}\sum_{\epsilon\in\{-1,1\}^N}
+                 \operatorname{tr}(V F_\epsilon^{2k-2}),
+ \qquad V=\sum_{j=1}^NA_j^2 .
+\]
+In full, \(V=\tfrac14E\operatorname{diag}
+(\|c_j\|_2^2)E^\top\). For every symmetric \(Z\) and
+even \(q\), the diagonals of \(E^\top Z^qE\) are
+nonnegative: for \(q=2r\) this is the Gram matrix
+\((Z^rE)^\top(Z^rE)\).
+Cyclic trace therefore gives
+\[
+ \operatorname{tr}(VZ^q)
+ \leq\tfrac{\alpha}{4}\operatorname{tr}(E^2Z^q)
+ \leq\tfrac{\alpha}{4}\operatorname{tr}(Z^q).
+\]
+For the last inequality, use the independent eigenbasis
+overlap squares of \(E,Z\), the bounds
+\(\lambda_i(E)^2\leq1\) and \(\lambda_j(Z)^q\geq0\).
+Consequently
+\[
+ M_{2k}\leq N(2k-1)!!(\alpha/4)^k
+          \leq N(\alpha k/2)^k .
+\]
+The even trace controls \(\|F_\epsilon\|^{2k}\), so, for
+every \(k\geq1,t>0\),
+\[
+ 2^{-N}\#\{\epsilon:\|F_\epsilon\|>t\}
+          \leq\frac{N(\alpha k/2)^k}{t^{2k}}.
+\]
+For \(N\geq2,A>0,\alpha>0\), take
+\(k=\lceil(A+4)\log(2N)\rceil\).
+At \(t=\sqrt{2\alpha k}\) the bound is \(N4^{-k}\).
+The inequalities \(\log4\geq1\) and
+\(k\leq(A+5)\log(2N)\) give the explicit uniform form
+\[
+ \Pr\!\left\{\|F\|>
+       \sqrt{2(A+5)\alpha\log(2N)}\right\}
+             \leq N^{-A-3}.
+\]
+If \(\alpha=0\), every column vanishes and \(E=F=0\),
+so the same conclusion holds. This proves the asserted
+tail, with room for the conditioning costs below.
 Crucially the other restriction has the exact relation
 \[
  ER'E=\tfrac12 E^2-F .
@@ -95,8 +153,8 @@ All eleven new deterministic covariance, coordinate-support and
 gap declarations pass their combined focused foundational-axiom audit.
 These statements are uniform over the finite matrix, its dimension,
 and every cut; they do not restrict \(N\alpha\) to a sublogarithmic
-range. The uniform probability tail for \(F\), balanced conditioning
-and prescribed-coordinate conditioning in
+range. The uniform probability tail for \(F\) is now formalized below.
+Balanced conditioning and prescribed-coordinate conditioning in
 Lemma~\ref{lem:complementaryrestriction} remain formal obligations.
 The full wide-cap entropy theorem is not yet claimed as formalized.
 
@@ -123,7 +181,7 @@ All seventeen new scalar, mixed-readout and trace declarations
 compile and pass their focused foundational-axiom audit.
 
 For the covariance above, put \(A_j=c_jc_j^\top/2\) and
-\(F=\sum_j\epsilon_jA_j\), with independent uniform signs.
+\(F=\sum_{j=1}^N\epsilon_jA_j\), with independent uniform signs.
 The next formal step is the finite sign-flip identity and
 variance calculation
 \[
@@ -134,10 +192,36 @@ variance calculation
  \mathbb E\operatorname{tr} F^{2k}
  \leq (2k-1)\frac{\alpha}{4}\mathbb E\operatorname{tr} F^{2k-2}.
 \]
-These last expectation and variance statements, their
-probability tail and the balanced conditioning are not yet
-claimed as Lean theorems. They are the quantitative consumer
-of the now verified trace inequality; the full wide-cap
+These finite sign-flip moment and variance statements are now
+Lean theorems, together with their uniform probability tail.
+The eight maintained owners from \texttt{HamiltonianSignCube}
+through \texttt{HamiltonianComplementaryPolynomialTail}
+include the exact involutions, squared increments, full
+variance factorization, all-order moments, actual norm
+readout, the zero-variance case, and an exact bijection
+between sign vectors and every coordinate cut.
+All forty-eight new declarations compile and pass their
+combined focused foundational-axiom audit.
+
+In particular, their actual covariance tail is
+\[
+ \frac{\#\{D\subseteq[N]:
+   \|ERE-\tfrac12E^2\|>
+       \sqrt{2(A+5)\alpha\log(2N)}\}}{2^N}
+          \leq N^{-A-3}.
+\]
+The same finite count bound holds for cuts violating the
+actual quarter estimate
+\[
+ \|E[D,D^c]\|^2
+ \leq\tfrac14\|E\|^2+
+          \tfrac32\sqrt{2(A+5)\alpha\log(2N)}.
+\]
+The exact fixed-gap failure inclusion is also compiled.
+These are uniform over every finite dimension \(N\geq2\)
+and every \(\alpha\geq0\), with no small-\(N\alpha\)
+restriction. Balanced and prescribed-coordinate conditioning
+remain formal obligations. The full wide-cap entropy
 headline remains unfinished.
 
 \begin{lemma}[Scaling repair without a parity kernel]
