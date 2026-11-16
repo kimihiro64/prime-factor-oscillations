@@ -157,10 +157,55 @@ the focused foundational-axiom audit.
 For fixed \(\rho\), the bound is
 \(g=O_\rho(\log(2a))\), giving the required
 \(\varepsilon\log(2a)^2\) smallness scale.
-This is the full repair from a direct centered-gap input.
-The separate conversion from the degree-normalized spectral
-hypothesis in Lemma~\ref{lem:diffusionscaling} remains a
-formalization corollary.
+The native degree-normalized spectral consumer of
+Lemma~\ref{lem:diffusionscaling} is now formalized in
+\texttt{HamiltonianDiffuseSpectralScaling}, with the advertised
+logarithmic cap cost. Here are explicit uniform constants.
+Put \(\rho=1-\delta/2\) and
+\[
+ G_\delta=\frac4{-\log\rho}
+           +\frac{6+(1-\rho)^{-1}}{\log4},\qquad
+ c_\delta=\min\left\{\frac{\delta}{28}(\log4)^2,\,
+                    \frac1{256G_\delta^2}\right\},
+ \qquad C_\delta=20G_\delta.
+\]
+For the physical cap \(A/n\), take \(a=A/2\geq1\);
+then \(L=\log(4a)=\log(2A)\).
+The already proved scalar inverse estimate has a free scale
+parameter: applying it at that scale equal to \(a\) gives
+\[
+ g(a+9\varepsilon,\rho)\leq G_\delta L .
+\]
+Its scalar hypotheses require only
+\(a\leq(1+\varepsilon)a\), which follows from
+\(\varepsilon\geq0\); no dimension bound is substituted.
+
+The single smallness hypothesis
+\(\varepsilon L^2\leq c_\delta\) first gives
+\(\varepsilon\leq\delta/28<1/2\), and then
+\(\varepsilon g^2\leq1/256\).
+The actual normalized spectral packet, including the two simple
+exceptional modes, yields
+\[
+ \|T-J/m\|\leq1-\delta+8\varepsilon
+             \leq\rho-6\varepsilon.
+\]
+Thus the full nonlinear repair applies to the original matrix.
+Its same witness has \(R=4\varepsilon g\leq1/64\), exact
+stochastic rows and columns, positive multipliers, identical
+support, and
+\[
+ \|z\|_\infty\leq C_\delta\varepsilon L,\qquad
+ \|\widehat T-T\|\leq C_\delta\varepsilon L,\qquad
+ \widehat T_{ij}\leq2T_{ij}.
+\]
+The exact identity
+\(\widehat Q-Q=ZQ+QZ+ZQZ\) retains the full quadratic term.
+The zero-defect case uses the identity scaling explicitly.
+The theorem
+\texttt{hamiltonian\_normalized\_spectral\_physical\_cap\_scaling}
+has exactly the physical cap \(A/n\) and the cost \(\log(2A)\);
+no additional \(\varepsilon\leq1/2\) hypothesis is assumed.
 The actual constant-edge prime transfer, uniform degrees and
 half-gap are now formalized in Section~\ref{sec:regularfactors}.
 \paragraph{Formalized actual prime-density count.}
@@ -262,10 +307,9 @@ Both formulas in Theorem~\ref{thm:relativeprimecircles} now have
 complete maintained proofs. The sharp physical repair, full
 prime-edge cuts and integral regular-factor criterion with its
 actual adjacency loss are now formalized as well in
-Section~\ref{sec:regularfactors}. The other advertised arithmetic,
-rounding and degree-normalized spectral corollaries and the
-paper's complete public integration remain separate formalization
-obligations.
+Section~\ref{sec:regularfactors}. Other advertised arithmetic
+consumers and the paper's complete public integration remain
+separate formalization obligations.
 
 Let \(G_N\), for even \(N=2m\), have vertices \(1,\ldots,N\)
 and edges at distinct prime sums.
