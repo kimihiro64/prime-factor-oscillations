@@ -313,6 +313,31 @@ Any regular factor has degree at most the minimum degree of
 \(G_N\), which is \((1+o(1))D_N^*\).
 \end{proof}
 
+The finite prime-factor consumer is now formalized.
+\texttt{HamiltonianFactorCutGeometry} identifies both crossing
+counts with the full cut boundary and transports it losslessly
+through the odd/even vertex bijection.
+\texttt{HamiltonianPrimeFactorInputs} defines the actual prime
+edge set, proves both ordinary degree estimates with
+\(D=2m/\log(2m)\), and transfers the cut coefficient \(1/5\)
+to that same edge set.
+\texttt{HamiltonianPrimeRegularFactor} proves that, for every
+fixed \(0<\varepsilon<1/10\), there is \(M_0\) such that
+every \(m\geq M_0\) and every integer
+\(0\leq r\leq(1-10\varepsilon)D\) have a simple factor \(H\)
+on the original integer vertices with
+\[
+ \deg_H(v)=r,\qquad E(H)\subseteq E(G_{2m}),\qquad
+ \|A_{G_{2m}}-A_H\|\leq(1+\varepsilon)D-r.
+\]
+Its declarations check the original distinct-integer prime
+support and exact physical degree and norm transfers.
+All twenty-three declarations in these three owners pass
+focused foundational-axiom checks. The shrinking-defect
+selection, integer-floor normalization, and normalized
+spectral and eigenvalue conclusions in
+Theorem~\ref{thm:nearlyoptimalfactor} remain to be formalized.
+
 \begin{theorem}[A positive proportion of the prime edges in Hamilton cycles]
 \label{thm:manycycles}
 For every fixed \(\kappa<1/8\) with \(\kappa>0\), and every
