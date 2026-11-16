@@ -24,144 +24,117 @@ Here \(c_q(t)=\sum_{a\bmod q,(a,q)=1}\e(at/q)\)
 is the Ramanujan sum. The complete signed main term is retained.
 \end{lemma}
 \begin{proof}
-We record the argument orientation explicitly.
-For distinct symbolic vectors \(f,g\), set
-\(F_f(\theta)=\sum_{i=1}^N f_i\e(i\theta)\) and
-\(S_M(\theta)=\sum_{r\leq M}\Lambda(r)\e(r\theta)\),
-where \(M=4N+4\). Exact Fourier inversion gives
+Put \(M=4N+4\), and choose an auxiliary integer period \(R>M\)
+divisible by \(M\) and every positive integer at most the integer
+cutoff \(Q\). Write \(\mathcal C_Q\) for all reduced fractions
+\(a/q\bmod1\), \(1\leq q\leq Q\), and put
 \[
- \langle f,A_Ng\rangle_N
- =N^{-2}\int_0^1 S_M(\theta)
-             \overline{F_f(\theta)}F_g(-\theta)\,d\theta .
- \tag{17}
+ \rho_q=\frac{\mu(q)}{\phiG(q)},\qquad
+ V_M(k)=\sum_{r=1}^M\e(kr/R),\qquad
+ \Omega_Q(k)=\sum_{a/q\in\mathcal C_Q}
+               \rho_q V_M(k-Ra/q).
 \]
-Thus the left matrix factor is the conjugate of the first
-argument. Parseval and Cauchy--Schwarz give
+The complete reference is used at every frequency.
+Exact finite Fourier inversion on \(1\leq i+j\leq M<R\) gives
 \[
- \int_0^1|F_f(\theta)F_g(-\theta)|\,d\theta
-                  \leq N\|f\|_N\|g\|_N.                    \tag{18}
+ \frac1R\sum_{k\bmod R}\Omega_Q(k)\e(-k(i+j)/R)
+       =\sum_{q\leq Q}\rho_q c_q(-(i+j))
+       =\sum_{q\leq Q}\rho_q c_q(i+j).
 \]
+For two independent injective samplings of the vertices, each
+Fourier frame has Gram matrix \(R I\). The inverse factor \(1/R\)
+therefore cancels both frame norms. In particular,
+\[
+ \sup_{k\bmod R}|S_M(k)-\Omega_Q(k)|\leq E
+ \quad\Longrightarrow\quad
+ \|A_N-B_Q\|\leq E/N,                                      \tag{17}
+\]
+where \(S_M(k)=\sum_{r=1}^M\Lambda(r)\e(kr/R)\)
+and \(B_Q\) is the matrix in (16).
+This retains the entire signed symbol difference.
 
-Use major arcs \(|\theta-a/q|\leq T/N\), \(q\leq Q\),
-where \(T=(\log N)^D\) and \(D\) is a sufficiently large
-fixed exponent. These arcs are disjoint for large \(N\).
-Take the integer \(H=\lceil N/T\rceil\).
-Dirichlet approximation supplies coprime \(a,q\) with
-\(1\leq q\leq H\) and
+Let \(1\leq Q\leq T\), \(8T\leq M\),
+\(4TQ^2\leq M\), \(Q\leq M^{1/40}\), and set
+\(W=(R/M)T\), \(D=\lfloor R/(4Q^2)\rfloor\).
+All these conditions hold for the logarithmic cutoffs chosen below.
+The major grid consists of every \(Ra/q+j\bmod R\), with
+\(a/q\in\mathcal C_Q\) and \(|j|\leq W\).
+The separated-center inequality \(2DQ^2<R\) ensures that a
+point in one such packet lies outside radius \(D\) of every
+other center. Geometric summation, including both frequency
+signs and the even midpoint, gives
 \[
- |\theta-a/q|\leq1/(qH)\leq T/(qN).
+ |V_M(k)|\leq\frac{R}{2D}\leq4Q^2
+ \quad\hbox{outside radius }D.
 \]
-If \(q\leq Q\), this lies in the stated major arc.
-On their complement \(Q<q\leq H\leq2N/T\), and
-Vaughan's standard estimate~\cite{Vaughan} implies
-\[
- |S_M(\theta)|
- \ll N(\log N)^4
-       \left(Q^{-1/2}+T^{-1/2}+N^{-1/5}\right).
-\]
-For completeness, the estimate being used is
-\[
- |S_M(\theta)|\ll
- (Mq^{-1/2}+M^{4/5}+M^{1/2}q^{1/2})(\log M)^4
-\]
-when \(|\theta-a/q|\leq q^{-2}\).
-The approximation also satisfies \(|\theta-a/q|\leq q^{-2}\),
-because \(q\leq H\). On the minor arcs its denominator
-satisfies \(Q<q\leq2N/T\).
-Equation (18) therefore turns this into an operator error
-smaller than \((\log N)^{-B}\) if \(C,D\) are large enough.
+Since \(\sum_{a/q\in\mathcal C_Q}|\rho_q|\leq Q\), only the
+off-resonant remainder costs at most \(4Q^3\).
+The resonant term \(\rho_q V_M(j)\) remains unchanged.
 
-On each major arc, Siegel--Walfisz and partial summation give,
-with arbitrary prescribed logarithmic accuracy,
+The established all-character progression estimate, followed
+by partial summation on the physical grid, supplies
 \[
- S_M(a/q+\beta)
-  =\frac{\mu(q)}{\phiG(q)}V_M(\beta)
-          +O(N(\log N)^{-A}),\qquad
- V_M(\beta)=\int_0^M\e(t\beta)\,dt .
+ |S_M(Ra/q+j)-\rho_q V_M(j)|
+ \leq H+K T\sqrt Q\,M^{15/16}(1+\log M)^2,
+ \qquad |j|\leq W,                                        \tag{18}
 \]
-The ranges \(q\leq Q\) and \(|\beta|\leq T/N\) are fixed
-logarithmic ranges. Choose the underlying prime estimate
-with accuracy sufficient to absorb the partial-summation
-factor \(1+M|\beta|\).
-The uniform error, inserted in (17)--(18), is again
-\(O((\log N)^{-B})\).
+where \(H=65536(\log65536+1)\) and \(K=67108864\).
+Here the initial \(65536\) terms and their reference contribution
+are included in \(H\); no prefix is discarded.
+The denominator cutoff \(Q\) and offset width \(T\) are independent.
 
-It remains to justify the entire retained main kernel,
-including the arc tails.
-For \(s=i+j\in[2,2N]\), Fourier inversion of the interval
-\([0,M]\), followed by one integration by parts in each
-oscillatory tail, gives
+For one absolute \(C_0>0\), the complete coefficient-mean Vaughan
+bound gives, outside the narrower grid of width \((R/M)Q\),
 \[
- \left|\int_{-T/N}^{T/N}
-            V_M(\beta)\e(-s\beta)\,d\beta-1\right|
- \leq C\left(\frac{N}{T(i+j)}+\frac1T\right).
+ |S_M(k)|^2\leq
+ C_0\left(M^2/Q+M^{8/5}\right)(1+\log(2M))^{10}.
 \]
-The normalized matrix \(N^{-1}\) times this error has norm
-\(O(1/T)\): the Hilbert matrix \((1/(i+j))\) has bounded
-norm, for example by the Schur test with weights \(i^{-1/2}\).
-The phase at \(a/q\) is a diagonal unitary on each side,
-so does not change this bound.
-Summing the explicit remainder over reduced \(a\bmod q\)
-and \(q\leq Q\) costs at most \(O(Q/T)\).
-Choose \(D>C+B+10\).
-The retained phases sum to
-\(\mu(q)c_q(-(i+j))/\phiG(q)\), which equals the displayed
-main term since \(c_q(-s)=c_q(s)\).
-This proves (16) without applying an unsigned estimate to
-that main term.
+It therefore applies outside the major grid of width \(W\).
+There every reference center is farther than \(W\), so geometric
+summation also gives
+\[
+ |\Omega_Q(k)|\leq Q\,\frac{R}{2W}=\frac{QM}{2T}.
+\]
+Combining the two complementary frequency ranges with (17)
+proves the complete quantitative estimate
+\[
+\begin{split}
+ \|A_N-B_Q\|\leq\frac1N\max\bigl\{
+ &H+K T\sqrt Q\,M^{15/16}(1+\log M)^2+4Q^3,\\
+ &\sqrt{C_0(M^2/Q+M^{8/5})(1+\log(2M))^{10}}
+                         +QM/(2T)\bigr\}.
+\end{split}\tag{18a}
+\]
+All constants precede \(N,M,Q,T,R\); no cost depends on the
+chosen auxiliary period. Only the centered error and explicitly
+off-resonant remainder have been bounded in absolute value.
+
+Given \(B>0\), choose fixed \(C>2B+12\) and
+\(D_0>C+B+6\). Take integer cutoffs
+\(Q=\lfloor(\log N)^C\rfloor\) and
+\(T=\lceil(\log N)^{D_0}\rceil\).
+In (18a), the normalized major error and \(Q^3/N\) are smaller
+than every fixed negative logarithmic power. The minor error is
+\[
+ O\bigl((Q^{-1/2}+M^{-1/5})(1+\log(2M))^5\bigr),
+\]
+and the reference leakage is \(O(Q/T)\).
+Thus every retained term is \(O_B((\log N)^{-B})\), proving
+(16). The use of real \(Q=(\log N)^C\) in (16) gives the same
+integer denominator set.
 \end{proof}
 
-\paragraph{Formalized whole-prefix minor-grid input.}
-The maintained owners \texttt{HamiltonianPrimeMinorArc} and
-\texttt{HamiltonianPrimePrefixMinor} consume the existing actual
-coefficient-mean Vaughan theorem and its proved physical cutoffs.
-Precisely, let \(M\geq2^{18}\), \(1\leq P\leq M^{1/40}\), and
-let the positive auxiliary period \(R\) be divisible by \(M\)
-and by every integer \(1\leq q\leq P\). Put
-\[
- W=(R/M)P,\qquad
- \mathfrak M_R(P,W)=
- \left\{\frac{Ra}{q}+j\pmod R:
-  1\leq q\leq P,\ 0\leq a<q,\ (a,q)=1,\ |j|\leq W\right\}.
-\]
-For one absolute \(C>0\), independent of every displayed
-parameter, the complete actual prefix satisfies
-\[
- \left|\sum_{r=1}^M\Lambda(r)\e(kr/R)\right|^2
- \leq C\left(\frac{M^2}{P}+M^{8/5}\right)
-                     (1+\log(2M))^{10},
- \qquad k\in\mathbb Z,\quad k\bmod R\notin\mathfrak M_R(P,W).
-\]
-The initial Vaughan cutoff is retained and bounded explicitly;
-every prime power remains in the prefix. There is no divisor
-power loss in this estimate. All five new declarations pass
-the focused foundational-axiom check.
-\paragraph{Formalized exact sampled-operator transfer.}
-\texttt{HamiltonianHankelFourierBound} proves the complete Fourier
-factorization for two independent injective input samplings.
-Each sampling frame has Gram matrix \(R I\); the inverse
-transform contributes exactly \(1/R\). Consequently no auxiliary
-period or input-dimension loss enters its operator estimate.
-\texttt{HamiltonianPrimeOperatorFourier} applies this to the
-actual integer matrix, rather than a prime-probability proxy.
-For \(1\leq i,j\leq n\), let
-\[
- A_n(i,j)=\Lambda(i+j)/n,\qquad
- H_G(i,j)=\frac1R\sum_{k\bmod R}G(k)\e(-k(i+j)/R).
-\]
-If \(2n\leq M<R\), \(E\geq0\), and
-\(\left|\sum_{r=1}^M\Lambda(r)\e(kr/R)-G(k)\right|\leq E\)
-for every \(k\bmod R\), then the maintained proof gives
-\[
- \|A_n-H_G/n\|\leq E/n.
-\]
-The two input vertices, physical prefix cutoff and auxiliary
-period remain distinct throughout. The bound consumes the full
-signed symbol difference; no principal contribution or phase is
-erased. All fourteen new declarations pass the focused
-foundational-axiom check.
-The retained major-arc main term and spectral comparison remain
-formalization obligations.
+\paragraph{Formalization status of the actual operator comparison.}
+The complete finite estimate (18a), with one uniform arithmetic
+constant, is now proved in the maintained Lean owner
+\texttt{HamiltonianPrimeOperatorComparison}.
+Its dependencies prove the whole-prefix minor estimate, the exact
+two-input Fourier transfer, the full rational reference and inverse,
+separated-center leakage, independent denominator and width ranges,
+and every integer-radius rounding condition.
+Every prime power and the full signed Ramanujan main term remain.
+The asymptotic cutoff selection in the last paragraph and the
+spectral comparison below remain formalization obligations.
 
 \begin{lemma}[The nontrivial ratio is one half]
 \label{lem:integerspectrum}

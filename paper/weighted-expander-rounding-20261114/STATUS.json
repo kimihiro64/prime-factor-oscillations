@@ -67,8 +67,8 @@
       "kind": "lemma",
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\prime-sum.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
-      "lean_status": "actual_sampled_operator_and_whole_prefix_minor_formalized_major_and_spectral_assembly_pending",
-      "audit_note": "The whole actual Mangoldt-prefix minor bound is compiled. HamiltonianHankelFourierBound and HamiltonianPrimeOperatorFourier now prove the exact two-input Fourier/Hankel factorization, full finite inverse and actual normalized integer matrix transfer: all symbol differences<=E imply operator error<=E/n on2n<=M<R, with no auxiliary-grid or dimension loss. All14 new declarations pass the focused foundational-axiom audit. The retained complete major reference, full frequency-error assembly and spectral comparison remain unfinished."
+      "lean_status": "complete_finite_prime_operator_comparison_formalized_asymptotic_and_spectral_assembly_pending",
+      "audit_note": "HamiltonianPrimeOperatorComparison proves the complete actual Mangoldt-matrix to full signed rational-model error with all major, minor and off-resonant terms explicit. Its finite domain is M>=2^18,1<=Q<=T,8*T<=M,4*T*Q^2<=M,Q<=M^(1/40),2*n<=M<R, with the stated divisor conditions. The full reference inverse, whole initial prefix, independent denominator/offset ranges and integer-radius rounding compile; all24 new declarations pass the focused foundational-axiom audit. The arbitrary logarithmic-accuracy cutoff corollary in the paper and the reference spectral comparison remain unfinished."
     },
     {
       "id": "lem:integerspectrum",
@@ -357,7 +357,7 @@
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\relative-permanents.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
       "lean_status": "fully_formalized_direct_normalized_uniform_statement",
-      "audit_note": "Both paper permanent statements now have direct maintained normalized Lean consumers. stochastic_permanent_relative_correction_polylog_uniform proves, for one N0(delta,K)>=16 and every admissible kernel and 1<=A<=log(N)^K, abs((N^N/N!)*per(T)/Delta(1)-(1+Q_N(T)))<=(1+A)^24*C_delta/N^2 and abs(Q_N(T))<=21*A^2/(delta^3*N). For K>0, hamiltonian_permanent_polylog_first_order_budget supplies the uniform scalar threshold, and stochastic_permanent_first_order_polylog_uniform proves the directly normalized first-order error <=N^(-1/8). The full common threshold is independent of the kernel. These three new theorems compile and pass the focused foundational-axiom audit. The complete signed second-order expansion is retained for the critical Hamiltonian consumer; its first-order consequence is not substituted into that sharper argument. The complete weighted Hamiltonian kernel count, all kernel power-decay/sharp-density corollaries, inverse and signed occupancy/size-wave statements are compiled and focused-audited. The actual whole Mangoldt prefix has the uniform no-divisor-power-loss minor bound. The exact two-sampling Fourier/Hankel factorization and operator bound now compile: a full symbol error<=E gives the actual normalized integer Mangoldt-sum matrix error<=E/n, with physical cutoff2n<=M, auxiliary periodR>M and no grid-size cost. Every input, phase and principal compensation is retained. All14 new Fourier-frame, exact inverse and actual-operator declarations pass the focused foundational-axiom audit. The complete major reference and its frequency-error/spectral assembly, true-prime support/degree/scaling and entropy inputs, prime-circle count, other advertised arithmetic/parity claims and public integration remain unfinished. The complete paper headline is not Lean-certified."
+      "audit_note": "Both paper permanent statements now have direct maintained normalized Lean consumers. stochastic_permanent_relative_correction_polylog_uniform proves, for one N0(delta,K)>=16 and every admissible kernel and 1<=A<=log(N)^K, abs((N^N/N!)*per(T)/Delta(1)-(1+Q_N(T)))<=(1+A)^24*C_delta/N^2 and abs(Q_N(T))<=21*A^2/(delta^3*N). For K>0, hamiltonian_permanent_polylog_first_order_budget supplies the uniform scalar threshold, and stochastic_permanent_first_order_polylog_uniform proves the directly normalized first-order error <=N^(-1/8). The full common threshold is independent of the kernel. These three new theorems compile and pass the focused foundational-axiom audit. The complete signed second-order expansion is retained for the critical Hamiltonian consumer; its first-order consequence is not substituted into that sharper argument. The complete weighted Hamiltonian kernel count, power-decay/sharp-density corollaries, inverse and all signed occupancy/size-wave statements are compiled and focused-audited. The actual Mangoldt-sum operator now has a complete finite comparison with the full signed rational model: the major contribution is H+67108864*T*sqrt(Q)*M^(15/16)*(1+log(M))^2+4*Q^3, and the minor contribution is sqrt(C*(M^2/Q+M^(8/5))*(1+log(2*M))^10)+Q*M/(2*T); the maximum of these, divided by n, bounds the actual operator error. One C>0 precedes all physical orders, cutoffs and auxiliary grids. Every prefix, phase and integer rounding condition is retained. All24 new reference, leakage, whole-prefix major and complete-operator declarations pass the focused foundational-axiom audit. Asymptotic cutoff selection and the reference spectrum, true-prime support/degree/scaling and entropy inputs, prime-circle count, other advertised arithmetic/parity claims and public integration remain unfinished. The complete paper headline is not Lean-certified."
     },
     {
       "id": "lem:relativecompensatedminors",
@@ -478,7 +478,7 @@
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\permanent-second-order.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
       "lean_status": "fully_formalized_direct_normalized_uniform_statement",
-      "audit_note": "Both paper permanent statements now have direct maintained normalized Lean consumers. stochastic_permanent_relative_correction_polylog_uniform proves, for one N0(delta,K)>=16 and every admissible kernel and 1<=A<=log(N)^K, abs((N^N/N!)*per(T)/Delta(1)-(1+Q_N(T)))<=(1+A)^24*C_delta/N^2 and abs(Q_N(T))<=21*A^2/(delta^3*N). For K>0, hamiltonian_permanent_polylog_first_order_budget supplies the uniform scalar threshold, and stochastic_permanent_first_order_polylog_uniform proves the directly normalized first-order error <=N^(-1/8). The full common threshold is independent of the kernel. These three new theorems compile and pass the focused foundational-axiom audit. The complete signed second-order expansion is retained for the critical Hamiltonian consumer; its first-order consequence is not substituted into that sharper argument. The complete weighted Hamiltonian kernel count, all kernel power-decay/sharp-density corollaries, inverse and signed occupancy/size-wave statements are compiled and focused-audited. The actual whole Mangoldt prefix has the uniform no-divisor-power-loss minor bound. The exact two-sampling Fourier/Hankel factorization and operator bound now compile: a full symbol error<=E gives the actual normalized integer Mangoldt-sum matrix error<=E/n, with physical cutoff2n<=M, auxiliary periodR>M and no grid-size cost. Every input, phase and principal compensation is retained. All14 new Fourier-frame, exact inverse and actual-operator declarations pass the focused foundational-axiom audit. The complete major reference and its frequency-error/spectral assembly, true-prime support/degree/scaling and entropy inputs, prime-circle count, other advertised arithmetic/parity claims and public integration remain unfinished. The complete paper headline is not Lean-certified."
+      "audit_note": "Both paper permanent statements now have direct maintained normalized Lean consumers. stochastic_permanent_relative_correction_polylog_uniform proves, for one N0(delta,K)>=16 and every admissible kernel and 1<=A<=log(N)^K, abs((N^N/N!)*per(T)/Delta(1)-(1+Q_N(T)))<=(1+A)^24*C_delta/N^2 and abs(Q_N(T))<=21*A^2/(delta^3*N). For K>0, hamiltonian_permanent_polylog_first_order_budget supplies the uniform scalar threshold, and stochastic_permanent_first_order_polylog_uniform proves the directly normalized first-order error <=N^(-1/8). The full common threshold is independent of the kernel. These three new theorems compile and pass the focused foundational-axiom audit. The complete signed second-order expansion is retained for the critical Hamiltonian consumer; its first-order consequence is not substituted into that sharper argument. The complete weighted Hamiltonian kernel count, power-decay/sharp-density corollaries, inverse and all signed occupancy/size-wave statements are compiled and focused-audited. The actual Mangoldt-sum operator now has a complete finite comparison with the full signed rational model: the major contribution is H+67108864*T*sqrt(Q)*M^(15/16)*(1+log(M))^2+4*Q^3, and the minor contribution is sqrt(C*(M^2/Q+M^(8/5))*(1+log(2*M))^10)+Q*M/(2*T); the maximum of these, divided by n, bounds the actual operator error. One C>0 precedes all physical orders, cutoffs and auxiliary grids. Every prefix, phase and integer rounding condition is retained. All24 new reference, leakage, whole-prefix major and complete-operator declarations pass the focused foundational-axiom audit. Asymptotic cutoff selection and the reference spectrum, true-prime support/degree/scaling and entropy inputs, prime-circle count, other advertised arithmetic/parity claims and public integration remain unfinished. The complete paper headline is not Lean-certified."
     },
     {
       "id": "thm:minorjet",
@@ -487,7 +487,7 @@
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\compensated-minor-jet.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
       "lean_status": "fully_formalized_actual_uniform_two_power_minor_expansion",
-      "audit_note": "The complete weighted Hamiltonian kernel count, all kernel power-decay/sharp-density corollaries, inverse and signed occupancy/size-wave statements are compiled and focused-audited. The actual whole Mangoldt prefix has the uniform no-divisor-power-loss minor bound. The exact two-sampling Fourier/Hankel factorization and operator bound now compile: a full symbol error<=E gives the actual normalized integer Mangoldt-sum matrix error<=E/n, with physical cutoff2n<=M, auxiliary periodR>M and no grid-size cost. Every input, phase and principal compensation is retained. All14 new Fourier-frame, exact inverse and actual-operator declarations pass the focused foundational-axiom audit. The complete major reference and its frequency-error/spectral assembly, true-prime support/degree/scaling and entropy inputs, prime-circle count, other advertised arithmetic/parity claims and public integration remain unfinished. The complete paper headline is not Lean-certified."
+      "audit_note": "The complete weighted Hamiltonian kernel count, power-decay/sharp-density corollaries, inverse and all signed occupancy/size-wave statements are compiled and focused-audited. The actual Mangoldt-sum operator now has a complete finite comparison with the full signed rational model: the major contribution is H+67108864*T*sqrt(Q)*M^(15/16)*(1+log(M))^2+4*Q^3, and the minor contribution is sqrt(C*(M^2/Q+M^(8/5))*(1+log(2*M))^10)+Q*M/(2*T); the maximum of these, divided by n, bounds the actual operator error. One C>0 precedes all physical orders, cutoffs and auxiliary grids. Every prefix, phase and integer rounding condition is retained. All24 new reference, leakage, whole-prefix major and complete-operator declarations pass the focused foundational-axiom audit. Asymptotic cutoff selection and the reference spectrum, true-prime support/degree/scaling and entropy inputs, prime-circle count, other advertised arithmetic/parity claims and public integration remain unfinished. The complete paper headline is not Lean-certified."
     },
     {
       "id": "lem:signedoccupancy",
@@ -496,7 +496,7 @@
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\signed-jet-comparison.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
       "lean_status": "fully_formalized_actual_signed_coordinate_and_analytic_size_moments",
-      "audit_note": "All actual coordinate moments, full independent balanced-support readouts, complete signed first-order consumer, and exact analytic size-derivative identity have maintained Lean proofs. HamiltonianSignedSizeDerivative proves g''(1)=L(r(r-1))=4d'(1)+3d''(1) in both Gram conventions and abs(g''(1))<=53*abs(d)*(A/(1-rho))^2 from the original stochastic hypotheses. All12 new declarations pass the focused foundational-axiom audit. The complete weighted Hamiltonian kernel count, all kernel power-decay/sharp-density corollaries, inverse and signed occupancy/size-wave statements are compiled and focused-audited. The actual whole Mangoldt prefix has the uniform no-divisor-power-loss minor bound. The exact two-sampling Fourier/Hankel factorization and operator bound now compile: a full symbol error<=E gives the actual normalized integer Mangoldt-sum matrix error<=E/n, with physical cutoff2n<=M, auxiliary periodR>M and no grid-size cost. Every input, phase and principal compensation is retained. All14 new Fourier-frame, exact inverse and actual-operator declarations pass the focused foundational-axiom audit. The complete major reference and its frequency-error/spectral assembly, true-prime support/degree/scaling and entropy inputs, prime-circle count, other advertised arithmetic/parity claims and public integration remain unfinished. The complete paper headline is not Lean-certified."
+      "audit_note": "All actual coordinate moments, full independent balanced-support readouts, complete signed first-order consumer, and exact analytic size-derivative identity have maintained Lean proofs. HamiltonianSignedSizeDerivative proves g''(1)=L(r(r-1))=4d'(1)+3d''(1) in both Gram conventions and abs(g''(1))<=53*abs(d)*(A/(1-rho))^2 from the original stochastic hypotheses. All12 new declarations pass the focused foundational-axiom audit. The complete weighted Hamiltonian kernel count, power-decay/sharp-density corollaries, inverse and all signed occupancy/size-wave statements are compiled and focused-audited. The actual Mangoldt-sum operator now has a complete finite comparison with the full signed rational model: the major contribution is H+67108864*T*sqrt(Q)*M^(15/16)*(1+log(M))^2+4*Q^3, and the minor contribution is sqrt(C*(M^2/Q+M^(8/5))*(1+log(2*M))^10)+Q*M/(2*T); the maximum of these, divided by n, bounds the actual operator error. One C>0 precedes all physical orders, cutoffs and auxiliary grids. Every prefix, phase and integer rounding condition is retained. All24 new reference, leakage, whole-prefix major and complete-operator declarations pass the focused foundational-axiom audit. Asymptotic cutoff selection and the reference spectrum, true-prime support/degree/scaling and entropy inputs, prime-circle count, other advertised arithmetic/parity claims and public integration remain unfinished. The complete paper headline is not Lean-certified."
     },
     {
       "id": "thm:criticalrelative",
@@ -993,7 +993,7 @@
     },
     {
       "file": "prime-sum.tex",
-      "sha256": "0F3BB0FD2BE1FF95C87370593913103172BF717FD36EE8F06E04463924B90819"
+      "sha256": "B2E0D0F6B499EF53C840C8C583E637E127D381A5648F6D301E006099514D6C8C"
     },
     {
       "file": "regular-factors.tex",
@@ -1078,12 +1078,12 @@
     "complete_consumer": "rho=a=3/5; amplification <=m^(27/20); first signed correction polylog/m; only residual pays amplification, giving O(N^(-3/5)).",
     "inverse": "A fixed relative counting defect forces collective singular mass >=(2/kappa_rho)log N-O(log log N).",
     "further_extension": "Arbitrary fixed logarithmic density coefficients, and all fixed congruence filters, would require higher-order compensated expansions beyond the proved two-power remainder.",
-    "next_review_focus": "Construct the complete untruncated rational reference and prove its exact inverse as the Ramanujan kernel on the actual input domain. Bound only off-resonant leakage: O(Q^3) on a major arc and O(Q*M/T) off all major arcs, using existing exact rational-grid separation and geometric cancellation. Combine the existing all-character phase estimate and proved whole-prefix minor bound, then apply the compiled E/n operator transfer and prove the reference spectrum. Finish true-prime support, degrees, diffuseness-sensitive scaling, exact entropy and actual prime-circle relative count, remaining advertised arithmetic claims and public integration before the queued RH/Hadamard/twin-prime transfers.",
+    "next_review_focus": "Prove the logarithmic or polynomial cutoff decay from the compiled complete finite arithmetic operator bound, then the rational reference spectrum with only constant/parity exceptions. Finish the true-prime support and degrees, diffuseness-sensitive scaling, exact entropy normalization and actual prime-circle relative count. Complete the remaining advertised coprime/layered/parity claims, public exports and real Solution consumer before the queued RH/Hadamard/twin-prime transfers.",
     "independent_consumer_status": "Both actual integer prime-sum graphs and all growing coprime moduli have complete stated ordinary arguments."
   },
   "completion_receipt": {
     "requested_bar": "Finish the complete argument and its formalization at a level supporting a substantial original research contribution. A draft, helper proof, successful build or significance label does not finish this request; career impact cannot be certified by the author.",
-    "strongest_actual_theorem": "Maintained Lean proves the complete logarithmic-density weighted Hamiltonian count, power-decay/sharp-density criteria, inverse and all signed occupancy moments. For the arithmetic consumer, it proves the full prefix minor estimate and the exact E/n Fourier-to-actual-Mangoldt-operator transfer without grid-size loss. The complete arithmetic spectral, scaling/entropy and prime-circle headline remain unfinished.",
+    "strongest_actual_theorem": "Maintained Lean proves the complete logarithmic-density weighted Hamiltonian count, all power-decay/sharp-density corollaries, inverse and signed occupancy moments. Its arithmetic consumer now has a full finite actual Mangoldt-sum operator comparison, retaining the complete signed rational main term, all prefix/major/minor contributions and exact rounding with no auxiliary-grid loss. The remaining asymptotic/spectral, support/scaling/entropy and actual prime-circle headline are unfinished.",
     "complete_independent_applications": [
       "Every sufficiently large even integer prime-sum graph is Hamiltonian; log h=N log N-N log log N-N+o(N).",
       "Fixed congruence-filter connectedness/Hamiltonicity is classified exactly by gcd(q,R-R)=2, with a full positive residue-pressure formula.",
@@ -1094,12 +1094,12 @@
       "Actual unweighted prime-sum graph: full relative count around its exact entropy, with O(N^(-3/5)) error; no RH or prime-pair estimate."
     ],
     "primary_literature_comparison": "Cuckler-Kahn: dense Dirac and dense balanced bipartite entropy counts. Barvinok: all-positive matrices with a relative entry lower bound. Krivelevich and Byrne-Tait: nontrivial spectral ratio tending to zero logarithmically. The present argument permits sparse zero support and any fixed nontrivial gap. Bradač-Janzer 2026 is an essential independent spanning-path input. McCullagh's bounded normalized moments fail along primorials; Divoux-Wang's fixed-entry finite proof is tracked explicitly, rather than used outside its stated range. The new first-order signed compensation and rank-one parity-root calculation avoid the fixed-entry remainder amplification at prime density. They are the mechanism of the complete prime consumer, not merely a detector or matching identity.",
-    "proof_endpoint_status": "The complete weighted Hamiltonian kernel count, all kernel power-decay/sharp-density corollaries, inverse and signed occupancy/size-wave statements are compiled and focused-audited. The actual whole Mangoldt prefix has the uniform no-divisor-power-loss minor bound. The exact two-sampling Fourier/Hankel factorization and operator bound now compile: a full symbol error<=E gives the actual normalized integer Mangoldt-sum matrix error<=E/n, with physical cutoff2n<=M, auxiliary periodR>M and no grid-size cost. Every input, phase and principal compensation is retained. All14 new Fourier-frame, exact inverse and actual-operator declarations pass the focused foundational-axiom audit. The complete major reference and its frequency-error/spectral assembly, true-prime support/degree/scaling and entropy inputs, prime-circle count, other advertised arithmetic/parity claims and public integration remain unfinished. The complete paper headline is not Lean-certified.",
+    "proof_endpoint_status": "The complete weighted Hamiltonian kernel count, power-decay/sharp-density corollaries, inverse and all signed occupancy/size-wave statements are compiled and focused-audited. The actual Mangoldt-sum operator now has a complete finite comparison with the full signed rational model: the major contribution is H+67108864*T*sqrt(Q)*M^(15/16)*(1+log(M))^2+4*Q^3, and the minor contribution is sqrt(C*(M^2/Q+M^(8/5))*(1+log(2*M))^10)+Q*M/(2*T); the maximum of these, divided by n, bounds the actual operator error. One C>0 precedes all physical orders, cutoffs and auxiliary grids. Every prefix, phase and integer rounding condition is retained. All24 new reference, leakage, whole-prefix major and complete-operator declarations pass the focused foundational-axiom audit. Asymptotic cutoff selection and the reference spectrum, true-prime support/degree/scaling and entropy inputs, prime-circle count, other advertised arithmetic/parity claims and public integration remain unfinished. The complete paper headline is not Lean-certified.",
     "significance_assessment": "A general signed-estimation method now has a quantitative inverse and complete independent arithmetic consumers at actual prime density and through every coprime modulus. This supports a serious standalone research contribution. Career-defining impact and priority are not certified or inferred from compilation.",
     "paper_argument_delivered": true,
     "headline_all_orders_filz_proved": false,
     "lean_formalization_complete": false,
-    "next_safely_executable_research_action": "Construct the complete untruncated rational reference and prove its exact inverse as the Ramanujan kernel on the actual input domain. Bound only off-resonant leakage: O(Q^3) on a major arc and O(Q*M/T) off all major arcs, using existing exact rational-grid separation and geometric cancellation. Combine the existing all-character phase estimate and proved whole-prefix minor bound, then apply the compiled E/n operator transfer and prove the reference spectrum. Finish true-prime support, degrees, diffuseness-sensitive scaling, exact entropy and actual prime-circle relative count, remaining advertised arithmetic claims and public integration before the queued RH/Hadamard/twin-prime transfers.",
+    "next_safely_executable_research_action": "Prove the logarithmic or polynomial cutoff decay from the compiled complete finite arithmetic operator bound, then the rational reference spectrum with only constant/parity exceptions. Finish the true-prime support and degrees, diffuseness-sensitive scaling, exact entropy normalization and actual prime-circle relative count. Complete the remaining advertised coprime/layered/parity claims, public exports and real Solution consumer before the queued RH/Hadamard/twin-prime transfers.",
     "next_gate": "Judge the complete new method and independent applications, not theorem counts or successful compilation; preserve exact entropy and explicit density scope.",
     "no_background_work_claimed": true,
     "expert_relevance_gate": {
@@ -1118,8 +1118,8 @@
     "committed_this_turn": true,
     "pushed_this_turn": false,
     "proofs_left_only_in_private_research": false,
-    "recorded_phase": "Baseline local commit2fbd6ab. This phase adds two maintained owners for the exact sampled Fourier/Hankel and actual integer operator transfer; all14 declarations pass the focused foundational-axiom audit. Paper/source/claim states are synchronized. Final staged checks and the new local commit are recorded separately.",
-    "phase": "The complete weighted Hamiltonian kernel count, all kernel power-decay/sharp-density corollaries, inverse and signed occupancy/size-wave statements are compiled and focused-audited. The actual whole Mangoldt prefix has the uniform no-divisor-power-loss minor bound. The exact two-sampling Fourier/Hankel factorization and operator bound now compile: a full symbol error<=E gives the actual normalized integer Mangoldt-sum matrix error<=E/n, with physical cutoff2n<=M, auxiliary periodR>M and no grid-size cost. Every input, phase and principal compensation is retained. All14 new Fourier-frame, exact inverse and actual-operator declarations pass the focused foundational-axiom audit. The complete major reference and its frequency-error/spectral assembly, true-prime support/degree/scaling and entropy inputs, prime-circle count, other advertised arithmetic/parity claims and public integration remain unfinished. The complete paper headline is not Lean-certified."
+    "recorded_phase": "Baseline local commit c2f5aaf. This phase adds five maintained owners proving the complete actual arithmetic operator comparison with no missing frequency or grid remainder; all24 declarations pass the focused foundational-axiom audit. The paper proof uses the full untruncated signed reference, and every source/claim status is synchronized. Final staged checks and the new local commit are recorded separately.",
+    "phase": "The complete weighted Hamiltonian kernel count, power-decay/sharp-density corollaries, inverse and all signed occupancy/size-wave statements are compiled and focused-audited. The actual Mangoldt-sum operator now has a complete finite comparison with the full signed rational model: the major contribution is H+67108864*T*sqrt(Q)*M^(15/16)*(1+log(M))^2+4*Q^3, and the minor contribution is sqrt(C*(M^2/Q+M^(8/5))*(1+log(2*M))^10)+Q*M/(2*T); the maximum of these, divided by n, bounds the actual operator error. One C>0 precedes all physical orders, cutoffs and auxiliary grids. Every prefix, phase and integer rounding condition is retained. All24 new reference, leakage, whole-prefix major and complete-operator declarations pass the focused foundational-axiom audit. Asymptotic cutoff selection and the reference spectrum, true-prime support/degree/scaling and entropy inputs, prime-circle count, other advertised arithmetic/parity claims and public integration remain unfinished. The complete paper headline is not Lean-certified."
   },
   "formalization": {
     "status": "in_progress_not_complete",
@@ -2608,10 +2608,40 @@
         "source_sha256": "D43494FD55B714811398DAE0E4A635D858A2CF03BC1B16AB06493892A32DD2C5",
         "content": "Actual integer Mangoldt-sum matrix, complete finite cyclic inversion with no wrap, and uniform symbol-error to normalized operator-error transfer E/n with the physical and auxiliary parameters distinct.",
         "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianFullRationalReference",
+        "source_sha256": "8D600DCBF4A13B874040C6682462D669FA60C969D61CC75E1581502C33517FFE",
+        "content": "Full untruncated signed rational reference, coefficient l1 mass for off-resonant leakage, exact transform/inverse on the physical sampled domain, and actual rational-model operator transfer.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianRationalReferenceSeparation",
+        "source_sha256": "D686AB36F06BE35D8D3027976F2D2EB9865AF8DBE903E9513EA315FE4D4117DD",
+        "content": "Exact rational-center separation, resonant main-term subtraction, coupled near/far reference bounds, and a full-frequency signed-symbol comparison.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianPrimeMajorArc",
+        "source_sha256": "55BC629E75A7BB61C3F95366D82CF60FCFEC4E2E3D1F08C7C6C5183C9CE9EC9C",
+        "content": "Independent denominator and offset cutoffs for the existing all-character major estimate, with exact whole-prefix splitting and the retained initial prefix/reference error.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianReferencePhysicalCutoff",
+        "source_sha256": "47537DCB68B1857239AD37C31C5F2D89FEE83F86D836D7C8F3C583647643BF33",
+        "content": "Integer-rounded separated-center radius, physical leakage bounds independent of the auxiliary grid, and monotone wide/narrow major-grid domains.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianPrimeOperatorComparison",
+        "source_sha256": "02E68B829836E568ACBF7FD689761219B33E9FAABF56DC2775290B0A3625A2D8",
+        "content": "Complete actual Mangoldt-sum operator comparison, one arithmetic constant before every scale and grid, with every major/minor/reference contribution explicitly bounded.",
+        "build_exit_code": 0
       }
     ],
     "unfinished_dependencies": [
-      "Complete retained major-reference frequency estimate and spectral assembly, true-prime support/degree/scaling and exact entropy inputs, and actual prime-circle count. The whole prefix minor estimate and exact sampled E/n operator transfer are compiled and focused-audited.",
+      "Asymptotic cutoff selection and rational-model spectral assembly, true-prime support/degree/scaling and exact entropy inputs, and actual prime-circle count. The complete finite actual operator comparison is compiled and focused-audited.",
       "Coprime and layered arithmetic specializations, parity cases and all other advertised paper claims.",
       "Public exports, claim-by-claim paper synchronization, focused builds, final staged repository checks and commits."
     ],
@@ -5007,13 +5037,57 @@
         ],
         "log_sha256": "738FA0F2B29423D901ABF155B21006F68BACC51F7D3844DFE7CE8BFFF86526CE",
         "scope": "Only the14 new exact Fourier sampling frames, Hankel factorization, no-wrap inverse and actual-operator declarations. Unchanged analytic and counting providers were not re-audited."
+      },
+      {
+        "status": "verified",
+        "modules": [
+          "PrimeFactorOscillations.Helpers.HamiltonianFullRationalReference",
+          "PrimeFactorOscillations.Helpers.HamiltonianRationalReferenceSeparation",
+          "PrimeFactorOscillations.Helpers.HamiltonianPrimeMajorArc",
+          "PrimeFactorOscillations.Helpers.HamiltonianReferencePhysicalCutoff",
+          "PrimeFactorOscillations.Helpers.HamiltonianPrimeOperatorComparison"
+        ],
+        "declaration_count": 24,
+        "declarations": [
+          "PrimeFactorOscillations.LPF.hamiltonianRationalCenter",
+          "PrimeFactorOscillations.LPF.hamiltonianRationalMain",
+          "PrimeFactorOscillations.LPF.hamiltonianFullRationalReference",
+          "PrimeFactorOscillations.LPF.hamiltonian_rational_coefficient_mass",
+          "PrimeFactorOscillations.LPF.hamiltonian_full_reference_transform",
+          "PrimeFactorOscillations.LPF.hamiltonian_full_reference_inverse",
+          "PrimeFactorOscillations.LPF.hamiltonianRationalSumMatrix",
+          "PrimeFactorOscillations.LPF.hamiltonian_rational_sum_matrix_fourier",
+          "PrimeFactorOscillations.LPF.hamiltonian_full_reference_operator_error",
+          "PrimeFactorOscillations.LPF.hamiltonian_interval_kernel_outside",
+          "PrimeFactorOscillations.LPF.hamiltonian_full_reference_far_bound",
+          "PrimeFactorOscillations.LPF.hamiltonian_packet_point_eq",
+          "PrimeFactorOscillations.LPF.hamiltonian_rational_other_center_far",
+          "PrimeFactorOscillations.LPF.hamiltonian_full_reference_near_bound",
+          "PrimeFactorOscillations.LPF.hamiltonian_outside_rational_grid_far",
+          "PrimeFactorOscillations.LPF.hamiltonian_full_symbol_comparison",
+          "PrimeFactorOscillations.LPF.hamiltonian_prime_major_grid_point",
+          "PrimeFactorOscillations.LPF.hamiltonian_interval_kernel_add",
+          "PrimeFactorOscillations.LPF.hamiltonian_interval_kernel_trivial",
+          "PrimeFactorOscillations.LPF.hamiltonian_prime_prefix_major",
+          "PrimeFactorOscillations.LPF.hamiltonian_rational_grid_mono",
+          "PrimeFactorOscillations.LPF.hamiltonian_reference_physical_radius",
+          "PrimeFactorOscillations.LPF.hamiltonian_reference_scaled_far_bound",
+          "PrimeFactorOscillations.LPF.hamiltonian_prime_operator_comparison"
+        ],
+        "allowed_axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "log_sha256": "58D2CD9FC7DC36C25427A8B4A7137D04A62EC2E3E5C422FA6F6E04C2946CF9FF",
+        "scope": "Only the24 new full signed reference, exact inverse, separated-center leakage, independent-width whole-prefix major estimate, integer physical cutoff and complete actual operator declarations. Unchanged providers were not re-audited."
       }
     ],
     "active_proof": {
-      "module": "PrimeFactorOscillations.Helpers.HamiltonianPrimeOperatorFourier",
-      "status": "The complete weighted Hamiltonian kernel count, all kernel power-decay/sharp-density corollaries, inverse and signed occupancy/size-wave statements are compiled and focused-audited. The actual whole Mangoldt prefix has the uniform no-divisor-power-loss minor bound. The exact two-sampling Fourier/Hankel factorization and operator bound now compile: a full symbol error<=E gives the actual normalized integer Mangoldt-sum matrix error<=E/n, with physical cutoff2n<=M, auxiliary periodR>M and no grid-size cost. Every input, phase and principal compensation is retained. All14 new Fourier-frame, exact inverse and actual-operator declarations pass the focused foundational-axiom audit. The complete major reference and its frequency-error/spectral assembly, true-prime support/degree/scaling and entropy inputs, prime-circle count, other advertised arithmetic/parity claims and public integration remain unfinished. The complete paper headline is not Lean-certified.",
-      "target": "Use the full uniform count envelope and sharp actual spectral amplifier to finish the advertised power-decay corollaries, including N^(-3/5) under Amp<=N^(27/20), without weakening that endpoint. Prove the inverse at a fixed defect eta: first bound the unamplified term by eta/2 using the logarithmic little-o provider, then derive log(Amp)>=2*log(N)-H*loglog(2N)+log(eta/(2*C)) and the corresponding centered-energy lower bound with coefficient2/kappa_rho. Complete the exact analytic size-derivative claim. Finish the actual prime-sum operator estimates, exact entropy scaling and prime-circle relative count, all remaining coprime/layered/parity and other paper claims, and public exports plus a real Solution consumer. Verify the complete final staged surface, then begin the queued RH/Hadamard/twin-prime transfers.",
-      "consumer": "The exact operator error E/n is compiled for the full symbol difference on the actual integer-input domain. A simpler full-symbol model avoids arc-tail extension: Omega_Q(theta)=sum_(q<=Q,a reduced) mu(q)/phi(q)*V_M(theta-a/q), whose inverse on the sampled domain is exactly the signed Ramanujan kernel. Proposed off-resonant errors are O(Q^3) on a major arc and O(Q*M/T) on the complement. With Q=M^(1/160),T=M^(1/80), existing major/minor inputs would give normalized O(M^(-3/64)*log(M)^2+M^(-157/160)+M^(-1/320)*log(M)^5+M^(-1/160)). This full model and its spectral assembly are not yet Lean-certified; the original paper proof remains the ordinary proof until the new complete model compiles.",
+      "module": "PrimeFactorOscillations.Helpers.HamiltonianPrimeOperatorComparison",
+      "status": "The complete weighted Hamiltonian kernel count, power-decay/sharp-density corollaries, inverse and all signed occupancy/size-wave statements are compiled and focused-audited. The actual Mangoldt-sum operator now has a complete finite comparison with the full signed rational model: the major contribution is H+67108864*T*sqrt(Q)*M^(15/16)*(1+log(M))^2+4*Q^3, and the minor contribution is sqrt(C*(M^2/Q+M^(8/5))*(1+log(2*M))^10)+Q*M/(2*T); the maximum of these, divided by n, bounds the actual operator error. One C>0 precedes all physical orders, cutoffs and auxiliary grids. Every prefix, phase and integer rounding condition is retained. All24 new reference, leakage, whole-prefix major and complete-operator declarations pass the focused foundational-axiom audit. Asymptotic cutoff selection and the reference spectrum, true-prime support/degree/scaling and entropy inputs, prime-circle count, other advertised arithmetic/parity claims and public integration remain unfinished. The complete paper headline is not Lean-certified.",
+      "target": "Finish the full advertised prime-sum spectral and counting application from the complete finite arithmetic operator bound: asymptotic cutoffs, constant/parity reference spectrum, true-prime support and uniform degrees, diffuseness-sensitive scaling, exact entropy and prime-circle count. Finish all remaining coprime/layered/parity paper claims and public integration, including a real Solution consumer and final staged checks. Then begin the queued generalizations to RH, Hadamard and twin primes.",
+      "consumer": "The actual signed model is Omega_Q=sum_(q<=Q,a reduced) mu(q)/phi(q)*V_M(x-R*a/q), with exact sampled Ramanujan inverse. The compiled full error is max(H+67108864*T*sqrt(Q)*M^(15/16)*(1+log M)^2+4Q^3,sqrt(C*(M^2/Q+M^(8/5))*(1+log(2M))^10)+Q*M/(2T))/n. Integer width W=(R/M)T and D=floor(R/(4Q^2)) introduce no grid-size loss. Polynomial Q~M^(1/160),T~M^(1/80) would give normalized errors O(M^(-3/64)log(M)^2+M^(-157/160)+M^(-1/320)log(M)^5+M^(-1/160)); that asymptotic choice and the reference spectrum remain unformalized.",
       "proved_inputs": [
         "PrimeFactorOscillations.Helpers.HamiltonianMatrixSpectralAverage",
         "PrimeFactorOscillations.Helpers.HamiltonianRookGamma",
@@ -5391,6 +5465,36 @@
           "module": "PrimeFactorOscillations.Helpers.HamiltonianPrimeOperatorFourier",
           "source_sha256": "D43494FD55B714811398DAE0E4A635D858A2CF03BC1B16AB06493892A32DD2C5",
           "content": "Actual integer Mangoldt-sum matrix, complete finite cyclic inversion with no wrap, and uniform symbol-error to normalized operator-error transfer E/n with the physical and auxiliary parameters distinct.",
+          "build_exit_code": 0
+        },
+        {
+          "module": "PrimeFactorOscillations.Helpers.HamiltonianFullRationalReference",
+          "source_sha256": "8D600DCBF4A13B874040C6682462D669FA60C969D61CC75E1581502C33517FFE",
+          "content": "Full untruncated signed rational reference, coefficient l1 mass for off-resonant leakage, exact transform/inverse on the physical sampled domain, and actual rational-model operator transfer.",
+          "build_exit_code": 0
+        },
+        {
+          "module": "PrimeFactorOscillations.Helpers.HamiltonianRationalReferenceSeparation",
+          "source_sha256": "D686AB36F06BE35D8D3027976F2D2EB9865AF8DBE903E9513EA315FE4D4117DD",
+          "content": "Exact rational-center separation, resonant main-term subtraction, coupled near/far reference bounds, and a full-frequency signed-symbol comparison.",
+          "build_exit_code": 0
+        },
+        {
+          "module": "PrimeFactorOscillations.Helpers.HamiltonianPrimeMajorArc",
+          "source_sha256": "55BC629E75A7BB61C3F95366D82CF60FCFEC4E2E3D1F08C7C6C5183C9CE9EC9C",
+          "content": "Independent denominator and offset cutoffs for the existing all-character major estimate, with exact whole-prefix splitting and the retained initial prefix/reference error.",
+          "build_exit_code": 0
+        },
+        {
+          "module": "PrimeFactorOscillations.Helpers.HamiltonianReferencePhysicalCutoff",
+          "source_sha256": "47537DCB68B1857239AD37C31C5F2D89FEE83F86D836D7C8F3C583647643BF33",
+          "content": "Integer-rounded separated-center radius, physical leakage bounds independent of the auxiliary grid, and monotone wide/narrow major-grid domains.",
+          "build_exit_code": 0
+        },
+        {
+          "module": "PrimeFactorOscillations.Helpers.HamiltonianPrimeOperatorComparison",
+          "source_sha256": "02E68B829836E568ACBF7FD689761219B33E9FAABF56DC2775290B0A3625A2D8",
+          "content": "Complete actual Mangoldt-sum operator comparison, one arithmetic constant before every scale and grid, with every major/minor/reference contribution explicitly bounded.",
           "build_exit_code": 0
         }
       ]
