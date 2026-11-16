@@ -328,9 +328,40 @@ entry formula and consumes the uniform decay of that error:
 \]
 All twenty-one new declarations pass the focused foundational-axiom
 audit. No prime power or loop is silently discarded.
-Uniform degree asymptotics, the real-matrix/scaling consumer,
-entropy normalization and the prime-circle count remain
-formalization obligations.
+
+\paragraph{Formalized uniform degrees and real analytic matrix.}
+\texttt{HamiltonianUniformThetaError} proves, for every natural
+\(b\), one \(D_b>0\) and one terminal interval on which
+\[
+ \sup_{0\leq x\leq2n}|\theta(x)-x|
+                      \leq D_b n/(\log n)^b.
+\]
+The proof treats \(x\leq\sqrt n\) and
+\(x\geq\sqrt n\) separately, so no lower-endpoint uniformity
+is assumed. \texttt{HamiltonianPrimeDegrees} proves the exact
+finite row identity
+\[
+ \sum_{j=1}^n\frac{\log(i+j)}n\one_{i+j\ {\rm prime}}
+       =\frac{\theta(i+n)-\theta(i)}n
+\]
+and retains the removed loop. Consequently, for every natural
+\(b\), uniformly for all vertices and all sufficiently large \(n\),
+\[
+ \max_i\left|\sum_j Q_n(i,j)-1\right|
+                         \leq C_b/(\log n)^b.
+\]
+\texttt{HamiltonianPrimeRealMatrix} embeds real vectors
+isometrically into the complex Euclidean space and transfers the
+same half-gap to the actual real matrix without a norm loss.
+It also proves its nonnegativity, symmetry, zero diagonal,
+exact bipartite support, largest-entry bound and real row identity.
+All twenty-eight new declarations in these three owners pass the
+focused foundational-axiom audit.
+Degree normalization, exact scaling, entropy normalization and the
+actual prime-circle count remain formalization obligations.
+In particular the logarithmically weighted matrix above is not
+silently substituted for the constant-edge-weight matrix required
+by the relative unweighted counting theorem.
 
 \begin{proof}[Proof of Theorem~\ref{thm:filz}]
 Apply Lemma~\ref{lem:scaling} to \(Q_N\), with any fixed gap

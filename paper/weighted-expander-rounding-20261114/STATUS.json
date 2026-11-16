@@ -77,7 +77,7 @@
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\prime-sum.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
       "lean_status": "actual_uniform_constant_parity_half_gap_formalized_eigenvalue_indexed_corollary_pending",
-      "audit_note": "The actual arithmetic operator, complete rational signed model and both physical frames are consumed without an unresolved remainder. HamiltonianPrimeOperatorGap proves for every eps>0 one n0 with norm(A_n-P0_n)<=1/2+eps for all n>=n0; P0_n(i,j)=(1-(-1)^(i+j))/n is exactly the denominator-one/two operator. Its common period is constructed and eliminated. All13 new declarations pass the focused foundational-axiom audit. The paper's eigenvalue-indexed wording remains to be formalized from this direct operator estimate; true-prime support and scaling consumers remain open."
+      "audit_note": "The actual arithmetic operator, complete rational signed model and both physical frames are consumed without an unresolved remainder. HamiltonianPrimeOperatorGap proves for every eps>0 one n0 with norm(A_n-P0_n)<=1/2+eps for all n>=n0; P0_n(i,j)=(1-(-1)^(i+j))/n is exactly the denominator-one/two operator. Its common period is constructed and eliminated. All13 new declarations pass the focused foundational-axiom audit. The paper's eigenvalue-indexed wording remains to be formalized from this direct operator estimate; The true-prime support, uniform degrees and real-matrix half-gap are now formalized; degree normalization and scaling remain open."
     },
     {
       "id": "lem:primeweights",
@@ -85,8 +85,8 @@
       "kind": "lemma",
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\prime-sum.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
-      "lean_status": "true_prime_support_error_and_actual_half_gap_formalized_uniform_degrees_and_scaling_pending",
-      "audit_note": "HamiltonianPrimeSupportNorm and HamiltonianPrimeSupportError prove the complete correction from the actual Mangoldt matrix to the distinct-prime matrix: norm(A_n-Q_n)<=(psi(2n)-theta(2n)+log(2n))/n<=(C*sqrt(2n)+log(2n))/n with one positive C before every positive n. Every prime power and loop remains in the estimate. HamiltonianTruePrimeGap consumes its uniform decay and proves norm(Q_n-P0_n)<=1/2+eps on every sufficiently large order. All21 new declarations pass the focused foundational-axiom audit. Uniform true-prime degree asymptotics, the real-matrix/scaling and normalized-eigenvalue consumers remain unfinished."
+      "lean_status": "true_prime_support_uniform_degrees_real_half_gap_and_support_formalized_normalized_spectrum_and_scaling_pending",
+      "audit_note": "The exact distinct-prime support, complete removed prime-power/loop mass and actual half-gap were already formalized. HamiltonianUniformThetaError and HamiltonianPrimeDegrees now prove every fixed logarithmic degree accuracy uniformly across every row endpoint, with exact finite windows and the removed diagonal retained. HamiltonianPrimeRealMatrix transfers the actual half-gap and degrees to the real matrix without loss and proves nonnegativity, symmetry, zero diagonal, bipartite support and entry cap. All28 new declarations pass the focused foundational-axiom audit. The degree-normalized eigenvalue statement and exact scaling remain unfinished."
     },
     {
       "id": "lem:regularfactor",
@@ -359,7 +359,7 @@
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\relative-permanents.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
       "lean_status": "fully_formalized_direct_normalized_uniform_statement",
-      "audit_note": "Both paper permanent statements now have direct maintained normalized Lean consumers. stochastic_permanent_relative_correction_polylog_uniform proves, for one N0(delta,K)>=16 and every admissible kernel and 1<=A<=log(N)^K, abs((N^N/N!)*per(T)/Delta(1)-(1+Q_N(T)))<=(1+A)^24*C_delta/N^2 and abs(Q_N(T))<=21*A^2/(delta^3*N). For K>0, hamiltonian_permanent_polylog_first_order_budget supplies the uniform scalar threshold, and stochastic_permanent_first_order_polylog_uniform proves the directly normalized first-order error <=N^(-1/8). The full common threshold is independent of the kernel. These three new theorems compile and pass the focused foundational-axiom audit. The complete signed second-order expansion is retained for the critical Hamiltonian consumer; its first-order consequence is not substituted into that sharper argument. The complete weighted Hamiltonian kernel count, power-decay/sharp-density corollaries, inverse and all signed occupancy/size-wave statements are compiled and focused-audited. The actual integer arithmetic operator has its unconditional constant/parity half-gap. The true distinct-prime matrix Q_n is now defined exactly, and its complete prime-power/loop correction satisfies norm(A_n-Q_n)<=(psi(2n)-theta(2n)+log(2n))/n<=(C*sqrt(2n)+log(2n))/n for one C>0 and every n>0. A symmetric row/column mass bound controls this separate correction without a dimension loss. Its uniform decay is consumed: for every eps>0 one n0 gives norm(Q_n-P0_n)<=1/2+eps for every n>=n0, where P0_n(i,j)=(1-(-1)^(i+j))/n. All21 new support, exact row-domain, complete removed-mass and actual true-prime gap declarations pass the focused foundational-axiom audit. Uniform degree asymptotics, the real-matrix/scaling and entropy consumers, actual prime-circle count, remaining eigenvalue/logarithmic-accuracy corollaries, other advertised arithmetic/parity claims and public integration remain unfinished. The complete paper headline is not Lean-certified."
+      "audit_note": "Both paper permanent statements now have direct maintained normalized Lean consumers. stochastic_permanent_relative_correction_polylog_uniform proves, for one N0(delta,K)>=16 and every admissible kernel and 1<=A<=log(N)^K, abs((N^N/N!)*per(T)/Delta(1)-(1+Q_N(T)))<=(1+A)^24*C_delta/N^2 and abs(Q_N(T))<=21*A^2/(delta^3*N). For K>0, hamiltonian_permanent_polylog_first_order_budget supplies the uniform scalar threshold, and stochastic_permanent_first_order_polylog_uniform proves the directly normalized first-order error <=N^(-1/8). The full common threshold is independent of the kernel. These three new theorems compile and pass the focused foundational-axiom audit. The complete signed second-order expansion is retained for the critical Hamiltonian consumer; its first-order consequence is not substituted into that sharper argument. The full weighted Hamiltonian kernel count, sharp power-decay and inverse, and actual signed occupancy/size moments are compiled and audited. The actual Mangoldt and distinct-prime matrices have unconditional all-large-order constant/parity half-gaps, and all removed prime-power/loop mass is explicitly controlled. HamiltonianUniformThetaError and HamiltonianPrimeDegrees now prove the exact physical prime row identities and, for every natural b, one C_b>0 and one terminal interval on which every true-prime degree differs from1 by at most C_b/(log n)^b, including all small row endpoints and loops. HamiltonianPrimeRealMatrix transfers the same half-gap and degrees to the actual real matrix without a norm loss and proves its nonnegativity, symmetry, zero diagonal, exact bipartite support and entry cap. All28 new declarations pass the focused foundational-axiom audit. Degree normalization, exact diffuseness-sensitive scaling, constant-edge unweighted transfer, entropy normalization, actual prime-circle relative count, remaining eigenvalue/logarithmic-accuracy corollaries, other advertised arithmetic/parity claims and public integration remain unfinished. The complete paper headline is not Lean-certified."
     },
     {
       "id": "lem:relativecompensatedminors",
@@ -480,7 +480,7 @@
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\permanent-second-order.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
       "lean_status": "fully_formalized_direct_normalized_uniform_statement",
-      "audit_note": "Both paper permanent statements now have direct maintained normalized Lean consumers. stochastic_permanent_relative_correction_polylog_uniform proves, for one N0(delta,K)>=16 and every admissible kernel and 1<=A<=log(N)^K, abs((N^N/N!)*per(T)/Delta(1)-(1+Q_N(T)))<=(1+A)^24*C_delta/N^2 and abs(Q_N(T))<=21*A^2/(delta^3*N). For K>0, hamiltonian_permanent_polylog_first_order_budget supplies the uniform scalar threshold, and stochastic_permanent_first_order_polylog_uniform proves the directly normalized first-order error <=N^(-1/8). The full common threshold is independent of the kernel. These three new theorems compile and pass the focused foundational-axiom audit. The complete signed second-order expansion is retained for the critical Hamiltonian consumer; its first-order consequence is not substituted into that sharper argument. The complete weighted Hamiltonian kernel count, power-decay/sharp-density corollaries, inverse and all signed occupancy/size-wave statements are compiled and focused-audited. The actual integer arithmetic operator has its unconditional constant/parity half-gap. The true distinct-prime matrix Q_n is now defined exactly, and its complete prime-power/loop correction satisfies norm(A_n-Q_n)<=(psi(2n)-theta(2n)+log(2n))/n<=(C*sqrt(2n)+log(2n))/n for one C>0 and every n>0. A symmetric row/column mass bound controls this separate correction without a dimension loss. Its uniform decay is consumed: for every eps>0 one n0 gives norm(Q_n-P0_n)<=1/2+eps for every n>=n0, where P0_n(i,j)=(1-(-1)^(i+j))/n. All21 new support, exact row-domain, complete removed-mass and actual true-prime gap declarations pass the focused foundational-axiom audit. Uniform degree asymptotics, the real-matrix/scaling and entropy consumers, actual prime-circle count, remaining eigenvalue/logarithmic-accuracy corollaries, other advertised arithmetic/parity claims and public integration remain unfinished. The complete paper headline is not Lean-certified."
+      "audit_note": "Both paper permanent statements now have direct maintained normalized Lean consumers. stochastic_permanent_relative_correction_polylog_uniform proves, for one N0(delta,K)>=16 and every admissible kernel and 1<=A<=log(N)^K, abs((N^N/N!)*per(T)/Delta(1)-(1+Q_N(T)))<=(1+A)^24*C_delta/N^2 and abs(Q_N(T))<=21*A^2/(delta^3*N). For K>0, hamiltonian_permanent_polylog_first_order_budget supplies the uniform scalar threshold, and stochastic_permanent_first_order_polylog_uniform proves the directly normalized first-order error <=N^(-1/8). The full common threshold is independent of the kernel. These three new theorems compile and pass the focused foundational-axiom audit. The complete signed second-order expansion is retained for the critical Hamiltonian consumer; its first-order consequence is not substituted into that sharper argument. The full weighted Hamiltonian kernel count, sharp power-decay and inverse, and actual signed occupancy/size moments are compiled and audited. The actual Mangoldt and distinct-prime matrices have unconditional all-large-order constant/parity half-gaps, and all removed prime-power/loop mass is explicitly controlled. HamiltonianUniformThetaError and HamiltonianPrimeDegrees now prove the exact physical prime row identities and, for every natural b, one C_b>0 and one terminal interval on which every true-prime degree differs from1 by at most C_b/(log n)^b, including all small row endpoints and loops. HamiltonianPrimeRealMatrix transfers the same half-gap and degrees to the actual real matrix without a norm loss and proves its nonnegativity, symmetry, zero diagonal, exact bipartite support and entry cap. All28 new declarations pass the focused foundational-axiom audit. Degree normalization, exact diffuseness-sensitive scaling, constant-edge unweighted transfer, entropy normalization, actual prime-circle relative count, remaining eigenvalue/logarithmic-accuracy corollaries, other advertised arithmetic/parity claims and public integration remain unfinished. The complete paper headline is not Lean-certified."
     },
     {
       "id": "thm:minorjet",
@@ -489,7 +489,7 @@
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\compensated-minor-jet.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
       "lean_status": "fully_formalized_actual_uniform_two_power_minor_expansion",
-      "audit_note": "The complete weighted Hamiltonian kernel count, power-decay/sharp-density corollaries, inverse and all signed occupancy/size-wave statements are compiled and focused-audited. The actual integer arithmetic operator has its unconditional constant/parity half-gap. The true distinct-prime matrix Q_n is now defined exactly, and its complete prime-power/loop correction satisfies norm(A_n-Q_n)<=(psi(2n)-theta(2n)+log(2n))/n<=(C*sqrt(2n)+log(2n))/n for one C>0 and every n>0. A symmetric row/column mass bound controls this separate correction without a dimension loss. Its uniform decay is consumed: for every eps>0 one n0 gives norm(Q_n-P0_n)<=1/2+eps for every n>=n0, where P0_n(i,j)=(1-(-1)^(i+j))/n. All21 new support, exact row-domain, complete removed-mass and actual true-prime gap declarations pass the focused foundational-axiom audit. Uniform degree asymptotics, the real-matrix/scaling and entropy consumers, actual prime-circle count, remaining eigenvalue/logarithmic-accuracy corollaries, other advertised arithmetic/parity claims and public integration remain unfinished. The complete paper headline is not Lean-certified."
+      "audit_note": "The full weighted Hamiltonian kernel count, sharp power-decay and inverse, and actual signed occupancy/size moments are compiled and audited. The actual Mangoldt and distinct-prime matrices have unconditional all-large-order constant/parity half-gaps, and all removed prime-power/loop mass is explicitly controlled. HamiltonianUniformThetaError and HamiltonianPrimeDegrees now prove the exact physical prime row identities and, for every natural b, one C_b>0 and one terminal interval on which every true-prime degree differs from1 by at most C_b/(log n)^b, including all small row endpoints and loops. HamiltonianPrimeRealMatrix transfers the same half-gap and degrees to the actual real matrix without a norm loss and proves its nonnegativity, symmetry, zero diagonal, exact bipartite support and entry cap. All28 new declarations pass the focused foundational-axiom audit. Degree normalization, exact diffuseness-sensitive scaling, constant-edge unweighted transfer, entropy normalization, actual prime-circle relative count, remaining eigenvalue/logarithmic-accuracy corollaries, other advertised arithmetic/parity claims and public integration remain unfinished. The complete paper headline is not Lean-certified."
     },
     {
       "id": "lem:signedoccupancy",
@@ -498,7 +498,7 @@
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\signed-jet-comparison.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
       "lean_status": "fully_formalized_actual_signed_coordinate_and_analytic_size_moments",
-      "audit_note": "All actual coordinate moments, full independent balanced-support readouts, complete signed first-order consumer, and exact analytic size-derivative identity have maintained Lean proofs. HamiltonianSignedSizeDerivative proves g''(1)=L(r(r-1))=4d'(1)+3d''(1) in both Gram conventions and abs(g''(1))<=53*abs(d)*(A/(1-rho))^2 from the original stochastic hypotheses. All12 new declarations pass the focused foundational-axiom audit. The complete weighted Hamiltonian kernel count, power-decay/sharp-density corollaries, inverse and all signed occupancy/size-wave statements are compiled and focused-audited. The actual integer arithmetic operator has its unconditional constant/parity half-gap. The true distinct-prime matrix Q_n is now defined exactly, and its complete prime-power/loop correction satisfies norm(A_n-Q_n)<=(psi(2n)-theta(2n)+log(2n))/n<=(C*sqrt(2n)+log(2n))/n for one C>0 and every n>0. A symmetric row/column mass bound controls this separate correction without a dimension loss. Its uniform decay is consumed: for every eps>0 one n0 gives norm(Q_n-P0_n)<=1/2+eps for every n>=n0, where P0_n(i,j)=(1-(-1)^(i+j))/n. All21 new support, exact row-domain, complete removed-mass and actual true-prime gap declarations pass the focused foundational-axiom audit. Uniform degree asymptotics, the real-matrix/scaling and entropy consumers, actual prime-circle count, remaining eigenvalue/logarithmic-accuracy corollaries, other advertised arithmetic/parity claims and public integration remain unfinished. The complete paper headline is not Lean-certified."
+      "audit_note": "All actual coordinate moments, full independent balanced-support readouts, complete signed first-order consumer, and exact analytic size-derivative identity have maintained Lean proofs. HamiltonianSignedSizeDerivative proves g''(1)=L(r(r-1))=4d'(1)+3d''(1) in both Gram conventions and abs(g''(1))<=53*abs(d)*(A/(1-rho))^2 from the original stochastic hypotheses. All12 new declarations pass the focused foundational-axiom audit. The full weighted Hamiltonian kernel count, sharp power-decay and inverse, and actual signed occupancy/size moments are compiled and audited. The actual Mangoldt and distinct-prime matrices have unconditional all-large-order constant/parity half-gaps, and all removed prime-power/loop mass is explicitly controlled. HamiltonianUniformThetaError and HamiltonianPrimeDegrees now prove the exact physical prime row identities and, for every natural b, one C_b>0 and one terminal interval on which every true-prime degree differs from1 by at most C_b/(log n)^b, including all small row endpoints and loops. HamiltonianPrimeRealMatrix transfers the same half-gap and degrees to the actual real matrix without a norm loss and proves its nonnegativity, symmetry, zero diagonal, exact bipartite support and entry cap. All28 new declarations pass the focused foundational-axiom audit. Degree normalization, exact diffuseness-sensitive scaling, constant-edge unweighted transfer, entropy normalization, actual prime-circle relative count, remaining eigenvalue/logarithmic-accuracy corollaries, other advertised arithmetic/parity claims and public integration remain unfinished. The complete paper headline is not Lean-certified."
     },
     {
       "id": "thm:criticalrelative",
@@ -995,7 +995,7 @@
     },
     {
       "file": "prime-sum.tex",
-      "sha256": "219BCDFB855ACA6EAEAF9B3BB796FFA467A7DAF94B109641E2713A46B8B9D230"
+      "sha256": "D673E501D4E9EADA3D5BE479A0255C96F3E6EAC9C7ADE5FAFBA10974A554AB2E"
     },
     {
       "file": "regular-factors.tex",
@@ -1080,12 +1080,12 @@
     "complete_consumer": "rho=a=3/5; amplification <=m^(27/20); first signed correction polylog/m; only residual pays amplification, giving O(N^(-3/5)).",
     "inverse": "A fixed relative counting defect forces collective singular mass >=(2/kappa_rho)log N-O(log log N).",
     "further_extension": "Arbitrary fixed logarithmic density coefficients, and all fixed congruence filters, would require higher-order compensated expansions beyond the proved two-power remainder.",
-    "next_review_focus": "Consume the compiled uniform theta endpoint estimate on every0<=x<=2n in the exact physical row sums to prove the true-prime degree asymptotics. Transfer the complex operator bound to the real weighted matrix and finish diffuseness-sensitive scaling, exact entropy and the actual prime-circle relative count. Complete remaining advertised arithmetic/parity claims, corollaries and public integration before the queued RH/Hadamard/twin-prime transfers.",
+    "next_review_focus": "Prove the diffuseness-sensitive compatible inverse bound O(log(2A)) and exact support-preserving scaling, retaining the parity kernel and nonlinear cross term. Transfer the logarithmic prime weight to the constant-edge unweighted matrix, consume its actual row defect and half-gap, and finish the exact entropy and relative prime-circle count. Then finish other advertised claims and public integration before the queued RH/Hadamard/twin-prime transfers.",
     "independent_consumer_status": "Both actual integer prime-sum graphs and all growing coprime moduli have complete stated ordinary arguments."
   },
   "completion_receipt": {
     "requested_bar": "Finish the complete argument and its formalization at a level supporting a substantial original research contribution. A draft, helper proof, successful build or significance label does not finish this request; career impact cannot be certified by the author.",
-    "strongest_actual_theorem": "Maintained Lean proves the complete logarithmic-density weighted Hamiltonian count, all power-decay/sharp-density corollaries, inverse and signed occupancy moments. For its arithmetic application, both the actual Mangoldt and actual distinct-prime matrices have the unconditional uniform constant/parity half-gap on every sufficiently large order, with complete prime-power/loop correction and no unestimated frequency/grid remainder. Uniform degrees, scaling/entropy and the actual prime-circle counting headline remain unfinished.",
+    "strongest_actual_theorem": "The full weighted Hamiltonian kernel count, sharp power-decay and inverse, and actual signed occupancy/size moments are compiled and audited. The actual Mangoldt and distinct-prime matrices have unconditional all-large-order constant/parity half-gaps, and all removed prime-power/loop mass is explicitly controlled. HamiltonianUniformThetaError and HamiltonianPrimeDegrees now prove the exact physical prime row identities and, for every natural b, one C_b>0 and one terminal interval on which every true-prime degree differs from1 by at most C_b/(log n)^b, including all small row endpoints and loops. HamiltonianPrimeRealMatrix transfers the same half-gap and degrees to the actual real matrix without a norm loss and proves its nonnegativity, symmetry, zero diagonal, exact bipartite support and entry cap. All28 new declarations pass the focused foundational-axiom audit. Degree normalization, exact diffuseness-sensitive scaling, constant-edge unweighted transfer, entropy normalization, actual prime-circle relative count, remaining eigenvalue/logarithmic-accuracy corollaries, other advertised arithmetic/parity claims and public integration remain unfinished. The complete paper headline is not Lean-certified.",
     "complete_independent_applications": [
       "Every sufficiently large even integer prime-sum graph is Hamiltonian; log h=N log N-N log log N-N+o(N).",
       "Fixed congruence-filter connectedness/Hamiltonicity is classified exactly by gcd(q,R-R)=2, with a full positive residue-pressure formula.",
@@ -1096,12 +1096,12 @@
       "Actual unweighted prime-sum graph: full relative count around its exact entropy, with O(N^(-3/5)) error; no RH or prime-pair estimate."
     ],
     "primary_literature_comparison": "Cuckler-Kahn: dense Dirac and dense balanced bipartite entropy counts. Barvinok: all-positive matrices with a relative entry lower bound. Krivelevich and Byrne-Tait: nontrivial spectral ratio tending to zero logarithmically. The present argument permits sparse zero support and any fixed nontrivial gap. Bradač-Janzer 2026 is an essential independent spanning-path input. McCullagh's bounded normalized moments fail along primorials; Divoux-Wang's fixed-entry finite proof is tracked explicitly, rather than used outside its stated range. The new first-order signed compensation and rank-one parity-root calculation avoid the fixed-entry remainder amplification at prime density. They are the mechanism of the complete prime consumer, not merely a detector or matching identity.",
-    "proof_endpoint_status": "The complete weighted Hamiltonian kernel count, power-decay/sharp-density corollaries, inverse and all signed occupancy/size-wave statements are compiled and focused-audited. The actual integer arithmetic operator has its unconditional constant/parity half-gap. The true distinct-prime matrix Q_n is now defined exactly, and its complete prime-power/loop correction satisfies norm(A_n-Q_n)<=(psi(2n)-theta(2n)+log(2n))/n<=(C*sqrt(2n)+log(2n))/n for one C>0 and every n>0. A symmetric row/column mass bound controls this separate correction without a dimension loss. Its uniform decay is consumed: for every eps>0 one n0 gives norm(Q_n-P0_n)<=1/2+eps for every n>=n0, where P0_n(i,j)=(1-(-1)^(i+j))/n. All21 new support, exact row-domain, complete removed-mass and actual true-prime gap declarations pass the focused foundational-axiom audit. Uniform degree asymptotics, the real-matrix/scaling and entropy consumers, actual prime-circle count, remaining eigenvalue/logarithmic-accuracy corollaries, other advertised arithmetic/parity claims and public integration remain unfinished. The complete paper headline is not Lean-certified.",
+    "proof_endpoint_status": "The full weighted Hamiltonian kernel count, sharp power-decay and inverse, and actual signed occupancy/size moments are compiled and audited. The actual Mangoldt and distinct-prime matrices have unconditional all-large-order constant/parity half-gaps, and all removed prime-power/loop mass is explicitly controlled. HamiltonianUniformThetaError and HamiltonianPrimeDegrees now prove the exact physical prime row identities and, for every natural b, one C_b>0 and one terminal interval on which every true-prime degree differs from1 by at most C_b/(log n)^b, including all small row endpoints and loops. HamiltonianPrimeRealMatrix transfers the same half-gap and degrees to the actual real matrix without a norm loss and proves its nonnegativity, symmetry, zero diagonal, exact bipartite support and entry cap. All28 new declarations pass the focused foundational-axiom audit. Degree normalization, exact diffuseness-sensitive scaling, constant-edge unweighted transfer, entropy normalization, actual prime-circle relative count, remaining eigenvalue/logarithmic-accuracy corollaries, other advertised arithmetic/parity claims and public integration remain unfinished. The complete paper headline is not Lean-certified.",
     "significance_assessment": "A general signed-estimation method now has a quantitative inverse and complete independent arithmetic consumers at actual prime density and through every coprime modulus. This supports a serious standalone research contribution. Career-defining impact and priority are not certified or inferred from compilation.",
     "paper_argument_delivered": true,
     "headline_all_orders_filz_proved": false,
     "lean_formalization_complete": false,
-    "next_safely_executable_research_action": "Consume the compiled uniform theta endpoint estimate on every0<=x<=2n in the exact physical row sums to prove the true-prime degree asymptotics. Transfer the complex operator bound to the real weighted matrix and finish diffuseness-sensitive scaling, exact entropy and the actual prime-circle relative count. Complete remaining advertised arithmetic/parity claims, corollaries and public integration before the queued RH/Hadamard/twin-prime transfers.",
+    "next_safely_executable_research_action": "Prove the diffuseness-sensitive compatible inverse bound O(log(2A)) and exact support-preserving scaling, retaining the parity kernel and nonlinear cross term. Transfer the logarithmic prime weight to the constant-edge unweighted matrix, consume its actual row defect and half-gap, and finish the exact entropy and relative prime-circle count. Then finish other advertised claims and public integration before the queued RH/Hadamard/twin-prime transfers.",
     "next_gate": "Judge the complete new method and independent applications, not theorem counts or successful compilation; preserve exact entropy and explicit density scope.",
     "no_background_work_claimed": true,
     "expert_relevance_gate": {
@@ -1120,8 +1120,8 @@
     "committed_this_turn": true,
     "pushed_this_turn": false,
     "proofs_left_only_in_private_research": false,
-    "recorded_phase": "Baseline local commit f3e5eb1. This phase adds three maintained owners and21 focused-audited declarations for exact true-prime support, complete prime-power/loop row/operator mass, uniform error decay and the actual true-prime half-gap. The paper and claims are synchronized; final staged checks and the new local commit are recorded separately.",
-    "phase": "The complete weighted Hamiltonian kernel count, power-decay/sharp-density corollaries, inverse and all signed occupancy/size-wave statements are compiled and focused-audited. The actual integer arithmetic operator has its unconditional constant/parity half-gap. The true distinct-prime matrix Q_n is now defined exactly, and its complete prime-power/loop correction satisfies norm(A_n-Q_n)<=(psi(2n)-theta(2n)+log(2n))/n<=(C*sqrt(2n)+log(2n))/n for one C>0 and every n>0. A symmetric row/column mass bound controls this separate correction without a dimension loss. Its uniform decay is consumed: for every eps>0 one n0 gives norm(Q_n-P0_n)<=1/2+eps for every n>=n0, where P0_n(i,j)=(1-(-1)^(i+j))/n. All21 new support, exact row-domain, complete removed-mass and actual true-prime gap declarations pass the focused foundational-axiom audit. Uniform degree asymptotics, the real-matrix/scaling and entropy consumers, actual prime-circle count, remaining eigenvalue/logarithmic-accuracy corollaries, other advertised arithmetic/parity claims and public integration remain unfinished. The complete paper headline is not Lean-certified."
+    "recorded_phase": "Baseline local commit293a54f. This phase adds three maintained owners and28 focused-audited declarations for uniform all-endpoint theta and prime degrees, and the actual real-matrix half-gap and support. Paper and claims are synchronized; final staged checks and the local commit are recorded separately.",
+    "phase": "The full weighted Hamiltonian kernel count, sharp power-decay and inverse, and actual signed occupancy/size moments are compiled and audited. The actual Mangoldt and distinct-prime matrices have unconditional all-large-order constant/parity half-gaps, and all removed prime-power/loop mass is explicitly controlled. HamiltonianUniformThetaError and HamiltonianPrimeDegrees now prove the exact physical prime row identities and, for every natural b, one C_b>0 and one terminal interval on which every true-prime degree differs from1 by at most C_b/(log n)^b, including all small row endpoints and loops. HamiltonianPrimeRealMatrix transfers the same half-gap and degrees to the actual real matrix without a norm loss and proves its nonnegativity, symmetry, zero diagonal, exact bipartite support and entry cap. All28 new declarations pass the focused foundational-axiom audit. Degree normalization, exact diffuseness-sensitive scaling, constant-edge unweighted transfer, entropy normalization, actual prime-circle relative count, remaining eigenvalue/logarithmic-accuracy corollaries, other advertised arithmetic/parity claims and public integration remain unfinished. The complete paper headline is not Lean-certified."
   },
   "formalization": {
     "status": "in_progress_not_complete",
@@ -2706,10 +2706,28 @@
         "source_sha256": "3FBFB24A409478107FD638A119F3DF68C5DB62DE48A7BFEF68E422E2236B3F77",
         "content": "Exact distinct-prime entry formula, uniform disappearance of the complete removed-mass error, and unconditional all-large-order constant/parity half-gap for the actual true-prime matrix.",
         "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianUniformThetaError",
+        "source_sha256": "59ED4F3E4EDB6A3863EAF75A896A2C903883EFA5ED4AEC44084D0E6295CC8326",
+        "content": "Uniform strong theta error over every endpoint0<=x<=2n at every fixed logarithmic power, including the small-endpoint range.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianPrimeDegrees",
+        "source_sha256": "8E501B6CF54EB21FD342BC9A362F3D93159DC5389F6E1067D98E1BB7A8374C42",
+        "content": "Exact finite shifted prime windows and complex row identities, with the diagonal retained; uniform actual true-prime degree asymptotics at every fixed logarithmic power.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianPrimeRealMatrix",
+        "source_sha256": "18F561E170E45ECD379BFCDC2D6C3F63387FD839ADC8F45A84CB6150B6261F4F",
+        "content": "Isometric real-to-complex vector embedding and lossless real operator transfer; the actual real prime matrix half-gap, row asymptotics, positivity, symmetry, zero diagonal, bipartite support and entry cap.",
+        "build_exit_code": 0
       }
     ],
     "unfinished_dependencies": [
-      "Uniform true-prime degrees, real-matrix/scaling and exact entropy inputs, and actual prime-circle relative count. The actual Mangoldt and true-prime constant/parity half-gaps and complete removed-mass error are compiled and focused-audited; eigenvalue-indexed and arbitrary logarithmic-accuracy corollaries remain.",
+      "Exact degree normalization and diffuseness-sensitive scaling, constant-edge unweighted transfer, exact entropy inputs and actual prime-circle relative count. Actual complex/real half-gaps, complete removed mass and all fixed logarithmic degree accuracies are compiled and focused-audited; eigenvalue-indexed and arbitrary logarithmic-accuracy corollaries remain.",
       "Coprime and layered arithmetic specializations, parity cases and all other advertised paper claims.",
       "Public exports, claim-by-claim paper synchronization, focused builds, final staged repository checks and commits."
     ],
@@ -5256,13 +5274,59 @@
         ],
         "log_sha256": "5E18529B510ABDF13BE60321D26AAD5B0C7E96566639D9B336948F4697FA2AEA",
         "scope": "Only the21 new weighted row/column, exact prime-support/nonprime-mass, full physical row correction, uniform error-decay and actual true-prime gap declarations. Unchanged providers were not re-audited."
+      },
+      {
+        "status": "verified",
+        "modules": [
+          "PrimeFactorOscillations.Helpers.HamiltonianUniformThetaError",
+          "PrimeFactorOscillations.Helpers.HamiltonianPrimeDegrees",
+          "PrimeFactorOscillations.Helpers.HamiltonianPrimeRealMatrix"
+        ],
+        "declaration_count": 28,
+        "declarations": [
+          "PrimeFactorOscillations.LPF.hamiltonian_uniform_theta_error",
+          "PrimeFactorOscillations.LPF.hamiltonian_finite_shift_window",
+          "PrimeFactorOscillations.LPF.hamiltonian_prime_value_prefix",
+          "PrimeFactorOscillations.LPF.hamiltonian_prime_value_window",
+          "PrimeFactorOscillations.LPF.hamiltonianPrimeRawDegree",
+          "PrimeFactorOscillations.LPF.hamiltonianPrimeDegree",
+          "PrimeFactorOscillations.LPF.hamiltonian_prime_raw_degree_formula",
+          "PrimeFactorOscillations.LPF.hamiltonian_prime_raw_degree_cast",
+          "PrimeFactorOscillations.LPF.hamiltonian_prime_degree_cast",
+          "PrimeFactorOscillations.LPF.hamiltonian_prime_raw_degree_uniform",
+          "PrimeFactorOscillations.LPF.hamiltonian_prime_degree_uniform",
+          "PrimeFactorOscillations.LPF.hamiltonianComplexVector",
+          "PrimeFactorOscillations.LPF.hamiltonianComplexMatrix",
+          "PrimeFactorOscillations.LPF.hamiltonian_complex_vector_norm",
+          "PrimeFactorOscillations.LPF.hamiltonian_real_complex_l2_norm_le",
+          "PrimeFactorOscillations.LPF.hamiltonian_complex_matrix_sub",
+          "PrimeFactorOscillations.LPF.hamiltonianPrimeRealMatrix",
+          "PrimeFactorOscillations.LPF.hamiltonianRealConstantParityMatrix",
+          "PrimeFactorOscillations.LPF.hamiltonian_prime_real_complex_matrix",
+          "PrimeFactorOscillations.LPF.hamiltonian_real_constant_parity_complex_matrix",
+          "PrimeFactorOscillations.LPF.hamiltonian_prime_real_operator_gap",
+          "PrimeFactorOscillations.LPF.hamiltonian_prime_real_row_degree",
+          "PrimeFactorOscillations.LPF.hamiltonian_prime_real_degree_uniform",
+          "PrimeFactorOscillations.LPF.hamiltonian_prime_real_nonnegative",
+          "PrimeFactorOscillations.LPF.hamiltonian_prime_real_symmetric",
+          "PrimeFactorOscillations.LPF.hamiltonian_prime_real_entry_bound",
+          "PrimeFactorOscillations.LPF.hamiltonian_prime_real_diagonal",
+          "PrimeFactorOscillations.LPF.hamiltonian_prime_real_bipartite"
+        ],
+        "allowed_axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "log_sha256": "3231BE5CAC5DD5E301E2D41562C0D6846C49A1621742D75EB87284D892F3A1EA",
+        "scope": "Only the28 new endpoint-uniform theta, exact shifted-row/degree and real-matrix/support declarations. Unchanged providers were not re-audited."
       }
     ],
     "active_proof": {
-      "module": "PrimeFactorOscillations.Helpers.HamiltonianTruePrimeGap",
-      "status": "The complete weighted Hamiltonian kernel count, power-decay/sharp-density corollaries, inverse and all signed occupancy/size-wave statements are compiled and focused-audited. The actual integer arithmetic operator has its unconditional constant/parity half-gap. The true distinct-prime matrix Q_n is now defined exactly, and its complete prime-power/loop correction satisfies norm(A_n-Q_n)<=(psi(2n)-theta(2n)+log(2n))/n<=(C*sqrt(2n)+log(2n))/n for one C>0 and every n>0. A symmetric row/column mass bound controls this separate correction without a dimension loss. Its uniform decay is consumed: for every eps>0 one n0 gives norm(Q_n-P0_n)<=1/2+eps for every n>=n0, where P0_n(i,j)=(1-(-1)^(i+j))/n. All21 new support, exact row-domain, complete removed-mass and actual true-prime gap declarations pass the focused foundational-axiom audit. Uniform degree asymptotics, the real-matrix/scaling and entropy consumers, actual prime-circle count, remaining eigenvalue/logarithmic-accuracy corollaries, other advertised arithmetic/parity claims and public integration remain unfinished. The complete paper headline is not Lean-certified.",
+      "module": "PrimeFactorOscillations.Helpers.HamiltonianPrimeRealMatrix",
+      "status": "The full weighted Hamiltonian kernel count, sharp power-decay and inverse, and actual signed occupancy/size moments are compiled and audited. The actual Mangoldt and distinct-prime matrices have unconditional all-large-order constant/parity half-gaps, and all removed prime-power/loop mass is explicitly controlled. HamiltonianUniformThetaError and HamiltonianPrimeDegrees now prove the exact physical prime row identities and, for every natural b, one C_b>0 and one terminal interval on which every true-prime degree differs from1 by at most C_b/(log n)^b, including all small row endpoints and loops. HamiltonianPrimeRealMatrix transfers the same half-gap and degrees to the actual real matrix without a norm loss and proves its nonnegativity, symmetry, zero diagonal, exact bipartite support and entry cap. All28 new declarations pass the focused foundational-axiom audit. Degree normalization, exact diffuseness-sensitive scaling, constant-edge unweighted transfer, entropy normalization, actual prime-circle relative count, remaining eigenvalue/logarithmic-accuracy corollaries, other advertised arithmetic/parity claims and public integration remain unfinished. The complete paper headline is not Lean-certified.",
       "target": "Complete the paper headline from the actual unconditional constant/parity half-gap and the full weighted kernel count: true-prime support and degree estimates, diffuseness-sensitive scaling, exact entropy normalization and actual prime-circle count; complete all advertised arithmetic/parity claims and remaining corollaries, public exports, real Solution consumer and final staged checks. Then begin the authorized generalizations to RH, Hadamard and twin primes.",
-      "consumer": "The complete actual prime-sum spectral comparison is now on the true distinct-prime support: norm(Q_n-P0_n)<=1/2+eps for every sufficiently large n. The correction is explicitly bounded by(psi(2n)-theta(2n)+log(2n))/n and by(C*sqrt(2n)+log(2n))/n, using the exact physical row images and a dimension-free symmetric mass bound. The next edge is uniform degree control on all row endpoints, followed by the real weighted matrix, actual Sinkhorn scaling and entropy/count consumer.",
+      "consumer": "The actual real prime matrix now has every fixed logarithmic degree accuracy, exact support and unconditional constant/parity half-gap. The next analytic consumer is a compatible inverse bound O(log(2A)) and exact nonlinear scaling, followed by the constant-edge unweighted matrix and exact entropy/count transfer.",
       "proved_inputs": [
         "PrimeFactorOscillations.Helpers.HamiltonianMatrixSpectralAverage",
         "PrimeFactorOscillations.Helpers.HamiltonianRookGamma",
@@ -5736,6 +5800,24 @@
           "module": "PrimeFactorOscillations.Helpers.HamiltonianTruePrimeGap",
           "source_sha256": "3FBFB24A409478107FD638A119F3DF68C5DB62DE48A7BFEF68E422E2236B3F77",
           "content": "Exact distinct-prime entry formula, uniform disappearance of the complete removed-mass error, and unconditional all-large-order constant/parity half-gap for the actual true-prime matrix.",
+          "build_exit_code": 0
+        },
+        {
+          "module": "PrimeFactorOscillations.Helpers.HamiltonianUniformThetaError",
+          "source_sha256": "59ED4F3E4EDB6A3863EAF75A896A2C903883EFA5ED4AEC44084D0E6295CC8326",
+          "content": "Uniform strong theta error over every endpoint0<=x<=2n at every fixed logarithmic power, including the small-endpoint range.",
+          "build_exit_code": 0
+        },
+        {
+          "module": "PrimeFactorOscillations.Helpers.HamiltonianPrimeDegrees",
+          "source_sha256": "8E501B6CF54EB21FD342BC9A362F3D93159DC5389F6E1067D98E1BB7A8374C42",
+          "content": "Exact finite shifted prime windows and complex row identities, with the diagonal retained; uniform actual true-prime degree asymptotics at every fixed logarithmic power.",
+          "build_exit_code": 0
+        },
+        {
+          "module": "PrimeFactorOscillations.Helpers.HamiltonianPrimeRealMatrix",
+          "source_sha256": "18F561E170E45ECD379BFCDC2D6C3F63387FD839ADC8F45A84CB6150B6261F4F",
+          "content": "Isometric real-to-complex vector embedding and lossless real operator transfer; the actual real prime matrix half-gap, row asymptotics, positivity, symmetry, zero diagonal, bipartite support and entry cap.",
           "build_exit_code": 0
         }
       ]
