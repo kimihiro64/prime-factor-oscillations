@@ -351,15 +351,47 @@ representation of prime 2 by positive equal-bounded inputs
 is the removed loop at vertex 1.
 Thus the remaining support is exactly bipartite.
 
-Its degree matrix is \(I+o(1)\), so normalization changes
-the operator by \(o(1)\).
-The normalized matrix has eigenvalues \(1,-1\), with vectors
-\(D_N^{1/2}\one,D_N^{1/2}s\).
-Equation (19) permits no further eigenvalue of modulus
-larger than \(1/2+o(1)\).
-It also forces these two eigenvalues to be simple;
-multiple components would supply extra eigenvalues at 1.
-This proves the final assertion.
+For an explicit spectral proof, reindex \(Q_N\) into its true-prime
+cross block \(T\), and let \(r,c\) be its row and column degrees.
+Write
+\[
+ q=1/m,\qquad t=q\sum_i r_i,\qquad
+ \max\{\|r-\one\|_\infty,\|c-\one\|_\infty\}\leq\varepsilon,
+ \qquad \|T-qJ\|\leq\rho.
+\]
+The mean degree obeys \(|t-1|\leq\varepsilon\).
+For \(0\leq\varepsilon\leq1/2\), the complete degree reference
+\(F_{ij}=qr_ic_j/t\) satisfies \(\|F-qJ\|\leq7\varepsilon\).
+The inverse-degree bound \(1/r_i,1/c_j\leq1+2\varepsilon\)
+and the exact conjugation identity therefore give, for \(\rho\leq1\),
+\[
+ S_{ij}=\frac{T_{ij}}{\sqrt{r_i c_j}},\qquad
+ W_{ij}=\frac{\sqrt{r_i c_j}}{\sum_i r_i},\qquad
+ \|S-W\|\leq(1+2\varepsilon)(\rho+7\varepsilon)
+                       \leq\rho+16\varepsilon .
+\]
+The weighted row equations \(S\sqrt c=\sqrt r\) and
+\(S^\top\sqrt r=\sqrt c\) are exact.
+They supply nonzero signed eigenvectors
+\((\sqrt r,\sqrt c)\) and \((\sqrt r,-\sqrt c)\) of \(B(S)\)
+at \(1\) and \(-1\).
+
+For any other eigenvalue \(\lambda\), the same equations imply
+\[
+ \lambda\sum_i\sqrt{r_i}x_i=\sum_j\sqrt{c_j}y_j,\qquad
+ \lambda\sum_j\sqrt{c_j}y_j=\sum_i\sqrt{r_i}x_i.
+\]
+Both sums vanish when \(\lambda\ne\pm1\).
+Hence \(B(W)\) annihilates the eigenvector and
+\(|\lambda|\leq\|S-W\|\).
+At either exceptional eigenvalue, subtract its exact weighted
+projection onto the corresponding signed mode.
+The residual has both weighted sums zero and retains that
+eigenvalue. If \(\|S-W\|<1\), the residual must vanish.
+Thus both exceptional eigenspaces are one-dimensional.
+Take \(\rho=1/2+o(1)\), \(\varepsilon=o(1)\).
+This proves the full normalized assertion independently of the
+remaining ordered-eigenvalue formalization of (19).
 \end{proof}
 
 \paragraph{Formalized true-prime support transfer.}
@@ -407,8 +439,36 @@ It also proves its nonnegativity, symmetry, zero diagonal,
 exact bipartite support, largest-entry bound and real row identity.
 All twenty-eight new declarations in these three owners pass the
 focused foundational-axiom audit.
-The eigenvalue-indexed assertion for the degree-normalized
-prime-weight matrix remains a formalization obligation.
+The full normalized spectral assertion in Lemma~\ref{lem:primeweights}
+is now also formalized.
+\texttt{HamiltonianWeightedSpectralReadout} proves the actual native
+Hermitian eigenvalue readout from the complete weighted-mode error;
+its eigenvectors are proved nonzero from the orthogonal eigenbasis.
+\texttt{HamiltonianInverseDegreeNormalization} proves the exact
+inverse conjugation and the explicit \(\rho+16\varepsilon\) bound.
+\texttt{HamiltonianWeightedExceptionalModes} derives the live
+kernel's two weighted coupling equations and proves simplicity of
+both signed modes. It does not assume the spectral conclusions.
+
+The concrete owners \texttt{HamiltonianTruePrimeCrossBlock} and
+\texttt{HamiltonianTruePrimeNormalizedSpectrum} apply these results
+to \(Q_N\) itself, with its \(\log(i+j)\) weights.
+They prove positive actual degrees, exact signed nonzero eigenvectors,
+both one-dimensional exceptional eigenspaces, and the complete
+native eigenvalue bound
+\[
+ \forall\eta>0\ \exists m_0\ \forall m\geq m_0:\qquad
+ |\lambda|\leq\tfrac12+\eta\quad(\lambda\ne1,-1).
+\]
+Here \(N=2m\), and every sufficiently large even order is included.
+The exact physical-normalization reindexing theorem identifies
+the operator with \(D_N^{-1/2}Q_ND_N^{-1/2}\), in the same parity
+coordinates used for the spectrum.
+The choice \(\varepsilon=\min\{\eta/34,1/128\}\) discharges every
+normalization and simplicity margin on one terminal interval.
+All twenty-two new core declarations pass the focused foundational
+audit. The ordered-eigenvalue assertion (19) for the raw Mangoldt
+matrix remains a separate formalization obligation.
 Exact positive stochastic scaling of the actual prime support is
 proved in \texttt{HamiltonianPrimeStochasticScaling}, with sharp
 near-identity and half-gap outputs in
