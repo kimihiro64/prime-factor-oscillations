@@ -159,6 +159,31 @@ pass their focused foundational audit.
 This closes the full odd branch of
 Theorem~\ref{thm:relativecoprime}; its even branch remains unfinished.
 
+\paragraph{Maintained native even physical half-gap.}
+\texttt{HamiltonianCoprimeEvenGap} proves, for every positive
+even \(n\), that the conductor-two frequency is exactly \(n/2\).
+The normalized Fourier eigenvalues at \(0\) and \(n/2\)
+are \(1\) and \(-1\), respectively. Removing precisely
+\[
+ {\bf1}_{k=0}-{\bf1}_{k=n/2}
+\]
+leaves every signed Ramanujan mode with absolute value at most
+\(1/2\).
+The exact inverse transform identifies the removed physical
+kernel as
+\[
+ Q_n(x,y)=\frac{1-(-1)^{(x-y).\mathrm{val}}}{n}.
+\]
+The lossless Fourier transfer therefore proves
+\[
+ \|P_n-Q_n\|_{2\to2}\leq\tfrac12
+\]
+on the actual native residue vertices.
+All seven new declarations pass their focused foundational audit.
+The identification with the centered finite cross block,
+its count transfer and the actual even arithmetic count
+remain separate obligations.
+
 \paragraph{Maintained exact arithmetic determinant.}
 \texttt{HamiltonianFourierDeterminant} proves that the determinant
 of the complete cyclic difference operator is the product of its
