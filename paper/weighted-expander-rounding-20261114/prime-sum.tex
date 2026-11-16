@@ -245,8 +245,9 @@ the actual integer matrix alone:
 All thirteen new declarations in these five owners pass the focused
 foundational-axiom audit. No subsequence, numerical experiment,
 auxiliary-grid hypothesis or unestimated analytic remainder appears
-in the final theorem. The eigenvalue-indexed corollary (19), true-prime
-support and degree/scaling consumers remain formalization obligations.
+in the final theorem. The eigenvalue-indexed corollary (19) and
+degree/scaling consumers remain formalization obligations.
+The exact true-prime support transfer is recorded next.
 
 \begin{lemma}[Uniform degrees and a true prime support]
 \label{lem:primeweights}
@@ -279,15 +280,21 @@ O_B((\log N)^{-B})\) uniformly for \(1\leq i\leq N\).
 Constants for bounded \(x\) can be absorbed; equivalently
 split the range before applying the estimate.
 
-For a fixed input, every proper-prime-power output
-determines at most one other vertex.
-There are \(O(N^{1/2}\log N)\) such outputs up to \(2N\),
-each of weight at most \(\log(2N)\).
-The normalized removed row sum is therefore
-\(O(N^{-1/2}(\log N)^2)\).
-The diagonal costs at most \(\log(2N)/N\) per row.
-Symmetry and the row-sum norm bound prove the second
-estimate in (20); the same errors preserve the first.
+For each fixed input, the output map is injective into
+\(\{1,\ldots,2N\}\). The complete removed nonprime Mangoldt mass
+in a row is therefore at most
+\(\psi(2N)-\theta(2N)\ll\sqrt{2N}\).
+This uses every proper prime power, through the exact identity
+\(\psi(x)-\theta(x)=\sum_{r\leq x,\ r\ {\rm not\ prime}}\Lambda(r)\).
+The diagonal prime cost is at most \(\log(2N)/N\).
+Symmetry and the row/column mass norm inequality give
+\[
+ \|A_N-Q_N\|\leq
+ \frac{\psi(2N)-\theta(2N)+\log(2N)}N
+ \leq\frac{C\sqrt{2N}+\log(2N)}N.
+\]
+This is stronger than the second estimate in (20);
+the same errors preserve the first.
 The entry bound is immediate.
 Every off-diagonal prime output is odd, because the sole
 representation of prime 2 by positive equal-bounded inputs
@@ -304,6 +311,26 @@ It also forces these two eigenvalues to be simple;
 multiple components would supply extra eigenvalues at 1.
 This proves the final assertion.
 \end{proof}
+
+\paragraph{Formalized true-prime support transfer.}
+\texttt{HamiltonianPrimeSupportNorm} proves the weighted complex
+row/column mass bound for the explicitly removed correction.
+\texttt{HamiltonianPrimeSupportError} proves the exact nonprime
+row identity, its injective finite-domain comparison, the complete
+prime-power/loop operator error above, and one \(C>0\) valid
+for every positive integer order.
+\texttt{HamiltonianTruePrimeGap} proves the exact distinct-prime
+entry formula and consumes the uniform decay of that error:
+\[
+ \forall\varepsilon>0\ \exists n_0\
+ \forall n\geq n_0:\qquad
+       \|Q_n-P_{0,n}\|\leq\tfrac12+\varepsilon .
+\]
+All twenty-one new declarations pass the focused foundational-axiom
+audit. No prime power or loop is silently discarded.
+Uniform degree asymptotics, the real-matrix/scaling consumer,
+entropy normalization and the prime-circle count remain
+formalization obligations.
 
 \begin{proof}[Proof of Theorem~\ref{thm:filz}]
 Apply Lemma~\ref{lem:scaling} to \(Q_N\), with any fixed gap
