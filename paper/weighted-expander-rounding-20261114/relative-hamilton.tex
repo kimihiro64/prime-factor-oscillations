@@ -132,108 +132,131 @@ tends to zero along every sequence with the stated entry
 growth and fixed gap. No positive-entry lower bound is assumed.
 \end{theorem}
 \begin{proof}
-For all sufficiently large \(N\), \(A_N\leq\log N\).
-The permanent and compensated-minor estimates of
-Section~\ref{sec:relativepermanents} therefore apply
-with a fixed polylogarithmic exponent.
-Put \(L=\log(2N)\), and split Liu's sum at \(r=L^3\),
-with integer rounding at this cutoff.
+For large \(N\), \(A\leq\log N\), so the full permanent and uniform
+minor-ratio theorems apply with a fixed polylogarithmic exponent.
+Put \(L=\log(2N)\) and
+\[
+ R_U=\frac{\operatorname{per}D[U^c]}{\operatorname{per}D},
+ \qquad a_r=\sum_{\substack{U\subseteq\{1,\ldots,N\}\\|U|=r}}
+                                      |\det D[U]|.
+\]
+The constant projection factors exactly:
+\(\det(I-tD)=(1-t)\det(I-tB)\).
+Differentiate at \(t=1\), then subtract that full signed
+principal-minor sum from Liu's identity. This gives
+\[
+ \frac{N\operatorname{cyc}D}{\operatorname{per}D}-\det(I-B)
+ =-\sum_{U\subseteq\{1,\ldots,N\}}
+       |U|(-1)^{|U|}\det D[U]\,(R_U-1).
+\]
+The empty support is included with its zero rank weight.
+All absolute estimates below apply to this separate residual.
 
-For \(r\leq L^3\), the minor ratio is
-\(1+O_\delta(N^{-1/9})\), uniformly in \(U\).
-Hadamard's inequality gives
+The local positive Gram spectrum and the exact binomial/factorial
+cancellation give, for every rank including zero,
 \[
- \sum_{|U|=r}|\det D[U]|
-   \leq\binom Nr\left(\frac{A\sqrt r}{N}\right)^r
-   \leq(eA/\sqrt r)^r .
+ a_r^2\leq\frac{(e^2A^2)^r}{r!},\qquad
+ \sum_{r=0}^{N}r z^r a_r\leq2\exp(16e^2A^2z^2)
+                                               \quad(z\geq0).
 \]
-Consequently
-\[
- \sum_{r\geq1}r\sum_{|U|=r}|\det D[U]|
-                         \leq\exp(C A^2).
-\]
-For example split at a sufficiently large constant times
-\(A^2\); before that cutoff each logarithmic summand is
-\(O(A^2)\), and afterwards the series decreases geometrically.
-The small-minor error is therefore at most
-\(N^{-1/9}\exp(C A^2)\).
+For example the second inequality follows by applying
+\(2uv\leq u^2+v^2\) with
+\(u=r/4^r\), \(v=(4z)^ra_r\), then summing the geometric
+and exponential-series bounds. It bounds the ratio error only.
 
-For \(r>L^3\), the separately retained permanent-ratio bound
-above yields total absolute tail at most
+For \(r\leq L^3\), the uniform estimate
+\(|R_U-1|\leq N^{-1/9}\) therefore gives residual at most
+\(2N^{-1/9}\exp(16e^2A^2)\).
+For every rank, the retained estimate is
 \[
- \exp(C A L)\sum_{r>L^3}
-                    r(e^2A/\sqrt r)^r
-       \leq\exp(-c L^3\log L),
+ 0\leq R_U\leq2\exp(r+16AL),\qquad
+ |R_U-1|\leq(2e^{16AL}+1)e^r .
 \]
-for large \(N\), since \(A\leq\log N\).
-The same estimate without the permanent ratio controls the
-tail of the determinant-only sum.
-Thus the entire signed leading expression can be evaluated:
+The same full tilted mass at \(z=e^2\) gives the high-rank
+residual, with its subtraction retained, at most
 \[
- \frac{N\operatorname{cyc}D}{\operatorname{per}D}
- =\sum_{\emptyset\ne U}|U|(-1)^{|U|-1}\det D[U]
-    +O_\delta\left(N^{-1/9}e^{CA^2}
-                         +e^{-cL^3\log L}\right)
- =\det(I-B)+\text{the stated error}.
+ 2(2e^{16AL}+1)\exp(16e^6A^2-L^3).
 \]
-For the last equality,
-\(\det(I-tD)=(1-t)\det(I-tB)\), using both stochastic row
-and column equations; differentiate at \(t=1\).
-No determinant contribution has been dropped termwise.
+This includes both the permanent-ratio tail and the
+determinant-only tail. Since \(A\leq\log N\leq L\),
+above one uniform threshold the complete residual is at most
+\[
+ 8N^{-1/9}\exp(16e^2A^2).
+\]
 
-We check the relative normalization.
-The convergent trace expansion gives
+For the relative normalization, set \(M_t=(I-tB)^{-1}\).
+The norm gap gives this inverse for every \(0\leq t\leq1\),
+with \(\|M_t\|\leq\delta^{-1}\).
+Continuity and nonvanishing along the same interval, starting
+with determinant one, give \(\det(I-tB)>0\).
+The exact compensated derivative is
 \[
- \log\det(I-B)
-       =-\operatorname{tr}B-\sum_{j\geq2}
-                               \operatorname{tr}(B^j)/j .
+ \frac{d}{dt}\{\log\det(I-tB)+t\operatorname{tr}B\}
+       =-t\operatorname{tr}(BM_tB).
 \]
-Here \(|\operatorname{tr}B|\leq A+1\), and
+For each diagonal entry, the row and column centered-energy
+budgets are both \((A-1)/N\). The Euclidean sandwich estimate
+therefore gives
 \[
- |\operatorname{tr}(B^j)|
-       \leq\|B\|^{j-2}\|B\|_F^2
-       \leq(1-\delta)^{j-2}A .
+ \delta\,|\operatorname{tr}(BM_tB)|\leq A-1.
 \]
-Therefore \(\det(I-B)\geq\exp(-C_\delta A)>0\).
-The normalized error is at most
+The mean-value estimate, retaining the signed linear trace,
+and the upper bound \(\operatorname{tr}B\leq A-1\), give
 \[
- O_\delta\left(
- N^{-1/9}\exp(C A^2+C_\delta A)
-              +\exp(-cL^3\log L+C_\delta A)\right)=o(1).
+ |\log\det(I-B)+\operatorname{tr}B|\leq\frac{A-1}{\delta},
+ \qquad
+ \det(I-B)\geq
+       \exp\left(-(A-1)-\frac{A-1}{\delta}\right)>0.
 \]
-Apply Theorem~\ref{thm:growingpermanent} to the remaining full
-permanent. Its determinant and factorial factors give the
-displayed formula.
+Consequently, with
+\[
+ C_\delta=16e^2+1+\delta^{-1},
+\]
+the cycle/permanent ratio divided by \(\det(I-B)\) has
+relative error at most \(8N^{-1/9}e^{C_\delta A^2}\).
+The proved full permanent asymptotic has relative error
+at most \(N^{-1/8}\). Multiplying the two normalized quantities,
+with both errors retained, proves the explicit bound
+\[
+ \left|
+ \frac{\operatorname{cyc}D}
+ {((N-1)!/N^N)\det(I-B)/\sqrt{\det(I-B^\top B)}}-1
+ \right|
+ \leq17N^{-1/9}\exp(C_\delta A^2)
+\]
+above one threshold depending only on \(\delta\).
+Every family with \(A_N^2=o(\log N)\) eventually satisfies
+\[
+ A_N^2\leq b_\delta\log N,\qquad
+ b_\delta=\min\{1,(18C_\delta)^{-1}\}>0.
+\]
+For that same family the displayed error is eventually at most
+\(17N^{-1/18}\), and hence tends to zero.
 This extends the fixed-entry conclusion
 of~\cite[Proposition 5.1]{DW} by an explicit growing-parameter
 argument; it does not claim the underlying identity as new.
 \end{proof}
 
-\paragraph{Maintained formal proof components.}
-The full signed leading identity is now compiled in
-\texttt{HamiltonianAperiodicLeadingTerm}.  It factors the actual
-constant projection over a general commutative ring and evaluates
-the real Euler derivative with every principal support retained.
-The residual estimate has the following compiled finite form.
-For \(a_r=\sum_{|U|=r}|\det D[U]|\), including the empty
-minor at rank zero,
-\[
- a_r^2\leq\frac{(e^2A^2)^r}{r!},\qquad
- \sum_{r=0}^{M-1}r z^r a_r
-                  \leq2\exp(16e^2A^2z^2)\quad(z\geq0).
-\]
-The bound holds for every finite rank cutoff \(M\), uniformly
-in the matrix order.  The local Gram determinant estimate,
-the exact binomial/factorial cancellation, and the full tilted
-rank sum are maintained in
-\texttt{HamiltonianMinorHadamard},
-\texttt{HamiltonianFactorialMinorMass}, and
-\texttt{HamiltonianPrincipalMinorMass}.
-These absolute estimates are applied only to the separate ratio
-error and tail after the signed main term has been evaluated.
-The full aperiodic comparison is still awaiting its maintained
-tail, determinant normalization, and final family assembly;
-the components alone are not recorded as the complete theorem.
+\paragraph{Maintained formal proof.}
+Theorem~\ref{thm:relativeaperiodic} is now fully compiled
+under its original stochasticity, nonnegativity, entry-cap and
+fixed-gap hypotheses. The maintained assembly uses the exact
+signed Liu residual, every complementary permanent and the
+complete tilted tail; its determinant normalization uses the
+actual nonsymmetric path and both centered-energy budgets.
+\texttt{HamiltonianAperiodicCount} proves the uniform finite
+bound with constant \(17\) and the actual factorial,
+determinant and Gram factors.
+\texttt{HamiltonianAperiodicFamilyLimit} records the exact
+condition that, for every \(b>0\), eventually
+\(A_N^2\leq b\log N\). For the same arbitrary varying family it
+proves the stated quantitative bound, the eventual
+\(17N^{-1/18}\) bound, positivity of the actual reference,
+and an explicit positive-epsilon definition of convergence.
+Rank zero, zero entries, the full support partition and the
+orientation convention are retained. There is no positive-entry
+lower bound. This closes the aperiodic theorem; other advertised
+paper consumers remain separate obligations.
 
 
 \begin{theorem}[Relative bipartite universality]
@@ -404,8 +427,9 @@ and its proved \(1/(3m)\) relative error; the factors \(2\)
 for orientation and \(m\) for the cyclic identity remain.
 These stronger bounds imply the error stated in
 Theorem~\ref{thm:relativebipartite} on its entire sublogarithmic
-domain. The general aperiodic theorem and the other advertised
-consumers remain separate formalization obligations.
+domain. The general aperiodic theorem is also fully compiled as
+described above. The other advertised consumers remain separate
+formalization obligations.
 
 \begin{corollary}[Relative counts from entropy-normalized graph weights]
 \label{cor:relativegraphentropy}
