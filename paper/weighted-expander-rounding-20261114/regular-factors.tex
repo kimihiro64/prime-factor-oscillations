@@ -653,11 +653,82 @@ The maintained owners are
 \texttt{HamiltonianPrimeRealFiniteModes}; all twenty-four
 core declarations pass focused foundational-axiom checks.
 
-Restriction to the odd/even cross block, transfer to the
-normalized regular-factor family after arbitrary cycle
-deletions, and the successive edge-disjoint construction
-remain to be formalized. The completed finite-mode and
-counting inputs do not yet constitute a packing certificate.
+\paragraph{Formalized cross restriction and the complete deletion packet.}
+Injective row and column restriction are contractions for
+the Euclidean operator norm, including rectangular factors.
+Indeed, the selector \(E_f\) of an injection \(f\) satisfies
+\(E_fE_f^t=I\); the Gram norm identity gives
+\(\|E_f\|\leq1\). Restriction is left or right multiplication
+by such a selector.
+Thus the actual prime cross block has the same uniform
+bounded finite-mode approximation.
+\texttt{HamiltonianPrimeCrossFiniteModes} chooses an
+admissible auxiliary period at every order, so its final
+statement has no grid hypothesis and holds on a whole
+terminal interval.
+
+The centered deletion estimate keeps the mean coupled.
+For \(P=\mathbf1\mathbf1^t/m\), \(I-P\) is a symmetric
+idempotent, so its norm is at most one.
+If a nonnegative matrix \(Q\) has every row and column
+sum equal to \(\alpha\), then
+\[
+ Q-\alpha P=Q(I-P),\qquad
+ \|Q\|\leq\alpha,\qquad
+ \|Q-\alpha P\|\leq\alpha.                           \tag{31b}
+\]
+This includes \(\alpha=0\), with no division by \(\alpha\).
+In particular centering a doubly stochastic kernel is
+contractive; no additional allowance for the mean is charged.
+
+Here is the complete finite-dimensional packet.
+Suppose \(S\) is doubly stochastic, \(0\leq Q\leq S\),
+every row and column of \(Q\) sums to
+\(0\leq\alpha\leq1/4\), and
+\[
+ \|S-UV\|\leq\eta\leq1/100,\quad
+ \|S-P\|\leq\gamma,\quad \|U\|,\|V\|\leq L.
+\]
+Put \(c=(1-\alpha)^{-1}\) and \(T=c(S-Q)\).
+Then \(T\) is nonnegative and doubly stochastic, and the
+exact centered identity is
+\[
+ T-P=c\big((S-P)-(Q-\alpha P)\big).
+\]
+Consequently
+\[
+ \|T-P\|\leq\frac{\gamma+\alpha}{1-\alpha}.
+\]
+Keep the simultaneous finite-mode decomposition
+\[
+ T-P=R+(cUV-P),\qquad R=c(S-UV-Q).
+\]
+Its remainder obeys
+\[
+ \|R\|\leq\frac{\eta+\alpha}{1-\alpha}\leq\frac25.
+\]
+The negative rank-one mean in \(cUV-P\) is retained:
+factor \(-P\) using the constant column \(\sqrt{1/m}\)
+and row \(-\sqrt{1/m}\), then join this coordinate to the
+existing fixed mode space. Both resulting factor norms
+are at most \(2L+2\), independently of \(m\).
+The same packet retains the entry cap
+\(T_{ij}\leq c u\) whenever \(S_{ij}\leq u\).
+
+These statements are proved in
+\texttt{HamiltonianInjectiveMatrixRestriction},
+\texttt{HamiltonianCenteredContraction},
+\texttt{HamiltonianFiniteFactorCentering} and
+\texttt{HamiltonianRegularDeletionModes}, together with
+the actual cross transfer above. All twenty-eight core
+declarations in these five owners pass focused
+foundational-axiom checks.
+To complete the packing theorem one must still instantiate
+this packet uniformly on the chosen normalized prime
+factors, carry the actual density and fixed-gap budgets
+into the signed count, and implement the successive
+edge-disjoint cycle construction. The general deletion
+packet alone is not a completed packing certificate.
 
 \begin{theorem}[Explicit positive local resilience]
 \label{thm:resilience}
