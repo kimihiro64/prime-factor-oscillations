@@ -93,6 +93,49 @@ the hypothesis \(b\ne0\) is explicit. Five new declarations passed
 their focused foundational-axiom audit. A quantitative lower estimate
 on this actual minor is still required before claiming path entropy.
 
+\paragraph{Verified marked-edge suppression.}
+The maintained consumer \texttt{HamiltonianPermanentRowMass}
+retains the full row-normalization product. If a nonnegative
+\(m\)-by-\(m\) matrix \(M\) has row sums \(s_i\geq r>0\),
+\(r\leq1\), entries at most \(a/X\), \(a\geq1\), \(X\geq\max(1,m)\), then
+\[
+ \operatorname{per}M
+ \leq\exp\!\left(-m-\sum_i(1-s_i)
+                   +16(a/r)\log(2X)\right).
+\]
+Indeed \(M_{ij}/s_i\) is row-stochastic with entry cap
+\(a/(rX)\). The permanent scales by \(\prod_i s_i\), and
+\(\prod_i s_i\leq\exp(-\sum_i(1-s_i))\).
+Every row deficit is retained.
+
+Let \(E\) be any set of directed marked edges and suppose the
+original row sums lie in \([1/2,1]\). Define
+\[
+ \mu_E=\sum_i\sum_j {\bf1}_{E}(i,j)M_{ij}.
+\]
+Halve precisely the marked entries. Every resulting row has sum
+at least \(1/4\), and its deficit is at least half its original
+marked mass. Every cycle avoiding all marked edges retains
+exactly its original weight. Consequently the compiled bound is
+\[
+ Z_{\rm avoid}
+ \leq\exp\!\left(-m-\mu_E/2+64a\log(2X)\right).
+\]
+The proof gives the exact partition and signed lower bound
+\[
+ Z_{\rm hit}=Z_{\rm cycle}-Z_{\rm avoid}
+ \geq Z_{\rm cycle}
+       -\exp\!\left(-m-\mu_E/2+64a\log(2X)\right).
+\]
+Each marked cycle is counted once, regardless of how many marked
+edges it contains. No independence of edge events is assumed.
+Positive \(Z_{\rm hit}\) yields an actual one-orbit permutation
+of positive weight containing a marked edge.
+All nine declarations passed their focused foundational-axiom audit.
+Applying this estimate to usable closing edges still requires the
+arithmetic marked-mass bound and the actual cycle-to-path count transfer.
+
+
 
 
 \begin{theorem}[Uniform weighted path entropy in the bipartite case]
