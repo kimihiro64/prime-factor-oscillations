@@ -329,6 +329,57 @@ The argument shows why an absolute estimate of the signed
 leading minors would miss the relative constant.
 \end{proof}
 
+\paragraph{Maintained full sublogarithmic family theorem.}
+The whole bipartite conclusion, including its two normalizations
+and the quantifiers over growing entry parameters, is now
+formalized in \texttt{HamiltonianSublogBipartiteCount},
+\texttt{HamiltonianBipartiteStirlingLimit} and
+\texttt{HamiltonianSublogFamilyLimit}.
+The complete signed first-correction estimate gives a stronger
+uniform conclusion on a fixed positive logarithmic range.
+Put \(\rho=1-\delta\), and let \(\kappa_\rho\) be the spectral
+amplification coefficient of Section~\ref{sec:signedjetcomparison}.
+Define
+\[
+ b_\rho=\frac1{1+|\kappa_\rho|}>0 .
+\]
+There is one \(m_0(\rho)\) such that every admissible kernel
+of order \(m\geq m_0(\rho)\), with
+\(1\leq A\leq b_\rho\log m\), satisfies
+\[
+ \left|\frac{2m\,m^{2m}}{(m!)^2}Z_{\rm H}(\operatorname{bip}T)-1\right|
+       \leq m^{-1/2},\qquad
+ \left|\frac{Z_{\rm H}(\operatorname{bip}T)}
+                  {\pi e^{-2m}}-1\right|\leq2m^{-1/2}.
+\]
+The proof keeps the full determinant amplification.
+Indeed \(\kappa_\rho b_\rho\leq1\) gives
+\(\mathcal A(T)\leq m\), and the already proved signed
+count remainder is a fixed logarithmic power times
+\(m^{-1}+\mathcal A(T)m^{-2}\).
+Only after that signed estimate is assembled is the fixed
+logarithmic power absorbed into \(m^{1/2}\).
+Thus its cutoff is independent of the individual kernel.
+
+Every family with \(A_m=o(\log m)\) eventually enters this
+single range. The maintained family statement records the exact
+condition
+\[
+ \text{for every }b>0\text{, eventually }A_m\leq b\log m
+\]
+alongside eventual stochasticity, nonnegativity, the original
+entry cap and the fixed gap. It proves both displayed power
+bounds for that same family and an explicit epsilon definition
+of convergence to one for both normalized counts.
+There is no lower bound on positive entries.
+The second formula uses the exact Stirling-product identity
+and its proved \(1/(3m)\) relative error; the factors \(2\)
+for orientation and \(m\) for the cyclic identity remain.
+These stronger bounds imply the error stated in
+Theorem~\ref{thm:relativebipartite} on its entire sublogarithmic
+domain. The general aperiodic theorem and the other advertised
+consumers remain separate formalization obligations.
+
 \begin{corollary}[Relative counts from entropy-normalized graph weights]
 \label{cor:relativegraphentropy}
 For a simple balanced bipartite graph with positive stochastic
