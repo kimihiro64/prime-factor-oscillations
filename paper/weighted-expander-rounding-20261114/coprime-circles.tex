@@ -161,8 +161,47 @@ branches under one absolute threshold and proves the full
 relative arithmetic enumeration with the actual displayed
 references and common error at most \(23n^{-1/10}\).
 Theorem~\ref{thm:relativecoprime} is fully formalized.
-The cycle-entropy error and prescribed-endpoint path assertions
-of Theorem~\ref{thm:coprimecircles} remain separate obligations.
+The cycle-entropy conclusion is also compiled as follows;
+the prescribed-endpoint path assertions remain separate obligations.
+
+\paragraph{Maintained actual cycle entropy and normalized limit.}
+\texttt{HamiltonianCoprimeLogReference} retains the full
+parity-dependent logarithmic correction:
+\[
+ \log D_n-n(\log\varphi(n)-1)
+ =\begin{cases}
+ \log\pi,&n\ {\rm even},\\
+ \log\mathfrak C(n)+
+       \tfrac12(\log\pi-\log2-\log n),&n\ {\rm odd}.
+ \end{cases}
+\]
+Its uniform constant bound therefore controls this entire
+correction by \(O(\log(2n))\).
+
+\texttt{HamiltonianCoprimeCycleEntropy} consumes the completed
+actual all-modulus relative theorem. Above one absolute
+threshold it proves \(h(X_n)>0\) and the stronger estimate
+\[
+ \left|\log h(X_n)-n(\log\varphi(n)-1)\right|
+                 \leq K\log(2n),\qquad
+ K=4+|\log\pi|+|\log2|.
+\]
+The relative ratio is eventually within \(1/2\) of one,
+so its logarithm contributes at most one; no logarithm of
+an unproved positive count is used.
+The same owner proves the paper's cycle-error comparison,
+using \(n\varphi(n)^{-1/8}\geq1\), and proves the exact
+normalized limit formulation
+\[
+ \forall\varepsilon>0\ \exists N_\varepsilon\
+ \forall n\geq N_\varepsilon:\quad
+ \left|\frac{\log h(X_n)}n-(\log\varphi(n)-1)\right|
+                                      \leq\varepsilon.
+\]
+All thirteen new declarations pass their focused foundational
+audit. Both the cycle assertion and its stated entropy
+consequence in Theorem~\ref{thm:coprimecircles} are complete.
+The uniform prescribed-endpoint path assertions remain unfinished.
 
 \begin{remark}[Normalization, prior existence results, and scope]
 When \(n\) is prime, \(X_n\) is complete and
