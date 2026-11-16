@@ -419,8 +419,9 @@ also proved. Uniformly over every other regular factor
 interval gives \(s/D\leq1+\eta\), proving asymptotic degree
 optimality. All twenty-nine core declarations in these five
 new owners pass focused foundational-axiom checks.
-The cycle-packing and resilience theorems below retain their
-separate formalization obligations.
+The resilience theorem below now has its complete signed-count
+consumer. The cycle-packing theorem retains its separate
+formalization obligation.
 
 \begin{theorem}[A positive proportion of the prime edges in Hamilton cycles]
 \label{thm:manycycles}
@@ -469,29 +470,98 @@ of edges \(F\) of \(G_N\) has
 then \(G_N-F\) is Hamiltonian.
 \end{theorem}
 \begin{proof}
-Write \(D=D_N^*\). Choose \(N\) sufficiently large that
-the degrees of \(G_N\) lie in \([0.999D,1.001D]\),
-\(\lambda_2(G_N)\leq0.502D\), and (28) holds.
-Deleting \(F\) loses at most \(0.001D\min(|W|,N-|W|)\)
-edges on any cut, since one may count at its smaller side.
-The remaining graph therefore has degrees in
-\([0.998D,1.001D]\subseteq[0.998D,1.002D]\)
-and cut bound (21) with \(g=0.19\).
-Take \(\varepsilon=0.002\).
-Lemma~\ref{lem:regularfactor} supplies an \(r\)-factor \(H\) with
+Write \(D=2m/\log(2m)\), \(N=2m\), and choose the order
+large enough that the ordinary degrees lie in
+\([0.999D,1.001D]\), the full cut bound (28) holds, and
 \[
- r=\lfloor(1-0.004/0.19)D\rfloor\geq0.97D
+ \|U_{2m}-P_{0,2m}\|\leq0.501,\qquad
+ \|U_{2m}\|\leq1.001.
 \]
-for sufficiently large \(D\).
-All edges removed from the original \(G_N\), including \(F\),
-have maximum degree at most \(1.001D-r\leq0.031D\).
-Thus
+Let \(Q\) be the deleted edges in the canonical odd/even
+cross block. Every row and column of \(Q\) has at most
+\(D/1000\) edges.
+
+Here is the complete deletion accounting. For arbitrary
+\(S,T\) in the two parts, write \(a_E,b_E\) for the two
+complementary crossing counts in edge set \(E\).
+Their exact finite identities are
 \[
- \lambda_2(H)
- \leq\lambda_2(G_N)+0.031D
- \leq0.533D<\frac35 r .
+ a_G=a_{G\setminus Q}+a_Q,\qquad
+ b_G=b_{G\setminus Q}+b_Q.
 \]
-The regular degree is of order \(N/\log N\), so (2)
-makes \(H\), and hence \(G_N-F\), Hamiltonian.
-This is uniform over every adversarial \(F\) satisfying (32).
+Counting the deleted boundary from either side gives
+\[
+ a_Q+b_Q\leq\frac D{1000}
+ \min\{|S|+|T|,\ |S^c|+|T^c|\}.
+\]
+Thus the remaining degrees lie in
+\([0.998D,1.001D]\subseteq[0.998D,1.002D]\), and the
+remaining full cut coefficient is at least \(0.199\).
+Lemma~\ref{lem:regularfactor} applies with
+\(\varepsilon=0.002\), \(g=0.199\).
+For \(D\geq1000\), it permits
+\[
+ r=\lfloor(39/40)D\rfloor,\qquad 0.97D\leq r\leq D,
+ \qquad 39/40\leq195/199=1-\frac{2(0.002)}{0.199}.
+\]
+Obtain a simple \(r\)-regular factor \(H\subseteq G_N-Q\).
+Measure the full discarded adjacency from the original graph:
+\[
+ \|A_{G_N}-A_H\|\leq1.001D-r.
+\]
+This includes \(Q\) once. No independent additional loss
+for \(Q\) is charged.
+
+Both normalization terms are retained:
+\[
+ \frac{A_H}{r}-U_{2m}
+ =\frac{A_H-DU_{2m}}r+\frac{D-r}rU_{2m}.
+\]
+Consequently
+\[
+ \left\|\frac{A_H}r-U_{2m}\right\|
+ \leq \frac{1.001D-r+1.001(D-r)}r
+ =2.002\,\frac Dr-2.001<0.064,
+\]
+and hence
+\[
+ \left\|\frac{A_H}r-P_{0,2m}\right\|
+       \leq0.565<3/5.
+\]
+The cross block \(T\) of \(A_H/r\) is doubly stochastic.
+Put \(a=(3/5)\log(2m)\). Its entries satisfy
+\[
+ 0\leq T_{ij}\leq1/r\leq a/m,\qquad
+ a-1\leq(3/5)\log m.
+\]
+The exact centered cross norm equals the preceding physical
+norm. The \(3/5\) specialization of
+Theorem~\ref{thm:criticalrelative} therefore gives a relative
+Hamilton-cycle error at most \(m^{-3/5}<1\).
+The resulting cycle weight is strictly positive.
+A positive term in the finite permutation sum supplies a
+one-orbit permutation, and every edge of that permutation
+belongs to \(H\). Through the exact odd/even vertex
+bijection this is a Hamilton cycle on the original integers,
+using no deleted edge. All thresholds precede the choice of
+\(Q\), so the conclusion is uniform over (32).
 \end{proof}
+
+The complete resilience consumer is formalized in
+\texttt{HamiltonianPrimeResilience}.
+\texttt{HamiltonianFactorDeletion} proves the exact finite
+partition of every crossing count, the two-sided deleted
+boundary bound, and extraction from the remaining graph,
+while measuring the total adjacency loss from the original
+graph. \texttt{HamiltonianResilientNormalization} proves
+the floor constraints and the full \(0.064\) budget.
+\texttt{HamiltonianRegularFactorKernels} constructs the
+actual regular cross kernel, proves its exact stochastic
+law and physical centered-norm identity, and extracts an
+actual one-orbit cycle from a positive signed count.
+The final theorem keeps every original distinct-integer
+prime-sum edge condition and proves that no deleted edge is
+used. All nineteen core declarations in these four owners
+pass focused foundational-axiom checks. This proof consumes
+the signed counting theorem directly; the cycle-packing
+theorem still has its own formalization obligation.
