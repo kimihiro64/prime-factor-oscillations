@@ -212,9 +212,56 @@ actual arithmetic inputs in the complete signed counting theorem:
 \]
 All thirty declarations in these five maintained owners pass the
 focused foundational-axiom audit.
-The exact entropy-maximizer identification, conversion from this
-weighted cycle sum to the unoriented graph count, and Stirling
-normalization remain formalization obligations.
+\paragraph{Formalized entropy and the actual unoriented count.}
+\texttt{HamiltonianEntropy} proves the finite supporting-line
+inequality, sums every row and column potential exactly, and
+proves optimality over every feasible weighting on the original
+support, including weightings with zero entries.
+\texttt{HamiltonianPrimeEntropy} applies this result to the actual
+prime scaling and identifies its entropy exactly.
+
+\texttt{HamiltonianCycleScaling} proves the common vertex-product
+weight for every Hamilton cycle before summing the cycles.
+\texttt{HamiltonianCycleOrientation} counts actual single-orbit
+permutations and their reversal classes. For at least three
+vertices, reversal has no fixed point, so the directed count is
+exactly twice the unoriented count. Cyclic rotation is already
+removed by the permutation representation.
+
+\texttt{HamiltonianPrimeCircleEntropyCount} proves existence and
+uniqueness of the finite maximum entropy value \({\cal H}_{2m}\),
+and the factorial-normalized relative formula on an entire
+terminal interval:
+\[
+ \left|\left(\frac{m^m}{m!}\right)^2
+       (2m)e^{-2{\cal H}_{2m}}h(G_{2m})-1\right|
+                                    \leq m^{-3/5}.
+\]
+The count is the actual finite cardinality of the reversal
+classes. \texttt{HamiltonianPrimeCircleAsymptotic} verifies that
+its edge relation, under the proved odd/even bijection, is exactly
+the relation of distinct integer vertices with prime sum.
+
+\texttt{HamiltonianStirlingNormalization} sums Robbins' exact
+stepwise logarithmic bound and takes its established limit.
+For every \(m\geq1\), it proves
+\[
+ \left|\frac{s_m^2}{\pi}-1\right|\leq\frac1{3m},
+ \qquad s_m=\frac{m!}{\sqrt{2m}(m/e)^m}.
+\]
+The full final consumer therefore proves, for every sufficiently
+large \(m\),
+\[
+ \left|\frac{h(G_{2m})}
+              {\pi e^{2{\cal H}_{2m}-2m}}-1\right|
+                                    \leq 2m^{-3/5}.
+\]
+All fifty-four declarations in these seven further maintained
+owners pass the focused foundational-axiom audit.
+Both formulas in Theorem~\ref{thm:relativeprimecircles} now have
+complete maintained proofs. The other advertised arithmetic,
+rounding and spectral/cut corollaries and the paper's complete
+public integration remain separate formalization obligations.
 
 Let \(G_N\), for even \(N=2m\), have vertices \(1,\ldots,N\)
 and edges at distinct prime sums.

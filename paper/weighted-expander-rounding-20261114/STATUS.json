@@ -103,8 +103,8 @@
       "kind": "lemma",
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\regular-factors.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
-      "lean_status": "actual_complete_transfer_balanced_block_stochastic_support_and_relative_kernel_count_formalized_sharp_repaired_gap_and_cuts_pending",
-      "audit_note": "The actual constant-edge transfer, explicit E_n, terminal decay and all-large uniform half-gap were already compiled. HamiltonianMatrixGeometry and HamiltonianPrimeCrossBlock now prove exact odd/even relabeling with no operator loss, actual prime formula, exact row/column identity, and inherited gap and degree rates. HamiltonianPrimeScalingWindow and HamiltonianPrimeStochasticScaling discharge the actual logarithmic-density smallness condition and produce positive stochastic scaling with precisely unchanged original prime support, cap(3/5)log(2m)/m and gap3/5. HamiltonianPrimeRelativeCount consumes it in the full signed relative count, error<=m^(-3/5). All30 new declarations pass the focused foundational-axiom audit. The repaired sharp half-gap and cut corollaries(27)-(28) remain distinct formalization consumers."
+      "lean_status": "actual_complete_transfer_balanced_block_stochastic_support_and_full_relative_prime_count_formalized_sharp_repaired_gap_and_cuts_pending",
+      "audit_note": "The actual constant-edge transfer, uniform half-gap, exact balanced cross block, degree rates, density smallness, support-preserving stochastic repair and full signed kernel count were already compiled and audited. The downstream exact entropy maximum, common cycle weight, actual unoriented cardinality and both relative prime-circle formulas are now compiled and focused-audited as well. The repaired sharp half-gap and cut corollaries(27)-(28) remain distinct formalization consumers."
     },
     {
       "id": "thm:nearlyoptimalfactor",
@@ -361,7 +361,7 @@
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\relative-permanents.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
       "lean_status": "fully_formalized_direct_normalized_uniform_statement",
-      "audit_note": "Both paper permanent statements now have direct maintained normalized Lean consumers. stochastic_permanent_relative_correction_polylog_uniform proves, for one N0(delta,K)>=16 and every admissible kernel and 1<=A<=log(N)^K, abs((N^N/N!)*per(T)/Delta(1)-(1+Q_N(T)))<=(1+A)^24*C_delta/N^2 and abs(Q_N(T))<=21*A^2/(delta^3*N). For K>0, hamiltonian_permanent_polylog_first_order_budget supplies the uniform scalar threshold, and stochastic_permanent_first_order_polylog_uniform proves the directly normalized first-order error <=N^(-1/8). The full common threshold is independent of the kernel. These three new theorems compile and pass the focused foundational-axiom audit. The complete signed second-order expansion is retained for the critical Hamiltonian consumer; its first-order consequence is not substituted into that sharper argument. The full signed weighted Hamiltonian count, sharp density/power-decay and inverse theorems, actual prime arithmetic, complete constant-edge transfer and support-preserving diffuse repair are compiled and audited. HamiltonianMatrixGeometry proves lossless Euclidean reindexing and exact bipartite-lift norm. HamiltonianPrimeCrossBlock identifies T_m(i,j)=log(2m)/(2m)*1_{2i+2j+3 prime}, with exact full-degree row/column identities and equality of its centered norm with the actual full constant/parity error. Its uniform half-gap and every fixed degree rate are consumed. HamiltonianPrimeScalingWindow proves for every B,t>0 that eps=B/sqrt(L), a=L/2, rho=2/3 satisfy eps*g(a+9eps,rho)^2<=t on an entire terminal interval; g<=K*log L, K=2*(1+log2)/(-log(2/3))+9. HamiltonianPrimeStochasticScaling applies the actual nonlinear repair: for each eta>0, every sufficiently large m has one positive scaling z with norm<=eta, a nonnegative doubly stochastic block, exactly unchanged prime support, cap(3/5)*log(2m)/m and centered norm<=3/5. HamiltonianPrimeRelativeCount consumes the full actual arithmetic chain and proves absolute normalized weighted cycle error<=m^(-3/5) for that same witness. All30 new declarations in five maintained owners pass the focused foundational-axiom audit. Exact finite entropy optimality, weighted-to-unweighted unoriented cycle conversion and Stirling normalization remain, together with normalized-spectral/cut/eigenvalue/logarithmic-accuracy corollaries, other advertised claims and public integration. The complete paper headline is not Lean-certified."
+      "audit_note": "Both paper permanent statements now have direct maintained normalized Lean consumers. stochastic_permanent_relative_correction_polylog_uniform proves, for one N0(delta,K)>=16 and every admissible kernel and 1<=A<=log(N)^K, abs((N^N/N!)*per(T)/Delta(1)-(1+Q_N(T)))<=(1+A)^24*C_delta/N^2 and abs(Q_N(T))<=21*A^2/(delta^3*N). For K>0, hamiltonian_permanent_polylog_first_order_budget supplies the uniform scalar threshold, and stochastic_permanent_first_order_polylog_uniform proves the directly normalized first-order error <=N^(-1/8). The full common threshold is independent of the kernel. These three new theorems compile and pass the focused foundational-axiom audit. The complete signed second-order expansion is retained for the critical Hamiltonian consumer; its first-order consequence is not substituted into that sharper argument. The full signed weighted Hamiltonian comparison, sharp density/power-decay and inverse theorems, actual prime arithmetic and complete logarithmic-density stochastic repair are compiled and audited. The actual prime-circle application is now closed: HamiltonianEntropy proves finite supporting-line optimality for all feasible weights, including zeros; HamiltonianPrimeEntropy proves the actual scaling attains that maximum and identifies its exact common cycle weight. HamiltonianCycleOrientation proves the actual indicator cycle count and fixed-point-free reversal pairing for at least three vertices. HamiltonianPrimeCircleEntropyCount defines the actual finite unoriented prime-circle count and unique entropy maximum, and proves for every sufficiently large m and every maximizing H that abs((m^m/m!)^2*(2m)*exp(-2H)*h(G_2m)-1)<=m^(-3/5). HamiltonianStirlingNormalization telescopes Robbins' stepwise bound and proves abs(s_m^2/pi-1)<=1/(3m) for every m>=1. HamiltonianPrimeCircleAsymptotic checks the exact distinct-integer prime-sum edge relation under the odd/even bijection, retains both normalization errors, and proves abs(h(G_2m)/(pi*exp(2H-2m))-1)<=2*m^(-3/5) on the whole terminal interval. All54 new declarations in seven maintained owners pass the focused foundational-axiom audit. Both formulas of the actual relative prime-circle theorem are now maintained Lean results. The sharp repaired half-gap and cuts, normalized-spectral/eigenvalue/logarithmic-accuracy corollaries, other advertised rounding/congruence/coprime/layered results and full public integration remain unfinished. The complete paper headline is not yet Lean-certified."
     },
     {
       "id": "lem:relativecompensatedminors",
@@ -482,7 +482,7 @@
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\permanent-second-order.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
       "lean_status": "fully_formalized_direct_normalized_uniform_statement",
-      "audit_note": "Both paper permanent statements now have direct maintained normalized Lean consumers. stochastic_permanent_relative_correction_polylog_uniform proves, for one N0(delta,K)>=16 and every admissible kernel and 1<=A<=log(N)^K, abs((N^N/N!)*per(T)/Delta(1)-(1+Q_N(T)))<=(1+A)^24*C_delta/N^2 and abs(Q_N(T))<=21*A^2/(delta^3*N). For K>0, hamiltonian_permanent_polylog_first_order_budget supplies the uniform scalar threshold, and stochastic_permanent_first_order_polylog_uniform proves the directly normalized first-order error <=N^(-1/8). The full common threshold is independent of the kernel. These three new theorems compile and pass the focused foundational-axiom audit. The complete signed second-order expansion is retained for the critical Hamiltonian consumer; its first-order consequence is not substituted into that sharper argument. The full signed weighted Hamiltonian count, sharp density/power-decay and inverse theorems, actual prime arithmetic, complete constant-edge transfer and support-preserving diffuse repair are compiled and audited. HamiltonianMatrixGeometry proves lossless Euclidean reindexing and exact bipartite-lift norm. HamiltonianPrimeCrossBlock identifies T_m(i,j)=log(2m)/(2m)*1_{2i+2j+3 prime}, with exact full-degree row/column identities and equality of its centered norm with the actual full constant/parity error. Its uniform half-gap and every fixed degree rate are consumed. HamiltonianPrimeScalingWindow proves for every B,t>0 that eps=B/sqrt(L), a=L/2, rho=2/3 satisfy eps*g(a+9eps,rho)^2<=t on an entire terminal interval; g<=K*log L, K=2*(1+log2)/(-log(2/3))+9. HamiltonianPrimeStochasticScaling applies the actual nonlinear repair: for each eta>0, every sufficiently large m has one positive scaling z with norm<=eta, a nonnegative doubly stochastic block, exactly unchanged prime support, cap(3/5)*log(2m)/m and centered norm<=3/5. HamiltonianPrimeRelativeCount consumes the full actual arithmetic chain and proves absolute normalized weighted cycle error<=m^(-3/5) for that same witness. All30 new declarations in five maintained owners pass the focused foundational-axiom audit. Exact finite entropy optimality, weighted-to-unweighted unoriented cycle conversion and Stirling normalization remain, together with normalized-spectral/cut/eigenvalue/logarithmic-accuracy corollaries, other advertised claims and public integration. The complete paper headline is not Lean-certified."
+      "audit_note": "Both paper permanent statements now have direct maintained normalized Lean consumers. stochastic_permanent_relative_correction_polylog_uniform proves, for one N0(delta,K)>=16 and every admissible kernel and 1<=A<=log(N)^K, abs((N^N/N!)*per(T)/Delta(1)-(1+Q_N(T)))<=(1+A)^24*C_delta/N^2 and abs(Q_N(T))<=21*A^2/(delta^3*N). For K>0, hamiltonian_permanent_polylog_first_order_budget supplies the uniform scalar threshold, and stochastic_permanent_first_order_polylog_uniform proves the directly normalized first-order error <=N^(-1/8). The full common threshold is independent of the kernel. These three new theorems compile and pass the focused foundational-axiom audit. The complete signed second-order expansion is retained for the critical Hamiltonian consumer; its first-order consequence is not substituted into that sharper argument. The full signed weighted Hamiltonian comparison, sharp density/power-decay and inverse theorems, actual prime arithmetic and complete logarithmic-density stochastic repair are compiled and audited. The actual prime-circle application is now closed: HamiltonianEntropy proves finite supporting-line optimality for all feasible weights, including zeros; HamiltonianPrimeEntropy proves the actual scaling attains that maximum and identifies its exact common cycle weight. HamiltonianCycleOrientation proves the actual indicator cycle count and fixed-point-free reversal pairing for at least three vertices. HamiltonianPrimeCircleEntropyCount defines the actual finite unoriented prime-circle count and unique entropy maximum, and proves for every sufficiently large m and every maximizing H that abs((m^m/m!)^2*(2m)*exp(-2H)*h(G_2m)-1)<=m^(-3/5). HamiltonianStirlingNormalization telescopes Robbins' stepwise bound and proves abs(s_m^2/pi-1)<=1/(3m) for every m>=1. HamiltonianPrimeCircleAsymptotic checks the exact distinct-integer prime-sum edge relation under the odd/even bijection, retains both normalization errors, and proves abs(h(G_2m)/(pi*exp(2H-2m))-1)<=2*m^(-3/5) on the whole terminal interval. All54 new declarations in seven maintained owners pass the focused foundational-axiom audit. Both formulas of the actual relative prime-circle theorem are now maintained Lean results. The sharp repaired half-gap and cuts, normalized-spectral/eigenvalue/logarithmic-accuracy corollaries, other advertised rounding/congruence/coprime/layered results and full public integration remain unfinished. The complete paper headline is not yet Lean-certified."
     },
     {
       "id": "thm:minorjet",
@@ -491,7 +491,7 @@
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\compensated-minor-jet.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
       "lean_status": "fully_formalized_actual_uniform_two_power_minor_expansion",
-      "audit_note": "The full signed weighted Hamiltonian count, sharp density/power-decay and inverse theorems, actual prime arithmetic, complete constant-edge transfer and support-preserving diffuse repair are compiled and audited. HamiltonianMatrixGeometry proves lossless Euclidean reindexing and exact bipartite-lift norm. HamiltonianPrimeCrossBlock identifies T_m(i,j)=log(2m)/(2m)*1_{2i+2j+3 prime}, with exact full-degree row/column identities and equality of its centered norm with the actual full constant/parity error. Its uniform half-gap and every fixed degree rate are consumed. HamiltonianPrimeScalingWindow proves for every B,t>0 that eps=B/sqrt(L), a=L/2, rho=2/3 satisfy eps*g(a+9eps,rho)^2<=t on an entire terminal interval; g<=K*log L, K=2*(1+log2)/(-log(2/3))+9. HamiltonianPrimeStochasticScaling applies the actual nonlinear repair: for each eta>0, every sufficiently large m has one positive scaling z with norm<=eta, a nonnegative doubly stochastic block, exactly unchanged prime support, cap(3/5)*log(2m)/m and centered norm<=3/5. HamiltonianPrimeRelativeCount consumes the full actual arithmetic chain and proves absolute normalized weighted cycle error<=m^(-3/5) for that same witness. All30 new declarations in five maintained owners pass the focused foundational-axiom audit. Exact finite entropy optimality, weighted-to-unweighted unoriented cycle conversion and Stirling normalization remain, together with normalized-spectral/cut/eigenvalue/logarithmic-accuracy corollaries, other advertised claims and public integration. The complete paper headline is not Lean-certified."
+      "audit_note": "The full signed weighted Hamiltonian comparison, sharp density/power-decay and inverse theorems, actual prime arithmetic and complete logarithmic-density stochastic repair are compiled and audited. The actual prime-circle application is now closed: HamiltonianEntropy proves finite supporting-line optimality for all feasible weights, including zeros; HamiltonianPrimeEntropy proves the actual scaling attains that maximum and identifies its exact common cycle weight. HamiltonianCycleOrientation proves the actual indicator cycle count and fixed-point-free reversal pairing for at least three vertices. HamiltonianPrimeCircleEntropyCount defines the actual finite unoriented prime-circle count and unique entropy maximum, and proves for every sufficiently large m and every maximizing H that abs((m^m/m!)^2*(2m)*exp(-2H)*h(G_2m)-1)<=m^(-3/5). HamiltonianStirlingNormalization telescopes Robbins' stepwise bound and proves abs(s_m^2/pi-1)<=1/(3m) for every m>=1. HamiltonianPrimeCircleAsymptotic checks the exact distinct-integer prime-sum edge relation under the odd/even bijection, retains both normalization errors, and proves abs(h(G_2m)/(pi*exp(2H-2m))-1)<=2*m^(-3/5) on the whole terminal interval. All54 new declarations in seven maintained owners pass the focused foundational-axiom audit. Both formulas of the actual relative prime-circle theorem are now maintained Lean results. The sharp repaired half-gap and cuts, normalized-spectral/eigenvalue/logarithmic-accuracy corollaries, other advertised rounding/congruence/coprime/layered results and full public integration remain unfinished. The complete paper headline is not yet Lean-certified."
     },
     {
       "id": "lem:signedoccupancy",
@@ -500,7 +500,7 @@
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\signed-jet-comparison.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
       "lean_status": "fully_formalized_actual_signed_coordinate_and_analytic_size_moments",
-      "audit_note": "All actual coordinate moments, full independent balanced-support readouts, complete signed first-order consumer, and exact analytic size-derivative identity have maintained Lean proofs. HamiltonianSignedSizeDerivative proves g''(1)=L(r(r-1))=4d'(1)+3d''(1) in both Gram conventions and abs(g''(1))<=53*abs(d)*(A/(1-rho))^2 from the original stochastic hypotheses. All12 new declarations pass the focused foundational-axiom audit. The full signed weighted Hamiltonian count, sharp density/power-decay and inverse theorems, actual prime arithmetic, complete constant-edge transfer and support-preserving diffuse repair are compiled and audited. HamiltonianMatrixGeometry proves lossless Euclidean reindexing and exact bipartite-lift norm. HamiltonianPrimeCrossBlock identifies T_m(i,j)=log(2m)/(2m)*1_{2i+2j+3 prime}, with exact full-degree row/column identities and equality of its centered norm with the actual full constant/parity error. Its uniform half-gap and every fixed degree rate are consumed. HamiltonianPrimeScalingWindow proves for every B,t>0 that eps=B/sqrt(L), a=L/2, rho=2/3 satisfy eps*g(a+9eps,rho)^2<=t on an entire terminal interval; g<=K*log L, K=2*(1+log2)/(-log(2/3))+9. HamiltonianPrimeStochasticScaling applies the actual nonlinear repair: for each eta>0, every sufficiently large m has one positive scaling z with norm<=eta, a nonnegative doubly stochastic block, exactly unchanged prime support, cap(3/5)*log(2m)/m and centered norm<=3/5. HamiltonianPrimeRelativeCount consumes the full actual arithmetic chain and proves absolute normalized weighted cycle error<=m^(-3/5) for that same witness. All30 new declarations in five maintained owners pass the focused foundational-axiom audit. Exact finite entropy optimality, weighted-to-unweighted unoriented cycle conversion and Stirling normalization remain, together with normalized-spectral/cut/eigenvalue/logarithmic-accuracy corollaries, other advertised claims and public integration. The complete paper headline is not Lean-certified."
+      "audit_note": "All actual coordinate moments, full independent balanced-support readouts, complete signed first-order consumer, and exact analytic size-derivative identity have maintained Lean proofs. HamiltonianSignedSizeDerivative proves g''(1)=L(r(r-1))=4d'(1)+3d''(1) in both Gram conventions and abs(g''(1))<=53*abs(d)*(A/(1-rho))^2 from the original stochastic hypotheses. All12 new declarations pass the focused foundational-axiom audit. The full signed weighted Hamiltonian comparison, sharp density/power-decay and inverse theorems, actual prime arithmetic and complete logarithmic-density stochastic repair are compiled and audited. The actual prime-circle application is now closed: HamiltonianEntropy proves finite supporting-line optimality for all feasible weights, including zeros; HamiltonianPrimeEntropy proves the actual scaling attains that maximum and identifies its exact common cycle weight. HamiltonianCycleOrientation proves the actual indicator cycle count and fixed-point-free reversal pairing for at least three vertices. HamiltonianPrimeCircleEntropyCount defines the actual finite unoriented prime-circle count and unique entropy maximum, and proves for every sufficiently large m and every maximizing H that abs((m^m/m!)^2*(2m)*exp(-2H)*h(G_2m)-1)<=m^(-3/5). HamiltonianStirlingNormalization telescopes Robbins' stepwise bound and proves abs(s_m^2/pi-1)<=1/(3m) for every m>=1. HamiltonianPrimeCircleAsymptotic checks the exact distinct-integer prime-sum edge relation under the odd/even bijection, retains both normalization errors, and proves abs(h(G_2m)/(pi*exp(2H-2m))-1)<=2*m^(-3/5) on the whole terminal interval. All54 new declarations in seven maintained owners pass the focused foundational-axiom audit. Both formulas of the actual relative prime-circle theorem are now maintained Lean results. The sharp repaired half-gap and cuts, normalized-spectral/eigenvalue/logarithmic-accuracy corollaries, other advertised rounding/congruence/coprime/layered results and full public integration remain unfinished. The complete paper headline is not yet Lean-certified."
     },
     {
       "id": "thm:criticalrelative",
@@ -535,8 +535,8 @@
       "kind": "theorem",
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\prime-circle-relative.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
-      "lean_status": "actual_original_support_stochastic_scaling_and_relative_weighted_kernel_count_formalized_entropy_unoriented_count_and_stirling_pending",
-      "audit_note": "The full arithmetic-to-count consumer is now compiled: for each eta>0 and every sufficiently large m, one positive near-identity scaling of the actual prime cross block is nonnegative doubly stochastic, has exactly the original prime support, cap(3/5)log(2m)/m and centered norm<=3/5, and its normalized weighted cycle error is at most m^(-3/5). The actual density condition follows from a-1<=(3/5)log m, including the log2 term. All30 new declarations in five owners pass focused foundational-axiom checks. Exact entropy optimality, vertex-product weighted-cycle conversion, unoriented graph count and Stirling remain unformalized; this is not a completion claim for the displayed entropy formula."
+      "lean_status": "fully_formalized_actual_entropy_unoriented_count_factorial_and_quantitative_stirling_relative_formulas",
+      "audit_note": "HamiltonianEntropy proves finite entropy optimality with every support-compatible zero allowed. HamiltonianPrimeEntropy applies its exact logarithmic potentials to the actual prime scaling, identifies its maximum entropy and common cycle weight. HamiltonianCycleScaling and HamiltonianCycleOrientation prove exact weight transfer, actual indicator cycle cardinality and fixed-point-free reversal pairing, including the orientation factor2. HamiltonianPrimeCircleEntropyCount proves existence and uniqueness of the finite maximum value and the actual factorial-normalized count, error<=m^(-3/5) uniformly on a terminal interval. HamiltonianStirlingNormalization proves the global error abs(s_m^2/pi-1)<=1/(3m) from Robbins' stepwise bound and its limit. HamiltonianPrimeCircleAsymptotic verifies the exact distinct-integer prime-sum relation under the proved parity bijection and proves the final actual pi-normalized error<=2*m^(-3/5). All54 new declarations in seven owners pass focused foundational-axiom checks. Both theorem formulas are maintained Lean results; the other paper claims and full public integration remain separate."
     }
   ],
   "consumers": [
@@ -1003,7 +1003,7 @@
     },
     {
       "file": "regular-factors.tex",
-      "sha256": "1D1AAB2B76006A7286E0C5354C3977D56E0BEF07EEEEAAE790600F78C5FEE859"
+      "sha256": "85448D6982C70E0E2DB91A49B2D40B5F55195B80F12FB41EE4D92EE0226D8617"
     },
     {
       "file": "congruence-filters.tex",
@@ -1075,7 +1075,7 @@
     },
     {
       "file": "prime-circle-relative.tex",
-      "sha256": "5074D6C6676A805E0559A4D350CD783745D722CF4481499B2741FD44E720B571"
+      "sha256": "87328F34AE1C59EA979CF364D196559B8386AF2D080DF10B7F8289DA851539A4"
     }
   ],
   "research_frontier": {
@@ -1084,12 +1084,12 @@
     "complete_consumer": "rho=a=3/5; amplification <=m^(27/20); first signed correction polylog/m; only residual pays amplification, giving O(N^(-3/5)).",
     "inverse": "A fixed relative counting defect forces collective singular mass >=(2/kappa_rho)log N-O(log log N).",
     "further_extension": "Arbitrary fixed logarithmic density coefficients, and all fixed congruence filters, would require higher-order compensated expansions beyond the proved two-power remainder.",
-    "next_review_focus": "Prove the exact finite entropy maximizer for the actual support-preserving prime scaling, its vertex-product identity on every Hamilton cycle, and the conversion to the factorial-normalized unoriented prime-circle count; then close Stirling and the remaining advertised/public integration claims. Keep RH/Hadamard/twin-prime transfers queued until the headline is finished.",
+    "next_review_focus": "Close the sharp repaired half-gap and cut consumer, then the remaining normalized-spectral/logarithmic-accuracy and advertised arithmetic/rounding claims, using the already completed actual prime entropy count and signed comparison/inverse. Complete public exports and a real Solution consumer with final staged checks before declaring the headline finished. Only then begin RH/Hadamard/twin-prime transfer research.",
     "independent_consumer_status": "Both actual integer prime-sum graphs and all growing coprime moduli have complete stated ordinary arguments."
   },
   "completion_receipt": {
     "requested_bar": "Finish the complete argument and its formalization at a level supporting a substantial original research contribution. A draft, helper proof, successful build or significance label does not finish this request; career impact cannot be certified by the author.",
-    "strongest_actual_theorem": "The full signed weighted Hamiltonian count, sharp density/power-decay and inverse theorems, actual prime arithmetic, complete constant-edge transfer and support-preserving diffuse repair are compiled and audited. HamiltonianMatrixGeometry proves lossless Euclidean reindexing and exact bipartite-lift norm. HamiltonianPrimeCrossBlock identifies T_m(i,j)=log(2m)/(2m)*1_{2i+2j+3 prime}, with exact full-degree row/column identities and equality of its centered norm with the actual full constant/parity error. Its uniform half-gap and every fixed degree rate are consumed. HamiltonianPrimeScalingWindow proves for every B,t>0 that eps=B/sqrt(L), a=L/2, rho=2/3 satisfy eps*g(a+9eps,rho)^2<=t on an entire terminal interval; g<=K*log L, K=2*(1+log2)/(-log(2/3))+9. HamiltonianPrimeStochasticScaling applies the actual nonlinear repair: for each eta>0, every sufficiently large m has one positive scaling z with norm<=eta, a nonnegative doubly stochastic block, exactly unchanged prime support, cap(3/5)*log(2m)/m and centered norm<=3/5. HamiltonianPrimeRelativeCount consumes the full actual arithmetic chain and proves absolute normalized weighted cycle error<=m^(-3/5) for that same witness. All30 new declarations in five maintained owners pass the focused foundational-axiom audit. Exact finite entropy optimality, weighted-to-unweighted unoriented cycle conversion and Stirling normalization remain, together with normalized-spectral/cut/eigenvalue/logarithmic-accuracy corollaries, other advertised claims and public integration. The complete paper headline is not Lean-certified.",
+    "strongest_actual_theorem": "The full signed weighted Hamiltonian comparison, sharp density/power-decay and inverse theorems, actual prime arithmetic and complete logarithmic-density stochastic repair are compiled and audited. The actual prime-circle application is now closed: HamiltonianEntropy proves finite supporting-line optimality for all feasible weights, including zeros; HamiltonianPrimeEntropy proves the actual scaling attains that maximum and identifies its exact common cycle weight. HamiltonianCycleOrientation proves the actual indicator cycle count and fixed-point-free reversal pairing for at least three vertices. HamiltonianPrimeCircleEntropyCount defines the actual finite unoriented prime-circle count and unique entropy maximum, and proves for every sufficiently large m and every maximizing H that abs((m^m/m!)^2*(2m)*exp(-2H)*h(G_2m)-1)<=m^(-3/5). HamiltonianStirlingNormalization telescopes Robbins' stepwise bound and proves abs(s_m^2/pi-1)<=1/(3m) for every m>=1. HamiltonianPrimeCircleAsymptotic checks the exact distinct-integer prime-sum edge relation under the odd/even bijection, retains both normalization errors, and proves abs(h(G_2m)/(pi*exp(2H-2m))-1)<=2*m^(-3/5) on the whole terminal interval. All54 new declarations in seven maintained owners pass the focused foundational-axiom audit. Both formulas of the actual relative prime-circle theorem are now maintained Lean results. The sharp repaired half-gap and cuts, normalized-spectral/eigenvalue/logarithmic-accuracy corollaries, other advertised rounding/congruence/coprime/layered results and full public integration remain unfinished. The complete paper headline is not yet Lean-certified.",
     "complete_independent_applications": [
       "Every sufficiently large even integer prime-sum graph is Hamiltonian; log h=N log N-N log log N-N+o(N).",
       "Fixed congruence-filter connectedness/Hamiltonicity is classified exactly by gcd(q,R-R)=2, with a full positive residue-pressure formula.",
@@ -1100,12 +1100,12 @@
       "Actual unweighted prime-sum graph: full relative count around its exact entropy, with O(N^(-3/5)) error; no RH or prime-pair estimate."
     ],
     "primary_literature_comparison": "Cuckler-Kahn: dense Dirac and dense balanced bipartite entropy counts. Barvinok: all-positive matrices with a relative entry lower bound. Krivelevich and Byrne-Tait: nontrivial spectral ratio tending to zero logarithmically. The present argument permits sparse zero support and any fixed nontrivial gap. Bradač-Janzer 2026 is an essential independent spanning-path input. McCullagh's bounded normalized moments fail along primorials; Divoux-Wang's fixed-entry finite proof is tracked explicitly, rather than used outside its stated range. The new first-order signed compensation and rank-one parity-root calculation avoid the fixed-entry remainder amplification at prime density. They are the mechanism of the complete prime consumer, not merely a detector or matching identity.",
-    "proof_endpoint_status": "The full signed weighted Hamiltonian count, sharp density/power-decay and inverse theorems, actual prime arithmetic, complete constant-edge transfer and support-preserving diffuse repair are compiled and audited. HamiltonianMatrixGeometry proves lossless Euclidean reindexing and exact bipartite-lift norm. HamiltonianPrimeCrossBlock identifies T_m(i,j)=log(2m)/(2m)*1_{2i+2j+3 prime}, with exact full-degree row/column identities and equality of its centered norm with the actual full constant/parity error. Its uniform half-gap and every fixed degree rate are consumed. HamiltonianPrimeScalingWindow proves for every B,t>0 that eps=B/sqrt(L), a=L/2, rho=2/3 satisfy eps*g(a+9eps,rho)^2<=t on an entire terminal interval; g<=K*log L, K=2*(1+log2)/(-log(2/3))+9. HamiltonianPrimeStochasticScaling applies the actual nonlinear repair: for each eta>0, every sufficiently large m has one positive scaling z with norm<=eta, a nonnegative doubly stochastic block, exactly unchanged prime support, cap(3/5)*log(2m)/m and centered norm<=3/5. HamiltonianPrimeRelativeCount consumes the full actual arithmetic chain and proves absolute normalized weighted cycle error<=m^(-3/5) for that same witness. All30 new declarations in five maintained owners pass the focused foundational-axiom audit. Exact finite entropy optimality, weighted-to-unweighted unoriented cycle conversion and Stirling normalization remain, together with normalized-spectral/cut/eigenvalue/logarithmic-accuracy corollaries, other advertised claims and public integration. The complete paper headline is not Lean-certified.",
+    "proof_endpoint_status": "The full signed weighted Hamiltonian comparison, sharp density/power-decay and inverse theorems, actual prime arithmetic and complete logarithmic-density stochastic repair are compiled and audited. The actual prime-circle application is now closed: HamiltonianEntropy proves finite supporting-line optimality for all feasible weights, including zeros; HamiltonianPrimeEntropy proves the actual scaling attains that maximum and identifies its exact common cycle weight. HamiltonianCycleOrientation proves the actual indicator cycle count and fixed-point-free reversal pairing for at least three vertices. HamiltonianPrimeCircleEntropyCount defines the actual finite unoriented prime-circle count and unique entropy maximum, and proves for every sufficiently large m and every maximizing H that abs((m^m/m!)^2*(2m)*exp(-2H)*h(G_2m)-1)<=m^(-3/5). HamiltonianStirlingNormalization telescopes Robbins' stepwise bound and proves abs(s_m^2/pi-1)<=1/(3m) for every m>=1. HamiltonianPrimeCircleAsymptotic checks the exact distinct-integer prime-sum edge relation under the odd/even bijection, retains both normalization errors, and proves abs(h(G_2m)/(pi*exp(2H-2m))-1)<=2*m^(-3/5) on the whole terminal interval. All54 new declarations in seven maintained owners pass the focused foundational-axiom audit. Both formulas of the actual relative prime-circle theorem are now maintained Lean results. The sharp repaired half-gap and cuts, normalized-spectral/eigenvalue/logarithmic-accuracy corollaries, other advertised rounding/congruence/coprime/layered results and full public integration remain unfinished. The complete paper headline is not yet Lean-certified.",
     "significance_assessment": "A general signed-estimation method now has a quantitative inverse and complete independent arithmetic consumers at actual prime density and through every coprime modulus. This supports a serious standalone research contribution. Career-defining impact and priority are not certified or inferred from compilation.",
     "paper_argument_delivered": true,
     "headline_all_orders_filz_proved": false,
     "lean_formalization_complete": false,
-    "next_safely_executable_research_action": "Prove the exact finite entropy maximizer for the actual support-preserving prime scaling, its vertex-product identity on every Hamilton cycle, and the conversion to the factorial-normalized unoriented prime-circle count; then close Stirling and the remaining advertised/public integration claims. Keep RH/Hadamard/twin-prime transfers queued until the headline is finished.",
+    "next_safely_executable_research_action": "Close the sharp repaired half-gap and cut consumer, then the remaining normalized-spectral/logarithmic-accuracy and advertised arithmetic/rounding claims, using the already completed actual prime entropy count and signed comparison/inverse. Complete public exports and a real Solution consumer with final staged checks before declaring the headline finished. Only then begin RH/Hadamard/twin-prime transfer research.",
     "next_gate": "Judge the complete new method and independent applications, not theorem counts or successful compilation; preserve exact entropy and explicit density scope.",
     "no_background_work_claimed": true,
     "expert_relevance_gate": {
@@ -1124,8 +1124,8 @@
     "committed_this_turn": true,
     "pushed_this_turn": false,
     "proofs_left_only_in_private_research": false,
-    "recorded_phase": "Baseline local commit613aa49. This phase adds five maintained owners and30 focused-audited declarations closing the actual balanced prime block, real density smallness window, support-preserving stochastic repair and relative weighted count. Both paper sections and affected claims are synchronized. Exact entropy and unweighted graph-count conversion remain. Final staged checks and the local commit are recorded separately.",
-    "phase": "The full signed weighted Hamiltonian count, sharp density/power-decay and inverse theorems, actual prime arithmetic, complete constant-edge transfer and support-preserving diffuse repair are compiled and audited. HamiltonianMatrixGeometry proves lossless Euclidean reindexing and exact bipartite-lift norm. HamiltonianPrimeCrossBlock identifies T_m(i,j)=log(2m)/(2m)*1_{2i+2j+3 prime}, with exact full-degree row/column identities and equality of its centered norm with the actual full constant/parity error. Its uniform half-gap and every fixed degree rate are consumed. HamiltonianPrimeScalingWindow proves for every B,t>0 that eps=B/sqrt(L), a=L/2, rho=2/3 satisfy eps*g(a+9eps,rho)^2<=t on an entire terminal interval; g<=K*log L, K=2*(1+log2)/(-log(2/3))+9. HamiltonianPrimeStochasticScaling applies the actual nonlinear repair: for each eta>0, every sufficiently large m has one positive scaling z with norm<=eta, a nonnegative doubly stochastic block, exactly unchanged prime support, cap(3/5)*log(2m)/m and centered norm<=3/5. HamiltonianPrimeRelativeCount consumes the full actual arithmetic chain and proves absolute normalized weighted cycle error<=m^(-3/5) for that same witness. All30 new declarations in five maintained owners pass the focused foundational-axiom audit. Exact finite entropy optimality, weighted-to-unweighted unoriented cycle conversion and Stirling normalization remain, together with normalized-spectral/cut/eigenvalue/logarithmic-accuracy corollaries, other advertised claims and public integration. The complete paper headline is not Lean-certified."
+    "recorded_phase": "Baseline local commit6fdb1eb. This phase adds seven maintained owners and54 focused-audited declarations closing exact finite prime entropy optimality, actual unoriented count and both factorial and quantitative Stirling-normalized relative formulas. Both paper sections and the actual application claim are synchronized. Other advertised claims and full public integration remain. Final staged checks and the local commit are recorded separately.",
+    "phase": "The full signed weighted Hamiltonian comparison, sharp density/power-decay and inverse theorems, actual prime arithmetic and complete logarithmic-density stochastic repair are compiled and audited. The actual prime-circle application is now closed: HamiltonianEntropy proves finite supporting-line optimality for all feasible weights, including zeros; HamiltonianPrimeEntropy proves the actual scaling attains that maximum and identifies its exact common cycle weight. HamiltonianCycleOrientation proves the actual indicator cycle count and fixed-point-free reversal pairing for at least three vertices. HamiltonianPrimeCircleEntropyCount defines the actual finite unoriented prime-circle count and unique entropy maximum, and proves for every sufficiently large m and every maximizing H that abs((m^m/m!)^2*(2m)*exp(-2H)*h(G_2m)-1)<=m^(-3/5). HamiltonianStirlingNormalization telescopes Robbins' stepwise bound and proves abs(s_m^2/pi-1)<=1/(3m) for every m>=1. HamiltonianPrimeCircleAsymptotic checks the exact distinct-integer prime-sum edge relation under the odd/even bijection, retains both normalization errors, and proves abs(h(G_2m)/(pi*exp(2H-2m))-1)<=2*m^(-3/5) on the whole terminal interval. All54 new declarations in seven maintained owners pass the focused foundational-axiom audit. Both formulas of the actual relative prime-circle theorem are now maintained Lean results. The sharp repaired half-gap and cuts, normalized-spectral/eigenvalue/logarithmic-accuracy corollaries, other advertised rounding/congruence/coprime/layered results and full public integration remain unfinished. The complete paper headline is not yet Lean-certified."
   },
   "formalization": {
     "status": "in_progress_not_complete",
@@ -2842,10 +2842,52 @@
         "source_sha256": "2535576812DD2EB227E5693F95CE4A5BB36F6C28B62F09CF31BED17A17AC3B1F",
         "content": "Actual degree envelope and complete support-preserving nonlinear prime scaling at the true logarithmic density with fixed quantitative cap and gap.",
         "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianCycleOrientation",
+        "source_sha256": "9B0BE4D169708FAB1504943291C210F7E40578AF9BDD95D2DD439E61FDE0A0B5",
+        "content": "Indicator cycle-sum cardinality, inverse orbit invariance, fixed-point-free single-orbit reversal, free-involution cardinality and unoriented count.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianCycleScaling",
+        "source_sha256": "6AFE61CAA21B2B87593F2FEF8FCCE64F42D4E5F5663F482F49A3F713563B9E1F",
+        "content": "Exact vertex/cross scaling of actual Hamiltonian cycle sums and positive-product exponential entropy identity.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianEntropy",
+        "source_sha256": "D02EA48DA74D853FCAF12231EAF4536D01B0BB3090775F8B653E69E265FEC720",
+        "content": "Exact finite log tangent, stochastic potential sums, entropy value and maximum over every support-compatible nonnegative weighting.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianPrimeCircleAsymptotic",
+        "source_sha256": "5C813696610E8076EBC84AA326CC109FBE0EE6D1DA8C5B054B6BE9D079B3D17B",
+        "content": "Exact distinct physical prime-sum relation, full normalization product error and pi-normalized actual prime-circle relative error<=2*m^(-3/5).",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianPrimeCircleEntropyCount",
+        "source_sha256": "B1163665749A8F26ECFAD60383C4350F1819407A064D4B7574086F15765BD3E7",
+        "content": "Actual finite prime-circle cardinality and unique attained entropy maximum, exact ratio identity and full factorial-normalized relative count on a terminal interval.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianPrimeEntropy",
+        "source_sha256": "6D901A67D782356DA8C93008D112D601EDB8CEE487BF0C78FDA8BDA3E323DEA8",
+        "content": "Actual prime adjacency, positive factors, logarithmic potentials, exact entropy maximum and common entropy cycle weight.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianStirlingNormalization",
+        "source_sha256": "07E0B41B2DE1921E4A8A22EBD7395A8ADA55245CE4155133BBFA22116F483EF1",
+        "content": "Robbins reciprocal telescope, global logarithmic tail and quantitative square Stirling factor error<=1/(3n).",
+        "build_exit_code": 0
       }
     ],
     "unfinished_dependencies": [
-      "Exact finite entropy optimizer, constant vertex-product cycle weights, factorial-normalized unoriented actual prime-circle count and Stirling normalization. The balanced odd/even block, actual density smallness, original-support stochastic repair and normalized weighted error<=m^(-3/5) are compiled and focused-audited. Sharp repaired half-gap, cut/eigenvalue/logarithmic-accuracy and normalized-spectral corollaries remain.",
+      "Sharp repaired half-gap and cut consumer; normalized-spectral, eigenvalue-indexed and logarithmic-accuracy corollaries. The actual balanced prime matrix, density smallness, original-support stochastic repair, exact entropy maximum, unoriented count and both relative formulas are now compiled and focused-audited, including the quantitative Stirling remainder.",
       "Coprime and layered arithmetic specializations, parity cases and all other advertised paper claims.",
       "Public exports, claim-by-claim paper synchronization, focused builds, final staged repository checks and commits."
     ],
@@ -5634,13 +5676,89 @@
         ],
         "log_sha256": "787DB62858A05F51F738F5DEA18668E3B81522C281F076ECFE79EC19753E47B2",
         "scope": "Only the30 new matrix geometry, actual balanced prime block, real smallness window, actual stochastic scaling and arithmetic-to-relative-count declarations. Unchanged providers were not re-audited."
+      },
+      {
+        "status": "verified",
+        "modules": [
+          "PrimeFactorOscillations.Helpers.HamiltonianCycleOrientation",
+          "PrimeFactorOscillations.Helpers.HamiltonianCycleScaling",
+          "PrimeFactorOscillations.Helpers.HamiltonianEntropy",
+          "PrimeFactorOscillations.Helpers.HamiltonianPrimeCircleAsymptotic",
+          "PrimeFactorOscillations.Helpers.HamiltonianPrimeCircleEntropyCount",
+          "PrimeFactorOscillations.Helpers.HamiltonianPrimeEntropy",
+          "PrimeFactorOscillations.Helpers.HamiltonianStirlingNormalization"
+        ],
+        "declaration_count": 54,
+        "declarations": [
+          "PrimeFactorOscillations.hamiltonian_log_tangent",
+          "PrimeFactorOscillations.hamiltonianCrossEntropy",
+          "PrimeFactorOscillations.hamiltonian_stochastic_potential_sum",
+          "PrimeFactorOscillations.hamiltonian_stochastic_entropy_value",
+          "PrimeFactorOscillations.hamiltonian_stochastic_entropy_maximum",
+          "PrimeFactorOscillations.hamiltonianVertexScaled",
+          "PrimeFactorOscillations.hamiltonian_cycle_sum_vertex_scaling",
+          "PrimeFactorOscillations.hamiltonianCrossScaled",
+          "PrimeFactorOscillations.hamiltonian_cross_scaled_lift",
+          "PrimeFactorOscillations.hamiltonian_cycle_sum_cross_scaling",
+          "PrimeFactorOscillations.hamiltonian_positive_product_exp",
+          "PrimeFactorOscillations.hamiltonian_cycle_sum_entropy_scaling",
+          "PrimeFactorOscillations.LPF.hamiltonianPrimeCrossAdjacency",
+          "PrimeFactorOscillations.LPF.hamiltonianPrimeLeftScale",
+          "PrimeFactorOscillations.LPF.hamiltonianPrimeRightScale",
+          "PrimeFactorOscillations.LPF.hamiltonian_prime_edge_scalar_positive",
+          "PrimeFactorOscillations.LPF.hamiltonian_prime_scaling_factors_positive",
+          "PrimeFactorOscillations.LPF.hamiltonian_prime_scaled_cross_factorization",
+          "PrimeFactorOscillations.LPF.hamiltonian_prime_entropy_log_potentials",
+          "PrimeFactorOscillations.LPF.hamiltonian_prime_entropy_value",
+          "PrimeFactorOscillations.LPF.hamiltonian_prime_entropy_maximum",
+          "PrimeFactorOscillations.LPF.hamiltonian_prime_cycle_entropy_weight",
+          "PrimeFactorOscillations.hamiltonianDirectedCycles",
+          "PrimeFactorOscillations.hamiltonianUnorientedCycles",
+          "PrimeFactorOscillations.hamiltonian_indicator_cycle_count",
+          "PrimeFactorOscillations.hamiltonian_permutation_orbit_inverse",
+          "PrimeFactorOscillations.hamiltonian_permutation_orbits_inverse",
+          "PrimeFactorOscillations.hamiltonian_directed_cycle_inverse",
+          "PrimeFactorOscillations.hamiltonian_single_orbit_same_cycle",
+          "PrimeFactorOscillations.hamiltonian_single_orbit_not_inverse",
+          "PrimeFactorOscillations.hamiltonian_free_involution_card",
+          "PrimeFactorOscillations.hamiltonian_unoriented_cycle_card",
+          "PrimeFactorOscillations.LPF.hamiltonianPrimeCycleRelation",
+          "PrimeFactorOscillations.LPF.hamiltonianPrimeCycleRelationDecidable",
+          "PrimeFactorOscillations.LPF.hamiltonianPrimeCircleCount",
+          "PrimeFactorOscillations.LPF.hamiltonianPrimeFeasible",
+          "PrimeFactorOscillations.LPF.hamiltonianPrimeEntropyMaximum",
+          "PrimeFactorOscillations.LPF.hamiltonianPrimeCircleRatio",
+          "PrimeFactorOscillations.LPF.hamiltonian_prime_cycle_relation_symmetric",
+          "PrimeFactorOscillations.LPF.hamiltonian_prime_adjacency_indicator",
+          "PrimeFactorOscillations.LPF.hamiltonian_prime_cycle_sum_count",
+          "PrimeFactorOscillations.LPF.hamiltonian_prime_entropy_maximum_unique",
+          "PrimeFactorOscillations.LPF.hamiltonian_prime_scaling_attains_entropy",
+          "PrimeFactorOscillations.LPF.hamiltonian_prime_weighted_ratio_entropy",
+          "PrimeFactorOscillations.LPF.hamiltonian_prime_circle_entropy_relative_uniform",
+          "PrimeFactorOscillations.hamiltonian_stirling_reciprocal_step",
+          "PrimeFactorOscillations.hamiltonian_stirling_log_tail",
+          "PrimeFactorOscillations.hamiltonian_exp_small_linear",
+          "PrimeFactorOscillations.hamiltonian_stirling_square_relative",
+          "PrimeFactorOscillations.LPF.hamiltonian_prime_cycle_relation_matrix",
+          "PrimeFactorOscillations.LPF.hamiltonian_prime_cycle_relation_physical",
+          "PrimeFactorOscillations.LPF.hamiltonian_relative_product_error",
+          "PrimeFactorOscillations.LPF.hamiltonian_prime_pi_ratio_identity",
+          "PrimeFactorOscillations.LPF.hamiltonian_prime_circle_pi_relative_uniform"
+        ],
+        "allowed_axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "log_sha256": "61D5128896DD02FF42C8C177F3B6CDAE9B11CDBCE1890E73681DB2625185E734",
+        "scope": "Only the54 new finite entropy, cycle scaling, actual prime entropy, orientation/cardinality, factorial count, quantitative Stirling and final physical prime-circle asymptotic declarations, including the named decidability instance. Unchanged providers were not re-audited."
       }
     ],
     "active_proof": {
-      "module": "PrimeFactorOscillations.Helpers.HamiltonianPrimeRelativeCount",
-      "status": "The full signed weighted Hamiltonian count, sharp density/power-decay and inverse theorems, actual prime arithmetic, complete constant-edge transfer and support-preserving diffuse repair are compiled and audited. HamiltonianMatrixGeometry proves lossless Euclidean reindexing and exact bipartite-lift norm. HamiltonianPrimeCrossBlock identifies T_m(i,j)=log(2m)/(2m)*1_{2i+2j+3 prime}, with exact full-degree row/column identities and equality of its centered norm with the actual full constant/parity error. Its uniform half-gap and every fixed degree rate are consumed. HamiltonianPrimeScalingWindow proves for every B,t>0 that eps=B/sqrt(L), a=L/2, rho=2/3 satisfy eps*g(a+9eps,rho)^2<=t on an entire terminal interval; g<=K*log L, K=2*(1+log2)/(-log(2/3))+9. HamiltonianPrimeStochasticScaling applies the actual nonlinear repair: for each eta>0, every sufficiently large m has one positive scaling z with norm<=eta, a nonnegative doubly stochastic block, exactly unchanged prime support, cap(3/5)*log(2m)/m and centered norm<=3/5. HamiltonianPrimeRelativeCount consumes the full actual arithmetic chain and proves absolute normalized weighted cycle error<=m^(-3/5) for that same witness. All30 new declarations in five maintained owners pass the focused foundational-axiom audit. Exact finite entropy optimality, weighted-to-unweighted unoriented cycle conversion and Stirling normalization remain, together with normalized-spectral/cut/eigenvalue/logarithmic-accuracy corollaries, other advertised claims and public integration. The complete paper headline is not Lean-certified.",
+      "module": "PrimeFactorOscillations.Helpers.HamiltonianPrimeCircleAsymptotic",
+      "status": "The full signed weighted Hamiltonian comparison, sharp density/power-decay and inverse theorems, actual prime arithmetic and complete logarithmic-density stochastic repair are compiled and audited. The actual prime-circle application is now closed: HamiltonianEntropy proves finite supporting-line optimality for all feasible weights, including zeros; HamiltonianPrimeEntropy proves the actual scaling attains that maximum and identifies its exact common cycle weight. HamiltonianCycleOrientation proves the actual indicator cycle count and fixed-point-free reversal pairing for at least three vertices. HamiltonianPrimeCircleEntropyCount defines the actual finite unoriented prime-circle count and unique entropy maximum, and proves for every sufficiently large m and every maximizing H that abs((m^m/m!)^2*(2m)*exp(-2H)*h(G_2m)-1)<=m^(-3/5). HamiltonianStirlingNormalization telescopes Robbins' stepwise bound and proves abs(s_m^2/pi-1)<=1/(3m) for every m>=1. HamiltonianPrimeCircleAsymptotic checks the exact distinct-integer prime-sum edge relation under the odd/even bijection, retains both normalization errors, and proves abs(h(G_2m)/(pi*exp(2H-2m))-1)<=2*m^(-3/5) on the whole terminal interval. All54 new declarations in seven maintained owners pass the focused foundational-axiom audit. Both formulas of the actual relative prime-circle theorem are now maintained Lean results. The sharp repaired half-gap and cuts, normalized-spectral/eigenvalue/logarithmic-accuracy corollaries, other advertised rounding/congruence/coprime/layered results and full public integration remain unfinished. The complete paper headline is not yet Lean-certified.",
       "target": "Complete the paper headline from the actual unconditional constant/parity half-gap and the full weighted kernel count: true-prime support and degree estimates, diffuseness-sensitive scaling, exact entropy normalization and actual prime-circle count; complete all advertised arithmetic/parity claims and remaining corollaries, public exports, real Solution consumer and final staged checks. Then begin the authorized generalizations to RH, Hadamard and twin primes.",
-      "consumer": "The actual constant-edge prime-sum cross block, on every sufficiently large order and with its complete degree defect, is scaled on its original support and directly consumed by stochastic_three_fifths_cycle_power_uniform. Remaining entropy/cycle conversion must use this same matrix and scaling, with exact factorial and orientation factors.",
+      "consumer": "The actual finite prime graph, unique attained entropy maximum and exact reversal-class cardinality now consume the full signed arithmetic-to-count theorem. Both factorial and pi-normalized relative errors are proved on every sufficiently large even order. The remaining spectral/cut and advertised arithmetic/public consumers must use these maintained results without reopening completed estimates.",
       "proved_inputs": [
         "PrimeFactorOscillations.Helpers.HamiltonianMatrixSpectralAverage",
         "PrimeFactorOscillations.Helpers.HamiltonianRookGamma",
@@ -6246,6 +6364,48 @@
           "module": "PrimeFactorOscillations.Helpers.HamiltonianPrimeStochasticScaling",
           "source_sha256": "2535576812DD2EB227E5693F95CE4A5BB36F6C28B62F09CF31BED17A17AC3B1F",
           "content": "Actual degree envelope and complete support-preserving nonlinear prime scaling at the true logarithmic density with fixed quantitative cap and gap.",
+          "build_exit_code": 0
+        },
+        {
+          "module": "PrimeFactorOscillations.Helpers.HamiltonianCycleOrientation",
+          "source_sha256": "9B0BE4D169708FAB1504943291C210F7E40578AF9BDD95D2DD439E61FDE0A0B5",
+          "content": "Indicator cycle-sum cardinality, inverse orbit invariance, fixed-point-free single-orbit reversal, free-involution cardinality and unoriented count.",
+          "build_exit_code": 0
+        },
+        {
+          "module": "PrimeFactorOscillations.Helpers.HamiltonianCycleScaling",
+          "source_sha256": "6AFE61CAA21B2B87593F2FEF8FCCE64F42D4E5F5663F482F49A3F713563B9E1F",
+          "content": "Exact vertex/cross scaling of actual Hamiltonian cycle sums and positive-product exponential entropy identity.",
+          "build_exit_code": 0
+        },
+        {
+          "module": "PrimeFactorOscillations.Helpers.HamiltonianEntropy",
+          "source_sha256": "D02EA48DA74D853FCAF12231EAF4536D01B0BB3090775F8B653E69E265FEC720",
+          "content": "Exact finite log tangent, stochastic potential sums, entropy value and maximum over every support-compatible nonnegative weighting.",
+          "build_exit_code": 0
+        },
+        {
+          "module": "PrimeFactorOscillations.Helpers.HamiltonianPrimeCircleAsymptotic",
+          "source_sha256": "5C813696610E8076EBC84AA326CC109FBE0EE6D1DA8C5B054B6BE9D079B3D17B",
+          "content": "Exact distinct physical prime-sum relation, full normalization product error and pi-normalized actual prime-circle relative error<=2*m^(-3/5).",
+          "build_exit_code": 0
+        },
+        {
+          "module": "PrimeFactorOscillations.Helpers.HamiltonianPrimeCircleEntropyCount",
+          "source_sha256": "B1163665749A8F26ECFAD60383C4350F1819407A064D4B7574086F15765BD3E7",
+          "content": "Actual finite prime-circle cardinality and unique attained entropy maximum, exact ratio identity and full factorial-normalized relative count on a terminal interval.",
+          "build_exit_code": 0
+        },
+        {
+          "module": "PrimeFactorOscillations.Helpers.HamiltonianPrimeEntropy",
+          "source_sha256": "6D901A67D782356DA8C93008D112D601EDB8CEE487BF0C78FDA8BDA3E323DEA8",
+          "content": "Actual prime adjacency, positive factors, logarithmic potentials, exact entropy maximum and common entropy cycle weight.",
+          "build_exit_code": 0
+        },
+        {
+          "module": "PrimeFactorOscillations.Helpers.HamiltonianStirlingNormalization",
+          "source_sha256": "07E0B41B2DE1921E4A8A22EBD7395A8ADA55245CE4155133BBFA22116F483EF1",
+          "content": "Robbins reciprocal telescope, global logarithmic tail and quantitative square Stirling factor error<=1/(3n).",
           "build_exit_code": 0
         }
       ]
