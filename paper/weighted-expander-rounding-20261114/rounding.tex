@@ -154,9 +154,41 @@ These proofs are maintained in
 \texttt{HamiltonianOneSidedTaylor} and
 \texttt{HamiltonianSquaredTraceStep}.
 They are classical analytic supporting estimates.
-The actual finite adaptive iteration on unused graph support,
-its joint spectral and two-observable lift, and the final rounding
-conclusion still require formalization.
+The complete analytic finite-path iteration and its operator-norm
+readout are now also proved.
+Suppose \(Z_0=0\), \(Z_{i+1}=Z_i+X_i\), the matrices are
+Hermitian, \(\|X_i\|\leq2\), and
+\(\operatorname{tr}(Z_i^{p-1}X_i)\leq0\) for every \(i<d\).
+The previous step, summed with its full constants, gives
+\[
+ \bigl(\operatorname{tr}(Z_d^p)+\varepsilon\bigr)^{2/p}
+ \leq \varepsilon^{2/p}+8(p-1)d\,n^{2/p}.
+\]
+To read the actual operator norm, the orthogonal spectral
+decomposition gives
+\(\|A\|\leq\|(\lambda_r)_r\|_\infty\), with the norm of the
+empty vector equal to zero.
+Every nonnegative even eigenvalue power is bounded by the full
+trace sum, so
+\[
+ \|A\|^2\leq\bigl(\operatorname{tr}(A^p)\bigr)^{2/p}.
+\]
+Both conclusions include the empty finite index type.
+Taking \(\varepsilon=1\), rather than discarding the initial
+regularization, yields the compiled finite-path estimate
+\[
+ \boxed{\quad \|Z_d\|^2\leq1+8(p-1)d\,n^{2/p}.\quad}
+\]
+The two additional maintained owners are
+\texttt{HamiltonianTraceNormReadout} and
+\texttt{HamiltonianFiniteTracePath}.
+This is the actual operator norm, with the dimension occurring only
+as \(n^{2/p}\).
+The path theorem explicitly requires the signed direction condition
+at every step; no conditional concentration hypothesis is used.
+The supported graph construction producing that path, its simultaneous
+spectral and two-observable lift, the logarithmic moment choice and
+the final rounding conclusion still require formalization.
 
 \begin{proof}[Proof of Theorem~\ref{thm:rounding}]
 Let \(F_i\) be the union of the first \(i\) chosen matchings,
@@ -301,7 +333,7 @@ Summing over any subset gives the stated predictable observable drift
 with no restriction on its size.  The maintained owners are
 \texttt{HamiltonianScaledCrossMass} and
 \texttt{HamiltonianForbiddenObservableDrift}.
-The finite adaptive iteration and joint rounding conclusion still await
+The supported graph iteration and joint rounding conclusion still await
 formalization.
 
 
