@@ -19,6 +19,38 @@ bipartite kernel \(P_i\) there is a random perfect matching \(M_i\)
 with \(\E M_i=P_i\). This decomposition is an established input,
 not a new claim.
 
+\paragraph{Formal finite matching selector.}
+The classical finite selection input has now been proved in Lean in
+a form that can also drive a deterministic moment argument.
+For every nonnegative doubly stochastic cross matrix \(P\) and
+every real cost matrix \(C\), there is a permutation \(f\) with
+\(P_{i,f(i)}>0\) for every \(i\) such that its permutation matrix
+\(M_f\) satisfies the signed inequality
+\[
+ \sum_{i,j} C_{ij}\bigl((M_f)_{ij}-P_{ij}\bigr)\leq0.
+\]
+For completeness, choose a supported matching using the exact Hall
+mass count above.  Let \(w>0\) be its smallest matched entry.
+If \(w=1\), stochasticity forces \(P=M_f\).
+Otherwise
+\[
+ R=\frac{P-wM_f}{1-w},\qquad P=wM_f+(1-w)R
+\]
+is nonnegative and doubly stochastic, its positive support is contained
+in that of \(P\), and at least one matched entry has disappeared.
+Induct on the number of positive entries.
+If \(M_f\) already has cost at most that of \(P\), use it.
+Otherwise the displayed convex identity forces \(R\) to have
+strictly smaller cost than \(P\), and the induction hypothesis on
+\(R\) supplies a supported matching with no larger cost.
+This proves the signed conclusion without a probability assumption.
+The maintained owners are \texttt{HamiltonianStochasticMatching},
+\texttt{HamiltonianStochasticPeeling} and
+\texttt{HamiltonianMatchingCostSelection}.
+This is the established finite assignment principle; no originality
+is claimed for it.  The required matrix-moment estimate and the
+assembled adaptive rounding theorem are still unformalized.
+
 \begin{proof}[Proof of Theorem~\ref{thm:rounding}]
 Let \(F_i\) be the union of the first \(i\) chosen matchings,
 with \(F_0\) empty.
