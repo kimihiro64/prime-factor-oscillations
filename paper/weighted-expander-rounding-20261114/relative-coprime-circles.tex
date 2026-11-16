@@ -128,9 +128,9 @@ This is the displayed factorial normalization of the actual
 unoriented arithmetic graph, with no restriction on its
 distinct prime factors or prime-power exponents.
 All fourteen new declarations pass the focused foundational
-audit. The prime-product form, uniform convergence and uniform
-bounds for the series, final Stirling normalization and the
-even-modulus count remain formalization obligations.
+audit. Uniform convergence and uniform bounds for the series,
+final Stirling normalization and the even-modulus count remain
+formalization obligations.
 
 \paragraph{Maintained exact arithmetic determinant.}
 \texttt{HamiltonianFourierDeterminant} proves that the determinant
@@ -155,9 +155,9 @@ audit. Thus both determinants in the symmetric quotient are
 explicit finite arithmetic products. The positive square-root
 identification with the displayed \(\mathfrak C(n)\) and the
 actual odd unoriented factorial count are now compiled as
-recorded above. Its prime-product series form and uniform
-bounds, final Stirling normalization and the even count remain
-separate obligations.
+recorded above. The prime-product series is also compiled.
+Uniform series bounds, final Stirling normalization and the
+even count remain separate obligations.
 
 
 
@@ -183,10 +183,30 @@ cancel before divisor summation. A separate compiled identity,
 valid for every \(n>1\), gives \(Q_0(n)=1\) from the exact
 M\"obius divisor sum. All seven new declarations pass the
 focused foundational audit.
-The higher-coefficient Euler-product identity and the resulting
-uniform series bounds remain to be formalized. Convergence
-at each fixed modulus is distinguished from the still-pending
-uniform arithmetic estimate.
+\texttt{HamiltonianCoprimeEulerCoefficients} now proves, for
+every \(n>0\) and integer \(j>0\), the full signed identity
+\[
+ \sum_{d\mid n}\frac{\mu(d)}{\varphi(d)^{2j}}
+       =\prod_{p\mid n}\left(1-(p-1)^{-2j}\right).
+\]
+It reuses the existing multiplicative rational Ramanujan and
+totient functions, evaluates every prime-power contribution
+and retains the complete divisor support.
+The same maintained module identifies every higher coefficient
+of the actual signed logarithmic series:
+\[
+ Q_j(n)=\frac{1-\prod_{p\mid n}(1-(p-1)^{-2j})}{2j+1}
+                       \qquad(j\geq1).
+\]
+Together with \(Q_0(n)=1\), its compiled \(\operatorname{HasSum}\)
+statement is the full prime-product logarithmic series of
+Proposition~\ref{prop:coprimeconstant}.
+All eleven new declarations pass the focused foundational
+audit. The uniform geometric majorant, absolute constant
+bounds, direct distinct-prime and monotonicity statements,
+and primorial limit remain to be formalized.
+Convergence at each fixed modulus is distinguished from
+the still-pending uniform arithmetic estimate.
 
 
 For odd \(n\geq3\), define the positive arithmetic factor
