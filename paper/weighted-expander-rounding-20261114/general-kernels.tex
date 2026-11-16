@@ -63,6 +63,43 @@ Choosing the initial failure exponent larger absorbs these
 polynomial conditioning costs.
 \end{proof}
 
+\paragraph{Maintained full complementary covariance and actual cut bound.}
+The modules \texttt{HamiltonianComplementaryCovariance} and
+\texttt{HamiltonianComplementaryCut} now prove the deterministic
+part on the actual coordinate supports.
+For any coordinate set \(D\), let \(R\) and \(S\) be its two
+complementary diagonal projections, and put
+\(F=ERE-\tfrac12E^2\).
+The exact identities and bound are
+\[
+ ESE=\tfrac12E^2-F,\qquad F=F^\top,\qquad
+ \|E[D,D^c]\|^2\leq\tfrac14\|E\|^2+\tfrac32\|F\|.
+\]
+The same \(F\) occurs with both signs before the operator estimates;
+no independent-selector assumption is used.
+The formal proof includes projection symmetry, idempotence,
+complementarity and norm, the exact retained matrix, and its
+dimension-preserving injective restriction.
+Every column remains in the full signed covariance entry:
+\[
+ F_{ij}=\sum_{k=1}^N
+       \bigl(\mathbf1_{k\in D}-\tfrac12\bigr)E_{ik}E_{kj}.
+\]
+It also proves the actual spectral consumer:
+if \(0<\delta\leq1\), \(\|E\|\leq1-\delta\) and
+\(\|F\|\leq\delta/128\), then
+\[
+ 2\|E[D,D^c]\|\leq1-\tfrac34\delta .
+\]
+All eleven new deterministic covariance, coordinate-support and
+gap declarations pass their combined focused foundational-axiom audit.
+These statements are uniform over the finite matrix, its dimension,
+and every cut; they do not restrict \(N\alpha\) to a sublogarithmic
+range. The uniform probability tail for \(F\), balanced conditioning
+and prescribed-coordinate conditioning in
+Lemma~\ref{lem:complementaryrestriction} remain formal obligations.
+The full wide-cap entropy theorem is not yet claimed as formalized.
+
 \begin{lemma}[Scaling repair without a parity kernel]
 \label{lem:aperiodicrepair}
 Let \(Q\) be symmetric nonnegative of any order, and put
