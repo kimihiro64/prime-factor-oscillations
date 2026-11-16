@@ -209,6 +209,33 @@ of~\cite[Proposition 5.1]{DW} by an explicit growing-parameter
 argument; it does not claim the underlying identity as new.
 \end{proof}
 
+\paragraph{Maintained formal proof components.}
+The full signed leading identity is now compiled in
+\texttt{HamiltonianAperiodicLeadingTerm}.  It factors the actual
+constant projection over a general commutative ring and evaluates
+the real Euler derivative with every principal support retained.
+The residual estimate has the following compiled finite form.
+For \(a_r=\sum_{|U|=r}|\det D[U]|\), including the empty
+minor at rank zero,
+\[
+ a_r^2\leq\frac{(e^2A^2)^r}{r!},\qquad
+ \sum_{r=0}^{M-1}r z^r a_r
+                  \leq2\exp(16e^2A^2z^2)\quad(z\geq0).
+\]
+The bound holds for every finite rank cutoff \(M\), uniformly
+in the matrix order.  The local Gram determinant estimate,
+the exact binomial/factorial cancellation, and the full tilted
+rank sum are maintained in
+\texttt{HamiltonianMinorHadamard},
+\texttt{HamiltonianFactorialMinorMass}, and
+\texttt{HamiltonianPrincipalMinorMass}.
+These absolute estimates are applied only to the separate ratio
+error and tail after the signed main term has been evaluated.
+The full aperiodic comparison is still awaiting its maintained
+tail, determinant normalization, and final family assembly;
+the components alone are not recorded as the complete theorem.
+
+
 \begin{theorem}[Relative bipartite universality]
 \label{thm:relativebipartite}
 Let \(T=T_m\) be real nonnegative doubly stochastic, with
