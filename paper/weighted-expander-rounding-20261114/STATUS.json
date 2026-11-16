@@ -113,8 +113,8 @@
       "kind": "theorem",
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\regular-factors.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
-      "lean_status": "partial_single_prime_factor_family_floor_relative_degree_and_normalized_operator_rate_compiled",
-      "audit_note": "The full finite actual prime-factor, degree, support and adjacency-loss providers remain complete. HamiltonianFactorFloor and HamiltonianPrimeFactorFamily now construct one global family from the simultaneous B/sqrt(log(2m)) provider, with r_m=floor((1-10B/sqrt(log(2m)))D_m), D_m/2<=r_m<=D_m, both original degree estimates retained, and abs(r_m/D_m-1)<=10B/sqrt(log(2m))+4/log(2m). HamiltonianFactorNormalization retains both normalization terms and proves62eps+6/D. HamiltonianPrimeFactorNormalization proves the same family's norm(J_m/r_m-U_(2m))<=62B/sqrt(log(2m))+24/log(2m). The conditional HamiltonianSupportMixture gives exact full support and perturbation<=2delta for its actual symmetric stochastic hypotheses. All21 core declarations are focused-audited. The actual full-support stochastic reference assembly, terminal vanishing and literal eigenvalue conclusion remain pending; rank/floor/normalized-U estimates are no longer pending."
+      "lean_status": "fully_formalized_single_family_full_support_terminal_rates_native_eigenvalues_and_degree_optimality",
+      "audit_note": "HamiltonianPrimeFactorReference constructs one actual symmetric nonnegative stochastic full-support reference family for the already chosen shrinking-defect factor family. HamiltonianPrimeFactorLimits proves its full terminal epsilon bounds. HamiltonianBipartiteEigenvalues derives both block sums from actual eigen equations. HamiltonianPrimeFactorEigenvalues reindexes the actual integer adjacency and proves the literal native Hermitian nontrivial eigenvalue bound. HamiltonianPrimeFactorHeadline assembles ONE global family for every precision, proves norm(J_m/r_m-P0)<=1/2+eta, all o(1) conclusions, the exact constant/parity eigenvector identities and uniform degree optimality over every regular competitor. All29 core declarations in these five new owners pass a focused foundational-axiom audit. The actual prime-factor theorem is complete; the following cycle-packing and resilience consumers remain separate open formalization obligations."
     },
     {
       "id": "thm:manycycles",
@@ -363,7 +363,7 @@
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\relative-permanents.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
       "lean_status": "fully_formalized_direct_normalized_uniform_statement",
-      "audit_note": "Both paper permanent statements now have direct maintained normalized Lean consumers. stochastic_permanent_relative_correction_polylog_uniform proves, for one N0(delta,K)>=16 and every admissible kernel and 1<=A<=log(N)^K, abs((N^N/N!)*per(T)/Delta(1)-(1+Q_N(T)))<=(1+A)^24*C_delta/N^2 and abs(Q_N(T))<=21*A^2/(delta^3*N). For K>0, hamiltonian_permanent_polylog_first_order_budget supplies the uniform scalar threshold, and stochastic_permanent_first_order_polylog_uniform proves the directly normalized first-order error <=N^(-1/8). The full common threshold is independent of the kernel. These three new theorems compile and pass the focused foundational-axiom audit. The complete signed second-order expansion is retained for the critical Hamiltonian consumer; its first-order consequence is not substituted into that sharper argument. The signed weighted Hamiltonian comparison, density/power-decay and inverse, exact-entropy unoriented relative prime-circle formulas, full physical sharp prime transfer/cuts(26)-(28), complete finite integral factor criterion and actual fixed-defect prime factors remain compiled and audited. The single shrinking-defect prime-factor family is now compiled: one B>0 and fixed threshold work simultaneously, eps_m=B/sqrt(log(2m)), D_m=2m/log(2m), r_m=floor((1-10eps_m)D_m), with exact original prime support, both degree equalities and D_m/2<=r_m<=D_m. HamiltonianFactorFloor retains the one-unit floor error and proves D_m>=log(2m)/4; the same global family satisfies abs(r_m/D_m-1)<=10B/sqrt(log(2m))+4/log(2m). HamiltonianFactorNormalization retains both exact terms J/r-U=(J-DU)/r+((D-r)/r)U and proves the bound62eps+6/D. HamiltonianPrimeFactorNormalization consumes the retained original degree estimates and proves norm(J_m/r_m-U_(2m))<=62B/sqrt(log(2m))+24/log(2m). HamiltonianSupportMixture proves the conditional full-support symmetric stochastic mixture and perturbation<=2delta. All21 core declarations in five new maintained owners pass the focused foundational audit; unchanged providers are not re-audited. The actual full-support stochastic reference assembly and eigenvalue conclusion for the near-optimal factor theorem, remaining degree-normalized/logarithmic-accuracy, rounding/congruence/coprime/layered and other advertised arithmetic results, and full public integration remain unfinished. The complete paper headline is not yet Lean-certified."
+      "audit_note": "Both paper permanent statements now have direct maintained normalized Lean consumers. stochastic_permanent_relative_correction_polylog_uniform proves, for one N0(delta,K)>=16 and every admissible kernel and 1<=A<=log(N)^K, abs((N^N/N!)*per(T)/Delta(1)-(1+Q_N(T)))<=(1+A)^24*C_delta/N^2 and abs(Q_N(T))<=21*A^2/(delta^3*N). For K>0, hamiltonian_permanent_polylog_first_order_budget supplies the uniform scalar threshold, and stochastic_permanent_first_order_polylog_uniform proves the directly normalized first-order error <=N^(-1/8). The full common threshold is independent of the kernel. These three new theorems compile and pass the focused foundational-axiom audit. The complete signed second-order expansion is retained for the critical Hamiltonian consumer; its first-order consequence is not substituted into that sharper argument. The signed weighted Hamiltonian comparison, critical logarithmic density and inverse, exact-entropy unoriented relative prime-circle formulas, complete unweighted physical transfer/cuts, and full finite regular-factor construction remain compiled and audited. The near-optimal prime-factor theorem now has a complete maintained consumer: one B>0, fixed initial threshold and one actual simple prime-factor family have r_m=floor((1-10B/sqrt(log(2m)))D_m), D_m=2m/log(2m), exact degrees and original prime support. One full-support symmetric stochastic reference family P_m=(1-1/(m+1))J_m/r_m+(1/(m+1))R_m retains every prime edge. Whole-terminal epsilon bounds prove r_m/D_m->1, norm(J_m/r_m-P_m)->0 and norm(P_m-U_(2m))->0. The same family has norm(J_m/r_m-P0_(2m))<=1/2+eta eventually for every eta>0. Actual normalized eigenvector block sums are derived, and the native Hermitian adjacency eigenvalues unequal to r_m,-r_m have modulus <=(1/2+eta)r_m. Exact constant/parity eigenvectors and uniform asymptotic optimality against every other regular factor are proved. All29 core declarations in five new owners pass the focused foundational audit; unchanged providers are not re-audited. Cycle packing/resilience, remaining degree-normalized/logarithmic-accuracy, rounding/congruence/coprime/layered and other advertised arithmetic results, and complete public integration remain unfinished. The whole paper headline is not yet Lean-certified."
     },
     {
       "id": "lem:relativecompensatedminors",
@@ -484,7 +484,7 @@
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\permanent-second-order.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
       "lean_status": "fully_formalized_direct_normalized_uniform_statement",
-      "audit_note": "Both paper permanent statements now have direct maintained normalized Lean consumers. stochastic_permanent_relative_correction_polylog_uniform proves, for one N0(delta,K)>=16 and every admissible kernel and 1<=A<=log(N)^K, abs((N^N/N!)*per(T)/Delta(1)-(1+Q_N(T)))<=(1+A)^24*C_delta/N^2 and abs(Q_N(T))<=21*A^2/(delta^3*N). For K>0, hamiltonian_permanent_polylog_first_order_budget supplies the uniform scalar threshold, and stochastic_permanent_first_order_polylog_uniform proves the directly normalized first-order error <=N^(-1/8). The full common threshold is independent of the kernel. These three new theorems compile and pass the focused foundational-axiom audit. The complete signed second-order expansion is retained for the critical Hamiltonian consumer; its first-order consequence is not substituted into that sharper argument. The signed weighted Hamiltonian comparison, density/power-decay and inverse, exact-entropy unoriented relative prime-circle formulas, full physical sharp prime transfer/cuts(26)-(28), complete finite integral factor criterion and actual fixed-defect prime factors remain compiled and audited. The single shrinking-defect prime-factor family is now compiled: one B>0 and fixed threshold work simultaneously, eps_m=B/sqrt(log(2m)), D_m=2m/log(2m), r_m=floor((1-10eps_m)D_m), with exact original prime support, both degree equalities and D_m/2<=r_m<=D_m. HamiltonianFactorFloor retains the one-unit floor error and proves D_m>=log(2m)/4; the same global family satisfies abs(r_m/D_m-1)<=10B/sqrt(log(2m))+4/log(2m). HamiltonianFactorNormalization retains both exact terms J/r-U=(J-DU)/r+((D-r)/r)U and proves the bound62eps+6/D. HamiltonianPrimeFactorNormalization consumes the retained original degree estimates and proves norm(J_m/r_m-U_(2m))<=62B/sqrt(log(2m))+24/log(2m). HamiltonianSupportMixture proves the conditional full-support symmetric stochastic mixture and perturbation<=2delta. All21 core declarations in five new maintained owners pass the focused foundational audit; unchanged providers are not re-audited. The actual full-support stochastic reference assembly and eigenvalue conclusion for the near-optimal factor theorem, remaining degree-normalized/logarithmic-accuracy, rounding/congruence/coprime/layered and other advertised arithmetic results, and full public integration remain unfinished. The complete paper headline is not yet Lean-certified."
+      "audit_note": "Both paper permanent statements now have direct maintained normalized Lean consumers. stochastic_permanent_relative_correction_polylog_uniform proves, for one N0(delta,K)>=16 and every admissible kernel and 1<=A<=log(N)^K, abs((N^N/N!)*per(T)/Delta(1)-(1+Q_N(T)))<=(1+A)^24*C_delta/N^2 and abs(Q_N(T))<=21*A^2/(delta^3*N). For K>0, hamiltonian_permanent_polylog_first_order_budget supplies the uniform scalar threshold, and stochastic_permanent_first_order_polylog_uniform proves the directly normalized first-order error <=N^(-1/8). The full common threshold is independent of the kernel. These three new theorems compile and pass the focused foundational-axiom audit. The complete signed second-order expansion is retained for the critical Hamiltonian consumer; its first-order consequence is not substituted into that sharper argument. The signed weighted Hamiltonian comparison, critical logarithmic density and inverse, exact-entropy unoriented relative prime-circle formulas, complete unweighted physical transfer/cuts, and full finite regular-factor construction remain compiled and audited. The near-optimal prime-factor theorem now has a complete maintained consumer: one B>0, fixed initial threshold and one actual simple prime-factor family have r_m=floor((1-10B/sqrt(log(2m)))D_m), D_m=2m/log(2m), exact degrees and original prime support. One full-support symmetric stochastic reference family P_m=(1-1/(m+1))J_m/r_m+(1/(m+1))R_m retains every prime edge. Whole-terminal epsilon bounds prove r_m/D_m->1, norm(J_m/r_m-P_m)->0 and norm(P_m-U_(2m))->0. The same family has norm(J_m/r_m-P0_(2m))<=1/2+eta eventually for every eta>0. Actual normalized eigenvector block sums are derived, and the native Hermitian adjacency eigenvalues unequal to r_m,-r_m have modulus <=(1/2+eta)r_m. Exact constant/parity eigenvectors and uniform asymptotic optimality against every other regular factor are proved. All29 core declarations in five new owners pass the focused foundational audit; unchanged providers are not re-audited. Cycle packing/resilience, remaining degree-normalized/logarithmic-accuracy, rounding/congruence/coprime/layered and other advertised arithmetic results, and complete public integration remain unfinished. The whole paper headline is not yet Lean-certified."
     },
     {
       "id": "thm:minorjet",
@@ -493,7 +493,7 @@
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\compensated-minor-jet.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
       "lean_status": "fully_formalized_actual_uniform_two_power_minor_expansion",
-      "audit_note": "The signed weighted Hamiltonian comparison, density/power-decay and inverse, exact-entropy unoriented relative prime-circle formulas, full physical sharp prime transfer/cuts(26)-(28), complete finite integral factor criterion and actual fixed-defect prime factors remain compiled and audited. The single shrinking-defect prime-factor family is now compiled: one B>0 and fixed threshold work simultaneously, eps_m=B/sqrt(log(2m)), D_m=2m/log(2m), r_m=floor((1-10eps_m)D_m), with exact original prime support, both degree equalities and D_m/2<=r_m<=D_m. HamiltonianFactorFloor retains the one-unit floor error and proves D_m>=log(2m)/4; the same global family satisfies abs(r_m/D_m-1)<=10B/sqrt(log(2m))+4/log(2m). HamiltonianFactorNormalization retains both exact terms J/r-U=(J-DU)/r+((D-r)/r)U and proves the bound62eps+6/D. HamiltonianPrimeFactorNormalization consumes the retained original degree estimates and proves norm(J_m/r_m-U_(2m))<=62B/sqrt(log(2m))+24/log(2m). HamiltonianSupportMixture proves the conditional full-support symmetric stochastic mixture and perturbation<=2delta. All21 core declarations in five new maintained owners pass the focused foundational audit; unchanged providers are not re-audited. The actual full-support stochastic reference assembly and eigenvalue conclusion for the near-optimal factor theorem, remaining degree-normalized/logarithmic-accuracy, rounding/congruence/coprime/layered and other advertised arithmetic results, and full public integration remain unfinished. The complete paper headline is not yet Lean-certified."
+      "audit_note": "The signed weighted Hamiltonian comparison, critical logarithmic density and inverse, exact-entropy unoriented relative prime-circle formulas, complete unweighted physical transfer/cuts, and full finite regular-factor construction remain compiled and audited. The near-optimal prime-factor theorem now has a complete maintained consumer: one B>0, fixed initial threshold and one actual simple prime-factor family have r_m=floor((1-10B/sqrt(log(2m)))D_m), D_m=2m/log(2m), exact degrees and original prime support. One full-support symmetric stochastic reference family P_m=(1-1/(m+1))J_m/r_m+(1/(m+1))R_m retains every prime edge. Whole-terminal epsilon bounds prove r_m/D_m->1, norm(J_m/r_m-P_m)->0 and norm(P_m-U_(2m))->0. The same family has norm(J_m/r_m-P0_(2m))<=1/2+eta eventually for every eta>0. Actual normalized eigenvector block sums are derived, and the native Hermitian adjacency eigenvalues unequal to r_m,-r_m have modulus <=(1/2+eta)r_m. Exact constant/parity eigenvectors and uniform asymptotic optimality against every other regular factor are proved. All29 core declarations in five new owners pass the focused foundational audit; unchanged providers are not re-audited. Cycle packing/resilience, remaining degree-normalized/logarithmic-accuracy, rounding/congruence/coprime/layered and other advertised arithmetic results, and complete public integration remain unfinished. The whole paper headline is not yet Lean-certified."
     },
     {
       "id": "lem:signedoccupancy",
@@ -502,7 +502,7 @@
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\signed-jet-comparison.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
       "lean_status": "fully_formalized_actual_signed_coordinate_and_analytic_size_moments",
-      "audit_note": "All actual coordinate moments, full independent balanced-support readouts, complete signed first-order consumer, and exact analytic size-derivative identity have maintained Lean proofs. HamiltonianSignedSizeDerivative proves g''(1)=L(r(r-1))=4d'(1)+3d''(1) in both Gram conventions and abs(g''(1))<=53*abs(d)*(A/(1-rho))^2 from the original stochastic hypotheses. All12 new declarations pass the focused foundational-axiom audit. The signed weighted Hamiltonian comparison, density/power-decay and inverse, exact-entropy unoriented relative prime-circle formulas, full physical sharp prime transfer/cuts(26)-(28), complete finite integral factor criterion and actual fixed-defect prime factors remain compiled and audited. The single shrinking-defect prime-factor family is now compiled: one B>0 and fixed threshold work simultaneously, eps_m=B/sqrt(log(2m)), D_m=2m/log(2m), r_m=floor((1-10eps_m)D_m), with exact original prime support, both degree equalities and D_m/2<=r_m<=D_m. HamiltonianFactorFloor retains the one-unit floor error and proves D_m>=log(2m)/4; the same global family satisfies abs(r_m/D_m-1)<=10B/sqrt(log(2m))+4/log(2m). HamiltonianFactorNormalization retains both exact terms J/r-U=(J-DU)/r+((D-r)/r)U and proves the bound62eps+6/D. HamiltonianPrimeFactorNormalization consumes the retained original degree estimates and proves norm(J_m/r_m-U_(2m))<=62B/sqrt(log(2m))+24/log(2m). HamiltonianSupportMixture proves the conditional full-support symmetric stochastic mixture and perturbation<=2delta. All21 core declarations in five new maintained owners pass the focused foundational audit; unchanged providers are not re-audited. The actual full-support stochastic reference assembly and eigenvalue conclusion for the near-optimal factor theorem, remaining degree-normalized/logarithmic-accuracy, rounding/congruence/coprime/layered and other advertised arithmetic results, and full public integration remain unfinished. The complete paper headline is not yet Lean-certified."
+      "audit_note": "All actual coordinate moments, full independent balanced-support readouts, complete signed first-order consumer, and exact analytic size-derivative identity have maintained Lean proofs. HamiltonianSignedSizeDerivative proves g''(1)=L(r(r-1))=4d'(1)+3d''(1) in both Gram conventions and abs(g''(1))<=53*abs(d)*(A/(1-rho))^2 from the original stochastic hypotheses. All12 new declarations pass the focused foundational-axiom audit. The signed weighted Hamiltonian comparison, critical logarithmic density and inverse, exact-entropy unoriented relative prime-circle formulas, complete unweighted physical transfer/cuts, and full finite regular-factor construction remain compiled and audited. The near-optimal prime-factor theorem now has a complete maintained consumer: one B>0, fixed initial threshold and one actual simple prime-factor family have r_m=floor((1-10B/sqrt(log(2m)))D_m), D_m=2m/log(2m), exact degrees and original prime support. One full-support symmetric stochastic reference family P_m=(1-1/(m+1))J_m/r_m+(1/(m+1))R_m retains every prime edge. Whole-terminal epsilon bounds prove r_m/D_m->1, norm(J_m/r_m-P_m)->0 and norm(P_m-U_(2m))->0. The same family has norm(J_m/r_m-P0_(2m))<=1/2+eta eventually for every eta>0. Actual normalized eigenvector block sums are derived, and the native Hermitian adjacency eigenvalues unequal to r_m,-r_m have modulus <=(1/2+eta)r_m. Exact constant/parity eigenvectors and uniform asymptotic optimality against every other regular factor are proved. All29 core declarations in five new owners pass the focused foundational audit; unchanged providers are not re-audited. Cycle packing/resilience, remaining degree-normalized/logarithmic-accuracy, rounding/congruence/coprime/layered and other advertised arithmetic results, and complete public integration remain unfinished. The whole paper headline is not yet Lean-certified."
     },
     {
       "id": "thm:criticalrelative",
@@ -1005,7 +1005,7 @@
     },
     {
       "file": "regular-factors.tex",
-      "sha256": "F0AD4B002D6F1FF772AA473B53CA85820355DDD22C22F07E59FF709C3194E9EB"
+      "sha256": "26E64C961654EADC3142B72CA4D3174A893CCDEA4416E1BD8F0681C3AFE65784"
     },
     {
       "file": "congruence-filters.tex",
@@ -1086,12 +1086,12 @@
     "complete_consumer": "rho=a=3/5; amplification <=m^(27/20); first signed correction polylog/m; only residual pays amplification, giving O(N^(-3/5)).",
     "inverse": "A fixed relative counting defect forces collective singular mass >=(2/kappa_rho)log N-O(log log N).",
     "further_extension": "Arbitrary fixed logarithmic density coefficients, and all fixed congruence filters, would require higher-order compensated expansions beyond the proved two-power remainder.",
-    "next_review_focus": "Apply the compiled support-mixture theorem to the same chosen normalized factor family and one fixed-terminal full-support physical stochastic family. Prove the normalized factor's actual symmetric nonnegative stochastic law and off-prime zeros, construct P_m=(1-delta_m)J_m/r_m+delta_m R_m with delta_m=1/(m+1), and retain exact full support and both normalization estimates. Close the terminal vanishing and literal nontrivial eigenvalue consumer, then remaining advertised arithmetic/rounding/public Solution results. Preserve the completed single-family floor/rank/operator bounds. RH/Hadamard/twin-prime transfers remain queued until the complete headline is finished.",
+    "next_review_focus": "Formalize the complete Hamilton-cycle packing and resilience consumers on these actual prime-factor graphs. First identify and apply the existing graph-theoretic Hamiltonicity theorem, then keep all degree losses and full adjacency subtraction through each cycle deletion and arbitrary locally bounded edge deletion. Preserve the complete near-optimal single-family theorem and finish every other advertised arithmetic/rounding/public Solution claim before RH/Hadamard/twin-prime transfer exploration.",
     "independent_consumer_status": "Both actual integer prime-sum graphs and all growing coprime moduli have complete stated ordinary arguments."
   },
   "completion_receipt": {
     "requested_bar": "Finish the complete argument and its formalization at a level supporting a substantial original research contribution. A draft, helper proof, successful build or significance label does not finish this request; career impact cannot be certified by the author.",
-    "strongest_actual_theorem": "The signed weighted Hamiltonian comparison, density/power-decay and inverse, exact-entropy unoriented relative prime-circle formulas, full physical sharp prime transfer/cuts(26)-(28), complete finite integral factor criterion and actual fixed-defect prime factors remain compiled and audited. The single shrinking-defect prime-factor family is now compiled: one B>0 and fixed threshold work simultaneously, eps_m=B/sqrt(log(2m)), D_m=2m/log(2m), r_m=floor((1-10eps_m)D_m), with exact original prime support, both degree equalities and D_m/2<=r_m<=D_m. HamiltonianFactorFloor retains the one-unit floor error and proves D_m>=log(2m)/4; the same global family satisfies abs(r_m/D_m-1)<=10B/sqrt(log(2m))+4/log(2m). HamiltonianFactorNormalization retains both exact terms J/r-U=(J-DU)/r+((D-r)/r)U and proves the bound62eps+6/D. HamiltonianPrimeFactorNormalization consumes the retained original degree estimates and proves norm(J_m/r_m-U_(2m))<=62B/sqrt(log(2m))+24/log(2m). HamiltonianSupportMixture proves the conditional full-support symmetric stochastic mixture and perturbation<=2delta. All21 core declarations in five new maintained owners pass the focused foundational audit; unchanged providers are not re-audited. The actual full-support stochastic reference assembly and eigenvalue conclusion for the near-optimal factor theorem, remaining degree-normalized/logarithmic-accuracy, rounding/congruence/coprime/layered and other advertised arithmetic results, and full public integration remain unfinished. The complete paper headline is not yet Lean-certified.",
+    "strongest_actual_theorem": "The signed weighted Hamiltonian comparison, critical logarithmic density and inverse, exact-entropy unoriented relative prime-circle formulas, complete unweighted physical transfer/cuts, and full finite regular-factor construction remain compiled and audited. The near-optimal prime-factor theorem now has a complete maintained consumer: one B>0, fixed initial threshold and one actual simple prime-factor family have r_m=floor((1-10B/sqrt(log(2m)))D_m), D_m=2m/log(2m), exact degrees and original prime support. One full-support symmetric stochastic reference family P_m=(1-1/(m+1))J_m/r_m+(1/(m+1))R_m retains every prime edge. Whole-terminal epsilon bounds prove r_m/D_m->1, norm(J_m/r_m-P_m)->0 and norm(P_m-U_(2m))->0. The same family has norm(J_m/r_m-P0_(2m))<=1/2+eta eventually for every eta>0. Actual normalized eigenvector block sums are derived, and the native Hermitian adjacency eigenvalues unequal to r_m,-r_m have modulus <=(1/2+eta)r_m. Exact constant/parity eigenvectors and uniform asymptotic optimality against every other regular factor are proved. All29 core declarations in five new owners pass the focused foundational audit; unchanged providers are not re-audited. Cycle packing/resilience, remaining degree-normalized/logarithmic-accuracy, rounding/congruence/coprime/layered and other advertised arithmetic results, and complete public integration remain unfinished. The whole paper headline is not yet Lean-certified.",
     "complete_independent_applications": [
       "Every sufficiently large even integer prime-sum graph is Hamiltonian; log h=N log N-N log log N-N+o(N).",
       "Fixed congruence-filter connectedness/Hamiltonicity is classified exactly by gcd(q,R-R)=2, with a full positive residue-pressure formula.",
@@ -1102,12 +1102,12 @@
       "Actual unweighted prime-sum graph: full relative count around its exact entropy, with O(N^(-3/5)) error; no RH or prime-pair estimate."
     ],
     "primary_literature_comparison": "Cuckler-Kahn: dense Dirac and dense balanced bipartite entropy counts. Barvinok: all-positive matrices with a relative entry lower bound. Krivelevich and Byrne-Tait: nontrivial spectral ratio tending to zero logarithmically. The present argument permits sparse zero support and any fixed nontrivial gap. Bradač-Janzer 2026 is an essential independent spanning-path input. McCullagh's bounded normalized moments fail along primorials; Divoux-Wang's fixed-entry finite proof is tracked explicitly, rather than used outside its stated range. The new first-order signed compensation and rank-one parity-root calculation avoid the fixed-entry remainder amplification at prime density. They are the mechanism of the complete prime consumer, not merely a detector or matching identity.",
-    "proof_endpoint_status": "The signed weighted Hamiltonian comparison, density/power-decay and inverse, exact-entropy unoriented relative prime-circle formulas, full physical sharp prime transfer/cuts(26)-(28), complete finite integral factor criterion and actual fixed-defect prime factors remain compiled and audited. The single shrinking-defect prime-factor family is now compiled: one B>0 and fixed threshold work simultaneously, eps_m=B/sqrt(log(2m)), D_m=2m/log(2m), r_m=floor((1-10eps_m)D_m), with exact original prime support, both degree equalities and D_m/2<=r_m<=D_m. HamiltonianFactorFloor retains the one-unit floor error and proves D_m>=log(2m)/4; the same global family satisfies abs(r_m/D_m-1)<=10B/sqrt(log(2m))+4/log(2m). HamiltonianFactorNormalization retains both exact terms J/r-U=(J-DU)/r+((D-r)/r)U and proves the bound62eps+6/D. HamiltonianPrimeFactorNormalization consumes the retained original degree estimates and proves norm(J_m/r_m-U_(2m))<=62B/sqrt(log(2m))+24/log(2m). HamiltonianSupportMixture proves the conditional full-support symmetric stochastic mixture and perturbation<=2delta. All21 core declarations in five new maintained owners pass the focused foundational audit; unchanged providers are not re-audited. The actual full-support stochastic reference assembly and eigenvalue conclusion for the near-optimal factor theorem, remaining degree-normalized/logarithmic-accuracy, rounding/congruence/coprime/layered and other advertised arithmetic results, and full public integration remain unfinished. The complete paper headline is not yet Lean-certified.",
+    "proof_endpoint_status": "The signed weighted Hamiltonian comparison, critical logarithmic density and inverse, exact-entropy unoriented relative prime-circle formulas, complete unweighted physical transfer/cuts, and full finite regular-factor construction remain compiled and audited. The near-optimal prime-factor theorem now has a complete maintained consumer: one B>0, fixed initial threshold and one actual simple prime-factor family have r_m=floor((1-10B/sqrt(log(2m)))D_m), D_m=2m/log(2m), exact degrees and original prime support. One full-support symmetric stochastic reference family P_m=(1-1/(m+1))J_m/r_m+(1/(m+1))R_m retains every prime edge. Whole-terminal epsilon bounds prove r_m/D_m->1, norm(J_m/r_m-P_m)->0 and norm(P_m-U_(2m))->0. The same family has norm(J_m/r_m-P0_(2m))<=1/2+eta eventually for every eta>0. Actual normalized eigenvector block sums are derived, and the native Hermitian adjacency eigenvalues unequal to r_m,-r_m have modulus <=(1/2+eta)r_m. Exact constant/parity eigenvectors and uniform asymptotic optimality against every other regular factor are proved. All29 core declarations in five new owners pass the focused foundational audit; unchanged providers are not re-audited. Cycle packing/resilience, remaining degree-normalized/logarithmic-accuracy, rounding/congruence/coprime/layered and other advertised arithmetic results, and complete public integration remain unfinished. The whole paper headline is not yet Lean-certified.",
     "significance_assessment": "A general signed-estimation method now has a quantitative inverse and complete independent arithmetic consumers at actual prime density and through every coprime modulus. This supports a serious standalone research contribution. Career-defining impact and priority are not certified or inferred from compilation.",
     "paper_argument_delivered": true,
     "headline_all_orders_filz_proved": false,
     "lean_formalization_complete": false,
-    "next_safely_executable_research_action": "Apply the compiled support-mixture theorem to the same chosen normalized factor family and one fixed-terminal full-support physical stochastic family. Prove the normalized factor's actual symmetric nonnegative stochastic law and off-prime zeros, construct P_m=(1-delta_m)J_m/r_m+delta_m R_m with delta_m=1/(m+1), and retain exact full support and both normalization estimates. Close the terminal vanishing and literal nontrivial eigenvalue consumer, then remaining advertised arithmetic/rounding/public Solution results. Preserve the completed single-family floor/rank/operator bounds. RH/Hadamard/twin-prime transfers remain queued until the complete headline is finished.",
+    "next_safely_executable_research_action": "Formalize the complete Hamilton-cycle packing and resilience consumers on these actual prime-factor graphs. First identify and apply the existing graph-theoretic Hamiltonicity theorem, then keep all degree losses and full adjacency subtraction through each cycle deletion and arbitrary locally bounded edge deletion. Preserve the complete near-optimal single-family theorem and finish every other advertised arithmetic/rounding/public Solution claim before RH/Hadamard/twin-prime transfer exploration.",
     "next_gate": "Judge the complete new method and independent applications, not theorem counts or successful compilation; preserve exact entropy and explicit density scope.",
     "no_background_work_claimed": true,
     "expert_relevance_gate": {
@@ -1126,8 +1126,8 @@
     "committed_this_turn": true,
     "pushed_this_turn": false,
     "proofs_left_only_in_private_research": false,
-    "recorded_phase": "Baseline local commit6c7fa2f. This phase adds five maintained owners and21 focused-audited core declarations for a single simultaneous shrinking-defect factor family, exact integer floor, both normalization losses, actual quantitative operator approximation and the conditional full-support mixture. The paper and partial near-optimal-factor claim are synchronized. Actual stochastic-reference assembly and eigenvalue interpretation remain explicit; staged checks and local commit are recorded separately.",
-    "phase": "The signed weighted Hamiltonian comparison, density/power-decay and inverse, exact-entropy unoriented relative prime-circle formulas, full physical sharp prime transfer/cuts(26)-(28), complete finite integral factor criterion and actual fixed-defect prime factors remain compiled and audited. The single shrinking-defect prime-factor family is now compiled: one B>0 and fixed threshold work simultaneously, eps_m=B/sqrt(log(2m)), D_m=2m/log(2m), r_m=floor((1-10eps_m)D_m), with exact original prime support, both degree equalities and D_m/2<=r_m<=D_m. HamiltonianFactorFloor retains the one-unit floor error and proves D_m>=log(2m)/4; the same global family satisfies abs(r_m/D_m-1)<=10B/sqrt(log(2m))+4/log(2m). HamiltonianFactorNormalization retains both exact terms J/r-U=(J-DU)/r+((D-r)/r)U and proves the bound62eps+6/D. HamiltonianPrimeFactorNormalization consumes the retained original degree estimates and proves norm(J_m/r_m-U_(2m))<=62B/sqrt(log(2m))+24/log(2m). HamiltonianSupportMixture proves the conditional full-support symmetric stochastic mixture and perturbation<=2delta. All21 core declarations in five new maintained owners pass the focused foundational audit; unchanged providers are not re-audited. The actual full-support stochastic reference assembly and eigenvalue conclusion for the near-optimal factor theorem, remaining degree-normalized/logarithmic-accuracy, rounding/congruence/coprime/layered and other advertised arithmetic results, and full public integration remain unfinished. The complete paper headline is not yet Lean-certified."
+    "recorded_phase": "Near-optimal actual prime-factor family, full-support stochastic references, terminal rates and native nontrivial spectrum fully compiled and focused-audited",
+    "phase": "The signed weighted Hamiltonian comparison, critical logarithmic density and inverse, exact-entropy unoriented relative prime-circle formulas, complete unweighted physical transfer/cuts, and full finite regular-factor construction remain compiled and audited. The near-optimal prime-factor theorem now has a complete maintained consumer: one B>0, fixed initial threshold and one actual simple prime-factor family have r_m=floor((1-10B/sqrt(log(2m)))D_m), D_m=2m/log(2m), exact degrees and original prime support. One full-support symmetric stochastic reference family P_m=(1-1/(m+1))J_m/r_m+(1/(m+1))R_m retains every prime edge. Whole-terminal epsilon bounds prove r_m/D_m->1, norm(J_m/r_m-P_m)->0 and norm(P_m-U_(2m))->0. The same family has norm(J_m/r_m-P0_(2m))<=1/2+eta eventually for every eta>0. Actual normalized eigenvector block sums are derived, and the native Hermitian adjacency eigenvalues unequal to r_m,-r_m have modulus <=(1/2+eta)r_m. Exact constant/parity eigenvectors and uniform asymptotic optimality against every other regular factor are proved. All29 core declarations in five new owners pass the focused foundational audit; unchanged providers are not re-audited. Cycle packing/resilience, remaining degree-normalized/logarithmic-accuracy, rounding/congruence/coprime/layered and other advertised arithmetic results, and complete public integration remain unfinished. The whole paper headline is not yet Lean-certified."
   },
   "formalization": {
     "status": "in_progress_not_complete",
@@ -3006,10 +3006,40 @@
         "source_sha256": "1C8BF7FB70322EEA1B5F57E9E868C0AF6F6C18247963702DD103EE89B6CAB2A5",
         "content": "Conditional symmetric stochastic full-support convex mixture, exact support retention and perturbation<=2delta; its actual prime consumer remains next.",
         "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianPrimeFactorReference",
+        "source_sha256": "C2C1F3ABF90187C66717B546EB719DB06217A98E2887338A7DB3F74B5A010588",
+        "content": "The actual normalized factor stochastic law and off-prime zeros; one global full-support stochastic reference family with the complete 2/(m+1) perturbation and original comparison.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianBipartiteEigenvalues",
+        "source_sha256": "FEE11325077B740968635FFCE0A10BE1C376CBCACD6FAD4048A1AB25DC7C1E13",
+        "content": "Actual bipartite eigenvector block-sum identities and a nontrivial eigenvalue estimate deriving orthogonality from the eigen equations.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianPrimeFactorLimits",
+        "source_sha256": "7737B3DDFD98657B1DB6765FE0B4CD8356EFDB846F53FEFB2480AECC37116988",
+        "content": "Uniform whole-terminal epsilon bounds for the logarithmic/floor/mixture errors of the same selected family.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianPrimeFactorEigenvalues",
+        "source_sha256": "5F318C8C5FB7542EE74CF719A1B8B836CDEC2C5BE8F3AAB52E1E98F3E4CCE3B2",
+        "content": "Exact physical-to-cross reindexing, actual normalized/raw adjacency eigenvalue estimates, and native real Hermitian eigenvalue readout.",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianPrimeFactorHeadline",
+        "source_sha256": "8B22C1BB9DC57CC7BB03E5E9D79AF8C6EEB96210E41731534BBB8A76BAA56A47",
+        "content": "The same near-optimal global factor/reference family with every terminal error and spectral estimate, exact constant/parity eigenvector identities, and uniform optimality over every regular competitor.",
+        "build_exit_code": 0
       }
     ],
     "unfinished_dependencies": [
-      "Actual full-support stochastic reference assembly and nontrivial eigenvalue conclusion of the near-optimal factor theorem; remaining degree-normalized/eigenvalue-indexed and logarithmic-accuracy corollaries. The same actual factor family now has the explicit floor rank, whole-terminal relative-degree error and normalized operator error against U, without a moving fixed-parameter inference.",
+      "The complete near-optimal factor theorem is compiled. Remaining work includes Hamilton-cycle packing and resilience, degree-normalized spectrum/logarithmic accuracy, rounding and the other advertised arithmetic applications, and public export/Solution integration. Headline incomplete.",
       "Coprime and layered arithmetic specializations, parity cases and all other advertised paper claims.",
       "Public exports, claim-by-claim paper synchronization, focused builds, final staged repository checks and commits."
     ],
@@ -6086,13 +6116,265 @@
         ],
         "log_sha256": "CAB4B022C56497AFB023F8CE3DFF82300BB4576459E3153CFF8893064085846E",
         "scope": "Only the21 core new floor/logarithmic-budget, two-term normalization, simultaneous actual factor-family, actual operator-rate and conditional support-mixture declarations. The packet structure is included; its main construction proofs transitively cover its fields. No unchanged provider was re-audited."
+      },
+      {
+        "status": "passed",
+        "modules": [
+          "PrimeFactorOscillations.Helpers.HamiltonianPrimeFactorReference",
+          "PrimeFactorOscillations.Helpers.HamiltonianBipartiteEigenvalues",
+          "PrimeFactorOscillations.Helpers.HamiltonianPrimeFactorLimits",
+          "PrimeFactorOscillations.Helpers.HamiltonianPrimeFactorEigenvalues",
+          "PrimeFactorOscillations.Helpers.HamiltonianPrimeFactorHeadline"
+        ],
+        "declaration_count": 29,
+        "declarations": [
+          {
+            "name": "PrimeFactorOscillations.LPF.hamiltonian_prime_normalized_factor_stochastic",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.LPF.HamiltonianPrimeFactorReferencePacket",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.LPF.hamiltonian_prime_factor_reference_family",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonian_quadratic_mulVec",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonian_eigenvalue_error_bound",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonian_bipartite_mulVec_left",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonian_bipartite_mulVec_right",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonian_bipartite_eigenvector_sums",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonian_stochastic_bipartite_eigenvalue_bound",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "hamiltonian_factor_log_error_window",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.LPF.hamiltonian_prime_factor_error_terminal",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.LPF.hamiltonian_prime_factor_mixture_terminal",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.LPF.hamiltonian_prime_factor_packet_deviations_terminal",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonian_real_hermitian_eigenvalue_test",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.LPF.hamiltonianPrimeRegularCross",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.LPF.hamiltonian_prime_regular_cross_reindex",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.LPF.hamiltonian_prime_regular_cross_stochastic",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.LPF.hamiltonian_prime_regular_cross_centered_norm",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.LPF.hamiltonian_prime_factor_eigenvalue_error",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.LPF.hamiltonian_prime_raw_factor_eigenvalue_error",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.LPF.hamiltonian_prime_factor_hermitian",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.LPF.hamiltonian_prime_factor_native_eigenvalue_error",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.LPF.hamiltonian_prime_factor_constant_eigenvector",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.LPF.hamiltonianPrimeFactorParity",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.LPF.hamiltonian_prime_factor_parity_eigenvector",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.LPF.hamiltonian_prime_factor_degree_upper",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.LPF.HamiltonianPrimeFactorSpectralWindow",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.LPF.hamiltonian_prime_factor_spectral_terminal",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.LPF.hamiltonian_prime_near_optimal_factor_family",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          }
+        ],
+        "allowed_axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "log_sha256": "A78D841BAD1FC60F2A63CFA222E759D4C56853238D3D4B8067F995EC5E092515",
+        "scope": "Only29 newly compiled core declarations in these five owners; previously checked immutable providers were not re-audited."
       }
     ],
     "active_proof": {
-      "module": "PrimeFactorOscillations.Helpers.HamiltonianPrimeFactorNormalization",
-      "status": "The signed weighted Hamiltonian comparison, density/power-decay and inverse, exact-entropy unoriented relative prime-circle formulas, full physical sharp prime transfer/cuts(26)-(28), complete finite integral factor criterion and actual fixed-defect prime factors remain compiled and audited. The single shrinking-defect prime-factor family is now compiled: one B>0 and fixed threshold work simultaneously, eps_m=B/sqrt(log(2m)), D_m=2m/log(2m), r_m=floor((1-10eps_m)D_m), with exact original prime support, both degree equalities and D_m/2<=r_m<=D_m. HamiltonianFactorFloor retains the one-unit floor error and proves D_m>=log(2m)/4; the same global family satisfies abs(r_m/D_m-1)<=10B/sqrt(log(2m))+4/log(2m). HamiltonianFactorNormalization retains both exact terms J/r-U=(J-DU)/r+((D-r)/r)U and proves the bound62eps+6/D. HamiltonianPrimeFactorNormalization consumes the retained original degree estimates and proves norm(J_m/r_m-U_(2m))<=62B/sqrt(log(2m))+24/log(2m). HamiltonianSupportMixture proves the conditional full-support symmetric stochastic mixture and perturbation<=2delta. All21 core declarations in five new maintained owners pass the focused foundational audit; unchanged providers are not re-audited. The actual full-support stochastic reference assembly and eigenvalue conclusion for the near-optimal factor theorem, remaining degree-normalized/logarithmic-accuracy, rounding/congruence/coprime/layered and other advertised arithmetic results, and full public integration remain unfinished. The complete paper headline is not yet Lean-certified.",
+      "module": "PrimeFactorOscillations.Helpers.HamiltonianPrimeFactorHeadline",
+      "status": "The signed weighted Hamiltonian comparison, critical logarithmic density and inverse, exact-entropy unoriented relative prime-circle formulas, complete unweighted physical transfer/cuts, and full finite regular-factor construction remain compiled and audited. The near-optimal prime-factor theorem now has a complete maintained consumer: one B>0, fixed initial threshold and one actual simple prime-factor family have r_m=floor((1-10B/sqrt(log(2m)))D_m), D_m=2m/log(2m), exact degrees and original prime support. One full-support symmetric stochastic reference family P_m=(1-1/(m+1))J_m/r_m+(1/(m+1))R_m retains every prime edge. Whole-terminal epsilon bounds prove r_m/D_m->1, norm(J_m/r_m-P_m)->0 and norm(P_m-U_(2m))->0. The same family has norm(J_m/r_m-P0_(2m))<=1/2+eta eventually for every eta>0. Actual normalized eigenvector block sums are derived, and the native Hermitian adjacency eigenvalues unequal to r_m,-r_m have modulus <=(1/2+eta)r_m. Exact constant/parity eigenvectors and uniform asymptotic optimality against every other regular factor are proved. All29 core declarations in five new owners pass the focused foundational audit; unchanged providers are not re-audited. Cycle packing/resilience, remaining degree-normalized/logarithmic-accuracy, rounding/congruence/coprime/layered and other advertised arithmetic results, and complete public integration remain unfinished. The whole paper headline is not yet Lean-certified.",
       "target": "Complete the paper headline from the actual unconditional constant/parity half-gap and the full weighted kernel count: true-prime support and degree estimates, diffuseness-sensitive scaling, exact entropy normalization and actual prime-circle count; complete all advertised arithmetic/parity claims and remaining corollaries, public exports, real Solution consumer and final staged checks. Then begin the authorized generalizations to RH, Hadamard and twin primes.",
-      "consumer": "The compiled single-family normalized factor and conditional support-mixture theorem now need their actual law consumer: symmetric nonnegative stochastic rows, no off-prime entries, one fixed-terminal full-support reference, and delta_m=1/(m+1). Then consume the existing actual half-gap and exact constant/parity reference action for the literal eigenvalue statement. No original-degree estimate or normalization term may be discarded.",
+      "consumer": "Apply the existing Hamiltonicity theorem to the actual prime-factor family after every cycle deletion, retaining the remaining degree r-2j and exact adjacency perturbation at most2j. For adversarial deletions retain all cut and degree losses before applying the complete integral factor construction. These must be actual finite simple graphs and Hamilton cycles, not scalar substitute hypotheses.",
       "proved_inputs": [
         "PrimeFactorOscillations.Helpers.HamiltonianMatrixSpectralAverage",
         "PrimeFactorOscillations.Helpers.HamiltonianRookGamma",
@@ -6860,6 +7142,36 @@
           "module": "PrimeFactorOscillations.Helpers.HamiltonianSupportMixture",
           "source_sha256": "1C8BF7FB70322EEA1B5F57E9E868C0AF6F6C18247963702DD103EE89B6CAB2A5",
           "content": "Conditional symmetric stochastic full-support convex mixture, exact support retention and perturbation<=2delta; its actual prime consumer remains next.",
+          "build_exit_code": 0
+        },
+        {
+          "module": "PrimeFactorOscillations.Helpers.HamiltonianPrimeFactorReference",
+          "source_sha256": "C2C1F3ABF90187C66717B546EB719DB06217A98E2887338A7DB3F74B5A010588",
+          "content": "The actual normalized factor stochastic law and off-prime zeros; one global full-support stochastic reference family with the complete 2/(m+1) perturbation and original comparison.",
+          "build_exit_code": 0
+        },
+        {
+          "module": "PrimeFactorOscillations.Helpers.HamiltonianBipartiteEigenvalues",
+          "source_sha256": "FEE11325077B740968635FFCE0A10BE1C376CBCACD6FAD4048A1AB25DC7C1E13",
+          "content": "Actual bipartite eigenvector block-sum identities and a nontrivial eigenvalue estimate deriving orthogonality from the eigen equations.",
+          "build_exit_code": 0
+        },
+        {
+          "module": "PrimeFactorOscillations.Helpers.HamiltonianPrimeFactorLimits",
+          "source_sha256": "7737B3DDFD98657B1DB6765FE0B4CD8356EFDB846F53FEFB2480AECC37116988",
+          "content": "Uniform whole-terminal epsilon bounds for the logarithmic/floor/mixture errors of the same selected family.",
+          "build_exit_code": 0
+        },
+        {
+          "module": "PrimeFactorOscillations.Helpers.HamiltonianPrimeFactorEigenvalues",
+          "source_sha256": "5F318C8C5FB7542EE74CF719A1B8B836CDEC2C5BE8F3AAB52E1E98F3E4CCE3B2",
+          "content": "Exact physical-to-cross reindexing, actual normalized/raw adjacency eigenvalue estimates, and native real Hermitian eigenvalue readout.",
+          "build_exit_code": 0
+        },
+        {
+          "module": "PrimeFactorOscillations.Helpers.HamiltonianPrimeFactorHeadline",
+          "source_sha256": "8B22C1BB9DC57CC7BB03E5E9D79AF8C6EEB96210E41731534BBB8A76BAA56A47",
+          "content": "The same near-optimal global factor/reference family with every terminal error and spectral estimate, exact constant/parity eigenvector identities, and uniform optimality over every regular competitor.",
           "build_exit_code": 0
         }
       ]

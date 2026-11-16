@@ -114,8 +114,8 @@ the same full cut and proves (22).
 adjacency row counts and (23), and assembles both conclusions
 for the same factor. All thirty-four declarations in these six
 owners pass the focused foundational-axiom audit. The actual
-near-optimal prime-factor consumer below remains a separate
-formalization obligation.
+near-optimal prime-factor consumer, including the single family
+and its native adjacency eigenvalues, is formalized below.
 
 Let \(B_N\) denote the ordinary adjacency matrix of \(G_N\)
 and put \(D_N^*=N/\log N\).
@@ -372,9 +372,55 @@ that a positive mixture of a stochastic factor with a
 full-support stochastic reference retains every original
 edge, with perturbation at most twice the mixing weight.
 Twenty-one core declarations in these five owners pass
-focused foundational-axiom checks. The final full-support
-reference assembly and eigenvalue conclusion in
-Theorem~\ref{thm:nearlyoptimalfactor} remain to be formalized.
+focused foundational-axiom checks.
+
+Theorem~\ref{thm:nearlyoptimalfactor} now has its complete
+maintained consumer. \texttt{HamiltonianPrimeFactorReference}
+proves the normalized factor's actual stochastic law and
+constructs one full-support reference family
+\[
+ P_m=(1-\delta_m)\frac{A_{J_m}}{r_m}+\delta_m R_m,
+ \qquad \delta_m=\frac1{m+1},
+\]
+using one fixed-terminal full-support stochastic family \(R_m\).
+It retains exact symmetry, nonnegativity, every row and column
+sum, and every original prime edge, with
+\[
+ \left\|\frac{A_{J_m}}{r_m}-P_m\right\|\leq\frac2{m+1},
+ \qquad
+ \|P_m-U_{2m}\|\leq
+       \frac{62B}{\sqrt L}+\frac{24}L+\frac2{m+1}.
+\]
+\texttt{HamiltonianPrimeFactorLimits} proves the complete
+terminal epsilon bounds; the same chosen family works for
+every precision. \texttt{HamiltonianBipartiteEigenvalues}
+derives both vanishing block sums from the actual eigenvector
+equations whenever the normalized eigenvalue differs from
+\(1,-1\). Thus the constant/parity reference acts as zero,
+without an added orthogonality hypothesis.
+\texttt{HamiltonianPrimeFactorEigenvalues} transfers this
+argument through the exact vertex bijection and applies it
+to the native real Hermitian eigenvalues of \(A_{J_m}\).
+
+Finally, \texttt{HamiltonianPrimeFactorHeadline} proves,
+for every \(\eta>0\), one terminal threshold for which the
+same \(J_m,P_m\) satisfy
+\[
+ \left|\frac{r_m}{D}-1\right|\leq\eta,\qquad
+ \left\|\frac{A_{J_m}}{r_m}-P_m\right\|\leq\eta,\qquad
+ \left\|\frac{A_{J_m}}{r_m}-P_{0,2m}\right\|
+       \leq\frac12+\eta .
+\]
+Every native adjacency eigenvalue unequal to \(r_m,-r_m\)
+then has modulus at most \((1/2+\eta)r_m\).
+The exact constant and parity eigenvector identities are
+also proved. Uniformly over every other regular factor
+\(K\subseteq G_{2m}\) of degree \(s\), the same terminal
+interval gives \(s/D\leq1+\eta\), proving asymptotic degree
+optimality. All twenty-nine core declarations in these five
+new owners pass focused foundational-axiom checks.
+The cycle-packing and resilience theorems below retain their
+separate formalization obligations.
 
 \begin{theorem}[A positive proportion of the prime edges in Hamilton cycles]
 \label{thm:manycycles}
