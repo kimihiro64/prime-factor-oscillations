@@ -43,8 +43,8 @@
       "kind": "lemma",
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\scaling.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
-      "lean_status": "full_direct_centered_gap_scaling_and_output_formalized_normalized_spectral_input_pending",
-      "audit_note": "The full original-matrix scaling consumer is compiled with logarithmic diffuseness cost and exact same-witness support/cap/operator outputs. The actual degree Jacobian and parity conservation are retained. The normalized-spectral-input conversion stated in this paper lemma remains pending; the direct centered-gap form needed by the arithmetic consumer is proved and included in the28-declaration focused foundational-axiom audit."
+      "lean_status": "fully_formalized_native_normalized_spectral_scaling_with_dimension_only_constants",
+      "audit_note": "The full native normalized-spectral input and every same-witness output in(5) are now compiled. HamiltonianNormalizedPerron derives the actual weighted Perron equations, equal squared norms and exact mode from the original row/column sums. HamiltonianWeightedBipartiteModes and HamiltonianHermitianDeflation consume the simple+1,-1 eigenspaces and every other native Hermitian eigenvalue by exact signed eigenbasis deflation. HamiltonianNormalizedDegreeGap retains the7eps weighted rank-one correction and full8eps centered norm change. HamiltonianNormalizedScaling consumes the existing nonlinear inverse, cross terms and parity conservation. HamiltonianScalingOrderBudget proves explicit dimension-only c_delta,C_delta and the complete eps*log(2N)^2 smallness. HamiltonianNormalizedSpectralScaling proves the full positive exact scaling, stochastic rows/columns, unchanged support, pointwise cap2Q and both C_delta*eps*log(2N) errors, includingeps=0. All51 core declarations in seven maintained owners pass the focused foundational audit and fresh hash-bound direct compilation. No normalized-spectrum adapter, analytic estimate or existence oracle remains for this lemma."
     },
     {
       "id": "cor:forbiddenrepair",
@@ -78,7 +78,7 @@
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\prime-sum.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
       "lean_status": "actual_uniform_constant_parity_half_gap_formalized_eigenvalue_indexed_corollary_pending",
-      "audit_note": "The actual arithmetic operator, complete rational signed model and both physical frames are consumed without an unresolved remainder. HamiltonianPrimeOperatorGap proves for every eps>0 one n0 with norm(A_n-P0_n)<=1/2+eps for all n>=n0; P0_n(i,j)=(1-(-1)^(i+j))/n is exactly the denominator-one/two operator. Its common period is constructed and eliminated. All13 new declarations pass the focused foundational-axiom audit. The paper's eigenvalue-indexed wording remains to be formalized from this direct operator estimate; The true-prime support, uniform degrees and real-matrix half-gap are now formalized; degree normalization and scaling remain open."
+      "audit_note": "The actual arithmetic operator, complete rational signed model and both physical frames are consumed without an unresolved remainder. HamiltonianPrimeOperatorGap proves for every eps>0 one n0 with norm(A_n-P0_n)<=1/2+eps for all n>=n0; P0_n(i,j)=(1-(-1)^(i+j))/n is exactly the denominator-one/two operator. Its common period is constructed and eliminated. All13 new declarations pass the focused foundational-axiom audit. The paper's eigenvalue-indexed wording remains to be formalized from this direct operator estimate; The true-prime support, uniform degrees and real-matrix half-gap are now formalized; the generic native normalized-spectral scaling theorem is now fully compiled, while this actual integer operator's eigenvalue-order corollary remains pending."
     },
     {
       "id": "lem:primeweights",
@@ -86,8 +86,8 @@
       "kind": "lemma",
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\prime-sum.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
-      "lean_status": "true_prime_support_uniform_degrees_real_half_gap_and_support_formalized_normalized_spectrum_and_scaling_pending",
-      "audit_note": "The exact distinct-prime support, complete removed prime-power/loop mass and actual half-gap were already formalized. HamiltonianUniformThetaError and HamiltonianPrimeDegrees now prove every fixed logarithmic degree accuracy uniformly across every row endpoint, with exact finite windows and the removed diagonal retained. HamiltonianPrimeRealMatrix transfers the actual half-gap and degrees to the real matrix without loss and proves nonnegativity, symmetry, zero diagonal, bipartite support and entry cap. All28 new declarations pass the focused foundational-axiom audit. The degree-normalized eigenvalue statement remains unfinished. The full direct-centered-gap scaling consumer is now compiled, as recorded under the scaling claims."
+      "lean_status": "true_prime_support_uniform_degrees_and_exact_scaling_formalized_normalized_eigenvalue_readout_pending",
+      "audit_note": "The exact distinct-prime support, complete removed prime-power/loop mass and actual half-gap were already formalized. HamiltonianUniformThetaError and HamiltonianPrimeDegrees now prove every fixed logarithmic degree accuracy uniformly across every row endpoint, with exact finite windows and the removed diagonal retained. HamiltonianPrimeRealMatrix transfers the actual half-gap and degrees to the real matrix without loss and proves nonnegativity, symmetry, zero diagonal, bipartite support and entry cap. All28 new declarations pass the focused foundational-axiom audit. The degree-normalized eigenvalue statement remains unfinished. The full direct-centered-gap scaling consumer is now compiled, as recorded under the scaling claims. The generic native normalized-spectral scaling theorem is now complete under the explicit spectral packet, with dimension-only constants and exact same-witness support/cap/operator outputs. The actual prime-weight matrix's degree-normalized eigenvalue readout is still a distinct unfinished clause. Existing actual prime stochastic/physical scaling and exact entropy-count providers are reused by matching unchanged sources and three immutable successful audits; no repeated axiom audit was run."
     },
     {
       "id": "lem:regularfactor",
@@ -365,7 +365,7 @@
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\relative-permanents.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
       "lean_status": "fully_formalized_direct_normalized_uniform_statement",
-      "audit_note": "Both paper permanent statements now have direct maintained normalized Lean consumers. stochastic_permanent_relative_correction_polylog_uniform proves, for one N0(delta,K)>=16 and every admissible kernel and 1<=A<=log(N)^K, abs((N^N/N!)*per(T)/Delta(1)-(1+Q_N(T)))<=(1+A)^24*C_delta/N^2 and abs(Q_N(T))<=21*A^2/(delta^3*N). For K>0, hamiltonian_permanent_polylog_first_order_budget supplies the uniform scalar threshold, and stochastic_permanent_first_order_polylog_uniform proves the directly normalized first-order error <=N^(-1/8). The full common threshold is independent of the kernel. These three new theorems compile and pass the focused foundational-axiom audit. The complete signed second-order expansion is retained for the critical Hamiltonian consumer; its first-order consequence is not substituted into that sharper argument. The complete signed counting method, inverse, exact-entropy prime circles, physical transfer/cuts, near-optimal prime factors and fullD/1000 resilience remain compiled. The full uniform prime Hamilton-cycle packing theorem is now proved: for every fixed0<kappa<1/8 and every sufficiently large evenN, there are at least floor(kappa*N/logN) pairwise edge-disjoint Hamilton cycles. The maintained theorem retains the original distinct-integer and prime-sum edge conditions. Its proof consumes the full uniform signed count after every admissible regular deletion, exact two-edge cycle degrees, exact remaining degrees r-2j, disjoint finite iteration, one global prime-factor family and the full rank margin. All21 new core declarations in four owners pass the focused foundational audit. No unresolved analytic or finite-iteration estimate remains for this packing claim. Other advertised arithmetic/rounding/counting claims and public Solution integration remain unfinished. The whole paper headline is not yet Lean-certified."
+      "audit_note": "Both paper permanent statements now have direct maintained normalized Lean consumers. stochastic_permanent_relative_correction_polylog_uniform proves, for one N0(delta,K)>=16 and every admissible kernel and 1<=A<=log(N)^K, abs((N^N/N!)*per(T)/Delta(1)-(1+Q_N(T)))<=(1+A)^24*C_delta/N^2 and abs(Q_N(T))<=21*A^2/(delta^3*N). For K>0, hamiltonian_permanent_polylog_first_order_budget supplies the uniform scalar threshold, and stochastic_permanent_first_order_polylog_uniform proves the directly normalized first-order error <=N^(-1/8). The full common threshold is independent of the kernel. These three new theorems compile and pass the focused foundational-axiom audit. The complete signed second-order expansion is retained for the critical Hamiltonian consumer; its first-order consequence is not substituted into that sharper argument. The complete signed comparison, inverse, exact-entropy prime circles, physical cuts, near-optimal prime factors, fullD/1000 resilience and full uniform actual-prime Hamilton-cycle packing remain compiled. The full finite scaling theorem from the native degree-normalized spectrum is now also proved. For every fixed0<delta<1, explicit positive c_delta and C_delta depend only ondelta; for every nonempty finite bipartite cross block with row/column defects0<=eps<=1/2, simple weighted exceptional eigenspaces at+1,-1 and every other actual Hermitian eigenvalue bounded by1-delta, eps*log(2N)^2<=c_delta gives one positive exact stochastic scaling with unchanged zero support, pointwise capP<=2Q and both displacement/operator error<=C_delta*eps*log(2N). Zero defect is included. Weighted Perron equations, exact signed eigenbasis deflation, the7eps rank-one correction, full8eps centered conversion, actual nonlinear repair and all dimension-only constants are consumed. All51 new core declarations in seven owners pass the focused foundational audit; the seven sources also pass fresh hash-bound direct compiler checks. Remaining forbidden-edge, rounding, arithmetic/counting and public-integration claims are not yet complete. The whole paper headline remains uncertified."
     },
     {
       "id": "lem:relativecompensatedminors",
@@ -486,7 +486,7 @@
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\permanent-second-order.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
       "lean_status": "fully_formalized_direct_normalized_uniform_statement",
-      "audit_note": "Both paper permanent statements now have direct maintained normalized Lean consumers. stochastic_permanent_relative_correction_polylog_uniform proves, for one N0(delta,K)>=16 and every admissible kernel and 1<=A<=log(N)^K, abs((N^N/N!)*per(T)/Delta(1)-(1+Q_N(T)))<=(1+A)^24*C_delta/N^2 and abs(Q_N(T))<=21*A^2/(delta^3*N). For K>0, hamiltonian_permanent_polylog_first_order_budget supplies the uniform scalar threshold, and stochastic_permanent_first_order_polylog_uniform proves the directly normalized first-order error <=N^(-1/8). The full common threshold is independent of the kernel. These three new theorems compile and pass the focused foundational-axiom audit. The complete signed second-order expansion is retained for the critical Hamiltonian consumer; its first-order consequence is not substituted into that sharper argument. The complete signed counting method, inverse, exact-entropy prime circles, physical transfer/cuts, near-optimal prime factors and fullD/1000 resilience remain compiled. The full uniform prime Hamilton-cycle packing theorem is now proved: for every fixed0<kappa<1/8 and every sufficiently large evenN, there are at least floor(kappa*N/logN) pairwise edge-disjoint Hamilton cycles. The maintained theorem retains the original distinct-integer and prime-sum edge conditions. Its proof consumes the full uniform signed count after every admissible regular deletion, exact two-edge cycle degrees, exact remaining degrees r-2j, disjoint finite iteration, one global prime-factor family and the full rank margin. All21 new core declarations in four owners pass the focused foundational audit. No unresolved analytic or finite-iteration estimate remains for this packing claim. Other advertised arithmetic/rounding/counting claims and public Solution integration remain unfinished. The whole paper headline is not yet Lean-certified."
+      "audit_note": "Both paper permanent statements now have direct maintained normalized Lean consumers. stochastic_permanent_relative_correction_polylog_uniform proves, for one N0(delta,K)>=16 and every admissible kernel and 1<=A<=log(N)^K, abs((N^N/N!)*per(T)/Delta(1)-(1+Q_N(T)))<=(1+A)^24*C_delta/N^2 and abs(Q_N(T))<=21*A^2/(delta^3*N). For K>0, hamiltonian_permanent_polylog_first_order_budget supplies the uniform scalar threshold, and stochastic_permanent_first_order_polylog_uniform proves the directly normalized first-order error <=N^(-1/8). The full common threshold is independent of the kernel. These three new theorems compile and pass the focused foundational-axiom audit. The complete signed second-order expansion is retained for the critical Hamiltonian consumer; its first-order consequence is not substituted into that sharper argument. The complete signed comparison, inverse, exact-entropy prime circles, physical cuts, near-optimal prime factors, fullD/1000 resilience and full uniform actual-prime Hamilton-cycle packing remain compiled. The full finite scaling theorem from the native degree-normalized spectrum is now also proved. For every fixed0<delta<1, explicit positive c_delta and C_delta depend only ondelta; for every nonempty finite bipartite cross block with row/column defects0<=eps<=1/2, simple weighted exceptional eigenspaces at+1,-1 and every other actual Hermitian eigenvalue bounded by1-delta, eps*log(2N)^2<=c_delta gives one positive exact stochastic scaling with unchanged zero support, pointwise capP<=2Q and both displacement/operator error<=C_delta*eps*log(2N). Zero defect is included. Weighted Perron equations, exact signed eigenbasis deflation, the7eps rank-one correction, full8eps centered conversion, actual nonlinear repair and all dimension-only constants are consumed. All51 new core declarations in seven owners pass the focused foundational audit; the seven sources also pass fresh hash-bound direct compiler checks. Remaining forbidden-edge, rounding, arithmetic/counting and public-integration claims are not yet complete. The whole paper headline remains uncertified."
     },
     {
       "id": "thm:minorjet",
@@ -495,7 +495,7 @@
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\compensated-minor-jet.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
       "lean_status": "fully_formalized_actual_uniform_two_power_minor_expansion",
-      "audit_note": "The complete signed counting method, inverse, exact-entropy prime circles, physical transfer/cuts, near-optimal prime factors and fullD/1000 resilience remain compiled. The full uniform prime Hamilton-cycle packing theorem is now proved: for every fixed0<kappa<1/8 and every sufficiently large evenN, there are at least floor(kappa*N/logN) pairwise edge-disjoint Hamilton cycles. The maintained theorem retains the original distinct-integer and prime-sum edge conditions. Its proof consumes the full uniform signed count after every admissible regular deletion, exact two-edge cycle degrees, exact remaining degrees r-2j, disjoint finite iteration, one global prime-factor family and the full rank margin. All21 new core declarations in four owners pass the focused foundational audit. No unresolved analytic or finite-iteration estimate remains for this packing claim. Other advertised arithmetic/rounding/counting claims and public Solution integration remain unfinished. The whole paper headline is not yet Lean-certified."
+      "audit_note": "The complete signed comparison, inverse, exact-entropy prime circles, physical cuts, near-optimal prime factors, fullD/1000 resilience and full uniform actual-prime Hamilton-cycle packing remain compiled. The full finite scaling theorem from the native degree-normalized spectrum is now also proved. For every fixed0<delta<1, explicit positive c_delta and C_delta depend only ondelta; for every nonempty finite bipartite cross block with row/column defects0<=eps<=1/2, simple weighted exceptional eigenspaces at+1,-1 and every other actual Hermitian eigenvalue bounded by1-delta, eps*log(2N)^2<=c_delta gives one positive exact stochastic scaling with unchanged zero support, pointwise capP<=2Q and both displacement/operator error<=C_delta*eps*log(2N). Zero defect is included. Weighted Perron equations, exact signed eigenbasis deflation, the7eps rank-one correction, full8eps centered conversion, actual nonlinear repair and all dimension-only constants are consumed. All51 new core declarations in seven owners pass the focused foundational audit; the seven sources also pass fresh hash-bound direct compiler checks. Remaining forbidden-edge, rounding, arithmetic/counting and public-integration claims are not yet complete. The whole paper headline remains uncertified."
     },
     {
       "id": "lem:signedoccupancy",
@@ -504,7 +504,7 @@
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\signed-jet-comparison.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
       "lean_status": "fully_formalized_actual_signed_coordinate_and_analytic_size_moments",
-      "audit_note": "All actual coordinate moments, full independent balanced-support readouts, complete signed first-order consumer, and exact analytic size-derivative identity have maintained Lean proofs. HamiltonianSignedSizeDerivative proves g''(1)=L(r(r-1))=4d'(1)+3d''(1) in both Gram conventions and abs(g''(1))<=53*abs(d)*(A/(1-rho))^2 from the original stochastic hypotheses. All12 new declarations pass the focused foundational-axiom audit. The complete signed counting method, inverse, exact-entropy prime circles, physical transfer/cuts, near-optimal prime factors and fullD/1000 resilience remain compiled. The full uniform prime Hamilton-cycle packing theorem is now proved: for every fixed0<kappa<1/8 and every sufficiently large evenN, there are at least floor(kappa*N/logN) pairwise edge-disjoint Hamilton cycles. The maintained theorem retains the original distinct-integer and prime-sum edge conditions. Its proof consumes the full uniform signed count after every admissible regular deletion, exact two-edge cycle degrees, exact remaining degrees r-2j, disjoint finite iteration, one global prime-factor family and the full rank margin. All21 new core declarations in four owners pass the focused foundational audit. No unresolved analytic or finite-iteration estimate remains for this packing claim. Other advertised arithmetic/rounding/counting claims and public Solution integration remain unfinished. The whole paper headline is not yet Lean-certified."
+      "audit_note": "All actual coordinate moments, full independent balanced-support readouts, complete signed first-order consumer, and exact analytic size-derivative identity have maintained Lean proofs. HamiltonianSignedSizeDerivative proves g''(1)=L(r(r-1))=4d'(1)+3d''(1) in both Gram conventions and abs(g''(1))<=53*abs(d)*(A/(1-rho))^2 from the original stochastic hypotheses. All12 new declarations pass the focused foundational-axiom audit. The complete signed comparison, inverse, exact-entropy prime circles, physical cuts, near-optimal prime factors, fullD/1000 resilience and full uniform actual-prime Hamilton-cycle packing remain compiled. The full finite scaling theorem from the native degree-normalized spectrum is now also proved. For every fixed0<delta<1, explicit positive c_delta and C_delta depend only ondelta; for every nonempty finite bipartite cross block with row/column defects0<=eps<=1/2, simple weighted exceptional eigenspaces at+1,-1 and every other actual Hermitian eigenvalue bounded by1-delta, eps*log(2N)^2<=c_delta gives one positive exact stochastic scaling with unchanged zero support, pointwise capP<=2Q and both displacement/operator error<=C_delta*eps*log(2N). Zero defect is included. Weighted Perron equations, exact signed eigenbasis deflation, the7eps rank-one correction, full8eps centered conversion, actual nonlinear repair and all dimension-only constants are consumed. All51 new core declarations in seven owners pass the focused foundational audit; the seven sources also pass fresh hash-bound direct compiler checks. Remaining forbidden-edge, rounding, arithmetic/counting and public-integration claims are not yet complete. The whole paper headline remains uncertified."
     },
     {
       "id": "thm:criticalrelative",
@@ -530,8 +530,8 @@
       "kind": "lemma",
       "source": "C:\\Code\\prime-factor-oscillations\\paper\\weighted-expander-rounding-20261114\\prime-circle-relative.tex",
       "status": "ordinary_proof_written_and_internal_audit_passed",
-      "lean_status": "full_direct_centered_gap_support_preserving_repair_and_output_formalized_normalized_input_corollary_pending",
-      "audit_note": "HamiltonianDiffuseScaling now proves the full exact repair from the direct centered-gap input norm(T-J/m)<=rho-6eps, under eps*g^2<=1/256 with explicit logarithmic g. The same witness has positive multipliers, exact stochastic rows/columns, unchanged zero support, cap(1+r)^2*a/m and complete operator error(2r+r^2)*(1+eps), r=4eps*g. Actual degree diagonal, compatible perturbed inverse, nonlinear cross terms and exact parity conservation are consumed. All28 new declarations in six owners pass the focused foundational-axiom audit. Conversion from the degree-normalized spectral assumption in the paper lemma remains a separate formalization corollary."
+      "lean_status": "full_direct_diffuse_repair_and_native_spectral_conversion_compiled_logcap_consumer_pending",
+      "audit_note": "The previously checked direct diffuse repair and every same-witness output remain compiled with explicit logarithmic inverse g. The full native normalized-spectrum to exact weighted-mode norm conversion is now also compiled in HamiltonianNormalizedPerron and HamiltonianWeightedBipartiteModes. The full dimension-only normalized-spectral consumer is completed underlem:scaling. The precise diffuseness-sensitive paper consumer and its log(2+alpha*N) scalar calibration remain to be assembled; this row does not claim those from the dimension-only logarithmic bound."
     },
     {
       "id": "thm:relativeprimecircles",
@@ -995,7 +995,7 @@
   "source_hashes": [
     {
       "file": "scaling.tex",
-      "sha256": "D9B6EA23FC0BFD4941F2DA0EEC1EA84E85399C8F5D5ACCA050DFD7D4E05174F5"
+      "sha256": "F3F740B764D4DB8D65BC9340CC6065D6BC9CCCDA1BAF4286EA9F67FAF223C1C5"
     },
     {
       "file": "rounding.tex",
@@ -1003,7 +1003,7 @@
     },
     {
       "file": "prime-sum.tex",
-      "sha256": "D673E501D4E9EADA3D5BE479A0255C96F3E6EAC9C7ADE5FAFBA10974A554AB2E"
+      "sha256": "75FC4EF8050FDF60B9E155C0D083D560859B3A534969890445B5F31965E99C29"
     },
     {
       "file": "regular-factors.tex",
@@ -1088,12 +1088,12 @@
     "complete_consumer": "rho=a=3/5; amplification <=m^(27/20); first signed correction polylog/m; only residual pays amplification, giving O(N^(-3/5)).",
     "inverse": "A fixed relative counting defect forces collective singular mass >=(2/kappa_rho)log N-O(log log N).",
     "further_extension": "Arbitrary fixed logarithmic density coefficients, and all fixed congruence filters, would require higher-order compensated expansions beyond the proved two-power remainder.",
-    "next_review_focus": "Reconcile each remaining paper claim against its existing checked providers, then close the genuinely unfinished normalized-spectral scaling input, rounding, arithmetic and counting consumers with full clausewise proofs. Integrate the finished headline into the public Solution, compile the paper and run the final necessary checks. Keep RH/Hadamard/twin-prime transfers queued until the headline formalization is complete.",
+    "next_review_focus": "Prove the full forbidden-edge repair consumer using the now-compiled direct centered-gap stochastic scaling. For stochasticP with centered gapdelta, retainT=P-Q,0<=Q<=P and both removed row/column masses<=eta. Derive the same support, doubled entry cap, full error relative toP and thedelta/2 remaining gap with constants before all matrices and edge sets. Then complete the remaining genuine rounding/arithmetic/counting claims and public Solution integration, reconciling existing proof providers without repeated unchanged audits. Keep RH/Hadamard/twin-prime transfers queued until the entire headline is certified.",
     "independent_consumer_status": "Both actual integer prime-sum graphs and all growing coprime moduli have complete stated ordinary arguments."
   },
   "completion_receipt": {
     "requested_bar": "Finish the complete argument and its formalization at a level supporting a substantial original research contribution. A draft, helper proof, successful build or significance label does not finish this request; career impact cannot be certified by the author.",
-    "strongest_actual_theorem": "The complete signed counting method, inverse, exact-entropy prime circles, physical transfer/cuts, near-optimal prime factors and fullD/1000 resilience remain compiled. The full uniform prime Hamilton-cycle packing theorem is now proved: for every fixed0<kappa<1/8 and every sufficiently large evenN, there are at least floor(kappa*N/logN) pairwise edge-disjoint Hamilton cycles. The maintained theorem retains the original distinct-integer and prime-sum edge conditions. Its proof consumes the full uniform signed count after every admissible regular deletion, exact two-edge cycle degrees, exact remaining degrees r-2j, disjoint finite iteration, one global prime-factor family and the full rank margin. All21 new core declarations in four owners pass the focused foundational audit. No unresolved analytic or finite-iteration estimate remains for this packing claim. Other advertised arithmetic/rounding/counting claims and public Solution integration remain unfinished. The whole paper headline is not yet Lean-certified.",
+    "strongest_actual_theorem": "The complete signed comparison, inverse, exact-entropy prime circles, physical cuts, near-optimal prime factors, fullD/1000 resilience and full uniform actual-prime Hamilton-cycle packing remain compiled. The full finite scaling theorem from the native degree-normalized spectrum is now also proved. For every fixed0<delta<1, explicit positive c_delta and C_delta depend only ondelta; for every nonempty finite bipartite cross block with row/column defects0<=eps<=1/2, simple weighted exceptional eigenspaces at+1,-1 and every other actual Hermitian eigenvalue bounded by1-delta, eps*log(2N)^2<=c_delta gives one positive exact stochastic scaling with unchanged zero support, pointwise capP<=2Q and both displacement/operator error<=C_delta*eps*log(2N). Zero defect is included. Weighted Perron equations, exact signed eigenbasis deflation, the7eps rank-one correction, full8eps centered conversion, actual nonlinear repair and all dimension-only constants are consumed. All51 new core declarations in seven owners pass the focused foundational audit; the seven sources also pass fresh hash-bound direct compiler checks. Remaining forbidden-edge, rounding, arithmetic/counting and public-integration claims are not yet complete. The whole paper headline remains uncertified.",
     "complete_independent_applications": [
       "Every sufficiently large even integer prime-sum graph is Hamiltonian; log h=N log N-N log log N-N+o(N).",
       "Fixed congruence-filter connectedness/Hamiltonicity is classified exactly by gcd(q,R-R)=2, with a full positive residue-pressure formula.",
@@ -1104,12 +1104,12 @@
       "Actual unweighted prime-sum graph: full relative count around its exact entropy, with O(N^(-3/5)) error; no RH or prime-pair estimate."
     ],
     "primary_literature_comparison": "Cuckler-Kahn: dense Dirac and dense balanced bipartite entropy counts. Barvinok: all-positive matrices with a relative entry lower bound. Krivelevich and Byrne-Tait: nontrivial spectral ratio tending to zero logarithmically. The present argument permits sparse zero support and any fixed nontrivial gap. Bradač-Janzer 2026 is an essential independent spanning-path input. McCullagh's bounded normalized moments fail along primorials; Divoux-Wang's fixed-entry finite proof is tracked explicitly, rather than used outside its stated range. The new first-order signed compensation and rank-one parity-root calculation avoid the fixed-entry remainder amplification at prime density. They are the mechanism of the complete prime consumer, not merely a detector or matching identity.",
-    "proof_endpoint_status": "The complete signed counting method, inverse, exact-entropy prime circles, physical transfer/cuts, near-optimal prime factors and fullD/1000 resilience remain compiled. The full uniform prime Hamilton-cycle packing theorem is now proved: for every fixed0<kappa<1/8 and every sufficiently large evenN, there are at least floor(kappa*N/logN) pairwise edge-disjoint Hamilton cycles. The maintained theorem retains the original distinct-integer and prime-sum edge conditions. Its proof consumes the full uniform signed count after every admissible regular deletion, exact two-edge cycle degrees, exact remaining degrees r-2j, disjoint finite iteration, one global prime-factor family and the full rank margin. All21 new core declarations in four owners pass the focused foundational audit. No unresolved analytic or finite-iteration estimate remains for this packing claim. Other advertised arithmetic/rounding/counting claims and public Solution integration remain unfinished. The whole paper headline is not yet Lean-certified.",
+    "proof_endpoint_status": "The complete signed comparison, inverse, exact-entropy prime circles, physical cuts, near-optimal prime factors, fullD/1000 resilience and full uniform actual-prime Hamilton-cycle packing remain compiled. The full finite scaling theorem from the native degree-normalized spectrum is now also proved. For every fixed0<delta<1, explicit positive c_delta and C_delta depend only ondelta; for every nonempty finite bipartite cross block with row/column defects0<=eps<=1/2, simple weighted exceptional eigenspaces at+1,-1 and every other actual Hermitian eigenvalue bounded by1-delta, eps*log(2N)^2<=c_delta gives one positive exact stochastic scaling with unchanged zero support, pointwise capP<=2Q and both displacement/operator error<=C_delta*eps*log(2N). Zero defect is included. Weighted Perron equations, exact signed eigenbasis deflation, the7eps rank-one correction, full8eps centered conversion, actual nonlinear repair and all dimension-only constants are consumed. All51 new core declarations in seven owners pass the focused foundational audit; the seven sources also pass fresh hash-bound direct compiler checks. Remaining forbidden-edge, rounding, arithmetic/counting and public-integration claims are not yet complete. The whole paper headline remains uncertified.",
     "significance_assessment": "A general signed-estimation method now has a quantitative inverse and complete independent arithmetic consumers at actual prime density and through every coprime modulus. This supports a serious standalone research contribution. Career-defining impact and priority are not certified or inferred from compilation.",
     "paper_argument_delivered": true,
     "headline_all_orders_filz_proved": false,
     "lean_formalization_complete": false,
-    "next_safely_executable_research_action": "Reconcile each remaining paper claim against its existing checked providers, then close the genuinely unfinished normalized-spectral scaling input, rounding, arithmetic and counting consumers with full clausewise proofs. Integrate the finished headline into the public Solution, compile the paper and run the final necessary checks. Keep RH/Hadamard/twin-prime transfers queued until the headline formalization is complete.",
+    "next_safely_executable_research_action": "Prove the full forbidden-edge repair consumer using the now-compiled direct centered-gap stochastic scaling. For stochasticP with centered gapdelta, retainT=P-Q,0<=Q<=P and both removed row/column masses<=eta. Derive the same support, doubled entry cap, full error relative toP and thedelta/2 remaining gap with constants before all matrices and edge sets. Then complete the remaining genuine rounding/arithmetic/counting claims and public Solution integration, reconciling existing proof providers without repeated unchanged audits. Keep RH/Hadamard/twin-prime transfers queued until the entire headline is certified.",
     "next_gate": "Judge the complete new method and independent applications, not theorem counts or successful compilation; preserve exact entropy and explicit density scope.",
     "no_background_work_claimed": true,
     "expert_relevance_gate": {
@@ -1128,8 +1128,8 @@
     "committed_this_turn": true,
     "pushed_this_turn": false,
     "proofs_left_only_in_private_research": false,
-    "recorded_phase": "full_uniform_actual_prime_edge_disjoint_packing_compiled_other_headline_claims_pending",
-    "phase": "The complete signed counting method, inverse, exact-entropy prime circles, physical transfer/cuts, near-optimal prime factors and fullD/1000 resilience remain compiled. The full uniform prime Hamilton-cycle packing theorem is now proved: for every fixed0<kappa<1/8 and every sufficiently large evenN, there are at least floor(kappa*N/logN) pairwise edge-disjoint Hamilton cycles. The maintained theorem retains the original distinct-integer and prime-sum edge conditions. Its proof consumes the full uniform signed count after every admissible regular deletion, exact two-edge cycle degrees, exact remaining degrees r-2j, disjoint finite iteration, one global prime-factor family and the full rank margin. All21 new core declarations in four owners pass the focused foundational audit. No unresolved analytic or finite-iteration estimate remains for this packing claim. Other advertised arithmetic/rounding/counting claims and public Solution integration remain unfinished. The whole paper headline is not yet Lean-certified."
+    "recorded_phase": "native_normalized_spectral_scaling_complete_prime_packing_complete_remaining_headline_claims_pending",
+    "phase": "The complete signed comparison, inverse, exact-entropy prime circles, physical cuts, near-optimal prime factors, fullD/1000 resilience and full uniform actual-prime Hamilton-cycle packing remain compiled. The full finite scaling theorem from the native degree-normalized spectrum is now also proved. For every fixed0<delta<1, explicit positive c_delta and C_delta depend only ondelta; for every nonempty finite bipartite cross block with row/column defects0<=eps<=1/2, simple weighted exceptional eigenspaces at+1,-1 and every other actual Hermitian eigenvalue bounded by1-delta, eps*log(2N)^2<=c_delta gives one positive exact stochastic scaling with unchanged zero support, pointwise capP<=2Q and both displacement/operator error<=C_delta*eps*log(2N). Zero defect is included. Weighted Perron equations, exact signed eigenbasis deflation, the7eps rank-one correction, full8eps centered conversion, actual nonlinear repair and all dimension-only constants are consumed. All51 new core declarations in seven owners pass the focused foundational audit; the seven sources also pass fresh hash-bound direct compiler checks. Remaining forbidden-edge, rounding, arithmetic/counting and public-integration claims are not yet complete. The whole paper headline remains uncertified."
   },
   "formalization": {
     "status": "in_progress_not_complete",
@@ -3206,10 +3206,52 @@
         "source_sha256": "B56525921D6B2A9433933A5C9EC579BD073F4272604DFFCDBB4A1696338E219D",
         "content": "hamiltonian_prime_packing_rank_margin; hamiltonian_prime_edge_disjoint_cycles_uniform",
         "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianNormalizedDegreeGap",
+        "source_sha256": "16B9DCEBF3A09F95931DB2D892DEE4BC1D45956BF580642977BE02ED39198CE0",
+        "content": "hamiltonian_near_one_product_ratio; hamiltonianDegreeReference; hamiltonian_degree_reference_error; hamiltonianDegreeNormalizedCross; hamiltonianDegreeNormalizedMode; hamiltonian_degree_conjugation_identity; hamiltonian_degree_conjugation_norm; hamiltonian_normalized_degree_centered_gap",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianNormalizedScaling",
+        "source_sha256": "2480368546221187F52F6C0C00F9449C634382F48AD534F1A4B886AFC59A844F",
+        "content": "hamiltonianCrossRowDegrees; hamiltonianCrossColumnDegrees; hamiltonianCrossMeanDegree; hamiltonian_cross_degree_totals; hamiltonian_uniform_degree_mean_error; hamiltonianActualDegreeNormalizedCross; hamiltonianActualDegreeNormalizedMode; hamiltonian_actual_normalized_degree_gap; hamiltonian_actual_stochastic_repair_from_normalized_gap",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianHermitianDeflation",
+        "source_sha256": "670638180D073543E2937CA69435FDEC9DE9575C0EE9B234E6F7214C8CFE35E2",
+        "content": "hamiltonian_real_orthogonal_norm_le_one; hamiltonian_orthogonal_diagonal_action_norm; hamiltonian_real_eigenmatrix_right_inverse; hamiltonian_real_eigenmatrix_action; hamiltonian_hermitian_signed_deflation_norm",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianWeightedBipartiteModes",
+        "source_sha256": "ACCF7061927AE1A0ECE35963140942CA62E73EF615DA5F1292247E4D9EF3172F",
+        "content": "hamiltonianWeightedCrossMode; hamiltonianWeightedPlus; hamiltonianWeightedMinus; hamiltonian_weighted_mode_left; hamiltonian_weighted_mode_right; hamiltonian_weighted_mode_signed_actions; hamiltonian_weighted_eigenvector_sums; hamiltonian_weighted_simple_spectral_gap",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianNormalizedPerron",
+        "source_sha256": "8AE340176C6153F3231B5B33F72C21639BDE712D6D20E6512D61D6B374CC86DD",
+        "content": "hamiltonianRowRoot; hamiltonianColumnRoot; hamiltonianTotalDegree; hamiltonian_total_degree_positive; hamiltonian_degree_roots_equal_norms; hamiltonian_actual_normalized_perron_left; hamiltonian_actual_normalized_perron_right; hamiltonian_actual_normalized_mode_identity; hamiltonian_actual_normalized_native_gap; HamiltonianNormalizedSpectralPacket",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianScalingOrderBudget",
+        "source_sha256": "515B046A244156D4A5A58E7F5DD06254DEB16B4F3F46EA9FDACC73086D310D99",
+        "content": "hamiltonianScalingOrderCost; hamiltonianScalingOrderSmall; hamiltonian_scaling_order_cost_positive; hamiltonian_scaling_order_small_positive; hamiltonian_diffuse_inverse_order_bound; hamiltonian_scaling_order_all_budgets",
+        "build_exit_code": 0
+      },
+      {
+        "module": "PrimeFactorOscillations.Helpers.HamiltonianNormalizedSpectralScaling",
+        "source_sha256": "537B5456F39BF1BA5AA91D56057E0C54C2D85D864C763251799C66AD15BA9BA6",
+        "content": "hamiltonianNormalizedScalingSmall; hamiltonianNormalizedScalingCost; hamiltonian_normalized_scaling_constants_positive; hamiltonian_centered_gap_stochastic_scaling; hamiltonian_normalized_spectral_stochastic_scaling",
+        "build_exit_code": 0
       }
     ],
     "unfinished_dependencies": [
-      "The full uniform actual prime Hamilton-cycle packing theorem is compiled and audited, including finite iteration and every integer-label support condition. Other advertised arithmetic/rounding/counting claims and public Solution integration remain unfinished.",
+      "The full native degree-normalized spectral scaling theorem, dimension-only constants, zero-defect case and all positive same-witness support/cap/operator outputs are compiled and audited. Prime packing and resilience remain complete. Full forbidden-edge repair, rounding, remaining arithmetic/counting and public Solution integration are unfinished.",
       "Coprime and layered arithmetic specializations, parity cases and all other advertised paper claims.",
       "Public exports, claim-by-claim paper synchronization, focused builds, final staged repository checks and commits."
     ],
@@ -7831,13 +7873,443 @@
         ],
         "log_sha256": "A6C64E6E7D5E0D0799EA7B6324162E45412DB770413A28DA24028FF0F1A3B561",
         "scope": "Only21 new core declarations in four maintained owners; all unchanged analytic, factor-family and signed-count providers reused without repeated audits."
+      },
+      {
+        "status": "passed",
+        "modules": [
+          "PrimeFactorOscillations.Helpers.HamiltonianNormalizedDegreeGap",
+          "PrimeFactorOscillations.Helpers.HamiltonianNormalizedScaling",
+          "PrimeFactorOscillations.Helpers.HamiltonianHermitianDeflation",
+          "PrimeFactorOscillations.Helpers.HamiltonianWeightedBipartiteModes",
+          "PrimeFactorOscillations.Helpers.HamiltonianNormalizedPerron",
+          "PrimeFactorOscillations.Helpers.HamiltonianScalingOrderBudget",
+          "PrimeFactorOscillations.Helpers.HamiltonianNormalizedSpectralScaling"
+        ],
+        "declaration_count": 51,
+        "declarations": [
+          {
+            "name": "PrimeFactorOscillations.hamiltonian_near_one_product_ratio",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonianDegreeReference",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonian_degree_reference_error",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonianDegreeNormalizedCross",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonianDegreeNormalizedMode",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonian_degree_conjugation_identity",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonian_degree_conjugation_norm",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonian_normalized_degree_centered_gap",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonianCrossRowDegrees",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonianCrossColumnDegrees",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonianCrossMeanDegree",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonian_cross_degree_totals",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonian_uniform_degree_mean_error",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonianActualDegreeNormalizedCross",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonianActualDegreeNormalizedMode",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonian_actual_normalized_degree_gap",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonian_actual_stochastic_repair_from_normalized_gap",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonian_real_orthogonal_norm_le_one",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonian_orthogonal_diagonal_action_norm",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonian_real_eigenmatrix_right_inverse",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonian_real_eigenmatrix_action",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonian_hermitian_signed_deflation_norm",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonianWeightedCrossMode",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonianWeightedPlus",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonianWeightedMinus",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonian_weighted_mode_left",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonian_weighted_mode_right",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonian_weighted_mode_signed_actions",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonian_weighted_eigenvector_sums",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonian_weighted_simple_spectral_gap",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonianRowRoot",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonianColumnRoot",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonianTotalDegree",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonian_total_degree_positive",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonian_degree_roots_equal_norms",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonian_actual_normalized_perron_left",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonian_actual_normalized_perron_right",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonian_actual_normalized_mode_identity",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonian_actual_normalized_native_gap",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.HamiltonianNormalizedSpectralPacket",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonianScalingOrderCost",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonianScalingOrderSmall",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonian_scaling_order_cost_positive",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonian_scaling_order_small_positive",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonian_diffuse_inverse_order_bound",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonian_scaling_order_all_budgets",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonianNormalizedScalingSmall",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonianNormalizedScalingCost",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonian_normalized_scaling_constants_positive",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonian_centered_gap_stochastic_scaling",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          },
+          {
+            "name": "PrimeFactorOscillations.hamiltonian_normalized_spectral_stochastic_scaling",
+            "axioms": [
+              "propext",
+              "Classical.choice",
+              "Quot.sound"
+            ]
+          }
+        ],
+        "allowed_axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "log_sha256": "E33E05AAABC5FA9F3527A24207DD52CC5D1BDB7B791F50FB73F08F5DF3EF678E",
+        "scope": "Only51 new core declarations in seven maintained owners. Unchanged nonlinear inverse, arithmetic, prime scaling and packing providers reused from immutable successful audits. The new seven owned sources have fresh exact prelaunch SHA256-bound direct compiler receipts."
       }
     ],
     "active_proof": {
-      "module": "PrimeFactorOscillations.Helpers.HamiltonianPrimeCyclePacking",
-      "status": "The complete signed counting method, inverse, exact-entropy prime circles, physical transfer/cuts, near-optimal prime factors and fullD/1000 resilience remain compiled. The full uniform prime Hamilton-cycle packing theorem is now proved: for every fixed0<kappa<1/8 and every sufficiently large evenN, there are at least floor(kappa*N/logN) pairwise edge-disjoint Hamilton cycles. The maintained theorem retains the original distinct-integer and prime-sum edge conditions. Its proof consumes the full uniform signed count after every admissible regular deletion, exact two-edge cycle degrees, exact remaining degrees r-2j, disjoint finite iteration, one global prime-factor family and the full rank margin. All21 new core declarations in four owners pass the focused foundational audit. No unresolved analytic or finite-iteration estimate remains for this packing claim. Other advertised arithmetic/rounding/counting claims and public Solution integration remain unfinished. The whole paper headline is not yet Lean-certified.",
+      "module": "PrimeFactorOscillations.Helpers.HamiltonianNormalizedSpectralScaling",
+      "status": "The complete signed comparison, inverse, exact-entropy prime circles, physical cuts, near-optimal prime factors, fullD/1000 resilience and full uniform actual-prime Hamilton-cycle packing remain compiled. The full finite scaling theorem from the native degree-normalized spectrum is now also proved. For every fixed0<delta<1, explicit positive c_delta and C_delta depend only ondelta; for every nonempty finite bipartite cross block with row/column defects0<=eps<=1/2, simple weighted exceptional eigenspaces at+1,-1 and every other actual Hermitian eigenvalue bounded by1-delta, eps*log(2N)^2<=c_delta gives one positive exact stochastic scaling with unchanged zero support, pointwise capP<=2Q and both displacement/operator error<=C_delta*eps*log(2N). Zero defect is included. Weighted Perron equations, exact signed eigenbasis deflation, the7eps rank-one correction, full8eps centered conversion, actual nonlinear repair and all dimension-only constants are consumed. All51 new core declarations in seven owners pass the focused foundational audit; the seven sources also pass fresh hash-bound direct compiler checks. Remaining forbidden-edge, rounding, arithmetic/counting and public-integration claims are not yet complete. The whole paper headline remains uncertified.",
       "target": "Complete the paper headline from the actual unconditional constant/parity half-gap and the full weighted kernel count: true-prime support and degree estimates, diffuseness-sensitive scaling, exact entropy normalization and actual prime-circle count; complete all advertised arithmetic/parity claims and remaining corollaries, public exports, real Solution consumer and final staged checks. Then begin the authorized generalizations to RH, Hadamard and twin primes.",
-      "consumer": "{\"domain\":\"Fixed0<kappa<1/8. A common terminal threshold must work for all actual regular cycle-deletion sets with j<=kappa*r, remaining degree d=r-2j. The fixed finite-mode model is retained exactly.\",\"factorization\":\"Write the actual centered remaining cross kernel B=R+UV through k fixed modes, with normR<=b=2/5, normB<=rho<1 and normU,normV<=L, where k,L are independent of m and rho depends only on the fixed packing margin. Obtain balanced Fourier factors using 1/sqrt(n), and retain the mean/parity correction in the finite mode part.\",\"trace\":\"Keep the exact identity tr(R*R)=tr(B*B)-2Re tr(V B* U)+tr(U*U V V*). The finite k-dimensional traces give tr(R*R)<=tr(B*B)+2k*rho*L^2+k*L^4; the coefficient of the leading original energy remains1.\",\"determinant\":\"Compiled: W=B^tB-R^tR=XY with X=[R^tU,V^t],Y=[V;U^tR+U^tUV]. For any right inverseMA=I, det(M+XY)/detM=det(I+YAX). All four retained blocks have entries<=alpha*(L^2+L^4) when normR<=1, normA<=alpha. Two Neumann inverses and the fixed2k determinant budget yield costs d_k((1-b^2)^(-1),L)*d_k((1-rho^2)^(-1),L), where d_k(alpha,L)=(2k)!*(1+alpha*(L^2+L^4))^(2k). This improves the previously proposed loose W0 constant without changing the endpoint.\",\"complete_consumer\":\"COMPILED. The full actual fixed-mode count has relative error<=m^(-1/3), uniformly on a terminal interval over every qualifying prime factor and every regular deletion0<=alpha<=2kappa'<1/4. No finite-mode or analytic hypothesis remains. The final finite construction and actual-prime packing are also now compiled.\",\"route_comparison\":\"This proves the same finite-exceptional-mode consumer as the native-outlier approach. Its concrete advantage is the actual proved bounded Fourier factorization and the existing low-dimensional determinant/trace toolkit; it avoids adding a new singular-value min-max formalization. Both routes retain every exceptional mode and aim at the same exponent1.5<2.\",\"real_transfer\":\"COMPILED. Real-part projection is contractive on the actual square Euclidean operator. Re(A*B)=[ReA,-ImA]*[ReB;ImB] retains the negative imaginary contribution. Both Fourier factors use1/sqrt(n), coefficients have norm<=1, and a direct rectangular Gram budget gives each real factor norm<=d+1, d=2*card(U_H), independent of n,R. Log-weight replacement, proper-prime-power/loop removal and full finite-mode approximation are separately charged eta/3. One fixedK and terminal threshold work for all later orders and admissible grids on the actual unweighted simple-prime matrix.\",\"regular_deletion\":{\"domain\":\"0<=alpha<=1/4, c=1/(1-alpha), S doubly stochastic, 0<=Q<=S with every row/column sum alpha, norm(centered S)<=gamma, norm(S-UV)<=eta<=1/100, normU,normV<=L, q>=0 and m*q=1\",\"exact_kernel\":\"T=c*(S-Q); B=T-P; R=c*(S-UV-Q); finite part=c*U*V-P. Keep Q-alpha*P coupled when bounding the global centered norm.\",\"bounds\":\"normR<=(eta+alpha)/(1-alpha)<=26/75<2/5. normB<=(gamma+alpha)/(1-alpha). Centered deletion bound<=alpha from the complete projection identity, valid also alpha=0 without dividing by alpha. Attach the negative averaging rank-one mode with sqrt(q) balanced factors and obtain factor norms<=2L+2 through fixed dimension card(J)+1.\",\"actual_parameters\":\"alpha=2j/r<=2*kappa' with fixed kappa'<1/8, gamma=1/2+epsilon and epsilon<(1/2-4*kappa'). Then rho=(gamma+2*kappa')/(1-2*kappa')<1. r>=0.99D, remaining d>=0.75r; m/d<=200/297 log(2m), so a-1<=0.7logm terminally. The compiled fixed-factor count then gives error<=m^(-1/3)<1 uniformly over all regular cycle deletions. Need actual finite cycle edge sets and edge-disjoint induction to complete all kappa<1/8.\"},\"deletion_status\":\"COMPILED. The kernel T=c*(S-Q), c=1/(1-alpha), has exact stochastic rows/columns and nonnegative entries when0<=Q<=S; its cap is at most c times the original cap. The exact mean identity uses Q-alpha*P, whose norm<=alpha is proved from the symmetric idempotent I-P and regular row/column budgets without dividing by alpha. Simultaneously R=c*(S-UV-Q) has norm<=2/5 for alpha<=1/4, eta<=1/100. The negative mean -P is appended via a balanced sqrt(q) rank-one factor; both new factors have norms<=2L+2. The actual prime cross model is uniform on a full terminal interval with no residual grid hypothesis.\",\"actual_count_status\":\"COMPILED. HamiltonianPrimeFactorFiniteModes gives one fixed bounded real mode space on a full terminal interval uniformly over the actual normalized factor packets. HamiltonianPrimePackingBudgets proves eta=min(1/100,(1/2-4*kappa')/2)>0, rho=(1/2+eta+2*kappa')/(1-2*kappa')<1 and the actual density m/d<=200/297log(2m)<=1+0.7logm from r>=0.99D, d>=0.75r. HamiltonianPrimePackingCount reindexes the fixed space without norm loss and applies the full signed count uniformly for all0<=alpha<=2*kappa', row/column regularQ with0<=Q<=S. The conclusion is the actual count ratio for(S-Q)/(1-alpha), with error<=m^(-1/3). All modes, phases, Gram cross terms, negative mean and arithmetic transfer errors are consumed; no new analytic estimate remains. Pure finite cycle-edge and disjointness construction is next.\",\"finite_construction\":\"COMPILED. One-orbit permutations on at least3 vertices have no two-step return; actual cross-cycle edges have both degrees2. The state retains remainingH subsetF, degrees r-2j, all old cycles outsideH and pairwise disjointness. Exact finite deletion updates both degrees. Every regular subfactorH has deletionQ=A_(F\\\\H)/r with row/column mass1-d/r; the full signed count is positive on one common terminal interval. Fixkappa<kappa'<1/8, eps=(kappa'-kappa)/(2kappa'), r>=(1-eps)D, k=floor(kappaD)<=kappa'r and2k<=r. The finite oracle supplies each next cycle. HamiltonianPrimeCyclePacking concludes the full quantitative actual-prime theorem with integer-label support conditions.\"}",
+      "consumer": "{\"target\":\"Full paperlem:scaling, all positive even orders and fixed0<delta<1.\",\"native_input\":\"Actual normalized crossS_ij=Tij/(sqrt(row_i)*sqrt(col_j)); weighted vectorswA=sqrt(rows),wB=sqrt(columns), common squared normR=sumrows=sumcols. Simple native+1,-1 eigenspaces have those actual vectors, and every other native Hermitian eigenvalue has modulus<=1-delta.\",\"signed_transfer\":\"The exact weighted modeC=wA*wB^t/R is deflated in the actual orthogonal eigenbasis. Nonexceptional weighted block sums vanish, while both signed exceptional modes remain. Its original-degree conjugate r*c^t/R differs fromJ/m by<=7eps, giving the complete original centered norm<=1-delta+8eps.\",\"constants\":\"rho=1-delta/2; G_delta=4/(-logrho)+(6+1/(1-rho))/log4; c_delta=min((delta/28)*(log4)^2,1/(256*G_delta^2)); C_delta=20*G_delta. eps*log(2N)^2<=c_delta controls the actual inverse budget<=G_delta*log(2N), margin28eps<=delta and every nonlinear term.\",\"full_consumer\":\"One positive scaling gives exact stochastic rows/columns, original zero support, pointwiseP<=2Q, displacement<=C_delta*eps*log(2N) and full operator error<=that same bound. eps=0 uses the identity scaling. All source hypotheses are discharged from the stated original matrix/spectrum inputs.\",\"next_consumer\":\"T=P-Q with0<=Q<=P and removed row/column masses<=eta has row/column defects<=eta and centered norm<=1-delta+eta. Apply the direct centered-gap version, retain the additional normQ term in the full difference fromP, and choose the smallness to retain gapdelta/2.\"}",
       "proved_inputs": [
         "PrimeFactorOscillations.Helpers.HamiltonianMatrixSpectralAverage",
         "PrimeFactorOscillations.Helpers.HamiltonianRookGamma",
@@ -8804,12 +9276,54 @@
           "source_sha256": "B56525921D6B2A9433933A5C9EC579BD073F4272604DFFCDBB4A1696338E219D",
           "content": "hamiltonian_prime_packing_rank_margin; hamiltonian_prime_edge_disjoint_cycles_uniform",
           "build_exit_code": 0
+        },
+        {
+          "module": "PrimeFactorOscillations.Helpers.HamiltonianNormalizedDegreeGap",
+          "source_sha256": "16B9DCEBF3A09F95931DB2D892DEE4BC1D45956BF580642977BE02ED39198CE0",
+          "content": "hamiltonian_near_one_product_ratio; hamiltonianDegreeReference; hamiltonian_degree_reference_error; hamiltonianDegreeNormalizedCross; hamiltonianDegreeNormalizedMode; hamiltonian_degree_conjugation_identity; hamiltonian_degree_conjugation_norm; hamiltonian_normalized_degree_centered_gap",
+          "build_exit_code": 0
+        },
+        {
+          "module": "PrimeFactorOscillations.Helpers.HamiltonianNormalizedScaling",
+          "source_sha256": "2480368546221187F52F6C0C00F9449C634382F48AD534F1A4B886AFC59A844F",
+          "content": "hamiltonianCrossRowDegrees; hamiltonianCrossColumnDegrees; hamiltonianCrossMeanDegree; hamiltonian_cross_degree_totals; hamiltonian_uniform_degree_mean_error; hamiltonianActualDegreeNormalizedCross; hamiltonianActualDegreeNormalizedMode; hamiltonian_actual_normalized_degree_gap; hamiltonian_actual_stochastic_repair_from_normalized_gap",
+          "build_exit_code": 0
+        },
+        {
+          "module": "PrimeFactorOscillations.Helpers.HamiltonianHermitianDeflation",
+          "source_sha256": "670638180D073543E2937CA69435FDEC9DE9575C0EE9B234E6F7214C8CFE35E2",
+          "content": "hamiltonian_real_orthogonal_norm_le_one; hamiltonian_orthogonal_diagonal_action_norm; hamiltonian_real_eigenmatrix_right_inverse; hamiltonian_real_eigenmatrix_action; hamiltonian_hermitian_signed_deflation_norm",
+          "build_exit_code": 0
+        },
+        {
+          "module": "PrimeFactorOscillations.Helpers.HamiltonianWeightedBipartiteModes",
+          "source_sha256": "ACCF7061927AE1A0ECE35963140942CA62E73EF615DA5F1292247E4D9EF3172F",
+          "content": "hamiltonianWeightedCrossMode; hamiltonianWeightedPlus; hamiltonianWeightedMinus; hamiltonian_weighted_mode_left; hamiltonian_weighted_mode_right; hamiltonian_weighted_mode_signed_actions; hamiltonian_weighted_eigenvector_sums; hamiltonian_weighted_simple_spectral_gap",
+          "build_exit_code": 0
+        },
+        {
+          "module": "PrimeFactorOscillations.Helpers.HamiltonianNormalizedPerron",
+          "source_sha256": "8AE340176C6153F3231B5B33F72C21639BDE712D6D20E6512D61D6B374CC86DD",
+          "content": "hamiltonianRowRoot; hamiltonianColumnRoot; hamiltonianTotalDegree; hamiltonian_total_degree_positive; hamiltonian_degree_roots_equal_norms; hamiltonian_actual_normalized_perron_left; hamiltonian_actual_normalized_perron_right; hamiltonian_actual_normalized_mode_identity; hamiltonian_actual_normalized_native_gap; HamiltonianNormalizedSpectralPacket",
+          "build_exit_code": 0
+        },
+        {
+          "module": "PrimeFactorOscillations.Helpers.HamiltonianScalingOrderBudget",
+          "source_sha256": "515B046A244156D4A5A58E7F5DD06254DEB16B4F3F46EA9FDACC73086D310D99",
+          "content": "hamiltonianScalingOrderCost; hamiltonianScalingOrderSmall; hamiltonian_scaling_order_cost_positive; hamiltonian_scaling_order_small_positive; hamiltonian_diffuse_inverse_order_bound; hamiltonian_scaling_order_all_budgets",
+          "build_exit_code": 0
+        },
+        {
+          "module": "PrimeFactorOscillations.Helpers.HamiltonianNormalizedSpectralScaling",
+          "source_sha256": "537B5456F39BF1BA5AA91D56057E0C54C2D85D864C763251799C66AD15BA9BA6",
+          "content": "hamiltonianNormalizedScalingSmall; hamiltonianNormalizedScalingCost; hamiltonian_normalized_scaling_constants_positive; hamiltonian_centered_gap_stochastic_scaling; hamiltonian_normalized_spectral_stochastic_scaling",
+          "build_exit_code": 0
         }
       ]
     },
     "status_reconciliation_check": {
       "trigger": "A prerequisite promotion or changed claim status.",
-      "required_preflight": "Reconcile every affected paper status paragraph, ledger status, audit note, unfinished dependency and compiled receipt together. Normalize whitespace in every related TeX source before rejecting recorded obsolete pending-status sentences; match all edited source hashes before staging.",
+      "required_preflight": "Reconcile every affected paper status paragraph, ledger status, audit note, unfinished dependency and compiled receipt together. Normalize whitespace in every related TeX source before rejecting recorded obsolete pending-status sentences; match all edited source hashes before staging. For every native-source compiler invocation, generate the command through the exact saved-source/hash wrapper, reject source!=expected before launch, and enforce that SHA256 again in the shell immediately before Lean.",
       "prohibited": "A status-only update with a contradictory audit note, a literal-fragment scan that line wrapping can bypass, or headline certification from its prerequisites.",
       "corrected_action": "Validate all affected fields in the same strict-parsed document update, reject whitespace-normalized obsolete statuses in every related paper source, and preserve unrelated claims.",
       "checked_claims": [
@@ -8820,7 +9334,11 @@
         "formalization.unfinished_dependencies",
         "formalization.active_proof",
         "formalization.compiled_prerequisites",
-        "formalization.additional_axiom_audits"
+        "formalization.additional_axiom_audits",
+        "lem:scaling",
+        "lem:integerspectrum",
+        "lem:primeweights",
+        "lem:diffusionscaling"
       ],
       "stale_note_removed": true,
       "headline_certification": false,
@@ -8854,6 +9372,14 @@
         {
           "file": "signed-jet-comparison.tex",
           "sha256": "5B8D271F16C64BF30D887B280A955FCF8042AD2F9EDAF0A52493EE68F3653F1F"
+        },
+        {
+          "file": "scaling.tex",
+          "sha256": "F3F740B764D4DB8D65BC9340CC6065D6BC9CCCDA1BAF4286EA9F67FAF223C1C5"
+        },
+        {
+          "file": "prime-sum.tex",
+          "sha256": "75FC4EF8050FDF60B9E155C0D083D560859B3A534969890445B5F31965E99C29"
         }
       ],
       "mechanical_forbidden_normalized_paper_status_sentences": [
@@ -8918,9 +9444,11 @@
         "now formalized as well. Root-jet extraction and normalized occupancy bounds, the signed comparison, amplification/inverse and arithmetic/public closures remain formalization obligations.",
         "Formal extraction of the root jets and the normalized \\({\\cal L}\\)-moment bounds remains unfinished.",
         "The balanced two-support readout, joint signed correction and complete comparison, amplification/inverse and arithmetic/public closures remain formalization obligations.",
-        "The formal balanced two-support readout, the joint rank and first-order correction consumer and the complete remainder/tail assembly remain unfinished."
+        "The formal balanced two-support readout, the joint rank and first-order correction consumer and the complete remainder/tail assembly remain unfinished.",
+        "in the final theorem. The eigenvalue-indexed corollary (19) and degree/scaling consumers remain formalization obligations.",
+        "Degree normalization, exact scaling, entropy normalization and the actual prime-circle count remain formalization obligations."
       ],
-      "recurrence_note": "The complete actual bipartite cycle consumer, including both selected supports and both complements, is compiled and focused-audited. Paper status paragraphs, both permanent-claim audit notes, current source hashes and active/unfinished lists are synchronized. The remaining quantitative minor and occupancy obligations are explicit, and the headline remains uncertified. JSON patch recurrence gate: trigger any multi-hunk JSON edit; derive each context's unique full-line start and end in the captured original, sort by those starts and splice the proposed document in descending checked-position order; prohibit raw indexOf ordering and unqualified String.replace, which can match deeper indentation; strictly parse and compare the entire canonical result with the intended object before apply_patch. Duplicate-leaf recurrence gate: when identical status or audit-note leaves occur in more than one claim, require a unique parent claim context containing its exact claim identifier before patching; prohibit leaf-only hunks and verify every unaffected claim field in the proposed strict-parsed result. Finset-coercion binder recurrence gate: trigger a function type whose domain is a parenthesized Finset coercion such as (Compl.compl D : Finset Iota); before patching, reject a colon followed by that domain and an arrow, which Lean can parse as a non-atomic binder. Use an explicitly typed lambda, for example let rr := fun r : (Compl.compl D : Finset Iota) => (r.val : Iota). Scan the complete added source for the rejected form and compile the repaired actual consumer before proceeding. Bounded-state-output recurrence gate: before printing selected JSON/state fields, serialize the complete emitted object and require at most 16000 characters and an adequate output token budget; prohibit combined status dumps whose nested active inputs or rule lists can exceed that cap. Recover truncated required fields separately before dependent work. The complete finite linear/boundary repair and scaling-conservation block is compiled and focused-audited; the explicit nonlinear argument is written in the paper with its remaining formalization named. Paper-source hash gate: after any paper edit, recompute all 22 maintained TeX hashes and require every source_hashes row, checked-paper hash and modified-file proof-status note to match the final saved source before staging; prohibit updating only a secondary status hash list while leaving the main source_hashes ledger stale. Source-read token-budget hard stop: before a bounded source read, mechanically require max_output_tokens >= ceil(character_cap/3)+1000, store the full result before parsing, and prohibit dependent edits on a truncated or unparsable result. The actual full positive nonlinear repair and both explicit bounds are now compiled and focused-audited. The main paper, minor section, partial minor claim, both permanent claim notes, all 22 source hashes and active/unfinished lists are synchronized; none certifies the unfinished full minor or headline count. November 15 individual-source search recurrence: trigger any command naming an individual source file, including a zero-edit API lookup. Before dispatch require either its exact current-task inventory record or a command that resolves one tracked match, asserts an existing regular file and passes only the returned path. Reject an ad hoc literal individual .lean target in an rg command. Correct action: use the checked inventory-to-read builder or search the instruction-preflighted root, then resolve the provider before its individual read. The recalled NonsingularInverse.lean rg lookup omitted this gate; no mathematical theorem was inferred from that search. Source-discovery governance is not proof progress. November15 bounded-ledger-output recurrence hard stop: trigger any selected ledger or state render after an output overflow; construct the complete proposed value and pass it through the saved boundedState emitter, requiring JSON serialization length<=16000 before text, with an adequate token budget. Prohibit direct text of nested active-proof, status-reconciliation or rule objects. Inspect keys and serialized field lengths first, then select named fields and recover any truncated required fields separately. The actual status overflow affected no Lean proof; this is governance, not research progress. Signed-quantity versus envelope reporting gate: trigger a claim that an arithmetic signed correction is a polynomial in rank, entry cap or cutoff. Preflight its exact formula and every retained matrix/support dependence; require literal equality before calling the quantity itself a polynomial. Prohibit substituting its magnitude envelope for the signed main term or using that envelope in the signed occupancy consumer. Correct action: retain alpha=r*(r-1)/N+u^t*Gamma*u+2*v^t*u, label the polynomial expression only as an absolute bound, and apply it solely to the exponential Taylor remainder. The November15 manuscript sentence incorrectly called the quantity a polynomial; the sentence is corrected and the complete signed compensation is compiled. This reporting correction is not a new counting estimate. Current-claim frontier suffix recurrence gate: trigger any promotion that changes the active proof frontier. Required preflight: search every current claim audit_note for the exact retiring frontier text, including embedded suffixes after theorem-specific provenance; mechanically require zero such occurrences in the proposed complete ledger. Prohibited: updating only notes equal to the old status or checking only paper TeX, which can leave contained obsolete frontier statements. Corrected action: replace every unique embedded retiring status while preserving each claim's theorem-specific provenance and formalization status, reparse and verify the complete saved ledger before staging. On2026-11-15 the full uniform minor promotion initially left two embedded notes saying its assembly was unfinished; both were corrected before commit, with no Lean proof affected. November15 bounded-render recurrence strengthening: trigger EVERY selected ledger/status render, including audit or reconciliation metadata. Required preflight: invoke the saved boundedState(value) emitter itself, whose complete JSON serialization must be<=16000 characters before text. Prohibit ad hoc text(object), whole nested status_reconciliation_check/active_proof objects, or printing an additional object after a separately checked selection. If the emitter rejects, select smaller named fields and replay the required truncated fields before dependent work. The repeated status-excerpt overflow affected no Lean proof or saved source; this is governance, not mathematical progress.\nTrigger: a maintained Lean build after any patch. Preflight: require a completed postscan whose entire saved source equals the checked expected source; embed its exact SHA256 in the build command and require Get-FileHash on that resolved source to match before invoking Lean. Prohibit building from a stale scan or treating a later scan as a preflight. Correct action: rescan, renew the hash-bound command and freshly compile. Before polling require the retained current result to carry the same live session_id; never poll a known terminal result.\n\nTrigger: every ledger reconciliation after a proved module or consumer is promoted. Required preflight: compare formalization.active_proof.status, completion_receipt.proof_endpoint_status and repository_state.phase, and inspect repository_state.recorded_phase against the current baseline. Prohibited: updating claim rows and the active proof while leaving an older present-tense repository-phase paragraph. Corrected action: synchronize all three current endpoint fields to the same verified statement, distinguish historical baseline provenance, and mechanically require exact equality of those three fields before final staged validation. On November15 an old phase paragraph survived earlier claim/active-proof updates; this was a status-reconciliation error, not a theorem or axiom failure.\nNovember15 ledger-render recurrence: trigger every ledger/status output, even during lookup of patch metadata. Preflight the complete proposed value through the saved boundedState emitter and reject nested status-reconciliation or recurrence-note objects; print only explicit scalar fields, counts or bounded selected records. Prohibit direct text of any ledger-derived object. The count-decay promotion lookup repeated an oversized governance-field display; no proof or source changed. Correct action: replay only the necessary bounded metadata, then continue the verified promotion.",
+      "recurrence_note": "The complete actual bipartite cycle consumer, including both selected supports and both complements, is compiled and focused-audited. Paper status paragraphs, both permanent-claim audit notes, current source hashes and active/unfinished lists are synchronized. The remaining quantitative minor and occupancy obligations are explicit, and the headline remains uncertified. JSON patch recurrence gate: trigger any multi-hunk JSON edit; derive each context's unique full-line start and end in the captured original, sort by those starts and splice the proposed document in descending checked-position order; prohibit raw indexOf ordering and unqualified String.replace, which can match deeper indentation; strictly parse and compare the entire canonical result with the intended object before apply_patch. Duplicate-leaf recurrence gate: when identical status or audit-note leaves occur in more than one claim, require a unique parent claim context containing its exact claim identifier before patching; prohibit leaf-only hunks and verify every unaffected claim field in the proposed strict-parsed result. Finset-coercion binder recurrence gate: trigger a function type whose domain is a parenthesized Finset coercion such as (Compl.compl D : Finset Iota); before patching, reject a colon followed by that domain and an arrow, which Lean can parse as a non-atomic binder. Use an explicitly typed lambda, for example let rr := fun r : (Compl.compl D : Finset Iota) => (r.val : Iota). Scan the complete added source for the rejected form and compile the repaired actual consumer before proceeding. Bounded-state-output recurrence gate: before printing selected JSON/state fields, serialize the complete emitted object and require at most 16000 characters and an adequate output token budget; prohibit combined status dumps whose nested active inputs or rule lists can exceed that cap. Recover truncated required fields separately before dependent work. The complete finite linear/boundary repair and scaling-conservation block is compiled and focused-audited; the explicit nonlinear argument is written in the paper with its remaining formalization named. Paper-source hash gate: after any paper edit, recompute all 22 maintained TeX hashes and require every source_hashes row, checked-paper hash and modified-file proof-status note to match the final saved source before staging; prohibit updating only a secondary status hash list while leaving the main source_hashes ledger stale. Source-read token-budget hard stop: before a bounded source read, mechanically require max_output_tokens >= ceil(character_cap/3)+1000, store the full result before parsing, and prohibit dependent edits on a truncated or unparsable result. The actual full positive nonlinear repair and both explicit bounds are now compiled and focused-audited. The main paper, minor section, partial minor claim, both permanent claim notes, all 22 source hashes and active/unfinished lists are synchronized; none certifies the unfinished full minor or headline count. November 15 individual-source search recurrence: trigger any command naming an individual source file, including a zero-edit API lookup. Before dispatch require either its exact current-task inventory record or a command that resolves one tracked match, asserts an existing regular file and passes only the returned path. Reject an ad hoc literal individual .lean target in an rg command. Correct action: use the checked inventory-to-read builder or search the instruction-preflighted root, then resolve the provider before its individual read. The recalled NonsingularInverse.lean rg lookup omitted this gate; no mathematical theorem was inferred from that search. Source-discovery governance is not proof progress. November15 bounded-ledger-output recurrence hard stop: trigger any selected ledger or state render after an output overflow; construct the complete proposed value and pass it through the saved boundedState emitter, requiring JSON serialization length<=16000 before text, with an adequate token budget. Prohibit direct text of nested active-proof, status-reconciliation or rule objects. Inspect keys and serialized field lengths first, then select named fields and recover any truncated required fields separately. The actual status overflow affected no Lean proof; this is governance, not research progress. Signed-quantity versus envelope reporting gate: trigger a claim that an arithmetic signed correction is a polynomial in rank, entry cap or cutoff. Preflight its exact formula and every retained matrix/support dependence; require literal equality before calling the quantity itself a polynomial. Prohibit substituting its magnitude envelope for the signed main term or using that envelope in the signed occupancy consumer. Correct action: retain alpha=r*(r-1)/N+u^t*Gamma*u+2*v^t*u, label the polynomial expression only as an absolute bound, and apply it solely to the exponential Taylor remainder. The November15 manuscript sentence incorrectly called the quantity a polynomial; the sentence is corrected and the complete signed compensation is compiled. This reporting correction is not a new counting estimate. Current-claim frontier suffix recurrence gate: trigger any promotion that changes the active proof frontier. Required preflight: search every current claim audit_note for the exact retiring frontier text, including embedded suffixes after theorem-specific provenance; mechanically require zero such occurrences in the proposed complete ledger. Prohibited: updating only notes equal to the old status or checking only paper TeX, which can leave contained obsolete frontier statements. Corrected action: replace every unique embedded retiring status while preserving each claim's theorem-specific provenance and formalization status, reparse and verify the complete saved ledger before staging. On2026-11-15 the full uniform minor promotion initially left two embedded notes saying its assembly was unfinished; both were corrected before commit, with no Lean proof affected. November15 bounded-render recurrence strengthening: trigger EVERY selected ledger/status render, including audit or reconciliation metadata. Required preflight: invoke the saved boundedState(value) emitter itself, whose complete JSON serialization must be<=16000 characters before text. Prohibit ad hoc text(object), whole nested status_reconciliation_check/active_proof objects, or printing an additional object after a separately checked selection. If the emitter rejects, select smaller named fields and replay the required truncated fields before dependent work. The repeated status-excerpt overflow affected no Lean proof or saved source; this is governance, not mathematical progress.\nTrigger: a maintained Lean build after any patch. Preflight: require a completed postscan whose entire saved source equals the checked expected source; embed its exact SHA256 in the build command and require Get-FileHash on that resolved source to match before invoking Lean. Prohibit building from a stale scan or treating a later scan as a preflight. Correct action: rescan, renew the hash-bound command and freshly compile. Before polling require the retained current result to carry the same live session_id; never poll a known terminal result.\n\nTrigger: every ledger reconciliation after a proved module or consumer is promoted. Required preflight: compare formalization.active_proof.status, completion_receipt.proof_endpoint_status and repository_state.phase, and inspect repository_state.recorded_phase against the current baseline. Prohibited: updating claim rows and the active proof while leaving an older present-tense repository-phase paragraph. Corrected action: synchronize all three current endpoint fields to the same verified statement, distinguish historical baseline provenance, and mechanically require exact equality of those three fields before final staged validation. On November15 an old phase paragraph survived earlier claim/active-proof updates; this was a status-reconciliation error, not a theorem or axiom failure.\nNovember15 ledger-render recurrence: trigger every ledger/status output, even during lookup of patch metadata. Preflight the complete proposed value through the saved boundedState emitter and reject nested status-reconciliation or recurrence-note objects; print only explicit scalar fields, counts or bounded selected records. Prohibit direct text of any ledger-derived object. The count-decay promotion lookup repeated an oversized governance-field display; no proof or source changed. Correct action: replay only the necessary bounded metadata, then continue the verified promotion. November16 launcher-hash recurrence hard stop: trigger any owned Lean or audit compilation. Required preflight: construct the command through formalHashBoundLeanCommandSource from a completed whole-source postscan equal to the checked expected text; require its literal Get-FileHash guard before lean.exe. Prohibit the old unbound template even when the postscan and a later source hash agree. Correct action: freshly compile the actual owned source with its enforced prelaunch hash. The seven new scaling owners were refreshed without source changes, and immutable foundational audits were reused without repeats. November16 bounded-state render recurrence hard stop: trigger every ledger-derived output. Required preflight: call the saved formalBoundedStateEmitterSource and require complete JSON length<=16000; select only named scalars/counts/short records and prohibit direct text of nested status_reconciliation_check or recurrence_note. A truncated or oversized rule render is governance, never proof progress; replay only the required bounded fields before dependent work.",
       "related_paper_sources_normalized_and_checked": 22
     },
     "audit_driver_release_rule": {

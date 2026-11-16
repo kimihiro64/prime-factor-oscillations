@@ -145,3 +145,76 @@ After scaling, the constant and parity vectors are again exact
 eigenvectors. The operator perturbation in (9), and a further
 decrease of \(c_\delta\), give the claimed gap.
 \end{proof}
+
+\paragraph{Maintained full normalized-spectral proof of Lemma~\ref{lem:scaling}.}
+The complete normalized-input statement is now proved, with constants
+depending only on \(\delta\). The maintained proof works on the cross
+block \(T\) of \(Q\), with \(m=N/2\), row and column degree vectors
+\(r,c\), and
+\[
+ S_{ij}=\frac{T_{ij}}{\sqrt{r_i}\sqrt{c_j}},\qquad
+ R=\sum_i r_i=\sum_j c_j.
+\]
+It uses the actual normalized Perron vectors
+\(w_A=(\sqrt{r_i})_i\), \(w_B=(\sqrt{c_j})_j\).
+The exact identities \(Sw_B=w_A\), \(S^tw_A=w_B\), and
+\(\|w_A\|^2=\|w_B\|^2=R\) are proved from the same row and
+column sums. Simplicity of the two exceptional eigenspaces,
+together with the native Hermitian eigenvalue bounds for every
+other index, gives
+\[
+ \left\|S-\frac{w_Aw_B^t}{R}\right\|\leq1-\delta.
+\]
+This is proved by exact signed deflation in the actual orthogonal
+eigenbasis. For a nonexceptional eigenvector, both weighted block
+sums vanish; at eigenvalues \(1,-1\), the complete weighted modes
+are retained.
+
+Conjugating this rank-one mode back to the original degrees gives
+\(rc^t/R\). With \(q=1/m\) and \(t=qR\), the scalar estimate
+\[
+ |r_i c_j/t-1|\leq7\varepsilon
+\]
+holds when all three of \(r_i,c_j,t\) differ from one by at most
+\(0\leq\varepsilon\leq1/2\). Hence
+\[
+ \|rc^t/R-\one\one^t/m\|\leq7\varepsilon,\qquad
+ \|T-\one\one^t/m\|\leq1-\delta+8\varepsilon.
+\]
+The full weighted mode is included in these estimates.
+
+Here are explicit dimension-independent constants.
+Put \(\rho=1-\delta/2\) and
+\[
+ G_\delta=\frac4{-\log\rho}
+           +\frac{6+(1-\rho)^{-1}}{\log4},\qquad
+ c_\delta=\min\left\{
+       \frac{\delta}{28}(\log4)^2,\,
+       \frac1{256G_\delta^2}\right\},\qquad
+ C_\delta=20G_\delta.
+\]
+They are strictly positive. For nonempty parts,
+\(L=\log(4m)=\log(2N)\).
+The condition \(\varepsilon L^2\leq c_\delta\) supplies both
+\(28\varepsilon\leq\delta\) and the complete nonlinear inverse
+smallness bound. Indeed the actual inverse budget is at most
+\(G_\delta L\). The resulting positive scaling satisfies every
+clause of (5), exact support preservation, and additionally
+\(P_{ij}\leq2Q_{ij}\).
+The same witness has exact stochastic rows and columns.
+The case \(\varepsilon=0\) is included explicitly, using the
+identity scaling.
+
+The finite conversion and all its scalar constants are maintained in
+\texttt{HamiltonianNormalizedDegreeGap},
+\texttt{HamiltonianNormalizedScaling},
+\texttt{HamiltonianHermitianDeflation},
+\texttt{HamiltonianWeightedBipartiteModes},
+\texttt{HamiltonianNormalizedPerron} and
+\texttt{HamiltonianScalingOrderBudget}.
+The full consumer is
+\texttt{HamiltonianNormalizedSpectralScaling}.
+Its direct centered-gap variant also retains every support, cap
+and operator output needed by forbidden-edge repair.
+All fifty-one core declarations in these seven owners pass the
+focused foundational-axiom check.

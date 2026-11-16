@@ -245,8 +245,9 @@ the actual integer matrix alone:
 All thirteen new declarations in these five owners pass the focused
 foundational-axiom audit. No subsequence, numerical experiment,
 auxiliary-grid hypothesis or unestimated analytic remainder appears
-in the final theorem. The eigenvalue-indexed corollary (19) and
-degree/scaling consumers remain formalization obligations.
+in the final theorem. The eigenvalue-indexed corollary (19) remains
+a formalization obligation. The degree and exact scaling consumers
+are now proved, as recorded below.
 The exact true-prime support transfer is recorded next.
 
 \begin{lemma}[Uniform degrees and a true prime support]
@@ -357,11 +358,20 @@ It also proves its nonnegativity, symmetry, zero diagonal,
 exact bipartite support, largest-entry bound and real row identity.
 All twenty-eight new declarations in these three owners pass the
 focused foundational-axiom audit.
-Degree normalization, exact scaling, entropy normalization and the
-actual prime-circle count remain formalization obligations.
-In particular the logarithmically weighted matrix above is not
-silently substituted for the constant-edge-weight matrix required
-by the relative unweighted counting theorem.
+The eigenvalue-indexed assertion for the degree-normalized
+prime-weight matrix remains a formalization obligation.
+Exact positive stochastic scaling of the actual prime support is
+proved in \texttt{HamiltonianPrimeStochasticScaling}, with sharp
+near-identity and half-gap outputs in
+\texttt{HamiltonianPrimeSharpScaling} and lossless integer-vertex
+transfer in \texttt{HamiltonianPrimePhysicalScaling}.
+The attained entropy maximum and the actual entropy-normalized
+prime-circle count are proved in
+\texttt{HamiltonianPrimeEntropy} and
+\texttt{HamiltonianPrimeCircleEntropyCount}.
+Their existing successful source-hash-bound audits are retained.
+That count uses its own constant-edge-weight matrix and scaling;
+the logarithmically weighted matrix in (20) is not substituted for it.
 
 \begin{proof}[Proof of Theorem~\ref{thm:filz}]
 Apply Lemma~\ref{lem:scaling} to \(Q_N\), with any fixed gap
