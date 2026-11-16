@@ -104,9 +104,33 @@ the finite counting coordinates uses the proved norm-preserving
 reindexing theorem explicitly.
 Every new declaration passes the focused foundational audit.
 This closes the actual odd stochastic count, including its
-rate and positive reference. The unoriented arithmetic
-normalization, its explicit divisor-product constant, and
-the even-modulus transfer remain formalization obligations.
+rate and positive reference.
+
+\paragraph{Maintained full odd arithmetic normalization.}
+\texttt{HamiltonianCoprimeConstant} proves positivity on
+every supported divisor and identifies the paper's exact
+real-power product \(\mathfrak C(n)\) with the positive
+square root of the determinant quotient. It is therefore
+the actual determinant--Gram factor in \(R_n\).
+\texttt{HamiltonianCoprimeUnorientedCount} restores the
+edge weight and the reversal factor exactly.
+Writing
+\[
+ H_n=\frac{(n-1)!}{2n^n}\varphi(n)^n\mathfrak C(n),
+\]
+its compiled theorem gives one \(N_0\geq256\) such that,
+for every odd \(n\geq N_0\),
+\[
+ H_n>0,\qquad
+ \left|\frac{h(X_n)}{H_n}-1\right|\leq17n^{-1/10}.
+\]
+This is the displayed factorial normalization of the actual
+unoriented arithmetic graph, with no restriction on its
+distinct prime factors or prime-power exponents.
+All fourteen new declarations pass the focused foundational
+audit. The constant's infinite-series analysis and uniform
+bounds, the final Stirling normalization and the even-modulus
+count remain formalization obligations.
 
 \paragraph{Maintained exact arithmetic determinant.}
 \texttt{HamiltonianFourierDeterminant} proves that the determinant
@@ -127,11 +151,12 @@ The same formula retains the parity mode at even modulus and all
 nonsquarefree divisors. The frequency product is regrouped using
 the proved exact conductor multiplicities on the actual divisor
 support. All ten new declarations pass the focused foundational
-audit. Thus both determinants in the symmetric quotient are now
+audit. Thus both determinants in the symmetric quotient are
 explicit finite arithmetic products. The positive square-root
-identification with the displayed \(\mathfrak C(n)\), its infinite
-series and bounds, and the remaining unoriented and even count
-consumers are still separate formalization obligations.
+identification with the displayed \(\mathfrak C(n)\) and the
+actual odd unoriented factorial count are now compiled as
+recorded above. Its infinite series and bounds, final Stirling
+normalization and the even count remain separate obligations.
 
 
 For odd \(n\geq3\), define the positive arithmetic factor
