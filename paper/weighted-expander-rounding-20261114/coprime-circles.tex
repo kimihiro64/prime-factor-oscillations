@@ -73,7 +73,7 @@ All constants may be chosen absolute because the spectral
 gap was uniform over every modulus.
 \end{proof}
 
-\paragraph{Maintained spectral input and remaining count obligations.}
+\paragraph{Maintained spectral input and count conclusions.}
 The exact coprime-difference graph, without a prime-modulus or
 squarefree-modulus restriction, is formalized in
 \texttt{HamiltonianCoprimeFourier}.
@@ -161,8 +161,8 @@ branches under one absolute threshold and proves the full
 relative arithmetic enumeration with the actual displayed
 references and common error at most \(23n^{-1/10}\).
 Theorem~\ref{thm:relativecoprime} is fully formalized.
-The cycle-entropy conclusion is also compiled as follows;
-the prescribed-endpoint path assertions remain separate obligations.
+The actual cycle and prescribed-endpoint path entropy conclusions
+are now both compiled as follows.
 
 \paragraph{Maintained actual cycle entropy and normalized limit.}
 \texttt{HamiltonianCoprimeLogReference} retains the full
@@ -201,7 +201,43 @@ normalized limit formulation
 All thirteen new declarations pass their focused foundational
 audit. Both the cycle assertion and its stated entropy
 consequence in Theorem~\ref{thm:coprimecircles} are complete.
-The uniform prescribed-endpoint path assertions remain unfinished.
+\paragraph{Maintained actual integer path entropy.}
+The module \texttt{HamiltonianPathCountNormalization} defines the
+finite set of prescribed one-orbit path permutations. It proves
+its exact membership conditions and identifies its cardinality
+\(H_n(a,b)\) with the path sum for the zero--one adjacency.
+Its scalar-weight theorem retains precisely \(n-1\) path edges.
+The module \texttt{HamiltonianCoprimePathUpper} therefore proves
+\[
+ Z_{\rm path}(P_n;a,b)=\frac{H_n(a,b)}{\varphi(n)^{n-1}},
+ \qquad
+ Z_{\rm path}(P_n;a,b)
+ \leq\exp\!\left(-(n-1)+16\frac n{\varphi(n)}\log(2n)\right).
+\]
+The lower count in Section~\ref{sec:relativecoprime} is positive
+before any logarithm is taken.
+The module \texttt{HamiltonianCoprimePathEntropy} combines the
+complete signed lower count with this actual upper bound and
+normalization. For one absolute \(N_0\geq512\), every \(n\geq N_0\)
+and every compatible distinct pair satisfy \(H_n(a,b)>0\) and
+the stronger compiled estimate
+\[
+ \left|\log H_n(a,b)-n(\log\varphi(n)-1)\right|
+     \leq200\,\frac n{\varphi(n)}\log(2n).
+\]
+The same owner proves the stated weaker bound
+\(200n\varphi(n)^{-1/8}\log(2n)\).
+It also proves that, for even \(n\), oddness of
+\((-(a-b))\bmod n\) is equivalent to opposite parity of the
+actual residue representatives. Thus the final theorem has
+exactly the prescribed endpoint domain in
+Theorem~\ref{thm:coprimecircles}, with no remaining spectral,
+count-normalization or endpoint hypothesis.
+All ten new membership, count, edge-scaling, upper-count and
+entropy declarations pass their combined focused foundational
+axiom audit. Every clause of Theorem~\ref{thm:coprimecircles}
+is now formalized; the other general weighted, linkage and
+layered headline statements retain their own obligations.
 
 \begin{remark}[Normalization, prior existence results, and scope]
 When \(n\) is prime, \(X_n\) is complete and

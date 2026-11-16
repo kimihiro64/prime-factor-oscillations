@@ -704,6 +704,32 @@ One absolute sufficiently-large-order threshold covers every
 distinct compatible endpoint pair on every modulus.
 All ten new declarations pass their combined focused
 foundational-axiom audit.
-The actual integer graph-path normalization and entropy assembly
-remain formal obligations; the complete endpoint entropy is not
-yet claimed as formalized.
+\paragraph{Verified actual integer path normalization and entropy.}
+The module \texttt{HamiltonianPathCountNormalization} identifies
+the actual finite path count through its one-orbit permutation
+membership conditions and preserves exactly \(n-1\) edge factors.
+The module \texttt{HamiltonianCoprimePathUpper} proves
+\[
+ Z_{\rm path}(P_n;a,b)=H_n(a,b)/d^{n-1},
+ \qquad
+ Z_{\rm path}(P_n;a,b)
+      \leq\exp(-(n-1)+16A\log(2n)).
+\]
+The module \texttt{HamiltonianCoprimePathEntropy} uses the proved
+positive lower count before taking logarithms and obtains, uniformly
+over every sufficiently large modulus and compatible distinct pair,
+\[
+ H_n(a,b)>0,\qquad
+ \left|\log H_n(a,b)-n(\log d-1)\right|
+                       \leq200A\log(2n).
+\]
+Since \(d^{-1}\leq d^{-1/8}\) for \(d\geq1\), it also proves the
+advertised \(200nd^{-1/8}\log(2n)\) error.
+The final compiled endpoint formulation allows every distinct pair
+for odd \(n\) and every opposite-parity pair for even \(n\).
+All ten new exact-count, scaling, native upper and entropy declarations
+pass their combined focused foundational-axiom audit.
+Together with the earlier actual cycle entropy and normalized limit,
+this closes every clause of Theorem~\ref{thm:coprimecircles}.
+The full general wide-cap weighted, linkage and layered headline
+statements remain separate formalization obligations.
